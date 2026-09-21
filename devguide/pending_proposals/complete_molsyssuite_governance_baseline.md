@@ -45,6 +45,8 @@ Python 3.14 or claim scientific validation.
 ## Acceptance criteria
 
 The local governance guards, package tests, Ruff checks and central conformance checker
-pass, and the two hosted workflows execute on the resulting commit. The current Conda
-matrix provides Python 3.11 and 3.12 lanes; adding its 3.13 lane remains explicitly
-dependent on the MolSysMT package work tracked centrally by `uibcdf/molsyssuite#31`.
+pass, and the two hosted workflows execute on the resulting commit. The Conda matrix
+covers Python 3.11--3.13. Until the channel publishes a compatible MolSysMT build for
+3.13, every lane installs the fixed MolSysMT 0.21.0 source so the matrix does not test
+different dependency generations; standardizing that fallback remains tracked centrally
+by `uibcdf/molsyssuite#31`.
