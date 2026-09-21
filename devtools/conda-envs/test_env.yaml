@@ -1,0 +1,15 @@
+channels:
+  - uibcdf
+  - conda-forge
+dependencies:
+  - python >=3.11,<3.14
+  - pip
+  - pytest
+  - pytest-cov
+  - pytest-receptor
+  - smonitor
+  - depdigest
+  - argdigest
+  - pyunitwizard
+  - molsysmt
+  - numpy
