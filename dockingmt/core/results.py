@@ -1,0 +1,249 @@
+from __future__ import annotations
+
+from typing import Any, Iterator
+
+import numpy as np
+import pyunitwizard as puw
+
+from dockingmt._private.smonitor import ArgumentError
+
+
+def _ensure_coordinates_quantity(coords: Any) -> Any:
+    """Validate that coords is an (N, 3) physical quantity with length units."""
+    if not puw.is_quantity(coords):
+        raise ArgumentError(
+            arg_name='coordinates',
+            reason="'coordinates' must be a physical quantity with length units (e.g. using PyUnitWizard).",
+        )
+    if not puw.are_compatible(coords, 'nm'):
+        unit_str = str(puw.get_unit(coords))
+        raise ArgumentError(
+            arg_name='coordinates',
+            reason=f"'coordinates' has unit '{unit_str}', which is not compatible with length.",
+        )
+    raw = np.asarray(puw.get_value(coords), dtype=float)
+    if raw.ndim != 2 or raw.shape[1] != 3:
+        raise ArgumentError(
+            arg_name='coordinates',
+            reason=f"'coordinates' must have shape (N, 3), got shape {raw.shape}.",
+        )
+    unit = puw.get_unit(coords)
+    return puw.quantity(raw, unit)
+
+
+class DockingPose:
+    """A candidate bound configuration tied to molecular state and provenance.
+
+    Parameters
+    ----------
+    coordinates : Any
+        Atomic coordinates of shape (N, 3) as a PyUnitWizard length quantity.
+    scores : dict[str, float], optional
+        Named scores produced by scoring functions or backends (e.g. {'vina': -7.5}).
+    rank : int, optional
+        1-indexed ranking assigned by an explicit ranking policy.
+    pose_id : str, optional
+        Unique identifier for the pose.
+    partner_state_id : str, optional
+        Identifier linking this pose to its specific ligand/partner molecular state.
+    receptor_state_id : str, optional
+        Identifier linking this pose to its receptor conformation/state.
+    metadata : dict[str, Any], optional
+        Arbitrary structured annotations (e.g. interaction flags, clusters).
+    """
+
+    def __init__(
+        self,
+        coordinates: Any,
+        scores: dict[str, float] | None = None,
+        rank: int | None = None,
+        pose_id: str | None = None,
+        partner_state_id: str | None = None,
+        receptor_state_id: str | None = None,
+        metadata: dict[str, Any] | None = None,
+    ):
+        self._coordinates = puw.convert(
+            _ensure_coordinates_quantity(coordinates), to_unit='nm'
+        )
+        self.scores: dict[str, float] = dict(scores) if scores is not None else {}
+        self.rank = rank
+        self.pose_id = pose_id
+        self.partner_state_id = partner_state_id
+        self.receptor_state_id = receptor_state_id
+        self.metadata: dict[str, Any] = dict(metadata) if metadata is not None else {}
+
+    @property
+    def coordinates(self) -> Any:
+        """Atomic coordinates (N, 3) in nanometers."""
+        return self._coordinates
+
+    @property
+    def n_atoms(self) -> int:
+        """Number of atoms in the pose."""
+        return int(puw.get_value(self._coordinates).shape[0])
+
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize pose to a machine-readable dictionary."""
+        return {
+            'schema_version': '1.0',
+            'pose_id': self.pose_id,
+            'rank': self.rank,
+            'partner_state_id': self.partner_state_id,
+            'receptor_state_id': self.receptor_state_id,
+            'scores': self.scores,
+            'metadata': self.metadata,
+            'coordinates': {
+                'value': puw.get_value(self._coordinates).tolist(),
+                'unit': str(puw.get_unit(self._coordinates)),
+            },
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> DockingPose:
+        """Reconstruct DockingPose from a serialized dictionary."""
+        c_info = data['coordinates']
+        coords = puw.quantity(np.asarray(c_info['value'], dtype=float), c_info['unit'])
+        return cls(
+            coordinates=coords,
+            scores=data.get('scores'),
+            rank=data.get('rank'),
+            pose_id=data.get('pose_id'),
+            partner_state_id=data.get('partner_state_id'),
+            receptor_state_id=data.get('receptor_state_id'),
+            metadata=data.get('metadata'),
+        )
+
+    def __repr__(self) -> str:
+        rank_str = f', rank={self.rank}' if self.rank is not None else ''
+        scores_str = f', scores={self.scores}' if self.scores else ''
+        return f'DockingPose(n_atoms={self.n_atoms}{rank_str}{scores_str})'
+
+
+class DockingResult:
+    """Structured scientific output of a docking run or protocol execution.
+
+    Parameters
+    ----------
+    poses : list[DockingPose]
+        Collection of candidate docking poses.
+    problem_info : dict[str, Any], optional
+        Contextual info on the problem (receptor, partner, domain references).
+    protocol_info : dict[str, Any], optional
+        Resolved protocol choices, parameters and defaults.
+    provenance : dict[str, Any], optional
+        Execution metadata (backend, versions, random seeds, environment).
+    """
+
+    def __init__(
+        self,
+        poses: list[DockingPose],
+        problem_info: dict[str, Any] | None = None,
+        protocol_info: dict[str, Any] | None = None,
+        provenance: dict[str, Any] | None = None,
+    ):
+        self._poses = list(poses)
+        self.problem_info: dict[str, Any] = (
+            dict(problem_info) if problem_info is not None else {}
+        )
+        self.protocol_info: dict[str, Any] = (
+            dict(protocol_info) if protocol_info is not None else {}
+        )
+        self.provenance: dict[str, Any] = (
+            dict(provenance) if provenance is not None else {}
+        )
+
+    def __len__(self) -> int:
+        return len(self._poses)
+
+    def __getitem__(self, index: int) -> DockingPose:
+        return self._poses[index]
+
+    def __iter__(self) -> Iterator[DockingPose]:
+        return iter(self._poses)
+
+    @property
+    def poses(self) -> list[DockingPose]:
+        """List of all docking poses."""
+        return list(self._poses)
+
+    @property
+    def top_pose(self) -> DockingPose | None:
+        """The top-ranked pose (rank 1), or the first pose if unranked."""
+        if not self._poses:
+            return None
+        ranked = [p for p in self._poses if p.rank == 1]
+        return ranked[0] if ranked else self._poses[0]
+
+    def rank_by(self, score_name: str, ascending: bool = True) -> DockingResult:
+        """Produce a new DockingResult with poses ranked according to a named score.
+
+        Parameters
+        ----------
+        score_name : str
+            The key in pose.scores to rank by (e.g. 'vina').
+        ascending : bool, default True
+            If True, lower scores receive top rank (standard for binding affinities/energies).
+            If False, higher scores receive top rank.
+        """
+        for i, pose in enumerate(self._poses):
+            if score_name not in pose.scores:
+                raise ArgumentError(
+                    arg_name='score_name',
+                    reason=f"Pose at index {i} does not have score '{score_name}'. Available: {list(pose.scores.keys())}",
+                )
+
+        sorted_poses = sorted(
+            self._poses,
+            key=lambda p: p.scores[score_name],
+            reverse=not ascending,
+        )
+
+        new_poses: list[DockingPose] = []
+        for rank_idx, pose in enumerate(sorted_poses, start=1):
+            new_pose = DockingPose(
+                coordinates=pose.coordinates,
+                scores=pose.scores,
+                rank=rank_idx,
+                pose_id=pose.pose_id,
+                partner_state_id=pose.partner_state_id,
+                receptor_state_id=pose.receptor_state_id,
+                metadata=pose.metadata,
+            )
+            new_poses.append(new_pose)
+
+        new_provenance = dict(self.provenance)
+        new_provenance['ranking_policy'] = {
+            'score_name': score_name,
+            'ascending': ascending,
+        }
+
+        return DockingResult(
+            poses=new_poses,
+            problem_info=self.problem_info,
+            protocol_info=self.protocol_info,
+            provenance=new_provenance,
+        )
+
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize DockingResult to a versioned machine-readable dictionary."""
+        return {
+            'schema_version': '1.0',
+            'problem_info': self.problem_info,
+            'protocol_info': self.protocol_info,
+            'provenance': self.provenance,
+            'poses': [p.to_dict() for p in self._poses],
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> DockingResult:
+        """Reconstruct DockingResult from a serialized dictionary."""
+        poses = [DockingPose.from_dict(p) for p in data.get('poses', [])]
+        return cls(
+            poses=poses,
+            problem_info=data.get('problem_info'),
+            protocol_info=data.get('protocol_info'),
+            provenance=data.get('provenance'),
+        )
+
+    def __repr__(self) -> str:
+        return f'DockingResult(n_poses={len(self._poses)})'

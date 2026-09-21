@@ -18,10 +18,21 @@ from ._private.smonitor import PACKAGE_ROOT
 
 ensure_configured(PACKAGE_ROOT)
 
+from .core import (
+    BoxRegion,
+    DockingPose,
+    DockingResult,
+    SearchDomain,
+)
+
 __all__ = [
     '__version__',
     '__print_version__',
     'pyunitwizard',
+    'SearchDomain',
+    'BoxRegion',
+    'DockingPose',
+    'DockingResult',
 ]
 
 # The unit policy is declared when this package is imported, not on first use.

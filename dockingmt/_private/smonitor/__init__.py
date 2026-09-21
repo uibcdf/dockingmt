@@ -12,7 +12,7 @@ from .warnings import (
 
 
 class DockingMTException(CatalogException):
-    def __init__(self, **kwargs):
+    def __init__(self, message: str | None = None, **kwargs):
         standard_keys = {'message', 'code', 'extra', 'catalog', 'meta'}
         extra = kwargs.get('extra', {})
         if not isinstance(extra, dict):
@@ -24,9 +24,18 @@ class DockingMTException(CatalogException):
 
         kwargs.setdefault('catalog', CATALOG)
         kwargs.setdefault('meta', META)
-        kwargs['extra'] = extra
 
-        super().__init__(**kwargs)
+        if message is None and self.catalog_key:
+            entry = CATALOG.get('errors', {}).get(self.catalog_key, {})
+            template = entry.get('template')
+            if template:
+                try:
+                    message = template.format(**extra)
+                except Exception:
+                    message = template
+
+        kwargs['extra'] = extra
+        super().__init__(message=message, **kwargs)
 
 
 class DockingMTWarning(CatalogWarning):
