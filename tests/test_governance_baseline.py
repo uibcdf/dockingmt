@@ -1,0 +1,45 @@
+import tomllib
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_shared_governance_surfaces_are_present():
+    for filename in (
+        'MOLSYSSUITE_GUIDE.md',
+        'SMONITOR_GUIDE.md',
+        'DEPDIGEST_GUIDE.md',
+        'ARGDIGEST_GUIDE.md',
+        'PYUNITWIZARD_GUIDE.md',
+        'GH_RUN_RECEPTOR_GUIDE.md',
+    ):
+        assert (ROOT / filename).is_file()
+
+    policy = ROOT / '.github/workflows/molsyssuite-policy.yml'
+    assert policy.is_file()
+    assert (
+        'uibcdf/molsyssuite/.github/workflows/'
+        'check-python-repository.yaml@policy-v1.4.1'
+    ) in policy.read_text(encoding='utf-8')
+
+
+def test_ci_covers_current_hosted_lanes_and_common_quality_gates():
+    workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
+    assert 'python-version: ["3.11", "3.12"]' in workflow
+    assert 'Python 3.13 will be added once molsysmt conda package' in workflow
+    assert 'ruff check .' in workflow
+    assert 'ruff format --check .' in workflow
+    assert 'pytest --receptor=ci' in workflow
+
+
+def test_project_declares_the_suite_python_support_range():
+    project = tomllib.loads((ROOT / 'pyproject.toml').read_text(encoding='utf-8'))[
+        'project'
+    ]
+    assert project['requires-python'] == '>=3.11,<3.14'
+
+
+def test_readme_routes_contributors_to_suite_governance():
+    readme = (ROOT / 'README.md').read_text(encoding='utf-8')
+    assert 'MOLSYSSUITE_GUIDE.md' in readme
+    assert 'MolSysSuite: Scientific Component' in readme

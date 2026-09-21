@@ -12,8 +12,8 @@ jobs:
     name: Quality on ubuntu-latest
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.13"
       - run: python -m pip install ruff==0.16.5
@@ -29,7 +29,7 @@ jobs:
         # Python 3.13 will be added once molsysmt conda package for 3.13 is published
         python-version: ["3.11", "3.12"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Setup micromamba
         uses: mamba-org/setup-micromamba@v3.2.1
         with:

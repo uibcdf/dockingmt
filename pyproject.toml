@@ -97,6 +97,11 @@ include = ["*.py", "*.pyi"]
 extend-exclude = [
   "GH_RUN_RECEPTOR_GUIDE.md",
   "MOLSYSSUITE_GUIDE.md",
+  "SMONITOR_GUIDE.md",
+  "DEPDIGEST_GUIDE.md",
+  "ARGDIGEST_GUIDE.md",
+  "PYUNITWIZARD_GUIDE.md",
+  "GH_RUN_RECEPTOR_GUIDE.md",
 ]
 
 [tool.ruff.lint]

@@ -24,6 +24,10 @@ those documents as the living design authority.
 `GH_RUN_RECEPTOR_GUIDE.md` is the synchronized copy of the guide governing
 GitHub Actions inspection. Propose changes at its canonical source repository.
 
+Before filing or closing durable local work, read `devguide/reporting_protocol.md`.
+Open the owning issue first, regenerate report indexes, synchronize GitHub state and
+archive resolved records instead of deleting them.
+
 ## Language and scope
 
 Use English in code, documentation, issues and commits. Keep changes focused, test
@@ -31,6 +35,13 @@ user-visible behavior, preserve human work and never commit secrets.
 
 Do not overdesign: the existence of a concept in `devguide/` does not authorize code
 until a concrete accepted workflow requires it.
+
+Start CI and maintenance workflows from the current MolSysSuite starter-kit patterns.
+Keep a local variation only when DockingMT has a measured need, document that reason and
+link its removal condition. If the variation could help sibling components, propose it
+in `uibcdf/molsyssuite` instead of letting repositories drift independently. The current
+Conda test job is such a dependency-driven variation and its missing Python 3.13 lane is
+tracked by `uibcdf/molsyssuite#31`.
 
 ## Local gates
 
@@ -40,6 +51,7 @@ Run these before committing:
 ruff check .
 ruff format --check .
 pytest --receptor=llm
+python devtools/devguide_index.py --check
 ```
 
 Use `pytest-receptor` (`--receptor=llm` locally) for compact test reports, and
@@ -47,3 +59,14 @@ Use `pytest-receptor` (`--receptor=llm` locally) for compact test reports, and
 remote workflow runs.
 
 Routine development uses Python 3.13; the supported user range is Python 3.11 to 3.13.
+
+## External tooling guides
+
+The synchronized root guides are read-only copies owned by their named repositories.
+Read the guide for every shared tool touched by a change:
+
+- `SMONITOR_GUIDE.md`
+- `DEPDIGEST_GUIDE.md`
+- `ARGDIGEST_GUIDE.md`
+- `PYUNITWIZARD_GUIDE.md`
+- `GH_RUN_RECEPTOR_GUIDE.md`
