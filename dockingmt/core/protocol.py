@@ -1,0 +1,252 @@
+from __future__ import annotations
+
+from abc import ABC, abstractmethod
+from typing import Any
+
+import pyunitwizard as puw
+
+from dockingmt._private.smonitor import ArgumentError
+from dockingmt.core.problem import DockingProblem
+
+
+class DockingProtocol(ABC):
+    """Abstract base class for docking protocols.
+
+    A protocol specifies how a docking problem should be solved:
+    resolved parameters, algorithm stages, required capabilities, and inspectable defaults.
+    """
+
+    @property
+    @abstractmethod
+    def name(self) -> str:
+        """Name of the protocol."""
+        pass
+
+    @property
+    @abstractmethod
+    def required_capabilities(self) -> set[str]:
+        """Capabilities required by this protocol from an engine or backend."""
+        pass
+
+    @property
+    @abstractmethod
+    def parameters(self) -> dict[str, Any]:
+        """Resolved protocol parameters."""
+        pass
+
+    @abstractmethod
+    def validate_problem(self, problem: DockingProblem) -> None:
+        """Validate that a problem is compatible with this protocol."""
+        pass
+
+    @abstractmethod
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize protocol specification to a versioned machine-readable dictionary."""
+        pass
+
+
+class VinaProtocol(DockingProtocol):
+    """Standard docking protocol for AutoDock Vina.
+
+    Provides inspectable, scientifically meaningful defaults for global search optimization.
+
+    Parameters
+    ----------
+    exhaustiveness : int, default 8
+        Number of Monte Carlo search runs. Higher values explore the conformational
+        space more thoroughly at the cost of execution time.
+    n_poses : int, default 9
+        Maximum number of candidate poses to generate and retrieve.
+    energy_range : Any, default 3.0 kcal/mol
+        Maximum energy difference relative to the top pose (in energy or energy/mol units,
+        or as float in kcal/mol). Poses with energies exceeding this threshold are discarded.
+    seed : int | None, default None
+        Random seed for reproducibility. If None, the engine selects an arbitrary seed.
+    scoring : str, default 'vina'
+        Scoring function to use ('vina', 'vinardo', or 'ad4').
+    cpu : int, default 0
+        Number of CPU threads to utilize. 0 detects and uses all available cores.
+    """
+
+    SUPPORTED_SCORING = ('vina', 'vinardo', 'ad4')
+
+    def __init__(
+        self,
+        exhaustiveness: int = 8,
+        n_poses: int = 9,
+        energy_range: Any = 3.0,
+        seed: int | None = None,
+        scoring: str = 'vina',
+        cpu: int = 0,
+    ):
+        if not isinstance(exhaustiveness, (int, float)) or int(exhaustiveness) < 1:
+            raise ArgumentError(
+                arg_name='exhaustiveness',
+                reason=f"'exhaustiveness' must be an integer >= 1, got {exhaustiveness}.",
+            )
+        self._exhaustiveness = int(exhaustiveness)
+
+        if not isinstance(n_poses, (int, float)) or int(n_poses) < 1:
+            raise ArgumentError(
+                arg_name='n_poses',
+                reason=f"'n_poses' must be an integer >= 1, got {n_poses}.",
+            )
+        self._n_poses = int(n_poses)
+
+        # Validate energy_range
+        if puw.is_quantity(energy_range):
+            if not puw.are_compatible(energy_range, 'kcal/mol'):
+                raise ArgumentError(
+                    arg_name='energy_range',
+                    reason=f"'energy_range' unit '{puw.get_unit(energy_range)}' is not compatible with kcal/mol.",
+                )
+            e_val = float(puw.get_value(puw.convert(energy_range, to_unit='kcal/mol')))
+        else:
+            try:
+                e_val = float(energy_range)
+            except (TypeError, ValueError) as exc:
+                raise ArgumentError(
+                    arg_name='energy_range',
+                    reason=f"'energy_range' must be a numeric value or energy quantity, got {energy_range}.",
+                ) from exc
+
+        if e_val < 0.0:
+            raise ArgumentError(
+                arg_name='energy_range',
+                reason=f"'energy_range' must be non-negative, got {e_val}.",
+            )
+        self._energy_range = puw.quantity(e_val, 'kcal/mol')
+
+        if seed is not None and not isinstance(seed, int):
+            raise ArgumentError(
+                arg_name='seed',
+                reason=f"'seed' must be an integer or None, got {type(seed)}.",
+            )
+        self._seed = seed
+
+        if scoring not in self.SUPPORTED_SCORING:
+            raise ArgumentError(
+                arg_name='scoring',
+                reason=f"Unsupported scoring function '{scoring}'. Must be one of {self.SUPPORTED_SCORING}.",
+            )
+        self._scoring = scoring
+
+        if not isinstance(cpu, int) or cpu < 0:
+            raise ArgumentError(
+                arg_name='cpu',
+                reason=f"'cpu' must be an integer >= 0, got {cpu}.",
+            )
+        self._cpu = cpu
+
+    @property
+    def name(self) -> str:
+        """Name of the protocol."""
+        return 'VinaProtocol'
+
+    @property
+    def exhaustiveness(self) -> int:
+        """Number of Monte Carlo search runs."""
+        return self._exhaustiveness
+
+    @property
+    def n_poses(self) -> int:
+        """Maximum number of candidate poses to return."""
+        return self._n_poses
+
+    @property
+    def energy_range(self) -> Any:
+        """Energy cutoff threshold relative to the top pose (PyUnitWizard quantity)."""
+        return self._energy_range
+
+    @property
+    def seed(self) -> int | None:
+        """Random seed for execution."""
+        return self._seed
+
+    @property
+    def scoring(self) -> str:
+        """Scoring function name."""
+        return self._scoring
+
+    @property
+    def cpu(self) -> int:
+        """Number of CPU threads requested."""
+        return self._cpu
+
+    @property
+    def required_capabilities(self) -> set[str]:
+        """Capabilities required by VinaProtocol."""
+        return {
+            'rigid_receptor',
+            'small_molecule',
+            'box_search',
+            f'scoring_{self._scoring}',
+        }
+
+    @property
+    def parameters(self) -> dict[str, Any]:
+        """Dictionary of resolved parameters."""
+        return {
+            'exhaustiveness': self._exhaustiveness,
+            'n_poses': self._n_poses,
+            'energy_range': {
+                'value': float(puw.get_value(self._energy_range)),
+                'unit': str(puw.get_unit(self._energy_range)),
+            },
+            'seed': self._seed,
+            'scoring': self._scoring,
+            'cpu': self._cpu,
+        }
+
+    def validate_problem(self, problem: DockingProblem) -> None:
+        """Validate problem compatibility with VinaProtocol.
+
+        Requires problem.search_domain to support box representation (to_backend_box)
+        or box approximation (as_box_approximation).
+        """
+        if not (
+            hasattr(problem.search_domain, 'to_backend_box')
+            or hasattr(problem.search_domain, 'as_box_approximation')
+        ):
+            raise ArgumentError(
+                arg_name='problem.search_domain',
+                reason=(
+                    f"VinaProtocol requires a box-compatible SearchDomain supporting 'to_backend_box' "
+                    f"or 'as_box_approximation', got {type(problem.search_domain).__name__}."
+                ),
+            )
+
+    def to_dict(self) -> dict[str, Any]:
+        """Serialize protocol specification to a versioned machine-readable dictionary."""
+        return {
+            'schema_version': '1.0',
+            'protocol_type': 'VinaProtocol',
+            'parameters': self.parameters,
+        }
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> VinaProtocol:
+        """Reconstruct VinaProtocol from a serialized dictionary."""
+        params = data.get('parameters', {})
+        e_info = params.get('energy_range', {})
+        if isinstance(e_info, dict) and 'value' in e_info and 'unit' in e_info:
+            energy_range = puw.quantity(float(e_info['value']), e_info['unit'])
+        else:
+            energy_range = e_info
+
+        return cls(
+            exhaustiveness=params.get('exhaustiveness', 8),
+            n_poses=params.get('n_poses', 9),
+            energy_range=energy_range if energy_range is not None else 3.0,
+            seed=params.get('seed'),
+            scoring=params.get('scoring', 'vina'),
+            cpu=params.get('cpu', 0),
+        )
+
+    def __repr__(self) -> str:
+        e_val = puw.get_value(self._energy_range)
+        e_unit = puw.get_unit(self._energy_range)
+        return (
+            f'VinaProtocol(exhaustiveness={self._exhaustiveness}, n_poses={self._n_poses}, '
+            f'energy_range={e_val} {e_unit}, scoring={self._scoring!r}, seed={self._seed})'
+        )

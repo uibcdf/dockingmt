@@ -93,12 +93,24 @@ class BoxRegion(SearchDomain):
         An optional label or identifier for the search domain.
     """
 
-    def __init__(self, center: Any, lengths: Any, name: str | None = None):
+    def __init__(
+        self,
+        center: Any,
+        lengths: Any | None = None,
+        size: Any | None = None,
+        name: str | None = None,
+    ):
+        if lengths is None and size is None:
+            raise ArgumentError(
+                arg_name='lengths',
+                reason="Either 'lengths' or 'size' must be provided.",
+            )
+        resolved_lengths = lengths if lengths is not None else size
         self._center = puw.convert(
             _ensure_length_quantity_1d(center, 'center'), to_unit='nm'
         )
         lengths_q = puw.convert(
-            _ensure_length_quantity_1d(lengths, 'lengths'), to_unit='nm'
+            _ensure_length_quantity_1d(resolved_lengths, 'lengths'), to_unit='nm'
         )
         lengths_val = puw.get_value(lengths_q)
         if np.any(lengths_val <= 0.0):
@@ -117,6 +129,11 @@ class BoxRegion(SearchDomain):
     @property
     def lengths(self) -> Any:
         """3D edge lengths [Lx, Ly, Lz] of the box as a PyUnitWizard quantity in nanometers."""
+        return self._lengths
+
+    @property
+    def size(self) -> Any:
+        """3D edge lengths [Lx, Ly, Lz] of the box as a PyUnitWizard quantity in nanometers (alias for lengths)."""
         return self._lengths
 
     @property
@@ -152,6 +169,7 @@ class BoxRegion(SearchDomain):
         return {
             'center': c_vals,
             'lengths': l_vals,
+            'size': l_vals,
             'unit': unit,
         }
 
