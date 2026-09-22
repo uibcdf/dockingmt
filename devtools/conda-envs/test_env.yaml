@@ -12,3 +12,14 @@ dependencies:
   - argdigest
   - pyunitwizard
   - numpy
+  # Runtime dependencies for the fixed MolSysMT/MolSysViewer source pair below.
+  - h5py
+  - pandas
+  - networkx
+  - tqdm
+  - matplotlib
+  - py-mmcif >=1.1.1
+  - aiohttp
+  - anywidget
+  - packaging
+  - traitlets

@@ -28,7 +28,10 @@ def test_ci_covers_supported_lanes_and_common_quality_gates():
     assert 'python-version: ["3.11", "3.12", "3.13"]' in workflow
     assert 'repository: uibcdf/molsysmt' in workflow
     assert 'ref: "0.21.0"' in workflow
-    assert 'pip install .molsyssuite/molsysmt --no-deps' in workflow
+    assert 'repository: uibcdf/molsysviewer' in workflow
+    assert 'ref: "0.23.0"' in workflow
+    assert '.molsyssuite/molsysmt' in workflow
+    assert '.molsyssuite/molsysviewer' in workflow
     assert 'ruff check .' in workflow
     assert 'ruff format --check .' in workflow
     assert 'pytest --receptor=ci' in workflow

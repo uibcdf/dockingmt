@@ -41,8 +41,9 @@ Keep a local variation only when DockingMT has a measured need, document that re
 link its removal condition. If the variation could help sibling components, propose it
 in `uibcdf/molsyssuite` instead of letting repositories drift independently. The current
 Conda test job is such a dependency-driven variation: it installs the fixed MolSysMT
-0.21.0 source because the channel lacks a Python 3.13 build. Replacing that fallback with
-a common sibling-dependency mechanism is tracked by `uibcdf/molsyssuite#31`.
+0.21.0 and MolSysViewer 0.23.0 sources because the channel lacks Python 3.13 builds for
+the integrated pair. Replacing that fallback with a common sibling-dependency mechanism
+is tracked by `uibcdf/molsyssuite#31`.
 
 ## Local gates
 

@@ -29,7 +29,7 @@ jobs:
         python-version: ["3.11", "3.12", "3.13"]
     steps:
       - uses: actions/checkout@v6
-      # The uibcdf channel does not yet publish MolSysMT for Python 3.13.
+      # The uibcdf channel does not yet publish this integrated pair for Python 3.13.
       # Keep one identical source-based dependency path in every supported lane.
       - name: Check out MolSysMT 0.21.0
         uses: actions/checkout@v6
@@ -37,6 +37,12 @@ jobs:
           repository: uibcdf/molsysmt
           ref: "0.21.0"
           path: .molsyssuite/molsysmt
+      - name: Check out MolSysViewer 0.23.0
+        uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsysviewer
+          ref: "0.23.0"
+          path: .molsyssuite/molsysviewer
       - name: Setup micromamba
         uses: mamba-org/setup-micromamba@v3.2.1
         with:
@@ -49,9 +55,13 @@ jobs:
             channel_priority: strict
           create-args: >-
             python=${{ matrix.python-version }}
-      - name: Install MolSysMT from its released source
+      - name: Install MolSysMT and MolSysViewer from released sources
         shell: bash -l {0}
-        run: python -m pip install .molsyssuite/molsysmt --no-deps
+        run: >-
+          python -m pip install
+          .molsyssuite/molsysmt
+          .molsyssuite/molsysviewer
+          --no-deps
       - name: Install dockingmt
         shell: bash -l {0}
         run: python -m pip install -e . --no-deps
