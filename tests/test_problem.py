@@ -120,6 +120,12 @@ def test_selected_input_roundtrip_records_provenance():
     reconstructed = DockingProblem.from_dict(serialized)
     assert reconstructed.partner_atom_indices == problem.partner_atom_indices
     assert reconstructed.receptor_selection == problem.receptor_selection
+    changed_selection = json.loads(json.dumps(serialized))
+    changed_selection['molecular_inputs']['partner']['atom_indices'] = [0]
+    with pytest.raises(
+        ArgumentError, match='differs from the recorded molecular selection'
+    ):
+        DockingProblem.from_dict(changed_selection)
     assert serialized['molecular_inputs']['partner']['chemical_state_index'] == 0
     report = serialized['molecular_inputs']['partner']['conversion_report']
     assert report['outcome'] == 'lossy'

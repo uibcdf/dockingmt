@@ -533,7 +533,7 @@ class DockingProblem:
                     reason='Molecular source content has changed since the problem was recorded.',
                 )
 
-        return cls(
+        reconstructed = cls(
             receptor=rec,
             partner=part,
             search_domain=search_domain,
@@ -545,6 +545,23 @@ class DockingProblem:
             receptor_structure_index=rec_info.get('structure_index'),
             partner_structure_index=part_info.get('structure_index'),
         )
+        actual_inputs = reconstructed.to_dict()['molecular_inputs']
+        for label, recorded in (('receptor', rec_info), ('partner', part_info)):
+            for field in (
+                'atom_indices',
+                'structure_index',
+                'chemical_state_index',
+                'chemical_state_id',
+            ):
+                if field in recorded and recorded[field] != actual_inputs[label][field]:
+                    raise ArgumentError(
+                        arg_name=label,
+                        reason=(
+                            f'Reconstructed {label} {field} differs from the '
+                            'recorded molecular selection.'
+                        ),
+                    )
+        return reconstructed
 
     def __repr__(self) -> str:
         rec_repr = (

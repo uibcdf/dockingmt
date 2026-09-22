@@ -84,6 +84,21 @@ assessment, and SHA-256 digests of the PDBQT bytes submitted to Vina. Remaining
 preparation-decision provenance is tracked in
 [issue #4](https://github.com/uibcdf/dockingmt/issues/4).
 
+For the file-backed 181L regression case, save a result manifest and replay it
+in a separate command:
+
+```bash
+python devtools/redocking_181l.py record --manifest /tmp/181l-manifest.json
+python devtools/redocking_181l.py replay --manifest /tmp/181l-manifest.json --report /tmp/181l-report.json
+```
+
+The report lists each pose's source-mapped RMSD and named scores, near-native
+rank at the declared 2.5 Å cutoff, failure mode, source and PDBQT fingerprints,
+code revision, and replay differences. Its assessment is **exploratory** while
+the chemical preparation in [issue #5](https://github.com/uibcdf/dockingmt/issues/5)
+remains provisional. Use the reported metrics for regression, not as a validated
+docking-performance claim.
+
 ## Governance and Design Authority
 
 * [`MOLSYSSUITE_GUIDE.md`](MOLSYSSUITE_GUIDE.md) routes suite-wide policies and cross-component issues to `uibcdf/molsyssuite`.

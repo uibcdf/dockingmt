@@ -13,6 +13,7 @@ import numpy as np
 import pyunitwizard as puw
 
 from dockingmt._private.smonitor import ArgumentError, LibraryNotFoundError
+from dockingmt._version import __version__ as dockingmt_version
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import DockingProtocol, VinaProtocol
 from dockingmt.core.results import DockingPose, DockingResult, _molecular_atom_keys
@@ -430,6 +431,8 @@ class VinaBackend(DockingBackend):
             provenance: dict[str, Any] = {
                 'backend': self.name,
                 'backend_version': getattr(vina, '__version__', 'unknown'),
+                'dockingmt_version': dockingmt_version,
+                'molsysmt_version': msm.__version__,
                 'protocol': protocol.to_dict(),
                 'search_domain': problem.search_domain.to_dict(),
                 'seed': protocol.seed,

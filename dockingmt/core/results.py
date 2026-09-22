@@ -6,6 +6,7 @@ import numpy as np
 import pyunitwizard as puw
 
 from dockingmt._private.smonitor import ArgumentError
+from dockingmt.core.problem import DockingProblem
 
 
 def _ensure_coordinates_quantity(coords: Any) -> Any:
@@ -510,6 +511,25 @@ class DockingResult:
             protocol_info=data.get('protocol_info'),
             provenance=data.get('provenance'),
         )
+
+    def reconstruct_problem(
+        self, receptor: Any = None, partner: Any = None
+    ) -> DockingProblem:
+        """Recover the recorded problem, verifying available source fingerprints.
+
+        File-backed inputs can be loaded from the manifest alone. Molecular
+        objects that were not serialized must be supplied explicitly.
+        """
+        if not self.problem_info:
+            raise ArgumentError(
+                arg_name='problem_info',
+                reason='The result has no recorded docking problem to reconstruct.',
+            )
+        problem = DockingProblem.from_dict(
+            self.problem_info, receptor=receptor, partner=partner
+        )
+        self.problem = problem
+        return problem
 
     def get_rmsds(self, reference: Any, selection: str = 'all') -> list[Any]:
         """Compute the RMSD of each pose in this result against a reference structure.
