@@ -1,10 +1,10 @@
 ---
 summary: Complete the MolSysSuite governance baseline omitted from the initial seed.
 issue: uibcdf/dockingmt#1
-status: active
+status: resolved
 opened: 2026-09-21
-closed:
-verification: reproduced
+closed: 2026-09-22
+verification: measured
 area: [governance, ci, documentation]
 guard: tests/test_governance_baseline.py
 normative:
@@ -50,3 +50,19 @@ covers Python 3.11--3.13. Until the channel publishes a mutually compatible ArgD
 MolSysMT and MolSysViewer set for 3.13, every lane installs exact source commits so the
 matrix does not test different dependency generations; standardizing that fallback
 remains tracked centrally by `uibcdf/molsyssuite#31`.
+
+## Resolution
+
+DockingMT now carries the canonical identity badges, six registered read-only guides,
+the pinned MolSysSuite policy caller, the shared issue-backed reporting lifecycle and
+local guards for these surfaces. The CI retains the common quality job and uses one
+Conda/Mamba test topology on Python 3.11, 3.12 and 3.13. Exact compatible ArgDigest,
+MolSysMT and MolSysViewer source commits bridge the current channel publication gap;
+this explicit workaround is removable when `uibcdf/molsyssuite#31` provides the common
+sibling-dependency mechanism.
+
+Local evidence on Python 3.13.15: 35 tests passed and 3 Vina-dependent tests skipped;
+Ruff lint/format, report indexes, the central repository checker and six guide-copy
+checks passed. `mamba env create --dry-run` resolved the complete Python 3.13 environment.
+Hosted policy run `35693043000` and four-job CI run `35693042602` both passed at
+commit `25b6e0b`.
