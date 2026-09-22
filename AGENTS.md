@@ -72,4 +72,5 @@ Read the guide for every shared tool touched by a change:
 - `DEPDIGEST_GUIDE.md`
 - `ARGDIGEST_GUIDE.md`
 - `PYUNITWIZARD_GUIDE.md`
+- `PYTEST_RECEPTOR_GUIDE.md`
 - `GH_RUN_RECEPTOR_GUIDE.md`
