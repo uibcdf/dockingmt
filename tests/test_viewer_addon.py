@@ -13,11 +13,11 @@ from dockingmt.view import show, view
 
 def test_addon_spec_matches_molsysviewer_contract():
     """Verify that the DockingMT addon spec adheres to MolSysViewer standards."""
-    molsysviewer = pytest.importorskip('molsysviewer')
+    msv = pytest.importorskip('molsysviewer')
     import molsysviewer_dockingmt as dmt_viewer
 
     addon = dmt_viewer.addon
-    assert isinstance(addon, molsysviewer.AddonSpec)
+    assert isinstance(addon, msv.AddonSpec)
     assert addon.name == 'dockingmt'
     assert addon.package == 'dockingmt'
 
@@ -44,10 +44,10 @@ def test_addon_spec_matches_molsysviewer_contract():
 
 def test_lifecycle_hooks_and_runtime_events():
     """Verify on_enable, on_disable, and on_context_action lifecycle hooks."""
-    molsysviewer = pytest.importorskip('molsysviewer')
+    msv = pytest.importorskip('molsysviewer')
     import molsysviewer_dockingmt as dmt_viewer
 
-    v = molsysviewer.MolSysView(debug_js=True)
+    v = msv.MolSysView(debug_js=True)
     dmt_viewer.on_enable(v)
     runtime = dmt_viewer.ensure_runtime(v)
 
@@ -93,14 +93,14 @@ def test_search_domain_wireframe_coordinate_pairs():
 
 def test_render_search_domain_and_visibility():
     """Verify that render_search_domain creates a shape layer and can toggle visibility."""
-    molsysviewer = pytest.importorskip('molsysviewer')
+    msv = pytest.importorskip('molsysviewer')
     from molsysviewer_dockingmt.adapters.shapes import (
         render_search_domain,
         set_search_domain_visibility,
     )
     from molsysviewer_dockingmt.runtime import ensure_runtime
 
-    v = molsysviewer.MolSysView(debug_js=True)
+    v = msv.MolSysView(debug_js=True)
     box = BoxRegion(
         center=puw.quantity([1.0, 1.0, 1.0], 'nm'),
         lengths=puw.quantity([1.0, 1.0, 1.0], 'nm'),
@@ -131,7 +131,10 @@ def test_build_docking_complex_system_and_set_active_pose():
         set_active_pose,
     )
 
-    rec = msm.build.build_peptide('ALA')
+    rec = msm.convert(
+        msm.systems['alanine dipeptide']['alanine_dipeptide.h5msm'],
+        to_form='molsysmt.MolSys',
+    )
 
     # 3 mock poses with 3 atoms each
     poses = [
@@ -149,9 +152,9 @@ def test_build_docking_complex_system_and_set_active_pose():
     assert msm.get(complex_sys, element='system', n_structures=True) == 3
 
     # Render into MolSysView
-    import molsysviewer
+    import molsysviewer as msv
 
-    v = molsysviewer.MolSysView(debug_js=True)
+    v = msv.MolSysView(debug_js=True)
     res = DockingResult(poses=poses)
     render_docking_result(v, res, receptor=rec)
 
@@ -180,7 +183,10 @@ def test_dockingmt_view_with_result_problem_and_search_domain():
     pytest.importorskip('molsysviewer')
     import molsysmt as msm
 
-    rec = msm.build.build_peptide('GLY')
+    rec = msm.convert(
+        msm.systems['alanine dipeptide']['alanine_dipeptide.h5msm'],
+        to_form='molsysmt.MolSys',
+    )
     box = BoxRegion(
         center=puw.quantity([0.0, 0.0, 0.0], 'nm'),
         lengths=puw.quantity([1.0, 1.0, 1.0], 'nm'),
@@ -223,7 +229,10 @@ def test_panels_workbench_and_export():
     from molsysviewer_dockingmt.panels import DockingExplorerPanel, SearchDomainPanel
     from molsysviewer_dockingmt.workbench import get_docking_summary_section
 
-    rec = msm.build.build_peptide('ALA')
+    rec = msm.convert(
+        msm.systems['alanine dipeptide']['alanine_dipeptide.h5msm'],
+        to_form='molsysmt.MolSys',
+    )
     box = BoxRegion(
         center=puw.quantity([1.0, 1.0, 1.0], 'nm'),
         lengths=puw.quantity([1.0, 1.0, 1.0], 'nm'),

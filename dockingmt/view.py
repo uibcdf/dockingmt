@@ -55,7 +55,7 @@ def view(
     MolSysView
         Interactive MolSysViewer widget with loaded docking components and addon.
     """
-    import molsysviewer
+    import molsysviewer as msv
 
     from molsysviewer_dockingmt.adapters.complex import (
         render_docking_result,
@@ -90,7 +90,7 @@ def view(
 
     # Create viewer if not supplied
     if view is None:
-        view = molsysviewer.new_view(**kwargs)
+        view = msv.new_view(**kwargs)
 
     # Enable DockingMT addon
     on_enable(view)
