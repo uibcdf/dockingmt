@@ -4,10 +4,6 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
-### Active (1)
-
-- [`replay_file_backed_redocking_and_report_exploratory_metrics.md`](replay_file_backed_redocking_and_report_exploratory_metrics.md) — [#10](https://github.com/uibcdf/dockingmt/issues/10) — Replay file-backed redocking and report exploratory metrics *(active, inspected)*
-
 ### Partial (2)
 
 - [`select_active_ligand_torsions_for_vina_preparation.md`](select_active_ligand_torsions_for_vina_preparation.md) — [#6](https://github.com/uibcdf/dockingmt/issues/6) — Select active ligand torsions for Vina preparation *(partial, asserted)*

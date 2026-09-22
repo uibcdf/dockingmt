@@ -97,7 +97,8 @@ rank at the declared 2.5 Å cutoff, failure mode, source and PDBQT fingerprints,
 code revision, and replay differences. Its assessment is **exploratory** while
 the chemical preparation in [issue #5](https://github.com/uibcdf/dockingmt/issues/5)
 remains provisional. Use the reported metrics for regression, not as a validated
-docking-performance claim.
+docking-performance claim. The measured case is documented in the
+[181L regression baseline](devguide/validation/181l_redocking_exploratory.md).
 
 ## Governance and Design Authority
 

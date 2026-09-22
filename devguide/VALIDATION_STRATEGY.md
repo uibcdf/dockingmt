@@ -101,6 +101,9 @@ When these workflows exist, validate whether additional receptor states improve 
 
 The initial redocking set should become a stable regression benchmark.
 
+The first measured, exploratory case is the
+[181L redocking regression baseline](validation/181l_redocking_exploratory.md).
+
 Changes to:
 
 - preparation;

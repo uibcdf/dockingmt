@@ -1,12 +1,12 @@
 ---
 summary: Replay file-backed redocking and report exploratory metrics
 issue: uibcdf/dockingmt#10
-status: active
+status: resolved
 opened: 2026-09-22
-closed:
-verification: inspected
+closed: 2026-09-22
+verification: measured
 area: [redocking, validation, provenance]
-guard:
+guard: tests/test_redocking_replay.py::test_file_backed_181l_manifest_replays_without_original_objects
 normative:
 blocked_by: []
 supersedes: []
@@ -67,3 +67,20 @@ concrete accepted workflows.
 Related local work: uibcdf/dockingmt#4, uibcdf/dockingmt#5.
 Provider limitation uibcdf/molsysmt#234 prevents assuming in-memory molecular
 objects can be serialized to H5MSM without losing partial charges.
+
+## Resolution
+
+`DockingResult.reconstruct_problem()` now reconnects a serialized result to
+its file-backed problem. Reconstruction verifies recorded source fingerprints
+and molecular selections before replay. The 181L command records a complete
+result manifest, replays its recorded protocol, and reports the problem, input
+and PDBQT hashes, code revision, per-pose scores and mapped RMSDs, near-native
+rank and failure mode. It checks pose identity and uses explicit score and RMSD
+replay tolerances. The selected pytest guard exercises the file-backed JSON
+round trip and replay without retaining the original molecular objects; other
+tests reject changed source content and altered recorded selections.
+
+The [measured 181L baseline](../validation/181l_redocking_exploratory.md)
+records four returned poses, a near-native rank of 1 at 2.5 Å, and zero replay
+score and RMSD differences on a clean source revision. This remains
+exploratory because preparation is still provisional under issue #5.
