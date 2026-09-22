@@ -22,7 +22,7 @@ def _ensure_molsys(entity: Any) -> Any:
 
 def _fallback_partner_system(n_atoms: int, group_name: str = 'LIG') -> Any:
     """Construct a minimal MolSysMT system with n_atoms as a fallback."""
-    import molsysmt as msm
+    from dockingmt._private.conversion import pdb_text_to_molsys
 
     lines = [
         f'ATOM  {i + 1:5d}  C{i + 1:<3d}{group_name[:3]:3s} A{1:4d}    '
@@ -30,7 +30,7 @@ def _fallback_partner_system(n_atoms: int, group_name: str = 'LIG') -> Any:
         for i in range(n_atoms)
     ]
     pdb_text = '\n'.join(lines) + '\nEND\n'
-    return msm.convert(pdb_text, to_form='molsysmt.MolSys')
+    return pdb_text_to_molsys(pdb_text)
 
 
 def build_docking_complex_system(

@@ -96,7 +96,7 @@ class PreparedReceptor:
 
     def to_molecular_system(self) -> Any:
         """Convert the prepared receptor into a MolSysMT molecular system."""
-        import molsysmt as msm
+        from .._private.conversion import pdb_text_to_molsys
 
         coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))
         seen_per_res: dict[tuple[str, int], set[str]] = {}
@@ -120,7 +120,7 @@ class PreparedReceptor:
             )
         lines.append('END\n')
         pdb_text = '\n'.join(lines)
-        return msm.convert(pdb_text, to_form='molsysmt.MolSys')
+        return pdb_text_to_molsys(pdb_text)
 
     def __repr__(self) -> str:
         return f'PreparedReceptor(state_id={self.state_id!r}, n_atoms={self.n_atoms})'
