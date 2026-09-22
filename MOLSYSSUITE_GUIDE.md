@@ -38,6 +38,12 @@ Consult the central repository before changing a shared dependency boundary, sup
 Python range, development baseline, issue vocabulary, reusable workflow, vendored guide,
 or behavior expected across components.
 
+Canonical-guide publication and versioned policy adoption are independent. A guide-only
+change does not require a policy caller bump, and a caller bump does not prove that guide
+copies were synchronized. Use the central `devtools/scripts/adoption_status.py` inventory
+and `devguide/adoption_lifecycle.md` procedure to find the responsible consumer, observed
+state and next action for each relationship.
+
 ## Cross-repository working state
 
 Before work spanning components, use the MolSysSuite checkout to refresh and inspect every
