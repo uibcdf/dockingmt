@@ -113,6 +113,52 @@ class DockingPose:
             metadata=data.get('metadata'),
         )
 
+    def get_rmsd(self, reference: Any, selection: str = 'all') -> Any:
+        """Compute the RMSD of this pose against a reference structure or pose.
+
+        Parameters
+        ----------
+        reference : Any
+            A reference DockingPose, coordinate quantity array, or MolSysMT system.
+        selection : str, default 'all'
+            Selection expression if reference is a MolSysMT system.
+
+        Returns
+        -------
+        Any
+            RMSD as a PyUnitWizard length quantity.
+        """
+        import molsysmt as msm
+
+        coords = puw.quantity(
+            np.expand_dims(puw.get_value(self._coordinates), axis=0),
+            puw.get_unit(self._coordinates),
+        )
+
+        ref_sys: Any
+        if isinstance(reference, DockingPose):
+            ref_sys = puw.quantity(
+                np.expand_dims(puw.get_value(reference._coordinates), axis=0),
+                puw.get_unit(reference._coordinates),
+            )
+        elif puw.is_quantity(reference):
+            ref_val = np.asarray(puw.get_value(reference))
+            if ref_val.ndim == 2:
+                ref_sys = puw.quantity(
+                    np.expand_dims(ref_val, axis=0), puw.get_unit(reference)
+                )
+            else:
+                ref_sys = reference
+        else:
+            ref_sys = reference
+
+        res = msm.structure.get_rmsd(
+            coords,
+            reference_molecular_system=ref_sys,
+            selection=selection,
+        )
+        return res[0]
+
     def __repr__(self) -> str:
         rank_str = f', rank={self.rank}' if self.rank is not None else ''
         scores_str = f', scores={self.scores}' if self.scores else ''
@@ -244,6 +290,26 @@ class DockingResult:
             protocol_info=data.get('protocol_info'),
             provenance=data.get('provenance'),
         )
+
+    def get_rmsds(self, reference: Any, selection: str = 'all') -> list[Any]:
+        """Compute the RMSD of each pose in this result against a reference structure.
+
+        Parameters
+        ----------
+        reference : Any
+            Reference pose, coordinate array, or MolSysMT system.
+        selection : str, default 'all'
+            Selection expression if reference is a MolSysMT system.
+
+        Returns
+        -------
+        list[Any]
+            List of RMSD length quantities for each pose.
+        """
+        return [
+            pose.get_rmsd(reference=reference, selection=selection)
+            for pose in self._poses
+        ]
 
     def __repr__(self) -> str:
         return f'DockingResult(n_poses={len(self._poses)})'

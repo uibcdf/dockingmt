@@ -161,8 +161,16 @@ class VinaBackend(DockingBackend):
                 coords_np = np.asarray(coords_arr)
                 energies_np = np.asarray(energies_arr)
 
-                partner_state_id = problem.metadata.get('partner_state_id')
-                receptor_state_id = problem.metadata.get('receptor_state_id')
+                partner_state_id = getattr(
+                    problem.partner,
+                    'state_id',
+                    problem.metadata.get('partner_state_id'),
+                )
+                receptor_state_id = getattr(
+                    problem.receptor,
+                    'state_id',
+                    problem.metadata.get('receptor_state_id'),
+                )
 
                 for idx in range(len(coords_np)):
                     pose_coords = puw.quantity(coords_np[idx], 'angstrom')
@@ -209,6 +217,15 @@ class VinaBackend(DockingBackend):
 
     def _resolve_receptor_path(self, receptor: Any, temp_files: list[str]) -> str:
         """Resolve receptor input to a filesystem path acceptable by Vina."""
+        if hasattr(receptor, 'to_pdbqt'):
+            pdbqt_str = receptor.to_pdbqt()
+            tmp = tempfile.NamedTemporaryFile(suffix='.pdbqt', mode='w', delete=False)
+            tmp.write(pdbqt_str)
+            tmp.flush()
+            tmp.close()
+            temp_files.append(tmp.name)
+            return tmp.name
+
         if isinstance(receptor, (str, Path)):
             path_str = str(receptor)
             if os.path.isfile(path_str):
@@ -227,7 +244,7 @@ class VinaBackend(DockingBackend):
         raise ArgumentError(
             arg_name='problem.receptor',
             reason=(
-                f'Receptor must be a valid PDBQT file path or PDBQT string, '
+                f'Receptor must be a valid PreparedReceptor, PDBQT file path, or PDBQT string, '
                 f'got {type(receptor).__name__}.'
             ),
         )
@@ -236,6 +253,9 @@ class VinaBackend(DockingBackend):
         self, partner: Any, temp_files: list[str]
     ) -> tuple[str | None, str | None]:
         """Resolve partner input to either a filepath or a PDBQT string."""
+        if hasattr(partner, 'to_pdbqt'):
+            return None, partner.to_pdbqt()
+
         if isinstance(partner, (str, Path)):
             path_str = str(partner)
             if os.path.isfile(path_str):
@@ -246,7 +266,7 @@ class VinaBackend(DockingBackend):
         raise ArgumentError(
             arg_name='problem.partner',
             reason=(
-                f'Partner must be a valid PDBQT file path or PDBQT string, '
+                f'Partner must be a valid PreparedLigand, PDBQT file path, or PDBQT string, '
                 f'got {type(partner).__name__}.'
             ),
         )

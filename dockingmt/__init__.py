@@ -29,6 +29,12 @@ from .core import (
 )
 from .dock import dock
 from .engines import DockingBackend, VinaBackend
+from .preparation import (
+    PreparedLigand,
+    PreparedReceptor,
+    prepare_ligand,
+    prepare_receptor,
+)
 
 __all__ = [
     '__version__',
@@ -43,6 +49,10 @@ __all__ = [
     'VinaProtocol',
     'DockingBackend',
     'VinaBackend',
+    'PreparedReceptor',
+    'prepare_receptor',
+    'PreparedLigand',
+    'prepare_ligand',
     'dock',
 ]
 
