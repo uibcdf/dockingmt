@@ -35,6 +35,7 @@ from .preparation import (
     prepare_ligand,
     prepare_receptor,
 )
+from .view import show, view
 
 __all__ = [
     '__version__',
@@ -54,6 +55,8 @@ __all__ = [
     'PreparedLigand',
     'prepare_ligand',
     'dock',
+    'show',
+    'view',
 ]
 
 # The unit policy is declared when this package is imported, not on first use.

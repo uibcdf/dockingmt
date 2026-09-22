@@ -39,9 +39,15 @@ test = [
   "pytest-cov",
   "pytest-receptor",
 ]
+viewer = [
+  "molsysviewer",
+]
 dev = [
   "ruff==0.16.5",
 ]
+
+[project.entry-points."molsysviewer.addons"]
+dockingmt = "molsysviewer_dockingmt"
 
 [project.urls]
 Homepage = "https://github.com/uibcdf/dockingmt"
@@ -53,7 +59,7 @@ zip-safe = false
 include-package-data = false
 
 [tool.setuptools.packages.find]
-include = ["dockingmt*"]
+include = ["dockingmt*", "molsysviewer_dockingmt*"]
 namespaces = true
 where = ["."]
 

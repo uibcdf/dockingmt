@@ -2,6 +2,7 @@ import molsysmt as msm
 import pytest
 import pyunitwizard as puw
 
+import dockingmt
 from dockingmt import (
     BoxRegion,
     DockingProblem,
@@ -106,3 +107,10 @@ def test_redocking_benchmark_181l():
     reconstructed = DockingResult.from_dict(d)
     assert len(reconstructed) == len(result)
     assert reconstructed.top_pose.scores['vina'] == top_pose.scores['vina']
+
+    # Gate C6: MolSysViewer integration
+    view = dockingmt.view(result=result, reference=native_benzene)
+    assert view.shapes.contains('dockingmt:search_domain')
+    assert view.player.n_structures == len(result)
+    assert view.addons.dockingmt.active_pose_rank == 1
+    assert 'reference_ligand' in [r.tag for r in view.regions.values()]

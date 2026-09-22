@@ -159,6 +159,34 @@ class DockingPose:
         )
         return res[0]
 
+    def to_molecular_system(self, partner: Any) -> Any:
+        """Convert this pose into a MolSysMT molecular system using partner topology.
+
+        Parameters
+        ----------
+        partner : Any
+            The partner/ligand molecular system or PreparedLigand providing atom names/topology.
+
+        Returns
+        -------
+        Any
+            MolSysMT MolSys instance with this pose's coordinates.
+        """
+        import molsysmt as msm
+
+        base_sys: Any
+        if hasattr(partner, 'to_molecular_system'):
+            base_sys = partner.to_molecular_system()
+        else:
+            base_sys = msm.convert(partner, to_form='molsysmt.MolSys')
+        molsys = msm.copy(base_sys)
+        coords_3d = puw.quantity(
+            np.expand_dims(puw.get_value(self._coordinates), axis=0),
+            puw.get_unit(self._coordinates),
+        )
+        msm.set(molsys, element='atom', coordinates=coords_3d)
+        return molsys
+
     def __repr__(self) -> str:
         rank_str = f', rank={self.rank}' if self.rank is not None else ''
         scores_str = f', scores={self.scores}' if self.scores else ''
@@ -178,6 +206,8 @@ class DockingResult:
         Resolved protocol choices, parameters and defaults.
     provenance : dict[str, Any], optional
         Execution metadata (backend, versions, random seeds, environment).
+    problem : Any, optional
+        Original DockingProblem instance if available in-memory.
     """
 
     def __init__(
@@ -186,6 +216,7 @@ class DockingResult:
         problem_info: dict[str, Any] | None = None,
         protocol_info: dict[str, Any] | None = None,
         provenance: dict[str, Any] | None = None,
+        problem: Any = None,
     ):
         self._poses = list(poses)
         self.problem_info: dict[str, Any] = (
@@ -197,6 +228,7 @@ class DockingResult:
         self.provenance: dict[str, Any] = (
             dict(provenance) if provenance is not None else {}
         )
+        self.problem = problem
 
     def __len__(self) -> int:
         return len(self._poses)
@@ -268,6 +300,7 @@ class DockingResult:
             problem_info=self.problem_info,
             protocol_info=self.protocol_info,
             provenance=new_provenance,
+            problem=self.problem,
         )
 
     def to_dict(self) -> dict[str, Any]:

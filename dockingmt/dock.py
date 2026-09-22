@@ -61,4 +61,6 @@ def dock(
             reason=f"'backend' must be a DockingBackend instance or string, got {type(backend).__name__}.",
         )
 
-    return resolved_backend.dock(problem=problem, protocol=protocol)
+    result = resolved_backend.dock(problem=problem, protocol=protocol)
+    result.problem = problem
+    return result

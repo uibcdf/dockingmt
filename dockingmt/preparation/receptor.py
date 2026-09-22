@@ -94,6 +94,34 @@ class PreparedReceptor:
             'metadata': self.metadata,
         }
 
+    def to_molecular_system(self) -> Any:
+        """Convert the prepared receptor into a MolSysMT molecular system."""
+        import molsysmt as msm
+
+        coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))
+        seen_per_res: dict[tuple[str, int], set[str]] = {}
+        lines = []
+        for i, (name, gname, gid, (x, y, z)) in enumerate(
+            zip(self.atom_names, self.group_names, self.group_ids, coords_ang)
+        ):
+            res_key = (gname, gid)
+            if res_key not in seen_per_res:
+                seen_per_res[res_key] = set()
+            aname = name
+            c = 1
+            while aname in seen_per_res[res_key]:
+                aname = f'{name[:2]}{c}'
+                c += 1
+            seen_per_res[res_key].add(aname)
+
+            lines.append(
+                f'ATOM  {i + 1:5d} {aname:<4s} {gname[:3]:3s} A{gid:4d}    '
+                f'{x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00           C'
+            )
+        lines.append('END\n')
+        pdb_text = '\n'.join(lines)
+        return msm.convert(pdb_text, to_form='molsysmt.MolSys')
+
     def __repr__(self) -> str:
         return f'PreparedReceptor(state_id={self.state_id!r}, n_atoms={self.n_atoms})'
 
