@@ -16,9 +16,10 @@ from dockingmt.engines.vina import VinaBackend
 
 
 def test_redocking_benchmark_181l():
-    """End-to-end scientific redocking benchmark on T4 lysozyme L99A with Benzene (PDB 181L).
+    """Exercise the provisional 181L redocking path and its identity/RMSD contracts.
 
-    Validates Gate C1 (Preparation) and Gate C2 (Redocking):
+    This is an end-to-end software check, not scientific validation of C1/C2.
+    It exercises:
     1. Extracts protein and ligand using MolSysMT.
     2. Prepares receptor and ligand states retaining atomic identities.
     3. Derives search domain from native crystallographic ligand with padding.
@@ -75,6 +76,7 @@ def test_redocking_benchmark_181l():
         n_poses=5,
         energy_range=puw.quantity(3.0, 'kcal/mol'),
         seed=42,
+        allow_provisional_preparation=True,
     )
 
     # Execution
@@ -97,7 +99,7 @@ def test_redocking_benchmark_181l():
     assert len(rmsds) == len(result)
 
     top_rmsd_ang = puw.get_value(puw.convert(rmsds[0], to_unit='angstrom'))
-    # Standard crystallographic recovery threshold (< 2.5 A)
+    # Regression bound for this provisional test case, not a validation threshold.
     assert top_rmsd_ang < 2.5
 
     # Provenance and serialization
@@ -142,7 +144,13 @@ def test_direct_molsysmt_input_reaches_vina():
 
     result = dock(
         problem,
-        protocol=VinaProtocol(exhaustiveness=1, n_poses=1, seed=42, cpu=1),
+        protocol=VinaProtocol(
+            exhaustiveness=1,
+            n_poses=1,
+            seed=42,
+            cpu=1,
+            allow_provisional_preparation=True,
+        ),
         backend=backend,
     )
 
@@ -153,6 +161,10 @@ def test_direct_molsysmt_input_reaches_vina():
     assert result.provenance['preparation']['receptor']['mode'] == 'automatic'
     assert result.provenance['preparation']['partner']['mode'] == 'automatic'
     assert result.provenance['preparation']['partner']['assessment'] == 'provisional'
+    assert (
+        result.provenance['protocol']['parameters']['allow_provisional_preparation']
+        is True
+    )
     assert result.top_pose.metadata['pose_atom_order'] == 'verified_pdbqt_order'
     assert result.problem_info['molecular_inputs']['partner']['atom_indices'] == [
         1299,

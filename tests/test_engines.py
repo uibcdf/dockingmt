@@ -9,6 +9,7 @@ from dockingmt.core.results import DockingResult
 from dockingmt.core.search_domain import BoxRegion
 from dockingmt.dock import dock
 from dockingmt.engines.vina import VinaBackend, _verify_pose_atom_order
+from dockingmt.preparation import prepare_ligand, prepare_receptor
 
 
 class DummyCustomProtocol(DockingProtocol):
@@ -175,7 +176,14 @@ def test_rdkit_ligand_with_explicit_hydrogens_has_pose_source_map():
         receptor_selection="molecule_type=='protein'",
     )
     result = backend.dock(
-        problem, VinaProtocol(exhaustiveness=1, n_poses=1, cpu=1, seed=42)
+        problem,
+        VinaProtocol(
+            exhaustiveness=1,
+            n_poses=1,
+            cpu=1,
+            seed=42,
+            allow_provisional_preparation=True,
+        ),
     )
     pose = result.top_pose
     assert pose.n_atoms == 6
@@ -191,6 +199,58 @@ def test_rdkit_ligand_with_explicit_hydrogens_has_pose_source_map():
     assert msm.get(complex_pose, n_atoms=True) == (
         msm.get(problem.receptor_molsys, n_atoms=True) + 6
     )
+
+
+def test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs():
+    backend = VinaBackend()
+    if not backend.is_available:
+        pytest.skip('Vina is not installed in the environment.')
+
+    path = msm.systems['T4 lysozyme L99A']['181l.pdb']
+    box = BoxRegion.from_selection(
+        path,
+        selection="group_name=='BNZ'",
+        padding=puw.quantity(8.0, 'angstrom'),
+    )
+    automatic = DockingProblem(
+        receptor=path,
+        partner=path,
+        search_domain=box,
+        receptor_selection="molecule_type=='protein'",
+        partner_selection="group_name=='BNZ'",
+    )
+    with pytest.raises(ArgumentError, match='zero-placeholder partial charges'):
+        backend.dock(automatic, VinaProtocol(exhaustiveness=1, n_poses=1))
+
+    ligand = prepare_ligand(path, selection="group_name=='BNZ'")
+    prepared = DockingProblem(
+        receptor=MINIMAL_REC_PDBQT,
+        partner=ligand,
+        search_domain=box,
+    )
+    with pytest.raises(ArgumentError, match='heuristic AutoDock atom types'):
+        backend.dock(prepared, VinaProtocol(exhaustiveness=1, n_poses=1))
+
+    receptor = prepare_receptor(path, selection="molecule_type=='protein'")
+    prepared_receptor = DockingProblem(
+        receptor=receptor,
+        partner=MINIMAL_LIG_PDBQT,
+        search_domain=box,
+    )
+    with pytest.raises(ArgumentError, match='zero-placeholder partial charges'):
+        backend.dock(prepared_receptor, VinaProtocol(exhaustiveness=1, n_poses=1))
+
+    result = backend.dock(
+        prepared,
+        VinaProtocol(
+            exhaustiveness=1,
+            n_poses=1,
+            seed=42,
+            allow_provisional_preparation=True,
+        ),
+    )
+    assert result.provenance['preparation']['partner']['mode'] == 'provided'
+    assert result.provenance['preparation']['partner']['assessment'] == 'provisional'
 
 
 def test_vina_atom_order_verifier_rejects_permuted_pose():

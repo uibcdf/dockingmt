@@ -60,10 +60,16 @@ An input with multiple structures requires a `receptor_structure_index` or
 `partner_structure_index`. The Vina adapter prepares selected MolSys inputs when
 `dock(problem)` is called. Preparation preserves atomic partial charges and
 aromaticity when the source provides them; otherwise it records placeholder
-charges and heuristic atom types. A controlled removal of nonpolar hydrogens
+charges. AutoDock atom types currently use a heuristic in both cases. Vina
+rejects these provisional preparations by default, including `PreparedLigand`
+and `PreparedReceptor` objects produced by DockingMT. To run an exploratory
+calculation while [issue #5](https://github.com/uibcdf/dockingmt/issues/5)
+remains open, pass `VinaProtocol(allow_provisional_preparation=True)`. The choice
+and the preparation assessment are recorded in result provenance. Externally
+provided PDBQT inputs are accepted with an `unassessed` chemistry assessment.
+A controlled removal of nonpolar hydrogens
 retains an explicit source atom map, and Vina's PDBQT output order is checked
 before poses are returned. Other atom losses require a verified map. See
-[issue #5](https://github.com/uibcdf/dockingmt/issues/5) and
 [issue #8](https://github.com/uibcdf/dockingmt/issues/8) before interpreting
 docking scores or pose identities scientifically.
 

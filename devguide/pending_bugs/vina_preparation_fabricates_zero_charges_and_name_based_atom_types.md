@@ -1,13 +1,13 @@
 ---
 summary: Vina preparation fabricates zero charges and name-based atom types
 issue: uibcdf/dockingmt#5
-status: open
+status: partial
 opened: 2026-09-22
 closed:
 severity: high
-verification: inspected
+verification: asserted
 area: [preparation, vina]
-guard:
+guard: tests/test_engines.py::test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs
 normative:
 blocked_by: []
 supersedes: []
@@ -16,7 +16,7 @@ supersedes: []
 # Vina preparation fabricates zero charges and name-based atom types
 
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
-**Status:** Open; DockingMT Core MVP work.
+**Status:** Partial; DockingMT Core MVP work.
 
 ## What
 
@@ -53,3 +53,23 @@ Vina input chemical parameterization; general charge models, AutoDock typing, an
 Related tracked work: uibcdf/dockingmt#3
 Cross-component implementation links: uibcdf/molsysmt#214, uibcdf/molsysmt#221, uibcdf/molsysmt#222, uibcdf/molsysmt#223.
 New functionality requires tests of scientific semantics and documentation appropriate to its public surface.
+
+## 2026-09-22 progress
+
+The MolSysMT input implementation now derives element identity from the source,
+retains polar hydrogen atoms, preserves source partial charges when present, and
+records when zero placeholders or heuristic AutoDock types were used. The
+remaining heuristic is based on element, group, and available aromaticity, not
+atom names. Neither this heuristic nor the zero-charge fallback is a validated
+parameterization.
+
+Vina now rejects DockingMT-generated provisional preparations by default, for
+both automatic MolSysMT input and previously created prepared objects. The
+caller can explicitly opt into exploratory docking with
+`VinaProtocol(allow_provisional_preparation=True)`; the policy and assessment
+are serialized in result provenance. Existing external PDBQT inputs remain
+accepted with an `unassessed` chemistry assessment. This addresses silent use
+of DockingMT's known placeholders, but does not satisfy the full acceptance
+criteria: validated receptor and ligand parameterization, scoring compatibility,
+and scientific preparation tests are still needed. The provider requirements
+remain tracked by molsysmt#221 and molsysmt#222.

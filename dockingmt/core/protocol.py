@@ -66,6 +66,9 @@ class VinaProtocol(DockingProtocol):
         Scoring function to use ('vina', 'vinardo', or 'ad4').
     cpu : int, default 0
         Number of CPU threads to utilize. 0 detects and uses all available cores.
+    allow_provisional_preparation : bool, default False
+        Permit DockingMT's temporary zero-charge or heuristic AutoDock typing path.
+        Results from this path are exploratory and their chemistry remains unvalidated.
     """
 
     SUPPORTED_SCORING = ('vina', 'vinardo', 'ad4')
@@ -78,6 +81,7 @@ class VinaProtocol(DockingProtocol):
         seed: int | None = None,
         scoring: str = 'vina',
         cpu: int = 0,
+        allow_provisional_preparation: bool = False,
     ):
         if not isinstance(exhaustiveness, (int, float)) or int(exhaustiveness) < 1:
             raise ArgumentError(
@@ -138,6 +142,13 @@ class VinaProtocol(DockingProtocol):
             )
         self._cpu = cpu
 
+        if not isinstance(allow_provisional_preparation, bool):
+            raise ArgumentError(
+                arg_name='allow_provisional_preparation',
+                reason='allow_provisional_preparation must be a bool.',
+            )
+        self._allow_provisional_preparation = allow_provisional_preparation
+
     @property
     def name(self) -> str:
         """Name of the protocol."""
@@ -174,6 +185,11 @@ class VinaProtocol(DockingProtocol):
         return self._cpu
 
     @property
+    def allow_provisional_preparation(self) -> bool:
+        """Whether temporary DockingMT chemistry may be sent to Vina."""
+        return self._allow_provisional_preparation
+
+    @property
     def required_capabilities(self) -> set[str]:
         """Capabilities required by VinaProtocol."""
         return {
@@ -196,6 +212,7 @@ class VinaProtocol(DockingProtocol):
             'seed': self._seed,
             'scoring': self._scoring,
             'cpu': self._cpu,
+            'allow_provisional_preparation': self._allow_provisional_preparation,
         }
 
     def validate_problem(self, problem: DockingProblem) -> None:
@@ -241,6 +258,9 @@ class VinaProtocol(DockingProtocol):
             seed=params.get('seed'),
             scoring=params.get('scoring', 'vina'),
             cpu=params.get('cpu', 0),
+            allow_provisional_preparation=params.get(
+                'allow_provisional_preparation', False
+            ),
         )
 
     def __repr__(self) -> str:
@@ -248,5 +268,7 @@ class VinaProtocol(DockingProtocol):
         e_unit = puw.get_unit(self._energy_range)
         return (
             f'VinaProtocol(exhaustiveness={self._exhaustiveness}, n_poses={self._n_poses}, '
-            f'energy_range={e_val} {e_unit}, scoring={self._scoring!r}, seed={self._seed})'
+            f'energy_range={e_val} {e_unit}, scoring={self._scoring!r}, '
+            f'seed={self._seed}, '
+            f'allow_provisional_preparation={self._allow_provisional_preparation})'
         )

@@ -76,6 +76,19 @@ def _verify_pose_atom_order(
             )
 
 
+def _provisional_preparation_reasons(prepared: Any) -> list[str]:
+    """Identify temporary chemistry assigned by DockingMT's preparation helpers."""
+    if not isinstance(prepared, (PreparedLigand, PreparedReceptor)):
+        return []
+    metadata = prepared.metadata
+    reasons = []
+    if metadata.get('charge_source') == 'zero_placeholder':
+        reasons.append('zero-placeholder partial charges')
+    if 'heuristic' in str(metadata.get('atom_type_source', '')):
+        reasons.append('heuristic AutoDock atom types')
+    return reasons
+
+
 class VinaBackend(DockingBackend):
     """DockingBackend adapter for AutoDock Vina.
 
@@ -148,8 +161,6 @@ class VinaBackend(DockingBackend):
                 reason=f'VinaBackend requires a VinaProtocol instance, got {type(protocol).__name__}.',
             )
 
-        import vina
-
         # Extract search box parameters in Angstroms
         if hasattr(problem.search_domain, 'to_backend_box'):
             box = problem.search_domain.to_backend_box(unit='angstrom')
@@ -216,27 +227,46 @@ class VinaBackend(DockingBackend):
                 ]
             partner_mode = 'automatic'
 
+        receptor_reasons = _provisional_preparation_reasons(receptor)
+        partner_reasons = _provisional_preparation_reasons(partner)
+        if not protocol.allow_provisional_preparation:
+            for role, reasons in (
+                ('receptor', receptor_reasons),
+                ('partner', partner_reasons),
+            ):
+                if reasons:
+                    raise ArgumentError(
+                        arg_name=f'problem.{role}',
+                        reason=(
+                            f'Vina preparation would use {", ".join(reasons)}. '
+                            'Provide chemically parameterized PDBQT input, or set '
+                            'VinaProtocol(allow_provisional_preparation=True) for '
+                            'exploratory docking only. See dockingmt#5 and '
+                            'molsysmt#221/#222.'
+                        ),
+                    )
+
         preparation = {
             'receptor': {
                 'mode': receptor_mode,
                 'state_id': getattr(receptor, 'state_id', None),
                 'metadata': getattr(receptor, 'metadata', None),
-                'assessment': 'provisional'
-                if receptor_mode == 'automatic'
-                else 'unassessed',
+                'assessment': 'provisional' if receptor_reasons else 'unassessed',
+                'provisional_reasons': receptor_reasons,
             },
             'partner': {
                 'mode': partner_mode,
                 'state_id': getattr(partner, 'state_id', None),
                 'metadata': getattr(partner, 'metadata', None),
-                'assessment': 'provisional'
-                if partner_mode == 'automatic'
-                else 'unassessed',
+                'assessment': 'provisional' if partner_reasons else 'unassessed',
+                'provisional_reasons': partner_reasons,
             },
         }
 
         # Prepare receptor and partner representations
         temp_files_to_remove: list[str] = []
+
+        import vina
 
         try:
             receptor_file = self._resolve_receptor_path(receptor, temp_files_to_remove)

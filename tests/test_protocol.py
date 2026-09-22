@@ -16,6 +16,7 @@ def test_vina_protocol_defaults():
     assert proto.scoring == 'vina'
     assert proto.seed is None
     assert proto.cpu == 0
+    assert proto.allow_provisional_preparation is False
     assert 'rigid_receptor' in proto.required_capabilities
     assert 'box_search' in proto.required_capabilities
     assert 'scoring_vina' in proto.required_capabilities
@@ -59,6 +60,9 @@ def test_vina_protocol_validation_errors():
     with pytest.raises(ArgumentError):
         VinaProtocol(cpu=-1)
 
+    with pytest.raises(ArgumentError):
+        VinaProtocol(allow_provisional_preparation='yes')
+
 
 def test_vina_protocol_problem_validation():
     proto = VinaProtocol()
@@ -86,15 +90,23 @@ def test_vina_protocol_problem_validation():
 
 
 def test_vina_protocol_serialization():
-    proto = VinaProtocol(exhaustiveness=12, n_poses=7, seed=99, scoring='ad4')
+    proto = VinaProtocol(
+        exhaustiveness=12,
+        n_poses=7,
+        seed=99,
+        scoring='ad4',
+        allow_provisional_preparation=True,
+    )
     d = proto.to_dict()
     assert d['protocol_type'] == 'VinaProtocol'
     assert d['parameters']['exhaustiveness'] == 12
     assert d['parameters']['seed'] == 99
     assert d['parameters']['scoring'] == 'ad4'
+    assert d['parameters']['allow_provisional_preparation'] is True
 
     reconstructed = VinaProtocol.from_dict(d)
     assert reconstructed.exhaustiveness == 12
     assert reconstructed.n_poses == 7
     assert reconstructed.seed == 99
     assert reconstructed.scoring == 'ad4'
+    assert reconstructed.allow_provisional_preparation is True
