@@ -9,12 +9,11 @@ dependencies:
   - pytest-receptor
   - smonitor
   - depdigest
-  - argdigest
   - pyunitwizard
   - numpy
   - scipy
   - vina
-  # Runtime dependencies for the fixed MolSysMT/MolSysViewer source pair below.
+  # Runtime dependencies for the fixed scientific sibling sources below.
   - h5py
   - pandas
   - networkx

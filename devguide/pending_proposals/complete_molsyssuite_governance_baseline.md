@@ -46,7 +46,7 @@ Python 3.14 or claim scientific validation.
 
 The local governance guards, package tests, Ruff checks and central conformance checker
 pass, and the two hosted workflows execute on the resulting commit. The Conda matrix
-covers Python 3.11--3.13. Until the channel publishes compatible MolSysMT and MolSysViewer
-builds for 3.13, every lane installs the fixed MolSysMT 0.21.0 and MolSysViewer 0.23.0
-sources so the matrix does not test different dependency generations; standardizing that
-fallback remains tracked centrally by `uibcdf/molsyssuite#31`.
+covers Python 3.11--3.13. Until the channel publishes a mutually compatible ArgDigest,
+MolSysMT and MolSysViewer set for 3.13, every lane installs exact source commits so the
+matrix does not test different dependency generations; standardizing that fallback
+remains tracked centrally by `uibcdf/molsyssuite#31`.

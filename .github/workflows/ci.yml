@@ -29,19 +29,25 @@ jobs:
         python-version: ["3.11", "3.12", "3.13"]
     steps:
       - uses: actions/checkout@v6
-      # The uibcdf channel does not yet publish this integrated pair for Python 3.13.
+      # The uibcdf channel does not yet publish this integrated set for Python 3.13.
       # Keep one identical source-based dependency path in every supported lane.
-      - name: Check out MolSysMT 0.21.0
+      - name: Check out compatible ArgDigest source
+        uses: actions/checkout@v6
+        with:
+          repository: uibcdf/argdigest
+          ref: "4fdbf19d386bbf476455d35c9988bf00624873e1"
+          path: .molsyssuite/argdigest
+      - name: Check out compatible MolSysMT source
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "0.21.0"
+          ref: "284038cfc39074e077814f7524417e8cb53af209"
           path: .molsyssuite/molsysmt
-      - name: Check out MolSysViewer 0.23.0
+      - name: Check out compatible MolSysViewer source
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysviewer
-          ref: "0.23.0"
+          ref: "2c022507265c744d532f39df345322074f80a2a3"
           path: .molsyssuite/molsysviewer
       - name: Setup micromamba
         uses: mamba-org/setup-micromamba@v3.2.1
@@ -55,10 +61,11 @@ jobs:
             channel_priority: strict
           create-args: >-
             python=${{ matrix.python-version }}
-      - name: Install MolSysMT and MolSysViewer from released sources
+      - name: Install compatible scientific sibling sources
         shell: bash -l {0}
         run: >-
           python -m pip install
+          .molsyssuite/argdigest
           .molsyssuite/molsysmt
           .molsyssuite/molsysviewer
           --no-deps

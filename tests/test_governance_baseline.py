@@ -26,10 +26,13 @@ def test_shared_governance_surfaces_are_present():
 def test_ci_covers_supported_lanes_and_common_quality_gates():
     workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
     assert 'python-version: ["3.11", "3.12", "3.13"]' in workflow
+    assert 'repository: uibcdf/argdigest' in workflow
+    assert 'ref: "4fdbf19d386bbf476455d35c9988bf00624873e1"' in workflow
     assert 'repository: uibcdf/molsysmt' in workflow
-    assert 'ref: "0.21.0"' in workflow
+    assert 'ref: "284038cfc39074e077814f7524417e8cb53af209"' in workflow
     assert 'repository: uibcdf/molsysviewer' in workflow
-    assert 'ref: "0.23.0"' in workflow
+    assert 'ref: "2c022507265c744d532f39df345322074f80a2a3"' in workflow
+    assert '.molsyssuite/argdigest' in workflow
     assert '.molsyssuite/molsysmt' in workflow
     assert '.molsyssuite/molsysviewer' in workflow
     assert 'ruff check .' in workflow
