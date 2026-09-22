@@ -1,12 +1,12 @@
 ---
 summary: Select active ligand torsions for Vina preparation
 issue: uibcdf/dockingmt#6
-status: open
+status: partial
 opened: 2026-09-22
 closed:
-verification: inspected
+verification: asserted
 area: [preparation, vina]
-guard:
+guard: tests/test_preparation.py::test_ligand_writer_rejects_torsion_count_without_branch_tree
 normative:
 blocked_by: []
 supersedes: []
@@ -15,7 +15,7 @@ supersedes: []
 # Select active ligand torsions for Vina preparation
 
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
-**Status:** Open; DockingMT Core MVP work.
+**Status:** Partial; DockingMT Core MVP work.
 
 ## What
 
@@ -52,3 +52,12 @@ Docking protocol choice and provenance; general torsion perception and PDBQT ROO
 Related tracked work: uibcdf/dockingmt#3
 Cross-component implementation links: uibcdf/molsysmt#214, uibcdf/molsysmt#224.
 New functionality requires tests of scientific semantics and documentation appropriate to its public surface.
+
+## 2026-09-22 progress
+
+DockingMT's current PDBQT writer emits a rigid ROOT block and no BRANCH records.
+It now rejects nonzero `torsion_dof` at preparation and export, rather than
+writing a misleading TORSDOF count. The rigid policy is recorded in prepared
+ligand metadata and therefore in Vina run provenance. This does not implement
+active torsion selection or flexible-ligand PDBQT writing; the proposal stays
+open pending the provider capabilities in molsysmt#214 and molsysmt#224.

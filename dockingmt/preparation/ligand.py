@@ -38,7 +38,7 @@ class PreparedLigand:
     charges : list[float]
         Assigned partial atomic charges.
     torsion_dof : int, default 0
-        Number of active torsional degrees of freedom (rotatable bonds).
+        Number of active torsional degrees of freedom. Only 0 is currently supported.
     metadata : dict[str, Any] | None, optional
         Arbitrary preparation metadata.
     """
@@ -63,7 +63,19 @@ class PreparedLigand:
         self.coordinates = coordinates
         self.atom_types = list(atom_types)
         self.charges = [float(c) for c in charges]
-        self.torsion_dof = int(torsion_dof)
+        if (
+            isinstance(torsion_dof, bool)
+            or not isinstance(torsion_dof, int)
+            or torsion_dof != 0
+        ):
+            raise ArgumentError(
+                arg_name='torsion_dof',
+                reason=(
+                    'DockingMT currently writes only rigid ligand PDBQT (TORSDOF 0). '
+                    'Active torsions require a ROOT/BRANCH tree; see dockingmt#6.'
+                ),
+            )
+        self.torsion_dof = torsion_dof
         self.group_names = (
             list(group_names)
             if group_names is not None
@@ -82,6 +94,11 @@ class PreparedLigand:
 
     def to_pdbqt(self) -> str:
         """Generate a PDBQT formatted string for docking engines."""
+        if self.torsion_dof != 0:
+            raise ArgumentError(
+                arg_name='torsion_dof',
+                reason='A nonzero TORSDOF requires a ROOT/BRANCH tree (dockingmt#6).',
+            )
         coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))
         lines = ['ROOT']
         for i, (name, gname, gid, (x, y, z), atype, q) in enumerate(
@@ -196,7 +213,7 @@ def prepare_ligand(
     state_id : str | None, optional
         Unique identifier for the prepared ligand state.
     torsion_dof : int | None, optional
-        Explicit number of rotatable bonds. If None, defaults to 0 for rigid ligands.
+        Active torsion count. Only 0 or None (rigid ligand) is currently supported.
 
     Returns
     -------
@@ -234,6 +251,7 @@ def prepare_ligand(
     retained_charges: list[float] = []
     retained_indices: list[int] = []
     merged_hydrogen_charges: dict[int, float] = {}
+    omitted_hydrogen_indices: list[int] = []
 
     for i, (aname, element) in enumerate(zip(atom_names, elements)):
         aname_str = str(aname).strip()
@@ -257,6 +275,7 @@ def prepare_ligand(
                     merged_hydrogen_charges[attached] = (
                         merged_hydrogen_charges.get(attached, 0.0) + charges[i]
                     )
+                omitted_hydrogen_indices.append(i)
                 continue
 
         atype = 'C'
@@ -325,6 +344,9 @@ def prepare_ligand(
             'atom_type_source': 'element_aromaticity_heuristic'
             if aromaticity is not None
             else 'element_group_heuristic',
+            'torsion_policy': 'rigid_only',
+            'hydrogen_policy': 'retain_polar_merge_nonpolar',
+            'omitted_hydrogen_indices': omitted_hydrogen_indices,
             'atom_map_status': 'identity'
             if len(retained_indices) == n_atoms
             else 'hydrogen_subset_mapped',

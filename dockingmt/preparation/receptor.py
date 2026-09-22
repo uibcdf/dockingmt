@@ -222,6 +222,7 @@ def prepare_receptor(
     retained_charges: list[float] = []
     retained_indices: list[int] = []
     merged_hydrogen_charges: dict[int, float] = {}
+    omitted_hydrogen_indices: list[int] = []
 
     for i, (aname, gname, gid, element) in enumerate(
         zip(atom_names, group_names, group_ids, elements)
@@ -243,6 +244,7 @@ def prepare_receptor(
                     merged_hydrogen_charges[attached] = (
                         merged_hydrogen_charges.get(attached, 0.0) + charges[i]
                     )
+                omitted_hydrogen_indices.append(i)
                 continue
 
         atype = 'C'
@@ -314,6 +316,8 @@ def prepare_receptor(
             if aromaticity is not None
             else 'element_residue_heuristic',
             'merged_hydrogen_charges': bool(merged_hydrogen_charges),
+            'hydrogen_policy': 'retain_polar_merge_nonpolar',
+            'omitted_hydrogen_indices': omitted_hydrogen_indices,
             'source_chemistry': chemistry_evidence(extracted),
         },
         source_molsys=msm.extract(extracted, selection=retained_indices),

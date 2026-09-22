@@ -31,6 +31,79 @@ def _ensure_coordinates_quantity(coords: Any) -> Any:
     return puw.quantity(raw, unit)
 
 
+def _atom_key(record: dict[str, str | None]) -> tuple[str | None, ...]:
+    return tuple(
+        record.get(field)
+        for field in ('atom_id', 'atom_name', 'element', 'group_id', 'group_name')
+    )
+
+
+def _molecular_atom_keys(molsys: Any) -> list[dict[str, str | None]]:
+    """Read ordered MolSysMT atom identities for a DockingMT pose map."""
+    import molsysmt as msm
+
+    required = ('atom_id', 'atom_type')
+    if any(not msm.has_attribute(molsys, attribute) for attribute in required):
+        raise ArgumentError(
+            arg_name='partner',
+            reason='A pose atom map requires source atom IDs and elements.',
+        )
+    atom_ids = msm.get(molsys, element='atom', atom_id=True)
+    n_atoms = int(msm.get(molsys, element='system', n_atoms=True))
+    atom_names = (
+        msm.get(molsys, element='atom', name=True)
+        if msm.has_attribute(molsys, 'atom_name')
+        else [None] * n_atoms
+    )
+    elements = msm.get(
+        molsys,
+        element='atom',
+        atom_type=True,
+        chemical_state='structure',
+        structure_indices=0,
+    )
+    group_ids = (
+        msm.get(molsys, element='atom', group_id=True)
+        if msm.has_attribute(molsys, 'group_id')
+        else [None] * n_atoms
+    )
+    # MolSysMT currently raises IndexError for group-free group_name queries (#233).
+    group_names = (
+        msm.get(molsys, element='atom', group_name=True)
+        if msm.has_attribute(molsys, 'group_name')
+        else [None] * n_atoms
+    )
+    columns = (atom_ids, atom_names, elements, group_ids, group_names)
+    if any(len(column) != n_atoms for column in columns):
+        raise ArgumentError(
+            arg_name='partner', reason='Source atom identity arrays are incomplete.'
+        )
+    if any(
+        value is None or not str(value).strip()
+        for column in (atom_ids, elements)
+        for value in column
+    ):
+        raise ArgumentError(
+            arg_name='partner',
+            reason='Source atom IDs and elements must be set.',
+        )
+    records = [
+        {
+            'atom_id': str(atom_ids[i]),
+            'atom_name': str(atom_names[i]) if atom_names[i] is not None else None,
+            'element': str(elements[i]),
+            'group_id': str(group_ids[i]) if group_ids[i] is not None else None,
+            'group_name': str(group_names[i]) if group_names[i] is not None else None,
+        }
+        for i in range(n_atoms)
+    ]
+    if len({_atom_key(record) for record in records}) != n_atoms:
+        raise ArgumentError(
+            arg_name='partner', reason='Source atom identities are not unique.'
+        )
+    return records
+
+
 class DockingPose:
     """A candidate bound configuration tied to molecular state and provenance.
 
@@ -120,8 +193,11 @@ class DockingPose:
         ----------
         reference : Any
             A reference DockingPose, coordinate quantity array, or MolSysMT system.
+            Molecular references require the pose's verified source atom map.
+            Coordinate arrays are compared positionally by explicit caller choice.
         selection : str, default 'all'
-            Selection expression if reference is a MolSysMT system.
+            Selection expression if reference is a MolSysMT system. Extra reference
+            hydrogens may be omitted from the mapped comparison.
 
         Returns
         -------
@@ -137,8 +213,21 @@ class DockingPose:
 
         ref_sys: Any
         if isinstance(reference, DockingPose):
+            keys = self._verified_atom_keys()
+            reference_keys = reference._verified_atom_keys()
+            reference_lookup = {
+                _atom_key(record): index for index, record in enumerate(reference_keys)
+            }
+            if set(reference_lookup) != {_atom_key(record) for record in keys}:
+                raise ArgumentError(
+                    arg_name='reference',
+                    reason='Pose atom identities differ from reference pose identities.',
+                )
+            reference_coordinates = puw.get_value(reference._coordinates)[
+                [reference_lookup[_atom_key(record)] for record in keys]
+            ]
             ref_sys = puw.quantity(
-                np.expand_dims(puw.get_value(reference._coordinates), axis=0),
+                np.expand_dims(reference_coordinates, axis=0),
                 puw.get_unit(reference._coordinates),
             )
         elif puw.is_quantity(reference):
@@ -150,14 +239,76 @@ class DockingPose:
             else:
                 ref_sys = reference
         else:
-            ref_sys = reference
+            keys = self._verified_atom_keys()
+            reference_molsys = msm.convert(reference, to_form='molsysmt.MolSys')
+            if msm.get(reference_molsys, element='system', n_structures=True) != 1:
+                raise ArgumentError(
+                    arg_name='reference',
+                    reason='Molecular RMSD requires one reference structure.',
+                )
+            reference_keys = _molecular_atom_keys(reference_molsys)
+            selected = msm.select(reference_molsys, selection=selection)
+            selected_keys = [reference_keys[int(index)] for index in selected]
+            reference_lookup = {
+                _atom_key(record): int(index)
+                for index, record in zip(selected, selected_keys)
+            }
+            pose_keys = {_atom_key(record) for record in keys}
+            if not pose_keys.issubset(reference_lookup) or any(
+                record['element'] != 'H'
+                for record in selected_keys
+                if _atom_key(record) not in pose_keys
+            ):
+                raise ArgumentError(
+                    arg_name='reference',
+                    reason=(
+                        'Reference atoms do not match the verified pose map; '
+                        'only omitted hydrogens may remain in the reference.'
+                    ),
+                )
+            reference_coordinates = msm.get(
+                reference_molsys, element='atom', coordinates=True
+            )
+            values = puw.get_value(reference_coordinates)[
+                0, [reference_lookup[_atom_key(record)] for record in keys], :
+            ]
+            ref_sys = puw.quantity(
+                np.expand_dims(values, axis=0),
+                puw.get_unit(reference_coordinates),
+            )
 
         res = msm.structure.get_rmsd(
             coords,
             reference_molecular_system=ref_sys,
-            selection=selection,
+            selection='all',
         )
         return res[0]
+
+    def _verified_atom_keys(self) -> list[dict[str, str | None]]:
+        keys = self.metadata.get('source_atom_keys')
+        if (
+            self.metadata.get('pose_atom_order') != 'verified_pdbqt_order'
+            or not isinstance(keys, list)
+            or len(keys) != self.n_atoms
+            or any(not isinstance(record, dict) for record in keys)
+            or any(
+                any(
+                    not isinstance(record.get(field), str) or not record[field]
+                    for field in ('atom_id', 'element')
+                )
+                or any(
+                    record.get(field) is not None and not isinstance(record[field], str)
+                    for field in ('atom_name', 'group_id', 'group_name')
+                )
+                for record in keys
+            )
+            or len({_atom_key(record) for record in keys}) != len(keys)
+        ):
+            raise ArgumentError(
+                arg_name='pose',
+                reason='Molecular reconstruction and RMSD require a verified source atom map.',
+            )
+        return keys
 
     def to_molecular_system(self, partner: Any) -> Any:
         """Convert this pose into a MolSysMT molecular system using partner topology.
@@ -165,7 +316,9 @@ class DockingPose:
         Parameters
         ----------
         partner : Any
-            The partner/ligand molecular system or PreparedLigand providing atom names/topology.
+            The source partner/ligand molecular system or PreparedLigand. Its ordered
+            atom identities must match the verified pose map. Omitted hydrogens
+            remain absent from the returned molecular system.
 
         Returns
         -------
@@ -174,6 +327,7 @@ class DockingPose:
         """
         import molsysmt as msm
 
+        expected_keys = self._verified_atom_keys()
         base_sys: Any
         if hasattr(partner, 'to_molecular_system'):
             base_sys = partner.to_molecular_system()
@@ -181,21 +335,25 @@ class DockingPose:
             base_sys = msm.convert(partner, to_form='molsysmt.MolSys')
         molsys = msm.copy(base_sys)
         partner_n_atoms = msm.get(molsys, element='system', n_atoms=True)
-        if partner_n_atoms != self.n_atoms:
-            selected = self.metadata.get('selected_atom_indices')
-            expected_n_atoms = self.metadata.get('selected_partner_n_atoms')
+        selected = self.metadata.get('selected_atom_indices')
+        expected_n_atoms = self.metadata.get('selected_partner_n_atoms')
+        if selected is not None:
             if (
-                self.metadata.get('pose_atom_order') == 'verified_pdbqt_order'
-                and expected_n_atoms == partner_n_atoms
-                and isinstance(selected, list)
-                and len(selected) == self.n_atoms
-                and len(set(selected)) == len(selected)
-                and all(
-                    isinstance(i, int) and 0 <= i < partner_n_atoms for i in selected
+                expected_n_atoms != partner_n_atoms
+                or not isinstance(selected, list)
+                or len(selected) != self.n_atoms
+                or len(set(selected)) != len(selected)
+                or any(
+                    not isinstance(i, int) or i < 0 or i >= partner_n_atoms
+                    for i in selected
                 )
             ):
-                molsys = msm.extract(molsys, selection=selected)
-                partner_n_atoms = self.n_atoms
+                raise ArgumentError(
+                    arg_name='partner',
+                    reason='The pose-to-partner atom indices are invalid.',
+                )
+            molsys = msm.extract(molsys, selection=selected)
+            partner_n_atoms = msm.get(molsys, element='system', n_atoms=True)
         if partner_n_atoms != self.n_atoms:
             raise ArgumentError(
                 arg_name='partner',
@@ -203,6 +361,11 @@ class DockingPose:
                     f'Pose has {self.n_atoms} atoms but partner has {partner_n_atoms}; '
                     'a verified pose-to-partner atom map is required.'
                 ),
+            )
+        if _molecular_atom_keys(molsys) != expected_keys:
+            raise ArgumentError(
+                arg_name='partner',
+                reason='Partner atom identities or order differ from the verified pose map.',
             )
         coords_3d = puw.quantity(
             np.expand_dims(puw.get_value(self._coordinates), axis=0),

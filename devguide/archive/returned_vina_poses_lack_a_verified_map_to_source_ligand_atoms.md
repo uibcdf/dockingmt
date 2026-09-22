@@ -1,13 +1,13 @@
 ---
 summary: Returned Vina poses lack a verified map to source ligand atoms
 issue: uibcdf/dockingmt#8
-status: open
+status: resolved
 opened: 2026-09-22
-closed:
+closed: 2026-09-22
 severity: high
-verification: inspected
+verification: asserted
 area: [results, identity]
-guard:
+guard: tests/test_results.py::test_molecular_pose_map_preserves_elements_and_rejects_reordered_source
 normative:
 blocked_by: []
 supersedes: []
@@ -16,7 +16,7 @@ supersedes: []
 # Returned Vina poses lack a verified map to source ligand atoms
 
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
-**Status:** Open; DockingMT Core MVP work.
+**Status:** Resolved for the initial Vina ligand workflow.
 
 ## What
 
@@ -53,3 +53,22 @@ Result identity and reconstruction for the initial Vina ligand workflow; multi-m
 Related tracked work: uibcdf/dockingmt#3
 Cross-component implementation links: uibcdf/molsysmt#223, uibcdf/molsysmt#226.
 New functionality requires tests of scientific semantics and documentation appropriate to its public surface.
+
+## Resolution
+
+The Vina adapter verifies output PDBQT atom order and coordinates against the
+input PDBQT and records ordered MolSysMT source atom identities in each pose.
+It checks prepared names and elements against that source before attaching the
+map. Molecular reconstruction checks the identities against the supplied
+partner, including same-count systems, and returns only atoms with docked
+coordinates. Molecular RMSD aligns the reference by the verified identities;
+extra reference hydrogens are omitted from that comparison. Numeric coordinate
+arrays remain an explicit positional RMSD input.
+
+Raw PDBQT output without a molecular source map cannot be reconstructed as a
+molecular pose or compared to a molecular reference. The MolSysViewer adapter
+uses the same reconstruction guard and no longer fabricates carbon atoms when
+the partner is missing. Serialization retains each pose's map, score, rank,
+state IDs and result provenance. Tests cover reordered identities, retained
+oxygen, omitted hydrogens, PDBQT order mismatch and mapped 181L redocking.
+Generic PDBQT identity/parsing remains with MolSysMT issues #223 and #226.

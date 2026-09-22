@@ -7,8 +7,23 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt
+from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core import BoxRegion, DockingPose, DockingProblem, DockingResult
+from dockingmt.core.results import _molecular_atom_keys
 from dockingmt.view import show, view
+
+
+def _mapped_mock_pose(partner, coordinates, scores, rank):
+    """Represent a backend pose whose source atom order was already verified."""
+    return DockingPose(
+        coordinates=coordinates,
+        scores=scores,
+        rank=rank,
+        metadata={
+            'pose_atom_order': 'verified_pdbqt_order',
+            'source_atom_keys': _molecular_atom_keys(partner),
+        },
+    )
 
 
 def test_addon_spec_matches_molsysviewer_contract():
@@ -136,17 +151,21 @@ def test_build_docking_complex_system_and_set_active_pose():
         to_form='molsysmt.MolSys',
     )
 
-    # 3 mock poses with 3 atoms each
+    partner = msm.extract(rec, selection=[0, 1, 2])
+    # 3 mock poses with a declared and checked 3-atom source
     poses = [
-        DockingPose(
-            coordinates=puw.quantity(np.ones((3, 3)) * (i + 1), 'angstrom'),
-            scores={'vina': -7.0 + i},
-            rank=i + 1,
+        _mapped_mock_pose(
+            partner,
+            puw.quantity(np.ones((3, 3)) * (i + 1), 'angstrom'),
+            {'vina': -7.0 + i},
+            i + 1,
         )
         for i in range(3)
     ]
 
-    complex_sys = build_docking_complex_system(receptor=rec, poses=poses)
+    complex_sys = build_docking_complex_system(
+        receptor=rec, poses=poses, partner=partner
+    )
     n_rec_atoms = msm.get(rec, element='system', n_atoms=True)
     assert msm.get(complex_sys, element='system', n_atoms=True) == n_rec_atoms + 3
     assert msm.get(complex_sys, element='system', n_structures=True) == 3
@@ -156,7 +175,7 @@ def test_build_docking_complex_system_and_set_active_pose():
 
     v = msv.MolSysView(debug_js=True)
     res = DockingResult(poses=poses)
-    render_docking_result(v, res, receptor=rec)
+    render_docking_result(v, res, receptor=rec, partner=partner)
 
     assert v.player.n_structures == 3
     assert v.player.index == 0
@@ -191,16 +210,17 @@ def test_dockingmt_view_with_result_problem_and_search_domain():
         center=puw.quantity([0.0, 0.0, 0.0], 'nm'),
         lengths=puw.quantity([1.0, 1.0, 1.0], 'nm'),
     )
-    poses = [
-        DockingPose(
-            coordinates=puw.quantity(np.zeros((2, 3)), 'angstrom'),
-            scores={'vina': -5.0},
-            rank=1,
-        )
-    ]
     problem = DockingProblem(
         receptor=rec, partner=rec, partner_selection=[0, 1], search_domain=box
     )
+    poses = [
+        _mapped_mock_pose(
+            problem.partner_molsys,
+            puw.quantity(np.zeros((2, 3)), 'angstrom'),
+            {'vina': -5.0},
+            1,
+        )
+    ]
     res = DockingResult(poses=poses, problem=problem)
 
     # 1. view(result)
@@ -222,7 +242,7 @@ def test_dockingmt_view_with_result_problem_and_search_domain():
     assert v4.shapes.contains('dockingmt:search_domain')
 
 
-def test_viewer_rejects_partner_pose_atom_count_mismatch():
+def test_viewer_rejects_unmapped_poses_without_inventing_ligand_atoms():
     import molsysmt as msm
 
     from molsysviewer_dockingmt.adapters.complex import build_docking_complex_system
@@ -232,7 +252,9 @@ def test_viewer_rejects_partner_pose_atom_count_mismatch():
         to_form='molsysmt.MolSys',
     )
     pose = DockingPose(coordinates=puw.quantity(np.zeros((2, 3)), 'angstrom'))
-    with pytest.raises(ValueError, match='verified pose-to-partner atom map'):
+    with pytest.raises(ValueError, match='source partner is required'):
+        build_docking_complex_system(molsys, [pose])
+    with pytest.raises(ArgumentError, match='verified source atom map'):
         build_docking_complex_system(molsys, [pose], partner=molsys)
 
 
@@ -253,21 +275,24 @@ def test_panels_workbench_and_export():
         center=puw.quantity([1.0, 1.0, 1.0], 'nm'),
         lengths=puw.quantity([1.0, 1.0, 1.0], 'nm'),
     )
+    partner = msm.extract(rec, selection=[0, 1, 2])
     poses = [
-        DockingPose(
-            coordinates=puw.quantity(np.zeros((3, 3)), 'angstrom'),
-            scores={'vina': -6.5},
-            rank=1,
+        _mapped_mock_pose(
+            partner,
+            puw.quantity(np.zeros((3, 3)), 'angstrom'),
+            {'vina': -6.5},
+            1,
         ),
-        DockingPose(
-            coordinates=puw.quantity(np.ones((3, 3)), 'angstrom'),
-            scores={'vina': -5.2},
-            rank=2,
+        _mapped_mock_pose(
+            partner,
+            puw.quantity(np.ones((3, 3)), 'angstrom'),
+            {'vina': -5.2},
+            2,
         ),
     ]
     res = DockingResult(poses=poses)
 
-    v = dockingmt.view(result=res, receptor=rec, search_domain=box)
+    v = dockingmt.view(result=res, receptor=rec, partner=partner, search_domain=box)
 
     # Explorer panel
     explorer = DockingExplorerPanel(view=v)

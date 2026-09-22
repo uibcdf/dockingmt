@@ -20,19 +20,6 @@ def _ensure_molsys(entity: Any) -> Any:
     return msm.convert(entity, to_form='molsysmt.MolSys')
 
 
-def _fallback_partner_system(n_atoms: int, group_name: str = 'LIG') -> Any:
-    """Construct a minimal MolSysMT system with n_atoms as a fallback."""
-    from dockingmt._private.conversion import pdb_text_to_molsys
-
-    lines = [
-        f'ATOM  {i + 1:5d}  C{i + 1:<3d}{group_name[:3]:3s} A{1:4d}    '
-        f'{0.0:8.3f}{0.0:8.3f}{0.0:8.3f}  1.00  0.00           C'
-        for i in range(n_atoms)
-    ]
-    pdb_text = '\n'.join(lines) + '\nEND\n'
-    return pdb_text_to_molsys(pdb_text)
-
-
 def build_docking_complex_system(
     receptor: Any,
     poses: list[Any],
@@ -49,8 +36,8 @@ def build_docking_complex_system(
         Receptor molecular system or PreparedReceptor.
     poses : list[DockingPose]
         Candidate docking poses.
-    partner : Any, optional
-        Partner molecular system or PreparedLigand providing ligand topology.
+    partner : Any
+        Source partner molecular system or PreparedLigand providing ligand topology.
 
     Returns
     -------
@@ -64,44 +51,11 @@ def build_docking_complex_system(
 
     rec_sys = _ensure_molsys(receptor)
 
-    # Resolve ligand base system
-    n_lig_atoms = poses[0].n_atoms
-    lig_base: Any
-    if partner is not None:
-        lig_base = _ensure_molsys(partner)
-        partner_n_atoms = msm.get(lig_base, element='system', n_atoms=True)
-        if partner_n_atoms != n_lig_atoms:
-            selected = poses[0].metadata.get('selected_atom_indices')
-            mapped = (
-                poses[0].metadata.get('pose_atom_order') == 'verified_pdbqt_order'
-                and poses[0].metadata.get('selected_partner_n_atoms') == partner_n_atoms
-                and isinstance(selected, list)
-                and len(selected) == n_lig_atoms
-                and len(set(selected)) == len(selected)
-                and all(
-                    isinstance(i, int) and 0 <= i < partner_n_atoms for i in selected
-                )
-                and all(
-                    pose.metadata.get('selected_atom_indices') == selected
-                    for pose in poses
-                )
-            )
-            if not mapped:
-                raise ValueError(
-                    f'Pose has {n_lig_atoms} atoms but partner has {partner_n_atoms}; '
-                    'a verified pose-to-partner atom map is required.'
-                )
-            lig_base = msm.extract(lig_base, selection=selected)
-    else:
-        lig_base = _fallback_partner_system(n_lig_atoms)
+    if partner is None:
+        raise ValueError('A source partner is required to reconstruct molecular poses.')
 
-    # Frame 0
-    pose0_coords = puw.quantity(
-        np.expand_dims(puw.get_value(poses[0].coordinates), axis=0),
-        puw.get_unit(poses[0].coordinates),
-    )
-    lig_frame0 = msm.copy(lig_base)
-    msm.set(lig_frame0, element='atom', coordinates=pose0_coords)
+    ligand_frames = [pose.to_molecular_system(partner) for pose in poses]
+    lig_frame0 = ligand_frames[0]
     complex_sys = msm.merge([rec_sys, lig_frame0])
 
     # If there are additional poses, append their structures
@@ -112,8 +66,9 @@ def build_docking_complex_system(
     # Base single-structure complex used as a template for additional frames
     base_frame = msm.copy(complex_sys)
 
-    for pose in poses[1:]:
-        pose_vals = puw.get_value(puw.convert(pose.coordinates, to_unit=rec_unit))
+    for ligand_frame in ligand_frames[1:]:
+        ligand_coords = msm.get(ligand_frame, element='atom', coordinates=True)
+        pose_vals = puw.get_value(puw.convert(ligand_coords, to_unit=rec_unit))[0]
         combined_vals = np.concatenate([rec_vals, pose_vals], axis=0)
         frame_coords = puw.quantity(np.expand_dims(combined_vals, axis=0), rec_unit)
 

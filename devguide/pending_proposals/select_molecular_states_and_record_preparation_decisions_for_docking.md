@@ -1,12 +1,12 @@
 ---
 summary: Select molecular states and record preparation decisions for docking
 issue: uibcdf/dockingmt#4
-status: open
+status: partial
 opened: 2026-09-22
 closed:
-verification: inspected
+verification: asserted
 area: [preparation, provenance]
-guard:
+guard: tests/test_redocking.py::test_direct_molsysmt_input_reaches_vina
 normative:
 blocked_by: []
 supersedes: []
@@ -15,7 +15,7 @@ supersedes: []
 # Select molecular states and record preparation decisions for docking
 
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
-**Status:** Open; DockingMT Core MVP work.
+**Status:** Partial; DockingMT Core MVP work.
 
 ## What
 
@@ -52,3 +52,19 @@ Selection and provenance for the initial protein–small-molecule workflow; chem
 Related tracked work: uibcdf/dockingmt#3
 Cross-component implementation links: uibcdf/molsysmt#217, uibcdf/molsysmt#218, uibcdf/molsysmt#220, uibcdf/molsysmt#221, uibcdf/molsysmt#222, uibcdf/molsysmt#223, uibcdf/molsysmt#229, uibcdf/molsysmt#230.
 New functionality requires tests of scientific semantics and documentation appropriate to its public surface.
+
+## 2026-09-22 progress
+
+DockingProblem now records source form, atom selection and indices, chosen
+structure and chemical-state identifiers, conversion report, and file content
+fingerprint. Vina preparation records source charge availability, temporary
+typing, retained atoms, omitted hydrogens, the polar-hydrogen policy, and the
+rigid torsion policy. The backend now records SHA-256 digests of the exact
+receptor and partner PDBQT bytes submitted to Vina. The chosen protocol and
+preparation assessments remain in result provenance.
+
+The proposal stays open. Named validated charge and atom-typing methods,
+protonation and pH choices, residue variants, and explicit water/cofactor
+decisions require provider capabilities or a documented preparation workflow.
+An artifact digest proves which bytes were used when retained elsewhere; it
+does not by itself preserve the generated PDBQT for later reconstruction.

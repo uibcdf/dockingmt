@@ -4,6 +4,7 @@ import pyunitwizard as puw
 
 from dockingmt import DockingPose, DockingResult
 from dockingmt._private.smonitor import ArgumentError
+from dockingmt.core.results import _molecular_atom_keys
 
 
 def test_docking_pose_creation_and_attributes():
@@ -121,3 +122,69 @@ def test_docking_result_serialization_roundtrip():
         puw.get_value(rec_pose.coordinates),
         puw.get_value(p1.coordinates),
     )
+
+
+def test_molecular_pose_map_preserves_elements_and_rejects_reordered_source():
+    import molsysmt as msm
+
+    rdkit = pytest.importorskip('rdkit')
+    from rdkit import Chem
+    from rdkit.Chem import AllChem
+
+    assert rdkit is not None
+    molecule = Chem.AddHs(Chem.MolFromSmiles('CO'))
+    assert AllChem.EmbedMolecule(molecule, randomSeed=11) == 0
+    source = msm.convert(molecule, to_form='molsysmt.MolSys')
+    retained = msm.extract(source, selection=[0, 1])
+    coordinates = msm.get(retained, element='atom', coordinates=True)
+    pose = DockingPose(
+        coordinates=coordinates[0],
+        scores={'vina': -1.0},
+        rank=1,
+        partner_state_id='methanol',
+        receptor_state_id='receptor_1',
+        metadata={
+            'pose_atom_order': 'verified_pdbqt_order',
+            'source_atom_keys': _molecular_atom_keys(retained),
+            'selected_atom_indices': [0, 1],
+            'selected_partner_n_atoms': msm.get(source, n_atoms=True),
+        },
+    )
+    result = DockingResult(poses=[pose], provenance={'backend': 'vina'})
+    recovered = DockingResult.from_dict(result.to_dict())
+    recovered_pose = recovered.top_pose
+    rebuilt = recovered_pose.to_molecular_system(source)
+    assert msm.get(rebuilt, element='atom', atom_type=True) == ['C', 'O']
+    assert puw.get_value(
+        recovered_pose.get_rmsd(source), to_unit='angstrom'
+    ) == pytest.approx(0.0)
+    assert recovered_pose.scores == {'vina': -1.0}
+    assert recovered_pose.rank == 1
+    assert recovered_pose.partner_state_id == 'methanol'
+    assert recovered_pose.receptor_state_id == 'receptor_1'
+    assert recovered.provenance == {'backend': 'vina'}
+
+    reordered = msm.copy(source)
+    atom_ids = reordered.topology.atoms['atom_id'].tolist()
+    atom_ids[0], atom_ids[1] = atom_ids[1], atom_ids[0]
+    reordered.topology.atoms['atom_id'] = atom_ids
+    with pytest.raises(ArgumentError, match='identities or order differ'):
+        recovered_pose.to_molecular_system(reordered)
+    with pytest.raises(ArgumentError, match='Reference atoms do not match'):
+        recovered_pose.get_rmsd(reordered)
+
+
+def test_unmapped_pose_rejects_molecular_reconstruction_and_rmsd():
+    import molsysmt as msm
+
+    source = msm.convert(
+        msm.systems['T4 lysozyme L99A']['181l.pdb'],
+        to_form='molsysmt.MolSys',
+    )
+    ligand = msm.extract(source, selection="group_name=='BNZ'")
+    coordinates = msm.get(ligand, element='atom', coordinates=True)
+    pose = DockingPose(coordinates=coordinates[0])
+    with pytest.raises(ArgumentError, match='verified source atom map'):
+        pose.to_molecular_system(ligand)
+    with pytest.raises(ArgumentError, match='verified source atom map'):
+        pose.get_rmsd(ligand)

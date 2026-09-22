@@ -162,6 +162,15 @@ def test_direct_molsysmt_input_reaches_vina():
     assert result.provenance['preparation']['partner']['mode'] == 'automatic'
     assert result.provenance['preparation']['partner']['assessment'] == 'provisional'
     assert (
+        result.provenance['preparation']['partner']['metadata']['hydrogen_policy']
+        == 'retain_polar_merge_nonpolar'
+    )
+    assert (
+        result.provenance['preparation']['partner']['metadata']['torsion_policy']
+        == 'rigid_only'
+    )
+    assert len(result.provenance['backend_artifacts']['partner']['sha256']) == 64
+    assert (
         result.provenance['protocol']['parameters']['allow_provisional_preparation']
         is True
     )

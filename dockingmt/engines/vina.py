@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import os
 import tempfile
 import time
@@ -14,7 +15,7 @@ import pyunitwizard as puw
 from dockingmt._private.smonitor import ArgumentError, LibraryNotFoundError
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import DockingProtocol, VinaProtocol
-from dockingmt.core.results import DockingPose, DockingResult
+from dockingmt.core.results import DockingPose, DockingResult, _molecular_atom_keys
 from dockingmt.engines.base import DockingBackend
 from dockingmt.preparation import (
     PreparedLigand,
@@ -22,6 +23,7 @@ from dockingmt.preparation import (
     prepare_ligand,
     prepare_receptor,
 )
+from dockingmt.preparation._molsys import autodock_element
 
 
 def _pdbqt_atom_records(
@@ -263,6 +265,29 @@ class VinaBackend(DockingBackend):
             },
         }
 
+        partner_atom_keys = None
+        if isinstance(partner, PreparedLigand):
+            partner_source = (
+                partner.source_molsys
+                if partner.source_molsys is not None
+                else partner.to_molecular_system()
+            )
+            partner_atom_keys = _molecular_atom_keys(partner_source)
+            if (
+                len(partner_atom_keys) != partner.n_atoms
+                or (
+                    all(record['atom_name'] is not None for record in partner_atom_keys)
+                    and [record['atom_name'] for record in partner_atom_keys]
+                    != partner.atom_names
+                )
+                or [record['element'] for record in partner_atom_keys]
+                != [autodock_element(atom_type) for atom_type in partner.atom_types]
+            ):
+                raise ArgumentError(
+                    arg_name='problem.partner',
+                    reason='Prepared ligand names or elements do not match its molecular source.',
+                )
+
         # Prepare receptor and partner representations
         temp_files_to_remove: list[str] = []
 
@@ -273,6 +298,22 @@ class VinaBackend(DockingBackend):
             partner_file, partner_string = self._resolve_partner(
                 partner, temp_files_to_remove
             )
+            receptor_pdbqt = Path(receptor_file).read_bytes()
+            partner_pdbqt = (
+                partner_string.encode('utf-8')
+                if partner_string is not None
+                else Path(partner_file).read_bytes()
+            )
+            backend_artifacts = {
+                'receptor': {
+                    'format': 'pdbqt',
+                    'sha256': hashlib.sha256(receptor_pdbqt).hexdigest(),
+                },
+                'partner': {
+                    'format': 'pdbqt',
+                    'sha256': hashlib.sha256(partner_pdbqt).hexdigest(),
+                },
+            }
 
             # Initialize Vina engine
             v = vina.Vina(
@@ -344,7 +385,6 @@ class VinaBackend(DockingBackend):
                         arg_name='problem.partner',
                         reason='Vina pose coordinates do not match the prepared ligand atom count; a verified atom map is required.',
                     )
-
                 partner_state_id = getattr(
                     partner,
                     'state_id',
@@ -378,6 +418,7 @@ class VinaBackend(DockingBackend):
                             'selected_atom_indices': partner_selected_indices,
                             'source_atom_indices': partner_source_indices,
                             'selected_partner_n_atoms': partner_source_n_atoms,
+                            'source_atom_keys': partner_atom_keys,
                         }
                         if isinstance(partner, PreparedLigand)
                         else {
@@ -394,6 +435,7 @@ class VinaBackend(DockingBackend):
                 'seed': protocol.seed,
                 'elapsed_seconds': elapsed_seconds,
                 'preparation': preparation,
+                'backend_artifacts': backend_artifacts,
             }
 
             return DockingResult(

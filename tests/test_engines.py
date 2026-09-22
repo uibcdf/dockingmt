@@ -1,3 +1,5 @@
+import hashlib
+
 import molsysmt as msm
 import pytest
 import pyunitwizard as puw
@@ -89,11 +91,23 @@ def test_vina_backend_docking_execution():
     assert 'vina' in top_pose.scores
     assert puw.are_compatible(top_pose.coordinates, 'nm')
     assert top_pose.metadata['pose_atom_order'] == 'verified_pdbqt_order'
+    with pytest.raises(ArgumentError, match='verified source atom map'):
+        top_pose.to_molecular_system(problem.partner)
 
     # Provenance checks
     assert result.provenance['backend'] == 'vina'
     assert 'elapsed_seconds' in result.provenance
     assert result.provenance['seed'] == 123
+    assert result.provenance['backend_artifacts'] == {
+        'receptor': {
+            'format': 'pdbqt',
+            'sha256': hashlib.sha256(MINIMAL_REC_PDBQT.encode()).hexdigest(),
+        },
+        'partner': {
+            'format': 'pdbqt',
+            'sha256': hashlib.sha256(MINIMAL_LIG_PDBQT.encode()).hexdigest(),
+        },
+    }
 
 
 def test_dock_top_level_api():
@@ -191,6 +205,17 @@ def test_rdkit_ligand_with_explicit_hydrogens_has_pose_source_map():
     assert pose.metadata['source_atom_indices'] == list(range(6))
     assert pose.metadata['selected_partner_n_atoms'] == 12
     assert msm.get(pose.to_molecular_system(problem.partner_molsys), n_atoms=True) == 6
+    assert (
+        puw.get_value(pose.get_rmsd(problem.partner_molsys), to_unit='angstrom') >= 0.0
+    )
+    assert all(
+        element != 'H'
+        for element in msm.get(
+            pose.to_molecular_system(problem.partner_molsys),
+            element='atom',
+            atom_type=True,
+        )
+    )
     from molsysviewer_dockingmt.adapters.complex import build_docking_complex_system
 
     complex_pose = build_docking_complex_system(

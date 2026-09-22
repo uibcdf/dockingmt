@@ -79,6 +79,9 @@ def test_rdkit_ligand_without_groups_preserves_available_chemistry():
     assert np.sum(ligand.charges) == pytest.approx(0.0, abs=1e-6)
     assert ligand.metadata['charge_source'] == 'source_partial_charge'
     assert ligand.metadata['merged_hydrogen_charges'] is True
+    assert ligand.metadata['hydrogen_policy'] == 'retain_polar_merge_nonpolar'
+    assert ligand.metadata['omitted_hydrogen_indices'] == list(range(6, 12))
+    assert ligand.metadata['torsion_policy'] == 'rigid_only'
     assert ligand.metadata['atom_map_status'] == 'hydrogen_subset_mapped'
     assert ligand.metadata['source_chemistry'] == {
         'connectivity_completeness': ['complete'],
@@ -124,3 +127,21 @@ def test_manual_prepared_ligand_recovers_elements_from_autodock_types():
         'C',
         'O',
     ]
+
+
+def test_ligand_writer_rejects_torsion_count_without_branch_tree():
+    path = msm.systems['T4 lysozyme L99A']['181l.pdb']
+    with pytest.raises(ArgumentError, match='ROOT/BRANCH tree'):
+        prepare_ligand(path, selection="group_name=='BNZ'", torsion_dof=1)
+
+    ligand = PreparedLigand(
+        state_id='rigid',
+        atom_names=['C1'],
+        group_name='LIG',
+        coordinates=puw.quantity([[0.0, 0.0, 0.0]], 'nm'),
+        atom_types=['C'],
+        charges=[0.0],
+    )
+    ligand.torsion_dof = 1
+    with pytest.raises(ArgumentError, match='ROOT/BRANCH tree'):
+        ligand.to_pdbqt()

@@ -69,9 +69,20 @@ and the preparation assessment are recorded in result provenance. Externally
 provided PDBQT inputs are accepted with an `unassessed` chemistry assessment.
 A controlled removal of nonpolar hydrogens
 retains an explicit source atom map, and Vina's PDBQT output order is checked
-before poses are returned. Other atom losses require a verified map. See
-[issue #8](https://github.com/uibcdf/dockingmt/issues/8) before interpreting
-docking scores or pose identities scientifically.
+before poses are returned. Molecular pose reconstruction and RMSD verify ordered
+source atom identities; omitted hydrogens remain absent from reconstructed poses.
+Raw PDBQT inputs without a molecular source map can still produce scores and
+coordinates, but cannot be reconstructed as molecular poses or compared by
+molecular RMSD. Explicit coordinate-array RMSD is positional. Other atom losses
+require a verified map. Preparation chemistry remains provisional under
+[issue #5](https://github.com/uibcdf/dockingmt/issues/5).
+DockingMT's current ligand writer supports rigid ligands only (`TORSDOF 0`);
+requesting active torsions raises an error until a valid PDBQT torsion tree is
+available under [issue #6](https://github.com/uibcdf/dockingmt/issues/6).
+Result provenance records the hydrogen and torsion policies, preparation
+assessment, and SHA-256 digests of the PDBQT bytes submitted to Vina. Remaining
+preparation-decision provenance is tracked in
+[issue #4](https://github.com/uibcdf/dockingmt/issues/4).
 
 ## Governance and Design Authority
 
