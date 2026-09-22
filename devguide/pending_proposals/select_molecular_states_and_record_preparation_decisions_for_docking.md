@@ -23,7 +23,7 @@ Make the chosen ligand and receptor states and preparation decisions explicit in
 
 ## How
 
-Record ligand chemical state and conformer, receptor state, pH and residue variants, retained waters/cofactors, and any transformation parameters; associate each result with those inputs.
+Record ligand chemical state and conformer, receptor state, pH and residue variants, retained waters/cofactors, the named charge and atom-typing schemes, hydrogen projection, active torsions, and any transformation parameters; associate each result with those inputs.
 
 ## Why
 
@@ -44,11 +44,11 @@ Selection and provenance for the initial protein–small-molecule workflow; chem
 
 ## Acceptance criteria
 
-- A run can identify the selected source states, structure indices, preparation choices, and backend artifacts.
+- A run can identify the selected source states, structure indices, named charge and atom-typing methods, hydrogen and torsion policies, preparation choices, and backend artifacts.
 - Ambiguous state selection fails or requires an explicit documented policy; redocking tests verify traceability.
 
 ## Dependencies and risks
 
 Related tracked work: uibcdf/dockingmt#3
-Cross-component implementation links: uibcdf/molsysmt#217, uibcdf/molsysmt#218, uibcdf/molsysmt#220.
+Cross-component implementation links: uibcdf/molsysmt#217, uibcdf/molsysmt#218, uibcdf/molsysmt#220, uibcdf/molsysmt#221, uibcdf/molsysmt#222, uibcdf/molsysmt#223, uibcdf/molsysmt#229, uibcdf/molsysmt#230.
 New functionality requires tests of scientific semantics and documentation appropriate to its public surface.

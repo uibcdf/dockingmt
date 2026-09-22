@@ -24,7 +24,7 @@ Vina coordinates are collected without a verified source-atom map; prepared-liga
 
 ## How
 
-Carry the PDBQT export map into each pose, reconstruct on the original ligand topology, and validate atom identity before RMSD or molecular export.
+Carry the PDBQT export map into each pose, reconstruct on the original ligand topology, and validate atom identity before RMSD or molecular export. Preserve the pose score, rank, ligand and receptor state IDs, and run provenance through this reconstruction; do not present omitted hydrogen coordinates as docked coordinates.
 
 ## Why
 
@@ -46,7 +46,7 @@ Result identity and reconstruction for the initial Vina ligand workflow; multi-m
 ## Acceptance criteria
 
 - Every pose either carries a verified source-atom correspondence or rejects topology reconstruction and molecular RMSD.
-- Tests cover reordered atoms, omitted hydrogens, preserved non-carbon elements, and a mapped redocking RMSD.
+- Tests cover reordered atoms, omitted hydrogens with an explicit missing-coordinate or named-reconstruction policy, preserved non-carbon elements, mapped redocking RMSD, and unchanged score, rank, state IDs, and provenance.
 
 ## Dependencies and risks
 

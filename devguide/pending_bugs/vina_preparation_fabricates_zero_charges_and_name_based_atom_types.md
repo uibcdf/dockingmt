@@ -24,7 +24,7 @@ Current preparation writes zero partial charges, guesses AutoDock types from nam
 
 ## How
 
-Replace these assumptions with validated MolSysMT parameters and a documented PDBQT projection; until available, reject incomplete inputs with actionable diagnostics.
+Replace these assumptions with validated MolSysMT parameters and a documented PDBQT projection. Check that charge and typing schemes are declared and compatible with the selected Vina scoring mode; until available, reject incomplete inputs with actionable diagnostics.
 
 ## Why
 
@@ -46,7 +46,7 @@ Vina input chemical parameterization; general charge models, AutoDock typing, an
 ## Acceptance criteria
 
 - No supported Vina preparation path silently substitutes zero charges or name-derived chemistry when required input is absent.
-- A focused test covers nonzero charges, polar hydrogen retention, and a chemically distinct atom-type case; unsupported inputs fail clearly.
+- Focused ligand and conventional protein-receptor tests cover nonzero charges, polar hydrogen retention, chemically distinct atom types, and the selected scoring mode; unsupported inputs fail clearly.
 
 ## Dependencies and risks
 
