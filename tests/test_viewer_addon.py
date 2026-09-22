@@ -198,7 +198,9 @@ def test_dockingmt_view_with_result_problem_and_search_domain():
             rank=1,
         )
     ]
-    problem = DockingProblem(receptor=rec, partner=rec, search_domain=box)
+    problem = DockingProblem(
+        receptor=rec, partner=rec, partner_selection=[0, 1], search_domain=box
+    )
     res = DockingResult(poses=poses, problem=problem)
 
     # 1. view(result)
@@ -218,6 +220,20 @@ def test_dockingmt_view_with_result_problem_and_search_domain():
     # 4. view(search_domain=box)
     v4 = view(search_domain=box)
     assert v4.shapes.contains('dockingmt:search_domain')
+
+
+def test_viewer_rejects_partner_pose_atom_count_mismatch():
+    import molsysmt as msm
+
+    from molsysviewer_dockingmt.adapters.complex import build_docking_complex_system
+
+    molsys = msm.convert(
+        msm.systems['alanine dipeptide']['alanine_dipeptide.h5msm'],
+        to_form='molsysmt.MolSys',
+    )
+    pose = DockingPose(coordinates=puw.quantity(np.zeros((2, 3)), 'angstrom'))
+    with pytest.raises(ValueError, match='verified pose-to-partner atom map'):
+        build_docking_complex_system(molsys, [pose], partner=molsys)
 
 
 def test_panels_workbench_and_export():

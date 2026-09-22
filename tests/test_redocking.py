@@ -114,3 +114,51 @@ def test_redocking_benchmark_181l():
     assert view.player.n_structures == len(result)
     assert view.addons.dockingmt.active_pose_rank == 1
     assert 'reference_ligand' in [r.tag for r in view.regions.values()]
+
+
+def test_direct_molsysmt_input_reaches_vina():
+    backend = VinaBackend()
+    if not backend.is_available:
+        pytest.skip('Vina is not installed in the environment.')
+
+    path = msm.systems['T4 lysozyme L99A']['181l.pdb']
+    molsys = msm.convert(path, to_form='molsysmt.MolSys')
+    search_domain = BoxRegion.from_selection(
+        molsys,
+        selection="group_name=='BNZ'",
+        padding=puw.quantity(8.0, 'angstrom'),
+    )
+    problem = DockingProblem(
+        receptor=path,
+        partner=molsys,
+        search_domain=search_domain,
+        receptor_selection="molecule_type=='protein'",
+        partner_selection="group_name=='BNZ'",
+        metadata={
+            'receptor_state_id': '181l_protein',
+            'partner_state_id': '181l_bnz',
+        },
+    )
+
+    result = dock(
+        problem,
+        protocol=VinaProtocol(exhaustiveness=1, n_poses=1, seed=42, cpu=1),
+        backend=backend,
+    )
+
+    assert len(result) > 0
+    assert result.problem is problem
+    assert result.top_pose.receptor_state_id == '181l_protein'
+    assert result.top_pose.partner_state_id == '181l_bnz'
+    assert result.provenance['preparation']['receptor']['mode'] == 'automatic'
+    assert result.provenance['preparation']['partner']['mode'] == 'automatic'
+    assert result.provenance['preparation']['partner']['assessment'] == 'provisional'
+    assert result.top_pose.metadata['pose_atom_order'] == 'verified_pdbqt_order'
+    assert result.problem_info['molecular_inputs']['partner']['atom_indices'] == [
+        1299,
+        1300,
+        1301,
+        1302,
+        1303,
+        1304,
+    ]

@@ -68,12 +68,30 @@ def build_docking_complex_system(
     n_lig_atoms = poses[0].n_atoms
     lig_base: Any
     if partner is not None:
-        try:
-            lig_base = _ensure_molsys(partner)
-            if msm.get(lig_base, element='system', n_atoms=True) != n_lig_atoms:
-                lig_base = _fallback_partner_system(n_lig_atoms)
-        except Exception:
-            lig_base = _fallback_partner_system(n_lig_atoms)
+        lig_base = _ensure_molsys(partner)
+        partner_n_atoms = msm.get(lig_base, element='system', n_atoms=True)
+        if partner_n_atoms != n_lig_atoms:
+            selected = poses[0].metadata.get('selected_atom_indices')
+            mapped = (
+                poses[0].metadata.get('pose_atom_order') == 'verified_pdbqt_order'
+                and poses[0].metadata.get('selected_partner_n_atoms') == partner_n_atoms
+                and isinstance(selected, list)
+                and len(selected) == n_lig_atoms
+                and len(set(selected)) == len(selected)
+                and all(
+                    isinstance(i, int) and 0 <= i < partner_n_atoms for i in selected
+                )
+                and all(
+                    pose.metadata.get('selected_atom_indices') == selected
+                    for pose in poses
+                )
+            )
+            if not mapped:
+                raise ValueError(
+                    f'Pose has {n_lig_atoms} atoms but partner has {partner_n_atoms}; '
+                    'a verified pose-to-partner atom map is required.'
+                )
+            lig_base = msm.extract(lig_base, selection=selected)
     else:
         lig_base = _fallback_partner_system(n_lig_atoms)
 
@@ -142,11 +160,11 @@ def render_docking_result(
 
     # Resolve receptor
     if receptor is None and getattr(result, 'problem', None) is not None:
-        receptor = result.problem.receptor
+        receptor = result.problem.receptor_molsys or result.problem.receptor
 
     # Resolve partner
     if partner is None and getattr(result, 'problem', None) is not None:
-        partner = result.problem.partner
+        partner = result.problem.partner_molsys or result.problem.partner
 
     # Resolve search domain
     if search_domain is None:

@@ -1,3 +1,4 @@
+import molsysmt as msm
 import pytest
 import pyunitwizard as puw
 
@@ -7,7 +8,7 @@ from dockingmt.core.protocol import DockingProtocol, VinaProtocol
 from dockingmt.core.results import DockingResult
 from dockingmt.core.search_domain import BoxRegion
 from dockingmt.dock import dock
-from dockingmt.engines.vina import VinaBackend
+from dockingmt.engines.vina import VinaBackend, _verify_pose_atom_order
 
 
 class DummyCustomProtocol(DockingProtocol):
@@ -86,6 +87,7 @@ def test_vina_backend_docking_execution():
     assert top_pose.receptor_state_id == 'rec_state_1'
     assert 'vina' in top_pose.scores
     assert puw.are_compatible(top_pose.coordinates, 'nm')
+    assert top_pose.metadata['pose_atom_order'] == 'verified_pdbqt_order'
 
     # Provenance checks
     assert result.provenance['backend'] == 'vina'
@@ -132,3 +134,73 @@ def test_dock_invalid_backend():
 
     with pytest.raises(ArgumentError):
         dock(problem, backend=12345)  # type: ignore
+
+
+def test_rdkit_ligand_with_explicit_hydrogens_has_pose_source_map():
+    backend = VinaBackend()
+    if not backend.is_available:
+        pytest.skip('Vina is not installed in the environment.')
+
+    pytest.importorskip('rdkit')
+    from rdkit import Chem
+    from rdkit.Chem import AllChem
+
+    molecule = Chem.AddHs(Chem.MolFromSmiles('c1ccccc1'))
+    assert AllChem.EmbedMolecule(molecule, randomSeed=7) == 0
+    AllChem.ComputeGasteigerCharges(molecule)
+    path = msm.systems['T4 lysozyme L99A']['181l.pdb']
+    complex_system = msm.convert(path, to_form='molsysmt.MolSys')
+    native = msm.get(
+        complex_system,
+        element='atom',
+        selection="group_name=='BNZ'",
+        coordinates=True,
+    )
+    import numpy as np
+
+    native_center = np.mean(puw.get_value(native, to_unit='angstrom')[0], axis=0)
+    conformer = molecule.GetConformer()
+    original = np.asarray(conformer.GetPositions())
+    for i, xyz in enumerate(original - original.mean(axis=0) + native_center):
+        conformer.SetAtomPosition(i, xyz)
+    box = BoxRegion.from_selection(
+        complex_system,
+        selection="group_name=='BNZ'",
+        padding=puw.quantity(8.0, 'angstrom'),
+    )
+    problem = DockingProblem(
+        receptor=path,
+        partner=molecule,
+        search_domain=box,
+        receptor_selection="molecule_type=='protein'",
+    )
+    result = backend.dock(
+        problem, VinaProtocol(exhaustiveness=1, n_poses=1, cpu=1, seed=42)
+    )
+    pose = result.top_pose
+    assert pose.n_atoms == 6
+    assert pose.metadata['selected_atom_indices'] == list(range(6))
+    assert pose.metadata['source_atom_indices'] == list(range(6))
+    assert pose.metadata['selected_partner_n_atoms'] == 12
+    assert msm.get(pose.to_molecular_system(problem.partner_molsys), n_atoms=True) == 6
+    from molsysviewer_dockingmt.adapters.complex import build_docking_complex_system
+
+    complex_pose = build_docking_complex_system(
+        problem.receptor_molsys, result.poses, partner=problem.partner_molsys
+    )
+    assert msm.get(complex_pose, n_atoms=True) == (
+        msm.get(problem.receptor_molsys, n_atoms=True) + 6
+    )
+
+
+def test_vina_atom_order_verifier_rejects_permuted_pose():
+    import numpy as np
+
+    records = [
+        line for line in MINIMAL_LIG_PDBQT.splitlines() if line.startswith('ATOM')
+    ]
+    coordinates = np.array([[[0.0, 0.0, 0.0], [1.5, 0.0, 0.0]]])
+    with pytest.raises(ArgumentError, match='atom order or coordinates differ'):
+        _verify_pose_atom_order(
+            MINIMAL_LIG_PDBQT, '\n'.join(reversed(records)), coordinates
+        )

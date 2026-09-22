@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 import depdigest
+import molsysmt as msm
 import numpy as np
 import pyunitwizard as puw
 
@@ -15,6 +16,64 @@ from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import DockingProtocol, VinaProtocol
 from dockingmt.core.results import DockingPose, DockingResult
 from dockingmt.engines.base import DockingBackend
+from dockingmt.preparation import (
+    PreparedLigand,
+    PreparedReceptor,
+    prepare_ligand,
+    prepare_receptor,
+)
+
+
+def _pdbqt_atom_records(
+    text: str,
+) -> list[tuple[tuple[str, str, str], tuple[float, float, float]]]:
+    """Read stable atom labels and rounded coordinates from Vina PDBQT text."""
+    records = []
+    for line in text.splitlines():
+        if not line.startswith(('ATOM', 'HETATM')):
+            continue
+        try:
+            key = (line[6:11].strip(), line[12:16].strip(), line.split()[-1])
+            xyz = tuple(float(line[start : start + 8]) for start in (30, 38, 46))
+        except (ValueError, IndexError) as exc:
+            raise ArgumentError(
+                arg_name='problem.partner',
+                reason='Cannot read atom identity from a PDBQT ligand record.',
+            ) from exc
+        records.append((key, xyz))
+    return records
+
+
+def _verify_pose_atom_order(
+    ligand_pdbqt: str, poses_pdbqt: str, coordinates: np.ndarray
+) -> None:
+    """Verify that Vina's coordinate arrays follow the supplied PDBQT atom order."""
+    source = _pdbqt_atom_records(ligand_pdbqt)
+    output = _pdbqt_atom_records(poses_pdbqt)
+    expected = [record[0] for record in source]
+    if (
+        not source
+        or len(set(expected)) != len(expected)
+        or coordinates.ndim != 3
+        or coordinates.shape[1:] != (len(source), 3)
+        or len(output) != len(source) * len(coordinates)
+    ):
+        raise ArgumentError(
+            arg_name='problem.partner',
+            reason='Cannot verify the PDBQT source-to-pose atom map.',
+        )
+    for pose_index, pose_coordinates in enumerate(coordinates):
+        records = output[pose_index * len(source) : (pose_index + 1) * len(source)]
+        if [record[0] for record in records] != expected or not np.allclose(
+            np.asarray([record[1] for record in records]),
+            pose_coordinates,
+            atol=0.001,
+            rtol=0.0,
+        ):
+            raise ArgumentError(
+                arg_name='problem.partner',
+                reason='Vina pose atom order or coordinates differ from the supplied ligand PDBQT.',
+            )
 
 
 class VinaBackend(DockingBackend):
@@ -100,15 +159,89 @@ class VinaBackend(DockingBackend):
         center = [float(c) for c in box['center']]
         box_size = [float(s) for s in box['size']]
 
+        # Prepare selected MolSys inputs only at the backend boundary.
+        receptor = problem.receptor
+        partner = problem.partner
+        receptor_mode = 'provided'
+        partner_mode = 'provided'
+        partner_selected_indices: list[int] | None = None
+        partner_source_indices: list[int] | None = None
+        partner_source_n_atoms: int | None = None
+        if (
+            not isinstance(receptor, PreparedReceptor)
+            and problem.receptor_molsys is not None
+        ):
+            receptor = prepare_receptor(
+                problem.receptor_molsys,
+                selection='all',
+                state_id=problem.metadata.get('receptor_state_id'),
+            )
+            receptor_mode = 'automatic'
+        if (
+            not isinstance(partner, PreparedLigand)
+            and problem.partner_molsys is not None
+        ):
+            partner = prepare_ligand(
+                problem.partner_molsys,
+                selection='all',
+                state_id=problem.metadata.get('partner_state_id'),
+            )
+            source_n_atoms = msm.get(
+                problem.partner_molsys, element='system', n_atoms=True
+            )
+            retained = partner.metadata.get('retained_atom_indices')
+            if (
+                not isinstance(retained, list)
+                or len(retained) != partner.n_atoms
+                or len(set(retained)) != len(retained)
+                or any(
+                    not isinstance(i, int) or i < 0 or i >= source_n_atoms
+                    for i in retained
+                )
+                or partner.metadata.get('atom_map_status')
+                not in ('identity', 'hydrogen_subset_mapped')
+            ):
+                raise ArgumentError(
+                    arg_name='problem.partner',
+                    reason=(
+                        'Vina preparation has no valid source-to-PDBQT atom map. '
+                        'A verified source-to-pose atom map is required (dockingmt#8).'
+                    ),
+                )
+            partner_selected_indices = retained
+            partner_source_n_atoms = source_n_atoms
+            if problem.partner_atom_indices is not None:
+                partner_source_indices = [
+                    problem.partner_atom_indices[i] for i in retained
+                ]
+            partner_mode = 'automatic'
+
+        preparation = {
+            'receptor': {
+                'mode': receptor_mode,
+                'state_id': getattr(receptor, 'state_id', None),
+                'metadata': getattr(receptor, 'metadata', None),
+                'assessment': 'provisional'
+                if receptor_mode == 'automatic'
+                else 'unassessed',
+            },
+            'partner': {
+                'mode': partner_mode,
+                'state_id': getattr(partner, 'state_id', None),
+                'metadata': getattr(partner, 'metadata', None),
+                'assessment': 'provisional'
+                if partner_mode == 'automatic'
+                else 'unassessed',
+            },
+        }
+
         # Prepare receptor and partner representations
         temp_files_to_remove: list[str] = []
 
         try:
-            receptor_file = self._resolve_receptor_path(
-                problem.receptor, temp_files_to_remove
-            )
+            receptor_file = self._resolve_receptor_path(receptor, temp_files_to_remove)
             partner_file, partner_string = self._resolve_partner(
-                problem.partner, temp_files_to_remove
+                partner, temp_files_to_remove
             )
 
             # Initialize Vina engine
@@ -160,14 +293,35 @@ class VinaBackend(DockingBackend):
             if coords_arr is not None and len(coords_arr) > 0:
                 coords_np = np.asarray(coords_arr)
                 energies_np = np.asarray(energies_arr)
+                ligand_pdbqt = (
+                    partner_string
+                    if partner_string is not None
+                    else Path(partner_file).read_text()
+                )
+                _verify_pose_atom_order(
+                    ligand_pdbqt,
+                    v.poses(
+                        n_poses=protocol.n_poses,
+                        energy_range=energy_range_val,
+                        coordinates_only=False,
+                    ),
+                    coords_np,
+                )
+                if isinstance(partner, PreparedLigand) and (
+                    coords_np.ndim != 3 or coords_np.shape[1:] != (partner.n_atoms, 3)
+                ):
+                    raise ArgumentError(
+                        arg_name='problem.partner',
+                        reason='Vina pose coordinates do not match the prepared ligand atom count; a verified atom map is required.',
+                    )
 
                 partner_state_id = getattr(
-                    problem.partner,
+                    partner,
                     'state_id',
                     problem.metadata.get('partner_state_id'),
                 )
                 receptor_state_id = getattr(
-                    problem.receptor,
+                    receptor,
                     'state_id',
                     problem.metadata.get('receptor_state_id'),
                 )
@@ -188,6 +342,17 @@ class VinaBackend(DockingBackend):
                         pose_id=f'pose_{idx + 1}',
                         partner_state_id=partner_state_id,
                         receptor_state_id=receptor_state_id,
+                        metadata={
+                            'pose_atom_order': 'verified_pdbqt_order',
+                            'prepared_atom_indices': list(range(partner.n_atoms)),
+                            'selected_atom_indices': partner_selected_indices,
+                            'source_atom_indices': partner_source_indices,
+                            'selected_partner_n_atoms': partner_source_n_atoms,
+                        }
+                        if isinstance(partner, PreparedLigand)
+                        else {
+                            'pose_atom_order': 'verified_pdbqt_order',
+                        },
                     )
                     poses.append(pose)
 
@@ -198,6 +363,7 @@ class VinaBackend(DockingBackend):
                 'search_domain': problem.search_domain.to_dict(),
                 'seed': protocol.seed,
                 'elapsed_seconds': elapsed_seconds,
+                'preparation': preparation,
             }
 
             return DockingResult(
@@ -205,6 +371,7 @@ class VinaBackend(DockingBackend):
                 problem_info=problem.to_dict(),
                 protocol_info=protocol.to_dict(),
                 provenance=provenance,
+                problem=problem,
             )
 
         finally:

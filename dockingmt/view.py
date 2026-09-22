@@ -82,9 +82,9 @@ def view(
     # If problem is provided and result is None, extract domain, receptor, partner
     if problem is not None:
         if receptor is None:
-            receptor = problem.receptor
+            receptor = problem.receptor_molsys or problem.receptor
         if partner is None:
-            partner = problem.partner
+            partner = problem.partner_molsys or problem.partner
         if search_domain is None:
             search_domain = problem.search_domain
 

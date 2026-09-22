@@ -2,9 +2,18 @@ from __future__ import annotations
 
 from typing import Any
 
+import numpy as np
 import pyunitwizard as puw
 
 from dockingmt._private.smonitor import ArgumentError
+from dockingmt.preparation._molsys import (
+    atom_metadata,
+    autodock_element,
+    chemistry_evidence,
+    select_one_structure,
+    source_aromaticity,
+    source_partial_charges,
+)
 
 
 class PreparedReceptor:
@@ -43,6 +52,7 @@ class PreparedReceptor:
         atom_types: list[str],
         charges: list[float],
         metadata: dict[str, Any] | None = None,
+        source_molsys: Any = None,
     ):
         self.state_id = state_id
         self.atom_names = list(atom_names)
@@ -52,6 +62,7 @@ class PreparedReceptor:
         self.atom_types = list(atom_types)
         self.charges = [float(c) for c in charges]
         self.metadata = dict(metadata) if metadata is not None else {}
+        self.source_molsys = source_molsys
 
     @property
     def n_atoms(self) -> int:
@@ -96,13 +107,35 @@ class PreparedReceptor:
 
     def to_molecular_system(self) -> Any:
         """Convert the prepared receptor into a MolSysMT molecular system."""
+        if self.source_molsys is not None:
+            import molsysmt as msm
+
+            molsys = msm.copy(self.source_molsys)
+            if msm.get(molsys, element='system', n_atoms=True) != self.n_atoms:
+                raise ArgumentError(
+                    arg_name='source_molsys',
+                    reason='Prepared receptor atom count differs from its molecular source.',
+                )
+            coords = puw.quantity(
+                np.expand_dims(puw.get_value(self.coordinates), axis=0),
+                puw.get_unit(self.coordinates),
+            )
+            msm.set(molsys, element='atom', coordinates=coords)
+            return molsys
+
         from .._private.conversion import pdb_text_to_molsys
 
         coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))
         seen_per_res: dict[tuple[str, int], set[str]] = {}
         lines = []
-        for i, (name, gname, gid, (x, y, z)) in enumerate(
-            zip(self.atom_names, self.group_names, self.group_ids, coords_ang)
+        for i, (name, gname, gid, (x, y, z), atom_type) in enumerate(
+            zip(
+                self.atom_names,
+                self.group_names,
+                self.group_ids,
+                coords_ang,
+                self.atom_types,
+            )
         ):
             res_key = (gname, gid)
             if res_key not in seen_per_res:
@@ -116,7 +149,7 @@ class PreparedReceptor:
 
             lines.append(
                 f'ATOM  {i + 1:5d} {aname:<4s} {gname[:3]:3s} A{gid:4d}    '
-                f'{x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00           C'
+                f'{x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00          {autodock_element(atom_type):>2s}'
             )
         lines.append('END\n')
         pdb_text = '\n'.join(lines)
@@ -154,19 +187,24 @@ def prepare_receptor(
     import molsysmt as msm
 
     # Convert to MolSys for robust element extraction
-    molsys = msm.convert(molecular_system, to_form='molsysmt.MolSys')
-    extracted = msm.extract(molsys, selection=selection)
-
+    extracted = select_one_structure(molecular_system, selection)
     n_atoms = msm.get(extracted, element='system', n_atoms=True)
-    if n_atoms == 0:
-        raise ArgumentError(
-            arg_name='selection',
-            reason=f"Selection '{selection}' did not match any atoms in the receptor system.",
-        )
 
-    atom_names = msm.get(extracted, element='atom', name=True)
-    group_names = msm.get(extracted, element='atom', group_name=True)
-    group_ids = msm.get(extracted, element='atom', group_id=True)
+    atom_names, group_names, group_ids, elements = atom_metadata(extracted, 'REC')
+    charges = source_partial_charges(extracted, n_atoms)
+    aromaticity = source_aromaticity(extracted, n_atoms)
+    bonded_atoms = (
+        msm.get(
+            extracted,
+            element='atom',
+            bonded_atoms=True,
+            get_missing_bonds=False,
+            chemical_state='structure',
+            structure_indices=0,
+        )
+        if msm.has_attribute(extracted, 'bonded_atoms')
+        else None
+    )
     coords = msm.get(extracted, element='atom', coordinates=True)[0]  # shape (N, 3)
 
     aromatic_residues = {'PHE', 'TYR', 'TRP', 'HIS'}
@@ -183,41 +221,71 @@ def prepare_receptor(
     retained_types: list[str] = []
     retained_charges: list[float] = []
     retained_indices: list[int] = []
+    merged_hydrogen_charges: dict[int, float] = {}
 
-    for i, (aname, gname, gid) in enumerate(zip(atom_names, group_names, group_ids)):
+    for i, (aname, gname, gid, element) in enumerate(
+        zip(atom_names, group_names, group_ids, elements)
+    ):
         # Skip non-polar hydrogens (standard Vina united-atom convention for rigid receptor)
-        if (
-            aname.startswith('H')
-            or aname.startswith('1H')
-            or aname.startswith('2H')
-            or aname.startswith('3H')
-        ):
-            continue
+        if element.upper() == 'H':
+            neighbors = bonded_atoms[i] if bonded_atoms is not None else []
+            heavy_neighbors = [
+                int(j) for j in neighbors if elements[int(j)].upper() != 'H'
+            ]
+            if len(heavy_neighbors) != 1:
+                raise ArgumentError(
+                    arg_name='molecular_system',
+                    reason='A receptor hydrogen needs exactly one explicit heavy-atom bond for Vina preparation.',
+                )
+            attached = heavy_neighbors[0]
+            if elements[attached].upper() not in ('N', 'O', 'S'):
+                if charges is not None:
+                    merged_hydrogen_charges[attached] = (
+                        merged_hydrogen_charges.get(attached, 0.0) + charges[i]
+                    )
+                continue
 
         atype = 'C'
-        if aname.startswith('O'):
+        if element.upper() == 'H':
+            atype = 'HD'
+        elif element.upper() == 'O':
             atype = 'OA'
-        elif aname.startswith('N'):
+        elif element.upper() == 'N':
             if gname in ('HIS', 'TRP') and aname in ('ND1', 'NE2', 'NE1'):
                 atype = 'NA'
             else:
                 atype = 'N'
-        elif aname.startswith('S'):
+        elif element.upper() == 'S':
             atype = 'SA'
-        elif aname.startswith('C'):
-            if gname in aromatic_residues and aname in aromatic_ring_atoms.get(
-                gname, set()
+        elif element.upper() == 'C':
+            if (aromaticity is not None and aromaticity[i]) or (
+                aromaticity is None
+                and gname in aromatic_residues
+                and aname in aromatic_ring_atoms.get(gname, set())
             ):
                 atype = 'A'
             else:
                 atype = 'C'
+        elif element.upper() == 'P':
+            atype = 'P'
+        elif element.upper() in ('F', 'CL', 'BR', 'I'):
+            atype = element.capitalize()
+        else:
+            raise ArgumentError(
+                arg_name='molecular_system',
+                reason=f'No temporary Vina atom-type rule exists for element {element!r}.',
+            )
 
         retained_names.append(str(aname))
         retained_gnames.append(str(gname))
         retained_gids.append(int(gid))
         retained_types.append(atype)
-        retained_charges.append(0.0)
+        retained_charges.append(charges[i] if charges is not None else 0.0)
         retained_indices.append(i)
+
+    if charges is not None:
+        for atom_index, hydrogen_charge in merged_hydrogen_charges.items():
+            retained_charges[retained_indices.index(atom_index)] += hydrogen_charge
 
     retained_coords = puw.quantity(
         puw.get_value(coords)[retained_indices],
@@ -238,5 +306,15 @@ def prepare_receptor(
             'selection': selection,
             'source_n_atoms': int(n_atoms),
             'retained_n_atoms': len(retained_names),
+            'retained_atom_indices': retained_indices,
+            'charge_source': 'source_partial_charge'
+            if charges is not None
+            else 'zero_placeholder',
+            'atom_type_source': 'element_aromaticity_heuristic'
+            if aromaticity is not None
+            else 'element_residue_heuristic',
+            'merged_hydrogen_charges': bool(merged_hydrogen_charges),
+            'source_chemistry': chemistry_evidence(extracted),
         },
+        source_molsys=msm.extract(extracted, selection=retained_indices),
     )

@@ -180,6 +180,30 @@ class DockingPose:
         else:
             base_sys = msm.convert(partner, to_form='molsysmt.MolSys')
         molsys = msm.copy(base_sys)
+        partner_n_atoms = msm.get(molsys, element='system', n_atoms=True)
+        if partner_n_atoms != self.n_atoms:
+            selected = self.metadata.get('selected_atom_indices')
+            expected_n_atoms = self.metadata.get('selected_partner_n_atoms')
+            if (
+                self.metadata.get('pose_atom_order') == 'verified_pdbqt_order'
+                and expected_n_atoms == partner_n_atoms
+                and isinstance(selected, list)
+                and len(selected) == self.n_atoms
+                and len(set(selected)) == len(selected)
+                and all(
+                    isinstance(i, int) and 0 <= i < partner_n_atoms for i in selected
+                )
+            ):
+                molsys = msm.extract(molsys, selection=selected)
+                partner_n_atoms = self.n_atoms
+        if partner_n_atoms != self.n_atoms:
+            raise ArgumentError(
+                arg_name='partner',
+                reason=(
+                    f'Pose has {self.n_atoms} atoms but partner has {partner_n_atoms}; '
+                    'a verified pose-to-partner atom map is required.'
+                ),
+            )
         coords_3d = puw.quantity(
             np.expand_dims(puw.get_value(self._coordinates), axis=0),
             puw.get_unit(self._coordinates),
