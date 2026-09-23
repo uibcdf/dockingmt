@@ -19,7 +19,7 @@ def test_shared_governance_surfaces_are_present():
     assert policy.is_file()
     assert (
         'uibcdf/molsyssuite/.github/workflows/'
-        'check-python-repository.yaml@policy-v1.4.2'
+        'check-python-repository.yaml@policy-v1.4.6'
     ) in policy.read_text(encoding='utf-8')
 
 
