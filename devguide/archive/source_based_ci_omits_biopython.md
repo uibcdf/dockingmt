@@ -1,9 +1,9 @@
 ---
 summary: Source-based CI omits Biopython needed by the scientific test stack.
 issue: uibcdf/dockingmt#11
-status: active
+status: resolved
 opened: 2026-09-22
-closed:
+closed: 2026-09-22
 severity: medium
 verification: reproduced
 area: [ci, dependencies]
@@ -48,3 +48,13 @@ MolSysViewer addon integration failures or a change to product runtime metadata.
 - A local guard protects the explicit dependency while source installs use
   `--no-deps`.
 - The hosted Python 3.11, 3.12 and 3.13 test lanes pass.
+
+## Resolution
+
+Commit `b180309` adds Biopython to the committed Conda test environment.
+The new guard failed before the environment change and passed afterward.
+The mamba dry-run solved the Python 3.13 environment without creating it.
+Hosted CI run `35823963841` passed all three Python test lanes and the quality
+job; independent policy run `35823964246` also passed. This closes the missing
+CI dependency, without claiming that the separate local MolSysViewer addon
+integration mismatch was repaired.
