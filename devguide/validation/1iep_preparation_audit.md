@@ -29,6 +29,9 @@ for a second, flexible native projection. This tests the writer with a known sel
 it does not infer a general torsion policy. The coordinate comparison is exact at
 PDBQT's 0.001 Å precision. It is valid only for these pinned, already aligned inputs;
 matching coordinates does not prove chemical equivalence or general atom mapping.
+The audit also compares the complete branch-bond and rigid-fragment sets independently
+of PDBQT root orientation and atom serials. RDKit rotatable-bond descriptors are
+evaluated after removing explicit hydrogens.
 
 ## Measured result, 2026-09-26
 
@@ -50,6 +53,11 @@ as shown above. The flexible projection passed Vina's ligand parser. DockingMT's
 temporary rigid-fragment bridge is linked to
 [MolSysMT #224](https://github.com/uibcdf/molsysmt/issues/224) and will be removed
 when the provider operation can supply the same verified fragment and atom map.
+The exact seven undirected branch bonds and eight rigid-fragment atom sets match
+the published PDBQT; the fragment sizes are 1, 2, 4, 6, 6, 6, 7, and 8. RDKit
+2025.09.5 reports seven `Strict` and eight `NonStrict` rotatable bonds for the
+hydrogen-suppressed source. Matching counts do not establish identical chemical
+selection policies, because the seven input bonds came from the published PDBQT.
 
 The native ligand omits 29 nonpolar hydrogens. The native receptor omits 1,710
 hydrogens under its polar-hydrogen policy. MolSysMT recovered the absent `HB2`–`CB`
@@ -58,11 +66,18 @@ bond-inference implementation. The source receptor still lacks bond-order inform
 
 The charge differences are distances to the published file, not charge-model accuracy
 or a score/affinity assessment. The native files are explicitly provisional: their
-charges are placeholders and their atom types are heuristic. The ligand writer currently
-supports rigid output only. MolSysMT [#221](https://github.com/uibcdf/molsysmt/issues/221),
+charges are placeholders and their atom types are heuristic. The ligand writer defaults
+to rigid output and supports explicitly selected torsions with bounded validation.
+For ethyl acetate (`CC(=O)OCC`), RDKit `Strict` counts one rotatable bond while
+the bridge accepts two individually selected bonds, including the ester acyl C–O.
+That difference is recorded in [MolSysMT #224](https://github.com/uibcdf/molsysmt/issues/224#issuecomment-5844981980)
+as a chemical-policy gap; it does not affect this reference-selected tree comparison.
+MolSysMT [#221](https://github.com/uibcdf/molsysmt/issues/221),
 [#222](https://github.com/uibcdf/molsysmt/issues/222), and
 [#224](https://github.com/uibcdf/molsysmt/issues/224) track reusable charge assignment,
-AutoDock typing, and torsion classification respectively. DockingMT owns the PDBQT
-projection and Vina safety policy. Its default Vina path rejects provisional native
-preparation; an explicit exploratory opt-in remains available. This audit does not
-resolve [DockingMT #5](https://github.com/uibcdf/dockingmt/issues/5).
+AutoDock typing, and torsion classification respectively. DockingMT's PDBQT
+projection is temporary until MolSysMT [#214](https://github.com/uibcdf/molsysmt/issues/214)
+provides the general PDBQT form. DockingMT owns Vina safety policy. Its default
+Vina path rejects provisional native preparation; an explicit exploratory opt-in
+remains available. This audit does not resolve
+[DockingMT #5](https://github.com/uibcdf/dockingmt/issues/5).

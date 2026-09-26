@@ -1,6 +1,10 @@
 import pytest
 
-from devtools.audit_1iep_preparation import _compare_pdbqt, _pdbqt_inventory
+from devtools.audit_1iep_preparation import (
+    _compare_pdbqt,
+    _compare_torsion_graphs,
+    _pdbqt_inventory,
+)
 
 
 def _atom(serial, x, charge, atom_type):
@@ -34,3 +38,58 @@ def test_comparison_aligns_by_coordinate_instead_of_record_order():
 def test_duplicate_coordinates_are_rejected_as_ambiguous():
     with pytest.raises(ValueError, match='duplicate atom coordinates'):
         _pdbqt_inventory(_atom(1, 1.0, 0.0, 'C') + _atom(2, 1.0, 0.0, 'N'))
+
+
+def test_torsion_graph_comparison_ignores_root_and_serial_choices():
+    reference = (
+        b'ROOT\n'
+        + _atom(1, 1.0, 0.0, 'C')
+        + _atom(2, 2.0, 0.0, 'C')
+        + b'ENDROOT\nBRANCH 2 3\n'
+        + _atom(3, 3.0, 0.0, 'C')
+        + _atom(4, 4.0, 0.0, 'C')
+        + b'ENDBRANCH 2 3\nTORSDOF 1\n'
+    )
+    reversed_root = (
+        b'ROOT\n'
+        + _atom(10, 3.0, 0.0, 'C')
+        + _atom(11, 4.0, 0.0, 'C')
+        + b'ENDROOT\nBRANCH 10 12\n'
+        + _atom(12, 2.0, 0.0, 'C')
+        + _atom(13, 1.0, 0.0, 'C')
+        + b'ENDBRANCH 10 12\nTORSDOF 1\n'
+    )
+
+    comparison = _compare_torsion_graphs(reversed_root, reference)
+
+    assert comparison == {
+        'branch_bonds_match': True,
+        'rigid_fragments_match': True,
+        'reference_fragment_sizes': [2, 2],
+    }
+
+
+def test_torsion_graph_comparison_detects_wrong_cut_with_same_branch_count():
+    reference = (
+        b'ROOT\n'
+        + _atom(1, 1.0, 0.0, 'C')
+        + _atom(2, 2.0, 0.0, 'C')
+        + b'ENDROOT\nBRANCH 2 3\n'
+        + _atom(3, 3.0, 0.0, 'C')
+        + _atom(4, 4.0, 0.0, 'C')
+        + b'ENDBRANCH 2 3\nTORSDOF 1\n'
+    )
+    wrong_cut = (
+        b'ROOT\n'
+        + _atom(1, 1.0, 0.0, 'C')
+        + b'ENDROOT\nBRANCH 1 2\n'
+        + _atom(2, 2.0, 0.0, 'C')
+        + _atom(3, 3.0, 0.0, 'C')
+        + _atom(4, 4.0, 0.0, 'C')
+        + b'ENDBRANCH 1 2\nTORSDOF 1\n'
+    )
+
+    comparison = _compare_torsion_graphs(wrong_cut, reference)
+
+    assert comparison['branch_bonds_match'] is False
+    assert comparison['rigid_fragments_match'] is False

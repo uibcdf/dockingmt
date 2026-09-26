@@ -1,7 +1,8 @@
 """Temporary molecular graph bridge for molsysmt#224.
 
 Remove this module when MolSysMT supplies validated rotatable-bond and rigid-fragment
-operations. DockingMT will retain only torsion selection and PDBQT projection.
+operations (molsysmt#224). DockingMT retains protocol selection; its current PDBQT
+writer is also temporary until MolSysMT provides that form (molsysmt#214).
 """
 
 from __future__ import annotations

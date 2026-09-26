@@ -141,6 +141,96 @@ def _reference_torsion_bonds(
     return bonds
 
 
+def _pdbqt_torsion_graph(content: bytes) -> dict[str, Any]:
+    """Read branch bonds and rigid fragments from an aligned PDBQT ligand.
+
+    Coordinates identify atoms only within this pinned comparison. Bond direction,
+    root choice, atom serials, and fragment record order do not affect the result.
+    """
+    serial_coordinates: dict[int, tuple[float, float, float]] = {}
+    groups: list[set[tuple[float, float, float]]] = []
+    group_stack: list[set[tuple[float, float, float]]] = []
+    branch_stack: list[tuple[int, int, set[tuple[float, float, float]]]] = []
+    branch_pairs: list[tuple[int, int]] = []
+    seen_root = False
+
+    for line in content.decode('utf-8').splitlines():
+        if line.startswith('ROOT'):
+            if seen_root or group_stack:
+                raise ValueError('PDBQT has more than one ligand root.')
+            seen_root = True
+            group = set()
+            groups.append(group)
+            group_stack.append(group)
+        elif line.startswith(('ATOM', 'HETATM')):
+            if not group_stack:
+                raise ValueError('PDBQT atom is outside a rigid fragment.')
+            serial = int(line[6:11])
+            coordinate = tuple(float(line[o : o + 8]) for o in (30, 38, 46))
+            if (
+                serial in serial_coordinates
+                or coordinate in serial_coordinates.values()
+            ):
+                raise ValueError('PDBQT atom identity is ambiguous.')
+            serial_coordinates[serial] = coordinate
+            group_stack[-1].add(coordinate)
+        elif line.startswith('ENDROOT'):
+            if len(group_stack) != 1 or branch_stack:
+                raise ValueError('PDBQT root is not balanced.')
+            group_stack.pop()
+        elif line.startswith('BRANCH'):
+            if not seen_root:
+                raise ValueError('PDBQT branch precedes its root.')
+            parent, child = (int(value) for value in line.split()[1:3])
+            if parent not in serial_coordinates:
+                raise ValueError('PDBQT branch parent is not an earlier atom.')
+            group = set()
+            groups.append(group)
+            group_stack.append(group)
+            branch_stack.append((parent, child, group))
+            branch_pairs.append((parent, child))
+        elif line.startswith('ENDBRANCH'):
+            pair = tuple(int(value) for value in line.split()[1:3])
+            if not branch_stack or pair != branch_stack[-1][:2]:
+                raise ValueError('PDBQT branch records are not balanced.')
+            parent, child, group = branch_stack.pop()
+            if (
+                child not in serial_coordinates
+                or serial_coordinates[child] not in group
+            ):
+                raise ValueError('PDBQT branch child is outside its fragment.')
+            group_stack.pop()
+
+    if (
+        not seen_root
+        or group_stack
+        or branch_stack
+        or any(not group for group in groups)
+    ):
+        raise ValueError('PDBQT ligand tree is incomplete.')
+    return {
+        'bonds': {
+            tuple(sorted((serial_coordinates[parent], serial_coordinates[child])))
+            for parent, child in branch_pairs
+        },
+        'fragments': {frozenset(group) for group in groups},
+    }
+
+
+def _compare_torsion_graphs(native: bytes, reference: bytes) -> dict[str, Any]:
+    native_graph = _pdbqt_torsion_graph(native)
+    reference_graph = _pdbqt_torsion_graph(reference)
+    return {
+        'branch_bonds_match': native_graph['bonds'] == reference_graph['bonds'],
+        'rigid_fragments_match': (
+            native_graph['fragments'] == reference_graph['fragments']
+        ),
+        'reference_fragment_sizes': sorted(
+            len(fragment) for fragment in reference_graph['fragments']
+        ),
+    }
+
+
 def _preparation_summary(prepared: Any) -> dict[str, Any]:
     metadata = prepared.metadata
     return {
@@ -165,7 +255,9 @@ def audit(
     check_vina_parser: bool = False,
 ) -> dict[str, Any]:
     """Run DockingMT preparation using MolSysMT and save bounded evidence."""
+    import rdkit
     from rdkit import Chem
+    from rdkit.Chem import rdMolDescriptors
 
     paths = (
         source_receptor_path,
@@ -221,11 +313,13 @@ def audit(
     flexible_ligand = prepare_ligand(
         ligand, selection='all', active_torsion_bonds=reference_bonds
     )
+    heavy_ligand = Chem.RemoveHs(molecules[0])
 
     native_receptor = prepared_receptor.to_pdbqt().encode('utf-8')
     native_ligand = prepared_ligand.to_pdbqt().encode('utf-8')
+    flexible_pdbqt = flexible_ligand.to_pdbqt().encode('utf-8')
     report = {
-        'schema_version': '1.0',
+        'schema_version': '1.1',
         'case': 'Official AutoDock Vina 1IEP preparation audit',
         'assessment': 'native_preparation_provisional_external_reference_unassessed',
         'reference_commit': UPSTREAM_COMMIT,
@@ -258,9 +352,20 @@ def audit(
         'flexible_ligand': {
             'selection_source': 'pinned_reference_branch_coordinate_map',
             'preparation': _preparation_summary(flexible_ligand),
-            'comparison': _compare_pdbqt(
-                flexible_ligand.to_pdbqt().encode('utf-8'), reference_ligand
+            'comparison': _compare_pdbqt(flexible_pdbqt, reference_ligand),
+            'torsion_graph_comparison': _compare_torsion_graphs(
+                flexible_pdbqt, reference_ligand
             ),
+            'rdkit_rotatable_bond_counts': {
+                'rdkit_version': rdkit.__version__,
+                'hydrogen_policy': 'Chem.RemoveHs before 2D descriptor',
+                'strict': rdMolDescriptors.CalcNumRotatableBonds(
+                    heavy_ligand, rdMolDescriptors.NumRotatableBondsOptions.Strict
+                ),
+                'non_strict': rdMolDescriptors.CalcNumRotatableBonds(
+                    heavy_ligand, rdMolDescriptors.NumRotatableBondsOptions.NonStrict
+                ),
+            },
         },
     }
     if check_vina_parser:

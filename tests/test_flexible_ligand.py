@@ -3,6 +3,7 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
+from devtools.audit_1iep_preparation import _pdbqt_torsion_graph
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import VinaProtocol
@@ -35,6 +36,43 @@ def test_explicit_torsion_writes_one_valid_branch_and_tracks_atom_order():
     assert sum(line.startswith('ENDBRANCH') for line in records) == 1
     assert records[-1] == 'TORSDOF 1'
     assert ligand.to_dict()['pdbqt_atom_indices'] == ligand.pdbqt_atom_indices
+
+
+def test_nested_branches_match_molsysmt_covalent_blocks():
+    source = _ligand('CCCCCC')
+    selected_bonds = [(1, 2), (3, 4)]
+    prepared = prepare_ligand(
+        source, selection='all', active_torsion_bonds=selected_bonds
+    )
+    records = prepared.to_pdbqt().splitlines()
+    branch_records = [
+        line.split()[0] for line in records if line.startswith(('BRANCH', 'ENDBRANCH'))
+    ]
+    assert branch_records == ['BRANCH', 'BRANCH', 'ENDBRANCH', 'ENDBRANCH']
+    assert prepared.torsion_dof == 2
+
+    coordinates = puw.get_value(
+        msm.get(source, element='atom', coordinates=True)[0], to_unit='angstrom'
+    )
+    coordinate_to_atom = {
+        tuple(round(float(value), 3) for value in xyz): index
+        for index, xyz in enumerate(coordinates)
+    }
+    graph = _pdbqt_torsion_graph(prepared.to_pdbqt().encode())
+    observed_bonds = {
+        frozenset(coordinate_to_atom[xyz] for xyz in pair) for pair in graph['bonds']
+    }
+    observed_fragments = {
+        frozenset(coordinate_to_atom[xyz] for xyz in fragment)
+        for fragment in graph['fragments']
+    }
+    retained = set(range(prepared.n_atoms))
+    provider_blocks = msm.topology.get_covalent_blocks(
+        source, remove_bonds=selected_bonds, output_type='sets'
+    )
+    expected_fragments = {frozenset(block & retained) for block in provider_blocks}
+    assert observed_bonds == {frozenset(pair) for pair in selected_bonds}
+    assert observed_fragments == expected_fragments
 
 
 @pytest.mark.parametrize(
