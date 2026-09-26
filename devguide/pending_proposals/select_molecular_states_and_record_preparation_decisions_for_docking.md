@@ -68,3 +68,21 @@ protonation and pH choices, residue variants, and explicit water/cofactor
 decisions require provider capabilities or a documented preparation workflow.
 An artifact digest proves which bytes were used when retained elsewhere; it
 does not by itself preserve the generated PDBQT for later reconstruction.
+
+## 2026-09-26 progress
+
+`VinaProtocol(capture_backend_inputs=True)` now retains the exact receptor and
+ligand PDBQT bytes in result provenance, alongside their SHA-256 digests. Vina
+reads staged snapshots of file inputs to make the captured bytes the submitted
+ones. The file-backed 181L manifest enables capture; replay checks each saved
+payload against its digest before running and compares the new run's payloads
+with the saved ones. Capture is opt-in because receptor PDBQT can make result
+manifests large. These records strengthen backend-input auditability but do not
+establish chemical validity or replace the remaining state and preparation
+decisions in this proposal.
+
+The 181L case was recorded and replayed in separate commands. The manifest was
+197,158 bytes, retaining 103,120 receptor PDBQT bytes and 503 ligand PDBQT
+bytes. Both recorded and replayed payloads matched, and the replay comparison
+remained within tolerance. A deliberately changed ligand payload failed digest
+validation before a docking rerun in the regression test.

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import base64
 import hashlib
 import os
 import tempfile
@@ -90,6 +91,16 @@ def _provisional_preparation_reasons(prepared: Any) -> list[str]:
     if 'heuristic' in str(metadata.get('atom_type_source', '')):
         reasons.append('heuristic AutoDock atom types')
     return reasons
+
+
+def _stage_pdbqt_bytes(content: bytes, temp_files: list[str]) -> str:
+    """Give Vina the same bytes that were captured for the run record."""
+    with tempfile.NamedTemporaryFile(
+        suffix='.pdbqt', mode='wb', delete=False
+    ) as staged:
+        staged.write(content)
+    temp_files.append(staged.name)
+    return staged.name
 
 
 class VinaBackend(DockingBackend):
@@ -300,11 +311,15 @@ class VinaBackend(DockingBackend):
                 partner, temp_files_to_remove
             )
             receptor_pdbqt = Path(receptor_file).read_bytes()
+            if receptor_file not in temp_files_to_remove:
+                receptor_file = _stage_pdbqt_bytes(receptor_pdbqt, temp_files_to_remove)
             partner_pdbqt = (
                 partner_string.encode('utf-8')
                 if partner_string is not None
                 else Path(partner_file).read_bytes()
             )
+            if partner_file is not None and partner_file not in temp_files_to_remove:
+                partner_file = _stage_pdbqt_bytes(partner_pdbqt, temp_files_to_remove)
             backend_artifacts = {
                 'receptor': {
                     'format': 'pdbqt',
@@ -315,6 +330,14 @@ class VinaBackend(DockingBackend):
                     'sha256': hashlib.sha256(partner_pdbqt).hexdigest(),
                 },
             }
+            if protocol.capture_backend_inputs:
+                for role, content in (
+                    ('receptor', receptor_pdbqt),
+                    ('partner', partner_pdbqt),
+                ):
+                    backend_artifacts[role]['content_base64'] = base64.b64encode(
+                        content
+                    ).decode('ascii')
 
             # Initialize Vina engine
             v = vina.Vina(

@@ -1,3 +1,4 @@
+import base64
 import hashlib
 import json
 from pathlib import Path
@@ -43,7 +44,13 @@ def test_file_backed_181l_manifest_replays_without_original_objects(tmp_path):
     manifest_path = tmp_path / '181l-manifest.json'
     report_path = tmp_path / '181l-report.json'
     record_manifest(manifest_path)
-    saved = DockingResult.from_dict(json.loads(manifest_path.read_text()))
+    manifest = json.loads(manifest_path.read_text())
+    saved = DockingResult.from_dict(manifest)
+    for role in ('receptor', 'partner'):
+        artifact = saved.provenance['backend_artifacts'][role]
+        content = base64.b64decode(artifact['content_base64'], validate=True)
+        assert content
+        assert hashlib.sha256(content).hexdigest() == artifact['sha256']
     assert saved.problem is None
     restored_problem = saved.reconstruct_problem()
     assert restored_problem.partner_atom_indices == [1299, 1300, 1301, 1302, 1303, 1304]
@@ -63,6 +70,17 @@ def test_file_backed_181l_manifest_replays_without_original_objects(tmp_path):
     assert report['comparison']['pdbqt_hashes_match'] is True
     assert report['comparison']['identity_match'] is True
     assert report['comparison']['source_revision_match'] is True
+    assert all(
+        report['backend_artifacts'][role]['captured_bytes'] > 0
+        for role in ('receptor', 'partner')
+    )
+
+    manifest['provenance']['backend_artifacts']['partner']['content_base64'] = (
+        base64.b64encode(b'changed PDBQT').decode('ascii')
+    )
+    manifest_path.write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match='partner PDBQT input bytes failed SHA-256'):
+        replay_manifest(manifest_path, report_path)
 
 
 def test_result_problem_reconstruction_rejects_changed_file(tmp_path):

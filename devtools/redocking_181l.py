@@ -8,6 +8,8 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import base64
+import binascii
 import hashlib
 import json
 import platform
@@ -61,6 +63,26 @@ def _write_json(path: Path, data: dict[str, Any]) -> None:
     path.write_text(json.dumps(data, indent=2, sort_keys=True) + '\n')
 
 
+def _verify_captured_inputs(artifacts: dict[str, Any]) -> dict[str, int]:
+    """Reject a manifest whose retained PDBQT differs from its recorded digest."""
+    sizes = {}
+    for role in ('receptor', 'partner'):
+        artifact = artifacts.get(role)
+        if not isinstance(artifact, dict) or artifact.get('format') != 'pdbqt':
+            raise ValueError(f'The {role} PDBQT artifact is missing or invalid.')
+        encoded = artifact.get('content_base64')
+        if not isinstance(encoded, str):
+            raise ValueError(f'The {role} PDBQT input bytes were not captured.')
+        try:
+            content = base64.b64decode(encoded, validate=True)
+        except (binascii.Error, ValueError) as exc:
+            raise ValueError(f'The {role} PDBQT input bytes are invalid.') from exc
+        if hashlib.sha256(content).hexdigest() != artifact.get('sha256'):
+            raise ValueError(f'The {role} PDBQT input bytes failed SHA-256 validation.')
+        sizes[role] = len(content)
+    return sizes
+
+
 def record_manifest(path: Path) -> dict[str, Any]:
     """Run the provisional file-backed case and save its complete result."""
     source = Path(msm.systems['T4 lysozyme L99A']['181l.pdb']).resolve()
@@ -77,9 +99,11 @@ def record_manifest(path: Path) -> dict[str, Any]:
         seed=42,
         cpu=1,
         allow_provisional_preparation=True,
+        capture_backend_inputs=True,
     )
     result = dockingmt.dock(problem, protocol=protocol, backend='vina')
     manifest = result.to_dict()
+    _verify_captured_inputs(manifest['provenance']['backend_artifacts'])
     manifest['benchmark_source_revision'] = _source_revision()
     _write_json(path, manifest)
     return manifest
@@ -212,12 +236,15 @@ def replay_manifest(manifest_path: Path, report_path: Path) -> dict[str, Any]:
     manifest_bytes = manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
     recorded = dockingmt.DockingResult.from_dict(manifest)
+    captured_sizes = _verify_captured_inputs(recorded.provenance['backend_artifacts'])
     problem = recorded.reconstruct_problem()
     protocol = dockingmt.VinaProtocol.from_dict(recorded.protocol_info)
     if recorded.provenance.get('backend') != 'vina':
         raise ValueError('The recorded backend is not Vina.')
     if not protocol.allow_provisional_preparation:
         raise ValueError('The 181L exploratory replay needs its recorded opt-in.')
+    if not protocol.capture_backend_inputs:
+        raise ValueError('The 181L replay needs its recorded PDBQT capture policy.')
     replay = dockingmt.dock(problem, protocol=protocol, backend='vina')
     reference = problem.partner_molsys
     comparison = _compare(recorded, replay, reference)
@@ -248,7 +275,14 @@ def replay_manifest(manifest_path: Path, report_path: Path) -> dict[str, Any]:
         },
         'problem': recorded.problem_info,
         'protocol': recorded.protocol_info,
-        'backend_artifacts': recorded.provenance['backend_artifacts'],
+        'backend_artifacts': {
+            role: {
+                'format': artifact['format'],
+                'sha256': artifact['sha256'],
+                'captured_bytes': captured_sizes[role],
+            }
+            for role, artifact in recorded.provenance['backend_artifacts'].items()
+        },
         'recorded': _summarize(recorded, reference),
         'replayed': _summarize(replay, reference),
         'comparison': comparison,

@@ -83,6 +83,12 @@ Result provenance records the hydrogen and torsion policies, preparation
 assessment, and SHA-256 digests of the PDBQT bytes submitted to Vina. Remaining
 preparation-decision provenance is tracked in
 [issue #4](https://github.com/uibcdf/dockingmt/issues/4).
+Set `VinaProtocol(capture_backend_inputs=True)` to also retain the exact receptor
+and ligand PDBQT bytes as base64 in the serialized result's `backend_artifacts`.
+This increases manifest size and supports independent inspection of the backend
+inputs; it does not validate their chemistry. File inputs are staged from the
+captured bytes before Vina reads them, so the recorded digest identifies the
+submitted content.
 
 For the file-backed 181L regression case, save a result manifest and replay it
 in a separate command:
@@ -94,7 +100,9 @@ python devtools/redocking_181l.py replay --manifest /tmp/181l-manifest.json --re
 
 The report lists each pose's source-mapped RMSD and named scores, near-native
 rank at the declared 2.5 Å cutoff, failure mode, source and PDBQT fingerprints,
-code revision, and replay differences. Its assessment is **exploratory** while
+code revision, and replay differences. The manifest retains both PDBQT inputs;
+replay validates their digests and checks that the new run submits identical
+bytes. Its assessment is **exploratory** while
 the chemical preparation in [issue #5](https://github.com/uibcdf/dockingmt/issues/5)
 remains provisional. Use the reported metrics for regression, not as a validated
 docking-performance claim. The measured case is documented in the

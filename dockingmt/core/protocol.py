@@ -69,6 +69,8 @@ class VinaProtocol(DockingProtocol):
     allow_provisional_preparation : bool, default False
         Permit DockingMT's temporary zero-charge or heuristic AutoDock typing path.
         Results from this path are exploratory and their chemistry remains unvalidated.
+    capture_backend_inputs : bool, default False
+        Include the exact PDBQT input bytes in result provenance for independent audit.
     """
 
     SUPPORTED_SCORING = ('vina', 'vinardo', 'ad4')
@@ -82,6 +84,7 @@ class VinaProtocol(DockingProtocol):
         scoring: str = 'vina',
         cpu: int = 0,
         allow_provisional_preparation: bool = False,
+        capture_backend_inputs: bool = False,
     ):
         if not isinstance(exhaustiveness, (int, float)) or int(exhaustiveness) < 1:
             raise ArgumentError(
@@ -149,6 +152,13 @@ class VinaProtocol(DockingProtocol):
             )
         self._allow_provisional_preparation = allow_provisional_preparation
 
+        if not isinstance(capture_backend_inputs, bool):
+            raise ArgumentError(
+                arg_name='capture_backend_inputs',
+                reason='capture_backend_inputs must be a bool.',
+            )
+        self._capture_backend_inputs = capture_backend_inputs
+
     @property
     def name(self) -> str:
         """Name of the protocol."""
@@ -190,6 +200,11 @@ class VinaProtocol(DockingProtocol):
         return self._allow_provisional_preparation
 
     @property
+    def capture_backend_inputs(self) -> bool:
+        """Whether result provenance retains the submitted PDBQT bytes."""
+        return self._capture_backend_inputs
+
+    @property
     def required_capabilities(self) -> set[str]:
         """Capabilities required by VinaProtocol."""
         return {
@@ -213,6 +228,7 @@ class VinaProtocol(DockingProtocol):
             'scoring': self._scoring,
             'cpu': self._cpu,
             'allow_provisional_preparation': self._allow_provisional_preparation,
+            'capture_backend_inputs': self._capture_backend_inputs,
         }
 
     def validate_problem(self, problem: DockingProblem) -> None:
@@ -261,6 +277,7 @@ class VinaProtocol(DockingProtocol):
             allow_provisional_preparation=params.get(
                 'allow_provisional_preparation', False
             ),
+            capture_backend_inputs=params.get('capture_backend_inputs', False),
         )
 
     def __repr__(self) -> str:
@@ -270,5 +287,6 @@ class VinaProtocol(DockingProtocol):
             f'VinaProtocol(exhaustiveness={self._exhaustiveness}, n_poses={self._n_poses}, '
             f'energy_range={e_val} {e_unit}, scoring={self._scoring!r}, '
             f'seed={self._seed}, '
-            f'allow_provisional_preparation={self._allow_provisional_preparation})'
+            f'allow_provisional_preparation={self._allow_provisional_preparation}, '
+            f'capture_backend_inputs={self._capture_backend_inputs})'
         )
