@@ -273,3 +273,21 @@ long-lived scientific results must not depend on live backend objects.
 **Decision:** Licensing and packaging constraints are part of every backend/provider
 integration decision. A backend may be supported without being bundled or installed
 automatically.
+
+
+---
+
+## DMT-029 — Native MVP preparation uses MolSysMT and DockingMT
+
+**Status:** Accepted
+
+**Decision:** Develop the molecular preparation capabilities needed by the Core MVP
+through MolSysMT and DockingMT. Meeko is not an MVP runtime or installation dependency.
+DockingMT may use independently published prepared inputs as fixed validation evidence;
+their chemistry is recorded as unassessed unless a separate validation establishes it.
+
+**Reason:** General molecular operations belong in MolSysMT, while docking-specific
+projection and backend policy belong in DockingMT. If a required MolSysMT capability is
+missing, track it in MolSysMT and keep any DockingMT implementation explicitly temporary,
+with a removal condition. See [issue #5](https://github.com/uibcdf/dockingmt/issues/5)
+and the [1IEP preparation audit](validation/1iep_preparation_audit.md).

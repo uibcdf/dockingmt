@@ -8,7 +8,6 @@ LIBRARIES = {
     'argdigest': {'type': 'hard', 'pypi': 'argdigest'},
     'smonitor': {'type': 'hard', 'pypi': 'smonitor'},
     'vina': {'type': 'soft', 'pypi': 'vina', 'conda': 'vina'},
-    'meeko': {'type': 'soft', 'pypi': 'meeko', 'conda': 'meeko'},
     'rdkit': {'type': 'soft', 'pypi': 'rdkit', 'conda': 'rdkit'},
     'pdbfixer': {'type': 'soft', 'pypi': 'pdbfixer', 'conda': 'pdbfixer'},
     'openmm': {'type': 'soft', 'pypi': 'openmm', 'conda': 'openmm'},

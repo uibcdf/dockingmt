@@ -1,4 +1,6 @@
 import sys
+import tomllib
+from pathlib import Path
 
 import pyunitwizard
 
@@ -35,8 +37,15 @@ def test_depdigest_configuration():
 
     assert 'vina' in _depdigest.LIBRARIES
     assert _depdigest.LIBRARIES['vina']['type'] == 'soft'
+    assert 'meeko' not in _depdigest.LIBRARIES
     assert 'molsysmt' in _depdigest.LIBRARIES
     assert _depdigest.LIBRARIES['molsysmt']['type'] == 'hard'
+
+
+def test_vina_extra_does_not_install_meeko():
+    pyproject = Path(__file__).resolve().parents[1] / 'pyproject.toml'
+    project = tomllib.loads(pyproject.read_text())['project']
+    assert 'meeko' not in project['optional-dependencies']['vina']
 
 
 def test_no_leaky_optional_imports():

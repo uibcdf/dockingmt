@@ -73,3 +73,23 @@ of DockingMT's known placeholders, but does not satisfy the full acceptance
 criteria: validated receptor and ligand parameterization, scoring compatibility,
 and scientific preparation tests are still needed. The provider requirements
 remain tracked by molsysmt#221 and molsysmt#222.
+
+## 2026-09-26 pinned 1IEP preparation audit
+
+The [reproducible audit](../validation/1iep_preparation_audit.md) compares native
+MolSysMT-based preparation against the official example's aligned PDBQT files. All
+40 ligand and 2,702 receptor PDBQT atoms match by coordinate. Native charges are
+zero for all retained atoms, whereas the published files have nonzero charges on
+40 ligand and 2,669 receptor atoms. Four ligand and 24 receptor atom types differ.
+The native ligand has zero branches and torsional degrees of freedom; the published
+ligand has seven of each. This measures disagreement with a published input, not
+the scientific accuracy of either parameterization or a docking score effect.
+
+MolSysMT's public `build.get_missing_bonds` repaired the two absent receptor
+hydrogen bonds required by the native writer. No local replacement was needed.
+The general missing capabilities remain MolSysMT
+[#221](https://github.com/uibcdf/molsysmt/issues/221) for charges,
+[#222](https://github.com/uibcdf/molsysmt/issues/222) for named AutoDock typing, and
+[#224](https://github.com/uibcdf/molsysmt/issues/224) for rotatable bonds and rigid
+fragments. Until a scientifically supported path is available, the default Vina
+rejection and this issue remain open.

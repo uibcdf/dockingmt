@@ -32,7 +32,6 @@ dependencies = [
 [project.optional-dependencies]
 vina = [
   "vina",
-  "meeko",
 ]
 test = [
   "pytest>=8",
