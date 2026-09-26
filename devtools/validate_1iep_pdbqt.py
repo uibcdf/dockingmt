@@ -1,6 +1,7 @@
-"""Audit the Vina adapter with the official externally prepared 1IEP PDBQT pair.
+"""Audit the Vina adapter against the official 1IEP ligand molecular source.
 
-The input files are distributed by AutoDock Vina. See
+The input files are distributed by AutoDock Vina. RDKit is needed to read the
+source SDF before converting its molecular graph to MolSysMT. See
 devguide/validation/1iep_external_pdbqt.md for pinned downloads and limits.
 """
 
@@ -19,10 +20,12 @@ import pyunitwizard as puw
 
 import dockingmt
 from dockingmt.engines.vina import _pdbqt_atom_records
+from dockingmt.preparation._molsys import autodock_element
 
 INPUT_SHA256 = {
     'receptor': 'f13cf3b36f61d87c3b58983e0b8ecf1c3456a685eb86dfe9ccfb139c7bdc2586',
     'partner': '15fb35648d8c18c70317842f3a0631b73a19429c710a037ab07310084d579bb8',
+    'source_ligand': '051b8742c32adc05c07fb486a4e7c9327f84e131cee33ac4e6a568d07553eb38',
 }
 
 
@@ -31,27 +34,93 @@ def _write_json(path: Path, data: dict[str, Any]) -> None:
     path.write_text(json.dumps(data, indent=2, sort_keys=True) + '\n')
 
 
+def _source_atom_map(
+    pdbqt_records: list[tuple[tuple[str, ...], np.ndarray]],
+    source_coordinates: np.ndarray,
+    source_elements: list[str],
+) -> list[int]:
+    """Verify the positional atom map for this pinned bound-ligand example.
+
+    Coordinates are used only to identify the official, already aligned 1IEP
+    source and prepared input. Other PDBQT inputs need an explicit source map.
+    """
+    if source_coordinates.shape != (len(source_elements), 3):
+        raise ValueError('The source ligand coordinates and elements disagree.')
+    if not np.isfinite(source_coordinates).all():
+        raise ValueError('The source ligand has non-finite coordinates.')
+    mapping: list[int] = []
+    for key, coordinate in pdbqt_records:
+        element = autodock_element(key[2])
+        distances = np.linalg.norm(source_coordinates - coordinate, axis=1)
+        matches = [
+            index
+            for index, distance in enumerate(distances)
+            if source_elements[index].upper() == element.upper() and distance <= 0.02
+        ]
+        if len(matches) != 1 or matches[0] in mapping:
+            raise ValueError('The PDBQT atom has no unique source ligand atom.')
+        mapping.append(matches[0])
+    return mapping
+
+
 def run_case(
     receptor_path: Path,
     ligand_path: Path,
+    ligand_source_path: Path,
     manifest_path: Path,
     report_path: Path,
 ) -> dict[str, Any]:
     """Run one bounded adapter check with pinned external PDBQT inputs."""
-    for role, path in (('receptor', receptor_path), ('partner', ligand_path)):
+    from rdkit import Chem
+
+    for role, path in (
+        ('receptor', receptor_path),
+        ('partner', ligand_path),
+        ('source_ligand', ligand_source_path),
+    ):
         actual = hashlib.sha256(path.read_bytes()).hexdigest()
         if actual != INPUT_SHA256[role]:
-            raise ValueError(f'The {role} PDBQT does not match the pinned 1IEP input.')
+            raise ValueError(f'The {role} file does not match the pinned 1IEP input.')
 
     ligand_records = _pdbqt_atom_records(ligand_path.read_text())
-    reference = np.asarray([xyz for _, xyz in ligand_records])
+    source_molecules = list(Chem.SDMolSupplier(str(ligand_source_path), removeHs=False))
+    if len(source_molecules) != 1 or source_molecules[0] is None:
+        raise ValueError('The pinned source SDF must contain one valid ligand.')
+    source = msm.convert(source_molecules[0], to_form='molsysmt.MolSys')
+    source_bonds = int(msm.get(source, n_bonds=True))
+    if source_bonds != source_molecules[0].GetNumBonds():
+        raise ValueError(
+            'The source ligand graph lost bonds during MolSysMT conversion.'
+        )
+    source_coordinates = np.asarray(
+        puw.get_value(
+            msm.get(source, element='atom', coordinates=True), to_unit='angstrom'
+        )[0]
+    )
+    source_elements = list(
+        msm.get(
+            source,
+            element='atom',
+            atom_type=True,
+            chemical_state='structure',
+            structure_indices=0,
+        )
+    )
+    source_indices = _source_atom_map(
+        ligand_records, source_coordinates, source_elements
+    )
+    reference = source_coordinates[source_indices]
     heavy_indices = [
         index
-        for index, (key, _) in enumerate(ligand_records)
-        if key[2] not in ('H', 'HD')
+        for index, source_index in enumerate(source_indices)
+        if source_elements[source_index].upper() != 'H'
     ]
-    if len(ligand_records) != 40 or not heavy_indices:
-        raise ValueError('The pinned 1IEP ligand atom records are incomplete.')
+    if (
+        len(source_elements) != 69
+        or len(ligand_records) != 40
+        or len(heavy_indices) != 37
+    ):
+        raise ValueError('The pinned 1IEP source-to-PDBQT atom inventory has changed.')
 
     box = dockingmt.BoxRegion(
         center=puw.quantity([15.190, 53.903, 16.917], 'angstrom'),
@@ -123,8 +192,15 @@ def run_case(
             ),
         },
         'metric_definition': (
-            'Identity-ordered heavy PDBQT atoms against the prepared bound ligand; '
-            'no alignment or symmetry correction.'
+            'Mapped heavy PDBQT atoms against the original SDF ligand converted '
+            'to MolSysMT; no alignment or symmetry correction.'
+        ),
+        'source_ligand_form': 'rdkit.Chem.Mol -> molsysmt.MolSys',
+        'n_source_atoms': len(source_elements),
+        'n_source_bonds': source_bonds,
+        'pdbqt_to_source_atom_indices': source_indices,
+        'omitted_source_atom_indices': sorted(
+            set(range(len(source_elements))) - set(source_indices)
         ),
         'n_partner_atoms': len(ligand_records),
         'n_heavy_partner_atoms': len(heavy_indices),
@@ -139,10 +215,17 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--receptor', type=Path, required=True)
     parser.add_argument('--ligand', type=Path, required=True)
+    parser.add_argument('--ligand-source', type=Path, required=True)
     parser.add_argument('--manifest', type=Path, required=True)
     parser.add_argument('--report', type=Path, required=True)
     args = parser.parse_args()
-    run_case(args.receptor, args.ligand, args.manifest, args.report)
+    run_case(
+        args.receptor,
+        args.ligand,
+        args.ligand_source,
+        args.manifest,
+        args.report,
+    )
 
 
 if __name__ == '__main__':
