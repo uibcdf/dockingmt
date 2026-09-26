@@ -59,6 +59,90 @@ def test_redocking_factory_uses_selected_partner_for_box():
         puw.get_value(expected.size),
     )
     assert problem.partner_atom_indices == [1299, 1300, 1301, 1302, 1303, 1304]
+    assert problem.receptor_structure_index == problem.partner_structure_index == 0
+
+
+def _multi_structure_redocking_source():
+    path = msm.systems['alanine dipeptide']['alanine_dipeptide.h5msm']
+    molsys = msm.convert(path, to_form='molsysmt.MolSys')
+    msm.append_structures(molsys, msm.copy(molsys))
+    coordinates = np.array(
+        puw.get_value(
+            msm.get(molsys, element='atom', coordinates=True), to_unit='angstrom'
+        ),
+        copy=True,
+    )
+    coordinates[1] += [20.0, 0.0, 0.0]
+    molsys.structures.coordinates = puw.quantity(coordinates, 'angstrom')
+    second_state = molsys.topology._append_chemical_state(
+        state_id='selected-second-state'
+    )
+    molsys._set_structure_chemical_state_indices([0, second_state])
+    return molsys, coordinates
+
+
+def test_redocking_factory_requires_explicit_multi_structure_choice():
+    molsys, _ = _multi_structure_redocking_source()
+
+    with pytest.raises(ArgumentError, match='choose structure_index'):
+        DockingProblem.for_redocking(
+            molsys,
+            receptor_selection=[0, 1],
+            partner_selection=[2, 3],
+            padding=puw.quantity(2.0, 'angstrom'),
+        )
+
+
+def test_redocking_factory_uses_selected_structure_for_molecules_box_and_state():
+    molsys, source_coordinates = _multi_structure_redocking_source()
+    kwargs = {
+        'receptor_selection': [0, 1],
+        'partner_selection': [2, 3],
+        'padding': puw.quantity(2.0, 'angstrom'),
+    }
+    first = DockingProblem.for_redocking(molsys, structure_index=0, **kwargs)
+    second = DockingProblem.for_redocking(molsys, structure_index=1, **kwargs)
+
+    assert second.receptor_structure_index == second.partner_structure_index == 1
+    assert second.receptor_atom_indices == [0, 1]
+    assert second.partner_atom_indices == [2, 3]
+    np.testing.assert_allclose(
+        puw.get_value(
+            msm.get(second.receptor_molsys, element='atom', coordinates=True),
+            to_unit='angstrom',
+        )[0],
+        source_coordinates[1, [0, 1]],
+    )
+    np.testing.assert_allclose(
+        puw.get_value(
+            msm.get(second.partner_molsys, element='atom', coordinates=True),
+            to_unit='angstrom',
+        )[0],
+        source_coordinates[1, [2, 3]],
+    )
+    np.testing.assert_allclose(
+        puw.get_value(second.search_domain.center, to_unit='angstrom')
+        - puw.get_value(first.search_domain.center, to_unit='angstrom'),
+        [20.0, 0.0, 0.0],
+    )
+    assert all(
+        second.search_domain.contains(puw.quantity(point, 'angstrom'))
+        for point in source_coordinates[1, [2, 3]]
+    )
+    assert all(
+        not second.search_domain.contains(puw.quantity(point, 'angstrom'))
+        for point in source_coordinates[0, [2, 3]]
+    )
+    recorded = second.to_dict()
+    assert all(
+        recorded['molecular_inputs'][role]['chemical_state_id']
+        == 'selected-second-state'
+        for role in ('receptor', 'partner')
+    )
+    reconstructed = DockingProblem.from_dict(recorded, receptor=molsys, partner=molsys)
+    assert reconstructed.receptor_structure_index == 1
+    assert reconstructed.partner_structure_index == 1
+    assert reconstructed.search_domain.to_dict() == recorded['search_domain']
 
 
 def test_molsys_input_and_structure_selection():

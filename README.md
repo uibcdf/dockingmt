@@ -49,19 +49,23 @@ source_ligand_indices = problem.partner_atom_indices
 
 For redocking from one experimental complex, `DockingProblem.for_redocking(...)`
 uses the same ligand selection and structure to define the box and the docking
-partner. `problem.to_dict()['molecular_inputs']` includes the resolved chemical
-state and MolSysMT conversion report for each molecular input.
+partner. It selects structure 0 when the complex has one structure; when the
+complex has multiple structures, pass `structure_index` explicitly. The same
+index is used for the receptor, ligand and box.
+`problem.to_dict()['molecular_inputs']` includes the resolved chemical state and
+MolSysMT conversion report for each molecular input.
 File-backed inputs also carry a SHA-256 fingerprint; reconstruction refuses a
 file whose contents have changed. In-memory inputs still require the original
 objects for reconstruction while [MolSysMT H5MSM charge preservation](https://github.com/uibcdf/molsysmt/issues/234)
 is unresolved.
 
-An input with multiple structures requires a `receptor_structure_index` or
-`partner_structure_index`. The Vina adapter prepares selected MolSys inputs when
-`dock(problem)` is called. Preparation preserves atomic partial charges and
-aromaticity when the source provides them; otherwise it records placeholder
-charges. AutoDock atom types currently use a heuristic in both cases. Vina
-rejects these provisional preparations by default, including `PreparedLigand`
+For `DockingProblem(...)`, inputs with multiple structures require
+`receptor_structure_index` and `partner_structure_index` as applicable. The Vina
+adapter prepares selected MolSys inputs when `dock(problem)` is called.
+Preparation preserves atomic partial charges and aromaticity when the source
+provides them; otherwise it records placeholder charges. AutoDock atom types
+currently use a heuristic in both cases. Vina rejects these provisional
+preparations by default, including `PreparedLigand`
 and `PreparedReceptor` objects produced by DockingMT. To run an exploratory
 calculation while [issue #5](https://github.com/uibcdf/dockingmt/issues/5)
 remains open, pass `VinaProtocol(allow_provisional_preparation=True)`. The choice

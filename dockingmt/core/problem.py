@@ -57,7 +57,11 @@ def _has_pdbqt_charge(line: str) -> bool:
 
 
 def _normalize_input(
-    value: Any, selection: Any, structure_index: int | None, name: str
+    value: Any,
+    selection: Any,
+    structure_index: int | None,
+    name: str,
+    structure_index_name: str | None = None,
 ) -> tuple[
     Any | None,
     list[int] | None,
@@ -70,6 +74,7 @@ def _normalize_input(
     """Select one molecular structure and retain source atom indices."""
     from dockingmt.preparation import PreparedLigand, PreparedReceptor
 
+    index_name = structure_index_name or f'{name}_structure_index'
     prepared = isinstance(value, (PreparedReceptor, PreparedLigand))
     backend_input = _is_pdbqt_input(value)
     if prepared or backend_input:
@@ -117,7 +122,7 @@ def _normalize_input(
         if structure_index is None:
             if n_structures != 1:
                 raise ValueError(
-                    f'the molecular system has {n_structures} structures; choose {name}_structure_index'
+                    f'the molecular system has {n_structures} structures; choose {index_name}'
                 )
             structure_index = 0
         if (
@@ -126,9 +131,7 @@ def _normalize_input(
             or structure_index < 0
             or structure_index >= n_structures
         ):
-            raise ValueError(
-                f'{name}_structure_index must be an integer in [0, {n_structures})'
-            )
+            raise ValueError(f'{index_name} must be an integer in [0, {n_structures})')
         state_index, state_id = _structure_state(source_molsys, structure_index, name)
         atom_indices = sorted(
             int(index)
@@ -320,12 +323,19 @@ class DockingProblem:
         receptor_selection: Any,
         partner_selection: Any,
         padding: Any,
-        structure_index: int = 0,
+        structure_index: int | None = None,
         metadata: dict[str, Any] | None = None,
     ) -> DockingProblem:
-        """Use one ligand selection and structure for both docking and its box."""
+        """Use one ligand selection and structure for both docking and its box.
+
+        A source with multiple structures requires an explicit ``structure_index``.
+        """
         selected, _, _, _, _, _, _ = _normalize_input(
-            complex_system, partner_selection, structure_index, 'partner'
+            complex_system,
+            partner_selection,
+            structure_index,
+            'partner',
+            structure_index_name='structure_index',
         )
         if selected is None:
             raise ArgumentError(

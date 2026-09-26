@@ -86,3 +86,15 @@ The 181L case was recorded and replayed in separate commands. The manifest was
 bytes. Both recorded and replayed payloads matched, and the replay comparison
 remained within tolerance. A deliberately changed ligand payload failed digest
 validation before a docking rerun in the regression test.
+
+## 2026-09-26 redocking state-selection correction
+
+`DockingProblem.for_redocking()` no longer silently chooses structure 0 for a
+multi-structure MolSysMT source. It requires `structure_index` in that case and
+uses the chosen structure for receptor and ligand extraction and the search box.
+A two-structure regression test gives the second structure a different position
+and chemical-state ID, then checks the selected coordinates, box containment,
+recorded state, and reconstruction. Single-structure input still selects index
+0 by default. This resolves the ambiguity within DockingMT; the broader issue
+remains partial until validated preparation methods and their decisions can be
+recorded through the provider workflow.
