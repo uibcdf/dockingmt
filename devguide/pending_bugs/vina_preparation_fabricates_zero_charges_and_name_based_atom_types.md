@@ -93,3 +93,7 @@ The general missing capabilities remain MolSysMT
 [#224](https://github.com/uibcdf/molsysmt/issues/224) for rotatable bonds and rigid
 fragments. Until a scientifically supported path is available, the default Vina
 rejection and this issue remain open.
+
+The subsequent explicit-torsion implementation can reproduce seven 1IEP PDBQT
+branches, but leaves the zero-charge and atom-type differences in this report
+unchanged. Flexible-tree acceptance is therefore not a resolution of this issue.

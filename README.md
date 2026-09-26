@@ -73,16 +73,34 @@ and the preparation assessment are recorded in result provenance. Externally
 provided PDBQT inputs are accepted with an `unassessed` chemistry assessment.
 A controlled removal of nonpolar hydrogens
 retains an explicit source atom map, and Vina's PDBQT output order is checked
-before poses are returned. Molecular pose reconstruction and RMSD verify ordered
-source atom identities; omitted hydrogens remain absent from reconstructed poses.
+before poses are returned. Molecular pose reconstruction and RMSD verify source
+atom identities even when a flexible PDBQT tree changes their record order;
+omitted hydrogens remain absent from reconstructed poses.
 Raw PDBQT inputs without a molecular source map can still produce scores and
 coordinates, but cannot be reconstructed as molecular poses or compared by
 molecular RMSD. Explicit coordinate-array RMSD is positional. Other atom losses
 require a verified map. Preparation chemistry remains provisional under
 [issue #5](https://github.com/uibcdf/dockingmt/issues/5).
-DockingMT's current ligand writer supports rigid ligands only (`TORSDOF 0`);
-requesting active torsions raises an error until a valid PDBQT torsion tree is
-available under [issue #6](https://github.com/uibcdf/dockingmt/issues/6).
+Ligands remain rigid by default (`TORSDOF 0`). For a molecular ligand with an
+explicit graph and bond orders, select active torsions by pairs of atom indices
+in the selected ligand before nonpolar hydrogen removal:
+
+```python
+from dockingmt import VinaProtocol
+
+protocol = VinaProtocol(
+    active_torsion_bonds=[(1, 2)],
+    allow_provisional_preparation=True,
+)
+```
+
+The same selection can be passed to `prepare_ligand(...)` when preparing a
+ligand explicitly. DockingMT checks that selected bonds are single, outside
+rings and amide C–N bonds, and have nonterminal heavy-atom sides; invalid or
+unavailable graph information fails clearly. The temporary rigid-fragment
+calculation is tracked by [MolSysMT #224](https://github.com/uibcdf/molsysmt/issues/224)
+and will be removed when MolSysMT provides the verified operation. Explicit
+torsions do not validate the still provisional charges and atom types.
 Result provenance records the hydrogen and torsion policies, preparation
 assessment, and SHA-256 digests of the PDBQT bytes submitted to Vina. Remaining
 preparation-decision provenance is tracked in
@@ -117,6 +135,9 @@ uses the official AutoDock Vina prepared receptor and flexible ligand to audit
 the Vina adapter. It retains the submitted PDBQT bytes, verifies pose atom
 identity, and records the exact search box sent to Vina. DockingMT's molecular
 preparation remains under [issue #5](https://github.com/uibcdf/dockingmt/issues/5).
+The [1IEP native preparation audit](devguide/validation/1iep_preparation_audit.md)
+also verifies seven explicitly selected torsions and records the remaining
+charge and atom-type differences.
 
 ## Governance and Design Authority
 

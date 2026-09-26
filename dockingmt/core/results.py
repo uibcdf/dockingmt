@@ -363,13 +363,20 @@ class DockingPose:
                     'a verified pose-to-partner atom map is required.'
                 ),
             )
-        if _molecular_atom_keys(molsys) != expected_keys:
+        molecular_keys = _molecular_atom_keys(molsys)
+        pose_index_by_key = {
+            _atom_key(record): index for index, record in enumerate(expected_keys)
+        }
+        if {_atom_key(record) for record in molecular_keys} != set(pose_index_by_key):
             raise ArgumentError(
                 arg_name='partner',
-                reason='Partner atom identities or order differ from the verified pose map.',
+                reason='Partner atom identities differ from the verified pose map.',
             )
+        molecular_order = [
+            pose_index_by_key[_atom_key(record)] for record in molecular_keys
+        ]
         coords_3d = puw.quantity(
-            np.expand_dims(puw.get_value(self._coordinates), axis=0),
+            np.expand_dims(puw.get_value(self._coordinates)[molecular_order], axis=0),
             puw.get_unit(self._coordinates),
         )
         msm.set(molsys, element='atom', coordinates=coords_3d)

@@ -16,6 +16,7 @@ from pathlib import Path
 from typing import Any
 
 import molsysmt as msm
+import pyunitwizard as puw
 
 from devtools.validate_1iep_pdbqt import INPUT_SHA256, UPSTREAM_COMMIT
 from dockingmt.preparation import prepare_ligand, prepare_receptor
@@ -108,6 +109,38 @@ def _compare_pdbqt(native: bytes, reference: bytes) -> dict[str, Any]:
     }
 
 
+def _reference_torsion_bonds(
+    reference: bytes, source_coordinates: Any
+) -> list[tuple[int, int]]:
+    """Map this pinned aligned reference's BRANCH records to source atom indices."""
+    coordinates = puw.get_value(source_coordinates, to_unit='angstrom')
+    coordinate_to_source = {
+        tuple(round(float(value), 3) for value in xyz): index
+        for index, xyz in enumerate(coordinates)
+    }
+    if len(coordinate_to_source) != len(coordinates):
+        raise ValueError('Source ligand has duplicate rounded coordinates.')
+    serial_to_source = {}
+    lines = reference.decode('utf-8').splitlines()
+    for line in lines:
+        if line.startswith(('ATOM', 'HETATM')):
+            serial = int(line[6:11])
+            xyz = tuple(float(line[offset : offset + 8]) for offset in (30, 38, 46))
+            if serial in serial_to_source or xyz not in coordinate_to_source:
+                raise ValueError(
+                    'Reference atom has no unique source coordinate match.'
+                )
+            serial_to_source[serial] = coordinate_to_source[xyz]
+    bonds = []
+    for line in lines:
+        if line.startswith('BRANCH'):
+            parent, child = (int(serial) for serial in line.split()[1:3])
+            if parent not in serial_to_source or child not in serial_to_source:
+                raise ValueError('Reference branch has an unmapped atom serial.')
+            bonds.append((serial_to_source[parent], serial_to_source[child]))
+    return bonds
+
+
 def _preparation_summary(prepared: Any) -> dict[str, Any]:
     metadata = prepared.metadata
     return {
@@ -118,6 +151,7 @@ def _preparation_summary(prepared: Any) -> dict[str, Any]:
         'atom_type_source': metadata['atom_type_source'],
         'hydrogen_policy': metadata['hydrogen_policy'],
         'torsion_policy': metadata.get('torsion_policy'),
+        'active_torsion_bonds': metadata.get('active_torsion_bonds'),
         'source_chemistry': metadata['source_chemistry'],
     }
 
@@ -128,6 +162,7 @@ def audit(
     reference_receptor_path: Path,
     reference_ligand_path: Path,
     report_path: Path,
+    check_vina_parser: bool = False,
 ) -> dict[str, Any]:
     """Run DockingMT preparation using MolSysMT and save bounded evidence."""
     from rdkit import Chem
@@ -181,6 +216,11 @@ def audit(
         raise ValueError('The pinned SDF must contain one valid ligand.')
     ligand = msm.convert(molecules[0], to_form='molsysmt.MolSys')
     prepared_ligand = prepare_ligand(ligand, selection='all')
+    source_coordinates = msm.get(ligand, element='atom', coordinates=True)[0]
+    reference_bonds = _reference_torsion_bonds(reference_ligand, source_coordinates)
+    flexible_ligand = prepare_ligand(
+        ligand, selection='all', active_torsion_bonds=reference_bonds
+    )
 
     native_receptor = prepared_receptor.to_pdbqt().encode('utf-8')
     native_ligand = prepared_ligand.to_pdbqt().encode('utf-8')
@@ -215,7 +255,23 @@ def audit(
             'preparation': _preparation_summary(prepared_ligand),
             'comparison': _compare_pdbqt(native_ligand, reference_ligand),
         },
+        'flexible_ligand': {
+            'selection_source': 'pinned_reference_branch_coordinate_map',
+            'preparation': _preparation_summary(flexible_ligand),
+            'comparison': _compare_pdbqt(
+                flexible_ligand.to_pdbqt().encode('utf-8'), reference_ligand
+            ),
+        },
     }
+    if check_vina_parser:
+        import vina
+
+        engine = vina.Vina(verbosity=0)
+        engine.set_ligand_from_string(flexible_ligand.to_pdbqt())
+        report['flexible_ligand']['vina_parser'] = {
+            'accepted': True,
+            'vina_version': getattr(vina, '__version__', 'unknown'),
+        }
     report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
     return report
@@ -228,6 +284,7 @@ def main() -> None:
     parser.add_argument('--reference-receptor', required=True, type=Path)
     parser.add_argument('--reference-ligand', required=True, type=Path)
     parser.add_argument('--report', required=True, type=Path)
+    parser.add_argument('--check-vina-parser', action='store_true')
     args = parser.parse_args()
     audit(
         args.source_receptor,
@@ -235,6 +292,7 @@ def main() -> None:
         args.reference_receptor,
         args.reference_ligand,
         args.report,
+        check_vina_parser=args.check_vina_parser,
     )
 
 

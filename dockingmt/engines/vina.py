@@ -146,6 +146,7 @@ class VinaBackend(DockingBackend):
         self._capabilities = {
             'rigid_receptor',
             'small_molecule',
+            'flexible_ligand',
             'box_search',
             'scoring_vina',
             'scoring_vinardo',
@@ -234,6 +235,7 @@ class VinaBackend(DockingBackend):
                 problem.partner_molsys,
                 selection='all',
                 state_id=problem.metadata.get('partner_state_id'),
+                active_torsion_bonds=protocol.active_torsion_bonds,
             )
             source_n_atoms = msm.get(
                 problem.partner_molsys, element='system', n_atoms=True
@@ -257,13 +259,19 @@ class VinaBackend(DockingBackend):
                         'A verified source-to-pose atom map is required (dockingmt#8).'
                     ),
                 )
-            partner_selected_indices = retained
+            partner_selected_indices = [retained[i] for i in partner.pdbqt_atom_indices]
             partner_source_n_atoms = source_n_atoms
             if problem.partner_atom_indices is not None:
                 partner_source_indices = [
-                    problem.partner_atom_indices[i] for i in retained
+                    problem.partner_atom_indices[i] for i in partner_selected_indices
                 ]
             partner_mode = 'automatic'
+
+        if protocol.active_torsion_bonds and partner_mode != 'automatic':
+            raise ArgumentError(
+                arg_name='protocol.active_torsion_bonds',
+                reason='Protocol torsions require automatic MolSysMT ligand preparation; prepare a custom ligand separately without this protocol option.',
+            )
 
         receptor_reasons = _provisional_preparation_reasons(receptor)
         partner_reasons = _provisional_preparation_reasons(partner)
@@ -308,21 +316,26 @@ class VinaBackend(DockingBackend):
                 if partner.source_molsys is not None
                 else partner.to_molecular_system()
             )
-            partner_atom_keys = _molecular_atom_keys(partner_source)
+            prepared_atom_keys = _molecular_atom_keys(partner_source)
             if (
-                len(partner_atom_keys) != partner.n_atoms
+                len(prepared_atom_keys) != partner.n_atoms
                 or (
-                    all(record['atom_name'] is not None for record in partner_atom_keys)
-                    and [record['atom_name'] for record in partner_atom_keys]
+                    all(
+                        record['atom_name'] is not None for record in prepared_atom_keys
+                    )
+                    and [record['atom_name'] for record in prepared_atom_keys]
                     != partner.atom_names
                 )
-                or [record['element'] for record in partner_atom_keys]
+                or [record['element'] for record in prepared_atom_keys]
                 != [autodock_element(atom_type) for atom_type in partner.atom_types]
             ):
                 raise ArgumentError(
                     arg_name='problem.partner',
                     reason='Prepared ligand names or elements do not match its molecular source.',
                 )
+            partner_atom_keys = [
+                prepared_atom_keys[i] for i in partner.pdbqt_atom_indices
+            ]
 
         # Prepare receptor and partner representations
         temp_files_to_remove: list[str] = []
@@ -462,10 +475,14 @@ class VinaBackend(DockingBackend):
                         receptor_state_id=receptor_state_id,
                         metadata={
                             'pose_atom_order': 'verified_pdbqt_order',
-                            'prepared_atom_indices': list(range(partner.n_atoms)),
-                            'selected_atom_indices': partner_selected_indices,
+                            'prepared_atom_indices': partner.pdbqt_atom_indices,
+                            'selected_atom_indices': partner_selected_indices
+                            if partner_mode == 'automatic'
+                            else partner.pdbqt_atom_indices,
                             'source_atom_indices': partner_source_indices,
-                            'selected_partner_n_atoms': partner_source_n_atoms,
+                            'selected_partner_n_atoms': partner_source_n_atoms
+                            if partner_mode == 'automatic'
+                            else partner.n_atoms,
                             'source_atom_keys': partner_atom_keys,
                         }
                         if isinstance(partner, PreparedLigand)

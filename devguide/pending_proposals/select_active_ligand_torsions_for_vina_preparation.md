@@ -40,7 +40,9 @@ An unrecorded hard-coded torsion count was rejected because it cannot identify w
 
 ## Scope and exclusions
 
-Docking protocol choice and provenance; general torsion perception and PDBQT ROOT/BRANCH writing stay in MolSysMT.
+Docking protocol choice, provenance, and PDBQT ROOT/BRANCH projection remain in
+DockingMT. General rotatable-bond classification and rigid-fragment derivation
+belong in MolSysMT; the current local bridge is temporary under molsysmt#224.
 
 ## Acceptance criteria
 
@@ -61,3 +63,27 @@ writing a misleading TORSDOF count. The rigid policy is recorded in prepared
 ligand metadata and therefore in Vina run provenance. This does not implement
 active torsion selection or flexible-ligand PDBQT writing; the proposal stays
 open pending the provider capabilities in molsysmt#214 and molsysmt#224.
+
+## 2026-09-26 explicit torsion bridge
+
+`VinaProtocol(active_torsion_bonds=[...])` now passes explicit selected-ligand
+bond pairs into automatic MolSysMT ligand preparation. `prepare_ligand` accepts
+the same selection directly. The temporary graph bridge in
+`dockingmt/preparation/_temporary_torsions.py` consumes MolSysMT's public bond
+pairs and orders, rejects non-single, ring, amide C–N, hydrogen, and terminal
+heavy-atom bonds, and derives a deterministic rigid-fragment tree. The PDBQT
+writer emits matching `ROOT`/`BRANCH` records and `TORSDOF`; it records the exact
+PDBQT atom permutation so Vina poses reconstruct against source MolSysMT atom
+identity. This bridge must be removed in favor of MolSysMT's implementation of
+[#224](https://github.com/uibcdf/molsysmt/issues/224) once that API passes the
+same cases and preserves the source map. The default remains rigid; there is no
+unqualified automatic torsion-perception policy.
+
+The [pinned 1IEP audit](../validation/1iep_preparation_audit.md) maps the seven
+published BRANCH bonds to the molecular source and selects those bonds explicitly.
+The native flexible writer retains all 40 matched atoms and emits seven branches
+and `TORSDOF 7`. A separate conventional hexane case is accepted by Vina and
+reconstructs its returned pose against MolSysMT after the PDBQT atom-order
+permutation. These are software and reference-conformance results; they do not
+validate ligand charges or atom types. The proposal remains partial until the
+MolSysMT provider operation replaces the temporary graph bridge.

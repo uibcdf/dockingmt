@@ -124,7 +124,7 @@ def test_docking_result_serialization_roundtrip():
     )
 
 
-def test_molecular_pose_map_preserves_elements_and_rejects_reordered_source():
+def test_molecular_pose_map_preserves_elements_and_rejects_altered_identity():
     import molsysmt as msm
 
     rdkit = pytest.importorskip('rdkit')
@@ -168,7 +168,7 @@ def test_molecular_pose_map_preserves_elements_and_rejects_reordered_source():
     atom_ids = reordered.topology.atoms['atom_id'].tolist()
     atom_ids[0], atom_ids[1] = atom_ids[1], atom_ids[0]
     reordered.topology.atoms['atom_id'] = atom_ids
-    with pytest.raises(ArgumentError, match='identities or order differ'):
+    with pytest.raises(ArgumentError, match='identities differ'):
         recovered_pose.to_molecular_system(reordered)
     with pytest.raises(ArgumentError, match='Reference atoms do not match'):
         recovered_pose.get_rmsd(reordered)

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from numbers import Integral
 from typing import Any
 
 import pyunitwizard as puw
@@ -71,6 +72,9 @@ class VinaProtocol(DockingProtocol):
         Results from this path are exploratory and their chemistry remains unvalidated.
     capture_backend_inputs : bool, default False
         Include the exact PDBQT input bytes in result provenance for independent audit.
+    active_torsion_bonds : list[tuple[int, int]] | None, default None
+        Explicit selected-ligand atom-index pairs to rotate during automatic ligand
+        preparation. None keeps the ligand rigid. Requires a complete molecular graph.
     """
 
     SUPPORTED_SCORING = ('vina', 'vinardo', 'ad4')
@@ -85,6 +89,7 @@ class VinaProtocol(DockingProtocol):
         cpu: int = 0,
         allow_provisional_preparation: bool = False,
         capture_backend_inputs: bool = False,
+        active_torsion_bonds: list[tuple[int, int]] | None = None,
     ):
         if not isinstance(exhaustiveness, (int, float)) or int(exhaustiveness) < 1:
             raise ArgumentError(
@@ -159,6 +164,25 @@ class VinaProtocol(DockingProtocol):
             )
         self._capture_backend_inputs = capture_backend_inputs
 
+        if active_torsion_bonds is not None and (
+            not isinstance(active_torsion_bonds, (list, tuple))
+            or any(
+                not isinstance(pair, (list, tuple))
+                or len(pair) != 2
+                or any(isinstance(i, bool) or not isinstance(i, Integral) for i in pair)
+                for pair in active_torsion_bonds
+            )
+        ):
+            raise ArgumentError(
+                arg_name='active_torsion_bonds',
+                reason='Use pairs of selected-ligand integer atom indices.',
+            )
+        self._active_torsion_bonds = (
+            [tuple(int(i) for i in pair) for pair in active_torsion_bonds]
+            if active_torsion_bonds is not None
+            else []
+        )
+
     @property
     def name(self) -> str:
         """Name of the protocol."""
@@ -205,14 +229,22 @@ class VinaProtocol(DockingProtocol):
         return self._capture_backend_inputs
 
     @property
+    def active_torsion_bonds(self) -> list[tuple[int, int]]:
+        """Selected source-ligand bonds for automatic preparation."""
+        return list(self._active_torsion_bonds)
+
+    @property
     def required_capabilities(self) -> set[str]:
         """Capabilities required by VinaProtocol."""
-        return {
+        capabilities = {
             'rigid_receptor',
             'small_molecule',
             'box_search',
             f'scoring_{self._scoring}',
         }
+        if self._active_torsion_bonds:
+            capabilities.add('flexible_ligand')
+        return capabilities
 
     @property
     def parameters(self) -> dict[str, Any]:
@@ -229,6 +261,7 @@ class VinaProtocol(DockingProtocol):
             'cpu': self._cpu,
             'allow_provisional_preparation': self._allow_provisional_preparation,
             'capture_backend_inputs': self._capture_backend_inputs,
+            'active_torsion_bonds': [list(pair) for pair in self._active_torsion_bonds],
         }
 
     def validate_problem(self, problem: DockingProblem) -> None:
@@ -278,6 +311,7 @@ class VinaProtocol(DockingProtocol):
                 'allow_provisional_preparation', False
             ),
             capture_backend_inputs=params.get('capture_backend_inputs', False),
+            active_torsion_bonds=params.get('active_torsion_bonds'),
         )
 
     def __repr__(self) -> str:
@@ -288,5 +322,6 @@ class VinaProtocol(DockingProtocol):
             f'energy_range={e_val} {e_unit}, scoring={self._scoring!r}, '
             f'seed={self._seed}, '
             f'allow_provisional_preparation={self._allow_provisional_preparation}, '
+            f'active_torsion_bonds={self._active_torsion_bonds}, '
             f'capture_backend_inputs={self._capture_backend_inputs})'
         )

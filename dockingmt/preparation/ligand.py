@@ -14,6 +14,7 @@ from dockingmt.preparation._molsys import (
     source_aromaticity,
     source_partial_charges,
 )
+from dockingmt.preparation._temporary_torsions import TorsionTree, build_torsion_tree
 
 
 class PreparedLigand:
@@ -38,7 +39,8 @@ class PreparedLigand:
     charges : list[float]
         Assigned partial atomic charges.
     torsion_dof : int, default 0
-        Number of active torsional degrees of freedom. Only 0 is currently supported.
+        Number of active torsional degrees of freedom. A nonzero value requires
+        a verified rigid-fragment tree built by ``prepare_ligand``.
     metadata : dict[str, Any] | None, optional
         Arbitrary preparation metadata.
     """
@@ -56,6 +58,7 @@ class PreparedLigand:
         group_ids: list[int] | None = None,
         metadata: dict[str, Any] | None = None,
         source_molsys: Any = None,
+        _torsion_tree: TorsionTree | None = None,
     ):
         self.state_id = state_id
         self.atom_names = list(atom_names)
@@ -66,13 +69,14 @@ class PreparedLigand:
         if (
             isinstance(torsion_dof, bool)
             or not isinstance(torsion_dof, int)
-            or torsion_dof != 0
+            or torsion_dof < 0
+            or torsion_dof != (len(_torsion_tree.active_bonds) if _torsion_tree else 0)
         ):
             raise ArgumentError(
                 arg_name='torsion_dof',
                 reason=(
-                    'DockingMT currently writes only rigid ligand PDBQT (TORSDOF 0). '
-                    'Active torsions require a ROOT/BRANCH tree; see dockingmt#6.'
+                    'A nonzero TORSDOF requires a matching ROOT/BRANCH tree; '
+                    'use prepare_ligand(active_torsion_bonds=...).'
                 ),
             )
         self.torsion_dof = torsion_dof
@@ -86,37 +90,65 @@ class PreparedLigand:
         )
         self.metadata = dict(metadata) if metadata is not None else {}
         self.source_molsys = source_molsys
+        self._torsion_tree = _torsion_tree
 
     @property
     def n_atoms(self) -> int:
         """Number of atoms in the prepared ligand."""
         return len(self.atom_names)
 
+    @property
+    def pdbqt_atom_indices(self) -> list[int]:
+        """Prepared-atom indices in the exact order written to PDBQT."""
+        return (
+            list(self._torsion_tree.atom_order)
+            if self._torsion_tree is not None
+            else list(range(self.n_atoms))
+        )
+
     def to_pdbqt(self) -> str:
         """Generate a PDBQT formatted string for docking engines."""
-        if self.torsion_dof != 0:
+        if self.torsion_dof != (
+            len(self._torsion_tree.active_bonds) if self._torsion_tree else 0
+        ):
             raise ArgumentError(
                 arg_name='torsion_dof',
                 reason='A nonzero TORSDOF requires a ROOT/BRANCH tree (dockingmt#6).',
             )
         coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))
+        serials = {
+            atom: serial for serial, atom in enumerate(self.pdbqt_atom_indices, 1)
+        }
+
+        def write_atom(atom: int) -> str:
+            x, y, z = coords_ang[atom]
+            return (
+                f'ATOM  {serials[atom]:5d}  {self.atom_names[atom]:<3s} '
+                f'{self.group_names[atom]:3s} A{self.group_ids[atom]:4d}    '
+                f'{x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00    '
+                f'{self.charges[atom]:6.3f} {self.atom_types[atom]:<2s}'
+            )
+
         lines = ['ROOT']
-        for i, (name, gname, gid, (x, y, z), atype, q) in enumerate(
-            zip(
-                self.atom_names,
-                self.group_names,
-                self.group_ids,
-                coords_ang,
-                self.atom_types,
-                self.charges,
-            )
-        ):
-            line = (
-                f'ATOM  {i + 1:5d}  {name:<3s} {gname:3s} A{gid:4d}    '
-                f'{x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00    {q:6.3f} {atype:<2s}'
-            )
-            lines.append(line)
+        root_atoms = (
+            self._torsion_tree.root_atoms
+            if self._torsion_tree is not None
+            else range(self.n_atoms)
+        )
+        lines.extend(write_atom(atom) for atom in root_atoms)
         lines.append('ENDROOT')
+
+        def write_branches(branches: tuple) -> None:
+            for branch in branches:
+                parent_serial = serials[branch.parent_atom]
+                child_serial = serials[branch.child_atom]
+                lines.append(f'BRANCH {parent_serial:3d} {child_serial:3d}')
+                lines.extend(write_atom(atom) for atom in branch.atoms)
+                write_branches(branch.children)
+                lines.append(f'ENDBRANCH {parent_serial:3d} {child_serial:3d}')
+
+        if self._torsion_tree is not None:
+            write_branches(self._torsion_tree.branches)
         lines.append(f'TORSDOF {self.torsion_dof}')
         return '\n'.join(lines) + '\n'
 
@@ -133,6 +165,7 @@ class PreparedLigand:
             'atom_types': self.atom_types,
             'charges': self.charges,
             'torsion_dof': self.torsion_dof,
+            'pdbqt_atom_indices': self.pdbqt_atom_indices,
             'metadata': self.metadata,
         }
 
@@ -198,6 +231,7 @@ def prepare_ligand(
     selection: str = "molecule_type=='small molecule'",
     state_id: str | None = None,
     torsion_dof: int | None = None,
+    active_torsion_bonds: list[tuple[int, int]] | None = None,
 ) -> PreparedLigand:
     """Prepare a small molecule ligand for docking calculations.
 
@@ -213,7 +247,10 @@ def prepare_ligand(
     state_id : str | None, optional
         Unique identifier for the prepared ligand state.
     torsion_dof : int | None, optional
-        Active torsion count. Only 0 or None (rigid ligand) is currently supported.
+        Legacy rigid-only assertion. A nonzero count without selected bonds is rejected.
+    active_torsion_bonds : list[tuple[int, int]] | None, optional
+        Explicit active bonds as pairs of selected-ligand atom indices before
+        nonpolar hydrogen projection. None or an empty list keeps the ligand rigid.
 
     Returns
     -------
@@ -321,7 +358,18 @@ def prepare_ligand(
     )
 
     resolved_id = state_id if state_id is not None else f'ligand_state_{primary_group}'
-    resolved_torsions = torsion_dof if torsion_dof is not None else 0
+    requested_bonds = active_torsion_bonds if active_torsion_bonds is not None else []
+    torsion_tree = (
+        build_torsion_tree(extracted, retained_indices, requested_bonds, elements)
+        if requested_bonds
+        else None
+    )
+    resolved_torsions = len(torsion_tree.active_bonds) if torsion_tree else 0
+    if torsion_dof is not None and torsion_dof != resolved_torsions:
+        raise ArgumentError(
+            arg_name='torsion_dof',
+            reason='TORSDOF must match the selected ROOT/BRANCH tree; specify active_torsion_bonds.',
+        )
 
     return PreparedLigand(
         state_id=resolved_id,
@@ -331,6 +379,7 @@ def prepare_ligand(
         atom_types=retained_types,
         charges=retained_charges,
         torsion_dof=resolved_torsions,
+        _torsion_tree=torsion_tree,
         group_names=retained_gnames,
         group_ids=retained_gids,
         metadata={
@@ -344,7 +393,12 @@ def prepare_ligand(
             'atom_type_source': 'element_aromaticity_heuristic'
             if aromaticity is not None
             else 'element_group_heuristic',
-            'torsion_policy': 'rigid_only',
+            'torsion_policy': 'explicit_selected_bonds'
+            if torsion_tree
+            else 'rigid_only',
+            'active_torsion_bonds': [list(pair) for pair in torsion_tree.active_bonds]
+            if torsion_tree
+            else [],
             'hydrogen_policy': 'retain_polar_merge_nonpolar',
             'omitted_hydrogen_indices': omitted_hydrogen_indices,
             'atom_map_status': 'identity'
