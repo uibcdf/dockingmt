@@ -8,6 +8,7 @@ devguide/validation/1iep_external_pdbqt.md for pinned downloads and limits.
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import json
 import subprocess
@@ -27,12 +28,70 @@ INPUT_SHA256 = {
     'partner': '15fb35648d8c18c70317842f3a0631b73a19429c710a037ab07310084d579bb8',
     'source_ligand': '051b8742c32adc05c07fb486a4e7c9327f84e131cee33ac4e6a568d07553eb38',
 }
+UPSTREAM_COMMIT = '3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645'
+REFERENCE_BOX_CENTER_ANGSTROM = (15.190, 53.903, 16.917)
+REFERENCE_BOX_SIZE_ANGSTROM = (20.0, 20.0, 20.0)
+CONTROL_OFFSET_ANGSTROM = (30.0, 0.0, 0.0)
 NEAR_NATIVE_CUTOFF_ANGSTROM = 2.5
 
 
 def _write_json(path: Path, data: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, sort_keys=True) + '\n')
+
+
+def _source_revision() -> dict[str, Any]:
+    """Identify the exact DockingMT and case-auditor source used by a run."""
+    root = Path(__file__).resolve().parents[1]
+    code_files = sorted(
+        [
+            *root.joinpath('dockingmt').rglob('*.py'),
+            Path(__file__),
+            Path(__file__).with_name('replay_1iep_pdbqt.py'),
+        ]
+    )
+    digest = hashlib.sha256()
+    for path in code_files:
+        digest.update(path.relative_to(root).as_posix().encode())
+        digest.update(path.read_bytes())
+    head = subprocess.run(
+        ['git', 'rev-parse', 'HEAD'],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=True,
+    ).stdout.strip()
+    dirty = bool(
+        subprocess.run(
+            ['git', 'status', '--porcelain'],
+            cwd=root,
+            capture_output=True,
+            text=True,
+            check=True,
+        ).stdout.strip()
+    )
+    return {
+        'git_head': head,
+        'worktree_dirty': dirty,
+        'code_sha256': digest.hexdigest(),
+    }
+
+
+def _recorded_protocol() -> dockingmt.VinaProtocol:
+    return dockingmt.VinaProtocol(
+        exhaustiveness=1,
+        n_poses=5,
+        seed=42,
+        cpu=1,
+        capture_backend_inputs=True,
+    )
+
+
+def _reference_box() -> dockingmt.BoxRegion:
+    return dockingmt.BoxRegion(
+        center=puw.quantity(REFERENCE_BOX_CENTER_ANGSTROM, 'angstrom'),
+        size=puw.quantity(REFERENCE_BOX_SIZE_ANGSTROM, 'angstrom'),
+    )
 
 
 def _source_atom_map(
@@ -70,7 +129,7 @@ def _displaced_control_box(
     """Place a control box 30 Å away and prove it excludes the native ligand."""
     center = np.asarray(puw.get_value(reference_box.center, to_unit='angstrom'))
     control = dockingmt.BoxRegion(
-        center=puw.quantity(center + np.array([30.0, 0.0, 0.0]), 'angstrom'),
+        center=puw.quantity(center + np.array(CONTROL_OFFSET_ANGSTROM), 'angstrom'),
         size=reference_box.size,
     )
     if any(
@@ -172,23 +231,26 @@ def run_case(
     ):
         raise ValueError('The pinned 1IEP source-to-PDBQT atom inventory has changed.')
 
-    box = dockingmt.BoxRegion(
-        center=puw.quantity([15.190, 53.903, 16.917], 'angstrom'),
-        size=puw.quantity([20.0, 20.0, 20.0], 'angstrom'),
-    )
+    box = _reference_box()
     if not all(
         box.contains(puw.quantity(coordinate, 'angstrom'))
         for coordinate in source_coordinates
     ):
         raise ValueError('The reference box does not contain the native ligand.')
     control_box = _displaced_control_box(box, source_coordinates)
-    protocol = dockingmt.VinaProtocol(
-        exhaustiveness=1,
-        n_poses=5,
-        seed=42,
-        cpu=1,
-        capture_backend_inputs=True,
-    )
+    protocol = _recorded_protocol()
+    benchmark_source = {
+        'format': 'sdf',
+        'sha256': INPUT_SHA256['source_ligand'],
+        'content_base64': base64.b64encode(ligand_source_path.read_bytes()).decode(
+            'ascii'
+        ),
+        'upstream_commit': UPSTREAM_COMMIT,
+        'pdbqt_to_source_atom_indices': source_indices,
+        'n_atoms': len(source_elements),
+        'n_bonds': source_bonds,
+    }
+    source_revision = _source_revision()
     runs = {}
     for name, search_box, output in (
         ('reference', box, manifest_path),
@@ -204,7 +266,10 @@ def run_case(
         for role in ('receptor', 'partner'):
             if artifacts[role]['sha256'] != INPUT_SHA256[role]:
                 raise ValueError(f'Vina did not receive the pinned {role} PDBQT.')
-        _write_json(output, result.to_dict())
+        manifest = result.to_dict()
+        manifest['benchmark_source'] = benchmark_source
+        manifest['benchmark_source_revision'] = source_revision
+        _write_json(output, manifest)
         runs[name] = (result, _pose_metrics(result, reference, heavy_indices))
 
     result, poses = runs['reference']
@@ -219,7 +284,7 @@ def run_case(
         'schema_version': '1.1',
         'case': 'Official AutoDock Vina 1IEP prepared PDBQT pair',
         'assessment': 'external_preparation_unassessed',
-        'source_commit': '3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645',
+        'source_commit': UPSTREAM_COMMIT,
         'input_sha256': INPUT_SHA256,
         'submitted_sha256': {
             role: artifacts[role]['sha256'] for role in ('receptor', 'partner')
@@ -231,24 +296,7 @@ def run_case(
             'molsysmt': msm.__version__,
             'vina': result.provenance['backend_version'],
         },
-        'source_revision': {
-            'git_head': subprocess.run(
-                ['git', 'rev-parse', 'HEAD'],
-                cwd=Path(__file__).resolve().parents[1],
-                capture_output=True,
-                text=True,
-                check=True,
-            ).stdout.strip(),
-            'worktree_dirty': bool(
-                subprocess.run(
-                    ['git', 'status', '--porcelain'],
-                    cwd=Path(__file__).resolve().parents[1],
-                    capture_output=True,
-                    text=True,
-                    check=True,
-                ).stdout.strip()
-            ),
-        },
+        'source_revision': source_revision,
         'metric_definition': (
             'Mapped heavy PDBQT atoms against the original SDF ligand converted '
             'to MolSysMT; no alignment or symmetry correction.'
@@ -264,9 +312,10 @@ def run_case(
         'n_heavy_partner_atoms': len(heavy_indices),
         'n_poses': len(poses),
         'poses': poses,
+        'manifest_sha256': hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
         'displaced_box_control': {
             'purpose': 'methodological negative control for search-domain placement',
-            'offset_angstrom': [30.0, 0.0, 0.0],
+            'offset_angstrom': list(CONTROL_OFFSET_ANGSTROM),
             'reference_atom_overlap': False,
             'near_native_cutoff_angstrom': NEAR_NATIVE_CUTOFF_ANGSTROM,
             'near_native_pose_count': 0,

@@ -33,12 +33,31 @@ python devtools/validate_1iep_pdbqt.py --receptor /tmp/1iep_receptor.pdbqt --lig
 
 The script refuses files with different hashes. Separate result manifests for
 the reference and displaced-box control retain the exact PDBQT bytes submitted
-to Vina; the concise report records their hashes,
+to Vina, the original SDF bytes, and the verified source-to-PDBQT atom map.
+The concise report records their hashes,
 software versions, protocol, source-to-PDBQT atom indices, omitted atoms and pose
 metrics. The positional map is valid for this pinned bound-ligand pair; general
 source-to-PDBQT correspondence belongs to MolSysMT
 [issues #223](https://github.com/uibcdf/molsysmt/issues/223) and
 [#226](https://github.com/uibcdf/molsysmt/issues/226).
+
+## Independent replay
+
+After recording, run the replay in a separate Python process:
+
+```bash
+python -m devtools.replay_1iep_pdbqt --manifest /tmp/1iep-manifest.json --control-manifest /tmp/1iep-control-manifest.json --report /tmp/1iep-replay-report.json
+```
+
+The replay checks the pinned SDF and PDBQT hashes, verifies the source atom map
+through MolSysMT, and reconstructs both problems from PDBQT bytes staged in a
+temporary directory. The three original input paths need not exist. It requires
+the recorded DockingMT source revision, protocol and software versions, and
+compares every returned pose's identity, Vina scores, coordinates, mapped
+heavy-atom positional RMSD and near-native classification. The allowed maximum
+score drift is 0.05 kcal/mol; the allowed pose-coordinate RMSD and
+source-reference RMSD drift are each 0.25 Å. A failed comparison exits nonzero
+and leaves a JSON report. See [issue #16](https://github.com/uibcdf/dockingmt/issues/16).
 
 ## Measured result, 2026-09-26
 
