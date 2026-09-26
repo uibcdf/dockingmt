@@ -122,8 +122,15 @@ class PreparedLigand:
 
         def write_atom(atom: int) -> str:
             x, y, z = coords_ang[atom]
+            name = self.atom_names[atom]
+            if not 1 <= len(name) <= 4:
+                raise ArgumentError(
+                    arg_name='atom_names',
+                    reason='PDBQT atom names must contain one to four characters.',
+                )
+            name_field = f' {name:<3s}' if len(name) <= 3 else name
             return (
-                f'ATOM  {serials[atom]:5d}  {self.atom_names[atom]:<3s} '
+                f'ATOM  {serials[atom]:5d} {name_field} '
                 f'{self.group_names[atom]:3s} A{self.group_ids[atom]:4d}    '
                 f'{x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00    '
                 f'{self.charges[atom]:6.3f} {self.atom_types[atom]:<2s}'

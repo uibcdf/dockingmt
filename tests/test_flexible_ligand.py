@@ -75,6 +75,29 @@ def test_nested_branches_match_molsysmt_covalent_blocks():
     assert observed_fragments == expected_fragments
 
 
+def test_explicit_ester_selection_differs_from_rdkit_strict():
+    from rdkit import Chem
+    from rdkit.Chem import rdMolDescriptors
+
+    smiles = 'CC(=O)OCC'
+    heavy = Chem.MolFromSmiles(smiles)
+    assert (
+        rdMolDescriptors.CalcNumRotatableBonds(
+            heavy, rdMolDescriptors.NumRotatableBondsOptions.Strict
+        )
+        == 1
+    )
+
+    source = _ligand(smiles)
+    for bond in ((1, 3), (3, 4)):
+        assert (
+            prepare_ligand(
+                source, selection='all', active_torsion_bonds=[bond]
+            ).torsion_dof
+            == 1
+        )
+
+
 @pytest.mark.parametrize(
     ('smiles', 'bond', 'reason'),
     [

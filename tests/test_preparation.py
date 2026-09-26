@@ -145,3 +145,29 @@ def test_ligand_writer_rejects_torsion_count_without_branch_tree():
     ligand.torsion_dof = 1
     with pytest.raises(ArgumentError, match='ROOT/BRANCH tree'):
         ligand.to_pdbqt()
+
+
+def test_ligand_pdbqt_preserves_fixed_columns_for_four_character_atom_name():
+    ligand = PreparedLigand(
+        state_id='four_char_name',
+        atom_names=['Cl23'],
+        group_name='LIG',
+        coordinates=puw.quantity([[13.384, 131.716, -3.463]], 'angstrom'),
+        atom_types=['Cl'],
+        charges=[0.0],
+    )
+    record = next(
+        line for line in ligand.to_pdbqt().splitlines() if line.startswith('ATOM')
+    )
+    assert record[12:16] == 'Cl23'
+    assert record[16] == ' '
+    assert record[17:20] == 'LIG'
+    assert [float(record[offset : offset + 8]) for offset in (30, 38, 46)] == [
+        13.384,
+        131.716,
+        -3.463,
+    ]
+
+    ligand.atom_names[0] = 'Cl234'
+    with pytest.raises(ArgumentError, match='one to four characters'):
+        ligand.to_pdbqt()

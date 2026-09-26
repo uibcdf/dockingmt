@@ -103,3 +103,13 @@ therefore need an explicit provider policy; this discrepancy was reported in
 MolSysMT's existing `get_covalent_blocks(remove_bonds=...)` already supplies
 basic bond-cut connectivity; the provider gap includes chemical classification
 and a stable atom-identity-preserving fragment contract.
+
+The [minimal pinned matrix](../validation/vina_torsion_matrix.md) adds Vina
+1S63 and the 5X72 P59/P69 stereoisomer pair. All four reference-selected
+trees match the published branch bonds, source-index rigid fragments, and
+MolSysMT covalent blocks; Vina accepts the native PDBQT. In 1S63 the published
+aryl–C≡N branch gives six Vina torsions versus five RDKit `Strict` torsions.
+Docking-specific handling of that difference and the ester case is tracked in
+[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17). The matrix
+exposed and guarded a separate four-character PDBQT atom-name defect, archived
+under [DockingMT #18](https://github.com/uibcdf/dockingmt/issues/18).

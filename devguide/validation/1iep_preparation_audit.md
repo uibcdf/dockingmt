@@ -5,6 +5,8 @@ PDBQT files published in the [AutoDock Vina basic-docking example](https://githu
 It identifies the chemistry still needed for [DockingMT #5](https://github.com/uibcdf/dockingmt/issues/5).
 The published PDBQT is a comparison input, not an independently validated chemical
 ground truth. No Meeko package is used or installed by this audit.
+A smaller, CI-local comparison across 1IEP, 1S63, and both 5X72 stereoisomers
+is documented in the [torsion matrix](vina_torsion_matrix.md).
 
 ## Reproduce
 
