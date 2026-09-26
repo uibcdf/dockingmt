@@ -13,6 +13,8 @@ dependencies:
   - numpy
   - scipy
   - vina
+  # Complete molecular graphs for flexible-ligand preparation tests.
+  - rdkit
   # Runtime dependencies for the fixed scientific sibling sources below.
   - biopython
   - h5py
