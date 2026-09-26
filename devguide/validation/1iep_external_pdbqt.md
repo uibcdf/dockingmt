@@ -37,6 +37,12 @@ poses. The box is centered at `(15.190, 53.903, 16.917)` Å and has dimensions
 box numbers to six decimal places after unit conversion and records the exact
 values sent to Vina.
 
+The final measurement used clean DockingMT source commit
+`c519cca60a451c100def46ec448c4d42889eff7b` and MolSysMT
+`0.21.0+606.ga03eb4bf6`. The editable DockingMT installation reported a
+stale generated package version (`0.0.0+14.g25b6e0b.dirty`); the clean source
+commit in the report identifies the implementation tested.
+
 The ligand contains 40 PDBQT atoms, including 37 heavy atoms. Vina returned
 one pose. Its PDBQT atom labels matched the input order; Vina's separate
 coordinate array contained the same coordinates in a different order. The
