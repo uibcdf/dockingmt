@@ -27,6 +27,7 @@ INPUT_SHA256 = {
     'partner': '15fb35648d8c18c70317842f3a0631b73a19429c710a037ab07310084d579bb8',
     'source_ligand': '051b8742c32adc05c07fb486a4e7c9327f84e131cee33ac4e6a568d07553eb38',
 }
+NEAR_NATIVE_CUTOFF_ANGSTROM = 2.5
 
 
 def _write_json(path: Path, data: dict[str, Any]) -> None:
@@ -63,15 +64,64 @@ def _source_atom_map(
     return mapping
 
 
+def _displaced_control_box(
+    reference_box: dockingmt.BoxRegion, source_coordinates: np.ndarray
+) -> dockingmt.BoxRegion:
+    """Place a control box 30 Å away and prove it excludes the native ligand."""
+    center = np.asarray(puw.get_value(reference_box.center, to_unit='angstrom'))
+    control = dockingmt.BoxRegion(
+        center=puw.quantity(center + np.array([30.0, 0.0, 0.0]), 'angstrom'),
+        size=reference_box.size,
+    )
+    if any(
+        control.contains(puw.quantity(coordinate, 'angstrom'))
+        for coordinate in source_coordinates
+    ):
+        raise ValueError('The displaced control box overlaps the native ligand.')
+    return control
+
+
+def _pose_metrics(
+    result: dockingmt.DockingResult,
+    reference: np.ndarray,
+    heavy_indices: list[int],
+) -> list[dict[str, Any]]:
+    poses = []
+    for pose in result.poses:
+        coordinates = np.asarray(puw.get_value(pose.coordinates, to_unit='angstrom'))
+        differences = coordinates[heavy_indices] - reference[heavy_indices]
+        positional_rmsd = float(np.sqrt(np.mean(np.sum(differences**2, axis=1))))
+        poses.append(
+            {
+                'rank': pose.rank,
+                'vina_score_kcal_per_mol': pose.scores['vina'],
+                'heavy_atom_positional_rmsd_angstrom': positional_rmsd,
+            }
+        )
+    return poses
+
+
 def run_case(
     receptor_path: Path,
     ligand_path: Path,
     ligand_source_path: Path,
     manifest_path: Path,
+    control_manifest_path: Path,
     report_path: Path,
 ) -> dict[str, Any]:
-    """Run one bounded adapter check with pinned external PDBQT inputs."""
+    """Run the pinned 1IEP case and one displaced-search-domain control."""
     from rdkit import Chem
+
+    paths = (
+        receptor_path,
+        ligand_path,
+        ligand_source_path,
+        manifest_path,
+        control_manifest_path,
+        report_path,
+    )
+    if len({path.resolve() for path in paths}) != len(paths):
+        raise ValueError('Input, manifest, and report paths must be distinct.')
 
     for role, path in (
         ('receptor', receptor_path),
@@ -126,11 +176,12 @@ def run_case(
         center=puw.quantity([15.190, 53.903, 16.917], 'angstrom'),
         size=puw.quantity([20.0, 20.0, 20.0], 'angstrom'),
     )
-    problem = dockingmt.DockingProblem(
-        receptor=receptor_path,
-        partner=ligand_path,
-        search_domain=box,
-    )
+    if not all(
+        box.contains(puw.quantity(coordinate, 'angstrom'))
+        for coordinate in source_coordinates
+    ):
+        raise ValueError('The reference box does not contain the native ligand.')
+    control_box = _displaced_control_box(box, source_coordinates)
     protocol = dockingmt.VinaProtocol(
         exhaustiveness=1,
         n_poses=5,
@@ -138,27 +189,34 @@ def run_case(
         cpu=1,
         capture_backend_inputs=True,
     )
-    result = dockingmt.dock(problem, protocol=protocol, backend='vina')
-    artifacts = result.provenance['backend_artifacts']
-    for role in ('receptor', 'partner'):
-        if artifacts[role]['sha256'] != INPUT_SHA256[role]:
-            raise ValueError(f'Vina did not receive the pinned {role} PDBQT.')
-    _write_json(manifest_path, result.to_dict())
-
-    poses = []
-    for pose in result.poses:
-        coordinates = np.asarray(puw.get_value(pose.coordinates, to_unit='angstrom'))
-        differences = coordinates[heavy_indices] - reference[heavy_indices]
-        positional_rmsd = float(np.sqrt(np.mean(np.sum(differences**2, axis=1))))
-        poses.append(
-            {
-                'rank': pose.rank,
-                'vina_score_kcal_per_mol': pose.scores['vina'],
-                'heavy_atom_positional_rmsd_angstrom': positional_rmsd,
-            }
+    runs = {}
+    for name, search_box, output in (
+        ('reference', box, manifest_path),
+        ('displaced_box_control', control_box, control_manifest_path),
+    ):
+        problem = dockingmt.DockingProblem(
+            receptor=receptor_path,
+            partner=ligand_path,
+            search_domain=search_box,
         )
+        result = dockingmt.dock(problem, protocol=protocol, backend='vina')
+        artifacts = result.provenance['backend_artifacts']
+        for role in ('receptor', 'partner'):
+            if artifacts[role]['sha256'] != INPUT_SHA256[role]:
+                raise ValueError(f'Vina did not receive the pinned {role} PDBQT.')
+        _write_json(output, result.to_dict())
+        runs[name] = (result, _pose_metrics(result, reference, heavy_indices))
+
+    result, poses = runs['reference']
+    control_result, control_poses = runs['displaced_box_control']
+    if any(
+        pose['heavy_atom_positional_rmsd_angstrom'] <= NEAR_NATIVE_CUTOFF_ANGSTROM
+        for pose in control_poses
+    ):
+        raise ValueError('The displaced-box control generated a near-native pose.')
+    artifacts = result.provenance['backend_artifacts']
     report = {
-        'schema_version': '1.0',
+        'schema_version': '1.1',
         'case': 'Official AutoDock Vina 1IEP prepared PDBQT pair',
         'assessment': 'external_preparation_unassessed',
         'source_commit': '3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645',
@@ -206,6 +264,23 @@ def run_case(
         'n_heavy_partner_atoms': len(heavy_indices),
         'n_poses': len(poses),
         'poses': poses,
+        'displaced_box_control': {
+            'purpose': 'methodological negative control for search-domain placement',
+            'offset_angstrom': [30.0, 0.0, 0.0],
+            'reference_atom_overlap': False,
+            'near_native_cutoff_angstrom': NEAR_NATIVE_CUTOFF_ANGSTROM,
+            'near_native_pose_count': 0,
+            'backend_box': control_result.provenance['backend_box'],
+            'submitted_sha256': {
+                role: control_result.provenance['backend_artifacts'][role]['sha256']
+                for role in ('receptor', 'partner')
+            },
+            'manifest_sha256': hashlib.sha256(
+                control_manifest_path.read_bytes()
+            ).hexdigest(),
+            'n_poses': len(control_poses),
+            'poses': control_poses,
+        },
     }
     _write_json(report_path, report)
     return report
@@ -217,6 +292,7 @@ def main() -> None:
     parser.add_argument('--ligand', type=Path, required=True)
     parser.add_argument('--ligand-source', type=Path, required=True)
     parser.add_argument('--manifest', type=Path, required=True)
+    parser.add_argument('--control-manifest', type=Path, required=True)
     parser.add_argument('--report', type=Path, required=True)
     args = parser.parse_args()
     run_case(
@@ -224,6 +300,7 @@ def main() -> None:
         args.ligand,
         args.ligand_source,
         args.manifest,
+        args.control_manifest,
         args.report,
     )
 

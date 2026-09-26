@@ -4,8 +4,9 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (8)
+### Resolved (9)
 
+- [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`complete_molsyssuite_governance_baseline.md`](complete_molsyssuite_governance_baseline.md) — [#1](https://github.com/uibcdf/dockingmt/issues/1) — Complete the MolSysSuite governance baseline omitted from the initial seed. *(resolved, measured)*
 - [`flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md`](flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md) — [#12](https://github.com/uibcdf/dockingmt/issues/12) — Flexible-ligand Vina coordinate arrays differ in order from PDBQT pose records *(resolved, measured)*
 - [`link_1iep_external_pdbqt_to_source_ligand.md`](link_1iep_external_pdbqt_to_source_ligand.md) — [#14](https://github.com/uibcdf/dockingmt/issues/14) — Link the 1IEP external PDBQT check to its source ligand *(resolved, measured)*

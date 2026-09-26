@@ -28,11 +28,12 @@ than copied into DockingMT.
 curl -L --fail -o /tmp/1iep_receptor.pdbqt https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/basic_docking/solution/1iep_receptor.pdbqt
 curl -L --fail -o /tmp/1iep_ligand.pdbqt https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/basic_docking/solution/1iep_ligand.pdbqt
 curl -L --fail -o /tmp/1iep_ligand.sdf https://raw.githubusercontent.com/ccsb-scripps/AutoDock-Vina/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example/basic_docking/solution/1iep_ligand.sdf
-python devtools/validate_1iep_pdbqt.py --receptor /tmp/1iep_receptor.pdbqt --ligand /tmp/1iep_ligand.pdbqt --ligand-source /tmp/1iep_ligand.sdf --manifest /tmp/1iep-manifest.json --report /tmp/1iep-report.json
+python devtools/validate_1iep_pdbqt.py --receptor /tmp/1iep_receptor.pdbqt --ligand /tmp/1iep_ligand.pdbqt --ligand-source /tmp/1iep_ligand.sdf --manifest /tmp/1iep-manifest.json --control-manifest /tmp/1iep-control-manifest.json --report /tmp/1iep-report.json
 ```
 
-The script refuses files with different hashes. Its manifest retains the exact
-PDBQT bytes submitted to Vina; the concise report records their hashes,
+The script refuses files with different hashes. Separate result manifests for
+the reference and displaced-box control retain the exact PDBQT bytes submitted
+to Vina; the concise report records their hashes,
 software versions, protocol, source-to-PDBQT atom indices, omitted atoms and pose
 metrics. The positional map is valid for this pinned bound-ligand pair; general
 source-to-PDBQT correspondence belongs to MolSysMT
@@ -81,3 +82,20 @@ same nominal box reached Vina as `19.999999999999996` Å per side and yielded
 two poses with best score -7.531 kcal/mol. Direct Vina reproduced that result
 with those exact values; its internal reason for this sensitivity remains
 unconfirmed.
+
+## Displaced search-domain control
+
+The script repeats the same pinned inputs, protocol and seed with the box center
+shifted 30 Å along x. It first verifies that this box excludes every atom of
+the native source ligand. This is a methodological control for search-domain
+placement, not a biologically inactive ligand or an affinity measurement.
+The report records its exact backend box, submitted input hashes, all returned
+pose scores and source-referenced RMSDs, the declared 2.5 Å near-native cutoff,
+and the digest of its separate result manifest. See
+[issue #15](https://github.com/uibcdf/dockingmt/issues/15).
+
+In the 2026-09-26 seeded run, the control returned three poses with scores
+between -4.106 and -4.064 kcal/mol; their positional heavy-atom RMSDs were
+22.483–25.364 Å. None met the near-native cutoff. The reference run retained
+its 0.897 Å pose. These numbers illustrate search-domain sensitivity in this
+one setup; their score difference does not quantify affinity or selectivity.
