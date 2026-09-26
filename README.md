@@ -108,6 +108,12 @@ remains provisional. Use the reported metrics for regression, not as a validated
 docking-performance claim. The measured case is documented in the
 [181L regression baseline](devguide/validation/181l_redocking_exploratory.md).
 
+An additional [1IEP external PDBQT check](devguide/validation/1iep_external_pdbqt.md)
+uses the official AutoDock Vina prepared receptor and flexible ligand to audit
+the Vina adapter. It retains the submitted PDBQT bytes, verifies pose atom
+identity, and records the exact search box sent to Vina. DockingMT's molecular
+preparation remains under [issue #5](https://github.com/uibcdf/dockingmt/issues/5).
+
 ## Governance and Design Authority
 
 * [`MOLSYSSUITE_GUIDE.md`](MOLSYSSUITE_GUIDE.md) routes suite-wide policies and cross-component issues to `uibcdf/molsyssuite`.

@@ -160,6 +160,9 @@ def _compare(
         recorded.provenance['backend_artifacts']
         == replay.provenance['backend_artifacts']
     )
+    backend_box_match = recorded.provenance.get('backend_box') == replay.provenance.get(
+        'backend_box'
+    )
     software_versions_match = all(
         recorded.provenance.get(field) == replay.provenance.get(field)
         for field in ('backend_version', 'dockingmt_version', 'molsysmt_version')
@@ -205,6 +208,7 @@ def _compare(
         and problem_match
         and protocol_match
         and pdbqt_hashes_match
+        and backend_box_match
         and software_versions_match
         and pose_count_match
         and has_poses
@@ -219,6 +223,7 @@ def _compare(
         'problem_match': problem_match,
         'protocol_match': protocol_match,
         'pdbqt_hashes_match': pdbqt_hashes_match,
+        'backend_box_match': backend_box_match,
         'software_versions_match': software_versions_match,
         'pose_count_match': pose_count_match,
         'has_poses': has_poses,
@@ -283,6 +288,7 @@ def replay_manifest(manifest_path: Path, report_path: Path) -> dict[str, Any]:
             }
             for role, artifact in recorded.provenance['backend_artifacts'].items()
         },
+        'backend_box': recorded.provenance['backend_box'],
         'recorded': _summarize(recorded, reference),
         'replayed': _summarize(replay, reference),
         'comparison': comparison,

@@ -10,7 +10,7 @@ from dockingmt.core.protocol import DockingProtocol, VinaProtocol
 from dockingmt.core.results import DockingResult
 from dockingmt.core.search_domain import BoxRegion
 from dockingmt.dock import dock
-from dockingmt.engines.vina import VinaBackend, _verify_pose_atom_order
+from dockingmt.engines.vina import VinaBackend, _verify_pose_atom_order, _vina_box
 from dockingmt.preparation import prepare_ligand, prepare_receptor
 
 
@@ -98,6 +98,12 @@ def test_vina_backend_docking_execution():
     assert result.provenance['backend'] == 'vina'
     assert 'elapsed_seconds' in result.provenance
     assert result.provenance['seed'] == 123
+    assert result.provenance['backend_box'] == {
+        'center': [0.0, 0.0, 0.0],
+        'size': [10.0, 10.0, 10.0],
+        'unit': 'angstrom',
+        'rounding_decimals': 6,
+    }
     assert result.provenance['backend_artifacts'] == {
         'receptor': {
             'format': 'pdbqt',
@@ -289,3 +295,30 @@ def test_vina_atom_order_verifier_rejects_permuted_pose():
         _verify_pose_atom_order(
             MINIMAL_LIG_PDBQT, '\n'.join(reversed(records)), coordinates
         )
+
+
+def test_vina_pose_coordinate_array_permutation_uses_pdbqt_order():
+    import numpy as np
+
+    coordinates = np.array([[[1.5, 0.0, 0.0], [0.0, 0.0, 0.0]]])
+    ordered = _verify_pose_atom_order(MINIMAL_LIG_PDBQT, MINIMAL_LIG_PDBQT, coordinates)
+    np.testing.assert_array_equal(ordered, [[[0.0, 0.0, 0.0], [1.5, 0.0, 0.0]]])
+
+    coordinates[0, 0, 0] = 1.6
+    with pytest.raises(ArgumentError, match='atom order or coordinates differ'):
+        _verify_pose_atom_order(MINIMAL_LIG_PDBQT, MINIMAL_LIG_PDBQT, coordinates)
+
+
+def test_vina_box_rounds_unit_conversion_noise():
+    with puw.context(standard_units=['angstrom', 'fs']):
+        angstrom_box = BoxRegion(
+            center=puw.quantity([15.190, 53.903, 16.917], 'angstrom'),
+            size=puw.quantity([20.0, 20.0, 20.0], 'angstrom'),
+        )
+        nanometer_box = BoxRegion(
+            center=puw.quantity([1.519, 5.3903, 1.6917], 'nm'),
+            size=puw.quantity([2.0, 2.0, 2.0], 'nm'),
+        )
+        expected = ([15.19, 53.903, 16.917], [20.0, 20.0, 20.0])
+        assert _vina_box(angstrom_box) == expected
+        assert _vina_box(nanometer_box) == expected

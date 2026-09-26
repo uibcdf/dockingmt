@@ -103,6 +103,9 @@ The initial redocking set should become a stable regression benchmark.
 
 The first measured, exploratory case is the
 [181L redocking regression baseline](validation/181l_redocking_exploratory.md).
+The [1IEP external PDBQT adapter check](validation/1iep_external_pdbqt.md)
+separately probes a flexible ligand and the Vina boundary with upstream
+prepared inputs. It does not validate DockingMT's preparation chemistry.
 
 Changes to:
 

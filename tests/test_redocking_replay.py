@@ -68,6 +68,8 @@ def test_file_backed_181l_manifest_replays_without_original_objects(tmp_path):
     assert report['comparison']['within_tolerance'] is True
     assert report['comparison']['input_hashes_match'] is True
     assert report['comparison']['pdbqt_hashes_match'] is True
+    assert report['comparison']['backend_box_match'] is True
+    assert report['backend_box']['unit'] == 'angstrom'
     assert report['comparison']['identity_match'] is True
     assert report['comparison']['source_revision_match'] is True
     assert all(

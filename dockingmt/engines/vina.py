@@ -5,6 +5,7 @@ import hashlib
 import os
 import tempfile
 import time
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -26,6 +27,30 @@ from dockingmt.preparation import (
     prepare_receptor,
 )
 from dockingmt.preparation._molsys import autodock_element
+
+VINA_BOX_DECIMALS = 6
+
+
+def _vina_box(search_domain: Any) -> tuple[list[float], list[float]]:
+    """Project a physical search domain to stable Vina input numbers in Å."""
+    if hasattr(search_domain, 'to_backend_box'):
+        box = search_domain.to_backend_box(unit='angstrom')
+    else:
+        box = search_domain.as_box_approximation().to_backend_box(unit='angstrom')
+    center = [round(float(value), VINA_BOX_DECIMALS) for value in box['center']]
+    size = [round(float(value), VINA_BOX_DECIMALS) for value in box['size']]
+    if (
+        len(center) != 3
+        or len(size) != 3
+        or not np.isfinite(center).all()
+        or not np.isfinite(size).all()
+        or any(value <= 0 for value in size)
+    ):
+        raise ArgumentError(
+            arg_name='problem.search_domain',
+            reason='The Vina search box needs three finite center and positive size values.',
+        )
+    return center, size
 
 
 def _pdbqt_atom_records(
@@ -50,8 +75,8 @@ def _pdbqt_atom_records(
 
 def _verify_pose_atom_order(
     ligand_pdbqt: str, poses_pdbqt: str, coordinates: np.ndarray
-) -> None:
-    """Verify that Vina's coordinate arrays follow the supplied PDBQT atom order."""
+) -> np.ndarray:
+    """Verify pose identity and return coordinates in source PDBQT record order."""
     source = _pdbqt_atom_records(ligand_pdbqt)
     output = _pdbqt_atom_records(poses_pdbqt)
     expected = [record[0] for record in source]
@@ -66,18 +91,23 @@ def _verify_pose_atom_order(
             arg_name='problem.partner',
             reason='Cannot verify the PDBQT source-to-pose atom map.',
         )
+    ordered_coordinates = []
     for pose_index, pose_coordinates in enumerate(coordinates):
         records = output[pose_index * len(source) : (pose_index + 1) * len(source)]
-        if [record[0] for record in records] != expected or not np.allclose(
-            np.asarray([record[1] for record in records]),
-            pose_coordinates,
-            atol=0.001,
-            rtol=0.0,
+        record_coordinates = np.asarray([record[1] for record in records])
+        if (
+            [record[0] for record in records] != expected
+            or not np.isfinite(pose_coordinates).all()
+            or not np.isfinite(record_coordinates).all()
+            or Counter(map(tuple, np.round(record_coordinates, 3)))
+            != Counter(map(tuple, np.round(pose_coordinates, 3)))
         ):
             raise ArgumentError(
                 arg_name='problem.partner',
                 reason='Vina pose atom order or coordinates differ from the supplied ligand PDBQT.',
             )
+        ordered_coordinates.append(record_coordinates)
+    return np.stack(ordered_coordinates)
 
 
 def _provisional_preparation_reasons(prepared: Any) -> list[str]:
@@ -176,13 +206,7 @@ class VinaBackend(DockingBackend):
             )
 
         # Extract search box parameters in Angstroms
-        if hasattr(problem.search_domain, 'to_backend_box'):
-            box = problem.search_domain.to_backend_box(unit='angstrom')
-        else:
-            box_approx = problem.search_domain.as_box_approximation()
-            box = box_approx.to_backend_box(unit='angstrom')
-        center = [float(c) for c in box['center']]
-        box_size = [float(s) for s in box['size']]
+        center, box_size = _vina_box(problem.search_domain)
 
         # Prepare selected MolSys inputs only at the backend boundary.
         receptor = problem.receptor
@@ -393,7 +417,7 @@ class VinaBackend(DockingBackend):
                     if partner_string is not None
                     else Path(partner_file).read_text()
                 )
-                _verify_pose_atom_order(
+                coords_np = _verify_pose_atom_order(
                     ligand_pdbqt,
                     v.poses(
                         n_poses=protocol.n_poses,
@@ -458,6 +482,12 @@ class VinaBackend(DockingBackend):
                 'molsysmt_version': msm.__version__,
                 'protocol': protocol.to_dict(),
                 'search_domain': problem.search_domain.to_dict(),
+                'backend_box': {
+                    'center': center,
+                    'size': box_size,
+                    'unit': 'angstrom',
+                    'rounding_decimals': VINA_BOX_DECIMALS,
+                },
                 'seed': protocol.seed,
                 'elapsed_seconds': elapsed_seconds,
                 'preparation': preparation,
