@@ -53,8 +53,12 @@ DockingMT owns protocol-level selection and user-facing policy. MolSysMT
 classification and fragment contracts; MolSysMT
 [#214](https://github.com/uibcdf/molsysmt/issues/214) owns eventual PDBQT
 serialization. No Meeko runtime dependency or affinity-score claim is part of
-this proposal. The temporary four-character atom-name defect is tracked
+this proposal. The temporary four-character atom-name defect was resolved
 separately in [DockingMT #18](https://github.com/uibcdf/dockingmt/issues/18).
+The 1S63 reference-only polar hydrogen has separate provider handoffs in
+MolSysMT [#223](https://github.com/uibcdf/molsysmt/issues/223) for atom
+correspondence and [#220](https://github.com/uibcdf/molsysmt/issues/220) for
+state identity when hydrogen inventory changes.
 
 ## Acceptance criteria
 

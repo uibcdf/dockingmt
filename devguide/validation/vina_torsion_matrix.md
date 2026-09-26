@@ -21,7 +21,10 @@ It maps each PDBQT atom to a *unique source atom of the same element* within
 not a general molecular identity algorithm. The 1S63 PDBQT contains one polar
 hydrogen absent from the source SDF. That reference-only hydrogen is counted
 and excluded from source-index fragment comparison. No other unmatched atom
-is accepted.
+is accepted. This bounded diagnostic needs the added-atom correspondence
+contract tracked by [MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223);
+[MolSysMT #220](https://github.com/uibcdf/molsysmt/issues/220) owns the
+distinction between explicit hydrogen materialization and a changed protomer.
 
 The selected bonds come from the published PDBQT. The test checks that
 DockingMT's tree has the same undirected source bonds and rigid source-atom
