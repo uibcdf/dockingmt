@@ -4,6 +4,10 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
+### Active (1)
+
+- [`review_python_ecosystem_policy_adoption.md`](review_python_ecosystem_policy_adoption.md) — [#19](https://github.com/uibcdf/dockingmt/issues/19) — Review DockingMT Python ecosystem policy adoption. *(active, measured)*
+
 ### Partial (3)
 
 - [`define_ligand_torsion_policy_across_rdkit_and_vina_references.md`](define_ligand_torsion_policy_across_rdkit_and_vina_references.md) — [#17](https://github.com/uibcdf/dockingmt/issues/17) — Define ligand torsion policy across RDKit and Vina reference differences *(partial, measured)*
