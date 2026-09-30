@@ -87,5 +87,15 @@ Vina and the new matrix checks its import explicitly. The four new detector
 regressions cover persistent debt, executed full-minor coverage, rejection
 of probes/PRs/other branches and fail-open recovery on API uncertainty.
 
-Implementation and hosted validation are in progress. Keep this issue open
-until the remaining execution and platform reviews are complete.
+At `1dd86ec`, the [initial probe](https://github.com/uibcdf/dockingmt/actions/runs/36685765426)
+recognized `ac91b22` as an executed full push-CI watermark, found zero
+skipped commits and omitted heavy jobs. [CI](https://github.com/uibcdf/dockingmt/actions/runs/36685744582)
+passed all four quality/full-suite jobs on the new source. The
+[suite policy](https://github.com/uibcdf/dockingmt/actions/runs/36685745455)
+passed on the new source.
+
+Protected `main` now requires strict Quality and all three supported-minor
+Test checks. The explicit PR rule requires zero mandatory approvals;
+administrators retain the direct-push route. Hosted skip and full recovery
+evidence is being collected. Keep this issue open until actual daily
+execution, hosted PR enforcement and publication platform claims are reviewed.
