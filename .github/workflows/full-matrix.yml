@@ -1,0 +1,122 @@
+name: Full compatibility matrix
+
+on:
+  schedule:
+    - cron: "17 9 * * TUE"
+    - cron: "19 1 * * *"
+      timezone: "America/Mexico_City"
+  workflow_dispatch:
+    inputs:
+      probe_backlog:
+        description: Check skipped-commit debt without running the matrix
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  nightly-decision:
+    name: Check skipped-commit backlog
+    if: >-
+      (github.event_name == 'schedule' && github.event.schedule == '19 1 * * *')
+      || (github.event_name == 'workflow_dispatch' && inputs.probe_backlog == true)
+    runs-on: ubuntu-latest
+    outputs:
+      run_full: ${{ steps.decide.outputs.run_full }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Decide whether to run the full matrix
+        id: decide
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python devtools/ci_backlog.py
+
+  full-test:
+    name: Full test on ${{ matrix.os }}, Python ${{ matrix.python-version }}
+    needs: nightly-decision
+    if: >-
+      always() && inputs.probe_backlog != true
+      && (github.event_name != 'schedule' || github.event.schedule != '19 1 * * *'
+      || needs.nightly-decision.result != 'success'
+      || needs.nightly-decision.outputs.run_full == 'true')
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    concurrency:
+      group: ci-full-${{ github.ref }}-${{ matrix.os }}-${{ matrix.python-version }}
+      cancel-in-progress: false
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ["3.11", "3.12", "3.13"]
+        include:
+          - os: macos-15
+            python-version: "3.13"
+    steps:
+      - uses: actions/checkout@v6
+      # The uibcdf channel does not yet publish this integrated set for Python 3.13.
+      # Keep one identical source-based dependency path in every supported lane.
+      - name: Check out compatible ArgDigest source
+        uses: actions/checkout@v6
+        with:
+          repository: uibcdf/argdigest
+          ref: "4fdbf19d386bbf476455d35c9988bf00624873e1"
+          path: .molsyssuite/argdigest
+      - name: Check out compatible MolSysMT source
+        uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsysmt
+          ref: "284038cfc39074e077814f7524417e8cb53af209"
+          path: .molsyssuite/molsysmt
+      - name: Check out compatible MolSysViewer source
+        uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsysviewer
+          ref: "2c022507265c744d532f39df345322074f80a2a3"
+          path: .molsyssuite/molsysviewer
+      - name: Setup micromamba
+        uses: mamba-org/setup-micromamba@v3.2.1
+        with:
+          environment-file: devtools/conda-envs/test_env.yaml
+          environment-name: test
+          condarc: |
+            channels:
+              - uibcdf
+              - conda-forge
+            channel_priority: strict
+          create-args: >-
+            python=${{ matrix.python-version }}
+      - name: Install compatible scientific sibling sources
+        shell: bash -l {0}
+        run: >-
+          python -m pip install
+          .molsyssuite/argdigest
+          .molsyssuite/molsysmt
+          .molsyssuite/molsysviewer
+          --no-deps
+      - name: Install dockingmt
+        shell: bash -l {0}
+        run: python -m pip install -e . --no-deps
+      - name: Verify interpreter, architecture and required backend
+        shell: bash -l {0}
+        env:
+          EXPECTED_PYTHON: ${{ matrix.python-version }}
+        run: |
+          python - <<'PYTHON'
+          import os
+          import platform
+          import sys
+          import vina
+          assert f"{sys.version_info.major}.{sys.version_info.minor}" == os.environ["EXPECTED_PYTHON"]
+          if sys.platform == "darwin":
+              assert platform.machine() == "arm64", platform.machine()
+          print("Python", platform.python_version(), "architecture", platform.machine(), "Vina", vina.__version__)
+          PYTHON
+      - name: Run tests with pytest-receptor
+        shell: bash -l {0}
+        run: pytest --receptor=ci
