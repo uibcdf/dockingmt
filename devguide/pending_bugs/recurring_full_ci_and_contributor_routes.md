@@ -96,6 +96,17 @@ passed on the new source.
 
 Protected `main` now requires strict Quality and all three supported-minor
 Test checks. The explicit PR rule requires zero mandatory approvals;
-administrators retain the direct-push route. Hosted skip and full recovery
-evidence is being collected. Keep this issue open until actual daily
-execution, hosted PR enforcement and publication platform claims are reviewed.
+administrators retain the direct-push route. Documentation push `d74aaa1`
+deliberately used `[skip ci]`; GitHub accepted it with explicit PR and
+required-check bypass notices. The [debt probe](https://github.com/uibcdf/dockingmt/actions/runs/36686660142)
+found exactly one skipped commit since full CI at `1dd86ec` and omitted all
+heavy jobs. The [first manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/36686938454)
+passed all four test cells at `d74aaa1`, including the actual interpreter,
+architecture and Vina assertions and the full pytest step in each job.
+The decision job was intentionally skipped for this unconditional manual
+matrix. GH Run Receptor preserved `conclusion=success`; native job/step
+evidence separately verified execution of every required cell.
+The [recovery probe](https://github.com/uibcdf/dockingmt/actions/runs/36687546093)
+recognized `d74aaa1` as the new full watermark, found zero skipped commits
+and omitted heavy jobs. Keep this issue open until actual daily execution,
+hosted PR enforcement and publication platform claims are reviewed.
