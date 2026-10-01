@@ -74,3 +74,13 @@ Read the guide for every shared tool touched by a change:
 - `PYUNITWIZARD_GUIDE.md`
 - `PYTEST_RECEPTOR_GUIDE.md`
 - `GH_RUN_RECEPTOR_GUIDE.md`
+
+## Modular reusable tools
+
+Before adding a feature, inspect existing tools and identify the owning module or
+component. Implement or extend independently useful operations as documented reusable
+tools in that owner, with their own contracts and tests; have consumers call them.
+Keep task-specific decisions local and report missing sibling capabilities to the
+provider with linked consumer evidence. Follow
+[MOLSYSSUITE_GUIDE.md#modular-reusable-tools](MOLSYSSUITE_GUIDE.md#modular-reusable-tools)
+for applicability, compatibility, performance and tracked exceptions.
