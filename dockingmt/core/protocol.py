@@ -101,6 +101,9 @@ class VinaProtocol(DockingProtocol):
     active_torsion_bonds : list[tuple[int, int]] | None, default None
         Explicit selected-ligand atom-index pairs to rotate during automatic ligand
         preparation. None keeps the ligand rigid. Requires a complete molecular graph.
+    collect_timings : bool, default False
+        Retain per-phase adapter wall times in result provenance. Does not include
+        problem construction, public decorators, or export after docking returns.
     """
 
     SUPPORTED_SCORING = ('vina', 'vinardo', 'ad4')
@@ -117,6 +120,7 @@ class VinaProtocol(DockingProtocol):
         allow_provisional_preparation: bool = False,
         capture_backend_inputs: bool = False,
         active_torsion_bonds: list[tuple[int, int]] | None = None,
+        collect_timings: bool = False,
     ):
         self._exhaustiveness = exhaustiveness
         self._n_poses = n_poses
@@ -127,6 +131,7 @@ class VinaProtocol(DockingProtocol):
         self._allow_provisional_preparation = allow_provisional_preparation
         self._capture_backend_inputs = capture_backend_inputs
         self._active_torsion_bonds = active_torsion_bonds or []
+        self._collect_timings = collect_timings
 
     @property
     def name(self) -> str:
@@ -179,6 +184,11 @@ class VinaProtocol(DockingProtocol):
         return list(self._active_torsion_bonds)
 
     @property
+    def collect_timings(self) -> bool:
+        """Whether to retain successful execution's adapter phase timings."""
+        return self._collect_timings
+
+    @property
     def required_capabilities(self) -> set[str]:
         """Capabilities required by VinaProtocol."""
         capabilities = {
@@ -207,6 +217,7 @@ class VinaProtocol(DockingProtocol):
             'allow_provisional_preparation': self._allow_provisional_preparation,
             'capture_backend_inputs': self._capture_backend_inputs,
             'active_torsion_bonds': [list(pair) for pair in self._active_torsion_bonds],
+            'collect_timings': self._collect_timings,
         }
 
     def validate_problem(self, problem: DockingProblem) -> None:
@@ -260,6 +271,7 @@ class VinaProtocol(DockingProtocol):
             ),
             capture_backend_inputs=params.get('capture_backend_inputs', False),
             active_torsion_bonds=params.get('active_torsion_bonds'),
+            collect_timings=params.get('collect_timings', False),
         )
 
     def __repr__(self) -> str:
@@ -274,5 +286,6 @@ class VinaProtocol(DockingProtocol):
             f'seed={self._seed}, '
             f'allow_provisional_preparation={self._allow_provisional_preparation}, '
             f'active_torsion_bonds={self._active_torsion_bonds}, '
-            f'capture_backend_inputs={self._capture_backend_inputs})'
+            f'capture_backend_inputs={self._capture_backend_inputs}, '
+            f'collect_timings={self._collect_timings})'
         )

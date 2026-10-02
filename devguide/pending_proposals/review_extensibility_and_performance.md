@@ -176,6 +176,45 @@ still require their bounded follow-up. The initial measurements and current-stat
 table above describe the inspected baseline, not a claim that all future boundaries
 are now implemented.
 
+## Phase-profiling progress (2026-10-02)
+
+The second proposed implementation block now has a bounded implementation:
+`VinaProtocol(collect_timings=True)` retains ten consecutive adapter phases,
+their total, a monotonic clock and an explicit second unit in successful result
+provenance. The default path allocates no recorder and makes no additional clock
+reads. Native `elapsed_seconds` keeps its scope and now uses the monotonic clock.
+Cleanup and native exception behavior are protected; no sibling code is changed.
+
+`devtools/profile_workflow.py` measures fresh-process import, input normalization,
+public docking, dictionary export, encoding and writing separately. It compares
+paired enabled/disabled outputs, input identities and execution contexts. The
+[measurement record](../validation/workflow_profiling.md) retains phase definitions,
+environment/source identity, methods, medians, raw docking times and limits.
+
+Three enabled/disabled pairs per route preserve identical scientific snapshots
+within each route. Molecular 181L input normalization has a 5.498 s enabled
+median; the captured-PDBQT route has 0.0109 s. Adapter maps take about 0.65 s,
+native docking 0.32 s and automatic preparation 0.274 s. Small-result export
+takes 0.00145 s / 0.000366 s respectively. Negative enabled-minus-disabled median
+differences are noisy observations, not a demonstrated speedup or overhead bound.
+The environment's PyUnitWizard and SMonitor generations changed since the initial
+baseline; these data do not establish a cross-version performance comparison.
+
+Remaining work includes larger representative result export and measured local
+optimization, followed by the next accepted extension's concrete contract. The
+existing large synthetic export evidence remains relevant; current small-result
+measurements do not refute it. No global cache, generalized executor, scientific
+qualification claim or portable timing gate has been introduced.
+
+Final local validation passes all 354 tests in 51.06 seconds with the same 12
+provider warnings, Ruff lint/format, current report indexes and a clean diff check.
+`tests/test_workflow_profiling.py` guards deterministic attribution, the disabled
+path, cleanup, captured input integrity and preserved unsupported intent.
+`tests/test_engines.py::test_vina_backend_docking_execution` compares actual Vina
+and Vinardo outputs in both modes and round-trips the timing provenance. The final
+paired captured-input CLI smoke also passes all three equality checks. This issue
+remains partial for the remaining optimization and extension-contract work above.
+
 ## What was refuted
 
 More abstract classes, plugins, schedulers, or dependencies do not establish
@@ -187,8 +226,10 @@ scientific recovery.
 
 ## Scope and exclusions
 
-This review changes documentation and issue tracking, not runtime APIs or
-scientific behavior. It requires no sibling modifications or coordination.
+The initial review changed documentation and issue tracking. Its accepted follow-up
+now adds optional Vina timing provenance and a bounded developer measurement tool;
+scientific execution choices and results are preserved. It requires no sibling
+modifications or coordination.
 The existing roadmap and accepted decisions remain authoritative. Cross-component
 integration changes still belong to their scientific owners and shared suite
 contracts. No portable runtime/memory budget is claimed until a representative

@@ -191,6 +191,7 @@ ARGUMENT_DIGESTERS = {
     'cpu': _integer('cpu', minimum=0),
     'allow_provisional_preparation': _boolean('allow_provisional_preparation'),
     'capture_backend_inputs': _boolean('capture_backend_inputs'),
+    'collect_timings': _boolean('collect_timings'),
     'active_torsion_bonds': digest_active_torsion_bonds,
     'molecular_system': _required_provider_input('molecular_system'),
     'selection': _required_provider_input('selection'),

@@ -33,6 +33,28 @@ from dockingmt.preparation._molsys import autodock_element
 VINA_BOX_DECIMALS = 6
 
 
+class _VinaTimings:
+    """A successful Vina invocation's consecutive, non-overlapping wall times."""
+
+    def __init__(self) -> None:
+        self._start = self._previous = time.perf_counter()
+        self._phases: dict[str, float] = {}
+
+    def end_phase(self, name: str) -> None:
+        now = time.perf_counter()
+        self._phases[name] = now - self._previous
+        self._previous = now
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            'unit': 'second',
+            'clock': 'perf_counter',
+            'scope': 'VinaBackend.dock body; excludes public decorators and export',
+            'phases': dict(self._phases),
+            'total': self._previous - self._start,
+        }
+
+
 def _vina_box(search_domain: Any) -> tuple[list[float], list[float]]:
     """Project a physical search domain to stable Vina input numbers in Å."""
     if hasattr(search_domain, 'to_backend_box'):
@@ -199,13 +221,19 @@ class VinaBackend(DockingBackend):
                 reason=f'VinaBackend requires a VinaProtocol instance, got {type(protocol).__name__}.',
             )
 
+        timings = _VinaTimings() if protocol.collect_timings else None
+
         # Reject unsupported requests before problem hooks or input preparation.
         self.validate_capabilities(protocol)
         _validate_vina_intent(problem, protocol.name)
         protocol.validate_problem(problem)
+        if timings is not None:
+            timings.end_phase('validation')
 
         # Extract search box parameters in Angstroms
         center, box_size = _vina_box(problem.search_domain)
+        if timings is not None:
+            timings.end_phase('search_domain_projection')
 
         # Prepare selected MolSys inputs only at the backend boundary.
         receptor = problem.receptor
@@ -336,10 +364,15 @@ class VinaBackend(DockingBackend):
             ]
 
         # Prepare receptor and partner representations
+        if timings is not None:
+            timings.end_phase('preparation')
         temp_files_to_remove: list[str] = []
 
         import vina
 
+        if timings is not None:
+            timings.end_phase('backend_import')
+        result = None
         try:
             receptor_file = self._resolve_receptor_path(receptor, temp_files_to_remove)
             partner_file, partner_string = self._resolve_partner(
@@ -373,6 +406,8 @@ class VinaBackend(DockingBackend):
                     backend_artifacts[role]['content_base64'] = base64.b64encode(
                         content
                     ).decode('ascii')
+            if timings is not None:
+                timings.end_phase('input_projection')
 
             # Initialize Vina engine
             v = vina.Vina(
@@ -395,15 +430,21 @@ class VinaBackend(DockingBackend):
                 )
 
             # Compute affinity maps
+            if timings is not None:
+                timings.end_phase('engine_setup')
             v.compute_vina_maps(center=center, box_size=box_size)
+            if timings is not None:
+                timings.end_phase('affinity_maps')
 
             # Run global docking optimization
-            start_time = time.time()
+            start_time = time.perf_counter()
             v.dock(
                 exhaustiveness=protocol.exhaustiveness,
                 n_poses=protocol.n_poses,
             )
-            elapsed_seconds = time.time() - start_time
+            elapsed_seconds = time.perf_counter() - start_time
+            if timings is not None:
+                timings.end_phase('native_docking')
 
             # Retrieve poses and scores
             energy_range_val = float(
@@ -509,13 +550,16 @@ class VinaBackend(DockingBackend):
                 'backend_artifacts': backend_artifacts,
             }
 
-            return DockingResult(
+            result = DockingResult(
                 poses=poses,
                 problem_info=problem.to_dict(),
                 protocol_info=protocol.to_dict(),
                 provenance=provenance,
                 problem=problem,
             )
+            if timings is not None:
+                timings.end_phase('result_normalization')
+            return result
 
         finally:
             for temp_path in temp_files_to_remove:
@@ -524,6 +568,9 @@ class VinaBackend(DockingBackend):
                         os.remove(temp_path)
                     except OSError:
                         pass
+            if timings is not None and result is not None:
+                timings.end_phase('cleanup')
+                result.provenance['timings'] = timings.to_dict()
 
     def _resolve_receptor_path(self, receptor: Any, temp_files: list[str]) -> str:
         """Resolve receptor input to a filesystem path acceptable by Vina."""

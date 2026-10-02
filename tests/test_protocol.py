@@ -18,6 +18,7 @@ def test_vina_protocol_defaults():
     assert proto.cpu == 0
     assert proto.allow_provisional_preparation is False
     assert proto.capture_backend_inputs is False
+    assert proto.collect_timings is False
     assert 'rigid_receptor' in proto.required_capabilities
     assert 'box_search' in proto.required_capabilities
     assert 'scoring_vina' in proto.required_capabilities
@@ -67,6 +68,9 @@ def test_vina_protocol_validation_errors():
     with pytest.raises(ArgumentError):
         VinaProtocol(capture_backend_inputs='yes')
 
+    with pytest.raises(ArgumentError):
+        VinaProtocol(collect_timings='yes')
+
 
 def test_vina_protocol_problem_validation():
     proto = VinaProtocol()
@@ -101,6 +105,7 @@ def test_vina_protocol_serialization():
         scoring='ad4',
         allow_provisional_preparation=True,
         capture_backend_inputs=True,
+        collect_timings=True,
     )
     d = proto.to_dict()
     assert d['protocol_type'] == 'VinaProtocol'
@@ -109,6 +114,7 @@ def test_vina_protocol_serialization():
     assert d['parameters']['scoring'] == 'ad4'
     assert d['parameters']['allow_provisional_preparation'] is True
     assert d['parameters']['capture_backend_inputs'] is True
+    assert d['parameters']['collect_timings'] is True
 
     reconstructed = VinaProtocol.from_dict(d)
     assert reconstructed.exhaustiveness == 12
@@ -117,3 +123,7 @@ def test_vina_protocol_serialization():
     assert reconstructed.scoring == 'ad4'
     assert reconstructed.allow_provisional_preparation is True
     assert reconstructed.capture_backend_inputs is True
+    assert reconstructed.collect_timings is True
+
+    del d['parameters']['collect_timings']
+    assert VinaProtocol.from_dict(d).collect_timings is False

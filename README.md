@@ -138,6 +138,26 @@ inputs; it does not validate their chemistry. File inputs are staged from the
 captured bytes before Vina reads them, so the recorded digest identifies the
 submitted content.
 
+For performance diagnostics, use `VinaProtocol(collect_timings=True)` and inspect
+`result.provenance['timings']`. The record contains consecutive adapter phases,
+their total, an explicit `second` unit, and a monotonic `perf_counter` clock.
+Profiling is disabled by default. The existing `elapsed_seconds` still measures
+only native docking; constructing the problem and exporting the result happen
+outside the adapter timings. Successful runs retain timings after temporary-file
+cleanup; failures keep their normal exception behavior.
+
+Measure the current 181L workflow in fresh processes with paired profiling modes:
+
+```bash
+python devtools/profile_workflow.py --repeats 3 --report /tmp/181l-profile.json
+```
+
+Pass `--manifest /tmp/181l-manifest.json` to profile verified captured PDBQT inputs
+instead of automatic molecular preparation. The command checks matching inputs,
+outputs, and execution context, and separates import, problem construction,
+docking, dictionary export, JSON encoding, and file writing. See the
+[phase definitions and measured limits](devguide/validation/workflow_profiling.md).
+
 For the file-backed 181L regression case, save a result manifest and replay it
 in a separate command:
 

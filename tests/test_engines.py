@@ -119,6 +119,32 @@ def test_vina_backend_docking_execution(scoring):
         },
     }
 
+    assert 'timings' not in result.provenance
+    profiled = backend.dock(
+        problem,
+        VinaProtocol(
+            exhaustiveness=1,
+            n_poses=2,
+            seed=123,
+            cpu=1,
+            scoring=scoring,
+            collect_timings=True,
+        ),
+    )
+    assert profiled.to_dict()['poses'] == result.to_dict()['poses']
+    assert (
+        profiled.provenance['backend_artifacts']
+        == result.provenance['backend_artifacts']
+    )
+    assert profiled.provenance['backend_box'] == result.provenance['backend_box']
+    timings = profiled.provenance['timings']
+    assert timings['unit'] == 'second'
+    assert timings['clock'] == 'perf_counter'
+    assert all(value >= 0 for value in timings['phases'].values())
+    assert sum(timings['phases'].values()) == pytest.approx(timings['total'])
+    assert timings['phases']['native_docking'] >= profiled.provenance['elapsed_seconds']
+    assert DockingResult.from_dict(profiled.to_dict()).provenance['timings'] == timings
+
 
 def test_dock_top_level_api():
     backend = VinaBackend()
