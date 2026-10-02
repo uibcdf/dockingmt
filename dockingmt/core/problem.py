@@ -9,6 +9,7 @@ import molsysmt as msm
 import numpy as np
 import pyunitwizard as puw
 
+from dockingmt._private.serialization import SCHEMA_VERSION, validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.search_domain import BoxRegion, SearchDomain
 
@@ -458,7 +459,7 @@ class DockingProblem:
             serialized_partner = {'type': 'external', 'value': None}
 
         return {
-            'schema_version': '1.0',
+            'schema_version': SCHEMA_VERSION,
             'receptor': serialized_receptor,
             'partner': serialized_partner,
             'molecular_inputs': {
@@ -501,6 +502,7 @@ class DockingProblem:
         If receptor or partner are not provided as arguments, the serialized string/value
         from data is used.
         """
+        validate_schema_version(data, cls.__name__)
         domain_dict = data['search_domain']
         domain_type = domain_dict.get('type')
         if domain_type == 'BoxRegion':

@@ -158,6 +158,24 @@ and backend settings. Reuse and invalidation must be demonstrated before it is
 enabled. A campaign worker must not blindly combine parallel tasks with Vina's
 `cpu=0` all-core default and oversubscribe the host.
 
+## Admission-block progress (2026-10-02)
+
+The first proposed implementation block is complete locally: unsupported Vina
+intent and scientific-schema admission now have focused guards. Resolved records
+are archived in
+[`vina_ignores_constraints_and_search_guidance.md`](../archive/vina_ignores_constraints_and_search_guidance.md)
+and
+[`scientific_record_readers_ignore_schema_versions.md`](../archive/scientific_record_readers_ignore_schema_versions.md).
+The five existing readers share the explicit/legacy version policy recorded in
+DMT-030; no generic framework or sibling changes were introduced.
+
+Full local validation passed all 344 tests in 48.96 seconds with unchanged provider
+warnings and passing quality gates. This review remains partial: phase profiling,
+representative performance workloads, and the next accepted extension contract
+still require their bounded follow-up. The initial measurements and current-state
+table above describe the inspected baseline, not a claim that all future boundaries
+are now implemented.
+
 ## What was refuted
 
 More abstract classes, plugins, schedulers, or dependencies do not establish

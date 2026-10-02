@@ -291,3 +291,28 @@ projection and backend policy belong in DockingMT. If a required MolSysMT capabi
 missing, track it in MolSysMT and keep any DockingMT implementation explicitly temporary,
 with a removal condition. See [issue #5](https://github.com/uibcdf/dockingmt/issues/5)
 and the [1IEP preparation audit](validation/1iep_preparation_audit.md).
+
+---
+
+## DMT-030 — Readers validate scientific schema versions before reconstruction
+
+**Status:** Accepted, 2026-10-02
+
+**Decision:** Existing `BoxRegion`, `DockingPose`, `DockingResult`,
+`DockingProblem`, and `VinaProtocol` readers admit the explicit string version
+`1.0`. An absent version denotes a legacy 1.0 record. Explicit unsupported or
+malformed versions fail before scientific payload interpretation, including
+nested pose and domain records. Readers do not modify the supplied version field.
+
+**Reason:** Version fields cannot protect future evolution if readers silently
+ignore them and relabel unfamiliar records. This corrects
+[issue #27](https://github.com/uibcdf/dockingmt/issues/27) while preserving
+the current unversioned input path.
+
+**Implementation note:** The current readers share a small private admission
+validator. This establishes no generic migration framework or new storage format.
+The rule applies when an owned reader interprets a record; opaque metadata and
+context dictionaries are not recursively reinterpreted as scientific objects.
+
+**Revisit when:** An actual new schema or reader requires a documented migration
+or a different supported-version set.

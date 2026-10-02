@@ -115,6 +115,11 @@ error before preparation. It does not yet accept the external affinity maps
 needed by AD4; [Vina's implementation](https://github.com/ccsb-scripps/AutoDock-Vina/blob/v1.2.7/src/lib/vina.cpp#L292-L299)
 rejects computing Vina maps with that scoring function.
 
+The current Vina adapter also requires empty `problem.constraints` and
+`problem.search_guidance` lists or dictionaries, as supplied by default. A
+nonempty request fails with a capability error before preparation or execution:
+the adapter cannot apply those scientific requirements.
+
 The same selection can be passed to `prepare_ligand(...)` when preparing a
 ligand explicitly. DockingMT checks that selected bonds are single, outside
 rings and amide C–N bonds, and have nonterminal heavy-atom sides; invalid or
@@ -174,6 +179,11 @@ structured snapshots, including nested metadata and provenance. Editing an
 exported record cannot change the original object. The corresponding
 `from_dict()` methods reconstruct independently of the supplied record.
 The serialized schema remains version `1.0`.
+Readers accept explicit `schema_version='1.0'` and legacy records without the
+field. An explicitly unsupported or malformed version is rejected before
+interpreting the scientific payload. This applies to `BoxRegion`, `DockingPose`,
+`DockingResult`, `DockingProblem`, and `VinaProtocol`, including their nested
+pose and domain records.
 
 ## Governance and Design Authority
 

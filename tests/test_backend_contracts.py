@@ -144,3 +144,73 @@ def test_capability_diagnostics_include_every_missing_request():
     assert extra['missing_capabilities'] == ['flexible_receptor', 'quantum_scoring']
     assert extra['supported_capabilities'] == sorted(backend.capabilities)
     assert extra['protocol'] == 'OtherProtocol'
+
+
+@pytest.mark.parametrize(
+    'dispatch',
+    [
+        lambda problem, protocol: VinaBackend().dock(problem, protocol),
+        lambda problem, protocol: dock(problem, protocol, backend='vina'),
+    ],
+)
+@pytest.mark.parametrize(
+    'requests',
+    [
+        {'constraints': [{'required_contact': 'sentinel'}]},
+        {'constraints': {'required_contact': 'sentinel'}},
+        {'search_guidance': [{'pharmacophore': 'sentinel'}]},
+        {'search_guidance': {'pharmacophore': 'sentinel'}},
+        {'constraints': ['sentinel'], 'search_guidance': ['sentinel']},
+    ],
+)
+def test_vina_rejects_unsupported_intent_before_hooks_or_execution(
+    dispatch, requests, no_execution, prepared_problem
+):
+    for field, value in requests.items():
+        setattr(prepared_problem, '_' + field, value)
+    with pytest.raises(CapabilityMismatchError) as caught:
+        dispatch(prepared_problem, VinaProtocol())
+    assert caught.value.code == 'DMT-E003'
+    assert caught.value.extra['unsupported_fields'] == list(requests)
+    assert caught.value.extra['arg_name'] == 'problem.' + next(iter(requests))
+    assert caught.value.extra['engine'] == 'vina'
+    assert caught.value.extra['protocol'] == 'VinaProtocol'
+
+
+@pytest.mark.parametrize('field', ['constraints', 'search_guidance'])
+def test_vina_protocol_rejects_unsupported_intent(field, prepared_problem):
+    setattr(prepared_problem, '_' + field, {'unsupported': 'sentinel'})
+    with pytest.raises(CapabilityMismatchError) as caught:
+        VinaProtocol().validate_problem(prepared_problem)
+    assert caught.value.extra['unsupported_fields'] == [field]
+
+
+@pytest.mark.parametrize('field', ['constraints', 'search_guidance'])
+@pytest.mark.parametrize('value', [False, 0, '', (), None])
+def test_vina_rejects_invalid_intent_containers(
+    field, value, no_execution, prepared_problem
+):
+    setattr(prepared_problem, '_' + field, value)
+    with pytest.raises(ArgumentError) as caught:
+        VinaBackend().dock(prepared_problem, VinaProtocol())
+    assert caught.value.extra['arg_name'] == 'problem.' + field
+
+
+@pytest.mark.parametrize('empty', [[], {}])
+@pytest.mark.parametrize('scoring', ['vina', 'vinardo'])
+def test_vina_protocol_accepts_empty_intent(empty, scoring, prepared_problem):
+    prepared_problem._constraints = empty
+    prepared_problem._search_guidance = empty
+    VinaProtocol(scoring=scoring).validate_problem(prepared_problem)
+
+
+def test_custom_vina_protocol_hook_cannot_bypass_backend_intent_check(
+    no_execution, prepared_problem
+):
+    class CustomVinaProtocol(VinaProtocol):
+        def validate_problem(self, problem):
+            pytest.fail('Unsupported intent reached an overridden protocol hook')
+
+    prepared_problem._constraints = ['sentinel']
+    with pytest.raises(CapabilityMismatchError):
+        VinaBackend().dock(prepared_problem, CustomVinaProtocol())

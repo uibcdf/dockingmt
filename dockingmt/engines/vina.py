@@ -19,7 +19,7 @@ from depdigest import dep_digest
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt._version import __version__ as dockingmt_version
 from dockingmt.core.problem import DockingProblem
-from dockingmt.core.protocol import DockingProtocol, VinaProtocol
+from dockingmt.core.protocol import DockingProtocol, VinaProtocol, _validate_vina_intent
 from dockingmt.core.results import DockingPose, DockingResult, _molecular_atom_keys
 from dockingmt.engines.base import DockingBackend
 from dockingmt.preparation import (
@@ -201,6 +201,7 @@ class VinaBackend(DockingBackend):
 
         # Reject unsupported requests before problem hooks or input preparation.
         self.validate_capabilities(protocol)
+        _validate_vina_intent(problem, protocol.name)
         protocol.validate_problem(problem)
 
         # Extract search box parameters in Angstroms

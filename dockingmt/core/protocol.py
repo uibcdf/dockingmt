@@ -6,8 +6,31 @@ from typing import Any
 import pyunitwizard as puw
 from argdigest import arg_digest
 
-from dockingmt._private.smonitor import ArgumentError
+from dockingmt._private.serialization import SCHEMA_VERSION, validate_schema_version
+from dockingmt._private.smonitor import ArgumentError, CapabilityMismatchError
 from dockingmt.core.problem import DockingProblem
+
+
+def _validate_vina_intent(problem: DockingProblem, protocol_name: str) -> None:
+    """Reject intent the Vina adapter cannot execute, including overridden hooks."""
+    unsupported = []
+    for field in ('constraints', 'search_guidance'):
+        value = getattr(problem, field)
+        if not isinstance(value, (list, dict)):
+            raise ArgumentError(
+                arg_name=f'problem.{field}',
+                reason='Use an empty list or dictionary for the Vina adapter.',
+            )
+        if value:
+            unsupported.append(field)
+    if unsupported:
+        raise CapabilityMismatchError(
+            capability=unsupported[0],
+            engine='vina',
+            protocol=protocol_name,
+            arg_name=f'problem.{unsupported[0]}',
+            unsupported_fields=unsupported,
+        )
 
 
 class DockingProtocol(ABC):
@@ -190,8 +213,10 @@ class VinaProtocol(DockingProtocol):
         """Validate problem compatibility with VinaProtocol.
 
         Requires problem.search_domain to support box representation (to_backend_box)
-        or box approximation (as_box_approximation).
+        or box approximation (as_box_approximation). The current Vina adapter
+        requires empty constraints and search guidance; it cannot apply them.
         """
+        _validate_vina_intent(problem, self.name)
         if not (
             hasattr(problem.search_domain, 'to_backend_box')
             or hasattr(problem.search_domain, 'as_box_approximation')
@@ -207,7 +232,7 @@ class VinaProtocol(DockingProtocol):
     def to_dict(self) -> dict[str, Any]:
         """Serialize protocol specification to a versioned machine-readable dictionary."""
         return {
-            'schema_version': '1.0',
+            'schema_version': SCHEMA_VERSION,
             'protocol_type': 'VinaProtocol',
             'parameters': self.parameters,
         }
@@ -215,6 +240,7 @@ class VinaProtocol(DockingProtocol):
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> VinaProtocol:
         """Reconstruct VinaProtocol from a serialized dictionary."""
+        validate_schema_version(data, cls.__name__)
         params = data.get('parameters', {})
         e_info = params.get('energy_range')
         if isinstance(e_info, dict) and 'value' in e_info and 'unit' in e_info:

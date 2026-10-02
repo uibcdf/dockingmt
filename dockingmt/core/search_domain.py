@@ -7,6 +7,7 @@ import numpy as np
 import pyunitwizard as puw
 from argdigest import arg_digest
 
+from dockingmt._private.serialization import SCHEMA_VERSION, validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
 
 
@@ -329,7 +330,7 @@ class BoxRegion(SearchDomain):
     def to_dict(self) -> dict[str, Any]:
         """Serialize BoxRegion into a versioned dictionary."""
         return {
-            'schema_version': '1.0',
+            'schema_version': SCHEMA_VERSION,
             'type': 'BoxRegion',
             'name': self.name,
             'center': {
@@ -345,6 +346,7 @@ class BoxRegion(SearchDomain):
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> BoxRegion:
         """Reconstruct BoxRegion from a serialized dictionary."""
+        validate_schema_version(data, cls.__name__)
         c_data = data['center']
         l_data = data['lengths']
         center = puw.quantity(np.asarray(c_data['value'], dtype=float), c_data['unit'])

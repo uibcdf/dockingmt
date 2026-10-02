@@ -85,7 +85,7 @@ def test_vina_protocol_problem_validation():
     class IncompatibleDomain:
         pass
 
-    invalid_problem = DockingProblem.__new__(DockingProblem)
+    invalid_problem = problem
     invalid_problem._search_domain = IncompatibleDomain()
 
     with pytest.raises(ArgumentError) as exc:

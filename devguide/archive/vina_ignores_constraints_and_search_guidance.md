@@ -1,13 +1,13 @@
 ---
 summary: Reject unsupported constraints and guidance before Vina execution
 issue: uibcdf/dockingmt#26
-status: open
+status: resolved
 opened: 2026-10-02
-closed:
+closed: 2026-10-02
 severity: high
-verification: reproduced
+verification: measured
 area: [protocols, capabilities, vina]
-guard:
+guard: tests/test_backend_contracts.py::test_vina_rejects_unsupported_intent_before_hooks_or_execution
 normative: devguide/DESIGN_PRINCIPLES.md
 blocked_by: []
 supersedes: []
@@ -40,6 +40,37 @@ unconstrained control. The requested contact remains in
 run provenance. Source inspection confirms that the adapter never consumes
 either scientific intent field. The probe forbids MolSysMT `get`, `select`,
 `extract`, `convert`, `copy`, and `set`; the raw PDBQT route needs none of them.
+
+## Guarded correction (2026-10-02)
+
+The Vina protocol and backend share a private admission check. Nonempty list or
+dictionary requests fail through `CapabilityMismatchError` (`DMT-E003`), exposing
+the unsupported fields, offending argument, protocol, and engine. Invalid
+containers fail through `ArgumentError` (`DMT-E002`). The backend checks before
+the protocol validation hook, so overriding that hook cannot silently enable
+unsupported intent. Empty lists/dictionaries and default unconstrained requests
+remain valid. Other backends are not given a universal empty-intent restriction.
+
+The ten dispatch guards cover each field separately, lists and dictionaries,
+both fields together, and direct/top-level execution. They forbid protocol
+validation hooks, box projection, preparation, staging, input resolution, native
+Vina import, and molecular operations. Additional cases cover direct protocol
+validation, malformed containers, empty intent with Vina/Vinardo, and an
+overridden protocol hook. No constraint or guidance implementation was added.
+
+## Measured validation (2026-10-02)
+
+Before the fixes for #26 and #27, the selected contract modules had 86 failures
+and 30 passing cases. After the initial correction, 131 focused cases passed in
+12.66 seconds, including existing Vina/Vinardo native execution. Two additional
+nested-schema guards were then added for #27.
+
+Full `pytest --receptor=llm`: 344 passed in 48.96 seconds on Python 3.13.14,
+versus the preceding 237-test baseline. The same twelve provider warnings remain.
+Ruff, format checks (74 Python files), generated indexes, and whitespace checks
+pass. These are local checks using editable support sources; they do not establish
+hosted or published-dependency compatibility. Existing preparation remains
+provisional under #5. Resolution here covers the guarded admission defect only.
 
 ## Why
 

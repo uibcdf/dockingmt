@@ -10,6 +10,7 @@ import numpy as np
 import pyunitwizard as puw
 from argdigest import arg_digest
 
+from dockingmt._private.serialization import SCHEMA_VERSION, validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.problem import DockingProblem
 
@@ -208,7 +209,7 @@ class DockingPose:
         """Serialize pose to an independent structured dictionary snapshot."""
         return deepcopy(
             {
-                'schema_version': '1.0',
+                'schema_version': SCHEMA_VERSION,
                 'pose_id': self.pose_id,
                 'rank': self.rank,
                 'partner_state_id': self.partner_state_id,
@@ -225,6 +226,7 @@ class DockingPose:
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> DockingPose:
         """Reconstruct a pose independently of its supplied dictionary record."""
+        validate_schema_version(data, cls.__name__)
         data = deepcopy(data)
         c_info = data['coordinates']
         coords = puw.quantity(np.asarray(c_info['value'], dtype=float), c_info['unit'])
@@ -563,7 +565,7 @@ class DockingResult:
         """Serialize the result to an independent versioned dictionary snapshot."""
         return deepcopy(
             {
-                'schema_version': '1.0',
+                'schema_version': SCHEMA_VERSION,
                 'problem_info': self.problem_info,
                 'protocol_info': self.protocol_info,
                 'provenance': self.provenance,
@@ -574,6 +576,9 @@ class DockingResult:
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> DockingResult:
         """Reconstruct a result independently of its supplied dictionary record."""
+        validate_schema_version(data, cls.__name__)
+        for pose_data in data.get('poses', []):
+            validate_schema_version(pose_data, 'DockingPose')
         data = deepcopy(data)
         poses = [DockingPose.from_dict(p) for p in data.get('poses', [])]
         return cls(
