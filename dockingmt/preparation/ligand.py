@@ -4,6 +4,7 @@ from typing import Any
 
 import numpy as np
 import pyunitwizard as puw
+from argdigest import arg_digest
 
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation._molsys import (
@@ -233,6 +234,7 @@ class PreparedLigand:
         )
 
 
+@arg_digest(config='dockingmt._argdigest')
 def prepare_ligand(
     molecular_system: Any,
     selection: str = "molecule_type=='small molecule'",

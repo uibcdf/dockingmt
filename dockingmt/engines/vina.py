@@ -13,8 +13,10 @@ import depdigest
 import molsysmt as msm
 import numpy as np
 import pyunitwizard as puw
+from argdigest import arg_digest
+from depdigest import dep_digest
 
-from dockingmt._private.smonitor import ArgumentError, LibraryNotFoundError
+from dockingmt._private.smonitor import ArgumentError
 from dockingmt._version import __version__ as dockingmt_version
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import DockingProtocol, VinaProtocol
@@ -150,7 +152,6 @@ class VinaBackend(DockingBackend):
             'box_search',
             'scoring_vina',
             'scoring_vinardo',
-            'scoring_ad4',
         }
 
     @property
@@ -160,7 +161,7 @@ class VinaBackend(DockingBackend):
 
     @property
     def capabilities(self) -> set[str]:
-        """Set of capabilities advertised by AutoDock Vina."""
+        """Capabilities implemented by this adapter, distinct from upstream Vina."""
         return set(self._capabilities)
 
     @property
@@ -168,6 +169,8 @@ class VinaBackend(DockingBackend):
         """Whether the 'vina' package is installed and importable."""
         return depdigest.is_installed('vina')
 
+    @arg_digest(config='dockingmt._argdigest')
+    @dep_digest('vina')
     def dock(
         self,
         problem: DockingProblem,
@@ -187,24 +190,18 @@ class VinaBackend(DockingBackend):
         DockingResult
             Normalized docking result containing poses, plural scores, and provenance.
         """
-        if not self.is_available:
-            raise LibraryNotFoundError(
-                library='vina',
-                hint='conda install vina -c conda-forge',
-            )
-
         if protocol is None:
             protocol = VinaProtocol()
-
-        # Validate capabilities and problem compatibility
-        self.validate_capabilities(protocol)
-        protocol.validate_problem(problem)
 
         if not isinstance(protocol, VinaProtocol):
             raise ArgumentError(
                 arg_name='protocol',
                 reason=f'VinaBackend requires a VinaProtocol instance, got {type(protocol).__name__}.',
             )
+
+        # Reject unsupported requests before problem hooks or input preparation.
+        self.validate_capabilities(protocol)
+        protocol.validate_problem(problem)
 
         # Extract search box parameters in Angstroms
         center, box_size = _vina_box(problem.search_domain)

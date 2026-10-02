@@ -1,12 +1,59 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
+from copy import deepcopy
+from math import isfinite
+from numbers import Real
 from typing import Any, Iterator
 
 import numpy as np
 import pyunitwizard as puw
+from argdigest import arg_digest
 
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.problem import DockingProblem
+
+
+def _score_error(value: Any, score_name: str, pose_index: int | None) -> ArgumentError:
+    return ArgumentError(
+        arg_name='scores',
+        reason=f"Score '{score_name}' must be a finite real number.",
+        score_name=score_name,
+        pose_index=pose_index,
+        value_type=type(value).__name__,
+    )
+
+
+def _normalize_score(
+    value: Any, score_name: str, pose_index: int | None = None
+) -> float:
+    if isinstance(value, bool) or not isinstance(value, Real):
+        raise _score_error(value, score_name, pose_index)
+    try:
+        number = float(value)
+    except (OverflowError, TypeError, ValueError) as exc:
+        raise _score_error(value, score_name, pose_index) from exc
+    if not isfinite(number):
+        raise _score_error(value, score_name, pose_index)
+    return number
+
+
+def _normalize_scores(scores: Any) -> dict[str, float]:
+    if scores is None:
+        return {}
+    if not isinstance(scores, Mapping):
+        raise ArgumentError(
+            arg_name='scores',
+            reason='Use a mapping of score names to finite real numbers.',
+        )
+    normalized = {}
+    for name, value in scores.items():
+        if not isinstance(name, str) or not name.strip():
+            raise ArgumentError(
+                arg_name='scores', reason='Score names must be nonempty strings.'
+            )
+        normalized[name] = _normalize_score(value, name)
+    return normalized
 
 
 def _ensure_coordinates_quantity(coords: Any) -> Any:
@@ -113,7 +160,8 @@ class DockingPose:
     coordinates : Any
         Atomic coordinates of shape (N, 3) as a PyUnitWizard length quantity.
     scores : dict[str, float], optional
-        Named scores produced by scoring functions or backends (e.g. {'vina': -7.5}).
+        Finite real scores indexed by nonempty names (e.g. {'vina': -7.5}).
+        Numeric values are normalized to Python floats without inferring units.
     rank : int, optional
         1-indexed ranking assigned by an explicit ranking policy.
     pose_id : str, optional
@@ -139,7 +187,7 @@ class DockingPose:
         self._coordinates = puw.convert(
             _ensure_coordinates_quantity(coordinates), to_unit='nm'
         )
-        self.scores: dict[str, float] = dict(scores) if scores is not None else {}
+        self.scores: dict[str, float] = _normalize_scores(scores)
         self.rank = rank
         self.pose_id = pose_id
         self.partner_state_id = partner_state_id
@@ -157,24 +205,27 @@ class DockingPose:
         return int(puw.get_value(self._coordinates).shape[0])
 
     def to_dict(self) -> dict[str, Any]:
-        """Serialize pose to a machine-readable dictionary."""
-        return {
-            'schema_version': '1.0',
-            'pose_id': self.pose_id,
-            'rank': self.rank,
-            'partner_state_id': self.partner_state_id,
-            'receptor_state_id': self.receptor_state_id,
-            'scores': self.scores,
-            'metadata': self.metadata,
-            'coordinates': {
-                'value': puw.get_value(self._coordinates).tolist(),
-                'unit': str(puw.get_unit(self._coordinates)),
-            },
-        }
+        """Serialize pose to an independent structured dictionary snapshot."""
+        return deepcopy(
+            {
+                'schema_version': '1.0',
+                'pose_id': self.pose_id,
+                'rank': self.rank,
+                'partner_state_id': self.partner_state_id,
+                'receptor_state_id': self.receptor_state_id,
+                'scores': _normalize_scores(self.scores),
+                'metadata': self.metadata,
+                'coordinates': {
+                    'value': puw.get_value(self._coordinates).tolist(),
+                    'unit': str(puw.get_unit(self._coordinates)),
+                },
+            }
+        )
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> DockingPose:
-        """Reconstruct DockingPose from a serialized dictionary."""
+        """Reconstruct a pose independently of its supplied dictionary record."""
+        data = deepcopy(data)
         c_info = data['coordinates']
         coords = puw.quantity(np.asarray(c_info['value'], dtype=float), c_info['unit'])
         return cls(
@@ -447,6 +498,7 @@ class DockingResult:
         ranked = [p for p in self._poses if p.rank == 1]
         return ranked[0] if ranked else self._poses[0]
 
+    @arg_digest(config='dockingmt._argdigest')
     def rank_by(self, score_name: str, ascending: bool = True) -> DockingResult:
         """Produce a new DockingResult with poses ranked according to a named score.
 
@@ -457,22 +509,31 @@ class DockingResult:
         ascending : bool, default True
             If True, lower scores receive top rank (standard for binding affinities/energies).
             If False, higher scores receive top rank.
+
+        Ties preserve input order. Invalid scores are rejected before a ranking
+        is returned, including invalid values assigned during later rescoring.
         """
+        score_values = []
         for i, pose in enumerate(self._poses):
             if score_name not in pose.scores:
                 raise ArgumentError(
                     arg_name='score_name',
                     reason=f"Pose at index {i} does not have score '{score_name}'. Available: {list(pose.scores.keys())}",
+                    score_name=score_name,
+                    pose_index=i,
                 )
+            score_values.append(
+                _normalize_score(pose.scores[score_name], score_name, i)
+            )
 
         sorted_poses = sorted(
-            self._poses,
-            key=lambda p: p.scores[score_name],
+            zip(self._poses, score_values),
+            key=lambda item: item[1],
             reverse=not ascending,
         )
 
         new_poses: list[DockingPose] = []
-        for rank_idx, pose in enumerate(sorted_poses, start=1):
+        for rank_idx, (pose, _) in enumerate(sorted_poses, start=1):
             new_pose = DockingPose(
                 coordinates=pose.coordinates,
                 scores=pose.scores,
@@ -499,18 +560,21 @@ class DockingResult:
         )
 
     def to_dict(self) -> dict[str, Any]:
-        """Serialize DockingResult to a versioned machine-readable dictionary."""
-        return {
-            'schema_version': '1.0',
-            'problem_info': self.problem_info,
-            'protocol_info': self.protocol_info,
-            'provenance': self.provenance,
-            'poses': [p.to_dict() for p in self._poses],
-        }
+        """Serialize the result to an independent versioned dictionary snapshot."""
+        return deepcopy(
+            {
+                'schema_version': '1.0',
+                'problem_info': self.problem_info,
+                'protocol_info': self.protocol_info,
+                'provenance': self.provenance,
+                'poses': [p.to_dict() for p in self._poses],
+            }
+        )
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> DockingResult:
-        """Reconstruct DockingResult from a serialized dictionary."""
+        """Reconstruct a result independently of its supplied dictionary record."""
+        data = deepcopy(data)
         poses = [DockingPose.from_dict(p) for p in data.get('poses', [])]
         return cls(
             poses=poses,

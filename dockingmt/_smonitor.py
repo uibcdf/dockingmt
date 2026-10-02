@@ -1,5 +1,5 @@
 # DockingMT/_smonitor.py
-from dockingmt._private.smonitor.catalog import CODES
+from dockingmt._private.smonitor.catalog import CODES, SIGNALS  # noqa: F401
 
 PROFILE = 'user'
 
@@ -11,7 +11,3 @@ SMONITOR = {
     'theme': 'plain',
     'silence': ['pint'],
 }
-
-SIGNALS = CODES['SIGNALS']
-ERRORS = CODES['ERRORS']
-WARNINGS = CODES['WARNINGS']

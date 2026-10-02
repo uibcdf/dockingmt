@@ -74,6 +74,12 @@ A backend must declare what it can actually do. Unsupported requests should:
 
 DockingMT should never silently imply scientific equivalence across engines.
 
+The current `VinaBackend` implements `vina` and `vinardo` scoring. Although
+upstream Vina also recognizes AD4, this adapter does not accept external affinity
+maps and rejects `scoring_ad4` before preparation or execution. AD4 intent remains
+representable in the protocol. See [issue #23](https://github.com/uibcdf/dockingmt/issues/23)
+and the [local evidence](pending_bugs/vina_adapter_advertises_unsupported_ad4_scoring.md).
+
 
 ## Licensing and distribution
 

@@ -4,6 +4,7 @@ from typing import Any
 
 import numpy as np
 import pyunitwizard as puw
+from argdigest import arg_digest
 
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation._molsys import (
@@ -159,6 +160,7 @@ class PreparedReceptor:
         return f'PreparedReceptor(state_id={self.state_id!r}, n_atoms={self.n_atoms})'
 
 
+@arg_digest(config='dockingmt._argdigest')
 def prepare_receptor(
     molecular_system: Any,
     selection: str = "molecule_type=='protein'",

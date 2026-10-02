@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from numbers import Integral
 from typing import Any
 
 import pyunitwizard as puw
+from argdigest import arg_digest
 
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.problem import DockingProblem
@@ -59,12 +59,15 @@ class VinaProtocol(DockingProtocol):
     n_poses : int, default 9
         Maximum number of candidate poses to generate and retrieve.
     energy_range : Any, default 3.0 kcal/mol
-        Maximum energy difference relative to the top pose (in energy or energy/mol units,
-        or as float in kcal/mol). Poses with energies exceeding this threshold are discarded.
+        Maximum energy difference relative to the top pose as an energy-per-mole
+        quantity or unit-bearing string. None resolves to 3 kcal/mol. Bare numbers
+        are rejected. Poses exceeding this threshold are discarded.
     seed : int | None, default None
         Random seed for reproducibility. If None, the engine selects an arbitrary seed.
     scoring : str, default 'vina'
-        Scoring function to use ('vina', 'vinardo', or 'ad4').
+        Recognized scoring function ('vina', 'vinardo', or 'ad4'). The current
+        VinaBackend executes 'vina' and 'vinardo'. AD4 intent can be serialized,
+        but execution requires external affinity-map support absent from the adapter.
     cpu : int, default 0
         Number of CPU threads to utilize. 0 detects and uses all available cores.
     allow_provisional_preparation : bool, default False
@@ -79,11 +82,12 @@ class VinaProtocol(DockingProtocol):
 
     SUPPORTED_SCORING = ('vina', 'vinardo', 'ad4')
 
+    @arg_digest(config='dockingmt._argdigest')
     def __init__(
         self,
         exhaustiveness: int = 8,
         n_poses: int = 9,
-        energy_range: Any = 3.0,
+        energy_range: Any = None,
         seed: int | None = None,
         scoring: str = 'vina',
         cpu: int = 0,
@@ -91,97 +95,15 @@ class VinaProtocol(DockingProtocol):
         capture_backend_inputs: bool = False,
         active_torsion_bonds: list[tuple[int, int]] | None = None,
     ):
-        if not isinstance(exhaustiveness, (int, float)) or int(exhaustiveness) < 1:
-            raise ArgumentError(
-                arg_name='exhaustiveness',
-                reason=f"'exhaustiveness' must be an integer >= 1, got {exhaustiveness}.",
-            )
-        self._exhaustiveness = int(exhaustiveness)
-
-        if not isinstance(n_poses, (int, float)) or int(n_poses) < 1:
-            raise ArgumentError(
-                arg_name='n_poses',
-                reason=f"'n_poses' must be an integer >= 1, got {n_poses}.",
-            )
-        self._n_poses = int(n_poses)
-
-        # Validate energy_range
-        if puw.is_quantity(energy_range):
-            if not puw.are_compatible(energy_range, 'kcal/mol'):
-                raise ArgumentError(
-                    arg_name='energy_range',
-                    reason=f"'energy_range' unit '{puw.get_unit(energy_range)}' is not compatible with kcal/mol.",
-                )
-            e_val = float(puw.get_value(puw.convert(energy_range, to_unit='kcal/mol')))
-        else:
-            try:
-                e_val = float(energy_range)
-            except (TypeError, ValueError) as exc:
-                raise ArgumentError(
-                    arg_name='energy_range',
-                    reason=f"'energy_range' must be a numeric value or energy quantity, got {energy_range}.",
-                ) from exc
-
-        if e_val < 0.0:
-            raise ArgumentError(
-                arg_name='energy_range',
-                reason=f"'energy_range' must be non-negative, got {e_val}.",
-            )
-        self._energy_range = puw.quantity(e_val, 'kcal/mol')
-
-        if seed is not None and not isinstance(seed, int):
-            raise ArgumentError(
-                arg_name='seed',
-                reason=f"'seed' must be an integer or None, got {type(seed)}.",
-            )
+        self._exhaustiveness = exhaustiveness
+        self._n_poses = n_poses
+        self._energy_range = energy_range
         self._seed = seed
-
-        if scoring not in self.SUPPORTED_SCORING:
-            raise ArgumentError(
-                arg_name='scoring',
-                reason=f"Unsupported scoring function '{scoring}'. Must be one of {self.SUPPORTED_SCORING}.",
-            )
         self._scoring = scoring
-
-        if not isinstance(cpu, int) or cpu < 0:
-            raise ArgumentError(
-                arg_name='cpu',
-                reason=f"'cpu' must be an integer >= 0, got {cpu}.",
-            )
         self._cpu = cpu
-
-        if not isinstance(allow_provisional_preparation, bool):
-            raise ArgumentError(
-                arg_name='allow_provisional_preparation',
-                reason='allow_provisional_preparation must be a bool.',
-            )
         self._allow_provisional_preparation = allow_provisional_preparation
-
-        if not isinstance(capture_backend_inputs, bool):
-            raise ArgumentError(
-                arg_name='capture_backend_inputs',
-                reason='capture_backend_inputs must be a bool.',
-            )
         self._capture_backend_inputs = capture_backend_inputs
-
-        if active_torsion_bonds is not None and (
-            not isinstance(active_torsion_bonds, (list, tuple))
-            or any(
-                not isinstance(pair, (list, tuple))
-                or len(pair) != 2
-                or any(isinstance(i, bool) or not isinstance(i, Integral) for i in pair)
-                for pair in active_torsion_bonds
-            )
-        ):
-            raise ArgumentError(
-                arg_name='active_torsion_bonds',
-                reason='Use pairs of selected-ligand integer atom indices.',
-            )
-        self._active_torsion_bonds = (
-            [tuple(int(i) for i in pair) for pair in active_torsion_bonds]
-            if active_torsion_bonds is not None
-            else []
-        )
+        self._active_torsion_bonds = active_torsion_bonds or []
 
     @property
     def name(self) -> str:
@@ -294,7 +216,7 @@ class VinaProtocol(DockingProtocol):
     def from_dict(cls, data: dict[str, Any]) -> VinaProtocol:
         """Reconstruct VinaProtocol from a serialized dictionary."""
         params = data.get('parameters', {})
-        e_info = params.get('energy_range', {})
+        e_info = params.get('energy_range')
         if isinstance(e_info, dict) and 'value' in e_info and 'unit' in e_info:
             energy_range = puw.quantity(float(e_info['value']), e_info['unit'])
         else:
@@ -303,7 +225,7 @@ class VinaProtocol(DockingProtocol):
         return cls(
             exhaustiveness=params.get('exhaustiveness', 8),
             n_poses=params.get('n_poses', 9),
-            energy_range=energy_range if energy_range is not None else 3.0,
+            energy_range=energy_range,
             seed=params.get('seed'),
             scoring=params.get('scoring', 'vina'),
             cpu=params.get('cpu', 0),
@@ -315,6 +237,9 @@ class VinaProtocol(DockingProtocol):
         )
 
     def __repr__(self) -> str:
+        if not hasattr(self, '_energy_range'):
+            # Argument validation can emit a signal before initialization.
+            return object.__repr__(self)
         e_val = puw.get_value(self._energy_range)
         e_unit = puw.get_unit(self._energy_range)
         return (

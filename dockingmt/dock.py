@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import smonitor
+from argdigest import arg_digest
 
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.problem import DockingProblem
@@ -11,6 +12,7 @@ from dockingmt.engines.vina import VinaBackend
 
 
 @smonitor.signal(tags=['api', 'docking'])
+@arg_digest(config='dockingmt._argdigest')
 def dock(
     problem: DockingProblem,
     protocol: DockingProtocol | None = None,

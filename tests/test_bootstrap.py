@@ -28,8 +28,8 @@ def test_smonitor_configuration():
 
     assert META['project_name'] == 'DockingMT'
     assert 'signals' in CATALOG
-    assert 'errors' in CATALOG
-    assert 'LibraryNotFoundError' in CATALOG['errors']
+    assert 'exceptions' in CATALOG
+    assert 'LibraryNotFoundError' in CATALOG['exceptions']
 
 
 def test_depdigest_configuration():

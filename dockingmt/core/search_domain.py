@@ -5,53 +5,72 @@ from typing import Any
 
 import numpy as np
 import pyunitwizard as puw
+from argdigest import arg_digest
 
 from dockingmt._private.smonitor import ArgumentError
 
 
-def _ensure_length_quantity_1d(val: Any, name: str, expected_len: int = 3) -> Any:
-    """Validate that val is a 1D physical quantity with length dimensions."""
-    if not puw.is_quantity(val):
+def _ensure_length_quantity(val: Any, name: str, caller: str | None = None) -> Any:
+    """Validate finite real length data and normalize units through PyUnitWizard."""
+    try:
+        quantity = puw.ensure_quantity(
+            val,
+            dimensionality={'[L]': 1},
+            to_unit='nm',
+            standardized=False,
+            caller=caller,
+        )
+    except Exception as exc:
         raise ArgumentError(
             arg_name=name,
-            reason=f"'{name}' must be a physical quantity with length units (e.g. using PyUnitWizard).",
-        )
-    if not puw.are_compatible(val, 'nm'):
-        unit_str = str(puw.get_unit(val))
+            caller=caller,
+            reason=(
+                f"'{name}' must be a physical quantity with length units; "
+                'bare values and units not compatible with length are rejected.'
+            ),
+        ) from exc
+    values = np.asarray(puw.get_value(quantity))
+    if (
+        not np.issubdtype(values.dtype, np.number)
+        or not np.isrealobj(values)
+        or not np.isfinite(values).all()
+    ):
         raise ArgumentError(
             arg_name=name,
-            reason=f"'{name}' has unit '{unit_str}', which is not compatible with length.",
+            caller=caller,
+            reason=f"'{name}' must contain finite real length values.",
         )
-    raw_val = np.asarray(puw.get_value(val), dtype=float)
+    return puw.quantity(values.astype(float), 'nm')
+
+
+def _ensure_length_quantity_1d(
+    val: Any,
+    name: str,
+    expected_len: int = 3,
+    caller: str | None = None,
+) -> Any:
+    """Validate that val is a finite 1D length quantity."""
+    quantity = _ensure_length_quantity(val, name, caller)
+    raw_val = puw.get_value(quantity)
     if raw_val.ndim != 1 or raw_val.shape[0] != expected_len:
         raise ArgumentError(
             arg_name=name,
+            caller=caller,
             reason=f"'{name}' must be a 1D vector of length {expected_len}, got shape {raw_val.shape}.",
         )
-    unit = puw.get_unit(val)
-    return puw.quantity(raw_val, unit)
+    return quantity
 
 
 def _ensure_scalar_length_quantity(val: Any, name: str) -> Any:
-    """Validate that val is a scalar physical quantity with length dimensions."""
-    if not puw.is_quantity(val):
-        raise ArgumentError(
-            arg_name=name,
-            reason=f"'{name}' must be a physical quantity with length units.",
-        )
-    if not puw.are_compatible(val, 'nm'):
-        unit_str = str(puw.get_unit(val))
-        raise ArgumentError(
-            arg_name=name,
-            reason=f"'{name}' has unit '{unit_str}', which is not compatible with length.",
-        )
-    raw_val = np.asarray(puw.get_value(val), dtype=float)
-    if raw_val.ndim != 0 and raw_val.size != 1:
+    """Validate that val is a finite scalar length quantity."""
+    quantity = _ensure_length_quantity(val, name)
+    raw_val = puw.get_value(quantity)
+    if raw_val.ndim != 0:
         raise ArgumentError(
             arg_name=name,
             reason=f"'{name}' must be a scalar quantity, got shape {raw_val.shape}.",
         )
-    return puw.quantity(float(raw_val), puw.get_unit(val))
+    return puw.quantity(float(raw_val), 'nm')
 
 
 class SearchDomain(ABC):
@@ -87,12 +106,16 @@ class BoxRegion(SearchDomain):
     ----------
     center : Any
         3D coordinate vector with length units defining the center of the box.
-    lengths : Any
+    lengths : Any, optional
         3D vector with length units defining the edge lengths (size) of the box [Lx, Ly, Lz].
+    size : Any, optional
+        Alias for lengths. Supply exactly one of lengths and size, with finite,
+        strictly positive dimensions.
     name : str, optional
         An optional label or identifier for the search domain.
     """
 
+    @arg_digest(config='dockingmt._argdigest')
     def __init__(
         self,
         center: Any,
@@ -105,20 +128,13 @@ class BoxRegion(SearchDomain):
                 arg_name='lengths',
                 reason="Either 'lengths' or 'size' must be provided.",
             )
-        resolved_lengths = lengths if lengths is not None else size
-        self._center = puw.convert(
-            _ensure_length_quantity_1d(center, 'center'), to_unit='nm'
-        )
-        lengths_q = puw.convert(
-            _ensure_length_quantity_1d(resolved_lengths, 'lengths'), to_unit='nm'
-        )
-        lengths_val = puw.get_value(lengths_q)
-        if np.any(lengths_val <= 0.0):
+        if lengths is not None and size is not None:
             raise ArgumentError(
                 arg_name='lengths',
-                reason='All box dimensions must be strictly positive (> 0).',
+                reason="Provide only one of 'lengths' and 'size'.",
             )
-        self._lengths = lengths_q
+        self._center = center
+        self._lengths = lengths if lengths is not None else size
         self.name = name
 
     @property
@@ -173,10 +189,10 @@ class BoxRegion(SearchDomain):
             'unit': unit,
         }
 
+    @arg_digest(config='dockingmt._argdigest')
     def contains(self, point: Any) -> bool:
         """Check whether a 3D point is inside the box region."""
-        p_q = puw.convert(_ensure_length_quantity_1d(point, 'point'), to_unit='nm')
-        p_val = puw.get_value(p_q)
+        p_val = puw.get_value(point)
         min_val = puw.get_value(self.bounds[0])
         max_val = puw.get_value(self.bounds[1])
         return bool(np.all(p_val >= min_val) and np.all(p_val <= max_val))
@@ -189,7 +205,10 @@ class BoxRegion(SearchDomain):
         padding: Any | None = None,
         name: str | None = None,
     ) -> BoxRegion:
-        """Construct a BoxRegion from corner coordinates and optional isotropic padding.
+        """Construct a BoxRegion from ordered corners and optional isotropic padding.
+
+        Corners may coincide along an axis if positive padding yields a box
+        with strictly positive dimensions. Inverted corners are rejected.
 
         Parameters
         ----------
@@ -202,26 +221,20 @@ class BoxRegion(SearchDomain):
         name : str, optional
             Identifier for the box region.
         """
-        min_q = puw.convert(
-            _ensure_length_quantity_1d(min_coords, 'min_coords'), to_unit='nm'
-        )
-        max_q = puw.convert(
-            _ensure_length_quantity_1d(max_coords, 'max_coords'), to_unit='nm'
-        )
+        min_q = _ensure_length_quantity_1d(min_coords, 'min_coords')
+        max_q = _ensure_length_quantity_1d(max_coords, 'max_coords')
         min_val = puw.get_value(min_q)
         max_val = puw.get_value(max_q)
-        if np.any(min_val >= max_val):
+        if np.any(min_val > max_val):
             raise ArgumentError(
                 arg_name='min_coords',
-                reason='min_coords must be strictly less than max_coords along all axes.',
+                reason='min_coords must not exceed max_coords along any axis.',
             )
         center_val = (min_val + max_val) / 2.0
         lengths_val = max_val - min_val
 
         if padding is not None:
-            pad_q = puw.convert(
-                _ensure_scalar_length_quantity(padding, 'padding'), to_unit='nm'
-            )
+            pad_q = _ensure_scalar_length_quantity(padding, 'padding')
             pad_val = puw.get_value(pad_q)
             if pad_val < 0.0:
                 raise ArgumentError(
@@ -251,18 +264,8 @@ class BoxRegion(SearchDomain):
         name : str, optional
             Identifier for the box region.
         """
-        if not puw.is_quantity(points):
-            raise ArgumentError(
-                arg_name='points',
-                reason="'points' must be a physical quantity with length units.",
-            )
-        if not puw.are_compatible(points, 'nm'):
-            raise ArgumentError(
-                arg_name='points',
-                reason="'points' units are not compatible with length.",
-            )
-        pts_conv = puw.convert(points, to_unit='nm')
-        raw_pts = np.asarray(puw.get_value(pts_conv), dtype=float)
+        pts_conv = _ensure_length_quantity(points, 'points')
+        raw_pts = puw.get_value(pts_conv)
         if raw_pts.ndim != 2 or raw_pts.shape[1] != 3 or raw_pts.shape[0] == 0:
             raise ArgumentError(
                 arg_name='points',
@@ -349,6 +352,8 @@ class BoxRegion(SearchDomain):
         return cls(center=center, lengths=lengths, name=data.get('name'))
 
     def __repr__(self) -> str:
+        if not hasattr(self, '_lengths'):
+            return object.__repr__(self)
         c_val = np.round(puw.get_value(self._center), 3)
         l_val = np.round(puw.get_value(self._lengths), 3)
         name_part = f", name='{self.name}'" if self.name else ''

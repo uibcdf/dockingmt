@@ -57,7 +57,8 @@ TORSDOF 0
 """
 
 
-def test_vina_backend_docking_execution():
+@pytest.mark.parametrize('scoring', ['vina', 'vinardo'])
+def test_vina_backend_docking_execution(scoring):
     backend = VinaBackend()
     if not backend.is_available:
         pytest.skip('Vina is not installed in the environment.')
@@ -77,7 +78,9 @@ def test_vina_backend_docking_execution():
         },
     )
 
-    protocol = VinaProtocol(exhaustiveness=1, n_poses=2, seed=123)
+    protocol = VinaProtocol(
+        exhaustiveness=1, n_poses=2, seed=123, cpu=1, scoring=scoring
+    )
 
     result = backend.dock(problem, protocol)
 
@@ -88,7 +91,8 @@ def test_vina_backend_docking_execution():
     assert top_pose.rank == 1
     assert top_pose.partner_state_id == 'lig_state_1'
     assert top_pose.receptor_state_id == 'rec_state_1'
-    assert 'vina' in top_pose.scores
+    assert scoring in top_pose.scores
+    assert result.protocol_info['parameters']['scoring'] == scoring
     assert puw.are_compatible(top_pose.coordinates, 'nm')
     assert top_pose.metadata['pose_atom_order'] == 'verified_pdbqt_order'
     with pytest.raises(ArgumentError, match='verified source atom map'):

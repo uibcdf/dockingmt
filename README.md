@@ -47,6 +47,13 @@ ligand = problem.partner_molsys
 source_ligand_indices = problem.partner_atom_indices
 ```
 
+For an explicit `BoxRegion`, supply either `lengths` or its alias `size`.
+The center and dimensions require finite length quantities, and dimensions must
+be strictly positive. `BoxRegion.from_points(...)` also supports a single point,
+a line, or a planar point set when positive scalar padding gives the box nonzero
+extent along every axis. For example, use `padding=puw.quantity(2, 'angstrom')`
+or `padding='2 angstrom'`.
+
 For redocking from one experimental complex, `DockingProblem.for_redocking(...)`
 uses the same ligand selection and structure to define the box and the docking
 partner. It selects structure 0 when the complex has one structure; when the
@@ -94,6 +101,20 @@ protocol = VinaProtocol(
 )
 ```
 
+`VinaProtocol` requires integer search parameters and explicit units for a supplied
+energy cutoff. Use `energy_range=puw.quantity(3.0, 'kcal/mol')` or
+`energy_range='12.552 kJ/mol'`; bare numbers are rejected. Omitting the cutoff
+resolves to 3 kcal/mol. Cutoffs must be finite, nonnegative scalars.
+`dock`, `VinaBackend.dock`, the protocol constructor, and the preparation helpers
+reject unknown argument names through ArgDigest. Molecular forms and selections
+are interpreted by MolSysMT.
+
+The current `VinaBackend` executes `vina` and `vinardo` scoring. A protocol can
+record `scoring='ad4'`, but this adapter rejects its execution with a capability
+error before preparation. It does not yet accept the external affinity maps
+needed by AD4; [Vina's implementation](https://github.com/ccsb-scripps/AutoDock-Vina/blob/v1.2.7/src/lib/vina.cpp#L292-L299)
+rejects computing Vina maps with that scoring function.
+
 The same selection can be passed to `prepare_ligand(...)` when preparing a
 ligand explicitly. DockingMT checks that selected bonds are single, outside
 rings and amide C–N bonds, and have nonterminal heavy-atom sides; invalid or
@@ -138,6 +159,21 @@ preparation remains under [issue #5](https://github.com/uibcdf/dockingmt/issues/
 The [1IEP native preparation audit](devguide/validation/1iep_preparation_audit.md)
 also verifies seven explicitly selected torsions and records the remaining
 charge and atom-type differences.
+
+## Inspecting results
+
+Pose scores require nonempty names and finite real values. DockingMT normalizes
+them to Python floats without inferring units. `result.rank_by('vina')` returns
+a new result with lower scores first; use `ascending=False` for higher scores
+first. Ties preserve input order, and provenance records the selected score and
+direction. Ranking rechecks scores after rescoring edits and rejects invalid
+values before returning a ranked result.
+
+`DockingPose.to_dict()` and `DockingResult.to_dict()` produce independent
+structured snapshots, including nested metadata and provenance. Editing an
+exported record cannot change the original object. The corresponding
+`from_dict()` methods reconstruct independently of the supplied record.
+The serialized schema remains version `1.0`.
 
 ## Governance and Design Authority
 
