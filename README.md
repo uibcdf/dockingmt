@@ -160,6 +160,9 @@ docking, dictionary export, JSON encoding, and file writing. See the
 The [profiling notebook](devguide/validation/workflow_profiling.ipynb) includes
 tables and plots from the versioned raw reports and an optional section to collect
 new measurements. Its default execution analyzes the saved baseline without docking.
+The [result export benchmark](devguide/validation/result_export.md) and its
+[comparison notebook](devguide/validation/result_export.ipynb) record the measured
+reduction in time and Python allocations from removing redundant snapshot copies.
 
 For the file-backed 181L regression case, save a result manifest and replay it
 in a separate command:

@@ -157,6 +157,68 @@ def test_result_export_is_independent_snapshot(result):
     assert record['provenance']['artifacts']['hashes'] == ['edited']
 
 
+def test_repeated_exports_and_repeated_pose_entries_are_independent(result):
+    pose = result[0]
+    repeated = DockingResult([pose, pose], provenance=result.provenance)
+    first = repeated.to_dict()
+    second = repeated.to_dict()
+    first['poses'][0]['coordinates']['value'][0][0] = 5
+    first['poses'][0]['metadata']['nested']['values'].append('edited')
+    first['poses'][0]['scores']['vina'] = 0
+    first['provenance']['artifacts']['hashes'].append('edited')
+    assert first['poses'][1]['coordinates']['value'] == [[0, 0, 0]]
+    assert first['poses'][1]['metadata']['nested']['values'] == ['original']
+    assert first['poses'][1]['scores'] == {'vina': -8}
+    assert second == repeated.to_dict()
+    assert puw.get_value(pose.coordinates).tolist() == [[0, 0, 0]]
+    assert pose.metadata['nested']['values'] == ['original']
+
+
+@pytest.mark.parametrize('export_result', [False, True])
+def test_export_preserves_python_metadata_without_sharing_buffers(export_result):
+    array = np.array([1, 2])
+    nested = {'array': array, 'tuple': ([3], {'label'})}
+    with puw.context(standard_units=['angstrom', 'fs', 'kcal/mol']):
+        pose = DockingPose(
+            puw.quantity([[1, 2, 3]], 'angstrom'),
+            scores={'vina': -8},
+            metadata={'nested': nested},
+        )
+        result = DockingResult([pose], provenance={'nested': nested})
+        exported = result.to_dict() if export_result else pose.to_dict()
+    pose_record = exported['poses'][0] if export_result else exported
+    assert pose_record['coordinates']['unit'] == 'nanometer'
+    np.testing.assert_allclose(pose_record['coordinates']['value'], [[0.1, 0.2, 0.3]])
+    copied = pose_record['metadata']['nested']
+    assert isinstance(copied['array'], np.ndarray)
+    assert not np.shares_memory(copied['array'], array)
+    copied['array'][0] = 99
+    copied['tuple'][0].append(4)
+    copied['tuple'][1].add('edited')
+    assert nested['array'].tolist() == [1, 2]
+    assert nested['tuple'] == ([3], {'label'})
+    if export_result:
+        assert exported['provenance']['nested']['array'].tolist() == [1, 2]
+        assert exported['provenance']['nested']['tuple'] == ([3], {'label'})
+
+
+def test_result_export_preserves_pose_serializer_extensions(coordinates):
+    class AnnotatedPose(DockingPose):
+        annotations = {'labels': ['custom']}
+
+        def to_dict(self):
+            record = super().to_dict()
+            record['annotation'] = self.annotations
+            return record
+
+    result = DockingResult([AnnotatedPose(coordinates, scores={'vina': -8})])
+    record = result.to_dict()
+    assert record['poses'][0]['annotation'] == {'labels': ['custom']}
+    record['poses'][0]['annotation']['labels'].append('edited')
+    assert result[0].annotations == {'labels': ['custom']}
+    assert result.to_dict()['poses'][0]['annotation'] == {'labels': ['custom']}
+
+
 def test_pose_reconstruction_does_not_share_input_record(result):
     record = result[0].to_dict()
     restored = DockingPose.from_dict(record)

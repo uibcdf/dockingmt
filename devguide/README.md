@@ -54,6 +54,9 @@ measurement boundaries, environment and limits of the current 181L baseline.
 Its [Jupyter notebook](validation/workflow_profiling.ipynb) explores the
 [versioned raw reports](validation/data/workflow_profiling/) with tables and plots,
 and can explicitly invoke the existing command to collect new samples.
+The [result export comparison](validation/result_export.md) and its
+[executed notebook](validation/result_export.ipynb) retain before/after measurements
+for the optimized independent dictionary snapshots.
 
 ## Development rule
 

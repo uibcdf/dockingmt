@@ -229,6 +229,39 @@ All seven code cells execute successfully, the notebook schema validates, and
 the retained report bytes match the original files. Local gates pass with 354
 tests in 54.70 seconds and the same 12 provider warnings.
 
+## Result-export optimization progress (2026-10-02)
+
+The third follow-up block confirms redundant deep-copy traversals as a local
+serialization cost and removes them. A pose's freshly allocated coordinate lists
+no longer need another copy; independently owned pose snapshots no longer need
+another complete result traversal. Custom serializers retain the existing
+defensive copy. Structured pose metadata and result context still receive independent
+copies. Schema, scientific content, score validation,
+units, serializer dispatch and reconstruction are preserved.
+
+The new `devtools/benchmark_result_export.py` measures five deterministic cases
+and optional existing result manifests, with separate timing, allocation and
+profile calls. The [measurement record](../validation/result_export.md),
+[executed notebook](../validation/result_export.ipynb) and
+[raw before/after reports](../validation/data/result_export/) retain this evidence.
+All six case JSON digests match before/after. On the measured environment, 256
+poses × 1024 atoms export in 0.0860 s versus 1.4536 s; with full maps, 1.1833 s
+versus 4.4220 s. Peak traced Python allocations fall from 87.19 to 40.32 MiB and
+208.16 to 90.66 MiB respectively. These are export-only measurements, not docking
+speedups, total RSS, campaign capacity or portable thresholds.
+
+Independence guards include repeated snapshots/pose entries, NumPy/tuple/set
+metadata, custom serializer extensions and non-default quantity policy. The
+benchmark comparison rejects mismatched units/clock/method, environment, repeats,
+case selection and payload hashes. No molecular operation, cache, native engine
+change or sibling coordination is involved. The review remains partial for the
+next accepted extension's concrete contract and scientifically qualified workloads.
+
+Final local gates pass with 368 tests in 45.74 seconds and the same 12 provider
+warnings. Ruff lint/format, report-index and diff checks pass. The five-cell
+comparison notebook executes successfully and reads reports without scientific
+imports. Its retained raw reports match the sampled originals byte for byte.
+
 ## What was refuted
 
 More abstract classes, plugins, schedulers, or dependencies do not establish

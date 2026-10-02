@@ -207,7 +207,7 @@ class DockingPose:
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize pose to an independent structured dictionary snapshot."""
-        return deepcopy(
+        record = deepcopy(
             {
                 'schema_version': SCHEMA_VERSION,
                 'pose_id': self.pose_id,
@@ -216,12 +216,14 @@ class DockingPose:
                 'receptor_state_id': self.receptor_state_id,
                 'scores': _normalize_scores(self.scores),
                 'metadata': self.metadata,
-                'coordinates': {
-                    'value': puw.get_value(self._coordinates).tolist(),
-                    'unit': str(puw.get_unit(self._coordinates)),
-                },
             }
         )
+        # tolist owns its new nested lists; copying them again adds no isolation.
+        record['coordinates'] = {
+            'value': puw.get_value(self._coordinates).tolist(),
+            'unit': str(puw.get_unit(self._coordinates)),
+        }
+        return record
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> DockingPose:
@@ -563,15 +565,25 @@ class DockingResult:
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize the result to an independent versioned dictionary snapshot."""
-        return deepcopy(
+        record = deepcopy(
             {
                 'schema_version': SCHEMA_VERSION,
                 'problem_info': self.problem_info,
                 'protocol_info': self.protocol_info,
                 'provenance': self.provenance,
-                'poses': [p.to_dict() for p in self._poses],
             }
         )
+        snapshots = []
+        for pose in self._poses:
+            serializer = pose.to_dict
+            snapshot = serializer()
+            # The native serializer owns its output. Preserve the result's
+            # defensive copy for custom serializers with unknown ownership.
+            if getattr(serializer, '__func__', None) is not DockingPose.to_dict:
+                snapshot = deepcopy(snapshot)
+            snapshots.append(snapshot)
+        record['poses'] = snapshots
+        return record
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> DockingResult:
