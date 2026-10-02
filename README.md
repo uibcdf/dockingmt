@@ -157,6 +157,9 @@ instead of automatic molecular preparation. The command checks matching inputs,
 outputs, and execution context, and separates import, problem construction,
 docking, dictionary export, JSON encoding, and file writing. See the
 [phase definitions and measured limits](devguide/validation/workflow_profiling.md).
+The [profiling notebook](devguide/validation/workflow_profiling.ipynb) includes
+tables and plots from the versioned raw reports and an optional section to collect
+new measurements. Its default execution analyzes the saved baseline without docking.
 
 For the file-backed 181L regression case, save a result manifest and replay it
 in a separate command:

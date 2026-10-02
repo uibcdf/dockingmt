@@ -47,6 +47,14 @@ Every proposed capability should be classified as:
 
 For a one-page index of responsibilities, see `DOCUMENT_MAP.md`.
 
+## Reproducible performance evidence
+
+The [workflow profiling record](validation/workflow_profiling.md) defines the
+measurement boundaries, environment and limits of the current 181L baseline.
+Its [Jupyter notebook](validation/workflow_profiling.ipynb) explores the
+[versioned raw reports](validation/data/workflow_profiling/) with tables and plots,
+and can explicitly invoke the existing command to collect new samples.
+
 ## Development rule
 
 Do not begin by designing classes around Vina command-line arguments. Begin from the scientific concepts defined here, then map those concepts to backend capabilities through adapters.

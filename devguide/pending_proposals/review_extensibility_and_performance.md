@@ -215,6 +215,20 @@ and Vinardo outputs in both modes and round-trips the timing provenance. The fin
 paired captured-input CLI smoke also passes all three equality checks. This issue
 remains partial for the remaining optimization and extension-contract work above.
 
+## Retained notebook and raw evidence (2026-10-02)
+
+The phase-profiling baseline now also has an executed
+[Jupyter notebook](../validation/workflow_profiling.ipynb) and two unchanged
+[raw reports in Git](../validation/data/workflow_profiling/), preserving the twelve
+samples previously kept only in `/tmp`. The notebook reuses the existing report
+summarizer, checks output/input/context equality and renders separate workflow and
+adapter tables/plots. Native measurements are explicitly opt-in through the
+existing command; default execution reads retained evidence without importing
+DockingMT or Vina. Notebook tools do not become package runtime dependencies.
+All seven code cells execute successfully, the notebook schema validates, and
+the retained report bytes match the original files. Local gates pass with 354
+tests in 54.70 seconds and the same 12 provider warnings.
+
 ## What was refuted
 
 More abstract classes, plugins, schedulers, or dependencies do not establish

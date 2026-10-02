@@ -4,6 +4,13 @@ Owned by [DockingMT #28](https://github.com/uibcdf/dockingmt/issues/28).
 This is software performance evidence for existing workflows. The 181L
 chemistry remains provisional; timings do not qualify docking accuracy.
 
+The [companion notebook](workflow_profiling.ipynb) contains executed tables and
+plots from the retained raw samples. Its default execution reads the reports
+without docking or importing the scientific package. Jupyter/IPython and
+Matplotlib are needed to run the analysis; the notebook's optional final section
+uses the existing fresh-process command to collect new measurements. The recorded
+baseline remains separate from newly generated reports.
+
 ## Measurement boundaries
 
 `VinaProtocol(collect_timings=True)` adds a per-run `provenance['timings']`
@@ -126,7 +133,13 @@ python devtools/redocking_181l.py record --manifest /tmp/181l-manifest.json
 python devtools/profile_workflow.py --manifest /tmp/181l-manifest.json --repeats 3 --report /tmp/pdbqt-profile.json
 ```
 
-Raw development reports were retained in `/tmp/dockingmt-181l-profile.json` and
-`/tmp/dockingmt-pdbqt-profile.json`; the commands regenerate equivalent evidence,
+The original raw reports are now versioned as
+[`181l_molecular_2026-10-02.json`](data/workflow_profiling/181l_molecular_2026-10-02.json)
+and
+[`181l_captured_pdbqt_2026-10-02.json`](data/workflow_profiling/181l_captured_pdbqt_2026-10-02.json).
+They preserve all twelve samples and their original hashes, versions, protocol
+and timing definitions. They were copied unchanged from the development reports
+in `/tmp/dockingmt-181l-profile.json` and `/tmp/dockingmt-pdbqt-profile.json`;
+the commands regenerate equivalent evidence,
 not identical wall times or manifest hashes. No CI runtime limit, public package
 dependency qualification, campaign claim or scientific recovery claim is made.

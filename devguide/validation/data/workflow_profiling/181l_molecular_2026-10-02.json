@@ -1,0 +1,441 @@
+{
+  "adapter_phase_medians": {
+    "affinity_maps": 0.652851696126163,
+    "backend_import": 0.003198167309165001,
+    "cleanup": 0.00010416191071271896,
+    "engine_setup": 0.031056172214448452,
+    "input_projection": 0.008093539625406265,
+    "native_docking": 0.3263886645436287,
+    "preparation": 0.2739364802837372,
+    "result_normalization": 0.0015616733580827713,
+    "search_domain_projection": 0.0004329439252614975,
+    "validation": 8.438155055046082e-05
+  },
+  "clock": "perf_counter",
+  "dock_call_median_difference": -0.033673553727567196,
+  "input_identities_match": true,
+  "measurement_medians": {
+    "disabled": {
+      "dock_call": 1.3337561255320907,
+      "file_write": 0.00019496679306030273,
+      "import": 0.46182680036872625,
+      "input_normalization": 5.96631190367043,
+      "json_encoding": 0.0008140811696648598,
+      "result_export": 0.0015015704557299614
+    },
+    "enabled": {
+      "dock_call": 1.3000825718045235,
+      "file_write": 0.00016188062727451324,
+      "import": 0.47285090293735266,
+      "input_normalization": 5.498096317052841,
+      "json_encoding": 0.0008592680096626282,
+      "result_export": 0.0014494573697447777
+    }
+  },
+  "method": "Fresh interpreter per sample; alternating paired modes; same explicit seed and cpu=1; OS caches retained; startup and report bookkeeping excluded; file writes do not fsync. Adapter total is contained within dock_call. Native elapsed overlaps native_docking. Difference of medians includes run-to-run noise and is not a portable timing budget.",
+  "samples": [
+    {
+      "adapter_timings": null,
+      "collect_timings": false,
+      "environment": {
+        "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+        "python": "3.13.14",
+        "versions": {
+          "argdigest": "0.12.1+7.ga2edfe9",
+          "depdigest": "0.10.1+15.g78a9106",
+          "dockingmt": "0.0.0+14.g25b6e0b.dirty",
+          "molsysmt": "0.22.4+118.g03b318549.dirty",
+          "numpy": "2.4.6",
+          "pyunitwizard": "0.27.0",
+          "smonitor": "0.18.0+1.gb308ee0",
+          "vina": "1.2.7"
+        }
+      },
+      "export_bytes": 157629,
+      "input_identity": {
+        "source_sha256": "77018feaaa65bb22dea47c784e8c059b0ccc09cd6dc7442b79cce83f3170985f"
+      },
+      "measurements": {
+        "dock_call": 1.3337561255320907,
+        "file_write": 0.00020146463066339493,
+        "import": 0.4689397541806102,
+        "input_normalization": 6.022762417793274,
+        "json_encoding": 0.0008140811696648598,
+        "result_export": 0.0014334460720419884
+      },
+      "n_poses": 1,
+      "native_elapsed_seconds": 0.32849767059087753,
+      "profiler_sha256": "edac408de66f6783944503ecea04d8ab9e580c3c5630b63e18c7d86276a5e4a9",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": true,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 42
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "scientific_sha256": "959f98afa5f2f6f99d48e33d2bfb805893f0c3670d14424c0533948cbd626d87",
+      "source_revision": {
+        "code_sha256": "5db4db57cb25294c5e2865fbced654adcfbdbcc59aad5b3a51050abb7816597c",
+        "git_head": "df77c1789c547275981678c720d59684f701e1c1",
+        "worktree_dirty": true
+      }
+    },
+    {
+      "adapter_timings": {
+        "clock": "perf_counter",
+        "phases": {
+          "affinity_maps": 0.652851696126163,
+          "backend_import": 0.0030792616307735443,
+          "cleanup": 8.664745837450027e-05,
+          "engine_setup": 0.031056172214448452,
+          "input_projection": 0.007985697127878666,
+          "native_docking": 0.3279267568141222,
+          "preparation": 0.2739364802837372,
+          "result_normalization": 0.0014878734946250916,
+          "search_domain_projection": 0.00040490739047527313,
+          "validation": 0.00010300613939762115
+        },
+        "scope": "VinaBackend.dock body; excludes public decorators and export",
+        "total": 1.2989184986799955,
+        "unit": "second"
+      },
+      "collect_timings": true,
+      "environment": {
+        "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+        "python": "3.13.14",
+        "versions": {
+          "argdigest": "0.12.1+7.ga2edfe9",
+          "depdigest": "0.10.1+15.g78a9106",
+          "dockingmt": "0.0.0+14.g25b6e0b.dirty",
+          "molsysmt": "0.22.4+118.g03b318549.dirty",
+          "numpy": "2.4.6",
+          "pyunitwizard": "0.27.0",
+          "smonitor": "0.18.0+1.gb308ee0",
+          "vina": "1.2.7"
+        }
+      },
+      "export_bytes": 158198,
+      "input_identity": {
+        "source_sha256": "77018feaaa65bb22dea47c784e8c059b0ccc09cd6dc7442b79cce83f3170985f"
+      },
+      "measurements": {
+        "dock_call": 1.3000825718045235,
+        "file_write": 0.00015740655362606049,
+        "import": 0.45347380731254816,
+        "input_normalization": 5.498096317052841,
+        "json_encoding": 0.0008592680096626282,
+        "result_export": 0.0013855397701263428
+      },
+      "n_poses": 1,
+      "native_elapsed_seconds": 0.32792165875434875,
+      "profiler_sha256": "edac408de66f6783944503ecea04d8ab9e580c3c5630b63e18c7d86276a5e4a9",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": true,
+          "capture_backend_inputs": true,
+          "collect_timings": true,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 42
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "scientific_sha256": "959f98afa5f2f6f99d48e33d2bfb805893f0c3670d14424c0533948cbd626d87",
+      "source_revision": {
+        "code_sha256": "5db4db57cb25294c5e2865fbced654adcfbdbcc59aad5b3a51050abb7816597c",
+        "git_head": "df77c1789c547275981678c720d59684f701e1c1",
+        "worktree_dirty": true
+      }
+    },
+    {
+      "adapter_timings": {
+        "clock": "perf_counter",
+        "phases": {
+          "affinity_maps": 0.6502519473433495,
+          "backend_import": 0.003202914260327816,
+          "cleanup": 0.00011265091598033905,
+          "engine_setup": 0.029507250525057316,
+          "input_projection": 0.008093539625406265,
+          "native_docking": 0.31702740862965584,
+          "preparation": 0.27367053367197514,
+          "result_normalization": 0.0015616733580827713,
+          "search_domain_projection": 0.0004497682675719261,
+          "validation": 8.111540228128433e-05
+        },
+        "scope": "VinaBackend.dock body; excludes public decorators and export",
+        "total": 1.2839588019996881,
+        "unit": "second"
+      },
+      "collect_timings": true,
+      "environment": {
+        "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+        "python": "3.13.14",
+        "versions": {
+          "argdigest": "0.12.1+7.ga2edfe9",
+          "depdigest": "0.10.1+15.g78a9106",
+          "dockingmt": "0.0.0+14.g25b6e0b.dirty",
+          "molsysmt": "0.22.4+118.g03b318549.dirty",
+          "numpy": "2.4.6",
+          "pyunitwizard": "0.27.0",
+          "smonitor": "0.18.0+1.gb308ee0",
+          "vina": "1.2.7"
+        }
+      },
+      "export_bytes": 158197,
+      "input_identity": {
+        "source_sha256": "77018feaaa65bb22dea47c784e8c059b0ccc09cd6dc7442b79cce83f3170985f"
+      },
+      "measurements": {
+        "dock_call": 1.2851585084572434,
+        "file_write": 0.00016188062727451324,
+        "import": 0.47285090293735266,
+        "input_normalization": 5.4922219049185514,
+        "json_encoding": 0.0008489033207297325,
+        "result_export": 0.0014494573697447777
+      },
+      "n_poses": 1,
+      "native_elapsed_seconds": 0.317022611387074,
+      "profiler_sha256": "edac408de66f6783944503ecea04d8ab9e580c3c5630b63e18c7d86276a5e4a9",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": true,
+          "capture_backend_inputs": true,
+          "collect_timings": true,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 42
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "scientific_sha256": "959f98afa5f2f6f99d48e33d2bfb805893f0c3670d14424c0533948cbd626d87",
+      "source_revision": {
+        "code_sha256": "5db4db57cb25294c5e2865fbced654adcfbdbcc59aad5b3a51050abb7816597c",
+        "git_head": "df77c1789c547275981678c720d59684f701e1c1",
+        "worktree_dirty": true
+      }
+    },
+    {
+      "adapter_timings": null,
+      "collect_timings": false,
+      "environment": {
+        "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+        "python": "3.13.14",
+        "versions": {
+          "argdigest": "0.12.1+7.ga2edfe9",
+          "depdigest": "0.10.1+15.g78a9106",
+          "dockingmt": "0.0.0+14.g25b6e0b.dirty",
+          "molsysmt": "0.22.4+118.g03b318549.dirty",
+          "numpy": "2.4.6",
+          "pyunitwizard": "0.27.0",
+          "smonitor": "0.18.0+1.gb308ee0",
+          "vina": "1.2.7"
+        }
+      },
+      "export_bytes": 157628,
+      "input_identity": {
+        "source_sha256": "77018feaaa65bb22dea47c784e8c059b0ccc09cd6dc7442b79cce83f3170985f"
+      },
+      "measurements": {
+        "dock_call": 1.3200667202472687,
+        "file_write": 0.0001911623403429985,
+        "import": 0.46182680036872625,
+        "input_normalization": 5.524287238717079,
+        "json_encoding": 0.0008147815242409706,
+        "result_export": 0.0015015704557299614
+      },
+      "n_poses": 1,
+      "native_elapsed_seconds": 0.3393450928851962,
+      "profiler_sha256": "edac408de66f6783944503ecea04d8ab9e580c3c5630b63e18c7d86276a5e4a9",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": true,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 42
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "scientific_sha256": "959f98afa5f2f6f99d48e33d2bfb805893f0c3670d14424c0533948cbd626d87",
+      "source_revision": {
+        "code_sha256": "5db4db57cb25294c5e2865fbced654adcfbdbcc59aad5b3a51050abb7816597c",
+        "git_head": "df77c1789c547275981678c720d59684f701e1c1",
+        "worktree_dirty": true
+      }
+    },
+    {
+      "adapter_timings": null,
+      "collect_timings": false,
+      "environment": {
+        "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+        "python": "3.13.14",
+        "versions": {
+          "argdigest": "0.12.1+7.ga2edfe9",
+          "depdigest": "0.10.1+15.g78a9106",
+          "dockingmt": "0.0.0+14.g25b6e0b.dirty",
+          "molsysmt": "0.22.4+118.g03b318549.dirty",
+          "numpy": "2.4.6",
+          "pyunitwizard": "0.27.0",
+          "smonitor": "0.18.0+1.gb308ee0",
+          "vina": "1.2.7"
+        }
+      },
+      "export_bytes": 157628,
+      "input_identity": {
+        "source_sha256": "77018feaaa65bb22dea47c784e8c059b0ccc09cd6dc7442b79cce83f3170985f"
+      },
+      "measurements": {
+        "dock_call": 1.3660226063802838,
+        "file_write": 0.00019496679306030273,
+        "import": 0.4523133561015129,
+        "input_normalization": 5.96631190367043,
+        "json_encoding": 0.0008048908784985542,
+        "result_export": 0.0015375735238194466
+      },
+      "n_poses": 1,
+      "native_elapsed_seconds": 0.3554139630869031,
+      "profiler_sha256": "edac408de66f6783944503ecea04d8ab9e580c3c5630b63e18c7d86276a5e4a9",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": true,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 42
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "scientific_sha256": "959f98afa5f2f6f99d48e33d2bfb805893f0c3670d14424c0533948cbd626d87",
+      "source_revision": {
+        "code_sha256": "5db4db57cb25294c5e2865fbced654adcfbdbcc59aad5b3a51050abb7816597c",
+        "git_head": "df77c1789c547275981678c720d59684f701e1c1",
+        "worktree_dirty": true
+      }
+    },
+    {
+      "adapter_timings": {
+        "clock": "perf_counter",
+        "phases": {
+          "affinity_maps": 0.7098194537684321,
+          "backend_import": 0.003198167309165001,
+          "cleanup": 0.00010416191071271896,
+          "engine_setup": 0.031333575025200844,
+          "input_projection": 0.009636873379349709,
+          "native_docking": 0.3263886645436287,
+          "preparation": 0.3209856702014804,
+          "result_normalization": 0.001694587990641594,
+          "search_domain_projection": 0.0004329439252614975,
+          "validation": 8.438155055046082e-05
+        },
+        "scope": "VinaBackend.dock body; excludes public decorators and export",
+        "total": 1.403678479604423,
+        "unit": "second"
+      },
+      "collect_timings": true,
+      "environment": {
+        "platform": "Linux-7.0.0-28-generic-x86_64-with-glibc2.39",
+        "python": "3.13.14",
+        "versions": {
+          "argdigest": "0.12.1+7.ga2edfe9",
+          "depdigest": "0.10.1+15.g78a9106",
+          "dockingmt": "0.0.0+14.g25b6e0b.dirty",
+          "molsysmt": "0.22.4+118.g03b318549.dirty",
+          "numpy": "2.4.6",
+          "pyunitwizard": "0.27.0",
+          "smonitor": "0.18.0+1.gb308ee0",
+          "vina": "1.2.7"
+        }
+      },
+      "export_bytes": 158194,
+      "input_identity": {
+        "source_sha256": "77018feaaa65bb22dea47c784e8c059b0ccc09cd6dc7442b79cce83f3170985f"
+      },
+      "measurements": {
+        "dock_call": 1.404930711723864,
+        "file_write": 0.00026582926511764526,
+        "import": 0.5220838589593768,
+        "input_normalization": 5.890523323789239,
+        "json_encoding": 0.0010986393317580223,
+        "result_export": 0.0015388643369078636
+      },
+      "n_poses": 1,
+      "native_elapsed_seconds": 0.3263827934861183,
+      "profiler_sha256": "edac408de66f6783944503ecea04d8ab9e580c3c5630b63e18c7d86276a5e4a9",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": true,
+          "capture_backend_inputs": true,
+          "collect_timings": true,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 42
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "scientific_sha256": "959f98afa5f2f6f99d48e33d2bfb805893f0c3670d14424c0533948cbd626d87",
+      "source_revision": {
+        "code_sha256": "5db4db57cb25294c5e2865fbced654adcfbdbcc59aad5b3a51050abb7816597c",
+        "git_head": "df77c1789c547275981678c720d59684f701e1c1",
+        "worktree_dirty": true
+      }
+    }
+  ],
+  "schema_version": "1.0",
+  "scientific_outputs_match": true,
+  "unit": "second",
+  "workload": "181L_provisional"
+}
