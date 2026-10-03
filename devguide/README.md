@@ -107,6 +107,10 @@ The [incremental prepared-docking contract](validation/incremental_docking.md)
 and [executed notebook](validation/incremental_docking.ipynb) demonstrate lazy
 serial execution, explicit item failures and independent outcome records.
 
+The [pose/reference viewer contract](validation/viewer_reference.md) and
+[executed notebook](validation/viewer_reference.ipynb) demonstrate frame
+correspondence, repeated loading and observable integration failures.
+
 The [native MolSysMT format profile](validation/native_molsysmt_formats.md) records
 prepared-input consumption, current SDF gaps and staged removal conditions. Its
 [executed notebook](validation/native_molsysmt_formats.ipynb) runs the real 1IEP path.

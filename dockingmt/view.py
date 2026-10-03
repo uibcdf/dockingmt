@@ -40,7 +40,9 @@ def view(
     search_domain : SearchDomain | None, optional
         Explicit search domain or box region to render.
     reference : Any, optional
-        A crystallographic reference ligand to display alongside docking poses.
+        Reference ligand with one static structure or one structure per pose.
+        Static references are explicitly repeated; trajectories are paired by
+        index without alignment. Other structure counts raise ValueError.
     receptor : Any, optional
         Explicit receptor system if not attached to result or problem.
     partner : Any, optional
@@ -49,6 +51,8 @@ def view(
         Initial candidate pose rank to focus in the viewer (1-indexed).
     view : MolSysView | None, optional
         An existing MolSysView instance to reuse. If None, a new view is created.
+        Displaying a result replaces its molecular scene. Provider loading and
+        player failures propagate; several loading calls are not transactional.
 
     Returns
     -------

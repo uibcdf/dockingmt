@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from inspect import signature
+from numbers import Integral
 from typing import Any
 
 import numpy as np
@@ -18,6 +20,48 @@ def _ensure_molsys(entity: Any) -> Any:
     if hasattr(entity, 'to_molecular_system'):
         return entity.to_molecular_system()
     return msm.convert(entity, to_form='molsysmt.MolSys')
+
+
+def build_docking_reference_system(reference: Any, n_poses: int) -> Any:
+    """Return a detached reference with one structure per docking pose.
+
+    A static reference is explicitly repeated using MolSysMT extraction. An
+    existing trajectory must have exactly ``n_poses`` structures and is copied,
+    preserving its order. Frame k is compared with pose k, without alignment,
+    interpolation or invented atom correspondence. Other counts are rejected.
+    Molecular identity, units and declared structure attributes remain owned by
+    MolSysMT. The input is never changed.
+    """
+    import molsysmt as msm
+
+    if isinstance(n_poses, bool) or not isinstance(n_poses, Integral) or n_poses < 1:
+        raise ValueError('n_poses must be a positive integer.')
+    source = _ensure_molsys(reference)
+    n_structures = msm.get(source, n_structures=True)
+    if n_structures == n_poses:
+        return msm.copy(source)
+    if n_structures == 1:
+        return msm.extract(source, structure_indices=[0] * n_poses)
+    raise ValueError(
+        f'The reference must have 1 or {n_poses} structures; got {n_structures}.'
+    )
+
+
+def _load_reference(view: Any, reference: Any) -> None:
+    """Adopt the explicit pairing signature, retaining the pinned legacy profile.
+
+    Temporary compatibility boundary: uibcdf/molsysviewer#151 and
+    uibcdf/dockingmt#37. Remove after published pairing support is qualified.
+    Never retry provider failures or treat arbitrary **kwargs as support.
+    """
+    options = {}
+    parameter = signature(view.load).parameters.get('structure_pairing')
+    if parameter is not None and parameter.kind in (
+        parameter.POSITIONAL_OR_KEYWORD,
+        parameter.KEYWORD_ONLY,
+    ):
+        options['structure_pairing'] = 'by_index'
+    view.load(reference, label='reference_ligand', mode='add', **options)
 
 
 def build_docking_complex_system(
@@ -50,11 +94,15 @@ def build_docking_complex_system(
         raise ValueError('Cannot build docking complex without candidate poses.')
 
     rec_sys = _ensure_molsys(receptor)
+    if msm.get(rec_sys, n_structures=True) != 1:
+        raise ValueError('The receptor must have exactly one structure.')
 
     if partner is None:
         raise ValueError('A source partner is required to reconstruct molecular poses.')
 
     ligand_frames = [pose.to_molecular_system(partner) for pose in poses]
+    if any(msm.get(frame, n_structures=True) != 1 for frame in ligand_frames):
+        raise ValueError('Each reconstructed pose must have exactly one structure.')
     lig_frame0 = ligand_frames[0]
     complex_sys = msm.merge([rec_sys, lig_frame0])
 
@@ -87,7 +135,12 @@ def render_docking_result(
     reference: Any = None,
     search_domain: Any = None,
 ) -> Any:
-    """Load docking results, receptor, poses, search domain, and reference into MolSysViewer.
+    """Replace the docking scene and pair reference structures with poses by index.
+
+    Reference counts are validated before loading. Loading and player failures
+    propagate; completed runtime state is published only after all calls succeed.
+    Several provider calls do not form a transaction: a late failure may leave
+    a partially changed scene, which the caller can reload explicitly.
 
     Parameters
     ----------
@@ -109,8 +162,6 @@ def render_docking_result(
     Any
         The MolSysView with loaded components.
     """
-    import molsysmt as msm
-
     runtime = ensure_runtime(view)
 
     # Resolve receptor
@@ -135,6 +186,12 @@ def render_docking_result(
     if reference is None:
         reference = getattr(runtime, 'reference', None)
 
+    ref_multi = (
+        build_docking_reference_system(reference, len(result.poses) or 1)
+        if reference is not None
+        else None
+    )
+
     # Build and load docking complex
     if receptor is not None and result.poses:
         complex_sys = build_docking_complex_system(
@@ -142,38 +199,28 @@ def render_docking_result(
             poses=result.poses,
             partner=partner,
         )
-        view.load(complex_sys, label='docking_complex')
+        view.load(complex_sys, label='docking_complex', mode='replace')
 
     # Load reference ligand if provided
-    if reference is not None and getattr(view, 'load', None) is not None:
-        ref_sys = _ensure_molsys(reference)
-        n_frames = len(result.poses) if result.poses else 1
-        # Replicate frames for reference to match trajectory length
-        ref_multi = msm.copy(ref_sys)
-        for _ in range(n_frames - 1):
-            msm.append_structures(ref_multi, ref_sys)
-        try:
-            view.load(ref_multi, label='reference_ligand', mode='add')
-        except Exception:
-            pass
+    if ref_multi is not None:
+        _load_reference(view, ref_multi)
 
     # Render search domain
     if search_domain is not None:
         render_search_domain(view, search_domain)
 
-    # Update runtime state
+    # Ensure player starts at pose 1 (index 0)
+    player = getattr(view, 'player', None)
+    if player is not None and hasattr(player, 'go_to_structure'):
+        player.go_to_structure(0)
+
+    # Publish completed state only after all required provider calls succeed.
+    runtime = ensure_runtime(view)
     runtime.result = result
     runtime.reference = reference
     runtime.search_domain = search_domain
     runtime.active_pose_rank = 1
-
-    # Ensure player starts at pose 1 (index 0)
-    player = getattr(view, 'player', None)
-    if player is not None and hasattr(player, 'go_to_structure'):
-        try:
-            player.go_to_structure(0)
-        except Exception:
-            pass
+    runtime.reference_visible = True
 
     record_event(view, 'render_docking_result', n_poses=len(result.poses))
     return view

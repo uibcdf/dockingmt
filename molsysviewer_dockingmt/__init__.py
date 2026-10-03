@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from .adapters import (
     build_docking_complex_system,
+    build_docking_reference_system,
     clear_docking,
     compute_box_wireframe_coordinate_pairs,
     render_docking_result,
@@ -30,6 +31,7 @@ __all__ = [
     'DockingMTAddonRuntime',
     'addon',
     'build_docking_complex_system',
+    'build_docking_reference_system',
     'clear_docking',
     'compute_box_wireframe_coordinate_pairs',
     'create_dockingmt_state',

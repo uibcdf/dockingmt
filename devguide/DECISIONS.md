@@ -449,3 +449,29 @@ is positional evidence, not an invented molecular/run/campaign identifier.
 or measured backend reuse requires a new boundary. This block completes neither
 scientific screening qualification nor cross-ligand ranking. General molecular
 operations remain with MolSysMT and visualization with MolSysViewer.
+
+## DMT-036 — Pair pose/reference frames explicitly and expose viewer failures
+
+**Status:** Accepted, 2026-10-03
+
+**Decision:** Replace the displayed result's molecular scene on reload. Require
+one receptor structure and one reconstructed structure per pose. Expose public
+`build_docking_reference_system(reference, n_poses)` in the viewer addon: repeat
+one static reference or copy exactly N frames, using public MolSysMT operations.
+Pair reference frame k with pose frame k through MolSysViewer's advertised
+`structure_pairing='by_index'` parameter. Propagate provider/player failures and
+publish result state only after successful completion.
+
+**Reason:** A missing reference must not be mistaken for a successful overlay,
+and existing reference trajectories must not be multiplied or silently truncated.
+
+**Implementation:** [Issue #37](https://github.com/uibcdf/dockingmt/issues/37),
+[contract and source evidence](validation/viewer_reference.md), executed
+notebook and `tests/test_viewer_reference.py`. Count rejection precedes scene
+replacement; later failures may leave a partially changed scene. No transaction,
+alignment, chemistry assignment or browser rendering certification is claimed.
+
+**Revisit when:** [MolSysViewer #151](https://github.com/uibcdf/molsysviewer/issues/151)
+delivers published explicit pairing support qualified for every supported
+provider profile. Remove the bounded legacy signature branch then; DockingMT
+maintainers review it by 2026-11-03. CI source pins remain unchanged.

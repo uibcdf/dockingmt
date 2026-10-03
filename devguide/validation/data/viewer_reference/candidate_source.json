@@ -1,0 +1,13 @@
+{
+  "profile": "uncommitted_viewer_candidate",
+  "head": "924da3a32111d8994639e8a72cb901ebeb8f870a",
+  "python_file_count": 633,
+  "python_source_sha256": "122a99f9ccddfe1d79943266b6d8078839483a710381c3df44e2e06f9a758491",
+  "boundary_files": {
+    "molsysviewer/viewer/load.py": "95ca1f6f8dc5615a1cdf07383a28bf2b284dab1ac15b90a598c9ed5b5171b15b",
+    "molsysviewer/loaders/_composition.py": "c26886b3e12326ebc8891fb41e2a7874c64e0712120e150b278fbffddaff443b",
+    "molsysviewer/regions.py": "45a61b9ccf2556c1f4758463b3b31b45303a6b7bb3eaef70e344a8916cd0b6ef"
+  },
+  "molsysmt_commit": "c19a47ada0c2279029abfa296cf915560610ad9a",
+  "classification": "Python integration candidate; not a committed/public provider release or browser rendering qualification"
+}

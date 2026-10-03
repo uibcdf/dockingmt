@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from .complex import (
     build_docking_complex_system,
+    build_docking_reference_system,
     clear_docking,
     render_docking_result,
     set_active_pose,
@@ -17,6 +18,7 @@ from .shapes import (
 
 __all__ = [
     'build_docking_complex_system',
+    'build_docking_reference_system',
     'clear_docking',
     'compute_box_wireframe_coordinate_pairs',
     'render_docking_result',

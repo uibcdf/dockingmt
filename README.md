@@ -297,3 +297,8 @@ See the [pose audit contract](devguide/validation/pose_audit.md) and
 The experimental MolSysMT prepared-PDBQT input path and initial SDF acceptance
 are documented in [native format consumption](devguide/validation/native_molsysmt_formats.md)
 and its [executed 1IEP notebook](devguide/validation/native_molsysmt_formats.ipynb).
+
+`dockingmt.view(result, reference=reference)` displays a static reference or one
+reference frame per pose. Reusing a viewer replaces the displayed molecular
+scene, and loading failures propagate. See the [frame correspondence contract](devguide/validation/viewer_reference.md)
+and [executed notebook](devguide/validation/viewer_reference.ipynb).

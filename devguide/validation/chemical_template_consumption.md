@@ -171,3 +171,13 @@ committed viewer failure. It is cross-linked to the owning provider proposal and
 DockingMT #4/#33. Future viewer adoption must qualify explicit reference frame
 pairing and make failed overlay loading inspectable. That migration is separate
 from template transfer; the existing viewer pins and its local work are preserved.
+
+### Consumer loading follow-up — 2026-10-03
+
+[DockingMT #37](https://github.com/uibcdf/dockingmt/issues/37) subsequently makes
+reference pairing explicit when advertised, rejects incompatible frame counts
+and propagates loading/player failures. The [viewer qualification](viewer_reference.md)
+retains 706 passing tests with the stable pins and 32 passing integration controls
+against a frozen uncommitted viewer candidate. This resolves the consumer
+suppression path reported above; it does not certify a published provider or
+change the historical template qualification.

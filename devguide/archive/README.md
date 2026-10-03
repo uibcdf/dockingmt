@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (21)
+### Resolved (22)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
@@ -18,6 +18,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`ligand_pdbqt_writer_shifts_columns_for_four_character_atom_names.md`](ligand_pdbqt_writer_shifts_columns_for_four_character_atom_names.md) — [#18](https://github.com/uibcdf/dockingmt/issues/18) — Ligand PDBQT writer shifts columns for four-character atom names *(resolved, measured)*
 - [`link_1iep_external_pdbqt_to_source_ligand.md`](link_1iep_external_pdbqt_to_source_ligand.md) — [#14](https://github.com/uibcdf/dockingmt/issues/14) — Link the 1IEP external PDBQT check to its source ligand *(resolved, measured)*
 - [`normalize_vina_box_numbers_after_unit_conversion.md`](normalize_vina_box_numbers_after_unit_conversion.md) — [#13](https://github.com/uibcdf/dockingmt/issues/13) — Normalize Vina box numbers after unit conversion *(resolved, measured)*
+- [`pose_reference_loading.md`](pose_reference_loading.md) — [#37](https://github.com/uibcdf/dockingmt/issues/37) — Pair docking reference frames explicitly and expose viewer failures. *(resolved, measured)*
 - [`replay_1iep_reference_and_control_from_saved_manifests.md`](replay_1iep_reference_and_control_from_saved_manifests.md) — [#16](https://github.com/uibcdf/dockingmt/issues/16) — Replay 1IEP reference and control from saved manifests *(resolved, measured)*
 - [`replay_file_backed_redocking_and_report_exploratory_metrics.md`](replay_file_backed_redocking_and_report_exploratory_metrics.md) — [#10](https://github.com/uibcdf/dockingmt/issues/10) — Replay file-backed redocking and report exploratory metrics *(resolved, measured)*
 - [`result_records_share_live_metadata.md`](result_records_share_live_metadata.md) — [#25](https://github.com/uibcdf/dockingmt/issues/25) — Isolate serialized docking results from live metadata and provenance *(resolved, measured)*
