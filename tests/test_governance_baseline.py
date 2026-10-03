@@ -19,13 +19,13 @@ def test_shared_governance_surfaces_are_present():
     assert policy.is_file()
     assert (
         'uibcdf/molsyssuite/.github/workflows/'
-        'check-python-repository.yaml@policy-v1.5.2'
+        'check-python-repository.yaml@policy-v1.5.3'
     ) in policy.read_text(encoding='utf-8')
 
 
 def test_ci_covers_supported_lanes_and_common_quality_gates():
     workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
-    assert 'python-version: ["3.11", "3.12", "3.13"]' in workflow
+    assert 'python-version: ["3.11", "3.12", "3.13", "3.14"]' in workflow
     assert 'repository: uibcdf/argdigest' in workflow
     assert 'ref: "4fdbf19d386bbf476455d35c9988bf00624873e1"' in workflow
     assert 'repository: uibcdf/molsysmt' in workflow
@@ -53,7 +53,7 @@ def test_project_declares_the_suite_python_support_range():
     project = tomllib.loads((ROOT / 'pyproject.toml').read_text(encoding='utf-8'))[
         'project'
     ]
-    assert project['requires-python'] == '>=3.11,<3.14'
+    assert project['requires-python'] == '>=3.11,<3.15'
 
 
 def test_readme_routes_contributors_to_suite_governance():

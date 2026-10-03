@@ -82,3 +82,22 @@ string comparison in the new administrative step. Setuptools can reorder
 the equivalent bound. The correction compares parsed `packaging` specifier
 sets, retaining the exact required range without accepting a metadata override.
 Full tests were not reached in that first run; corrected execution is required.
+
+## Integration guard correction (2026-10-03)
+
+Integrating adoption commit `1731b5c` into the score/ranking block exposed three
+stale assertions in `tests/test_governance_baseline.py`. A complete local Python
+3.13 run returned 411 passed and 3 failed in 58.02 seconds: the governance workflow
+guard still required `policy-v1.5.2`, the CI matrix guard still required three
+minors, and the metadata guard still required `<3.14`. Those assertions now
+require the already adopted `policy-v1.5.3`, four-minor matrix and `<3.15` bound.
+No scientific assertion or dependency pin is changed by this correction.
+
+This updates existing source-governance guards and remains distinct from installed
+Python 3.14 qualification or public admission. The implementation and evidence for
+the separate score/ranking extension are owned by #31.
+
+After the guard correction, the complete local Python 3.13 suite passes all 414
+tests in 57.32 seconds with the same twelve provider warnings. Ruff lint/format,
+current report indexes and diff checks pass. Python 3.14 installed/hosted evidence
+and public admission remain the separate pending acceptance above.
