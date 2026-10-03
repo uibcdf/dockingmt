@@ -111,3 +111,19 @@ failures. All three guards now assert the new required contract; no scientific
 assertion or test selection changes. The ordinary built wheel declares
 `<3.15,>=3.11`, reproducing the prior literal-comparison failure and passing
 the corrected semantic comparison.
+
+### Completed source qualification — 2026-10-03
+
+Concurrent component work and its guard correction were preserved by rebase.
+Source `ff64d84239dbadd030ac1ba5f82eb0a60b5517b4` passes all four Linux
+full-test jobs in [37107875583](https://github.com/uibcdf/dockingmt/actions/runs/37107875583).
+Documented source `0c48cf73f5b1f89dc374d1628e3a0d0f7c547ca0` passes
+[full matrix 37108673271](https://github.com/uibcdf/dockingmt/actions/runs/37108673271):
+four Linux minors and macOS ARM 3.13/3.14. All six cells executed ordinary
+installation, isolated import/metadata validation, interpreter/architecture
+and required Vina checks, followed by full tests. No metadata override is used.
+
+Main retains strict protection with five checks, adding Linux/Python 3.14;
+macOS runs remain in the full matrix. Administrator bypass is preserved.
+Central state is `authorized` with public delivery/admission still pending.
+This documentary skipped commit must not clear recovery debt.
