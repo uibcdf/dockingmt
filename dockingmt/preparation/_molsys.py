@@ -1,5 +1,6 @@
 """Small, inspectable MolSysMT reads shared by the Vina preparation adapters."""
 
+from collections import Counter
 from typing import Any
 
 import molsysmt as msm
@@ -131,13 +132,36 @@ def source_aromaticity(molsys: Any, n_atoms: int) -> list[bool] | None:
 
 
 def chemistry_evidence(molsys: Any) -> dict[str, Any]:
-    """Record available structural facts without treating them as readiness."""
+    """Record compact provider coverage without certifying docking readiness.
+
+    Coverage refers to the selected source before hydrogen projection. Retain
+    counts rather than duplicating the provider's atom/bond values in every run.
+    The full source-index diagnostic remains available through MolSysMT's API.
+    """
     completeness = msm.get(
         molsys,
         connectivity_completeness=True,
         chemical_state='structure',
         structure_indices=0,
     )
+    report = msm.physchem.get_chemical_readiness(
+        molsys, chemical_state='structure', structure_indices=0
+    )
+    fields = {}
+    for name, field in report['fields'].items():
+        summary = {
+            'status': field['status'],
+            'n_assessed': len(field['indices']),
+            **{
+                f'n_{category}': len(field[f'{category}_indices'])
+                for category in ('present', 'missing', 'unsupported', 'conflict')
+            },
+            'origin_counts': dict(Counter(field['origin'].tolist())),
+        }
+        if 'unit' in field:
+            summary['unit'] = field['unit']
+        fields[name] = summary
+    connectivity = report['connectivity']
     return {
         'connectivity_completeness': list(completeness)
         if completeness is not None
@@ -148,4 +172,25 @@ def chemistry_evidence(molsys: Any) -> dict[str, Any]:
             chemical_state='structure',
             structure_indices=0,
         ),
+        'chemical_readiness': {
+            'provider_schema': report['schema'],
+            'method': report['method'],
+            'rule_version': report['rule_version'],
+            'atom_axis': 'selected_source_before_hydrogen_projection',
+            'n_atoms': report['n_atoms'],
+            'structure_index': report['structure_index'],
+            'chemical_state_index': report['chemical_state_index'],
+            'chemical_state_status': report['chemical_state_status'],
+            'state_provenance_index': report['state_provenance_index'],
+            'fields': fields,
+            'connectivity': {
+                'declared_completeness': connectivity['declared_completeness'],
+                'n_examined_bonds': len(connectivity['examined_bond_indices']),
+                'n_invalid_bonds': len(connectivity['invalid_bond_indices']),
+                'n_crossing_bonds': len(connectivity['crossing_bond_indices']),
+            },
+            'n_explicit_hydrogens': len(report['explicit_hydrogen_atom_indices']),
+            'unassessed_checks': list(report['unassessed_checks']),
+            'software': dict(report['software']),
+        },
     }

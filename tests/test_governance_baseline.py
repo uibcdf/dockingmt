@@ -19,7 +19,7 @@ def test_shared_governance_surfaces_are_present():
     assert policy.is_file()
     assert (
         'uibcdf/molsyssuite/.github/workflows/'
-        'check-python-repository.yaml@policy-v1.5.3'
+        'check-python-repository.yaml@policy-v1.5.4'
     ) in policy.read_text(encoding='utf-8')
 
 
@@ -29,7 +29,7 @@ def test_ci_covers_supported_lanes_and_common_quality_gates():
     assert 'repository: uibcdf/argdigest' in workflow
     assert 'ref: "4fdbf19d386bbf476455d35c9988bf00624873e1"' in workflow
     assert 'repository: uibcdf/molsysmt' in workflow
-    assert 'ref: "eb0549b50689b2af5d8fbedb2687fb5746d43de6"' in workflow
+    assert 'ref: "3edbf8ad0a13b9a56a009c0bd3f707e54b807351"' in workflow
     assert 'repository: uibcdf/molsysviewer' in workflow
     assert 'ref: "2c022507265c744d532f39df345322074f80a2a3"' in workflow
     assert '.molsyssuite/argdigest' in workflow

@@ -1,0 +1,69 @@
+{
+  "evidence": "Local warm-cache preparation samples, not a universal speed claim.",
+  "baseline_source": "559f7c33096d80983f44de4df6a0263f5f4ff7ca",
+  "baseline_operation": "Prior chemistry_evidence only; remaining preparation code unchanged.",
+  "sampling": "Five paired rounds per role, alternating profile order after one warm-up per profile.",
+  "python": "3.14.7",
+  "interpreter": "/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+  "provider_import": "/tmp/dockingmt-readiness-provider-3edbf8ad0/molsysmt/__init__.py",
+  "qualified_provider_source": "3edbf8ad0a13b9a56a009c0bd3f707e54b807351",
+  "provider_readiness_sha256": "62b715f2dc63dbee6e4bfd79437b1ed61e82e144e80ef35c88b4878bc9747540",
+  "cases": [
+    {
+      "role": "ligand",
+      "profile": "legacy",
+      "retained_atoms": 6,
+      "median_seconds": 0.14574280753731728,
+      "samples_seconds": [
+        0.13853552285581827,
+        0.1515391431748867,
+        0.14417296182364225,
+        0.15103231463581324,
+        0.14574280753731728
+      ],
+      "metadata_bytes": 509
+    },
+    {
+      "role": "ligand",
+      "profile": "provider_readiness",
+      "retained_atoms": 6,
+      "median_seconds": 0.15199139900505543,
+      "samples_seconds": [
+        0.1442252304404974,
+        0.1499989340081811,
+        0.15478872880339622,
+        0.17902188189327717,
+        0.15199139900505543
+      ],
+      "metadata_bytes": 4084
+    },
+    {
+      "role": "receptor",
+      "profile": "legacy",
+      "retained_atoms": 1289,
+      "median_seconds": 0.16089455597102642,
+      "samples_seconds": [
+        0.16955007333308458,
+        0.16089455597102642,
+        0.160913216881454,
+        0.15502803772687912,
+        0.15828690491616726
+      ],
+      "metadata_bytes": 7039
+    },
+    {
+      "role": "receptor",
+      "profile": "provider_readiness",
+      "retained_atoms": 1289,
+      "median_seconds": 0.1754746027290821,
+      "samples_seconds": [
+        0.17681241035461426,
+        0.17875731084495783,
+        0.1754746027290821,
+        0.1707609100267291,
+        0.17368804477155209
+      ],
+      "metadata_bytes": 10773
+    }
+  ]
+}

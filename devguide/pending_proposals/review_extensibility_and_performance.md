@@ -14,6 +14,18 @@ supersedes: []
 
 # Review extensibility and performance
 
+## 2026-10-03 chemical-coverage summary cost
+
+The [chemical readiness consumer record](../validation/chemical_readiness_consumption.md)
+and its raw preparation profile compare prior evidence collection at `559f7c3`
+with the compact MolSysMT coverage summary. Five paired warm-cache samples per
+profile and role alternate execution order. The source/selection and remaining
+preparation code are shared. Metadata adds roughly 3.6–3.7 kB for the selected 181L
+ligand/protein, avoiding duplicated per-atom/bond value arrays. Small uncontrolled
+samples do not establish a universal timing bound; retain their variability and
+do not infer speed from footprint. No new benchmark framework or campaign cache
+is introduced for this slice.
+
 ## What
 
 The user reaffirmed that DockingMT must support growth in several scientific

@@ -117,3 +117,29 @@ Python 3.14.7 with Vina 1.2.7 and the twelve existing provider warnings. Ruff,
 formatting (86 Python files), report indexes and diff checks pass. The new
 four-code-cell notebook executes on the same interpreter and retains all four
 PDBQT byte comparisons, permutations, fragment memberships and Vina admissions.
+
+## 2026-10-03 chemical coverage assessment
+
+The next consumer slice adds the [read-only chemical coverage summary](../validation/chemical_readiness_consumption.md)
+to ligand/receptor preparation metadata and saved-result provenance. Public
+MolSysMT #217 reports available fields and origins while leaving docking readiness,
+charge models and other scientific checks unassessed. Both workflows pin source
+`3edbf8ad0a13b9a56a009c0bd3f707e54b807351`; qualification uses an isolated snapshot
+because sibling development continues. No provider/viewer worktree is changed.
+
+Seven new cases and the extended real-engine safeguard pass in the 37-case focused
+run. The notebook inspects caffeine and all four original prepared ligand PDBQT
+inputs. Compact metadata stores counts, not copies of molecular value arrays;
+paired preparation samples and JSON footprint are retained. #5 safeguards remain,
+and #33 stays partial pending actual chemical preparation and format-profile gaps.
+
+Complete local qualification: **514 passed, no skips, 69.45 s**, with twelve known
+provider warnings, using Python 3.14.7, Vina 1.2.7 and the exact MolSysMT snapshot.
+The stale CI-pin assertion exposed by the first full run is synchronized. Ruff,
+formatting (88 Python files), report indexes and diff checks pass. All four new
+notebook code cells execute against the recorded implementation digest.
+
+Remote policy adoption `fda469f` was integrated before publication, preserving
+the synchronized guide and policy 1.5.4/Python 3.14 baseline. The aligned policy
+guard and repeated full gate pass **514 tests, no skips, 69.60 s**, with the same
+twelve warnings; lint, formatting and index/diff checks remain green.

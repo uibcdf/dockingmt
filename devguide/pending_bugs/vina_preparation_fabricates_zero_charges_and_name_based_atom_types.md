@@ -5,7 +5,7 @@ status: partial
 opened: 2026-09-22
 closed:
 severity: high
-verification: asserted
+verification: measured
 area: [preparation, vina]
 guard: tests/test_engines.py::test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs
 normative:
@@ -97,3 +97,24 @@ rejection and this issue remain open.
 The subsequent explicit-torsion implementation can reproduce seven 1IEP PDBQT
 branches, but leaves the zero-charge and atom-type differences in this report
 unchanged. Flexible-tree acceptance is therefore not a resolution of this issue.
+
+## 2026-10-03 stored-field coverage consumption
+
+Preparation now consumes MolSysMT's read-only `physchem.get_chemical_readiness`
+from source `3edbf8ad0`, retaining compact field/origin counts, selected state/frame,
+explicit H count, connectivity integrity counts and unassessed checks before
+hydrogen projection. The [consumer record](../validation/chemical_readiness_consumption.md)
+and executed notebook distinguish formal charges from partial-charge assignment
+and stored presence from scientific validity. No universal ready flag, chemical
+repair or implicit parameterization is added.
+
+The default Vina safeguard and provisional opt-in remain unchanged; the real-engine
+guard now verifies summary persistence in saved-result provenance. Seven new
+consumer cases cover source/state/axis identity, incomplete/conflicting coverage,
+JSON serialization, immutability and a non-default unit policy. All 37 focused
+cases pass against an isolated snapshot of the pinned provider in 23.05 s.
+Validated chemical preparation remains open; this issue stays partial.
+
+The complete local gate passes 514 tests without skips in 69.45 s on Python
+3.14.7 with Vina 1.2.7 and twelve known provider warnings. The notebook executes
+against the exact provider snapshot; lint, formatting and index/diff checks pass.

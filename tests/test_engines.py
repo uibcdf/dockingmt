@@ -341,6 +341,18 @@ def test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs()
     )
     assert result.provenance['preparation']['partner']['mode'] == 'provided'
     assert result.provenance['preparation']['partner']['assessment'] == 'provisional'
+    readiness = result.provenance['preparation']['partner']['metadata'][
+        'source_chemistry'
+    ]['chemical_readiness']
+    assert readiness == ligand.metadata['source_chemistry']['chemical_readiness']
+    assert 'docking_readiness' in readiness['unassessed_checks']
+    restored = DockingResult.from_dict(result.to_dict())
+    assert (
+        restored.provenance['preparation']['partner']['metadata']['source_chemistry'][
+            'chemical_readiness'
+        ]
+        == readiness
+    )
 
 
 def test_vina_atom_order_verifier_rejects_permuted_pose():

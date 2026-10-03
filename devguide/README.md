@@ -97,3 +97,7 @@ prepared-input consumption, current SDF gaps and staged removal conditions. Its
 The [rigid-fragment migration](validation/rigid_fragment_consumption.md) and its
 [executed notebook](validation/rigid_fragment_consumption.ipynb) retain four-ligand
 before/after equivalence and source-to-retained atom maps for the MolSysMT partition.
+
+The [chemical-readiness consumer record](validation/chemical_readiness_consumption.md)
+and [executed notebook](validation/chemical_readiness_consumption.ipynb) distinguish
+stored-field coverage from docking validity and retain preparation-cost samples.

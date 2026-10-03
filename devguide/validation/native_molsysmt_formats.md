@@ -115,3 +115,10 @@ ligands by [the retained migration](rigid_fragment_consumption.md). DockingMT no
 consumes the public partition operation while preserving the prior permutations
 and PDBQT bytes. Remaining chemical eligibility and serialization operations
 keep their independent removal conditions.
+
+## Subsequent chemical coverage (2026-10-03)
+
+The [stored-field audit consumer](chemical_readiness_consumption.md) now records
+compact MolSysMT coverage in preparation metadata and saved-result provenance.
+CI/full-matrix pins advance to `3edbf8ad0` for that operation. Presence and declared
+completeness do not certify the remaining chemical profile; #5 and #33 stay open.

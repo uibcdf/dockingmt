@@ -40,10 +40,8 @@ def test_prepare_receptor_and_ligand_181l():
         == lig.n_atoms
     )
     assert lig.group_name == 'BNZ'
-    assert lig.metadata['source_chemistry'] == {
-        'connectivity_completeness': ['partial'],
-        'bond_order_available': False,
-    }
+    assert lig.metadata['source_chemistry']['connectivity_completeness'] == ['partial']
+    assert lig.metadata['source_chemistry']['bond_order_available'] is False
     pdbqt = lig.to_pdbqt()
     assert 'ROOT' in pdbqt
     assert 'ENDROOT' in pdbqt
@@ -83,10 +81,10 @@ def test_rdkit_ligand_without_groups_preserves_available_chemistry():
     assert ligand.metadata['omitted_hydrogen_indices'] == list(range(6, 12))
     assert ligand.metadata['torsion_policy'] == 'rigid_only'
     assert ligand.metadata['atom_map_status'] == 'hydrogen_subset_mapped'
-    assert ligand.metadata['source_chemistry'] == {
-        'connectivity_completeness': ['complete'],
-        'bond_order_available': True,
-    }
+    assert ligand.metadata['source_chemistry']['connectivity_completeness'] == [
+        'complete'
+    ]
+    assert ligand.metadata['source_chemistry']['bond_order_available'] is True
 
 
 def test_prepared_molsys_uses_current_coordinates():
