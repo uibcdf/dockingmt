@@ -1,7 +1,7 @@
 ---
 summary: Adopt the mandatory four-minor contract and qualify normal installed delivery
 issue: uibcdf/dockingmt#30
-status: active
+status: partial
 opened: 2026-10-03
 closed:
 verification: inspected
@@ -34,7 +34,6 @@ The new 3.14 lane uses the existing controlled-source mechanism, with MolSysMT
 the suite transition records their qualified source pair). Older minors keep
 their prior source revisions. Where needed, the 3.14 environment keeps the
 3.13 scientific dependency surface and uses published Pytest Receptor 1.1.0.
-ElastNetMT's LinDelINT provider migration is owned by uibcdf/lindelint#14.
 These source routes remain test evidence, not publicly delivered closure;
 replace them after reviewed compatible public packages are independently
 installed. Do not bypass Requires-Python.
@@ -101,3 +100,14 @@ After the guard correction, the complete local Python 3.13 suite passes all 414
 tests in 57.32 seconds with the same twelve provider warnings. Ruff lint/format,
 current report indexes and diff checks pass. Python 3.14 installed/hosted evidence
 and public admission remain the separate pending acceptance above.
+
+### Additional hosted evidence
+
+Corrected run 37106343585 and six-cell manual matrix 37106422013
+passed the normal installed-package gate. Their full tests exposed three
+stale governance-baseline assertions: policy tag, matrix and Python bound.
+Linux/Python 3.14 reported 366 passes and only those three administrative
+failures. All three guards now assert the new required contract; no scientific
+assertion or test selection changes. The ordinary built wheel declares
+`<3.15,>=3.11`, reproducing the prior literal-comparison failure and passing
+the corrected semantic comparison.
