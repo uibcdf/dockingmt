@@ -12,6 +12,12 @@ from argdigest import arg_digest
 
 from dockingmt._private.serialization import SCHEMA_VERSION, validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
+from dockingmt.core._scores import (
+    comparable_definition,
+    make_ranking_record,
+    normalize_definitions,
+    ranking_history,
+)
 from dockingmt.core.problem import DockingProblem
 
 
@@ -173,6 +179,9 @@ class DockingPose:
         Identifier linking this pose to its receptor conformation/state.
     metadata : dict[str, Any], optional
         Arbitrary structured annotations (e.g. interaction flags, clusters).
+    score_definitions : dict[str, dict[str, Any]], optional
+        Declared score semantics, stored in metadata['score_definitions'].
+        Absent descriptors remain unknown; units are never inferred from names.
     """
 
     def __init__(
@@ -184,6 +193,7 @@ class DockingPose:
         partner_state_id: str | None = None,
         receptor_state_id: str | None = None,
         metadata: dict[str, Any] | None = None,
+        score_definitions: dict[str, dict[str, Any]] | None = None,
     ):
         self._coordinates = puw.convert(
             _ensure_coordinates_quantity(coordinates), to_unit='nm'
@@ -194,6 +204,26 @@ class DockingPose:
         self.partner_state_id = partner_state_id
         self.receptor_state_id = receptor_state_id
         self.metadata: dict[str, Any] = dict(metadata) if metadata is not None else {}
+        if score_definitions is not None:
+            if 'score_definitions' in self.metadata:
+                raise ArgumentError(
+                    arg_name='score_definitions',
+                    reason='Supply descriptors once, through the argument or metadata.',
+                )
+            self.metadata['score_definitions'] = normalize_definitions(
+                score_definitions, self.scores
+            )
+        elif 'score_definitions' in self.metadata:
+            self.metadata['score_definitions'] = normalize_definitions(
+                self.metadata['score_definitions'], self.scores
+            )
+
+    @property
+    def score_definitions(self) -> dict[str, dict[str, Any]]:
+        """Validated independent descriptors for this pose's named scores."""
+        return normalize_definitions(
+            self.metadata.get('score_definitions', {}), self.scores
+        )
 
     @property
     def coordinates(self) -> Any:
@@ -207,6 +237,9 @@ class DockingPose:
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize pose to an independent structured dictionary snapshot."""
+        definitions = self.score_definitions
+        metadata = dict(self.metadata)
+        metadata.pop('score_definitions', None)
         record = deepcopy(
             {
                 'schema_version': SCHEMA_VERSION,
@@ -215,9 +248,11 @@ class DockingPose:
                 'partner_state_id': self.partner_state_id,
                 'receptor_state_id': self.receptor_state_id,
                 'scores': _normalize_scores(self.scores),
-                'metadata': self.metadata,
+                'metadata': metadata,
             }
         )
+        if 'score_definitions' in self.metadata:
+            record['metadata']['score_definitions'] = definitions
         # tolist owns its new nested lists; copying them again adds no isolation.
         record['coordinates'] = {
             'value': puw.get_value(self._coordinates).tolist(),
@@ -479,6 +514,12 @@ class DockingResult:
             dict(provenance) if provenance is not None else {}
         )
         self.problem = problem
+        ranking_history(self.provenance, detach=False)
+
+    @property
+    def ranking_history(self) -> list[dict[str, Any]]:
+        """Independent evidence for successive ranking decisions."""
+        return ranking_history(self.provenance)
 
     def __len__(self) -> int:
         return len(self._poses)
@@ -516,8 +557,13 @@ class DockingResult:
 
         Ties preserve input order. Invalid scores are rejected before a ranking
         is returned, including invalid values assigned during later rescoring.
+        Declared definitions and molecular-state IDs must match across poses.
+        The explicit direction overrides a descriptor's advisory preference.
+        Success appends detached scalar evidence to provenance.ranking_history.
         """
         score_values = []
+        definition = comparable_definition(self._poses, score_name)
+        history = self.ranking_history
         for i, pose in enumerate(self._poses):
             if score_name not in pose.scores:
                 raise ArgumentError(
@@ -530,14 +576,15 @@ class DockingResult:
                 _normalize_score(pose.scores[score_name], score_name, i)
             )
 
-        sorted_poses = sorted(
-            zip(self._poses, score_values),
-            key=lambda item: item[1],
+        sorted_indices = sorted(
+            range(len(self._poses)),
+            key=score_values.__getitem__,
             reverse=not ascending,
         )
 
         new_poses: list[DockingPose] = []
-        for rank_idx, (pose, _) in enumerate(sorted_poses, start=1):
+        for rank_idx, pose_index in enumerate(sorted_indices, start=1):
+            pose = self._poses[pose_index]
             new_pose = DockingPose(
                 coordinates=pose.coordinates,
                 scores=pose.scores,
@@ -545,11 +592,44 @@ class DockingResult:
                 pose_id=pose.pose_id,
                 partner_state_id=pose.partner_state_id,
                 receptor_state_id=pose.receptor_state_id,
-                metadata=pose.metadata,
+                metadata=deepcopy(pose.metadata),
             )
             new_poses.append(new_pose)
 
-        new_provenance = dict(self.provenance)
+        new_provenance = deepcopy(
+            {
+                key: value
+                for key, value in self.provenance.items()
+                if key != 'ranking_history'
+            }
+        )
+        if not history and 'ranking_policy' in self.provenance:
+            previous = self.provenance['ranking_policy']
+            if not isinstance(previous, Mapping):
+                raise ArgumentError(
+                    arg_name='ranking_policy', reason='Use a structured ranking policy.'
+                )
+            history.append(
+                {
+                    'schema_version': '1.0',
+                    'evidence': 'legacy_policy_only',
+                    'score_name': previous.get('score_name'),
+                    'ascending': previous.get('ascending'),
+                    'policy': deepcopy(previous),
+                }
+            )
+        history.append(
+            make_ranking_record(
+                self._poses,
+                score_name,
+                ascending,
+                definition,
+                score_values,
+                sorted_indices,
+                'rank_by',
+            )
+        )
+        new_provenance['ranking_history'] = history
         new_provenance['ranking_policy'] = {
             'score_name': score_name,
             'ascending': ascending,
@@ -557,14 +637,15 @@ class DockingResult:
 
         return DockingResult(
             poses=new_poses,
-            problem_info=self.problem_info,
-            protocol_info=self.protocol_info,
+            problem_info=deepcopy(self.problem_info),
+            protocol_info=deepcopy(self.protocol_info),
             provenance=new_provenance,
             problem=self.problem,
         )
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize the result to an independent versioned dictionary snapshot."""
+        ranking_history(self.provenance, detach=False)
         record = deepcopy(
             {
                 'schema_version': SCHEMA_VERSION,

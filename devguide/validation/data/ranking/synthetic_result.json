@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "problem_info": {},
+  "protocol_info": {},
+  "provenance": {
+    "fixture_id": "ranking-example-v1",
+    "evidence": "Synthetic software example; no engine, molecular preparation or scientific prediction"
+  },
+  "poses": [
+    {
+      "schema_version": "1.0",
+      "pose_id": "A",
+      "rank": null,
+      "partner_state_id": "synthetic-partner",
+      "receptor_state_id": "synthetic-receptor",
+      "scores": {
+        "example_affinity": -8.0,
+        "example_preference": 0.4
+      },
+      "metadata": {
+        "score_definitions": {
+          "example_affinity": {
+            "schema_version": "1.0",
+            "method": "synthetic documentation fixture",
+            "method_version": "1",
+            "component": "invented energy-like preference",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "fixture_id": "ranking-example-v1",
+              "purpose": "invented numbers for software behavior only"
+            }
+          },
+          "example_preference": {
+            "schema_version": "1.0",
+            "method": "synthetic documentation fixture",
+            "method_version": "1",
+            "component": "invented dimensionless preference",
+            "kind": "dimensionless",
+            "unit": "dimensionless",
+            "preferred_direction": "higher",
+            "context": {
+              "fixture_id": "ranking-example-v1",
+              "purpose": "invented numbers for software behavior only"
+            }
+          }
+        }
+      },
+      "coordinates": {
+        "value": [
+          [
+            0.09999999999999999,
+            0.19999999999999998,
+            0.3
+          ]
+        ],
+        "unit": "nanometer"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "pose_id": "B",
+      "rank": null,
+      "partner_state_id": "synthetic-partner",
+      "receptor_state_id": "synthetic-receptor",
+      "scores": {
+        "example_affinity": -6.0,
+        "example_preference": 0.9
+      },
+      "metadata": {
+        "score_definitions": {
+          "example_affinity": {
+            "schema_version": "1.0",
+            "method": "synthetic documentation fixture",
+            "method_version": "1",
+            "component": "invented energy-like preference",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "fixture_id": "ranking-example-v1",
+              "purpose": "invented numbers for software behavior only"
+            }
+          },
+          "example_preference": {
+            "schema_version": "1.0",
+            "method": "synthetic documentation fixture",
+            "method_version": "1",
+            "component": "invented dimensionless preference",
+            "kind": "dimensionless",
+            "unit": "dimensionless",
+            "preferred_direction": "higher",
+            "context": {
+              "fixture_id": "ranking-example-v1",
+              "purpose": "invented numbers for software behavior only"
+            }
+          }
+        }
+      },
+      "coordinates": {
+        "value": [
+          [
+            0.19999999999999998,
+            0.19999999999999998,
+            0.3
+          ]
+        ],
+        "unit": "nanometer"
+      }
+    },
+    {
+      "schema_version": "1.0",
+      "pose_id": "C",
+      "rank": null,
+      "partner_state_id": "synthetic-partner",
+      "receptor_state_id": "synthetic-receptor",
+      "scores": {
+        "example_affinity": -7.0,
+        "example_preference": 0.9
+      },
+      "metadata": {
+        "score_definitions": {
+          "example_affinity": {
+            "schema_version": "1.0",
+            "method": "synthetic documentation fixture",
+            "method_version": "1",
+            "component": "invented energy-like preference",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "fixture_id": "ranking-example-v1",
+              "purpose": "invented numbers for software behavior only"
+            }
+          },
+          "example_preference": {
+            "schema_version": "1.0",
+            "method": "synthetic documentation fixture",
+            "method_version": "1",
+            "component": "invented dimensionless preference",
+            "kind": "dimensionless",
+            "unit": "dimensionless",
+            "preferred_direction": "higher",
+            "context": {
+              "fixture_id": "ranking-example-v1",
+              "purpose": "invented numbers for software behavior only"
+            }
+          }
+        }
+      },
+      "coordinates": {
+        "value": [
+          [
+            0.3,
+            0.19999999999999998,
+            0.3
+          ]
+        ],
+        "unit": "nanometer"
+      }
+    }
+  ]
+}

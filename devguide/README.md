@@ -58,6 +58,11 @@ The [result export comparison](validation/result_export.md) and its
 [executed notebook](validation/result_export.ipynb) retain before/after measurements
 for the optimized independent dictionary snapshots.
 
+The [score/ranking contract](validation/score_semantics.md) and its
+[executed offline example](validation/ranking_history.ipynb) document declared
+score meaning and successive ranking evidence. The saved example is synthetic
+software data, not a scientific validation or runtime benchmark.
+
 ## Development rule
 
 Do not begin by designing classes around Vina command-line arguments. Begin from the scientific concepts defined here, then map those concepts to backend capabilities through adapters.

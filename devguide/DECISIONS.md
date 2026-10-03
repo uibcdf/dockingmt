@@ -316,3 +316,29 @@ context dictionaries are not recursively reinterpreted as scientific objects.
 
 **Revisit when:** An actual new schema or reader requires a documented migration
 or a different supported-version set.
+
+---
+
+## DMT-031 — Describe score meaning and retain scalar ranking evidence
+
+**Status:** Accepted, 2026-10-03
+
+**Decision:** Named numeric scores may carry versioned descriptors in the existing
+pose metadata extension point. The current Vina/Vinardo adapter declares empirical
+meaning, conventional units, method/version and submitted-input/settings context.
+Ranking preserves its explicit direction, checks matching declared semantics and
+state IDs, and appends independent scalar observations and order indices to result
+provenance. Existing latest-policy access and outer schema 1.0 remain compatible.
+
+**Reason:** Saved results need sufficient interpretation and successive decision
+evidence without a live engine. Unannotated legacy scores retain unknown meaning;
+they may still be ranked explicitly, but cannot silently join a described collection.
+Equal descriptors do not establish scientific comparability or physical energies.
+
+**Implementation:** [Issue #31](https://github.com/uibcdf/dockingmt/issues/31) and
+the [score/ranking contract](validation/score_semantics.md). Initial backend order,
+legacy policy-only evidence and explicit rankings remain distinguishable. This
+does not introduce a scoring engine, protocol-stage executor or campaign model.
+
+**Revisit when:** A real rescoring/physical-energy or cross-run aggregation workflow
+requires a new comparison policy, quantity boundary or identity contract.

@@ -262,6 +262,24 @@ warnings. Ruff lint/format, report-index and diff checks pass. The five-cell
 comparison notebook executes successfully and reads reports without scientific
 imports. Its retained raw reports match the sampled originals byte for byte.
 
+## Score/ranking contract progress (2026-10-03)
+
+The next accepted local extension boundary is complete in
+[#31](https://github.com/uibcdf/dockingmt/issues/31): validated optional score
+descriptors, actual Vina/Vinardo empirical meaning and comparison context, and
+independent scalar evidence for successive rankings. Legacy records remain
+readable and explicitly rankable; mixed/incompatible declared meanings are
+rejected. Explicit direction, stable ties, original values and state/pose identity
+are retained. The adapter also records its initial native order.
+
+The [contract](../validation/score_semantics.md) and
+[executed offline notebook](../validation/ranking_history.ipynb) document the
+behavior without molecular operations or optional engine/viewer imports. Their
+saved fixture is synthetic software evidence. No scoring engine, physical-energy
+API, generic protocol-stage infrastructure, campaign, cache or sibling change is
+introduced. This review remains partial for scientifically qualified workloads
+and the concrete comparison/identity policies of later accepted extensions.
+
 ## What was refuted
 
 More abstract classes, plugins, schedulers, or dependencies do not establish

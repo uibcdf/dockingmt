@@ -95,6 +95,35 @@ def test_vina_backend_docking_execution(scoring):
     assert result.protocol_info['parameters']['scoring'] == scoring
     assert puw.are_compatible(top_pose.coordinates, 'nm')
     assert top_pose.metadata['pose_atom_order'] == 'verified_pdbqt_order'
+    import vina
+
+    definition = top_pose.score_definitions[scoring]
+    assert definition['method'] == f'AutoDock Vina/{scoring}'
+    assert definition['method_version'] == vina.__version__
+    assert definition['kind'] == 'empirical'
+    assert definition['preferred_direction'] == 'lower'
+    assert puw.get_value(puw.quantity(1, definition['unit']), to_unit='kcal/mol') == 1
+    assert set(top_pose.score_definitions) == {scoring, 'inter', 'intra', 'torsion'}
+    assert all(
+        top_pose.score_definitions[name]['preferred_direction'] is None
+        for name in ('inter', 'intra', 'torsion')
+    )
+    assert (
+        definition['context']['receptor_sha256']
+        == hashlib.sha256(MINIMAL_REC_PDBQT.encode()).hexdigest()
+    )
+    assert (
+        definition['context']['partner_sha256']
+        == hashlib.sha256(MINIMAL_LIG_PDBQT.encode()).hexdigest()
+    )
+    assert definition['context']['grid_spacing'] == {'value': 0.375, 'unit': 'angstrom'}
+    assert definition['context']['weights']
+    assert result.ranking_history[0]['origin'] == 'backend'
+    assert result.ranking_history[0]['score_definition'] == definition
+    ranked = result.rank_by(scoring)
+    assert len(ranked.ranking_history) == 2
+    assert [p.scores for p in ranked] == [p.scores for p in result]
+    assert DockingResult.from_dict(ranked.to_dict()).to_dict() == ranked.to_dict()
     with pytest.raises(ArgumentError, match='verified source atom map'):
         top_pose.to_molecular_system(problem.partner)
 

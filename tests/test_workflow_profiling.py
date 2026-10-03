@@ -55,6 +55,9 @@ def timed_native(monkeypatch, tmp_path):
         def energies(self, **kwargs):
             return []
 
+        def info(self):
+            return {'weights': [-0.035579], 'box_spacing': 0.375}
+
     monkeypatch.setitem(
         sys.modules, 'vina', SimpleNamespace(Vina=Native, __version__='test')
     )

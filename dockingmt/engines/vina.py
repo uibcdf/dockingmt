@@ -18,6 +18,7 @@ from depdigest import dep_digest
 
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt._version import __version__ as dockingmt_version
+from dockingmt.core._scores import make_ranking_record
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import DockingProtocol, VinaProtocol, _validate_vina_intent
 from dockingmt.core.results import DockingPose, DockingResult, _molecular_atom_keys
@@ -31,6 +32,41 @@ from dockingmt.preparation import (
 from dockingmt.preparation._molsys import autodock_element
 
 VINA_BOX_DECIMALS = 6
+
+
+def _vina_score_definitions(
+    scoring, version, artifacts, center, size, info, preparation
+):
+    """Describe the four currently retained columns of Vina.energies()."""
+    context = {
+        'stage': 'docking',
+        'receptor_sha256': artifacts['receptor']['sha256'],
+        'partner_sha256': artifacts['partner']['sha256'],
+        'backend_box': {'center': center, 'size': size, 'unit': 'angstrom'},
+        'weights': [float(weight) for weight in info['weights']],
+        'grid_spacing': {'value': float(info['box_spacing']), 'unit': 'angstrom'},
+        'preparation_assessment': {
+            role: preparation[role]['assessment'] for role in ('receptor', 'partner')
+        },
+    }
+    return {
+        name: {
+            'schema_version': '1.0',
+            'method': f'AutoDock Vina/{scoring}',
+            'method_version': version,
+            'component': component,
+            'kind': 'empirical',
+            'unit': 'kcal/mol',
+            'preferred_direction': 'lower' if name == scoring else None,
+            'context': context,
+        }
+        for name, component in (
+            (scoring, 'total docking score'),
+            ('inter', 'intermolecular term'),
+            ('intra', 'intramolecular term'),
+            ('torsion', 'torsional term'),
+        )
+    }
 
 
 class _VinaTimings:
@@ -461,6 +497,15 @@ class VinaBackend(DockingBackend):
             )
 
             poses: list[DockingPose] = []
+            score_definitions = _vina_score_definitions(
+                protocol.scoring,
+                getattr(vina, '__version__', 'unknown'),
+                backend_artifacts,
+                center,
+                box_size,
+                v.info(),
+                preparation,
+            )
             if coords_arr is not None and len(coords_arr) > 0:
                 coords_np = np.asarray(coords_arr)
                 energies_np = np.asarray(energies_arr)
@@ -512,6 +557,7 @@ class VinaBackend(DockingBackend):
                         pose_id=f'pose_{idx + 1}',
                         partner_state_id=partner_state_id,
                         receptor_state_id=receptor_state_id,
+                        score_definitions=score_definitions,
                         metadata={
                             'pose_atom_order': 'verified_pdbqt_order',
                             'prepared_atom_indices': partner.pdbqt_atom_indices,
@@ -548,6 +594,18 @@ class VinaBackend(DockingBackend):
                 'elapsed_seconds': elapsed_seconds,
                 'preparation': preparation,
                 'backend_artifacts': backend_artifacts,
+                'ranking_policy': {'score_name': protocol.scoring, 'ascending': True},
+                'ranking_history': [
+                    make_ranking_record(
+                        poses,
+                        protocol.scoring,
+                        True,
+                        poses[0].score_definitions[protocol.scoring] if poses else None,
+                        [pose.scores[protocol.scoring] for pose in poses],
+                        range(len(poses)),
+                        'backend',
+                    )
+                ],
             }
 
             result = DockingResult(

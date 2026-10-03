@@ -200,6 +200,14 @@ first. Ties preserve input order, and provenance records the selected score and
 direction. Ranking rechecks scores after rescoring edits and rejects invalid
 values before returning a ranked result.
 
+Vina/Vinardo poses now expose `pose.score_definitions`: method/version, empirical
+meaning, conventional unit, preferred direction and submitted-input/settings
+context. Described rankings require matching definitions and state IDs; legacy
+undescribed scores remain explicitly rankable. The direction stays explicit and
+each decision is retained in `result.ranking_history`, including the initial
+backend order. See the [score contract](devguide/validation/score_semantics.md)
+and [executed offline example](devguide/validation/ranking_history.ipynb).
+
 `DockingPose.to_dict()` and `DockingResult.to_dict()` produce independent
 structured snapshots, including nested metadata and provenance. Editing an
 exported record cannot change the original object. The corresponding
