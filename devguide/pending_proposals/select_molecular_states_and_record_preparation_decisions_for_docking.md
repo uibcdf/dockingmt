@@ -4,7 +4,7 @@ issue: uibcdf/dockingmt#4
 status: partial
 opened: 2026-09-22
 closed:
-verification: asserted
+verification: measured
 area: [preparation, provenance]
 guard: tests/test_redocking.py::test_direct_molsysmt_input_reaches_vina
 normative:
@@ -98,3 +98,27 @@ recorded state, and reconstruction. Single-structure input still selects index
 0 by default. This resolves the ambiguity within DockingMT; the broader issue
 remains partial until validated preparation methods and their decisions can be
 recorded through the provider workflow.
+
+## 2026-10-03 explicit chemical-template consumer qualification
+
+The [consumer record](../validation/chemical_template_consumption.md), executed
+notebook and raw indexed reports qualify public MolSysMT assessment/application
+from exact source `c19a47ada0`. The existing `prepare_ligand` boundary consumes the
+returned native system. Original 181L BNZ accepts a declared heavy-only template;
+permuted 5X72 P59/P69 absent-field controls preserve both poses, IDs and chosen
+state while receiving the expected R/S assignments. Original native SDF versus
+adapter-template aromatic encodings remain unassessed; no normalization is added.
+
+Fourteen focused consumer cases protect conflicts, absent edges, exhaustive H
+mapping, matching explicit fields, unselected state preservation and non-default
+units. A real Vina test retains default provisional rejection and saved-result
+assessment after explicit exploratory opt-in. Reports remain separate workflow
+records because MolSysMT #298 has no native report attachment. Charge/type
+qualification and general preparation remain open; this issue stays partial.
+
+The full source-qualified gate passes 538 tests without skips in 108.31 s on
+Python 3.14.7, using an isolated MolSysMT archive and the existing CI viewer pin.
+The executed notebook asserts the requested Conda interpreter. The initial live
+viewer profile exposed an in-progress explicit frame-pairing requirement under
+molsysviewer#151; its checkout is preserved and the separate consumer migration
+is retained in the validation record. Ruff, indexes and diff checks pass.

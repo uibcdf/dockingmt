@@ -110,3 +110,8 @@ modified/incomplete residues and paired preparation-cost measurements.
 The [PDB connectivity-policy diagnosis](validation/pdb_bond_inference.md) and
 [executed notebook](validation/pdb_bond_inference.ipynb) reproduce the optional
 OpenMM difference and retain native candidate comparisons for MolSysMT #304.
+
+The [explicit chemical-template consumer record](validation/chemical_template_consumption.md)
+and [executed notebook](validation/chemical_template_consumption.ipynb) qualify
+MolSysMT transfer on original 181L BNZ and controlled 5X72 inputs, retaining
+explicit maps, conflicts, pose preservation and the provisional Vina safeguard.

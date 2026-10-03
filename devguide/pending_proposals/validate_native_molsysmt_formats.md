@@ -178,3 +178,27 @@ The existing native candidate tool exactly matches the 181L protein reference
 edge set but differs by 18 pairs on original 1IEP, with warnings retained. The
 executed notebook/raw probe preserve source maps and those unresolved differences.
 No provider implementation is assumed delivered; this issue remains partial.
+
+## 2026-10-03 explicit chemical-template consumer qualification
+
+The [consumer record](../validation/chemical_template_consumption.md), executed
+notebook and raw indexed reports qualify public MolSysMT assessment/application
+from exact source `c19a47ada0`. The existing `prepare_ligand` boundary consumes the
+returned native system. Original 181L BNZ accepts a declared heavy-only template;
+permuted 5X72 P59/P69 absent-field controls preserve both poses, IDs and chosen
+state while receiving the expected R/S assignments. Original native SDF versus
+adapter-template aromatic encodings remain unassessed; no normalization is added.
+
+Fourteen focused consumer cases protect conflicts, absent edges, exhaustive H
+mapping, matching explicit fields, unselected state preservation and non-default
+units. A real Vina test retains default provisional rejection and saved-result
+assessment after explicit exploratory opt-in. Reports remain separate workflow
+records because MolSysMT #298 has no native report attachment. Charge/type
+qualification and general preparation remain open; this issue stays partial.
+
+The full source-qualified gate passes 538 tests without skips in 108.31 s on
+Python 3.14.7, using an isolated MolSysMT archive and the existing CI viewer pin.
+The executed notebook asserts the requested Conda interpreter. The initial live
+viewer profile exposed an in-progress explicit frame-pairing requirement under
+molsysviewer#151; its checkout is preserved and the separate consumer migration
+is retained in the validation record. Ruff, indexes and diff checks pass.

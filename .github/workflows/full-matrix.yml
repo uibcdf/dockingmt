@@ -82,14 +82,14 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "e8e4fff22d0df0d26a3b91d80ea5a85c04981aef"
+          ref: "c19a47ada0c2279029abfa296cf915560610ad9a"
           path: .molsyssuite/molsysmt
       - name: Check out compatible MolSysMT source for Python 3.14
         if: matrix.python-version == '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "e8e4fff22d0df0d26a3b91d80ea5a85c04981aef"
+          ref: "c19a47ada0c2279029abfa296cf915560610ad9a"
           path: .molsyssuite/molsysmt
       - name: Check out compatible MolSysViewer source
         if: matrix.python-version != '3.14'
