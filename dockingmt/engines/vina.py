@@ -641,6 +641,7 @@ class VinaBackend(DockingBackend):
             path_str = str(receptor)
             if os.path.isfile(path_str):
                 return path_str
+            path_str = path_str.removeprefix('pdbqt_text:')
             # Might be a raw PDBQT string
             if 'ATOM' in path_str or 'HETATM' in path_str:
                 tmp = tempfile.NamedTemporaryFile(
@@ -671,6 +672,7 @@ class VinaBackend(DockingBackend):
             path_str = str(partner)
             if os.path.isfile(path_str):
                 return path_str, None
+            path_str = path_str.removeprefix('pdbqt_text:')
             if 'ROOT' in path_str or 'ATOM' in path_str:
                 return None, path_str
 

@@ -1,0 +1,98 @@
+---
+summary: Validate native MolSysMT SDF/PDBQT inputs and define the supported preparation profile
+issue: uibcdf/dockingmt#33
+status: partial
+opened: 2026-10-03
+closed:
+verification: measured
+area: [preparation, inputs, molsysmt, vina]
+guard: tests/test_native_molsysmt_formats.py::test_prepared_pdbqt_public_roundtrip_and_vina_admission
+normative: devguide/validation/native_molsysmt_formats.md
+blocked_by: []
+supersedes: []
+---
+
+# Native MolSysMT SDF/PDBQT consumer acceptance
+
+## What
+
+Consume and qualify the experimental forms delivered by MolSysMT at
+`eb0549b50689b2af5d8fbedb2687fb5746d43de6`. The inspected provider checkout is
+`bbeeb72cf4da1c7e287abf0452b420922fcbc537` (later documentation). This is a
+prepared-input format profile, not chemical preparation qualification.
+
+## How
+
+Start with the pinned Vina 1IEP, 1S63 and 5X72 ligands and 1IEP receptor. Exercise
+public file/string/native conversions, exact retained atom identities, explicit
+charges and labels, separate declared torsion trees, fragments, serialization
+units, source immutability and Vina parser admission. Admit MolSysMT's explicit
+`pdbqt_text:` strings into the existing unassessed Vina path, removing the format
+prefix at the external-engine boundary.
+
+## Why
+
+Molecular format operations belong to MolSysMT. Consumer evidence determines when
+DockingMT can retire temporary operations without changing scientific assumptions.
+
+## What was refuted
+
+Format parity does not qualify chemical assignments. PDBQT contains partial graph
+evidence; its BRANCH records cannot replace a complete SDF chemical graph. Equal
+atom counts do not provide a map, and TORSDOF need not equal active branch count.
+
+## Scope and exclusions
+
+No provider or viewer edits. Preserve all sibling dirty/ahead/behind work reported
+by the refreshed suite inventory. Provider source code is clean at inspection;
+its dirty guides/reports and test fixtures are preserved. The reported installed
+MolSysMT version (`0.22.4+118.g03b318549.dirty`) is stale relative to inspected source;
+retain the exact source commit as well as the runtime version in evidence.
+
+This slice preserves original prepared atoms, charges and labels. It does not
+assign charge/type parameters, merge hydrogens, select protonation or chemically
+classify torsions. #5, #6 and #17 retain their separate acceptance. Temporary
+writers and raw parsers remain until broader supported-profile tests justify
+replacement; no new local molecular reader is introduced.
+
+## Acceptance criteria
+
+- Qualified public paths for real prepared inputs, malformed/unsupported controls,
+  non-default units, source immutability and Vina parser acceptance.
+- Atom identity and declared branch/fragment correspondence, with explicit evidence
+  for any reordering, omission or addition.
+- Provider-owned reports for unsupported real inputs and staged removal decisions.
+- Separately reviewed minimum chemical preparation profile; no premature #5 closure.
+
+## Initial inspected gaps
+
+The direct native SDF route rejects original 1IEP (explicit valence field on atom
+32) and 1S63 (unversioned counts line). Both original 5X72 SDF files convert with
+explicit `stereo_engine='rdkit'` and `discard_properties=True`. The four prepared
+ligand PDBQT files convert and serialize with preserved declared trees. Retain
+these inputs unchanged and report the SDF profile gaps to molsysmt#215.
+
+## Initial qualified slice (2026-10-03)
+
+Sixteen targeted tests pass in 20.04 s. The executed notebook's three code cells
+exercise the four native ligand round trips and a real 1IEP Vina run through
+MolSysMT file-to-explicit-string conversion. Recorded byte hashes match the
+original pinned inputs; the saved-result audit reports complete internal
+agreement while preparation remains unassessed. This is an integration check,
+not chemical or predictive validation.
+
+The [maintained profile](../validation/native_molsysmt_formats.md) records the
+paths, mappings, units, tolerances and staged removal conditions. The actual SDF
+limitations are reported in [molsysmt#215](https://github.com/uibcdf/molsysmt/issues/215#issuecomment-5967782707).
+The complete chemical profile, original unsupported SDF cases, broader fragment
+projection and provider pose-ensemble acceptance remain open. No temporary
+chemical operation is retired based solely on serialization support.
+
+## Complete local gate
+
+The first full run exposed one test-collection leak from the new test module's
+top-level Vina import (493 passed, one bootstrap guard failed). The import now
+occurs only inside the parser test. The repeated full run passes all 494 tests
+without skips in 74.85 s, with the same twelve provider warnings. Ruff lint and
+formatting (85 Python files), generated report indexes and diff checks pass.
+Hosted qualification against the newly pinned provider commit remains separate.

@@ -34,7 +34,13 @@ def _source_fingerprint(value: Any) -> dict[str, str] | None:
 
 
 def _is_pdbqt_input(value: Any) -> bool:
-    """Recognize the existing low-level Vina input until MolSysMT supports PDBQT."""
+    """Recognize prepared backend input, including MolSysMT's explicit text form.
+
+    Legacy raw-text admission remains until the format profile in #33 is qualified.
+    This boundary identifies input intent; it does not assign chemical meaning.
+    """
+    if isinstance(value, str) and value.startswith('pdbqt_text:'):
+        return True
     if isinstance(value, (str, Path)) and str(value).lower().endswith('.pdbqt'):
         return True
     if not isinstance(value, str) or '\n' not in value:

@@ -243,3 +243,7 @@ Saved records can be checked with `dockingmt.audit_result(record)`, which report
 internal agreement, missing evidence and contradictions without running docking.
 See the [offline audit contract](devguide/validation/result_audit.md) and
 [executed notebook](devguide/validation/result_audit.ipynb).
+
+The experimental MolSysMT prepared-PDBQT input path and initial SDF acceptance
+are documented in [native format consumption](devguide/validation/native_molsysmt_formats.md)
+and its [executed 1IEP notebook](devguide/validation/native_molsysmt_formats.ipynb).

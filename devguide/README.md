@@ -89,3 +89,7 @@ This seed is frozen as `DockingMT devguide v0.1`. See `FROZEN_SEED.md`.
 The [offline result audit](validation/result_audit.md) and its
 [executed notebook](validation/result_audit.ipynb) retain bounded consistency
 checks for captured bytes, score provenance, units and ranking decisions.
+
+The [native MolSysMT format profile](validation/native_molsysmt_formats.md) records
+prepared-input consumption, current SDF gaps and staged removal conditions. Its
+[executed notebook](validation/native_molsysmt_formats.ipynb) runs the real 1IEP path.

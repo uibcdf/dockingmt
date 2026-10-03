@@ -4,7 +4,7 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
-### Partial (6)
+### Partial (7)
 
 - [`adopt_required_python_314.md`](adopt_required_python_314.md) — [#30](https://github.com/uibcdf/dockingmt/issues/30) — Adopt the mandatory four-minor contract and qualify normal installed delivery *(partial, inspected)*
 - [`define_ligand_torsion_policy_across_rdkit_and_vina_references.md`](define_ligand_torsion_policy_across_rdkit_and_vina_references.md) — [#17](https://github.com/uibcdf/dockingmt/issues/17) — Define ligand torsion policy across RDKit and Vina reference differences *(partial, measured)*
@@ -12,6 +12,7 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 - [`review_python_ecosystem_policy_adoption.md`](review_python_ecosystem_policy_adoption.md) — [#19](https://github.com/uibcdf/dockingmt/issues/19) — Review Python support-library and developer-tool adoption *(partial, measured)*
 - [`select_active_ligand_torsions_for_vina_preparation.md`](select_active_ligand_torsions_for_vina_preparation.md) — [#6](https://github.com/uibcdf/dockingmt/issues/6) — Select active ligand torsions for Vina preparation *(partial, asserted)*
 - [`select_molecular_states_and_record_preparation_decisions_for_docking.md`](select_molecular_states_and_record_preparation_decisions_for_docking.md) — [#4](https://github.com/uibcdf/dockingmt/issues/4) — Select molecular states and record preparation decisions for docking *(partial, asserted)*
+- [`validate_native_molsysmt_formats.md`](validate_native_molsysmt_formats.md) — [#33](https://github.com/uibcdf/dockingmt/issues/33) — Validate native MolSysMT SDF/PDBQT inputs and define the supported preparation profile *(partial, measured)*
 
 ### Open (2)
 
