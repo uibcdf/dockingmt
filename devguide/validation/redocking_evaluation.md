@@ -120,13 +120,22 @@ evaluation cases include the native controls. The 96 existing/provider warning
 occurrences remain visible. Ruff lint/format, report indexes, reporting guard
 and diff checks pass. All three code cells of the notebook execute.
 
-The independent host dependency check currently fails: installed Sabueso
-requires Ackredit >=0.9.0 while the host has an older development version.
-[MolSysSuite #82](https://github.com/uibcdf/molsyssuite/issues/82#issuecomment-5974182219)
-receives the observed mismatch. Passing this source-qualified DockingMT suite
-does not establish the current complete host dependency closure or public
-installation qualification. No dependency floors, sibling installations or
-source files were changed to bypass that finding.
+Correction, 2026-10-03: the reported Sabueso/Ackredit version mismatch came from
+stale editable-install metadata, as clarified by the maintainer. The
+dependency-incompatibility interpretation and requested provider follow-up are
+[withdrawn](https://github.com/uibcdf/molsyssuite/issues/82#issuecomment-5974182219).
+After the reinstall, editable Ackredit is `0.9.0+7.g3c6e77c.dirty` and the same
+Python 3.14.7 interpreter's `pip check` exits 0, `No broken requirements found.`
+The historical check did not demonstrate an API incompatibility; the stale
+metadata mismatch is resolved.
+
+The full local regression after that refresh also passes: **750 tests, no skips,
+198.37 s**, with the same 96 warnings and unchanged provider pins. Ruff
+lint/format, generated report indexes and diff checks pass. The implementation
+commit `a5fb97b763012eb0df7fd3eb9206ce10c784fb1c` has successful
+[CI](https://github.com/uibcdf/dockingmt/actions/runs/37159093062) and
+[suite policy](https://github.com/uibcdf/dockingmt/actions/runs/37159093232)
+runs. Existing notebook measurements retain their original execution evidence.
 
 ## Provider follow-up
 

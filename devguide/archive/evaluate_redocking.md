@@ -103,3 +103,34 @@ The earlier successful host closure receipt remains historical. No package
 floor/version was fabricated and no provider installation or worktree changed.
 This bounded DockingMT gate does not certify the complete current host or a
 public dependency release; that closure remains provider/workspace-owned.
+
+### Correction — withdrawn metadata diagnosis, 2026-10-03
+
+The maintainer clarified that the mismatch above came from stale editable-install
+metadata, refreshed by reinstalling the editable package. The interpretation as
+a provider dependency incompatibility and its requested owner follow-up are
+withdrawn in the linked MolSysSuite comment. The historical `pip check` output
+only describes installed metadata at that moment; it did not demonstrate a code
+or API incompatibility. The maintainer is refreshing the installation. No claim
+of a newly verified successful dependency check is made in this correction.
+
+### Refreshed installation verified — 2026-10-03
+
+After the maintainer's reinstall, the same Python 3.14.7 environment records
+editable Ackredit `0.9.0+7.g3c6e77c.dirty` from its local checkout.
+`python -m pip check` now exits **0**, `No broken requirements found.`
+The stale installed-metadata mismatch is resolved. This is dependency-metadata
+evidence and does not extend the earlier scientific qualification.
+
+### Full regression after metadata refresh — 2026-10-03
+
+The full local gate is repeated after the refreshed Ackredit installation in
+the same editable Python 3.14.7 environment and with the unchanged MolSysMT
+and MolSysViewer qualification pins: **750 passed, no skips, 198.37 s**,
+with the same 96 provider/existing warnings. Ruff lint/format, generated report
+indexes and diff checks pass; `pip check` remains successful. The original
+implementation commit `a5fb97b763012eb0df7fd3eb9206ce10c784fb1c` also has
+successful [CI](https://github.com/uibcdf/dockingmt/actions/runs/37159093062)
+and [suite policy](https://github.com/uibcdf/dockingmt/actions/runs/37159093232)
+runs. This correction changes documentation only; no scientific implementation,
+provider pins or previously retained notebook measurements are changed.
