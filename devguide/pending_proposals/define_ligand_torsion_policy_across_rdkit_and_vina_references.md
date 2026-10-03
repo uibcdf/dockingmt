@@ -79,3 +79,13 @@ fragments with the published PDBQT and MolSysMT's independent covalent blocks.
 RDKit `Strict` and `NonStrict` counts are recorded separately after removing
 explicit hydrogens. `tests/test_flexible_ligand.py` captures the ethyl-acetate
 difference. Chemical-policy acceptance criteria remain open.
+
+## 2026-10-03 Meeko source comparison
+
+The [native capability review](../validation/meeko_native_capability_review.md)
+inspects Meeko's amide/thioamide/amidine, tertiary-amide and nitrile-chain rules.
+These are concrete policy comparison cases for MolSysMT #224 and this issue,
+not a request to import Meeko or copy its defaults. Compare exact eligible bond
+identities and induced fragments, with reasons for exclusions; descriptor or
+TORSDOF counts alone remain insufficient. Chemical classification belongs in a
+public provider operation; DockingMT chooses the docking policy and records it.

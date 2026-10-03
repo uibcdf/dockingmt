@@ -195,3 +195,19 @@ CI provider pins. Fresh-process absence of engine/viewer, malformed declarations
 detachment, real Vina persistence and template-transfer safeguards are covered.
 This issue remains partial: public inspection does not deliver validated chemical
 parameterization or scoring compatibility.
+
+## 2026-10-03 native capability review from Meeko source
+
+The [source review](../validation/meeko_native_capability_review.md) maps useful
+Meeko methods to public native MolSysMT operations (#221–#224) and DockingMT
+protocol decisions. The user explicitly excludes importing Meeko. Named chemical
+typing is the recommended next slice; source inspection identifies N/NA and S/SA
+context, ordered rule precedence, charge-preserving H projection and explicit
+rotatable-bond policy as concrete requirements. Existing local projection and
+fragment consumption are distinguished from pending provider tools.
+
+Vina/Vinardo do not require computed partial charges; a future scoring-aware
+policy must distinguish that fact from chemical validity and AutoDock4 needs.
+No gate is relaxed here. Metal/selenium charge approximations, integer-charge
+rectification and regenerated export hydrogens are not adopted implicitly.
+This is inspected design evidence, not runtime equivalence or a new dependency.
