@@ -325,6 +325,19 @@ local gates pass. No sibling implementation or new performance claim is involved
 This review remains partial for aggregation/comparison contracts, representative
 scientific workloads and future accepted integration boundaries.
 
+## Explicit redocking evaluation progress (2026-10-03)
+
+[Issue #38](https://github.com/uibcdf/dockingmt/issues/38) adds public
+`evaluate_redocking`, reusing the existing RMSD/MolSysMT boundary and preserving
+explicit cutoff, correspondence, result-order top-N interpretation and detached
+comparison evidence. The [contract](../validation/redocking_evaluation.md) and
+executed notebook retain provisional 181L and unassessed external 1IEP controls,
+with a displaced-domain negative methodological control. MolSysMT #310 owns
+future chemical symmetry correspondence. All 750 tests pass without skips;
+the independent full host closure limitation is retained and reported to
+MolSysSuite #82. No dataset success rate, chemistry qualification, new molecular
+algorithm, campaign or performance guarantee follows. This review stays partial.
+
 ## What was refuted
 
 More abstract classes, plugins, schedulers, or dependencies do not establish

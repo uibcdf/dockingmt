@@ -34,6 +34,7 @@ from .core import (
 from .dock import dock
 from .batch import dock_many
 from .score import score
+from .evaluation import evaluate_redocking
 from .engines import DockingBackend, VinaBackend
 from .preparation import (
     PreparedLigand,
@@ -45,6 +46,7 @@ from .preparation import (
 from .view import show, view
 
 __all__ = [
+    'evaluate_redocking',
     'dock_many',
     'DockingOutcome',
     'audit_pose',

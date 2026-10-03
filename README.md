@@ -302,3 +302,8 @@ and its [executed 1IEP notebook](devguide/validation/native_molsysmt_formats.ipy
 reference frame per pose. Reusing a viewer replaces the displayed molecular
 scene, and loading failures propagate. See the [frame correspondence contract](devguide/validation/viewer_reference.md)
 and [executed notebook](devguide/validation/viewer_reference.ipynb).
+
+Use `dockingmt.evaluate_redocking(result, reference, rmsd_cutoff=cutoff)` for
+per-pose RMSD and first-N recovery with explicit units and retained comparison
+evidence. See the [evaluation contract](devguide/validation/redocking_evaluation.md)
+and [executed notebook](devguide/validation/redocking_evaluation.ipynb).

@@ -205,6 +205,59 @@ def digest_score_name(score_name, caller=None):
     return score_name
 
 
+def digest_result(result, caller=None):
+    from dockingmt.core.results import DockingResult
+
+    if not isinstance(result, DockingResult):
+        raise _invalid('result', caller, 'Use a DockingResult instance.')
+    return result
+
+
+def digest_rmsd_cutoff(rmsd_cutoff, caller=None):
+    try:
+        quantity = puw.ensure_quantity(
+            rmsd_cutoff,
+            dimensionality={'[L]': 1},
+            to_unit='angstrom',
+            standardized=False,
+            caller=caller,
+        )
+    except Exception as exc:
+        raise _invalid(
+            'rmsd_cutoff', caller, 'Use a scalar length with explicit units.'
+        ) from exc
+    values = np.asarray(puw.get_value(quantity))
+    if (
+        values.shape != ()
+        or not np.issubdtype(values.dtype, np.number)
+        or not np.isrealobj(values)
+        or not np.isfinite(values).all()
+        or values < 0
+    ):
+        raise _invalid(
+            'rmsd_cutoff', caller, 'Use a finite non-negative scalar length.'
+        )
+    return quantity
+
+
+def digest_top_n(top_n, caller=None):
+    if not isinstance(top_n, (list, tuple)) or not top_n:
+        raise _invalid(
+            'top_n', caller, 'Use a nonempty list or tuple of positive integers.'
+        )
+    digest = _integer('top_n', minimum=1)
+    values = [digest(value, caller) for value in top_n]
+    if len(set(values)) != len(values):
+        raise _invalid('top_n', caller, 'Supply each top-N position count only once.')
+    return values
+
+
+def digest_reference_info(reference_info, caller=None):
+    if reference_info is not None and not isinstance(reference_info, Mapping):
+        raise _invalid('reference_info', caller, 'Use a finite JSON mapping or None.')
+    return reference_info
+
+
 def digest_pose(pose, caller=None):
     from dockingmt.core.results import DockingPose
 
@@ -237,6 +290,11 @@ def _mapping(argument):
 
 
 ARGUMENT_DIGESTERS = {
+    'result': digest_result,
+    'reference': _required_provider_input('reference'),
+    'reference_info': digest_reference_info,
+    'rmsd_cutoff': digest_rmsd_cutoff,
+    'top_n': digest_top_n,
     'problems': digest_problems,
     'on_error': digest_on_error,
     'pose': digest_pose,

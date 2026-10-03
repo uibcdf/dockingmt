@@ -475,3 +475,30 @@ alignment, chemistry assignment or browser rendering certification is claimed.
 delivers published explicit pairing support qualified for every supported
 provider profile. Remove the bounded legacy signature branch then; DockingMT
 maintainers review it by 2026-11-03. CI source pins remain unchanged.
+
+## DMT-037 — Evaluate redocking with explicit comparison evidence
+
+**Status:** Accepted, 2026-10-03
+
+**Decision:** Expose `evaluate_redocking` as a bounded single-result analysis
+operation, reusing `DockingResult.get_rmsds` and public MolSysMT geometry. Require
+an explicit length cutoff, retain current result positions separately from ranks,
+and report first/closest pose and first-N recovery in a detached finite JSON
+record. Molecular references use verified atom keys; explicit coordinates select
+declared positional comparison. Preserve known state/population constraints,
+reference geometry, actual pose hashes, preparation and execution context.
+
+**Reason:** A numerical RMSD or a successful viewer overlay alone does not retain
+the scientific comparison choices required to interpret pose recovery. Thresholds,
+atom scope, alignment/symmetry and ordering must remain inspectable after saving.
+
+**Implementation:** [Issue #38](https://github.com/uibcdf/dockingmt/issues/38),
+[contract](validation/redocking_evaluation.md), independent geometric controls
+and an executed native Vina notebook. 181L is explicitly provisional; external
+1IEP remains unassessed. Its prepared-input 40-atom metric differs from the
+historical 37-heavy-atom SDF metric.
+
+**Revisit when:** [MolSysMT #310](https://github.com/uibcdf/molsysmt/issues/310)
+provides qualified chemically constrained symmetry correspondence, or an accepted
+multi-case workflow requires aggregation. No symmetry/graph/RMSD algorithm,
+automatic alignment, dataset success rate or preparation validation is claimed.

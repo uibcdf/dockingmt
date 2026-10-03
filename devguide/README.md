@@ -111,6 +111,10 @@ The [pose/reference viewer contract](validation/viewer_reference.md) and
 [executed notebook](validation/viewer_reference.ipynb) demonstrate frame
 correspondence, repeated loading and observable integration failures.
 
+The [redocking evaluation contract](validation/redocking_evaluation.md) and
+[executed notebook](validation/redocking_evaluation.ipynb) retain explicit
+RMSD criteria, per-pose evidence and first-N recovery for bounded controls.
+
 The [native MolSysMT format profile](validation/native_molsysmt_formats.md) records
 prepared-input consumption, current SDF gaps and staged removal conditions. Its
 [executed notebook](validation/native_molsysmt_formats.ipynb) runs the real 1IEP path.
