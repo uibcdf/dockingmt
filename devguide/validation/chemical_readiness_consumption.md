@@ -112,3 +112,14 @@ The upstream `fda469f` policy update arrived before push. Its synchronized guide
 policy 1.5.4 caller and Python 3.14 quality baseline are preserved. After reapplying
 this work and aligning the policy guard, all 514 tests pass again without skips
 in 69.60 s, with the same twelve warnings; the other local gates remain green.
+
+## 2026-10-03 receptor-coverage successor
+
+The [exact residue-coverage integration](receptor_coverage_consumption.md) advances
+the CI/full-matrix provider pin to `e8e4fff22`. Grouped receptor preparation now
+reuses the stored-field audit embedded in that provider operation. Ligand and
+group-free receptor preparation retain the direct stored-field path. The samples
+and executed outputs above remain historical evidence against `3edbf8ad0`; the
+readiness profiling command keeps its original measurement boundary and labels
+that commit as the original qualified source rather than asserting the currently
+imported source. New residue-comparison samples are retained separately.

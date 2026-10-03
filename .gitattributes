@@ -1,2 +1,3 @@
 tests/data/vina_torsions/*.sdf whitespace=-blank-at-eol
 tests/data/vina_torsions/*.pdbqt whitespace=-blank-at-eol
+tests/data/vina_torsions/*.pdb whitespace=-blank-at-eol

@@ -30,6 +30,10 @@ def main():
     )
     legacy_namespace = {}
     exec(compile(legacy_source, 'legacy_chemistry_evidence', 'exec'), legacy_namespace)
+
+    def legacy_evidence(molsys, **_kwargs):
+        return legacy_namespace['chemistry_evidence'](molsys)
+
     source = msm.convert(
         msm.systems['T4 lysozyme L99A']['181l.pdb'], to_form='molsysmt.MolSys'
     )
@@ -40,10 +44,15 @@ def main():
     ):
         module = importlib.import_module('dockingmt.preparation.' + role)
         current = module.chemistry_evidence
+
+        def readiness_only(molsys, **_kwargs):
+            # Preserve this benchmark's stored-field-only measurement boundary.
+            return current(molsys)
+
         try:
             profiles = (
-                ('legacy', legacy_namespace['chemistry_evidence']),
-                ('provider_readiness', current),
+                ('legacy', legacy_evidence),
+                ('provider_readiness', readiness_only),
             )
             samples = {name: [] for name, _ in profiles}
             prepared_by_profile = {}
@@ -83,7 +92,7 @@ def main():
         'python': sys.version.split()[0],
         'interpreter': sys.executable,
         'provider_import': msm.__file__,
-        'qualified_provider_source': '3edbf8ad0a13b9a56a009c0bd3f707e54b807351',
+        'original_qualified_provider_source': '3edbf8ad0a13b9a56a009c0bd3f707e54b807351',
         'provider_readiness_sha256': hashlib.sha256(
             Path(msm.__file__)
             .parent.joinpath('_private/chemical_readiness.py')

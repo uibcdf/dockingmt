@@ -1,0 +1,697 @@
+{
+  "identity": {
+    "python": "3.14.7",
+    "interpreter": "/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+    "provider_import": "/tmp/dockingmt-receptor-provider-e8e4fff22d0df0d26a3b91d80ea5a85c04981aef/molsysmt/__init__.py",
+    "qualified_provider_source": "e8e4fff22d0df0d26a3b91d80ea5a85c04981aef",
+    "implementation_sha256": {
+      "build/get_residue_chemical_coverage.py": "6afb3b001a3e7bb68f57c3f7904bc39e482ed1f6685b6f9e08416c459303f38c",
+      "_private/chemical_readiness.py": "42a6b38e011c0a429a44d468172da230d89130ae143174b02a60b4ebdb9fd74b"
+    }
+  },
+  "cases": [
+    {
+      "case": "181L",
+      "selection": "all",
+      "source_sha256": "77018feaaa65bb22dea47c784e8c059b0ccc09cd6dc7442b79cce83f3170985f",
+      "source_atoms": 1441,
+      "coverage": {
+        "provider_schema": "molsysmt.residue_chemical_coverage@1",
+        "method": "exact_residue_template_comparison",
+        "rule_version": 1,
+        "group_axis": "selected_source_before_hydrogen_projection",
+        "n_groups": 302,
+        "status_counts": {
+          "assessed": 162,
+          "incomplete": 0,
+          "unassessed": 140
+        },
+        "reason_counts": {
+          "no_exact_residue_template": 140
+        },
+        "check_status_counts": {
+          "heavy_atoms": {
+            "assessed": 162,
+            "unassessed": 140
+          },
+          "hydrogens": {
+            "unassessed": 302
+          },
+          "connectivity": {
+            "assessed": 162,
+            "unassessed": 140
+          },
+          "protonation": {
+            "unassessed": 302
+          }
+        },
+        "template_usage": {
+          "MET": {
+            "resource": "molsysmt.data.databases.amino_acids/M.pkl.gz",
+            "packaged_sha256": "6492829b3ba05eb48ee938fd26fe66728ec7b6d34fe2a4d3e30e75f61f9cee41",
+            "n_groups": 5
+          },
+          "ASN": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 11
+          },
+          "ILE": {
+            "resource": "molsysmt.data.databases.amino_acids/I.pkl.gz",
+            "packaged_sha256": "aaee080c3f76c1ea100b4b566fed29faf4b412d21ca33504863f330dd4e15da7",
+            "n_groups": 10
+          },
+          "PHE": {
+            "resource": "molsysmt.data.databases.amino_acids/P.pkl.gz",
+            "packaged_sha256": "fa048959b58373521b4f124b79147789f8d460d479a3dfd656cb717615d7e22a",
+            "n_groups": 5
+          },
+          "GLU": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 8
+          },
+          "LEU": {
+            "resource": "molsysmt.data.databases.amino_acids/L.pkl.gz",
+            "packaged_sha256": "ac457af41fc1ea66cf9d6de0eafe5c6e04e130a18de90029ae74c2adc783e2ac",
+            "n_groups": 14
+          },
+          "ARG": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 13
+          },
+          "ASP": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 10
+          },
+          "GLY": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 11
+          },
+          "LYS": {
+            "resource": "molsysmt.data.databases.amino_acids/L.pkl.gz",
+            "packaged_sha256": "ac457af41fc1ea66cf9d6de0eafe5c6e04e130a18de90029ae74c2adc783e2ac",
+            "n_groups": 13
+          },
+          "TYR": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 6
+          },
+          "THR": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 12
+          },
+          "HIS": {
+            "resource": "molsysmt.data.databases.amino_acids/H.pkl.gz",
+            "packaged_sha256": "6d5af9f233fa2443806ec55e213822c7ba2cff7330a708e8917113cd4b3947fd",
+            "n_groups": 1
+          },
+          "SER": {
+            "resource": "molsysmt.data.databases.amino_acids/S.pkl.gz",
+            "packaged_sha256": "83c1dd8a8f79d0793472ee1329ea608129009c865747bdf8b29ddb71633fe523",
+            "n_groups": 6
+          },
+          "PRO": {
+            "resource": "molsysmt.data.databases.amino_acids/P.pkl.gz",
+            "packaged_sha256": "fa048959b58373521b4f124b79147789f8d460d479a3dfd656cb717615d7e22a",
+            "n_groups": 3
+          },
+          "ALA": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 17
+          },
+          "VAL": {
+            "resource": "molsysmt.data.databases.amino_acids/V.pkl.gz",
+            "packaged_sha256": "f7cffb315a5d8558e6643628fa50a9a2c33982ad6f60a7356bfe4b6d8d7c471e",
+            "n_groups": 9
+          },
+          "GLN": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 5
+          },
+          "TRP": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 3
+          }
+        },
+        "unassessed_checks": [
+          "environmental_protonation",
+          "terminal_context",
+          "inter_group_chemistry",
+          "valence",
+          "aromaticity_perception",
+          "repair_placement",
+          "force_field_coverage",
+          "docking_readiness"
+        ],
+        "software": {
+          "molsysmt": "0.22.4+24.g42b487869"
+        }
+      },
+      "unassessed_group_name_counts": {
+        "HOH": 136,
+        "CL": 2,
+        "HED": 1,
+        "BNZ": 1
+      },
+      "hydrogen_reason_counts": {
+        "ambiguous_hydrogen_template_variants": 162,
+        "no_exact_residue_template": 140
+      }
+    },
+    {
+      "case": "181L",
+      "selection": "molecule_type=='protein'",
+      "source_sha256": "77018feaaa65bb22dea47c784e8c059b0ccc09cd6dc7442b79cce83f3170985f",
+      "source_atoms": 1289,
+      "coverage": {
+        "provider_schema": "molsysmt.residue_chemical_coverage@1",
+        "method": "exact_residue_template_comparison",
+        "rule_version": 1,
+        "group_axis": "selected_source_before_hydrogen_projection",
+        "n_groups": 162,
+        "status_counts": {
+          "assessed": 162,
+          "incomplete": 0,
+          "unassessed": 0
+        },
+        "reason_counts": {},
+        "check_status_counts": {
+          "heavy_atoms": {
+            "assessed": 162
+          },
+          "hydrogens": {
+            "unassessed": 162
+          },
+          "connectivity": {
+            "assessed": 162
+          },
+          "protonation": {
+            "unassessed": 162
+          }
+        },
+        "template_usage": {
+          "MET": {
+            "resource": "molsysmt.data.databases.amino_acids/M.pkl.gz",
+            "packaged_sha256": "6492829b3ba05eb48ee938fd26fe66728ec7b6d34fe2a4d3e30e75f61f9cee41",
+            "n_groups": 5
+          },
+          "ASN": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 11
+          },
+          "ILE": {
+            "resource": "molsysmt.data.databases.amino_acids/I.pkl.gz",
+            "packaged_sha256": "aaee080c3f76c1ea100b4b566fed29faf4b412d21ca33504863f330dd4e15da7",
+            "n_groups": 10
+          },
+          "PHE": {
+            "resource": "molsysmt.data.databases.amino_acids/P.pkl.gz",
+            "packaged_sha256": "fa048959b58373521b4f124b79147789f8d460d479a3dfd656cb717615d7e22a",
+            "n_groups": 5
+          },
+          "GLU": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 8
+          },
+          "LEU": {
+            "resource": "molsysmt.data.databases.amino_acids/L.pkl.gz",
+            "packaged_sha256": "ac457af41fc1ea66cf9d6de0eafe5c6e04e130a18de90029ae74c2adc783e2ac",
+            "n_groups": 14
+          },
+          "ARG": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 13
+          },
+          "ASP": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 10
+          },
+          "GLY": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 11
+          },
+          "LYS": {
+            "resource": "molsysmt.data.databases.amino_acids/L.pkl.gz",
+            "packaged_sha256": "ac457af41fc1ea66cf9d6de0eafe5c6e04e130a18de90029ae74c2adc783e2ac",
+            "n_groups": 13
+          },
+          "TYR": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 6
+          },
+          "THR": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 12
+          },
+          "HIS": {
+            "resource": "molsysmt.data.databases.amino_acids/H.pkl.gz",
+            "packaged_sha256": "6d5af9f233fa2443806ec55e213822c7ba2cff7330a708e8917113cd4b3947fd",
+            "n_groups": 1
+          },
+          "SER": {
+            "resource": "molsysmt.data.databases.amino_acids/S.pkl.gz",
+            "packaged_sha256": "83c1dd8a8f79d0793472ee1329ea608129009c865747bdf8b29ddb71633fe523",
+            "n_groups": 6
+          },
+          "PRO": {
+            "resource": "molsysmt.data.databases.amino_acids/P.pkl.gz",
+            "packaged_sha256": "fa048959b58373521b4f124b79147789f8d460d479a3dfd656cb717615d7e22a",
+            "n_groups": 3
+          },
+          "ALA": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 17
+          },
+          "VAL": {
+            "resource": "molsysmt.data.databases.amino_acids/V.pkl.gz",
+            "packaged_sha256": "f7cffb315a5d8558e6643628fa50a9a2c33982ad6f60a7356bfe4b6d8d7c471e",
+            "n_groups": 9
+          },
+          "GLN": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 5
+          },
+          "TRP": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 3
+          }
+        },
+        "unassessed_checks": [
+          "environmental_protonation",
+          "terminal_context",
+          "inter_group_chemistry",
+          "valence",
+          "aromaticity_perception",
+          "repair_placement",
+          "force_field_coverage",
+          "docking_readiness"
+        ],
+        "software": {
+          "molsysmt": "0.22.4+24.g42b487869"
+        }
+      },
+      "unassessed_group_name_counts": {},
+      "hydrogen_reason_counts": {
+        "ambiguous_hydrogen_template_variants": 162
+      }
+    },
+    {
+      "case": "1IEP",
+      "selection": "all",
+      "source_sha256": "5f6aee6029f9a2a2c2be32d4eb948ae70808690573e1b69a0850cdffd7048ca7",
+      "source_atoms": 4412,
+      "coverage": {
+        "provider_schema": "molsysmt.residue_chemical_coverage@1",
+        "method": "exact_residue_template_comparison",
+        "rule_version": 1,
+        "group_axis": "selected_source_before_hydrogen_projection",
+        "n_groups": 274,
+        "status_counts": {
+          "assessed": 274,
+          "incomplete": 0,
+          "unassessed": 0
+        },
+        "reason_counts": {},
+        "check_status_counts": {
+          "heavy_atoms": {
+            "assessed": 274
+          },
+          "hydrogens": {
+            "unassessed": 274
+          },
+          "connectivity": {
+            "assessed": 274
+          },
+          "protonation": {
+            "unassessed": 274
+          }
+        },
+        "template_usage": {
+          "SER": {
+            "resource": "molsysmt.data.databases.amino_acids/S.pkl.gz",
+            "packaged_sha256": "83c1dd8a8f79d0793472ee1329ea608129009c865747bdf8b29ddb71633fe523",
+            "n_groups": 14
+          },
+          "MET": {
+            "resource": "molsysmt.data.databases.amino_acids/M.pkl.gz",
+            "packaged_sha256": "6492829b3ba05eb48ee938fd26fe66728ec7b6d34fe2a4d3e30e75f61f9cee41",
+            "n_groups": 13
+          },
+          "ASP": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 12
+          },
+          "PRO": {
+            "resource": "molsysmt.data.databases.amino_acids/P.pkl.gz",
+            "packaged_sha256": "fa048959b58373521b4f124b79147789f8d460d479a3dfd656cb717615d7e22a",
+            "n_groups": 13
+          },
+          "ASN": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 9
+          },
+          "TYR": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 16
+          },
+          "LYS": {
+            "resource": "molsysmt.data.databases.amino_acids/L.pkl.gz",
+            "packaged_sha256": "ac457af41fc1ea66cf9d6de0eafe5c6e04e130a18de90029ae74c2adc783e2ac",
+            "n_groups": 19
+          },
+          "TRP": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 7
+          },
+          "GLU": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 27
+          },
+          "ARG": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 11
+          },
+          "THR": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 15
+          },
+          "ILE": {
+            "resource": "molsysmt.data.databases.amino_acids/I.pkl.gz",
+            "packaged_sha256": "aaee080c3f76c1ea100b4b566fed29faf4b412d21ca33504863f330dd4e15da7",
+            "n_groups": 11
+          },
+          "HIS": {
+            "resource": "molsysmt.data.databases.amino_acids/H.pkl.gz",
+            "packaged_sha256": "6d5af9f233fa2443806ec55e213822c7ba2cff7330a708e8917113cd4b3947fd",
+            "n_groups": 6
+          },
+          "LEU": {
+            "resource": "molsysmt.data.databases.amino_acids/L.pkl.gz",
+            "packaged_sha256": "ac457af41fc1ea66cf9d6de0eafe5c6e04e130a18de90029ae74c2adc783e2ac",
+            "n_groups": 25
+          },
+          "GLY": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 15
+          },
+          "GLN": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 8
+          },
+          "VAL": {
+            "resource": "molsysmt.data.databases.amino_acids/V.pkl.gz",
+            "packaged_sha256": "f7cffb315a5d8558e6643628fa50a9a2c33982ad6f60a7356bfe4b6d8d7c471e",
+            "n_groups": 18
+          },
+          "ALA": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 19
+          },
+          "PHE": {
+            "resource": "molsysmt.data.databases.amino_acids/P.pkl.gz",
+            "packaged_sha256": "fa048959b58373521b4f124b79147789f8d460d479a3dfd656cb717615d7e22a",
+            "n_groups": 11
+          },
+          "CYS": {
+            "resource": "molsysmt.data.databases.amino_acids/C.pkl.gz",
+            "packaged_sha256": "740fc6e23c7a656f0dfbcc0b505d82679342393c3695e9161aa55de59fe23dbf",
+            "n_groups": 5
+          }
+        },
+        "unassessed_checks": [
+          "environmental_protonation",
+          "terminal_context",
+          "inter_group_chemistry",
+          "valence",
+          "aromaticity_perception",
+          "repair_placement",
+          "force_field_coverage",
+          "docking_readiness"
+        ],
+        "software": {
+          "molsysmt": "0.22.4+24.g42b487869"
+        }
+      },
+      "unassessed_group_name_counts": {},
+      "hydrogen_reason_counts": {
+        "ambiguous_hydrogen_template_variants": 274
+      }
+    },
+    {
+      "case": "1IEP",
+      "selection": "molecule_type=='protein'",
+      "source_sha256": "5f6aee6029f9a2a2c2be32d4eb948ae70808690573e1b69a0850cdffd7048ca7",
+      "source_atoms": 4412,
+      "coverage": {
+        "provider_schema": "molsysmt.residue_chemical_coverage@1",
+        "method": "exact_residue_template_comparison",
+        "rule_version": 1,
+        "group_axis": "selected_source_before_hydrogen_projection",
+        "n_groups": 274,
+        "status_counts": {
+          "assessed": 274,
+          "incomplete": 0,
+          "unassessed": 0
+        },
+        "reason_counts": {},
+        "check_status_counts": {
+          "heavy_atoms": {
+            "assessed": 274
+          },
+          "hydrogens": {
+            "unassessed": 274
+          },
+          "connectivity": {
+            "assessed": 274
+          },
+          "protonation": {
+            "unassessed": 274
+          }
+        },
+        "template_usage": {
+          "SER": {
+            "resource": "molsysmt.data.databases.amino_acids/S.pkl.gz",
+            "packaged_sha256": "83c1dd8a8f79d0793472ee1329ea608129009c865747bdf8b29ddb71633fe523",
+            "n_groups": 14
+          },
+          "MET": {
+            "resource": "molsysmt.data.databases.amino_acids/M.pkl.gz",
+            "packaged_sha256": "6492829b3ba05eb48ee938fd26fe66728ec7b6d34fe2a4d3e30e75f61f9cee41",
+            "n_groups": 13
+          },
+          "ASP": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 12
+          },
+          "PRO": {
+            "resource": "molsysmt.data.databases.amino_acids/P.pkl.gz",
+            "packaged_sha256": "fa048959b58373521b4f124b79147789f8d460d479a3dfd656cb717615d7e22a",
+            "n_groups": 13
+          },
+          "ASN": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 9
+          },
+          "TYR": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 16
+          },
+          "LYS": {
+            "resource": "molsysmt.data.databases.amino_acids/L.pkl.gz",
+            "packaged_sha256": "ac457af41fc1ea66cf9d6de0eafe5c6e04e130a18de90029ae74c2adc783e2ac",
+            "n_groups": 19
+          },
+          "TRP": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 7
+          },
+          "GLU": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 27
+          },
+          "ARG": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 11
+          },
+          "THR": {
+            "resource": "molsysmt.data.databases.amino_acids/T.pkl.gz",
+            "packaged_sha256": "af7fe3345252a7a95733275fb3a8b499b68c2f243f402cdcc70cd67628011062",
+            "n_groups": 15
+          },
+          "ILE": {
+            "resource": "molsysmt.data.databases.amino_acids/I.pkl.gz",
+            "packaged_sha256": "aaee080c3f76c1ea100b4b566fed29faf4b412d21ca33504863f330dd4e15da7",
+            "n_groups": 11
+          },
+          "HIS": {
+            "resource": "molsysmt.data.databases.amino_acids/H.pkl.gz",
+            "packaged_sha256": "6d5af9f233fa2443806ec55e213822c7ba2cff7330a708e8917113cd4b3947fd",
+            "n_groups": 6
+          },
+          "LEU": {
+            "resource": "molsysmt.data.databases.amino_acids/L.pkl.gz",
+            "packaged_sha256": "ac457af41fc1ea66cf9d6de0eafe5c6e04e130a18de90029ae74c2adc783e2ac",
+            "n_groups": 25
+          },
+          "GLY": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 15
+          },
+          "GLN": {
+            "resource": "molsysmt.data.databases.amino_acids/G.pkl.gz",
+            "packaged_sha256": "54c2859112acb48591de715228eb9187b329522a706eb250dc63e6f60da5a2f3",
+            "n_groups": 8
+          },
+          "VAL": {
+            "resource": "molsysmt.data.databases.amino_acids/V.pkl.gz",
+            "packaged_sha256": "f7cffb315a5d8558e6643628fa50a9a2c33982ad6f60a7356bfe4b6d8d7c471e",
+            "n_groups": 18
+          },
+          "ALA": {
+            "resource": "molsysmt.data.databases.amino_acids/A.pkl.gz",
+            "packaged_sha256": "fec36f6dee898839c5b3532018e437321d60613fb8acef101c883f9110ed4b11",
+            "n_groups": 19
+          },
+          "PHE": {
+            "resource": "molsysmt.data.databases.amino_acids/P.pkl.gz",
+            "packaged_sha256": "fa048959b58373521b4f124b79147789f8d460d479a3dfd656cb717615d7e22a",
+            "n_groups": 11
+          },
+          "CYS": {
+            "resource": "molsysmt.data.databases.amino_acids/C.pkl.gz",
+            "packaged_sha256": "740fc6e23c7a656f0dfbcc0b505d82679342393c3695e9161aa55de59fe23dbf",
+            "n_groups": 5
+          }
+        },
+        "unassessed_checks": [
+          "environmental_protonation",
+          "terminal_context",
+          "inter_group_chemistry",
+          "valence",
+          "aromaticity_perception",
+          "repair_placement",
+          "force_field_coverage",
+          "docking_readiness"
+        ],
+        "software": {
+          "molsysmt": "0.22.4+24.g42b487869"
+        }
+      },
+      "unassessed_group_name_counts": {},
+      "hydrogen_reason_counts": {
+        "ambiguous_hydrogen_template_variants": 274
+      }
+    }
+  ],
+  "controls": [
+    {
+      "group": "ALA",
+      "status": "assessed",
+      "reasons": [],
+      "missing_heavy": [],
+      "H_status": "unassessed",
+      "H_reason": "ambiguous_hydrogen_template_variants",
+      "template": "ALA"
+    },
+    {
+      "group": "ALA",
+      "status": "incomplete",
+      "reasons": [
+        "missing_heavy_atoms"
+      ],
+      "missing_heavy": [
+        "CB"
+      ],
+      "H_status": "unassessed",
+      "H_reason": "incomplete_or_conflicting_atom_mapping",
+      "template": "ALA"
+    },
+    {
+      "group": "MSE",
+      "status": "assessed",
+      "reasons": [],
+      "missing_heavy": [],
+      "H_status": "unassessed",
+      "H_reason": "heavy_only_template",
+      "template": "MSE"
+    },
+    {
+      "group": "SEP",
+      "status": "assessed",
+      "reasons": [],
+      "missing_heavy": [],
+      "H_status": "unassessed",
+      "H_reason": "heavy_only_template",
+      "template": "SEP"
+    },
+    {
+      "group": "PTR",
+      "status": "unassessed",
+      "reasons": [
+        "no_exact_residue_template"
+      ],
+      "missing_heavy": null,
+      "H_status": "unassessed",
+      "H_reason": "no_exact_residue_template",
+      "template": null
+    },
+    {
+      "group": "HOH",
+      "status": "unassessed",
+      "reasons": [
+        "no_exact_residue_template"
+      ],
+      "missing_heavy": null,
+      "H_status": "unassessed",
+      "H_reason": "no_exact_residue_template",
+      "template": null
+    },
+    {
+      "group": "ZN",
+      "status": "unassessed",
+      "reasons": [
+        "no_exact_residue_template"
+      ],
+      "missing_heavy": null,
+      "H_status": "unassessed",
+      "H_reason": "no_exact_residue_template",
+      "template": null
+    }
+  ]
+}

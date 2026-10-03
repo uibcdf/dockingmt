@@ -319,3 +319,17 @@ environment and workload are chosen.
 - Track reproducible defects separately with their scientific impact and guards.
 - Agree the bounded next implementation order and appropriate measurement workloads.
 - Preserve molecular ownership, optional dependencies, and all Core scientific gates.
+
+## 2026-10-03 exact residue-comparison cost
+
+The [receptor coverage record](../validation/receptor_coverage_consumption.md)
+and its executed notebook retain five paired warm-template rounds with alternating
+profile order. Complete 181L preparation measures 168.15 ms for stored fields
+versus 365.58 ms including residue comparison, with 4,006 additional JSON bytes.
+Original 1IEP source assessment alone measures 33.73 versus 390.98 ms, adding
+4,183 bytes; unmodified preparation remains unsupported. Those different operations
+must not be directly compared. 181L PDBQT bytes and stored-field evidence are
+identical between profiles. The cost remains visible as a provider measurement
+point; no local molecular audit or campaign cache is added. These small local
+samples do not establish universal time or peak-memory guarantees. Provider #218
+receives the consumer evidence, and this performance issue remains partial.

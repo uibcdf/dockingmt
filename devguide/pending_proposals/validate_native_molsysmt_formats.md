@@ -143,3 +143,21 @@ Remote policy adoption `fda469f` was integrated before publication, preserving
 the synchronized guide and policy 1.5.4/Python 3.14 baseline. The aligned policy
 guard and repeated full gate pass **514 tests, no skips, 69.60 s**, with the same
 twelve warnings; lint, formatting and index/diff checks remain green.
+
+## 2026-10-03 exact receptor residue coverage
+
+Receptor preparation now consumes MolSysMT `build.get_residue_chemical_coverage`
+from exact source `e8e4fff22`, reusing its embedded stored-field audit. The
+[consumer record](../validation/receptor_coverage_consumption.md), executed
+notebook and raw cases/profile retain original 181L/1IEP counts, exact MSE/SEP,
+incomplete ALA, unknown PTR, water/zinc, source-state selection and read-only/unit
+checks. Compact provenance retains counts and template digests before hydrogen
+projection; unsupported chemistry is unassessed, not parent-substituted.
+
+Original 1IEP has 274 assessed heavy-atom groups but unassessed H/protonation and
+still fails preparation on absent hydrogen attachment bonds. No repair or charge/type
+qualification is introduced. Real Vina guards retain default provisional rejection;
+automatic and supplied receptor coverage survives saved-result serialization.
+All 522 tests pass without skips on Python 3.14.7 with Vina 1.2.7 against the exact
+provider archive. CI/full-matrix pins advance to that source. This is a bounded
+consumer qualification; validated preparation and this issue remain partial.

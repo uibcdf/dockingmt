@@ -1,6 +1,6 @@
-# Pinned AutoDock Vina ligand examples
+# Pinned AutoDock Vina examples
 
-These nine unmodified example files come from
+These ten unmodified example files come from
 [`ccsb-scripps/AutoDock-Vina` commit `3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645`](https://github.com/ccsb-scripps/AutoDock-Vina/tree/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example).
 The upstream repository distributes them under Apache License 2.0; see its
 [`LICENSE`](https://github.com/ccsb-scripps/AutoDock-Vina/blob/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/LICENSE).
@@ -11,6 +11,7 @@ allowing `git diff --check` to validate the surrounding source changes.
 
 | Local file | Upstream path below `example/` | SHA-256 |
 | --- | --- | --- |
+| `1iep_receptorH.pdb` | `basic_docking/solution/1iep_receptorH.pdb` | `5f6aee6029f9a2a2c2be32d4eb948ae70808690573e1b69a0850cdffd7048ca7` |
 | `1iep_receptor.pdbqt` | `basic_docking/solution/1iep_receptor.pdbqt` | `f13cf3b36f61d87c3b58983e0b8ecf1c3456a685eb86dfe9ccfb139c7bdc2586` |
 | `1iep_ligand.sdf` | `basic_docking/solution/1iep_ligand.sdf` | `051b8742c32adc05c07fb486a4e7c9327f84e131cee33ac4e6a568d07553eb38` |
 | `1iep_ligand.pdbqt` | `basic_docking/solution/1iep_ligand.pdbqt` | `15fb35648d8c18c70317842f3a0631b73a19429c710a037ab07310084d579bb8` |

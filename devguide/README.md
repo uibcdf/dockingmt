@@ -101,3 +101,8 @@ before/after equivalence and source-to-retained atom maps for the MolSysMT parti
 The [chemical-readiness consumer record](validation/chemical_readiness_consumption.md)
 and [executed notebook](validation/chemical_readiness_consumption.ipynb) distinguish
 stored-field coverage from docking validity and retain preparation-cost samples.
+
+The [receptor residue-coverage record](validation/receptor_coverage_consumption.md)
+and [executed notebook](validation/receptor_coverage_consumption.ipynb) qualify
+exact MolSysMT template consumption with original 181L/1IEP sources, controlled
+modified/incomplete residues and paired preparation-cost measurements.

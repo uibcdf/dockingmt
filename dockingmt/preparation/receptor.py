@@ -320,7 +320,9 @@ def prepare_receptor(
             'merged_hydrogen_charges': bool(merged_hydrogen_charges),
             'hydrogen_policy': 'retain_polar_merge_nonpolar',
             'omitted_hydrogen_indices': omitted_hydrogen_indices,
-            'source_chemistry': chemistry_evidence(extracted),
+            'source_chemistry': chemistry_evidence(
+                extracted, include_residue_coverage=True
+            ),
         },
         source_molsys=msm.extract(extracted, selection=retained_indices),
     )

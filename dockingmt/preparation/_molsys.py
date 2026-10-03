@@ -131,7 +131,45 @@ def source_aromaticity(molsys: Any, n_atoms: int) -> list[bool] | None:
     return [bool(x) for x in values]
 
 
-def chemistry_evidence(molsys: Any) -> dict[str, Any]:
+def _residue_coverage_summary(report: dict[str, Any]) -> dict[str, Any]:
+    """Project provider evidence onto counts, preserving exact template identity."""
+    groups = report['groups']
+    templates = {}
+    for group in groups:
+        template = group['template']
+        if template is None:
+            continue
+        name = template['group_name']
+        if name not in templates:
+            templates[name] = {
+                'resource': template['resource'],
+                'packaged_sha256': template['provenance']['packaged_sha256'],
+                'n_groups': 0,
+            }
+        templates[name]['n_groups'] += 1
+    return {
+        'provider_schema': report['schema'],
+        'method': report['method'],
+        'rule_version': report['rule_version'],
+        'group_axis': 'selected_source_before_hydrogen_projection',
+        'n_groups': len(groups),
+        'status_counts': dict(report['summary']),
+        'reason_counts': dict(
+            Counter(reason for group in groups for reason in group['reason_codes'])
+        ),
+        'check_status_counts': {
+            name: dict(Counter(group[name]['status'] for group in groups))
+            for name in ('heavy_atoms', 'hydrogens', 'connectivity', 'protonation')
+        },
+        'template_usage': templates,
+        'unassessed_checks': list(report['unassessed_checks']),
+        'software': dict(report['software']),
+    }
+
+
+def chemistry_evidence(
+    molsys: Any, *, include_residue_coverage: bool = False
+) -> dict[str, Any]:
     """Record compact provider coverage without certifying docking readiness.
 
     Coverage refers to the selected source before hydrogen projection. Retain
@@ -144,9 +182,24 @@ def chemistry_evidence(molsys: Any) -> dict[str, Any]:
         chemical_state='structure',
         structure_indices=0,
     )
-    report = msm.physchem.get_chemical_readiness(
-        molsys, chemical_state='structure', structure_indices=0
-    )
+    residue_summary = None
+    if include_residue_coverage and msm.get(molsys, n_groups=True):
+        coverage = msm.build.get_residue_chemical_coverage(
+            molsys, chemical_state='structure', structure_indices=0
+        )
+        report = coverage['chemical_readiness']
+        residue_summary = _residue_coverage_summary(coverage)
+    else:
+        report = msm.physchem.get_chemical_readiness(
+            molsys, chemical_state='structure', structure_indices=0
+        )
+        if include_residue_coverage:
+            residue_summary = {
+                'status': 'unassessed',
+                'reason_code': 'no_group_domain',
+                'n_groups': 0,
+                'group_axis': 'selected_source_before_hydrogen_projection',
+            }
     fields = {}
     for name, field in report['fields'].items():
         summary = {
@@ -162,7 +215,7 @@ def chemistry_evidence(molsys: Any) -> dict[str, Any]:
             summary['unit'] = field['unit']
         fields[name] = summary
     connectivity = report['connectivity']
-    return {
+    evidence = {
         'connectivity_completeness': list(completeness)
         if completeness is not None
         else None,
@@ -194,3 +247,6 @@ def chemistry_evidence(molsys: Any) -> dict[str, Any]:
             'software': dict(report['software']),
         },
     }
+    if include_residue_coverage:
+        evidence['residue_coverage'] = residue_summary
+    return evidence

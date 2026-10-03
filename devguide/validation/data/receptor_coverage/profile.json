@@ -1,0 +1,76 @@
+{
+  "identity": {
+    "python": "3.14.7",
+    "interpreter": "/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+    "provider_import": "/tmp/dockingmt-receptor-provider-e8e4fff22d0df0d26a3b91d80ea5a85c04981aef/molsysmt/__init__.py",
+    "qualified_provider_source": "e8e4fff22d0df0d26a3b91d80ea5a85c04981aef",
+    "implementation_sha256": {
+      "build/get_residue_chemical_coverage.py": "6afb3b001a3e7bb68f57c3f7904bc39e482ed1f6685b6f9e08416c459303f38c",
+      "_private/chemical_readiness.py": "42a6b38e011c0a429a44d468172da230d89130ae143174b02a60b4ebdb9fd74b"
+    }
+  },
+  "baseline": "Current preparation with stored-field evidence only",
+  "sampling": "Five paired rounds alternating order after one warm-up per profile; warm templates",
+  "evidence": "Local source-specific timings and JSON sizes, not universal speed/memory claims",
+  "pdbqt_equivalence": {
+    "181L": true
+  },
+  "cases": [
+    {
+      "case": "181L",
+      "operation": "receptor_preparation",
+      "profile": "stored_fields",
+      "samples_seconds": [
+        0.16815127152949572,
+        0.1679079933091998,
+        0.16774604469537735,
+        0.1701125856488943,
+        0.16965020634233952
+      ],
+      "median_seconds": 0.16815127152949572,
+      "metadata_bytes": 10773
+    },
+    {
+      "case": "181L",
+      "operation": "receptor_preparation",
+      "profile": "residue_coverage",
+      "samples_seconds": [
+        0.3640309004113078,
+        0.36535380501300097,
+        0.4301452748477459,
+        0.3729225089773536,
+        0.3655769769102335
+      ],
+      "median_seconds": 0.3655769769102335,
+      "metadata_bytes": 14779
+    },
+    {
+      "case": "1IEP",
+      "operation": "source_assessment",
+      "profile": "stored_fields",
+      "samples_seconds": [
+        0.032054802402853966,
+        0.037816789001226425,
+        0.03794712666422129,
+        0.033734627068042755,
+        0.03287775069475174
+      ],
+      "median_seconds": 0.033734627068042755,
+      "metadata_bytes": 3810
+    },
+    {
+      "case": "1IEP",
+      "operation": "source_assessment",
+      "profile": "residue_coverage",
+      "samples_seconds": [
+        0.3801016313955188,
+        0.3834565570577979,
+        0.424827441573143,
+        0.39502707216888666,
+        0.39097517635673285
+      ],
+      "median_seconds": 0.39097517635673285,
+      "metadata_bytes": 7993
+    }
+  ]
+}

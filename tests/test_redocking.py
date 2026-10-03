@@ -109,6 +109,11 @@ def test_redocking_benchmark_181l():
     reconstructed = DockingResult.from_dict(d)
     assert len(reconstructed) == len(result)
     assert reconstructed.top_pose.scores['vina'] == top_pose.scores['vina']
+    coverage = prepared_rec.metadata['source_chemistry']['residue_coverage']
+    saved = reconstructed.provenance['preparation']['receptor']
+    assert saved['mode'] == 'provided'
+    assert saved['assessment'] == 'provisional'
+    assert saved['metadata']['source_chemistry']['residue_coverage'] == coverage
 
     # Gate C6: MolSysViewer integration
     view = dockingmt.view(result=result, reference=native_benzene)
@@ -159,6 +164,21 @@ def test_direct_molsysmt_input_reaches_vina():
     assert result.top_pose.receptor_state_id == '181l_protein'
     assert result.top_pose.partner_state_id == '181l_bnz'
     assert result.provenance['preparation']['receptor']['mode'] == 'automatic'
+    coverage = result.provenance['preparation']['receptor']['metadata'][
+        'source_chemistry'
+    ]['residue_coverage']
+    assert coverage['status_counts'] == {
+        'assessed': 162,
+        'incomplete': 0,
+        'unassessed': 0,
+    }
+    restored = DockingResult.from_dict(result.to_dict())
+    assert (
+        restored.provenance['preparation']['receptor']['metadata']['source_chemistry'][
+            'residue_coverage'
+        ]
+        == coverage
+    )
     assert result.provenance['preparation']['partner']['mode'] == 'automatic'
     assert result.provenance['preparation']['partner']['assessment'] == 'provisional'
     assert (
