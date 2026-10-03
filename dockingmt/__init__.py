@@ -24,6 +24,7 @@ from .core import (
     DockingProblem,
     DockingProtocol,
     DockingResult,
+    DockingOutcome,
     SearchDomain,
     VinaProtocol,
     audit_result,
@@ -31,6 +32,7 @@ from .core import (
     verify_captured_inputs,
 )
 from .dock import dock
+from .batch import dock_many
 from .score import score
 from .engines import DockingBackend, VinaBackend
 from .preparation import (
@@ -43,6 +45,8 @@ from .preparation import (
 from .view import show, view
 
 __all__ = [
+    'dock_many',
+    'DockingOutcome',
     'audit_pose',
     'assess_preparation',
     'audit_result',

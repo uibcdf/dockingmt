@@ -421,3 +421,31 @@ chemical validity nor agreement of stored coordinates with captured inputs.
 additional scoring methods or multi-stage result provenance. General molecular
 interpretation remains owned by MolSysMT; this decision creates no local parser,
 generic stage framework, new ranking policy or provider implementation.
+
+---
+
+## DMT-035 — Execute prepared problems incrementally with explicit outcomes
+
+**Status:** Accepted, 2026-10-03
+
+**Decision:** Expose `dock_many(...)` as a lazy local serial consumer of prepared
+`DockingProblem` inputs. Reuse public `dock` and its existing backend resolver.
+Deliver one `DockingOutcome` at a time with an input position, detached problem/
+protocol declarations and either the existing result or an exception summary.
+Default item failures propagate; explicit recording continues ordinary failures.
+Source failures, memory exhaustion and process-control exceptions propagate.
+
+**Reason:** The first accepted MVP E2 block needs bounded orchestration storage,
+preserved earlier outcomes and explicit failure handling while maintaining the
+distinction between a scientific result and a collection of executions.
+
+**Implementation:** [Issue #36](https://github.com/uibcdf/dockingmt/issues/36),
+the [contract](validation/incremental_docking.md), native Vina/Vinardo equivalence
+and lifecycle tests, and an executed notebook. Inputs/protocol/backend are
+borrowed; result ownership remains that of an individual docking call. Index
+is positional evidence, not an invented molecular/run/campaign identifier.
+
+**Revisit when:** Accepted aggregation/comparison, a second real execution route
+or measured backend reuse requires a new boundary. This block completes neither
+scientific screening qualification nor cross-ligand ranking. General molecular
+operations remain with MolSysMT and visualization with MolSysViewer.

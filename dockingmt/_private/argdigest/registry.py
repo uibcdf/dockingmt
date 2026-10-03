@@ -4,7 +4,7 @@ Molecular forms and selection syntax are delegated unchanged to MolSysMT.
 Only absence is checked here; recognition and extraction stay in the provider.
 """
 
-from collections.abc import Mapping
+from collections.abc import Iterable, Mapping
 from numbers import Integral
 from pathlib import Path
 
@@ -81,6 +81,22 @@ def digest_problem(problem, caller=None):
     if not isinstance(problem, DockingProblem):
         raise _invalid('problem', caller, 'Use a DockingProblem instance.')
     return problem
+
+
+def digest_problems(problems, caller=None):
+    if isinstance(problems, (str, bytes, Mapping)) or not isinstance(
+        problems, Iterable
+    ):
+        raise _invalid(
+            'problems', caller, 'Use an iterable of prepared DockingProblem instances.'
+        )
+    return problems
+
+
+def digest_on_error(on_error, caller=None):
+    if not isinstance(on_error, str) or on_error not in ('raise', 'record'):
+        raise _invalid('on_error', caller, "Use 'raise' or 'record'.")
+    return on_error
 
 
 def digest_prepared(prepared, caller=None):
@@ -221,6 +237,8 @@ def _mapping(argument):
 
 
 ARGUMENT_DIGESTERS = {
+    'problems': digest_problems,
+    'on_error': digest_on_error,
     'pose': digest_pose,
     'scores': digest_scores,
     'score_definitions': digest_score_definitions,

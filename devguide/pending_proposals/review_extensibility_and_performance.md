@@ -306,6 +306,25 @@ campaign or scientific parameterization claim is introduced. This architecture
 review remains partial for representative scientific workloads and subsequent
 accepted extension/comparison contracts.
 
+## Offline pose audit and incremental execution progress (2026-10-03)
+
+[Issue #35](https://github.com/uibcdf/dockingmt/issues/35) adds bounded public
+`audit_pose(record)` for standalone fixed-pose evaluation history, sharing
+existing result/descriptor/unit/input checks. Its
+[contract](../validation/pose_audit.md) explicitly excludes molecular geometry
+replay and scientific qualification.
+
+[Issue #36](https://github.com/uibcdf/dockingmt/issues/36) adds lazy serial
+`dock_many(...)` for already prepared problems, reusing public `dock`.
+Independent `DockingOutcome` records preserve declarations, resolved adapter,
+input position and success/failure evidence. The
+[contract](../validation/incremental_docking.md) and executed notebook retain
+native equivalence, explicit failure handling and bounded orchestration ownership.
+All 684 tests pass in 128.69 s with the existing 27 provider warnings; required
+local gates pass. No sibling implementation or new performance claim is involved.
+This review remains partial for aggregation/comparison contracts, representative
+scientific workloads and future accepted integration boundaries.
+
 ## What was refuted
 
 More abstract classes, plugins, schedulers, or dependencies do not establish

@@ -103,6 +103,10 @@ The [offline pose audit](validation/pose_audit.md) and its
 [executed notebook](validation/pose_audit.ipynb) check saved standalone scoring
 and rescoring histories against current pose scores and declarations.
 
+The [incremental prepared-docking contract](validation/incremental_docking.md)
+and [executed notebook](validation/incremental_docking.ipynb) demonstrate lazy
+serial execution, explicit item failures and independent outcome records.
+
 The [native MolSysMT format profile](validation/native_molsysmt_formats.md) records
 prepared-input consumption, current SDF gaps and staged removal conditions. Its
 [executed notebook](validation/native_molsysmt_formats.ipynb) runs the real 1IEP path.

@@ -262,6 +262,13 @@ pose and domain records.
 * [`AGENTS.md`](AGENTS.md) specifies developer and AI agent instructions.
 * [`devguide/`](devguide/) contains the frozen architectural and scientific seed (`devguide v0.1`).
 
+For an iterable of prepared `DockingProblem` inputs, use
+`dockingmt.dock_many(problems, protocol, on_error='record')`. It delivers one
+`DockingOutcome` at a time, retaining either a normalized result or a failure
+summary with the input position and declarations. The default error policy
+propagates failures. See the [incremental execution contract](devguide/validation/incremental_docking.md)
+and [executed notebook](devguide/validation/incremental_docking.ipynb).
+
 ## Development
 
 Routine development uses `molsyssuite@uibcdf_3.14` (Python 3.14); the required source range is Python 3.11 to 3.14.

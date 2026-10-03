@@ -1,3 +1,4 @@
+import subprocess
 import sys
 import tomllib
 from pathlib import Path
@@ -49,6 +50,17 @@ def test_vina_extra_does_not_install_meeko():
 
 
 def test_no_leaky_optional_imports():
-    # Verify that importing dockingmt does not import heavy optional backends
-    for module_name in ['vina', 'meeko', 'pdbfixer']:
-        assert module_name not in sys.modules
+    # A fresh import must be independent of previous real-engine tests.
+    completed = subprocess.run(
+        [
+            sys.executable,
+            '-c',
+            'import dockingmt; import sys; '
+            "assert not {'vina', 'meeko', 'pdbfixer', 'molsysviewer'} & sys.modules.keys()",
+        ],
+        cwd=Path(__file__).resolve().parents[1],
+        capture_output=True,
+        text=True,
+        timeout=60,
+    )
+    assert completed.returncode == 0, completed.stderr
