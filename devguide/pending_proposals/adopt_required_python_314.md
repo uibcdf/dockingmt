@@ -73,3 +73,12 @@ configuration does not authorize public upload or a delivered-support badge.
 
 The recovery regression is
 `tests/test_ci_backlog.py::test_a_previous_three_minor_matrix_cannot_clear_314_debt`.
+
+### First hosted results and administrative corrections — 2026-10-03
+
+The first hosted run 37105649739 installed and imported the normal wheel
+on all four Linux minors, then reproduced an overly literal Requires-Python
+string comparison in the new administrative step. Setuptools can reorder
+the equivalent bound. The correction compares parsed `packaging` specifier
+sets, retaining the exact required range without accepting a metadata override.
+Full tests were not reached in that first run; corrected execution is required.

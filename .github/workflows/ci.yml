@@ -100,7 +100,8 @@ jobs:
         shell: bash -l {0}
         run: >-
           python -I -c 'import importlib.metadata as m; import dockingmt;
-          assert m.metadata("dockingmt")["Requires-Python"] == ">=3.11,<3.15";
+          from packaging.specifiers import SpecifierSet;
+          assert SpecifierSet(m.metadata("dockingmt")["Requires-Python"]) == SpecifierSet(">=3.11,<3.15");
           print("Installed", m.version("dockingmt"), dockingmt.__file__)'
       - name: Run tests with pytest-receptor
         shell: bash -l {0}
