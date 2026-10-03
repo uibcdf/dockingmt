@@ -99,6 +99,10 @@ The [offline result audit](validation/result_audit.md) and its
 [executed notebook](validation/result_audit.ipynb) retain bounded consistency
 checks for captured bytes, score provenance, units and ranking decisions.
 
+The [offline pose audit](validation/pose_audit.md) and its
+[executed notebook](validation/pose_audit.ipynb) check saved standalone scoring
+and rescoring histories against current pose scores and declarations.
+
 The [native MolSysMT format profile](validation/native_molsysmt_formats.md) records
 prepared-input consumption, current SDF gaps and staged removal conditions. Its
 [executed notebook](validation/native_molsysmt_formats.ipynb) runs the real 1IEP path.

@@ -83,11 +83,14 @@ unknown; caller-supplied descriptors remain caller declarations. No implicit
 unit conversion, molecular operation or score computation occurs.
 
 Native scoring appends a detached `metadata['scoring_history']` evaluation with
-schema 1.0, operation, software versions, resolved protocol, applied/unused
+schema 1.0, operation, evaluation name, backend box, software versions, resolved protocol, applied/unused
 settings, geometry/state checks, public preparation assessments, exact input
 hashes and the new scores/descriptors. Optional input capture stores submitted
 bytes in base64; optional timings name consecutive phases in seconds. The
 usual pose reader/writer preserves these records without a live engine.
+Use [`audit_pose(record)`](pose_audit.md) to check standalone saved evaluations
+against current pose scores and declarations. Missing independent name/box
+evidence in older scoring records stays incomplete; their reader remains compatible.
 `audit_result` currently audits docking-result provenance; this new pose record
 does not imply support for auditing a result assembled from several stages.
 

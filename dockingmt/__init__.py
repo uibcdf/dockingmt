@@ -27,6 +27,7 @@ from .core import (
     SearchDomain,
     VinaProtocol,
     audit_result,
+    audit_pose,
     verify_captured_inputs,
 )
 from .dock import dock
@@ -42,6 +43,7 @@ from .preparation import (
 from .view import show, view
 
 __all__ = [
+    'audit_pose',
     'assess_preparation',
     'audit_result',
     'verify_captured_inputs',

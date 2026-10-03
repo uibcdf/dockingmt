@@ -5,6 +5,10 @@ mapping. The caller owns file access. It does not reconstruct molecular systems,
 prepare inputs, run a backend, or invoke a viewer. Invalid record claims produce
 report entries; a non-mapping API argument is rejected by ArgDigest.
 
+Standalone scoring/rescoring poses use the separate
+[`audit_pose(record)` contract](pose_audit.md). Their evaluation history does
+not replace a docking result's provenance or establish ranking evidence.
+
 ```python
 import json
 import dockingmt as dmt

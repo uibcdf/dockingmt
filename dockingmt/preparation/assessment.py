@@ -55,6 +55,11 @@ def assess_preparation(prepared):
                 )
             evidence[name] = value
 
+    return _assessment_from_sources(evidence)
+
+
+def _assessment_from_sources(evidence):
+    """Build the declaration-only report shared by assessment and offline audit."""
     codes = []
     reasons = []
     if evidence['charge_source'] == 'zero_placeholder':

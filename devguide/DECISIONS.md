@@ -393,3 +393,31 @@ by `Vina.score()`, independently of docking's `Vina.energies()` contract.
 different molecular identity/comparison policies or a dedicated scoring protocol.
 This decision does not introduce a generic stage executor, campaign, refinement,
 automatic pose-to-PDBQT reconstruction or scientific preparation qualification.
+
+---
+
+## DMT-034 — Audit standalone scoring evaluations offline
+
+**Status:** Accepted, 2026-10-03
+
+**Decision:** Expose `audit_pose(record)` for saved standalone scoring/rescoring
+poses. Share the existing result auditor's payload, unit, descriptor, native
+component and artifact checks, and validate evaluation history against current
+scores, retained declarations and known states. New scoring records retain an
+independent evaluation name and backend box; older records remain readable
+with incomplete evidence.
+
+**Reason:** The concrete fixed-pose workflow of DMT-033 saves multiple evaluations
+whose evidence belongs to the pose rather than a docking result's provenance.
+Core C5 needs a reusable audit before downstream analysis without rerunning a
+backend or requiring molecular/provider changes.
+
+**Implementation:** [Issue #35](https://github.com/uibcdf/dockingmt/issues/35),
+the [contract](validation/pose_audit.md), retained native control, an executed
+notebook and fresh-engine/offline tests. Internal agreement establishes neither
+chemical validity nor agreement of stored coordinates with captured inputs.
+
+**Revisit when:** An accepted workflow needs a separate molecular geometry audit,
+additional scoring methods or multi-stage result provenance. General molecular
+interpretation remains owned by MolSysMT; this decision creates no local parser,
+generic stage framework, new ranking policy or provider implementation.

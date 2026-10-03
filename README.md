@@ -264,7 +264,7 @@ pose and domain records.
 
 ## Development
 
-Routine development uses Python 3.13; the required source range is Python 3.11 to 3.14.
+Routine development uses `molsyssuite@uibcdf_3.14` (Python 3.14); the required source range is Python 3.11 to 3.14.
 Qualification and public delivery remain tracked in [#30](https://github.com/uibcdf/dockingmt/issues/30);
 the badge retains the previously verified range until admission.
 
@@ -280,6 +280,12 @@ Saved records can be checked with `dockingmt.audit_result(record)`, which report
 internal agreement, missing evidence and contradictions without running docking.
 See the [offline audit contract](devguide/validation/result_audit.md) and
 [executed notebook](devguide/validation/result_audit.ipynb).
+
+For a standalone scoring or rescoring pose, use
+`dockingmt.audit_pose(pose.to_dict())`. It checks current scores against the
+retained evaluations, descriptors, execution settings and input evidence.
+See the [pose audit contract](devguide/validation/pose_audit.md) and
+[executed notebook](devguide/validation/pose_audit.ipynb) for its offline scope.
 
 The experimental MolSysMT prepared-PDBQT input path and initial SDF acceptance
 are documented in [native format consumption](devguide/validation/native_molsysmt_formats.md)

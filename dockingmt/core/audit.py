@@ -59,7 +59,7 @@ class _Report:
                 'claims_agree' if actual == expected else 'claims_disagree',
             )
 
-    def export(self):
+    def export(self, scope='saved_result_internal_consistency'):
         statuses = {item['status'] for item in self.checks}
         status = next(
             item
@@ -68,7 +68,7 @@ class _Report:
         )
         return {
             'schema_version': '1.0',
-            'scope': 'saved_result_internal_consistency',
+            'scope': scope,
             'status': status,
             'checks': self.checks,
         }
@@ -114,7 +114,9 @@ def _box_values(box):
     }
 
 
-def _audit_vina(report, definition, name, provenance, path):
+def _audit_vina(
+    report, definition, name, provenance, path, *, stage='docking', components=None
+):
     method = definition['method']
     if not method.startswith('AutoDock Vina/'):
         report.add(
@@ -154,7 +156,7 @@ def _audit_vina(report, definition, name, provenance, path):
             'score_component',
             path,
             definition['component'],
-            score_components(scoring).get(name),
+            (score_components(scoring) if components is None else components).get(name),
         )
         report.compare('score_kind', path, definition['kind'], 'empirical')
         # The adapter records native numeric columns without converting energy.
@@ -168,7 +170,10 @@ def _audit_vina(report, definition, name, provenance, path):
         if valid:
             report.compare('score_native_scale', path, value, 1.0)
         # None is an explicit native declaration for component-only terms.
-        expected = 'lower' if name == scoring else None
+        total = (
+            name == scoring if components is None else components.get(name) == 'total'
+        )
+        expected = 'lower' if total else None
         report.add(
             'score_preference',
             path,
@@ -187,7 +192,7 @@ def _audit_vina(report, definition, name, provenance, path):
             'native_scoring_unavailable',
         )
     context = definition['context']
-    report.compare('score_stage', path, context.get('stage'), 'docking')
+    report.compare('score_stage', path, context.get('stage'), stage)
     if 'grid_spacing' not in context:
         report.add('score_grid_units', path, 'incomplete', 'grid_spacing_missing')
     else:
@@ -214,6 +219,12 @@ def _audit_vina(report, definition, name, provenance, path):
         assessment = (
             preparation.get(role, {}) if isinstance(preparation, Mapping) else {}
         )
+        if stage == 'scoring':
+            assessment = (
+                assessment.get('assessment_report', {})
+                if isinstance(assessment, Mapping)
+                else {}
+            )
         report.compare(
             'score_input_hash',
             f'{path}/{role}',
@@ -360,6 +371,51 @@ def _audit_ranking(report, poses, definitions, provenance):
                 report.compare('ranking_semantics', path, actual, normalized)
 
 
+def _audit_pose_payload(report, pose, path):
+    if not _schema(report, pose, path, 'DockingPose'):
+        return None, None, None
+    coordinates = pose.get('coordinates')
+    if (
+        coordinates is None
+        or isinstance(coordinates, Mapping)
+        and 'unit' not in coordinates
+    ):
+        report.add(
+            'coordinate_units', path, 'incomplete', 'explicit_length_unit_missing'
+        )
+    else:
+
+        def check_coordinates():
+            values = coordinates['value']
+            shape = np.asarray(values).shape
+            if len(shape) != 2 or shape[1] != 3:
+                raise ValueError('invalid_coordinate_shape')
+            return _length_values(coordinates, shape)
+
+        report.validate('coordinate_units', path, check_coordinates)
+    scores = pose.get('scores')
+    if scores is None:
+        report.add('scores', path, 'incomplete', 'scores_missing')
+        return pose, None, None
+    valid, scores = report.validate('scores', path, lambda: _normalize_scores(scores))
+    if not valid:
+        return pose, None, None
+    metadata = pose.get('metadata', {})
+    if not isinstance(metadata, Mapping):
+        report.add('score_definitions', path, 'inconsistent', 'invalid_metadata')
+        return pose, None, None
+    valid, described = report.validate(
+        'score_definitions',
+        path,
+        lambda: normalize_definitions(metadata.get('score_definitions', {}), scores),
+    )
+    if not valid:
+        return pose, scores, None
+    if not scores or set(scores) != set(described):
+        report.add('score_meaning', path, 'incomplete', 'score_meaning_missing')
+    return pose, scores, described
+
+
 @arg_digest()
 def audit_result(record):
     """Audit a saved mapping without files, molecular operations or a live engine.
@@ -411,55 +467,11 @@ def audit_result(record):
     admitted_poses = []
     for index, pose in enumerate(poses):
         path = f'/poses/{index}'
-        definitions.append(None)
-        admitted_poses.append(None)
-        if not _schema(report, pose, path, 'DockingPose'):
+        admitted, scores, described = _audit_pose_payload(report, pose, path)
+        definitions.append(described)
+        admitted_poses.append(admitted)
+        if described is None:
             continue
-        admitted_poses[index] = pose
-        coordinates = pose.get('coordinates')
-        if (
-            coordinates is None
-            or isinstance(coordinates, Mapping)
-            and 'unit' not in coordinates
-        ):
-            report.add(
-                'coordinate_units', path, 'incomplete', 'explicit_length_unit_missing'
-            )
-        else:
-
-            def check_coordinates():
-                values = coordinates['value']
-                shape = np.asarray(values).shape
-                if len(shape) != 2 or shape[1] != 3:
-                    raise ValueError('invalid_coordinate_shape')
-                return _length_values(coordinates, shape)
-
-            report.validate('coordinate_units', path, check_coordinates)
-        scores = pose.get('scores')
-        if scores is None:
-            report.add('scores', path, 'incomplete', 'scores_missing')
-            continue
-        valid, scores = report.validate(
-            'scores', path, lambda: _normalize_scores(scores)
-        )
-        if not valid:
-            continue
-        metadata = pose.get('metadata', {})
-        if not isinstance(metadata, Mapping):
-            report.add('score_definitions', path, 'inconsistent', 'invalid_metadata')
-            continue
-        valid, described = report.validate(
-            'score_definitions',
-            path,
-            lambda: normalize_definitions(
-                metadata.get('score_definitions', {}), scores
-            ),
-        )
-        if not valid:
-            continue
-        definitions[index] = described
-        if not scores or set(scores) != set(described):
-            report.add('score_meaning', path, 'incomplete', 'score_meaning_missing')
         for name, definition in described.items():
             _audit_vina(report, definition, name, provenance, f'{path}/scores/{name}')
     _audit_ranking(report, admitted_poses, definitions, provenance)

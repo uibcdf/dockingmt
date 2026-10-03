@@ -8,6 +8,7 @@ import pyunitwizard as puw
 
 from dockingmt._private.serialization import validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
+from dockingmt._private.vina_records import fixed_score_components
 from dockingmt._version import __version__
 from dockingmt.core._scores import normalize_definitions
 from dockingmt.core.problem import _is_pdbqt_input
@@ -19,16 +20,6 @@ from dockingmt.preparation import PreparedLigand, PreparedReceptor, assess_prepa
 # Half a PDBQT coordinate's three-decimal-Angstrom rendering step, plus
 # numerical conversion noise. This does not match or infer molecular identity.
 GEOMETRY_TOLERANCE_ANGSTROM = 0.000500001
-COMPONENTS = (
-    'total',
-    'lig_inter',
-    'flex_inter',
-    'other_inter',
-    'flex_intra',
-    'lig_intra',
-    'torsions',
-    'lig_intra_best_pose',
-)
 
 
 def _history(pose):
@@ -215,7 +206,8 @@ def score_prepared(backend, problem, protocol, pose, score_name):
         )
     protocol.validate_problem(problem)
     preparation, states = _prepared_inputs(problem, protocol)
-    names = [score_name] + [f'{score_name}.{component}' for component in COMPONENTS[1:]]
+    components = fixed_score_components(score_name)
+    names = list(components)
     history = []
     if pose is not None:
         # Validate all prior evidence and name collisions before native setup.
@@ -287,12 +279,14 @@ def score_prepared(backend, problem, protocol, pose, score_name):
                 'preferred_direction': 'lower' if component == 'total' else None,
                 'context': context,
             }
-            for name, component in zip(names, COMPONENTS)
+            for name, component in components.items()
         }
         result = input_pose.with_scores(scores, score_definitions=definitions)
         evaluation = {
             'schema_version': '1.0',
             'operation': 'score',
+            'score_name': score_name,
+            'backend_box': deepcopy(context['backend_box']),
             'backend': backend.name,
             'backend_version': version,
             'dockingmt_version': __version__,
