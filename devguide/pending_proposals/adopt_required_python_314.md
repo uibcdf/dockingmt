@@ -153,3 +153,16 @@ skips in every Linux lane. Pytest durations were 30.65 s (3.11), 27.89 s (3.12),
 (131 Pandas4Warning and one StructuralAttributeDropWarning). This qualifies the
 controlled-source fallback, not a public/channel clean install. Public dependency
 distribution and suite admission remain pending; this record stays partial.
+
+## Routine policy 1.5.4 adoption — 2026-10-03
+
+The maintainer authorized publication and adoption of policy-v1.5.4 under
+uibcdf/molsyssuite#39. The immutable tag points to central e459ea0; the
+component now calls that published gate and receives the byte-identical
+canonical guide through the suite synchronizer. Routine development uses
+Python 3.14. The existing full Python 3.11–3.14 matrices and skipped-commit
+recovery semantics are preserved; no public package is published here.
+Local conformance and changed-workflow Actionlint checks pass. Hosted
+policy and applicable routine checks are dispatched separately from skipped
+direct pushes; their exact commits and outcomes remain to be measured.
+
