@@ -219,7 +219,9 @@ pose and domain records.
 
 ## Development
 
-Routine development uses Python 3.13; the supported user range is Python 3.11 to 3.13.
+Routine development uses Python 3.13; the required source range is Python 3.11 to 3.14.
+Qualification and public delivery remain tracked in [#30](https://github.com/uibcdf/dockingmt/issues/30);
+the badge retains the previously verified range until admission.
 
 ```bash
 # Run local gates before committing

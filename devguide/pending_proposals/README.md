@@ -4,6 +4,10 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
+### Active (1)
+
+- [`adopt_required_python_314.md`](adopt_required_python_314.md) — [#30](https://github.com/uibcdf/dockingmt/issues/30) — Adopt the mandatory four-minor contract and qualify normal installed delivery *(active, inspected)*
+
 ### Partial (5)
 
 - [`define_ligand_torsion_policy_across_rdkit_and_vina_references.md`](define_ligand_torsion_policy_across_rdkit_and_vina_references.md) — [#17](https://github.com/uibcdf/dockingmt/issues/17) — Define ligand torsion policy across RDKit and Vina reference differences *(partial, measured)*

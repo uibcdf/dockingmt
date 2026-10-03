@@ -61,7 +61,7 @@ Use `pytest-receptor` (`--receptor=llm` locally) for compact test reports, and
 `gh-run-receptor` (`gh run-receptor inspect RUN_ID --receptor=llm`) to inspect
 remote workflow runs.
 
-Routine development uses Python 3.13; the supported user range is Python 3.11 to 3.13.
+Routine development uses Python 3.13; the required source range is Python 3.11 to 3.14.
 
 ## External tooling guides
 
@@ -94,3 +94,12 @@ instructions, following
 For work under `devguide/`, also read [devguide/AGENTS.md](devguide/AGENTS.md)
 and its local reporting protocol. Shared instruction proposals belong in
 `uibcdf/molsyssuite`; cross-MOLI contracts belong in `uibcdf/moli`.
+
+
+## Required Python support
+
+The required source contract is Python 3.11–3.14; routine development remains
+on 3.13. Qualification and public delivery are tracked in `uibcdf/dockingmt#30`.
+Keep metadata, recipe, required CI and recovery evidence aligned. Normal
+installed evidence must not bypass `Requires-Python`; public support claims
+remain tied to the suite's recorded admission.
