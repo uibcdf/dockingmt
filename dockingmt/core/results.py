@@ -235,6 +235,44 @@ class DockingPose:
         """Number of atoms in the pose."""
         return int(puw.get_value(self._coordinates).shape[0])
 
+    @arg_digest(config='dockingmt._argdigest')
+    def with_scores(
+        self,
+        scores: dict[str, float],
+        score_definitions: dict[str, dict[str, Any]] | None = None,
+    ) -> DockingPose:
+        """Return an independent pose with additional named evaluations.
+
+        Existing names cannot be replaced. Descriptors describe only the new
+        scores; absent descriptors remain unknown. Coordinates, identity, rank,
+        prior scores and nested metadata are preserved in detached copies.
+        """
+        previous = _normalize_scores(self.scores)
+        additions = _normalize_scores(scores)
+        overlap = previous.keys() & additions.keys()
+        if overlap:
+            raise ArgumentError(
+                arg_name='scores',
+                reason=f'Existing score names cannot be replaced: {sorted(overlap)}.',
+            )
+        definitions = self.score_definitions
+        if score_definitions is not None:
+            definitions.update(normalize_definitions(score_definitions, additions))
+        metadata = deepcopy(self.metadata)
+        metadata.pop('score_definitions', None)
+        return DockingPose(
+            coordinates=deepcopy(self.coordinates),
+            scores={**previous, **additions},
+            score_definitions=definitions
+            if definitions or 'score_definitions' in self.metadata
+            else None,
+            rank=deepcopy(self.rank),
+            pose_id=deepcopy(self.pose_id),
+            partner_state_id=deepcopy(self.partner_state_id),
+            receptor_state_id=deepcopy(self.receptor_state_id),
+            metadata=metadata,
+        )
+
     def to_dict(self) -> dict[str, Any]:
         """Serialize pose to an independent structured dictionary snapshot."""
         definitions = self.score_definitions

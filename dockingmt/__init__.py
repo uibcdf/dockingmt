@@ -30,6 +30,7 @@ from .core import (
     verify_captured_inputs,
 )
 from .dock import dock
+from .score import score
 from .engines import DockingBackend, VinaBackend
 from .preparation import (
     PreparedLigand,
@@ -61,6 +62,7 @@ __all__ = [
     'PreparedLigand',
     'prepare_ligand',
     'dock',
+    'score',
     'show',
     'view',
 ]

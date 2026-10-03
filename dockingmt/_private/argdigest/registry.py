@@ -189,6 +189,28 @@ def digest_score_name(score_name, caller=None):
     return score_name
 
 
+def digest_pose(pose, caller=None):
+    from dockingmt.core.results import DockingPose
+
+    if pose is not None and not isinstance(pose, DockingPose):
+        raise _invalid('pose', caller, 'Use a DockingPose instance or None.')
+    return pose
+
+
+def digest_scores(scores, caller=None):
+    from dockingmt.core.results import _normalize_scores
+
+    if not isinstance(scores, Mapping):
+        raise _invalid('scores', caller, 'Use a mapping of named finite scores.')
+    return _normalize_scores(scores)
+
+
+def digest_score_definitions(score_definitions, caller=None):
+    if score_definitions is not None and not isinstance(score_definitions, Mapping):
+        raise _invalid('score_definitions', caller, 'Use a descriptor mapping or None.')
+    return score_definitions
+
+
 def _mapping(argument):
     def digest(value, caller=None):
         if not isinstance(value, Mapping):
@@ -199,6 +221,9 @@ def _mapping(argument):
 
 
 ARGUMENT_DIGESTERS = {
+    'pose': digest_pose,
+    'scores': digest_scores,
+    'score_definitions': digest_score_definitions,
     'prepared': digest_prepared,
     'record': _mapping('record'),
     'artifacts': _mapping('artifacts'),

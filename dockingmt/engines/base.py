@@ -7,7 +7,7 @@ from argdigest import arg_digest
 from dockingmt._private.smonitor import ArgumentError, CapabilityMismatchError
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import DockingProtocol
-from dockingmt.core.results import DockingResult
+from dockingmt.core.results import DockingPose, DockingResult
 
 
 class DockingBackend(ABC):
@@ -71,3 +71,17 @@ class DockingBackend(ABC):
     ) -> DockingResult:
         """Execute docking for the given problem and protocol."""
         pass
+
+    @arg_digest(config='dockingmt._argdigest')
+    def score(
+        self,
+        problem: DockingProblem,
+        protocol: DockingProtocol | None = None,
+        pose: DockingPose | None = None,
+        score_name: str = 'score',
+    ) -> DockingPose:
+        """Score a prepared fixed conformation when supported by the backend.
+
+        This optional operation keeps existing docking-only adapters compatible.
+        """
+        raise CapabilityMismatchError(capability='pose_scoring', engine=self.name)

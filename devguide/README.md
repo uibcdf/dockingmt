@@ -63,6 +63,10 @@ The [score/ranking contract](validation/score_semantics.md) and its
 score meaning and successive ranking evidence. The saved example is synthetic
 software data, not a scientific validation or runtime benchmark.
 
+The [fixed-pose scoring contract](validation/fixed_pose_scoring.md) and
+[executed notebook](validation/fixed_pose_scoring.ipynb) demonstrate the public
+prepared-input operation and independent score attachment without pose search.
+
 ## Development rule
 
 The [public preparation assessment contract](validation/preparation_assessment.md)

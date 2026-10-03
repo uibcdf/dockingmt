@@ -210,6 +210,26 @@ charge and atom-type differences.
 
 ## Inspecting results
 
+`dockingmt.score(...)` evaluates one already prepared PDBQT conformation with
+Vina/Vinardo and returns a `DockingPose`, without pose search or optimization:
+
+```python
+problem = dmt.DockingProblem('receptor.pdbqt', 'ligand_pose.pdbqt', box)
+pose = dmt.score(problem, dmt.VinaProtocol(cpu=1, seed=123), score_name='vina_fixed')
+rescored = dmt.score(
+    problem, dmt.VinaProtocol(cpu=1, seed=123, scoring='vinardo'),
+    pose=pose, score_name='vinardo_fixed',
+)
+```
+
+It retains all eight native components, empirical units, exact input hashes and
+independent evaluation history. A supplied pose must match the prepared ligand
+geometry and known states. Existing names cannot be overwritten. The public
+`pose.with_scores(...)` also adds external evaluations independently. See the
+[fixed-pose contract](devguide/validation/fixed_pose_scoring.md) and
+[executed notebook](devguide/validation/fixed_pose_scoring.ipynb) for preparation,
+identity and comparison limits.
+
 Pose scores require nonempty names and finite real values. DockingMT normalizes
 them to Python floats without inferring units. `result.rank_by('vina')` returns
 a new result with lower scores first; use `ascending=False` for higher scores

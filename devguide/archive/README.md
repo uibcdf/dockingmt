@@ -4,12 +4,13 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (18)
+### Resolved (19)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
 - [`complete_molsyssuite_governance_baseline.md`](complete_molsyssuite_governance_baseline.md) — [#1](https://github.com/uibcdf/dockingmt/issues/1) — Complete the MolSysSuite governance baseline omitted from the initial seed. *(resolved, measured)*
 - [`describe_scores_and_preserve_ranking_history.md`](describe_scores_and_preserve_ranking_history.md) — [#31](https://github.com/uibcdf/dockingmt/issues/31) — Describe score semantics and preserve ranking history *(resolved, measured)*
+- [`fixed_pose_scoring.md`](fixed_pose_scoring.md) — [#34](https://github.com/uibcdf/dockingmt/issues/34) — Score prepared fixed conformations independently of docking and preserve prior evaluations. *(resolved, measured)*
 - [`flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md`](flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md) — [#12](https://github.com/uibcdf/dockingmt/issues/12) — Flexible-ligand Vina coordinate arrays differ in order from PDBQT pose records *(resolved, measured)*
 - [`invalid_scores_can_corrupt_pose_ranking.md`](invalid_scores_can_corrupt_pose_ranking.md) — [#24](https://github.com/uibcdf/dockingmt/issues/24) — Reject invalid named scores before ranking docking poses *(resolved, measured)*
 - [`ligand_pdbqt_writer_shifts_columns_for_four_character_atom_names.md`](ligand_pdbqt_writer_shifts_columns_for_four_character_atom_names.md) — [#18](https://github.com/uibcdf/dockingmt/issues/18) — Ligand PDBQT writer shifts columns for four-character atom names *(resolved, measured)*

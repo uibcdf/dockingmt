@@ -364,3 +364,32 @@ and an executed notebook. Unassessed preparation remains unassessed.
 
 **Revisit when:** An accepted provider or rescoring workflow requires another owned
 record crosscheck or stronger evidence than internal agreement.
+
+---
+
+## DMT-033 — Score a prepared fixed conformation independently of search
+
+**Status:** Accepted, 2026-10-03
+
+**Decision:** Expose `score(...) -> DockingPose` for the concrete prepared-input
+Vina/Vinardo workflow and `DockingPose.with_scores(...)` for independent additive
+evaluations. A nonabstract optional backend operation preserves existing docking
+adapters. Reuse backend dispatch, input snapshots, score descriptors, units,
+dependency guards and preparation assessment. Molecular geometry reads remain
+public MolSysMT operations; submitted PDBQT keeps its exact bytes and torsions.
+
+**Reason:** MVP E1 requires scoring an existing conformation and retaining prior
+method outputs without pose optimization, score overwrites or implicit ranking.
+This workflow can advance while provider parameterization work remains with
+MolSysMT's owners.
+
+**Implementation:** [Issue #34](https://github.com/uibcdf/dockingmt/issues/34),
+the [contract](validation/fixed_pose_scoring.md), real-engine guards and an
+executed notebook. Optional prior poses must match prepared geometry and known
+states. Unknown identity stays unknown. Method components are those returned
+by `Vina.score()`, independently of docking's `Vina.energies()` contract.
+
+**Revisit when:** A second concrete scoring method needs broader score kinds,
+different molecular identity/comparison policies or a dedicated scoring protocol.
+This decision does not introduce a generic stage executor, campaign, refinement,
+automatic pose-to-PDBQT reconstruction or scientific preparation qualification.

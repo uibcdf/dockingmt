@@ -36,6 +36,15 @@ from dockingmt.preparation._molsys import autodock_element
 VINA_BOX_DECIMALS = 6
 
 
+def _cleanup_staged_files(temp_files):
+    for temp_path in temp_files:
+        if os.path.exists(temp_path):
+            try:
+                os.remove(temp_path)
+            except OSError:
+                pass
+
+
 def _vina_score_definitions(
     scoring, version, artifacts, center, size, info, preparation
 ):
@@ -188,6 +197,7 @@ class VinaBackend(DockingBackend):
     def __init__(self) -> None:
         self._name = 'vina'
         self._capabilities = {
+            'pose_scoring',
             'rigid_receptor',
             'small_molecule',
             'flexible_ligand',
@@ -398,38 +408,13 @@ class VinaBackend(DockingBackend):
             timings.end_phase('backend_import')
         result = None
         try:
-            receptor_file = self._resolve_receptor_path(receptor, temp_files_to_remove)
-            partner_file, partner_string = self._resolve_partner(
-                partner, temp_files_to_remove
+            staged = self._stage_inputs(
+                receptor, partner, protocol, temp_files_to_remove
             )
-            receptor_pdbqt = Path(receptor_file).read_bytes()
-            if receptor_file not in temp_files_to_remove:
-                receptor_file = _stage_pdbqt_bytes(receptor_pdbqt, temp_files_to_remove)
-            partner_pdbqt = (
-                partner_string.encode('utf-8')
-                if partner_string is not None
-                else Path(partner_file).read_bytes()
-            )
-            if partner_file is not None and partner_file not in temp_files_to_remove:
-                partner_file = _stage_pdbqt_bytes(partner_pdbqt, temp_files_to_remove)
-            backend_artifacts = {
-                'receptor': {
-                    'format': 'pdbqt',
-                    'sha256': hashlib.sha256(receptor_pdbqt).hexdigest(),
-                },
-                'partner': {
-                    'format': 'pdbqt',
-                    'sha256': hashlib.sha256(partner_pdbqt).hexdigest(),
-                },
-            }
-            if protocol.capture_backend_inputs:
-                for role, content in (
-                    ('receptor', receptor_pdbqt),
-                    ('partner', partner_pdbqt),
-                ):
-                    backend_artifacts[role]['content_base64'] = base64.b64encode(
-                        content
-                    ).decode('ascii')
+            receptor_file = staged['receptor_file']
+            partner_file = staged['partner_file']
+            partner_string = staged['partner_string']
+            backend_artifacts = staged['artifacts']
             if timings is not None:
                 timings.end_phase('input_projection')
 
@@ -608,15 +593,64 @@ class VinaBackend(DockingBackend):
             return result
 
         finally:
-            for temp_path in temp_files_to_remove:
-                if os.path.exists(temp_path):
-                    try:
-                        os.remove(temp_path)
-                    except OSError:
-                        pass
+            _cleanup_staged_files(temp_files_to_remove)
             if timings is not None and result is not None:
                 timings.end_phase('cleanup')
                 result.provenance['timings'] = timings.to_dict()
+
+    @arg_digest(config='dockingmt._argdigest')
+    @dep_digest('vina')
+    def score(
+        self,
+        problem: DockingProblem,
+        protocol: DockingProtocol | None = None,
+        pose: DockingPose | None = None,
+        score_name: str = 'score',
+    ) -> DockingPose:
+        """Evaluate a prepared fixed pose through Vina.score()."""
+        from dockingmt.engines._vina_scoring import score_prepared
+
+        return score_prepared(self, problem, protocol, pose, score_name)
+
+    def _stage_inputs(self, receptor, partner, protocol, temp_files):
+        """Snapshot the exact bytes submitted to docking or scoring."""
+        receptor_file = self._resolve_receptor_path(receptor, temp_files)
+        partner_file, partner_string = self._resolve_partner(partner, temp_files)
+        receptor_pdbqt = Path(receptor_file).read_bytes()
+        if receptor_file not in temp_files:
+            receptor_file = _stage_pdbqt_bytes(receptor_pdbqt, temp_files)
+        partner_pdbqt = (
+            partner_string.encode('utf-8')
+            if partner_string is not None
+            else Path(partner_file).read_bytes()
+        )
+        if partner_file is not None and partner_file not in temp_files:
+            partner_file = _stage_pdbqt_bytes(partner_pdbqt, temp_files)
+        backend_artifacts = {
+            'receptor': {
+                'format': 'pdbqt',
+                'sha256': hashlib.sha256(receptor_pdbqt).hexdigest(),
+            },
+            'partner': {
+                'format': 'pdbqt',
+                'sha256': hashlib.sha256(partner_pdbqt).hexdigest(),
+            },
+        }
+        if protocol.capture_backend_inputs:
+            for role, content in (
+                ('receptor', receptor_pdbqt),
+                ('partner', partner_pdbqt),
+            ):
+                backend_artifacts[role]['content_base64'] = base64.b64encode(
+                    content
+                ).decode('ascii')
+        return {
+            'receptor_file': receptor_file,
+            'partner_file': partner_file,
+            'partner_string': partner_string,
+            'partner_pdbqt': partner_pdbqt,
+            'artifacts': backend_artifacts,
+        }
 
     def _resolve_receptor_path(self, receptor: Any, temp_files: list[str]) -> str:
         """Resolve receptor input to a filesystem path acceptable by Vina."""

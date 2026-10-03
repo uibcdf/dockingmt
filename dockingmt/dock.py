@@ -38,6 +38,14 @@ def dock(
     if protocol is None:
         protocol = VinaProtocol()
 
+    resolved_backend = _resolve_backend(protocol, backend)
+    result = resolved_backend.dock(problem=problem, protocol=protocol)
+    result.problem = problem
+    return result
+
+
+def _resolve_backend(protocol, backend):
+    """Resolve the shared docking/scoring backend boundary."""
     resolved_backend: DockingBackend
     if backend is None:
         if isinstance(protocol, VinaProtocol):
@@ -63,6 +71,4 @@ def dock(
             reason=f"'backend' must be a DockingBackend instance or string, got {type(backend).__name__}.",
         )
 
-    result = resolved_backend.dock(problem=problem, protocol=protocol)
-    result.problem = problem
-    return result
+    return resolved_backend

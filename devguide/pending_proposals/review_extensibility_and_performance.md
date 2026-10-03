@@ -292,6 +292,20 @@ API, generic protocol-stage infrastructure, campaign, cache or sibling change is
 introduced. This review remains partial for scientifically qualified workloads
 and the concrete comparison/identity policies of later accepted extensions.
 
+## Fixed-pose scoring progress (2026-10-03)
+
+[Issue #34](https://github.com/uibcdf/dockingmt/issues/34) adds the first concrete
+independent scoring operation. `score` evaluates already prepared Vina/Vinardo
+conformations, and `DockingPose.with_scores` preserves separate named outputs.
+The optional backend method leaves docking-only adapters compatible. Prior pose
+geometry and known state identifiers are checked; submitted bytes, eight native
+components, empirical meaning and detached evaluation history are retained.
+The [contract](../validation/fixed_pose_scoring.md) and executed notebook bound
+this software evidence. No provider code, Meeko dependency, stage executor,
+campaign or scientific parameterization claim is introduced. This architecture
+review remains partial for representative scientific workloads and subsequent
+accepted extension/comparison contracts.
+
 ## What was refuted
 
 More abstract classes, plugins, schedulers, or dependencies do not establish
