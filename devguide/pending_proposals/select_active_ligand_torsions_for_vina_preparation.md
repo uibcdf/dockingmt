@@ -4,9 +4,9 @@ issue: uibcdf/dockingmt#6
 status: partial
 opened: 2026-09-22
 closed:
-verification: asserted
+verification: measured
 area: [preparation, vina]
-guard: tests/test_preparation.py::test_ligand_writer_rejects_torsion_count_without_branch_tree
+guard: tests/test_rigid_fragment_consumption.py::test_original_matrix_preserves_tree_and_consumes_provider
 normative:
 blocked_by: []
 supersedes: []
@@ -113,3 +113,18 @@ Docking-specific handling of that difference and the ester case is tracked in
 [DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17). The matrix
 exposed and guarded a separate four-character PDBQT atom-name defect, archived
 under [DockingMT #18](https://github.com/uibcdf/dockingmt/issues/18).
+
+## 2026-10-03 provider partition migration
+
+The final local partition now consumes public `msm.topology.get_rigid_fragments`
+on the complete structure-assigned graph, followed by explicit retained-axis
+membership projection and DockingMT ROOT orientation. All four original reference
+cases preserve pre-migration atom permutations and PDBQT byte hashes. Thirteen
+new controls pass on Python 3.14.7, including nonmonotonic axes, ROOT ties,
+incomplete graph rejection and a structure-assigned chemical state distinct from
+the reference. Source coordinates, bonds and IDs remain unchanged.
+
+The [migration record](../validation/rigid_fragment_consumption.md), executed
+notebook and captured baseline retain the evidence. The old final partition loop
+is removed; temporary connectivity/individual-cut chemical checks and PDBQT
+serialization remain. No automatic torsion policy is qualified; #6 stays partial.

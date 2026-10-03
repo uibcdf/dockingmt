@@ -93,3 +93,7 @@ checks for captured bytes, score provenance, units and ranking decisions.
 The [native MolSysMT format profile](validation/native_molsysmt_formats.md) records
 prepared-input consumption, current SDF gaps and staged removal conditions. Its
 [executed notebook](validation/native_molsysmt_formats.ipynb) runs the real 1IEP path.
+
+The [rigid-fragment migration](validation/rigid_fragment_consumption.md) and its
+[executed notebook](validation/rigid_fragment_consumption.ipynb) retain four-ligand
+before/after equivalence and source-to-retained atom maps for the MolSysMT partition.

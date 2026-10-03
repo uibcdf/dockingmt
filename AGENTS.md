@@ -61,7 +61,10 @@ Use `pytest-receptor` (`--receptor=llm` locally) for compact test reports, and
 `gh-run-receptor` (`gh run-receptor inspect RUN_ID --receptor=llm`) to inspect
 remote workflow runs.
 
-Routine development uses Python 3.13; the required source range is Python 3.11 to 3.14.
+Routine development uses the Conda environment `molsyssuite@uibcdf_3.14`
+(Python 3.14); the required source range is Python 3.11 to 3.14.
+Install this checkout in that environment with `python -m pip install --no-deps
+--editable .`, and run the local gates with its interpreter and tools.
 
 ## External tooling guides
 
@@ -98,8 +101,9 @@ and its local reporting protocol. Shared instruction proposals belong in
 
 ## Required Python support
 
-The required source contract is Python 3.11–3.14; routine development remains
-on 3.13. Qualification and public delivery are tracked in `uibcdf/dockingmt#30`.
+The required source contract is Python 3.11–3.14; routine development uses
+`molsyssuite@uibcdf_3.14`. Qualification and public delivery are tracked in
+`uibcdf/dockingmt#30`.
 Keep metadata, recipe, required CI and recovery evidence aligned. Normal
 installed evidence must not bypass `Requires-Python`; public support claims
 remain tied to the suite's recorded admission.

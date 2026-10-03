@@ -14,6 +14,21 @@ supersedes: []
 
 # Required Python 3.14 adoption
 
+## Development environment correction (2026-10-03)
+
+The maintainer now requires routine DockingMT development in the Conda environment
+`molsyssuite@uibcdf_3.14`, superseding this report's earlier local 3.13 choice.
+Python 3.14.7 and the editable installation of this checkout were verified from
+outside the repository. Install with `python -m pip install --no-deps --editable .`
+using that environment's interpreter; pip does not provide a `--development` option.
+This local development choice does not change the required four-minor source
+contract or establish public dependency admission.
+
+With Vina 1.2.7 installed by the maintainer, the complete local gate passes all
+507 tests without skips in 72.62 s (twelve known provider warnings). The new
+rigid-fragment notebook also executes with Python 3.14.7 and admits all four
+generated ligand trees into Vina. These are local source-checkout results.
+
 ## What
 
 The suite maintainer requires Python 3.11–3.14 from every Python member under

@@ -96,7 +96,8 @@ The 1S63 added H and aryl–nitrile branch require separate mapping/policy evide
 | --- | --- |
 | SDF/RDKit reference bridge | MolSysMT #215 admits original 1IEP/1S63 chemistry and identity without unreported normalization. |
 | Input/pose PDBQT atom parsing | MolSysMT #214/#226 covers both the actual prepared input profile and Vina MODEL pose outputs with verified atom correspondence. Current single-record support does not cover pose ensembles. |
-| `_temporary_torsions` fragment/chemical checks | #224 passes the complete consumer projection/malformed matrix; docking root orientation and selected cuts remain DockingMT decisions (#6/#17). |
+| `_temporary_torsions` final fragment partition | Retired after the [four-case migration](rigid_fragment_consumption.md); public MolSysMT partition plus explicit retained-axis projection preserves prior output. |
+| `_temporary_torsions` connectivity and chemical eligibility checks | #224 qualifies the existing chemical policy and retained-axis validation controls; docking root orientation and selected cuts remain DockingMT decisions (#6/#17). |
 | Prepared ligand/receptor PDBQT writers and typing heuristics | #214 serialization plus the independently reviewed charge/type/hydrogen/projection profile meet the existing consumer contracts and atom/charge maps. Serialization alone cannot remove #5's protection. |
 
 Minimum chemical-profile review remains open: fixed selected states/readiness
@@ -106,3 +107,11 @@ projection (#223), and chemical torsion eligibility (#224), all provider-owned.
 Atom additions/omissions must have explicit maps; a later merging profile must
 check charge aggregation. No support or scientific completion is inferred merely
 from these issue references. #33 therefore remains partial.
+
+## Subsequent fragment consumption (2026-10-03)
+
+The initial one-case partition evidence above is extended to all four source
+ligands by [the retained migration](rigid_fragment_consumption.md). DockingMT now
+consumes the public partition operation while preserving the prior permutations
+and PDBQT bytes. Remaining chemical eligibility and serialization operations
+keep their independent removal conditions.

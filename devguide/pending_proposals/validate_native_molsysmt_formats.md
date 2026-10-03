@@ -96,3 +96,24 @@ occurs only inside the parser test. The repeated full run passes all 494 tests
 without skips in 74.85 s, with the same twelve provider warnings. Ruff lint and
 formatting (85 Python files), generated report indexes and diff checks pass.
 Hosted qualification against the newly pinned provider commit remains separate.
+
+## 2026-10-03 hosted receipt and fragment migration
+
+The preceding prepared-input implementation at `be39d74` passed all four required
+Python jobs in [run 37114604512](https://github.com/uibcdf/dockingmt/actions/runs/37114604512).
+This establishes that software slice's hosted qualification, not chemical validity.
+
+The [next migration](../validation/rigid_fragment_consumption.md) consumes public
+MolSysMT partitioning across all four source ligands, preserving exact old PDBQT
+bytes and atom permutations. It retires only the final local partition loop.
+Thirteen new tests pass in `molsyssuite@uibcdf_3.14` (Python 3.14.7). After the
+maintainer installed Vina 1.2.7, all 43 fragment/flexible/native-format tests pass
+without skips in 30.37 s, including real Vina execution. Chemistry checks, original SDF
+limitations, writers and pose-ensemble parsing remain separately open. Provider
+source inspected is `bd65456e0`, with in-progress sibling work preserved.
+
+The complete repeated gate passes all 507 tests without skips in 72.62 s on
+Python 3.14.7 with Vina 1.2.7 and the twelve existing provider warnings. Ruff,
+formatting (86 Python files), report indexes and diff checks pass. The new
+four-code-cell notebook executes on the same interpreter and retains all four
+PDBQT byte comparisons, permutations, fragment memberships and Vina admissions.

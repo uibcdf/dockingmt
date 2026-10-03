@@ -1,8 +1,9 @@
-"""Temporary molecular graph bridge for molsysmt#224.
+"""Docking tree orientation with temporary torsion eligibility for molsysmt#224.
 
-Remove this module when MolSysMT supplies validated rotatable-bond and rigid-fragment
-operations (molsysmt#224). DockingMT retains protocol selection; its current PDBQT
-writer is also temporary until MolSysMT provides that form (molsysmt#214).
+Rigid-fragment partitioning uses MolSysMT's supported operation. Retire the remaining
+local eligibility checks when its chemical torsion policy passes the consumer cases
+(dockingmt#6/#17, molsysmt#224). DockingMT owns selected cuts and ROOT orientation;
+PDBQT writing remains a separate migration under dockingmt#33 and molsysmt#214.
 """
 
 from __future__ import annotations
@@ -59,8 +60,9 @@ def build_torsion_tree(
     """Validate explicit selected-ligand bonds and derive rigid fragments.
 
     Indices in requested_bonds refer to atoms of the selected MolSysMT ligand before
-    nonpolar hydrogen projection. This temporary graph operation belongs in MolSysMT
-    (molsysmt#224); it deliberately makes no automatic torsion-policy claim.
+    nonpolar hydrogen projection. MolSysMT partitions the selected structure's
+    complete graph; DockingMT projects memberships and orients the docking tree.
+    Eligibility checks remain temporary (molsysmt#224), with no automatic policy.
     """
     n_source = int(msm.get(source_molsys, element='system', n_atoms=True))
     if len(elements) != n_source or len(set(retained_indices)) != len(retained_indices):
@@ -196,17 +198,38 @@ def build_torsion_tree(
             )
         selected.append(source_pair)
 
-    cut_edges = {
-        tuple(sorted((retained_lookup[a], retained_lookup[b]))) for a, b in selected
-    }
-    components: list[tuple[int, ...]] = []
+    bond_indices = msm.get(
+        source_molsys,
+        element='bond',
+        index=True,
+        chemical_state='structure',
+        structure_indices=0,
+    )
+    fragments = msm.topology.get_rigid_fragments(
+        source_molsys,
+        bond_indices=[bond_indices[source_edges[pair]] for pair in selected],
+        chemical_state='structure',
+        structure_indices=0,
+    )
+    packed = fragments['fragment_atom_indices']
+    offsets = fragments['fragment_offsets']
+    # Project memberships onto the declared retained axis, without copying the
+    # molecular system or substituting positional order for source indices.
+    projected = (
+        tuple(
+            sorted(
+                retained_lookup[int(atom)]
+                for atom in packed[start:stop]
+                if int(atom) in retained_lookup
+            )
+        )
+        for start, stop in zip(offsets[:-1], offsets[1:])
+    )
+    components = sorted(
+        (group for group in projected if group), key=lambda group: group[0]
+    )
     atom_component = [-1] * len(retained_indices)
-    for atom in range(len(retained_indices)):
-        if atom_component[atom] >= 0:
-            continue
-        component = tuple(sorted(_component(atom, neighbors, cut_edges)))
-        component_id = len(components)
-        components.append(component)
+    for component_id, component in enumerate(components):
         for member in component:
             atom_component[member] = component_id
 
