@@ -6,6 +6,7 @@ Only absence is checked here; recognition and extraction stay in the provider.
 
 from collections.abc import Mapping
 from numbers import Integral
+from pathlib import Path
 
 import numpy as np
 import pyunitwizard as puw
@@ -80,6 +81,21 @@ def digest_problem(problem, caller=None):
     if not isinstance(problem, DockingProblem):
         raise _invalid('problem', caller, 'Use a DockingProblem instance.')
     return problem
+
+
+def digest_prepared(prepared, caller=None):
+    from dockingmt.preparation.ligand import PreparedLigand
+    from dockingmt.preparation.receptor import PreparedReceptor
+
+    if not isinstance(
+        prepared, (PreparedLigand, PreparedReceptor, str, Path)
+    ) and not callable(getattr(prepared, 'to_pdbqt', None)):
+        raise _invalid(
+            'prepared',
+            caller,
+            'Use a PreparedLigand, PreparedReceptor or external PDBQT representation.',
+        )
+    return prepared
 
 
 def digest_protocol(protocol, caller=None):
@@ -183,6 +199,7 @@ def _mapping(argument):
 
 
 ARGUMENT_DIGESTERS = {
+    'prepared': digest_prepared,
     'record': _mapping('record'),
     'artifacts': _mapping('artifacts'),
     'score_name': digest_score_name,

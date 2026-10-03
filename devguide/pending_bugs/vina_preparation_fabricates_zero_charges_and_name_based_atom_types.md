@@ -177,3 +177,21 @@ The executed notebook asserts the requested Conda interpreter. The initial live
 viewer profile exposed an in-progress explicit frame-pairing requirement under
 molsysviewer#151; its checkout is preserved and the separate consumer migration
 is retained in the validation record. Ruff, indexes and diff checks pass.
+
+## 2026-10-03 public preparation assessment
+
+`dockingmt.assess_preparation` now exposes the existing provisional preparation
+classification before engine execution. Vina consumes the public operation and
+retains its bounded, detached `assessment_report` with stable reason codes and
+declared charge/type sources, preserving the existing provenance fields and
+default rejection policy. External PDBQT representations stay unassessed;
+explicit zero charges alone do not imply placeholders. No molecular operations
+or provider chemistry checks are duplicated.
+
+The [contract](../validation/preparation_assessment.md) and executed notebook
+document the public boundary. Thirty focused cases pass; the full source-qualified
+gate passes 564 tests without skips in 100.53 s on Python 3.14.7 using unchanged
+CI provider pins. Fresh-process absence of engine/viewer, malformed declarations,
+detachment, real Vina persistence and template-transfer safeguards are covered.
+This issue remains partial: public inspection does not deliver validated chemical
+parameterization or scoring compatibility.

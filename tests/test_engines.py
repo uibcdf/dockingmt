@@ -11,7 +11,7 @@ from dockingmt.core.results import DockingResult
 from dockingmt.core.search_domain import BoxRegion
 from dockingmt.dock import dock
 from dockingmt.engines.vina import VinaBackend, _verify_pose_atom_order, _vina_box
-from dockingmt.preparation import prepare_ligand, prepare_receptor
+from dockingmt.preparation import assess_preparation, prepare_ligand, prepare_receptor
 
 
 class DummyCustomProtocol(DockingProtocol):
@@ -129,6 +129,13 @@ def test_vina_backend_docking_execution(scoring):
 
     # Provenance checks
     assert result.provenance['backend'] == 'vina'
+    for role, supplied in (
+        ('receptor', MINIMAL_REC_PDBQT),
+        ('partner', MINIMAL_LIG_PDBQT),
+    ):
+        preparation = result.provenance['preparation'][role]
+        assert preparation['assessment_report'] == assess_preparation(supplied)
+        assert preparation['assessment'] == 'unassessed'
     assert 'elapsed_seconds' in result.provenance
     assert result.provenance['seed'] == 123
     assert result.provenance['backend_box'] == {
@@ -341,12 +348,15 @@ def test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs()
     )
     assert result.provenance['preparation']['partner']['mode'] == 'provided'
     assert result.provenance['preparation']['partner']['assessment'] == 'provisional'
+    report = assess_preparation(ligand)
+    assert result.provenance['preparation']['partner']['assessment_report'] == report
     readiness = result.provenance['preparation']['partner']['metadata'][
         'source_chemistry'
     ]['chemical_readiness']
     assert readiness == ligand.metadata['source_chemistry']['chemical_readiness']
     assert 'docking_readiness' in readiness['unassessed_checks']
     restored = DockingResult.from_dict(result.to_dict())
+    assert restored.provenance['preparation']['partner']['assessment_report'] == report
     assert (
         restored.provenance['preparation']['partner']['metadata']['source_chemistry'][
             'chemical_readiness'

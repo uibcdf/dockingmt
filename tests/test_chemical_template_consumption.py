@@ -24,7 +24,7 @@ from devtools.qualify_chemical_templates import (
 from dockingmt import BoxRegion, DockingProblem, DockingResult, VinaProtocol
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.engines.vina import VinaBackend
-from dockingmt.preparation import prepare_ligand
+from dockingmt.preparation import assess_preparation, prepare_ligand
 
 
 @pytest.fixture
@@ -257,6 +257,8 @@ def test_template_application_cannot_bypass_vina_preparation_safeguard(p59):
     result = msm.physchem.apply_chemical_template(source, **options)
     selected = msm.extract(result['molecular_system'], structure_indices=0)
     ligand = prepare_ligand(selected, selection='all')
+    assessment = assess_preparation(ligand)
+    assert assessment['assessment'] == 'provisional'
     problem = DockingProblem(
         receptor=MINIMAL_REC_PDBQT,
         partner=ligand,
@@ -280,6 +282,7 @@ def test_template_application_cannot_bypass_vina_preparation_safeguard(p59):
     assert exploratory.poses
     provenance = exploratory.provenance['preparation']['partner']
     assert provenance['assessment'] == 'provisional'
+    assert provenance['assessment_report'] == assessment
     assert (
         provenance['metadata']['source_chemistry']
         == ligand.metadata['source_chemistry']

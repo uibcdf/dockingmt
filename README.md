@@ -78,6 +78,23 @@ calculation while [issue #5](https://github.com/uibcdf/dockingmt/issues/5)
 remains open, pass `VinaProtocol(allow_provisional_preparation=True)`. The choice
 and the preparation assessment are recorded in result provenance. Externally
 provided PDBQT inputs are accepted with an `unassessed` chemistry assessment.
+Inspect a preparation before choosing an execution policy:
+
+```python
+from dockingmt import assess_preparation, prepare_ligand
+
+prepared = prepare_ligand(ligand, selection='all')
+assessment = assess_preparation(prepared)
+print(assessment['assessment'], assessment['provisional_reason_codes'])
+```
+
+`assess_preparation(...)` examines declared charge/type sources without molecular
+conversion, file access or engine execution. Missing markers and external PDBQT
+representations remain `unassessed`; this does not certify chemical validity.
+Vina consumes the same public tool and retains its detached `assessment_report`
+for each input in result provenance. See the
+[API contract and executed notebook](devguide/validation/preparation_assessment.md).
+
 A controlled removal of nonpolar hydrogens
 retains an explicit source atom map, and Vina's PDBQT output order is checked
 before poses are returned. Molecular pose reconstruction and RMSD verify source

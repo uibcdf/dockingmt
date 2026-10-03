@@ -65,6 +65,11 @@ software data, not a scientific validation or runtime benchmark.
 
 ## Development rule
 
+The [public preparation assessment contract](validation/preparation_assessment.md)
+and [executed notebook](validation/preparation_assessment.ipynb) expose declared
+provisional chemistry before engine execution and retain the same report in
+Vina result provenance.
+
 Do not begin by designing classes around Vina command-line arguments. Begin from the scientific concepts defined here, then map those concepts to backend capabilities through adapters.
 
 Do not infer that every concept documented here must immediately become a Python class, module, dependency or plugin framework. The scientific model is intentionally richer than the first implementation.

@@ -34,12 +34,14 @@ from .engines import DockingBackend, VinaBackend
 from .preparation import (
     PreparedLigand,
     PreparedReceptor,
+    assess_preparation,
     prepare_ligand,
     prepare_receptor,
 )
 from .view import show, view
 
 __all__ = [
+    'assess_preparation',
     'audit_result',
     'verify_captured_inputs',
     '__version__',

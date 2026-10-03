@@ -27,6 +27,7 @@ from dockingmt.engines.base import DockingBackend
 from dockingmt.preparation import (
     PreparedLigand,
     PreparedReceptor,
+    assess_preparation,
     prepare_ligand,
     prepare_receptor,
 )
@@ -164,19 +165,6 @@ def _verify_pose_atom_order(
             )
         ordered_coordinates.append(record_coordinates)
     return np.stack(ordered_coordinates)
-
-
-def _provisional_preparation_reasons(prepared: Any) -> list[str]:
-    """Identify temporary chemistry assigned by DockingMT's preparation helpers."""
-    if not isinstance(prepared, (PreparedLigand, PreparedReceptor)):
-        return []
-    metadata = prepared.metadata
-    reasons = []
-    if metadata.get('charge_source') == 'zero_placeholder':
-        reasons.append('zero-placeholder partial charges')
-    if 'heuristic' in str(metadata.get('atom_type_source', '')):
-        reasons.append('heuristic AutoDock atom types')
-    return reasons
 
 
 def _stage_pdbqt_bytes(content: bytes, temp_files: list[str]) -> str:
@@ -331,8 +319,10 @@ class VinaBackend(DockingBackend):
                 reason='Protocol torsions require automatic MolSysMT ligand preparation; prepare a custom ligand separately without this protocol option.',
             )
 
-        receptor_reasons = _provisional_preparation_reasons(receptor)
-        partner_reasons = _provisional_preparation_reasons(partner)
+        receptor_assessment = assess_preparation(receptor)
+        partner_assessment = assess_preparation(partner)
+        receptor_reasons = receptor_assessment['provisional_reasons']
+        partner_reasons = partner_assessment['provisional_reasons']
         if not protocol.allow_provisional_preparation:
             for role, reasons in (
                 ('receptor', receptor_reasons),
@@ -355,15 +345,17 @@ class VinaBackend(DockingBackend):
                 'mode': receptor_mode,
                 'state_id': getattr(receptor, 'state_id', None),
                 'metadata': getattr(receptor, 'metadata', None),
-                'assessment': 'provisional' if receptor_reasons else 'unassessed',
+                'assessment': receptor_assessment['assessment'],
                 'provisional_reasons': receptor_reasons,
+                'assessment_report': receptor_assessment,
             },
             'partner': {
                 'mode': partner_mode,
                 'state_id': getattr(partner, 'state_id', None),
                 'metadata': getattr(partner, 'metadata', None),
-                'assessment': 'provisional' if partner_reasons else 'unassessed',
+                'assessment': partner_assessment['assessment'],
                 'provisional_reasons': partner_reasons,
+                'assessment_report': partner_assessment,
             },
         }
 
