@@ -238,3 +238,8 @@ ruff format --check .
 pytest --receptor=llm
 python devtools/devguide_index.py --check
 ```
+
+Saved records can be checked with `dockingmt.audit_result(record)`, which reports
+internal agreement, missing evidence and contradictions without running docking.
+See the [offline audit contract](devguide/validation/result_audit.md) and
+[executed notebook](devguide/validation/result_audit.ipynb).

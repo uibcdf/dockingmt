@@ -17,6 +17,7 @@ from argdigest import arg_digest
 from depdigest import dep_digest
 
 from dockingmt._private.smonitor import ArgumentError
+from dockingmt._private.vina_records import score_components
 from dockingmt._version import __version__ as dockingmt_version
 from dockingmt.core._scores import make_ranking_record
 from dockingmt.core.problem import DockingProblem
@@ -60,12 +61,7 @@ def _vina_score_definitions(
             'preferred_direction': 'lower' if name == scoring else None,
             'context': context,
         }
-        for name, component in (
-            (scoring, 'total docking score'),
-            ('inter', 'intermolecular term'),
-            ('intra', 'intramolecular term'),
-            ('torsion', 'torsional term'),
-        )
+        for name, component in score_components(scoring).items()
     }
 
 

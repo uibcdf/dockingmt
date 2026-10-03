@@ -117,7 +117,7 @@ or mistyped protocols with local diagnostics. Its structured mismatch includes
 all requested, supported, and missing capabilities. The associated execution
 ordering defect and unsupported AD4 declaration are tracked independently in
 [DockingMT #23](https://github.com/uibcdf/dockingmt/issues/23), with evidence in
-[`vina_adapter_advertises_unsupported_ad4_scoring.md`](../pending_bugs/vina_adapter_advertises_unsupported_ad4_scoring.md).
+[`vina_adapter_advertises_unsupported_ad4_scoring.md`](../archive/vina_adapter_advertises_unsupported_ad4_scoring.md).
 After this block, all 197 tests and the local quality gates passed. This does not
 complete the outstanding developer-tool or provider qualification review.
 

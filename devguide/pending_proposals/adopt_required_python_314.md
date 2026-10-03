@@ -127,3 +127,14 @@ Main retains strict protection with five checks, adding Linux/Python 3.14;
 macOS runs remain in the full matrix. Administrator bypass is preserved.
 Central state is `authorized` with public delivery/admission still pending.
 This documentary skipped commit must not clear recovery debt.
+
+### Four-minor pytest measurements — 2026-10-03
+
+[Run 37107875583](https://github.com/uibcdf/dockingmt/actions/runs/37107875583)
+on commit `ff64d84239dbadd030ac1ba5f82eb0a60b5517b4` passed ordinary
+installed-package imports, dependency metadata admission and 414 tests without
+skips in every Linux lane. Pytest durations were 30.65 s (3.11), 27.89 s (3.12),
+28.65 s (3.13), and 27.09 s (3.14). Each reported 132 existing provider warnings
+(131 Pandas4Warning and one StructuralAttributeDropWarning). This qualifies the
+controlled-source fallback, not a public/channel clean install. Public dependency
+distribution and suite admission remain pending; this record stays partial.

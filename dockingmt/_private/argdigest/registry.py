@@ -4,6 +4,7 @@ Molecular forms and selection syntax are delegated unchanged to MolSysMT.
 Only absence is checked here; recognition and extraction stay in the provider.
 """
 
+from collections.abc import Mapping
 from numbers import Integral
 
 import numpy as np
@@ -172,7 +173,18 @@ def digest_score_name(score_name, caller=None):
     return score_name
 
 
+def _mapping(argument):
+    def digest(value, caller=None):
+        if not isinstance(value, Mapping):
+            raise _invalid(argument, caller, 'Use a mapping containing a saved record.')
+        return value
+
+    return digest
+
+
 ARGUMENT_DIGESTERS = {
+    'record': _mapping('record'),
+    'artifacts': _mapping('artifacts'),
     'score_name': digest_score_name,
     'ascending': _boolean('ascending'),
     'center': _box_vector('center'),

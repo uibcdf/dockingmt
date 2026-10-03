@@ -1,9 +1,9 @@
 ---
 summary: Isolate serialized docking results from live metadata and provenance
 issue: uibcdf/dockingmt#25
-status: partial
+status: resolved
 opened: 2026-10-02
-closed:
+closed: 2026-10-03
 severity: medium
 verification: measured
 area: [results, serialization, provenance]
@@ -77,3 +77,14 @@ establish compatibility with CI's pinned dependency set.
 - Preserve schema version `1.0` and existing JSON round-trip behavior.
 - Keep result-only operations independent of molecular and viewer operations.
 - Record hosted qualification before closing the issue.
+
+## Hosted resolution (2026-10-03)
+
+[CI run 37107875583](https://github.com/uibcdf/dockingmt/actions/runs/37107875583)
+qualified commit `ff64d84239dbadd030ac1ba5f82eb0a60b5517b4`. All four Linux
+lanes (Python 3.11, 3.12, 3.13 and 3.14) passed the ordinary installed-package
+import and metadata gate and all 414 tests, without skips. The test named in
+`guard` remains the durable regression check. This closes the hosted software
+qualification requirement; it does not establish public dependency admission or
+scientific preparation validity. Historical local-only statements above describe
+the evidence available when originally recorded.

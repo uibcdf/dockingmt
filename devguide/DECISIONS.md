@@ -342,3 +342,25 @@ does not introduce a scoring engine, protocol-stage executor or campaign model.
 
 **Revisit when:** A real rescoring/physical-energy or cross-run aggregation workflow
 requires a new comparison policy, quantity boundary or identity contract.
+
+---
+
+## DMT-032 — Audit saved-result evidence without a live molecular system
+
+**Status:** Accepted, 2026-10-03
+
+**Decision:** Expose a bounded offline audit of existing saved result mappings.
+Share byte-integrity verification with replay and reuse existing schema, score
+and ranking validators. Reports distinguish complete internal agreement, missing
+evidence and contradictions; no legacy semantics or scientific validity is inferred.
+
+**Reason:** Core C5 requires reviewable saved evidence before replay or downstream
+analysis, without introducing engine execution, molecular preparation, campaign
+management or new provider responsibilities.
+
+**Implementation:** [Issue #32](https://github.com/uibcdf/dockingmt/issues/32),
+the [audit contract](validation/result_audit.md), a retained native software control
+and an executed notebook. Unassessed preparation remains unassessed.
+
+**Revisit when:** An accepted provider or rescoring workflow requires another owned
+record crosscheck or stronger evidence than internal agreement.

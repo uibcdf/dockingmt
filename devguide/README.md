@@ -85,3 +85,7 @@ PyUnitWizard, ArgDigest, DepDigest and SMonitor. See `MOLSYSSUITE_CONTRACT.md`.
 ## Freeze status
 
 This seed is frozen as `DockingMT devguide v0.1`. See `FROZEN_SEED.md`.
+
+The [offline result audit](validation/result_audit.md) and its
+[executed notebook](validation/result_audit.ipynb) retain bounded consistency
+checks for captured bytes, score provenance, units and ranking decisions.

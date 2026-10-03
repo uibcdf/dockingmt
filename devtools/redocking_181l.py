@@ -8,8 +8,6 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import base64
-import binascii
 import hashlib
 import json
 import platform
@@ -65,22 +63,11 @@ def _write_json(path: Path, data: dict[str, Any]) -> None:
 
 def _verify_captured_inputs(artifacts: dict[str, Any]) -> dict[str, int]:
     """Reject a manifest whose retained PDBQT differs from its recorded digest."""
-    sizes = {}
-    for role in ('receptor', 'partner'):
-        artifact = artifacts.get(role)
-        if not isinstance(artifact, dict) or artifact.get('format') != 'pdbqt':
-            raise ValueError(f'The {role} PDBQT artifact is missing or invalid.')
-        encoded = artifact.get('content_base64')
-        if not isinstance(encoded, str):
-            raise ValueError(f'The {role} PDBQT input bytes were not captured.')
-        try:
-            content = base64.b64decode(encoded, validate=True)
-        except (binascii.Error, ValueError) as exc:
-            raise ValueError(f'The {role} PDBQT input bytes are invalid.') from exc
-        if hashlib.sha256(content).hexdigest() != artifact.get('sha256'):
-            raise ValueError(f'The {role} PDBQT input bytes failed SHA-256 validation.')
-        sizes[role] = len(content)
-    return sizes
+    try:
+        return dockingmt.verify_captured_inputs(artifacts)
+    except dockingmt._private.smonitor.ArgumentError as exc:
+        # Preserve the developer tools' established exception/message contract.
+        raise ValueError(exc.extra['reason']) from exc
 
 
 def record_manifest(path: Path) -> dict[str, Any]:

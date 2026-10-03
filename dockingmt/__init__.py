@@ -26,6 +26,8 @@ from .core import (
     DockingResult,
     SearchDomain,
     VinaProtocol,
+    audit_result,
+    verify_captured_inputs,
 )
 from .dock import dock
 from .engines import DockingBackend, VinaBackend
@@ -38,6 +40,8 @@ from .preparation import (
 from .view import show, view
 
 __all__ = [
+    'audit_result',
+    'verify_captured_inputs',
     '__version__',
     '__print_version__',
     'pyunitwizard',
