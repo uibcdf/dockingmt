@@ -147,3 +147,13 @@ on Python 3.14.7 with Vina 1.2.7. Twelve existing warnings remain: eleven legacy
 H5MSM input warnings and one occupancy-loss warning during concatenation. Ruff
 lint/formatting, report indexes and diff checks pass. The notebook's five code
 cells execute with the same interpreter and exact provider implementation digests.
+
+## 2026-10-03 reader-profile correction
+
+The subsequent [PDB inference diagnosis](pdb_bond_inference.md) establishes that
+the counts and timings above use OpenMM-assisted PDB reading. Hosted CI omitted
+OpenMM and returned explicit-only graphs, correctly marked incomplete by the
+same coverage tool. The shared test environment now declares that reference
+dependency and two additional original-source controls protect explicit-only
+behavior. Original evidence is preserved. Selectable native inference, file-path
+policy propagation and reader provenance are requested in MolSysMT #304.

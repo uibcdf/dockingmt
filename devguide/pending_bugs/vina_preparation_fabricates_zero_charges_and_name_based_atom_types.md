@@ -136,3 +136,20 @@ automatic and supplied receptor coverage survives saved-result serialization.
 All 522 tests pass without skips on Python 3.14.7 with Vina 1.2.7 against the exact
 provider archive. CI/full-matrix pins advance to that source. This is a bounded
 consumer qualification; validated preparation and this issue remain partial.
+
+## 2026-10-03 PDB inference-profile correction
+
+The [reader-policy diagnosis](../validation/pdb_bond_inference.md) reproduces the
+hosted/local discrepancy by blocking only OpenMM imports. The provider audit
+correctly reports absent stored connectivity as incomplete; the hosted test
+environment had omitted the engine used by the reference PDB profile. OpenMM is
+now declared in the shared test environment, and two original-source controls
+protect explicit-only behavior without repairing the graph. It is not a new
+runtime dependency or validated parameterization.
+
+MolSysMT #304 owns the requested selectable native alternative, retention of
+OpenMM, direct-file flag propagation and explicit evidence/failure semantics.
+The existing native candidate tool exactly matches the 181L protein reference
+edge set but differs by 18 pairs on original 1IEP, with warnings retained. The
+executed notebook/raw probe preserve source maps and those unresolved differences.
+No provider implementation is assumed delivered; this issue remains partial.

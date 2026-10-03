@@ -1,5 +1,6 @@
 """Qualify residue evidence without admitting provisional receptor chemistry."""
 
+import builtins
 import hashlib
 import json
 from pathlib import Path
@@ -16,6 +17,67 @@ from dockingmt.preparation._molsys import chemistry_evidence
 
 SOURCE_1IEP = Path(__file__).parent / 'data/vina_torsions/1iep_receptorH.pdb'
 SHA256_1IEP = '5f6aee6029f9a2a2c2be32d4eb948ae70808690573e1b69a0850cdffd7048ca7'
+
+
+@pytest.mark.parametrize(
+    'case,n_bonds,n_groups,unassessed',
+    [('181L', 13, 302, 140), ('1IEP', 0, 274, 0)],
+)
+def test_original_pdb_without_bond_inference_preserves_incomplete_graph(
+    case, n_bonds, n_groups, unassessed, monkeypatch
+):
+    path = (
+        msm.systems['T4 lysozyme L99A']['181l.pdb']
+        if case == '181L'
+        else str(SOURCE_1IEP)
+    )
+    before = Path(path).read_bytes()
+    handler = msm.convert(path, to_form='molsysmt.PDBFileHandler')
+    try:
+        explicit = msm.convert(
+            handler, to_form='molsysmt.MolSys', get_missing_bonds=False
+        )
+    finally:
+        handler.close()
+    # Exercise the real public reader with an unavailable optional engine, even
+    # when OpenMM is already imported elsewhere in the full test session.
+    original_import = builtins.__import__
+    attempts = []
+
+    def without_openmm(name, *args, **kwargs):
+        if name == 'openmm' or name.startswith('openmm.'):
+            attempts.append(name)
+            raise ModuleNotFoundError('OpenMM blocked for the explicit-only profile')
+        return original_import(name, *args, **kwargs)
+
+    with monkeypatch.context() as blocked:
+        blocked.setattr(builtins, '__import__', without_openmm)
+        unavailable = msm.convert(path, to_form='molsysmt.MolSys')
+    assert attempts  # Do not let the unavailable-engine control become a no-op.
+    expected_pairs = msm.get(explicit, inner_bonded_atom_pairs=True)
+    np.testing.assert_array_equal(
+        msm.get(unavailable, inner_bonded_atom_pairs=True), expected_pairs
+    )
+    assert msm.get(explicit, n_bonds=True) == n_bonds
+    for source in (explicit, unavailable):
+        summary = chemistry_evidence(source, include_residue_coverage=True)[
+            'residue_coverage'
+        ]
+        assert summary['status_counts'] == {
+            'assessed': 0,
+            'incomplete': n_groups - unassessed,
+            'unassessed': unassessed,
+        }
+        assert summary['check_status_counts']['heavy_atoms'] == {
+            'assessed': n_groups - unassessed,
+            **({'unassessed': unassessed} if unassessed else {}),
+        }
+        assert summary['reason_counts']['incomplete_stored_connectivity'] == (
+            n_groups - unassessed
+        )
+        assert 'docking_readiness' in summary['unassessed_checks']
+        assert msm.get(source, n_bonds=True) == n_bonds
+    assert Path(path).read_bytes() == before
 
 
 def _controls():

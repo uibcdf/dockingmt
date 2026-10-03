@@ -106,3 +106,7 @@ The [receptor residue-coverage record](validation/receptor_coverage_consumption.
 and [executed notebook](validation/receptor_coverage_consumption.ipynb) qualify
 exact MolSysMT template consumption with original 181L/1IEP sources, controlled
 modified/incomplete residues and paired preparation-cost measurements.
+
+The [PDB connectivity-policy diagnosis](validation/pdb_bond_inference.md) and
+[executed notebook](validation/pdb_bond_inference.ipynb) reproduce the optional
+OpenMM difference and retain native candidate comparisons for MolSysMT #304.

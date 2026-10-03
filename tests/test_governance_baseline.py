@@ -40,13 +40,14 @@ def test_ci_covers_supported_lanes_and_common_quality_gates():
     assert 'pytest --receptor=ci' in workflow
 
 
-def test_source_based_ci_includes_exercised_biopython_dependency():
+def test_source_based_ci_includes_exercised_reference_reader_dependencies():
     workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
     environment = (ROOT / 'devtools/conda-envs/test_env.yaml').read_text(
         encoding='utf-8'
     )
     assert '--no-deps' in workflow
     assert '  - biopython\n' in environment
+    assert '  - openmm\n' in environment
 
 
 def test_project_declares_the_suite_python_support_range():

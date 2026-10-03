@@ -17,6 +17,9 @@ dependencies:
   - rdkit
   # Runtime dependencies for the fixed scientific sibling sources below.
   - biopython
+  # The current reference PDB profile uses MolSysMT's optional OpenMM bond inference.
+  # Native, explicitly selected inference is tracked by uibcdf/molsysmt#304.
+  - openmm
   - h5py
   - pandas
   - networkx
