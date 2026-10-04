@@ -62,7 +62,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       # The uibcdf channel does not yet publish this integrated set for Python 3.13.
-      # Preserve prior sources on 3.11–3.13; 3.14 uses the qualified source pair.
+      # ArgDigest/viewer retain their lane-specific sources; MolSysMT includes named charges.
       - name: Check out compatible ArgDigest source
         if: matrix.python-version != '3.14'
         uses: actions/checkout@v6
@@ -82,14 +82,14 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "c19a47ada0c2279029abfa296cf915560610ad9a"
+          ref: "7894435e748bc55254b6c3d2b63ae82c101e5774"
           path: .molsyssuite/molsysmt
       - name: Check out compatible MolSysMT source for Python 3.14
         if: matrix.python-version == '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "c19a47ada0c2279029abfa296cf915560610ad9a"
+          ref: "7894435e748bc55254b6c3d2b63ae82c101e5774"
           path: .molsyssuite/molsysmt
       - name: Check out compatible MolSysViewer source
         if: matrix.python-version != '3.14'

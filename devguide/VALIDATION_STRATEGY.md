@@ -147,3 +147,12 @@ MolSysSuite:
 - SMonitor diagnostic codes/signals for representative scientific failures;
 - MolSysMT identity preservation across preparation/backend round trips;
 - DockingMT-owned MolSysViewer addon integration when present.
+
+## 8. Named charge consumption controls
+
+The [named-charge contract](validation/named_partial_charges.md) and executed
+notebook distinguish original MolSysMT calculation coverage, selected projection,
+existing nonpolar-H transfers and three-decimal export. Methanol, flexible 5X72
+and explicit-H 1VII protect fixed units, provenance and conservation. Native Vina
+admission is an interoperability control; preparation typing and charge-model
+suitability for a scoring function remain separately unqualified.

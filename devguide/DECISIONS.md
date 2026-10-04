@@ -528,3 +528,30 @@ Positive/displaced-domain software controls are separate from a labelled failure
 fixture. Equality of declarations does not certify scientific comparability,
 chemical validity or a dataset success rate. No geometry kernel, molecular
 matching, engine rerun, global ranking, cache, executor or sibling change occurs.
+
+## DMT-039 — Preserve named charges and audit consumer conservation
+
+**Status:** Accepted, 2026-10-04.
+
+**Decision:** Consume explicit public MolSysMT named assignments through the
+existing preparation boundary, preserving original model/software/coverage and
+atom correspondence. Let public indexed provider extraction check molecular
+binding. Record existing nonpolar-H transfers without renormalization. Expose
+`audit_preparation_charges` for current numeric binding, selected-total
+conservation and actual PDBQT order/rounding; guard named export after value edits.
+
+**Rationale:** Source values alone lose the model that produced them and obscure
+selection, hydrogen transfers and decimal rounding. Charge assignment/chemistry
+remain MolSysMT operations, with no implicit model or private validator import.
+A named charge model does not validate the remaining heuristic AutoDock types.
+
+**Evidence:** [Issue #40](https://github.com/uibcdf/dockingmt/issues/40),
+[contract](validation/named_partial_charges.md), executed notebook and public
+provider controls from source `7894435e748bc55254b6c3d2b63ae82c101e5774`.
+
+**Removal condition:** Replace the existing consumer H projection/writer when
+[MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223) supplies a qualified
+charge-preserving transform with correspondence and original assignment
+provenance. Retain #5's default protection until named typing (#222) and scoring
+compatibility satisfy their own scientific criteria. No AD4 or H5MSM mechanics
+attribution support is inferred.

@@ -1,6 +1,8 @@
 """Small, inspectable MolSysMT reads shared by the Vina preparation adapters."""
 
+import json
 from collections import Counter
+from copy import deepcopy
 from typing import Any
 
 import molsysmt as msm
@@ -109,6 +111,45 @@ def source_partial_charges(molsys: Any, n_atoms: int) -> list[float] | None:
             reason='Atomic partial charges must be complete and finite.',
         )
     return charges.tolist()
+
+
+def source_charge_assignment(molsys: Any) -> dict[str, Any] | None:
+    """Detach the public native assignment after MolSysMT's checked extraction.
+
+    Molecular binding validation belongs to the provider. ``select_one_structure``
+    extracts explicit indices, so its public operation marks stale assignments.
+    Legacy supplied charges have no named assignment and remain unattributed.
+    """
+    mechanics = molsys.molecular_mechanics
+    report = getattr(mechanics, 'partial_charge_assignment', None)
+    if report is None:
+        return None
+    if (
+        report.get('schema') != 'molsysmt.partial_charge_assignment@1'
+        or report.get('status') not in ('assigned', 'projected')
+        or report.get('charge_unit') != 'elementary_charge'
+    ):
+        raise ArgumentError(
+            arg_name='molecular_system',
+            reason='Named partial-charge attribution is stale or unsupported; explicitly reassign charges with MolSysMT.',
+        )
+
+    def normalize(value):
+        if isinstance(value, np.ndarray):
+            return value.tolist()
+        if isinstance(value, np.generic):
+            return value.item()
+        raise TypeError(f'Unsupported assignment value: {type(value).__name__}')
+
+    try:
+        return json.loads(
+            json.dumps(deepcopy(report), default=normalize, allow_nan=False)
+        )
+    except (TypeError, ValueError) as exc:
+        raise ArgumentError(
+            arg_name='molecular_system',
+            reason='Named charge attribution must contain finite serializable evidence.',
+        ) from exc
 
 
 def source_aromaticity(molsys: Any, n_atoms: int) -> list[bool] | None:

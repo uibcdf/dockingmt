@@ -4,12 +4,13 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (24)
+### Resolved (25)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
 - [`audit_saved_scoring_poses.md`](audit_saved_scoring_poses.md) — [#35](https://github.com/uibcdf/dockingmt/issues/35) — Audit saved pose scores and evaluation history without a live backend. *(resolved, measured)*
 - [`complete_molsyssuite_governance_baseline.md`](complete_molsyssuite_governance_baseline.md) — [#1](https://github.com/uibcdf/dockingmt/issues/1) — Complete the MolSysSuite governance baseline omitted from the initial seed. *(resolved, measured)*
+- [`consume_named_partial_charges.md`](consume_named_partial_charges.md) — [#40](https://github.com/uibcdf/dockingmt/issues/40) — Consume named MolSysMT charges with explicit conserved projection evidence. *(resolved, measured)*
 - [`describe_scores_and_preserve_ranking_history.md`](describe_scores_and_preserve_ranking_history.md) — [#31](https://github.com/uibcdf/dockingmt/issues/31) — Describe score semantics and preserve ranking history *(resolved, measured)*
 - [`evaluate_redocking.md`](evaluate_redocking.md) — [#38](https://github.com/uibcdf/dockingmt/issues/38) — Evaluate redocking with explicit RMSD policy and detached comparison evidence. *(resolved, measured)*
 - [`fixed_pose_scoring.md`](fixed_pose_scoring.md) — [#34](https://github.com/uibcdf/dockingmt/issues/34) — Score prepared fixed conformations independently of docking and preserve prior evaluations. *(resolved, measured)*

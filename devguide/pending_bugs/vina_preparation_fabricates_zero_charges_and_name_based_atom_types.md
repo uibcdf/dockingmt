@@ -211,3 +211,20 @@ policy must distinguish that fact from chemical validity and AutoDock4 needs.
 No gate is relaxed here. Metal/selenium charge approximations, integer-charge
 rectification and regenerated export hydrogens are not adopted implicitly.
 This is inspected design evidence, not runtime equivalence or a new dependency.
+
+## 2026-10-04 named-charge consumer qualification
+
+The bounded [consumer slice](../validation/named_partial_charges.md), tracked
+by dockingmt#40, preserves public MolSysMT #221 model/software attribution,
+original coverage and source indices through selected projection and existing
+nonpolar-H charge transfers. Public `audit_preparation_charges` observes current
+numeric binding, conservation and actual three-decimal PDBQT rounding. The
+executed notebook qualifies methanol, selected OH, flexible 5X72 and explicit-H
+1VII AMBER14 (+2 e before export; +1.988 e after rounding).
+
+Public MolSysMT indexed extraction owns stale molecular binding detection. No
+charge calculation, graph validator, implicit model or renormalization is added
+in DockingMT. CI pins advance to qualified source `7894435e748bc55254b6c3d2b63ae82c101e5774`;
+dirty sibling work is preserved. Typing (#222), general preparation/scoring
+compatibility and provider H/export projection (#223) remain separate. The
+default provisional gate is preserved; this owning issue remains partial.

@@ -29,7 +29,7 @@ def test_ci_covers_supported_lanes_and_common_quality_gates():
     assert 'repository: uibcdf/argdigest' in workflow
     assert 'ref: "4fdbf19d386bbf476455d35c9988bf00624873e1"' in workflow
     assert 'repository: uibcdf/molsysmt' in workflow
-    assert 'ref: "c19a47ada0c2279029abfa296cf915560610ad9a"' in workflow
+    assert 'ref: "7894435e748bc55254b6c3d2b63ae82c101e5774"' in workflow
     assert 'repository: uibcdf/molsysviewer' in workflow
     assert 'ref: "2c022507265c744d532f39df345322074f80a2a3"' in workflow
     assert '.molsyssuite/argdigest' in workflow

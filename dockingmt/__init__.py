@@ -41,6 +41,7 @@ from .preparation import (
     PreparedLigand,
     PreparedReceptor,
     assess_preparation,
+    audit_preparation_charges,
     prepare_ligand,
     prepare_receptor,
 )
@@ -53,6 +54,7 @@ __all__ = [
     'DockingOutcome',
     'audit_pose',
     'assess_preparation',
+    'audit_preparation_charges',
     'audit_result',
     'verify_captured_inputs',
     '__version__',

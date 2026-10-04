@@ -13,9 +13,11 @@ from dockingmt.preparation._molsys import (
     chemistry_evidence,
     select_one_structure,
     source_aromaticity,
+    source_charge_assignment,
     source_partial_charges,
 )
 from dockingmt.preparation._temporary_torsions import TorsionTree, build_torsion_tree
+from dockingmt.preparation.charges import _charge_projection, _charge_remark
 
 
 class PreparedLigand:
@@ -38,7 +40,7 @@ class PreparedLigand:
     atom_types : list[str]
         Assigned AutoDock atom types.
     charges : list[float]
-        Assigned partial atomic charges.
+        Assigned partial atomic charges in elementary charge.
     torsion_dof : int, default 0
         Number of active torsional degrees of freedom. A nonzero value requires
         a verified rigid-fragment tree built by ``prepare_ligand``.
@@ -137,7 +139,7 @@ class PreparedLigand:
                 f'{self.charges[atom]:6.3f} {self.atom_types[atom]:<2s}'
             )
 
-        lines = ['ROOT']
+        lines = _charge_remark(self) + ['ROOT']
         root_atoms = (
             self._torsion_tree.root_atoms
             if self._torsion_tree is not None
@@ -273,6 +275,7 @@ def prepare_ligand(
 
     atom_names, group_names, group_ids, elements = atom_metadata(extracted, 'LIG')
     charges = source_partial_charges(extracted, n_atoms)
+    assignment = source_charge_assignment(extracted)
     aromaticity = source_aromaticity(extracted, n_atoms)
     bonded_atoms = (
         msm.get(
@@ -298,6 +301,7 @@ def prepare_ligand(
     retained_indices: list[int] = []
     merged_hydrogen_charges: dict[int, float] = {}
     omitted_hydrogen_indices: list[int] = []
+    charge_transfers: list[tuple[int, int]] = []
 
     for i, (aname, element) in enumerate(zip(atom_names, elements)):
         aname_str = str(aname).strip()
@@ -318,6 +322,7 @@ def prepare_ligand(
             attached = heavy_neighbors[0]
             if elements[attached].upper() not in ('N', 'O', 'S'):
                 if charges is not None:
+                    charge_transfers.append((i, attached))
                     merged_hydrogen_charges[attached] = (
                         merged_hydrogen_charges.get(attached, 0.0) + charges[i]
                     )
@@ -414,6 +419,14 @@ def prepare_ligand(
             if len(retained_indices) == n_atoms
             else 'hydrogen_subset_mapped',
             'merged_hydrogen_charges': bool(merged_hydrogen_charges),
+            'partial_charge_assignment': assignment,
+            'charge_projection': _charge_projection(
+                assignment,
+                charges,
+                retained_indices,
+                charge_transfers,
+                retained_charges,
+            ),
             'source_chemistry': chemistry_evidence(extracted),
         },
         source_molsys=msm.extract(extracted, selection=retained_indices),

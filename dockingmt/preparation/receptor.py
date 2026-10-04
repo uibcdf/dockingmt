@@ -13,8 +13,10 @@ from dockingmt.preparation._molsys import (
     chemistry_evidence,
     select_one_structure,
     source_aromaticity,
+    source_charge_assignment,
     source_partial_charges,
 )
+from dockingmt.preparation.charges import _charge_projection, _charge_remark
 
 
 class PreparedReceptor:
@@ -38,7 +40,7 @@ class PreparedReceptor:
     atom_types : list[str]
         Assigned AutoDock / force-field atom types.
     charges : list[float]
-        Assigned partial atomic charges.
+        Assigned partial atomic charges in elementary charge.
     metadata : dict[str, Any] | None, optional
         Arbitrary preparation metadata (e.g. pH, protonation method, source info).
     """
@@ -73,7 +75,7 @@ class PreparedReceptor:
     def to_pdbqt(self) -> str:
         """Generate a PDBQT formatted string for docking engines."""
         coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))
-        lines = []
+        lines = _charge_remark(self)
         for i, (name, gname, gid, (x, y, z), atype, q) in enumerate(
             zip(
                 self.atom_names,
@@ -194,6 +196,7 @@ def prepare_receptor(
 
     atom_names, group_names, group_ids, elements = atom_metadata(extracted, 'REC')
     charges = source_partial_charges(extracted, n_atoms)
+    assignment = source_charge_assignment(extracted)
     aromaticity = source_aromaticity(extracted, n_atoms)
     bonded_atoms = (
         msm.get(
@@ -225,6 +228,7 @@ def prepare_receptor(
     retained_indices: list[int] = []
     merged_hydrogen_charges: dict[int, float] = {}
     omitted_hydrogen_indices: list[int] = []
+    charge_transfers: list[tuple[int, int]] = []
 
     for i, (aname, gname, gid, element) in enumerate(
         zip(atom_names, group_names, group_ids, elements)
@@ -243,6 +247,7 @@ def prepare_receptor(
             attached = heavy_neighbors[0]
             if elements[attached].upper() not in ('N', 'O', 'S'):
                 if charges is not None:
+                    charge_transfers.append((i, attached))
                     merged_hydrogen_charges[attached] = (
                         merged_hydrogen_charges.get(attached, 0.0) + charges[i]
                     )
@@ -320,6 +325,14 @@ def prepare_receptor(
             'merged_hydrogen_charges': bool(merged_hydrogen_charges),
             'hydrogen_policy': 'retain_polar_merge_nonpolar',
             'omitted_hydrogen_indices': omitted_hydrogen_indices,
+            'partial_charge_assignment': assignment,
+            'charge_projection': _charge_projection(
+                assignment,
+                charges,
+                retained_indices,
+                charge_transfers,
+                retained_charges,
+            ),
             'source_chemistry': chemistry_evidence(
                 extracted, include_residue_coverage=True
             ),

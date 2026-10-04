@@ -95,6 +95,14 @@ Vina consumes the same public tool and retains its detached `assessment_report`
 for each input in result provenance. See the
 [API contract and executed notebook](devguide/validation/preparation_assessment.md).
 
+Named charges are assigned explicitly with MolSysMT before preparation, for
+example `msm.build.assign_partial_charges(ligand, method='gasteiger_marsili')`.
+Preparation retains the original model and software provenance. Public
+`dockingmt.audit_preparation_charges(prepared)` reports full-precision conservation,
+hydrogen charge transfers and PDBQT rounding in elementary charge. See the
+[charge contract and executed notebook](devguide/validation/named_partial_charges.md).
+AutoDock typing remains provisional.
+
 A controlled removal of nonpolar hydrogens
 retains an explicit source atom map, and Vina's PDBQT output order is checked
 before poses are returned. Molecular pose reconstruction and RMSD verify source
