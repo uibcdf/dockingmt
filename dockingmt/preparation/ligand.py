@@ -16,6 +16,7 @@ from dockingmt.preparation._molsys import (
     source_charge_assignment,
     source_partial_charges,
 )
+from dockingmt.preparation._stages import finish_stage_maps, run_stages, stage_options
 from dockingmt.preparation._temporary_torsions import TorsionTree, build_torsion_tree
 from dockingmt.preparation.charges import _charge_projection, _charge_remark
 
@@ -243,6 +244,9 @@ def prepare_ligand(
     state_id: str | None = None,
     torsion_dof: int | None = None,
     active_torsion_bonds: list[tuple[int, int]] | None = None,
+    *,
+    hydrogen_options: dict[str, Any] | None = None,
+    charge_options: dict[str, Any] | None = None,
 ) -> PreparedLigand:
     """Prepare a small molecule ligand for docking calculations.
 
@@ -262,6 +266,14 @@ def prepare_ligand(
     active_torsion_bonds : list[tuple[int, int]] | None, optional
         Explicit active bonds as pairs of selected-ligand atom indices before
         nonpolar hydrogen projection. None or an empty list keeps the ligand rigid.
+    hydrogen_options : mapping or None, optional
+        Opt-in public MolSysMT hydrogen-builder arguments. Require explicit
+        mode='fixed_chemical_state', pH=None and engine. Attribute policy defaults
+        to strict; explicitly choose intersection to allow reported attribute loss.
+    charge_options : mapping or None, optional
+        Opt-in public MolSysMT charge-builder arguments, including an explicit
+        named method. Charge assignment follows hydrogen addition when requested.
+        No default model, state repair or engine fallback is selected.
 
     Returns
     -------
@@ -270,7 +282,9 @@ def prepare_ligand(
     """
     import molsysmt as msm
 
+    hydrogen_options, charge_options = stage_options(hydrogen_options, charge_options)
     extracted = select_one_structure(molecular_system, selection)
+    extracted, workflow = run_stages(extracted, hydrogen_options, charge_options)
     n_atoms = msm.get(extracted, element='system', n_atoms=True)
 
     atom_names, group_names, group_ids, elements = atom_metadata(extracted, 'LIG')
@@ -420,6 +434,19 @@ def prepare_ligand(
             else 'hydrogen_subset_mapped',
             'merged_hydrogen_charges': bool(merged_hydrogen_charges),
             'partial_charge_assignment': assignment,
+            **(
+                {
+                    'preparation_workflow': finish_stage_maps(
+                        workflow,
+                        retained_indices,
+                        list(torsion_tree.atom_order)
+                        if torsion_tree
+                        else list(range(len(retained_indices))),
+                    )
+                }
+                if workflow is not None
+                else {}
+            ),
             'charge_projection': _charge_projection(
                 assignment,
                 charges,

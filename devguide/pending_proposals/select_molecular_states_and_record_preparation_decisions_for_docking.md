@@ -140,3 +140,21 @@ CI provider pins. Fresh-process absence of engine/viewer, malformed declarations
 detachment, real Vina persistence and template-transfer safeguards are covered.
 This issue remains partial: public inspection does not deliver validated chemical
 parameterization or scoring compatibility.
+
+## 2026-10-04 explicit fixed-state H/charge stages
+
+The [bounded consumer contract](../validation/ligand_preparation_stages.md),
+tracked by dockingmt#41, adds opt-in provider option mappings to existing public
+`prepare_ligand`. MolSysMT H addition precedes named charges, defaults to strict
+attribute preservation and retains original reports/credit and composed input,
+expanded, prepared and written correspondence. Generated H has no original input
+index; no local chemistry or geometry algorithm is introduced.
+
+The supported methanol control preserves original identity/coordinates, adds four
+H, retains the polar H and conserves 0 e in the existing charge projection.
+Idempotence, explicit attribute loss, non-default units, unchanged provider errors,
+result persistence and the default provisional typing gate are guarded. The full
+source-qualified suite passes 887 tests without skips on Python 3.14.7/Vina 1.2.7.
+Original 181L BNZ remains a negative control pending MolSysMT #314 bond aromaticity;
+the notebook retains the rejection and unchanged pose. #41 and this owning issue
+remain partial. Published source pins are unchanged and sibling work is preserved.

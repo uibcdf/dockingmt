@@ -134,6 +134,12 @@ def source_charge_assignment(molsys: Any) -> dict[str, Any] | None:
             reason='Named partial-charge attribution is stale or unsupported; explicitly reassign charges with MolSysMT.',
         )
 
+    return detached_provider_report(report)
+
+
+def detached_provider_report(report: dict[str, Any]) -> dict[str, Any]:
+    """Normalize provider numeric arrays while preserving declared units and credit."""
+
     def normalize(value):
         if isinstance(value, np.ndarray):
             return value.tolist()
@@ -148,7 +154,7 @@ def source_charge_assignment(molsys: Any) -> dict[str, Any] | None:
     except (TypeError, ValueError) as exc:
         raise ArgumentError(
             arg_name='molecular_system',
-            reason='Named charge attribution must contain finite serializable evidence.',
+            reason='Provider preparation reports must contain finite serializable evidence.',
         ) from exc
 
 

@@ -156,3 +156,12 @@ existing nonpolar-H transfers and three-decimal export. Methanol, flexible 5X72
 and explicit-H 1VII protect fixed units, provenance and conservation. Native Vina
 admission is an interoperability control; preparation typing and charge-model
 suitability for a scoring function remain separately unqualified.
+
+## 9. Explicit hydrogen-stage controls
+
+The [ligand-stage contract](validation/ligand_preparation_stages.md) and executed
+notebook retain the provider's generated-H geometry evidence separately from
+unchanged original coordinates, atom correspondence and charge conservation.
+A supported polar control is positive; original 181L BNZ remains explicitly
+provider-blocked on bond aromaticity (MolSysMT #314). Neither successful local
+H placement nor Vina admission establishes biological or preparation validity.

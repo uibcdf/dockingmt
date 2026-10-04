@@ -295,7 +295,20 @@ def _mapping(argument):
     return digest
 
 
+def _optional_provider_options(argument):
+    def digest(value, caller=None):
+        if value is None:
+            return None
+        if not isinstance(value, Mapping):
+            raise _invalid(argument, caller, 'Use a provider-option mapping or None.')
+        return dict(value)
+
+    return digest
+
+
 ARGUMENT_DIGESTERS = {
+    'hydrogen_options': _optional_provider_options('hydrogen_options'),
+    'charge_options': _optional_provider_options('charge_options'),
     'evaluations': _mapping('evaluations'),
     'failures': digest_failures,
     'result': digest_result,

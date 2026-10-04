@@ -103,6 +103,14 @@ hydrogen charge transfers and PDBQT rounding in elementary charge. See the
 [charge contract and executed notebook](devguide/validation/named_partial_charges.md).
 AutoDock typing remains provisional.
 
+`prepare_ligand` also accepts explicit `hydrogen_options` and `charge_options`
+to call MolSysMT's fixed-state H and named-charge builders in that order. Require
+`mode='fixed_chemical_state'`, `pH=None` and an explicit engine for H addition;
+attribute preservation defaults to strict. Original reports and generated-atom
+maps are retained in preparation/result metadata. See the
+[stage contract and notebook](devguide/validation/ligand_preparation_stages.md).
+The original 181L template-to-H route remains pending MolSysMT #314.
+
 A controlled removal of nonpolar hydrogens
 retains an explicit source atom map, and Vina's PDBQT output order is checked
 before poses are returned. Molecular pose reconstruction and RMSD verify source

@@ -555,3 +555,29 @@ charge-preserving transform with correspondence and original assignment
 provenance. Retain #5's default protection until named typing (#222) and scoring
 compatibility satisfy their own scientific criteria. No AD4 or H5MSM mechanics
 attribution support is inferred.
+
+## DMT-040 — Delegate explicit H and charge stages at ligand preparation
+
+**Status:** Accepted, 2026-10-04; original BNZ acceptance remains partial.
+
+**Decision:** Extend existing `prepare_ligand` with optional keyword-only
+`hydrogen_options` and `charge_options`. Require explicit fixed-state/pH/engine
+and charge-model choices; default expansion loss handling is strict. Delegate
+all molecular work to public MolSysMT operations and propagate failures without
+fallback. Retain original H reports and compose original/expanded/prepared/written
+atom indices, with null original indices for generated H. Reuse the named-charge
+record and existing projection/audit rather than introducing another model layer.
+
+**Reason:** The accepted preparation workflow needs observable stages and source
+identity before engine execution. Existing calls retain their behavior. Metadata
+composition is consumer orchestration; molecular construction and validity stay
+provider-owned. Template application reports remain separate pending #298.
+
+**Evidence:** [Issue #41](https://github.com/uibcdf/dockingmt/issues/41),
+[contract](validation/ligand_preparation_stages.md), polar/idempotence/negative
+controls and executed notebook on the existing qualified source pin.
+
+**Limits:** Original 181L BNZ lacks bond-aromaticity evidence after the existing
+template route and is rejected by H addition; MolSysMT #314 owns its correction.
+No downstream graph repair is admitted. Local H placement is not environmental
+refinement; typing/export/scoring qualification remains separately open.

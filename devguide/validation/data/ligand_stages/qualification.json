@@ -1,0 +1,4127 @@
+{
+  "schema_version": "1.0",
+  "qualification": "explicit_ligand_preparation_stages",
+  "interpreter": "/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+  "python": "3.14.7 | packaged by conda-forge | (main, Sep  2 2026, 21:08:32) [GCC 15.3.0]",
+  "qualified_provider_commit": "7894435e748bc55254b6c3d2b63ae82c101e5774",
+  "provider_source_sha256": {
+    "molsysmt/build/add_missing_hydrogens.py": "87236d628277cb9ee4878444200bea7bb07abe1f0a781e2ef0a2cd8b8b883871",
+    "molsysmt/_private/fixed_hydrogens.py": "72a05f5cc15cfa3aacd7102f0e19e9d191941f8da9e4fc39c42a15c0d3751530",
+    "molsysmt/build/assign_partial_charges.py": "677d5ecc04f339be538d70c72a2250c7fb0a12162f48cd0a7244b90a15827e2d",
+    "molsysmt/_private/partial_charges.py": "df653878af609d6d16fb91074a6fa7d2d480f7d3b556af65719c0a9c33e07c0b"
+  },
+  "distribution_versions": {
+    "dockingmt": "0.0.0+101.gbe39d74.dirty",
+    "molsysmt": "0.22.4+24.g42b487869",
+    "rdkit": "2025.9.5",
+    "vina": "1.2.7"
+  },
+  "version_limit": "Original producer distribution versions are retained separately from exact loaded source qualification.",
+  "dockingmt_source_sha256": {
+    "dockingmt/preparation/_stages.py": "0357ed310cdb6829d3e7764a4bbf8832c96313443eaf286a3130b0f41ec7698c",
+    "dockingmt/preparation/_molsys.py": "65848c352d0ada73792ea54e837fa61c8bde372fb4b447743dec0d2cd80d1f4f",
+    "dockingmt/preparation/ligand.py": "19cf5abf920f0bd415cdd0939f47d3be4d4229849b60b07c96e68f50826e1ed7",
+    "devtools/qualify_ligand_stages.py": "6ed4af0a2a6afee592f03127e7278141af84ad870c970a4fbae29e24be6edcac"
+  },
+  "polar_control": {
+    "source_smiles": "CO",
+    "source_snapshot": {
+      "format": "molsysmt",
+      "kind": "molsys",
+      "version": "0.1",
+      "metadata": {},
+      "topology": {
+        "atoms": [
+          {
+            "atom_id": "0",
+            "atom_name": "C0",
+            "atom_type": "C",
+            "isotope": null
+          },
+          {
+            "atom_id": "1",
+            "atom_name": "O1",
+            "atom_type": "O",
+            "isotope": null
+          }
+        ],
+        "groups": [],
+        "bonds": [
+          {
+            "atom_index_1": 0,
+            "atom_index_2": 1,
+            "bond_order": 1,
+            "bond_type": "covalent"
+          }
+        ],
+        "chains": [],
+        "molecules": [],
+        "entities": []
+      },
+      "structures": {
+        "structure_id": null,
+        "time": null,
+        "box": null,
+        "coordinates": [
+          [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.13999999999999999,
+              0.0,
+              0.0
+            ]
+          ]
+        ]
+      },
+      "chemical_states": {
+        "schema": "molsysmt.chemical_states_dict",
+        "version": 1,
+        "n_atoms": 2,
+        "reference_chemical_state_index": 0,
+        "states": [
+          {
+            "state_id": null,
+            "connectivity_completeness": "complete",
+            "component_completeness": "complete",
+            "component_evidence": "inferred",
+            "provenance_index": null,
+            "component_indices": {
+              "dtype": "Int64",
+              "values": [
+                0,
+                0
+              ],
+              "null_mask": [
+                false,
+                false
+              ]
+            },
+            "components": {
+              "n_rows": 1,
+              "columns": {
+                "component_id": {
+                  "dtype": "string",
+                  "values": [
+                    "0"
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                },
+                "component_name": {
+                  "dtype": "object",
+                  "values": [
+                    "unknown 0"
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                },
+                "component_type": {
+                  "dtype": "object",
+                  "values": [
+                    "unknown"
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                }
+              }
+            },
+            "atom_attributes": {
+              "n_rows": 2,
+              "columns": {
+                "formal_charge": {
+                  "dtype": "Int16",
+                  "values": [
+                    0,
+                    0
+                  ],
+                  "null_mask": [
+                    false,
+                    false
+                  ]
+                },
+                "is_aromatic": {
+                  "dtype": "boolean",
+                  "values": [
+                    false,
+                    false
+                  ],
+                  "null_mask": [
+                    false,
+                    false
+                  ]
+                },
+                "n_unpaired_electrons": {
+                  "dtype": "UInt8",
+                  "values": [
+                    0,
+                    0
+                  ],
+                  "null_mask": [
+                    false,
+                    false
+                  ]
+                },
+                "n_implicit_hydrogens": {
+                  "dtype": "UInt8",
+                  "values": [
+                    3,
+                    1
+                  ],
+                  "null_mask": [
+                    false,
+                    false
+                  ]
+                },
+                "n_explicit_hydrogens": {
+                  "dtype": "UInt8",
+                  "values": [
+                    0,
+                    0
+                  ],
+                  "null_mask": [
+                    false,
+                    false
+                  ]
+                },
+                "allows_implicit_hydrogens": {
+                  "dtype": "boolean",
+                  "values": [
+                    true,
+                    true
+                  ],
+                  "null_mask": [
+                    false,
+                    false
+                  ]
+                },
+                "stereochemistry": {
+                  "dtype": "string",
+                  "values": [
+                    "unspecified",
+                    "unspecified"
+                  ],
+                  "null_mask": [
+                    false,
+                    false
+                  ]
+                }
+              }
+            },
+            "bonds": {
+              "n_rows": 1,
+              "columns": {
+                "atom1_index": {
+                  "dtype": "Int64",
+                  "values": [
+                    0
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                },
+                "atom2_index": {
+                  "dtype": "Int64",
+                  "values": [
+                    1
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                },
+                "bond_id": {
+                  "dtype": "string",
+                  "values": [
+                    "0"
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                },
+                "bond_order": {
+                  "dtype": "UInt8",
+                  "values": [
+                    1
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                },
+                "bond_type": {
+                  "dtype": "string",
+                  "values": [
+                    "covalent"
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                },
+                "is_aromatic": {
+                  "dtype": "boolean",
+                  "values": [
+                    false
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                },
+                "is_conjugated": {
+                  "dtype": "boolean",
+                  "values": [
+                    false
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                },
+                "joins_components": {
+                  "dtype": "boolean",
+                  "values": [
+                    true
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                },
+                "evidence": {
+                  "dtype": "string",
+                  "values": [
+                    "explicit"
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "structure_units": {
+        "coordinates": "nm",
+        "box": "nm",
+        "time": "ps"
+      },
+      "structure_chemical_state_indices": [
+        0
+      ]
+    },
+    "prepared": {
+      "schema_version": "1.0",
+      "state_id": "ligand_state_LIG",
+      "n_atoms": 3,
+      "atom_names": [
+        "C0",
+        "O1",
+        "H6"
+      ],
+      "group_name": "LIG",
+      "group_names": [
+        "LIG",
+        "LIG",
+        "LIG"
+      ],
+      "group_ids": [
+        1,
+        1,
+        1
+      ],
+      "atom_types": [
+        "C",
+        "OA",
+        "HD"
+      ],
+      "charges": [
+        0.19000057917061752,
+        -0.3996302435573072,
+        0.20962966438668965
+      ],
+      "torsion_dof": 0,
+      "pdbqt_atom_indices": [
+        0,
+        1,
+        2
+      ],
+      "metadata": {
+        "selection": "all",
+        "source_n_atoms": 6,
+        "retained_n_atoms": 3,
+        "retained_atom_indices": [
+          0,
+          1,
+          5
+        ],
+        "charge_source": "source_partial_charge",
+        "atom_type_source": "element_aromaticity_heuristic",
+        "torsion_policy": "rigid_only",
+        "active_torsion_bonds": [],
+        "hydrogen_policy": "retain_polar_merge_nonpolar",
+        "omitted_hydrogen_indices": [
+          2,
+          3,
+          4
+        ],
+        "atom_map_status": "hydrogen_subset_mapped",
+        "merged_hydrogen_charges": true,
+        "partial_charge_assignment": {
+          "schema": "molsysmt.partial_charge_assignment@1",
+          "method": "gasteiger_marsili",
+          "engine": "RDKit",
+          "chemical_state_index": 0,
+          "chemical_state_id": null,
+          "n_atoms": 6,
+          "atom_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "coverage": "complete",
+          "evaluated_atom_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "evidence": "calculated_from_declared_graph",
+          "parameters": {
+            "iterations": 12,
+            "throw_on_parameter_failure": true,
+            "chemical_perception": "rdkit_sanitization",
+            "hydrogen_policy": "indexed_atoms_only"
+          },
+          "software": {
+            "molsysmt": "0.22.4+24.g42b487869",
+            "rdkit": "2025.09.5"
+          },
+          "references": [
+            {
+              "id": "doi:10.1016/0040-4020(80)80168-2",
+              "type": "article",
+              "doi": "10.1016/0040-4020(80)80168-2",
+              "title": "Iterative partial equalization of orbital electronegativity\u2014a rapid access to atomic charges",
+              "authors": [
+                "Gasteiger, Johann",
+                "Marsili, Mario"
+              ],
+              "year": 1980,
+              "journal": "Tetrahedron",
+              "volume": "36",
+              "pages": "3219-3228"
+            }
+          ],
+          "charge_unit": "elementary_charge",
+          "expected_total_charge": 0.0,
+          "total_charge_source": "formal_charge_inventory",
+          "total_charge": -5.551115123125783e-17,
+          "total_charge_tolerance": 1e-06,
+          "attribution": {
+            "schema": "molsysmt.scientific_attribution@1",
+            "target": "molsysmt.physchem.get_partial_charges",
+            "items": [
+              {
+                "id": "doi:10.1016/0040-4020(80)80168-2",
+                "type": "article",
+                "doi": "10.1016/0040-4020(80)80168-2",
+                "title": "Iterative partial equalization of orbital electronegativity\u2014a rapid access to atomic charges",
+                "authors": [
+                  "Gasteiger, Johann",
+                  "Marsili, Mario"
+                ],
+                "year": 1980,
+                "journal": "Tetrahedron",
+                "volume": "36",
+                "pages": "3219-3228",
+                "roles": [
+                  "scientific_criterion"
+                ]
+              },
+              {
+                "id": "software:molsysmt:0.22.4+24.g42b487869",
+                "type": "software",
+                "title": "MolSysMT",
+                "authors": [
+                  "Prada-Gracia, Diego",
+                  "Moreno-Vargas, Liliana M."
+                ],
+                "doi": "10.5281/zenodo.1298752",
+                "url": "https://github.com/uibcdf/molsysmt",
+                "version": "0.22.4+24.g42b487869",
+                "roles": [
+                  "executed_software"
+                ]
+              },
+              {
+                "id": "software:rdkit:2025.09.5",
+                "type": "software",
+                "title": "RDKit: Open-source cheminformatics",
+                "url": "https://www.rdkit.org",
+                "how_to_cite": "https://www.rdkit.org/docs/Overview.html#citing-the-rdkit",
+                "version": "2025.09.5",
+                "roles": [
+                  "executed_software"
+                ]
+              }
+            ]
+          },
+          "status": "assigned",
+          "atom_source_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "chemical_digest": "81a0fcc007eb0df17fecf17f826ecbd26abfb019688a2a44120c673bfd7c6891",
+          "values_digest": "c41aa2a15beb859f21472bc81216d155e12633bea5270a642e56c8b5fc1e4b10"
+        },
+        "preparation_workflow": {
+          "schema_version": "1.0",
+          "scope": "explicit_molsysmt_stages",
+          "input_n_atoms": 2,
+          "stages": [
+            "hydrogen_addition",
+            "partial_charge_assignment"
+          ],
+          "hydrogen_addition": {
+            "schema": "molsysmt.hydrogen_addition@1",
+            "status": "added",
+            "mode": "fixed_chemical_state",
+            "method": "local_hydrogen_placement",
+            "engine": "RDKit",
+            "parameters": {
+              "addCoords": true,
+              "pH": null,
+              "optimize": false
+            },
+            "chemical_state_index": 0,
+            "chemical_state_id": null,
+            "structure_index": 0,
+            "inventory": {
+              "schema": "molsysmt.hydrogen_inventory@1",
+              "method": "stored_hydrogen_inventory",
+              "atom_indices": [
+                0,
+                1
+              ],
+              "chemical_state_index": 0,
+              "structure_index": 0,
+              "status": "available",
+              "indexed_hydrogen_counts": [
+                0,
+                0
+              ],
+              "missing_hydrogen_counts": [
+                3,
+                1
+              ],
+              "total_hydrogen_counts": [
+                3,
+                1
+              ],
+              "parent_hydrogen_pairs": [],
+              "explicit_hydrogen_atom_indices": [],
+              "issues": [],
+              "count_convention": "Stored implicit/explicit counts exclude indexed H neighbors; -1 is unknown.",
+              "unassessed_checks": [
+                "valence",
+                "protonation",
+                "coordinate_quality"
+              ],
+              "software": {
+                "molsysmt": "0.22.4+24.g42b487869"
+              }
+            },
+            "chemical_readiness": {
+              "schema": "molsysmt.chemical_readiness@1",
+              "method": "stored_field_audit",
+              "rule_version": 1,
+              "source_forms": "molsysmt.MolSys",
+              "n_atoms": 2,
+              "atom_indices": [
+                0,
+                1
+              ],
+              "bond_indices": [
+                0
+              ],
+              "bonded_atom_pairs": [
+                [
+                  0,
+                  1
+                ]
+              ],
+              "structure_index": 0,
+              "chemical_state_index": 0,
+              "chemical_state_status": "resolved",
+              "state_provenance_index": null,
+              "fields": {
+                "atom_type": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1
+                  ],
+                  "values": [
+                    "C",
+                    "O"
+                  ],
+                  "present_indices": [
+                    0,
+                    1
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "atom_id": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1
+                  ],
+                  "values": [
+                    "0",
+                    "1"
+                  ],
+                  "present_indices": [
+                    0,
+                    1
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "isotope": {
+                  "status": "missing",
+                  "indices": [
+                    0,
+                    1
+                  ],
+                  "values": [
+                    null,
+                    null
+                  ],
+                  "present_indices": [],
+                  "missing_indices": [
+                    0,
+                    1
+                  ],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "formal_charge": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1
+                  ],
+                  "values": [
+                    0,
+                    0
+                  ],
+                  "present_indices": [
+                    0,
+                    1
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed"
+                  ],
+                  "unit": "elementary_charge"
+                },
+                "atom_is_aromatic": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1
+                  ],
+                  "values": [
+                    false,
+                    false
+                  ],
+                  "present_indices": [
+                    0,
+                    1
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "n_unpaired_electrons": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1
+                  ],
+                  "values": [
+                    0,
+                    0
+                  ],
+                  "present_indices": [
+                    0,
+                    1
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "n_implicit_hydrogens": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1
+                  ],
+                  "values": [
+                    3,
+                    1
+                  ],
+                  "present_indices": [
+                    0,
+                    1
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "n_explicit_hydrogens": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1
+                  ],
+                  "values": [
+                    0,
+                    0
+                  ],
+                  "present_indices": [
+                    0,
+                    1
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "allows_implicit_hydrogens": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1
+                  ],
+                  "values": [
+                    true,
+                    true
+                  ],
+                  "present_indices": [
+                    0,
+                    1
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "atom_stereochemistry": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1
+                  ],
+                  "values": [
+                    "unspecified",
+                    "unspecified"
+                  ],
+                  "present_indices": [
+                    0,
+                    1
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "bond_id": {
+                  "status": "present",
+                  "indices": [
+                    0
+                  ],
+                  "values": [
+                    "0"
+                  ],
+                  "present_indices": [
+                    0
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed"
+                  ]
+                },
+                "bond_type": {
+                  "status": "present",
+                  "indices": [
+                    0
+                  ],
+                  "values": [
+                    "covalent"
+                  ],
+                  "present_indices": [
+                    0
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "explicit"
+                  ]
+                },
+                "bond_order": {
+                  "status": "present",
+                  "indices": [
+                    0
+                  ],
+                  "values": [
+                    1
+                  ],
+                  "present_indices": [
+                    0
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed"
+                  ]
+                },
+                "bond_is_aromatic": {
+                  "status": "present",
+                  "indices": [
+                    0
+                  ],
+                  "values": [
+                    false
+                  ],
+                  "present_indices": [
+                    0
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed"
+                  ]
+                },
+                "bond_stereochemistry": {
+                  "status": "missing",
+                  "indices": [
+                    0
+                  ],
+                  "values": [
+                    null
+                  ],
+                  "present_indices": [],
+                  "missing_indices": [
+                    0
+                  ],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed"
+                  ]
+                },
+                "covalent_multiplicity": {
+                  "status": "present",
+                  "indices": [
+                    0
+                  ],
+                  "values": [
+                    1
+                  ],
+                  "present_indices": [
+                    0
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed"
+                  ]
+                },
+                "coordinates": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1
+                  ],
+                  "values": [
+                    true,
+                    true
+                  ],
+                  "present_indices": [
+                    0,
+                    1
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed"
+                  ],
+                  "unit": "nm"
+                }
+              },
+              "connectivity": {
+                "declared_completeness": "complete",
+                "examined_bond_indices": [
+                  0
+                ],
+                "invalid_bond_indices": [],
+                "crossing_bond_indices": [],
+                "evidence": [
+                  "explicit"
+                ]
+              },
+              "explicit_hydrogen_atom_indices": [],
+              "unassessed_checks": [
+                "valence",
+                "protonation",
+                "missing_hydrogen_inventory",
+                "aromaticity_perception",
+                "stereogenicity",
+                "periodic_geometry",
+                "conformer_quality",
+                "charge_model",
+                "docking_readiness",
+                "property_origin"
+              ],
+              "software": {
+                "molsysmt": "0.22.4+24.g42b487869"
+              }
+            },
+            "n_added_hydrogens": 4,
+            "atom_correspondence": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ]
+            ],
+            "parent_hydrogen_pairs": [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                5
+              ]
+            ],
+            "generated_atom_ids": [
+              "2",
+              "3",
+              "4",
+              "5"
+            ],
+            "original_coordinates_preserved": true,
+            "coordinate_unit": "nm",
+            "coordinate_evidence": "generated_local_geometry",
+            "geometry_reference": "https://www.rdkit.org/docs/source/rdkit.Chem.rdmolops.html#rdkit.Chem.rdmolops.AddHs",
+            "limitations": [
+              "No receptor/environment optimization or energy minimization.",
+              "OH/NH orientations can require separate environmental refinement.",
+              "No pH, protomer, tautomer or heavy-atom conformer selection."
+            ],
+            "input_provenance": {
+              "chemical_state_provenance_index": null
+            },
+            "dropped_attributes": [],
+            "invalidated_interactions": [],
+            "software": {
+              "molsysmt": "0.22.4+24.g42b487869",
+              "rdkit": "2025.09.5"
+            },
+            "references": [
+              {
+                "id": "doi:10.1021/acs.jcim.8b00324",
+                "type": "article",
+                "title": "Algorithmic Analysis of Cahn-Ingold-Prelog Rules of Stereochemistry: Proposals for Revised Rules and a Guide for Machine Implementation",
+                "doi": "10.1021/acs.jcim.8b00324",
+                "year": 2018
+              }
+            ],
+            "attribution": {
+              "schema": "molsysmt.scientific_attribution@1",
+              "target": "molsysmt.build.add_missing_hydrogens",
+              "items": [
+                {
+                  "id": "doi:10.1021/acs.jcim.8b00324",
+                  "type": "article",
+                  "title": "Algorithmic Analysis of Cahn-Ingold-Prelog Rules of Stereochemistry: Proposals for Revised Rules and a Guide for Machine Implementation",
+                  "doi": "10.1021/acs.jcim.8b00324",
+                  "year": 2018,
+                  "roles": [
+                    "scientific_criterion"
+                  ]
+                },
+                {
+                  "id": "software:molsysmt:0.22.4+24.g42b487869",
+                  "type": "software",
+                  "title": "MolSysMT",
+                  "authors": [
+                    "Prada-Gracia, Diego",
+                    "Moreno-Vargas, Liliana M."
+                  ],
+                  "doi": "10.5281/zenodo.1298752",
+                  "url": "https://github.com/uibcdf/molsysmt",
+                  "version": "0.22.4+24.g42b487869",
+                  "roles": [
+                    "executed_software"
+                  ]
+                },
+                {
+                  "id": "software:rdkit:2025.09.5",
+                  "type": "software",
+                  "title": "RDKit: Open-source cheminformatics",
+                  "url": "https://www.rdkit.org",
+                  "how_to_cite": "https://www.rdkit.org/docs/Overview.html#citing-the-rdkit",
+                  "version": "2025.09.5",
+                  "roles": [
+                    "executed_software"
+                  ]
+                }
+              ]
+            }
+          },
+          "charge_assignment_record": "metadata.partial_charge_assignment",
+          "prepared_to_input_atom_indices": [
+            0,
+            1,
+            null
+          ],
+          "pdbqt_to_input_atom_indices": [
+            0,
+            1,
+            null
+          ],
+          "index_scope": "selected_input_before_requested_stages",
+          "generated_atom_marker": null
+        },
+        "charge_projection": {
+          "schema_version": "1.0",
+          "charge_unit": "elementary_charge",
+          "policy": "retain_polar_merge_nonpolar",
+          "selected_source_atom_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "retained_source_atom_indices": [
+            0,
+            1,
+            5
+          ],
+          "selected_total_charge": -2.0816681711721685e-17,
+          "retained_before_merge_total_charge": -0.15805989545288943,
+          "transfers": [
+            {
+              "omitted_source_atom_index": 2,
+              "recipient_source_atom_index": 0,
+              "charge": 0.0526866318176298
+            },
+            {
+              "omitted_source_atom_index": 3,
+              "recipient_source_atom_index": 0,
+              "charge": 0.0526866318176298
+            },
+            {
+              "omitted_source_atom_index": 4,
+              "recipient_source_atom_index": 0,
+              "charge": 0.0526866318176298
+            }
+          ],
+          "prepared_total_charge": -2.7755575615628914e-17,
+          "prepared_values_sha256": "d2e0b270c27685d7be4a61ed6deb6bdc8792c00d0f1dea6ae1dbc37988b7a136",
+          "total_charge_tolerance": 1e-06
+        },
+        "source_chemistry": {
+          "connectivity_completeness": [
+            "complete"
+          ],
+          "bond_order_available": true,
+          "chemical_readiness": {
+            "provider_schema": "molsysmt.chemical_readiness@1",
+            "method": "stored_field_audit",
+            "rule_version": 1,
+            "atom_axis": "selected_source_before_hydrogen_projection",
+            "n_atoms": 6,
+            "structure_index": 0,
+            "chemical_state_index": 0,
+            "chemical_state_status": "resolved",
+            "state_provenance_index": null,
+            "fields": {
+              "atom_type": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "atom_id": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "isotope": {
+                "status": "missing",
+                "n_assessed": 6,
+                "n_present": 0,
+                "n_missing": 6,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "formal_charge": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                },
+                "unit": "elementary_charge"
+              },
+              "atom_is_aromatic": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "n_unpaired_electrons": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "n_implicit_hydrogens": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "n_explicit_hydrogens": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "allows_implicit_hydrogens": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "atom_stereochemistry": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "bond_id": {
+                "status": "partial",
+                "n_assessed": 5,
+                "n_present": 1,
+                "n_missing": 4,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 5
+                }
+              },
+              "bond_type": {
+                "status": "present",
+                "n_assessed": 5,
+                "n_present": 5,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "explicit": 5
+                }
+              },
+              "bond_order": {
+                "status": "present",
+                "n_assessed": 5,
+                "n_present": 5,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 5
+                }
+              },
+              "bond_is_aromatic": {
+                "status": "present",
+                "n_assessed": 5,
+                "n_present": 5,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 5
+                }
+              },
+              "bond_stereochemistry": {
+                "status": "missing",
+                "n_assessed": 5,
+                "n_present": 0,
+                "n_missing": 5,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 5
+                }
+              },
+              "covalent_multiplicity": {
+                "status": "present",
+                "n_assessed": 5,
+                "n_present": 5,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 5
+                }
+              },
+              "coordinates": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                },
+                "unit": "nm"
+              }
+            },
+            "connectivity": {
+              "declared_completeness": "complete",
+              "n_examined_bonds": 5,
+              "n_invalid_bonds": 0,
+              "n_crossing_bonds": 0
+            },
+            "n_explicit_hydrogens": 4,
+            "unassessed_checks": [
+              "valence",
+              "protonation",
+              "missing_hydrogen_inventory",
+              "aromaticity_perception",
+              "stereogenicity",
+              "periodic_geometry",
+              "conformer_quality",
+              "charge_model",
+              "docking_readiness",
+              "property_origin"
+            ],
+            "software": {
+              "molsysmt": "0.22.4+24.g42b487869"
+            }
+          }
+        }
+      }
+    },
+    "charge_audit": {
+      "schema_version": "1.0",
+      "scope": "prepared_charge_consumption",
+      "charge_unit": "elementary_charge",
+      "assessment": "consistent",
+      "n_atoms": 3,
+      "total_charge": -2.7755575615628914e-17,
+      "matches_preparation_values": true,
+      "selected_total_charge_difference": -6.938893903907228e-18,
+      "partial_charge_assignment": {
+        "schema": "molsysmt.partial_charge_assignment@1",
+        "method": "gasteiger_marsili",
+        "engine": "RDKit",
+        "chemical_state_index": 0,
+        "chemical_state_id": null,
+        "n_atoms": 6,
+        "atom_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "coverage": "complete",
+        "evaluated_atom_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "evidence": "calculated_from_declared_graph",
+        "parameters": {
+          "iterations": 12,
+          "throw_on_parameter_failure": true,
+          "chemical_perception": "rdkit_sanitization",
+          "hydrogen_policy": "indexed_atoms_only"
+        },
+        "software": {
+          "molsysmt": "0.22.4+24.g42b487869",
+          "rdkit": "2025.09.5"
+        },
+        "references": [
+          {
+            "id": "doi:10.1016/0040-4020(80)80168-2",
+            "type": "article",
+            "doi": "10.1016/0040-4020(80)80168-2",
+            "title": "Iterative partial equalization of orbital electronegativity\u2014a rapid access to atomic charges",
+            "authors": [
+              "Gasteiger, Johann",
+              "Marsili, Mario"
+            ],
+            "year": 1980,
+            "journal": "Tetrahedron",
+            "volume": "36",
+            "pages": "3219-3228"
+          }
+        ],
+        "charge_unit": "elementary_charge",
+        "expected_total_charge": 0.0,
+        "total_charge_source": "formal_charge_inventory",
+        "total_charge": -5.551115123125783e-17,
+        "total_charge_tolerance": 1e-06,
+        "attribution": {
+          "schema": "molsysmt.scientific_attribution@1",
+          "target": "molsysmt.physchem.get_partial_charges",
+          "items": [
+            {
+              "id": "doi:10.1016/0040-4020(80)80168-2",
+              "type": "article",
+              "doi": "10.1016/0040-4020(80)80168-2",
+              "title": "Iterative partial equalization of orbital electronegativity\u2014a rapid access to atomic charges",
+              "authors": [
+                "Gasteiger, Johann",
+                "Marsili, Mario"
+              ],
+              "year": 1980,
+              "journal": "Tetrahedron",
+              "volume": "36",
+              "pages": "3219-3228",
+              "roles": [
+                "scientific_criterion"
+              ]
+            },
+            {
+              "id": "software:molsysmt:0.22.4+24.g42b487869",
+              "type": "software",
+              "title": "MolSysMT",
+              "authors": [
+                "Prada-Gracia, Diego",
+                "Moreno-Vargas, Liliana M."
+              ],
+              "doi": "10.5281/zenodo.1298752",
+              "url": "https://github.com/uibcdf/molsysmt",
+              "version": "0.22.4+24.g42b487869",
+              "roles": [
+                "executed_software"
+              ]
+            },
+            {
+              "id": "software:rdkit:2025.09.5",
+              "type": "software",
+              "title": "RDKit: Open-source cheminformatics",
+              "url": "https://www.rdkit.org",
+              "how_to_cite": "https://www.rdkit.org/docs/Overview.html#citing-the-rdkit",
+              "version": "2025.09.5",
+              "roles": [
+                "executed_software"
+              ]
+            }
+          ]
+        },
+        "status": "assigned",
+        "atom_source_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "chemical_digest": "81a0fcc007eb0df17fecf17f826ecbd26abfb019688a2a44120c673bfd7c6891",
+        "values_digest": "c41aa2a15beb859f21472bc81216d155e12633bea5270a642e56c8b5fc1e4b10"
+      },
+      "charge_projection": {
+        "schema_version": "1.0",
+        "charge_unit": "elementary_charge",
+        "policy": "retain_polar_merge_nonpolar",
+        "selected_source_atom_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "retained_source_atom_indices": [
+          0,
+          1,
+          5
+        ],
+        "selected_total_charge": -2.0816681711721685e-17,
+        "retained_before_merge_total_charge": -0.15805989545288943,
+        "transfers": [
+          {
+            "omitted_source_atom_index": 2,
+            "recipient_source_atom_index": 0,
+            "charge": 0.0526866318176298
+          },
+          {
+            "omitted_source_atom_index": 3,
+            "recipient_source_atom_index": 0,
+            "charge": 0.0526866318176298
+          },
+          {
+            "omitted_source_atom_index": 4,
+            "recipient_source_atom_index": 0,
+            "charge": 0.0526866318176298
+          }
+        ],
+        "prepared_total_charge": -2.7755575615628914e-17,
+        "prepared_values_sha256": "d2e0b270c27685d7be4a61ed6deb6bdc8792c00d0f1dea6ae1dbc37988b7a136",
+        "total_charge_tolerance": 1e-06
+      },
+      "pdbqt": {
+        "decimal_places": 3,
+        "prepared_atom_indices": [
+          0,
+          1,
+          2
+        ],
+        "source_atom_indices": [
+          0,
+          1,
+          5
+        ],
+        "charges": [
+          0.19,
+          -0.4,
+          0.21
+        ],
+        "total_charge": -2.7755575615628914e-17,
+        "rounding_difference": 0.0,
+        "total_rounding_bound": 0.0015
+      }
+    },
+    "hbond_sites": {
+      "donor_hydrogen_pairs": [
+        [
+          1,
+          2
+        ]
+      ],
+      "acceptor_atom_indices": [
+        1
+      ],
+      "atom_source_indices": [
+        0,
+        1,
+        2
+      ],
+      "selected_atom_indices": [
+        0,
+        1,
+        2
+      ],
+      "chemical_state_index": 0,
+      "method": "elemental_nitrogen_oxygen",
+      "method_reference": {
+        "software": "MDTraj",
+        "commit": "80f7cf2ddb43dd0d32905e490464f2d8765329df",
+        "pi_pi": "https://github.com/mdtraj/mdtraj/blob/80f7cf2ddb43dd0d32905e490464f2d8765329df/mdtraj/geometry/pi_stacking.py",
+        "hbonds": "https://github.com/mdtraj/mdtraj/blob/80f7cf2ddb43dd0d32905e490464f2d8765329df/mdtraj/geometry/hbond.py",
+        "paper": "https://doi.org/10.1016/j.bpj.2015.08.015",
+        "hydrogen_bond_definitions": {
+          "baker_hubbard": "https://doi.org/10.1016/0079-6107(84)90007-5",
+          "wernet_nilsson": "https://doi.org/10.1126/science.1096205"
+        }
+      },
+      "smarts_patterns": null,
+      "evidence": "declared_elements_and_covalent_bonds",
+      "software": {
+        "molsysmt": "0.22.4+24.g42b487869"
+      },
+      "assume_complete_connectivity": false,
+      "scope": "full_source_recognition_then_selection",
+      "water_policy": "included",
+      "hydrogen_policy": "indexed_atoms_only",
+      "profile": null,
+      "method_definition": "molsysmt.hbond_sites.elemental_nitrogen_oxygen.default@1",
+      "attribution": {
+        "schema": "molsysmt.scientific_attribution@1",
+        "target": "molsysmt.physchem.get_hbond_sites",
+        "items": [
+          {
+            "id": "doi:10.1016/j.bpj.2015.08.015",
+            "type": "article",
+            "url": "https://doi.org/10.1016/j.bpj.2015.08.015",
+            "doi": "10.1016/j.bpj.2015.08.015",
+            "title": "MDTraj: A Modern Open Library for the Analysis of Molecular Dynamics Trajectories",
+            "authors": [
+              "McGibbon, Robert T.",
+              "Beauchamp, Kyle A.",
+              "Harrigan, Matthew P.",
+              "Klein, Christoph",
+              "Swails, Jason M.",
+              "Hern\u00e1ndez, Carlos X.",
+              "Schwantes, Christian R.",
+              "Wang, Lee-Ping",
+              "Lane, Thomas J.",
+              "Pande, Vijay S."
+            ],
+            "year": 2015,
+            "journal": "Biophysical Journal",
+            "volume": "109",
+            "pages": "1528-1532",
+            "roles": [
+              "reference_implementation"
+            ]
+          },
+          {
+            "id": "software:molsysmt:0.22.4+24.g42b487869",
+            "type": "software",
+            "title": "MolSysMT",
+            "authors": [
+              "Prada-Gracia, Diego",
+              "Moreno-Vargas, Liliana M."
+            ],
+            "doi": "10.5281/zenodo.1298752",
+            "url": "https://github.com/uibcdf/molsysmt",
+            "version": "0.22.4+24.g42b487869",
+            "roles": [
+              "executed_software"
+            ]
+          }
+        ]
+      }
+    },
+    "pdbqt_sha256": "311983e2036176a9993f1ad94a5fa15c84132c5887f5967889414fc23a386764",
+    "vina_parser_admitted": true,
+    "source_unchanged": true
+  },
+  "idempotent_control": {
+    "prepared": {
+      "schema_version": "1.0",
+      "state_id": "ligand_state_LIG",
+      "n_atoms": 3,
+      "atom_names": [
+        "C0",
+        "O1",
+        "H6"
+      ],
+      "group_name": "LIG",
+      "group_names": [
+        "LIG",
+        "LIG",
+        "LIG"
+      ],
+      "group_ids": [
+        1,
+        1,
+        1
+      ],
+      "atom_types": [
+        "C",
+        "OA",
+        "HD"
+      ],
+      "charges": [
+        0.19000057917061752,
+        -0.3996302435573072,
+        0.20962966438668965
+      ],
+      "torsion_dof": 0,
+      "pdbqt_atom_indices": [
+        0,
+        1,
+        2
+      ],
+      "metadata": {
+        "selection": "all",
+        "source_n_atoms": 6,
+        "retained_n_atoms": 3,
+        "retained_atom_indices": [
+          0,
+          1,
+          5
+        ],
+        "charge_source": "source_partial_charge",
+        "atom_type_source": "element_aromaticity_heuristic",
+        "torsion_policy": "rigid_only",
+        "active_torsion_bonds": [],
+        "hydrogen_policy": "retain_polar_merge_nonpolar",
+        "omitted_hydrogen_indices": [
+          2,
+          3,
+          4
+        ],
+        "atom_map_status": "hydrogen_subset_mapped",
+        "merged_hydrogen_charges": true,
+        "partial_charge_assignment": {
+          "schema": "molsysmt.partial_charge_assignment@1",
+          "method": "gasteiger_marsili",
+          "engine": "RDKit",
+          "chemical_state_index": 0,
+          "chemical_state_id": null,
+          "n_atoms": 6,
+          "atom_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "coverage": "complete",
+          "evaluated_atom_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "evidence": "calculated_from_declared_graph",
+          "parameters": {
+            "iterations": 12,
+            "throw_on_parameter_failure": true,
+            "chemical_perception": "rdkit_sanitization",
+            "hydrogen_policy": "indexed_atoms_only"
+          },
+          "software": {
+            "molsysmt": "0.22.4+24.g42b487869",
+            "rdkit": "2025.09.5"
+          },
+          "references": [
+            {
+              "id": "doi:10.1016/0040-4020(80)80168-2",
+              "type": "article",
+              "doi": "10.1016/0040-4020(80)80168-2",
+              "title": "Iterative partial equalization of orbital electronegativity\u2014a rapid access to atomic charges",
+              "authors": [
+                "Gasteiger, Johann",
+                "Marsili, Mario"
+              ],
+              "year": 1980,
+              "journal": "Tetrahedron",
+              "volume": "36",
+              "pages": "3219-3228"
+            }
+          ],
+          "charge_unit": "elementary_charge",
+          "expected_total_charge": 0.0,
+          "total_charge_source": "formal_charge_inventory",
+          "total_charge": -5.551115123125783e-17,
+          "total_charge_tolerance": 1e-06,
+          "attribution": {
+            "schema": "molsysmt.scientific_attribution@1",
+            "target": "molsysmt.physchem.get_partial_charges",
+            "items": [
+              {
+                "id": "doi:10.1016/0040-4020(80)80168-2",
+                "type": "article",
+                "doi": "10.1016/0040-4020(80)80168-2",
+                "title": "Iterative partial equalization of orbital electronegativity\u2014a rapid access to atomic charges",
+                "authors": [
+                  "Gasteiger, Johann",
+                  "Marsili, Mario"
+                ],
+                "year": 1980,
+                "journal": "Tetrahedron",
+                "volume": "36",
+                "pages": "3219-3228",
+                "roles": [
+                  "scientific_criterion"
+                ]
+              },
+              {
+                "id": "software:molsysmt:0.22.4+24.g42b487869",
+                "type": "software",
+                "title": "MolSysMT",
+                "authors": [
+                  "Prada-Gracia, Diego",
+                  "Moreno-Vargas, Liliana M."
+                ],
+                "doi": "10.5281/zenodo.1298752",
+                "url": "https://github.com/uibcdf/molsysmt",
+                "version": "0.22.4+24.g42b487869",
+                "roles": [
+                  "executed_software"
+                ]
+              },
+              {
+                "id": "software:rdkit:2025.09.5",
+                "type": "software",
+                "title": "RDKit: Open-source cheminformatics",
+                "url": "https://www.rdkit.org",
+                "how_to_cite": "https://www.rdkit.org/docs/Overview.html#citing-the-rdkit",
+                "version": "2025.09.5",
+                "roles": [
+                  "executed_software"
+                ]
+              }
+            ]
+          },
+          "status": "assigned",
+          "atom_source_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "chemical_digest": "81a0fcc007eb0df17fecf17f826ecbd26abfb019688a2a44120c673bfd7c6891",
+          "values_digest": "c41aa2a15beb859f21472bc81216d155e12633bea5270a642e56c8b5fc1e4b10"
+        },
+        "preparation_workflow": {
+          "schema_version": "1.0",
+          "scope": "explicit_molsysmt_stages",
+          "input_n_atoms": 6,
+          "stages": [
+            "hydrogen_addition",
+            "partial_charge_assignment"
+          ],
+          "hydrogen_addition": {
+            "schema": "molsysmt.hydrogen_addition@1",
+            "status": "unchanged",
+            "mode": "fixed_chemical_state",
+            "method": "local_hydrogen_placement",
+            "engine": "RDKit",
+            "parameters": {
+              "addCoords": true,
+              "pH": null,
+              "optimize": false
+            },
+            "chemical_state_index": 0,
+            "chemical_state_id": null,
+            "structure_index": 0,
+            "inventory": {
+              "schema": "molsysmt.hydrogen_inventory@1",
+              "method": "stored_hydrogen_inventory",
+              "atom_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "chemical_state_index": 0,
+              "structure_index": 0,
+              "status": "available",
+              "indexed_hydrogen_counts": [
+                3,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "missing_hydrogen_counts": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "total_hydrogen_counts": [
+                3,
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              "parent_hydrogen_pairs": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  4
+                ],
+                [
+                  1,
+                  5
+                ]
+              ],
+              "explicit_hydrogen_atom_indices": [
+                2,
+                3,
+                4,
+                5
+              ],
+              "issues": [],
+              "count_convention": "Stored implicit/explicit counts exclude indexed H neighbors; -1 is unknown.",
+              "unassessed_checks": [
+                "valence",
+                "protonation",
+                "coordinate_quality"
+              ],
+              "software": {
+                "molsysmt": "0.22.4+24.g42b487869"
+              }
+            },
+            "chemical_readiness": {
+              "schema": "molsysmt.chemical_readiness@1",
+              "method": "stored_field_audit",
+              "rule_version": 1,
+              "source_forms": "molsysmt.MolSys",
+              "n_atoms": 6,
+              "atom_indices": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "bond_indices": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "bonded_atom_pairs": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  0,
+                  4
+                ],
+                [
+                  1,
+                  5
+                ]
+              ],
+              "structure_index": 0,
+              "chemical_state_index": 0,
+              "chemical_state_status": "resolved",
+              "state_provenance_index": null,
+              "fields": {
+                "atom_type": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "values": [
+                    "C",
+                    "O",
+                    "H",
+                    "H",
+                    "H",
+                    "H"
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "atom_id": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "values": [
+                    "0",
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "isotope": {
+                  "status": "missing",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "values": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  "present_indices": [],
+                  "missing_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "formal_charge": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "values": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ],
+                  "unit": "elementary_charge"
+                },
+                "atom_is_aromatic": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "values": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "n_unpaired_electrons": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "values": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "n_implicit_hydrogens": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "values": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "n_explicit_hydrogens": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "values": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "allows_implicit_hydrogens": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "values": [
+                    true,
+                    true,
+                    false,
+                    false,
+                    false,
+                    false
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "atom_stereochemistry": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "values": [
+                    "unspecified",
+                    "unspecified",
+                    "unspecified",
+                    "unspecified",
+                    "unspecified",
+                    "unspecified"
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "bond_id": {
+                  "status": "partial",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "values": [
+                    "0",
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  "present_indices": [
+                    0
+                  ],
+                  "missing_indices": [
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "bond_type": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "values": [
+                    "covalent",
+                    "covalent",
+                    "covalent",
+                    "covalent",
+                    "covalent"
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "explicit",
+                    "explicit",
+                    "explicit",
+                    "explicit",
+                    "explicit"
+                  ]
+                },
+                "bond_order": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "values": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "bond_is_aromatic": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "values": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "bond_stereochemistry": {
+                  "status": "missing",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "values": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                  ],
+                  "present_indices": [],
+                  "missing_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "covalent_multiplicity": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "values": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ]
+                },
+                "coordinates": {
+                  "status": "present",
+                  "indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "values": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true
+                  ],
+                  "present_indices": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "missing_indices": [],
+                  "unsupported_indices": [],
+                  "conflict_indices": [],
+                  "origin": [
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed",
+                    "unassessed"
+                  ],
+                  "unit": "nm"
+                }
+              },
+              "connectivity": {
+                "declared_completeness": "complete",
+                "examined_bond_indices": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "invalid_bond_indices": [],
+                "crossing_bond_indices": [],
+                "evidence": [
+                  "explicit",
+                  "explicit",
+                  "explicit",
+                  "explicit",
+                  "explicit"
+                ]
+              },
+              "explicit_hydrogen_atom_indices": [
+                2,
+                3,
+                4,
+                5
+              ],
+              "unassessed_checks": [
+                "valence",
+                "protonation",
+                "missing_hydrogen_inventory",
+                "aromaticity_perception",
+                "stereogenicity",
+                "periodic_geometry",
+                "conformer_quality",
+                "charge_model",
+                "docking_readiness",
+                "property_origin"
+              ],
+              "software": {
+                "molsysmt": "0.22.4+24.g42b487869"
+              }
+            },
+            "n_added_hydrogens": 0,
+            "atom_correspondence": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                5,
+                5
+              ]
+            ],
+            "parent_hydrogen_pairs": [],
+            "generated_atom_ids": [],
+            "original_coordinates_preserved": true,
+            "coordinate_unit": "nm",
+            "coordinate_evidence": "generated_local_geometry",
+            "geometry_reference": "https://www.rdkit.org/docs/source/rdkit.Chem.rdmolops.html#rdkit.Chem.rdmolops.AddHs",
+            "limitations": [
+              "No receptor/environment optimization or energy minimization.",
+              "OH/NH orientations can require separate environmental refinement.",
+              "No pH, protomer, tautomer or heavy-atom conformer selection."
+            ],
+            "input_provenance": {
+              "chemical_state_provenance_index": null
+            },
+            "dropped_attributes": [],
+            "invalidated_interactions": [],
+            "software": {
+              "molsysmt": "0.22.4+24.g42b487869",
+              "rdkit": "2025.09.5"
+            },
+            "references": [
+              {
+                "id": "doi:10.1021/acs.jcim.8b00324",
+                "type": "article",
+                "title": "Algorithmic Analysis of Cahn-Ingold-Prelog Rules of Stereochemistry: Proposals for Revised Rules and a Guide for Machine Implementation",
+                "doi": "10.1021/acs.jcim.8b00324",
+                "year": 2018
+              }
+            ],
+            "attribution": {
+              "schema": "molsysmt.scientific_attribution@1",
+              "target": "molsysmt.build.add_missing_hydrogens",
+              "items": [
+                {
+                  "id": "doi:10.1021/acs.jcim.8b00324",
+                  "type": "article",
+                  "title": "Algorithmic Analysis of Cahn-Ingold-Prelog Rules of Stereochemistry: Proposals for Revised Rules and a Guide for Machine Implementation",
+                  "doi": "10.1021/acs.jcim.8b00324",
+                  "year": 2018,
+                  "roles": [
+                    "scientific_criterion"
+                  ]
+                },
+                {
+                  "id": "software:molsysmt:0.22.4+24.g42b487869",
+                  "type": "software",
+                  "title": "MolSysMT",
+                  "authors": [
+                    "Prada-Gracia, Diego",
+                    "Moreno-Vargas, Liliana M."
+                  ],
+                  "doi": "10.5281/zenodo.1298752",
+                  "url": "https://github.com/uibcdf/molsysmt",
+                  "version": "0.22.4+24.g42b487869",
+                  "roles": [
+                    "executed_software"
+                  ]
+                },
+                {
+                  "id": "software:rdkit:2025.09.5",
+                  "type": "software",
+                  "title": "RDKit: Open-source cheminformatics",
+                  "url": "https://www.rdkit.org",
+                  "how_to_cite": "https://www.rdkit.org/docs/Overview.html#citing-the-rdkit",
+                  "version": "2025.09.5",
+                  "roles": [
+                    "executed_software"
+                  ]
+                }
+              ]
+            }
+          },
+          "charge_assignment_record": "metadata.partial_charge_assignment",
+          "prepared_to_input_atom_indices": [
+            0,
+            1,
+            5
+          ],
+          "pdbqt_to_input_atom_indices": [
+            0,
+            1,
+            5
+          ],
+          "index_scope": "selected_input_before_requested_stages",
+          "generated_atom_marker": null
+        },
+        "charge_projection": {
+          "schema_version": "1.0",
+          "charge_unit": "elementary_charge",
+          "policy": "retain_polar_merge_nonpolar",
+          "selected_source_atom_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "retained_source_atom_indices": [
+            0,
+            1,
+            5
+          ],
+          "selected_total_charge": -2.0816681711721685e-17,
+          "retained_before_merge_total_charge": -0.15805989545288943,
+          "transfers": [
+            {
+              "omitted_source_atom_index": 2,
+              "recipient_source_atom_index": 0,
+              "charge": 0.0526866318176298
+            },
+            {
+              "omitted_source_atom_index": 3,
+              "recipient_source_atom_index": 0,
+              "charge": 0.0526866318176298
+            },
+            {
+              "omitted_source_atom_index": 4,
+              "recipient_source_atom_index": 0,
+              "charge": 0.0526866318176298
+            }
+          ],
+          "prepared_total_charge": -2.7755575615628914e-17,
+          "prepared_values_sha256": "d2e0b270c27685d7be4a61ed6deb6bdc8792c00d0f1dea6ae1dbc37988b7a136",
+          "total_charge_tolerance": 1e-06
+        },
+        "source_chemistry": {
+          "connectivity_completeness": [
+            "complete"
+          ],
+          "bond_order_available": true,
+          "chemical_readiness": {
+            "provider_schema": "molsysmt.chemical_readiness@1",
+            "method": "stored_field_audit",
+            "rule_version": 1,
+            "atom_axis": "selected_source_before_hydrogen_projection",
+            "n_atoms": 6,
+            "structure_index": 0,
+            "chemical_state_index": 0,
+            "chemical_state_status": "resolved",
+            "state_provenance_index": null,
+            "fields": {
+              "atom_type": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "atom_id": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "isotope": {
+                "status": "missing",
+                "n_assessed": 6,
+                "n_present": 0,
+                "n_missing": 6,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "formal_charge": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                },
+                "unit": "elementary_charge"
+              },
+              "atom_is_aromatic": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "n_unpaired_electrons": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "n_implicit_hydrogens": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "n_explicit_hydrogens": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "allows_implicit_hydrogens": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "atom_stereochemistry": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                }
+              },
+              "bond_id": {
+                "status": "partial",
+                "n_assessed": 5,
+                "n_present": 1,
+                "n_missing": 4,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 5
+                }
+              },
+              "bond_type": {
+                "status": "present",
+                "n_assessed": 5,
+                "n_present": 5,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "explicit": 5
+                }
+              },
+              "bond_order": {
+                "status": "present",
+                "n_assessed": 5,
+                "n_present": 5,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 5
+                }
+              },
+              "bond_is_aromatic": {
+                "status": "present",
+                "n_assessed": 5,
+                "n_present": 5,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 5
+                }
+              },
+              "bond_stereochemistry": {
+                "status": "missing",
+                "n_assessed": 5,
+                "n_present": 0,
+                "n_missing": 5,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 5
+                }
+              },
+              "covalent_multiplicity": {
+                "status": "present",
+                "n_assessed": 5,
+                "n_present": 5,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 5
+                }
+              },
+              "coordinates": {
+                "status": "present",
+                "n_assessed": 6,
+                "n_present": 6,
+                "n_missing": 0,
+                "n_unsupported": 0,
+                "n_conflict": 0,
+                "origin_counts": {
+                  "unassessed": 6
+                },
+                "unit": "nm"
+              }
+            },
+            "connectivity": {
+              "declared_completeness": "complete",
+              "n_examined_bonds": 5,
+              "n_invalid_bonds": 0,
+              "n_crossing_bonds": 0
+            },
+            "n_explicit_hydrogens": 4,
+            "unassessed_checks": [
+              "valence",
+              "protonation",
+              "missing_hydrogen_inventory",
+              "aromaticity_perception",
+              "stereogenicity",
+              "periodic_geometry",
+              "conformer_quality",
+              "charge_model",
+              "docking_readiness",
+              "property_origin"
+            ],
+            "software": {
+              "molsysmt": "0.22.4+24.g42b487869"
+            }
+          }
+        }
+      }
+    },
+    "existing_coordinates_preserved": true
+  },
+  "181l_bnz": {
+    "full_source_atom_indices": [
+      1299,
+      1300,
+      1301,
+      1302,
+      1303,
+      1304
+    ],
+    "input_sha256": "77018feaaa65bb22dea47c784e8c059b0ccc09cd6dc7442b79cce83f3170985f",
+    "template_application_report": {
+      "schema": "molsysmt.chemical_template@1",
+      "status": "applied",
+      "method": "explicit_template_correspondence",
+      "rule_version": 1,
+      "source": {
+        "forms": "molsysmt.MolSys",
+        "n_atoms": 6,
+        "chemical_state_index": 0,
+        "chemical_state_status": "resolved"
+      },
+      "template": {
+        "forms": "molsysmt.MolSys",
+        "n_atoms": 6,
+        "chemical_state_index": 0,
+        "chemical_state_status": "resolved"
+      },
+      "atom_correspondence": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "template_provenance": {
+        "identity": "Explicit heavy-only benzene SMILES template",
+        "version": "MolSysMT 0.22.4+24.g42b487869; RDKit 2025.9.5",
+        "source_uri": "smiles:c1ccccc1",
+        "checksum": "sha256:67ce32091dbbfccfcf6df5acd250095461494adb95dd585445816f6c68db7881",
+        "checksum_scope": "canonical native snapshot including chemical states and declared structure units",
+        "hydrogen_policy": "stored_counts"
+      },
+      "assigned_fields": [
+        {
+          "axis": "atom",
+          "field": "formal_charge",
+          "index": 0,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "is_aromatic",
+          "index": 0,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_unpaired_electrons",
+          "index": 0,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_implicit_hydrogens",
+          "index": 0,
+          "value": 1,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_explicit_hydrogens",
+          "index": 0,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "allows_implicit_hydrogens",
+          "index": 0,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "formal_charge",
+          "index": 1,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "is_aromatic",
+          "index": 1,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_unpaired_electrons",
+          "index": 1,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_implicit_hydrogens",
+          "index": 1,
+          "value": 1,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_explicit_hydrogens",
+          "index": 1,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "allows_implicit_hydrogens",
+          "index": 1,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "formal_charge",
+          "index": 2,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "is_aromatic",
+          "index": 2,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_unpaired_electrons",
+          "index": 2,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_implicit_hydrogens",
+          "index": 2,
+          "value": 1,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_explicit_hydrogens",
+          "index": 2,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "allows_implicit_hydrogens",
+          "index": 2,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "formal_charge",
+          "index": 3,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "is_aromatic",
+          "index": 3,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_unpaired_electrons",
+          "index": 3,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_implicit_hydrogens",
+          "index": 3,
+          "value": 1,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_explicit_hydrogens",
+          "index": 3,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "allows_implicit_hydrogens",
+          "index": 3,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "formal_charge",
+          "index": 4,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "is_aromatic",
+          "index": 4,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_unpaired_electrons",
+          "index": 4,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_implicit_hydrogens",
+          "index": 4,
+          "value": 1,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_explicit_hydrogens",
+          "index": 4,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "allows_implicit_hydrogens",
+          "index": 4,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "formal_charge",
+          "index": 5,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "is_aromatic",
+          "index": 5,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_unpaired_electrons",
+          "index": 5,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_implicit_hydrogens",
+          "index": 5,
+          "value": 1,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "n_explicit_hydrogens",
+          "index": 5,
+          "value": 0,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "atom",
+          "field": "allows_implicit_hydrogens",
+          "index": 5,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "fractional_bond_order",
+          "index": 0,
+          "value": 1.5,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_aromatic",
+          "index": 0,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_conjugated",
+          "index": 0,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "fractional_bond_order",
+          "index": 1,
+          "value": 1.5,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_aromatic",
+          "index": 1,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_conjugated",
+          "index": 1,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "fractional_bond_order",
+          "index": 2,
+          "value": 1.5,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_aromatic",
+          "index": 2,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_conjugated",
+          "index": 2,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "fractional_bond_order",
+          "index": 3,
+          "value": 1.5,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_aromatic",
+          "index": 3,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_conjugated",
+          "index": 3,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "fractional_bond_order",
+          "index": 4,
+          "value": 1.5,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_aromatic",
+          "index": 4,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_conjugated",
+          "index": 4,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "fractional_bond_order",
+          "index": 5,
+          "value": 1.5,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_aromatic",
+          "index": 5,
+          "value": true,
+          "origin": "declared_template"
+        },
+        {
+          "axis": "bond",
+          "field": "is_conjugated",
+          "index": 5,
+          "value": true,
+          "origin": "declared_template"
+        }
+      ],
+      "preserved_fields": [
+        {
+          "axis": "bond",
+          "field": "bond_type",
+          "index": 0,
+          "value": "covalent",
+          "origin": "preserved_source"
+        },
+        {
+          "axis": "bond",
+          "field": "joins_components",
+          "index": 0,
+          "value": true,
+          "origin": "preserved_source"
+        },
+        {
+          "axis": "bond",
+          "field": "bond_type",
+          "index": 1,
+          "value": "covalent",
+          "origin": "preserved_source"
+        },
+        {
+          "axis": "bond",
+          "field": "joins_components",
+          "index": 1,
+          "value": true,
+          "origin": "preserved_source"
+        },
+        {
+          "axis": "bond",
+          "field": "bond_type",
+          "index": 2,
+          "value": "covalent",
+          "origin": "preserved_source"
+        },
+        {
+          "axis": "bond",
+          "field": "joins_components",
+          "index": 2,
+          "value": true,
+          "origin": "preserved_source"
+        },
+        {
+          "axis": "bond",
+          "field": "bond_type",
+          "index": 3,
+          "value": "covalent",
+          "origin": "preserved_source"
+        },
+        {
+          "axis": "bond",
+          "field": "joins_components",
+          "index": 3,
+          "value": true,
+          "origin": "preserved_source"
+        },
+        {
+          "axis": "bond",
+          "field": "bond_type",
+          "index": 4,
+          "value": "covalent",
+          "origin": "preserved_source"
+        },
+        {
+          "axis": "bond",
+          "field": "joins_components",
+          "index": 4,
+          "value": true,
+          "origin": "preserved_source"
+        },
+        {
+          "axis": "bond",
+          "field": "bond_type",
+          "index": 5,
+          "value": "covalent",
+          "origin": "preserved_source"
+        },
+        {
+          "axis": "bond",
+          "field": "joins_components",
+          "index": 5,
+          "value": true,
+          "origin": "preserved_source"
+        }
+      ],
+      "issues": [],
+      "coverage": {
+        "atom_map": "exhaustive_bijection",
+        "graph": "same_stored_relationships",
+        "hydrogen_policy": "stored_counts",
+        "explicit_hydrogen_atom_indices": [],
+        "completeness_justification": "exhaustive_mapping_to_declared_complete_template"
+      },
+      "unassessed_checks": [
+        "template_authenticity",
+        "valence",
+        "environmental_protonation",
+        "stereogenicity",
+        "conformer_quality",
+        "force_field_coverage",
+        "docking_readiness"
+      ],
+      "software": {
+        "molsysmt": "0.22.4+24.g42b487869"
+      },
+      "units": {
+        "formal_charge": "elementary_charge"
+      },
+      "invalidated_analysis_names": [],
+      "attribution": {
+        "schema": "molsysmt.scientific_attribution@1",
+        "target": "molsysmt.physchem.apply_chemical_template",
+        "items": [
+          {
+            "id": "software:molsysmt:0.22.4+24.g42b487869",
+            "type": "software",
+            "title": "MolSysMT",
+            "authors": [
+              "Prada-Gracia, Diego",
+              "Moreno-Vargas, Liliana M."
+            ],
+            "doi": "10.5281/zenodo.1298752",
+            "url": "https://github.com/uibcdf/molsysmt",
+            "version": "0.22.4+24.g42b487869",
+            "roles": [
+              "executed_software"
+            ]
+          }
+        ]
+      }
+    },
+    "applied_snapshot": {
+      "format": "molsysmt",
+      "kind": "molsys",
+      "version": "0.1",
+      "metadata": {},
+      "topology": {
+        "atoms": [
+          {
+            "atom_id": "1301",
+            "atom_name": "C1",
+            "atom_type": "C",
+            "isotope": null
+          },
+          {
+            "atom_id": "1302",
+            "atom_name": "C2",
+            "atom_type": "C",
+            "isotope": null
+          },
+          {
+            "atom_id": "1303",
+            "atom_name": "C3",
+            "atom_type": "C",
+            "isotope": null
+          },
+          {
+            "atom_id": "1304",
+            "atom_name": "C4",
+            "atom_type": "C",
+            "isotope": null
+          },
+          {
+            "atom_id": "1305",
+            "atom_name": "C5",
+            "atom_type": "C",
+            "isotope": null
+          },
+          {
+            "atom_id": "1306",
+            "atom_name": "C6",
+            "atom_type": "C",
+            "isotope": null
+          }
+        ],
+        "groups": [
+          {
+            "group_id": "400",
+            "group_name": "BNZ",
+            "group_type": "small molecule",
+            "atom_indices": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        ],
+        "bonds": [
+          {
+            "atom_index_1": 0,
+            "atom_index_2": 1,
+            "bond_order": "aromatic",
+            "bond_type": "covalent"
+          },
+          {
+            "atom_index_1": 0,
+            "atom_index_2": 5,
+            "bond_order": "aromatic",
+            "bond_type": "covalent"
+          },
+          {
+            "atom_index_1": 1,
+            "atom_index_2": 2,
+            "bond_order": "aromatic",
+            "bond_type": "covalent"
+          },
+          {
+            "atom_index_1": 2,
+            "atom_index_2": 3,
+            "bond_order": "aromatic",
+            "bond_type": "covalent"
+          },
+          {
+            "atom_index_1": 3,
+            "atom_index_2": 4,
+            "bond_order": "aromatic",
+            "bond_type": "covalent"
+          },
+          {
+            "atom_index_1": 4,
+            "atom_index_2": 5,
+            "bond_order": "aromatic",
+            "bond_type": "covalent"
+          }
+        ],
+        "chains": [
+          {
+            "chain_id": "A",
+            "chain_name": "A",
+            "chain_type": "small molecules + ions + water",
+            "group_indices": [
+              0
+            ]
+          }
+        ],
+        "molecules": [
+          {
+            "molecule_id": "4",
+            "molecule_name": "small molecule 1",
+            "molecule_type": "small molecule",
+            "group_indices": [
+              0
+            ]
+          }
+        ],
+        "entities": [
+          {
+            "entity_id": "3",
+            "entity_name": "small molecule 1",
+            "entity_type": "small molecule",
+            "molecule_indices": [
+              0
+            ]
+          }
+        ]
+      },
+      "structures": {
+        "structure_id": [
+          "1"
+        ],
+        "time": null,
+        "box": [
+          [
+            [
+              6.089999999999999,
+              0.0,
+              0.0
+            ],
+            [
+              -3.044999999999998,
+              5.274094709047231,
+              0.0
+            ],
+            [
+              5.939536975864663e-16,
+              1.0287579815631596e-15,
+              9.7
+            ]
+          ]
+        ],
+        "coordinates": [
+          [
+            [
+              2.5978,
+              0.5327,
+              0.47789999999999994
+            ],
+            [
+              2.6395,
+              0.5074,
+              0.3499
+            ],
+            [
+              2.7339999999999995,
+              0.586,
+              0.2902
+            ],
+            [
+              2.7836999999999996,
+              0.6920999999999999,
+              0.35689999999999994
+            ],
+            [
+              2.742,
+              0.7195999999999999,
+              0.4855999999999999
+            ],
+            [
+              2.6498,
+              0.6378999999999999,
+              0.5468999999999999
+            ]
+          ]
+        ]
+      },
+      "chemical_states": {
+        "schema": "molsysmt.chemical_states_dict",
+        "version": 1,
+        "n_atoms": 6,
+        "reference_chemical_state_index": 0,
+        "states": [
+          {
+            "state_id": null,
+            "connectivity_completeness": "complete",
+            "component_completeness": "partial",
+            "component_evidence": "inferred",
+            "provenance_index": null,
+            "component_indices": {
+              "dtype": "Int64",
+              "values": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "null_mask": [
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+              ]
+            },
+            "components": {
+              "n_rows": 1,
+              "columns": {
+                "component_id": {
+                  "dtype": "string",
+                  "values": [
+                    ""
+                  ],
+                  "null_mask": [
+                    true
+                  ]
+                },
+                "component_name": {
+                  "dtype": "object",
+                  "values": [
+                    "small molecule 1"
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                },
+                "component_type": {
+                  "dtype": "object",
+                  "values": [
+                    "small molecule"
+                  ],
+                  "null_mask": [
+                    false
+                  ]
+                }
+              }
+            },
+            "atom_attributes": {
+              "n_rows": 6,
+              "columns": {
+                "formal_charge": {
+                  "dtype": "Int16",
+                  "values": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "is_aromatic": {
+                  "dtype": "boolean",
+                  "values": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "n_unpaired_electrons": {
+                  "dtype": "UInt8",
+                  "values": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "n_implicit_hydrogens": {
+                  "dtype": "UInt8",
+                  "values": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "n_explicit_hydrogens": {
+                  "dtype": "UInt8",
+                  "values": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "allows_implicit_hydrogens": {
+                  "dtype": "boolean",
+                  "values": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              }
+            },
+            "bonds": {
+              "n_rows": 6,
+              "columns": {
+                "atom1_index": {
+                  "dtype": "Int64",
+                  "values": [
+                    0,
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "atom2_index": {
+                  "dtype": "Int64",
+                  "values": [
+                    1,
+                    5,
+                    2,
+                    3,
+                    4,
+                    5
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "bond_type": {
+                  "dtype": "string",
+                  "values": [
+                    "covalent",
+                    "covalent",
+                    "covalent",
+                    "covalent",
+                    "covalent",
+                    "covalent"
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "joins_components": {
+                  "dtype": "boolean",
+                  "values": [
+                    true,
+                    true,
+                    true,
+                    true,
+                    true,
+                    true
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "evidence": {
+                  "dtype": "string",
+                  "values": [
+                    "explicit",
+                    "explicit",
+                    "explicit",
+                    "explicit",
+                    "explicit",
+                    "explicit"
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "fractional_bond_order": {
+                  "dtype": "object",
+                  "values": [
+                    "1.5",
+                    "1.5",
+                    "1.5",
+                    "1.5",
+                    "1.5",
+                    "1.5"
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "is_aromatic": {
+                  "dtype": "object",
+                  "values": [
+                    "True",
+                    "True",
+                    "True",
+                    "True",
+                    "True",
+                    "True"
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                },
+                "is_conjugated": {
+                  "dtype": "object",
+                  "values": [
+                    "True",
+                    "True",
+                    "True",
+                    "True",
+                    "True",
+                    "True"
+                  ],
+                  "null_mask": [
+                    false,
+                    false,
+                    false,
+                    false,
+                    false,
+                    false
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      },
+      "structure_units": {
+        "coordinates": "nm",
+        "box": "nm",
+        "time": "ps"
+      },
+      "structure_chemical_state_indices": [
+        0
+      ]
+    },
+    "hydrogen_addition": {
+      "exception_type": "StructuralInconsistencyError",
+      "message": "Structural inconsistency detected: Every covalent bond requires explicit supported order and aromaticity.. Ensure that the atoms, residues, or frames match between the systems being compared or merged. Docs: https://www.uibcdf.org/MolSysMT",
+      "provider_issue": "uibcdf/molsysmt#314"
+    },
+    "source_unchanged": true,
+    "status": "provider_blocked"
+  },
+  "limits": [
+    "Original 181L BNZ is not positively qualified: missing explicit bond aromaticity is provider-owned (#314).",
+    "Generated local H geometry is not receptor or energy refinement.",
+    "AutoDock typing and the default provisional gate remain unchanged.",
+    "Charge projection/writing remains the existing temporary consumer profile (#223).",
+    "Template application reports remain separate records; native attachment is provider-owned (#298).",
+    "An explicit-H SDF can still lack the stored virtual-H counts required by fixed-state addition.",
+    "The public composition route emits its existing atom_index off-axis diagnostic; source identity/coordinates are checked.",
+    "Source qualification and original producer versions do not establish public artifact or biological acceptance."
+  ]
+}
