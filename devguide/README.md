@@ -115,6 +115,10 @@ The [redocking evaluation contract](validation/redocking_evaluation.md) and
 [executed notebook](validation/redocking_evaluation.ipynb) retain explicit
 RMSD criteria, per-pose evidence and first-N recovery for bounded controls.
 
+The [redocking collection contract](validation/redocking_summary.md) and its
+[executed offline notebook](validation/redocking_summary.ipynb) document compatible
+case aggregation, separate failures and explicit observation denominators.
+
 The [native MolSysMT format profile](validation/native_molsysmt_formats.md) records
 prepared-input consumption, current SDF gaps and staged removal conditions. Its
 [executed notebook](validation/native_molsysmt_formats.ipynb) runs the real 1IEP path.

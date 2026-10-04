@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (23)
+### Resolved (24)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
@@ -26,6 +26,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`returned_vina_poses_lack_a_verified_map_to_source_ligand_atoms.md`](returned_vina_poses_lack_a_verified_map_to_source_ligand_atoms.md) — [#8](https://github.com/uibcdf/dockingmt/issues/8) — Returned Vina poses lack a verified map to source ligand atoms *(resolved, asserted)*
 - [`scientific_record_readers_ignore_schema_versions.md`](scientific_record_readers_ignore_schema_versions.md) — [#27](https://github.com/uibcdf/dockingmt/issues/27) — Validate scientific record schema versions before reconstruction *(resolved, measured)*
 - [`source_based_ci_omits_biopython.md`](source_based_ci_omits_biopython.md) — [#11](https://github.com/uibcdf/dockingmt/issues/11) — Source-based CI omits Biopython needed by the scientific test stack. *(resolved, reproduced)*
+- [`summarize_redocking.md`](summarize_redocking.md) — [#39](https://github.com/uibcdf/dockingmt/issues/39) — Summarize compatible redocking evaluations with explicit failure denominators. *(resolved, measured)*
 - [`use_molsysmt_as_canonical_molecular_input_for_the_core_mvp.md`](use_molsysmt_as_canonical_molecular_input_for_the_core_mvp.md) — [#9](https://github.com/uibcdf/dockingmt/issues/9) — Use MolSysMT as the canonical molecular input for the Core MVP *(resolved, measured)*
 - [`vina_adapter_advertises_unsupported_ad4_scoring.md`](vina_adapter_advertises_unsupported_ad4_scoring.md) — [#23](https://github.com/uibcdf/dockingmt/issues/23) — Reject unsupported AD4 scoring before Vina execution *(resolved, measured)*
 - [`vina_ignores_constraints_and_search_guidance.md`](vina_ignores_constraints_and_search_guidance.md) — [#26](https://github.com/uibcdf/dockingmt/issues/26) — Reject unsupported constraints and guidance before Vina execution *(resolved, measured)*

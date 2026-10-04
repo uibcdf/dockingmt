@@ -379,3 +379,21 @@ identical between profiles. The cost remains visible as a provider measurement
 point; no local molecular audit or campaign cache is added. These small local
 samples do not establish universal time or peak-memory guarantees. Provider #218
 receives the consumer evidence, and this performance issue remains partial.
+
+## 2026-10-04 bounded redocking collection aggregation
+
+[DockingMT #39](https://github.com/uibcdf/dockingmt/issues/39) adds public offline
+`summarize_redocking` above the existing individual evaluation boundary. Exact
+recorded policy admission, per-case evidence, distinct failure/empty-result
+semantics and explicit denominators provide the first collection-analysis slice.
+Complete common method/protocol/preparation declarations are stored once per
+summary; per-case source/ranking context and original report hashes remain.
+There is no campaign object, executor, molecular kernel, cache or global ranking.
+
+The [contract](../validation/redocking_summary.md), executed notebook and raw
+receipt retain the original native input JSON/hash, separate 181L/1IEP policies,
+positive/displaced-domain observations and explicitly labelled failure fixtures.
+The pretty-printed five-control receipt is 133,190 bytes in this one profile;
+it is a storage observation, not a campaign capacity or portable performance
+claim. Scientific preparation, biological comparability and general screening
+qualification remain separate. This architecture review remains partial.

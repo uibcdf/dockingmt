@@ -258,6 +258,12 @@ def digest_reference_info(reference_info, caller=None):
     return reference_info
 
 
+def digest_failures(failures, caller=None):
+    if failures is not None and not isinstance(failures, Mapping):
+        raise _invalid('failures', caller, 'Use a case-ID mapping or None.')
+    return failures
+
+
 def digest_pose(pose, caller=None):
     from dockingmt.core.results import DockingPose
 
@@ -290,6 +296,8 @@ def _mapping(argument):
 
 
 ARGUMENT_DIGESTERS = {
+    'evaluations': _mapping('evaluations'),
+    'failures': digest_failures,
     'result': digest_result,
     'reference': _required_provider_input('reference'),
     'reference_info': digest_reference_info,

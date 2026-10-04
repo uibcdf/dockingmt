@@ -502,3 +502,29 @@ historical 37-heavy-atom SDF metric.
 provides qualified chemically constrained symmetry correspondence, or an accepted
 multi-case workflow requires aggregation. No symmetry/graph/RMSD algorithm,
 automatic alignment, dataset success rate or preparation validation is claimed.
+
+## DMT-038 — Summarize compatible saved redocking cases with explicit denominators
+
+**Status:** Accepted, 2026-10-04.
+
+**Decision:** Expose public `summarize_redocking` over caller case-ID mappings of
+saved evaluations and separately declared failures. Validate finite schema 1.0
+observations and their numerical summaries; require exact recorded criteria,
+ordered top-N requests, evaluator/backend identity, protocol and preparation.
+Keep case input/reference/domain/ranking evidence and original-report hashes in
+compact detached records. Reuse the public outcome typed-error contract.
+
+**Rationale:** The accepted small-collection workflow needs visible policy
+compatibility, individual cases and failures before a campaign class or executor.
+Empty results are evaluated nonrecoveries; failures have unknown recovery.
+Fractions explicitly name evaluated and submitted denominators. Empty/all-failure
+collections infer no policy. Full preparation/protocol equality is a bounded,
+conservative first profile, rather than an inferred common chemical scheme.
+
+**Evidence:** [Owning issue #39](https://github.com/uibcdf/dockingmt/issues/39),
+[contract](validation/redocking_summary.md), independent analytical/admission
+controls and an executed offline notebook over retained native evaluations.
+Positive/displaced-domain software controls are separate from a labelled failure
+fixture. Equality of declarations does not certify scientific comparability,
+chemical validity or a dataset success rate. No geometry kernel, molecular
+matching, engine rerun, global ranking, cache, executor or sibling change occurs.
