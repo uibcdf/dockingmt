@@ -1,5 +1,9 @@
 # Consuming explicit MolSysMT chemical templates
 
+The original qualification below uses the 2026-10-03 provider. The
+[2026-10-06 update](#retained-history-qualification--2026-10-06) qualifies retained
+native/H5MSM history and names the current helper's source and output files.
+
 DockingMT can consume the independent native system returned by
 `msm.physchem.apply_chemical_template` through its existing `prepare_ligand`
 boundary. This bounded source qualification uses MolSysMT
@@ -109,10 +113,12 @@ tolerance of `1e-12 nm`, allowing floating-point conversion noise while protecti
 the chosen translated frame and retained atom axis. The original two frames,
 coordinate units, box, time and frame/state associations survive application.
 
-## Reproduction and remaining work
+## Historical reproduction and remaining work
 
 Use `molsyssuite@uibcdf_3.14` with this DockingMT checkout installed editable.
-To isolate the provider from unrelated local work:
+The following recipe describes the original helper at the corresponding historical
+consumer revision. The current helper qualifies the source named in the dated update
+below. To isolate that original provider from unrelated local work:
 
 ```bash
 mkdir -p /tmp/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a
@@ -181,3 +187,62 @@ retains 706 passing tests with the stable pins and 32 passing integration contro
 against a frozen uncommitted viewer candidate. This resolves the consumer
 suppression path reported above; it does not certify a published provider or
 change the historical template qualification.
+
+
+## Retained history qualification — 2026-10-06
+
+[DockingMT #42](https://github.com/uibcdf/dockingmt/issues/42) updates the audit
+boundary after resolved MolSysMT #298/#318. The
+[new notebook](chemical_template_consumption_2026-10-06.ipynb),
+[new receipt](data/chemical_templates/cases_2026-10-06.json) and
+[source profile](data/chemical_templates/source_profile_2026-10-06.json)
+qualify committed provider `5bd893c85fe8d211663b2b1f865f5f1d2c382a90` with released
+ArgDigest 0.15.0 and the existing Python 3.14 viewer source pin. Earlier notebooks
+and receipts above remain unchanged, including their separate producer versions.
+
+Snapshot `dockingmt.chemical_template_snapshot@2` uses public TopologyDict,
+structure queries with declared nm/ps protocol units, and ChemicalStatesDict
+including preparation history. It avoids MolSysDict 0.1, whose rejection protects
+that history from silent loss. The new finite evidence retains original native
+preparation records as well as detached template reports. Snapshot/schema changes
+produce new checksums; historical digests retain their original meaning.
+
+A public H5MSM 0.5 round trip of the declared original BNZ retains every chemistry
+field, indexed preparation record, topology and frame/state association. The two
+empty component text columns change from object to nullable string dtype; their
+values and masks remain exact, and the receipt names those changes. Recovery
+under pm/fs preserves structures within an absolute `1e-12 nm` tolerance, with
+fixed nm/ps snapshot units. No data-loss authorization is used. MolecularMechanics
+is empty in this control: H5MSM 0.5 does not preserve nonempty charge/type mechanics.
+
+The [stage qualification](ligand_preparation_stages.md#positive-original-bnz-qualification--2026-10-06)
+separately demonstrates six added H and named charges on original BNZ. Template
+selection, caller declarations and symmetry limits are unchanged. Heuristic types
+and temporary nonpolar-H/charge projection remain provisional; no provider source
+or DockingMT molecular preparation algorithm is changed.
+
+For the current helpers, use the clean provider source at the named revision in
+`molsyssuite@uibcdf_3.14`, retaining its native extension. Independently archive
+ArgDigest `1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e` and MolSysViewer
+`ec4c71e574d798b7c8675b7e7e983da878ce9889` without changing their worktrees, then
+place those archive roots on `PYTHONPATH`. Run `python -m devtools.qualify_chemical_templates`
+and `python -m devtools.qualify_ligand_stages`; outputs are the dated receipts linked
+above. Select the Python 3.14 kernel explicitly when executing the new notebooks.
+The source profile verifies all tracked files under the three imported packages
+against their named commits and records the loaded native-extension digest. It
+also distinguishes installed distribution metadata from archived loaded source.
+
+This is local source-composition evidence on Python 3.14. Other interpreter/hosted
+lanes and clean installed artifacts are not qualified by this run. Native-extension
+bytes are recorded without a new build-provenance claim. The recorded host has
+unrelated AmberTools dependency conflicts, so a passing scientific consumer suite
+does not imply a dependency-closed host or public/scientific admission.
+
+
+The final local candidate passes **888 tests without skips in 242.56 s** with
+98 warnings. Both new notebooks execute all eight code cells; Ruff (115 files),
+report/index, changed-document links, finite receipt/hash, editable identity and
+diff checks pass. Component guidance passes; unchanged SMonitor/ArgDigest copies
+have pre-existing canonical drift coordinated under MolSysSuite #106. This does
+not establish the unexecuted hosted/installed/interpreter matrix or host dependency
+closure. See the source profile for the complete scope and limitations.

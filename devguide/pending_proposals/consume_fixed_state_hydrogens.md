@@ -8,7 +8,7 @@ verification: measured
 area: [preparation, validation]
 guard: tests/test_ligand_preparation_stages.py
 normative:
-blocked_by: [uibcdf/molsysmt#314]
+blocked_by: []
 supersedes: []
 ---
 
@@ -84,3 +84,22 @@ Local Ruff lint/format (115 Python files), installed editable-checkout identity,
 execute under the requested Conda interpreter; the finite 119,587-byte receipt
 matches the current implementation hashes. Exact-head hosted evidence is obtained
 after publication; local results alone do not establish the supported matrix.
+
+## 2026-10-06 positive provider adoption candidate
+
+MolSysMT #318 resolves the aromatic-only preflight: the existing declared BNZ
+template already carries six aromatic flags/fractional orders, so no downstream
+integer orders or aromaticity repair are needed. #42 now retains a positive
+original-BNZ control, six generated H, unchanged input carbon IDs/coordinates,
+explicit B-factor/occupancy intersection loss, 12-atom named-charge attribution,
+six nonpolar-H charge transfers and maps back to the six original atoms.
+Vina 1.2.7 accepts its PDBQT; typing remains provisional.
+
+The [new notebook](../validation/ligand_preparation_stages_2026-10-06.ipynb) and
+[dated receipt](../validation/data/ligand_stages/qualification_2026-10-06.json)
+retain positive evidence against committed MolSysMT 5bd893c85 and ArgDigest 0.15.0
+tag source. Earlier rejection receipts remain historical. The original provider
+blocker is removed; this issue stays partial until publication/checkpoint
+qualification of the consumer candidate. See
+[the #42 record](update_chemical_preparation_qualification.md) for local gates,
+host limitations, pending matrix evidence and guide synchronization ownership.

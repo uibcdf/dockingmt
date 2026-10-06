@@ -8,7 +8,9 @@ inputs. Successful transfer is not a docking-readiness certificate.
 import hashlib
 import importlib.metadata as metadata
 import json
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 import molsysmt as msm
@@ -18,7 +20,8 @@ import pyunitwizard as puw
 from dockingmt.preparation import prepare_ligand
 
 ROOT = Path(__file__).resolve().parents[1]
-PROVIDER_REVISION = 'c19a47ada0c2279029abfa296cf915560610ad9a'
+PROVIDER_REVISION = '5bd893c85fe8d211663b2b1f865f5f1d2c382a90'
+OUTPUT = ROOT / 'devguide/validation/data/chemical_templates/cases_2026-10-06.json'
 SDF_DIGESTS = {
     'p59': 'ef26c05a198a16972efcf8baae644f6b38fd953561f130ee230626088766b08a',
     'p69': '637a992134b2038a0ea3cff0c1f8355ea232720c9eae5347100b7186170fcdf1',
@@ -40,7 +43,28 @@ def detached_record(value):
 
 def snapshot(system):
     """Capture public native values with their declared fixed protocol units."""
-    record = msm.convert(system, to_form='molsysmt.MolSysDict').data
+    # MolSysDict 0.1 cannot retain preparation history. Capture the public
+    # domains separately rather than authorizing that loss in an audit.
+    topology = msm.convert(system.topology, to_form='molsysmt.TopologyDict').data
+    structures = msm.get(
+        system,
+        structure_id=True,
+        time=True,
+        box=True,
+        coordinates=True,
+        output_type='dictionary',
+    )
+    for field, unit in (('coordinates', 'nm'), ('box', 'nm'), ('time', 'ps')):
+        if structures[field] is not None:
+            structures[field] = puw.get_value(structures[field], to_unit=unit)
+    record = {
+        'schema': 'dockingmt.chemical_template_snapshot@2',
+        'topology': {
+            key: topology[key]
+            for key in ('atoms', 'groups', 'bonds', 'chains', 'molecules', 'entities')
+        },
+        'structures': structures,
+    }
     record['chemical_states'] = msm.convert(
         system.chemical_states, to_form='molsysmt.ChemicalStatesDict'
     ).to_dict()
@@ -195,6 +219,29 @@ def checked_rejection(source, options, expected):
 
 
 def qualify():
+    proof = {}
+    for relative in (
+        'physchem/assess_chemical_template.py',
+        'physchem/apply_chemical_template.py',
+        '_private/chemical_template.py',
+        'form/rdkit_Mol/to_molsysmt_Topology.py',
+        'native/chemical_states.py',
+        'native/chemical_states_dict.py',
+        '_private/preparation_history.py',
+        'form/_h5msm_preparation_history.py',
+    ):
+        actual = (Path(msm.__file__).parent / relative).read_bytes()
+        published = subprocess.check_output(
+            [
+                'git',
+                '-C',
+                str(ROOT.parent / 'molsysmt'),
+                'show',
+                f'{PROVIDER_REVISION}:molsysmt/{relative}',
+            ]
+        )
+        assert actual == published
+        proof[relative] = hashlib.sha256(actual).hexdigest()
     cases = []
     for name in ('p59', 'p69'):
         original, template = load_5x72(name)
@@ -223,6 +270,9 @@ def qualify():
                 'applied_snapshot_sha256': record_digest(after),
                 'template_snapshot': snapshot(template),
                 'application_report': detached_record(result['report']),
+                'native_preparation_history': detached_record(
+                    result['molecular_system'].chemical_states.get_preparation_history()
+                ),
                 'original_sdf_assessment': detached_record(raw_assessment),
                 'chosen_structure_index': 1,
                 'prepared_ligand': ligand.to_dict(),
@@ -248,10 +298,79 @@ def qualify():
             'applied_snapshot_sha256': record_digest(after),
             'template_snapshot': snapshot(template),
             'application_report': detached_record(result['report']),
+            'native_preparation_history': detached_record(
+                result['molecular_system'].chemical_states.get_preparation_history()
+            ),
             'prepared_ligand': ligand.to_dict(),
             'pdbqt_sha256': hashlib.sha256(ligand.to_pdbqt().encode()).hexdigest(),
         }
     )
+    with tempfile.TemporaryDirectory(prefix='dockingmt-template-history-') as directory:
+        path = Path(directory) / 'declared_benzene.h5msm'
+        msm.convert(result['molecular_system'], to_form=path)
+        with puw.context(standard_units=['pm', 'fs']):
+            recovered = msm.convert(path, to_form='molsysmt.MolSys')
+            recovery = snapshot(recovered)
+        for field in (
+            'topology',
+            'structure_chemical_state_indices',
+            'structure_units',
+        ):
+            assert recovery[field] == after[field]
+        expected_states = detached_record(after['chemical_states'])
+        dtype_changes = []
+        for state_index, state in enumerate(expected_states['states']):
+            for field in ('component_name', 'component_type'):
+                column = state['components']['columns'][field]
+                if column['dtype'] == 'object':
+                    assert all(
+                        value is None or isinstance(value, str)
+                        for value in column['values']
+                    )
+                    column['dtype'] = 'string'
+                    dtype_changes.append(
+                        {
+                            'state_index': state_index,
+                            'field': field,
+                            'from': 'object',
+                            'to': 'string',
+                        }
+                    )
+        assert recovery['chemical_states'] == expected_states
+        assert (
+            recovery['structures']['structure_id']
+            == after['structures']['structure_id']
+        )
+        assert recovery['structures']['time'] == after['structures']['time']
+        for field in ('coordinates', 'box'):
+            np.testing.assert_allclose(
+                recovery['structures'][field],
+                after['structures'][field],
+                rtol=0,
+                atol=1e-12,
+            )
+        history_recovery = {
+            'case': '181L declared BNZ before H/charge stages',
+            'format': 'H5MSM 0.5',
+            'read_standard_units': ['pm', 'fs'],
+            'snapshot_schema': recovery['schema'],
+            'structure_units': recovery['structure_units'],
+            'absolute_tolerance_nm': 1e-12,
+            'original_preparation_history': detached_record(
+                result['molecular_system'].chemical_states.get_preparation_history()
+            ),
+            'recovered_preparation_history': detached_record(
+                recovered.chemical_states.get_preparation_history()
+            ),
+            'topology_chemistry_history_and_associations_preserved': True,
+            'component_text_column_dtype_changes': dtype_changes,
+            'structures_preserved_within_tolerance': True,
+            'limit': 'Nonempty MolecularMechanics is not part of the H5MSM 0.5 contract.',
+        }
+        assert (
+            history_recovery['original_preparation_history']
+            == history_recovery['recovered_preparation_history']
+        )
     negative_controls = []
     original, template = load_5x72('p59')
     for name in ('charge', 'enantiomer', 'missing-edge'):
@@ -274,28 +393,35 @@ def qualify():
         )
     return detached_record(
         {
-            'schema': 'dockingmt.chemical_template_qualification@1',
+            'schema': 'dockingmt.chemical_template_qualification@2',
             'evidence': 'Bounded software transfer/consumer qualification, not template authenticity, docking validation or a performance benchmark',
             'provider_reference_source': PROVIDER_REVISION,
             'provider_import': msm.__file__,
-            'provider_implementation_sha256': {
-                relative: hashlib.sha256(
-                    (Path(msm.__file__).parent / relative).read_bytes()
-                ).hexdigest()
+            'provider_implementation_sha256': proof,
+            'consumer_implementation_sha256': {
+                relative: hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
                 for relative in (
-                    'physchem/assess_chemical_template.py',
-                    'physchem/apply_chemical_template.py',
-                    '_private/chemical_template.py',
-                    'form/rdkit_Mol/to_molsysmt_Topology.py',
+                    'devtools/qualify_chemical_templates.py',
+                    'dockingmt/preparation/ligand.py',
+                    'dockingmt/preparation/_molsys.py',
                 )
             },
             'python': sys.version.split()[0],
             'interpreter': sys.executable,
             'versions': {
                 name: metadata.version(name)
-                for name in ('rdkit', 'numpy', 'pandas', 'vina')
+                for name in (
+                    'molsysmt',
+                    'argdigest',
+                    'pyunitwizard',
+                    'rdkit',
+                    'numpy',
+                    'pandas',
+                    'vina',
+                )
             },
             'cases': cases,
+            'history_recovery': history_recovery,
             'negative_controls': negative_controls,
         }
     )
@@ -303,7 +429,7 @@ def qualify():
 
 def main():
     record = qualify()
-    destination = ROOT / 'devguide/validation/data/chemical_templates/cases.json'
+    destination = OUTPUT
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(json.dumps(record, indent=2) + '\n')
     print(destination)

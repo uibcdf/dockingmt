@@ -7,9 +7,9 @@ dependencies:
   - pytest
   - pytest-cov
   - pytest-receptor
-  - smonitor
-  - depdigest
-  - pyunitwizard
+  - smonitor >=0.16.0
+  - depdigest >=0.11.0
+  - pyunitwizard >=0.28.1
   - numpy
   - scipy
   - vina

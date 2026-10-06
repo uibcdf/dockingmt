@@ -30,34 +30,35 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       # The uibcdf channel does not yet publish this integrated set for Python 3.13.
-      # ArgDigest/viewer retain their lane-specific sources; MolSysMT includes named charges.
+      # Released ArgDigest 0.15 satisfies PyUnitWizard 0.28.1; MolSysMT retains history/aromatic H.
+      # Viewer retains its previously qualified lane-specific sources.
       - name: Check out compatible ArgDigest source
         if: matrix.python-version != '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/argdigest
-          ref: "4fdbf19d386bbf476455d35c9988bf00624873e1"
+          ref: "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e"
           path: .molsyssuite/argdigest
       - name: Check out compatible ArgDigest source for Python 3.14
         if: matrix.python-version == '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/argdigest
-          ref: "c604ce387fe60558ceb51a3016892e7a10686504"
+          ref: "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e"
           path: .molsyssuite/argdigest
       - name: Check out compatible MolSysMT source
         if: matrix.python-version != '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "7894435e748bc55254b6c3d2b63ae82c101e5774"
+          ref: "5bd893c85fe8d211663b2b1f865f5f1d2c382a90"
           path: .molsyssuite/molsysmt
       - name: Check out compatible MolSysMT source for Python 3.14
         if: matrix.python-version == '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "7894435e748bc55254b6c3d2b63ae82c101e5774"
+          ref: "5bd893c85fe8d211663b2b1f865f5f1d2c382a90"
           path: .molsyssuite/molsysmt
       - name: Check out compatible MolSysViewer source
         if: matrix.python-version != '3.14'

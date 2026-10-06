@@ -1,0 +1,91 @@
+{
+  "schema": "dockingmt.source_qualification_context@1",
+  "date": "2026-10-06",
+  "python": "3.14.7 | packaged by conda-forge | (main, Sep  2 2026, 21:08:32) [GCC 15.3.0]",
+  "interpreter": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+  "dockingmt_base_commit": "d419feeb70a09e9f27035fc5b759f38e1793fbeb",
+  "dockingmt_import": "/home/liliana/repos@uibcdf/dockingmt/dockingmt/__init__.py",
+  "qualified_committed_sources": {
+    "molsysmt": {
+      "revision": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+      "loaded_import": "/home/liliana/repos@uibcdf/molsysmt/molsysmt/__init__.py",
+      "tracked_files_verified": 3208,
+      "manifest_sha256": "027ef9cbe1ce1e41b753cd1062c1dfa3480d04ebc7335f361d1c4fd30d2a72ff"
+    },
+    "argdigest": {
+      "revision": "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e",
+      "loaded_import": "/tmp/dockingmt-qualification-argdigest-1bea27f/argdigest/__init__.py",
+      "tracked_files_verified": 37,
+      "manifest_sha256": "494d55ee0eba5938cd2bd1e291bd026ae25c2a543b3be275e38bc724c3d515a5"
+    },
+    "molsysviewer": {
+      "revision": "ec4c71e574d798b7c8675b7e7e983da878ce9889",
+      "loaded_import": "/tmp/dockingmt-qualification-viewer-ec4c71e/molsysviewer/__init__.py",
+      "tracked_files_verified": 715,
+      "manifest_sha256": "023fa76a296e3b201726684f8f40cce90d914071e8f2f8537860383829e99a9d"
+    }
+  },
+  "installed_distribution_versions": {
+    "argdigest": "0.15.0+1.g5c6711e",
+    "molsysmt": "0.22.4+215.g5bd893c85",
+    "molsysviewer": "0.23.4+90.gc046fca1",
+    "depdigest": "0.13.0+3.g0568f9a",
+    "smonitor": "0.19.0",
+    "pyunitwizard": "0.28.1+3.g2ab37a5",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "rdkit": "2026.3.1",
+    "vina": "1.2.7",
+    "pytest-receptor": "1.2.1+13.gac0aa03"
+  },
+  "provider_native_artifacts": {
+    "/home/liliana/repos@uibcdf/molsysmt/molsysmt/_rust.abi3.so": "c535c7d2f0e2a92b6ebf8298a60b19e4b5555467b4aa087e9563c6760619827e"
+  },
+  "limits": [
+    "This is Python 3.14 local source-composition qualification; installed distribution metadata is retained separately from archived loaded source.",
+    "Provider native extension bytes are retained, without a fresh wheel build or producer build-provenance claim.",
+    "Python 3.11-3.13, macOS, clean installed artifacts, hosted CI and public admission are not executed for this candidate.",
+    "Host pip check fails for unrelated AmberTools dependencies: missing pdb2pqr (packmol-memgen/proprep), numpy <2 (ndfes/edgembar/fetkutils/proprep), and biopython <1.86 (proprep). The host is not certified as dependency-closed.",
+    "Generated H geometry, heuristic types and temporary nonpolar-H/charge projection do not establish scientific docking validity."
+  ],
+  "local_validation": {
+    "full_consumer_suite": {
+      "command": "PYTHONPATH=/tmp/dockingmt-qualification-argdigest-1bea27f:/tmp/dockingmt-qualification-viewer-ec4c71e /home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python -m pytest --receptor=llm",
+      "exit_code": 0,
+      "passed": 888,
+      "skipped": 0,
+      "duration_seconds": 242.56,
+      "warnings": 98
+    },
+    "notebooks": {
+      "executed_code_cells": 8,
+      "python": "3.14.7",
+      "kernel": "dockingmt-molsyssuite-314",
+      "files": [
+        "devguide/validation/chemical_template_consumption_2026-10-06.ipynb",
+        "devguide/validation/ligand_preparation_stages_2026-10-06.ipynb"
+      ]
+    },
+    "ruff_check": "passed",
+    "ruff_format_check": {
+      "status": "passed",
+      "files": 115
+    },
+    "report_indexes": "passed",
+    "changed_document_local_links": "passed",
+    "consumer_implementation_hashes": "passed",
+    "editable_checkout_identity": "passed",
+    "git_diff_check": "passed",
+    "component_guide_check": "passed",
+    "canonical_guide_bytes": {
+      "status": "preexisting_drift",
+      "files": [
+        "SMONITOR_GUIDE.md",
+        "ARGDIGEST_GUIDE.md"
+      ],
+      "local_copies_changed": false,
+      "coordination": "uibcdf/molsyssuite#106"
+    },
+    "host_pip_check": "failed_unrelated_ambertools_metadata"
+  }
+}

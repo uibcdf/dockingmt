@@ -99,7 +99,7 @@ def test_permuted_template_result_reaches_preparation_with_selected_pose(name, l
     assert report['template_provenance']['checksum'] == (
         'sha256:' + record_digest(snapshot(template))
     )
-    # The provider report is a detached workflow record, not native provenance.
+    # Editing the detached workflow report must not edit native provenance.
     saved = detached_record(report)
     saved['template_provenance']['identity'] = 'edited copy'
     assert report['template_provenance'] == options['template_provenance']
@@ -134,6 +134,75 @@ def test_original_181l_benzene_accepts_declared_heavy_only_template():
         == 0
     )
     assert ligand.metadata['charge_source'] == 'zero_placeholder'
+
+
+def test_snapshot_retains_template_history_through_h5msm_and_unit_policy(tmp_path):
+    source, template, _ = load_181l_benzene()
+    options = template_options(
+        template,
+        np.column_stack((np.arange(6), np.arange(6))),
+        identity='Declared heavy-only benzene',
+        uri='smiles:c1ccccc1',
+        hydrogen_policy='stored_counts',
+    )
+    application, before, after = checked_application(source, options)
+    applied = application['molecular_system']
+    history = detached_record(applied.chemical_states.get_preparation_history())
+    assert history[-1]['report'] == detached_record(application['report'])
+    assert (
+        history[-1]['report']['template_provenance'] == options['template_provenance']
+    )
+    assert after['chemical_states'] != before['chemical_states']
+    path = tmp_path / 'declared_benzene.h5msm'
+    msm.convert(applied, to_form=path)
+    with puw.context(standard_units=['pm', 'fs']):
+        restored = msm.convert(path, to_form='molsysmt.MolSys')
+        observed = snapshot(applied)
+        recovered = snapshot(restored)
+        assert observed['chemical_states'] == after['chemical_states']
+        expected_states = detached_record(after['chemical_states'])
+        # H5MSM encodes these text columns as nullable strings, including empty
+        # tables. Values, masks and every chemical field/history remain exact.
+        for state in expected_states['states']:
+            for field in ('component_name', 'component_type'):
+                column = state['components']['columns'][field]
+                if column['dtype'] == 'object':
+                    assert all(
+                        value is None or isinstance(value, str)
+                        for value in column['values']
+                    )
+                    column['dtype'] = 'string'
+        assert recovered['chemical_states'] == expected_states
+        for captured in (observed, recovered):
+            for field in (
+                'topology',
+                'structure_chemical_state_indices',
+                'structure_units',
+            ):
+                assert captured[field] == after[field]
+            assert (
+                captured['structures']['structure_id']
+                == after['structures']['structure_id']
+            )
+            assert captured['structures']['time'] == after['structures']['time']
+            for field in ('coordinates', 'box'):
+                np.testing.assert_allclose(
+                    captured['structures'][field],
+                    after['structures'][field],
+                    rtol=0,
+                    atol=1e-12,
+                )
+        assert (
+            detached_record(restored.chemical_states.get_preparation_history())
+            == history
+        )
+    assert after['structure_units'] == {'coordinates': 'nm', 'box': 'nm', 'time': 'ps'}
+    # An audit copy remains independently editable after retaining the history.
+    after['chemical_states']['states'][0]['preparation_history']['tree'][
+        'items'
+    ].clear()
+    assert detached_record(applied.chemical_states.get_preparation_history()) == history
+    assert snapshot(source) == before
 
 
 @pytest.mark.parametrize('name', ['p59', 'p69'])

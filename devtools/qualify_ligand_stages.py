@@ -1,4 +1,4 @@
-"""Qualify explicit provider H/charge stages and retain the blocked BNZ boundary."""
+"""Qualify explicit provider H/charge stages, including original 181L BNZ."""
 
 import hashlib
 import importlib.metadata as metadata
@@ -22,8 +22,8 @@ from devtools.qualify_chemical_templates import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-PROVIDER_REVISION = '7894435e748bc55254b6c3d2b63ae82c101e5774'
-OUTPUT = ROOT / 'devguide/validation/data/ligand_stages/qualification.json'
+PROVIDER_REVISION = '5bd893c85fe8d211663b2b1f865f5f1d2c382a90'
+OUTPUT = ROOT / 'devguide/validation/data/ligand_stages/qualification_2026-10-06.json'
 HYDROGEN = {'mode': 'fixed_chemical_state', 'pH': None, 'engine': 'RDKit'}
 CHARGE = {'method': 'gasteiger_marsili'}
 
@@ -101,24 +101,33 @@ def qualify():
     application = msm.physchem.apply_chemical_template(bnz_source, **options)
     applied = application['molecular_system']
     before_bnz = snapshot(applied)
-    try:
-        dmt.prepare_ligand(
-            applied,
-            selection='all',
-            hydrogen_options={**HYDROGEN, 'attribute_policy': 'intersection'},
-            charge_options=CHARGE,
-        )
-    except msm.StructuralInconsistencyError as error:
-        assert 'order and aromaticity' in str(error)
-        rejection = {
-            'exception_type': type(error).__name__,
-            'message': str(error),
-            'provider_issue': 'uibcdf/molsysmt#314',
-        }
-    else:
-        raise AssertionError(
-            'Blocked BNZ boundary changed; qualify provider delivery explicitly.'
-        )
+    benzene = dmt.prepare_ligand(
+        applied,
+        selection='all',
+        hydrogen_options={**HYDROGEN, 'attribute_policy': 'intersection'},
+        charge_options=CHARGE,
+    )
+    workflow = benzene.metadata['preparation_workflow']
+    hydrogen = workflow['hydrogen_addition']
+    assert hydrogen['n_added_hydrogens'] == 6
+    assert hydrogen['dropped_attributes'] == ['b_factor', 'occupancy']
+    assert hydrogen['coordinate_evidence'] == 'generated_local_geometry'
+    assert workflow['prepared_to_input_atom_indices'] == list(range(6))
+    assert workflow['pdbqt_to_input_atom_indices'] == list(range(6))
+    assert benzene.atom_types == ['A'] * 6
+    np.testing.assert_array_equal(
+        puw.get_value(benzene.coordinates, to_unit='nm')[None],
+        before_bnz['structures']['coordinates'],
+    )
+    assert msm.get(benzene.source_molsys, element='atom', atom_id=True) == msm.get(
+        applied, element='atom', atom_id=True
+    )
+    benzene_audit = dmt.audit_preparation_charges(benzene)
+    assert benzene_audit['assessment'] == 'consistent'
+    assert benzene_audit['partial_charge_assignment']['n_atoms'] == 12
+    assert len(benzene_audit['charge_projection']['transfers']) == 6
+    assert abs(benzene_audit['total_charge']) < 1e-10
+    Vina(cpu=1, verbosity=0).set_ligand_from_string(benzene.to_pdbqt())
     assert snapshot(applied) == before_bnz
     return {
         'schema_version': '1.0',
@@ -139,6 +148,7 @@ def qualify():
                 'dockingmt/preparation/_molsys.py',
                 'dockingmt/preparation/ligand.py',
                 'devtools/qualify_ligand_stages.py',
+                'devtools/qualify_chemical_templates.py',
             )
         },
         'polar_control': {
@@ -160,16 +170,19 @@ def qualify():
             'input_sha256': _digest(msm.systems['T4 lysozyme L99A']['181l.pdb']),
             'template_application_report': detached_record(application['report']),
             'applied_snapshot': before_bnz,
-            'hydrogen_addition': rejection,
+            'prepared': benzene.to_dict(),
+            'hydrogen_addition': hydrogen,
+            'charge_audit': benzene_audit,
+            'vina_parser_admitted': True,
             'source_unchanged': True,
-            'status': 'provider_blocked',
+            'status': 'software_qualified_provisional_typing',
         },
         'limits': [
-            'Original 181L BNZ is not positively qualified: missing explicit bond aromaticity is provider-owned (#314).',
+            'Original BNZ is qualified only for the declared template, fixed-state H and named-charge software route.',
             'Generated local H geometry is not receptor or energy refinement.',
             'AutoDock typing and the default provisional gate remain unchanged.',
             'Charge projection/writing remains the existing temporary consumer profile (#223).',
-            'Template application reports remain separate records; native attachment is provider-owned (#298).',
+            'Template history is retained natively; H5MSM cannot retain a nonempty MolecularMechanics domain.',
             'An explicit-H SDF can still lack the stored virtual-H counts required by fixed-state addition.',
             'The public composition route emits its existing atom_index off-axis diagnostic; source identity/coordinates are checked.',
             'Source qualification and original producer versions do not establish public artifact or biological acceptance.',

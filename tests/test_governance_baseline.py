@@ -27,9 +27,9 @@ def test_ci_covers_supported_lanes_and_common_quality_gates():
     workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
     assert 'python-version: ["3.11", "3.12", "3.13", "3.14"]' in workflow
     assert 'repository: uibcdf/argdigest' in workflow
-    assert 'ref: "4fdbf19d386bbf476455d35c9988bf00624873e1"' in workflow
+    assert 'ref: "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e"' in workflow
     assert 'repository: uibcdf/molsysmt' in workflow
-    assert 'ref: "7894435e748bc55254b6c3d2b63ae82c101e5774"' in workflow
+    assert 'ref: "5bd893c85fe8d211663b2b1f865f5f1d2c382a90"' in workflow
     assert 'repository: uibcdf/molsysviewer' in workflow
     assert 'ref: "2c022507265c744d532f39df345322074f80a2a3"' in workflow
     assert '.molsyssuite/argdigest' in workflow

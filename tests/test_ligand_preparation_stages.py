@@ -237,7 +237,7 @@ def test_provider_failure_identity_is_preserved_and_no_fallback_occurs(
     assert not msm.has_attribute(source, 'partial_charge')
 
 
-def test_original_181l_declared_template_remains_rejected_for_missing_bond_aromaticity():
+def test_original_181l_declared_template_supports_fixed_state_h_and_named_charges():
     source, template, _ = load_181l_benzene()
     options = template_options(
         template,
@@ -250,15 +250,43 @@ def test_original_181l_declared_template_remains_rejected_for_missing_bond_aroma
         'molecular_system'
     ]
     before = xyz(applied).copy()
-    with pytest.raises(msm.StructuralInconsistencyError, match='order and aromaticity'):
-        dmt.prepare_ligand(
-            applied,
-            selection='all',
-            hydrogen_options={**HYDROGEN, 'attribute_policy': 'intersection'},
-            charge_options=CHARGE,
-        )
+    ids = list(msm.get(applied, element='atom', atom_id=True))
+    prepared = dmt.prepare_ligand(
+        applied,
+        selection='all',
+        hydrogen_options={**HYDROGEN, 'attribute_policy': 'intersection'},
+        charge_options=CHARGE,
+    )
+    workflow = prepared.metadata['preparation_workflow']
+    report = workflow['hydrogen_addition']
+    assert workflow['input_n_atoms'] == 6
+    assert report['n_added_hydrogens'] == 6
+    assert report['engine'] == 'RDKit'
+    assert report['coordinate_evidence'] == 'generated_local_geometry'
+    assert report['atom_correspondence'] == [[i, i] for i in range(6)]
+    assert len(report['parent_hydrogen_pairs']) == 6
+    assert report['dropped_attributes'] == ['b_factor', 'occupancy']
+    assert prepared.metadata['source_n_atoms'] == 12
+    assert workflow['prepared_to_input_atom_indices'] == list(range(6))
+    assert workflow['pdbqt_to_input_atom_indices'] == list(range(6))
+    assert prepared.n_atoms == 6  # Nonpolar H transfer charges to retained C.
+    assert prepared.atom_types == ['A'] * 6
+    assert list(msm.get(prepared.source_molsys, element='atom', atom_id=True)) == ids
+    np.testing.assert_array_equal(
+        puw.get_value(prepared.coordinates, to_unit='angstrom'), before
+    )
+    audit = dmt.audit_preparation_charges(prepared)
+    assert audit['assessment'] == 'consistent'
+    assert audit['partial_charge_assignment']['method'] == 'gasteiger_marsili'
+    assert audit['partial_charge_assignment']['n_atoms'] == 12
+    assert len(audit['charge_projection']['transfers']) == 6
+    assert audit['total_charge'] == pytest.approx(0, abs=1e-10)
+    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == [
+        'heuristic_atom_types'
+    ]
     np.testing.assert_array_equal(xyz(applied), before)
     assert not msm.has_attribute(applied, 'partial_charge')
+    assert list(msm.get(applied, element='atom', atom_id=True)) == ids
 
 
 def test_nondefault_units_and_strict_attribute_loss():
