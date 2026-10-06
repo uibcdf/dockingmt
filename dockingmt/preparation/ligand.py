@@ -269,6 +269,9 @@ def prepare_ligand(
     active_torsion_bonds : list[tuple[int, int]] | None, optional
         Explicit active bonds as pairs of selected-ligand atom indices before
         nonpolar hydrogen projection. None or an empty list keeps the ligand rigid.
+        MolSysMT classifies the complete graph. Explicit ester/thioester and
+        triple-adjacent cuts retain recorded docking exceptions; restricted C-N
+        links, ring, nonsingle, H and terminal bonds are rejected.
     hydrogen_options : mapping or None, optional
         Opt-in public MolSysMT hydrogen-builder arguments. Require explicit
         mode='fixed_chemical_state', pH=None and engine. Attribute policy defaults
@@ -462,6 +465,11 @@ def prepare_ligand(
             'active_torsion_bonds': [list(pair) for pair in torsion_tree.active_bonds]
             if torsion_tree
             else [],
+            **(
+                {'torsion_selection': torsion_tree.selection_report}
+                if torsion_tree
+                else {}
+            ),
             'hydrogen_policy': 'retain_polar_merge_nonpolar',
             'omitted_hydrogen_indices': omitted_hydrogen_indices,
             'atom_map_status': 'identity'

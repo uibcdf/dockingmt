@@ -69,6 +69,11 @@ prepared-input operation and independent score attachment without pose search.
 
 ## Development rule
 
+The [explicit torsion policy](validation/explicit_torsion_policy.md) and
+[executed qualification](validation/explicit_torsion_policy_2026-10-06.ipynb)
+consume native MolSysMT criteria, record explicit docking exceptions and preserve
+source/written correspondence. The default remains rigid.
+
 The [named AutoDock type contract](validation/named_autodock_types.md) and
 [executed qualification](validation/named_autodock_types_2026-10-06.ipynb) consume
 explicit MolSysMT assignments with parent/source/written maps. The named/charged

@@ -6,7 +6,7 @@ opened: 2026-09-26
 closed:
 verification: measured
 area: [preparation, vina]
-guard: tests/test_vina_torsion_matrix.py
+guard: tests/test_torsion_policy_consumption.py
 normative:
 blocked_by: []
 supersedes: []
@@ -89,3 +89,70 @@ not a request to import Meeko or copy its defaults. Compare exact eligible bond
 identities and induced fragments, with reasons for exclusions; descriptor or
 TORSDOF counts alone remain insufficient. Chemical classification belongs in a
 public provider operation; DockingMT chooses the docking policy and records it.
+
+## 2026-10-06 public classifier and explicit docking policy
+
+The [contract](../validation/explicit_torsion_policy.md),
+[executed notebook](../validation/explicit_torsion_policy_2026-10-06.ipynb) and
+[receipt](../validation/data/torsion_policy/qualification_2026-10-06.json) adopt
+public `get_rotatable_bonds(method='conjugation_restricted',
+chemical_state='structure', structure_indices=0)` before H projection. Original
+criteria, full masks, state, software and attribution remain finite saved evidence.
+Local amide/ring/order/terminal classification and per-cut traversal are removed.
+Provider fragments and local ROOT retain the prior written order.
+
+Named `explicit_docking_cuts@1` accepts provider candidates and caller-selected
+restricted C–O/S or triple-adjacent axes as recorded `explicit_override`, without
+clearing the provider rejection. Restricted C–N, ring, nonsingle, H and terminal
+bonds fail. Amidine rejection is stricter than the former carbonyl-only guard;
+amide/thioamide/tertiary amide stay restricted. No automatic cuts, symmetry
+exceptions, macrocycle pseudoatoms, RDKit Strict equality or barriers are claimed.
+Default rigidity and existing public signatures remain compatible.
+
+Original 1IEP/1S63/5X72 P59/P69 keep exact hashes/permutations. Restricted provider
+candidates are 7/5/2/2 versus selected 7/6/2/2; 1S63 source pair 26–27 records the
+triple-adjacent exception. Six admitted analytical controls and four restricted
+C–N failures retain independent expectations. Immutable inputs, complete H
+context, reordered axes, assigned states and unchanged provider failures are guarded.
+
+One retained-axis traversal remains under
+[MolSysMT #348](https://github.com/uibcdf/molsysmt/issues/348): current public
+connectivity tools cannot request the structure-assigned induced subset. The
+two-state probe gives assigned offsets `[0, 3, 6]` versus one reference block and
+retains the unsupported explicit request. Owner: DockingMT contributors; review
+2027-01-06. Remove after public assigned-state/subset acceptance; documented
+reference defaults are not alleged incorrect.
+
+The sibling stays at committed `5bd893c85`; fetched remote is 14 commits ahead
+with consumed topology files unchanged through `8ae160fc9`. Earlier #42/#43
+receipts stay intact. Real default Vina automatic named/charged preparation,
+two protocol cuts, pm/fs units, saved reports/maps and captured exact inputs are
+exercised; scientific assessment remains unassessed. The helper's unrelated
+5X72/1IEP combination is software evidence only. Publication/installed/hosted
+checkpoints and scientific qualification remain separate.
+
+## Refuted fixture assumptions — 2026-10-06
+
+The first reordered-axis test assumed assigning a reversed table through the
+native Topology property would retain row order; that supported setter normalizes
+it. The final declared fixture reorders the state table as in the provider's own
+axis tests, checking real source positions and preserved IDs. The first pose
+reconstruction assertion indexed the returned 25-atom retained system with
+indices from the original 39-atom input. The documented pose conversion omits
+removed H; the corrected independent comparison uses atom IDs and verifies both
+original-input correspondence and reconstructed coordinates. These were consumer
+test assumptions, not demonstrated provider or pose-conversion defects.
+
+## Final local gate — 2026-10-06
+
+The final source candidate passes **977 tests, no skips, 271.81 s, 169 warnings**,
+including 25 new controls and the strengthened four-reference provider guard.
+Eight notebook code cells execute, retaining four original comparisons, six
+admitted analytical cases and four C–N rejections. Ruff (120 files), report/index,
+changed-document links, finite receipt/hash, installed editable identity,
+component guidance and diff checks pass. The
+[checkpoint](../validation/data/torsion_policy/checkpoint_2026-10-06.json) retains
+exact consumer/test/evidence hashes and separate unexecuted/limited scopes.
+Canonical SMonitor/ArgDigest drift and host AmberTools conflicts remain unchanged.
+The issue stays partial/open; no push, hosted gate or public scientific admission
+is claimed.

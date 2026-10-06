@@ -1,5 +1,10 @@
 # Consuming MolSysMT rigid fragments
 
+The original 2026-10-03 qualification is retained below. The subsequent
+[explicit policy adoption](explicit_torsion_policy.md) removes local chemical
+eligibility and preserves the original byte hashes/maps. Retained-axis
+connectivity stays separately tracked in MolSysMT #348.
+
 DockingMT now delegates the final rigid-fragment partition to
 `msm.topology.get_rigid_fragments`. Issues [#6](https://github.com/uibcdf/dockingmt/issues/6)
 and [#33](https://github.com/uibcdf/dockingmt/issues/33) own this migration.

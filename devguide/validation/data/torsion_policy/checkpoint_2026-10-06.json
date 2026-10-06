@@ -1,0 +1,104 @@
+{
+  "schema": "dockingmt.explicit_torsion_policy_local_checkpoint@1",
+  "date": "2026-10-06",
+  "issues": [
+    "uibcdf/dockingmt#17",
+    "uibcdf/dockingmt#6",
+    "uibcdf/molsysmt#348"
+  ],
+  "python": "3.14.7 | packaged by conda-forge | (main, Sep  2 2026, 21:08:32) [GCC 15.3.0]",
+  "interpreter": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+  "scope": "local Python 3.14 source-composition qualification with editable DockingMT, not clean installed artifact admission",
+  "source_base_commit": "62b94616925804783cc58fcf096c7f3247b6d3fa",
+  "consumer_implementation_sha256": {
+    "dockingmt/preparation/_temporary_torsions.py": "2c7afa65e08b5e09705bffee5ff2184e0c9c77dd425a1d279e68940e6ab938b0",
+    "dockingmt/preparation/ligand.py": "e73e8f1760df7c2f0490df3e68777b577812a67c2bfc6467a97b4f47d0f583a7",
+    "devtools/qualify_torsion_policy.py": "7ac91027a78c38ac9fac0fb49ea745a55508950ae101c2de482b1a246edf6486"
+  },
+  "tests_sha256": {
+    "tests/test_torsion_policy_consumption.py": "b33d041f7eaa57ee3475d372d264c323f804bb676893ee0bad05475683812641",
+    "tests/test_rigid_fragment_consumption.py": "2fe7805314aa9be85446dce8ad04bbdff91803e1285c8eee6ec0501f05a5bcb2"
+  },
+  "evidence_sha256": {
+    "devguide/validation/data/torsion_policy/qualification_2026-10-06.json": "f022bb7f26bcef0edd95cbb3a46f8cd20d506ef19c120806043424b73d715255",
+    "devguide/validation/explicit_torsion_policy_2026-10-06.ipynb": "3158b6afc304aaa17a65676c44038c98f23b4e7513e1878857a10b2d039530b1"
+  },
+  "local_gates": {
+    "full_pytest": {
+      "command": "python -m pytest --receptor=llm",
+      "passed": 977,
+      "skipped": 0,
+      "duration_seconds": 271.81,
+      "warnings": 169,
+      "new_cases": 25,
+      "exit_code": 0
+    },
+    "notebook": {
+      "executed_code_cells": 8,
+      "error_outputs": 0,
+      "original_cases": 4,
+      "analytical_cases": 6,
+      "restricted_c_n_rejections": 4
+    },
+    "ruff_check": "passed",
+    "ruff_format": {
+      "status": "passed",
+      "files": 120
+    },
+    "report_index": "passed",
+    "changed_document_links": "passed",
+    "finite_json_and_hashes": "passed",
+    "editable_checkout_identity": "passed",
+    "component_guide": "passed",
+    "git_diff_check": "passed",
+    "canonical_guide_bytes": {
+      "status": "preexisting_drift",
+      "files": [
+        "SMONITOR_GUIDE.md",
+        "ARGDIGEST_GUIDE.md"
+      ],
+      "local_copies_changed": false,
+      "owner": "uibcdf/molsyssuite#106"
+    }
+  },
+  "installed_editable_distribution": {
+    "path": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/lib/python3.14/site-packages/dockingmt-0.0.0+127.gd419fee.dist-info",
+    "version": "0.0.0+127.gd419fee",
+    "direct_url": {
+      "dir_info": {
+        "editable": true
+      },
+      "url": "file:///home/liliana/repos%40uibcdf/dockingmt"
+    },
+    "source_import": "/home/liliana/repos@uibcdf/dockingmt/dockingmt/__init__.py"
+  },
+  "sibling_state": {
+    "molsysmt_loaded_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+    "fetched_remote": "8ae160fc9",
+    "commits_behind": 14,
+    "consumed_topology_sources_unchanged": true,
+    "worktree_modified": false
+  },
+  "qualification_profile": {
+    "PYTHONPATH": [
+      "/tmp/dockingmt-qualification-argdigest-1bea27f",
+      "/tmp/dockingmt-qualification-viewer-ec4c71e"
+    ],
+    "argdigest_source": "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e",
+    "molsysviewer_source": "ec4c71e574d798b7c8675b7e7e983da878ce9889"
+  },
+  "unexecuted_scope": [
+    "Python 3.11-3.13",
+    "macOS",
+    "clean installed artifacts",
+    "hosted CI",
+    "public admission",
+    "scientific preparation/scoring/barrier validation"
+  ],
+  "retained_limitations": [
+    "One retained-connectivity traversal remains under provider #348, review 2027-01-06.",
+    "Host AmberTools dependency conflicts remain recorded in the referenced #42 source profile.",
+    "Native artifact digest is unchanged; no fresh build provenance claim.",
+    "Installed editable distribution metadata predates these local commits; hashes identify tested sources."
+  ]
+}

@@ -37,7 +37,20 @@ def test_original_matrix_preserves_tree_and_consumes_provider(case, monkeypatch)
     )
     before_ids = list(msm.get(source, element='atom', atom_id=True))
     calls = []
+    classifications = []
     provider = msm.topology.get_rigid_fragments
+    classifier = msm.topology.get_rotatable_bonds
+
+    def recorded_classification(molecular_system, **kwargs):
+        report = classifier(molecular_system, **kwargs)
+        assert kwargs == {
+            'method': 'conjugation_restricted',
+            'chemical_state': 'structure',
+            'structure_indices': 0,
+        }
+        assert report['evaluated_atom_indices'].tolist() == list(range(len(before_ids)))
+        classifications.append(report)
+        return report
 
     def recorded_partition(molecular_system, **kwargs):
         report = provider(molecular_system, **kwargs)
@@ -48,10 +61,18 @@ def test_original_matrix_preserves_tree_and_consumes_provider(case, monkeypatch)
         return report
 
     monkeypatch.setattr(msm.topology, 'get_rigid_fragments', recorded_partition)
+    monkeypatch.setattr(msm.topology, 'get_rotatable_bonds', recorded_classification)
     prepared = prepare_ligand(
         source, selection='all', active_torsion_bonds=case['active_bonds']
     )
     assert len(calls) == 1
+    assert len(classifications) == 1
+    decisions = prepared.metadata['torsion_selection']['selected_bonds']
+    exceptions = [d for d in decisions if d['decision'] == 'explicit_override']
+    assert len(exceptions) == (1 if case['case'] == '1s63_ligand' else 0)
+    if exceptions:
+        assert exceptions[0]['source_atom_indices'] == [26, 27]
+        assert exceptions[0]['provider_exclusion_reasons'] == ['adjacent_triple_bond']
     kwargs, report = calls[0]
     assert kwargs['chemical_state'] == 'structure'
     assert kwargs['structure_indices'] == 0

@@ -1,5 +1,10 @@
 # Minimal ligand torsion reference matrix
 
+The [2026-10-06 explicit policy](explicit_torsion_policy.md) now consumes provider
+classification and records caller-selected exceptions. Original reference files,
+comparisons and historical descriptor measurements remain intact; no automatic
+torsion-selection equivalence is claimed.
+
 The cases in `tests/test_vina_torsion_matrix.py` use verbatim files from a
 single pinned AutoDock Vina commit. Their source paths, SHA-256 digests, and
 Apache License 2.0 attribution are in

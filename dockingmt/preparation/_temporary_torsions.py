@@ -1,21 +1,21 @@
-"""Docking tree orientation with temporary torsion eligibility for molsysmt#224.
+"""Explicit docking choices over public provider torsion/fragment operations.
 
-Rigid-fragment partitioning uses MolSysMT's supported operation. Retire the remaining
-local eligibility checks when its chemical torsion policy passes the consumer cases
-(dockingmt#6/#17, molsysmt#224). DockingMT owns selected cuts and ROOT orientation;
-PDBQT writing remains a separate migration under dockingmt#33 and molsysmt#214.
+MolSysMT classifies chemistry and partitions fragments. DockingMT records selected
+cuts and explicit exceptions and orients ROOT/BRANCH. The retained-axis connectivity
+guard remains pending molsysmt#348; PDBQT writing is separate (dockingmt#33).
 """
 
 from __future__ import annotations
 
 from collections.abc import Sequence
 from dataclasses import dataclass
-from numbers import Integral, Number
+from numbers import Integral
 from typing import Any
 
 import molsysmt as msm
 
 from dockingmt._private.smonitor import ArgumentError
+from dockingmt.preparation._molsys import detached_provider_report
 
 
 @dataclass(frozen=True)
@@ -32,20 +32,19 @@ class TorsionTree:
     branches: tuple[Branch, ...]
     atom_order: tuple[int, ...]
     active_bonds: tuple[tuple[int, int], ...]
+    selection_report: dict[str, Any]
 
 
-def _component(
-    start: int, neighbors: list[set[int]], excluded: set[tuple[int, int]]
-) -> set[int]:
+def _retained_component(start: int, neighbors: list[set[int]]) -> set[int]:
+    # Temporary state-aware induced connectivity pending molsysmt#348.
+    # Owner: DockingMT contributors; review 2027-01-06. Retire when the public
+    # provider operation passes assigned-state and retained-subset controls.
     visited = {start}
     pending = [start]
     while pending:
         atom = pending.pop()
         for neighbor in neighbors[atom]:
-            if (
-                tuple(sorted((atom, neighbor))) not in excluded
-                and neighbor not in visited
-            ):
+            if neighbor not in visited:
                 visited.add(neighbor)
                 pending.append(neighbor)
     return visited
@@ -62,7 +61,8 @@ def build_torsion_tree(
     Indices in requested_bonds refer to atoms of the selected MolSysMT ligand before
     nonpolar hydrogen projection. MolSysMT partitions the selected structure's
     complete graph; DockingMT projects memberships and orients the docking tree.
-    Eligibility checks remain temporary (molsysmt#224), with no automatic policy.
+    Public provider exclusions inform the explicit docking policy. There is no
+    automatic cut selection and no local chemical classification or fallback.
     """
     n_source = int(msm.get(source_molsys, element='system', n_atoms=True))
     if len(elements) != n_source or len(set(retained_indices)) != len(retained_indices):
@@ -74,48 +74,30 @@ def build_torsion_tree(
             arg_name='molecular_system',
             reason='Retained ligand atom indices are invalid.',
         )
-    if not msm.has_attribute(source_molsys, 'bonded_atom_pairs'):
-        raise ArgumentError(
-            arg_name='molecular_system',
-            reason='Explicit ligand bonds are required for active torsions.',
-        )
-    pairs = msm.get(
+    classification = msm.topology.get_rotatable_bonds(
         source_molsys,
-        element='bond',
-        bonded_atom_pairs=True,
+        method='conjugation_restricted',
         chemical_state='structure',
         structure_indices=0,
     )
-    orders = (
-        msm.get(
-            source_molsys,
-            element='bond',
-            bond_order=True,
-            chemical_state='structure',
-            structure_indices=0,
-        )
-        if msm.has_attribute(
-            source_molsys, 'bond_order', chemical_state='structure', structure_indices=0
-        )
-        else None
-    )
-    if orders is not None and len(orders) != len(pairs):
-        raise ArgumentError(
-            arg_name='molecular_system', reason='Ligand bond pairs and orders disagree.'
-        )
-    source_edges = {}
-    for index, (a, b) in enumerate(pairs):
-        pair = tuple(sorted((int(a), int(b))))
-        if (
-            pair[0] < 0
-            or pair[1] >= n_source
-            or pair[0] == pair[1]
-            or pair in source_edges
-        ):
-            raise ArgumentError(
-                arg_name='molecular_system', reason='Ligand bond graph is invalid.'
+    source_edges = {
+        tuple(sorted((int(a), int(b)))): index
+        for index, (a, b) in enumerate(classification['bonded_atom_pairs'])
+    }
+    bond_ids = detached_provider_report(
+        {
+            'values': msm.get(
+                source_molsys,
+                element='bond',
+                bond_id=True,
+                chemical_state='structure',
+                structure_indices=0,
             )
-        source_edges[pair] = index
+        }
+    )['values']
+    atom_ids = detached_provider_report(
+        {'values': msm.get(source_molsys, element='atom', atom_id=True)}
+    )['values']
     retained_lookup = {source: index for index, source in enumerate(retained_indices)}
     neighbors = [set() for _ in retained_indices]
     for a, b in source_edges:
@@ -123,17 +105,14 @@ def build_torsion_tree(
             x, y = retained_lookup[a], retained_lookup[b]
             neighbors[x].add(y)
             neighbors[y].add(x)
-    if len(_component(0, neighbors, set())) != len(retained_indices):
+    if len(_retained_component(0, neighbors)) != len(retained_indices):
         raise ArgumentError(
             arg_name='molecular_system',
             reason='A flexible PDBQT ligand must have one connected retained graph.',
         )
 
-    source_neighbors = [set() for _ in range(n_source)]
-    for a, b in source_edges:
-        source_neighbors[a].add(b)
-        source_neighbors[b].add(a)
     selected: list[tuple[int, int]] = []
+    decisions = []
     for pair in requested_bonds:
         if (
             not isinstance(pair, (list, tuple))
@@ -163,51 +142,28 @@ def build_torsion_tree(
                 arg_name='active_torsion_bonds',
                 reason=f'Duplicate torsion bond {source_pair}.',
             )
-        bond_order = orders[source_edges[source_pair]] if orders is not None else None
-        if not isinstance(bond_order, Number) or float(bond_order) != 1.0:
-            raise ArgumentError(
-                arg_name='active_torsion_bonds',
-                reason=f'{source_pair} needs an explicit single bond order.',
-            )
-        a, b = source_pair
-        if elements[a].upper() == 'H' or elements[b].upper() == 'H':
-            raise ArgumentError(
-                arg_name='active_torsion_bonds',
-                reason=f'{source_pair} cannot rotate a hydrogen bond.',
-            )
-        if _is_amide_cn(a, b, elements, source_neighbors, source_edges, orders):
-            raise ArgumentError(
-                arg_name='active_torsion_bonds',
-                reason=f'{source_pair} is an amide C-N bond.',
-            )
-        retained_pair = tuple(sorted((retained_lookup[a], retained_lookup[b])))
-        side = _component(retained_pair[0], neighbors, {retained_pair})
-        if retained_pair[1] in side:
-            raise ArgumentError(
-                arg_name='active_torsion_bonds',
-                reason=f'{source_pair} belongs to a ring.',
-            )
-        other = set(range(len(retained_indices))) - side
-        if any(
-            sum(elements[retained_indices[index]].upper() != 'H' for index in group) < 2
-            for group in (side, other)
-        ):
-            raise ArgumentError(
-                arg_name='active_torsion_bonds',
-                reason=f'{source_pair} has a terminal heavy-atom side.',
-            )
+        row = source_edges[source_pair]
+        reasons = [
+            name
+            for name, bit in classification['exclusion_bits'].items()
+            if int(classification['exclusion_mask'][row]) & bit
+        ]
+        _require_explicit_cut(source_pair, reasons, elements)
+        decisions.append(
+            {
+                'source_atom_indices': list(source_pair),
+                'source_bond_index': int(classification['bond_indices'][row]),
+                'source_bond_id': bond_ids[int(classification['bond_indices'][row])],
+                'source_atom_ids': [atom_ids[i] for i in source_pair],
+                'decision': 'explicit_override' if reasons else 'provider_candidate',
+                'provider_exclusion_reasons': reasons,
+            }
+        )
         selected.append(source_pair)
 
-    bond_indices = msm.get(
-        source_molsys,
-        element='bond',
-        index=True,
-        chemical_state='structure',
-        structure_indices=0,
-    )
     fragments = msm.topology.get_rigid_fragments(
         source_molsys,
-        bond_indices=[bond_indices[source_edges[pair]] for pair in selected],
+        bond_indices=[decision['source_bond_index'] for decision in decisions],
         chemical_state='structure',
         structure_indices=0,
     )
@@ -269,26 +225,46 @@ def build_torsion_tree(
             reason='Selected torsions did not form a valid rigid-fragment tree.',
         )
     return TorsionTree(
-        components[root], tree_branches, tuple(atom_order), tuple(selected)
+        components[root],
+        tree_branches,
+        tuple(atom_order),
+        tuple(selected),
+        {
+            'schema': 'dockingmt.explicit_torsion_selection@1',
+            'policy': 'explicit_docking_cuts@1',
+            'selection': 'caller_supplied_bonds',
+            'provider_classification': detached_provider_report(classification),
+            'selected_bonds': decisions,
+            'retained_source_atom_indices': list(retained_indices),
+            'pdbqt_to_source_atom_indices': [retained_indices[i] for i in atom_order],
+            'limits': 'Graph eligibility and explicit docking exceptions do not certify rotational barriers or scientific readiness.',
+        },
     )
 
 
-def _is_amide_cn(
-    a: int,
-    b: int,
-    elements: Sequence[str],
-    neighbors: list[set[int]],
-    edges: dict[tuple[int, int], int],
-    orders: Sequence[Any] | None,
-) -> bool:
-    if {elements[a].upper(), elements[b].upper()} != {'C', 'N'} or orders is None:
-        return False
-    carbon = a if elements[a].upper() == 'C' else b
-    nitrogen = b if carbon == a else a
-    return any(
-        other != nitrogen
-        and elements[other].upper() in {'O', 'S'}
-        and isinstance(orders[edges[tuple(sorted((carbon, other)))]], Number)
-        and float(orders[edges[tuple(sorted((carbon, other)))]]) == 2.0
-        for other in neighbors[carbon]
-    )
+def _require_explicit_cut(pair, reasons, elements):
+    """Choose allowed docking exceptions without reclassifying the chemistry."""
+    messages = {
+        'hydrogen_endpoint': 'cannot rotate a hydrogen bond',
+        'not_single': 'needs an explicit single bond order',
+        'ring_bond': 'belongs to a ring',
+        'terminal_heavy_atom': 'has a terminal heavy-atom side',
+    }
+    for reason in reasons:
+        if reason in messages:
+            raise ArgumentError(
+                arg_name='active_torsion_bonds', reason=f'{pair} {messages[reason]}.'
+            )
+    if 'restricted_conjugation' in reasons and 'N' in (
+        elements[pair[0]].upper(),
+        elements[pair[1]].upper(),
+    ):
+        raise ArgumentError(
+            arg_name='active_torsion_bonds',
+            reason=f'{pair} is an amide C-N or other restricted C-N bond.',
+        )
+    if set(reasons) - {'restricted_conjugation', 'adjacent_triple_bond'}:
+        raise ArgumentError(
+            arg_name='active_torsion_bonds',
+            reason=f'{pair} has unsupported provider exclusions: {reasons}.',
+        )
