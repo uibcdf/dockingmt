@@ -309,6 +309,7 @@ def _optional_provider_options(argument):
 ARGUMENT_DIGESTERS = {
     'hydrogen_options': _optional_provider_options('hydrogen_options'),
     'charge_options': _optional_provider_options('charge_options'),
+    'typing_options': _optional_provider_options('typing_options'),
     'evaluations': _mapping('evaluations'),
     'failures': digest_failures,
     'result': digest_result,

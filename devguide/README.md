@@ -69,6 +69,11 @@ prepared-input operation and independent score attachment without pose search.
 
 ## Development rule
 
+The [named AutoDock type contract](validation/named_autodock_types.md) and
+[executed qualification](validation/named_autodock_types_2026-10-06.ipynb) consume
+explicit MolSysMT assignments with parent/source/written maps. The named/charged
+route passes default Vina admission while scientific readiness stays unassessed.
+
 The [public preparation assessment contract](validation/preparation_assessment.md)
 and [executed notebook](validation/preparation_assessment.ipynb) expose declared
 provisional chemistry before engine execution and retain the same report in

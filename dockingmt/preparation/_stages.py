@@ -6,11 +6,12 @@ from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation._molsys import detached_provider_report
 
 
-def stage_options(hydrogen_options, charge_options):
+def stage_options(hydrogen_options, charge_options, typing_options=None):
     """Require explicit scientific choices before any molecular conversion."""
     for name, options in (
         ('hydrogen_options', hydrogen_options),
         ('charge_options', charge_options),
+        ('typing_options', typing_options),
     ):
         if options is not None and (
             any(not isinstance(key, str) for key in options)
@@ -44,12 +45,22 @@ def stage_options(hydrogen_options, charge_options):
                 reason='Specify an explicit named MolSysMT charge method.',
             )
         charge_options = dict(charge_options)
-    return hydrogen_options, charge_options
+    if typing_options is not None:
+        if typing_options.get('typing_scheme') != 'autodock4' or (
+            not isinstance(typing_options.get('method'), str)
+            or not typing_options['method'].strip()
+        ):
+            raise ArgumentError(
+                arg_name='typing_options',
+                reason="Specify typing_scheme='autodock4' and an explicit named MolSysMT typing method.",
+            )
+        typing_options = dict(typing_options)
+    return hydrogen_options, charge_options, typing_options
 
 
-def run_stages(source, hydrogen_options, charge_options):
+def run_stages(source, hydrogen_options, charge_options, typing_options=None):
     """Delegate stages without catching provider errors or choosing a fallback."""
-    if hydrogen_options is None and charge_options is None:
+    if hydrogen_options is None and charge_options is None and typing_options is None:
         return source, None
     input_n_atoms = int(msm.get(source, n_atoms=True))
     report = None
@@ -61,16 +72,24 @@ def run_stages(source, hydrogen_options, charge_options):
         report = detached_provider_report(result['report'])
     if charge_options is not None:
         source = msm.build.assign_partial_charges(source, **charge_options)
+    if typing_options is not None:
+        source = msm.build.assign_autodock_atom_types(source, **typing_options)
     return source, {
         'schema_version': '1.0',
         'scope': 'explicit_molsysmt_stages',
         'input_n_atoms': input_n_atoms,
         'stages': (['hydrogen_addition'] if hydrogen_options is not None else [])
-        + (['partial_charge_assignment'] if charge_options is not None else []),
+        + (['partial_charge_assignment'] if charge_options is not None else [])
+        + (['atom_type_assignment'] if typing_options is not None else []),
         'hydrogen_addition': report,
         'charge_assignment_record': 'metadata.partial_charge_assignment'
         if charge_options is not None
         else None,
+        **(
+            {'type_assignment_record': 'metadata.atom_type_assignment'}
+            if typing_options is not None
+            else {}
+        ),
     }
 
 

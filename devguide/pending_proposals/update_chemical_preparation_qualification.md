@@ -137,3 +137,12 @@ decision; general preparation, named typing and provider export remain separate.
 
 The consumer issues remain open; the candidate and new receipts are local, with
 no commit/push or new hosted result claimed.
+
+## Subsequent local checkpoint — 2026-10-06
+
+The #42 candidate and its new receipts were subsequently saved in local commit
+`6f193fb`, before changing preparation behavior. No push or new hosted result is
+claimed. Its receipt hashes qualify that runtime vintage; subsequent named-type
+consumption is tracked separately by
+[DockingMT #43](https://github.com/uibcdf/dockingmt/issues/43) with its own
+[executed evidence](../validation/named_autodock_types.md).

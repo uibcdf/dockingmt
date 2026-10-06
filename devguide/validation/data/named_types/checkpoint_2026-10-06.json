@@ -1,0 +1,85 @@
+{
+  "schema": "dockingmt.named_autodock_type_local_checkpoint@1",
+  "date": "2026-10-06",
+  "issue": "uibcdf/dockingmt#43",
+  "python": "3.14.7 | packaged by conda-forge | (main, Sep  2 2026, 21:08:32) [GCC 15.3.0]",
+  "interpreter": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+  "scope": "local source-composition qualification; editable checkout, not clean installed artifact admission",
+  "source_base_commit": "6f193fbd3012374286a9da5684d7b0c8e9cd7170",
+  "consumer_implementation_sha256": {
+    "dockingmt/preparation/_typing.py": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2",
+    "dockingmt/preparation/_molsys.py": "7b051fff1b9ba3af3ac3b3e6075101923125ee2a73a912e0ff4c405b8f12fc5b",
+    "dockingmt/preparation/_stages.py": "e379ea198cc0d85d9d0769ceb048d6bfa6e3ae1797baac69639310b82aff419a",
+    "dockingmt/preparation/ligand.py": "49a37e06e3ca8142b337372c65f76cd14ca05e46fe3e72b971650750df2fbead",
+    "dockingmt/preparation/receptor.py": "5d3d6fad40fd40fa1954499fae584869bbd59f5429a36b1172aaf3b380f81773",
+    "dockingmt/_private/argdigest/registry.py": "bb2c2460c37ba9029d052e4567be54a5118d07215b9be2073437303db023b9f1",
+    "devtools/qualify_named_types.py": "d74e28984e837a4c583136560496e57411a4ea191c1a78e46f791e9061b65191"
+  },
+  "tests_sha256": {
+    "tests/test_named_autodock_types.py": "797f864cb8b9e5950771cb1c3690be5c21fdac3c65e42cb06b2b95094b76ea2d"
+  },
+  "evidence_sha256": {
+    "devguide/validation/data/named_types/qualification_2026-10-06.json": "8e2dc00a0857bcf51e00977e962d4ec4a85bc43e0bd7faaa8aa9570d5fb9ddec",
+    "devguide/validation/named_autodock_types_2026-10-06.ipynb": "3466bf2437584ea34282759c19351d388adec226795a9122786b3f143d865be2"
+  },
+  "local_gates": {
+    "full_pytest": {
+      "command": "python -m pytest --receptor=llm",
+      "passed": 952,
+      "skipped": 0,
+      "duration_seconds": 273.21,
+      "warnings": 145,
+      "new_cases": 64,
+      "exit_code": 0
+    },
+    "notebook": {
+      "executed_code_cells": 10,
+      "error_outputs": 0,
+      "cases": 22
+    },
+    "ruff_check": "passed",
+    "ruff_format": {
+      "status": "passed",
+      "files": 118
+    },
+    "report_index": "passed",
+    "changed_document_links": "passed",
+    "finite_json_and_receipt_hashes": "passed",
+    "editable_checkout_identity": "passed",
+    "component_guide": "passed",
+    "git_diff_check": "passed",
+    "canonical_guide_bytes": {
+      "status": "preexisting_drift",
+      "files": [
+        "SMONITOR_GUIDE.md",
+        "ARGDIGEST_GUIDE.md"
+      ],
+      "local_copies_changed": false,
+      "owner": "uibcdf/molsyssuite#106"
+    }
+  },
+  "installed_editable_distribution": {
+    "path": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/lib/python3.14/site-packages/dockingmt-0.0.0+127.gd419fee.dist-info",
+    "version": "0.0.0+127.gd419fee",
+    "direct_url": {
+      "dir_info": {
+        "editable": true
+      },
+      "url": "file:///home/liliana/repos%40uibcdf/dockingmt"
+    },
+    "source_import": "/home/liliana/repos@uibcdf/dockingmt/dockingmt/__init__.py"
+  },
+  "unexecuted_scope": [
+    "Python 3.11-3.13",
+    "macOS",
+    "clean installed artifacts",
+    "hosted CI",
+    "public admission",
+    "scientific preparation/scoring qualification"
+  ],
+  "retained_limitations": [
+    "Host AmberTools dependency conflicts remain recorded in the referenced #42 source profile.",
+    "Provider native artifact digest is retained without a fresh build provenance claim.",
+    "Installed distribution metadata predates these local commits; source hashes identify tested implementation."
+  ]
+}

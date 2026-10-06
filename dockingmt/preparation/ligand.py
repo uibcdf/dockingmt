@@ -13,11 +13,13 @@ from dockingmt.preparation._molsys import (
     chemistry_evidence,
     select_one_structure,
     source_aromaticity,
+    source_atom_types,
     source_charge_assignment,
     source_partial_charges,
 )
 from dockingmt.preparation._stages import finish_stage_maps, run_stages, stage_options
 from dockingmt.preparation._temporary_torsions import TorsionTree, build_torsion_tree
+from dockingmt.preparation._typing import type_projection, type_remark
 from dockingmt.preparation.charges import _charge_projection, _charge_remark
 
 
@@ -140,7 +142,7 @@ class PreparedLigand:
                 f'{self.charges[atom]:6.3f} {self.atom_types[atom]:<2s}'
             )
 
-        lines = _charge_remark(self) + ['ROOT']
+        lines = _charge_remark(self) + type_remark(self) + ['ROOT']
         root_atoms = (
             self._torsion_tree.root_atoms
             if self._torsion_tree is not None
@@ -247,6 +249,7 @@ def prepare_ligand(
     *,
     hydrogen_options: dict[str, Any] | None = None,
     charge_options: dict[str, Any] | None = None,
+    typing_options: dict[str, Any] | None = None,
 ) -> PreparedLigand:
     """Prepare a small molecule ligand for docking calculations.
 
@@ -274,6 +277,10 @@ def prepare_ligand(
         Opt-in public MolSysMT charge-builder arguments, including an explicit
         named method. Charge assignment follows hydrogen addition when requested.
         No default model, state repair or engine fallback is selected.
+    typing_options : mapping or None, optional
+        Opt-in public MolSysMT type assignment after requested H/charge stages.
+        Require typing_scheme='autodock4' and an explicit method. Valid named
+        assignments already present on the input are consumed without calculation.
 
     Returns
     -------
@@ -282,14 +289,19 @@ def prepare_ligand(
     """
     import molsysmt as msm
 
-    hydrogen_options, charge_options = stage_options(hydrogen_options, charge_options)
+    hydrogen_options, charge_options, typing_options = stage_options(
+        hydrogen_options, charge_options, typing_options
+    )
     extracted = select_one_structure(molecular_system, selection)
-    extracted, workflow = run_stages(extracted, hydrogen_options, charge_options)
+    extracted, workflow = run_stages(
+        extracted, hydrogen_options, charge_options, typing_options
+    )
     n_atoms = msm.get(extracted, element='system', n_atoms=True)
 
     atom_names, group_names, group_ids, elements = atom_metadata(extracted, 'LIG')
     charges = source_partial_charges(extracted, n_atoms)
     assignment = source_charge_assignment(extracted)
+    named_types, typing_assignment = source_atom_types(extracted, n_atoms)
     aromaticity = source_aromaticity(extracted, n_atoms)
     bonded_atoms = (
         msm.get(
@@ -334,7 +346,11 @@ def prepare_ligand(
                     reason='A ligand hydrogen needs exactly one explicit heavy-atom bond for Vina preparation.',
                 )
             attached = heavy_neighbors[0]
-            if elements[attached].upper() not in ('N', 'O', 'S'):
+            if (
+                (named_types[i] == 'H')
+                if named_types is not None
+                else (elements[attached].upper() not in ('N', 'O', 'S'))
+            ):
                 if charges is not None:
                     charge_transfers.append((i, attached))
                     merged_hydrogen_charges[attached] = (
@@ -344,7 +360,9 @@ def prepare_ligand(
                 continue
 
         atype = 'C'
-        if element.upper() == 'H':
+        if named_types is not None:
+            atype = named_types[i]
+        elif element.upper() == 'H':
             atype = 'HD'
         elif element.upper() == 'O':
             atype = 'OA'
@@ -418,9 +436,26 @@ def prepare_ligand(
             'charge_source': 'source_partial_charge'
             if charges is not None
             else 'zero_placeholder',
-            'atom_type_source': 'element_aromaticity_heuristic'
-            if aromaticity is not None
-            else 'element_group_heuristic',
+            'atom_type_source': 'molsysmt_named_autodock4'
+            if typing_assignment is not None
+            else (
+                'element_aromaticity_heuristic'
+                if aromaticity is not None
+                else 'element_group_heuristic'
+            ),
+            **(
+                {
+                    'atom_type_assignment': typing_assignment,
+                    'atom_type_projection': type_projection(
+                        typing_assignment,
+                        retained_indices,
+                        retained_types,
+                        torsion_tree.atom_order if torsion_tree else None,
+                    ),
+                }
+                if typing_assignment is not None
+                else {}
+            ),
             'torsion_policy': 'explicit_selected_bonds'
             if torsion_tree
             else 'rigid_only',

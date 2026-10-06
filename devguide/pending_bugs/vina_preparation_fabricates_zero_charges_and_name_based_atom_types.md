@@ -246,3 +246,25 @@ source-qualified suite passes 887 tests without skips on Python 3.14.7/Vina 1.2.
 Original 181L BNZ remains a negative control pending MolSysMT #314 bond aromaticity;
 the notebook retains the rejection and unchanged pose. #41 and this owning issue
 remain partial. Published source pins are unchanged and sibling work is preserved.
+
+## 2026-10-06 named-type consumer qualification
+
+[DockingMT #43](https://github.com/uibcdf/dockingmt/issues/43) consumes valid
+named MolSysMT AutoDock4 assignments, including projected parent labels, and
+adds explicit optional typing after requested ligand H/charge stages. The
+[contract and executed evidence](../validation/named_autodock_types.md) cover
+independent N/S environments, F/P polar H, original BNZ (12 evaluated/six aromatic
+C), flexible written order, pm/coulomb units and native stale/consumer mutation
+rejection. Complete provider attribution and atom maps survive saved result JSON.
+
+A real default Vina run with named/charged synthetic receptor and partner returns
+one pose without provisional opt-in. Known heuristic-type reasons disappear for
+this bounded route; scientific preparation assessment remains unassessed. The
+full local source suite passes 952 tests without skips on Python 3.14.7/Vina 1.2.7.
+Original BNZ's earlier H failure was resolved under #42, preserved in local commit
+`6f193fb` and separately dated notebooks/receipts.
+
+This owning issue stays partial: conventional protein-receptor/scoring scientific
+qualification, broader chemistry coverage, provider atom/charge-preserving export
+MolSysMT #223 and public/installed/hosted checkpoints are not established by this
+consumer slice. Untyped workflows keep their existing default safeguard.

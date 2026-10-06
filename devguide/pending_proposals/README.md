@@ -4,10 +4,11 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
-### Partial (9)
+### Partial (10)
 
 - [`adopt_required_python_314.md`](adopt_required_python_314.md) — [#30](https://github.com/uibcdf/dockingmt/issues/30) — Adopt the mandatory four-minor contract and qualify normal installed delivery *(partial, inspected)*
 - [`consume_fixed_state_hydrogens.md`](consume_fixed_state_hydrogens.md) — [#41](https://github.com/uibcdf/dockingmt/issues/41) — Consume explicit fixed-state ligand hydrogen and charge stages with provenance. *(partial, measured)*
+- [`consume_named_autodock_types.md`](consume_named_autodock_types.md) — [#43](https://github.com/uibcdf/dockingmt/issues/43) — Consume named MolSysMT AutoDock types with explicit stages and parent-label projection. *(partial, measured)*
 - [`define_ligand_torsion_policy_across_rdkit_and_vina_references.md`](define_ligand_torsion_policy_across_rdkit_and_vina_references.md) — [#17](https://github.com/uibcdf/dockingmt/issues/17) — Define ligand torsion policy across RDKit and Vina reference differences *(partial, measured)*
 - [`review_extensibility_and_performance.md`](review_extensibility_and_performance.md) — [#28](https://github.com/uibcdf/dockingmt/issues/28) — Review extension boundaries and establish an architecture performance baseline *(partial, measured)*
 - [`review_python_ecosystem_policy_adoption.md`](review_python_ecosystem_policy_adoption.md) — [#19](https://github.com/uibcdf/dockingmt/issues/19) — Review Python support-library and developer-tool adoption *(partial, measured)*

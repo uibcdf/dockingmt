@@ -2,7 +2,9 @@
 
 DockingMT consumes an explicitly assigned MolSysMT charge model. It preserves
 original provenance and observes charge conservation through its existing
-hydrogen projection and PDBQT writer. AutoDock typing remains provisional.
+hydrogen projection and PDBQT writer. The charge-only qualification below retains
+provisional AutoDock typing. The [2026-10-06 named-type adoption](named_autodock_types.md)
+adds an explicit consumer route with its own evidence; earlier receipts remain intact.
 
 ```python
 import molsysmt as msm

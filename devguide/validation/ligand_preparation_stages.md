@@ -3,6 +3,8 @@
 The original qualification below is dated 2026-10-04. The
 [2026-10-06 update](#positive-original-bnz-qualification--2026-10-06) qualifies the
 resolved BNZ route and retained native template history against the newer source.
+The subsequent [named-type qualification](named_autodock_types.md) adds explicit
+typing after H/charge stages, preserving the earlier qualification receipts.
 
 `prepare_ligand` can delegate caller-requested fixed-state hydrogen addition and
 named partial-charge assignment to public MolSysMT builders. Current calls with

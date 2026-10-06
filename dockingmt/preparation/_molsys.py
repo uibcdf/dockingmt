@@ -137,6 +137,34 @@ def source_charge_assignment(molsys: Any) -> dict[str, Any] | None:
     return detached_provider_report(report)
 
 
+def source_atom_types(molsys: Any, n_atoms: int):
+    """Consume named types after public extraction checks the provider binding.
+
+    Unqualified atom_ff_type columns do not identify a chemical typing scheme.
+    Parent labels are retained without classifying an extracted fragment again.
+    """
+    report = getattr(molsys.molecular_mechanics, 'atom_type_assignment', None)
+    if report is None:
+        return None, None
+    if (
+        report.get('schema') != 'molsysmt.atom_type_assignment@1'
+        or report.get('status') not in ('assigned', 'projected')
+        or report.get('typing_scheme') != 'autodock4'
+        or report.get('coverage') != 'complete'
+    ):
+        raise ArgumentError(
+            arg_name='molecular_system',
+            reason='Named AutoDock typing attribution is stale or unsupported; explicitly reassign types with MolSysMT.',
+        )
+    values = msm.get(molsys, element='atom', atom_ff_type=True)
+    if len(values) != n_atoms or any(not isinstance(value, str) for value in values):
+        raise ArgumentError(
+            arg_name='molecular_system',
+            reason='Named AutoDock types must cover every selected atom.',
+        )
+    return list(values), detached_provider_report(report)
+
+
 def detached_provider_report(report: dict[str, Any]) -> dict[str, Any]:
     """Normalize provider numeric arrays while preserving declared units and credit."""
 

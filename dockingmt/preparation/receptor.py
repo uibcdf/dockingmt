@@ -13,9 +13,12 @@ from dockingmt.preparation._molsys import (
     chemistry_evidence,
     select_one_structure,
     source_aromaticity,
+    source_atom_types,
     source_charge_assignment,
     source_partial_charges,
 )
+from dockingmt.preparation._stages import finish_stage_maps, run_stages, stage_options
+from dockingmt.preparation._typing import type_projection, type_remark
 from dockingmt.preparation.charges import _charge_projection, _charge_remark
 
 
@@ -75,7 +78,7 @@ class PreparedReceptor:
     def to_pdbqt(self) -> str:
         """Generate a PDBQT formatted string for docking engines."""
         coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))
-        lines = _charge_remark(self)
+        lines = _charge_remark(self) + type_remark(self)
         for i, (name, gname, gid, (x, y, z), atype, q) in enumerate(
             zip(
                 self.atom_names,
@@ -167,6 +170,8 @@ def prepare_receptor(
     molecular_system: Any,
     selection: str = "molecule_type=='protein'",
     state_id: str | None = None,
+    *,
+    typing_options: dict[str, Any] | None = None,
 ) -> PreparedReceptor:
     """Prepare a conventional protein receptor for docking calculations.
 
@@ -182,6 +187,11 @@ def prepare_receptor(
         Selection query identifying receptor atoms.
     state_id : str | None, optional
         Unique identifier for the prepared state. If None, an automatic ID is assigned.
+    typing_options : mapping or None, optional
+        Opt-in public MolSysMT typing on the selected complete graph. Require
+        typing_scheme='autodock4' and an explicit method. Valid preassigned native
+        types are consumed without calculation. Chemistry, H and charges must
+        already be supplied; no receptor repair or parameter model is selected.
 
     Returns
     -------
@@ -190,13 +200,15 @@ def prepare_receptor(
     """
     import molsysmt as msm
 
-    # Convert to MolSys for robust element extraction
+    _, _, typing_options = stage_options(None, None, typing_options)
     extracted = select_one_structure(molecular_system, selection)
+    extracted, workflow = run_stages(extracted, None, None, typing_options)
     n_atoms = msm.get(extracted, element='system', n_atoms=True)
 
     atom_names, group_names, group_ids, elements = atom_metadata(extracted, 'REC')
     charges = source_partial_charges(extracted, n_atoms)
     assignment = source_charge_assignment(extracted)
+    named_types, typing_assignment = source_atom_types(extracted, n_atoms)
     aromaticity = source_aromaticity(extracted, n_atoms)
     bonded_atoms = (
         msm.get(
@@ -245,7 +257,11 @@ def prepare_receptor(
                     reason='A receptor hydrogen needs exactly one explicit heavy-atom bond for Vina preparation.',
                 )
             attached = heavy_neighbors[0]
-            if elements[attached].upper() not in ('N', 'O', 'S'):
+            if (
+                (named_types[i] == 'H')
+                if named_types is not None
+                else (elements[attached].upper() not in ('N', 'O', 'S'))
+            ):
                 if charges is not None:
                     charge_transfers.append((i, attached))
                     merged_hydrogen_charges[attached] = (
@@ -255,7 +271,9 @@ def prepare_receptor(
                 continue
 
         atype = 'C'
-        if element.upper() == 'H':
+        if named_types is not None:
+            atype = named_types[i]
+        elif element.upper() == 'H':
             atype = 'HD'
         elif element.upper() == 'O':
             atype = 'OA'
@@ -319,9 +337,32 @@ def prepare_receptor(
             'charge_source': 'source_partial_charge'
             if charges is not None
             else 'zero_placeholder',
-            'atom_type_source': 'element_aromaticity_heuristic'
-            if aromaticity is not None
-            else 'element_residue_heuristic',
+            'atom_type_source': 'molsysmt_named_autodock4'
+            if typing_assignment is not None
+            else (
+                'element_aromaticity_heuristic'
+                if aromaticity is not None
+                else 'element_residue_heuristic'
+            ),
+            **(
+                {
+                    'atom_type_assignment': typing_assignment,
+                    'atom_type_projection': type_projection(
+                        typing_assignment, retained_indices, retained_types
+                    ),
+                }
+                if typing_assignment is not None
+                else {}
+            ),
+            **(
+                {
+                    'preparation_workflow': finish_stage_maps(
+                        workflow, retained_indices, list(range(len(retained_indices)))
+                    )
+                }
+                if workflow is not None
+                else {}
+            ),
             'merged_hydrogen_charges': bool(merged_hydrogen_charges),
             'hydrogen_policy': 'retain_polar_merge_nonpolar',
             'omitted_hydrogen_indices': omitted_hydrogen_indices,
