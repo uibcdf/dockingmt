@@ -1,0 +1,80 @@
+reason = "Pure Python core/addon payload; every tracked path and generated version are required. Optional Vina/Viewer stay separately distributed; no platform qualification is inferred."
+version_file = "site-packages/dockingmt/_version.py"
+required_paths = [
+  "site-packages/dockingmt/__init__.py",
+  "site-packages/dockingmt/_argdigest.py",
+  "site-packages/dockingmt/_depdigest.py",
+  "site-packages/dockingmt/_private/__init__.py",
+  "site-packages/dockingmt/_private/argdigest/__init__.py",
+  "site-packages/dockingmt/_private/argdigest/registry.py",
+  "site-packages/dockingmt/_private/artifacts.py",
+  "site-packages/dockingmt/_private/conversion.py",
+  "site-packages/dockingmt/_private/serialization.py",
+  "site-packages/dockingmt/_private/smonitor/__init__.py",
+  "site-packages/dockingmt/_private/smonitor/catalog.py",
+  "site-packages/dockingmt/_private/smonitor/emitter.py",
+  "site-packages/dockingmt/_private/smonitor/meta.py",
+  "site-packages/dockingmt/_private/smonitor/warnings.py",
+  "site-packages/dockingmt/_private/vina_records.py",
+  "site-packages/dockingmt/_pyunitwizard.py",
+  "site-packages/dockingmt/_smonitor.py",
+  "site-packages/dockingmt/_version.py",
+  "site-packages/dockingmt/aggregation.py",
+  "site-packages/dockingmt/batch.py",
+  "site-packages/dockingmt/core/__init__.py",
+  "site-packages/dockingmt/core/_scores.py",
+  "site-packages/dockingmt/core/audit.py",
+  "site-packages/dockingmt/core/outcome.py",
+  "site-packages/dockingmt/core/pose_audit.py",
+  "site-packages/dockingmt/core/problem.py",
+  "site-packages/dockingmt/core/protocol.py",
+  "site-packages/dockingmt/core/results.py",
+  "site-packages/dockingmt/core/search_domain.py",
+  "site-packages/dockingmt/dock.py",
+  "site-packages/dockingmt/engines/__init__.py",
+  "site-packages/dockingmt/engines/_vina_scoring.py",
+  "site-packages/dockingmt/engines/base.py",
+  "site-packages/dockingmt/engines/vina.py",
+  "site-packages/dockingmt/evaluation.py",
+  "site-packages/dockingmt/preparation/__init__.py",
+  "site-packages/dockingmt/preparation/_molsys.py",
+  "site-packages/dockingmt/preparation/_stages.py",
+  "site-packages/dockingmt/preparation/_temporary_torsions.py",
+  "site-packages/dockingmt/preparation/_typing.py",
+  "site-packages/dockingmt/preparation/assessment.py",
+  "site-packages/dockingmt/preparation/charges.py",
+  "site-packages/dockingmt/preparation/ligand.py",
+  "site-packages/dockingmt/preparation/receptor.py",
+  "site-packages/dockingmt/py.typed",
+  "site-packages/dockingmt/score.py",
+  "site-packages/dockingmt/view.py",
+  "site-packages/dockingmt/viewer/__init__.py",
+  "site-packages/molsysviewer_dockingmt/__init__.py",
+  "site-packages/molsysviewer_dockingmt/adapters/__init__.py",
+  "site-packages/molsysviewer_dockingmt/adapters/complex.py",
+  "site-packages/molsysviewer_dockingmt/adapters/shapes.py",
+  "site-packages/molsysviewer_dockingmt/addon.py",
+  "site-packages/molsysviewer_dockingmt/export.py",
+  "site-packages/molsysviewer_dockingmt/panels/__init__.py",
+  "site-packages/molsysviewer_dockingmt/panels/domain.py",
+  "site-packages/molsysviewer_dockingmt/panels/explorer.py",
+  "site-packages/molsysviewer_dockingmt/runtime.py",
+  "site-packages/molsysviewer_dockingmt/workbench.py",
+]
+
+[installed_gate]
+workflow = ".github/workflows/test_installed_conda_package.yaml"
+platforms = ["linux-64", "osx-arm64"]
+python_versions = ["3.11", "3.12", "3.13", "3.14"]
+prepare_job = "installed / prepare"
+job_template = "installed / {platform} · Python {python}"
+required_steps = ["Install exact artifact", "Validate installed files", "Run installed tests", "Recheck dependency provenance after installed tests"]
+
+[installed_tests]
+# Whole existing suite; optional unavailable integrations retain their explicit skips.
+paths = ["tests"]
+# The source pytest profile adds the owner root; installed imports must exclude it.
+pytest_args = ["--receptor=ci", "-v", "-o", "pythonpath="]
+# Exact test tools observed in source CI 37589149276; not new core API floors.
+# All proposed installed cells still require actual solver/science qualification.
+conda_dependencies = ["vina==1.2.7", "rdkit==2026.03.1", "openmm==8.6.1"]

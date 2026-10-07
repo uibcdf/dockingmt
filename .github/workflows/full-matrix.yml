@@ -144,6 +144,27 @@ jobs:
               assert platform.machine() == "arm64", platform.machine()
           print("Python", platform.python_version(), "architecture", platform.machine(), "Vina", vina.__version__)
           PYTHON
+      - name: Check out immutable dependency SDK
+        uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsyssuite
+          ref: "738fe8dd731abb99dac421b0bb2acc8564110180"
+          path: .molsyssuite/sdk
+          persist-credentials: false
+      - name: Prepare isolated preflight tools
+        shell: bash -l {0}
+        run: python -m pip install --target .molsyssuite-tools "PyYAML==6.0.3" "Jinja2>=3,<4" "packaging>=24"
+      - name: Check dependency routes and installed clone context
+        shell: bash -l {0}
+        run: |
+          viewer_source=viewer-base
+          if [ "${{ matrix.python-version }}" = "3.14" ]; then
+            viewer_source=viewer-py314
+          fi
+          python devtools/check_dependency_routes.py --context ci-${{ matrix.python-version }} \
+            --source-root argdigest-source=.molsyssuite/argdigest \
+            --source-root molsysmt-source=.molsyssuite/molsysmt \
+            --source-root "$viewer_source=.molsyssuite/molsysviewer"
       - name: Verify ordinary installed package
         shell: bash -l {0}
         run: >-

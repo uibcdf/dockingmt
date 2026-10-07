@@ -1,0 +1,120 @@
+schema = "molsyssuite.dependency-routes@3"
+reason = "Current DockingMT runtime-bearing test and immutable directory source contexts; optional Viewer remains integration-only."
+
+[[recipes]]
+path = "devtools/conda-build/meta.yaml"
+kind = "shared-noarch"
+plan = "devtools/conda-build/release_plan.example.toml"
+resources = "devtools/conda-build/resources.toml"
+reason = "Proposed first shared noarch route; example is administrative evidence only."
+
+[[environments]]
+path = "devtools/conda-envs/test_env.yaml"
+kind = "runtime"
+purpose = "test"
+channel_priority = "strict"
+narrowing_reason = "Original compatible test bootstrap floors; exact runtime replacements remain contextual source evidence."
+reason = "Original scientific bootstrap and optional backend/integration tools; strict priority is enforced by both source workflows."
+
+[[source_routes]]
+id = "argdigest-source"
+name = "argdigest"
+role = "required-runtime"
+url = "https://github.com/uibcdf/argdigest"
+commit = "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e"
+install = "pip-no-deps-directory"
+reason = "Preserve original reviewed checkout and normal pip --no-deps directory installation; workflow hashes bind the actual route."
+
+[[source_routes]]
+id = "molsysmt-source"
+name = "molsysmt"
+role = "required-runtime"
+url = "https://github.com/uibcdf/molsysmt"
+commit = "5bd893c85fe8d211663b2b1f865f5f1d2c382a90"
+install = "pip-no-deps-directory"
+reason = "Preserve original reviewed checkout and normal pip --no-deps directory installation; workflow hashes bind the actual route."
+
+[[source_routes]]
+id = "viewer-base"
+name = "molsysviewer"
+role = "integration"
+url = "https://github.com/uibcdf/molsysviewer"
+commit = "2c022507265c744d532f39df345322074f80a2a3"
+install = "pip-no-deps-directory"
+reason = "Preserve original reviewed checkout and normal pip --no-deps directory installation; workflow hashes bind the actual route."
+
+[[source_routes]]
+id = "viewer-py314"
+name = "molsysviewer"
+role = "integration"
+url = "https://github.com/uibcdf/molsysviewer"
+commit = "ec4c71e574d798b7c8675b7e7e983da878ce9889"
+install = "pip-no-deps-directory"
+reason = "Preserve original reviewed checkout and normal pip --no-deps directory installation; workflow hashes bind the actual route."
+
+[[contexts]]
+name = "ci-3.11"
+environment = "devtools/conda-envs/test_env.yaml"
+python_minor = "3.11"
+sources = ["argdigest-source", "molsysmt-source", "viewer-base"]
+overlays = []
+reason = "Original Python 3.11 source selection; required directory sources supply omitted bootstrap providers, optional Viewer is explicitly qualified too."
+
+[[contexts]]
+name = "ci-3.12"
+environment = "devtools/conda-envs/test_env.yaml"
+python_minor = "3.12"
+sources = ["argdigest-source", "molsysmt-source", "viewer-base"]
+overlays = []
+reason = "Original Python 3.12 source selection; required directory sources supply omitted bootstrap providers, optional Viewer is explicitly qualified too."
+
+[[contexts]]
+name = "ci-3.13"
+environment = "devtools/conda-envs/test_env.yaml"
+python_minor = "3.13"
+sources = ["argdigest-source", "molsysmt-source", "viewer-base"]
+overlays = []
+reason = "Original Python 3.13 source selection; required directory sources supply omitted bootstrap providers, optional Viewer is explicitly qualified too."
+
+[[contexts]]
+name = "ci-3.14"
+environment = "devtools/conda-envs/test_env.yaml"
+python_minor = "3.14"
+sources = ["argdigest-source", "molsysmt-source", "viewer-py314"]
+overlays = []
+reason = "Original Python 3.14 source selection; required directory sources supply omitted bootstrap providers, optional Viewer is explicitly qualified too."
+
+[[workflows]]
+path = ".github/workflows/build_and_upload_conda_packages.yaml"
+sha256 = "a7ae60a309898f9da75e01255fc69356d5a9ebf9e9091c9af4ef8ef5c804bd61"
+reason = "Manual candidate/staged or eligible reviewed release caller; shared publication gates supply runtime/build dependencies."
+
+[[workflows]]
+path = ".github/workflows/ci.yml"
+sha256 = "807172fca2323016d758b3727e78012ffdd23f6d29f51a19bde6b1754200b98c"
+reason = "Original four Linux source science cells plus independent quality/distribution controls; exact directory installs/context preflight precede unchanged science."
+
+[[workflows]]
+path = ".github/workflows/conda_publication_governance.yaml"
+sha256 = "eb54f756f9aa208adbc210b3839bf23be640457ff975f84415d12eb6c6b9cf4d"
+reason = "Administrative no-build recipe/resources and immutable publisher controls."
+
+[[workflows]]
+path = ".github/workflows/full-matrix.yml"
+sha256 = "9805e7299aae659da5995c2fe6be2be0a0cca94b19e5b8ed3eec30869a43adcd"
+reason = "Original six-cell weekly/manual/daily conditional source science and recovery; directory preflight does not dispatch or change the matrix."
+
+[[workflows]]
+path = ".github/workflows/molsyssuite-policy.yml"
+sha256 = "6cc62208156f765ca0456e3bc5f398934263e03afc7063c69afa692c5dafdffd"
+reason = "Shared policy administrative caller; installs no member runtime."
+
+[[workflows]]
+path = ".github/workflows/promote_conda_package.yaml"
+sha256 = "3cb1b6a85020a3b4cbe4cca0c4b592110f734dde0005d0b9579b33a0cd721a49"
+reason = "Read-only qualification before exact-file promotion; no member source installation or rebuild."
+
+[[workflows]]
+path = ".github/workflows/test_installed_conda_package.yaml"
+sha256 = "83bcd0126b7150334e31cc2407a39b4e9963834f7a027a341be268db7f2dcf28"
+reason = "Manual exact-file public dependency solve/installed scientific gate; no pinned source fallback permitted."

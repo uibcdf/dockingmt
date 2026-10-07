@@ -285,6 +285,14 @@ summary with the input position and declarations. The default error policy
 propagates failures. See the [incremental execution contract](devguide/validation/incremental_docking.md)
 and [executed notebook](devguide/validation/incremental_docking.ipynb).
 
+## Installation status
+
+DockingMT is currently developed and tested from source with its reviewed
+scientific dependency versions. The first guarded Conda route is being prepared
+under [#47](https://github.com/uibcdf/dockingmt/issues/47); its configuration does
+not establish a published package or clean public installation. See
+[development controls](devtools/README.md) for the managed source route.
+
 ## Development
 
 Routine development uses `molsyssuite@uibcdf_3.14` (Python 3.14); the required source range is Python 3.11 to 3.14.

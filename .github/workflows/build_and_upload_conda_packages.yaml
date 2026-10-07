@@ -1,0 +1,26 @@
+name: Build and upload Conda package
+on:
+  release:
+    types: [released]
+  workflow_dispatch:
+    inputs:
+      candidate_sha:
+        description: Full reviewed source candidate SHA
+        required: true
+        type: string
+      version:
+        description: Reviewed canonical version in committed release_plan.toml
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || !startsWith(github.event.release.tag_name, 'policy-v')
+    uses: uibcdf/molsyssuite/.github/workflows/publish-noarch-conda.yaml@2d32048457c6d37093ae509f5626d00a5cda121b
+    with:
+      candidate_sha: ${{ inputs.candidate_sha || github.sha }}
+      version: ${{ inputs.version || github.event.release.tag_name }}
+    secrets:
+      ANACONDA_TOKEN: ${{ secrets.ANACONDA_UIBCDF_TOKEN }}

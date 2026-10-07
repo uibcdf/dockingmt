@@ -1,0 +1,36 @@
+package:
+  name: dockingmt
+  version: "{{ environ['MOLSYSSUITE_CONDA_VERSION'] }}"
+source:
+  path: ../../
+build:
+  number: {{ environ['MOLSYSSUITE_CONDA_BUILD_NUMBER'] }}
+  string: py_{{ environ['MOLSYSSUITE_CONDA_BUILD_NUMBER'] }}
+  noarch: python
+requirements:
+  host:
+    - python >=3.11,<3.15
+    - pip
+    - setuptools >=68
+    - versioningit ~=3.0
+    - wheel
+  run:
+    - python >=3.11,<3.15
+    - argdigest
+    - depdigest
+    - molsysmt
+    - numpy
+    - pyunitwizard
+    - smonitor
+test:
+  imports:
+    - dockingmt
+  commands:
+    - python -c "import importlib.metadata as m; assert m.version('dockingmt') == '{{ environ['MOLSYSSUITE_CONDA_VERSION'] }}'"
+about:
+  home: https://github.com/uibcdf/dockingmt
+  license: MIT
+  license_file: LICENSE
+  summary: The molecular docking layer of MolSysSuite
+  dev_url: https://github.com/uibcdf/dockingmt
+  doc_url: https://uibcdf.org/dockingmt
