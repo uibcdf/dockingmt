@@ -21,7 +21,9 @@ id = "argdigest-source"
 name = "argdigest"
 role = "required-runtime"
 url = "https://github.com/uibcdf/argdigest"
-commit = "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e"
+# Owner-only checkout input: annotated tag object; SDK commit is its reviewed target.
+checkout_ref = "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e"
+commit = "57447cc4ec1f7ce85078f8a939892efd075bc919"
 install = "pip-no-deps-directory"
 reason = "Preserve original reviewed checkout and normal pip --no-deps directory installation; workflow hashes bind the actual route."
 

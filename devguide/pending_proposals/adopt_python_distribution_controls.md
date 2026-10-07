@@ -102,3 +102,17 @@ cc6424fe742b4cf11b96d796baf72b839d0e8b5d26eb3bfee951478012e595ce).
 Programmatic old/new workflow review proves every original source scientific
 step/pin, matrix, trigger and recovery job is retained; exactly three preflight
 steps are added per scientific job. No local scientific suite was executed.
+
+## Annotated source identity correction — 2026-10-07
+
+First CI 37595722752 correctly rejects the ArgDigest input as the expected HEAD:
+original immutable checkout ref 1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e is an
+annotated tag object, pointing to commit 57447cc4ec1f7ce85078f8a939892efd075bc919.
+Its source directory actually has that commit as HEAD. The SDK requires the
+commit; the owner inventory now records that actual commit and separately keeps
+checkout_ref as owner-only original input. Existing checkout commands/pins are
+unchanged. Consumer guards bind original checkout_ref to workflow inputs; the SDK
+checks actual HEAD/origin/installed directory. A real annotated-tag fixture
+rejects the tag as HEAD and accepts its exact target. No tag or scientific source
+is altered, and no publication policy permits tag-object substitution for a
+producer commit. The first failure and corrected hosted evidence remain separate.

@@ -243,7 +243,9 @@ class TestDistributionContract(unittest.TestCase):
                     if s['if'] == condition
                 }
                 expected = {
-                    sources[id]['name']: sources[id]['commit']
+                    sources[id]['name']: sources[id].get(
+                        'checkout_ref', sources[id]['commit']
+                    )
                     for id in context['sources']
                 }
                 self.assertEqual(observed, expected)
@@ -261,6 +263,48 @@ class TestDistributionContract(unittest.TestCase):
 
     def test_directory_context_bindings_preserve_lane_specific_sources(self):
         self.check_source_bindings()
+
+    def test_annotated_checkout_input_is_distinct_from_the_verified_head_commit(self):
+        clone = self.root / 'tagged-source'
+        clone.mkdir()
+
+        def git(*args):
+            return subprocess.check_output(['git', *args], cwd=clone, text=True).strip()
+
+        git('init', '-q')
+        git('config', 'user.name', 'Fixture')
+        git('config', 'user.email', 'fixture@example.invalid')
+        git('remote', 'add', 'origin', 'https://github.com/example/provider')
+        (clone / 'module.py').write_text('value = 1\n')
+        git('add', 'module.py')
+        git('commit', '-qm', 'fixture')
+        git('tag', '-a', '0.15.0', '-m', 'fixture annotated tag')
+        commit, tag = git('rev-parse', 'HEAD'), git('rev-parse', '0.15.0')
+        self.assertNotEqual(commit, tag)
+        self.assertEqual(git('rev-parse', tag + '^{commit}'), commit)
+        direct = {'url': clone.as_uri(), 'dir_info': {}}
+        distribution = type('Distribution', (), {'version': '0.15.0'})()
+        distribution.read_text = lambda name: json.dumps(direct)
+        provenance = load_sdk('source_provenance')
+        record = {
+            'url': 'https://github.com/example/provider',
+            'commit': tag,
+            'install': 'pip-no-deps-directory',
+        }
+        with self.assertRaises(ValueError):
+            provenance.check_directory_install(record, 'provider', distribution, clone)
+        record['commit'] = commit
+        receipt = provenance.check_directory_install(
+            record, 'provider', distribution, clone
+        )
+        self.assertEqual(receipt['commit'], commit)
+        source = tomllib.loads(
+            (self.root / 'devtools/dependency_routes.toml').read_text()
+        )['source_routes'][0]
+        self.assertEqual(
+            source['checkout_ref'], '1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e'
+        )
+        self.assertEqual(source['commit'], '57447cc4ec1f7ce85078f8a939892efd075bc919')
 
     def test_pin_drift_is_detected_even_after_refreshing_the_workflow_hash(self):
         p = self.root / '.github/workflows/ci.yml'

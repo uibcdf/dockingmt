@@ -63,3 +63,17 @@ packaging selection and candidate/installed profiles.
 See [the Conda route](conda-build/README.md) for release preparation. Temporary
 fixture directories use managed cleanup; retain evidence while needed and remove
 obsolete owner resources, preserving active/dirty work.
+
+## Annotated source identity correction — 2026-10-07
+
+First CI 37595722752 correctly rejects the ArgDigest input as the expected HEAD:
+original immutable checkout ref 1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e is an
+annotated tag object, pointing to commit 57447cc4ec1f7ce85078f8a939892efd075bc919.
+Its source directory actually has that commit as HEAD. The SDK requires the
+commit; the owner inventory now records that actual commit and separately keeps
+checkout_ref as owner-only original input. Existing checkout commands/pins are
+unchanged. Consumer guards bind original checkout_ref to workflow inputs; the SDK
+checks actual HEAD/origin/installed directory. A real annotated-tag fixture
+rejects the tag as HEAD and accepts its exact target. No tag or scientific source
+is altered, and no publication policy permits tag-object substitution for a
+producer commit. The first failure and corrected hosted evidence remain separate.
