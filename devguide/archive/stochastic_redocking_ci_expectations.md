@@ -1,11 +1,11 @@
 ---
 summary: Portable evaluation CI assumes recovery from a low-budget stochastic search.
 issue: uibcdf/dockingmt#46
-status: partial
+status: resolved
 opened: 2026-10-07
-closed:
+closed: 2026-10-07
 severity: medium
-verification: reproduced
+verification: measured
 area: [tests, ci, validation]
 guard: tests/test_redocking_evaluation.py::test_native_181l_external_1iep_and_displaced_box_reports
 normative:
@@ -71,3 +71,19 @@ runner assigned at inspection. This report stays partial until those corrected
 platform controls actually execute and pass. Their state is not interpreted as
 scientific success or failure. Evidence and remaining limits are retained in
 the [checkpoint](../validation/installed_integration_checkpoint_2026-10-07.md).
+
+## Resolution — 2026-10-07, 06:57 UTC
+
+The same [manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344)
+now completes successfully on producer
+`8741fb2e104814e6f1012e0cb7073689e710f982`. Both macOS arm64 cells actually run
+all 986 tests without skips: Python 3.13 in 197.41 s and Python 3.14 in 188.14 s,
+with 382 warnings each. All four Linux cells also pass 986 tests without skips.
+Interpreter/architecture/Vina and ordinary installed-import checks execute in
+every scientific cell. The earlier pending observations remain historical.
+
+This resolves the portable evaluation guard defect. The live geometry guard and
+retained-data/analytic controls remain durable. No recovery cutoff, search
+parameter, production algorithm or recorded scientific observation is changed.
+Public artifact/dependency qualification stays in #30; these source/import
+cells do not certify chemistry or an entire public installed OS/Python matrix.

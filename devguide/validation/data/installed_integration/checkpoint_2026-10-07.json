@@ -622,5 +622,379 @@
     "Preserved provider native extension lacks fresh build provenance.",
     "macOS cells pending; no executed current-candidate macOS qualification.",
     "Public-channel installation, Conda artifact and suite admission remain pending."
+  ],
+  "six_cell_matrix_completion": {
+    "databaseId": 37581760344,
+    "headSha": "8741fb2e104814e6f1012e0cb7073689e710f982",
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344",
+    "verified_at": "2026-10-07T06:59:50.723558+00:00",
+    "jobs": [
+      {
+        "job_id": 112662822651,
+        "name": "Full test on macos-15, Python 3.14",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662822651",
+        "status": "completed",
+        "conclusion": "success",
+        "executed_steps": [
+          {
+            "completedAt": "2026-10-07T06:45:59Z",
+            "conclusion": "success",
+            "name": "Install compatible scientific sibling sources",
+            "number": 10,
+            "startedAt": "2026-10-07T06:43:45Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:46:01Z",
+            "conclusion": "success",
+            "name": "Install dockingmt",
+            "number": 11,
+            "startedAt": "2026-10-07T06:45:59Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:46:02Z",
+            "conclusion": "success",
+            "name": "Verify interpreter, architecture and required backend",
+            "number": 12,
+            "startedAt": "2026-10-07T06:46:01Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:46:02Z",
+            "conclusion": "success",
+            "name": "Verify ordinary installed package",
+            "number": 13,
+            "startedAt": "2026-10-07T06:46:02Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:49:13Z",
+            "conclusion": "success",
+            "name": "Run tests with pytest-receptor",
+            "number": 14,
+            "startedAt": "2026-10-07T06:46:02Z",
+            "status": "completed"
+          }
+        ],
+        "full_test_gate": {
+          "passed": 986,
+          "seconds": 188.14,
+          "warnings": 382,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "job_id": 112662822911,
+        "name": "Full test on ubuntu-latest, Python 3.12",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662822911",
+        "status": "completed",
+        "conclusion": "success",
+        "executed_steps": [
+          {
+            "completedAt": "2026-10-07T06:32:07Z",
+            "conclusion": "success",
+            "name": "Install compatible scientific sibling sources",
+            "number": 10,
+            "startedAt": "2026-10-07T06:30:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:32:09Z",
+            "conclusion": "success",
+            "name": "Install dockingmt",
+            "number": 11,
+            "startedAt": "2026-10-07T06:32:07Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:32:09Z",
+            "conclusion": "success",
+            "name": "Verify interpreter, architecture and required backend",
+            "number": 12,
+            "startedAt": "2026-10-07T06:32:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:32:10Z",
+            "conclusion": "success",
+            "name": "Verify ordinary installed package",
+            "number": 13,
+            "startedAt": "2026-10-07T06:32:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:35:55Z",
+            "conclusion": "success",
+            "name": "Run tests with pytest-receptor",
+            "number": 14,
+            "startedAt": "2026-10-07T06:32:10Z",
+            "status": "completed"
+          }
+        ],
+        "full_test_gate": {
+          "passed": 986,
+          "seconds": 222.66,
+          "warnings": 382,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "job_id": 112662822994,
+        "name": "Full test on ubuntu-latest, Python 3.11",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662822994",
+        "status": "completed",
+        "conclusion": "success",
+        "executed_steps": [
+          {
+            "completedAt": "2026-10-07T06:31:54Z",
+            "conclusion": "success",
+            "name": "Install compatible scientific sibling sources",
+            "number": 10,
+            "startedAt": "2026-10-07T06:30:12Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:31:55Z",
+            "conclusion": "success",
+            "name": "Install dockingmt",
+            "number": 11,
+            "startedAt": "2026-10-07T06:31:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:31:55Z",
+            "conclusion": "success",
+            "name": "Verify interpreter, architecture and required backend",
+            "number": 12,
+            "startedAt": "2026-10-07T06:31:55Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:31:56Z",
+            "conclusion": "success",
+            "name": "Verify ordinary installed package",
+            "number": 13,
+            "startedAt": "2026-10-07T06:31:55Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:34:38Z",
+            "conclusion": "success",
+            "name": "Run tests with pytest-receptor",
+            "number": 14,
+            "startedAt": "2026-10-07T06:31:56Z",
+            "status": "completed"
+          }
+        ],
+        "full_test_gate": {
+          "passed": 986,
+          "seconds": 159.04,
+          "warnings": 382,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "job_id": 112662823000,
+        "name": "Full test on macos-15, Python 3.13",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662823000",
+        "status": "completed",
+        "conclusion": "success",
+        "executed_steps": [
+          {
+            "completedAt": "2026-10-07T06:53:34Z",
+            "conclusion": "success",
+            "name": "Install compatible scientific sibling sources",
+            "number": 10,
+            "startedAt": "2026-10-07T06:50:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:38Z",
+            "conclusion": "success",
+            "name": "Install dockingmt",
+            "number": 11,
+            "startedAt": "2026-10-07T06:53:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:39Z",
+            "conclusion": "success",
+            "name": "Verify interpreter, architecture and required backend",
+            "number": 12,
+            "startedAt": "2026-10-07T06:53:38Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:53:40Z",
+            "conclusion": "success",
+            "name": "Verify ordinary installed package",
+            "number": 13,
+            "startedAt": "2026-10-07T06:53:39Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:57:00Z",
+            "conclusion": "success",
+            "name": "Run tests with pytest-receptor",
+            "number": 14,
+            "startedAt": "2026-10-07T06:53:40Z",
+            "status": "completed"
+          }
+        ],
+        "full_test_gate": {
+          "passed": 986,
+          "seconds": 197.41,
+          "warnings": 382,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "job_id": 112662823004,
+        "name": "Full test on ubuntu-latest, Python 3.14",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662823004",
+        "status": "completed",
+        "conclusion": "success",
+        "executed_steps": [
+          {
+            "completedAt": "2026-10-07T06:32:18Z",
+            "conclusion": "success",
+            "name": "Install compatible scientific sibling sources",
+            "number": 10,
+            "startedAt": "2026-10-07T06:30:18Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:32:20Z",
+            "conclusion": "success",
+            "name": "Install dockingmt",
+            "number": 11,
+            "startedAt": "2026-10-07T06:32:18Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:32:20Z",
+            "conclusion": "success",
+            "name": "Verify interpreter, architecture and required backend",
+            "number": 12,
+            "startedAt": "2026-10-07T06:32:20Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:32:21Z",
+            "conclusion": "success",
+            "name": "Verify ordinary installed package",
+            "number": 13,
+            "startedAt": "2026-10-07T06:32:20Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:35:24Z",
+            "conclusion": "success",
+            "name": "Run tests with pytest-receptor",
+            "number": 14,
+            "startedAt": "2026-10-07T06:32:21Z",
+            "status": "completed"
+          }
+        ],
+        "full_test_gate": {
+          "passed": 986,
+          "seconds": 179.69,
+          "warnings": 382,
+          "failed": 0,
+          "skipped": 0
+        }
+      },
+      {
+        "job_id": 112662823045,
+        "name": "Full test on ubuntu-latest, Python 3.13",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662823045",
+        "status": "completed",
+        "conclusion": "success",
+        "executed_steps": [
+          {
+            "completedAt": "2026-10-07T06:32:04Z",
+            "conclusion": "success",
+            "name": "Install compatible scientific sibling sources",
+            "number": 10,
+            "startedAt": "2026-10-07T06:30:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:32:06Z",
+            "conclusion": "success",
+            "name": "Install dockingmt",
+            "number": 11,
+            "startedAt": "2026-10-07T06:32:04Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:32:06Z",
+            "conclusion": "success",
+            "name": "Verify interpreter, architecture and required backend",
+            "number": 12,
+            "startedAt": "2026-10-07T06:32:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:32:07Z",
+            "conclusion": "success",
+            "name": "Verify ordinary installed package",
+            "number": 13,
+            "startedAt": "2026-10-07T06:32:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-07T06:35:40Z",
+            "conclusion": "success",
+            "name": "Run tests with pytest-receptor",
+            "number": 14,
+            "startedAt": "2026-10-07T06:32:07Z",
+            "status": "completed"
+          }
+        ],
+        "full_test_gate": {
+          "passed": 986,
+          "seconds": 210.16,
+          "warnings": 382,
+          "failed": 0,
+          "skipped": 0
+        }
+      }
+    ],
+    "administrative_backlog_job": "Skipped by design on non-probe manual dispatch; all six scientific jobs actually execute."
+  },
+  "evidence_head_ci": {
+    "databaseId": 37582910814,
+    "headSha": "7ac138b1d6f9fab599bc7d66bd19cc3043f09489",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/uibcdf/dockingmt/actions/runs/37582910814",
+    "test_count_per_required_minor": 986
+  },
+  "completion_limits": [
+    "Public-channel dependency closure, exact installed Conda files and suite admission remain pending.",
+    "The local installed gate inherits Conda/editable dependencies and a preserved provider extension.",
+    "The representative macOS source/import cells do not qualify every claimed OS/Python public installed artifact."
+  ],
+  "preserved_artifact_copies": [
+    {
+      "path": "/home/liliana/repos@uibcdf/dockingmt/dist/qualification/2026-10-07/dockingmt-0.0.0+132.g8741fb2-py3-none-any.whl",
+      "sha256": "12f2ac10e0b6c44d2b1da8e9f3e100c394596897f0c1924d23a210fe82a8e1a6",
+      "scope": "Exact byte copy of the original built file; not rebuilt or published."
+    },
+    {
+      "path": "/home/liliana/repos@uibcdf/dockingmt/dist/qualification/2026-10-07/dockingmt-0.0.0+131.g365668e-py3-none-any.whl",
+      "sha256": "7a0c0dbefb6e134f20e3e9b8a4a56442114a13f45d94fd0557cf54a7ed0eb374",
+      "scope": "Exact byte copy of the original built file; not rebuilt or published."
+    }
   ]
 }

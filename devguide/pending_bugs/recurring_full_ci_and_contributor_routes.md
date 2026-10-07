@@ -33,6 +33,13 @@ its Linux failures and was cancelled before its macOS jobs executed. The
 preserves these states and local installed-consumer evidence. #46 owns the
 corrected macOS evaluation guard; this broader report remains partial.
 
+Completion update, 2026-10-07 06:57 UTC: the same manual matrix now passes all
+six scientific cells, each with 986 tests without skips. Both macOS arm64
+controls actually execute and #46 is resolved. The documentation/evidence head
+`7ac138b` also has [green required CI](https://github.com/uibcdf/dockingmt/actions/runs/37582910814).
+Configured/daily-trigger and hosted contributor-route acceptance remain distinct,
+so this broader report remains partial.
+
 ## What
 
 At `ac91b22`, CI executes the full Linux Python 3.11–3.13 suite on pushes

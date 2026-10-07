@@ -134,6 +134,23 @@ CI as the four-minor recovery watermark and finds zero skipped commits since
 daily trigger or clear pending macOS qualification. #21 remains open for its
 remaining acceptance conditions.
 
+### Completion of queued macOS cells — 2026-10-07, 06:57 UTC
+
+The same [manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344)
+finishes green on the original corrected producer `8741fb2`: all six scientific
+cells actually execute 986 tests without skips. macOS arm64 Python 3.13 passes
+in 197.41 s and Python 3.14 in 188.14 s, with 382 warnings each. The interpreter,
+architecture, Vina 1.2.7 and ordinary installed-import checks also execute. The
+administrative backlog detector is skipped by design for this manual dispatch;
+it is not one of the six scientific gates. #46 is now resolved and archived.
+
+The receipt appends completion evidence without replacing its earlier pending
+observations. [Evidence-head CI](https://github.com/uibcdf/dockingmt/actions/runs/37582910814)
+also passes quality and all 986 tests per required Linux minor at `7ac138b`.
+Both original local wheels have exact byte copies under the ignored local
+`dist/qualification/2026-10-07/` directory; their original identities and
+SHA-256s are preserved. No new file is built to reinterpret either producer.
+
 The inherited environment's `pip check` remains red for unrelated AmberTools
 packages: missing `pdb2pqr` and incompatible NumPy/Biopython bounds. It is not a
 clean dependency solve. Public package availability, installed Conda bytes on every

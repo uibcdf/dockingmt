@@ -33,6 +33,14 @@ admission remain pending. The ambient environment's unrelated AmberTools
 dependency conflicts are recorded; no Requires-Python override or package
 publication is used. Earlier installed/hosted evidence keeps its original scope.
 
+Completion update, 2026-10-07 06:57 UTC: the same
+[manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344)
+finishes successfully, with 986 tests without skips in each of its four Linux
+and two representative macOS arm64 cells. #46 is resolved and archived. The
+earlier pending observation is retained in the receipt with separate completion
+evidence. This advances current source/import qualification; public-channel
+closure, exact Conda files and suite admission remain pending under this issue.
+
 ## Development environment correction (2026-10-03)
 
 The maintainer now requires routine DockingMT development in the Conda environment
