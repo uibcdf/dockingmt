@@ -130,11 +130,27 @@ recovery or exact stochastic-pose guarantee.
 The local candidate passes 101 selected tests without skips: five new guards,
 95 existing engine/scoring/reference/replay/evaluation tests and the reporting
 guard. Three notebook code cells execute, including saved-result pm/fs
-re-evaluation. Ruff check/format (126 files), report indexes, changed-document
+re-evaluation. Ruff check/format, report indexes, changed-document
 links, component guidance and evidence/source digests pass. The checkpoint
 records this local scope before commit and hosted CI; the owning issues retain
 subsequent exact-head CI state. Earlier installed-artifact qualification remains
 separate.
+
+Remote distribution-controls commit
+`1d67d3838bb1fd18a59fad8800c317767f7683a6` arrived during qualification and
+is preserved beneath this scientific change. It leaves the measured consumer
+and fixture bytes and scientific environment unchanged. After integration,
+19 distribution/reporting tests pass without skips, declaration preflight and
+report indexes pass, and Ruff checks all 128 files. These administrative results
+do not extend the scientific or installed-artifact observations.
+
+A further remote correction, `50f0abbdf14a08b77d26b293d1b670d6dfc204a0`,
+distinguishes the preserved ArgDigest checkout input (annotated tag object
+`1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e`) from its actual source commit
+`57447cc4ec1f7ce85078f8a939892efd075bc919`. It changes no scientific source or
+workflow checkout input. The final integrated administrative selection passes
+20 collected tests without skips, including its new annotated-tag guard;
+declaration preflight, report indexes and Ruff checks pass again.
 
 ## Scope and reproduction
 

@@ -155,5 +155,47 @@
     "ROOT reversal changes the first-atom origin; a fixed-first-atom order control is still unexecuted.",
     "Required Python 3.11-3.14 exact-head hosted CI is pending at capture; prior installed artifacts and public qualification remain separate.",
     "The existing provider declared-tree writer is verified separately; original-source lossy-H export correspondence remains tracked in MolSysMT #223."
-  ]
+  ],
+  "integrated_remote_checkpoint": {
+    "commit": "1d67d3838bb1fd18a59fad8800c317767f7683a6",
+    "science_and_fixture_bytes_unchanged": true,
+    "administrative_tests": {
+      "junit_path": "/tmp/dockingmt-1iep-representation-merged-admin.xml",
+      "junit_sha256": "e628a39f01652bd911d6ffd58b741f4092869ac898a129d1bcaa4303635c9a73",
+      "tests": 24,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 2.607,
+      "collected_testcases": 19,
+      "count_scope": "JUnit tests attribute includes subtest accounting; 19 collected test cases pass."
+    },
+    "declared_dependency_routes": "passed",
+    "declaration_scope": "declared-only, not installed/public closure",
+    "ruff_check": "passed",
+    "ruff_format": "128 files passed",
+    "report_indexes": "checked"
+  },
+  "final_integrated_remote_checkpoint": {
+    "commit": "50f0abbdf14a08b77d26b293d1b670d6dfc204a0",
+    "science_and_fixture_bytes_unchanged": true,
+    "argdigest_checkout_input": "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e",
+    "argdigest_source_commit": "57447cc4ec1f7ce85078f8a939892efd075bc919",
+    "administrative_tests": {
+      "junit_path": "/tmp/dockingmt-1iep-representation-merged-admin-final.xml",
+      "junit_sha256": "628fcacd34418305aeb732a98a8869f9c6e8665ff98753238acb886b1913776e",
+      "tests": 25,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 2.823,
+      "collected_testcases": 20,
+      "count_scope": "JUnit tests attribute includes subtest accounting; 20 collected test cases pass."
+    },
+    "declared_dependency_routes": "passed",
+    "declaration_scope": "declared-only, not installed/public closure",
+    "ruff_check": "passed",
+    "ruff_format": "128 files passed",
+    "report_indexes": "checked"
+  }
 }
