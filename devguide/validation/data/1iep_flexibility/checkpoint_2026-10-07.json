@@ -1,0 +1,121 @@
+{
+  "schema": "dockingmt.1iep_flexibility_checkpoint@1",
+  "date": "2026-10-07",
+  "capture_stage": "completed local candidate before commit and hosted CI; owning issues retain subsequent exact-head state",
+  "evidence": {
+    "path": "devguide/validation/data/1iep_flexibility/audit_2026-10-07.json.gz",
+    "gzip_sha256": "a8e7891094593223e5b8518d6a0695cce673022182cde2eaa076fba397755eca",
+    "json_sha256": "d581f86bf8682a0b045dbcc73e0c8e1979161a17a16d8f109e20da1c991df9b2",
+    "compressed_bytes": 1028219,
+    "uncompressed_bytes": 5294646,
+    "actual_searches": 12
+  },
+  "notebook": {
+    "path": "devguide/validation/1iep_flexibility_workflow_2026-10-07.ipynb",
+    "sha256": "80489b883bc42506a20f70b1d3bad7a400f68fde6045487722371b507edff53b",
+    "executed_code_cells": 3,
+    "scope": "retained twelve searches, original input identities and offline saved-result re-evaluation under pm/fs; no search rerun"
+  },
+  "local_gates": {
+    "initial_focused": {
+      "junit_path": "/tmp/dockingmt-1iep-paired-local.xml",
+      "junit_sha256": "a9b7cef7175f403d21cffbfb35ca6a9f3d08e9291b26bdba3421f69969834aed",
+      "tests": 4,
+      "errors": 0,
+      "failures": 3,
+      "skipped": 0,
+      "seconds": 35.701
+    },
+    "corrected_focused": {
+      "junit_path": "/tmp/dockingmt-1iep-paired-local-corrected.xml",
+      "junit_sha256": "a36c310785ea14f818e958ec6fc13d89e25e2bf5c26f661f98371f263c3991e1",
+      "tests": 4,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 34.074
+    },
+    "existing_boundary_selection": {
+      "junit_path": "/tmp/dockingmt-1iep-boundary-local.xml",
+      "junit_sha256": "9482d49f2d2c1eb17271ba11fc64ceffb5ac4b5651a5f84d8d808196acb008c1",
+      "tests": 180,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 143.064
+    },
+    "retained_matrix_and_reporting": {
+      "junit_path": "/tmp/dockingmt-1iep-evidence-local.xml",
+      "junit_sha256": "5a2bca5776d6941786a59125b8ee4b11747a9698ce132e6fcd0592b9a02e2033",
+      "tests": 2,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 1.217
+    }
+  },
+  "refuted_assumptions": [
+    "RDKit adapter atom IDs are zero-based, not one-based; measured RMSDs agreed before correcting the ID guard.",
+    "Binary unit-conversion roundoff at a half PDBQT text step can yield neighboring values; original coordinates remain equal within 1e-12 angstrom.",
+    "verify_captured_inputs returns byte counts, not byte strings; preliminary live probe stopped at that driver assertion. Corrected matrix checks verified artifact digests against actual input digests."
+  ],
+  "administrative_gates": {
+    "ruff_check": "passed",
+    "ruff_format": "124 files passed",
+    "report_indexes": "regenerated and checked",
+    "changed_local_links": "passed",
+    "component_guide": "passed",
+    "diff_check": "passed",
+    "shared_guide_drift": "unchanged known SMonitor/ArgDigest drift under MolSysSuite #106 / DockingMT #19"
+  },
+  "test_source_sha256": {
+    "tests/test_1iep_flexibility_workflow.py": "99a767f65ec4caccbc682391d2d10a1bd507ad2f2b498a084d0617057ad5b9df"
+  },
+  "limits": [
+    "One bound-like starting conformation and one externally prepared rigid receptor; no conformer challenge or native receptor preparation.",
+    "Named charges/types are executed models; Vina recovery does not qualify chemical state, H geometry, affinity or scoring validity.",
+    "Full-inventory public report and separate 37-heavy-atom metrics have no alignment or symmetry correction.",
+    "MolSysMT #348/#223 provider migrations and wider #4/#5/#6/#17/#33 scientific scope remain open.",
+    "Scientific observations use Python 3.14.7 source profile. Required other-minor CI is pending at capture, not inferred from older runs.",
+    "Prior ordinary installed wheel producer/digests and public dependency-closure limits remain unchanged; no new installed artifact is qualified.",
+    "Preserved native extension digest is not fresh native-build provenance."
+  ],
+  "reference_comparison": {
+    "scope": "pinned already aligned fixture at three-decimal PDBQT precision; reference is not chemical ground truth",
+    "comparator_source_sha256": "60596d2e8d8a40ab1e1d000b56d2cefd56e701b6eb1cbccc9a67cc5beb468d5c",
+    "atom_comparison": {
+      "native_atoms": 40,
+      "reference_atoms": 40,
+      "coordinate_matched_atoms": 40,
+      "native_only_atoms": 0,
+      "reference_only_atoms": 0,
+      "native_nonzero_charge_atoms": 40,
+      "reference_nonzero_charge_atoms": 40,
+      "matched_atom_type_disagreements": 0,
+      "atom_type_disagreement_counts": [],
+      "matched_charge_mean_absolute_difference_e": 0.0,
+      "matched_charge_max_absolute_difference_e": 0.0,
+      "native_torsion_dof": 7,
+      "reference_torsion_dof": 7,
+      "native_branch_count": 7,
+      "reference_branch_count": 7,
+      "native_pdbqt_sha256": "43e3219134099eee7d388b0f49ca90e5a46afea9b6b54a754276b21fab48761e",
+      "reference_pdbqt_sha256": "15fb35648d8c18c70317842f3a0631b73a19429c710a037ab07310084d579bb8"
+    },
+    "torsion_graph_comparison": {
+      "branch_bonds_match": true,
+      "rigid_fragments_match": true,
+      "reference_fragment_sizes": [
+        1,
+        2,
+        4,
+        6,
+        6,
+        6,
+        7,
+        8
+      ]
+    },
+    "interpretation": "Chemical payload and undirected selected tree agree; bytes/ROOT/order differ. No cause of sampling differences is established."
+  }
+}

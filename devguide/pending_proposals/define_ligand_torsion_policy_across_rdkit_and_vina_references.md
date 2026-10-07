@@ -156,3 +156,7 @@ exact consumer/test/evidence hashes and separate unexecuted/limited scopes.
 Canonical SMonitor/ArgDigest drift and host AmberTools conflicts remain unchanged.
 The issue stays partial/open; no push, hosted gate or public scientific admission
 is claimed.
+
+## 2026-10-07 matched real 1IEP sensitivity
+
+The [named 1IEP workflow](../validation/1iep_flexibility_workflow.md) supplies twelve actual matched searches: rigid versus seven explicit provider-candidate axes, seeds 7/42/2026 at exhaustiveness 1/8. Original SDF chemistry/H, named charges/types, source identity and the same external receptor are fixed. Exact submitted bytes, full 40-atom source-key evaluation and separate independently guarded 37-heavy-atom RMSDs are retained. The bound-like rigid starting conformation is a favorable control; no affinity, general flexibility advantage, automatic torsion choice or native receptor-preparation qualification is claimed. The existing MolSysMT #348/#223 migrations and wider scientific criteria remain open; this report stays partial. Prior qualification receipts are unchanged.

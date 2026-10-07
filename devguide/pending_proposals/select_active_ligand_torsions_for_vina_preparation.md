@@ -156,3 +156,7 @@ Final local source evidence: **977 passed without skips in 271.81 s** on Python
 Ruff/report/index/link/hash/identity/component-guide/diff gates pass. See the
 [checkpoint](../validation/data/torsion_policy/checkpoint_2026-10-06.json) for
 source/test digests and outstanding installed/hosted/public scope.
+
+## 2026-10-07 matched real 1IEP sensitivity
+
+The [named 1IEP workflow](../validation/1iep_flexibility_workflow.md) supplies twelve actual matched searches: rigid versus seven explicit provider-candidate axes, seeds 7/42/2026 at exhaustiveness 1/8. Original SDF chemistry/H, named charges/types, source identity and the same external receptor are fixed. Exact submitted bytes, full 40-atom source-key evaluation and separate independently guarded 37-heavy-atom RMSDs are retained. The bound-like rigid starting conformation is a favorable control; no affinity, general flexibility advantage, automatic torsion choice or native receptor-preparation qualification is claimed. The existing MolSysMT #348/#223 migrations and wider scientific criteria remain open; this report stays partial. Prior qualification receipts are unchanged.

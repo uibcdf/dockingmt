@@ -292,3 +292,7 @@ case. Chemistry stays scientifically unassessed: protonation/waters, generated
 geometry without environmental refinement (#323), broader chemical/scoring
 coverage, provider export (#223), installed/public/hosted evidence remain open.
 This issue remains partial. The earlier exploratory baseline is preserved.
+
+## 2026-10-07 real matched flexible ligand
+
+The [1IEP experiment](../validation/1iep_flexibility_workflow.md) uses the original 69-atom/73-edge SDF state with public named Gasteiger charges and chemical-environment AutoDock types. Both rigid and seven-axis preparations retain 37 heavy atoms and three polar H; 29 H-charge transfers conserve +1 e (0.999 e in three-decimal PDBQT). Twelve seed/exhaustiveness searches retain original producer reports, assessments and verified source maps without provisional opt-in. This adds a real matched flexible ligand to bounded consumer evidence, while the receptor remains an external unassessed reference. Chemical-state selection, environmental geometry, scoring validity, wider preparation and public dependency closure remain unqualified; #5 stays partial.
