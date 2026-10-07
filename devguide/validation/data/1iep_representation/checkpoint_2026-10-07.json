@@ -1,0 +1,159 @@
+{
+  "schema": "dockingmt.1iep_representation_checkpoint@1",
+  "date": "2026-10-07",
+  "capture_stage": "completed local candidate before commit and hosted CI; owning issues retain subsequent exact-head state",
+  "evidence": {
+    "path": "devguide/validation/data/1iep_representation/audit_2026-10-07.json.gz",
+    "gzip_sha256": "a7ba98a15191b7345e55c2de01533efe22a917d1c948bccd735970bf5d868436",
+    "json_sha256": "1dccf14aa550a58a4d0a82b8ddf2b0fd77f9c206524bc99c1151e0eeab6d5113",
+    "compressed_bytes": 1705210,
+    "uncompressed_bytes": 8196082,
+    "reused_searches": 6,
+    "new_matrix_searches": 12,
+    "separate_native_repeat_searches": 1,
+    "fixed_conformation_scores": 3
+  },
+  "notebook": {
+    "path": "devguide/validation/1iep_representation_workflow_2026-10-07.ipynb",
+    "sha256": "9e921f5d23f3448c9300380c8b6df55e12adcb8435dbd447c4c50a500010829a",
+    "executed_code_cells": 3,
+    "scope": "retained 18 matrix cells and offline saved-result pm/fs re-evaluation; no search rerun"
+  },
+  "local_gates": {
+    "local": {
+      "junit_path": "/tmp/dockingmt-1iep-representation-local.xml",
+      "junit_sha256": "3d8d405d96e6d3900424ec17827f58290e3486097b16ff188851870999847060",
+      "tests": 4,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 55.059
+    },
+    "boundaries": {
+      "junit_path": "/tmp/dockingmt-1iep-representation-boundaries.xml",
+      "junit_sha256": "f1d02fe45af61300c72099fff4b76e71baeb8ccfb48fcf8c0a4fa4839c98d772",
+      "tests": 95,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 81.341
+    },
+    "evidence": {
+      "junit_path": "/tmp/dockingmt-1iep-representation-evidence.xml",
+      "junit_sha256": "869c63eaa8b725c881ff2c09271325fc2a2f17957486aab37150ff13e3a6c7b3",
+      "tests": 2,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 1.452
+    }
+  },
+  "administrative_gates": {
+    "ruff_check": "passed",
+    "ruff_format": "126 files passed",
+    "report_indexes": "regenerated and checked",
+    "changed_local_links": "passed",
+    "component_guide": "passed",
+    "diff_check": "passed",
+    "evidence_finite_and_source_digests": "passed",
+    "shared_guide_drift": "unchanged known SMonitor/ArgDigest drift under MolSysSuite #106 / DockingMT #19"
+  },
+  "test_source_sha256": {
+    "tests/test_1iep_representation_workflow.py": "24ef80311ad88a692624da3945b85796f757a701cba4fb4407da94e231659a69"
+  },
+  "native_repeat_comparison": {
+    "seed": 42,
+    "exhaustiveness": 1,
+    "poses": 1,
+    "coordinates_exactly_equal": true,
+    "scores_exactly_equal": true,
+    "heavy_metrics_exactly_equal": true,
+    "included_as_an_independent_matrix_cell": false
+  },
+  "official_vina_parser": {
+    "tag": "v1.2.7",
+    "commit": "8eb40404f4f45608acb3b01427587ac049f27c1f",
+    "path": "src/lib/parse_pdbqt.cpp",
+    "sha256": "118de8d13be7901cd744d8d5a9b2ef38e445cd1387c8b66f170109067519585a",
+    "lines": "440-444",
+    "finding": "p.atoms[0].a.coords initializes ligand rigid-body origin; reversing ROOT order also changes origin.",
+    "limit": "Source inspection does not authenticate installed binary build provenance."
+  },
+  "provider_native_writer_probe": {
+    "provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+    "public_reader": "molsysmt.form.string_pdbqt_text.get_torsion_tree",
+    "public_writer": "molsysmt.convert(..., to_form=\"string:pdbqt_text\", typing_scheme=\"autodock4\", torsion_tree=tree)",
+    "output_sha256": "03fbf147015b4ce5a3fdb5ac3e124c50dfd58f971f91429313b587dad925dbe7",
+    "output_bytes": 3388,
+    "root_atom_ids": [
+      "8",
+      "7",
+      "6",
+      "5",
+      "4",
+      "3",
+      "2",
+      "1"
+    ],
+    "source_snapshot_sha256": "4d8949c8360ee4e814e45ab4cbe794e7b8e3688a8b8e69c11f59009237bb7639",
+    "source_unchanged": true,
+    "atom_comparison": {
+      "native_atoms": 40,
+      "reference_atoms": 40,
+      "coordinate_matched_atoms": 40,
+      "native_only_atoms": 0,
+      "reference_only_atoms": 0,
+      "native_nonzero_charge_atoms": 40,
+      "reference_nonzero_charge_atoms": 40,
+      "matched_atom_type_disagreements": 0,
+      "atom_type_disagreement_counts": [],
+      "matched_charge_mean_absolute_difference_e": 0.0,
+      "matched_charge_max_absolute_difference_e": 0.0,
+      "native_torsion_dof": 7,
+      "reference_torsion_dof": 7,
+      "native_branch_count": 7,
+      "reference_branch_count": 7,
+      "native_pdbqt_sha256": "43e3219134099eee7d388b0f49ca90e5a46afea9b6b54a754276b21fab48761e",
+      "reference_pdbqt_sha256": "03fbf147015b4ce5a3fdb5ac3e124c50dfd58f971f91429313b587dad925dbe7"
+    },
+    "torsion_graph_comparison": {
+      "branch_bonds_match": true,
+      "rigid_fragments_match": true,
+      "reference_fragment_sizes": [
+        1,
+        2,
+        4,
+        6,
+        6,
+        6,
+        7,
+        8
+      ]
+    },
+    "included_in_search_matrix": false,
+    "scope": "Existing explicit declared-tree writer; canonical text differs from literal frozen-line permutation. No source-H aggregation or general ROOT selection qualification.",
+    "pdbqt": "ROOT\nATOM      8  H58 LIG A   1      17.519  46.907  23.437  1.00  0.00     0.347 HD\nATOM      7  C34 LIG A   1      16.877  45.658  21.104  1.00  0.00     0.146 C\nATOM      6  C33 LIG A   1      18.172  45.533  21.971  1.00  0.00     0.277 C\nATOM      5  C32 LIG A   1      19.522  46.655  23.680  1.00  0.00     0.332 C\nATOM      4  N31 LIG A   1      18.337  46.794  22.821  1.00  0.00    -0.335 N\nATOM      3  C30 LIG A   1      18.375  48.041  21.949  1.00  0.00     0.277 C\nATOM      2  C29 LIG A   1      17.097  48.140  21.070  1.00  0.00     0.146 C\nATOM      1  N28 LIG A   1      16.917  46.907  20.219  1.00  0.00    -0.288 NA\nENDROOT\nBRANCH 1 9\nATOM      9  C27 LIG A   1      15.696  47.030  19.368  1.00  0.00     0.120 C\nBRANCH 9 10\nATOM     10  C24 LIG A   1      15.600  48.260  18.446  1.00  0.00    -0.034 A\nATOM     11  C21 LIG A   1      15.595  50.558  16.689  1.00  0.00     0.040 A\nATOM     12  C22 LIG A   1      14.423  50.268  17.519  1.00  0.00     0.014 A\nATOM     13  C23 LIG A   1      14.423  49.124  18.396  1.00  0.00     0.006 A\nATOM     14  C25 LIG A   1      16.747  48.568  17.608  1.00  0.00     0.006 A\nATOM     15  C26 LIG A   1      16.751  49.689  16.748  1.00  0.00     0.014 A\nBRANCH 11 16\nATOM     16  C20 LIG A   1      15.629  51.747  15.784  1.00  0.00     0.255 C\nATOM     17  N19 LIG A   1      16.600  51.810  14.798  1.00  0.00    -0.322 N\nATOM     18  O35 LIG A   1      14.789  52.612  15.983  1.00  0.00    -0.269 OA\nATOM     19  H47 LIG A   1      17.359  51.117  14.866  1.00  0.00     0.170 HD\nBRANCH 17 20\nATOM     20  C17 LIG A   1      16.678  52.727  13.688  1.00  0.00     0.043 A\nATOM     21  C13 LIG A   1      15.822  54.641  12.322  1.00  0.00     0.046 A\nATOM     22  C14 LIG A   1      16.950  54.502  11.393  1.00  0.00    -0.027 A\nATOM     23  C15 LIG A   1      17.915  53.471  11.648  1.00  0.00     0.008 A\nATOM     24  C16 LIG A   1      17.774  52.597  12.786  1.00  0.00     0.026 A\nATOM     25  C18 LIG A   1      15.698  53.772  13.436  1.00  0.00     0.052 A\nATOM     26  C36 LIG A   1      17.148  55.406  10.154  1.00  0.00     0.046 C\nBRANCH 21 27\nATOM     27  N12 LIG A   1      14.852  55.627  12.128  1.00  0.00    -0.324 N\nATOM     28  H43 LIG A   1      13.967  55.386  11.659  1.00  0.00     0.170 HD\nBRANCH 27 29\nATOM     29  C10 LIG A   1      15.067  56.927  12.559  1.00  0.00     0.227 A\nATOM     30   C6 LIG A   1      14.238  59.155  12.712  1.00  0.00     0.077 A\nATOM     31   C7 LIG A   1      15.433  59.579  13.383  1.00  0.00     0.049 A\nATOM     32   C8 LIG A   1      16.428  58.603  13.615  1.00  0.00     0.117 A\nATOM     33   N9 LIG A   1      16.232  57.303  13.202  1.00  0.00    -0.221 NA\nATOM     34  N11 LIG A   1      14.101  57.840  12.327  1.00  0.00    -0.213 NA\nBRANCH 30 35\nATOM     35   C2 LIG A   1      13.097  60.070  12.392  1.00  0.00     0.019 A\nATOM     36   C0 LIG A   1      11.879  62.272  12.570  1.00  0.00     0.021 A\nATOM     37   C1 LIG A   1      13.002  61.429  12.910  1.00  0.00     0.013 A\nATOM     38   C3 LIG A   1      12.031  59.591  11.525  1.00  0.00     0.121 A\nATOM     39   N4 LIG A   1      10.961  60.425  11.216  1.00  0.00    -0.264 NA\nATOM     40   C5 LIG A   1      10.858  61.734  11.710  1.00  0.00     0.111 A\nENDBRANCH 30 35\nENDBRANCH 27 29\nENDBRANCH 21 27\nENDBRANCH 17 20\nENDBRANCH 11 16\nENDBRANCH 9 10\nENDBRANCH 1 9\nTORSDOF 7\n",
+    "provider_source_sha256": {
+      "molsysmt/form/string_pdbqt_text/get_torsion_tree.py": "a0672a9ed918ed305e7e7125f2d4a16b475e70bc679c83fefc806b935ad6a341",
+      "molsysmt/form/molsysmt_MolSys/to_string_pdbqt_text.py": "c019d4e986a59567911a35d9c0efbc83093c7e991fb79cdc8ce5cbc592a04a5a",
+      "molsysmt/_private/pdbqt_writer.py": "ee618eadb1893d6dcf8a9075feb700624bc701e28037e44c78cb22f33447f0cf"
+    }
+  },
+  "refuted_assumptions": [
+    "The form-specific reader requires explicit import from molsysmt.form.string_pdbqt_text; it is not exposed as an attribute of msm.form. The corrected public import succeeds.",
+    "An initial Ruff invocation used the central repository working directory and rejected its unsubstituted starter template. Correct DockingMT-root invocations pass; no provider tooling defect is alleged."
+  ],
+  "limits": [
+    "Published/native comparison changes ROOT, ordering and labels together; it does not isolate ROOT alone.",
+    "ROOT-reversed control changes only eight existing ATOM line positions, keeping serials, labels, ROOT membership and all other bytes.",
+    "Full RMSD is caller-declared positional matching through a verified bounded fixture map, not a public general atom correspondence operation.",
+    "One bound-like initial conformer, rigid externally prepared receptor and declared chemical state; no broader preparation or affinity qualification.",
+    "No automatic policy tuning, conformer challenge, convergence or recovery probability is established.",
+    "Two new search arms run in independent processes, each with Vina CPU 1; original native evidence is reused only after code/version/input/source checks.",
+    "Original native repeat reports actual stochastic agreement; it is not a portable exact-pose guarantee.",
+    "Existing installed artifacts and native build-provenance/public dependency-closure limits remain unchanged.",
+    "ROOT reversal changes the first-atom origin; a fixed-first-atom order control is still unexecuted.",
+    "Required Python 3.11-3.14 exact-head hosted CI is pending at capture; prior installed artifacts and public qualification remain separate.",
+    "The existing provider declared-tree writer is verified separately; original-source lossy-H export correspondence remains tracked in MolSysMT #223."
+  ]
+}
