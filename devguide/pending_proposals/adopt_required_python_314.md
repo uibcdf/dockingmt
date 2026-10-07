@@ -14,6 +14,25 @@ supersedes: []
 
 # Required Python 3.14 adoption
 
+## Installed consumer checkpoint — 2026-10-07
+
+Producer `8741fb2e104814e6f1012e0cb7073689e710f982` has successful
+[required CI](https://github.com/uibcdf/dockingmt/actions/runs/37581673369),
+with 986 tests without skips on each required Linux Python minor and executed
+ordinary-install/isolated import steps. A separately identified ordinary wheel
+passes all 986 tests outside the source checkout in Python 3.14.7 with Pandas
+3.0.6, matching payload/resource bytes, installed consumer/addon origins and
+Python bounds. The missing declared typing marker is resolved under #45.
+
+The [checkpoint and receipt](../validation/installed_integration_checkpoint_2026-10-07.md)
+separate installed consumer evidence from inherited dependencies and source
+sibling pins. The six-cell manual matrix's four Linux cells pass; both macOS
+arm64 jobs remain pending without runners at inspection. Public-channel closure,
+exact installed Conda files, fresh provider-native build provenance and suite
+admission remain pending. The ambient environment's unrelated AmberTools
+dependency conflicts are recorded; no Requires-Python override or package
+publication is used. Earlier installed/hosted evidence keeps its original scope.
+
 ## Development environment correction (2026-10-03)
 
 The maintainer now requires routine DockingMT development in the Conda environment
@@ -165,4 +184,3 @@ recovery semantics are preserved; no public package is published here.
 Local conformance and changed-workflow Actionlint checks pass. Hosted
 policy and applicable routine checks are dispatched separately from skipped
 direct pushes; their exact commits and outcomes remain to be measured.
-

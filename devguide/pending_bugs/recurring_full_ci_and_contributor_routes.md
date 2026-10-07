@@ -15,6 +15,24 @@ supersedes: []
 
 # Recurring full CI and protected contributor routes
 
+## Current integration recovery — 2026-10-07
+
+Corrected producer `8741fb2e104814e6f1012e0cb7073689e710f982` has executed green
+[required CI](https://github.com/uibcdf/dockingmt/actions/runs/37581673369):
+quality plus all 986 tests on each of Python 3.11–3.14, without skips. Manual
+execution of the existing recovery detector identifies that exact producer as
+its four-minor watermark and reports zero skipped commits since it. This is
+executed recovery evidence, not proof of a scheduled daily trigger or hosted PR
+enforcement.
+
+The [manual six-cell matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344)
+passes all four Linux cells; both representative macOS jobs remain pending
+without a runner assigned at inspection. An older obsolete manual run retains
+its Linux failures and was cancelled before its macOS jobs executed. The
+[checkpoint](../validation/installed_integration_checkpoint_2026-10-07.md)
+preserves these states and local installed-consumer evidence. #46 owns the
+corrected macOS evaluation guard; this broader report remains partial.
+
 ## What
 
 At `ac91b22`, CI executes the full Linux Python 3.11–3.13 suite on pushes

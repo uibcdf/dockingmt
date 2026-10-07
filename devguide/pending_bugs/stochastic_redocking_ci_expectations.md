@@ -59,3 +59,15 @@ Installed delivery and recurring recovery remain with #30 and #21.
 - Deterministic controls cover recovery and nonrecovery at the unchanged cutoff.
 - Earlier recorded scientific observations remain unchanged and guarded.
 - Corrected required Linux and representative macOS lanes actually execute.
+
+## Corrected checkpoint — 2026-10-07
+
+At `8741fb2e104814e6f1012e0cb7073689e710f982`, the installed consumer passes all
+986 tests without skips, and [required CI](https://github.com/uibcdf/dockingmt/actions/runs/37581673369)
+passes 986 tests on each supported Linux Python minor. The
+[manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344)
+also passes all four Linux cells; both macOS jobs remain pending without a
+runner assigned at inspection. This report stays partial until those corrected
+platform controls actually execute and pass. Their state is not interpreted as
+scientific success or failure. Evidence and remaining limits are retained in
+the [checkpoint](../validation/installed_integration_checkpoint_2026-10-07.md).

@@ -1,0 +1,626 @@
+{
+  "schema": "dockingmt.installed-integration-checkpoint@1",
+  "recorded_at": "2026-10-07T06:38:50.873999+00:00",
+  "producer_commit": "8741fb2e104814e6f1012e0cb7073689e710f982",
+  "installed_consumer": {
+    "schema": "dockingmt.local-installed-wheel-checkpoint@1",
+    "producer_commit": "8741fb2e104814e6f1012e0cb7073689e710f982",
+    "artifact": "/tmp/dockingmt-installed-8741fb2-wheels/dockingmt-0.0.0+132.g8741fb2-py3-none-any.whl",
+    "artifact_sha256": "12f2ac10e0b6c44d2b1da8e9f3e100c394596897f0c1924d23a210fe82a8e1a6",
+    "version": "0.0.0+132.g8741fb2",
+    "requires_python": "<3.15,>=3.11",
+    "python": "3.14.7 | packaged by conda-forge | (main, Sep  2 2026, 21:08:32) [GCC 15.3.0]",
+    "consumer_origin": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/__init__.py",
+    "addon_origin": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/__init__.py",
+    "verified_wheel_members": [
+      "dockingmt/__init__.py",
+      "dockingmt/_argdigest.py",
+      "dockingmt/_depdigest.py",
+      "dockingmt/_pyunitwizard.py",
+      "dockingmt/_smonitor.py",
+      "dockingmt/_version.py",
+      "dockingmt/aggregation.py",
+      "dockingmt/batch.py",
+      "dockingmt/dock.py",
+      "dockingmt/evaluation.py",
+      "dockingmt/py.typed",
+      "dockingmt/score.py",
+      "dockingmt/view.py",
+      "dockingmt/_private/__init__.py",
+      "dockingmt/_private/artifacts.py",
+      "dockingmt/_private/conversion.py",
+      "dockingmt/_private/serialization.py",
+      "dockingmt/_private/vina_records.py",
+      "dockingmt/_private/argdigest/__init__.py",
+      "dockingmt/_private/argdigest/registry.py",
+      "dockingmt/_private/smonitor/__init__.py",
+      "dockingmt/_private/smonitor/catalog.py",
+      "dockingmt/_private/smonitor/emitter.py",
+      "dockingmt/_private/smonitor/meta.py",
+      "dockingmt/_private/smonitor/warnings.py",
+      "dockingmt/core/__init__.py",
+      "dockingmt/core/_scores.py",
+      "dockingmt/core/audit.py",
+      "dockingmt/core/outcome.py",
+      "dockingmt/core/pose_audit.py",
+      "dockingmt/core/problem.py",
+      "dockingmt/core/protocol.py",
+      "dockingmt/core/results.py",
+      "dockingmt/core/search_domain.py",
+      "dockingmt/engines/__init__.py",
+      "dockingmt/engines/_vina_scoring.py",
+      "dockingmt/engines/base.py",
+      "dockingmt/engines/vina.py",
+      "dockingmt/preparation/__init__.py",
+      "dockingmt/preparation/_molsys.py",
+      "dockingmt/preparation/_stages.py",
+      "dockingmt/preparation/_temporary_torsions.py",
+      "dockingmt/preparation/_typing.py",
+      "dockingmt/preparation/assessment.py",
+      "dockingmt/preparation/charges.py",
+      "dockingmt/preparation/ligand.py",
+      "dockingmt/preparation/receptor.py",
+      "dockingmt/viewer/__init__.py",
+      "dockingmt-0.0.0+132.g8741fb2.dist-info/licenses/LICENSE",
+      "molsysviewer_dockingmt/__init__.py",
+      "molsysviewer_dockingmt/addon.py",
+      "molsysviewer_dockingmt/export.py",
+      "molsysviewer_dockingmt/runtime.py",
+      "molsysviewer_dockingmt/workbench.py",
+      "molsysviewer_dockingmt/adapters/__init__.py",
+      "molsysviewer_dockingmt/adapters/complex.py",
+      "molsysviewer_dockingmt/adapters/shapes.py",
+      "molsysviewer_dockingmt/panels/__init__.py",
+      "molsysviewer_dockingmt/panels/domain.py",
+      "molsysviewer_dockingmt/panels/explorer.py",
+      "dockingmt-0.0.0+132.g8741fb2.dist-info/METADATA",
+      "dockingmt-0.0.0+132.g8741fb2.dist-info/WHEEL",
+      "dockingmt-0.0.0+132.g8741fb2.dist-info/entry_points.txt",
+      "dockingmt-0.0.0+132.g8741fb2.dist-info/top_level.txt"
+    ],
+    "declared_resource_present": {
+      "dockingmt/py.typed": true
+    },
+    "test_runner": "/home/liliana/repos@uibcdf/molsyssuite/devtools/scripts/installed_noarch.py",
+    "test_runner_sha256": "37510027f43be246a0d9216940ec49f1ec27c7c746228394b0ffa28625207b83",
+    "scope": "Installed consumer wheel with inherited local Conda dependencies and reviewed source sibling archives; not a clean public-channel or exact Conda-artifact qualification.",
+    "test_exit_code": 0,
+    "verified_module_origins": {
+      "dockingmt._version": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_version.py",
+      "dockingmt._pyunitwizard": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_pyunitwizard.py",
+      "dockingmt._private": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/__init__.py",
+      "dockingmt._private.smonitor.catalog": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/smonitor/catalog.py",
+      "dockingmt._private.smonitor.meta": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/smonitor/meta.py",
+      "dockingmt._private.smonitor.emitter": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/smonitor/emitter.py",
+      "dockingmt._private.smonitor.warnings": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/smonitor/warnings.py",
+      "dockingmt._private.smonitor": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/smonitor/__init__.py",
+      "dockingmt._private.artifacts": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/artifacts.py",
+      "dockingmt._private.serialization": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/serialization.py",
+      "dockingmt._private.vina_records": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/vina_records.py",
+      "dockingmt.core._scores": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/core/_scores.py",
+      "dockingmt._argdigest": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_argdigest.py",
+      "dockingmt._private.argdigest": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/argdigest/__init__.py",
+      "dockingmt._private.argdigest.registry": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/argdigest/registry.py",
+      "dockingmt.core.search_domain": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/core/search_domain.py",
+      "dockingmt.core.problem": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/core/problem.py",
+      "dockingmt.core.results": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/core/results.py",
+      "dockingmt.core.audit": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/core/audit.py",
+      "dockingmt.core.outcome": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/core/outcome.py",
+      "dockingmt.core.protocol": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/core/protocol.py",
+      "dockingmt.preparation._molsys": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/preparation/_molsys.py",
+      "dockingmt.preparation._stages": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/preparation/_stages.py",
+      "dockingmt.preparation._temporary_torsions": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/preparation/_temporary_torsions.py",
+      "dockingmt.preparation._typing": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/preparation/_typing.py",
+      "dockingmt.preparation.charges": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/preparation/charges.py",
+      "dockingmt.preparation.ligand": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/preparation/ligand.py",
+      "dockingmt.preparation.receptor": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/preparation/receptor.py",
+      "dockingmt.preparation.assessment": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/preparation/assessment.py",
+      "dockingmt.preparation": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/preparation/__init__.py",
+      "dockingmt.core.pose_audit": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/core/pose_audit.py",
+      "dockingmt.core": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/core/__init__.py",
+      "dockingmt.engines.base": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/engines/base.py",
+      "dockingmt.engines.vina": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/engines/vina.py",
+      "dockingmt.engines": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/engines/__init__.py",
+      "dockingmt.dock": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/dock.py",
+      "dockingmt.batch": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/batch.py",
+      "dockingmt.score": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/score.py",
+      "dockingmt.evaluation": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/evaluation.py",
+      "dockingmt.aggregation": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/aggregation.py",
+      "dockingmt.view": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/view.py",
+      "dockingmt": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/__init__.py",
+      "molsysviewer_dockingmt.runtime": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/runtime.py",
+      "molsysviewer_dockingmt.adapters.shapes": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/adapters/shapes.py",
+      "molsysviewer_dockingmt.adapters.complex": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/adapters/complex.py",
+      "molsysviewer_dockingmt.adapters": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/adapters/__init__.py",
+      "molsysviewer_dockingmt.addon": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/addon.py",
+      "molsysviewer_dockingmt": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/__init__.py",
+      "dockingmt._depdigest": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_depdigest.py",
+      "dockingmt.engines._vina_scoring": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/engines/_vina_scoring.py",
+      "dockingmt._private.conversion": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/dockingmt/_private/conversion.py",
+      "molsysviewer_dockingmt.workbench": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/workbench.py",
+      "molsysviewer_dockingmt.export": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/export.py",
+      "molsysviewer_dockingmt.panels.domain": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/panels/domain.py",
+      "molsysviewer_dockingmt.panels.explorer": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/panels/explorer.py",
+      "molsysviewer_dockingmt.panels": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/molsysviewer_dockingmt/panels/__init__.py"
+    },
+    "full_test_gate": {
+      "passed": 986,
+      "failed": 0,
+      "skipped": 0,
+      "seconds": 366.95,
+      "warnings": 383,
+      "junit_sha256": "d1b8ada44ba105260a1cb69a7d6950a56fdb49e2fdbe733a7e8522d550c5b71d"
+    },
+    "dependency_runtime": {
+      "pandas": {
+        "version": "3.0.6",
+        "origin": "/tmp/dockingmt-pandas3-env/lib/python3.14/site-packages/pandas/__init__.py"
+      },
+      "numpy": {
+        "version": "2.4.6",
+        "origin": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/lib/python3.14/site-packages/numpy/__init__.py"
+      },
+      "vina": {
+        "version": "1.2.7",
+        "origin": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/lib/python3.14/site-packages/vina/__init__.py"
+      },
+      "rdkit": {
+        "version": "2026.3.1",
+        "origin": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/lib/python3.14/site-packages/rdkit/__init__.py"
+      },
+      "h5py": {
+        "version": "3.16.0",
+        "origin": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/lib/python3.14/site-packages/h5py/__init__.py"
+      },
+      "pyunitwizard": {
+        "version": "0.28.1+3.g2ab37a5",
+        "origin": "/home/liliana/repos@uibcdf/pyunitwizard/pyunitwizard/__init__.py"
+      },
+      "pytest": {
+        "version": "9.1.1",
+        "origin": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/lib/python3.14/site-packages/pytest/__init__.py"
+      },
+      "pytest_receptor": {
+        "version": "1.2.1+13.gac0aa03",
+        "origin": "/home/liliana/repos@uibcdf/pytest-receptor/pytest_receptor/__init__.py"
+      }
+    },
+    "source_siblings": {
+      "molsysmt": {
+        "commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+        "runtime_version": "0.22.4+215.g5bd893c85",
+        "origin": "/tmp/dockingmt-receptor-provider-5bd893c/molsysmt/__init__.py"
+      },
+      "argdigest": {
+        "commit": "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e",
+        "runtime_version": "0.15.0+1.g5c6711e",
+        "origin": "/tmp/dockingmt-qualification-argdigest-1bea27f/argdigest/__init__.py"
+      },
+      "molsysviewer": {
+        "commit": "ec4c71e574d798b7c8675b7e7e983da878ce9889",
+        "runtime_version": "0.23.4+90.gc046fca1",
+        "origin": "/tmp/dockingmt-qualification-viewer-ec4c71e/molsysviewer/__init__.py"
+      }
+    },
+    "runtime_version_limit": "Sibling runtime strings can reflect inherited distribution metadata; reviewed source commits and source-profile hashes establish the exercised source identity.",
+    "native_extension_sha256": "c535c7d2f0e2a92b6ebf8298a60b19e4b5555467b4aa087e9563c6760619827e",
+    "native_extension_scope": "Preserved local extension, not a fresh native build.",
+    "audit_script_sha256": "f8c797e0f6569bab5b9dc90c9863545a62d8079c8aba2cce3c99f567e309d8ff",
+    "test_runner_source_commit": "50b5e113d2668e3de9b894527843ad10305a0579",
+    "dependency_check": {
+      "command": [
+        "/tmp/dockingmt-pandas3-env/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "exit_code": 1,
+      "conflicts": [
+        "packmol-memgen 2026.3.25 requires pdb2pqr, which is not installed.",
+        "proprep 1.0.0 requires pdb2pqr, which is not installed.",
+        "ndfes 3.6.5 has requirement numpy<2, but you have numpy 2.4.6.",
+        "edgembar 3.6.5 has requirement numpy<2, but you have numpy 2.4.6.",
+        "fetkutils 3.6.5 has requirement numpy<2, but you have numpy 2.4.6.",
+        "proprep 1.0.0 has requirement biopython<1.86,>=1.83, but you have biopython 1.88.",
+        "proprep 1.0.0 has requirement numpy<2.0,>=1.26, but you have numpy 2.4.6."
+      ]
+    },
+    "test_invocation": {
+      "cwd": "/tmp",
+      "python": "/tmp/dockingmt-pandas3-env/bin/python",
+      "audit_script": "/tmp/dockingmt-installed-8741fb2-check.py",
+      "pytest_args": [
+        "--import-mode=importlib",
+        "-c",
+        "/tmp/dockingmt-installed-8741fb2-harness/pyproject.toml",
+        "-o",
+        "pythonpath=",
+        "--receptor=llm",
+        "--junitxml=/tmp/dockingmt-installed-8741fb2-junit.xml",
+        "/tmp/dockingmt-installed-8741fb2-harness/tests"
+      ],
+      "python_safe_path": true,
+      "python_path": [
+        "/tmp/dockingmt-receptor-provider-5bd893c",
+        "/tmp/dockingmt-qualification-argdigest-1bea27f",
+        "/tmp/dockingmt-qualification-viewer-ec4c71e",
+        "/tmp/dockingmt-installed-8741fb2-harness",
+        "/tmp/dockingmt-installed-8741fb2-harness/tests",
+        "/tmp/dockingmt-installed-8741fb2-harness/devtools"
+      ]
+    }
+  },
+  "required_ci": {
+    "databaseId": 37581673369,
+    "headSha": "8741fb2e104814e6f1012e0cb7073689e710f982",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581673369"
+  },
+  "required_ci_jobs": [
+    {
+      "job_id": 112662540216,
+      "name": "Quality on ubuntu-latest",
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581673369/job/112662540216",
+      "status": "completed",
+      "conclusion": "success",
+      "executed_steps": [
+        {
+          "completedAt": "2026-10-07T06:28:30Z",
+          "conclusion": "success",
+          "name": "Run ruff check .",
+          "number": 5,
+          "startedAt": "2026-10-07T06:28:30Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:28:31Z",
+          "conclusion": "success",
+          "name": "Run ruff format --check .",
+          "number": 6,
+          "startedAt": "2026-10-07T06:28:30Z",
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "job_id": 112662540339,
+      "name": "Test on ubuntu-latest, Python 3.11",
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581673369/job/112662540339",
+      "status": "completed",
+      "conclusion": "success",
+      "executed_steps": [
+        {
+          "completedAt": "2026-10-07T06:31:09Z",
+          "conclusion": "success",
+          "name": "Install compatible scientific sibling sources",
+          "number": 10,
+          "startedAt": "2026-10-07T06:29:09Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:31:11Z",
+          "conclusion": "success",
+          "name": "Install dockingmt",
+          "number": 11,
+          "startedAt": "2026-10-07T06:31:09Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:31:11Z",
+          "conclusion": "success",
+          "name": "Verify ordinary installed package",
+          "number": 12,
+          "startedAt": "2026-10-07T06:31:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:34:59Z",
+          "conclusion": "success",
+          "name": "Run tests with pytest-receptor",
+          "number": 13,
+          "startedAt": "2026-10-07T06:31:11Z",
+          "status": "completed"
+        }
+      ],
+      "full_test_gate": {
+        "passed": 986,
+        "seconds": 224.7,
+        "warnings": 382,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    {
+      "job_id": 112662540364,
+      "name": "Test on ubuntu-latest, Python 3.13",
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581673369/job/112662540364",
+      "status": "completed",
+      "conclusion": "success",
+      "executed_steps": [
+        {
+          "completedAt": "2026-10-07T06:31:11Z",
+          "conclusion": "success",
+          "name": "Install compatible scientific sibling sources",
+          "number": 10,
+          "startedAt": "2026-10-07T06:29:15Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:31:13Z",
+          "conclusion": "success",
+          "name": "Install dockingmt",
+          "number": 11,
+          "startedAt": "2026-10-07T06:31:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:31:14Z",
+          "conclusion": "success",
+          "name": "Verify ordinary installed package",
+          "number": 12,
+          "startedAt": "2026-10-07T06:31:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:34:39Z",
+          "conclusion": "success",
+          "name": "Run tests with pytest-receptor",
+          "number": 13,
+          "startedAt": "2026-10-07T06:31:14Z",
+          "status": "completed"
+        }
+      ],
+      "full_test_gate": {
+        "passed": 986,
+        "seconds": 202.3,
+        "warnings": 382,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    {
+      "job_id": 112662540421,
+      "name": "Test on ubuntu-latest, Python 3.12",
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581673369/job/112662540421",
+      "status": "completed",
+      "conclusion": "success",
+      "executed_steps": [
+        {
+          "completedAt": "2026-10-07T06:31:11Z",
+          "conclusion": "success",
+          "name": "Install compatible scientific sibling sources",
+          "number": 10,
+          "startedAt": "2026-10-07T06:29:12Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:31:13Z",
+          "conclusion": "success",
+          "name": "Install dockingmt",
+          "number": 11,
+          "startedAt": "2026-10-07T06:31:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:31:13Z",
+          "conclusion": "success",
+          "name": "Verify ordinary installed package",
+          "number": 12,
+          "startedAt": "2026-10-07T06:31:13Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:34:58Z",
+          "conclusion": "success",
+          "name": "Run tests with pytest-receptor",
+          "number": 13,
+          "startedAt": "2026-10-07T06:31:13Z",
+          "status": "completed"
+        }
+      ],
+      "full_test_gate": {
+        "passed": 986,
+        "seconds": 221.97,
+        "warnings": 382,
+        "skipped": 0,
+        "failed": 0
+      }
+    },
+    {
+      "job_id": 112662540439,
+      "name": "Test on ubuntu-latest, Python 3.14",
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581673369/job/112662540439",
+      "status": "completed",
+      "conclusion": "success",
+      "executed_steps": [
+        {
+          "completedAt": "2026-10-07T06:31:05Z",
+          "conclusion": "success",
+          "name": "Install compatible scientific sibling sources",
+          "number": 10,
+          "startedAt": "2026-10-07T06:29:11Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:31:07Z",
+          "conclusion": "success",
+          "name": "Install dockingmt",
+          "number": 11,
+          "startedAt": "2026-10-07T06:31:05Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:31:08Z",
+          "conclusion": "success",
+          "name": "Verify ordinary installed package",
+          "number": 12,
+          "startedAt": "2026-10-07T06:31:07Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-07T06:34:40Z",
+          "conclusion": "success",
+          "name": "Run tests with pytest-receptor",
+          "number": 13,
+          "startedAt": "2026-10-07T06:31:08Z",
+          "status": "completed"
+        }
+      ],
+      "full_test_gate": {
+        "passed": 986,
+        "seconds": 208.76,
+        "warnings": 382,
+        "skipped": 0,
+        "failed": 0
+      }
+    }
+  ],
+  "hosted_installation_scope": "Separate shallow-checkout builds report version 0.0.0; isolated installed imports passed, full hosted pytest runs from source. They are not the local wheel artifact.",
+  "six_cell_matrix": {
+    "databaseId": 37581760344,
+    "headSha": "8741fb2e104814e6f1012e0cb7073689e710f982",
+    "event": "workflow_dispatch",
+    "status": "pending",
+    "conclusion": "",
+    "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344",
+    "jobs": [
+      {
+        "name": "Full test on macos-15, Python 3.14",
+        "job_id": 112662822651,
+        "status": "pending",
+        "conclusion": "",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662822651",
+        "test_step": null
+      },
+      {
+        "name": "Full test on ubuntu-latest, Python 3.12",
+        "job_id": 112662822911,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662822911",
+        "test_step": {
+          "completedAt": "2026-10-07T06:35:55Z",
+          "conclusion": "success",
+          "name": "Run tests with pytest-receptor",
+          "number": 14,
+          "startedAt": "2026-10-07T06:32:10Z",
+          "status": "completed"
+        }
+      },
+      {
+        "name": "Full test on ubuntu-latest, Python 3.11",
+        "job_id": 112662822994,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662822994",
+        "test_step": {
+          "completedAt": "2026-10-07T06:34:38Z",
+          "conclusion": "success",
+          "name": "Run tests with pytest-receptor",
+          "number": 14,
+          "startedAt": "2026-10-07T06:31:56Z",
+          "status": "completed"
+        }
+      },
+      {
+        "name": "Full test on macos-15, Python 3.13",
+        "job_id": 112662823000,
+        "status": "pending",
+        "conclusion": "",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662823000",
+        "test_step": null
+      },
+      {
+        "name": "Full test on ubuntu-latest, Python 3.14",
+        "job_id": 112662823004,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662823004",
+        "test_step": {
+          "completedAt": "2026-10-07T06:35:24Z",
+          "conclusion": "success",
+          "name": "Run tests with pytest-receptor",
+          "number": 14,
+          "startedAt": "2026-10-07T06:32:21Z",
+          "status": "completed"
+        }
+      },
+      {
+        "name": "Full test on ubuntu-latest, Python 3.13",
+        "job_id": 112662823045,
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662823045",
+        "test_step": {
+          "completedAt": "2026-10-07T06:35:40Z",
+          "conclusion": "success",
+          "name": "Run tests with pytest-receptor",
+          "number": 14,
+          "startedAt": "2026-10-07T06:32:07Z",
+          "status": "completed"
+        }
+      },
+      {
+        "name": "Check skipped-commit backlog",
+        "job_id": 112662823558,
+        "status": "completed",
+        "conclusion": "skipped",
+        "url": "https://github.com/uibcdf/dockingmt/actions/runs/37581760344/job/112662823558",
+        "test_step": null
+      }
+    ]
+  },
+  "four_minor_recovery": {
+    "anchor": "8741fb2e104814e6f1012e0cb7073689e710f982",
+    "skipped_commits": 0,
+    "scope": "Manual execution of the existing detector; not proof of a scheduled daily trigger or macOS completion."
+  },
+  "earlier_attempts": [
+    {
+      "producer": "365668e30f5f519adf4abc5c5e5e387d50af00a1",
+      "artifact_sha256": "7a0c0dbefb6e134f20e3e9b8a4a56442114a13f45d94fd0557cf54a7ed0eb374",
+      "declared_typing_marker": "missing",
+      "collection_errors": 12,
+      "full_installed_attempt": {
+        "passed": 982,
+        "failed": 3,
+        "seconds": 341.25,
+        "warnings": 171,
+        "cause": "Missing Git metadata and safe-path developer-helper directory in source-free harness"
+      },
+      "corrected_harness_rerun": {
+        "passed": 3,
+        "seconds": 10.93
+      },
+      "required_ci_run": 37580554662,
+      "required_ci_result": "Each minor: 984 passed, one H5MSM dtype-label assertion failed.",
+      "manual_matrix_run": 37580610601,
+      "manual_matrix_scope": "Four Linux failures retained; obsolete run cancelled before pending macOS cells executed."
+    }
+  ],
+  "pandas3_h5msm_measurement": {
+    "pandas": "3.0.6",
+    "provider": "/tmp/dockingmt-receptor-provider-5bd893c/molsysmt/__init__.py",
+    "changes": [
+      {
+        "path": "/states/0/components/columns/component_name/dtype",
+        "before": "str",
+        "after": "string"
+      },
+      {
+        "path": "/states/0/components/columns/component_type/dtype",
+        "before": "str",
+        "after": "string"
+      }
+    ]
+  },
+  "provider_feedback": "https://github.com/uibcdf/molsysmt/issues/349",
+  "limits": [
+    "Inherited ambient dependency closure fails pip check for unrelated AmberTools packages.",
+    "Preserved provider native extension lacks fresh build provenance.",
+    "macOS cells pending; no executed current-candidate macOS qualification.",
+    "Public-channel installation, Conda artifact and suite admission remain pending."
+  ]
+}
