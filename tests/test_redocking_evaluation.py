@@ -3,6 +3,7 @@
 import json
 import subprocess
 import sys
+from pathlib import Path
 
 import molsysmt as msm
 import numpy as np
@@ -287,17 +288,68 @@ assert 'vina' not in sys.modules and 'molsysviewer' not in sys.modules and 'meek
     )
 
 
-def test_native_181l_external_1iep_and_displaced_box_reports():
+def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
     from devtools.qualify_redocking_evaluation import qualify
 
+    # A seed records the search choice, not a portable recovery guarantee.
+    # Independently check the report against every actual returned geometry.
+    results = []
+    dock = dmt.dock
+
+    def recorded_dock(*args, **kwargs):
+        result = dock(*args, **kwargs)
+        results.append(result)
+        return result
+
+    monkeypatch.setattr(dmt, 'dock', recorded_dock)
     reports = qualify()
-    assert reports['181l_provisional']['first_pose']['recovered']
-    assert reports['1iep_external']['first_pose']['recovered']
+    assert len(results) == len(reports) == 3
+    for (name, report), result in zip(reports.items(), results):
+        assert report['n_poses'] == len(result) > 0, name
+        assert dmt.verify_captured_inputs(result.provenance['backend_artifacts'])
+        assert report['criterion']['cutoff'] == 2.5
+        reference = np.asarray(report['reference']['coordinates']['value'])
+        reference_keys = report['reference']['atom_keys']
+        for row, pose in zip(report['poses'], result.poses):
+            if reference_keys is None:
+                target = reference
+            else:
+                keys = [json.dumps(key, sort_keys=True) for key in reference_keys]
+                target = reference[
+                    [
+                        keys.index(json.dumps(key, sort_keys=True))
+                        for key in row['atom_keys']
+                    ]
+                ]
+            coordinates = puw.get_value(pose.coordinates, to_unit='angstrom')
+            measured = float(
+                np.sqrt(np.mean(np.sum((coordinates - target) ** 2, axis=-1)))
+            )
+            assert row['rmsd'] == pytest.approx(measured, abs=1e-10), name
+            assert row['recovered'] is (row['rmsd'] <= 2.5), (name, row)
+        assert report['first_pose'] == report['poses'][0]
+        assert report['closest_pose']['rmsd'] == min(
+            row['rmsd'] for row in report['poses']
+        )
     control = reports['1iep_displaced_domain']
     assert control['n_poses'] > 0
     assert not any(row['recovered'] for row in control['poses'])
     assert control['closest_pose']['rmsd'] > 20
     assert json.loads(json.dumps(reports, allow_nan=False)) == reports
+
+
+def test_retained_native_positive_and_displaced_observations():
+    reports = json.loads(
+        (
+            Path(__file__).resolve().parents[1]
+            / 'devguide/validation/data/redocking_evaluation/cases.json'
+        ).read_text()
+    )
+    assert reports['181l_provisional']['first_pose']['recovered']
+    assert reports['1iep_external']['first_pose']['recovered']
+    assert not any(
+        row['recovered'] for row in reports['1iep_displaced_domain']['poses']
+    )
 
 
 @pytest.mark.parametrize(

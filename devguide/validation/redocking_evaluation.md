@@ -137,6 +137,18 @@ commit `a5fb97b763012eb0df7fd3eb9206ce10c784fb1c` has successful
 [suite policy](https://github.com/uibcdf/dockingmt/actions/runs/37159093232)
 runs. Existing notebook measurements retain their original execution evidence.
 
+### Portable live-search guard correction — 2026-10-07
+
+[DockingMT #46](https://github.com/uibcdf/dockingmt/issues/46) records a macOS
+arm64 failure of the live first-pose recovery expectation at exhaustiveness 1.
+The earlier table and executed notebook retain their measured Linux outcomes;
+a seed does not make those outcomes a recovery guarantee on another platform.
+The live integration guard now independently compares each returned pose's
+positional RMSD with its recorded reference and checks recovery at the unchanged
+2.5 angstrom cutoff. It retains input-byte/identity checks and the displaced-box
+negative control. A separate retained-data guard preserves the original positive
+and negative observations. Search parameters and production evaluation are unchanged.
+
 ## Provider follow-up
 
 [DockingMT #38](https://github.com/uibcdf/dockingmt/issues/38) owns this report.

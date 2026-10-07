@@ -166,7 +166,7 @@ def test_snapshot_retains_template_history_through_h5msm_and_unit_policy(tmp_pat
         for state in expected_states['states']:
             for field in ('component_name', 'component_type'):
                 column = state['components']['columns'][field]
-                if column['dtype'] == 'object':
+                if column['dtype'] in ('object', 'str'):
                     assert all(
                         value is None or isinstance(value, str)
                         for value in column['values']

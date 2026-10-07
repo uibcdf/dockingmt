@@ -69,6 +69,27 @@ policy migration, provider source edits, public artifact or biological claim.
 - Relevant contracts, full consumer regression and local quality/reporting gates
   pass; unexecuted interpreter/installed/hosted evidence remains explicit.
 
+## 2026-10-07 hosted representation correction
+
+Exact-head [CI 37580554662](https://github.com/uibcdf/dockingmt/actions/runs/37580554662)
+at `365668e30f5f519adf4abc5c5e5e387d50af00a1` executes all 985 tests on each
+required Linux minor. Each cell passes 984 and fails the new H5MSM snapshot
+comparison. A local reproduction with Pandas 3.0.6 finds exactly two changes:
+`states/0/components/columns/component_name/dtype` and
+`states/0/components/columns/component_type/dtype`, both `str` to `string`.
+All values, null masks, other chemical fields and preparation history remain
+equal. The earlier guard accepted only `object` to `string`, as observed under
+local Pandas 2.3.3. It now also recognizes the measured Pandas 3 text encoding;
+its complete value/history comparison and unit/geometry assertions remain.
+
+An exploratory attempt to force legacy `future.infer_string=False` under Pandas
+3 exposed a separate read-only molecule-name array in the PDB reader. It is
+reported in [MolSysMT #349](https://github.com/uibcdf/molsysmt/issues/349), with
+the precise provider pin and reproduction. This optional context is not the
+current accepted default workflow. No provider source or reader workaround is
+changed here; the source file is also unchanged in inspected provider
+`origin/main` `d12573c99af94d6a4453c03713d01073266eafbf`.
+
 ## 2026-10-06 measured adoption candidate
 
 Public native-domain snapshots use schema `dockingmt.chemical_template_snapshot@2`
