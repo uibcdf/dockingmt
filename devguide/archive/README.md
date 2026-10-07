@@ -4,12 +4,14 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (28)
+### Resolved (31)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
 - [`audit_saved_scoring_poses.md`](audit_saved_scoring_poses.md) — [#35](https://github.com/uibcdf/dockingmt/issues/35) — Audit saved pose scores and evaluation history without a live backend. *(resolved, measured)*
 - [`complete_molsyssuite_governance_baseline.md`](complete_molsyssuite_governance_baseline.md) — [#1](https://github.com/uibcdf/dockingmt/issues/1) — Complete the MolSysSuite governance baseline omitted from the initial seed. *(resolved, measured)*
+- [`consume_fixed_state_hydrogens.md`](consume_fixed_state_hydrogens.md) — [#41](https://github.com/uibcdf/dockingmt/issues/41) — Consume explicit fixed-state ligand hydrogen and charge stages with provenance. *(resolved, measured)*
+- [`consume_named_autodock_types.md`](consume_named_autodock_types.md) — [#43](https://github.com/uibcdf/dockingmt/issues/43) — Consume named MolSysMT AutoDock types with explicit stages and parent-label projection. *(resolved, measured)*
 - [`consume_named_partial_charges.md`](consume_named_partial_charges.md) — [#40](https://github.com/uibcdf/dockingmt/issues/40) — Consume named MolSysMT charges with explicit conserved projection evidence. *(resolved, measured)*
 - [`describe_scores_and_preserve_ranking_history.md`](describe_scores_and_preserve_ranking_history.md) — [#31](https://github.com/uibcdf/dockingmt/issues/31) — Describe score semantics and preserve ranking history *(resolved, measured)*
 - [`evaluate_redocking.md`](evaluate_redocking.md) — [#38](https://github.com/uibcdf/dockingmt/issues/38) — Evaluate redocking with explicit RMSD policy and detached comparison evidence. *(resolved, measured)*
@@ -31,6 +33,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`source_based_ci_omits_biopython.md`](source_based_ci_omits_biopython.md) — [#11](https://github.com/uibcdf/dockingmt/issues/11) — Source-based CI omits Biopython needed by the scientific test stack. *(resolved, reproduced)*
 - [`stochastic_redocking_ci_expectations.md`](stochastic_redocking_ci_expectations.md) — [#46](https://github.com/uibcdf/dockingmt/issues/46) — Portable evaluation CI assumes recovery from a low-budget stochastic search. *(resolved, measured)*
 - [`summarize_redocking.md`](summarize_redocking.md) — [#39](https://github.com/uibcdf/dockingmt/issues/39) — Summarize compatible redocking evaluations with explicit failure denominators. *(resolved, measured)*
+- [`update_chemical_preparation_qualification.md`](update_chemical_preparation_qualification.md) — [#42](https://github.com/uibcdf/dockingmt/issues/42) — Qualify retained MolSysMT preparation history and successful fixed-state benzene hydrogen addition. *(resolved, measured)*
 - [`use_molsysmt_as_canonical_molecular_input_for_the_core_mvp.md`](use_molsysmt_as_canonical_molecular_input_for_the_core_mvp.md) — [#9](https://github.com/uibcdf/dockingmt/issues/9) — Use MolSysMT as the canonical molecular input for the Core MVP *(resolved, measured)*
 - [`vina_adapter_advertises_unsupported_ad4_scoring.md`](vina_adapter_advertises_unsupported_ad4_scoring.md) — [#23](https://github.com/uibcdf/dockingmt/issues/23) — Reject unsupported AD4 scoring before Vina execution *(resolved, measured)*
 - [`vina_ignores_constraints_and_search_guidance.md`](vina_ignores_constraints_and_search_guidance.md) — [#26](https://github.com/uibcdf/dockingmt/issues/26) — Reject unsupported constraints and guidance before Vina execution *(resolved, measured)*

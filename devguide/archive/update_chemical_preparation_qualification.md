@@ -1,9 +1,9 @@
 ---
 summary: Qualify retained MolSysMT preparation history and successful fixed-state benzene hydrogen addition.
 issue: uibcdf/dockingmt#42
-status: partial
+status: resolved
 opened: 2026-10-05
-closed:
+closed: 2026-10-07
 verification: measured
 area: [preparation, validation, molsysmt]
 guard: tests/test_ligand_preparation_stages.py::test_original_181l_declared_template_supports_fixed_state_h_and_named_charges
@@ -167,3 +167,25 @@ claimed. Its receipt hashes qualify that runtime vintage; subsequent named-type
 consumption is tracked separately by
 [DockingMT #43](https://github.com/uibcdf/dockingmt/issues/43) with its own
 [executed evidence](../validation/named_autodock_types.md).
+
+## Resolution — 2026-10-07
+
+The source candidate is published, and its owning integration checkpoint is
+complete. Producer `8741fb2e104814e6f1012e0cb7073689e710f982` has
+[green required CI](https://github.com/uibcdf/dockingmt/actions/runs/37581673369)
+and a [completed six-cell matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344):
+986 tests without skips on every required Linux Python minor and both
+representative macOS arm64 cells. Its ordinarily installed local consumer
+wheel also passes all 986 tests, with source shadowing excluded and original
+artifact bytes/digest retained. The earlier notebooks, finite receipts and
+historical failures retain their original identities.
+
+The [installed/hosted checkpoint](../validation/installed_integration_checkpoint_2026-10-07.md)
+and [receipt](../validation/data/installed_integration/checkpoint_2026-10-07.json)
+resolve the previously pending source-publication/checkpoint condition. This
+closes the bounded consumer adoption, not general chemical qualification.
+Public dependency closure and installed Conda delivery stay in #30; broader
+preparation stays in #5/#33, explicit state workflow in #4, torsion policy in
+#6/#17 and provider projection/export in MolSysMT #223. The optional Pandas
+context reader finding remains provider-owned in MolSysMT #349. No provider
+implementation, public package upload or general readiness claim is introduced.

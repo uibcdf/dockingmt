@@ -144,6 +144,14 @@ architecture, Vina 1.2.7 and ordinary installed-import checks also execute. The
 administrative backlog detector is skipped by design for this manual dispatch;
 it is not one of the six scientific gates. #46 is now resolved and archived.
 
+The completed publication/checkpoint condition also resolves the bounded consumer
+adoptions in [#41](../archive/consume_fixed_state_hydrogens.md),
+[#42](../archive/update_chemical_preparation_qualification.md) and
+[#43](../archive/consume_named_autodock_types.md). Their original notebooks,
+receipts and negative/positive controls remain intact. General preparation,
+torsion-policy/provider export gaps and public installed delivery keep their
+separate owning issues.
+
 The receipt appends completion evidence without replacing its earlier pending
 observations. [Evidence-head CI](https://github.com/uibcdf/dockingmt/actions/runs/37582910814)
 also passes quality and all 986 tests per required Linux minor at `7ac138b`.
