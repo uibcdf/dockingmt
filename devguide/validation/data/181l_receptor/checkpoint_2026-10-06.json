@@ -1,0 +1,83 @@
+{
+  "schema": "dockingmt.181l_receptor_checkpoint@1",
+  "date": "2026-10-06",
+  "evidence": {
+    "path": "devguide/validation/data/181l_receptor/audit_2026-10-06.json.gz",
+    "gzip_sha256": "5b9bd57c4f72d63ec9283c971056d71e34f3360a365338f2bee1e3dbe6105cf0",
+    "json_sha256": "22a0b75f631fb07a0a4be7c330dd4275905e9b55384f85351ebe96d984bd8d7e",
+    "compressed_bytes": 1930807,
+    "uncompressed_bytes": 21395887
+  },
+  "qualification": "bounded real receptor/BNZ source composition; full local gate passed",
+  "prior_full_suite": {
+    "passed": 977,
+    "consumer_commit": "03a887e",
+    "retained_history": true
+  },
+  "provider_issue_feedback": {
+    "export": "https://github.com/uibcdf/molsysmt/issues/223#issuecomment-6032038196",
+    "environmental_h_geometry": "https://github.com/uibcdf/molsysmt/issues/323#issuecomment-6032038520",
+    "delivered_template_acceptance": "https://github.com/uibcdf/molsysmt/issues/298#issuecomment-6032038783"
+  },
+  "notebook": {
+    "path": "devguide/validation/181l_receptor_workflow_2026-10-06.ipynb",
+    "executed_code_cells": 6,
+    "execution_interpreter": "Python 3.14.7 in molsyssuite@uibcdf_3.14",
+    "scope": "retained six-run evidence inspection and independent saved-result evaluation; no engine search rerun",
+    "sha256": "36164880013086980264ef4d72f80b14a0b2c9f2cb2c6000764a9eef2733aa4a"
+  },
+  "earlier_attempts": [
+    {
+      "scope": "initial focused preparation/workflow gate",
+      "passed": 14,
+      "failed": 1,
+      "cause": "test fixture used 2500 pm for intended 2.5 angstrom; corrected to 250 pm"
+    },
+    {
+      "scope": "first full candidate gate",
+      "passed": 983,
+      "failed": 2,
+      "seconds": 348.28,
+      "causes": [
+        "overly strict equality of re-evaluated RMSD after physical-unit conversion; measured difference 4.44e-16 angstrom, now 1e-12 absolute tolerance",
+        "report index was regenerated while the full gate was running; final indexes frozen before rerun"
+      ]
+    }
+  ],
+  "administrative_gates": {
+    "ruff_check": "passed",
+    "ruff_format": "122 files passed",
+    "component_guide": "passed",
+    "changed_local_links": 73,
+    "guide_drift": "pre-existing SMonitor/ArgDigest drift; unchanged copies, tracked by dockingmt#19 and molsyssuite#106",
+    "other_python_minors": "not executed",
+    "hosted_exact_head": "not executed",
+    "public_installed_artifact": "not qualified",
+    "publication": "local candidate, not pushed",
+    "final_archived_reporting_gate": "1 passed in 0.12 seconds"
+  },
+  "test_source_sha256": {
+    "tests/test_181l_receptor_workflow.py": "9bdf79eeda8fc1ce8f59bda9200aa7546b78394f6cea217d71872d2ffc5f0944",
+    "tests/test_preparation.py": "92c289b1a7abb7baf5e9319bbe88dbf72d67c784bfb338eabccf14f242896ac2"
+  },
+  "installed_consumer_identity": {
+    "python": "3.14.7",
+    "import": "/home/liliana/repos@uibcdf/dockingmt/dockingmt/__init__.py",
+    "dist_info": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/lib/python3.14/site-packages/dockingmt-0.0.0+127.gd419fee.dist-info",
+    "editable": true,
+    "distribution_metadata_limit": "stale version identifies editable registration; source hashes and base commit identify exercised code"
+  },
+  "completed_date": "2026-10-07",
+  "full_local_gate": {
+    "command": "python -m pytest --receptor=llm",
+    "passed": 985,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 338.86,
+    "warnings": 171,
+    "python": "3.14.7",
+    "molsysmt_source": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+    "provider_route": "read-only git archive with preserved native extension",
+    "scope": "complete source test suite; no hosted or installed-artifact admission"
+  }
+}

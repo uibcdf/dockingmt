@@ -237,3 +237,19 @@ source-qualified suite passes 887 tests without skips on Python 3.14.7/Vina 1.2.
 Original 181L BNZ remains a negative control pending MolSysMT #314 bond aromaticity;
 the notebook retains the rejection and unchanged pose. #41 and this owning issue
 remain partial. Published source pins are unchanged and sibling work is preserved.
+
+## 2026-10-06 bounded real receptor/BNZ workflow
+
+The [181L audit](../validation/181l_receptor_workflow.md) consumes the existing
+public peptide-template and native terminal-repair APIs alongside qualified H,
+charges and typing. It preserves 1,289 observed heavy coordinates/IDs, names one
+explicit receptor state and saves all generated-atom/source/projection maps.
+Six real default Vina results retain captured PDBQT and recoverable evaluation
+provenance. The writer width defect is separately tracked in #44.
+
+This is source-profile composition on Python 3.14, using provider 5bd893c85 and
+its preserved native artifact; the advanced live provider is not altered or
+claimed qualified. PDB reader policy #304, export/name projection #223,
+environmental H refinement #323 and symmetry correspondence #310 retain their
+provider owners. General scientific preparation, installed artifacts and hosted
+qualification remain open, so this issue remains partial.

@@ -90,6 +90,11 @@ class PreparedReceptor:
             )
         ):
             # Standard PDBQT ATOM record format
+            if not 1 <= len(name) <= 4:
+                raise ArgumentError(
+                    arg_name='atom_names',
+                    reason='PDBQT atom names must contain one to four characters.',
+                )
             line = (
                 f'ATOM  {i + 1:5d} {name:<4s} {gname:3s} A{gid:4d}    '
                 f'{x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00    {q:6.3f} {atype:<2s}'

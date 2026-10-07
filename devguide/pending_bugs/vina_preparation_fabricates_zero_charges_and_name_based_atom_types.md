@@ -268,3 +268,27 @@ This owning issue stays partial: conventional protein-receptor/scoring scientifi
 qualification, broader chemistry coverage, provider atom/charge-preserving export
 MolSysMT #223 and public/installed/hosted checkpoints are not established by this
 consumer slice. Untyped workflows keep their existing default safeguard.
+
+## 2026-10-06 real protein and ligand composition
+
+The [explicit 181L receptor workflow](../validation/181l_receptor_workflow.md)
+advances the conventional-protein boundary beyond the toy controls: 1,289
+observed heavy atoms, public native OXT repair, one declared 162-residue peptide
+state, 1,313 generated H, named Gasteiger charges and chemical_environment@1
+AutoDock types. The 2,603-atom assignment projects to 1,615 receptor atoms,
+conserving +8 e before three-decimal export (7.943 e after rounding). Native
+source IDs/coordinates and all transformation decisions/maps are retained.
+
+Generated names exposed malformed receptor PDBQT columns, tracked separately
+in #44. The consumer writer rejects overwide names; this fixture explicitly
+names generated H through the provider setter before mechanical assignments,
+with original names/IDs/history retained. No implicit preparation rename is added.
+Six real default Vina runs with original BNZ retain exact submitted bytes and
+saved-result provenance; all return a pose within the declared positional RMSD
+cutoff, while one first pose fails it.
+
+Named models remove the known placeholder/heuristic reasons for this declared
+case. Chemistry stays scientifically unassessed: protonation/waters, generated
+geometry without environmental refinement (#323), broader chemical/scoring
+coverage, provider export (#223), installed/public/hosted evidence remain open.
+This issue remains partial. The earlier exploratory baseline is preserved.

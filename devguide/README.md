@@ -79,6 +79,12 @@ The [named AutoDock type contract](validation/named_autodock_types.md) and
 explicit MolSysMT assignments with parent/source/written maps. The named/charged
 route passes default Vina admission while scientific readiness stays unassessed.
 
+The [explicit 181L receptor workflow](validation/181l_receptor_workflow.md) and
+[executed evidence notebook](validation/181l_receptor_workflow_2026-10-06.ipynb)
+compose public peptide-template, terminal-repair, H, charge and typing tools.
+Six real BNZ searches retain choices, maps and submitted bytes; preparation and
+biological performance remain unassessed beyond the declared bounded controls.
+
 The [public preparation assessment contract](validation/preparation_assessment.md)
 and [executed notebook](validation/preparation_assessment.ipynb) expose declared
 provisional chemistry before engine execution and retain the same report in

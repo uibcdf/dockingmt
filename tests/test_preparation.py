@@ -12,6 +12,44 @@ from dockingmt.preparation import (
 )
 
 
+@pytest.mark.parametrize('name', ['', 'H1291'])
+def test_receptor_pdbqt_rejects_overwide_names(name):
+    receptor = PreparedReceptor(
+        'name_control',
+        [name],
+        ['MET'],
+        [1],
+        puw.quantity([[44.104, -3.558, 10.141]], 'angstrom'),
+        ['HD'],
+        [0.345],
+    )
+    with pytest.raises(ArgumentError, match='one to four characters'):
+        receptor.to_pdbqt()
+    assert receptor.atom_names == [name]
+
+
+def test_four_character_receptor_name_keeps_fixed_columns_and_vina_parse(tmp_path):
+    from vina import Vina
+
+    receptor = PreparedReceptor(
+        'name_control',
+        ['H50B'],
+        ['MET'],
+        [1],
+        puw.quantity([[44.104, -3.558, 10.141]], 'angstrom'),
+        ['HD'],
+        [0.345],
+    )
+    text = receptor.to_pdbqt()
+    line = text.splitlines()[-1]
+    assert line[12:16] == 'H50B'
+    assert [float(line[i : i + 8]) for i in (30, 38, 46)] == [44.104, -3.558, 10.141]
+    assert float(line[70:76]) == 0.345
+    path = tmp_path / 'valid_name.pdbqt'
+    path.write_text(text)
+    Vina(cpu=1, verbosity=0).set_receptor(str(path))
+
+
 def test_prepare_receptor_and_ligand_181l():
     pdb_path = msm.systems['T4 lysozyme L99A']['181l.pdb']
     molsys = msm.convert(pdb_path, to_form='molsysmt.MolSys')

@@ -158,3 +158,23 @@ source-qualified suite passes 887 tests without skips on Python 3.14.7/Vina 1.2.
 Original 181L BNZ remains a negative control pending MolSysMT #314 bond aromaticity;
 the notebook retains the rejection and unchanged pose. #41 and this owning issue
 remain partial. Published source pins are unchanged and sibling work is preserved.
+
+## 2026-10-06 explicit real receptor hypothesis
+
+The [181L workflow](../validation/181l_receptor_workflow.md) composes existing
+public provider peptide templates, native OXT repair, fixed-state H, Gasteiger
+charges and named AutoDock types. It explicitly declares HIE at original HIS31,
+ammonium/carboxylate termini, no pH prediction, no retained waters/cofactors and
+rigid BNZ. Source IDs and observed coordinates survive; generated OXT/H,
+structural attribute loss, explicit generated-H naming and the charge/type
+projection are retained with complete maps and original provider reports.
+
+Six real Vina searches (three seeds, exhaustiveness 1/8) use default admission
+and save exact backend inputs with the workflow decisions. Independent saved
+result evaluation uses original BNZ source keys and a declared 2.5 angstrom
+cutoff without alignment/symmetry correction. Five first poses and all six
+returned pose sets satisfy that criterion; one top-1 failure is preserved.
+This is one bounded hypothesis, not environmental protonation, water-policy,
+affinity or general scientific validation. The issue remains partial, alongside
+provider #223/#323 and installed/hosted qualification. Writer width defect #44
+was discovered in this consumer workflow and has its own durable guard.
