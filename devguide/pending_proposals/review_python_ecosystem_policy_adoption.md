@@ -168,3 +168,7 @@ or claim suite-wide adoption from this block.
 - Pin the reviewed published receptor version and record an exact-commit hosted
   run confirming that version with unchanged test selection.
 - Complete the remaining public-boundary and developer-tool review before closing.
+
+## Canonical component-guide synchronization — 2026-10-07
+
+During the fixed-origin 1IEP qualification, the component-guide check detected canonical drift after MolSysSuite `aba762dde114dfa78e8947cf1fe6e0b66f0d1643` introduced policy-v1.5.8 guidance and the temporary-resource lifecycle under [MolSysSuite #104](https://github.com/uibcdf/molsyssuite/issues/104). The central `sync_component_guide.py ../dockingmt --write` copied the exact canonical bytes, and the repeated component-guide check passes. No local guide policy was authored; the existing automated workflow pin is preserved. Task resources retain explicit ownership and evidence purposes in the scientific checkpoint. Earlier SMonitor/ArgDigest guide drift and broader runtime/developer-tool adoption remain separate under #19 and MolSysSuite #106; #19 stays partial.

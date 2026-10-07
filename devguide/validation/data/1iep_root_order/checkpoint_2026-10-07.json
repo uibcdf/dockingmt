@@ -1,0 +1,154 @@
+{
+  "schema": "dockingmt.1iep_root_order_checkpoint@1",
+  "date": "2026-10-07",
+  "capture_stage": "completed local candidate before commit and hosted CI; owning issues retain subsequent exact-head state",
+  "evidence": {
+    "path": "devguide/validation/data/1iep_root_order/audit_2026-10-07.json.gz",
+    "gzip_sha256": "cfea8e331a9d3b53fe8adf6ca766bfaf68a8483f0d8984aae28949e6084b5eba",
+    "json_sha256": "587f7f89a8fe111faaa7135108e11dee151cc6f3a49707ebb2e52839b4fd4db0",
+    "compressed_bytes": 526538,
+    "uncompressed_bytes": 2435986,
+    "new_searches": 6,
+    "new_fixed_conformation_scores": 1,
+    "reused_matrix_cells_by_reference": 18
+  },
+  "baseline": {
+    "original_native_producer": "7b11391e153f77f340fd039bc799352f90da83d3",
+    "path": "devguide/validation/data/1iep_representation/audit_2026-10-07.json.gz",
+    "published_by": "dd571ef4dd0a1ddc9142e399a6da3683299a1db4",
+    "scope": "18 unchanged historical cells by authenticated reference; no reruns",
+    "sha256": "a7ba98a15191b7345e55c2de01533efe22a917d1c948bccd735970bf5d868436"
+  },
+  "control": {
+    "sha256": "d40b143234a15b8df8e0c7bff8ceec2a4fc2f1b0c0bdca215da90656557a94ac",
+    "first_root_source_atom_index": 28,
+    "rigid_body_origin_angstrom": [
+      16.917,
+      46.907,
+      20.219
+    ],
+    "root_source_atom_indices": [
+      28,
+      58,
+      34,
+      33,
+      32,
+      31,
+      30,
+      29
+    ],
+    "scope": "Only seven existing ROOT ATOM line positions change; first ROOT line and every other byte are fixed."
+  },
+  "notebook": {
+    "path": "devguide/validation/1iep_root_order_workflow_2026-10-07.ipynb",
+    "sha256": "078d7ab631178001da16e59516117c6c57e6f7797055dd41b5dcfc87f35a3787",
+    "executed_code_cells": 3,
+    "scope": "24 matched rows from saved records, producer/input authentication and independent pm/fs re-evaluation; no search rerun"
+  },
+  "local_gates": {
+    "live": {
+      "junit_path": "/tmp/dockingmt-1iep-fixed-root-live.xml",
+      "junit_sha256": "dc7834eb2e68f29d00c078e677c7ab1ae01aee325f33a02b5bf6f0a662fa7751",
+      "tests": 3,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 36.449
+    },
+    "boundaries": {
+      "junit_path": "/tmp/dockingmt-1iep-fixed-root-boundaries.xml",
+      "junit_sha256": "678ac8b74d4cb597b9ccff197d0c6fe88f7959995a6f2fae63666f31eb53d7e2",
+      "tests": 58,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 155.756
+    },
+    "evidence": {
+      "junit_path": "/tmp/dockingmt-1iep-fixed-root-evidence.xml",
+      "junit_sha256": "e667c12c83c63aacf010a5ecedcd91c8b415ad420e7849f00ad1766b98977787",
+      "tests": 1,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 1.308
+    }
+  },
+  "administrative_gates": {
+    "ruff_check": "passed",
+    "ruff_format": "130 files passed",
+    "report_indexes": "regenerated and checked",
+    "changed_local_links": "passed",
+    "component_guide": "passed",
+    "finite_evidence_and_source_hashes": "passed",
+    "diff_check": "passed",
+    "synchronized_guides": "untouched; known SMonitor/ArgDigest drift remains under MolSysSuite #106 / DockingMT #19",
+    "changed_local_link_count": 34
+  },
+  "test_source_sha256": {
+    "tests/test_1iep_root_order_workflow.py": "0348f9e7656b67c198ab11e4a9a2714c555d86f122fe86cb30ebee00ee40ca5f"
+  },
+  "provider_context": {
+    "qualified_molsysmt_source": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+    "argdigest_checkout_input": "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e",
+    "argdigest_source_commit": "57447cc4ec1f7ce85078f8a939892efd075bc919",
+    "viewer_python314_source": "ec4c71e574d798b7c8675b7e7e983da878ce9889",
+    "preserved_worktrees": "MolSysMT clean and 5 behind; Viewer clean and 32 behind; ArgDigest clean/current at the bounded refreshed inventory. Qualified archive/native artifacts are unchanged.",
+    "native_build_provenance": "Preserved artifact digest, not a fresh native build."
+  },
+  "limits": [
+    "Only seven ROOT line positions change; the first ROOT atom, its origin, membership, serials, labels, branch records and all other bytes remain fixed.",
+    "One bound-like start, one external rigid receptor, three seeds and one fixed permutation; no convergence or recovery probability is established.",
+    "Historical native/published/full-reversal searches retain their original producers; the earlier native repeat is not an independent matrix cell.",
+    "A difference at fixed origin tests order sensitivity in this case; agreement would not prove general order invariance or that origin alone caused the full-reversal difference.",
+    "All RMSDs use the earlier bounded positional correspondence without alignment or symmetry correction; no general matcher is introduced.",
+    "Fixed-initial scoring equality is one observation, not energy-landscape or affinity equivalence.",
+    "No ROOT/default policy, chemical-state qualification, provider migration or new installed/public artifact is selected by this experiment.",
+    "Exact-head required CI is pending at capture; earlier required 996-test lanes and earlier installed artifacts retain their original producers and scope."
+  ],
+  "canonical_guide_sync": {
+    "canonical_source_repository": "uibcdf/molsyssuite",
+    "canonical_guide_commit": "aba762dde114dfa78e8947cf1fe6e0b66f0d1643",
+    "original_sha256": "6f1fa1fd809d70f0cdc569b58deec157c49c86591d7a67d2990b51610512217d",
+    "synchronized_sha256": "c58991f20a89d82125d8271937481a9de9917590dc8205a5b548b12efe418bd3",
+    "operation": "central sync_component_guide.py ../dockingmt --write",
+    "initial_component_check": "GUIDE_DRIFT",
+    "repeated_component_check": "passed",
+    "automated_policy_pin": "policy-v1.5.4 (unchanged)",
+    "owning_issues": [
+      "uibcdf/dockingmt#19",
+      "uibcdf/molsyssuite#104"
+    ]
+  },
+  "notebook_setup": {
+    "initial_attempt": "NoSuchKernel before cell execution; metadata alone did not register the custom kernel.",
+    "managed_sandbox_attempt": "Local Jupyter socket creation blocked by sandbox before cell execution.",
+    "corrected_execution": "Managed temporary kernelspec with explicit qualified interpreter; local socket permission; three cells pass.",
+    "kernel_shutdown_verified": true,
+    "temporary_directory_removal_verified": true
+  },
+  "temporary_resource_review": {
+    "owner": "DockingMT #17/#6 fixed-first-ROOT qualification",
+    "retention_purpose": "Keep exact source-profile archives/native artifact and local test/inspection receipts for reconstruction and follow-up while the owning issues remain partial. No historical or human resources removed.",
+    "retained_task_receipts": [
+      "/tmp/dockingmt-1iep-fixed-root-live.xml",
+      "/tmp/dockingmt-1iep-fixed-root-boundaries.xml",
+      "/tmp/dockingmt-1iep-fixed-root-evidence.xml",
+      "/tmp/dockingmt-fixed-root-suite-status.txt"
+    ],
+    "retained_task_tools": [
+      "/tmp/dockingmt-fixed-root-checkpoint.py",
+      "/tmp/dockingmt-fixed-root-notebook.py"
+    ],
+    "tool_retention_purpose": "Checkpoint reconstruction and managed-kernel notebook re-execution; review after scientific follow-up.",
+    "managed_notebook_directory": "created and removed inside tempfile.TemporaryDirectory; no installed/global kernelspec",
+    "wider_scope": "No cleanup of sibling checkouts, shared environment, or other sessions."
+  },
+  "concurrent_remote_checkpoint": {
+    "commit": "ea9160fa01f1a3319a7c7605e934ca2cda15d8d2",
+    "scope": "Guide-only synchronization; exact same canonical bytes already copied locally. Preserve this human commit beneath the scientific change.",
+    "scientific_code_and_inputs_unchanged": true,
+    "automated_policy_pin": "policy-v1.5.4 unchanged",
+    "validation_recovery": "The final scientific head is unskipped and requires its own actual CI; the administrative parent skip does not replace scientific gates."
+  }
+}

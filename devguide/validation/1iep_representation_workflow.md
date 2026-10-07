@@ -182,3 +182,7 @@ state-aware induced connectivity remains
 [#348](https://github.com/uibcdf/molsysmt/issues/348). Existing installed wheel
 producers/digests, public dependency-closure limits and synchronized-guide drift
 remain intact. The owning consumer issues #17/#6/#5 remain partial.
+
+## Fixed-first-atom follow-up — 2026-10-07
+
+The separately retained [fixed-origin ROOT-order control](1iep_root_order_workflow.md) reverses the other seven ROOT lines while preserving the first line and origin. Six new searches give 6/6 near-native returned sets, compared with these unchanged 1/6 native observations, and equal initial score components. This demonstrates order sensitivity without requiring an origin change in this case; the observations above retain their original producers, interpretation limits and bytes. No general ROOT policy is adopted.
