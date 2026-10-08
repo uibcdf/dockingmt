@@ -4,6 +4,7 @@ import base64
 import gzip
 import json
 
+import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
@@ -100,6 +101,24 @@ def test_public_geometry_keeps_chemistry_and_original_reference_under_pm_fs(case
         assert fixed[: start + 1] == native[: start + 1]
         assert fixed[start + 1 : end] == native[start + 1 : end][::-1]
         assert fixed[end:] == native[end:]
+
+
+def test_current_provider_version_annotations_do_not_require_historical_metadata(
+    monkeypatch,
+):
+    baseline_bytes = BASELINE.read_bytes()
+    monkeypatch.setattr(msm, '__version__', '1.0.0')
+    _, prepared, *_ = prepare_cases()
+    for case in prepared.values():
+        for control in case['controls'].values():
+            remarks = [
+                json.loads(line.split(' ', 2)[2])
+                for line in control['pdbqt'].splitlines()
+                if line.startswith('REMARK DOCKINGMT_')
+            ]
+            assert len(remarks) == 2
+            assert all(remark['software']['molsysmt'] == '1.0.0' for remark in remarks)
+    assert BASELINE.read_bytes() == baseline_bytes
 
 
 def test_same_perturbed_geometry_scores_equally_for_both_written_orders(cases):

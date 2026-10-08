@@ -195,3 +195,11 @@ three saved-result notebook cells execute, including independent pm/fs
 original-reference evaluation. Historical producers, archives and existing
 provider #223/#348 migration scope remain unchanged. This issue stays partial;
 independent complexes are the next scientific challenge.
+
+The first hosted conformer run exposes a portable guard requiring historical
+version-bearing REMARK bytes from an ordinary installed provider. The
+[dated correction](../validation/1iep_conformer_workflow.md#portable-annotation-correction-after-first-hosted-ci--2026-10-08)
+compares portable inputs within their actual runtime while keeping strict-profile
+science authenticated. Five current guards pass locally; the unchanged boundary
+scope brings the applicable total to 67. The 24 observations and original
+producer `27a18ef` remain unchanged, and the corrected head needs fresh CI.

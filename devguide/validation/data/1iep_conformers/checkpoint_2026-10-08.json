@@ -223,5 +223,30 @@
     "scope": "Export benchmark caller tracing and its guards/report; no authenticated scientific code, helper, input or profile changes. Preserve beneath scientific commit.",
     "scientific_local_results_remain_applicable": true,
     "final_head_ci": "unskipped; actual exact-head gates required"
+  },
+  "portable_annotation_correction": {
+    "owning_issue_comment": "https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6069498181",
+    "first_ci_run": 37846351830,
+    "original_scientific_producer": "27a18ef0781016957e4ecc8c523314973be52b37",
+    "root_cause": "Portable generated REMARK records were compared with historical installed-version strings; pinned source installs as MolSysMT 1.0.0 in hosted source CI.",
+    "fix": "Current-runtime unperturbed preparation for verify_profile=False; strict historical profile and original bytes for verify_profile=True. No annotation stripping or version normalization.",
+    "local_current_guards": {
+      "junit_path": "/tmp/dockingmt-conformer-portable-fix.xml",
+      "sha256": "c420b2b872edc8eb0ccf51d26f2656f206dae9ef41cf13bcbd0eabd641d0520b",
+      "tests": 5,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 70.938
+    },
+    "unchanged_applicable_boundary_tests": 62,
+    "current_distinct_scope_tests": 67,
+    "current_driver_sha256": "990fd68e4c5ff844781e3ef057886c498d5f0dfbc967b9c132c37bf274282633",
+    "current_test_sha256": "9f916d32be0b52b0c087b0cfca5e81d5bb443fff99bc35c11fbbac5db306a6b7",
+    "original_driver_sha_authenticated_at_27a18ef": true,
+    "strict_profile_cases_exactly_match_saved_scientific_cases": true,
+    "scientific_archive_unchanged": true,
+    "new_searches_for_correction": 0,
+    "hosted_state_at_correction_capture": "Corrected-head gates pending; owning issues retain subsequent actual conclusions."
   }
 }

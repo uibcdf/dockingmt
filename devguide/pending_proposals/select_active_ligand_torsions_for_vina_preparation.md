@@ -187,3 +187,10 @@ bytes and independently checked reference metrics are retained. Local scope
 passes 66 distinct tests without skips and three saved-result notebook cells.
 Existing provider #223/#348 migrations and broader scientific acceptance remain
 open; independent complexes are the next challenge.
+
+A dated consumer guard correction compares portable annotation bytes within
+the current runtime instead of requiring historical installed-version strings.
+Strict-profile controls reproduce the original saved cases exactly; science
+stays at producer `27a18ef` without new searches. Five current guards pass and
+the unchanged 62 boundary cases remain applicable (67 total). The corrected
+head requires fresh exact-head CI; this issue remains partial.

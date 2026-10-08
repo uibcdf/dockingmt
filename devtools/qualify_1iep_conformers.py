@@ -138,6 +138,20 @@ def prepare_cases(*, verify_profile=False):
     source, _, representation, audit = prepare_control(verify_profile=verify_profile)
     before = snapshot(source)
     native = representation['controls']['native']
+    if verify_profile:
+        original_native = native['pdbqt']
+    else:
+        # Portable guards compare provenance within the actual runtime. An
+        # ordinary installation of the same source can report another version
+        # in its REMARK records. Historical science still requires its exact
+        # producer profile and original bytes above.
+        original_native = dmt.prepare_ligand(
+            source,
+            selection='all',
+            active_torsion_bonds=CUTS,
+            charge_options=CHARGE,
+            typing_options=TYPING,
+        ).to_pdbqt()
     cases = {}
     for name, shift in SHIFTS.items():
         target = msm.structure.get_dihedral_angles(
@@ -167,7 +181,7 @@ def prepare_cases(*, verify_profile=False):
         ]
         assert mapping == native['pdbqt_to_source_atom_indices']
         lines = ligand.to_pdbqt().encode().splitlines(keepends=True)
-        original_lines = native['pdbqt'].encode().splitlines(keepends=True)
+        original_lines = original_native.encode().splitlines(keepends=True)
         # Every byte except the three coordinate columns stays identical.
         assert len(lines) == len(original_lines)
         for old, new in zip(original_lines, lines, strict=True):

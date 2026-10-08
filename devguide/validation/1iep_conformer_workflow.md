@@ -198,3 +198,31 @@ Concurrent export-tool tracing fix `03281126e658d5b39aa5369b09e1bb40a8211134`
 is also preserved beneath the scientific change. It touches no authenticated
 consumer/helper, experiment input or provider bytes; retained local scientific
 results remain applicable. The final unskipped head supplies fresh hosted gates.
+
+## Portable annotation correction after first hosted CI — 2026-10-08
+
+The [first exact-head CI](https://github.com/uibcdf/dockingmt/actions/runs/37846351830)
+fails the three portable input/live guards in fixture setup. The driver compared
+runtime REMARK metadata with historical annotation bytes. Ordinary installation
+of the same pinned MolSysMT source reports `1.0.0` in CI, while the preserved
+scientific profile reports `0.22.4+215.g5bd893c85`. Requiring that historical
+version in portable annotations was a consumer assertion defect.
+
+`prepare_cases(verify_profile=False)` now prepares its unperturbed comparison
+input in the current runtime, retaining exact actual annotations and checking
+the perturbation against that input. `verify_profile=True` continues to
+authenticate the historical versions/bytes for scientific reproduction. A fifth
+guard simulates only the installed version annotation, verifies that both
+exported annotation records retain it, and confirms baseline immutability.
+All five current guards pass locally in 70.94 s; with the applicable unchanged
+62 boundary cases, the current scope is **67 distinct tests, no skips**.
+
+Original observations and scientific driver bytes remain attached to producer
+[27a18ef](https://github.com/uibcdf/dockingmt/commit/27a18ef0781016957e4ecc8c523314973be52b37).
+Its driver hash is authenticated at that commit, rather than claiming the changed
+portable driver has the old hash. The current strict-profile preparation
+reproduces all saved case dictionaries exactly. Scientific archive/digest,
+notebook, input bytes, counts and earlier producers remain unchanged; no searches
+are rerun. This corrects a DockingMT guard, not a demonstrated provider molecular
+operation or public-version defect. The corrected head requires fresh hosted CI,
+recorded separately in the owning issues.
