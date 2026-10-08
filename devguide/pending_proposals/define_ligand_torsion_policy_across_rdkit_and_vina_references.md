@@ -168,3 +168,30 @@ The [matched rooted-representation workflow](../validation/1iep_representation_w
 ## 2026-10-07 fixed-first-ROOT order control
 
 The [fixed-origin 1IEP workflow](../validation/1iep_root_order_workflow.md) adds six declared searches and one initial score. Only the seven ROOT ATOM lines after unchanged source N28 are reversed; its origin, all line bytes/serials/labels, ROOT membership and branch records remain fixed. Near-native first poses/returned sets occur in 6/6 cells versus 1/6 in the authenticated native observations, with equal initial score components. Order sensitivity in this case therefore does not require an origin change. All 18 earlier matrix cells and their producers remain unchanged by reference. No default ROOT policy, recovery probability or general preparation validity is selected. Alternative starting conformers and independent complexes remain next scientific challenges; existing provider #223/#348 migrations and wider acceptance remain open.
+
+## 2026-10-08 alternative-conformer challenge
+
+The [prespecified 1IEP challenge](../validation/1iep_conformer_workflow.md) shifts
+original-source quartet 9–10–12–13 by +/-60 degrees through public MolSysMT,
+retaining chemistry/H, covalent geometry and source identity. Each input starts
+6.6994 angstrom from the original heavy reference and crosses native/fixed-first
+written order with the same three seeds and two efforts: 24 new searches,
+plus twelve authenticated historical bound-like references. Every final result
+is evaluated against the original crystallographic geometry, with independent
+full/37-heavy metrics and actual captured bytes.
+
+Near-native first poses/returned sets are +60 native 0/6, +60 fixed-first 3/6,
+-60 native 4/6 and -60 fixed-first 3/6. The earlier fixed-first 6/6 does not
+persist across these inputs; no general ROOT default is selected. The +60
+fixed-input score agrees under both orders (175.436 kcal/mol); both -60 scores
+are refused outside the unchanged grid while their searches complete. Those
+admission boundaries and unminimized-input limits remain explicit. An initial
+uncommitted attempt's three in-memory preliminary outputs were not retained;
+the complete declared matrix was rerun with per-cell retention and the limitation
+is recorded rather than reconstructed.
+
+Four new guards plus 62 scientific/reporting boundary tests pass without skips;
+three saved-result notebook cells execute, including independent pm/fs
+original-reference evaluation. Historical producers, archives and existing
+provider #223/#348 migration scope remain unchanged. This issue stays partial;
+independent complexes are the next scientific challenge.

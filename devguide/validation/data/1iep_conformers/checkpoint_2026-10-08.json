@@ -1,0 +1,227 @@
+{
+  "schema": "dockingmt.1iep_conformer_checkpoint@1",
+  "date": "2026-10-08",
+  "capture_stage": "completed local candidate before commit/hosted CI; owning issues retain later exact-head state",
+  "owner_issues": [
+    "uibcdf/dockingmt#17",
+    "uibcdf/dockingmt#6"
+  ],
+  "consumer_base_commit": "8da5bbcede2101c3f4b0e058cd5b0711a8522cc9",
+  "evidence": {
+    "path": "devguide/validation/data/1iep_conformers/audit_2026-10-08.json.gz",
+    "gzip_sha256": "52ccfc30cd0feb98e169b6625290664aa32ee58d9cee278d6313f3de55774e8f",
+    "json_sha256": "005bca5d9617f862977f09f4496b5350cad68f0b76f9d8aa5469ba01006c14b3",
+    "compressed_bytes": 1941213,
+    "uncompressed_bytes": 9022849,
+    "new_searches": 24,
+    "historical_cells_by_reference": 12,
+    "fixed_score_attempts": 4,
+    "fixed_scores_completed": 2,
+    "fixed_scores_refused_outside_grid": 2
+  },
+  "baseline": {
+    "fixed_first_producer": "2f2ee8f7cebe9b07e5ac240937896dfaf9df197e",
+    "native_producer": "7b11391e153f77f340fd039bc799352f90da83d3",
+    "path": "devguide/validation/data/1iep_root_order/audit_2026-10-07.json.gz",
+    "scope": "12 historical bound-like cells by authenticated reference, no reruns",
+    "sha256": "cfea8e331a9d3b53fe8adf6ca766bfaf68a8483f0d8984aae28949e6084b5eba"
+  },
+  "counts": {
+    "bound_like/native": {
+      "cells": 6,
+      "first_recovered": 1,
+      "set_recovered": 1,
+      "first_heavy_rmsd_range_angstrom": [
+        0.2928484526443939,
+        12.366287344052605
+      ]
+    },
+    "bound_like/first_fixed": {
+      "cells": 6,
+      "first_recovered": 6,
+      "set_recovered": 6,
+      "first_heavy_rmsd_range_angstrom": [
+        0.2561299817818435,
+        0.9098763206716172
+      ]
+    },
+    "plus60/native": {
+      "cells": 6,
+      "first_recovered": 0,
+      "set_recovered": 0,
+      "first_heavy_rmsd_range_angstrom": [
+        6.408837116762227,
+        12.344666830747688
+      ]
+    },
+    "plus60/first_fixed": {
+      "cells": 6,
+      "first_recovered": 3,
+      "set_recovered": 3,
+      "first_heavy_rmsd_range_angstrom": [
+        0.292289055374798,
+        12.668311867315532
+      ]
+    },
+    "minus60/native": {
+      "cells": 6,
+      "first_recovered": 4,
+      "set_recovered": 4,
+      "first_heavy_rmsd_range_angstrom": [
+        0.2646076136266473,
+        12.329025547298777
+      ]
+    },
+    "minus60/first_fixed": {
+      "cells": 6,
+      "first_recovered": 3,
+      "set_recovered": 3,
+      "first_heavy_rmsd_range_angstrom": [
+        0.9056122760843047,
+        12.313016111284703
+      ]
+    }
+  },
+  "geometry": {
+    "minus60": {
+      "shift_degree": -60.0,
+      "heavy_input_positional_rmsd_angstrom": 6.699379202613805,
+      "max_bond_length_change_angstrom": 1.199040866595169e-14,
+      "max_bond_angle_change_degree": 5.400124791776761e-13,
+      "max_signed_volume_change_angstrom3": 3.597122599785507e-14
+    },
+    "plus60": {
+      "shift_degree": 60.0,
+      "heavy_input_positional_rmsd_angstrom": 6.699379202613806,
+      "max_bond_length_change_angstrom": 1.3100631690576847e-14,
+      "max_bond_angle_change_degree": 3.552713678800501e-13,
+      "max_signed_volume_change_angstrom3": 4.188443076527312e-14
+    }
+  },
+  "local_gates": {
+    "live": {
+      "path": "/tmp/dockingmt-conformer-live.xml",
+      "sha256": "512c4658d24ec4fc5e855be6349966482cca693acee12b48d80ddc5caa5a4cef",
+      "tests": 3,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 61.36
+    },
+    "boundaries": {
+      "path": "/tmp/dockingmt-conformer-boundaries.xml",
+      "sha256": "d12c277a9a4c9452573b34a232bfdf220653d96053409c42bf4e6b2ca299401a",
+      "tests": 62,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 186.214
+    },
+    "evidence": {
+      "path": "/tmp/dockingmt-conformer-evidence.xml",
+      "sha256": "dc2cabdf83eca7f799b16f7296d49f3801a143c9446d760a5e6ae1910c23e762",
+      "tests": 1,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 1.516
+    }
+  },
+  "total_distinct_local_tests": 66,
+  "test_source_sha256": {
+    "tests/test_1iep_conformer_workflow.py": "562add3c431a63849eebad640ed2eaeecdc12b6ac51600abd425963e4bd10662"
+  },
+  "notebook": {
+    "path": "devguide/validation/1iep_conformer_workflow_2026-10-08.ipynb",
+    "sha256": "5ef50b3ff5a53dc0f43a5d0eddb70a11ba585086576e83e56b79b530b81d12f4",
+    "executed_cells": 3,
+    "scope": "36 saved rows, historical identities, actual inputs, independent original-reference pm/fs re-evaluation; no search rerun",
+    "kernel_shutdown_and_managed_directory_cleanup_verified": true,
+    "initial_draft_failure": "Third cell used an absent criterion.rmsd_unit key and 2500 pm instead of 250 pm. Failed before notebook save; corrected documented fixed-angstrom output and complete criterion equality; no search/scientific archive changes."
+  },
+  "preflight_and_refuted_attempt": {
+    "owner": "DockingMT #17/#6 1IEP conformer challenge",
+    "date": "2026-10-08",
+    "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+    "new_geometry_sources_match_committed_provider": true,
+    "new_geometry_source_sha256": {
+      "molsysmt/structure/set_dihedral_angles.py": "c5e725cf68a26311401c768fc2dbb9a17eefaee0f7dd38b354af868fb183fd59",
+      "molsysmt/structure/get_dihedral_angles.py": "b6a1bfa0a0c35247cf393dc3125a403ba70229cc77f03a61d0963a37620b163c",
+      "molsysmt/structure/get_angles.py": "33dc027ff76aa0808112ed3b47e8b8e2f750f343fda7686af28e2fdddbd8bedf",
+      "molsysmt/topology/get_covalent_blocks.py": "8ecf509f106ccbd3a4618b3ba36519e9986ca3978246b6f43ef51844ee6ea573",
+      "molsysmt/lib/structure/_kernel_inputs.py": "9f4e4c1dd7e44a9ae4202c452f40b9864644a0b0b010728936f30416d6c80b00"
+    },
+    "refreshed_worktrees": {
+      "dockingmt": "clean, advanced four remote commits to 8da5bbc before edits",
+      "molsysmt": "clean at 8ae160fc93ed, behind 23; preserved",
+      "argdigest": "clean at 5c6711ebfe23, behind 3; preserved",
+      "molsysviewer": "clean at c046fca173f5, behind 64; preserved"
+    },
+    "initial_attempt": {
+      "driver": "first uncommitted local version, superseded before durable producer",
+      "interrupted": true,
+      "completed_searches": 3,
+      "cells": [
+        "plus60/native/e1/seed7",
+        "plus60/native/e1/seed42",
+        "plus60/native/e1/seed2026"
+      ],
+      "in_progress_cell": "plus60/native/e8/seed7",
+      "pose_records_retained": false,
+      "reason": "local fixed-score guard exposed minus60 outside original grid; stop preliminary run, retain refusal and rerun full declared matrix with per-cell checkpoints",
+      "limits": "Preliminary pose payloads were only in memory and cannot be reconstructed. They are excluded from the final 24-cell matrix and are not represented as retained evidence."
+    },
+    "first_live_gate": {
+      "passed": 2,
+      "failed": 1,
+      "failure": "minus60 fixed input score outside original grid, before the score refusal was represented as an observation"
+    },
+    "execution_amendment": "Keep inputs, box and full 24-cell matrix. Four independent CPU-1 arms checkpoint each completed search. Record outside-grid score refusals without changing box or suppressing other errors."
+  },
+  "administrative_gates": {
+    "ruff_check": "passed",
+    "ruff_format": "134 files passed after preserving concurrent export tooling fix",
+    "report_indexes": "regenerated and checked",
+    "changed_local_links": "passed",
+    "component_guide": "passed; synchronized copies not authored locally",
+    "source_input_native_digests": "passed",
+    "diff_check": "passed",
+    "changed_local_link_count": 27
+  },
+  "provider_context": {
+    "molsysmt": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+    "source_match_receipt": "/tmp/dockingmt-conformer-preflight.json",
+    "native_artifacts": {
+      "/tmp/dockingmt-receptor-provider-5bd893c/molsysmt/_rust.abi3.so": "c535c7d2f0e2a92b6ebf8298a60b19e4b5555467b4aa087e9563c6760619827e"
+    },
+    "new_installed_or_native_build": "none; original producers preserved"
+  },
+  "temporary_resources": {
+    "owner": "DockingMT #17/#6 1IEP conformer challenge",
+    "retention": "Qualified source/native archives, four per-arm originals, preflight, JUnit and local/remote receipts retained for follow-up. Managed notebook temporary directory removed. No sibling/human/shared resources removed.",
+    "task_prefix": "/tmp/dockingmt-conformer-",
+    "tools": [
+      "/tmp/dockingmt-conformer-notebook.py",
+      "/tmp/dockingmt-conformer-checkpoint.py",
+      "/tmp/dockingmt-conformer-preflight.py"
+    ],
+    "review": "Revisit after the independent-complex challenge or issue closure."
+  },
+  "limits": [
+    "One complex, two prespecified unminimized torsion perturbations, three seeds; no conformer ensemble, convergence or recovery probability.",
+    "Original chemistry/H and external rigid receptor remain declared/unassessed; no affinity or preparation qualification.",
+    "Scores and RMSDs are observations, not criteria for selecting input conformers or a default ROOT policy.",
+    "The first ROOT atom/origin agrees within each order pair but coordinates/origins change across conformers.",
+    "Evaluate against original crystallographic coordinates through the preserved written/source axis, without alignment or symmetry correction.",
+    "Rigid fragments, bond lengths/angles and local signed orientations are retained; steric strain/overlaps are not minimized or filtered.",
+    "Historical observations retain original producers; preserved native digest is not fresh build provenance or new installed/public artifact qualification.",
+    "Two -60 fixed-input scores are refused outside the unchanged box; search and fixed scoring have separate admission observations.",
+    "Exact-head hosted source CI pending at capture; whole installed-artifact, wider platform and public dependency closure remain separate."
+  ],
+  "concurrent_remote_checkpoint": {
+    "commit": "03281126e658d5b39aa5369b09e1bb40a8211134",
+    "scope": "Export benchmark caller tracing and its guards/report; no authenticated scientific code, helper, input or profile changes. Preserve beneath scientific commit.",
+    "scientific_local_results_remain_applicable": true,
+    "final_head_ci": "unskipped; actual exact-head gates required"
+  }
+}

@@ -168,3 +168,22 @@ The [1IEP representation controls](../validation/1iep_representation_workflow.md
 ## 2026-10-07 fixed-first-ROOT order control
 
 The [fixed-origin 1IEP workflow](../validation/1iep_root_order_workflow.md) adds six declared searches and one initial score. Only the seven ROOT ATOM lines after unchanged source N28 are reversed; its origin, all line bytes/serials/labels, ROOT membership and branch records remain fixed. Near-native first poses/returned sets occur in 6/6 cells versus 1/6 in the authenticated native observations, with equal initial score components. Order sensitivity in this case therefore does not require an origin change. All 18 earlier matrix cells and their producers remain unchanged by reference. No default ROOT policy, recovery probability or general preparation validity is selected. Alternative starting conformers and independent complexes remain next scientific challenges; existing provider #223/#348 migrations and wider acceptance remain open.
+
+## 2026-10-08 alternative-conformer challenge
+
+The [1IEP input challenge](../validation/1iep_conformer_workflow.md) uses public
+MolSysMT to shift one declared central torsion by +/-60 degrees, preserving
+original chemistry/H, covalent geometry, exact cuts and source/written identity.
+Twenty-four new matched searches evaluate against the original crystallographic
+reference, not the perturbed input. First/returned-set recovery counts are
++60 native 0/6 versus fixed-first 3/6, and -60 native 4/6 versus fixed-first 3/6.
+The historical native 1/6 and fixed-first 6/6 remain authenticated original
+observations. No ROOT default or general conformer robustness follows.
+
+The +60 fixed score agrees across orders; both -60 fixed scores are refused
+outside the unchanged grid while docking succeeds. Unminimized-input and
+preliminary unretained-attempt limits are documented. All final cells, captured
+bytes and independently checked reference metrics are retained. Local scope
+passes 66 distinct tests without skips and three saved-result notebook cells.
+Existing provider #223/#348 migrations and broader scientific acceptance remain
+open; independent complexes are the next challenge.
