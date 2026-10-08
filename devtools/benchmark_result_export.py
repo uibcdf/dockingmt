@@ -8,6 +8,8 @@ Imports, fixture construction, hashing, GC between trials and snapshot disposal
 are outside elapsed samples. Memory/profile runs are separate from time samples.
 Synthetic records exercise coordinate volume and existing atom-map metadata;
 they do not claim campaign capacity, docking quality or portable timing budgets.
+The optional memory sample releases only tracing it starts, preserving a caller's
+active tracing session after success or failure.
 """
 
 from __future__ import annotations
@@ -132,13 +134,16 @@ def _measure(
     del record, encoded
     if memory:
         gc.collect()
-        tracemalloc.start()
+        owns_tracing = not tracemalloc.is_tracing()
+        if owns_tracing:
+            tracemalloc.start()
         try:
             record = result.to_dict()
             measurement['python_peak_bytes'] = tracemalloc.get_traced_memory()[1]
             del record
         finally:
-            tracemalloc.stop()
+            if owns_tracing:
+                tracemalloc.stop()
     if profile:
         profiler = cProfile.Profile()
         record = profiler.runcall(result.to_dict)
