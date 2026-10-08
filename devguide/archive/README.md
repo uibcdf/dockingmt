@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (31)
+### Resolved (32)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
@@ -21,6 +21,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`invalid_scores_can_corrupt_pose_ranking.md`](invalid_scores_can_corrupt_pose_ranking.md) — [#24](https://github.com/uibcdf/dockingmt/issues/24) — Reject invalid named scores before ranking docking poses *(resolved, measured)*
 - [`ligand_pdbqt_writer_shifts_columns_for_four_character_atom_names.md`](ligand_pdbqt_writer_shifts_columns_for_four_character_atom_names.md) — [#18](https://github.com/uibcdf/dockingmt/issues/18) — Ligand PDBQT writer shifts columns for four-character atom names *(resolved, measured)*
 - [`link_1iep_external_pdbqt_to_source_ligand.md`](link_1iep_external_pdbqt_to_source_ligand.md) — [#14](https://github.com/uibcdf/dockingmt/issues/14) — Link the 1IEP external PDBQT check to its source ligand *(resolved, measured)*
+- [`maintain_python_coverage_reporting.md`](maintain_python_coverage_reporting.md) — [#22](https://github.com/uibcdf/dockingmt/issues/22) — Measure the existing Python suite and publish truthful exact-source coverage. *(resolved, measured)*
 - [`missing_installed_typing_marker.md`](missing_installed_typing_marker.md) — [#45](https://github.com/uibcdf/dockingmt/issues/45) — The declared py.typed resource is absent from source and installed wheels. *(resolved, measured)*
 - [`normalize_vina_box_numbers_after_unit_conversion.md`](normalize_vina_box_numbers_after_unit_conversion.md) — [#13](https://github.com/uibcdf/dockingmt/issues/13) — Normalize Vina box numbers after unit conversion *(resolved, measured)*
 - [`pose_reference_loading.md`](pose_reference_loading.md) — [#37](https://github.com/uibcdf/dockingmt/issues/37) — Pair docking reference frames explicitly and expose viewer failures. *(resolved, measured)*

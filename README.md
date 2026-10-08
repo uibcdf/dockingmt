@@ -6,6 +6,7 @@
 [![MolSysSuite policy](https://github.com/uibcdf/dockingmt/actions/workflows/molsyssuite-policy.yml/badge.svg?branch=main)](https://github.com/uibcdf/dockingmt/actions/workflows/molsyssuite-policy.yml)
 [![Python 3.11 | 3.12 | 3.13](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.13-3776AB?logo=python&logoColor=white)](https://github.com/uibcdf/molsyssuite/blob/main/devguide/python_policy.md)
 [![License](https://img.shields.io/github/license/uibcdf/dockingmt)](https://github.com/uibcdf/dockingmt/blob/main/LICENSE)
+[![Codecov](https://codecov.io/gh/uibcdf/dockingmt/branch/main/graph/badge.svg)](https://app.codecov.io/gh/uibcdf/dockingmt)
 
 DockingMT is a native scientific component of **MolSysSuite**, designed to provide a
 reproducible, inspectable, and backend-independent framework for molecular docking.
@@ -16,6 +17,18 @@ provided by MolSysMT, TopoMT, ElastNetMT, and PharmacophoreMT.
 
 AutoDock Vina is the initial reference engine for canonical protein–small-molecule docking
 and redocking validation.
+
+Coverage reports measure the Python packages `dockingmt` and
+`molsysviewer_dockingmt` through the existing unfiltered Linux/Python 3.14 CI suite,
+including branches. The separate publisher runs automatically after ordinary
+trusted-main CI and can retain/publish the measured XML when tests fail; PRs do
+not request publication credentials. The badge reflects the last report accepted
+by Codecov and may lag later direct or skipped commits. Scientific sibling packages,
+native internals, browser/JavaScript runtime and separate validation campaigns are
+outside this percentage; it is not a claim of scientific correctness or another
+platform's qualification. The separate full-matrix workflow does not publish this
+report. Original source/artifact/CI/service evidence is recorded under
+[uibcdf/dockingmt#22](https://github.com/uibcdf/dockingmt/issues/22).
 
 ## Molecular input
 

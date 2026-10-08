@@ -1,9 +1,9 @@
 ---
 summary: Measure the existing Python suite and publish truthful exact-source coverage.
 issue: uibcdf/dockingmt#22
-status: partial
+status: resolved
 opened: 2026-10-01
-closed:
+closed: 2026-10-08
 verification: measured
 area: [ci, governance]
 guard: devtools/tests/test_coverage_workflow.py
@@ -97,3 +97,28 @@ internal skip/recovery rules. Primary sibling clones remain preserved.
 Owned isolated clone and immutable SDK are temporary qualification resources.
 Remove them and generated caches after the accepted evidence or bounded pending
 handoff; preserve the primary clone and caller-owned shared environment.
+
+
+## Resolution — 2026-10-08
+
+Producer `9db7074828083da03094eae091e84bb4ae6caa61` completes native ordinary
+CI [37799841269](https://github.com/uibcdf/dockingmt/actions/runs/37799841269)
+with all seven jobs, including the unchanged four supported-minor suites,
+measurement/retention and automatic independent publisher. Native policy
+37799842358 passes its actual required conformance/lint/format steps.
+Independent acquisition verifies repository, source, workflow, push event,
+current attempt, complete job inventory, every selected executed step and the
+original artifact ZIP digest/XML SHA-256. The complete public main report is
+**87.93%** and its live SVG **88%**. Coverage.py XML separately records 3,310/3,574
+covered lines (92.61%) and 1,084/1,284 covered branches (84.42%); these counts and
+Codecov's filtered/partial-line percentage are distinct, not interchangeable.
+
+The guard `devtools/tests/test_coverage_workflow.py` failed four cases before the
+producer existed and passes after its addition; it protects the actual repaired
+measurement/custody/credential/source mechanisms. The related twenty existing
+controls also pass and protect unchanged dependency/source selection. Immutable
+native/service receipt: `devguide/artifacts/python_coverage_20261008.json`.
+The live badge and scope/cadence/last-report limits are delivered in the README;
+no numeric percentage is hardcoded. No scientific correctness, new support
+admission, release/public package or cleared unrelated scientific debt is claimed.
+Final guide-only administrative gates are recorded in the owning issue.

@@ -1,0 +1,196 @@
+{
+  "schema": "molsyssuite.coverage-producer-receiving@1",
+  "issue": "uibcdf/molsyssuite#69",
+  "owner_issue": "uibcdf/dockingmt#22",
+  "date": "2026-10-08",
+  "source_commit": "9db7074828083da03094eae091e84bb4ae6caa61",
+  "local_checks": {
+    "before": "Four new workflow regressions failed before the producer was implemented.",
+    "after": "24 distribution/coverage/reporting contract tests pass; Ruff lint/format, conformance, report index, declared dependency routes and diff checks pass.",
+    "python": "3.14.7",
+    "sdk": "738fe8dd731abb99dac421b0bb2acc8564110180",
+    "semantic_review": "Removing only the measurement environment, retention step, publisher job and four-test administrative selector recovers the complete original parsed CI YAML. Full matrix, scientific source pins/dependency inputs and original suite command unchanged.",
+    "workspace": "Existing seven #82 pip conflicts retained; local tests are administrative and do not claim scientific closure."
+  },
+  "ci": {
+    "schema": "molsyssuite.native-gate@1",
+    "state": "verified",
+    "run_id": 37799841269,
+    "run_attempt": 1,
+    "candidate_sha": "9db7074828083da03094eae091e84bb4ae6caa61",
+    "workflow": ".github/workflows/ci.yml",
+    "jobs": [
+      {
+        "name": "Quality on ubuntu-latest",
+        "job_id": 113388795441,
+        "required_steps": [
+          "Check Ruff lint",
+          "Check Ruff format"
+        ]
+      },
+      {
+        "name": "Distribution governance on Linux Python 3.14",
+        "job_id": 113388795899,
+        "required_steps": [
+          "Validate report records and generated indexes",
+          "Review declared dependency routes",
+          "Test distribution controls"
+        ]
+      },
+      {
+        "name": "Publish default-branch Python coverage",
+        "job_id": 113392663855,
+        "required_steps": [
+          "Download the measured Python report",
+          "Upload the measured report to Codecov"
+        ]
+      },
+      {
+        "name": "Test on ubuntu-latest, Python 3.11",
+        "job_id": 113388796040,
+        "required_steps": [
+          "Install compatible scientific sibling sources",
+          "Check dependency routes and installed clone context",
+          "Verify ordinary installed package",
+          "Run tests with pytest-receptor"
+        ]
+      },
+      {
+        "name": "Test on ubuntu-latest, Python 3.12",
+        "job_id": 113388796634,
+        "required_steps": [
+          "Install compatible scientific sibling sources",
+          "Check dependency routes and installed clone context",
+          "Verify ordinary installed package",
+          "Run tests with pytest-receptor"
+        ]
+      },
+      {
+        "name": "Test on ubuntu-latest, Python 3.13",
+        "job_id": 113388795708,
+        "required_steps": [
+          "Install compatible scientific sibling sources",
+          "Check dependency routes and installed clone context",
+          "Verify ordinary installed package",
+          "Run tests with pytest-receptor"
+        ]
+      },
+      {
+        "name": "Test on ubuntu-latest, Python 3.14",
+        "job_id": 113388797132,
+        "required_steps": [
+          "Install compatible scientific sibling sources",
+          "Check dependency routes and installed clone context",
+          "Verify ordinary installed package",
+          "Run tests with pytest-receptor",
+          "Retain measured Python coverage"
+        ]
+      }
+    ],
+    "event": "push",
+    "exact_jobs": true
+  },
+  "policy": {
+    "schema": "molsyssuite.native-gate@1",
+    "state": "verified",
+    "run_id": 37799842358,
+    "run_attempt": 1,
+    "candidate_sha": "9db7074828083da03094eae091e84bb4ae6caa61",
+    "workflow": ".github/workflows/molsyssuite-policy.yml",
+    "jobs": [
+      {
+        "name": "policy / conformance",
+        "job_id": 113388798220,
+        "required_steps": [
+          "Check repository conformance",
+          "Check Python lint and imports",
+          "Check Python formatting"
+        ]
+      }
+    ],
+    "event": "push",
+    "exact_jobs": true
+  },
+  "measurement": {
+    "native_run": {
+      "id": 37799841269,
+      "head_sha": "9db7074828083da03094eae091e84bb4ae6caa61",
+      "head_branch": "main",
+      "path": ".github/workflows/ci.yml",
+      "event": "push",
+      "run_attempt": 1,
+      "conclusion": "success"
+    },
+    "artifact": {
+      "id": 11561285389,
+      "name": "dockingmt-python-coverage-37799841269-1",
+      "digest": "sha256:ad2e21e4fa4a6730cc4aaa2842e57ed2885c8da780ece40b03a7180ba0d33b73",
+      "size_in_bytes": 11376,
+      "workflow_run": {
+        "id": 37799841269,
+        "repository_id": 1380446251,
+        "head_repository_id": 1380446251,
+        "head_branch": "main",
+        "head_sha": "9db7074828083da03094eae091e84bb4ae6caa61"
+      }
+    },
+    "zip_digest_verified": true,
+    "xml_sha256": "4e6e1139a1fc932a18798f7ba48b761ab933bb001a66b50259767288509ef685",
+    "xml_totals": {
+      "version": "7.16.2",
+      "timestamp": "1791473228904",
+      "lines-valid": "3574",
+      "lines-covered": "3310",
+      "line-rate": "0.9261",
+      "branches-valid": "1284",
+      "branches-covered": "1084",
+      "branch-rate": "0.8442",
+      "complexity": "0"
+    },
+    "source_files": 57
+  },
+  "service": {
+    "repository": "uibcdf/dockingmt",
+    "observed_at": "2026-10-08T15:29:13.575540+00:00",
+    "state": "complete-report-observed",
+    "default_branch": "main",
+    "project_url": "https://app.codecov.io/gh/uibcdf/dockingmt",
+    "badge_url": "https://codecov.io/gh/uibcdf/dockingmt/branch/main/graph/badge.svg",
+    "badge_percentages": [
+      "88%"
+    ],
+    "branch_updated_at": "2026-10-08T15:28:19.482380Z",
+    "branch_cache": {
+      "commitid": "9db7074828083da03094eae091e84bb4ae6caa61",
+      "state": "complete",
+      "timestamp": "2026-10-08T15:19:42Z",
+      "totals": {
+        "files": 54,
+        "lines": 3555,
+        "hits": 3126,
+        "misses": 263,
+        "partials": 166,
+        "coverage": 87.93,
+        "branches": 642,
+        "methods": 0,
+        "sessions": 1,
+        "complexity": 0.0,
+        "complexity_total": 0.0,
+        "complexity_ratio": 0,
+        "diff": 0
+      }
+    },
+    "scanned_pages": 1,
+    "latest_complete_report": {
+      "source_sha": "9db7074828083da03094eae091e84bb4ae6caa61",
+      "branch": "main",
+      "commit_timestamp": "2026-10-08T15:19:42Z",
+      "coverage": 87.93
+    },
+    "search_bound_pages": 1,
+    "errors": {}
+  },
+  "accepted": true,
+  "scope": "Ordinary unfiltered Linux/Python 3.14 suite; Python packages dockingmt and molsysviewer_dockingmt with branches. Sibling package science/native/browser runtimes and separate campaigns excluded.",
+  "cadence": "Existing ordinary main CI; internal skip/doc commits may lag the last accepted report; full-matrix workflow does not publish this measurement."
+}
