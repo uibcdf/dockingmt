@@ -93,8 +93,8 @@ reason = "Manual candidate/staged or eligible reviewed release caller; shared pu
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "807172fca2323016d758b3727e78012ffdd23f6d29f51a19bde6b1754200b98c"
-reason = "Original four Linux source science cells plus independent quality/distribution controls; exact directory installs/context preflight precede unchanged science."
+sha256 = "564232e2c144d7f204d90daea63d3c059c9469d98c70fedf75dc101e128ee890"
+reason = "Original four Linux source science cells and pins retained; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]
 path = ".github/workflows/conda_publication_governance.yaml"

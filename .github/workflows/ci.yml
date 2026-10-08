@@ -129,7 +129,18 @@ jobs:
           print("Installed", m.version("dockingmt"), dockingmt.__file__)'
       - name: Run tests with pytest-receptor
         shell: bash -l {0}
+        env:
+          PYTEST_ADDOPTS: >-
+            ${{ matrix.python-version == '3.14' && '--cov=dockingmt --cov=molsysviewer_dockingmt --cov-branch --cov-report=xml:coverage.xml' || '' }}
         run: pytest --receptor=ci
+      - name: Retain measured Python coverage
+        if: ${{ !cancelled() && matrix.python-version == '3.14' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dockingmt-python-coverage-${{ github.run_id }}-${{ github.run_attempt }}
+          path: coverage.xml
+          if-no-files-found: error
+          retention-days: 14
 
   distribution:
     name: Distribution governance on Linux Python 3.14
@@ -153,4 +164,36 @@ jobs:
       - name: Review declared dependency routes
         run: python devtools/check_dependency_routes.py --declared-only
       - name: Test distribution controls
-        run: python -m pytest --receptor=ci -o addopts= devtools/tests/test_distribution_contract.py tests/test_reporting_protocol.py
+        run: python -m pytest --receptor=ci -o addopts= devtools/tests/test_distribution_contract.py devtools/tests/test_coverage_workflow.py tests/test_reporting_protocol.py
+
+  coverage-upload:
+    name: Publish default-branch Python coverage
+    needs: test
+    if: >-
+      ${{ always() && !cancelled()
+          && github.event_name != 'pull_request'
+          && github.ref == 'refs/heads/main'
+          && needs.test.result != 'skipped' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Download the measured Python report
+        uses: actions/download-artifact@v4
+        with:
+          name: dockingmt-python-coverage-${{ github.run_id }}-${{ github.run_attempt }}
+          path: coverage-report
+      - name: Upload the measured report to Codecov
+        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1
+        with:
+          use_oidc: true
+          files: coverage-report/coverage.xml
+          disable_search: true
+          fail_ci_if_error: true
+          override_commit: ${{ github.sha }}
+          override_branch: main
+          name: codecov-linux-py3.14
