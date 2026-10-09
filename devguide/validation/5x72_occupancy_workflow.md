@@ -180,3 +180,13 @@ original commit; the amended helper has its own later source identity. The
 five corrected guards plus the unchanged applicable 207 boundary results give
 212 distinct locally applicable tests. Owning issues retain the first failed
 CI and subsequent exact-head results separately.
+
+## Reciprocal follow-up — 2026-10-09
+
+The separately prespecified [fixed-P59/P69 control](5x72_reciprocal_workflow.md)
+now tests the opposite role assignment. Its 24 new searches retain all 78 poses
+and 254 frozen evaluations. P69 any-returned recovery changes 0/12 to 7/12,
+whereas first-ranked and lowest frozen-score recovery stay zero. This bounds
+the earlier favorable P59 result; the original producer/archive/checkpoint and
+notebook above remain unchanged. The reused helper's later role parameters have
+their own source digest in the reciprocal archive, preserving original defaults.

@@ -1,0 +1,399 @@
+{
+  "administrative_gates": {
+    "component_guides": "passed; synchronized copies unchanged",
+    "diff_check": "passed",
+    "links": "passed; 91 local links",
+    "report_indexes": "regenerated and checked",
+    "ruff_format": "passed, 140 files",
+    "ruff_lint": "passed",
+    "shared_tool_guides": {
+      "canonical_guide_sha256": "4e7f40875681d86bfd9c678bd9842cb66619a6e162d4556c9dac83f95021674a",
+      "canonical_remote_commit": "7ed94f1677965b0281c883dda784fd480be42c29",
+      "dockingmt_copy_matches_current_canonical": true,
+      "initial_broader_inventory": "Compared to stale local SMonitor checkout, whose worktree is preserved. Fresh canonical origin/main bytes equal the DockingMT copy; no guide change is required.",
+      "ownership": "uibcdf/molsyssuite#106",
+      "preserved_local_checkout_commit": "f604b940ab281df4554869fdd24f796ea6d42c27"
+    }
+  },
+  "bounded_chain_restoration": {
+    "chain_ids": [
+      "A",
+      "A"
+    ],
+    "output_chain_indices": [
+      0,
+      1
+    ],
+    "provider_issue": "uibcdf/molsysmt#353",
+    "removal_condition": "Provider add preserves these IDs without explicit restoration."
+  },
+  "capture_stage": "Original pre-commit scientific evidence and selected local gates. Later exact-head hosted CI belongs in owning GitHub issues.",
+  "consumer_base_commit": "5b29047652b89485eadd3bb95c8b0f001becb6ff",
+  "criterion": {
+    "alignment": false,
+    "atom_population": "24_experimental_heavy_atoms",
+    "cutoff_angstrom": 2.5,
+    "metric": "positional_rmsd",
+    "symmetry_correction": false
+  },
+  "date": "2026-10-09",
+  "distinct_selected_tests": 218,
+  "fixed_companion": "p59",
+  "historical_poses": 49,
+  "historical_producer_authentication": [
+    {
+      "archive_sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e",
+      "producer_commit": "ee095f4548441dfd043e4f322095810c54c4e002",
+      "separately_preserved_generated_sha256": {
+        "dockingmt/_version.py": "c45540456d8e07a49efe524dab6a784dfabdbe329829ad4ece1b3cd7e7e1cdf9"
+      },
+      "tracked_source_git_blob_sha256": {
+        "devtools/audit_1iep_preparation.py": "60596d2e8d8a40ab1e1d000b56d2cefd56e701b6eb1cbccc9a67cc5beb468d5c",
+        "devtools/qualify_181l_receptor.py": "0052d95d60d9b55d77aae085cee4b7be021a95d037fc6a87ab9b4b2e49669e88",
+        "devtools/qualify_1iep_representation.py": "22a7d698e5835c71c888f67f644da167516a59e54eb981502e2550eed7cfa0df",
+        "devtools/qualify_1iep_root_order.py": "8462778cab749081abf923905709015623c2b1d3885d935519e2fd695e22331a",
+        "devtools/qualify_5x72_root_order.py": "e6439e467e65f2717df5f7babacf9e0e35b06d1cd61f0696c2ee05eccbd34db2",
+        "devtools/qualify_chemical_templates.py": "18532b6419054f85f636e37ea829fe322f68a129910447d58bb327780b349a85",
+        "devtools/qualify_named_types.py": "d74e28984e837a4c583136560496e57411a4ea191c1a78e46f791e9061b65191",
+        "dockingmt/__init__.py": "07f71ed5cf3914d2e4cfbf35c43a7ea8b69497effd4dc8aa6336ae30e61a2359",
+        "dockingmt/_argdigest.py": "e76d59bca5d24f3df78b4c3b361375a82236d95ac102218a615a48bb3555b6a7",
+        "dockingmt/_depdigest.py": "c996d85d61ef70230b64c0a33bd69ea78e24c3c3148100f69d158ffe90d9ee36",
+        "dockingmt/_private/__init__.py": "4f23e529394a0c60adaca014f6852e07e108e6e826973d256b254e9e9e2f5cc0",
+        "dockingmt/_private/argdigest/__init__.py": "550f136bb66a889c4bdd34997d2925aee7aa2e95b359554e98f936927f39fea4",
+        "dockingmt/_private/argdigest/registry.py": "bb2c2460c37ba9029d052e4567be54a5118d07215b9be2073437303db023b9f1",
+        "dockingmt/_private/artifacts.py": "750981bba46eccf57f085a099305574f4b19afa891892259709cbc1f49bebd2e",
+        "dockingmt/_private/conversion.py": "48ebfa6c9b45fafe1f0cfbf60c176d46df4c1d4636b4bcd6e2d7b88119eb99cf",
+        "dockingmt/_private/serialization.py": "f138c1f5dcdc5ff67ce5ac15df7c762ffefc6286a627e6859b9980e39ffc0680",
+        "dockingmt/_private/smonitor/__init__.py": "af179622d2bd19e0a4178f03624526d46ff24b047f2ca357b9d85024b34a9ce7",
+        "dockingmt/_private/smonitor/catalog.py": "14b214b11fadd0678085507ccc295e1a2e0905356d8ac1732aff4c8ddb984b7b",
+        "dockingmt/_private/smonitor/emitter.py": "83af0b66e89522f9732bc97c53bd73de551646cafcb758637d2c2e545b877a56",
+        "dockingmt/_private/smonitor/meta.py": "7a1d95d8be1b37238dff60af83e87649331037366512e2e7b4fa218c6c61cafb",
+        "dockingmt/_private/smonitor/warnings.py": "8130bc9008281d0f65f491b279a37536d3a2de5a7d86c3027e28dbbb69b6b950",
+        "dockingmt/_private/vina_records.py": "ec13749e8410ca16bd3ad25ef6cb5e39ea8dc9af80fb6d2f3b3749c5d16fdc59",
+        "dockingmt/_pyunitwizard.py": "ced289b4e5423e80df232daac8916263995aafdbf20d06e73690599249d9e96b",
+        "dockingmt/_smonitor.py": "830e3d288fe35a84ea283d0888799b72707ee0825b7f673162d79a791703a9d2",
+        "dockingmt/aggregation.py": "d033c3a8bbfbd4e44ffa34eaee6901f5a30efe95fa3b45e60d5d849ad1945ae5",
+        "dockingmt/batch.py": "01d7cfb44320c8d6ba2ad04c847093d0e7105458bab975edbc606d24d4cd37f2",
+        "dockingmt/core/__init__.py": "6a6218f01c453e7973578f8aec19da42d02147fc603c401c3908ee00d0e1b8fa",
+        "dockingmt/core/_scores.py": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136",
+        "dockingmt/core/audit.py": "191d9c82936fada14761ccdae0d95ba46b17fdeb22c2cbf2e348554cb5d4cab3",
+        "dockingmt/core/outcome.py": "d16cefba9c2a6f7057201a30fffde04d78eb7a3f55f3ff5e3c60a6600339fb04",
+        "dockingmt/core/pose_audit.py": "de6ecac9713d6a96349e8b42884b7ddfa68d6c8a3440792fde41adad38180908",
+        "dockingmt/core/problem.py": "418c5e4ecfd6517870c0fb76162b70760b8111120e9eab8e83d5ed509751c502",
+        "dockingmt/core/protocol.py": "bdcefe43239851abaaf19ec67a5ddb1336617b4ceba05545d497793eaa6abc70",
+        "dockingmt/core/results.py": "d54247fa7487ccb1574cbc8c66021244a3b33d3de643cc16727bc6d7d6cf77d7",
+        "dockingmt/core/search_domain.py": "e5bf0149a271ac4fa0b1d619f8e7f8e17aeed1316f86d1367fff64a6a29c854e",
+        "dockingmt/dock.py": "25ffc2190e5410e187e1165b912fcf2b6c4274d7e975c00e918283c96b52f256",
+        "dockingmt/engines/__init__.py": "07108a1391a34a122f4a9c9991db911a1b8f0fde9a42a828c9418a1a7ebcadf9",
+        "dockingmt/engines/_vina_scoring.py": "e49a50fd48fc28af6a440961e95da6c23fcabd86bbaf865d5e5d86df5cd341bb",
+        "dockingmt/engines/base.py": "127fc3393b37f2d173d768eb926295b911c8160038ed524da5896b35d89f83cc",
+        "dockingmt/engines/vina.py": "068f33407d2346330ad25c926a428c27ec7a3556d021602dd8978733e41ad3fa",
+        "dockingmt/evaluation.py": "417189f02e434275ff3b6fb182e7bea22bb6966deb4e9fcdf4316fff36de5d23",
+        "dockingmt/preparation/__init__.py": "ad1708354f51a1283fc98667c6abdea944ed8a7d26f79ee0ce03347b4509850f",
+        "dockingmt/preparation/_molsys.py": "7b051fff1b9ba3af3ac3b3e6075101923125ee2a73a912e0ff4c405b8f12fc5b",
+        "dockingmt/preparation/_stages.py": "e379ea198cc0d85d9d0769ceb048d6bfa6e3ae1797baac69639310b82aff419a",
+        "dockingmt/preparation/_temporary_torsions.py": "2c7afa65e08b5e09705bffee5ff2184e0c9c77dd425a1d279e68940e6ab938b0",
+        "dockingmt/preparation/_typing.py": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2",
+        "dockingmt/preparation/assessment.py": "5f8d3fe16c76ee401bdaaf94ad7714d1727c2732d48f72586fa95fc22d8eaaf8",
+        "dockingmt/preparation/charges.py": "b23815cf64791c42bc5e7577f540b56deaeddb6ee6e12ad288824b7c8a4773b8",
+        "dockingmt/preparation/ligand.py": "e73e8f1760df7c2f0490df3e68777b577812a67c2bfc6467a97b4f47d0f583a7",
+        "dockingmt/preparation/receptor.py": "e7bc80c17b76bcb962454a255d1ab6d62c340ba8c19116ea22ea4c35c673da52",
+        "dockingmt/score.py": "6b05e5d92f03732e2280a4ca160d5b6e8bcf28b2b940f779ea84bd08dc00d670",
+        "dockingmt/view.py": "427e4ba1dae9273e21d6f04148d21954284caa8d07e6208e97b9411766653da6",
+        "dockingmt/viewer/__init__.py": "926524953c4cf37039415eaa5d36646e00580cffb7acb1e24deb0b9c7fd6d601"
+      }
+    },
+    {
+      "archive_sha256": "5f698db8afee0df5d4323e30991d7f9061cc6ddd783d09fdeec148dc45e9db20",
+      "producer_commit": "5fee9c2e5e99eb26ddc98bae529a511eb9d4ea60",
+      "separately_preserved_generated_sha256": {
+        "dockingmt/_version.py": "c45540456d8e07a49efe524dab6a784dfabdbe329829ad4ece1b3cd7e7e1cdf9"
+      },
+      "tracked_source_git_blob_sha256": {
+        "devtools/audit_1iep_preparation.py": "60596d2e8d8a40ab1e1d000b56d2cefd56e701b6eb1cbccc9a67cc5beb468d5c",
+        "devtools/qualify_181l_receptor.py": "0052d95d60d9b55d77aae085cee4b7be021a95d037fc6a87ab9b4b2e49669e88",
+        "devtools/qualify_1iep_representation.py": "22a7d698e5835c71c888f67f644da167516a59e54eb981502e2550eed7cfa0df",
+        "devtools/qualify_1iep_root_order.py": "8462778cab749081abf923905709015623c2b1d3885d935519e2fd695e22331a",
+        "devtools/qualify_5x72_occupancy.py": "aebddffcd3a414df284dc4f5fc9a4ce301295a60c34442f537d31ede9b7ff436",
+        "devtools/qualify_5x72_root_order.py": "e6439e467e65f2717df5f7babacf9e0e35b06d1cd61f0696c2ee05eccbd34db2",
+        "devtools/qualify_chemical_templates.py": "18532b6419054f85f636e37ea829fe322f68a129910447d58bb327780b349a85",
+        "devtools/qualify_named_types.py": "d74e28984e837a4c583136560496e57411a4ea191c1a78e46f791e9061b65191",
+        "dockingmt/__init__.py": "07f71ed5cf3914d2e4cfbf35c43a7ea8b69497effd4dc8aa6336ae30e61a2359",
+        "dockingmt/_argdigest.py": "e76d59bca5d24f3df78b4c3b361375a82236d95ac102218a615a48bb3555b6a7",
+        "dockingmt/_depdigest.py": "c996d85d61ef70230b64c0a33bd69ea78e24c3c3148100f69d158ffe90d9ee36",
+        "dockingmt/_private/__init__.py": "4f23e529394a0c60adaca014f6852e07e108e6e826973d256b254e9e9e2f5cc0",
+        "dockingmt/_private/argdigest/__init__.py": "550f136bb66a889c4bdd34997d2925aee7aa2e95b359554e98f936927f39fea4",
+        "dockingmt/_private/argdigest/registry.py": "bb2c2460c37ba9029d052e4567be54a5118d07215b9be2073437303db023b9f1",
+        "dockingmt/_private/artifacts.py": "750981bba46eccf57f085a099305574f4b19afa891892259709cbc1f49bebd2e",
+        "dockingmt/_private/conversion.py": "48ebfa6c9b45fafe1f0cfbf60c176d46df4c1d4636b4bcd6e2d7b88119eb99cf",
+        "dockingmt/_private/serialization.py": "f138c1f5dcdc5ff67ce5ac15df7c762ffefc6286a627e6859b9980e39ffc0680",
+        "dockingmt/_private/smonitor/__init__.py": "af179622d2bd19e0a4178f03624526d46ff24b047f2ca357b9d85024b34a9ce7",
+        "dockingmt/_private/smonitor/catalog.py": "14b214b11fadd0678085507ccc295e1a2e0905356d8ac1732aff4c8ddb984b7b",
+        "dockingmt/_private/smonitor/emitter.py": "83af0b66e89522f9732bc97c53bd73de551646cafcb758637d2c2e545b877a56",
+        "dockingmt/_private/smonitor/meta.py": "7a1d95d8be1b37238dff60af83e87649331037366512e2e7b4fa218c6c61cafb",
+        "dockingmt/_private/smonitor/warnings.py": "8130bc9008281d0f65f491b279a37536d3a2de5a7d86c3027e28dbbb69b6b950",
+        "dockingmt/_private/vina_records.py": "ec13749e8410ca16bd3ad25ef6cb5e39ea8dc9af80fb6d2f3b3749c5d16fdc59",
+        "dockingmt/_pyunitwizard.py": "ced289b4e5423e80df232daac8916263995aafdbf20d06e73690599249d9e96b",
+        "dockingmt/_smonitor.py": "830e3d288fe35a84ea283d0888799b72707ee0825b7f673162d79a791703a9d2",
+        "dockingmt/aggregation.py": "d033c3a8bbfbd4e44ffa34eaee6901f5a30efe95fa3b45e60d5d849ad1945ae5",
+        "dockingmt/batch.py": "01d7cfb44320c8d6ba2ad04c847093d0e7105458bab975edbc606d24d4cd37f2",
+        "dockingmt/core/__init__.py": "6a6218f01c453e7973578f8aec19da42d02147fc603c401c3908ee00d0e1b8fa",
+        "dockingmt/core/_scores.py": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136",
+        "dockingmt/core/audit.py": "191d9c82936fada14761ccdae0d95ba46b17fdeb22c2cbf2e348554cb5d4cab3",
+        "dockingmt/core/outcome.py": "d16cefba9c2a6f7057201a30fffde04d78eb7a3f55f3ff5e3c60a6600339fb04",
+        "dockingmt/core/pose_audit.py": "de6ecac9713d6a96349e8b42884b7ddfa68d6c8a3440792fde41adad38180908",
+        "dockingmt/core/problem.py": "418c5e4ecfd6517870c0fb76162b70760b8111120e9eab8e83d5ed509751c502",
+        "dockingmt/core/protocol.py": "bdcefe43239851abaaf19ec67a5ddb1336617b4ceba05545d497793eaa6abc70",
+        "dockingmt/core/results.py": "d54247fa7487ccb1574cbc8c66021244a3b33d3de643cc16727bc6d7d6cf77d7",
+        "dockingmt/core/search_domain.py": "e5bf0149a271ac4fa0b1d619f8e7f8e17aeed1316f86d1367fff64a6a29c854e",
+        "dockingmt/dock.py": "25ffc2190e5410e187e1165b912fcf2b6c4274d7e975c00e918283c96b52f256",
+        "dockingmt/engines/__init__.py": "07108a1391a34a122f4a9c9991db911a1b8f0fde9a42a828c9418a1a7ebcadf9",
+        "dockingmt/engines/_vina_scoring.py": "e49a50fd48fc28af6a440961e95da6c23fcabd86bbaf865d5e5d86df5cd341bb",
+        "dockingmt/engines/base.py": "127fc3393b37f2d173d768eb926295b911c8160038ed524da5896b35d89f83cc",
+        "dockingmt/engines/vina.py": "068f33407d2346330ad25c926a428c27ec7a3556d021602dd8978733e41ad3fa",
+        "dockingmt/evaluation.py": "417189f02e434275ff3b6fb182e7bea22bb6966deb4e9fcdf4316fff36de5d23",
+        "dockingmt/preparation/__init__.py": "ad1708354f51a1283fc98667c6abdea944ed8a7d26f79ee0ce03347b4509850f",
+        "dockingmt/preparation/_molsys.py": "7b051fff1b9ba3af3ac3b3e6075101923125ee2a73a912e0ff4c405b8f12fc5b",
+        "dockingmt/preparation/_stages.py": "e379ea198cc0d85d9d0769ceb048d6bfa6e3ae1797baac69639310b82aff419a",
+        "dockingmt/preparation/_temporary_torsions.py": "2c7afa65e08b5e09705bffee5ff2184e0c9c77dd425a1d279e68940e6ab938b0",
+        "dockingmt/preparation/_typing.py": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2",
+        "dockingmt/preparation/assessment.py": "5f8d3fe16c76ee401bdaaf94ad7714d1727c2732d48f72586fa95fc22d8eaaf8",
+        "dockingmt/preparation/charges.py": "b23815cf64791c42bc5e7577f540b56deaeddb6ee6e12ad288824b7c8a4773b8",
+        "dockingmt/preparation/ligand.py": "e73e8f1760df7c2f0490df3e68777b577812a67c2bfc6467a97b4f47d0f583a7",
+        "dockingmt/preparation/receptor.py": "e7bc80c17b76bcb962454a255d1ab6d62c340ba8c19116ea22ea4c35c673da52",
+        "dockingmt/score.py": "6b05e5d92f03732e2280a4ca160d5b6e8bcf28b2b940f779ea84bd08dc00d670",
+        "dockingmt/view.py": "427e4ba1dae9273e21d6f04148d21954284caa8d07e6208e97b9411766653da6",
+        "dockingmt/viewer/__init__.py": "926524953c4cf37039415eaa5d36646e00580cffb7acb1e24deb0b9c7fd6d601"
+      }
+    }
+  ],
+  "historical_searches_reused_as_baseline": 12,
+  "historical_serialization_evaluations": 98,
+  "limits": [
+    "One complex, rigid fixed occupant, generated H orientation and named charge/type assumptions; no affinity/cooperativity/stereoselectivity, general ROOT/H/preparation policy, recovery probability or convergence.",
+    "Seven occupied returned sets contain recovered poses but neither original rank nor either frozen diagnostic prefers them; five occupied returned sets contain none. Unretained trajectories are not observed.",
+    "The reciprocal differs from the earlier P59 outcome. A separate prespecified reference-geometry/local-score diagnostic is needed before changing production defaults.",
+    "Historical searches are reused observations; software guard calls are separate from the 24-cell matrix.",
+    "No extra reference scoring, local optimization, simultaneous docking, native build, newer provider qualification, full installed-artifact suite or public/platform admission.",
+    "Exact-head hosted source CI is pending at this local capture; #17/#6/#33 remain partial/open."
+  ],
+  "local_gates": [
+    {
+      "elapsed_seconds": 170.765,
+      "errors": 0,
+      "failures": 0,
+      "junit_sha256": "e86f6be04df19fa8ff0e6115ab9af16e104478d454055371d2240452e641e9e3",
+      "name": "boundaries",
+      "retained_junit": "/tmp/dockingmt-5x72-reciprocal-boundaries.xml",
+      "skipped": 0,
+      "tests": 153
+    },
+    {
+      "elapsed_seconds": 53.35,
+      "errors": 0,
+      "failures": 0,
+      "junit_sha256": "27aad9041e513bf92ce79e26706b0ffb4ea5a0572dbd853118210560554b0d9f",
+      "name": "named",
+      "retained_junit": "/tmp/dockingmt-5x72-reciprocal-named.xml",
+      "skipped": 0,
+      "tests": 64
+    },
+    {
+      "elapsed_seconds": 7.779,
+      "errors": 0,
+      "failures": 0,
+      "junit_sha256": "c13f87e77c9e3355b061e3c69e78e62723c3b04e869b29cb796c81c18e2eda4a",
+      "name": "evidence",
+      "retained_junit": "/tmp/dockingmt-5x72-reciprocal-evidence.xml",
+      "skipped": 0,
+      "tests": 1
+    }
+  ],
+  "new_pose_frozen_evaluations": 156,
+  "new_returned_poses": 78,
+  "new_searches": 24,
+  "notebook": {
+    "executed_code_cells": 3,
+    "interpreter": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+    "kernel_connection_files_after_shutdown": 0,
+    "managed_directory_removed": true,
+    "managed_kernel_directory": "/tmp/dockingmt-5x72-reciprocal-kernel-t0e7khrl",
+    "notebook": "/home/liliana/repos@uibcdf/dockingmt/devguide/validation/5x72_reciprocal_workflow_2026-10-09.ipynb"
+  },
+  "owning_issues": [
+    "uibcdf/dockingmt#17",
+    "uibcdf/dockingmt#6",
+    "uibcdf/dockingmt#33"
+  ],
+  "prespecified_plan": "https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6088973811",
+  "producer_archive": {
+    "gzip_bytes": 11717884,
+    "gzip_sha256": "323a5cb7a826368eb4914219c3a29c2fdf440956a792f9ebf7812e2cc228083d",
+    "json_sha256": "d61ecc11544e65e7548f743627995ed585607e78bf128b8b9f4cf3d53ca7e127",
+    "path": "devguide/validation/data/5x72_reciprocal/audit_2026-10-09.json.gz"
+  },
+  "provider_issues": {
+    "chain_ids_during_add": "uibcdf/molsysmt#353",
+    "prepared_mechanics_merge": "uibcdf/molsysmt#352",
+    "unversioned_reference_SDF": "uibcdf/molsysmt#215"
+  },
+  "qualified_profile": {
+    "consumer_source_sha256": {
+      "devtools/audit_1iep_preparation.py": "60596d2e8d8a40ab1e1d000b56d2cefd56e701b6eb1cbccc9a67cc5beb468d5c",
+      "devtools/qualify_181l_receptor.py": "0052d95d60d9b55d77aae085cee4b7be021a95d037fc6a87ab9b4b2e49669e88",
+      "devtools/qualify_1iep_representation.py": "22a7d698e5835c71c888f67f644da167516a59e54eb981502e2550eed7cfa0df",
+      "devtools/qualify_1iep_root_order.py": "8462778cab749081abf923905709015623c2b1d3885d935519e2fd695e22331a",
+      "devtools/qualify_5x72_occupancy.py": "c7fb2ee9723c956d29b6c58b594d542e559c80cbce13ae5a663a2aa5f5c6e762",
+      "devtools/qualify_5x72_reciprocal.py": "88d22ec55c48b384bbe7bf770683ec17b843f0eb158389db4074c0db3091b4a7",
+      "devtools/qualify_5x72_root_order.py": "e6439e467e65f2717df5f7babacf9e0e35b06d1cd61f0696c2ee05eccbd34db2",
+      "devtools/qualify_chemical_templates.py": "18532b6419054f85f636e37ea829fe322f68a129910447d58bb327780b349a85",
+      "devtools/qualify_named_types.py": "d74e28984e837a4c583136560496e57411a4ea191c1a78e46f791e9061b65191",
+      "dockingmt/__init__.py": "07f71ed5cf3914d2e4cfbf35c43a7ea8b69497effd4dc8aa6336ae30e61a2359",
+      "dockingmt/_argdigest.py": "e76d59bca5d24f3df78b4c3b361375a82236d95ac102218a615a48bb3555b6a7",
+      "dockingmt/_depdigest.py": "c996d85d61ef70230b64c0a33bd69ea78e24c3c3148100f69d158ffe90d9ee36",
+      "dockingmt/_private/__init__.py": "4f23e529394a0c60adaca014f6852e07e108e6e826973d256b254e9e9e2f5cc0",
+      "dockingmt/_private/argdigest/__init__.py": "550f136bb66a889c4bdd34997d2925aee7aa2e95b359554e98f936927f39fea4",
+      "dockingmt/_private/argdigest/registry.py": "bb2c2460c37ba9029d052e4567be54a5118d07215b9be2073437303db023b9f1",
+      "dockingmt/_private/artifacts.py": "750981bba46eccf57f085a099305574f4b19afa891892259709cbc1f49bebd2e",
+      "dockingmt/_private/conversion.py": "48ebfa6c9b45fafe1f0cfbf60c176d46df4c1d4636b4bcd6e2d7b88119eb99cf",
+      "dockingmt/_private/serialization.py": "f138c1f5dcdc5ff67ce5ac15df7c762ffefc6286a627e6859b9980e39ffc0680",
+      "dockingmt/_private/smonitor/__init__.py": "af179622d2bd19e0a4178f03624526d46ff24b047f2ca357b9d85024b34a9ce7",
+      "dockingmt/_private/smonitor/catalog.py": "14b214b11fadd0678085507ccc295e1a2e0905356d8ac1732aff4c8ddb984b7b",
+      "dockingmt/_private/smonitor/emitter.py": "83af0b66e89522f9732bc97c53bd73de551646cafcb758637d2c2e545b877a56",
+      "dockingmt/_private/smonitor/meta.py": "7a1d95d8be1b37238dff60af83e87649331037366512e2e7b4fa218c6c61cafb",
+      "dockingmt/_private/smonitor/warnings.py": "8130bc9008281d0f65f491b279a37536d3a2de5a7d86c3027e28dbbb69b6b950",
+      "dockingmt/_private/vina_records.py": "ec13749e8410ca16bd3ad25ef6cb5e39ea8dc9af80fb6d2f3b3749c5d16fdc59",
+      "dockingmt/_pyunitwizard.py": "ced289b4e5423e80df232daac8916263995aafdbf20d06e73690599249d9e96b",
+      "dockingmt/_smonitor.py": "830e3d288fe35a84ea283d0888799b72707ee0825b7f673162d79a791703a9d2",
+      "dockingmt/_version.py": "c45540456d8e07a49efe524dab6a784dfabdbe329829ad4ece1b3cd7e7e1cdf9",
+      "dockingmt/aggregation.py": "d033c3a8bbfbd4e44ffa34eaee6901f5a30efe95fa3b45e60d5d849ad1945ae5",
+      "dockingmt/batch.py": "01d7cfb44320c8d6ba2ad04c847093d0e7105458bab975edbc606d24d4cd37f2",
+      "dockingmt/core/__init__.py": "6a6218f01c453e7973578f8aec19da42d02147fc603c401c3908ee00d0e1b8fa",
+      "dockingmt/core/_scores.py": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136",
+      "dockingmt/core/audit.py": "191d9c82936fada14761ccdae0d95ba46b17fdeb22c2cbf2e348554cb5d4cab3",
+      "dockingmt/core/outcome.py": "d16cefba9c2a6f7057201a30fffde04d78eb7a3f55f3ff5e3c60a6600339fb04",
+      "dockingmt/core/pose_audit.py": "de6ecac9713d6a96349e8b42884b7ddfa68d6c8a3440792fde41adad38180908",
+      "dockingmt/core/problem.py": "418c5e4ecfd6517870c0fb76162b70760b8111120e9eab8e83d5ed509751c502",
+      "dockingmt/core/protocol.py": "bdcefe43239851abaaf19ec67a5ddb1336617b4ceba05545d497793eaa6abc70",
+      "dockingmt/core/results.py": "d54247fa7487ccb1574cbc8c66021244a3b33d3de643cc16727bc6d7d6cf77d7",
+      "dockingmt/core/search_domain.py": "e5bf0149a271ac4fa0b1d619f8e7f8e17aeed1316f86d1367fff64a6a29c854e",
+      "dockingmt/dock.py": "25ffc2190e5410e187e1165b912fcf2b6c4274d7e975c00e918283c96b52f256",
+      "dockingmt/engines/__init__.py": "07108a1391a34a122f4a9c9991db911a1b8f0fde9a42a828c9418a1a7ebcadf9",
+      "dockingmt/engines/_vina_scoring.py": "e49a50fd48fc28af6a440961e95da6c23fcabd86bbaf865d5e5d86df5cd341bb",
+      "dockingmt/engines/base.py": "127fc3393b37f2d173d768eb926295b911c8160038ed524da5896b35d89f83cc",
+      "dockingmt/engines/vina.py": "068f33407d2346330ad25c926a428c27ec7a3556d021602dd8978733e41ad3fa",
+      "dockingmt/evaluation.py": "417189f02e434275ff3b6fb182e7bea22bb6966deb4e9fcdf4316fff36de5d23",
+      "dockingmt/preparation/__init__.py": "ad1708354f51a1283fc98667c6abdea944ed8a7d26f79ee0ce03347b4509850f",
+      "dockingmt/preparation/_molsys.py": "7b051fff1b9ba3af3ac3b3e6075101923125ee2a73a912e0ff4c405b8f12fc5b",
+      "dockingmt/preparation/_stages.py": "e379ea198cc0d85d9d0769ceb048d6bfa6e3ae1797baac69639310b82aff419a",
+      "dockingmt/preparation/_temporary_torsions.py": "2c7afa65e08b5e09705bffee5ff2184e0c9c77dd425a1d279e68940e6ab938b0",
+      "dockingmt/preparation/_typing.py": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2",
+      "dockingmt/preparation/assessment.py": "5f8d3fe16c76ee401bdaaf94ad7714d1727c2732d48f72586fa95fc22d8eaaf8",
+      "dockingmt/preparation/charges.py": "b23815cf64791c42bc5e7577f540b56deaeddb6ee6e12ad288824b7c8a4773b8",
+      "dockingmt/preparation/ligand.py": "e73e8f1760df7c2f0490df3e68777b577812a67c2bfc6467a97b4f47d0f583a7",
+      "dockingmt/preparation/receptor.py": "e7bc80c17b76bcb962454a255d1ab6d62c340ba8c19116ea22ea4c35c673da52",
+      "dockingmt/score.py": "6b05e5d92f03732e2280a4ca160d5b6e8bcf28b2b940f779ea84bd08dc00d670",
+      "dockingmt/view.py": "427e4ba1dae9273e21d6f04148d21954284caa8d07e6208e97b9411766653da6",
+      "dockingmt/viewer/__init__.py": "926524953c4cf37039415eaa5d36646e00580cffb7acb1e24deb0b9c7fd6d601"
+    },
+    "producer_versions": {
+      "argdigest": "0.15.0+1.g5c6711e",
+      "molsysmt": "0.22.4+215.g5bd893c85",
+      "pyunitwizard": "0.28.1+3.g2ab37a5",
+      "rdkit": "2026.3.1",
+      "vina": "1.2.7"
+    },
+    "provider_native_artifacts": {
+      "/tmp/dockingmt-receptor-provider-5bd893c/molsysmt/_rust.abi3.so": "c535c7d2f0e2a92b6ebf8298a60b19e4b5555467b4aa087e9563c6760619827e"
+    },
+    "provider_source_sha256": {
+      "molsysmt/_private/autodock_assignment.py": "5a20f0cf61860c3d21b89ca502409541294adabb9d4e0aae42a90c0b7aec1c9e",
+      "molsysmt/_private/ctfile.py": "2890e4e55cdca0eb86d8cfb3fc91dd56795419c60528dedcbef8f97df79b7f34",
+      "molsysmt/_private/fixed_hydrogens.py": "daec5ea88b3c24a24b6d9c747b51e6f3388de3cafc36936bbff96ab1c4348fbb",
+      "molsysmt/_private/partial_charges.py": "381ba74b24b5596764c2b1a2ab4844292d5c9e1fd447f70480771ad9484f97c9",
+      "molsysmt/_private/pdbqt.py": "28275bfb6fc17d5658f4acafeec5cb486dad250738ade184a5339d4c6b782684",
+      "molsysmt/_private/pdbqt_writer.py": "ee618eadb1893d6dcf8a9075feb700624bc701e28037e44c78cb22f33447f0cf",
+      "molsysmt/basic/add.py": "8f6773f884697a6bc1c0726e7007e37f1f70051cc79fabef466b63024e825999",
+      "molsysmt/basic/set.py": "3bc818b71bbecaf9d0a382b3c36e4b84ad4b0d6073449d18d9dc8f3a3aaaebd1",
+      "molsysmt/build/add_missing_hydrogens.py": "86b34ffe0b7b1b6e81b7262c83e5ff31f0e021f0fa94326037d47ea1f479dc8c",
+      "molsysmt/form/file_pdb/to_molsysmt_MolSys.py": "8b43aebec29822e145d19b76c9bb2286eedfbbaa9ed304a11ee65a83f23c327e",
+      "molsysmt/form/file_sdf/to_molsysmt_MolSys.py": "d75cccb5a19fdb6a14165a0f1bdd4dba99fc2965eff7998aa2e3d28f72000861",
+      "molsysmt/form/molsysmt_MolSys/add.py": "51f748fd887600ef651c1eb4a583d9060adfbc3d9bb3b5dd3510db79b5bda239",
+      "molsysmt/form/molsysmt_MolSys/to_string_pdbqt_text.py": "c019d4e986a59567911a35d9c0efbc83093c7e991fb79cdc8ce5cbc592a04a5a",
+      "molsysmt/form/rdkit_Mol/to_molsysmt_MolSys.py": "c87f171c6d92aa491aded2423da51c709a218243c4468789c444b726df74bd0e",
+      "molsysmt/native/molsys.py": "eea64319602c904324ecd212abe64add54ed0714832c45f0d412082635885e84",
+      "molsysmt/native/structures.py": "c63cb8e45ab65e11c9923675c47a2a439137b7ef068071736911cc57fca51f81",
+      "molsysmt/native/topology.py": "2a08c1f8d7444ac8da2ae2bcdcf2ea4c5a1e1b1d1d6f7eed90a8f30e426dc6bd",
+      "molsysmt/structure/get_rmsd.py": "b8f6cae8afbefc5ebe19147b208a540f235d630857c30bed85cdf2f66af4beca",
+      "molsysmt/topology/get_rigid_fragments.py": "02e9cafe7d2a13d008c3145542f56ae5e840fb9946a5f8e3ef3a2d1c7eb1f980",
+      "molsysmt/topology/get_rotatable_bonds.py": "e0d074a0c38e93e4000b1548c386ac512a598f8c0ca8a346e7a3cdf3a8eed7b7"
+    },
+    "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90"
+  },
+  "schema": "dockingmt.5x72_reciprocal_checkpoint@1",
+  "searched_ligand": "p69",
+  "serialization_control": {
+    "all_49_historical_original_vs_sham_fixed_eight_component_sets_equal": true,
+    "all_49_historical_sham_pose_coordinate_component_sets_equal": true,
+    "guard": "tests/test_5x72_reciprocal_workflow.py::test_saved_reciprocal_matrix_and_all_historical_serialization_controls",
+    "unchanged_protein_atom_fields": 1481
+  },
+  "summary": [
+    {
+      "cells": 6,
+      "first_recovered": 0,
+      "lowest_fixed_score_recovered": {
+        "occupied": 0,
+        "sham": 0
+      },
+      "order": "native",
+      "receptor": "sham",
+      "returned_poses": 25,
+      "returned_set_recovered": 0
+    },
+    {
+      "cells": 6,
+      "first_recovered": 0,
+      "lowest_fixed_score_recovered": {
+        "occupied": 0,
+        "sham": 0
+      },
+      "order": "first_fixed",
+      "receptor": "sham",
+      "returned_poses": 24,
+      "returned_set_recovered": 0
+    },
+    {
+      "cells": 6,
+      "first_recovered": 0,
+      "lowest_fixed_score_recovered": {
+        "occupied": 0,
+        "sham": 0
+      },
+      "order": "native",
+      "receptor": "occupied",
+      "returned_poses": 15,
+      "returned_set_recovered": 4
+    },
+    {
+      "cells": 6,
+      "first_recovered": 0,
+      "lowest_fixed_score_recovered": {
+        "occupied": 0,
+        "sham": 0
+      },
+      "order": "first_fixed",
+      "receptor": "occupied",
+      "returned_poses": 14,
+      "returned_set_recovered": 3
+    }
+  ],
+  "temporary_resources": {
+    "owner": "DockingMT #17/#6/#33 reciprocal control",
+    "prefix": "/tmp/dockingmt-5x72-reciprocal-",
+    "removed": "Managed notebook kernel directory after shutdown.",
+    "retained": "Four original completed arms/logs, source preflight, JUnit, notebook/checkpoint scripts and GitHub receipts; shared environment, source archives and sibling worktrees preserved.",
+    "review_or_removal_condition": "Next reference-score/provider qualification or owning issue closure; retain original cells for recovery."
+  },
+  "total_scientific_fixed_evaluations": 254
+}

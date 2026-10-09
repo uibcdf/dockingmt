@@ -236,3 +236,15 @@ recovered pose in each of the seven sham sets that already contain one.
 Search sampling and within-set score preference are reported separately;
 no automatic torsion/root policy changes. The earlier P69 recovery problem and
 broader scientific/provider acceptance remain open, so #6 stays partial.
+
+## Reciprocal fixed-P59/P69 control — 2026-10-09
+
+The [reciprocal workflow](../validation/5x72_reciprocal_workflow.md) searches
+P69 against protein-only sham and fixed experimental P59, preserving its two
+cuts, both original ROOT orders and all other declared inputs. Any-returned
+recovery changes 0/12 to 7/12, including all six occupied effort-8 cells; first
+recovery stays zero. Both frozen-score diagnostics select a nonrecovered pose
+in every returned set containing a recovered geometry. All 78 new poses and
+49 historical serialization controls are retained. This limits the earlier P59
+inference and motivates separate reference-score/preparation work; no automatic
+torsion, ROOT or ranking policy changes, and #6 remains partial/open.

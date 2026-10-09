@@ -71,28 +71,33 @@ def atom_fields(text):
     ]
 
 
-def prepare_receptors(*, reference_snapshot=None):
+def prepare_receptors(*, companion='p69', reference_snapshot=None):
     """Compose prepared rigid records against an explicitly verified reference.
 
     Production defaults to the authenticated historical snapshot. Portable
-    guards supply prepare_cases' independently verified current-runtime P69
+    guards supply prepare_cases' independently verified current-runtime companion
     record, including that runtime's dataframe dtype annotations.
     """
+    stereo = {'p59': 'R', 'p69': 'S'}[companion]
     ref = msm.convert(
         next(
-            iter(Chem.SDMolSupplier(str(DATA / '5x72_ligand_p69.sdf'), removeHs=False))
+            iter(
+                Chem.SDMolSupplier(
+                    str(DATA / f'5x72_ligand_{companion}.sdf'), removeHs=False
+                )
+            )
         ),
         to_form='molsysmt.MolSys',
     )
     before = snapshot(ref)
     if reference_snapshot is None:
-        reference_snapshot = load_baseline()['cases']['p69']['reference_snapshot']
+        reference_snapshot = load_baseline()['cases'][companion]['reference_snapshot']
     assert before == reference_snapshot
     addition = msm.build.add_missing_hydrogens(ref, return_report=True, **HYDROGEN)
     source = addition['molecular_system']
     assert msm.get(source, n_atoms=True) == 39
     np.testing.assert_allclose(xyz(source)[:24], xyz(ref), rtol=0, atol=1e-12)
-    assert msm.get(source, element='atom', atom_stereochemistry=True)[7] == 'S'
+    assert msm.get(source, element='atom', atom_stereochemistry=True)[7] == stereo
     assert snapshot(ref) == before
     charged = msm.build.assign_partial_charges(source, **CHARGE)
     charged_before = snapshot(charged)
@@ -265,7 +270,9 @@ def fixed_pair(pose, control, receptors):
     return scored
 
 
-def observe(source, case, preparation, *, receptor, order, seed, exhaustiveness):
+def observe(
+    source, case, preparation, *, receptor, order, seed, exhaustiveness, ligand='p59'
+):
     before = snapshot(source)
     control = case['controls'][order]
     result = dmt.dock(
@@ -292,7 +299,7 @@ def observe(source, case, preparation, *, receptor, order, seed, exhaustiveness)
     receptors = {k: v['pdbqt'] for k, v in preparation['receptors'].items()}
     scores = [fixed_pair(p, control, receptors) for p in result.poses]
     return {
-        'ligand': 'p59',
+        'ligand': ligand,
         'receptor': receptor,
         'order': order,
         'result': detached_record(result.to_dict()),

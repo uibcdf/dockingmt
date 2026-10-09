@@ -293,3 +293,20 @@ dtype annotations. Both references retain independently checked experimental
 identity/coordinates. The saved producer and all input/scoring bytes stay
 immutable; a new inferred-string regression tests this boundary without treating
 scientific preparation or the broader format profile as qualified.
+
+## Reciprocal prepared occupancy and complete controls — 2026-10-09
+
+The [fixed-P59 reciprocal workflow](../validation/5x72_reciprocal_workflow.md)
+reuses the finite public native composition, rigid/tree writer, preparation and
+scoring operations while searching P69. It preserves all original protein atom
+fields, fixed P59 experimental heavy coordinates/R stereo, both P69 trees and
+the complete 78-new-pose/49-historical-pose populations. All 254 scientific fixed
+evaluations capture unchanged geometry and exact input bytes. Current-runtime
+references, including inferred strings, guard both fixture roles separately
+from strict historical source authentication.
+
+Provider #352/#353/#215, finite checked A/A restoration and their existing exit
+conditions remain. No new native reader/writer admission, general merger, sibling
+source change or chemical readiness is claimed. P69 returned-set recovery improves
+to 7/12 occupied, but first/frozen-lowest recovery stays zero; this preparation
+model still needs independent scientific assessment. #33 remains partial/open.

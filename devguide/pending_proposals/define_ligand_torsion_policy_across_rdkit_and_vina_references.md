@@ -266,3 +266,23 @@ strict production retains the historical snapshot. A regression reproduces the
 annotation change. The original scientific producer, archive and local capture
 remain unchanged; five corrected guards and 207 retained applicable boundaries
 give 212 local tests, and the corrected head requires fresh hosted CI.
+
+## Reciprocal fixed-P59 control — 2026-10-09
+
+The [prespecified reciprocal workflow](../validation/5x72_reciprocal_workflow.md)
+adds 24 P69 searches with the original two ROOT orders, same box/chemistry/cuts
+and matched receptor writing. Fixed experimental P59 changes any-returned P69
+recovery from 0/12 sham to 7/12 occupied, including all six occupied effort-8
+cells. First recovery remains 0/12 in both environments. All 78 new poses are
+evaluated unchanged in both receptor contexts; neither frozen diagnostic selects
+a recovered pose in the seven occupied sets containing one.
+
+All 49 historical P69 poses control original-vs-sham serialization. The reciprocal
+driver reuses the existing finite public composition/scoring/measurement tools;
+historical archives and producers stay immutable. Provider #352/#353/#215 and
+the checked finite A/A restoration retain their ownership/removal conditions.
+This differs from the earlier favorable P59 first-recovery result and rules out
+occupancy alone as a remedy for the measured P69 ranking discrepancy. A separate
+reference-geometry/local-score control must state H mapping and optimization
+policy before execution. No general ROOT, preparation, scoring or convergence
+policy is established; the proposal remains partial/open.
