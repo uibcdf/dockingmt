@@ -174,3 +174,40 @@ This is one rigid-environment model with generated H and declared charge/type
 assumptions. It cannot establish affinity, cooperativity, stereoselectivity,
 general ROOT/H/preparation policy, receptor relaxation, simultaneous docking,
 recovery probability or convergence. #17/#6/#33 remain partial/open.
+
+## Current-policy guard correction — 2026-10-09
+
+The original [CI 37990568260](https://github.com/uibcdf/dockingmt/actions/runs/37990568260)
+fails one reciprocal guard in each minor: 1,020 pass and the forced
+`future.infer_string=False` case raises `assignment destination is read-only`
+in the pinned provider's PDB COMPND name restoration. The guard unintentionally
+requires an optional legacy-string policy under Pandas 3 Copy-on-Write, beyond
+the ordinary runtime profile used by this experiment. The same failure is
+reproduced locally with Pandas 2.3.3, Copy-on-Write enabled and inferred strings
+disabled, through direct public PDB conversion; no search or scoring is involved.
+
+This is the already resolved
+[MolSysMT #349](https://github.com/uibcdf/molsysmt/issues/349): provider fix
+`eab7aeb79` uses a copied molecule-name array. Fresh origin source contains that
+fix, but the immutable original `5bd893c85` pin does not. No current-provider
+regression, new provider build or migration is inferred. #33 retains receiving
+qualification; the provider receives this additional old-pin evidence in #349.
+
+The portable guard now compares **current application string policy** (without
+changing it) and explicitly **inferred strings**. On local Pandas 2 these exercise
+object and string annotations; on hosted Pandas 3 they retain its supported
+ordinary profile. Each still checks the independent reference, R identity,
+protein fields and experimental heavy coordinates. No provider reader workaround,
+policy reset, silent xfail or scientific equivalence relaxation is introduced.
+
+Scientific producer `3b8258f8a34fbb32dc8d5d09207553bff4b47bf5`, its 24 searches,
+78 poses, 254 fixed evaluations, archive, notebook and original 218-test local
+checkpoint stay unchanged. The later test correction has its own source identity;
+fresh exact-head source CI is required and its terminal receipt belongs in owning
+issues separately from the failed run and original local capture.
+
+All six corrected reciprocal guards pass locally in 48.82 s. The unchanged
+212 applicable existing occupancy/boundary results remain valid, giving 218
+distinct currently applicable local tests. Lint, format, reporting/index/link,
+canonical-guide routing and diff checks pass; these later results do not rewrite
+the original pre-commit checkpoint.

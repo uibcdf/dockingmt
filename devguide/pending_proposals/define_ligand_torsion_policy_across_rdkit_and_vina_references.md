@@ -286,3 +286,10 @@ occupancy alone as a remedy for the measured P69 ranking discrepancy. A separate
 reference-geometry/local-score control must state H mapping and optimization
 policy before execution. No general ROOT, preparation, scoring or convergence
 policy is established; the proposal remains partial/open.
+
+The [dated guard correction](../validation/5x72_reciprocal_workflow.md#current-policy-guard-correction--2026-10-09)
+records the original hosted failure when forcing legacy strings under Pandas 3
+on the old scientific provider pin. MolSysMT #349 already owns the resolved
+COMPND Copy-on-Write defect. Current/inferred string guards preserve the accepted
+ordinary runtime and checked identity; original scientific bytes and checkpoint
+remain unchanged. Newer-provider qualification is a separate receiving task.

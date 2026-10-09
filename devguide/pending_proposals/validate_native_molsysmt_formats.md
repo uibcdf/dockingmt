@@ -310,3 +310,11 @@ conditions remain. No new native reader/writer admission, general merger, siblin
 source change or chemical readiness is claimed. P69 returned-set recovery improves
 to 7/12 occupied, but first/frozen-lowest recovery stays zero; this preparation
 model still needs independent scientific assessment. #33 remains partial/open.
+
+The [current-policy correction](../validation/5x72_reciprocal_workflow.md#current-policy-guard-correction--2026-10-09)
+keeps the original failed hosted receipt separate: a forced legacy-string guard
+exposes the already fixed MolSysMT #349 COMPND name assignment on the immutable
+5bd893c85 pin. Current default/inferred annotations pass the accepted ordinary
+profile. The newer copied-array provider implementation is inspected, not newly
+qualified; #33 retains that migration. No local reader workaround, sibling edit
+or rewrite of the original scientific evidence is made.

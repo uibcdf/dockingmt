@@ -4,6 +4,7 @@ import base64
 import gzip
 import itertools
 import json
+from contextlib import nullcontext
 
 import numpy as np
 import pandas as pd
@@ -65,9 +66,14 @@ def assert_evaluation(data, original, receptor):
     return history['scores']
 
 
-@pytest.mark.parametrize('infer_strings', [False, True])
-def test_fixed_p59_preserves_current_reference_and_original_protein(infer_strings):
-    with pd.option_context('future.infer_string', infer_strings):
+@pytest.mark.parametrize('string_policy', ['current', 'inferred'])
+def test_fixed_p59_preserves_current_reference_and_original_protein(string_policy):
+    policy = (
+        pd.option_context('future.infer_string', True)
+        if string_policy == 'inferred'
+        else nullcontext()
+    )
+    with policy:
         cases = prepare_cases()[1]
         preparation = prepare_receptors(
             companion='p59', reference_snapshot=cases['p59']['reference_snapshot']
