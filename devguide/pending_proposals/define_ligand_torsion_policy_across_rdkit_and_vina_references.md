@@ -293,3 +293,23 @@ on the old scientific provider pin. MolSysMT #349 already owns the resolved
 COMPND Copy-on-Write defect. Current/inferred string guards preserve the accepted
 ordinary runtime and checked identity; original scientific bytes and checkpoint
 remain unchanged. Newer-provider qualification is a separate receiving task.
+
+## Experimental-reference scores and fragment congruence — 2026-10-09
+
+The separately [prespecified reference diagnostic](../validation/5x72_reference_workflow.md)
+adds eight unchanged reference evaluations and compares all 156 saved poses
+using their 312 saved fixed evaluations. Both ROOT orders have exactly equal
+reference components. In the occupied context, P59's reference beats all 28
+retained poses; P69's reference is beaten by ten incorrect first-ranked poses
+among 29 retained poses. Its seven recovered poses remain 0.179..0.505 kcal/mol
+above the experimental-reference total. Evaluating that reference alone does
+not resolve P69 ordering.
+
+All 552 indexed heavy pairs are retained. Intrafragment differences, particularly
+in P69's central fragment (maximum 0.312 angstrom), show that selected rotations
+cannot reproduce every experimental pair distance exactly. This is not a
+recovery impossibility or causal/chemical assessment. No production torsion,
+H, preparation, scoring, optimization or comparability policy changes. A
+separate geometry/fixed-score-basin diagnostic needs its own accepted protocol.
+The original producer and scores survive the documented portable unit-roundoff
+guard correction. This issue remains partial/open.

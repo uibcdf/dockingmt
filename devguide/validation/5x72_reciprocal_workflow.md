@@ -12,6 +12,11 @@ precedes every new search and fixed evaluation. The
 [local checkpoint](data/5x72_reciprocal/checkpoint_2026-10-09.json) and
 [guards](../../tests/test_5x72_reciprocal_workflow.py) retain all populations.
 
+The separately prespecified [experimental-reference follow-up](5x72_reference_workflow.md)
+reuses these observations and original fixed evaluations. It adds eight fixed
+reference scores across both ligands and all 552 heavy-pair geometry records;
+this reciprocal archive and its original checkpoint remain unchanged.
+
 ## Preparation and controlled intervention
 
 P59 remains rigid at its original experimental heavy coordinates while P69

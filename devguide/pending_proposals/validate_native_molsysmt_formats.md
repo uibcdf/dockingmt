@@ -318,3 +318,22 @@ exposes the already fixed MolSysMT #349 COMPND name assignment on the immutable
 profile. The newer copied-array provider implementation is inspected, not newly
 qualified; #33 retains that migration. No local reader workaround, sibling edit
 or rewrite of the original scientific evidence is made.
+
+## Experimental-reference placement and geometry tools — 2026-10-09
+
+The [reference workflow](../validation/5x72_reference_workflow.md) extends this
+bounded consumer case through public detached copy/coordinate placement,
+distances and explicit-cut fragments against the same qualified source/native
+profile. Indexed chemical/H-parent checks precede placement on the original
+named topology; a direct preparation with regenerated names is explicitly
+rejected before scoring. Both original trees and prepared fields remain fixed.
+All eight new captured reference scores, 156 reused poses/312 saved evaluations
+and 552 independently checked heavy-pair records are retained. Current/inferred
+strings and pm/fs guard the portable slice; the documented last-digit unit
+correction preserves the original producer source and scientific archive.
+
+P69's score ordering remains scientifically limited despite exact ROOT control
+agreement. No native reader/writer replacement, provider update, fresh native
+build, general matching/placement adapter, readiness certificate or full
+installed-artifact/public admission is claimed. Existing provider ownership and
+removal conditions remain unchanged; #33 stays partial/open.

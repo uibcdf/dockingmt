@@ -248,3 +248,17 @@ in every returned set containing a recovered geometry. All 78 new poses and
 49 historical serialization controls are retained. This limits the earlier P59
 inference and motivates separate reference-score/preparation work; no automatic
 torsion, ROOT or ranking policy changes, and #6 remains partial/open.
+
+## Experimental-reference and explicit-fragment diagnostic — 2026-10-09
+
+The [reference workflow](../validation/5x72_reference_workflow.md) scores both
+experimental heavy geometries with declared generated H, both original ROOT
+orders and both saved receptors: eight fixed evaluations, no searches or
+optimization. All 156 historical returned poses and 312 saved evaluations remain
+in the comparison. P69's occupied reference is still beaten by ten nonrecovered
+first-ranked poses, whereas P59's occupied reference beats every retained pose.
+Public explicit-cut fragments and independently checked distances retain all
+552 heavy pairs. Their internal differences limit exact experimental congruence
+under the existing cuts, without establishing recovery failure or a new torsion
+choice. This supplies evidence for separately prespecified geometry/score-basin
+work, not an automatic classifier, optimization API or default. #6 stays partial.
