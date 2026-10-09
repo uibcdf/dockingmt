@@ -1,6 +1,6 @@
 # Pinned AutoDock Vina examples
 
-These ten unmodified example files come from
+These fifteen unmodified example files come from
 [`ccsb-scripps/AutoDock-Vina` commit `3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645`](https://github.com/ccsb-scripps/AutoDock-Vina/tree/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example).
 The upstream repository distributes them under Apache License 2.0; see its
 [`LICENSE`](https://github.com/ccsb-scripps/AutoDock-Vina/blob/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/LICENSE).
@@ -21,6 +21,17 @@ allowing `git diff --check` to validate the surrounding source changes.
 | `5x72_ligand_p59.pdbqt` | `mulitple_ligands_docking/solution/5x72_ligand_p59.pdbqt` | `67cf462419372e365b8129bc1047f94598f3a1f3c495375781c1c1100e95c92e` |
 | `5x72_ligand_p69H.sdf` | `mulitple_ligands_docking/solution/5x72_ligand_p69H.sdf` | `637a992134b2038a0ea3cff0c1f8355ea232720c9eae5347100b7186170fcdf1` |
 | `5x72_ligand_p69.pdbqt` | `mulitple_ligands_docking/solution/5x72_ligand_p69.pdbqt` | `276a991d56ddc7778ed36c10aba6b7231de00b87294a7f77e2fceb9a96ae08e5` |
+
+| `5x72.pdb` | `mulitple_ligands_docking/solution/5x72.pdb` | `3694cbd211e444f0a56150be2fe8ca7f7ed584a7ca448c40d45699ac80490e77` |
+| `5x72_receptor.pdbqt` | `mulitple_ligands_docking/solution/5x72_receptor.pdbqt` | `25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6` |
+| `5x72_receptor.box.txt` | `mulitple_ligands_docking/solution/5x72_receptor.box.txt` | `e1e87f640b1976109f7358e871e8e63b6f965ad7e76a54b9e848c10518ac3354` |
+| `5x72_ligand_p59.sdf` | `mulitple_ligands_docking/solution/5x72_ligand_p59.sdf` | `a476b0d62652664596801fc88024fbd756294e9e2faf9234c8d90c2288aaa373` |
+| `5x72_ligand_p69.sdf` | `mulitple_ligands_docking/solution/5x72_ligand_p69.sdf` | `e8c2df94d37439aa558f47eee8f20504d01d11b2d974bbb3cf3d9675a88b1ea1` |
+
+The original 24-heavy-atom 5X72 ligand SDFs match the crystal PDB instances;
+the 39-atom hydrogenated SDFs contain different prepared geometries near the
+origin. The [independent-complex workflow](../../../devguide/validation/5x72_root_order_workflow.md)
+keeps these roles separate. Its pinned box file controls the search region.
 
 The tests check these digests before use. Positional atom alignment is permitted
 only when a PDBQT coordinate has exactly one source atom of the same element

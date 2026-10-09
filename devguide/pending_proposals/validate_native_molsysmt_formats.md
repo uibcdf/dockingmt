@@ -253,3 +253,17 @@ claimed qualified. PDB reader policy #304, export/name projection #223,
 environmental H refinement #323 and symmetry correspondence #310 retain their
 provider owners. General scientific preparation, installed artifacts and hosted
 qualification remain open, so this issue remains partial.
+
+## Original 5X72 crystal-reference dialect — 2026-10-09
+
+The [independent-complex challenge](../validation/5x72_root_order_workflow.md)
+distinguishes the existing supported hydrogenated prepared SDFs from the original
+24-heavy-atom experimental SDFs. The latter have unversioned counts lines and
+hit the existing native-reader boundary. Exact unchanged bytes, SHA-256 digests,
+native refusal and explicit RDKit reference consumption are reported in
+[MolSysMT #215](https://github.com/uibcdf/molsysmt/issues/215#issuecomment-6080146217).
+Graph/element/stereo correspondence and exact coordinate agreement with independent
+PDB instances are guarded without modifying the files or inventing experimental H.
+This adds evidence for the existing dialect decision; it does not expand the native
+SDF admission/readiness claim. #33 remains partial/open, with the provider-owned
+exit condition unchanged.

@@ -194,3 +194,33 @@ Strict-profile controls reproduce the original saved cases exactly; science
 stays at producer `27a18ef` without new searches. Five current guards pass and
 the unchanged 62 boundary cases remain applicable (67 total). The corrected
 head requires fresh exact-head CI; this issue remains partial.
+
+## Independent 5X72 ROOT-order challenge — 2026-10-09
+
+The [prespecified plan](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6080145389)
+adds an independent complex after the 1IEP conformer controls. The
+[workflow](../validation/5x72_root_order_workflow.md), raw 24-cell/99-pose archive,
+executed saved-result notebook and `tests/test_5x72_root_order_workflow.py` retain
+both P59/P69 inputs, original experimental references and all explicit
+written/source/reference mappings. The other experimental ligand is absent in
+each search; this does not reproduce simultaneous-ligand docking.
+
+Keeping the first ROOT atom/origin fixed and reversing the other eleven ROOT
+lines gives first-pose recovery **0/6 in all four arms**. P59 returned sets recover
+**3/6 native, 4/6 first-fixed**; P69 returned sets recover **0/6 in both orders**.
+All exhaustiveness-8 P59 cells include a near-reference pose, but it is not ranked
+first. The prepared hydrogenated SDF geometries are not experimental coordinates;
+the original heavy-only SDFs and independent PDB instances supply the references.
+The original unversioned crystal SDF dialect is reported in
+[MolSysMT #215](https://github.com/uibcdf/molsysmt/issues/215#issuecomment-6080146217),
+with an explicit existing RDKit reference bridge, unchanged fixture bytes and no
+sibling source edits. The pinned solution box controls the experiment.
+
+These observations refute adopting the favorable original 1IEP ROOT permutation
+as a generally supported recovery policy. They do not isolate occupancy,
+preparation, conformer or ranking causes, or establish affinity/stereoselectivity,
+convergence or recovery probability. Source/native profile and historical producers
+remain unchanged; local guards and hosted source CI qualify software separately
+from the scientific observations. The proposal remains partial/open. Control
+experimental co-occupancy and distinguish sampling from ranking in subsequent
+work before changing defaults.

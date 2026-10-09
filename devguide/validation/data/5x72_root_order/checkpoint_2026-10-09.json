@@ -1,0 +1,225 @@
+{
+  "schema": "dockingmt.5x72_root_order_checkpoint@1",
+  "date": "2026-10-09",
+  "capture_stage": "completed local candidate before commit/hosted CI; owning issues retain later exact-head state",
+  "owner_issues": [
+    "uibcdf/dockingmt#17",
+    "uibcdf/dockingmt#6",
+    "uibcdf/dockingmt#33"
+  ],
+  "plan": "https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6080145389",
+  "provider_feedback": "https://github.com/uibcdf/molsysmt/issues/215#issuecomment-6080146217",
+  "consumer_base_commit": "357cd87f273360a30af4fe67f0a5df7b9b21a4e7",
+  "evidence": {
+    "path": "devguide/validation/data/5x72_root_order/audit_2026-10-09.json.gz",
+    "gzip_sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e",
+    "json_sha256": "9dea3e79ec9126c2057037d6db95eccf5e8f5c066acb3d4d2b867c3507758ea2",
+    "compressed_bytes": 1030068,
+    "new_matrix_searches": 24,
+    "saved_poses": 99,
+    "historical_cells_reused": 0,
+    "fixed_scores": 0,
+    "separate_new_workflow_live_guards": 2
+  },
+  "counts": {
+    "p59/native": {
+      "cells": 6,
+      "first_recovered": 0,
+      "set_recovered": 3
+    },
+    "p59/first_fixed": {
+      "cells": 6,
+      "first_recovered": 0,
+      "set_recovered": 4
+    },
+    "p69/native": {
+      "cells": 6,
+      "first_recovered": 0,
+      "set_recovered": 0
+    },
+    "p69/first_fixed": {
+      "cells": 6,
+      "first_recovered": 0,
+      "set_recovered": 0
+    }
+  },
+  "local_gates": {
+    "live": {
+      "path": "/tmp/dockingmt-5x72-live.xml",
+      "sha256": "1320384053b36d843cfd65304b059af39493a878a67d29f3d8aca05f213e027e",
+      "tests": 4,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 36.026
+    },
+    "evidence": {
+      "path": "/tmp/dockingmt-5x72-evidence.xml",
+      "sha256": "19db326fcb0aeb2a8021125b6b6f31b34e96000d7e4b2aa8a8b80ef38907654c",
+      "tests": 1,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 5.682
+    },
+    "boundaries": {
+      "path": "/tmp/dockingmt-5x72-boundaries.xml",
+      "sha256": "6acfe1a531a948ae3d1fc77aefecc9989aafbddad943f0362bf3551e3f1b21f0",
+      "tests": 150,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "seconds": 288.191
+    }
+  },
+  "total_distinct_local_tests": 155,
+  "test_source_sha256": {
+    "tests/test_5x72_root_order_workflow.py": "259c1608b64afc48b54be6350ecbebca9e95db8628590bdcc66ef1340250b40a"
+  },
+  "notebook": {
+    "path": "devguide/validation/5x72_root_order_workflow_2026-10-09.ipynb",
+    "sha256": "7bc063b20340d4aa3e6363ec8b23c57a29bffaa8d06d331865abd75730cd8374",
+    "executed_cells": 3,
+    "scope": "24 saved cells/99 poses, actual captured input identities and original-reference pm/fs RMSD; no new searches",
+    "kernel_shutdown_and_managed_directory_cleanup_verified": true
+  },
+  "suite_refresh": [
+    {
+      "repository": "uibcdf/dockingmt",
+      "initiative": "",
+      "root": "/home/liliana/repos@uibcdf/dockingmt",
+      "branch": "main",
+      "head": "357cd87f2733",
+      "upstream": "origin/main",
+      "ahead": 0,
+      "behind": 0,
+      "worktree": [],
+      "error": "",
+      "healthy": true,
+      "state": "current"
+    },
+    {
+      "repository": "uibcdf/molsysmt",
+      "initiative": "stabilization",
+      "root": "/home/liliana/repos@uibcdf/molsysmt",
+      "branch": "main",
+      "head": "8ae160fc93ed",
+      "upstream": "origin/main",
+      "ahead": 0,
+      "behind": 23,
+      "worktree": [],
+      "error": "",
+      "healthy": false,
+      "state": "attention"
+    },
+    {
+      "repository": "uibcdf/argdigest",
+      "initiative": "stabilization",
+      "root": "/home/liliana/repos@uibcdf/argdigest",
+      "branch": "main",
+      "head": "5c6711ebfe23",
+      "upstream": "origin/main",
+      "ahead": 0,
+      "behind": 3,
+      "worktree": [],
+      "error": "",
+      "healthy": false,
+      "state": "attention"
+    },
+    {
+      "repository": "uibcdf/molsysviewer",
+      "initiative": "stabilization",
+      "root": "/home/liliana/repos@uibcdf/molsysviewer",
+      "branch": "main",
+      "head": "c046fca173f5",
+      "upstream": "origin/main",
+      "ahead": 0,
+      "behind": 65,
+      "worktree": [],
+      "error": "",
+      "healthy": false,
+      "state": "attention"
+    }
+  ],
+  "provider_context": {
+    "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+    "selected_source_hashes": {
+      "molsysmt/_private/autodock_assignment.py": "5a20f0cf61860c3d21b89ca502409541294adabb9d4e0aae42a90c0b7aec1c9e",
+      "molsysmt/_private/ctfile.py": "2890e4e55cdca0eb86d8cfb3fc91dd56795419c60528dedcbef8f97df79b7f34",
+      "molsysmt/_private/partial_charges.py": "381ba74b24b5596764c2b1a2ab4844292d5c9e1fd447f70480771ad9484f97c9",
+      "molsysmt/form/file_pdb/to_molsysmt_MolSys.py": "8b43aebec29822e145d19b76c9bb2286eedfbbaa9ed304a11ee65a83f23c327e",
+      "molsysmt/form/file_sdf/to_molsysmt_MolSys.py": "d75cccb5a19fdb6a14165a0f1bdd4dba99fc2965eff7998aa2e3d28f72000861",
+      "molsysmt/form/rdkit_Mol/to_molsysmt_MolSys.py": "c87f171c6d92aa491aded2423da51c709a218243c4468789c444b726df74bd0e",
+      "molsysmt/structure/get_rmsd.py": "b8f6cae8afbefc5ebe19147b208a540f235d630857c30bed85cdf2f66af4beca",
+      "molsysmt/topology/get_rigid_fragments.py": "02e9cafe7d2a13d008c3145542f56ae5e840fb9946a5f8e3ef3a2d1c7eb1f980",
+      "molsysmt/topology/get_rotatable_bonds.py": "e0d074a0c38e93e4000b1548c386ac512a598f8c0ca8a346e7a3cdf3a8eed7b7"
+    },
+    "preserved_native_artifacts": {
+      "/tmp/dockingmt-receptor-provider-5bd893c/molsysmt/_rust.abi3.so": "c535c7d2f0e2a92b6ebf8298a60b19e4b5555467b4aa087e9563c6760619827e"
+    },
+    "producer_versions": {
+      "argdigest": "0.15.0+1.g5c6711e",
+      "molsysmt": "0.22.4+215.g5bd893c85",
+      "pyunitwizard": "0.28.1+3.g2ab37a5",
+      "rdkit": "2026.3.1",
+      "vina": "1.2.7"
+    },
+    "argdigest_checkout_input": "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e",
+    "argdigest_source_commit": "57447cc4ec1f7ce85078f8a939892efd075bc919",
+    "viewer_py314_source": "ec4c71e574d798b7c8675b7e7e983da878ce9889",
+    "new_native_or_installed_artifact": "none"
+  },
+  "input_sha256": {
+    "5x72.pdb": "3694cbd211e444f0a56150be2fe8ca7f7ed584a7ca448c40d45699ac80490e77",
+    "5x72_ligand_p59.sdf": "a476b0d62652664596801fc88024fbd756294e9e2faf9234c8d90c2288aaa373",
+    "5x72_ligand_p59H.sdf": "ef26c05a198a16972efcf8baae644f6b38fd953561f130ee230626088766b08a",
+    "5x72_ligand_p69.sdf": "e8c2df94d37439aa558f47eee8f20504d01d11b2d974bbb3cf3d9675a88b1ea1",
+    "5x72_ligand_p69H.sdf": "637a992134b2038a0ea3cff0c1f8355ea232720c9eae5347100b7186170fcdf1",
+    "5x72_receptor.box.txt": "e1e87f640b1976109f7358e871e8e63b6f965ad7e76a54b9e848c10518ac3354",
+    "5x72_receptor.pdbqt": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+  },
+  "reference_policy": {
+    "experimentally_measured_heavy_atoms": 24,
+    "experimental_H_reference": "absent; not manufactured",
+    "mapping": "declared first-24 indexed heavy graph/element/stereo, independently checked named PDB instance",
+    "RDKit_crystal_SDF_bridge": "explicit; unversioned original bytes remain unchanged",
+    "PDB_bond_inference": false,
+    "other_experimental_ligand": "absent from each search"
+  },
+  "preflight_and_refuted_paths": [
+    "Prepared hydrogenated 5X72 SDFs are near-origin conformations, not experimental reference geometry; original crystal SDF/PDB instances used instead.",
+    "Current online tutorial box snippet contains 1IEP coordinates; authenticated 5X72 solution box and its geometry control the experiment.",
+    "Native original crystal SDF conversion refuses unversioned CTAB counts; no markers repaired and no implicit fallback. Explicit existing RDKit reference bridge selected; provider #215 receives exact evidence.",
+    "Exploratory remove_hs keyword on MolSysMT convert was refused by ArgDigest; removed. Explicit RDKit reference bridge is used rather than inventing a provider keyword.",
+    "Exploratory atom_type get omitted element=atom and was refused by provider; corrected to the documented element axis.",
+    "Pre-search fixture check compared preserved string group IDs with integers; corrected to exact string identity before any matrix search. All 24 matrix cells then completed once with retained per-cell checkpoints."
+  ],
+  "administrative_gates": {
+    "ruff_check": "passed",
+    "ruff_format": "passed, 136 files",
+    "report_indexes": "regenerated and checked",
+    "component_guide": "passed; synchronized root copies not authored locally",
+    "changed_local_links": "checked in final local closeout",
+    "input_source_native_and_archive_digests": "passed",
+    "diff_check": "passed"
+  },
+  "temporary_resources": {
+    "owner": "DockingMT #17/#6 independent 5X72 challenge",
+    "prefix": "/tmp/dockingmt-5x72-",
+    "retention": "Original upstream files (including current RCSB mmCIF separate from pinned fixtures), four completed per-arm originals/logs, source/native profile, JUnit, notebook/checkpoint tools and local/remote receipts retained for scientific follow-up. Managed kernel directory removed. No sibling/shared/human cleanup.",
+    "review_or_removal_condition": "Revisit at next occupancy/ranking control or owning issue closure; remove only obsolete task resources."
+  },
+  "limits": [
+    "Each ligand is searched independently, with the other experimental occupant absent; not simultaneous-ligand docking.",
+    "One independent complex with two chemically related enantiomers; no dataset recovery probability or convergence claim.",
+    "Prepared SDF geometries are not crystal coordinates. Explicit indexed graph/element/stereo checks establish this bounded reference map only.",
+    "No experimental H reference is manufactured. Public MolSysMT RMSD uses the 24-heavy-atom population, independently recomputed from all saved poses.",
+    "Eleven ROOT lines reversed while the first source atom 7/origin remains fixed. No default root, torsion, conformer or representation policy is selected.",
+    "Original prepared coordinates lie outside the box. Search admission does not imply fixed-input scoring admission; no such score is requested.",
+    "External receptor and explicit preparation decisions remain unassessed; energies do not establish affinities or stereoselectivity.",
+    "Explicit RDKit reference bridge retains unversioned SDF bytes; native dialect decision remains MolSysMT #215.",
+    "Preserved source/native profile, original bytes and identities; no new installed artifact, native build provenance, public dependency closure or platform admission.",
+    "Exact-head hosted CI pending at this original local capture; owning issues record later actual status without relabeling scientific evidence.",
+    "Local selected gates include bounded live calls. They do not qualify the full source suite, a new installed artifact or scientific equivalence on another platform."
+  ]
+}
