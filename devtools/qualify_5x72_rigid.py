@@ -1,0 +1,455 @@
+"""Prespecified reference-torsion placement preserving original rigid geometry.
+
+Public provider setters and rigid fit construct one conformer per ligand.
+NumPy independently verifies finite fixture measurements, not production
+molecular operations. Eight fixed evaluations compare complete saved populations.
+"""
+
+from __future__ import annotations
+
+import argparse
+import gzip
+import itertools
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+import molsysmt as msm
+import numpy as np
+import pyunitwizard as puw
+from molsysmt.form.string_pdbqt_text import get_torsion_tree
+
+import dockingmt as dmt
+from devtools.qualify_5x72_occupancy import atom_fields, fixed_pair, frozen_partner
+from devtools.qualify_5x72_reference import OUTPUT as REFERENCE
+from devtools.qualify_5x72_reference import (
+    ROOT,
+    chemical_axis,
+    compare_saved,
+    detached_record,
+    load_archives,
+    prepare_cases,
+    prepare_reference,
+    score_components,
+    sha,
+    snapshot,
+    xyz,
+)
+from devtools.qualify_5x72_reference import proof as reference_proof
+from devtools.qualify_5x72_root_order import CUTS
+from devtools.qualify_181l_receptor import save
+from devtools.qualify_named_types import CHARGE, TYPING
+
+OUTPUT = ROOT / 'devguide/validation/data/5x72_rigid/audit_2026-10-09.json.gz'
+REFERENCE_SHA = '8b53aac76447951737e0f477124fa11b074c8e0d6ae4244eac686968d471c1d3'
+PLAN = 'https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6090156888'
+QUARTETS = np.array([[1, 6, 7, 8], [7, 17, 18, 19]], dtype=np.int64)
+
+
+def load_reference():
+    assert sha(REFERENCE.read_bytes()) == REFERENCE_SHA
+    record = json.loads(gzip.decompress(REFERENCE.read_bytes()))
+    assert (
+        sha(REFERENCE.with_name('producer_2026-10-09.py').read_bytes())
+        == record['consumer_source_sha256']['devtools/qualify_5x72_reference.py']
+    )
+    return record
+
+
+def proof():
+    record = reference_proof()
+    prior = load_reference()
+    for key in (
+        'qualified_provider_commit',
+        'provider_native_artifacts',
+        'producer_versions',
+    ):
+        assert record[key] == prior[key]
+    # The earlier original producer is preserved separately from its pm/fs fix.
+    checkpoint = json.loads(
+        REFERENCE.with_name('checkpoint_2026-10-09.json').read_text()
+    )
+    assert (
+        record['consumer_source_sha256']['devtools/qualify_5x72_reference.py']
+        == checkpoint['portable_helper_sha256']
+    )
+    provider = Path(msm.__file__).resolve().parents[1]
+    for relative in (
+        'molsysmt/structure/get_dihedral_angles.py',
+        'molsysmt/structure/set_dihedral_angles.py',
+        'molsysmt/structure/least_rmsd_fit.py',
+        'molsysmt/structure/rotate.py',
+        'molsysmt/structure/translate.py',
+        'molsysmt/topology/get_covalent_blocks.py',
+        'molsysmt/topology/get_bondgraph.py',
+        'molsysmt/lib/structure/_kernel_inputs.py',
+    ):
+        expected = subprocess.check_output(
+            [
+                'git',
+                '-C',
+                str(ROOT.parent / 'molsysmt'),
+                'show',
+                f'{record["qualified_provider_commit"]}:{relative}',
+            ]
+        )
+        assert (provider / relative).read_bytes() == expected
+        record['provider_source_sha256'][relative] = sha(expected)
+    record['consumer_source_sha256'][str(Path(__file__).relative_to(ROOT))] = sha(
+        Path(__file__).read_bytes()
+    )
+    return record
+
+
+def angles(system):
+    coordinates = xyz(system)
+    public = puw.get_value(
+        msm.structure.get_dihedral_angles(
+            system, dihedral_quartets=QUARTETS, pbc=False, use_gpu=False
+        ),
+        to_unit='radians',
+    )[0]
+    independent = []
+    for a, b, c, d in QUARTETS:
+        left, axis, right = (
+            coordinates[a] - coordinates[b],
+            coordinates[c] - coordinates[b],
+            coordinates[d] - coordinates[c],
+        )
+        axis = axis / np.linalg.norm(axis)
+        left -= np.dot(left, axis) * axis
+        right -= np.dot(right, axis) * axis
+        independent.append(
+            np.arctan2(np.dot(np.cross(axis, left), right), np.dot(left, right))
+        )
+    difference = np.arctan2(np.sin(public - independent), np.cos(public - independent))
+    np.testing.assert_allclose(difference, 0, rtol=0, atol=1e-10)
+    return public
+
+
+def distances(system):
+    coordinates = xyz(system)
+    public = puw.get_value(
+        msm.structure.get_distances(system, selection='all', pbc=False, use_gpu=False),
+        to_unit='angstrom',
+    )[0]
+    independent = np.linalg.norm(coordinates[:, None] - coordinates[None, :], axis=2)
+    np.testing.assert_allclose(public, independent, rtol=0, atol=1e-10)
+    return public
+
+
+def admit_geometry(source, fitted, reference):
+    """Refuse a changed rigid fragment, bond, handedness or chemical axis."""
+    original, final = snapshot(source), snapshot(fitted)
+    for key in ('topology', 'chemical_states', 'structure_chemical_state_indices'):
+        assert original[key] == final[key], key
+    assert chemical_axis(source) == chemical_axis(fitted)
+    pairs = np.asarray(msm.get(source, element='bond', bonded_atom_pairs=True))
+    bonds = {tuple(sorted(pair)) for pair in pairs}
+    cuts = [
+        next(i for i, pair in enumerate(pairs) if sorted(pair) == sorted(cut))
+        for cut in CUTS
+    ]
+    fragments = msm.topology.get_rigid_fragments(source, bond_indices=cuts)
+    labels = fragments['atom_fragment_indices']
+    assert detached_record(fragments) == detached_record(
+        msm.topology.get_rigid_fragments(fitted, bond_indices=cuts)
+    )
+    matrices = [distances(system) for system in (source, fitted, reference)]
+    rows = []
+    for i, j in itertools.combinations(range(39), 2):
+        within = bool(labels[i] == labels[j])
+        bonded = (i, j) in bonds
+        delta = float(matrices[1][i, j] - matrices[0][i, j])
+        if within or bonded:
+            assert abs(delta) <= 1e-9, (i, j, delta)
+        rows.append(
+            {
+                'source_atom_pair': [i, j],
+                'fragment_indices': [int(labels[i]), int(labels[j])],
+                'within_fragment': within,
+                'bond': bonded,
+                'heavy_pair': j < 24,
+                'original_distance_angstrom': float(matrices[0][i, j]),
+                'fitted_distance_angstrom': float(matrices[1][i, j]),
+                'experimental_reference_distance_angstrom': float(matrices[2][i, j]),
+                'fitted_minus_original_angstrom': delta,
+            }
+        )
+    assert (
+        len(rows) == 741
+        and sum(r['within_fragment'] for r in rows) == 246
+        and sum(r['bond'] for r in rows) == 42
+    )
+    volumes = []
+    for system in (source, fitted):
+        coordinates = xyz(system)
+        volumes.append(float(np.linalg.det(coordinates[[6, 8, 17]] - coordinates[28])))
+    assert np.sign(volumes[0]) == np.sign(volumes[1]) and abs(volumes[0]) > 1e-9
+    np.testing.assert_allclose(volumes[0], volumes[1], rtol=0, atol=1e-9)
+    public_rmsd = float(
+        puw.get_value(
+            msm.structure.get_rmsd(
+                fitted,
+                selection=list(range(24)),
+                reference_molecular_system=reference,
+                reference_selection=list(range(24)),
+                use_gpu=False,
+            ),
+            to_unit='angstrom',
+        ).reshape(-1)[0]
+    )
+    independent_rmsd = float(
+        np.sqrt(np.mean(np.sum((xyz(fitted)[:24] - xyz(reference)[:24]) ** 2, axis=1)))
+    )
+    np.testing.assert_allclose(public_rmsd, independent_rmsd, rtol=0, atol=1e-10)
+    return detached_record(
+        {
+            'pairs': rows,
+            'fragments': fragments,
+            'original_and_fitted_handed_volume_angstrom_cubed': volumes,
+            'heavy_positional_rmsd_angstrom': public_rmsd,
+            'within_original_2_5_angstrom_criterion': public_rmsd <= 2.5,
+            'full_atom_coordinates_angstrom': {
+                'original': xyz(source),
+                'fitted': xyz(fitted),
+                'experimental_heavy_generated_H_reference': xyz(reference),
+            },
+            'max_within_fragment_distance_change_angstrom': max(
+                abs(r['fitted_minus_original_angstrom'])
+                for r in rows
+                if r['within_fragment']
+            ),
+            'max_bond_length_change_angstrom': max(
+                abs(r['fitted_minus_original_angstrom']) for r in rows if r['bond']
+            ),
+        }
+    )
+
+
+def construct(name, source, case):
+    before = snapshot(source)
+    reference, _, reference_evidence = prepare_reference(name, source, case)
+    reference_before = snapshot(reference)
+    bonds = {tuple(sorted(pair)) for pair in chemical_axis(source)['bonded_atom_pairs']}
+    for quartet, cut in zip(QUARTETS, CUTS, strict=True):
+        assert tuple(quartet[1:3]) == tuple(cut)
+        assert all(
+            tuple(sorted((int(a), int(b)))) in bonds
+            for a, b in zip(quartet[:-1], quartet[1:], strict=True)
+        )
+    targets = angles(reference)
+    initial_angles = angles(source)
+    adjusted, steps = source, []
+    for i, quartet in enumerate(QUARTETS):
+        previous = snapshot(adjusted)
+        blocks = msm.topology.get_covalent_blocks(
+            adjusted, remove_bonds=quartet[1:3].tolist()
+        )
+        moving = next(sorted(block) for block in blocks if int(quartet[3]) in block)
+        updated = msm.structure.set_dihedral_angles(
+            adjusted,
+            dihedral_quartets=quartet[None],
+            angles=puw.quantity([[float(targets[i])]], 'radians'),
+            pbc=False,
+            in_place=False,
+        )
+        assert snapshot(adjusted) == previous
+        steps.append(
+            {
+                'quartet': quartet.tolist(),
+                'target_radians': float(targets[i]),
+                'moving_source_atom_indices': moving,
+                'result_snapshot': snapshot(updated),
+            }
+        )
+        adjusted = updated
+    achieved = angles(adjusted)
+    np.testing.assert_allclose(
+        np.arctan2(np.sin(achieved - targets), np.cos(achieved - targets)),
+        0,
+        rtol=0,
+        atol=1e-9,
+    )
+    adjusted_before = snapshot(adjusted)
+    fitted = msm.structure.least_rmsd_fit(
+        adjusted,
+        selection='all',
+        selection_fit=list(range(24)),
+        reference_molecular_system=reference,
+        reference_selection_fit=list(range(24)),
+        in_place=False,
+        use_gpu=False,
+        precision='double',
+    )
+    # Independently verify this one provider fit; this SVD is never used to
+    # construct or repair the molecular conformer submitted for scoring.
+    a, b = xyz(adjusted)[:24], xyz(reference)[:24]
+    center_a, center_b = a.mean(axis=0), b.mean(axis=0)
+    u, singular_values, vt = np.linalg.svd((a - center_a).T @ (b - center_b))
+    rotation = u @ np.diag([1, 1, np.linalg.det(u @ vt)]) @ vt
+    assert abs(np.linalg.det(rotation) - 1) <= 1e-10
+    predicted = (xyz(adjusted) - center_a) @ rotation + center_b
+    np.testing.assert_allclose(xyz(fitted), predicted, rtol=0, atol=1e-9)
+    np.testing.assert_allclose(
+        np.arctan2(np.sin(angles(fitted) - targets), np.cos(angles(fitted) - targets)),
+        0,
+        rtol=0,
+        atol=1e-9,
+    )
+    geometry = admit_geometry(source, fitted, reference)
+    prepared = dmt.prepare_ligand(
+        fitted,
+        selection='all',
+        active_torsion_bonds=CUTS,
+        charge_options=CHARGE,
+        typing_options=TYPING,
+    )
+    mapping = [
+        prepared.metadata['retained_atom_indices'][i]
+        for i in prepared.pdbqt_atom_indices
+    ]
+    assert mapping == case['controls']['native']['pdbqt_to_source_atom_indices']
+    original = case['controls']['native']['pdbqt']
+    for old, new in zip(
+        atom_fields(original), atom_fields(prepared.to_pdbqt()), strict=True
+    ):
+        for field in ('id', 'name', 'group', 'group_id', 'chain', 'charge_e', 'type'):
+            assert old[field] == new[field], (name, field)
+    assert detached_record(
+        get_torsion_tree('pdbqt_text:' + original)
+    ) == detached_record(get_torsion_tree('pdbqt_text:' + prepared.to_pdbqt()))
+    poses = {}
+    for order, control in case['controls'].items():
+        pose = dmt.DockingPose(
+            puw.quantity(
+                xyz(fitted)[control['pdbqt_to_source_atom_indices']], 'angstrom'
+            ),
+            metadata={
+                'reference_kind': 'original_rigid_geometry_at_experimental_torsions',
+                'ligand': name,
+                'pdbqt_to_source_atom_indices': control['pdbqt_to_source_atom_indices'],
+                'H_policy': 'All original H travel with their rigid fragments; no regeneration.',
+            },
+        )
+        assert pose.rank is None and pose.scores == {}
+        frozen_partner(control, pose)
+        poses[order] = pose
+    assert (
+        snapshot(source) == before
+        and snapshot(reference) == reference_before
+        and snapshot(adjusted) == adjusted_before
+    )
+    return (
+        fitted,
+        poses,
+        detached_record(
+            {
+                'original_snapshot': before,
+                'experimental_reference_evidence': reference_evidence,
+                'initial_angles_radians': initial_angles,
+                'target_angles_radians': targets,
+                'achieved_angles_radians': achieved,
+                'torsion_steps': steps,
+                'adjusted_snapshot': adjusted_before,
+                'fitted_snapshot': snapshot(fitted),
+                'independent_fit_rotation': rotation,
+                'independent_fit_singular_values_angstrom_squared': singular_values,
+                'geometry': geometry,
+                'prepared': prepared.to_dict(),
+                'charge_audit': dmt.audit_preparation_charges(prepared),
+                'source_unchanged': True,
+                'interpretation': 'One prescribed torsion conformer and proper heavy fit; original rigid geometry includes H. Not a torsional/global/energy optimum.',
+            }
+        ),
+    )
+
+
+def qualify():
+    authenticated = proof()
+    archives, identities = load_archives(authenticate_sources=True)
+    reference_audit = load_reference()
+    sources, cases = prepare_cases()
+    record = {
+        'schema': 'dockingmt.5x72_rigid_audit@1',
+        'date': '2026-10-09',
+        'python': sys.version,
+        'interpreter': sys.executable,
+        **authenticated,
+        'consumer_base_commit': subprocess.check_output(
+            ['git', 'rev-parse', 'HEAD'], text=True
+        ).strip(),
+        'plan': PLAN,
+        'historical_archives': identities,
+        'experimental_reference_archive_sha256': REFERENCE_SHA,
+        'new_searches': 0,
+        'new_fixed_evaluations': 8,
+        'saved_poses_reused': 156,
+        'saved_fixed_evaluations_reused': 312,
+        'conformers': {},
+        'comparison_rows': [],
+        'cell_summaries': [],
+    }
+    for name in ('p59', 'p69'):
+        assert cases == archives[name]['cases']
+        _, poses, construction = construct(name, sources[name], cases[name])
+        receptors = {
+            k: v['pdbqt'] for k, v in archives[name]['preparation']['receptors'].items()
+        }
+        scores = {
+            order: fixed_pair(pose, cases[name]['controls'][order], receptors)
+            for order, pose in poses.items()
+        }
+        agreement = {
+            context: {
+                key: score_components(scores['first_fixed'][context])[key] - value
+                for key, value in score_components(scores['native'][context]).items()
+            }
+            for context in receptors
+        }
+        contrasts = {
+            order: {
+                context: {
+                    key: value
+                    - score_components(
+                        reference_audit['references'][name]['fixed_scores'][order][
+                            context
+                        ]
+                    )[key]
+                    for key, value in score_components(data).items()
+                }
+                for context, data in pair.items()
+            }
+            for order, pair in scores.items()
+        }
+        record['conformers'][name] = {
+            'construction': construction,
+            'poses': {k: detached_record(v.to_dict()) for k, v in poses.items()},
+            'fixed_scores': scores,
+            'prepared_minus_experimental_reference_kcal_mol': contrasts,
+            'root_order_component_difference_kcal_mol': agreement,
+            'root_order_agrees_at_0_001_kcal_mol': all(
+                abs(v) <= 0.001
+                for values in agreement.values()
+                for v in values.values()
+            ),
+        }
+        rows, cells = compare_saved(name, archives[name], scores)
+        record['comparison_rows'].extend(rows)
+        record['cell_summaries'].extend(cells)
+        print(
+            f'{name}: RMSD={construction["geometry"]["heavy_positional_rmsd_angstrom"]:.6f} A, four scores, 741 full-atom pairs',
+            file=sys.stderr,
+            flush=True,
+        )
+    assert len(record['comparison_rows']) == 312 and len(record['cell_summaries']) == 96
+    assert proof() == authenticated
+    return record
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, default=OUTPUT)
+    args = parser.parse_args()
+    save(qualify(), args.output)

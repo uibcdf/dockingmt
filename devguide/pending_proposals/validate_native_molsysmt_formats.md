@@ -337,3 +337,21 @@ agreement. No native reader/writer replacement, provider update, fresh native
 build, general matching/placement adapter, readiness certificate or full
 installed-artifact/public admission is claimed. Existing provider ownership and
 removal conditions remain unchanged; #33 stays partial/open.
+
+## Public dihedral/fit consumer slice — 2026-10-09
+
+The [rigid control](../validation/5x72_rigid_workflow.md) executes additional
+public dihedral reading/setting, covalent-block derivation and proper heavy
+fitting against the preserved source/native profile. All 246 within-fragment
+full-atom distances and 42 bonds per ligand, source/reference immutability and
+coordinate handedness pass explicit admission gates; negative guards reject
+distortion and mirrors. All 1,482 pair records, eight fixed captures and 312 old
+pose/context comparisons are retained. Degree/pm/fs and current/inferred
+policies exercise the portable slice.
+
+The P69 constructed point is near the reference but has a less favorable inter
+score, leaving scientific preparation/geometry assessment open. The inaccurate
+getter-unit prose is reported in MolSysMT#357; current-origin inspection and
+preserved-runtime execution remain separate. No sibling edit, source upgrade,
+fresh native build, general geometry adapter, full installed-artifact suite or
+public/provider admission is claimed. #33 remains partial/open.

@@ -313,3 +313,23 @@ H, preparation, scoring, optimization or comparability policy changes. A
 separate geometry/fixed-score-basin diagnostic needs its own accepted protocol.
 The original producer and scores survive the documented portable unit-roundoff
 guard correction. This issue remains partial/open.
+
+## Original-rigid-geometry placement — 2026-10-09
+
+The [separately prespecified control](../validation/5x72_rigid_workflow.md)
+sets the two experimental heavy torsions once and applies a public proper fit,
+preserving all 39 atoms' original rigid geometry, H, bonds, chemistry and
+handedness. Both constructed conformers lie near the experimental heavy
+reference: P59 0.513/P69 0.679 angstrom. This shows near-reference placement is
+possible without changing the original fragments, while leaving torsional
+energy optimization and global-optimum claims out of scope.
+
+Eight fixed evaluations retain exact ROOT-order component agreement. Relative
+to the earlier experimental heavy/generatedH reference, occupied totals worsen
+by 1.983 kcal/mol for P59 and 7.832 for P69, mainly in ligand-inter. All 156 retained
+poses/312 saved evaluations remain compared; all 29 occupied P69 poses score
+better than this prescribed constructed point. It is not a pure heavy-coordinate
+effect because the new point retains originalH. This motivates separately
+controlled contact/geometry or score-basin work, without choosing a production
+torsion/H/preparation/scoring remedy. Provider angle-unit wording is reported
+in MolSysMT#357. #17 remains partial/open.

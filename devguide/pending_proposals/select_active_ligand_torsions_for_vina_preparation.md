@@ -262,3 +262,18 @@ Public explicit-cut fragments and independently checked distances retain all
 under the existing cuts, without establishing recovery failure or a new torsion
 choice. This supplies evidence for separately prespecified geometry/score-basin
 work, not an automatic classifier, optimization API or default. #6 stays partial.
+
+## Reference-torsion conformer with original rigid fragments — 2026-10-09
+
+The [rigid placement workflow](../validation/5x72_rigid_workflow.md) preserves
+all original fragment/H geometry and bonds, applying only the two declared
+experimental torsions and one public proper fit. Heavy positional RMSD is
+0.513 angstrom for P59 and 0.679 for P69. Eight fixed scores and all 156 old poses
+retain complete component/context evidence; the new P69 occupied point scores
+7.832 kcal/mol worse than its earlier experimental-reference point. A valid
+near-reference placement is therefore not enough to obtain a favorable fixed
+score for this prescribed unrelaxed conformer. No optimized torsion or adaptive
+selection policy follows. Original/generatedH differences and local contact
+geometry need their own bounded diagnostic. MolSysMT#357 owns the inspected
+angle-unit documentation finding; explicit quantity handling remains valid.
+#6 stays partial/open.

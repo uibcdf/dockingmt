@@ -14,6 +14,11 @@ precede every new fixed evaluation and pair-distance measurement. The
 [original local checkpoint](data/5x72_reference/checkpoint_2026-10-09.json) and
 [guards](../../tests/test_5x72_reference_workflow.py) retain the complete evidence.
 
+The separately [prespecified original-rigid-geometry follow-up](5x72_rigid_workflow.md)
+reuses this archive unchanged. It constructs one reference-torsion conformer per
+ligand with original H/fragment geometry, adding eight fixed scores and full
+invariance records without changing the original reference captures/checkpoint.
+
 ## Reference admission
 
 The unchanged 24-heavy-atom experimental SDF for each ligand is read through
