@@ -6,6 +6,7 @@ import itertools
 import json
 
 import numpy as np
+import pandas as pd
 import pytest
 import pyunitwizard as puw
 
@@ -30,7 +31,10 @@ from devtools.qualify_5x72_occupancy import (
 
 @pytest.fixture(scope='module')
 def prepared():
-    return prepare_cases()[1]['p59'], prepare_receptors()
+    cases = prepare_cases()[1]
+    return cases['p59'], prepare_receptors(
+        reference_snapshot=cases['p69']['reference_snapshot']
+    )
 
 
 def assert_score(evaluation, original, receptor):
@@ -86,6 +90,29 @@ def test_fixed_p69_preserves_protein_and_experimental_heavy_coordinates(prepared
         [a['coordinates'] for a in occupied[1481:1505]], bound, rtol=0, atol=0.000501
     )
     assert preparation['explicit_chain_map']['chain_ids'] == ['A', 'A']
+
+
+def test_current_string_dtype_annotations_do_not_replace_historical_identity():
+    with pd.option_context('future.infer_string', True):
+        cases = prepare_cases()[1]
+        reference = cases['p69']['reference_snapshot']
+        historical = load_baseline()['cases']['p69']['reference_snapshot']
+        assert reference != historical
+        # The scientific producer still refuses a different historical profile.
+        with pytest.raises(AssertionError):
+            prepare_receptors()
+        preparation = prepare_receptors(reference_snapshot=reference)
+        assert atom_fields(preparation['receptors']['sham']['pdbqt']) == atom_fields(
+            (DATA / '5x72_receptor.pdbqt').read_text()
+        )
+        bound = cases['p69']['reference_coordinates_angstrom']
+        occupied = atom_fields(preparation['receptors']['occupied']['pdbqt'])
+        np.testing.assert_allclose(
+            [a['coordinates'] for a in occupied[1481:1505]],
+            bound,
+            rtol=0,
+            atol=0.000501,
+        )
 
 
 def test_both_saved_root_orders_keep_frozen_tree_and_geometry_under_pm_fs(prepared):

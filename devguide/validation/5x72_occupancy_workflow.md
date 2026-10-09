@@ -153,3 +153,30 @@ orientation, receptor relaxation, simultaneous multi-ligand docking, dataset
 recovery probability or convergence. P69 is not searched in this control. The
 earlier P69 nonrecovery remains open; a reciprocal fixed-P59/P69 experiment would
 need its own prespecified protocol. #17/#6/#33 remain partial/open.
+
+## Portable dataframe annotation correction — 2026-10-09
+
+The first hosted [CI 37985766306](https://github.com/uibcdf/dockingmt/actions/runs/37985766306)
+fails during setup of three new guards at the historical snapshot comparison.
+Pandas 3.0.6 annotates the chemical-state component-name/type columns as `str`,
+where the original Pandas 2.3.3 producer captured `object`. Enabling
+`future.infer_string=True` locally reproduces exactly these two dtype differences
+without changing chemical values or coordinates. A full historical snapshot is
+an original-profile check, not portable runtime equivalence.
+
+Portable guards now pass the current runtime's P69 snapshot from `prepare_cases`,
+which independently verifies heavy graph, elements, stereocenter, named PDB
+instance and crystal coordinates, to `prepare_receptors(reference_snapshot=...)`.
+The producer's default still requires the original historical snapshot. The
+new regression executes the inferred-string policy, proves strict historical
+comparison rejects the changed annotations, and verifies the admitted current
+reference retains the protein and companion experimental heavy coordinates.
+No generic molecular equivalence operation or public docking policy changes.
+
+The 24 searches, 78 poses, 256 frozen evaluations, archive digest, executed
+notebook and original checkpoint remain unchanged at scientific producer
+`5fee9c2e5e99eb26ddc98bae529a511eb9d4ea60`. Its source digests refer to that
+original commit; the amended helper has its own later source identity. The
+five corrected guards plus the unchanged applicable 207 boundary results give
+212 distinct locally applicable tests. Owning issues retain the first failed
+CI and subsequent exact-head results separately.

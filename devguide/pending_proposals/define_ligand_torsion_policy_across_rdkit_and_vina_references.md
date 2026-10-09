@@ -258,3 +258,11 @@ in add. The finite two-chain A/A declaration through public set is tracked in
 the workflow with its removal condition. No sibling implementation is edited.
 Wider complexes, the earlier P69 nonrecovery, provider migrations and preparation
 qualification remain; this proposal stays partial/open.
+
+The [dated portable correction](../validation/5x72_occupancy_workflow.md#portable-dataframe-annotation-correction--2026-10-09)
+addresses Pandas 3 `str` annotations versus the original `object` snapshot in
+three guard setups. Current-runtime references remain independently checked;
+strict production retains the historical snapshot. A regression reproduces the
+annotation change. The original scientific producer, archive and local capture
+remain unchanged; five corrected guards and 207 retained applicable boundaries
+give 212 local tests, and the corrected head requires fresh hosted CI.

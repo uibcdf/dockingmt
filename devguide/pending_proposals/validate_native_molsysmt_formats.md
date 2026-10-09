@@ -286,3 +286,10 @@ map through public set until provider add retains it. The workflow records
 ownership, rationale, impact, review point and removal condition. No generic
 consumer merger/writer or sibling source change is introduced. #33 stays partial
 for the wider format, chemistry, readiness and provider migration scope.
+
+The [portable annotation correction](../validation/5x72_occupancy_workflow.md#portable-dataframe-annotation-correction--2026-10-09)
+separates original-profile snapshot authentication from current Pandas dataframe
+dtype annotations. Both references retain independently checked experimental
+identity/coordinates. The saved producer and all input/scoring bytes stay
+immutable; a new inferred-string regression tests this boundary without treating
+scientific preparation or the broader format profile as qualified.

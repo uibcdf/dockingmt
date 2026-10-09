@@ -71,8 +71,13 @@ def atom_fields(text):
     ]
 
 
-def prepare_receptors():
-    """Compose already projected rigid records with supported public msm.add."""
+def prepare_receptors(*, reference_snapshot=None):
+    """Compose prepared rigid records against an explicitly verified reference.
+
+    Production defaults to the authenticated historical snapshot. Portable
+    guards supply prepare_cases' independently verified current-runtime P69
+    record, including that runtime's dataframe dtype annotations.
+    """
     ref = msm.convert(
         next(
             iter(Chem.SDMolSupplier(str(DATA / '5x72_ligand_p69.sdf'), removeHs=False))
@@ -80,7 +85,9 @@ def prepare_receptors():
         to_form='molsysmt.MolSys',
     )
     before = snapshot(ref)
-    assert before == load_baseline()['cases']['p69']['reference_snapshot']
+    if reference_snapshot is None:
+        reference_snapshot = load_baseline()['cases']['p69']['reference_snapshot']
+    assert before == reference_snapshot
     addition = msm.build.add_missing_hydrogens(ref, return_report=True, **HYDROGEN)
     source = addition['molecular_system']
     assert msm.get(source, n_atoms=True) == 39
