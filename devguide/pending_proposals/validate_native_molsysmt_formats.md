@@ -267,3 +267,22 @@ PDB instances are guarded without modifying the files or inventing experimental 
 This adds evidence for the existing dialect decision; it does not expand the native
 SDF admission/readiness claim. #33 remains partial/open, with the provider-owned
 exit condition unchanged.
+
+## Prepared rigid occupancy composition — 2026-10-09
+
+The [fixed-P69 workflow](../validation/5x72_occupancy_workflow.md) consumes public
+MolSysMT fixed-state H addition, prepared PDBQT projections, detached `add`,
+explicit identity setters and native rigid/tree writers. The original protein
+atom fields stay equal; a same-writer sham reproduces the 50 historical P59
+pose coordinates and docking scores. All 78 new poses preserve geometry/tree
+during frozen evaluation in both receptor contexts, with complete input capture.
+This is prepared-representation evidence, not complete PDBQT chemistry or a
+general reader/preparation-readiness expansion.
+
+[MolSysMT #352](https://github.com/uibcdf/molsysmt/issues/352) records mechanics
+merge failures. [#353](https://github.com/uibcdf/molsysmt/issues/353) records add
+chain-ID loss; this finite fixture explicitly restores its checked two-chain A/A
+map through public set until provider add retains it. The workflow records
+ownership, rationale, impact, review point and removal condition. No generic
+consumer merger/writer or sibling source change is introduced. #33 stays partial
+for the wider format, chemistry, readiness and provider migration scope.

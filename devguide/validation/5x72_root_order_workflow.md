@@ -185,3 +185,13 @@ and diff checks pass. The original local checkpoint predates commit/hosted CI;
 the owning issues retain later exact-head outcomes. The five new scientific
 workflow guards do not require historical runtime-version REMARK strings, and
 do not assert stochastic recovery on another installation.
+
+## Subsequent fixed-occupancy control — 2026-10-09
+
+The [fixed-P69 workflow](5x72_occupancy_workflow.md) retains this original producer
+and all observations, adds a matched same-writer protein-only/occupied matrix,
+and scores every new pose unchanged in both environments. First recovery rises
+from 0/12 sham to 10/12 occupied; the seven sham sets containing recovered poses
+all choose one under occupied fixed scoring. Original and new sham trajectories
+agree across all 50 P59 poses. These additional finite observations do not alter
+the original experiment, select a general ROOT policy or resolve P69 nonrecovery.

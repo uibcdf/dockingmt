@@ -224,3 +224,15 @@ remain unchanged; local guards and hosted source CI qualify software separately
 from the scientific observations. The proposal remains partial/open. Control
 experimental co-occupancy and distinguish sampling from ranking in subsequent
 work before changing defaults.
+
+## Fixed-P69 occupancy and frozen-score control — 2026-10-09
+
+The [matched 5X72 workflow](../validation/5x72_occupancy_workflow.md) keeps the
+same P59 cuts, two torsions, ROOT orders and chemical inputs while comparing
+protein-only sham against protein with fixed experimental P69. The 24 new
+searches recover first-ranked P59 in 0/12 sham and 10/12 occupied cells. Frozen
+evaluation of all returned geometries changes the lowest-score choice to a
+recovered pose in each of the seven sham sets that already contain one.
+Search sampling and within-set score preference are reported separately;
+no automatic torsion/root policy changes. The earlier P69 recovery problem and
+broader scientific/provider acceptance remain open, so #6 stays partial.

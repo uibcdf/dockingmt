@@ -233,3 +233,28 @@ remain unchanged; local guards and hosted source CI qualify software separately
 from the scientific observations. The proposal remains partial/open. Control
 experimental co-occupancy and distinguish sampling from ranking in subsequent
 work before changing defaults.
+
+## Fixed-P69 occupancy and frozen-score control — 2026-10-09
+
+The [prespecified matched control](../validation/5x72_occupancy_workflow.md)
+adds 24 new P59 searches against a same-writer protein-only sham and protein
+plus fixed experimental P69. All protein fields and P59 chemistry/cuts/order
+remain checked. All 78 new poses are scored unchanged in both environments;
+50 authenticated historical P59 poses also control original-vs-sham serialization.
+Sham trajectories reproduce those historical coordinates and docking scores.
+
+First-ranked recovery changes from 0/12 sham to 10/12 occupied, including all
+six occupied effort-8 cells. All seven sham returned sets containing a recovered
+pose put a recovered pose first under occupied fixed scoring without moving any
+geometry. The two remaining occupied low-effort failures contain no recovered
+pose. This separates scoring changes within retained populations from sampling
+changes under this fixed environment; it does not establish a general ROOT
+policy, affinity, cooperativity or convergence.
+
+Public MolSysMT `add` and native writing compose prepared rigid records.
+[Provider #352](https://github.com/uibcdf/molsysmt/issues/352) owns mechanics merge
+failures; [#353](https://github.com/uibcdf/molsysmt/issues/353) owns chain-ID loss
+in add. The finite two-chain A/A declaration through public set is tracked in
+the workflow with its removal condition. No sibling implementation is edited.
+Wider complexes, the earlier P69 nonrecovery, provider migrations and preparation
+qualification remain; this proposal stays partial/open.
