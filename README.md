@@ -80,7 +80,7 @@ index is used for the receptor, ligand and box.
 MolSysMT conversion report for each molecular input.
 File-backed inputs also carry a SHA-256 fingerprint; reconstruction refuses a
 file whose contents have changed. In-memory inputs still require the original
-objects for reconstruction while [MolSysMT H5MSM charge preservation](https://github.com/uibcdf/molsysmt/issues/234)
+objects for reconstruction while [MolSysMT mechanics persistence](https://github.com/uibcdf/molsysmt/issues/256)
 is unresolved.
 
 For `DockingProblem(...)`, inputs with multiple structures require

@@ -1,5 +1,6 @@
 """Independent geometry and report semantics for public redocking evaluation."""
 
+import hashlib
 import json
 import subprocess
 import sys
@@ -9,6 +10,7 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
+from molecular_fixtures import named_181l_pair
 
 import dockingmt as dmt
 from dockingmt._private.smonitor import ArgumentError
@@ -289,8 +291,6 @@ assert 'vina' not in sys.modules and 'molsysviewer' not in sys.modules and 'meek
 
 
 def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
-    from devtools.qualify_redocking_evaluation import qualify
-
     # A seed records the search choice, not a portable recovery guarantee.
     # Independently check the report against every actual returned geometry.
     results = []
@@ -302,7 +302,71 @@ def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
         return result
 
     monkeypatch.setattr(dmt, 'dock', recorded_dock)
-    reports = qualify()
+    receptor, ligand = named_181l_pair()
+    native = msm.convert(
+        msm.systems['T4 lysozyme L99A']['181l.pdb'], to_form='molsysmt.MolSys'
+    )
+    reference = msm.extract(native, selection="group_name=='BNZ'")
+    domain = dmt.BoxRegion.from_selection(
+        native, selection="group_name=='BNZ'", padding=puw.quantity(8, 'angstrom')
+    )
+    protocol = dmt.VinaProtocol(
+        seed=42, cpu=1, exhaustiveness=1, n_poses=5, capture_backend_inputs=True
+    )
+    reports = {
+        '181l_named': dmt.evaluate_redocking(
+            dmt.dock(dmt.DockingProblem(receptor, ligand, domain), protocol),
+            reference,
+            rmsd_cutoff=puw.quantity(2.5, 'angstrom'),
+        )
+    }
+    assert (
+        reports['181l_named']['context']['preparation']['partner']['assessment']
+        == 'unassessed'
+    )
+
+    # The original producer stays untouched. Current external controls use the
+    # same digest-checked input bytes and full 40-atom positional reference.
+    from devtools.qualify_redocking_evaluation import DATA, INPUT_DIGESTS
+
+    for filename, digest in INPUT_DIGESTS.items():
+        assert hashlib.sha256((DATA / filename).read_bytes()).hexdigest() == digest
+    reference_system = msm.convert(
+        DATA / '1iep_ligand.pdbqt',
+        to_form='molsysmt.MolSys',
+        discard_torsion_tree=True,
+    )
+    coordinates = msm.get(reference_system, coordinates=True)
+    assert puw.get_value(coordinates).shape == (1, 40, 3)
+    for name, center in [
+        ('1iep_external', [15.190, 53.903, 16.917]),
+        ('1iep_displaced_domain', [45.190, 53.903, 16.917]),
+    ]:
+        domain = dmt.BoxRegion(
+            puw.quantity(center, 'angstrom'), puw.quantity([20, 20, 20], 'angstrom')
+        )
+        if name == '1iep_displaced_domain':
+            assert not any(
+                domain.contains(puw.quantity(xyz, 'angstrom'))
+                for xyz in puw.get_value(coordinates, to_unit='angstrom')[0]
+            )
+        result = dmt.dock(
+            dmt.DockingProblem(
+                DATA / '1iep_receptor.pdbqt', DATA / '1iep_ligand.pdbqt', domain
+            ),
+            protocol,
+        )
+        for role, filename in [
+            ('receptor', '1iep_receptor.pdbqt'),
+            ('partner', '1iep_ligand.pdbqt'),
+        ]:
+            assert (
+                result.provenance['backend_artifacts'][role]['sha256']
+                == INPUT_DIGESTS[filename]
+            )
+        reports[name] = dmt.evaluate_redocking(
+            result, coordinates, rmsd_cutoff=puw.quantity(2.5, 'angstrom')
+        )
     assert len(results) == len(reports) == 3
     for (name, report), result in zip(reports.items(), results):
         assert report['n_poses'] == len(result) > 0, name
@@ -336,6 +400,15 @@ def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
     assert not any(row['recovered'] for row in control['poses'])
     assert control['closest_pose']['rmsd'] > 20
     assert json.loads(json.dumps(reports, allow_nan=False)) == reports
+
+
+def test_legacy_evaluation_producer_requires_its_original_source():
+    from devtools.qualify_redocking_evaluation import qualify
+
+    with pytest.raises(
+        ArgumentError, match='Named MolSysMT AutoDock4 types are required'
+    ):
+        qualify()
 
 
 def test_retained_native_positive_and_displaced_observations():

@@ -1,5 +1,13 @@
 # Exploratory 181L redocking regression baseline
 
+This is a historical baseline. Since the
+[2026-10-10 named-typing requirement](required_named_typing.md), its original
+raw-PDB record/replay helper rejects missing types on current `main`. Run the
+commands below on the originally recorded consumer/environment to reproduce
+this evidence. Current named-result replay needs the original prepared objects
+until provider-owned [mechanics persistence](https://github.com/uibcdf/molsysmt/issues/256)
+is qualified; a PDB fingerprint does not retain a named assignment.
+
 Measured on 2026-09-22 for [DockingMT issue #10](https://github.com/uibcdf/dockingmt/issues/10).
 This is a reproducibility and software regression case, **not a validated
 docking-performance result**. Receptor and ligand preparation still require the

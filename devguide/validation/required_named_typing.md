@@ -90,6 +90,30 @@ normal installation and isolated installed checks plus complete source tests.
 Keep #5/#49 partial. Provider projection, formatting, pose/permutation and general
 scientific preparation/scoring acceptance remain separate work.
 
+## Full-suite correction — 2026-10-10
+
+The first hosted candidate `bbf539c` uncovered two indirect legacy workflows
+outside the 232-case local selection: the evaluation producer and file-backed
+181L record/replay helper still request automatic untyped PDB preparation.
+That candidate is not a full-suite pass. Both original producers and all dated
+results remain unchanged; replaying their historical observations requires the
+recorded original consumer/environment.
+
+Current live evaluation tests use the already declared named 181L preparation
+and the unchanged external 1IEP/displaced-box inputs. Independent per-pose geometry
+and report assertions remain. Current named-result replay tests retain captured
+byte integrity, actual seeded execution, source identity, box and score/RMSD
+comparisons with explicitly supplied original objects. File-backed PDB problem
+reconstruction still preserves the six native BNZ indices; attempting to dock
+that untyped reconstruction fails, including provisional opt-in. Separate guards
+ensure historical producers reject rather than invent typing or write a manifest.
+
+A PDB fingerprint is not persistence of named MolecularMechanics assignments.
+[MolSysMT #256](https://github.com/uibcdf/molsysmt/issues/256) owns future H5MSM 0.6
+mechanics persistence; #234 resolved silent loss by explicit rejection in H5MSM
+0.5. DockingMT adds no molecular snapshot or implicit preparation recipe. This
+consumer limitation does not change the provider's post-1.0 priority.
+
 
 Local final contract selection: **232 passed without skips in 200.04 s**, with
 113 retained provider warnings, including the 12 new required-typing cases.
@@ -100,3 +124,13 @@ changed-document local links, archived evidence digests and diff checks pass.
 The reporting contract is checked separately. These local results do not replace
 the four required hosted interpreter/installed checkpoints; terminal evidence
 will be linked on the owning issues for the published commit.
+
+
+The corrected evaluation/replay selection passes **51 tests without skips in
+117.17 s**, with 40 retained provider warnings. Together with the unchanged
+232-case preparation selection this covers **283 distinct local contracts**;
+reporting is checked separately. The initial hosted run
+[38037422889](https://github.com/uibcdf/dockingmt/actions/runs/38037422889)
+finished with the same two legacy-workflow failures in each of four minors
+(1,066 passed/2 failed per lane); it is retained as diagnostic evidence only.
+The corrected published head requires a new complete unskipped matrix.

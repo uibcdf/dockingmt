@@ -1,5 +1,11 @@
 # Public redocking evaluation
 
+Since the [2026-10-10 named-typing requirement](required_named_typing.md), live
+native controls use explicitly named preparation. The original qualification,
+producer and raw reports below remain unchanged and require their recorded
+consumer/environment; the legacy helper's raw-PDB stage now rejects missing
+types on current `main`.
+
 `dockingmt.evaluate_redocking(result, reference, *, rmsd_cutoff,
 top_n=(1, 5), selection='all', reference_info=None)` evaluates one result
 against one reference frame and returns a detached finite JSON report.
