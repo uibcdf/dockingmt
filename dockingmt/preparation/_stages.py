@@ -1,4 +1,4 @@
-"""Explicit provider orchestration behind the existing ligand preparation API."""
+"""Explicit provider orchestration behind the molecular preparation APIs."""
 
 import molsysmt as msm
 

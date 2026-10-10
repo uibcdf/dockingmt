@@ -92,9 +92,12 @@ preparation, or pass `typing_options` to `prepare_ligand`/`prepare_receptor`.
 DockingMT selects no typing model and infers no types from names or residues.
 The requested provider method requires its declared chemistry and indexed H;
 an incomplete PDB or bare `atom_ff_type` column does not satisfy that contract.
-Missing charges still produce recorded placeholders, which Vina rejects by
-default. `VinaProtocol(allow_provisional_preparation=True)` permits exploratory
-execution with those placeholders; it cannot bypass missing named types.
+Preparation also requires complete finite partial charges. Supply them before
+automatic preparation or request a named MolSysMT method with `charge_options`
+in either preparator. Absent charges raise an error; supplied zeros remain valid.
+`VinaProtocol(allow_provisional_preparation=True)` cannot bypass absent charges or
+missing named types. It retains inspection/opt-in for historical prepared objects
+that already declare provisional provenance.
 The choice and assessment are recorded in result provenance. Externally
 provided PDBQT inputs are accepted with an `unassessed` chemistry assessment.
 Inspect a preparation before choosing an execution policy:
@@ -125,6 +128,8 @@ Preparation retains the original model and software provenance. Public
 hydrogen charge transfers and PDBQT rounding in elementary charge. See the
 [charge contract and executed notebook](devguide/validation/named_partial_charges.md).
 These numeric checks do not validate the charge model or chemical typing.
+See the [required-charge contract](devguide/validation/required_partial_charges.md)
+for explicit assignment, supplied zeros and failure behavior.
 
 `prepare_ligand` also accepts explicit `hydrogen_options`, `charge_options` and
 `typing_options` to call MolSysMT's fixed-state H, named-charge and named-type
@@ -133,6 +138,8 @@ builders in that order. Require
 attribute preservation defaults to strict. Original reports and generated-atom
 maps are retained in preparation/result metadata. See the
 [stage contract and notebook](devguide/validation/ligand_preparation_stages.md).
+`prepare_receptor` accepts explicit `charge_options` before requested typing,
+using the same provider operation without a receptor repair or H-addition stage.
 The [declared 181L workflow](devguide/validation/181l_receptor_workflow.md)
 provides bounded software evidence; its molecular-state hypotheses remain unassessed.
 

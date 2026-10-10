@@ -200,17 +200,14 @@ def test_request_order_is_hydrogens_then_charges_then_types_and_default_rejects(
     assert calls[0][2]['return_report'] is True
 
 
-def test_h_only_is_provisional_and_charge_only_retains_input_mapping():
-    h_only = dmt.prepare_ligand(
-        methanol_source(),
-        selection='all',
-        hydrogen_options=HYDROGEN,
-        typing_options=TYPING,
-    )
-    assert dmt.assess_preparation(h_only)['provisional_reason_codes'] == [
-        'zero_placeholder_charges',
-    ]
-    assert h_only.metadata['preparation_workflow']['charge_assignment_record'] is None
+def test_h_and_types_without_charges_reject_and_charge_only_retains_input_mapping():
+    with pytest.raises(ArgumentError, match='Atomic partial charges are required'):
+        dmt.prepare_ligand(
+            methanol_source(),
+            selection='all',
+            hydrogen_options=HYDROGEN,
+            typing_options=TYPING,
+        )
     source = msm.convert(
         Path(__file__).parent / 'data/charges/methanol.sdf', to_form='molsysmt.MolSys'
     )

@@ -183,7 +183,11 @@ def test_grouped_receptor_reuses_provider_audit_before_hydrogen_projection(monke
     builder = msm.MolSysBuilder(source)
     builder.add_group(list(range(9)), group_name='UNK', group_id=1)
     source = msm.build.assign_autodock_atom_types(
-        builder.build(), typing_scheme='autodock4', method='chemical_environment'
+        # The builder contract excludes MolecularMechanics. Assign fixture
+        # charges explicitly on its new output before named typing.
+        msm.build.assign_partial_charges(builder.build(), method='gasteiger_marsili'),
+        typing_scheme='autodock4',
+        method='chemical_environment',
     )
     reports = []
     provider = msm.build.get_residue_chemical_coverage

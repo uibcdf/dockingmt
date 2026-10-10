@@ -1,5 +1,11 @@
 # Explicit ligand preparation stages
 
+Since 2026-10-10, complete supplied charges or an explicit charge stage are
+required; H/typing alone no longer creates provisional zero charges. Receptors
+also accept an explicit charge stage before typing, without adding H or repair.
+See [the required-charge contract](required_partial_charges.md). Dated notebook
+and receipt evidence below retains its original producer and consumer.
+
 The original qualification below is dated 2026-10-04. The
 [2026-10-06 update](#positive-original-bnz-qualification--2026-10-06) qualifies the
 resolved BNZ route and retained native template history against the newer source.

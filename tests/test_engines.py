@@ -327,7 +327,15 @@ def test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs()
         backend.dock(automatic, VinaProtocol(exhaustiveness=1, n_poses=1))
 
     source = msm.build.assign_autodock_atom_types(explicit_source('CO'), **TYPING)
+    # Simulate a historical prepared object with declared placeholder provenance.
+    # Current preparation itself no longer creates such objects.
+    msm.set(
+        source,
+        element='atom',
+        partial_charge=puw.quantity([0.0] * msm.get(source, n_atoms=True), 'e'),
+    )
     ligand = prepare_ligand(source, selection='all')
+    ligand.metadata['charge_source'] = 'zero_placeholder'
     prepared = DockingProblem(
         receptor=MINIMAL_REC_PDBQT, partner=ligand, search_domain=box
     )
@@ -335,6 +343,7 @@ def test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs()
         backend.dock(prepared, VinaProtocol(exhaustiveness=1, n_poses=1))
 
     receptor = prepare_receptor(source, selection='all')
+    receptor.metadata['charge_source'] = 'zero_placeholder'
     prepared_receptor = DockingProblem(
         receptor=receptor, partner=MINIMAL_LIG_PDBQT, search_domain=box
     )

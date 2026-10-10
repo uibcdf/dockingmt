@@ -97,10 +97,18 @@ def atom_metadata(
     return names, group_names, group_ids, elements
 
 
-def source_partial_charges(molsys: Any, n_atoms: int) -> list[float] | None:
+def source_partial_charges(molsys: Any, n_atoms: int) -> list[float]:
     """Return only a complete finite atomic charge array; never infer zero charges."""
     if not msm.has_attribute(molsys, 'partial_charge'):
-        return None
+        raise ArgumentError(
+            arg_name='molecular_system',
+            reason=(
+                'Atomic partial charges are required. Supply a charged system '
+                'or explicitly calculate them with msm.build.assign_partial_charges, '
+                "or pass charge_options={'method': '<explicit method>'}. "
+                'DockingMT does not substitute zeros or choose a charge model.'
+            ),
+        )
     values = msm.get(molsys, element='atom', partial_charge=True)
     if puw.is_quantity(values):
         values = puw.get_value(values, to_unit='elementary_charge')

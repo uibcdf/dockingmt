@@ -89,6 +89,12 @@ def test_explicit_provider_choice_succeeds_without_charge_or_h_calculation(
     prepare, monkeypatch
 ):
     source = explicit_source('CN')
+    # Supplied synthetic values isolate the explicitly requested typing stage.
+    msm.set(
+        source,
+        element='atom',
+        partial_charge=puw.quantity([0.0] * msm.get(source, n_atoms=True), 'e'),
+    )
     before = snapshot(source)
     options = deepcopy(TYPING)
     calls = []
@@ -109,8 +115,6 @@ def test_explicit_provider_choice_succeeds_without_charge_or_h_calculation(
     assert options == TYPING
     assert prepared.atom_types == ['C', 'NA', 'HD', 'HD']
     assert prepared.metadata['atom_type_source'] == 'molsysmt_named_autodock4'
-    assert prepared.metadata['charge_source'] == 'zero_placeholder'
-    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == [
-        'zero_placeholder_charges'
-    ]
+    assert prepared.metadata['charge_source'] == 'source_partial_charge'
+    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == []
     assert snapshot(source) == before

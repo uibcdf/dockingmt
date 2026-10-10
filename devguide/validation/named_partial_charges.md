@@ -34,6 +34,11 @@ model requests are handled by the public MolSysMT assignment operation.
 
 ## Preparation contract
 
+Since 2026-10-10, absent charges are rejected by both preparators. Supplied zeros
+are retained as supplied values, and both APIs accept explicit `charge_options`
+for public MolSysMT assignment. See [the required-charge contract](required_partial_charges.md).
+Historical qualification below retains its original consumer and observations.
+
 `prepare_ligand` and `prepare_receptor` read supplied charges through public
 MolSysMT operations. Values are converted explicitly to elementary charge when
 returned as quantities; native numeric charge values already use that unit.

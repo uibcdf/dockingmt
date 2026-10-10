@@ -19,7 +19,10 @@ def _ligand(smiles):
     molecule = Chem.AddHs(Chem.MolFromSmiles(smiles))
     assert AllChem.EmbedMolecule(molecule, randomSeed=7) == 0
     return msm.build.assign_autodock_atom_types(
-        msm.convert(molecule, to_form='molsysmt.MolSys'),
+        msm.build.assign_partial_charges(
+            msm.convert(molecule, to_form='molsysmt.MolSys'),
+            method='gasteiger_marsili',
+        ),
         typing_scheme='autodock4',
         method='chemical_environment',
     )
@@ -150,12 +153,6 @@ def test_vina_accepts_flexible_ligand_and_pose_reconstructs_source_identity():
         active_torsion_bonds=[(1, 2)],
         allow_provisional_preparation=True,
     )
-
-    with pytest.raises(ArgumentError, match='zero-placeholder partial charges'):
-        VinaBackend().dock(
-            problem,
-            VinaProtocol(active_torsion_bonds=[(1, 2)], cpu=1),
-        )
 
     result = VinaBackend().dock(problem, protocol)
 

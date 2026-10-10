@@ -157,6 +157,7 @@ def prepare_receptor(
     selection: str = "molecule_type=='protein'",
     state_id: str | None = None,
     *,
+    charge_options: dict[str, Any] | None = None,
     typing_options: dict[str, Any] | None = None,
 ) -> PreparedReceptor:
     """Prepare a conventional protein receptor for docking calculations.
@@ -173,11 +174,17 @@ def prepare_receptor(
         Selection query identifying receptor atoms.
     state_id : str | None, optional
         Unique identifier for the prepared state. If None, an automatic ID is assigned.
+    charge_options : mapping or None, optional
+        Opt-in public MolSysMT charge assignment with an explicit named method,
+        before requested typing. Complete finite source charges or this explicit
+        calculation are required. Supplied zeros remain valid; no model is chosen
+        automatically and no receptor repair or hydrogen stage is performed.
     typing_options : mapping or None, optional
         Opt-in public MolSysMT typing on the selected complete graph. Require
         typing_scheme='autodock4' and an explicit method. Valid preassigned native
-        types are consumed without calculation. Chemistry, H and charges must
-        already be supplied; no receptor repair or parameter model is selected.
+        types are consumed without calculation. Chemistry and H must already be
+        supplied; charges may come from the explicit preceding charge stage.
+        No receptor repair or parameter model is selected automatically.
         Without valid named types or explicit options, preparation raises an error.
 
     Returns
@@ -187,15 +194,17 @@ def prepare_receptor(
     """
     import molsysmt as msm
 
-    _, _, typing_options = stage_options(None, None, typing_options)
+    _, charge_options, typing_options = stage_options(
+        None, charge_options, typing_options
+    )
     extracted = select_one_structure(molecular_system, selection)
-    extracted, workflow = run_stages(extracted, None, None, typing_options)
+    extracted, workflow = run_stages(extracted, None, charge_options, typing_options)
     n_atoms = msm.get(extracted, element='system', n_atoms=True)
 
     atom_names, group_names, group_ids, elements = atom_metadata(extracted, 'REC')
+    named_types, typing_assignment = source_atom_types(extracted, n_atoms)
     charges = source_partial_charges(extracted, n_atoms)
     assignment = source_charge_assignment(extracted)
-    named_types, typing_assignment = source_atom_types(extracted, n_atoms)
     bonded_atoms = (
         msm.get(
             extracted,
@@ -236,11 +245,10 @@ def prepare_receptor(
                 )
             attached = heavy_neighbors[0]
             if named_types[i] == 'H':
-                if charges is not None:
-                    charge_transfers.append((i, attached))
-                    merged_hydrogen_charges[attached] = (
-                        merged_hydrogen_charges.get(attached, 0.0) + charges[i]
-                    )
+                charge_transfers.append((i, attached))
+                merged_hydrogen_charges[attached] = (
+                    merged_hydrogen_charges.get(attached, 0.0) + charges[i]
+                )
                 omitted_hydrogen_indices.append(i)
                 continue
 
@@ -248,12 +256,11 @@ def prepare_receptor(
         retained_gnames.append(str(gname))
         retained_gids.append(int(gid))
         retained_types.append(named_types[i])
-        retained_charges.append(charges[i] if charges is not None else 0.0)
+        retained_charges.append(charges[i])
         retained_indices.append(i)
 
-    if charges is not None:
-        for atom_index, hydrogen_charge in merged_hydrogen_charges.items():
-            retained_charges[retained_indices.index(atom_index)] += hydrogen_charge
+    for atom_index, hydrogen_charge in merged_hydrogen_charges.items():
+        retained_charges[retained_indices.index(atom_index)] += hydrogen_charge
 
     retained_coords = puw.quantity(
         puw.get_value(coords)[retained_indices],
@@ -275,9 +282,7 @@ def prepare_receptor(
             'source_n_atoms': int(n_atoms),
             'retained_n_atoms': len(retained_names),
             'retained_atom_indices': retained_indices,
-            'charge_source': 'source_partial_charge'
-            if charges is not None
-            else 'zero_placeholder',
+            'charge_source': 'source_partial_charge',
             'atom_type_source': 'molsysmt_named_autodock4',
             'atom_type_assignment': typing_assignment,
             'atom_type_projection': type_projection(

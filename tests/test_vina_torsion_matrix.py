@@ -10,7 +10,7 @@ from rdkit import Chem
 from rdkit.Chem import Lipinski, rdMolDescriptors
 
 from devtools.audit_1iep_preparation import _pdbqt_torsion_graph
-from devtools.qualify_named_types import HYDROGEN, TYPING
+from devtools.qualify_named_types import CHARGE, HYDROGEN, TYPING
 from dockingmt.preparation import prepare_ligand
 from dockingmt.preparation._molsys import autodock_element
 
@@ -170,8 +170,11 @@ def test_pinned_vina_torsion_tree_matches_source_fragments(
     assert len(selected_bonds) == branch_count
 
     molsys = msm.build.assign_autodock_atom_types(
-        msm.build.add_missing_hydrogens(
-            msm.convert(source, to_form='molsysmt.MolSys'), **HYDROGEN
+        msm.build.assign_partial_charges(
+            msm.build.add_missing_hydrogens(
+                msm.convert(source, to_form='molsysmt.MolSys'), **HYDROGEN
+            ),
+            **CHARGE,
         ),
         **TYPING,
     )

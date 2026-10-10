@@ -2,6 +2,11 @@
 
 ## Compatibility change — 2026-10-10
 
+Subsequent charge-policy adoption on the same date also requires supplied charges
+or explicit `charge_options` in either preparator. Typing alone no longer creates
+provisional zero charges. [The charge contract](required_partial_charges.md)
+defines the current behavior; dated typing qualification below remains intact.
+
 [DockingMT #5](https://github.com/uibcdf/dockingmt/issues/5) and
 [#49](https://github.com/uibcdf/dockingmt/issues/49) own removal of the ligand and
 receptor classifiers based on elements, atom/residue names and ring membership.
@@ -16,6 +21,7 @@ requirement, even with `allow_provisional_preparation=True`.
 prepared = dmt.prepare_ligand(
     ligand_with_declared_chemistry_and_indexed_hydrogens,
     selection='all',
+    charge_options={'method': chosen_charge_method},
     typing_options={'typing_scheme': 'autodock4', 'method': 'chemical_environment'},
 )
 ```
@@ -25,14 +31,15 @@ and method before preparation. Automatic `dock(problem)` requires those
 preassigned systems; the protocol does not select molecular preparation models.
 The shown experimental method requires its supported declared complete chemistry
 and indexed hydrogen inventory. Explicit ligand H/charge stages remain available
-before typing. Receptor preparation adds no repair or H/charge stage. Provider
+before typing. Receptor preparation adds no repair or H stage; explicit charge
+assignment is now available before typing. Provider
 errors propagate unchanged. Inputs and option mappings remain detached.
 
 Valid projected parent labels retain their original assignment and atom axis;
 preparation does not reclassify fragments. Provider H/HD labels determine omitted
 versus retained H. Charge transfers, PDBQT writing and source maps retain their
-existing behavior pending provider #223/#214. Missing charges still produce
-provisional placeholders. Named types with named charges receive the existing
+existing behavior pending provider #223/#214. Missing charges now raise an error
+under the later charge-policy change. Named types with named charges receive the existing
 **unassessed** preparation assessment, not scientific certification. Historical
 prepared objects retain inspection of their declared heuristic provenance.
 

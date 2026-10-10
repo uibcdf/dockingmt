@@ -29,9 +29,18 @@ and scientific charge-model acceptance remain incomplete.
 The original preparation wrote zero partial charges, guessed AutoDock types from
 names and dropped hydrogens by name. The dated slices below describe adopted
 provider capabilities. Current preparation requires named MolSysMT types;
-missing-charge placeholders and broader scientific qualification keep this issue partial.
+current preparation also requires complete supplied charges or explicit provider
+assignment. General projection/export and broader scientific qualification keep
+this issue partial; original placeholder workflows below remain historical.
 
 ## How
+
+The [required-charge compatibility change](../validation/required_partial_charges.md)
+rejects absent values before creating a preparation or Vina engine. Both roles
+accept explicit charge options; supplied zeros and legacy unattributed values
+remain valid inputs without invented provenance. MolSysMT performs every requested
+calculation. Provider unit-policy clarification is tracked in
+[molsysmt#381](https://github.com/uibcdf/molsysmt/issues/381).
 
 Replace these assumptions with validated MolSysMT parameters and a documented PDBQT projection. Check that charge and typing schemes are declared and compatible with the selected Vina scoring mode; until available, reject incomplete inputs with actionable diagnostics.
 

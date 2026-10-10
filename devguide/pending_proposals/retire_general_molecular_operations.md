@@ -108,6 +108,13 @@ attribute handling; its failures propagate instead of being bypassed.
 
 ## Remaining work and bounded migration
 
+- **Charge absence policy adopted:** the
+  [required-charge contract](../validation/required_partial_charges.md) removes
+  zero fabrication in both roles and delegates every explicit calculation to
+  MolSysMT. Supplied zeros retain their own provenance. No new molecular
+  transform is introduced. Scientific model acceptance remains #5; the native
+  unit-policy limitation is reported in MolSysMT #381.
+
 - **Typing adopted:** the [2026-10-10 compatibility change](../validation/required_named_typing.md)
   removes both consumer classifiers. A valid named provider assignment or explicit
   typing options are required; DockingMT chooses no model. Scientific acceptance

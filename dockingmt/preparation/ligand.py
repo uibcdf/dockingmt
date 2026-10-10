@@ -304,6 +304,8 @@ def prepare_ligand(
         Opt-in public MolSysMT charge-builder arguments, including an explicit
         named method. Charge assignment follows hydrogen addition when requested.
         No default model, state repair or engine fallback is selected.
+        Complete finite source charges or this explicit calculation are required;
+        absent charges raise an error. Supplied zero values remain valid inputs.
     typing_options : mapping or None, optional
         Opt-in public MolSysMT type assignment after requested H/charge stages.
         Require typing_scheme='autodock4' and an explicit method. Valid named
@@ -328,9 +330,9 @@ def prepare_ligand(
     n_atoms = msm.get(extracted, element='system', n_atoms=True)
 
     atom_names, group_names, group_ids, elements = atom_metadata(extracted, 'LIG')
+    named_types, typing_assignment = source_atom_types(extracted, n_atoms)
     charges = source_partial_charges(extracted, n_atoms)
     assignment = source_charge_assignment(extracted)
-    named_types, typing_assignment = source_atom_types(extracted, n_atoms)
     bonded_atoms = (
         msm.get(
             extracted,
@@ -375,11 +377,10 @@ def prepare_ligand(
                 )
             attached = heavy_neighbors[0]
             if named_types[i] == 'H':
-                if charges is not None:
-                    charge_transfers.append((i, attached))
-                    merged_hydrogen_charges[attached] = (
-                        merged_hydrogen_charges.get(attached, 0.0) + charges[i]
-                    )
+                charge_transfers.append((i, attached))
+                merged_hydrogen_charges[attached] = (
+                    merged_hydrogen_charges.get(attached, 0.0) + charges[i]
+                )
                 omitted_hydrogen_indices.append(i)
                 continue
 
@@ -387,12 +388,11 @@ def prepare_ligand(
         retained_gnames.append(gname_str)
         retained_gids.append(gid_val)
         retained_types.append(named_types[i])
-        retained_charges.append(charges[i] if charges is not None else 0.0)
+        retained_charges.append(charges[i])
         retained_indices.append(i)
 
-    if charges is not None:
-        for atom_index, hydrogen_charge in merged_hydrogen_charges.items():
-            retained_charges[retained_indices.index(atom_index)] += hydrogen_charge
+    for atom_index, hydrogen_charge in merged_hydrogen_charges.items():
+        retained_charges[retained_indices.index(atom_index)] += hydrogen_charge
 
     retained_coords = puw.quantity(
         puw.get_value(coords)[retained_indices],
@@ -429,9 +429,7 @@ def prepare_ligand(
             'source_n_atoms': int(n_atoms),
             'retained_n_atoms': len(retained_names),
             'retained_atom_indices': retained_indices,
-            'charge_source': 'source_partial_charge'
-            if charges is not None
-            else 'zero_placeholder',
+            'charge_source': 'source_partial_charge',
             'atom_type_source': 'molsysmt_named_autodock4',
             'atom_type_assignment': typing_assignment,
             'atom_type_projection': type_projection(

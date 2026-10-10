@@ -22,9 +22,25 @@ from devtools.qualify_named_types import (
     HYDROGEN,
     TYPING,
     declared_source,
-    explicit_source,
+)
+from devtools.qualify_named_types import (
+    explicit_source as _explicit_source,
 )
 from dockingmt._private.smonitor import ArgumentError
+
+
+def explicit_source(smiles):
+    """Declare synthetic supplied-zero charges for isolated typing controls.
+
+    These values are fixture inputs, not a chemical model or consumer fallback.
+    """
+    source = _explicit_source(smiles)
+    msm.set(
+        source,
+        element='atom',
+        partial_charge=puw.quantity([0.0] * msm.get(source, n_atoms=True), 'e'),
+    )
+    return source
 
 
 @pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
@@ -59,10 +75,9 @@ def test_named_chemical_context_overrides_heuristics_without_changing_input(
     assert report['coverage'] == 'complete'
     assert report['software']['rdkit'] and report['attribution']['items']
     assert prepared.metadata['atom_type_source'] == 'molsysmt_named_autodock4'
-    # A named type model does not hide the still absent charge model.
-    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == [
-        'zero_placeholder_charges'
-    ]
+    assert prepared.metadata['charge_source'] == 'source_partial_charge'
+    assert prepared.metadata['partial_charge_assignment'] is None
+    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == []
 
 
 @pytest.mark.parametrize('smiles,heavy', [('F', 'F'), ('P', 'P')])

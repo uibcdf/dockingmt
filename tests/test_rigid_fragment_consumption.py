@@ -11,7 +11,7 @@ from molsysmt._private.smonitor import StructuralInconsistencyError
 from test_flexible_ligand import _ligand
 from test_vina_torsion_matrix import _atom_map, _reference, _source, _source_graph
 
-from devtools.qualify_named_types import HYDROGEN, TYPING
+from devtools.qualify_named_types import CHARGE, HYDROGEN, TYPING
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation import prepare_ligand
 from dockingmt.preparation._temporary_torsions import build_torsion_tree
@@ -26,8 +26,11 @@ BASELINE = json.loads(BASELINE_PATH.read_text())
 def test_original_matrix_preserves_tree_and_consumes_provider(case, monkeypatch):
     molecule = _source(case['case'], case['source_sdf_sha256'])
     source = msm.build.assign_autodock_atom_types(
-        msm.build.add_missing_hydrogens(
-            msm.convert(molecule, to_form='molsysmt.MolSys'), **HYDROGEN
+        msm.build.assign_partial_charges(
+            msm.build.add_missing_hydrogens(
+                msm.convert(molecule, to_form='molsysmt.MolSys'), **HYDROGEN
+            ),
+            **CHARGE,
         ),
         **TYPING,
     )
