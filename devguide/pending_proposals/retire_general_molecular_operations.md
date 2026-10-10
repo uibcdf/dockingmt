@@ -169,3 +169,17 @@ or retain a current bounded owner-linked exception and removal condition. Verify
 actual calls and user-visible identity, units, failure and provenance behavior.
 Preserve docking decisions, original scientific inputs/producer bytes, and human
 work in sibling checkouts. Provider maintainers own their delivery decisions.
+
+## Typing compatibility evidence, 2026-10-10
+
+The [paired legacy/named comparison](../validation/legacy_named_typing_comparison.md)
+executes 23 comparisons, four declared incomplete-input controls and the already
+tracked native 1IEP reader limit. Fourteen pairs differ; native 5X72 has 18 C → A
+changes per ligand despite unchanged positions, retained counts and total charge.
+The existing public named operation covers this classification; no new consumer
+algorithm is needed. Retain original producer/raw evidence and existing defaults
+for this slice. The next bounded compatibility change removes heuristic typing,
+requires valid named assignments or explicit provider options, and explains
+missing prerequisites. Writer/projection/permutation adoption remains separate.
+The comparison is source-composition evidence, not chemical validation or a new
+installed candidate. Existing typing/charge/reporting contracts pass 89 cases.

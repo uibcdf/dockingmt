@@ -1,0 +1,217 @@
+"""Observe legacy and public named typing on identical declared inputs.
+
+This producer calls existing preparation paths; it implements no atom classifier,
+H projection, charge model, molecular repair or docking search. Original evidence
+is written only to a caller-selected new output file.
+"""
+
+import gzip
+import hashlib
+import importlib.metadata as metadata
+import json
+import io
+import tarfile
+from math import fsum
+from pathlib import Path
+import subprocess
+import sys
+
+import argdigest
+import molsysmt as msm
+import molsysviewer
+import numpy as np
+import pyunitwizard as puw
+
+import dockingmt as dmt
+from devtools.qualify_chemical_templates import (
+    detached_record, load_181l_benzene, load_5x72, snapshot, template_options,
+)
+from devtools.qualify_named_types import CHARGE, HYDROGEN, TYPING, declared_source, explicit_source
+
+ROOT = Path(dmt.__file__).resolve().parents[1]
+PROVIDER = '739395d7ea31bec5c3f77cdcb1135ecf7e7c9bac'
+NATIVE_SHA = 'c535c7d2f0e2a92b6ebf8298a60b19e4b5555467b4aa087e9563c6760619827e'
+
+
+def digest(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def revision(root):
+    return subprocess.check_output(['git', '-C', str(root), 'rev-parse', 'HEAD'], text=True).strip()
+
+
+def input_record(source):
+    charge = msm.get(source, partial_charge=True)
+    return {
+        'native': snapshot(source),
+        'charges_e': None if charge is None else np.asarray(charge, dtype=float).tolist(),
+        'has_atom_ff_type': bool(msm.has_attribute(source, 'atom_ff_type')),
+    }
+
+
+def observation(prepared):
+    return {
+        'source_atom_indices': prepared.metadata['retained_atom_indices'],
+        'types': prepared.atom_types,
+        'charges_e': prepared.charges,
+        'coordinates_angstrom': puw.get_value(prepared.coordinates, to_unit='angstrom'),
+        'omitted_hydrogen_indices': prepared.metadata['omitted_hydrogen_indices'],
+        'charge_projection': prepared.metadata['charge_projection'],
+        'type_assignment': prepared.metadata.get('atom_type_assignment'),
+        'type_source': prepared.metadata['atom_type_source'],
+        'assessment': dmt.assess_preparation(prepared),
+        'charge_audit': dmt.audit_preparation_charges(prepared),
+    }
+
+
+def compare(source, role, *, expected_heavy=None):
+    before = input_record(source)
+    assert not before['has_atom_ff_type']
+    prepare = dmt.prepare_ligand if role == 'ligand' else dmt.prepare_receptor
+    legacy = prepare(source, selection='all')
+    named = prepare(source, selection='all', typing_options=TYPING)
+    assert input_record(source) == before
+    old = dict(zip(legacy.metadata['retained_atom_indices'], legacy.atom_types, strict=True))
+    new = dict(zip(named.metadata['retained_atom_indices'], named.atom_types, strict=True))
+    source_xyz = puw.get_value(msm.get(source, coordinates=True), to_unit='angstrom')[0]
+    for prepared in (legacy, named):
+        np.testing.assert_allclose(
+            puw.get_value(prepared.coordinates, to_unit='angstrom'),
+            source_xyz[prepared.metadata['retained_atom_indices']], rtol=0, atol=1e-12,
+        )
+        assert dmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
+        assert abs(fsum(prepared.charges) - fsum(before['charges_e'])) < 1e-10
+    if expected_heavy is not None:
+        assert named.atom_types[:len(expected_heavy)] == expected_heavy
+    # This joins already supplied source-index labels. It performs no matching.
+    changes = [
+        {'source_atom_index': index, 'legacy': old[index], 'named': new[index]}
+        for index in sorted(old.keys() & new.keys()) if old[index] != new[index]
+    ]
+    added = sorted(new.keys() - old.keys())
+    removed = sorted(old.keys() - new.keys())
+    return detached_record({
+        'role': role, 'input': before,
+        'legacy': observation(legacy), 'named': observation(named),
+        'type_changes_on_common_source_atoms': changes,
+        'retained_only_named': added, 'retained_only_legacy': removed,
+        'independent_expected_heavy_types': expected_heavy,
+        'source_unchanged': True, 'same_declared_pose': True,
+        'source_charge_total_e': fsum(before['charges_e']),
+    })
+
+
+def negative(source, role):
+    before = input_record(source)
+    prepare = dmt.prepare_ligand if role == 'ligand' else dmt.prepare_receptor
+    legacy = prepare(source, selection='all')
+    try:
+        prepare(source, selection='all', typing_options=TYPING)
+    except msm.StructuralInconsistencyError as exc:
+        error = {'class': type(exc).__name__, 'message': str(exc)}
+    else:
+        raise AssertionError('The declared incomplete input unexpectedly typed.')
+    assert input_record(source) == before
+    return detached_record({
+        'role': role, 'input': before, 'legacy': observation(legacy),
+        'named_rejection': error, 'source_unchanged': True,
+        'implicit_hydrogen_addition': False,
+    })
+
+
+def run():
+    provider_root = Path(msm.__file__).resolve().parents[1]
+    assert revision(provider_root) == PROVIDER
+    subprocess.run(['git', '-C', str(provider_root), 'diff', '--exit-code', 'HEAD', '--', 'molsysmt'], check=True)
+    native = provider_root / 'molsysmt/_rust.abi3.so'
+    assert digest(native) == NATIVE_SHA
+    sources = {}
+    for name, module in [('dockingmt', dmt), ('molsysmt', msm), ('argdigest', argdigest), ('molsysviewer', molsysviewer)]:
+        root = Path(module.__file__).resolve().parents[1]
+        if name in ('argdigest', 'molsysviewer'):
+            source_revision = {'argdigest': '57447cc4ec1f7ce85078f8a939892efd075bc919', 'molsysviewer': 'ec4c71e574d798b7c8675b7e7e983da878ce9889'}[name]
+            owning_repo = ROOT.parent / name
+            archived = subprocess.check_output(['git', '-C', str(owning_repo), 'archive', source_revision, name])
+            checked = {}
+            with tarfile.open(fileobj=io.BytesIO(archived)) as archive:
+                for member in archive.getmembers():
+                    if member.isfile():
+                        original = archive.extractfile(member).read()
+                        assert (root / member.name).read_bytes() == original, member.name
+                        checked[member.name] = hashlib.sha256(original).hexdigest()
+        else:
+            source_revision = revision(root)
+            checked = None
+        sources[name] = {'root': str(root), 'import': module.__file__, 'revision': source_revision, 'archive_file_sha256': checked}
+    assert sources['dockingmt']['revision'] == '4675486904b73caa2c9e0e72ed17efd3704dc1fc'
+    proof = {str(path): digest(path) for path in [
+        ROOT / 'dockingmt/preparation/ligand.py', ROOT / 'dockingmt/preparation/receptor.py',
+        ROOT / 'devtools/qualify_named_types.py', ROOT / 'devtools/qualify_chemical_templates.py',
+        provider_root / 'molsysmt/build/assign_autodock_atom_types.py',
+        provider_root / 'molsysmt/physchem/get_autodock_atom_types.py',
+        provider_root / 'molsysmt/_private/autodock_assignment.py',
+    ]}
+    expected = {
+        'CN': ['C', 'NA'], 'C[NH3+]': ['C', 'N'], 'CC(=O)N': ['C', 'C', 'OA', 'N'],
+        'c1ccncc1': ['A', 'A', 'A', 'NA', 'A', 'A'], 'c1cc[nH]c1': ['A', 'A', 'A', 'N', 'A'],
+        'CSC': ['C', 'SA', 'C'], 'CS(=O)(=O)C': ['C', 'S', 'OA', 'OA', 'C'],
+        'F': ['F'], 'P': ['P'],
+    }
+    cases = {}
+    for smiles, heavy in expected.items():
+        source = msm.build.assign_partial_charges(explicit_source(smiles), **CHARGE)
+        for role in ('ligand', 'receptor'):
+            cases[f'{smiles}:{role}'] = compare(source, role, expected_heavy=heavy)
+    bnz, template, full_indices = load_181l_benzene()
+    application = msm.physchem.apply_chemical_template(bnz, **template_options(
+        template, np.column_stack((np.arange(6), np.arange(6))),
+        identity='Explicit heavy-only benzene SMILES template', uri='smiles:c1ccccc1', hydrogen_policy='stored_counts',
+    ))
+    explicit = msm.build.add_missing_hydrogens(application['molecular_system'], **{**HYDROGEN, 'attribute_policy': 'intersection'})
+    charged = msm.build.assign_partial_charges(explicit, **CHARGE)
+    cases['181l_bnz:ligand'] = compare(charged, 'ligand', expected_heavy=['A'] * 6)
+    cases['181l_bnz:ligand']['declaration'] = {'full_source_atom_indices': full_indices, 'template_application_report': detached_record(application['report'])}
+    inputs = {}
+    for name in ('p59', 'p69'):
+        original, _ = load_5x72(name)
+        cases[f'5x72_{name}:ligand'] = compare(msm.build.assign_partial_charges(original, **CHARGE), 'ligand')
+        path = ROOT / f'tests/data/vina_torsions/5x72_ligand_{name}H.sdf'
+        inputs[str(path)] = digest(path)
+    path = ROOT / 'tests/data/vina_torsions/1iep_ligand.sdf'
+    inputs[str(path)] = digest(path)
+    try:
+        msm.convert(path, to_form='molsysmt.MolSys', stereo_engine='rdkit', discard_properties=True)
+    except Exception as exc:
+        if type(exc).__name__ != 'FormatError' or type(exc).__module__ != 'molsysmt._private.smonitor.exceptions':
+            raise
+        reader_limit = {'path': str(path), 'sha256': inputs[str(path)], 'class': type(exc).__name__, 'message': str(exc), 'conversion_options': {'to_form': 'molsysmt.MolSys', 'stereo_engine': 'rdkit', 'discard_properties': True}}
+    else:
+        raise AssertionError('Revisit the recorded native SDF reader limit before comparing this case.')
+    pdb = Path(msm.systems['T4 lysozyme L99A']['181l.pdb'])
+    inputs[str(pdb)] = digest(pdb)
+    with puw.context(standard_units=['pm', 'coulomb']):
+        charged = msm.build.assign_partial_charges(explicit_source('CN'), **CHARGE)
+        for role in ('ligand', 'receptor'):
+            cases[f'CN:pm_coulomb:{role}'] = compare(charged, role, expected_heavy=['C', 'NA'])
+    rejected = {}
+    for name, source in [('virtual_h_methanol', declared_source('CO')), ('raw_181l_bnz', bnz)]:
+        for role in ('ligand', 'receptor'):
+            rejected[f'{name}:{role}'] = negative(source, role)
+    return {
+        'schema': 'dockingmt.legacy_named_typing_comparison@1', 'date': '2026-10-10',
+        'producer_sha256': digest(__file__), 'sources': sources, 'source_file_sha256': proof,
+        'native_binary': {'path': str(native), 'sha256': digest(native), 'origin': 'Authenticated unchanged binary copied into isolated provider source; not an ordinary installed candidate'},
+        'python': sys.version, 'versions': {name: metadata.version(name) for name in ['rdkit', 'numpy', 'pyunitwizard', 'molsysmt']},
+        'original_input_sha256': inputs, 'charge_options': CHARGE, 'typing_options': TYPING,
+        'synthetic_hydrogen_options': HYDROGEN, 'positive_cases': cases, 'negative_cases': rejected, 'native_sdf_reader_limit': reader_limit,
+        'limits': ['Synthetic poses are test geometry, not optimized conformers.', 'Receptor-role controls are small synthetic molecules, not native protein qualification.', 'Labels measure compatibility differences, not chemical accuracy or affinity.', 'No Vina parser, score, search or torsion experiment was executed.', 'Provider profile chemical_environment@1 remains experimental.', 'Defaults and molecular algorithms were not changed.'],
+    }
+
+
+if __name__ == '__main__':
+    result = run()
+    payload = json.dumps(result, sort_keys=True, allow_nan=False).encode()
+    with Path(sys.argv[1]).open('xb') as output:
+        output.write(gzip.compress(payload, mtime=0))
+    print(f'{len(result["positive_cases"])} comparisons; {len(result["negative_cases"])} rejection controls; sha256 {digest(sys.argv[1])}')

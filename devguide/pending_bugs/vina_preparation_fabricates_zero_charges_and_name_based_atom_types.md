@@ -296,3 +296,19 @@ This issue remains partial. The earlier exploratory baseline is preserved.
 ## 2026-10-07 real matched flexible ligand
 
 The [1IEP experiment](../validation/1iep_flexibility_workflow.md) uses the original 69-atom/73-edge SDF state with public named Gasteiger charges and chemical-environment AutoDock types. Both rigid and seven-axis preparations retain 37 heavy atoms and three polar H; 29 H-charge transfers conserve +1 e (0.999 e in three-decimal PDBQT). Twelve seed/exhaustiveness searches retain original producer reports, assessments and verified source maps without provisional opt-in. This adds a real matched flexible ligand to bounded consumer evidence, while the receptor remains an external unassessed reference. Chemical-state selection, environmental geometry, scoring validity, wider preparation and public dependency closure remain unqualified; #5 stays partial.
+
+## 2026-10-10 legacy versus named typing compatibility
+
+The [controlled comparison](../validation/legacy_named_typing_comparison.md)
+retains 23 paired preparations and four incomplete-input controls on the adopted
+MolSysMT `739395d7e` source. Fourteen pairs change types or retained H, including
+18 C → A differences in each native 5X72 ligand, N → NA for amine/pyridine
+controls, SA → S for sulfone, and retained provider polar H on F/P. Both routes
+preserve source inputs/positions and total charge. Original 1IEP native SDF input
+remains outside the provider subset (#215), explicitly excluded from these pairs.
+The original producer/raw bytes are retained, with no new molecular algorithm,
+preparation default, score or search. Eighty-nine existing named-type, charge and
+reporting contracts pass. Retire unqualified consumer typing through a separate
+public compatibility change requiring preassigned named reports or explicit
+provider typing options; do not automatically choose an experimental model.
+Scientific acceptance and missing-charge scope remain open.

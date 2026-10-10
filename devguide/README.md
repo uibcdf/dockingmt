@@ -160,3 +160,7 @@ The [explicit chemical-template consumer record](validation/chemical_template_co
 and [executed notebook](validation/chemical_template_consumption.ipynb) qualify
 MolSysMT transfer on original 181L BNZ and controlled 5X72 inputs, retaining
 explicit maps, conflicts, pose preservation and the provisional Vina safeguard.
+
+The [legacy/named typing comparison](validation/legacy_named_typing_comparison.md)
+retains paired unchanged-input observations and prerequisites for retiring consumer
+classification under #5/#49. It leaves preparation defaults unchanged.
