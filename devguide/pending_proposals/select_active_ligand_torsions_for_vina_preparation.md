@@ -310,3 +310,10 @@ or cuts stop admission and require provider evidence. No preparation or search
 has yet executed, and the plan adopts no automatic torsion or ROOT policy.
 #6 remains partial; existing molecular projection/connectivity migrations stay
 separate.
+
+
+## 2026-10-10 executed 3PTB admission
+
+3PTB admission consumes MolSysMT candidate classification and rigid fragments for the sole explicit C1–C cut. Rigid and flexible arms have identical source-axis fields and saved ROOT/BRANCH representations, including their different first ROOT atoms. The 24-row population is frozen but unexecuted; no automatic torsion/default policy changes.
+
+The [executed admission](../validation/3ptb_admission.md), [notebook](../validation/3ptb_admission_2026-10-10.ipynb) and separate receipt retain measured scope. Owning issues remain partial/open.

@@ -411,3 +411,10 @@ negative boxes, three seeds and two effort levels. It distinguishes pose generat
 from rank-1 recovery, retains every failure and claims no affinity or general
 chemical validation. This is a registered plan, not executed scientific evidence;
 #5 remains partial and MolSysMT #223/#323/#381 retain provider ownership.
+
+
+## 2026-10-10 executed 3PTB admission
+
+Plain-source 3PTB molecular admission retains all original heavy maps, explicit histidine/CYX states, fixed-state H loss reports, named charges/types and charge-conserving projections. Both native Vina input parsers accept the inputs. All 24 registered searches remain unattempted; no broader chemical/model acceptance is inferred.
+
+The [executed admission](../validation/3ptb_admission.md), [notebook](../validation/3ptb_admission_2026-10-10.ipynb) and separate receipt retain measured scope. Owning issues remain partial/open.

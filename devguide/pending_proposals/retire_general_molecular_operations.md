@@ -279,3 +279,10 @@ The final five controls pass without skips in 8.20 s; the surrounding selection
 passes 119 without skips in 93.77 s, with 47 retained warnings. All 119 distinct
 contracts and applicable administrative checks are covered. Exact published-head
 hosted checks are recorded on the owning issues after execution.
+
+
+## 2026-10-10 executed 3PTB admission
+
+The 3PTB workflow composes public molecular tools and adds no general molecular implementation. Direct compressed-PDB recognition fails before reading; reusable support is proposed in [MolSysMT #385](https://github.com/uibcdf/molsysmt/issues/385). A separately registered caller archive handoff restores exact original plain bytes, authenticated before public conversion. The 2026-11-10 review and provider-qualified removal condition are retained. This does not retire #223/#348 or qualify compressed consumption.
+
+The [executed admission](../validation/3ptb_admission.md), [notebook](../validation/3ptb_admission_2026-10-10.ipynb) and separate receipt retain measured scope. Owning issues remain partial/open.

@@ -1,0 +1,95 @@
+{
+  "schema": "dockingmt.3ptb_admission_checkpoint@1",
+  "date": "2026-10-10",
+  "owning_issues": [
+    "uibcdf/dockingmt#5",
+    "uibcdf/dockingmt#6",
+    "uibcdf/dockingmt#4",
+    "uibcdf/dockingmt#49"
+  ],
+  "original_producer": {
+    "archive": "devguide/validation/data/3ptb_admission/audit_2026-10-10.json.gz",
+    "archive_sha256": "05f82e0ff16592c64d404c216a7e2feff0c0e62a2aebff240dc8653350e21075",
+    "json_sha256": "6565968e1e10ea84b0ca53b42b10966e4bca9f07a6559212ce7c9e32e41b74c3",
+    "driver": "devguide/validation/data/3ptb_admission/producer_2026-10-10.py.txt",
+    "driver_sha256": "4a14b7c525ee20bed1cc4a139235a1320824e1042fe38528aa55720329885cd8",
+    "source_base": "a812916193064c04a6e52e119d4787ca22dd19af",
+    "recorded_utc_from_archive_mtime": "2026-10-10T12:52:17.521142+00:00"
+  },
+  "population_sha256": "be87f351c4cd0f2b8af6dc71d12af49c0604c2171b363fa2a62e3561215a1ed6",
+  "source_handoff_registration": {
+    "file": "devguide/validation/3ptb_source_handoff_2026-10-10.md",
+    "provider_issue": "uibcdf/molsysmt#385",
+    "registration_url": "https://github.com/uibcdf/dockingmt/issues/5#issuecomment-6097647900",
+    "sha256": "60e8b4ccfb873666885a570d339f1ddc34d1c630ebf779862f66aa2c665ecf32"
+  },
+  "scope": "Plain-input molecular admission only; direct compressed conversion not qualified; zero scoring/search.",
+  "local_tests": {
+    "status": "passed",
+    "new_guards": {
+      "passed": 6,
+      "skipped": 0,
+      "seconds": 55.18,
+      "warnings": 4,
+      "warning_kind": "Explicit provider StructuralAttributeDropWarning; preserved and tested"
+    },
+    "existing_contracts": {
+      "status": "passed",
+      "passed": 205,
+      "skipped": 0,
+      "seconds": 163.9,
+      "warnings": 97,
+      "files": [
+        "tests/test_preparation.py",
+        "tests/test_named_autodock_types.py",
+        "tests/test_required_partial_charges.py",
+        "tests/test_required_autodock_types.py",
+        "tests/test_torsion_policy_consumption.py",
+        "tests/test_rigid_fragment_consumption.py",
+        "tests/test_native_prepared_export_contract.py",
+        "tests/test_chemical_template_consumption.py",
+        "tests/test_search_domain.py",
+        "tests/test_search_domain_contracts.py"
+      ]
+    },
+    "reporting": {
+      "passed": 1,
+      "seconds": 0.13
+    },
+    "unit_control": "pm/fs/degree plus explicit e standard; native maps/scoring/optimization/docking forbidden",
+    "ruff_check": "pass",
+    "ruff_format": {
+      "status": "pass",
+      "files": 157
+    },
+    "local_static_types": {
+      "status": "not_run",
+      "reason": "mypy is absent from the routine environment; no typed product module changed"
+    },
+    "python311_syntax": "pass; source parsed with ast feature_version=(3,11); runtime support still requires hosted lanes"
+  },
+  "notebook": {
+    "file": "devguide/validation/3ptb_admission_2026-10-10.ipynb",
+    "sha256": "ca70b20293489d1b718f159e268019edb56bc4965dbe873963b935885cf050ee",
+    "executed_code_cells": 5,
+    "errors": 0,
+    "kernel_python": "3.14.7",
+    "managed_source_directory_cleaned": true
+  },
+  "hosted_checkpoint": {
+    "status": "not_yet_executed_at_receipt_creation",
+    "follow_up_owner": "https://github.com/uibcdf/dockingmt/issues/5",
+    "recovery": "Push an unskipped implementation head; inspect all exact-head CI jobs with official gh-run-receptor and retain native Python lane outcomes in owning issue comments."
+  },
+  "administrative_gates": {
+    "local_links": 183,
+    "guide_sync": "pass",
+    "diff_check": "pass",
+    "original_protocol_unchanged": true
+  },
+  "limits": [
+    "RDKit sanitation and complete named-field coverage do not certify experimental protonation, independent valence correctness or model suitability.",
+    "Environmental H refinement, symmetry-aware RMSD and general native projection retirement remain unassessed.",
+    "No pose generation, ranking, affinity or search performance evidence in this admission."
+  ]
+}

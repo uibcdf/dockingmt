@@ -164,3 +164,9 @@ explicit maps, conflicts, pose preservation and the provisional Vina safeguard.
 The [legacy/named typing comparison](validation/legacy_named_typing_comparison.md)
 retains paired unchanged-input observations and prerequisites for retiring consumer
 classification under #5/#49. It leaves preparation defaults unchanged.
+
+The [executed 3PTB molecular admission](validation/3ptb_admission.md) and
+[human notebook](validation/3ptb_admission_2026-10-10.ipynb) retain the registered
+chemical/torsion/domain inputs before the fixed 24-row search population. Direct
+compressed-PDB support is proposed to MolSysMT; plain-input admission preserves
+original bytes and introduces no molecular implementation downstream.

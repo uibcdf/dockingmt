@@ -190,3 +190,10 @@ H and named models require their original reports and full maps; no pH inference
 chemical overwrite, environmental refinement or implicit repair is authorized.
 The sources and scientific prescription are recorded, while molecular admission
 and all 24 searches remain unexecuted. #4 remains partial.
+
+
+## 2026-10-10 executed 3PTB admission
+
+3PTB admission executes the registered HID57/HIE40/HIE91, six CYX links, charged termini and benzamidinium +1 hypothesis through public MolSysMT tools. Fixed-state H requires explicitly reported occupancy/B-factor loss with original arrays retained. Source identities remain unchanged. No pH prediction, alternative state selection or environmental refinement is qualified.
+
+The [executed admission](../validation/3ptb_admission.md), [notebook](../validation/3ptb_admission_2026-10-10.ipynb) and separate receipt retain measured scope. Owning issues remain partial/open.
