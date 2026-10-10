@@ -72,6 +72,14 @@ return and verifies serialization and default capture. Capturing wrapper default
 does not establish defaults for a different backend version or document internal
 C++ decisions that are absent from the wrapper interface.
 
+`engine_info` preserves literal native values, including the receptor's temporary
+staging filename. That filename is local to one invocation and can remain as a
+recorded value after cleanup. Compare captured `backend_artifacts` bytes/hashes
+for molecular input equality; temporary filenames do not define molecular
+identity. The seeded individual/batch contract verifies those bytes, checks
+staging cleanup, and excludes only that path and elapsed time when comparing
+otherwise complete results.
+
 Input hashes and matching settings define a deliberately conservative comparison
 boundary. They do not qualify provisional/unassessed chemistry, establish physical
 binding affinity, or authorize cross-ligand, cross-receptor or ensemble aggregation.

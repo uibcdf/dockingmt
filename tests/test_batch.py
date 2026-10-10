@@ -4,6 +4,7 @@ import importlib
 import json
 import weakref
 from copy import deepcopy
+from pathlib import Path
 
 import pytest
 import pyunitwizard as puw
@@ -236,6 +237,15 @@ def test_native_batch_matches_individual_seeded_docking(scoring):
         reference = expected.to_dict()
         actual['provenance'].pop('elapsed_seconds')
         reference['provenance'].pop('elapsed_seconds')
+        for record in (actual, reference):
+            # The complete native info snapshot retains an invocation-local
+            # staging path. Compare captured bytes/hashes, not temporary names.
+            artifacts = record['provenance']['backend_artifacts']
+            assert dmt.verify_captured_inputs(artifacts)
+            info = record['provenance']['backend_output']['engine_info']
+            staged_receptor = info.pop('rigid_receptor')
+            assert isinstance(staged_receptor, str)
+            assert not Path(staged_receptor).exists()
         assert actual == reference
         assert outcome.index == index and outcome.error is None
         assert outcome.backend == 'vina'

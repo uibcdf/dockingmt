@@ -1,0 +1,35 @@
+{
+  "schema": "dockingmt.3ptb_ci_comparison_correction@1",
+  "date": "2026-10-10",
+  "owning_issue": "uibcdf/dockingmt#5",
+  "original_implementation_head": "bb522d6608f1713333f6a979122b540405c8d598",
+  "original_ci_run": 38061067506,
+  "observed_failures": [
+    "tests/test_batch.py::test_native_batch_matches_individual_seeded_docking[vina]",
+    "tests/test_batch.py::test_native_batch_matches_individual_seeded_docking[vinardo]"
+  ],
+  "bounded_reproduction": "Only native engine_info.rigid_receptor temporary filename differs; otherwise complete results match after excluding that path and elapsed time.",
+  "correction": "Authenticate complete captured input bytes/hashes, assert staging cleanup, exclude only the invocation-local receptor filename for full individual/batch comparison.",
+  "product_sources_changed": false,
+  "scientific_archives_and_producers_changed": false,
+  "registered_3ptb_searches_repeated": 0,
+  "local_gate": {
+    "file": "tests/test_batch.py",
+    "passed": 41,
+    "skipped": 0,
+    "seconds": 7.73
+  },
+  "existing_local_evidence_retained": {
+    "native_adapter_and_evaluation_contracts_passed": 262,
+    "reporting_passed": 1,
+    "notebook_executed_cells": 4,
+    "applicability": "Product source, inputs, runtime and scientific scope remain unchanged."
+  },
+  "corrective_hosted_checkpoint": {
+    "status": "not_yet_executed_at_receipt_creation",
+    "owner": "uibcdf/dockingmt#5",
+    "recovery": "Publish unskipped corrective head and verify all four exact-head lanes and native publisher steps; retain original failed run separately."
+  },
+  "original_archive_sha256": "97104903c93b3f7a729a5a6ac196cdb7b59d686e318efdcf324f70131abba1f2",
+  "receiving_archive_sha256": "8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af"
+}

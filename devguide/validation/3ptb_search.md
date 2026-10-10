@@ -147,6 +147,18 @@ The receipt records applicable contract, reporting, format/index/link/guide and
 notebook gates. Hosted evidence is synchronized on the owning issues after the
 unskipped exact head completes.
 
+## Exact-head CI comparison correction, 2026-10-10
+
+The first published head `bb522d6` exposes two existing individual/batch equality
+assertions that compare the newly retained native staging filename. A bounded
+native reproduction finds only `engine_info.rigid_receptor` differs; after that
+path and elapsed time are excluded, all fields are equal. The test correction
+authenticates captured input bytes/hashes, checks that each recorded staging file
+was cleaned, and excludes only that invocation-local path. Product code, native
+options, all scientific archives/producers, score values, coordinates and
+receiving measurements stay unchanged. Original failed CI evidence is retained
+in the owning issue, with a new unskipped corrective head and its executed gates.
+
 The broad routine environment's global `pip check` remains failed with already
 reported third-party/AmberTools constraints. This actual workspace limitation is
 recorded in [MolSysSuite #82](https://github.com/uibcdf/molsyssuite/issues/82).
