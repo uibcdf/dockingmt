@@ -277,3 +277,13 @@ selection policy follows. Original/generatedH differences and local contact
 geometry need their own bounded diagnostic. MolSysMT#357 owns the inspected
 angle-unit documentation finding; explicit quantity handling remains valid.
 #6 stays partial/open.
+
+## Exact prepared-input distance slice — 2026-10-09
+
+The [saved-input contact diagnostic](../validation/5x72_contact_workflow.md)
+checks both original ROOT maps before measuring eight complete cross-system
+distance matrices. No cuts, tree, geometry, preparation or score is changed.
+P69 short heavy protein pairs occur in the original-rigid placement at GLN116/
+TYR149; descriptive bins neither identify energy terms nor select a flexibility
+remedy. Original/generated H remains a confound. All old scientific evidence
+is preserved; #6 remains partial/open.

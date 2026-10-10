@@ -333,3 +333,17 @@ effect because the new point retains originalH. This motivates separately
 controlled contact/geometry or score-basin work, without choosing a production
 torsion/H/preparation/scoring remedy. Provider angle-unit wording is reported
 in MolSysMT#357. #17 remains partial/open.
+
+## Saved-input distance associations — 2026-10-09
+
+The [prespecified contact diagnostic](../validation/5x72_contact_workflow.md)
+reuses the exact original-rigid and earlier-reference fixed-score captures,
+with no new scoring, search or optimization. Public rectangular distances
+retain all eight matrices/298,700 entries; both ROOT orders agree on the
+explicit source axis. P69's two heavy pairs <2.5 angstrom involve GLN116 and
+TYR149. Its large existing score difference is also present in sham. P59
+also has two heavy pairs below that threshold but a smaller score change;
+proximity counts cannot explain energy alone. Original/generated H and
+unrelaxed prescribed geometry remain limits. Local displacement sensitivity
+is a future bounded candidate, not an executed optimization or production
+torsion/H/ranking decision. #17 remains partial/open.

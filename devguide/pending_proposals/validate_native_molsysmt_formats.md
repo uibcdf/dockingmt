@@ -355,3 +355,16 @@ getter-unit prose is reported in MolSysMT#357; current-origin inspection and
 preserved-runtime execution remain separate. No sibling edit, source upgrade,
 fresh native build, general geometry adapter, full installed-artifact suite or
 public/provider admission is claimed. #33 remains partial/open.
+
+## Public cross-system distances of captured PDBQT — 2026-10-09
+
+The [contact diagnostic](../validation/5x72_contact_workflow.md)
+uses public PDBQT coordinate projections and cross-system `get_distances`
+on exact saved scoring bytes, checking all 298,700 distances independently.
+Both ROOT orders admit identical atom fields on an explicit source axis;
+protein/companion and H populations remain separate. Unit and inferred-string
+guards preserve portable angstrom extraction. PDBQT still has partial chemistry
+and omitted H; no new molecular input, preparation, scoring, provider/native
+qualification, complete installed-artifact suite or public admission follows.
+No additional provider limitation was found and no sibling was edited. Existing
+provider issues keep ownership; #33 remains partial/open.

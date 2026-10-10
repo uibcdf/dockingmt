@@ -166,3 +166,8 @@ own explicit maps, H policy, method and interpretation before execution.
 One prescribed conformer per ligand and one complex do not establish affinity,
 cooperativity, stereoselectivity, recovery probability, convergence, chemical
 correctness or general torsion/H/preparation/scoring/comparability defaults.
+
+The subsequent [saved-input distance diagnostic](5x72_contact_workflow.md)
+locates short protein pairs in both ligands while preserving every original
+score. Its eight complete matrices describe geometry associations, without
+identifying an energy term, cause or preparation remedy.

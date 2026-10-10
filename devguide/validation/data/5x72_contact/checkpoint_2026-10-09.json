@@ -1,0 +1,127 @@
+{
+  "capture_stage": "Original pre-commit scientific and successful local validation capture; later terminal CI receipts belong in owning issues without rewriting this record.",
+  "ci": "Exact-head unskipped Python3.11\u20133.14 source CI pending at original capture; later terminal receipts belong in #17/#6/#33.",
+  "consumer_base_commit": "a2b282a4ea1afa4524e92cbb4a444c0c6fe1dad8",
+  "environment": {
+    "producer_versions": {
+      "argdigest": "0.15.0+1.g5c6711e",
+      "molsysmt": "0.22.4+215.g5bd893c85",
+      "pyunitwizard": "0.28.1+3.g2ab37a5",
+      "rdkit": "2026.3.1",
+      "vina": "1.2.7"
+    },
+    "provider_native_artifacts": {
+      "/tmp/dockingmt-receptor-provider-5bd893c/molsysmt/_rust.abi3.so": "c535c7d2f0e2a92b6ebf8298a60b19e4b5555467b4aa087e9563c6760619827e"
+    },
+    "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90"
+  },
+  "local_validation": {
+    "distinct_passing_tests": 86,
+    "guides_links": {
+      "files": [
+        "devguide/validation/5x72_contact_workflow.md",
+        "devguide/validation/5x72_rigid_workflow.md",
+        "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "devguide/pending_proposals/validate_native_molsysmt_formats.md"
+      ],
+      "guides": [
+        {
+          "filename": "MOLSYSSUITE_GUIDE.md",
+          "matches": "registered canonical source"
+        },
+        {
+          "canonical_commit": "848498308fbb5443a6bb2ce7b219580b7c7fe361",
+          "filename": "SMONITOR_GUIDE.md",
+          "matches": "fresh canonical origin/main; stale local worktree preserved",
+          "ownership": "uibcdf/molsyssuite#106",
+          "sha256": "4e7f40875681d86bfd9c678bd9842cb66619a6e162d4556c9dac83f95021674a"
+        },
+        {
+          "filename": "DEPDIGEST_GUIDE.md",
+          "matches": "registered canonical source"
+        },
+        {
+          "filename": "ARGDIGEST_GUIDE.md",
+          "matches": "registered canonical source"
+        },
+        {
+          "filename": "PYUNITWIZARD_GUIDE.md",
+          "matches": "registered canonical source"
+        },
+        {
+          "filename": "GH_RUN_RECEPTOR_GUIDE.md",
+          "matches": "registered canonical source"
+        },
+        {
+          "filename": "PYTEST_RECEPTOR_GUIDE.md",
+          "matches": "registered canonical source"
+        }
+      ],
+      "local_links_checked": 67
+    },
+    "notebook": {
+      "executed_code_cells": 3,
+      "interpreter": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+      "kernel_connection_files_after_shutdown": 0,
+      "managed_directory_removed": true,
+      "managed_kernel_directory": "/tmp/dockingmt-5x72-contact-kernel-sovx7dzp",
+      "notebook": "/home/liliana/repos@uibcdf/dockingmt/devguide/validation/5x72_contact_workflow_2026-10-09.ipynb"
+    },
+    "pytest": [
+      {
+        "errors": 0,
+        "failures": 0,
+        "junit": "/tmp/dockingmt-5x72-contact-guards.xml",
+        "junit_sha256": "0fb3a27b665fcc266cfa9cca9a4b482ef5f52f89ddc4dbfed3df0513a7daef38",
+        "scope": "guards",
+        "skipped": 0,
+        "tests": 8
+      },
+      {
+        "errors": 0,
+        "failures": 0,
+        "junit": "/tmp/dockingmt-5x72-contact-boundaries.xml",
+        "junit_sha256": "c7c268530df4b370c66d980df3742ed2fd86dd4500726d9a67caaab3e298508f",
+        "scope": "boundaries",
+        "skipped": 0,
+        "tests": 78
+      }
+    ],
+    "reporting_indexes": "regenerated and current",
+    "ruff_check": "passed",
+    "ruff_format_files": 148,
+    "type_check": "No separate local type runner configured for this fixture-only development scope."
+  },
+  "owning_issues": [
+    "uibcdf/dockingmt#17",
+    "uibcdf/dockingmt#6",
+    "uibcdf/dockingmt#33"
+  ],
+  "prior_archive_policy": "All original scientific archives/checkpoints/producer sources remain unchanged.",
+  "producer_archive": {
+    "compressed_bytes": 3676376,
+    "gzip_sha256": "84ad1212925bd0765f99b5e9a8932d5b7976e887f51a14964ec295b501aa5490",
+    "json_sha256": "f6765c5daa0c09923058c399b10e295f664aee266b1791558f9a4e6454425098",
+    "path": "devguide/validation/data/5x72_contact/audit_2026-10-09.json.gz"
+  },
+  "producer_source_sha256": "2c92d7ab41686a7b299b7b4d6961f9e370c96fe9639e6ec0c3ea2237fb08d092",
+  "qualification_scope": "Finite saved-input scientific geometry and selected local contracts; no full installed-artifact suite, newer provider/native qualification or public/platform admission.",
+  "schema": "dockingmt.5x72_contact_checkpoint@1",
+  "scientific_scope": {
+    "H_policy": "Exact captured prepared projections; original rigid H versus earlier generated H remain separate arms.",
+    "distance_entries": 298700,
+    "matrices": 8,
+    "new_fixed_evaluations": 0,
+    "new_optimization": 0,
+    "new_searches": 0,
+    "saved_fixed_score_captures_reused": 16
+  },
+  "temporary_resources": "Owner-prefixed logs/receipts retained for recovery. Managed notebook kernel removed; preserve evidence through the next geometry/score-basin or provider-qualification review.",
+  "working_state": {
+    "decision": "Preserve every reported behind/dirty sibling checkout and human work; no sibling update, merge, source edit or native rebuild. DockingMT dirty entries are this owned control.",
+    "inventory": "/tmp/dockingmt-5x72-contact-inventory.log",
+    "inventory_exit": 1,
+    "inventory_sha256": "a36f4750de21585a8789aeea4d8ea028ec359f39a12f4657d7764e090c90a11e"
+  }
+}
