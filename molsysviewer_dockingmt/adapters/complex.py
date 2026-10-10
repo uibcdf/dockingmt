@@ -6,9 +6,6 @@ from inspect import signature
 from numbers import Integral
 from typing import Any
 
-import numpy as np
-import pyunitwizard as puw
-
 from ..runtime import ensure_runtime, record_event
 from .shapes import render_search_domain
 
@@ -106,22 +103,9 @@ def build_docking_complex_system(
     lig_frame0 = ligand_frames[0]
     complex_sys = msm.merge([rec_sys, lig_frame0])
 
-    # If there are additional poses, append their structures
-    rec_coords = msm.get(rec_sys, element='atom', coordinates=True)
-    rec_vals = puw.get_value(rec_coords)[0]
-    rec_unit = puw.get_unit(rec_coords)
-
-    # Base single-structure complex used as a template for additional frames
-    base_frame = msm.copy(complex_sys)
-
+    # DockingMT chooses static-receptor pairing; MolSysMT composes each frame.
     for ligand_frame in ligand_frames[1:]:
-        ligand_coords = msm.get(ligand_frame, element='atom', coordinates=True)
-        pose_vals = puw.get_value(puw.convert(ligand_coords, to_unit=rec_unit))[0]
-        combined_vals = np.concatenate([rec_vals, pose_vals], axis=0)
-        frame_coords = puw.quantity(np.expand_dims(combined_vals, axis=0), rec_unit)
-
-        frame_sys = msm.copy(base_frame)
-        msm.set(frame_sys, element='atom', coordinates=frame_coords)
+        frame_sys = msm.merge([rec_sys, ligand_frame])
         msm.append_structures(complex_sys, frame_sys)
 
     return complex_sys
