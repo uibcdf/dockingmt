@@ -251,3 +251,24 @@ reporting is checked separately. The initial hosted run
 finished with the same two legacy-workflow failures in each of four minors
 (1,066 passed/2 failed per lane); it is retained as diagnostic evidence only.
 The corrected published head requires a new complete unskipped matrix.
+
+## Native prepared-export boundary — 2026-10-10
+
+The [executed writer checkpoint](../validation/native_prepared_export.md) adds
+five consumer controls for both methanol roles under angstrom/pm input, real
+Vina admission and a declared six-carbon flexible axis. The serializer works
+with explicit prepared values and tree. The retained native source still holds
+pre-aggregation charges; directly serializing it would lose the omitted H
+contribution, while serializing the full source retains all H. Public replacement
+of charge values correctly removes calculation provenance. Native blank groups
+also differ from prepared LIG/1 presentation. These are distinct transform and
+compatibility requirements, not a claim that #214 has no functioning writer.
+
+Keep the production routes unchanged pending the provider-owned native projection
+and maps in #223. This checkpoint adds no molecular algorithm, snapshot builder,
+serializer or implicit fallback. Evidence is handed to #223/#214 and #49/#5;
+the current provider source and the original scientific archives remain fixed.
+The final five controls pass without skips in 8.20 s; the surrounding selection
+passes 119 without skips in 93.77 s, with 47 retained warnings. All 119 distinct
+contracts and applicable administrative checks are covered. Exact published-head
+hosted checks are recorded on the owning issues after execution.

@@ -20,6 +20,12 @@ supersedes: []
 
 ## What
 
+The [native prepared-export checkpoint](../validation/native_prepared_export.md)
+records the remaining molecular projection/charge-provenance boundary in
+MolSysMT #223 separately from the functioning #214 serializer. Both preparation
+roles and non-default units have executed controls; production writer retirement
+and scientific charge-model acceptance remain incomplete.
+
 The original preparation wrote zero partial charges, guessed AutoDock types from
 names and dropped hydrogens by name. The dated slices below describe adopted
 provider capabilities. Current preparation requires named MolSysMT types;
