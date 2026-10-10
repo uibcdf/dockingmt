@@ -10,6 +10,7 @@ from rdkit import Chem
 from rdkit.Chem import Lipinski, rdMolDescriptors
 
 from devtools.audit_1iep_preparation import _pdbqt_torsion_graph
+from devtools.qualify_named_types import HYDROGEN, TYPING
 from dockingmt.preparation import prepare_ligand
 from dockingmt.preparation._molsys import autodock_element
 
@@ -168,12 +169,19 @@ def test_pinned_vina_torsion_tree_matches_source_fragments(
     ]
     assert len(selected_bonds) == branch_count
 
-    molsys = msm.convert(source, to_form='molsysmt.MolSys')
+    molsys = msm.build.assign_autodock_atom_types(
+        msm.build.add_missing_hydrogens(
+            msm.convert(source, to_form='molsysmt.MolSys'), **HYDROGEN
+        ),
+        **TYPING,
+    )
     prepared = prepare_ligand(
         molsys, selection='all', active_torsion_bonds=selected_bonds
     )
     native = prepared.to_pdbqt().encode()
     native_serials, native_atoms, native_unmatched_hydrogens = _atom_map(native, source)
+    # The neutral 1S63 SDF has no donor H. The independent reference includes
+    # one extra HD; its chemical preparation is not reproduced by this test.
     assert native_unmatched_hydrogens == 0
     assert set(native_serials.values()) == set(reference_serials.values())
     reference_bonds, reference_fragments = _source_graph(reference, reference_atoms)

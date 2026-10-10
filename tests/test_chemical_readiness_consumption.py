@@ -55,7 +55,7 @@ def test_preparation_consumes_provider_on_source_before_projection(
     assert summary['fields']['formal_charge']['status'] == 'present'
     assert summary['fields']['formal_charge']['origin_counts'] == {'unassessed': 9}
     assert prepared.metadata['charge_source'] == 'zero_placeholder'
-    assert 'heuristic' in prepared.metadata['atom_type_source']
+    assert prepared.metadata['atom_type_source'] == 'molsysmt_named_autodock4'
     assert (
         json.loads(json.dumps(prepared.to_dict()))['metadata']['source_chemistry']
         == (prepared.metadata['source_chemistry'])
@@ -64,15 +64,22 @@ def test_preparation_consumes_provider_on_source_before_projection(
 
 def test_incomplete_pdb_coverage_is_reported_without_chemical_completion():
     source = msm.systems['T4 lysozyme L99A']['181l.pdb']
-    prepared = prepare_ligand(source, selection="group_name=='BNZ'")
-    summary = prepared.metadata['source_chemistry']['chemical_readiness']
+    from dockingmt._private.smonitor import ArgumentError
+
+    with pytest.raises(
+        ArgumentError, match='Named MolSysMT AutoDock4 types are required'
+    ):
+        prepare_ligand(source, selection="group_name=='BNZ'")
+    selected = msm.extract(
+        msm.convert(source, to_form='molsysmt.MolSys'), selection="group_name=='BNZ'"
+    )
+    summary = chemistry_evidence(selected)['chemical_readiness']
     assert summary['connectivity']['declared_completeness'] == 'partial'
     assert summary['fields']['formal_charge']['status'] == 'missing'
     assert summary['fields']['covalent_multiplicity']['status'] == 'missing'
     assert summary['fields']['coordinates']['status'] == 'present'
     assert summary['fields']['formal_charge']['n_missing'] == 6
-    assert prepared.metadata['charge_source'] == 'zero_placeholder'
-    assert prepared.torsion_dof == 0
+    assert not msm.has_attribute(selected, 'partial_charge')
 
 
 def test_summary_is_detached_and_preserves_chemical_source_and_coordinates():

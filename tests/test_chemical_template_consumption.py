@@ -21,6 +21,7 @@ from devtools.qualify_chemical_templates import (
     snapshot,
     template_options,
 )
+from devtools.qualify_named_types import HYDROGEN, TYPING
 from dockingmt import BoxRegion, DockingProblem, DockingResult, VinaProtocol
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.engines.vina import VinaBackend
@@ -69,7 +70,7 @@ def test_permuted_template_result_reaches_preparation_with_selected_pose(name, l
             msm.get(source, coordinates=True)
         )
         chosen = msm.extract(applied, structure_indices=1)
-        prepared = prepare_ligand(chosen, selection='all')
+        prepared = prepare_ligand(chosen, selection='all', typing_options=TYPING)
         retained = prepared.metadata['retained_atom_indices']
         # Unit standardization may round at machine precision; the two frames
         # differ by 1 nm and application itself preserves the stored geometry.
@@ -90,7 +91,7 @@ def test_permuted_template_result_reaches_preparation_with_selected_pose(name, l
     assert readiness['connectivity']['declared_completeness'] == 'complete'
     assert 'docking_readiness' in readiness['unassessed_checks']
     assert prepared.metadata['charge_source'] == 'zero_placeholder'
-    assert prepared.metadata['atom_type_source'] == 'element_aromaticity_heuristic'
+    assert prepared.metadata['atom_type_source'] == 'molsysmt_named_autodock4'
     report = result['report']
     np.testing.assert_array_equal(report['atom_correspondence'], correspondence)
     assert report['coverage']['hydrogen_policy'] == 'explicit_atoms'
@@ -125,13 +126,22 @@ def test_original_181l_benzene_accepts_declared_heavy_only_template():
         list(msm.get(applied, element='bond', fractional_bond_order=True)) == [1.5] * 6
     )
     assert before['structures'] == after['structures']
-    ligand = prepare_ligand(applied, selection='all')
+    with pytest.raises(
+        ArgumentError, match='Named MolSysMT AutoDock4 types are required'
+    ):
+        prepare_ligand(applied, selection='all')
+    ligand = prepare_ligand(
+        applied,
+        selection='all',
+        hydrogen_options={**HYDROGEN, 'attribute_policy': 'intersection'},
+        typing_options=TYPING,
+    )
     assert ligand.atom_types == ['A'] * 6
     assert (
         ligand.metadata['source_chemistry']['chemical_readiness'][
             'n_explicit_hydrogens'
         ]
-        == 0
+        == 6
     )
     assert ligand.metadata['charge_source'] == 'zero_placeholder'
 
@@ -325,7 +335,7 @@ def test_template_application_cannot_bypass_vina_preparation_safeguard(p59):
     source, options = p59
     result = msm.physchem.apply_chemical_template(source, **options)
     selected = msm.extract(result['molecular_system'], structure_indices=0)
-    ligand = prepare_ligand(selected, selection='all')
+    ligand = prepare_ligand(selected, selection='all', typing_options=TYPING)
     assessment = assess_preparation(ligand)
     assert assessment['assessment'] == 'provisional'
     problem = DockingProblem(
@@ -336,7 +346,7 @@ def test_template_application_cannot_bypass_vina_preparation_safeguard(p59):
         ),
     )
     backend = VinaBackend()
-    with pytest.raises(ArgumentError, match='heuristic AutoDock atom types'):
+    with pytest.raises(ArgumentError, match='zero-placeholder partial charges'):
         backend.dock(problem, VinaProtocol(cpu=1, n_poses=1, exhaustiveness=1))
     exploratory = backend.dock(
         problem,

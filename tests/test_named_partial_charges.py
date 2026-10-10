@@ -12,6 +12,7 @@ import pyunitwizard as puw
 from test_engines import MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
+from devtools.qualify_named_types import TYPING
 from dockingmt._private.smonitor import ArgumentError
 
 METHANOL = Path(__file__).parent / 'data/charges/methanol.sdf'
@@ -20,7 +21,9 @@ METHANOL = Path(__file__).parent / 'data/charges/methanol.sdf'
 @pytest.fixture
 def assigned():
     source = msm.convert(METHANOL, to_form='molsysmt.MolSys')
-    return msm.build.assign_partial_charges(source, method='gasteiger_marsili')
+    return msm.build.assign_autodock_atom_types(
+        msm.build.assign_partial_charges(source, method='gasteiger_marsili'), **TYPING
+    )
 
 
 def atom_charges(system):
@@ -77,9 +80,7 @@ def test_named_charges_preserve_original_model_and_explicit_transfers(
         assigned.molecular_mechanics.partial_charge_assignment['status'] == 'assigned'
     )
     assert prepared.atom_types == ['C', 'OA', 'HD']
-    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == [
-        'heuristic_atom_types'
-    ]
+    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == []
     assert report['pdbqt']['charges'] == written_charges(prepared)
     assert (
         abs(report['pdbqt']['rounding_difference'])
@@ -99,38 +100,29 @@ def test_named_charges_preserve_original_model_and_explicit_transfers(
     )
 
 
-def test_receptor_forcefield_total_and_rounding_are_separate(tmp_path):
+def test_forcefield_charges_do_not_supply_a_complete_typing_graph():
     source = msm.convert(
         msm.systems['chicken villin HP35']['1vii.pdb'], to_form='molsysmt.MolSys'
     )
     assigned = msm.build.assign_partial_charges(
         source, method='forcefield', forcefield='AMBER14', expected_total_charge=2
     )
-    prepared = dmt.prepare_receptor(assigned, selection='all')
-    report = dmt.audit_preparation_charges(prepared)
     assert not msm.has_attribute(source, 'partial_charge')
-    assert report['assessment'] == 'consistent'
-    assert report['n_atoms'] == 364
-    assert len(report['charge_projection']['transfers']) == 232
-    assert report['total_charge'] == pytest.approx(2, abs=1e-12)
-    model = report['partial_charge_assignment']
+    assert msm.get(assigned, n_atoms=True) == 596
+    assert fsum(atom_charges(assigned)) == pytest.approx(2, abs=1e-12)
+    model = assigned.molecular_mechanics.partial_charge_assignment
     assert model['n_atoms'] == 596 and model['expected_total_charge'] == 2
     assert model['method'] == 'forcefield' and model['engine'] == 'OpenMM'
     assert model['parameters']['forcefield'] == 'AMBER14'
-    assert report['pdbqt']['charges'] == written_charges(prepared)
-    assert (
-        abs(report['pdbqt']['rounding_difference'])
-        <= report['pdbqt']['total_rounding_bound']
-    )
-    from vina import Vina
-
-    receptor_file = tmp_path / 'named-receptor.pdbqt'
-    receptor_file.write_text(prepared.to_pdbqt())
-    Vina(cpu=1, verbosity=0).set_receptor(str(receptor_file))
-    # Export precision is an observation, never silently renormalized to +2.
-    assert report['pdbqt']['total_charge'] == pytest.approx(
-        fsum(written_charges(prepared))
-    )
+    # Charge assignment does not authorize filling missing chemical graph/state.
+    with pytest.raises(
+        ArgumentError, match='Named MolSysMT AutoDock4 types are required'
+    ):
+        dmt.prepare_receptor(assigned, selection='all')
+    with pytest.raises(
+        msm.StructuralInconsistencyError, match='connectivity declared complete'
+    ):
+        dmt.prepare_receptor(assigned, selection='all', typing_options=TYPING)
 
 
 def test_projected_inventory_retains_original_calculation_scope(assigned):
@@ -198,7 +190,7 @@ def test_nondefault_charge_units_do_not_change_consumed_values():
     source = msm.convert(METHANOL, to_form='molsysmt.MolSys')
     with puw.context(standard_units=['coulomb', 'pm']):
         assigned = msm.build.assign_partial_charges(source, method='gasteiger_marsili')
-        prepared = dmt.prepare_ligand(assigned, selection='all')
+        prepared = dmt.prepare_ligand(assigned, selection='all', typing_options=TYPING)
         report = dmt.audit_preparation_charges(prepared)
     assert prepared.charges == pytest.approx(
         [0.19000057917, -0.39963024356, 0.20962966439], abs=1e-10
@@ -230,7 +222,7 @@ def test_audit_rejects_incomplete_or_nonfinite_values(assigned, charges):
         dmt.audit_preparation_charges(prepared)
 
 
-def test_named_remark_and_result_provenance_pass_real_vina_without_lifting_gate(
+def test_named_charge_and_type_reports_pass_default_real_vina(
     assigned,
 ):
     prepared = dmt.prepare_ligand(assigned, selection='all')
@@ -241,8 +233,6 @@ def test_named_remark_and_result_provenance_pass_real_vina_without_lifting_gate(
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([10, 10, 10], 'angstrom')
         ),
     )
-    with pytest.raises(ArgumentError, match='heuristic'):
-        dmt.dock(problem, dmt.VinaProtocol(cpu=1, n_poses=1, exhaustiveness=1))
     result = dmt.dock(
         problem,
         dmt.VinaProtocol(
@@ -250,7 +240,6 @@ def test_named_remark_and_result_provenance_pass_real_vina_without_lifting_gate(
             seed=17,
             n_poses=1,
             exhaustiveness=1,
-            allow_provisional_preparation=True,
             capture_backend_inputs=True,
         ),
     )
@@ -263,7 +252,7 @@ def test_named_remark_and_result_provenance_pass_real_vina_without_lifting_gate(
         == prepared.metadata['partial_charge_assignment']
     )
     assert metadata['charge_projection'] == prepared.metadata['charge_projection']
-    assert restored.provenance['preparation']['partner']['assessment'] == 'provisional'
+    assert restored.provenance['preparation']['partner']['assessment'] == 'unassessed'
     assert len(restored.poses) == 1
 
 
@@ -277,7 +266,10 @@ def test_flexible_sdf_charge_export_follows_verified_tree_order():
     assigned = msm.build.assign_partial_charges(source, method='gasteiger_marsili')
     before = atom_charges(assigned).copy()
     prepared = dmt.prepare_ligand(
-        assigned, selection='all', active_torsion_bonds=[(6, 7), (17, 18)]
+        assigned,
+        selection='all',
+        active_torsion_bonds=[(6, 7), (17, 18)],
+        typing_options=TYPING,
     )
     report = dmt.audit_preparation_charges(prepared)
     expected = [

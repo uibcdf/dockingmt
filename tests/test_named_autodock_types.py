@@ -159,13 +159,10 @@ def test_manual_type_replacement_does_not_inherit_named_provenance(
         raise AssertionError('No implicit typing is authorized.')
 
     monkeypatch.setattr(msm.build, 'assign_autodock_atom_types', forbid)
-    prepared = prepare(source, selection='all')
-    assert 'atom_type_assignment' not in prepared.metadata
-    assert (
-        'heuristic_atom_types'
-        in dmt.assess_preparation(prepared)['provisional_reason_codes']
-    )
-    assert 'REMARK DOCKINGMT_ATOM_TYPES' not in prepared.to_pdbqt()
+    with pytest.raises(
+        ArgumentError, match='Named MolSysMT AutoDock4 types are required'
+    ):
+        prepare(source, selection='all')
 
 
 @pytest.mark.parametrize(

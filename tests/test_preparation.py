@@ -2,7 +2,9 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
+from molecular_fixtures import named_181l_pair
 
+from devtools.qualify_named_types import TYPING
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation import (
     PreparedLigand,
@@ -51,11 +53,9 @@ def test_four_character_receptor_name_keeps_fixed_columns_and_vina_parse(tmp_pat
 
 
 def test_prepare_receptor_and_ligand_181l():
-    pdb_path = msm.systems['T4 lysozyme L99A']['181l.pdb']
-    molsys = msm.convert(pdb_path, to_form='molsysmt.MolSys')
-
+    named_rec, named_lig = named_181l_pair()
     rec = prepare_receptor(
-        molsys, selection="molecule_type=='protein'", state_id='rec_181L'
+        named_rec.source_molsys, selection='all', state_id='rec_181L'
     )
     assert isinstance(rec, PreparedReceptor)
     assert rec.state_id == 'rec_181L'
@@ -68,7 +68,7 @@ def test_prepare_receptor_and_ligand_181l():
     assert 'ATOM' in rec.to_pdbqt()
     assert rec.to_dict()['schema_version'] == '1.0'
 
-    lig = prepare_ligand(molsys, selection="group_name=='BNZ'", state_id='lig_BNZ')
+    lig = prepare_ligand(named_lig.source_molsys, selection='all', state_id='lig_BNZ')
     assert isinstance(lig, PreparedLigand)
     assert lig.state_id == 'lig_BNZ'
     assert lig.n_atoms == 6
@@ -78,8 +78,10 @@ def test_prepare_receptor_and_ligand_181l():
         == lig.n_atoms
     )
     assert lig.group_name == 'BNZ'
-    assert lig.metadata['source_chemistry']['connectivity_completeness'] == ['partial']
+    assert lig.metadata['atom_type_assignment']['status'] == 'projected'
     assert lig.metadata['source_chemistry']['bond_order_available'] is False
+    # The retained graph lost its H edges; types remain a valid parent projection.
+    assert lig.metadata['atom_type_assignment']['n_atoms'] == 12
     pdbqt = lig.to_pdbqt()
     assert 'ROOT' in pdbqt
     assert 'ENDROOT' in pdbqt
@@ -107,7 +109,7 @@ def test_rdkit_ligand_without_groups_preserves_available_chemistry():
     molecule = Chem.AddHs(Chem.MolFromSmiles('c1ccccc1'))
     assert AllChem.EmbedMolecule(molecule, randomSeed=7) == 0
     AllChem.ComputeGasteigerCharges(molecule)
-    ligand = prepare_ligand(molecule, selection='all')
+    ligand = prepare_ligand(molecule, selection='all', typing_options=TYPING)
 
     assert ligand.group_name == 'LIG'
     assert ligand.n_atoms == 6
@@ -126,12 +128,7 @@ def test_rdkit_ligand_without_groups_preserves_available_chemistry():
 
 
 def test_prepared_molsys_uses_current_coordinates():
-    molsys = msm.convert(
-        msm.systems['T4 lysozyme L99A']['181l.pdb'],
-        to_form='molsysmt.MolSys',
-    )
-    ligand = prepare_ligand(molsys, selection="group_name=='BNZ'")
-    receptor = prepare_receptor(molsys, selection="molecule_type=='protein'")
+    receptor, ligand = named_181l_pair()
     for prepared in (ligand, receptor):
         old = np.asarray(puw.get_value(prepared.coordinates))
         prepared.coordinates = puw.quantity(
@@ -166,9 +163,9 @@ def test_manual_prepared_ligand_recovers_elements_from_autodock_types():
 
 
 def test_ligand_writer_rejects_torsion_count_without_branch_tree():
-    path = msm.systems['T4 lysozyme L99A']['181l.pdb']
+    _, typed = named_181l_pair()
     with pytest.raises(ArgumentError, match='ROOT/BRANCH tree'):
-        prepare_ligand(path, selection="group_name=='BNZ'", torsion_dof=1)
+        prepare_ligand(typed.source_molsys, selection='all', torsion_dof=1)
 
     ligand = PreparedLigand(
         state_id='rigid',

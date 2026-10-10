@@ -13,6 +13,7 @@ from test_engines import MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
 from devtools.qualify_chemical_templates import load_181l_benzene, template_options
+from devtools.qualify_named_types import TYPING
 from dockingmt._private.smonitor import ArgumentError
 
 HYDROGEN = {'mode': 'fixed_chemical_state', 'pH': None, 'engine': 'RDKit'}
@@ -39,7 +40,11 @@ def test_polar_workflow_records_original_and_generated_identity_without_moving_s
     ids = list(msm.get(source, element='atom', atom_id=True))
     options = deepcopy(HYDROGEN)
     prepared = dmt.prepare_ligand(
-        source, selection='all', hydrogen_options=options, charge_options=CHARGE
+        source,
+        selection='all',
+        hydrogen_options=options,
+        charge_options=CHARGE,
+        typing_options=TYPING,
     )
     assert options == HYDROGEN
     assert msm.get(source, n_atoms=True) == 2
@@ -47,7 +52,11 @@ def test_polar_workflow_records_original_and_generated_identity_without_moving_s
     np.testing.assert_array_equal(xyz(source), before)
     expanded = prepared.metadata['preparation_workflow']
     assert expanded['input_n_atoms'] == 2
-    assert expanded['stages'] == ['hydrogen_addition', 'partial_charge_assignment']
+    assert expanded['stages'] == [
+        'hydrogen_addition',
+        'partial_charge_assignment',
+        'atom_type_assignment',
+    ]
     assert expanded['prepared_to_input_atom_indices'] == [0, 1, None]
     assert expanded['pdbqt_to_input_atom_indices'] == [0, 1, None]
     report = expanded['hydrogen_addition']
@@ -71,9 +80,7 @@ def test_polar_workflow_records_original_and_generated_identity_without_moving_s
     assert audit['assessment'] == 'consistent'
     assert audit['partial_charge_assignment']['n_atoms'] == 6
     assert audit['total_charge'] == pytest.approx(0, abs=1e-12)
-    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == [
-        'heuristic_atom_types'
-    ]
+    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == []
     json.dumps(prepared.to_dict(), allow_nan=False)
 
 
@@ -85,9 +92,13 @@ def test_public_stage_results_match_an_explicit_manual_pipeline_and_are_detached
     assigned = msm.build.assign_partial_charges(
         hydrogenated['molecular_system'], **CHARGE
     )
-    expected = dmt.prepare_ligand(assigned, selection='all')
+    expected = dmt.prepare_ligand(assigned, selection='all', typing_options=TYPING)
     actual = dmt.prepare_ligand(
-        source, selection='all', hydrogen_options=HYDROGEN, charge_options=CHARGE
+        source,
+        selection='all',
+        hydrogen_options=HYDROGEN,
+        charge_options=CHARGE,
+        typing_options=TYPING,
     )
     assert actual.charges == expected.charges
     assert actual.to_pdbqt() == expected.to_pdbqt()
@@ -109,7 +120,11 @@ def test_explicit_h_inventory_is_idempotent_and_existing_h_coordinates_are_prese
     )
     before = xyz(source).copy()
     prepared = dmt.prepare_ligand(
-        source, selection='all', hydrogen_options=HYDROGEN, charge_options=CHARGE
+        source,
+        selection='all',
+        hydrogen_options=HYDROGEN,
+        charge_options=CHARGE,
+        typing_options=TYPING,
     )
     workflow = prepared.metadata['preparation_workflow']
     assert workflow['hydrogen_addition']['n_added_hydrogens'] == 0
@@ -130,12 +145,16 @@ def test_explicit_h_sdf_without_stored_inventory_is_not_silently_reinterpreted()
         msm.StructuralInconsistencyError, match='missing_stored_hydrogen_counts'
     ):
         dmt.prepare_ligand(
-            source, selection='all', hydrogen_options=HYDROGEN, charge_options=CHARGE
+            source,
+            selection='all',
+            hydrogen_options=HYDROGEN,
+            charge_options=CHARGE,
+            typing_options=TYPING,
         )
     np.testing.assert_array_equal(xyz(source), before)
 
 
-def test_request_order_is_hydrogens_then_charges_and_default_preserves_legacy(
+def test_request_order_is_hydrogens_then_charges_then_types_and_default_rejects(
     monkeypatch,
 ):
     source = methanol_source()
@@ -147,35 +166,57 @@ def test_request_order_is_hydrogens_then_charges_and_default_preserves_legacy(
         calls.append(('H', msm.get(system, n_atoms=True), kwargs))
         return hydrogen(system, **kwargs)
 
+    typing = msm.build.assign_autodock_atom_types
+
+    def t(system, **kwargs):
+        calls.append(('T', msm.get(system, n_atoms=True), kwargs))
+        return typing(system, **kwargs)
+
     def q(system, **kwargs):
         calls.append(('Q', msm.get(system, n_atoms=True), kwargs))
         return charges(system, **kwargs)
 
     monkeypatch.setattr(msm.build, 'add_missing_hydrogens', h)
     monkeypatch.setattr(msm.build, 'assign_partial_charges', q)
-    legacy = dmt.prepare_ligand(source, selection='all')
-    assert calls == [] and 'preparation_workflow' not in legacy.metadata
+    monkeypatch.setattr(msm.build, 'assign_autodock_atom_types', t)
+    with pytest.raises(
+        ArgumentError, match='Named MolSysMT AutoDock4 types are required'
+    ):
+        dmt.prepare_ligand(source, selection='all')
+    assert calls == []
     dmt.prepare_ligand(
-        source, selection='all', hydrogen_options=HYDROGEN, charge_options=CHARGE
+        source,
+        selection='all',
+        hydrogen_options=HYDROGEN,
+        charge_options=CHARGE,
+        typing_options=TYPING,
     )
-    assert [(stage, count) for stage, count, _ in calls] == [('H', 2), ('Q', 6)]
+    assert [(stage, count) for stage, count, _ in calls] == [
+        ('H', 2),
+        ('Q', 6),
+        ('T', 6),
+    ]
     assert calls[0][2]['attribute_policy'] == 'strict'
     assert calls[0][2]['return_report'] is True
 
 
 def test_h_only_is_provisional_and_charge_only_retains_input_mapping():
     h_only = dmt.prepare_ligand(
-        methanol_source(), selection='all', hydrogen_options=HYDROGEN
+        methanol_source(),
+        selection='all',
+        hydrogen_options=HYDROGEN,
+        typing_options=TYPING,
     )
     assert dmt.assess_preparation(h_only)['provisional_reason_codes'] == [
         'zero_placeholder_charges',
-        'heuristic_atom_types',
     ]
     assert h_only.metadata['preparation_workflow']['charge_assignment_record'] is None
     source = msm.convert(
         Path(__file__).parent / 'data/charges/methanol.sdf', to_form='molsysmt.MolSys'
     )
-    charge_only = dmt.prepare_ligand(source, selection='all', charge_options=CHARGE)
+    charge_only = dmt.prepare_ligand(
+        source, selection='all', charge_options=CHARGE, typing_options=TYPING
+    )
     assert charge_only.metadata['preparation_workflow']['hydrogen_addition'] is None
     assert charge_only.metadata['preparation_workflow'][
         'prepared_to_input_atom_indices'
@@ -207,7 +248,7 @@ def test_incomplete_choices_fail_before_molecular_conversion(options, monkeypatc
 
     monkeypatch.setattr(msm, 'convert', forbid)
     with pytest.raises(ArgumentError):
-        dmt.prepare_ligand('input', **options)
+        dmt.prepare_ligand('input', **options, typing_options=TYPING)
 
 
 @pytest.mark.parametrize(
@@ -230,7 +271,11 @@ def test_provider_failure_identity_is_preserved_and_no_fallback_occurs(
     monkeypatch.setattr(msm.build, target, fail)
     with pytest.raises(error_type) as exc:
         dmt.prepare_ligand(
-            source, selection='all', hydrogen_options=HYDROGEN, charge_options=CHARGE
+            source,
+            selection='all',
+            hydrogen_options=HYDROGEN,
+            charge_options=CHARGE,
+            typing_options=TYPING,
         )
     assert exc.value is error
     np.testing.assert_array_equal(xyz(source), before)
@@ -256,6 +301,7 @@ def test_original_181l_declared_template_supports_fixed_state_h_and_named_charge
         selection='all',
         hydrogen_options={**HYDROGEN, 'attribute_policy': 'intersection'},
         charge_options=CHARGE,
+        typing_options=TYPING,
     )
     workflow = prepared.metadata['preparation_workflow']
     report = workflow['hydrogen_addition']
@@ -281,9 +327,7 @@ def test_original_181l_declared_template_supports_fixed_state_h_and_named_charge
     assert audit['partial_charge_assignment']['n_atoms'] == 12
     assert len(audit['charge_projection']['transfers']) == 6
     assert audit['total_charge'] == pytest.approx(0, abs=1e-10)
-    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == [
-        'heuristic_atom_types'
-    ]
+    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == []
     np.testing.assert_array_equal(xyz(applied), before)
     assert not msm.has_attribute(applied, 'partial_charge')
     assert list(msm.get(applied, element='atom', atom_id=True)) == ids
@@ -294,7 +338,11 @@ def test_nondefault_units_and_strict_attribute_loss():
     with puw.context(standard_units=['pm', 'fs', 'coulomb']):
         before = xyz(source).copy()
         prepared = dmt.prepare_ligand(
-            source, selection='all', hydrogen_options=HYDROGEN, charge_options=CHARGE
+            source,
+            selection='all',
+            hydrogen_options=HYDROGEN,
+            charge_options=CHARGE,
+            typing_options=TYPING,
         )
         np.testing.assert_array_equal(
             puw.get_value(prepared.coordinates, to_unit='angstrom')[:2], before
@@ -304,12 +352,15 @@ def test_nondefault_units_and_strict_attribute_loss():
         )
     source.structures.b_factor = puw.quantity([[1.0, 2.0]], 'angstrom**2')
     with pytest.raises(msm.StructuralInconsistencyError, match='b_factor'):
-        dmt.prepare_ligand(source, selection='all', hydrogen_options=HYDROGEN)
+        dmt.prepare_ligand(
+            source, selection='all', hydrogen_options=HYDROGEN, typing_options=TYPING
+        )
     allowed = dmt.prepare_ligand(
         source,
         selection='all',
         hydrogen_options={**HYDROGEN, 'attribute_policy': 'intersection'},
         charge_options=CHARGE,
+        typing_options=TYPING,
     )
     assert allowed.metadata['preparation_workflow']['hydrogen_addition'][
         'dropped_attributes'
@@ -317,12 +368,13 @@ def test_nondefault_units_and_strict_attribute_loss():
     assert source.structures.b_factor is not None
 
 
-def test_real_vina_result_retains_stage_reports_without_lifting_typing_gate():
+def test_real_vina_result_retains_explicit_h_charge_and_type_reports():
     prepared = dmt.prepare_ligand(
         methanol_source(),
         selection='all',
         hydrogen_options=HYDROGEN,
         charge_options=CHARGE,
+        typing_options=TYPING,
     )
     problem = dmt.DockingProblem(
         receptor=MINIMAL_REC_PDBQT,
@@ -331,8 +383,6 @@ def test_real_vina_result_retains_stage_reports_without_lifting_typing_gate():
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([10, 10, 10], 'angstrom')
         ),
     )
-    with pytest.raises(ArgumentError, match='heuristic'):
-        dmt.dock(problem, dmt.VinaProtocol(cpu=1))
     result = dmt.dock(
         problem,
         dmt.VinaProtocol(
@@ -340,7 +390,6 @@ def test_real_vina_result_retains_stage_reports_without_lifting_typing_gate():
             seed=17,
             n_poses=1,
             exhaustiveness=1,
-            allow_provisional_preparation=True,
             capture_backend_inputs=True,
         ),
     )
@@ -351,5 +400,5 @@ def test_real_vina_result_retains_stage_reports_without_lifting_typing_gate():
         'preparation_workflow'
     ]
     assert workflow == prepared.metadata['preparation_workflow']
-    assert restored.provenance['preparation']['partner']['assessment'] == 'provisional'
+    assert restored.provenance['preparation']['partner']['assessment'] == 'unassessed'
     assert len(restored.poses) == 1

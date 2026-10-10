@@ -1,6 +1,7 @@
 import molsysmt as msm
 import pytest
 import pyunitwizard as puw
+from molecular_fixtures import named_181l_pair
 
 import dockingmt
 from dockingmt import (
@@ -9,14 +10,12 @@ from dockingmt import (
     DockingResult,
     VinaProtocol,
     dock,
-    prepare_ligand,
-    prepare_receptor,
 )
 from dockingmt.engines.vina import VinaBackend
 
 
 def test_redocking_benchmark_181l():
-    """Exercise the provisional 181L redocking path and its identity/RMSD contracts.
+    """Exercise the explicit named 181L redocking path and its identity/RMSD contracts.
 
     This is an end-to-end software check, not scientific validation of C1/C2.
     It exercises:
@@ -37,17 +36,10 @@ def test_redocking_benchmark_181l():
     # Native reference ligand for RMSD calculation
     native_benzene = msm.extract(molsys, selection="group_name=='BNZ'")
 
-    # Gate C1: Preparation
-    prepared_rec = prepare_receptor(
-        molsys,
-        selection="molecule_type=='protein'",
-        state_id='181l_protein_state',
-    )
-    prepared_lig = prepare_ligand(
-        molsys,
-        selection="group_name=='BNZ'",
-        state_id='181l_bnz_state',
-    )
+    # Explicit fixture hypotheses and provider preparation remain declared.
+    prepared_rec, prepared_lig = named_181l_pair()
+    prepared_rec.state_id = '181l_protein_state'
+    prepared_lig.state_id = '181l_bnz_state'
 
     assert prepared_rec.n_atoms > 1000
     assert prepared_lig.n_atoms == 6
@@ -76,7 +68,6 @@ def test_redocking_benchmark_181l():
         n_poses=5,
         energy_range=puw.quantity(3.0, 'kcal/mol'),
         seed=42,
-        allow_provisional_preparation=True,
     )
 
     # Execution
@@ -90,7 +81,7 @@ def test_redocking_benchmark_181l():
     assert top_pose is not None
     assert top_pose.rank == 1
     assert 'vina' in top_pose.scores
-    assert top_pose.scores['vina'] < 0.0  # favorable binding affinity
+    assert top_pose.scores['vina'] < 0.0  # Regression value for this fixture.
     assert top_pose.partner_state_id == '181l_bnz_state'
     assert top_pose.receptor_state_id == '181l_protein_state'
 
@@ -112,7 +103,7 @@ def test_redocking_benchmark_181l():
     coverage = prepared_rec.metadata['source_chemistry']['residue_coverage']
     saved = reconstructed.provenance['preparation']['receptor']
     assert saved['mode'] == 'provided'
-    assert saved['assessment'] == 'provisional'
+    assert saved['assessment'] == 'unassessed'
     assert saved['metadata']['source_chemistry']['residue_coverage'] == coverage
 
     # Gate C6: MolSysViewer integration
@@ -136,11 +127,11 @@ def test_direct_molsysmt_input_reaches_vina():
         padding=puw.quantity(8.0, 'angstrom'),
     )
     problem = DockingProblem(
-        receptor=path,
-        partner=molsys,
+        receptor=named_181l_pair()[0].source_molsys,
+        partner=named_181l_pair()[1].source_molsys,
         search_domain=search_domain,
-        receptor_selection="molecule_type=='protein'",
-        partner_selection="group_name=='BNZ'",
+        receptor_selection='all',
+        partner_selection='all',
         metadata={
             'receptor_state_id': '181l_protein',
             'partner_state_id': '181l_bnz',
@@ -154,7 +145,6 @@ def test_direct_molsysmt_input_reaches_vina():
             n_poses=1,
             seed=42,
             cpu=1,
-            allow_provisional_preparation=True,
         ),
         backend=backend,
     )
@@ -180,7 +170,7 @@ def test_direct_molsysmt_input_reaches_vina():
         == coverage
     )
     assert result.provenance['preparation']['partner']['mode'] == 'automatic'
-    assert result.provenance['preparation']['partner']['assessment'] == 'provisional'
+    assert result.provenance['preparation']['partner']['assessment'] == 'unassessed'
     assert (
         result.provenance['preparation']['partner']['metadata']['hydrogen_policy']
         == 'retain_polar_merge_nonpolar'
@@ -192,14 +182,9 @@ def test_direct_molsysmt_input_reaches_vina():
     assert len(result.provenance['backend_artifacts']['partner']['sha256']) == 64
     assert (
         result.provenance['protocol']['parameters']['allow_provisional_preparation']
-        is True
+        is False
     )
     assert result.top_pose.metadata['pose_atom_order'] == 'verified_pdbqt_order'
-    assert result.problem_info['molecular_inputs']['partner']['atom_indices'] == [
-        1299,
-        1300,
-        1301,
-        1302,
-        1303,
-        1304,
-    ]
+    assert result.problem_info['molecular_inputs']['partner']['atom_indices'] == list(
+        range(6)
+    )

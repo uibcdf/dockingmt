@@ -72,8 +72,9 @@ Vina parsing certifies chemical assignments.
 SDF ingestion of the supported stereo cases explicitly uses
 `stereo_engine='rdkit', discard_properties=True`. The stereo provider and authorized
 property loss are consumer choices. These native systems still need supported
-chemical preparation before automatic docking. #5's default rejection and
-provisional opt-in remain in force.
+chemical preparation before automatic docking. Since 2026-10-10, a valid named
+AutoDock4 assignment is required; provisional opt-in cannot bypass that
+[contract](required_named_typing.md). The dated qualification below is preserved.
 
 ## Checks and boundaries
 
@@ -98,7 +99,7 @@ The 1S63 added H and aryl–nitrile branch require separate mapping/policy evide
 | Input/pose PDBQT atom parsing | MolSysMT #214/#226 covers both the actual prepared input profile and Vina MODEL pose outputs with verified atom correspondence. Current single-record support does not cover pose ensembles. |
 | `_temporary_torsions` final fragment partition | Retired after the [four-case migration](rigid_fragment_consumption.md); public MolSysMT partition plus explicit retained-axis projection preserves prior output. |
 | `_temporary_torsions` connectivity and chemical eligibility checks | #224 qualifies the existing chemical policy and retained-axis validation controls; docking root orientation and selected cuts remain DockingMT decisions (#6/#17). |
-| Prepared ligand/receptor PDBQT writers and typing heuristics | #214 serialization plus the independently reviewed charge/type/hydrogen/projection profile meet the existing consumer contracts and atom/charge maps. Serialization alone cannot remove #5's protection. |
+| Prepared ligand/receptor PDBQT writers | #214 serialization plus the independently reviewed charge/type/hydrogen/projection profile meet the existing consumer contracts and atom/charge maps. Serialization alone cannot remove #5's protection. Consumer typing heuristics were retired on 2026-10-10. |
 
 Minimum chemical-profile review remains open: fixed selected states/readiness
 (#217), receptor coverage (#218), explicit templates (#298), fixed-state H addition

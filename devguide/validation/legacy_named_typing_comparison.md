@@ -1,5 +1,9 @@
 # Legacy and named AutoDock typing comparison
 
+The [2026-10-10 compatibility implementation](required_named_typing.md) now
+requires named typing. This document and its producer retain the original
+pre-change comparison; replay requires its recorded consumer source.
+
 The 2026-10-10 comparison under [DockingMT #5](https://github.com/uibcdf/dockingmt/issues/5)
 and [#49](https://github.com/uibcdf/dockingmt/issues/49) measures the compatibility
 cost of retiring consumer typing. **Fourteen of 23 paired preparations change

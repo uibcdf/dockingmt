@@ -166,19 +166,15 @@ def test_original_receptors_distinguish_inventory_from_preparation(
     assert summary['check_status_counts']['protonation'] == {'unassessed': n_groups}
     assert 'docking_readiness' in summary['unassessed_checks']
     assert 'ready' not in summary
-    if case == '1IEP':
-        with pytest.raises(ArgumentError, match='exactly one explicit heavy-atom bond'):
-            prepare_receptor(source, selection="molecule_type=='protein'")
-    else:
-        protein = prepare_receptor(source, selection="molecule_type=='protein'")
-        assert protein.metadata['source_chemistry']['residue_coverage'][
-            'status_counts'
-        ] == {
-            'assessed': 162,
-            'incomplete': 0,
-            'unassessed': 0,
-        }
-        assert protein.metadata['charge_source'] == 'zero_placeholder'
+    with pytest.raises(
+        ArgumentError, match='Named MolSysMT AutoDock4 types are required'
+    ):
+        prepare_receptor(source, selection="molecule_type=='protein'")
+    protein = msm.extract(source, selection="molecule_type=='protein'")
+    summary = chemistry_evidence(protein, include_residue_coverage=True)[
+        'residue_coverage'
+    ]
+    assert 'docking_readiness' in summary['unassessed_checks']
     assert Path(path).read_bytes() == before
 
 
@@ -186,7 +182,9 @@ def test_grouped_receptor_reuses_provider_audit_before_hydrogen_projection(monke
     source = _ligand('CCO')
     builder = msm.MolSysBuilder(source)
     builder.add_group(list(range(9)), group_name='UNK', group_id=1)
-    source = builder.build()
+    source = msm.build.assign_autodock_atom_types(
+        builder.build(), typing_scheme='autodock4', method='chemical_environment'
+    )
     reports = []
     provider = msm.build.get_residue_chemical_coverage
 
@@ -239,9 +237,11 @@ def test_incomplete_modified_unknown_water_and_metal_are_not_parent_substituted(
     assert 'SD' not in full['groups'][2]['heavy_atoms']['expected_atom_names']
     assert full['groups'][3]['hydrogens']['reason_code'] == 'heavy_only_template'
     assert full['groups'][4]['template'] is None
-    for group_name, element in [('MSE', 'Se'), ('ZN', 'Zn')]:
+    for group_name in ['MSE', 'ZN']:
         selected = msm.extract(source, selection=f"group_name=='{group_name}'")
-        with pytest.raises(ArgumentError, match=f"rule exists for element '{element}'"):
+        with pytest.raises(
+            ArgumentError, match='Named MolSysMT AutoDock4 types are required'
+        ):
             prepare_receptor(selected, selection='all')
 
 

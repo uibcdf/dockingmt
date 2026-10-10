@@ -12,7 +12,6 @@ from dockingmt.preparation._molsys import (
     autodock_element,
     chemistry_evidence,
     select_one_structure,
-    source_aromaticity,
     source_atom_types,
     source_charge_assignment,
     source_partial_charges,
@@ -278,7 +277,7 @@ def prepare_ligand(
 ) -> PreparedLigand:
     """Prepare a small molecule ligand for docking calculations.
 
-    Extracts the selected ligand atoms using MolSysMT, assigns AutoDock atom types,
+    Extracts the selected ligand atoms using MolSysMT, consumes named AutoDock types,
     and returns an inspectable PreparedLigand.
 
     Parameters
@@ -309,6 +308,8 @@ def prepare_ligand(
         Opt-in public MolSysMT type assignment after requested H/charge stages.
         Require typing_scheme='autodock4' and an explicit method. Valid named
         assignments already present on the input are consumed without calculation.
+        Without valid named types or explicit options, preparation raises an error;
+        no heuristic or automatic typing model is selected.
 
     Returns
     -------
@@ -330,7 +331,6 @@ def prepare_ligand(
     charges = source_partial_charges(extracted, n_atoms)
     assignment = source_charge_assignment(extracted)
     named_types, typing_assignment = source_atom_types(extracted, n_atoms)
-    aromaticity = source_aromaticity(extracted, n_atoms)
     bonded_atoms = (
         msm.get(
             extracted,
@@ -374,11 +374,7 @@ def prepare_ligand(
                     reason='A ligand hydrogen needs exactly one explicit heavy-atom bond for Vina preparation.',
                 )
             attached = heavy_neighbors[0]
-            if (
-                (named_types[i] == 'H')
-                if named_types is not None
-                else (elements[attached].upper() not in ('N', 'O', 'S'))
-            ):
+            if named_types[i] == 'H':
                 if charges is not None:
                     charge_transfers.append((i, attached))
                     merged_hydrogen_charges[attached] = (
@@ -387,38 +383,10 @@ def prepare_ligand(
                 omitted_hydrogen_indices.append(i)
                 continue
 
-        atype = 'C'
-        if named_types is not None:
-            atype = named_types[i]
-        elif element.upper() == 'H':
-            atype = 'HD'
-        elif element.upper() == 'O':
-            atype = 'OA'
-        elif element.upper() == 'N':
-            atype = 'N'
-        elif element.upper() == 'S':
-            atype = 'SA'
-        elif element.upper() in ('F', 'CL', 'BR', 'I'):
-            atype = element.capitalize()
-        elif element.upper() == 'P':
-            atype = 'P'
-        elif element.upper() == 'C':
-            if (aromaticity is not None and aromaticity[i]) or (
-                aromaticity is None and gname_str in ('BNZ', 'BENZENE')
-            ):
-                atype = 'A'
-            else:
-                atype = 'C'
-        else:
-            raise ArgumentError(
-                arg_name='molecular_system',
-                reason=f'No temporary Vina atom-type rule exists for element {element!r}.',
-            )
-
         retained_names.append(aname_str)
         retained_gnames.append(gname_str)
         retained_gids.append(gid_val)
-        retained_types.append(atype)
+        retained_types.append(named_types[i])
         retained_charges.append(charges[i] if charges is not None else 0.0)
         retained_indices.append(i)
 
@@ -464,25 +432,13 @@ def prepare_ligand(
             'charge_source': 'source_partial_charge'
             if charges is not None
             else 'zero_placeholder',
-            'atom_type_source': 'molsysmt_named_autodock4'
-            if typing_assignment is not None
-            else (
-                'element_aromaticity_heuristic'
-                if aromaticity is not None
-                else 'element_group_heuristic'
-            ),
-            **(
-                {
-                    'atom_type_assignment': typing_assignment,
-                    'atom_type_projection': type_projection(
-                        typing_assignment,
-                        retained_indices,
-                        retained_types,
-                        torsion_tree.atom_order if torsion_tree else None,
-                    ),
-                }
-                if typing_assignment is not None
-                else {}
+            'atom_type_source': 'molsysmt_named_autodock4',
+            'atom_type_assignment': typing_assignment,
+            'atom_type_projection': type_projection(
+                typing_assignment,
+                retained_indices,
+                retained_types,
+                torsion_tree.atom_order if torsion_tree else None,
             ),
             'torsion_policy': 'explicit_selected_bonds'
             if torsion_tree

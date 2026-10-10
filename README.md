@@ -60,6 +60,10 @@ ligand = problem.partner_molsys
 source_ligand_indices = problem.partner_atom_indices
 ```
 
+This example selects molecular inputs and a search domain. Before `dock(problem)`,
+provide explicitly prepared/named inputs as described below; raw PDB conversion
+alone does not supply a named AutoDock assignment.
+
 For an explicit `BoxRegion`, supply either `lengths` or its alias `size`.
 The center and dimensions require finite length quantities, and dimensions must
 be strictly positive. `BoxRegion.from_points(...)` also supports a single point,
@@ -82,21 +86,27 @@ is unresolved.
 For `DockingProblem(...)`, inputs with multiple structures require
 `receptor_structure_index` and `partner_structure_index` as applicable. The Vina
 adapter prepares selected MolSys inputs when `dock(problem)` is called.
-Preparation preserves atomic partial charges and aromaticity when the source
-provides them; otherwise it records placeholder charges. AutoDock atom types
-currently use a heuristic in both cases. Vina rejects these provisional
-preparations by default, including `PreparedLigand`
-and `PreparedReceptor` objects produced by DockingMT. To run an exploratory
-calculation while [issue #5](https://github.com/uibcdf/dockingmt/issues/5)
-remains open, pass `VinaProtocol(allow_provisional_preparation=True)`. The choice
-and the preparation assessment are recorded in result provenance. Externally
+Preparation requires a valid named MolSysMT AutoDock4 assignment. Assign types
+explicitly with `msm.build.assign_autodock_atom_types(...)` before automatic
+preparation, or pass `typing_options` to `prepare_ligand`/`prepare_receptor`.
+DockingMT selects no typing model and infers no types from names or residues.
+The requested provider method requires its declared chemistry and indexed H;
+an incomplete PDB or bare `atom_ff_type` column does not satisfy that contract.
+Missing charges still produce recorded placeholders, which Vina rejects by
+default. `VinaProtocol(allow_provisional_preparation=True)` permits exploratory
+execution with those placeholders; it cannot bypass missing named types.
+The choice and assessment are recorded in result provenance. Externally
 provided PDBQT inputs are accepted with an `unassessed` chemistry assessment.
 Inspect a preparation before choosing an execution policy:
 
 ```python
 from dockingmt import assess_preparation, prepare_ligand
 
-prepared = prepare_ligand(ligand, selection='all')
+prepared = prepare_ligand(
+    ligand_with_declared_chemistry_and_indexed_hydrogens,
+    selection='all',
+    typing_options={'typing_scheme': 'autodock4', 'method': 'chemical_environment'},
+)
 assessment = assess_preparation(prepared)
 print(assessment['assessment'], assessment['provisional_reason_codes'])
 ```
@@ -114,15 +124,17 @@ Preparation retains the original model and software provenance. Public
 `dockingmt.audit_preparation_charges(prepared)` reports full-precision conservation,
 hydrogen charge transfers and PDBQT rounding in elementary charge. See the
 [charge contract and executed notebook](devguide/validation/named_partial_charges.md).
-AutoDock typing remains provisional.
+These numeric checks do not validate the charge model or chemical typing.
 
-`prepare_ligand` also accepts explicit `hydrogen_options` and `charge_options`
-to call MolSysMT's fixed-state H and named-charge builders in that order. Require
+`prepare_ligand` also accepts explicit `hydrogen_options`, `charge_options` and
+`typing_options` to call MolSysMT's fixed-state H, named-charge and named-type
+builders in that order. Require
 `mode='fixed_chemical_state'`, `pH=None` and an explicit engine for H addition;
 attribute preservation defaults to strict. Original reports and generated-atom
 maps are retained in preparation/result metadata. See the
 [stage contract and notebook](devguide/validation/ligand_preparation_stages.md).
-The original 181L template-to-H route remains pending MolSysMT #314.
+The [declared 181L workflow](devguide/validation/181l_receptor_workflow.md)
+provides bounded software evidence; its molecular-state hypotheses remain unassessed.
 
 A controlled removal of nonpolar hydrogens
 retains an explicit source atom map, and Vina's PDBQT output order is checked
@@ -132,7 +144,7 @@ omitted hydrogens remain absent from reconstructed poses.
 Raw PDBQT inputs without a molecular source map can still produce scores and
 coordinates, but cannot be reconstructed as molecular poses or compared by
 molecular RMSD. Explicit coordinate-array RMSD is positional. Other atom losses
-require a verified map. Preparation chemistry remains provisional under
+require a verified map. Scientific preparation qualification remains open under
 [issue #5](https://github.com/uibcdf/dockingmt/issues/5).
 Ligands remain rigid by default (`TORSDOF 0`). For a molecular ligand with an
 explicit graph and bond orders, select active torsions by pairs of atom indices
@@ -169,10 +181,10 @@ the adapter cannot apply those scientific requirements.
 The same selection can be passed to `prepare_ligand(...)` when preparing a
 ligand explicitly. DockingMT checks that selected bonds are single, outside
 rings and amide C–N bonds, and have nonterminal heavy-atom sides; invalid or
-unavailable graph information fails clearly. The temporary rigid-fragment
-calculation is tracked by [MolSysMT #224](https://github.com/uibcdf/molsysmt/issues/224)
-and will be removed when MolSysMT provides the verified operation. Explicit
-torsions do not validate the still provisional charges and atom types.
+unavailable graph information fails clearly. MolSysMT supplies the public
+rotatable-bond classification and rigid-fragment partition; DockingMT records
+the caller's explicit docking cuts. Explicit torsions do not validate charge
+models or atom types.
 Result provenance records the hydrogen and torsion policies, preparation
 assessment, and SHA-256 digests of the PDBQT bytes submitted to Vina. Remaining
 preparation-decision provenance is tracked in

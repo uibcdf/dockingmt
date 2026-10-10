@@ -108,10 +108,10 @@ attribute handling; its failures propagate instead of being bypassed.
 
 ## Remaining work and bounded migration
 
-- **Available typing:** MolSysMT already owns named AutoDock classification. Retire
-  the legacy consumer heuristics through an explicit compatibility decision under
-  [#5](https://github.com/uibcdf/dockingmt/issues/5), preserving safe rejection and
-  named-method choices.
+- **Typing adopted:** the [2026-10-10 compatibility change](../validation/required_named_typing.md)
+  removes both consumer classifiers. A valid named provider assignment or explicit
+  typing options are required; DockingMT chooses no model. Scientific acceptance
+  remains open under [#5](https://github.com/uibcdf/dockingmt/issues/5).
 - **Projection:** retained/omitted H, charge aggregation and derived atom maps
   belong to [molsysmt#223](https://github.com/uibcdf/molsysmt/issues/223). Its public
   operation must perform the transform, not merely describe a consumer transform.
@@ -138,7 +138,7 @@ attribute handling; its failures propagate instead of being bypassed.
   permutation remains provider-owned. Do not silently discard mechanics or
   implement a downstream merger or atom reordering to bypass these requirements.
 
-The remaining historical conversion/writer/heuristic routes are tracked here and
+The remaining historical conversion/writer/projection routes are tracked here and
 in [#33](https://github.com/uibcdf/dockingmt/issues/33); they are not architectural
 acceptance. Responsible role: DockingMT contributors. Review by 2027-01-06.
 Removal requires a qualified supported provider operation covering the existing
@@ -183,3 +183,48 @@ requires valid named assignments or explicit provider options, and explains
 missing prerequisites. Writer/projection/permutation adoption remains separate.
 The comparison is source-composition evidence, not chemical validation or a new
 installed candidate. Existing typing/charge/reporting contracts pass 89 cases.
+
+
+## Required named typing implementation — 2026-10-10
+
+The [compatibility contract](../validation/required_named_typing.md) retires both
+consumer AutoDock classifiers. Molecular preparation requires a valid named
+MolSysMT assignment or explicit `typing_options`, with no default model, implicit
+H/charge calculation or fallback. Bare labels and charge-only/untyped inputs fail
+clearly, including automatic Vina with provisional opt-in. Existing assignment
+binding, projected parent context, H/HD policy, charge/source maps and historical
+prepared-object provenance controls remain.
+
+New guards cover both roles and ensure rejection before engine construction and
+without input mutation or unrequested molecular work. Existing integration cases
+use actual named provider assignments. The four original torsion references keep
+their file digests, original-atom correspondence, cuts and fragments; neutral 1S63
+and its extra-HD reference remain distinct inventories. Real 181L tests reuse the
+already declared HIE/charged-termini provider workflow. Original scientific
+receipts and the unintegrated 5X72 displacement producer/archive remain unchanged.
+
+Charge-only 1VII AMBER14 (+2 e/596 atoms) lacks the declared complete chemical
+graph required by the explicit typing method; current tests retain that provider
+rejection instead of repairing it downstream. [MolSysMT #376](https://github.com/uibcdf/molsysmt/issues/376)
+records the separately observed native MolSys mechanical-setter adapter gap;
+negative fixtures use the supported public MolecularMechanics route. Neither
+boundary justifies a consumer molecular helper.
+
+Local qualification uses the unchanged CI provider source `739395d7e`, native
+binary and qualified ArgDigest/Viewer composition on Python 3.14.7. The complete
+affected contract selection and administrative gates are recorded below after
+execution. Required exact-head evidence remains the normal unskipped four-minor
+hosted CI with installation, isolated installed checks and full source suites.
+Keep #5/#49 partial: missing-charge policy, provider projection/export/poses and
+scientific chemical/scoring acceptance remain separate.
+
+
+Local final contract selection: **232 passed without skips in 200.04 s**, with
+113 retained provider warnings, including the 12 new required-typing cases.
+Earlier diagnostic failures were corrected; only the final passing selection
+qualifies this source. Ruff lint/format (152 files), current guide/contributor
+routes, all seven unchanged canonical guide snapshots, generated indexes,
+changed-document local links, archived evidence digests and diff checks pass.
+The reporting contract is checked separately. These local results do not replace
+the four required hosted interpreter/installed checkpoints; terminal evidence
+will be linked on the owning issues for the published commit.

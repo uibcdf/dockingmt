@@ -145,7 +145,17 @@ def source_atom_types(molsys: Any, n_atoms: int):
     """
     report = getattr(molsys.molecular_mechanics, 'atom_type_assignment', None)
     if report is None:
-        return None, None
+        raise ArgumentError(
+            arg_name='molecular_system',
+            reason=(
+                'Named MolSysMT AutoDock4 types are required. Supply a valid '
+                'preassigned system from msm.build.assign_autodock_atom_types, '
+                "or pass typing_options={'typing_scheme': 'autodock4', "
+                "'method': '<explicit method>'}. The selected method requires "
+                'its declared chemistry and indexed hydrogen inventory; '
+                'DockingMT does not infer types or choose a model.'
+            ),
+        )
     if (
         report.get('schema') != 'molsysmt.atom_type_assignment@1'
         or report.get('status') not in ('assigned', 'projected')
@@ -184,26 +194,6 @@ def detached_provider_report(report: dict[str, Any]) -> dict[str, Any]:
             arg_name='molecular_system',
             reason='Provider preparation reports must contain finite serializable evidence.',
         ) from exc
-
-
-def source_aromaticity(molsys: Any, n_atoms: int) -> list[bool] | None:
-    if not msm.has_attribute(
-        molsys, 'atom_is_aromatic', chemical_state='structure', structure_indices=0
-    ):
-        return None
-    values = msm.get(
-        molsys,
-        element='atom',
-        atom_is_aromatic=True,
-        chemical_state='structure',
-        structure_indices=0,
-    )
-    if len(values) != n_atoms:
-        raise ArgumentError(
-            arg_name='molecular_system',
-            reason='Atomic aromaticity must have one value per atom.',
-        )
-    return [bool(x) for x in values]
 
 
 def _residue_coverage_summary(report: dict[str, Any]) -> dict[str, Any]:

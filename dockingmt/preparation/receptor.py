@@ -11,7 +11,6 @@ from dockingmt.preparation._molsys import (
     atom_metadata,
     chemistry_evidence,
     select_one_structure,
-    source_aromaticity,
     source_atom_types,
     source_charge_assignment,
     source_partial_charges,
@@ -162,8 +161,8 @@ def prepare_receptor(
 ) -> PreparedReceptor:
     """Prepare a conventional protein receptor for docking calculations.
 
-    Extracts the selected protein component using MolSysMT, assigns standard
-    AutoDock atom types (C, A, OA, N, NA, SA, HD), merges non-polar hydrogens,
+    Extracts the selected protein component using MolSysMT, consumes named
+    AutoDock atom types, merges provider-classified non-polar hydrogens,
     and returns an inspectable PreparedReceptor.
 
     Parameters
@@ -179,6 +178,7 @@ def prepare_receptor(
         typing_scheme='autodock4' and an explicit method. Valid preassigned native
         types are consumed without calculation. Chemistry, H and charges must
         already be supplied; no receptor repair or parameter model is selected.
+        Without valid named types or explicit options, preparation raises an error.
 
     Returns
     -------
@@ -196,7 +196,6 @@ def prepare_receptor(
     charges = source_partial_charges(extracted, n_atoms)
     assignment = source_charge_assignment(extracted)
     named_types, typing_assignment = source_atom_types(extracted, n_atoms)
-    aromaticity = source_aromaticity(extracted, n_atoms)
     bonded_atoms = (
         msm.get(
             extracted,
@@ -210,14 +209,6 @@ def prepare_receptor(
         else None
     )
     coords = msm.get(extracted, element='atom', coordinates=True)[0]  # shape (N, 3)
-
-    aromatic_residues = {'PHE', 'TYR', 'TRP', 'HIS'}
-    aromatic_ring_atoms = {
-        'PHE': {'CG', 'CD1', 'CD2', 'CE1', 'CE2', 'CZ'},
-        'TYR': {'CG', 'CD1', 'CD2', 'CE1', 'CE2', 'CZ'},
-        'TRP': {'CG', 'CD1', 'CD2', 'CE2', 'CE3', 'CZ2', 'CZ3', 'CH2'},
-        'HIS': {'CG', 'CD2', 'CE1'},
-    }
 
     retained_names: list[str] = []
     retained_gnames: list[str] = []
@@ -244,11 +235,7 @@ def prepare_receptor(
                     reason='A receptor hydrogen needs exactly one explicit heavy-atom bond for Vina preparation.',
                 )
             attached = heavy_neighbors[0]
-            if (
-                (named_types[i] == 'H')
-                if named_types is not None
-                else (elements[attached].upper() not in ('N', 'O', 'S'))
-            ):
+            if named_types[i] == 'H':
                 if charges is not None:
                     charge_transfers.append((i, attached))
                     merged_hydrogen_charges[attached] = (
@@ -257,43 +244,10 @@ def prepare_receptor(
                 omitted_hydrogen_indices.append(i)
                 continue
 
-        atype = 'C'
-        if named_types is not None:
-            atype = named_types[i]
-        elif element.upper() == 'H':
-            atype = 'HD'
-        elif element.upper() == 'O':
-            atype = 'OA'
-        elif element.upper() == 'N':
-            if gname in ('HIS', 'TRP') and aname in ('ND1', 'NE2', 'NE1'):
-                atype = 'NA'
-            else:
-                atype = 'N'
-        elif element.upper() == 'S':
-            atype = 'SA'
-        elif element.upper() == 'C':
-            if (aromaticity is not None and aromaticity[i]) or (
-                aromaticity is None
-                and gname in aromatic_residues
-                and aname in aromatic_ring_atoms.get(gname, set())
-            ):
-                atype = 'A'
-            else:
-                atype = 'C'
-        elif element.upper() == 'P':
-            atype = 'P'
-        elif element.upper() in ('F', 'CL', 'BR', 'I'):
-            atype = element.capitalize()
-        else:
-            raise ArgumentError(
-                arg_name='molecular_system',
-                reason=f'No temporary Vina atom-type rule exists for element {element!r}.',
-            )
-
         retained_names.append(str(aname))
         retained_gnames.append(str(gname))
         retained_gids.append(int(gid))
-        retained_types.append(atype)
+        retained_types.append(named_types[i])
         retained_charges.append(charges[i] if charges is not None else 0.0)
         retained_indices.append(i)
 
@@ -324,22 +278,10 @@ def prepare_receptor(
             'charge_source': 'source_partial_charge'
             if charges is not None
             else 'zero_placeholder',
-            'atom_type_source': 'molsysmt_named_autodock4'
-            if typing_assignment is not None
-            else (
-                'element_aromaticity_heuristic'
-                if aromaticity is not None
-                else 'element_residue_heuristic'
-            ),
-            **(
-                {
-                    'atom_type_assignment': typing_assignment,
-                    'atom_type_projection': type_projection(
-                        typing_assignment, retained_indices, retained_types
-                    ),
-                }
-                if typing_assignment is not None
-                else {}
+            'atom_type_source': 'molsysmt_named_autodock4',
+            'atom_type_assignment': typing_assignment,
+            'atom_type_projection': type_projection(
+                typing_assignment, retained_indices, retained_types
             ),
             **(
                 {

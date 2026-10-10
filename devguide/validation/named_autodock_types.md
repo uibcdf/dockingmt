@@ -4,6 +4,10 @@ DockingMT consumes valid native MolSysMT AutoDock4 assignments in ligand and
 receptor preparation. A caller can explicitly request assignment with
 `typing_options`, or supply a previously assigned native system. Chemical
 classification and graph/value binding remain public MolSysMT operations.
+Since 2026-10-10, a valid named assignment or explicit `typing_options` is
+required. Untyped molecular inputs fail with an actionable error before PDBQT
+generation or Vina execution, including when provisional execution is allowed.
+No heuristic fallback or automatically chosen typing model remains.
 [DockingMT #43](https://github.com/uibcdf/dockingmt/issues/43) owns this adoption;
 [MolSysMT #222](https://github.com/uibcdf/molsysmt/issues/222) owns the provider.
 
@@ -45,7 +49,7 @@ stale or unsupported named reports. Valid projected parent labels are retained;
 an amide N selected from its parent is not reclassified as an isolated fragment.
 A bare `atom_ff_type` column identifies no named scheme and is not adopted as
 named evidence. Manual replacement that clears provider attribution therefore
-leaves the existing heuristic/provisional workflow. Element identity stays in
+requires a new named provider assignment before preparation. Element identity stays in
 `atom_type`; force-field labels remain distinct.
 
 For a named assignment, H/HD labels choose omitted nonpolar versus retained
@@ -53,8 +57,7 @@ polar H. This preserves provider classification for supported F/P parents as
 well as N/O/S. Every H still needs one explicit heavy-atom parent. Existing
 nonpolar-H charge transfer and PDBQT serialization remain the temporary
 consumer implementation tracked by
-[MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223). Untyped calls retain
-their existing behavior and provisional safeguards.
+[MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223).
 
 ## Evidence and atom axes
 
@@ -103,6 +106,10 @@ automatic torsion policy, biological equivalence or general receptor coverage
 is established here.
 
 ## Qualification — 2026-10-06
+
+This section preserves the original qualification, not a current-source rerun.
+The [2026-10-10 compatibility decision](required_named_typing.md) supersedes
+untyped preparation behavior; original receipts/notebooks remain unchanged.
 
 The [executed notebook](named_autodock_types_2026-10-06.ipynb),
 [reproduction helper](../../devtools/qualify_named_types.py),

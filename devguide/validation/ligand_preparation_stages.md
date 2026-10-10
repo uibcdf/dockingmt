@@ -8,7 +8,8 @@ typing after H/charge stages, preserving the earlier qualification receipts.
 
 `prepare_ligand` can delegate caller-requested fixed-state hydrogen addition and
 named partial-charge assignment to public MolSysMT builders. Current calls with
-neither option retain their existing behavior. Chemistry must already be declared
+neither option still require a valid named type assignment or explicit
+`typing_options`. Chemistry must already be declared
 on one selected state/frame; this does not repair an unresolved chemical graph.
 
 ```python
@@ -23,6 +24,7 @@ prepared = dmt.prepare_ligand(
         'engine': 'RDKit',
     },
     charge_options={'method': 'gasteiger_marsili'},
+    typing_options={'typing_scheme': 'autodock4', 'method': 'chemical_environment'},
 )
 workflow = prepared.metadata['preparation_workflow']
 charge_audit = dmt.audit_preparation_charges(prepared)
@@ -84,6 +86,11 @@ remains a separately retained workflow record while native attachment is owned
 by [MolSysMT #298](https://github.com/uibcdf/molsysmt/issues/298).
 
 ## Qualification and limits — 2026-10-04
+
+The dated receipts/notebooks below preserve pre-retirement workflows. Reproduce
+them on their recorded consumer source, not current `main`. Since 2026-10-10,
+H/charge stages alone no longer permit heuristic typing; current calls require
+named types as described in [the compatibility contract](required_named_typing.md).
 
 [Executed notebook](ligand_preparation_stages.ipynb),
 [reproduction helper](../../devtools/qualify_ligand_stages.py),
@@ -149,7 +156,7 @@ H5MSM 0.5 rejects nonempty MolecularMechanics rather than dropping its evidence.
 The [source profile](data/chemical_templates/source_profile_2026-10-06.json)
 records loaded committed sources, producer metadata and native-extension digest
 separately. CI source pins advance to that MolSysMT and released ArgDigest 0.15.0;
-viewer pins retain their previous lane choices. Run the current helper with the
+viewer pins retain their previous lane choices. Run the original helper with the
 qualified sources as `python -m devtools.qualify_ligand_stages`; it writes the
 dated receipt, leaving the historical receipt intact. This is local Python 3.14
 software evidence; hosted/installed/matrix and scientific qualification remain

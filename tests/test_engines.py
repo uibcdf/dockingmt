@@ -3,7 +3,9 @@ import hashlib
 import molsysmt as msm
 import pytest
 import pyunitwizard as puw
+from molecular_fixtures import named_181l_pair
 
+from devtools.qualify_named_types import TYPING, explicit_source
 from dockingmt._private.smonitor import ArgumentError, CapabilityMismatchError
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import DockingProtocol, VinaProtocol
@@ -255,11 +257,14 @@ def test_rdkit_ligand_with_explicit_hydrogens_has_pose_source_map():
         selection="group_name=='BNZ'",
         padding=puw.quantity(8.0, 'angstrom'),
     )
+    typed = msm.build.assign_autodock_atom_types(
+        msm.convert(molecule, to_form='molsysmt.MolSys'), **TYPING
+    )
+    receptor, _ = named_181l_pair()
     problem = DockingProblem(
-        receptor=path,
-        partner=molecule,
+        receptor=receptor.source_molsys,
+        partner=typed,
         search_domain=box,
-        receptor_selection="molecule_type=='protein'",
     )
     result = backend.dock(
         problem,
@@ -316,23 +321,22 @@ def test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs()
         receptor_selection="molecule_type=='protein'",
         partner_selection="group_name=='BNZ'",
     )
-    with pytest.raises(ArgumentError, match='zero-placeholder partial charges'):
+    with pytest.raises(
+        ArgumentError, match='Named MolSysMT AutoDock4 types are required'
+    ):
         backend.dock(automatic, VinaProtocol(exhaustiveness=1, n_poses=1))
 
-    ligand = prepare_ligand(path, selection="group_name=='BNZ'")
+    source = msm.build.assign_autodock_atom_types(explicit_source('CO'), **TYPING)
+    ligand = prepare_ligand(source, selection='all')
     prepared = DockingProblem(
-        receptor=MINIMAL_REC_PDBQT,
-        partner=ligand,
-        search_domain=box,
+        receptor=MINIMAL_REC_PDBQT, partner=ligand, search_domain=box
     )
-    with pytest.raises(ArgumentError, match='heuristic AutoDock atom types'):
+    with pytest.raises(ArgumentError, match='zero-placeholder partial charges'):
         backend.dock(prepared, VinaProtocol(exhaustiveness=1, n_poses=1))
 
-    receptor = prepare_receptor(path, selection="molecule_type=='protein'")
+    receptor = prepare_receptor(source, selection='all')
     prepared_receptor = DockingProblem(
-        receptor=receptor,
-        partner=MINIMAL_LIG_PDBQT,
-        search_domain=box,
+        receptor=receptor, partner=MINIMAL_LIG_PDBQT, search_domain=box
     )
     with pytest.raises(ArgumentError, match='zero-placeholder partial charges'):
         backend.dock(prepared_receptor, VinaProtocol(exhaustiveness=1, n_poses=1))

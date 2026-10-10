@@ -21,6 +21,10 @@ from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation._temporary_torsions import build_torsion_tree
 
 
+def typed_source(smiles):
+    return msm.build.assign_autodock_atom_types(explicit_source(smiles), **TYPING)
+
+
 @pytest.mark.parametrize(
     'smiles,bond,reasons',
     [
@@ -35,7 +39,7 @@ from dockingmt.preparation._temporary_torsions import build_torsion_tree
     ],
 )
 def test_independent_explicit_cut_decisions_and_unchanged_source(smiles, bond, reasons):
-    source = declared_source(smiles)
+    source = typed_source(smiles)
     before = snapshot(source)
     requested = [bond]
     prepared = dmt.prepare_ligand(
@@ -88,12 +92,17 @@ def test_restricted_c_n_remains_rejected_including_amidine_and_tertiary_amide(
 ):
     source = declared_source(smiles)
     with pytest.raises(ArgumentError, match='restricted C-N'):
-        dmt.prepare_ligand(source, selection='all', active_torsion_bonds=[bond])
+        build_torsion_tree(
+            source,
+            list(range(msm.get(source, n_atoms=True))),
+            [bond],
+            msm.get(source, element='atom', atom_type=True),
+        )
 
 
 @pytest.mark.parametrize('bonds', [None, []])
 def test_rigid_default_does_not_classify_or_invent_active_cuts(bonds, monkeypatch):
-    source = declared_source('CC(=O)OCC')
+    source = typed_source('CC(=O)OCC')
 
     def forbidden(*args, **kwargs):
         raise AssertionError('Rigid preparation must not calculate a torsion policy.')
@@ -156,7 +165,7 @@ def test_one_public_native_classification_on_complete_graph_without_optional_typ
 def test_provider_failure_propagates_unchanged_without_fallback(
     error_class, monkeypatch
 ):
-    source = declared_source('CCCCCC')
+    source = typed_source('CCCCCC')
     error = (
         error_class(reason='missing complete chemistry')
         if error_class is msm.StructuralInconsistencyError
@@ -179,14 +188,19 @@ def test_provider_failure_propagates_unchanged_without_fallback(
 
 
 def test_unknown_provider_exclusion_is_not_silently_allowed(monkeypatch):
-    source = declared_source('CCCCCC')
+    source = typed_source('CCCCCC')
     actual = msm.topology.get_rotatable_bonds
 
     def future_reason(system, **options):
         report = actual(system, **options)
         report['exclusion_bits']['future_exclusion'] = 64
-        report['exclusion_mask'][1] |= np.uint8(64)
-        report['is_rotatable'][1] = False
+        row = next(
+            i
+            for i, pair in enumerate(report['bonded_atom_pairs'])
+            if set(pair) == {1, 2}
+        )
+        report['exclusion_mask'][row] |= np.uint8(64)
+        report['is_rotatable'][row] = False
         return report
 
     monkeypatch.setattr(msm.topology, 'get_rotatable_bonds', future_reason)
@@ -232,7 +246,7 @@ def test_full_graph_evidence_is_required_even_outside_requested_pair(defect):
     else:
         state.bonds.loc[4, 'is_aromatic'] = True
     with pytest.raises(msm.StructuralInconsistencyError):
-        dmt.prepare_ligand(source, selection='all', active_torsion_bonds=[(1, 2)])
+        build_torsion_tree(source, list(range(6)), [(1, 2)], ['C'] * 6)
 
 
 def test_default_automatic_vina_retains_named_torsion_reports_and_pose_identity():

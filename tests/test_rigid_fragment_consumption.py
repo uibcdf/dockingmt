@@ -1,6 +1,5 @@
 """Provider partitioning preserves reference trees and retained atom identity."""
 
-import hashlib
 import json
 from pathlib import Path
 
@@ -12,6 +11,7 @@ from molsysmt._private.smonitor import StructuralInconsistencyError
 from test_flexible_ligand import _ligand
 from test_vina_torsion_matrix import _atom_map, _reference, _source, _source_graph
 
+from devtools.qualify_named_types import HYDROGEN, TYPING
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation import prepare_ligand
 from dockingmt.preparation._temporary_torsions import build_torsion_tree
@@ -25,7 +25,12 @@ BASELINE = json.loads(BASELINE_PATH.read_text())
 @pytest.mark.parametrize('case', BASELINE['cases'], ids=lambda case: case['case'])
 def test_original_matrix_preserves_tree_and_consumes_provider(case, monkeypatch):
     molecule = _source(case['case'], case['source_sdf_sha256'])
-    source = msm.convert(molecule, to_form='molsysmt.MolSys')
+    source = msm.build.assign_autodock_atom_types(
+        msm.build.add_missing_hydrogens(
+            msm.convert(molecule, to_form='molsysmt.MolSys'), **HYDROGEN
+        ),
+        **TYPING,
+    )
     before_coordinates = np.array(
         puw.get_value(
             msm.get(source, element='atom', coordinates=True), to_unit='angstrom'
@@ -80,14 +85,26 @@ def test_original_matrix_preserves_tree_and_consumes_provider(case, monkeypatch)
         frozenset(pair) for pair in case['active_bonds']
     }
     assert report['connectivity_completeness'] == 'complete'
-    assert prepared.metadata['retained_atom_indices'] == case['retained_atom_indices']
-    assert prepared.pdbqt_atom_indices == case['pdbqt_atom_indices']
+    retained = prepared.metadata['retained_atom_indices']
+    original_n_atoms = molecule.GetNumAtoms()
+    assert [i for i in retained if i < original_n_atoms] == case[
+        'retained_atom_indices'
+    ]
+    source_order = [retained[i] for i in prepared.pdbqt_atom_indices]
+    legacy_source_order = [
+        case['retained_atom_indices'][i] for i in case['pdbqt_atom_indices']
+    ]
+    assert [i for i in source_order if i < original_n_atoms] == legacy_source_order
     content = prepared.to_pdbqt().encode()
-    assert hashlib.sha256(content).hexdigest() == case['generated_pdbqt_sha256']
+    # Historical writer bytes stay in the immutable baseline; named typing adds
+    # attribution and may change labels/H. Current compatibility is checked on
+    # original source identities, branch endpoints and fragments below.
+    assert b'REMARK DOCKINGMT_ATOM_TYPES' in content
 
     reference = _reference(case['case'], case['reference_pdbqt_sha256'])
     _, reference_atoms, _ = _atom_map(reference, molecule)
     _, generated_atoms, unmatched = _atom_map(content, molecule)
+    # The neutral 1S63 source differs from the reference's extra HD inventory.
     assert unmatched == 0
     reference_bonds, reference_fragments = _source_graph(reference, reference_atoms)
     assert _source_graph(content, generated_atoms) == (

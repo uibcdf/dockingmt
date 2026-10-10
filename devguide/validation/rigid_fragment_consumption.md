@@ -1,5 +1,11 @@
 # Consuming MolSysMT rigid fragments
 
+Since the [2026-10-10 named-typing requirement](required_named_typing.md), current
+guards explicitly assign types through MolSysMT. They preserve original atom
+identities/order, cuts and fragments; named attribution and changed chemical
+labels mean current PDBQT bytes need not match historical generated digests.
+The original qualification and its immutable baseline below remain intact.
+
 The original 2026-10-03 qualification is retained below. The subsequent
 [explicit policy adoption](explicit_torsion_policy.md) removes local chemical
 eligibility and preserves the original byte hashes/maps. Retained-axis

@@ -5,6 +5,9 @@ original provenance and observes charge conservation through its existing
 hydrogen projection and PDBQT writer. The charge-only qualification below retains
 provisional AutoDock typing. The [2026-10-06 named-type adoption](named_autodock_types.md)
 adds an explicit consumer route with its own evidence; earlier receipts remain intact.
+Since 2026-10-10, preparation also requires a valid named type assignment or
+explicit typing options. Charge assignment alone does not establish the provider's
+chemical-graph prerequisites. See [the compatibility contract](required_named_typing.md).
 
 ```python
 import molsysmt as msm
@@ -13,7 +16,10 @@ import dockingmt as dmt
 assigned = msm.build.assign_partial_charges(
     ligand, method='gasteiger_marsili',
 )
-prepared = dmt.prepare_ligand(assigned, selection='all')
+prepared = dmt.prepare_ligand(
+    assigned, selection='all',
+    typing_options={'typing_scheme': 'autodock4', 'method': 'chemical_environment'},
+)
 report = dmt.audit_preparation_charges(prepared)
 print(report['assessment'], report['total_charge'], report['charge_unit'])
 print(report['partial_charge_assignment']['software'])
@@ -90,11 +96,19 @@ charges receive no invented model attribution.
 
 Full reports and transfer maps survive existing prepared/result metadata
 serialization. Existing `assess_preparation` remains a separate inspection of
-charge/type declarations. The default Vina gate still rejects heuristic types;
+charge/type declarations. Untyped molecular preparation is rejected;
 named charges do not qualify AutoDock typing or an energy function. Native Vina
 parsing/docking checks interoperability only; AD4 scoring is not qualified.
 
 ## Qualification — 2026-10-04
+
+This section preserves original evidence. Reproduce its charge-only helper and
+notebook on the recorded consumer source; current `main` requires named types.
+In the current qualified provider profile, the 1VII force-field charge route
+supplies 596 atoms and +2 e but does not declare a complete chemical graph for
+`chemical_environment` typing. Current tests retain that prerequisite rejection
+without downstream graph repair. The original 364-atom export remains a dated
+observation, not current preparation admission.
 
 [The executed notebook](named_partial_charges.ipynb),
 [helper](../../devtools/qualify_named_charges.py) and
