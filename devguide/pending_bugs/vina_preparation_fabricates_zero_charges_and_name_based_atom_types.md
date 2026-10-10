@@ -398,3 +398,16 @@ reporting is checked separately. The initial hosted run
 finished with the same two legacy-workflow failures in each of four minors
 (1,066 passed/2 failed per lane); it is retained as diagnostic evidence only.
 The corrected published head requires a new complete unskipped matrix.
+
+## Independent prospective case — 2026-10-10
+
+The [3PTB protocol](../validation/3ptb_prospective_protocol.md) selects an
+independent trypsin–benzamidinium case before any new preparation or search.
+Public PDB/CCD/entry bytes and acquisition hashes are frozen. Molecular admission
+must qualify the explicit cation, six deposited disulfides, declared histidines,
+complete named charge/type coverage and unchanged heavy coordinates through
+MolSysMT. The 24-search population separates rigid/one-cut ligand arms, native/
+negative boxes, three seeds and two effort levels. It distinguishes pose generation
+from rank-1 recovery, retains every failure and claims no affinity or general
+chemical validation. This is a registered plan, not executed scientific evidence;
+#5 remains partial and MolSysMT #223/#323/#381 retain provider ownership.

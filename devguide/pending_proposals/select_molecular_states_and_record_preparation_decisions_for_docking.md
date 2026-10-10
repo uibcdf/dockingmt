@@ -178,3 +178,15 @@ This is one bounded hypothesis, not environmental protonation, water-policy,
 affinity or general scientific validation. The issue remains partial, alongside
 provider #223/#323 and installed/hosted qualification. Writer width defect #44
 was discovered in this consumer workflow and has its own durable guard.
+
+## Independent prospective state hypothesis — 2026-10-10
+
+The [3PTB protocol](../validation/3ptb_prospective_protocol.md) declares
+benzamidinium +1 separately from neutral CCD BEN, HID57/HIE40/HIE91,
+charged termini, six deposited disulfides and excluded waters/calcium before
+preparation or search. Public MolSysMT conversion/template assessment must admit
+the original source and preserve every observed heavy coordinate. Fixed-state
+H and named models require their original reports and full maps; no pH inference,
+chemical overwrite, environmental refinement or implicit repair is authorized.
+The sources and scientific prescription are recorded, while molecular admission
+and all 24 searches remain unexecuted. #4 remains partial.

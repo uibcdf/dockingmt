@@ -374,3 +374,8 @@ The [5X72 positional-sensitivity control](devguide/validation/5x72_displacement_
 provides a bounded scientific workflow with fixed inputs, public MolSysMT operations,
 all 112 retained evaluations and a saved-result notebook. Constructed-point score
 changes and negative outcomes remain separate from docking recovery and affinity.
+
+The [prospective 3PTB protocol](devguide/validation/3ptb_prospective_protocol.md)
+freezes an independent trypsin–benzamidinium case, explicit preparation decisions
+and a 24-search population before execution. Source acquisition is complete;
+molecular admission and docking results remain pending.

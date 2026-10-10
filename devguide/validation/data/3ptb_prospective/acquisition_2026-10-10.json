@@ -1,0 +1,55 @@
+{
+  "retrieved_utc": "2026-10-10T12:11:08.261824+00:00",
+  "files": [
+    {
+      "file": "3PTB.pdb",
+      "url": "https://files.rcsb.org/download/3PTB.pdb",
+      "sha256": "288f7954d4d013fa8eab3808e1037e2958e2dcd12c9eca65a3f1014404a9f9a2",
+      "bytes": 183384,
+      "headers": {
+        "Last-Modified": "Mon, 22 Sep 2025 01:42:13 GMT",
+        "ETag": "W/\"58878156b7efb26b8ba90283f74d73bd-identity\"",
+        "Content-Type": "text/plain"
+      },
+      "storage_file": "3PTB.pdb.gz",
+      "storage_encoding": "gzip",
+      "stored_sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+      "stored_bytes": 38653
+    },
+    {
+      "file": "BEN.cif",
+      "url": "https://files.rcsb.org/ligands/download/BEN.cif",
+      "sha256": "a7ce813cbbac599168d4772f635ae23d7c6edb4d83a9891ebabcbe9e8bb66849",
+      "bytes": 5434,
+      "headers": {
+        "Last-Modified": "Thu, 07 Apr 2022 19:30:36 GMT",
+        "ETag": "W/\"754fd504413724a85c33d84a1a2cff18-raw\"",
+        "Content-Type": "chemical/x-cif"
+      },
+      "storage_file": "BEN.cif.gz",
+      "storage_encoding": "gzip",
+      "stored_sha256": "0a3c36d1fb61b1d9d0e9d63eb5d52b5e1f4b2d1802729d34665c3bc42cc6c4e7",
+      "stored_bytes": 1634
+    },
+    {
+      "file": "entry.json",
+      "url": "https://data.rcsb.org/rest/v1/core/entry/3PTB",
+      "sha256": "72f53e884a08dc758905d3e3ec663a1b2f00327cdbe148d7bf45dc380da25899",
+      "bytes": 14707,
+      "headers": {
+        "Last-Modified": null,
+        "ETag": null,
+        "Content-Type": "application/json"
+      },
+      "storage_file": "entry.json",
+      "storage_encoding": "identity",
+      "stored_sha256": "72f53e884a08dc758905d3e3ec663a1b2f00327cdbe148d7bf45dc380da25899",
+      "stored_bytes": 14707
+    }
+  ],
+  "scope": "Public source acquisition only; no molecular admission, preparation, fixed scoring or docking execution.",
+  "owning_issues": [
+    "uibcdf/dockingmt#5",
+    "uibcdf/dockingmt#6"
+  ]
+}

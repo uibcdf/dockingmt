@@ -298,3 +298,15 @@ curves retain lower and non-improving points without introducing new cuts,
 optimization, search or ranking policy. The three-cell saved-result notebook and
 127 local controls pass; hosted exact-head evidence remains separate. This
 scientific slice does not retire the provider #223/#348 boundaries. #6 stays partial.
+
+## Independent prospective case — 2026-10-10
+
+The [3PTB protocol](../validation/3ptb_prospective_protocol.md) prescribes a
+rigid arm and exactly one explicit phenyl–amidine `C1–C` cut, with common
+coordinates/state/H/charges/types and provider-validated fragments. It freezes
+24 searches across two boxes, three seeds and two effort levels before execution.
+ROOT/torsion alternatives cannot be selected after results; unsupported chemistry
+or cuts stop admission and require provider evidence. No preparation or search
+has yet executed, and the plan adopts no automatic torsion or ROOT policy.
+#6 remains partial; existing molecular projection/connectivity migrations stay
+separate.

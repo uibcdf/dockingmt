@@ -1,0 +1,16 @@
+{
+  "schema": "dockingmt.prospective_registration@1",
+  "status": "registered_before_molecular_execution",
+  "protocol_file": "devguide/validation/3ptb_prospective_protocol.md",
+  "protocol_sha256": "042fa8a871184ad30278565a8f517583b6079cd874d8d9b26e17159a8b4b49ad",
+  "protocol_git_blob": "53575d3d8c0eadf3790e5adaa2e22da9a4881054",
+  "consumer_base": "e81c2626a2b6710d66c0f30f76bc8fd4ad5dcf87",
+  "scope": "Protocol and public input acquisition only",
+  "preparation_executed": false,
+  "docking_searches_executed": 0,
+  "planned_searches": 24,
+  "issue": "uibcdf/dockingmt#5",
+  "registration_url": "https://github.com/uibcdf/dockingmt/issues/5#issuecomment-6097385556",
+  "registered_utc": "2026-10-10T12:16:06Z",
+  "github_comment_body_sha256": "a6cc48df1771782c79a0fcacf86fe345389a9ecaeae5e8cf8db967cc5b806671"
+}
