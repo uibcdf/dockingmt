@@ -183,7 +183,29 @@ class PreparedLigand:
         }
 
     def to_molecular_system(self) -> Any:
-        """Convert the prepared ligand into a MolSysMT molecular system."""
+        """Convert through MolSysMT, restoring full-precision prepared values.
+
+        A source-free rigid representation carries only PDBQT's partial chemistry;
+        conversion does not recover absent bonds or assign a chemical model.
+        """
+        if self.source_molsys is None and self._torsion_tree is None:
+            import molsysmt as msm
+
+            molsys = msm.convert(
+                'pdbqt_text:' + self.to_pdbqt(),
+                to_form='molsysmt.MolSys',
+                discard_torsion_tree=True,
+            )
+            msm.set(
+                molsys,
+                coordinates=puw.quantity(
+                    np.expand_dims(puw.get_value(self.coordinates), axis=0),
+                    puw.get_unit(self.coordinates),
+                ),
+                partial_charge=puw.quantity(self.charges, 'elementary_charge'),
+            )
+            return molsys
+
         if self.source_molsys is not None:
             import molsysmt as msm
 
@@ -200,6 +222,9 @@ class PreparedLigand:
             msm.set(molsys, element='atom', coordinates=coords)
             return molsys
 
+        # Source-free flexible reconstruction must keep the prepared atom axis.
+        # The provider export/pose maps are pending molsysmt#223/#226; preserve
+        # this existing bridge until that axis is supported (dockingmt#49).
         from .._private.conversion import pdb_text_to_molsys
 
         coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))

@@ -32,9 +32,9 @@ id = "molsysmt-source"
 name = "molsysmt"
 role = "required-runtime"
 url = "https://github.com/uibcdf/molsysmt"
-commit = "5bd893c85fe8d211663b2b1f865f5f1d2c382a90"
+commit = "739395d7ea31bec5c3f77cdcb1135ecf7e7c9bac"
 install = "pip-no-deps-directory"
-reason = "Preserve original reviewed checkout and normal pip --no-deps directory installation; workflow hashes bind the actual route."
+reason = "Adopt the prepared-mechanics merge fix (molsysmt#352) for public source-free conversion under dockingmt#49; preserve normal directory installation and qualify the exact source in required CI."
 
 [[source_routes]]
 id = "viewer-base"
@@ -93,8 +93,8 @@ reason = "Manual candidate/staged or eligible reviewed release caller; shared pu
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "564232e2c144d7f204d90daea63d3c059c9469d98c70fedf75dc101e128ee890"
-reason = "Original four Linux source science cells and pins retained; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
+sha256 = "9d67d77e4c25c813ded2ff8583b694a5b39b801183dd247df7cae626982207b9"
+reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]
 path = ".github/workflows/conda_publication_governance.yaml"
@@ -103,8 +103,8 @@ reason = "Administrative no-build recipe/resources and immutable publisher contr
 
 [[workflows]]
 path = ".github/workflows/full-matrix.yml"
-sha256 = "9805e7299aae659da5995c2fe6be2be0a0cca94b19e5b8ed3eec30869a43adcd"
-reason = "Original six-cell weekly/manual/daily conditional source science and recovery; directory preflight does not dispatch or change the matrix."
+sha256 = "e352b0e3c29f772d1b1b63b8ec599cca5d8b7a0863b7d2d97d26bc46228063f1"
+reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under dockingmt#49; directory preflight does not dispatch or change the matrix."
 
 [[workflows]]
 path = ".github/workflows/molsyssuite-policy.yml"

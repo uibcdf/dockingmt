@@ -37,16 +37,67 @@ every frame, and propagation of a later provider composition failure. Existing
 viewer/result contracts exercise real pose reconstruction and viewer navigation.
 These are molecular consumer contracts, not docking-quality measurements.
 
-Executed provider remains `5bd893c85fe8d211663b2b1f865f5f1d2c382a90`, with the existing
-qualified ArgDigest and Viewer sources. No provider upgrade, environment change,
-native rebuild or sibling worktree edit is part of this migration.
+The first slice executed provider
+`5bd893c85fe8d211663b2b1f865f5f1d2c382a90`, with the existing qualified ArgDigest
+and Viewer sources. No provider upgrade, environment change,
+native rebuild or sibling worktree edit was part of that slice.
 
 Local selected validation: 40 viewer, molecular-delegation and result tests pass
 in 26.04 s, with 37 existing provider warnings. The reporting check passes
 separately (four cases including three repeated new guards, 6.23 s): **41 distinct
 selected tests**, no skips. Ruff lint/format, generated indexes, all seven
-registered guide copies, contributor routing and document links pass. Required
-four-minor hosted CI is a separate exact-commit checkpoint.
+registered guide copies, contributor routing and document links pass. Its
+four-minor hosted CI passed on `74f67fe91dbf4a37924f7e6f9ac11bdaab69bc05`:
+1,048 tests per minor, no skips, with quality, distribution governance and coverage
+publication passing. This is source-suite evidence after ordinary installation
+and isolated installed checks.
+
+## Second slice: native source-free rigid conversion
+
+Prepared receptors and rigid ligands without a source now call public PDBQT
+conversion rather than rebuilding temporary PDB files, renaming duplicate atoms
+and locally deriving element fields. Public `msm.set` restores the original
+coordinate and partial-charge precision after PDBQT's fixed-width numerical
+rounding. Parsed AutoDock labels are retained. This partial representation does
+not claim missing bonds, complete chemical state or a new charge/type calculation.
+The existing docking writer and submitted engine bytes are unchanged.
+
+Adopt provider `739395d7ea31bec5c3f77cdcb1135ecf7e7c9bac`, the first commit
+containing the prepared-mechanics merge correction in
+[molsysmt#352](https://github.com/uibcdf/molsysmt/issues/352), in both CI source
+routes and the dependency inventory. Keep the existing ArgDigest and lane-specific
+Viewer pins. Do not cherry-pick or modify provider implementation downstream.
+The newer provider head is outside this adoption's executed scope.
+
+Local evidence: eight provider merge guards pass; the original 1,483-atom public
+reproduction succeeds. The isolated consumer slice passes 67 selected preparation,
+flexibility, viewer, result and delegation cases (38.98 s, 37 warnings), including
+eight new cases covering duplicate identities, full precision, default/pm-fs
+policies, provider failure propagation and mechanics retained across complex
+frames. A complete pre-change local run was interrupted after reporting progress
+at 210/1,048 cases; its retained log is incomplete and is not a full-suite pass.
+Twenty-nine governance, reporting, distribution and coverage controls pass
+separately (3.06 s): 96 distinct consumer cases across these two selections.
+After strengthening identity/detachment assertions and retaining quantity-form
+normalization, the 21 preparation/delegation cases pass again (10.89 s); these
+repeat cases within the 96, not an additional distinct selection.
+Required full qualification is the four-minor hosted run of the final commit.
+
+These local controls use a detached provider source checkout with the authenticated
+unchanged native binary (SHA-256
+`c535c7d2f0e2a92b6ebf8298a60b19e4b5555467b4aa087e9563c6760619827e`).
+Provider native sources are unchanged between these two commits. Build-backend
+metadata was generated for the isolated probe; initial pre-change imports reported
+the older installed distribution version despite verified candidate source origins.
+Neither that source probe nor copied native bytes constitute an ordinary installed
+candidate. CI must execute normal installation, source/metadata route checks and
+isolated installed import checks, in addition to the complete source suite.
+
+Source-backed conversion continues to copy the verified molecular source and
+replace coordinates publicly. Source-free flexible reconstruction still requires
+application of a known atom permutation; it retains the previous bounded bridge
+pending [molsysmt#369](https://github.com/uibcdf/molsysmt/issues/369), #223 and #226.
+There is no new downstream permutation algorithm or general molecular helper.
 
 ## Why
 
@@ -82,9 +133,10 @@ attribute handling; its failures propagate instead of being bypassed.
   charge precision through public setters. That adds mechanics to the native
   representation, exposing the old pinned provider's merge defect in
   [molsysmt#352](https://github.com/uibcdf/molsysmt/issues/352). The provider fix is
-  delivered but its compatible consumer adoption still needs qualification.
-  Do not silently discard mechanics or implement a downstream merger to bypass
-  this requirement. The conversion draft is not integrated in this first slice.
+  delivered and its first containing commit is adopted in the second slice,
+  subject to the final exact-commit CI checkpoint above. Source-free flexible
+  permutation remains provider-owned. Do not silently discard mechanics or
+  implement a downstream merger or atom reordering to bypass these requirements.
 
 The remaining historical conversion/writer/heuristic routes are tracked here and
 in [#33](https://github.com/uibcdf/dockingmt/issues/33); they are not architectural

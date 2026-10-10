@@ -159,10 +159,10 @@ def test_manual_prepared_ligand_recovers_elements_from_autodock_types():
         atom_types=['C', 'OA'],
         charges=[0.0, 0.0],
     )
-    assert msm.get(ligand.to_molecular_system(), element='atom', atom_type=True) == [
-        'C',
-        'O',
-    ]
+    np.testing.assert_array_equal(
+        msm.get(ligand.to_molecular_system(), element='atom', atom_type=True),
+        ['C', 'O'],
+    )
 
 
 def test_ligand_writer_rejects_torsion_count_without_branch_tree():

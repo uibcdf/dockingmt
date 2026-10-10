@@ -9,7 +9,6 @@ from argdigest import arg_digest
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation._molsys import (
     atom_metadata,
-    autodock_element,
     chemistry_evidence,
     select_one_structure,
     source_aromaticity,
@@ -117,10 +116,14 @@ class PreparedReceptor:
         }
 
     def to_molecular_system(self) -> Any:
-        """Convert the prepared receptor into a MolSysMT molecular system."""
-        if self.source_molsys is not None:
-            import molsysmt as msm
+        """Convert through MolSysMT, restoring full-precision prepared values.
 
+        Without a source, only PDBQT's partial chemistry is available. No absent
+        bonds, aromaticity or chemical assignments are inferred by DockingMT.
+        """
+        import molsysmt as msm
+
+        if self.source_molsys is not None:
             molsys = msm.copy(self.source_molsys)
             if msm.get(molsys, element='system', n_atoms=True) != self.n_atoms:
                 raise ArgumentError(
@@ -134,37 +137,16 @@ class PreparedReceptor:
             msm.set(molsys, element='atom', coordinates=coords)
             return molsys
 
-        from .._private.conversion import pdb_text_to_molsys
-
-        coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))
-        seen_per_res: dict[tuple[str, int], set[str]] = {}
-        lines = []
-        for i, (name, gname, gid, (x, y, z), atom_type) in enumerate(
-            zip(
-                self.atom_names,
-                self.group_names,
-                self.group_ids,
-                coords_ang,
-                self.atom_types,
-            )
-        ):
-            res_key = (gname, gid)
-            if res_key not in seen_per_res:
-                seen_per_res[res_key] = set()
-            aname = name
-            c = 1
-            while aname in seen_per_res[res_key]:
-                aname = f'{name[:2]}{c}'
-                c += 1
-            seen_per_res[res_key].add(aname)
-
-            lines.append(
-                f'ATOM  {i + 1:5d} {aname:<4s} {gname[:3]:3s} A{gid:4d}    '
-                f'{x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00          {autodock_element(atom_type):>2s}'
-            )
-        lines.append('END\n')
-        pdb_text = '\n'.join(lines)
-        return pdb_text_to_molsys(pdb_text)
+        molsys = msm.convert('pdbqt_text:' + self.to_pdbqt(), to_form='molsysmt.MolSys')
+        msm.set(
+            molsys,
+            coordinates=puw.quantity(
+                np.expand_dims(puw.get_value(self.coordinates), axis=0),
+                puw.get_unit(self.coordinates),
+            ),
+            partial_charge=puw.quantity(self.charges, 'elementary_charge'),
+        )
+        return molsys
 
     def __repr__(self) -> str:
         return f'PreparedReceptor(state_id={self.state_id!r}, n_atoms={self.n_atoms})'
