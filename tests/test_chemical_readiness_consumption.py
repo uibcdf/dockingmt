@@ -54,7 +54,7 @@ def test_preparation_consumes_provider_on_source_before_projection(
         )  # Origins are compact counts, not per-atom copies.
     assert summary['fields']['formal_charge']['status'] == 'present'
     assert summary['fields']['formal_charge']['origin_counts'] == {'unassessed': 9}
-    assert prepared.metadata['charge_source'] == 'zero_placeholder'
+    assert prepared.metadata['charge_source'] == 'source_partial_charge'
     assert prepared.metadata['atom_type_source'] == 'molsysmt_named_autodock4'
     assert (
         json.loads(json.dumps(prepared.to_dict()))['metadata']['source_chemistry']

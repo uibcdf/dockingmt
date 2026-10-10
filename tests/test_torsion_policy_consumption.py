@@ -22,7 +22,9 @@ from dockingmt.preparation._temporary_torsions import build_torsion_tree
 
 
 def typed_source(smiles):
-    return msm.build.assign_autodock_atom_types(explicit_source(smiles), **TYPING)
+    return msm.build.assign_autodock_atom_types(
+        msm.build.assign_partial_charges(explicit_source(smiles), **CHARGE), **TYPING
+    )
 
 
 @pytest.mark.parametrize(

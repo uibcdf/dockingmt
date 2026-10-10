@@ -106,3 +106,23 @@ installation, isolated installed-package checks and complete source suites;
 terminal results will be linked on #5/#49. These local results alone do not qualify
 that matrix or public/scientific admission. Keep both issues partial: general
 projection/export and chemical/scoring acceptance remain separate work.
+
+### Complete-source correction — 2026-10-10
+
+The initial candidate `77c1c5c` completes the local source suite with **1,080
+passed / 15 failed in 742.18 s**, with 202 retained provider warnings. This is
+diagnostic evidence, not a passing checkpoint. Thirteen torsion-policy controls
+still supplied uncharged inputs; two chemical-readiness controls retained the
+obsolete placeholder expectation after their shared fixture acquired explicit
+charges. The correction requests the existing public named charge stage in the
+torsion fixture and expects supplied-charge provenance in readiness controls.
+No production behavior, original producer, archive, source axis or torsion-policy
+decision changes. A corrected exact-head matrix is required independently of the
+initial candidate's hosted outcome.
+
+The corrected torsion/readiness/template/receptor-coverage selection passes
+**57 tests without skips in 79.26 s**, with 36 retained provider warnings. The
+unchanged earlier 169-case selection remains applicable; together these cover
+226 distinct local preparation/integration controls. Administrative gates also
+remain applicable; generated indexes and diff checks are checked again after
+this dated correction. Full hosted suites remain a separate gate.
