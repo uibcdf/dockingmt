@@ -1,0 +1,756 @@
+{
+  "schema": "dockingmt.5x72_displacement_receiving_checkpoint@1",
+  "date": "2026-10-10",
+  "owning_issues": [
+    "uibcdf/dockingmt#17",
+    "uibcdf/dockingmt#6",
+    "uibcdf/dockingmt#33"
+  ],
+  "original_producer": {
+    "consumer_base_commit": "b793075e8a06bea6d8704eb0db24239b16671e57",
+    "driver_sha256": "ed2db70e65c8248e6502169c8043f3f7e0dbe5b8b278af6b0c0eb44370fd9e23",
+    "driver_was_untracked_at_production": true,
+    "provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+    "native_artifacts": {
+      "/tmp/dockingmt-receptor-provider-5bd893c/molsysmt/_rust.abi3.so": "c535c7d2f0e2a92b6ebf8298a60b19e4b5555467b4aa087e9563c6760619827e"
+    },
+    "versions": {
+      "argdigest": "0.15.0+1.g5c6711e",
+      "molsysmt": "0.22.4+215.g5bd893c85",
+      "pyunitwizard": "0.28.1+3.g2ab37a5",
+      "rdkit": "2026.3.1",
+      "vina": "1.2.7"
+    },
+    "tracked_consumer_git_blobs_verified": {
+      "devtools/audit_1iep_preparation.py": "60596d2e8d8a40ab1e1d000b56d2cefd56e701b6eb1cbccc9a67cc5beb468d5c",
+      "devtools/qualify_181l_receptor.py": "0052d95d60d9b55d77aae085cee4b7be021a95d037fc6a87ab9b4b2e49669e88",
+      "devtools/qualify_1iep_representation.py": "22a7d698e5835c71c888f67f644da167516a59e54eb981502e2550eed7cfa0df",
+      "devtools/qualify_1iep_root_order.py": "8462778cab749081abf923905709015623c2b1d3885d935519e2fd695e22331a",
+      "devtools/qualify_5x72_contact.py": "2c92d7ab41686a7b299b7b4d6961f9e370c96fe9639e6ec0c3ea2237fb08d092",
+      "devtools/qualify_5x72_occupancy.py": "c7fb2ee9723c956d29b6c58b594d542e559c80cbce13ae5a663a2aa5f5c6e762",
+      "devtools/qualify_5x72_reciprocal.py": "88d22ec55c48b384bbe7bf770683ec17b843f0eb158389db4074c0db3091b4a7",
+      "devtools/qualify_5x72_reference.py": "81e18a4a0a6fae0197ed1d5c2bfc3ccd8eed5dcb6cc1a6f468d6915de0421052",
+      "devtools/qualify_5x72_rigid.py": "7a237dd07244b23cb5b3942c55d9466b9539e26d0ff4ba1e1cd072e37d81061a",
+      "devtools/qualify_5x72_root_order.py": "e6439e467e65f2717df5f7babacf9e0e35b06d1cd61f0696c2ee05eccbd34db2",
+      "devtools/qualify_chemical_templates.py": "18532b6419054f85f636e37ea829fe322f68a129910447d58bb327780b349a85",
+      "devtools/qualify_named_types.py": "d74e28984e837a4c583136560496e57411a4ea191c1a78e46f791e9061b65191",
+      "dockingmt/__init__.py": "07f71ed5cf3914d2e4cfbf35c43a7ea8b69497effd4dc8aa6336ae30e61a2359",
+      "dockingmt/_argdigest.py": "e76d59bca5d24f3df78b4c3b361375a82236d95ac102218a615a48bb3555b6a7",
+      "dockingmt/_depdigest.py": "c996d85d61ef70230b64c0a33bd69ea78e24c3c3148100f69d158ffe90d9ee36",
+      "dockingmt/_private/__init__.py": "4f23e529394a0c60adaca014f6852e07e108e6e826973d256b254e9e9e2f5cc0",
+      "dockingmt/_private/argdigest/__init__.py": "550f136bb66a889c4bdd34997d2925aee7aa2e95b359554e98f936927f39fea4",
+      "dockingmt/_private/argdigest/registry.py": "bb2c2460c37ba9029d052e4567be54a5118d07215b9be2073437303db023b9f1",
+      "dockingmt/_private/artifacts.py": "750981bba46eccf57f085a099305574f4b19afa891892259709cbc1f49bebd2e",
+      "dockingmt/_private/conversion.py": "48ebfa6c9b45fafe1f0cfbf60c176d46df4c1d4636b4bcd6e2d7b88119eb99cf",
+      "dockingmt/_private/serialization.py": "f138c1f5dcdc5ff67ce5ac15df7c762ffefc6286a627e6859b9980e39ffc0680",
+      "dockingmt/_private/smonitor/__init__.py": "af179622d2bd19e0a4178f03624526d46ff24b047f2ca357b9d85024b34a9ce7",
+      "dockingmt/_private/smonitor/catalog.py": "14b214b11fadd0678085507ccc295e1a2e0905356d8ac1732aff4c8ddb984b7b",
+      "dockingmt/_private/smonitor/emitter.py": "83af0b66e89522f9732bc97c53bd73de551646cafcb758637d2c2e545b877a56",
+      "dockingmt/_private/smonitor/meta.py": "7a1d95d8be1b37238dff60af83e87649331037366512e2e7b4fa218c6c61cafb",
+      "dockingmt/_private/smonitor/warnings.py": "8130bc9008281d0f65f491b279a37536d3a2de5a7d86c3027e28dbbb69b6b950",
+      "dockingmt/_private/vina_records.py": "ec13749e8410ca16bd3ad25ef6cb5e39ea8dc9af80fb6d2f3b3749c5d16fdc59",
+      "dockingmt/_pyunitwizard.py": "ced289b4e5423e80df232daac8916263995aafdbf20d06e73690599249d9e96b",
+      "dockingmt/_smonitor.py": "830e3d288fe35a84ea283d0888799b72707ee0825b7f673162d79a791703a9d2",
+      "dockingmt/aggregation.py": "d033c3a8bbfbd4e44ffa34eaee6901f5a30efe95fa3b45e60d5d849ad1945ae5",
+      "dockingmt/batch.py": "01d7cfb44320c8d6ba2ad04c847093d0e7105458bab975edbc606d24d4cd37f2",
+      "dockingmt/core/__init__.py": "6a6218f01c453e7973578f8aec19da42d02147fc603c401c3908ee00d0e1b8fa",
+      "dockingmt/core/_scores.py": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136",
+      "dockingmt/core/audit.py": "191d9c82936fada14761ccdae0d95ba46b17fdeb22c2cbf2e348554cb5d4cab3",
+      "dockingmt/core/outcome.py": "d16cefba9c2a6f7057201a30fffde04d78eb7a3f55f3ff5e3c60a6600339fb04",
+      "dockingmt/core/pose_audit.py": "de6ecac9713d6a96349e8b42884b7ddfa68d6c8a3440792fde41adad38180908",
+      "dockingmt/core/problem.py": "418c5e4ecfd6517870c0fb76162b70760b8111120e9eab8e83d5ed509751c502",
+      "dockingmt/core/protocol.py": "bdcefe43239851abaaf19ec67a5ddb1336617b4ceba05545d497793eaa6abc70",
+      "dockingmt/core/results.py": "d54247fa7487ccb1574cbc8c66021244a3b33d3de643cc16727bc6d7d6cf77d7",
+      "dockingmt/core/search_domain.py": "e5bf0149a271ac4fa0b1d619f8e7f8e17aeed1316f86d1367fff64a6a29c854e",
+      "dockingmt/dock.py": "25ffc2190e5410e187e1165b912fcf2b6c4274d7e975c00e918283c96b52f256",
+      "dockingmt/engines/__init__.py": "07108a1391a34a122f4a9c9991db911a1b8f0fde9a42a828c9418a1a7ebcadf9",
+      "dockingmt/engines/_vina_scoring.py": "e49a50fd48fc28af6a440961e95da6c23fcabd86bbaf865d5e5d86df5cd341bb",
+      "dockingmt/engines/base.py": "127fc3393b37f2d173d768eb926295b911c8160038ed524da5896b35d89f83cc",
+      "dockingmt/engines/vina.py": "068f33407d2346330ad25c926a428c27ec7a3556d021602dd8978733e41ad3fa",
+      "dockingmt/evaluation.py": "417189f02e434275ff3b6fb182e7bea22bb6966deb4e9fcdf4316fff36de5d23",
+      "dockingmt/preparation/__init__.py": "ad1708354f51a1283fc98667c6abdea944ed8a7d26f79ee0ce03347b4509850f",
+      "dockingmt/preparation/_molsys.py": "7b051fff1b9ba3af3ac3b3e6075101923125ee2a73a912e0ff4c405b8f12fc5b",
+      "dockingmt/preparation/_stages.py": "e379ea198cc0d85d9d0769ceb048d6bfa6e3ae1797baac69639310b82aff419a",
+      "dockingmt/preparation/_temporary_torsions.py": "2c7afa65e08b5e09705bffee5ff2184e0c9c77dd425a1d279e68940e6ab938b0",
+      "dockingmt/preparation/_typing.py": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2",
+      "dockingmt/preparation/assessment.py": "5f8d3fe16c76ee401bdaaf94ad7714d1727c2732d48f72586fa95fc22d8eaaf8",
+      "dockingmt/preparation/charges.py": "b23815cf64791c42bc5e7577f540b56deaeddb6ee6e12ad288824b7c8a4773b8",
+      "dockingmt/preparation/ligand.py": "e73e8f1760df7c2f0490df3e68777b577812a67c2bfc6467a97b4f47d0f583a7",
+      "dockingmt/preparation/receptor.py": "e7bc80c17b76bcb962454a255d1ab6d62c340ba8c19116ea22ea4c35c673da52",
+      "dockingmt/score.py": "6b05e5d92f03732e2280a4ca160d5b6e8bcf28b2b940f779ea84bd08dc00d670",
+      "dockingmt/view.py": "427e4ba1dae9273e21d6f04148d21954284caa8d07e6208e97b9411766653da6",
+      "dockingmt/viewer/__init__.py": "926524953c4cf37039415eaa5d36646e00580cffb7acb1e24deb0b9c7fd6d601"
+    },
+    "provider_git_blobs_verified": {
+      "molsysmt/_private/autodock_assignment.py": "5a20f0cf61860c3d21b89ca502409541294adabb9d4e0aae42a90c0b7aec1c9e",
+      "molsysmt/_private/ctfile.py": "2890e4e55cdca0eb86d8cfb3fc91dd56795419c60528dedcbef8f97df79b7f34",
+      "molsysmt/_private/fixed_hydrogens.py": "daec5ea88b3c24a24b6d9c747b51e6f3388de3cafc36936bbff96ab1c4348fbb",
+      "molsysmt/_private/partial_charges.py": "381ba74b24b5596764c2b1a2ab4844292d5c9e1fd447f70480771ad9484f97c9",
+      "molsysmt/_private/pdbqt.py": "28275bfb6fc17d5658f4acafeec5cb486dad250738ade184a5339d4c6b782684",
+      "molsysmt/_private/pdbqt_adapter.py": "6a1b60f2ba767568b06167c26ea52bd128eaf0f40e56c4695cdc94be28b42332",
+      "molsysmt/_private/pdbqt_writer.py": "ee618eadb1893d6dcf8a9075feb700624bc701e28037e44c78cb22f33447f0cf",
+      "molsysmt/_private/rust_backend.py": "e3df5b75c4b6a0293959627094a7cd3a260ca46338e0204e41c65dd9186eb737",
+      "molsysmt/basic/add.py": "8f6773f884697a6bc1c0726e7007e37f1f70051cc79fabef466b63024e825999",
+      "molsysmt/basic/copy.py": "9a25c850cceb820ae9aca3ed9d6cd6599ddb15ff12f74704755ed8213cb004fb",
+      "molsysmt/basic/set.py": "3bc818b71bbecaf9d0a382b3c36e4b84ad4b0d6073449d18d9dc8f3a3aaaebd1",
+      "molsysmt/build/add_missing_hydrogens.py": "86b34ffe0b7b1b6e81b7262c83e5ff31f0e021f0fa94326037d47ea1f479dc8c",
+      "molsysmt/form/file_pdb/to_molsysmt_MolSys.py": "8b43aebec29822e145d19b76c9bb2286eedfbbaa9ed304a11ee65a83f23c327e",
+      "molsysmt/form/file_sdf/to_molsysmt_MolSys.py": "d75cccb5a19fdb6a14165a0f1bdd4dba99fc2965eff7998aa2e3d28f72000861",
+      "molsysmt/form/molsysmt_MolSys/add.py": "51f748fd887600ef651c1eb4a583d9060adfbc3d9bb3b5dd3510db79b5bda239",
+      "molsysmt/form/molsysmt_MolSys/copy.py": "ea099cb1d5dfa29884249959d33a293c879f491c905a27fb4c1c040339058c26",
+      "molsysmt/form/molsysmt_MolSys/to_string_pdbqt_text.py": "c019d4e986a59567911a35d9c0efbc83093c7e991fb79cdc8ce5cbc592a04a5a",
+      "molsysmt/form/rdkit_Mol/to_molsysmt_MolSys.py": "c87f171c6d92aa491aded2423da51c709a218243c4468789c444b726df74bd0e",
+      "molsysmt/form/string_pdbqt_text/to_molsysmt_MolSys.py": "5ea71f9af49fcb0b1318b7ed60c95d13512a4972422df3740fcec89e6138b562",
+      "molsysmt/lib/structure/_kernel_inputs.py": "9f4e4c1dd7e44a9ae4202c452f40b9864644a0b0b010728936f30416d6c80b00",
+      "molsysmt/native/molsys.py": "eea64319602c904324ecd212abe64add54ed0714832c45f0d412082635885e84",
+      "molsysmt/native/structures.py": "c63cb8e45ab65e11c9923675c47a2a439137b7ef068071736911cc57fca51f81",
+      "molsysmt/native/topology.py": "2a08c1f8d7444ac8da2ae2bcdcf2ea4c5a1e1b1d1d6f7eed90a8f30e426dc6bd",
+      "molsysmt/structure/get_dihedral_angles.py": "b6a1bfa0a0c35247cf393dc3125a403ba70229cc77f03a61d0963a37620b163c",
+      "molsysmt/structure/get_distances.py": "8c0b37be9e8ed3878d8a2a25af4f200d7d94456d697c48f7e682d3dcc765c024",
+      "molsysmt/structure/get_rmsd.py": "b8f6cae8afbefc5ebe19147b208a540f235d630857c30bed85cdf2f66af4beca",
+      "molsysmt/structure/least_rmsd_fit.py": "26d744a55b79024ab7783e14345ba74bc2668ff2acf7431e9e00d3f59a6f9b01",
+      "molsysmt/structure/rotate.py": "09972a41ad8b2e7e47ead41fa306b500f0297f576fde045021b2dd72b90ce4db",
+      "molsysmt/structure/set_dihedral_angles.py": "c5e725cf68a26311401c768fc2dbb9a17eefaee0f7dd38b354af868fb183fd59",
+      "molsysmt/structure/translate.py": "3e14eeae9b3c7fdfc89932c3ce858cc4e1f6751f17ee9e4223c537f30d3daa82",
+      "molsysmt/topology/_chemical_graph.py": "94ca7afab5076e2ff7b60164005ec0ae30fb5930d7ef8c5760937e4af602aa39",
+      "molsysmt/topology/get_bondgraph.py": "05661e924c341fdedcb52ed0ef1fb046799d821fb5b0ed4a2e3d946bb262573d",
+      "molsysmt/topology/get_covalent_blocks.py": "8ecf509f106ccbd3a4618b3ba36519e9986ca3978246b6f43ef51844ee6ea573",
+      "molsysmt/topology/get_rigid_fragments.py": "02e9cafe7d2a13d008c3145542f56ae5e840fb9946a5f8e3ef3a2d1c7eb1f980",
+      "molsysmt/topology/get_rotatable_bonds.py": "e0d074a0c38e93e4000b1548c386ac512a598f8c0ca8a346e7a3cdf3a8eed7b7"
+    },
+    "generated_version_original_sha256": "c45540456d8e07a49efe524dab6a784dfabdbe329829ad4ece1b3cd7e7e1cdf9",
+    "generated_version_runtime_bytes_reverified": false,
+    "nested_original_sources_verified_flags_preserved": true
+  },
+  "producer_archive": {
+    "gzip_sha256": "afb8bfa4092abc78f8cd2daf33da7248fe39fbd1856b23e24a192f4813fb72a8",
+    "json_sha256": "0bbf5990234cec5b739d7f32f00e035ada42d9bd3277932eab831c9f3545226c",
+    "original_bytes_preserved": true,
+    "points": 28,
+    "fixed_evaluations": 112,
+    "zero_anchor_evaluations": 16,
+    "nonzero_evaluations": 96,
+    "searches": 0,
+    "optimizations": 0
+  },
+  "receiving_profile": {
+    "consumer_base_commit": "2466b8f4f4cb56db21d40fa5cb036c0674313188",
+    "molsysmt_source": "739395d7ea31bec5c3f77cdcb1135ecf7e7c9bac",
+    "python": "3.14.7",
+    "source_composition": true,
+    "dependency_or_native_changes": false,
+    "scientific_or_public_admission": false
+  },
+  "local_tests": {
+    "passed": 127,
+    "skipped": 0,
+    "seconds": 174.26,
+    "new_cases": 10,
+    "live_fixed_evaluations": 4,
+    "junit_cases": [
+      "tests.test_5x72_displacement_workflow::test_public_translation_preserves_all39_geometry_and_saved_axes[current]",
+      "tests.test_5x72_displacement_workflow::test_public_translation_preserves_all39_geometry_and_saved_axes[pm_fs_inferred]",
+      "tests.test_5x72_displacement_workflow::test_invalid_displacement_index_fails_before_molecular_work[-1]",
+      "tests.test_5x72_displacement_workflow::test_invalid_displacement_index_fails_before_molecular_work[7]",
+      "tests.test_5x72_displacement_workflow::test_invalid_displacement_index_fails_before_molecular_work[True]",
+      "tests.test_5x72_displacement_workflow::test_saved_score_admission_rejects_mapping_receptor_and_anchor_drift[source_map]",
+      "tests.test_5x72_displacement_workflow::test_saved_score_admission_rejects_mapping_receptor_and_anchor_drift[receptor]",
+      "tests.test_5x72_displacement_workflow::test_saved_score_admission_rejects_mapping_receptor_and_anchor_drift[zero_score]",
+      "tests.test_5x72_displacement_workflow::test_live_fixed_score_slice_preserves_inputs_and_native_measurements",
+      "tests.test_5x72_displacement_workflow::test_all_saved_geometry_captures_components_and_matched_anchor_deltas",
+      "tests.test_5x72_contact_workflow::test_public_cross_system_distances_use_captured_axis_without_scoring[current]",
+      "tests.test_5x72_contact_workflow::test_public_cross_system_distances_use_captured_axis_without_scoring[pm_fs_inferred]",
+      "tests.test_5x72_contact_workflow::test_saved_admission_refuses_mapping_and_receptor_drift[wrong_map]",
+      "tests.test_5x72_contact_workflow::test_saved_admission_refuses_mapping_and_receptor_drift[duplicate_source]",
+      "tests.test_5x72_contact_workflow::test_saved_admission_refuses_mapping_and_receptor_drift[wrong_receptor]",
+      "tests.test_5x72_contact_workflow::test_occupied_prefix_drift_is_rejected_before_any_distance",
+      "tests.test_5x72_contact_workflow::test_proximity_thresholds_are_strict_and_empty_populations_stay_empty",
+      "tests.test_5x72_contact_workflow::test_saved_all_distances_original_captures_and_proximity_populations_are_complete",
+      "tests.test_5x72_rigid_workflow::test_current_reference_torsions_preserve_original_chemistry_and_all_h[current]",
+      "tests.test_5x72_rigid_workflow::test_current_reference_torsions_preserve_original_chemistry_and_all_h[inferred]",
+      "tests.test_5x72_rigid_workflow::test_rigid_placement_both_trees_and_degree_policy_under_pm_fs[p59]",
+      "tests.test_5x72_rigid_workflow::test_rigid_placement_both_trees_and_degree_policy_under_pm_fs[p69]",
+      "tests.test_5x72_rigid_workflow::test_rigid_admission_refuses_bond_distortion_fragment_change_or_mirror[cut_bond]",
+      "tests.test_5x72_rigid_workflow::test_rigid_admission_refuses_bond_distortion_fragment_change_or_mirror[fragment]",
+      "tests.test_5x72_rigid_workflow::test_rigid_admission_refuses_bond_distortion_fragment_change_or_mirror[reflection]",
+      "tests.test_5x72_rigid_workflow::test_live_original_h_geometry_scores_both_contexts_under_pm_fs",
+      "tests.test_5x72_rigid_workflow::test_saved_1482_full_atom_pairs_eight_scores_and_all_156_poses",
+      "tests.test_5x72_reference_workflow::test_reference_admission_keeps_original_chemical_identity_and_generated_h[current]",
+      "tests.test_5x72_reference_workflow::test_reference_admission_keeps_original_chemical_identity_and_generated_h[inferred]",
+      "tests.test_5x72_reference_workflow::test_both_reference_trees_and_distances_under_pm_fs[p59]",
+      "tests.test_5x72_reference_workflow::test_both_reference_trees_and_distances_under_pm_fs[p69]",
+      "tests.test_5x72_reference_workflow::test_admission_refuses_changed_indexed_chemistry",
+      "tests.test_5x72_reference_workflow::test_live_reference_fixed_scores_keep_unranked_geometry_under_pm_fs",
+      "tests.test_5x72_reference_workflow::test_saved_references_all_156_poses_and_552_indexed_distances",
+      "tests.test_scoring::test_with_scores_preserves_prior_evidence_and_detaches",
+      "tests.test_scoring::test_with_scores_rejects_bad_additions_atomically[scores0]",
+      "tests.test_scoring::test_with_scores_rejects_bad_additions_atomically[scores1]",
+      "tests.test_scoring::test_with_scores_rejects_bad_additions_atomically[scores2]",
+      "tests.test_scoring::test_with_scores_rejects_bad_additions_atomically[scores3]",
+      "tests.test_scoring::test_with_scores_rejects_bad_additions_atomically[scores4]",
+      "tests.test_scoring::test_with_scores_rejects_bad_additions_atomically[None]",
+      "tests.test_scoring::test_with_scores_rejects_bad_additions_atomically[scores6]",
+      "tests.test_scoring::test_with_scores_revalidates_prior_scores_and_definitions",
+      "tests.test_scoring::test_native_scoring_matches_direct_engine_and_preserves_pose[vina]",
+      "tests.test_scoring::test_native_scoring_matches_direct_engine_and_preserves_pose[vinardo]",
+      "tests.test_scoring::test_successive_scoring_retains_independent_histories",
+      "tests.test_scoring::test_invalid_pose_rejected_before_native_setup[coordinates]",
+      "tests.test_scoring::test_invalid_pose_rejected_before_native_setup[count]",
+      "tests.test_scoring::test_invalid_pose_rejected_before_native_setup[state]",
+      "tests.test_scoring::test_invalid_pose_rejected_before_native_setup[collision]",
+      "tests.test_scoring::test_invalid_pose_rejected_before_native_setup[history]",
+      "tests.test_scoring::test_invalid_pose_rejected_before_native_setup[descriptor]",
+      "tests.test_scoring::test_invalid_pose_rejected_before_native_setup[atom_identity]",
+      "tests.test_scoring::test_unsupported_protocol_rejected_early[protocol0]",
+      "tests.test_scoring::test_unsupported_protocol_rejected_early[protocol1]",
+      "tests.test_scoring::test_scoring_rejects_unprepared_inputs_and_guidance",
+      "tests.test_scoring::test_scoring_failures_cleanup_staged_files[native]",
+      "tests.test_scoring::test_scoring_failures_cleanup_staged_files[shape]",
+      "tests.test_scoring::test_scoring_failures_cleanup_staged_files[nonfinite]",
+      "tests.test_scoring::test_scoring_failures_cleanup_staged_files[geometry]",
+      "tests.test_scoring::test_absent_vina_reports_local_dependency_error",
+      "tests.test_scoring::test_score_component_mapping_never_calls_search_and_snapshots_files",
+      "tests.test_scoring::test_prepared_ligand_rounding_mapping_and_provisional_policy",
+      "tests.test_scoring::test_flexible_external_input_retains_tree_and_record_order",
+      "tests.test_scoring::test_docking_only_backends_remain_compatible",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[schema_version-2.0]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[method-]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[method_version-None]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[component- ]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[kind-physical]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[kind-value5]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[preferred_direction-True]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[unit-kcal/mol]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[context-value8]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[context-value9]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[context-value10]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[context-value11]",
+      "tests.test_score_semantics::test_descriptor_rejects_malformed_meaning[context-value12]",
+      "tests.test_score_semantics::test_descriptor_requires_exact_fields_and_existing_score[missing]",
+      "tests.test_score_semantics::test_descriptor_requires_exact_fields_and_existing_score[unknown]",
+      "tests.test_score_semantics::test_descriptor_requires_exact_fields_and_existing_score[absent-score]",
+      "tests.test_score_semantics::test_descriptor_requires_exact_fields_and_existing_score[not-mapping]",
+      "tests.test_score_semantics::test_empirical_definition_requires_energy_like_unit[nm]",
+      "tests.test_score_semantics::test_empirical_definition_requires_energy_like_unit[undefined_score_unit]",
+      "tests.test_score_semantics::test_empirical_definition_requires_energy_like_unit[]",
+      "tests.test_score_semantics::test_empirical_definition_requires_energy_like_unit[None]",
+      "tests.test_score_semantics::test_descriptor_roundtrip_owns_context_and_preserves_unit_policy",
+      "tests.test_score_semantics::test_ranking_rejects_incompatible_meaning[method]",
+      "tests.test_score_semantics::test_ranking_rejects_incompatible_meaning[version]",
+      "tests.test_score_semantics::test_ranking_rejects_incompatible_meaning[component]",
+      "tests.test_score_semantics::test_ranking_rejects_incompatible_meaning[unit]",
+      "tests.test_score_semantics::test_ranking_rejects_incompatible_meaning[kind]",
+      "tests.test_score_semantics::test_ranking_rejects_incompatible_meaning[direction]",
+      "tests.test_score_semantics::test_ranking_rejects_incompatible_meaning[context]",
+      "tests.test_score_semantics::test_ranking_rejects_incompatible_meaning[state]",
+      "tests.test_score_semantics::test_ranking_rejects_incompatible_meaning[missing]",
+      "tests.test_score_semantics::test_ranking_rejects_incompatible_meaning[bool-context]",
+      "tests.test_score_semantics::test_ranking_rechecks_mutated_descriptors",
+      "tests.test_score_semantics::test_repeated_rankings_retain_independent_scalar_evidence",
+      "tests.test_score_semantics::test_explicit_direction_is_preserved_despite_preference",
+      "tests.test_score_semantics::test_ranking_requires_matching_declared_units_and_accepts_unit_aliases",
+      "tests.test_score_semantics::test_ranked_context_and_exported_history_are_independent",
+      "tests.test_score_semantics::test_legacy_policy_is_retained_without_invented_observations",
+      "tests.test_score_semantics::test_reader_rejects_malformed_ranking_history[not-list]",
+      "tests.test_score_semantics::test_reader_rejects_malformed_ranking_history[version]",
+      "tests.test_score_semantics::test_reader_rejects_malformed_ranking_history[missing-values]",
+      "tests.test_score_semantics::test_reader_rejects_malformed_ranking_history[permutation]",
+      "tests.test_score_semantics::test_reader_rejects_malformed_ranking_history[nonfinite-value]",
+      "tests.test_score_semantics::test_reader_rejects_malformed_ranking_history[direction]",
+      "tests.test_score_semantics::test_offline_semantics_and_ranking_do_not_request_providers",
+      "tests.test_native_molsysmt_formats::test_prepared_pdbqt_public_roundtrip_and_vina_admission[1iep_ligand-15fb35648d8c18c70317842f3a0631b73a19429c710a037ab07310084d579bb8-7]",
+      "tests.test_native_molsysmt_formats::test_prepared_pdbqt_public_roundtrip_and_vina_admission[1s63_ligand-04fb28c75bc5a8b32fd7f985ef8ac9a9b4581a40141f4f5b1b3951c2051fb7dc-6]",
+      "tests.test_native_molsysmt_formats::test_prepared_pdbqt_public_roundtrip_and_vina_admission[5x72_ligand_p59-67cf462419372e365b8129bc1047f94598f3a1f3c495375781c1c1100e95c92e-2]",
+      "tests.test_native_molsysmt_formats::test_prepared_pdbqt_public_roundtrip_and_vina_admission[5x72_ligand_p69-276a991d56ddc7778ed36c10aba6b7231de00b87294a7f77e2fceb9a96ae08e5-2]",
+      "tests.test_native_molsysmt_formats::test_prepared_pdbqt_public_roundtrip_and_vina_admission[1iep_receptor-f13cf3b36f61d87c3b58983e0b8ecf1c3456a685eb86dfe9ccfb139c7bdc2586-None]",
+      "tests.test_native_molsysmt_formats::test_prepared_pdbqt_serialization_uses_explicit_angstrom_under_pm_policy",
+      "tests.test_native_molsysmt_formats::test_supported_native_sdf_preserves_chemistry_and_stereo[5x72_ligand_p59]",
+      "tests.test_native_molsysmt_formats::test_supported_native_sdf_preserves_chemistry_and_stereo[5x72_ligand_p69]",
+      "tests.test_native_molsysmt_formats::test_pinned_sdf_dialects_outside_current_native_profile_fail_explicitly[1iep_ligand-Unsupported atom flag]",
+      "tests.test_native_molsysmt_formats::test_pinned_sdf_dialects_outside_current_native_profile_fail_explicitly[1s63_ligand-explicitly versioned]",
+      "tests.test_native_molsysmt_formats::test_malformed_or_unsupported_pdbqt_is_rejected[duplicate-id]",
+      "tests.test_native_molsysmt_formats::test_malformed_or_unsupported_pdbqt_is_rejected[unbalanced-tree]",
+      "tests.test_native_molsysmt_formats::test_malformed_or_unsupported_pdbqt_is_rejected[flexible-receptor]",
+      "tests.test_native_molsysmt_formats::test_stale_tree_rejected_before_destination_mutation",
+      "tests.test_native_molsysmt_formats::test_native_fragment_cuts_match_temporary_bridge_on_5x72",
+      "tests.test_native_molsysmt_formats::test_molsysmt_explicit_strings_reach_vina_without_format_prefix",
+      "tests.test_reporting_protocol::test_devguide_records_and_generated_indexes_are_valid"
+    ],
+    "diagnostic_new_guard_run": {
+      "passed": 9,
+      "failed": 1,
+      "reason": "Anchor negative fixture altered the selected score instead of frozen calculation history; the corrected fixture tests the recorded calculation input."
+    }
+  },
+  "notebook": {
+    "path": "devguide/validation/5x72_displacement_workflow_2026-10-09.ipynb",
+    "sha256": "6578de0572a839dfe1fa6fe227bc566ebe7b5416c2eb02dfc5c80a95fe1ca3ae",
+    "executed_cells": 3,
+    "saved_result_analysis_only": true,
+    "kernel_shutdown": true,
+    "managed_temporary_resources_cleaned": true,
+    "interrupted_local_execution_qualifies": false
+  },
+  "hosted_checkpoint": {
+    "status": "pending publication",
+    "recovery_owner": "uibcdf/dockingmt#17",
+    "required": "unskipped exact-head Python3.11-3.14 normal install, isolated installed checks, full source suites; terminal evidence in owning issues"
+  },
+  "administrative_gates": {
+    "ruff_lint": "pass",
+    "ruff_format_files": 155,
+    "report_indexes": "current",
+    "current_guide_route_check": [],
+    "unchanged_guide_snapshots": [
+      {
+        "filename": "MOLSYSSUITE_GUIDE.md",
+        "canonical_owner": "uibcdf/molsyssuite",
+        "canonical_ref": "37401257a501b2ea09cc5482988d2468781a950f",
+        "matches_origin_snapshot": true,
+        "sha256": "549ddc692d29693b4b2f8b4ff7fed93598c68de9b153278f81fa5fd61f7a04eb",
+        "unchanged_at_retirement": true
+      },
+      {
+        "filename": "SMONITOR_GUIDE.md",
+        "canonical_owner": "uibcdf/smonitor",
+        "canonical_ref": "848498308fbb5443a6bb2ce7b219580b7c7fe361",
+        "matches_origin_snapshot": true,
+        "sha256": "4e7f40875681d86bfd9c678bd9842cb66619a6e162d4556c9dac83f95021674a",
+        "unchanged_at_retirement": true
+      },
+      {
+        "filename": "DEPDIGEST_GUIDE.md",
+        "canonical_owner": "uibcdf/depdigest",
+        "canonical_ref": "f7c86254f5f95af93fa4e3235d78d841064bdbdc",
+        "matches_origin_snapshot": true,
+        "sha256": "88f77daae7e0d618f54d59dc959a300c3cb1d95fc8e1c3f81b454391ada494d2",
+        "unchanged_at_retirement": true
+      },
+      {
+        "filename": "ARGDIGEST_GUIDE.md",
+        "canonical_owner": "uibcdf/argdigest",
+        "canonical_ref": "3d1ec53c374098016452abab74706e9d80df5462",
+        "matches_origin_snapshot": true,
+        "sha256": "7cada7b5afc796ccc35505760210117053c8c5ab8b9c03ab0a84ad452e26e97a",
+        "unchanged_at_retirement": true
+      },
+      {
+        "filename": "PYUNITWIZARD_GUIDE.md",
+        "canonical_owner": "uibcdf/pyunitwizard",
+        "canonical_ref": "62c09dfefe924753e86ad01c73a989061c42144d",
+        "matches_origin_snapshot": true,
+        "sha256": "1da267f600c0179f8587d7a9a20cf0da6e6578c586ec576f4b70a0ea31fd5345",
+        "unchanged_at_retirement": true
+      },
+      {
+        "filename": "GH_RUN_RECEPTOR_GUIDE.md",
+        "canonical_owner": "uibcdf/gh-run-receptor",
+        "canonical_ref": "4a89d19a74eac33c6d04f7020ec5814ab7e98234",
+        "matches_origin_snapshot": true,
+        "sha256": "a3cf5c4d17c3dae3f9f419d1ddd9cf298017f9b4bca7e224e5d517b75cfc60f8",
+        "unchanged_at_retirement": true
+      },
+      {
+        "filename": "PYTEST_RECEPTOR_GUIDE.md",
+        "canonical_owner": "uibcdf/pytest-receptor",
+        "canonical_ref": "5fe7d98f4a4a6f7f2bca1f250427ad48178c73a2",
+        "matches_origin_snapshot": true,
+        "sha256": "edc16aef94ed06b7770b60e6bcda4fc5c2c468bf86a59ded93f41ec67dbce383",
+        "unchanged_at_retirement": true
+      }
+    ],
+    "local_links_checked": [
+      {
+        "source": "README.md",
+        "target": "devguide/validation/preparation_assessment.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/named_partial_charges.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/required_partial_charges.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/ligand_preparation_stages.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/181l_receptor_workflow.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/workflow_profiling.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/workflow_profiling.ipynb"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/result_export.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/result_export.ipynb"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/181l_redocking_exploratory.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/1iep_external_pdbqt.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/1iep_preparation_audit.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/fixed_pose_scoring.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/fixed_pose_scoring.ipynb"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/score_semantics.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/ranking_history.ipynb"
+      },
+      {
+        "source": "README.md",
+        "target": "MOLSYSSUITE_GUIDE.md"
+      },
+      {
+        "source": "README.md",
+        "target": "AGENTS.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/incremental_docking.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/incremental_docking.ipynb"
+      },
+      {
+        "source": "README.md",
+        "target": "devtools/README.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/result_audit.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/result_audit.ipynb"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/pose_audit.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/pose_audit.ipynb"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/native_molsysmt_formats.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/native_molsysmt_formats.ipynb"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/viewer_reference.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/viewer_reference.ipynb"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/redocking_evaluation.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/redocking_evaluation.ipynb"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/redocking_summary.md"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/redocking_summary.ipynb"
+      },
+      {
+        "source": "README.md",
+        "target": "devguide/validation/5x72_displacement_workflow.md"
+      },
+      {
+        "source": "devguide/validation/5x72_displacement_workflow.md",
+        "target": "5x72_contact_workflow.md"
+      },
+      {
+        "source": "devguide/validation/5x72_displacement_workflow.md",
+        "target": "../../devtools/qualify_5x72_displacement.py"
+      },
+      {
+        "source": "devguide/validation/5x72_displacement_workflow.md",
+        "target": "data/5x72_displacement/producer_2026-10-09.py.txt"
+      },
+      {
+        "source": "devguide/validation/5x72_displacement_workflow.md",
+        "target": "data/5x72_displacement/audit_2026-10-09.json.gz"
+      },
+      {
+        "source": "devguide/validation/5x72_displacement_workflow.md",
+        "target": "data/5x72_displacement/checkpoint_2026-10-10.json"
+      },
+      {
+        "source": "devguide/validation/5x72_displacement_workflow.md",
+        "target": "5x72_displacement_workflow_2026-10-09.ipynb"
+      },
+      {
+        "source": "devguide/validation/5x72_displacement_workflow.md",
+        "target": "../../tests/test_5x72_displacement_workflow.py"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/vina_torsion_matrix.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/meeko_native_capability_review.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/explicit_torsion_policy.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/explicit_torsion_policy_2026-10-06.ipynb"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/data/torsion_policy/qualification_2026-10-06.json"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/data/torsion_policy/checkpoint_2026-10-06.json"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/1iep_flexibility_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/1iep_representation_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/1iep_root_order_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/1iep_conformer_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/1iep_conformer_workflow.md#portable-annotation-correction-after-first-hosted-ci--2026-10-08"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/5x72_root_order_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/5x72_occupancy_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/5x72_occupancy_workflow.md#portable-dataframe-annotation-correction--2026-10-09"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/5x72_reciprocal_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/5x72_reciprocal_workflow.md#current-policy-guard-correction--2026-10-09"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/5x72_reference_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/5x72_rigid_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/5x72_contact_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/define_ligand_torsion_policy_across_rdkit_and_vina_references.md",
+        "target": "../validation/5x72_displacement_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/1iep_preparation_audit.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/vina_torsion_matrix.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/rigid_fragment_consumption.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/explicit_torsion_policy.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/explicit_torsion_policy_2026-10-06.ipynb"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/data/torsion_policy/checkpoint_2026-10-06.json"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/1iep_flexibility_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/1iep_representation_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/1iep_root_order_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/1iep_conformer_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/5x72_root_order_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/5x72_occupancy_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/5x72_reciprocal_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/5x72_reference_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/5x72_rigid_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/5x72_contact_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/select_active_ligand_torsions_for_vina_preparation.md",
+        "target": "../validation/5x72_displacement_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/native_molsysmt_formats.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/rigid_fragment_consumption.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/chemical_readiness_consumption.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/receptor_coverage_consumption.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/pdb_bond_inference.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/chemical_template_consumption.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/named_partial_charges.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/ligand_preparation_stages.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/181l_receptor_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/5x72_root_order_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/5x72_occupancy_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/5x72_occupancy_workflow.md#portable-dataframe-annotation-correction--2026-10-09"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/5x72_reciprocal_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/5x72_reciprocal_workflow.md#current-policy-guard-correction--2026-10-09"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/5x72_reference_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/5x72_rigid_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/5x72_contact_workflow.md"
+      },
+      {
+        "source": "devguide/pending_proposals/validate_native_molsysmt_formats.md",
+        "target": "../validation/5x72_displacement_workflow.md"
+      }
+    ],
+    "prior_tracked_scientific_and_producer_files_changed": false,
+    "diff_check": "pass",
+    "resource_cleanup": "successful notebook kernel shut down; interrupted kernelspec directory identified and removed; matching interrupted kernel process absent"
+  }
+}

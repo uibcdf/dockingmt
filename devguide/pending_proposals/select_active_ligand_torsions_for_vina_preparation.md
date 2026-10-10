@@ -287,3 +287,14 @@ P69 short heavy protein pairs occur in the original-rigid placement at GLN116/
 TYR149; descriptive bins neither identify energy terms nor select a flexibility
 remedy. Original/generated H remains a confound. All old scientific evidence
 is preserved; #6 remains partial/open.
+
+## Prespecified displacement control — 2026-10-10
+
+The [receiving qualification](../validation/5x72_displacement_workflow.md)
+preserves the original 112 fixed evaluations and producer bytes. Both original
+cuts/ROOT orders, chemistry/H, maps and internal geometry remain fixed while
+public MolSysMT moves all 39 atoms through seven declared offsets. Full score
+curves retain lower and non-improving points without introducing new cuts,
+optimization, search or ranking policy. The three-cell saved-result notebook and
+127 local controls pass; hosted exact-head evidence remains separate. This
+scientific slice does not retire the provider #223/#348 boundaries. #6 stays partial.

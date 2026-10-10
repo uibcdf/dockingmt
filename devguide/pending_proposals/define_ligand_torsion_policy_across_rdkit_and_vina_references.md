@@ -347,3 +347,21 @@ proximity counts cannot explain energy alone. Original/generated H and
 unrelaxed prescribed geometry remain limits. Local displacement sensitivity
 is a future bounded candidate, not an executed optimization or production
 torsion/H/ranking decision. #17 remains partial/open.
+
+## Prespecified displacement receiving qualification — 2026-10-10
+
+The [seven-point control](../validation/5x72_displacement_workflow.md) integrates
+the previously untracked original producer and 112-evaluation archive without
+changing their bytes. Public MolSysMT detached translation moves all 39 atoms;
+28 points retain all 741 internal pairs, original chemistry/H, maps and handedness.
+Both ROOT orders and 16 zero anchors admit exact original captured inputs and
+score components. All matched deltas and selected protein pairs remain saved.
+
+Original-rigid P69's -x occupied total improves by 2.554 kcal/mol; the earlier
+reference P59 occupied arm has no lower nonzero point. These finite positive/
+negative observations establish positional sensitivity, not optimization,
+returned-pose recovery, pair-energy attribution or a torsion/preparation remedy.
+Original/generated H differs between arms. The three-cell saved-result notebook
+and 127 passing local contracts qualify this receiving scope; normal exact-head
+hosted/installed checks are separately recorded in this issue. No provider source,
+environment, native binary or earlier scientific archive changes. #17 stays partial.

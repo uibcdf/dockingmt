@@ -368,3 +368,18 @@ and omitted H; no new molecular input, preparation, scoring, provider/native
 qualification, complete installed-artifact suite or public admission follows.
 No additional provider limitation was found and no sibling was edited. Existing
 provider issues keep ownership; #33 remains partial/open.
+
+## Displacement source/capture qualification — 2026-10-10
+
+The [5X72 displacement control](../validation/5x72_displacement_workflow.md)
+retains original 25-atom prepared fields, maps and both declared trees through
+public native PDBQT writing, with explicit 0.001-angstrom serialization limits.
+Measurement projections use public conversion and cross-system distances;
+unrounded 39-atom geometry remains a distinct axis. All 112 original captures
+and 16 zero anchors are verified without regeneration. A four-score current
+slice under nondefault units/inferred strings and surrounding contracts gives
+127 passing local tests; a three-cell notebook reads saved results only.
+Historical consumer/provider Git-source verification has a separate receiving
+receipt; generated historical-version bytes are not newly runtime-qualified.
+Source evidence, installed checks and scientific/public admission remain separate.
+No provider or sibling implementation is edited; #33 stays partial/open.

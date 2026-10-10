@@ -369,3 +369,8 @@ compatible saved evaluations by caller case ID. It checks recorded policies,
 retains separate failures and reports recovery with explicit evaluated/submitted
 denominators. See the [collection contract](devguide/validation/redocking_summary.md)
 and [offline notebook](devguide/validation/redocking_summary.ipynb).
+
+The [5X72 positional-sensitivity control](devguide/validation/5x72_displacement_workflow.md)
+provides a bounded scientific workflow with fixed inputs, public MolSysMT operations,
+all 112 retained evaluations and a saved-result notebook. Constructed-point score
+changes and negative outcomes remain separate from docking recovery and affinity.
