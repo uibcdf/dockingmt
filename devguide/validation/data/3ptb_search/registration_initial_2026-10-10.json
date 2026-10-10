@@ -1,0 +1,11 @@
+{
+  "schema": "dockingmt.3ptb_execution_registration@1",
+  "handoff_file": "devguide/validation/3ptb_execution_handoff_2026-10-10.md",
+  "handoff_sha256": "2d778fc8521adb4b27ee9dcc3a08565eb6e500ec70e3c90ff3f58c3b3dd9f1f7",
+  "admission_sha256": "05f82e0ff16592c64d404c216a7e2feff0c0e62a2aebff240dc8653350e21075",
+  "population_sha256": "be87f351c4cd0f2b8af6dc71d12af49c0604c2171b363fa2a62e3561215a1ed6",
+  "consumer_base_commit": "105dfc15d47cde7005137f3e7405e2b515107c4f",
+  "scientific_population_changed": false,
+  "3ptb_searches_executed_at_registration": 0,
+  "registration_url": "https://github.com/uibcdf/dockingmt/issues/5#issuecomment-6098496106"
+}

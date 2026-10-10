@@ -286,3 +286,16 @@ hosted checks are recorded on the owning issues after execution.
 The 3PTB workflow composes public molecular tools and adds no general molecular implementation. Direct compressed-PDB recognition fails before reading; reusable support is proposed in [MolSysMT #385](https://github.com/uibcdf/molsysmt/issues/385). A separately registered caller archive handoff restores exact original plain bytes, authenticated before public conversion. The 2026-11-10 review and provider-qualified removal condition are retained. This does not retire #223/#348 or qualify compressed consumption.
 
 The [executed admission](../validation/3ptb_admission.md), [notebook](../validation/3ptb_admission_2026-10-10.ipynb) and separate receipt retain measured scope. Owning issues remain partial/open.
+
+## 2026-10-10 3PTB search and saved-evaluation composition
+
+The [executed workflow](../validation/3ptb_search.md) adds case decisions and
+orchestration around public preparation, docking and molecular RMSD. Exact
+admitted source maps select the nine observed identities; no general matcher,
+geometry, H/charge/typing or pharmacophore routine is added. Backend five-column
+energy/default preservation belongs to DockingMT. Optional-map/descriptor
+reporting defects are corrected locally with original failures preserved in
+the immutable producer and separate receiving evidence.
+Existing molecular projection/reconstruction and compressed-provider issues
+remain open; no new missing PharmacophoreMT operation is inferred. #49 stays
+partial/open, with an executed human notebook and source/native attribution.

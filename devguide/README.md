@@ -170,3 +170,11 @@ The [executed 3PTB molecular admission](validation/3ptb_admission.md) and
 chemical/torsion/domain inputs before the fixed 24-row search population. Direct
 compressed-PDB support is proposed to MolSysMT; plain-input admission preserves
 original bytes and introduces no molecular implementation downstream.
+
+The [executed 3PTB search record](validation/3ptb_search.md) and
+[human notebook](validation/3ptb_search_2026-10-10.ipynb) retain all 24 registered
+attempts and 167 poses. Separate receiving evidence preserves the original
+reporting failures and applies the unchanged nine-heavy-atom RMSD criterion.
+Both native-box arms have rank-1 near-reference recovery in six of six rows;
+the displaced-box arms have none among their returned poses. All containment,
+source/runtime identity and limited interpretation remain explicit.

@@ -1,0 +1,241 @@
+{
+  "schema": "dockingmt.3ptb_search_checkpoint@1",
+  "date": "2026-10-10",
+  "owning_issues": [
+    "uibcdf/dockingmt#5",
+    "uibcdf/dockingmt#6",
+    "uibcdf/dockingmt#4",
+    "uibcdf/dockingmt#49"
+  ],
+  "original_producer": {
+    "archive": "devguide/validation/data/3ptb_search/audit_2026-10-10.json.gz",
+    "archive_sha256": "97104903c93b3f7a729a5a6ac196cdb7b59d686e318efdcf324f70131abba1f2",
+    "json_sha256": "f51c6a284fcfd8f0368e4938882aa5f2e15e83d1f70865cea038e33970953212",
+    "driver_sha256": "28fd3cbd41f871e54ac704628166186d622160d52630f3b4661f6ce0253a1b76",
+    "source_base": "105dfc15d47cde7005137f3e7405e2b515107c4f"
+  },
+  "receiving_evaluation": {
+    "archive": "devguide/validation/data/3ptb_search/evaluation_2026-10-10.json.gz",
+    "archive_sha256": "8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af",
+    "json_sha256": "d5f24f8f1bb85afe8f2060b5453ba62a2c19635cc048e6ff334de41a1b550438",
+    "driver_sha256": "4a61ff485d3a53da9edfdc63eae2c8a5eeb2581dac0204209c9bcb28a1545dc4",
+    "helper_sha256": "b291744bff0281b6abe0022a2f8c2c09d4685f08fab6f9d5030b4b85f316f7cf",
+    "registration_url": "https://github.com/uibcdf/dockingmt/issues/5#issuecomment-6098583274",
+    "constructor_correction_url": "https://github.com/uibcdf/dockingmt/issues/5#issuecomment-6098594748"
+  },
+  "original_execution_summary": [
+    {
+      "any_near": 0,
+      "arm": "rigid",
+      "attempted": 6,
+      "domain": "native",
+      "evaluated": 0,
+      "evaluation_failures": 6,
+      "planned": 6,
+      "returned": 6,
+      "returned_poses": 41,
+      "search_failures": 0,
+      "top1_near": 0
+    },
+    {
+      "any_near": 0,
+      "arm": "rigid",
+      "attempted": 6,
+      "domain": "negative",
+      "evaluated": 0,
+      "evaluation_failures": 6,
+      "planned": 6,
+      "returned": 6,
+      "returned_poses": 39,
+      "search_failures": 0,
+      "top1_near": 0
+    },
+    {
+      "any_near": 0,
+      "arm": "flexible",
+      "attempted": 6,
+      "domain": "native",
+      "evaluated": 0,
+      "evaluation_failures": 6,
+      "planned": 6,
+      "returned": 6,
+      "returned_poses": 41,
+      "search_failures": 0,
+      "top1_near": 0
+    },
+    {
+      "any_near": 0,
+      "arm": "flexible",
+      "attempted": 6,
+      "domain": "negative",
+      "evaluated": 0,
+      "evaluation_failures": 6,
+      "planned": 6,
+      "returned": 6,
+      "returned_poses": 46,
+      "search_failures": 0,
+      "top1_near": 0
+    }
+  ],
+  "receiving_summary": [
+    {
+      "any_near": 6,
+      "arm": "rigid",
+      "attempted": 6,
+      "domain": "native",
+      "evaluated": 6,
+      "evaluation_failures": 0,
+      "planned": 6,
+      "returned": 6,
+      "returned_poses": 41,
+      "search_failures": 0,
+      "top1_near": 6
+    },
+    {
+      "any_near": 0,
+      "arm": "rigid",
+      "attempted": 6,
+      "domain": "negative",
+      "evaluated": 6,
+      "evaluation_failures": 0,
+      "planned": 6,
+      "returned": 6,
+      "returned_poses": 39,
+      "search_failures": 0,
+      "top1_near": 0
+    },
+    {
+      "any_near": 6,
+      "arm": "flexible",
+      "attempted": 6,
+      "domain": "native",
+      "evaluated": 6,
+      "evaluation_failures": 0,
+      "planned": 6,
+      "returned": 6,
+      "returned_poses": 41,
+      "search_failures": 0,
+      "top1_near": 6
+    },
+    {
+      "any_near": 0,
+      "arm": "flexible",
+      "attempted": 6,
+      "domain": "negative",
+      "evaluated": 6,
+      "evaluation_failures": 0,
+      "planned": 6,
+      "returned": 6,
+      "returned_poses": 46,
+      "search_failures": 0,
+      "top1_near": 0
+    }
+  ],
+  "presearch_stop": {
+    "archive_sha256": "c5782b5b4663c3200e4212b31fe123c5fefd70585a2e805f35512380d6ae7bad",
+    "driver_sha256": "5ac67e6de0e7e1351a644f284337d55c571178e2b837cea56809ee0a3239b2db",
+    "attempted": 0
+  },
+  "local_gates": {
+    "status": "passed_for_recorded_scope",
+    "native_adapter_contracts": {
+      "passed": 49,
+      "skipped": 0,
+      "seconds": 21.57,
+      "warnings": 1,
+      "files": [
+        "tests/test_vina_output.py",
+        "tests/test_workflow_profiling.py",
+        "tests/test_backend_contracts.py"
+      ]
+    },
+    "evaluation_and_result_contracts": {
+      "passed": 213,
+      "skipped": 0,
+      "seconds": 104.34,
+      "warnings": 40,
+      "files": [
+        "tests/test_3ptb_search.py",
+        "tests/test_redocking_evaluation.py",
+        "tests/test_score_semantics.py",
+        "tests/test_redocking_replay.py",
+        "tests/test_result_contracts.py",
+        "tests/test_result_audit.py"
+      ]
+    },
+    "reporting": {
+      "passed": 1,
+      "seconds": 0.13
+    },
+    "ruff_check": "pass",
+    "ruff_format": {
+      "status": "pass",
+      "files": 161
+    },
+    "python311_syntax": "pass",
+    "local_static_types": {
+      "status": "not_run",
+      "reason": "mypy is absent from the instructed routine environment; retain this missing optional local evidence under dockingmt#30"
+    },
+    "unit_control": "all saved returned poses received in pm/fs/degree/e standards, new preparation/native maps/scoring/optimization/docking forbidden"
+  },
+  "hosted_checkpoint": {
+    "status": "not_yet_executed_at_receipt_creation",
+    "owner": "uibcdf/dockingmt#5"
+  },
+  "scope": "Finite registered 3PTB population, receiving geometric evaluation only. No experimental affinity or multi-case generalization claim.",
+  "administrative_gates": {
+    "local_links": 204,
+    "broken": 0,
+    "python311_syntax": "pass",
+    "registered_protocol_unchanged": true,
+    "original_admission_unchanged": true,
+    "original_search_bytes_unchanged": true,
+    "notebook_executed_cells": 4,
+    "notebook_errors": 0,
+    "notebook_sha256": "2c665d5c5ac54b956f1d6c3465ff95b61850304345c6805a4dfdaed23cd64423",
+    "report_indexes": "pass",
+    "guide_sync": "pass",
+    "diff_check": "pass"
+  },
+  "notebook": {
+    "interpreter": "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+    "notebook": "/home/liliana/repos@uibcdf/dockingmt/devguide/validation/3ptb_search_2026-10-10.ipynb",
+    "executed_code_cells": 4,
+    "managed_kernel_directory": "/tmp/dockingmt-3ptb-search-kernel-b49sus_o",
+    "kernel_connection_files_after_shutdown": 0,
+    "managed_directory_removed": true,
+    "sha256": "2c665d5c5ac54b956f1d6c3465ff95b61850304345c6805a4dfdaed23cd64423",
+    "errors": 0
+  },
+  "environment_pip_check": {
+    "status": "failed",
+    "exit_code": 1,
+    "known_owner": "uibcdf/molsyssuite#82",
+    "receiving_comment": "https://github.com/uibcdf/molsyssuite/issues/82#issuecomment-6098622616",
+    "conflicts": [
+      "packmol-memgen and proprep require missing pdb2pqr",
+      "ndfes, edgembar, fetkutils and proprep require numpy<2; environment has numpy 2.4.6",
+      "proprep requires biopython>=1.83,<1.86; environment has biopython 1.88"
+    ],
+    "shared_dependencies_changed": false,
+    "whole_environment_closure_claimed": false
+  },
+  "resources": {
+    "managed_caller_source_directories_cleaned": true,
+    "managed_kernel_directory_cleaned": true,
+    "original_logs_preserved_in_tmp": true,
+    "provider_source_copies_retained_for_recovery": true,
+    "broad_shared_environment_not_mutated": true,
+    "scientific_owner": "uibcdf/dockingmt#5",
+    "temporary_resource_owner": "uibcdf/dockingmt#50"
+  },
+  "limits": [
+    "One registered complex/state hypothesis; no experimental affinity, general model acceptance or recovery probability.",
+    "Most native first poses are close to the prespecified 2 angstrom threshold; no threshold/symmetry adjustment.",
+    "Original producer retains 24 reporting failures; separate reception successfully evaluates every saved pose without new searches.",
+    "Seven returned poses have retained atoms outside the literal box; three include heavy atoms; all native first poses are contained.",
+    "Arm ROOT representations differ; flexibility alone is not isolated.",
+    "Public installed artifact admission remains separate under dockingmt#30/#47."
+  ]
+}

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import base64
 import hashlib
+import inspect
 import os
 import tempfile
 import time
@@ -34,6 +35,13 @@ from dockingmt.preparation import (
 from dockingmt.preparation._molsys import autodock_element
 
 VINA_BOX_DECIMALS = 6
+
+
+def _resolved_native_call(function, **arguments):
+    """Record supplied arguments and defaults from the loaded Python wrapper."""
+    bound = inspect.signature(function).bind(**arguments)
+    bound.apply_defaults()
+    return dict(bound.arguments)
 
 
 def _cleanup_staged_files(temp_files):
@@ -468,6 +476,34 @@ class VinaBackend(DockingBackend):
                 n_poses=protocol.n_poses,
                 energy_range=energy_range_val,
             )
+            backend_output = {
+                'format': 'vina_python_docking@1',
+                'energies': np.asarray(energies_arr).tolist(),
+                'energy_columns': [
+                    'total',
+                    'inter',
+                    'intra',
+                    'torsions',
+                    'intra_best_pose',
+                ],
+                'energy_unit': 'kcal/mol',
+                'engine_info': v.info(),
+                'resolved_calls': {
+                    'compute_vina_maps': _resolved_native_call(
+                        v.compute_vina_maps, center=center, box_size=box_size
+                    ),
+                    'dock': _resolved_native_call(
+                        v.dock,
+                        exhaustiveness=protocol.exhaustiveness,
+                        n_poses=protocol.n_poses,
+                    ),
+                    'energies': _resolved_native_call(
+                        v.energies,
+                        n_poses=protocol.n_poses,
+                        energy_range=energy_range_val,
+                    ),
+                },
+            }
 
             poses: list[DockingPose] = []
             score_definitions = _vina_score_definitions(
@@ -567,6 +603,7 @@ class VinaBackend(DockingBackend):
                 'elapsed_seconds': elapsed_seconds,
                 'preparation': preparation,
                 'backend_artifacts': backend_artifacts,
+                'backend_output': backend_output,
                 'ranking_policy': {'score_name': protocol.scoring, 'ascending': True},
                 'ranking_history': [
                     make_ranking_record(

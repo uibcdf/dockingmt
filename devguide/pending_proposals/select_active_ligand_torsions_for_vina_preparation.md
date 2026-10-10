@@ -317,3 +317,17 @@ separate.
 3PTB admission consumes MolSysMT candidate classification and rigid fragments for the sole explicit C1–C cut. Rigid and flexible arms have identical source-axis fields and saved ROOT/BRANCH representations, including their different first ROOT atoms. The 24-row population is frozen but unexecuted; no automatic torsion/default policy changes.
 
 The [executed admission](../validation/3ptb_admission.md), [notebook](../validation/3ptb_admission_2026-10-10.ipynb) and separate receipt retain measured scope. Owning issues remain partial/open.
+
+## 2026-10-10 executed 3PTB torsion arms
+
+The [registered searches](../validation/3ptb_search.md) consume exact rigid and
+C1–C flexible PDBQT preparations. The prepared-partner call projection is
+registered before any attempt and preserves both original cut declarations and
+actual submitted trees. Six native-box rows in each arm have near-reference rank
+1 under the prespecified source-identity RMSD cutoff; displaced rows have none.
+Different ROOT representations and conservative phenyl/resonance correspondence
+prevent attributing this observation solely to flexibility. No default policy,
+automatic perception or post-outcome ROOT selection is introduced. Original
+reporting errors and separate successful receiving metrics remain visible.
+#6 stays partial/open; molecular torsion/fragments and future symmetry support
+remain with the existing provider owners.

@@ -418,3 +418,21 @@ chemical validation. This is a registered plan, not executed scientific evidence
 Plain-source 3PTB molecular admission retains all original heavy maps, explicit histidine/CYX states, fixed-state H loss reports, named charges/types and charge-conserving projections. Both native Vina input parsers accept the inputs. All 24 registered searches remain unattempted; no broader chemical/model acceptance is inferred.
 
 The [executed admission](../validation/3ptb_admission.md), [notebook](../validation/3ptb_admission_2026-10-10.ipynb) and separate receipt retain measured scope. Owning issues remain partial/open.
+
+## 2026-10-10 registered 3PTB searches and receiving evaluation
+
+The [executed population](../validation/3ptb_search.md) returns all 24 searches
+and 167 poses from exact admitted inputs. Both native arms have rank-1 and
+any-returned near-reference recovery in six rows; both displaced arms have none.
+The original producer's 24 selector/reporting failures remain immutable; a
+separate receiving evaluation corrects optional-map/descriptor handling and
+measures all saved poses without native work. Pre-search interface stops and
+their registrations are retained. Five-column energy capture is reusable Vina
+adapter evidence; existing four named scores and native invocation are unchanged.
+
+The [human notebook](../validation/3ptb_search_2026-10-10.ipynb) and receipt retain
+maps, units, every returned pose and seven partial outside-box geometries. This
+single declared hypothesis does not establish affinity, general preparation or
+multi-case performance; #5 remains partial/open. The existing broad local
+environment's failed global pip check stays with MolSysSuite #82; exact-head
+hosted evidence is synchronized after execution.

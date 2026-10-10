@@ -60,6 +60,18 @@ spacing from `Vina.info()`, and the existing preparation assessments. No inputs
 are re-prepared or molecular identities inferred to produce these descriptors.
 The adapter records the native pose order as the initial `backend` ranking.
 
+New docking results also retain `provenance['backend_output']`, format
+`vina_python_docking@1`: the entire native `energies()` matrix in kcal/mol,
+ordered columns `total`, `inter`, `intra`, `torsions`, `intra_best_pose`, actual
+`Vina.info()`, and supplied/default arguments resolved from the loaded wrapper
+signatures for maps, docking and energy retrieval. The fifth column is retained
+as native evidence rather than another ranking score. Vina/Vinardo execution
+remains unchanged; older results need not have this optional evidence block.
+`tests/test_vina_output.py` compares the saved matrix directly with the native
+return and verifies serialization and default capture. Capturing wrapper defaults
+does not establish defaults for a different backend version or document internal
+C++ decisions that are absent from the wrapper interface.
+
 Input hashes and matching settings define a deliberately conservative comparison
 boundary. They do not qualify provisional/unassessed chemistry, establish physical
 binding affinity, or authorize cross-ligand, cross-receptor or ensemble aggregation.

@@ -1,0 +1,344 @@
+"""Execute the registered 3PTB population and retain every search and evaluation.
+
+Molecular work and RMSD use public MolSysMT/DockingMT operations. Atom selection
+is the declared case-specific source map, never a new matching algorithm.
+"""
+
+from __future__ import annotations
+
+import argparse
+import gzip
+import inspect
+import json
+import traceback
+from copy import deepcopy
+from datetime import datetime, timezone
+from pathlib import Path
+
+import molsysmt as msm
+import numpy as np
+import pyunitwizard as puw
+import vina
+
+import dockingmt as dmt
+from devtools.qualify_3ptb_admission import OUTPUT as ADMISSION
+from devtools.qualify_3ptb_admission import ROOT, admit, producer_identity, sha
+from devtools.qualify_181l_receptor import save
+from devtools.qualify_chemical_templates import detached_record
+
+OUTPUT = ROOT / 'devguide/validation/data/3ptb_search/audit_2026-10-10.json.gz'
+REGISTRATION = OUTPUT.parent / 'registration_2026-10-10.json'
+ADMISSION_SHA = '05f82e0ff16592c64d404c216a7e2feff0c0e62a2aebff240dc8653350e21075'
+POPULATION_SHA = 'be87f351c4cd0f2b8af6dc71d12af49c0604c2171b363fa2a62e3561215a1ed6'
+HANDOFF = ROOT / 'devguide/validation/3ptb_execution_handoff_2026-10-10.md'
+
+
+def utc():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def baseline():
+    """Authenticate immutable admission and separately registered call handoff."""
+    payload = ADMISSION.read_bytes()
+    if sha(payload) != ADMISSION_SHA:
+        raise ValueError('The original 3PTB admission archive changed')
+    original = json.loads(gzip.decompress(payload))
+    # The original receipt hashes sorted JSON with its default separators.
+    assert (
+        sha(
+            json.dumps(original['population'], sort_keys=True, allow_nan=False).encode()
+        )
+        == POPULATION_SHA
+    )
+    registration = json.loads(REGISTRATION.read_text())
+    assert sha(HANDOFF.read_bytes()) == registration['handoff_sha256']
+    assert registration['admission_sha256'] == ADMISSION_SHA
+    assert registration['population_sha256'] == POPULATION_SHA
+    assert registration['registration_url'].startswith(
+        'https://github.com/uibcdf/dockingmt/issues/5#issuecomment-'
+    )
+    return original, registration
+
+
+def execution_protocol(row):
+    """Project preparation intent to an already prepared, byte-verified partner."""
+    original = deepcopy(row['protocol'])
+    assert original['parameters']['active_torsion_bonds'] == (
+        [] if row['arm'] == 'rigid' else [[0, 6]]
+    )
+    # None at construction is normalized to [] by the public protocol record.
+    original['parameters']['active_torsion_bonds'] = []
+    protocol = dmt.VinaProtocol.from_dict(original)
+    assert protocol.to_dict() == original
+    return protocol
+
+
+def verify_replay(original, replay):
+    """Reject input drift before any search, including written torsion trees."""
+    assert replay['population'] == original['population']
+    assert replay['boxes'] == original['boxes']
+    for role in ('receptor', 'rigid', 'flexible'):
+        assert (
+            replay['prepared_inputs'][role]['pdbqt']
+            == original['prepared_inputs'][role]['pdbqt']
+        ), role
+        np.testing.assert_array_equal(
+            replay['prepared_inputs'][role]['coordinates'],
+            original['prepared_inputs'][role]['coordinates'],
+        )
+    assert (
+        replay['ligand_full_source_indices'] == original['ligand_full_source_indices']
+    )
+
+
+def evaluate(result, reference, domain, admission, arm):
+    """Select the nine admitted source identities; delegate positional geometry."""
+    evidence = admission['prepared_inputs'][arm]
+    full_source = admission['ligand_full_source_indices']
+    written_map = evidence['pdbqt_to_full_source_atom_indices']
+    heavy = [i for i, source in enumerate(written_map) if source is not None]
+    reference_indices = [full_source.index(written_map[i]) for i in heavy]
+    assert sorted(reference_indices) == list(range(9))
+    fields = ('atom_id', 'atom_name', 'element', 'group_id', 'group_name')
+    expected = {}
+    for field in fields:
+        values = msm.get(
+            reference,
+            element='atom',
+            **{('atom_type' if field == 'element' else field): True},
+        )
+        expected[field] = [str(value) for value in values]
+    selected = []
+    containment = []
+    vectors = result.provenance['backend_output']['energies']
+    assert len(vectors) == len(result.poses)
+    for pose, vector in zip(result.poses, vectors, strict=True):
+        assert pose.n_atoms == len(written_map) == 13
+        assert len(vector) == 5
+        keys = pose.metadata['source_atom_keys']
+        assert pose.metadata['pose_atom_order'] == 'verified_pdbqt_order'
+        for written, observed in zip(heavy, reference_indices, strict=True):
+            assert all(
+                keys[written][field] == expected[field][observed] for field in fields
+            )
+        for name, value in zip(
+            ('vina', 'inter', 'intra', 'torsion'), vector[:4], strict=True
+        ):
+            assert pose.scores[name] == value
+        coordinates = puw.get_value(pose.coordinates, to_unit='angstrom')
+        metadata = deepcopy(pose.metadata)
+        # The public constructor accepts descriptors through exactly one route.
+        metadata.pop('score_definitions', None)
+        metadata['source_atom_keys'] = [keys[i] for i in heavy]
+        for field in (
+            'prepared_atom_indices',
+            'selected_atom_indices',
+            'source_atom_indices',
+        ):
+            if metadata.get(field) is not None:
+                metadata[field] = [metadata[field][i] for i in heavy]
+        metadata['selected_partner_n_atoms'] = 9
+        selected.append(
+            dmt.DockingPose(
+                coordinates=puw.quantity(coordinates[heavy], 'angstrom'),
+                scores=pose.scores,
+                rank=pose.rank,
+                pose_id=pose.pose_id,
+                partner_state_id=pose.partner_state_id,
+                receptor_state_id=pose.receptor_state_id,
+                score_definitions=pose.score_definitions,
+                metadata=metadata,
+            )
+        )
+        inside = [
+            domain.contains(puw.quantity(point, 'angstrom')) for point in coordinates
+        ]
+        containment.append({'full': inside, 'heavy': [inside[i] for i in heavy]})
+    reduced = dmt.DockingResult(
+        poses=selected,
+        problem_info=result.problem_info,
+        protocol_info=result.protocol_info,
+        provenance=result.provenance,
+    )
+    report = dmt.evaluate_redocking(
+        reduced,
+        reference,
+        rmsd_cutoff=puw.quantity(2, 'angstrom'),
+        top_n=(1, 9),
+        reference_info={
+            'pdb_id': '3PTB',
+            'source_sha256': admission['source_sha256'],
+            'scope': 'original_nine_observed_heavy_atoms',
+            'full_source_indices': full_source,
+        },
+    )
+    near = [row for row in report['poses'] if row['recovered']]
+    return {
+        'report': report,
+        'heavy_written_indices': heavy,
+        'heavy_to_reference_indices': reference_indices,
+        'pdbqt_to_full_source_atom_indices': written_map,
+        'containment': containment,
+        'complete_energy_vectors': vectors,
+        'top1_near': bool(report['poses'] and report['poses'][0]['recovered']),
+        'any_near': bool(near),
+        'best_rmsd_angstrom': report['closest_pose']['rmsd']
+        if report['closest_pose']
+        else None,
+        'first_near_rank': near[0]['rank'] if near else None,
+    }
+
+
+def summarize(runs):
+    """Keep the fixed denominators and generation/ranking observations separate."""
+    groups = []
+    for arm in ('rigid', 'flexible'):
+        for domain in ('native', 'negative'):
+            selected = [r for r in runs if r['arm'] == arm and r['domain'] == domain]
+            evaluated = [r for r in selected if r['status'] == 'evaluated']
+            groups.append(
+                {
+                    'arm': arm,
+                    'domain': domain,
+                    'planned': len(selected),
+                    'attempted': sum(r['status'] != 'not_attempted' for r in selected),
+                    'returned': sum('result' in r for r in selected),
+                    'evaluated': len(evaluated),
+                    'search_failures': sum(
+                        r['status'] == 'search_failed' for r in selected
+                    ),
+                    'evaluation_failures': sum(
+                        r['status'] == 'evaluation_failed' for r in selected
+                    ),
+                    'top1_near': sum(r['evaluation']['top1_near'] for r in evaluated),
+                    'any_near': sum(r['evaluation']['any_near'] for r in evaluated),
+                    'returned_poses': sum(
+                        len(r['result']['poses']) for r in selected if 'result' in r
+                    ),
+                }
+            )
+    return groups
+
+
+def progress(record, path):
+    staged = path.with_suffix('.partial')
+    save(record, staged)
+    staged.replace(path)
+
+
+def qualify(pdb, output):
+    """Attempt each frozen row once, checkpointing before and after invocation."""
+    output = Path(output)
+    if output.exists():
+        raise FileExistsError('Use a new output path; never replace recorded searches')
+    original, binding = baseline()
+    identity = producer_identity()
+    identity['consumer_driver_sha256'] = sha(Path(__file__).read_bytes())
+    identity['consumer_source_sha256']['devtools/qualify_3ptb_search.py'] = identity[
+        'consumer_driver_sha256'
+    ]
+    identity['vina_wrapper_sha256'] = sha(
+        Path(vina.__file__).with_name('vina.py').read_bytes()
+    )
+    identity['vina_native_artifacts'] = {
+        str(path): sha(path.read_bytes())
+        for path in sorted(Path(vina.__file__).parent.glob('*.so'))
+    }
+    assert identity['vina_native_artifacts']
+    assert vina.__version__ == '1.2.7'
+    receptor, partners, reference, boxes, replay = admit(pdb)
+    verify_replay(original, replay)
+    record = {
+        'schema': 'dockingmt.3ptb_search@1',
+        'status': 'admitted_before_search',
+        'created_utc': utc(),
+        'original_producer': identity,
+        'execution_registration': binding,
+        'admission_sha256': ADMISSION_SHA,
+        'population_sha256': POPULATION_SHA,
+        'input_replay_verified_before_search': True,
+        'native_dock_signature': str(inspect.signature(vina.Vina.dock)),
+        'runs': deepcopy(original['population']),
+        'fixed_evaluations_executed': 0,
+    }
+    progress(record, output)
+    for row in record['runs']:
+        protocol = execution_protocol(row)
+        row['execution_protocol'] = protocol.to_dict()
+        row['status'] = 'attempting'
+        row['started_utc'] = utc()
+        record['status'] = 'in_progress'
+        progress(record, output)
+        try:
+            result = dmt.dock(
+                dmt.DockingProblem(
+                    receptor,
+                    partners[row['arm']],
+                    boxes[row['domain']],
+                    metadata={
+                        'case': 'registered_3PTB',
+                        'population_index': row['index'],
+                    },
+                ),
+                protocol,
+            )
+            row['result'] = detached_record(result.to_dict())
+            row['status'] = 'returned'
+            row['returned_utc'] = utc()
+            progress(record, output)
+        except Exception as error:
+            row['status'] = 'search_failed'
+            row['error'] = {
+                'exception': type(error).__name__,
+                'message': str(error),
+                'traceback': traceback.format_exc(),
+            }
+        else:
+            try:
+                restored = dmt.DockingResult.from_dict(row['result'])
+                dmt.verify_captured_inputs(restored.provenance['backend_artifacts'])
+                for role in ('receptor', 'partner'):
+                    assert (
+                        restored.provenance['backend_artifacts'][role]['sha256']
+                        == row[f'{role}_pdbqt_sha256']
+                    )
+                actual = restored.provenance['backend_box']
+                assert {key: actual[key] for key in row['backend_box']} == row[
+                    'backend_box'
+                ]
+                row['submitted_inputs_and_box_verified'] = True
+                row['evaluation'] = evaluate(
+                    restored, reference, boxes[row['domain']], original, row['arm']
+                )
+                row['status'] = 'evaluated'
+            except Exception as error:
+                row['status'] = 'evaluation_failed'
+                row['error'] = {
+                    'exception': type(error).__name__,
+                    'message': str(error),
+                    'traceback': traceback.format_exc(),
+                }
+        row['finished_utc'] = utc()
+        record['summary'] = summarize(record['runs'])
+        progress(record, output)
+        print(
+            f'3PTB {row["index"] + 1}/24 {row["arm"]} {row["domain"]}: {row["status"]}',
+            flush=True,
+        )
+    record['status'] = 'population_attempted'
+    record['finished_utc'] = utc()
+    progress(record, output)
+    return record
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('pdb', type=Path)
+    parser.add_argument('--output', type=Path, required=True)
+    args = parser.parse_args()
+    record = qualify(args.pdb, args.output)
+    print(json.dumps(record['summary']))
+
+
+if __name__ == '__main__':
+    main()
