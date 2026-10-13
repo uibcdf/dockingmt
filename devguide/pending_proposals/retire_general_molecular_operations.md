@@ -348,8 +348,12 @@ exercise both explicit preparation roles without a charge presentation standard,
 including caller-policy/input preservation and unchanged prepared bytes. No
 consumer molecular operation or new typing/charge model is added.
 
-These four additional consumer cases require their own final source checkpoint;
-the preceding 1,125-case matrix is not relabelled as that later test run. Public
-installed file/pair admission, missing projection/permutation/symmetry and
-chemical/scoring acceptance stay separate. The next bounded gate checks an
-ordinary wheel outside the checkout under #30/#47.
+These four additional consumer cases now have their own final source checkpoint
+at `ef8ee2e`: four complete 1,129-case Linux suites, zero test skips, dependency
+checks and actual measured coverage upload. The preceding 1,125-case matrix keeps
+its original producer. Bounded receiving of the ordinary wheel outside the
+checkout passes 158 cases, including all 24 saved 3PTB rows and 167 poses with
+new native work forbidden. The [pause handoff](../validation/pause_handoff_2026-10-13.md)
+links the immutable receipts and resumption route. Public installed file/pair
+admission, missing projection/permutation/symmetry and chemical/scoring acceptance
+stay separate; this issue remains partial.

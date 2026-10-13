@@ -150,5 +150,8 @@ The affected source selection passes **134 tests without skips in 78.46 seconds*
 on the qualified Python 3.14.8 provider composition. The
 [consumer receipt](data/provider_compatibility/consumer_controls_2026-10-13.json)
 and [log](data/provider_compatibility/consumer_controls_2026-10-13.txt) retain
-this four-case addition and its wider boundary checks. Final complete source CI
-and ordinary installed-wheel receiving remain separately recorded checkpoints.
+this four-case addition and its wider boundary checks. The
+[final pre-human checkpoint](provider_compatibility_2026-10-13.md#final-pre-human-qualification--2026-10-13)
+records complete 1,129-case source CI on every required minor and the separate
+158-case ordinary installed-wheel receiving. Both are complete at `ef8ee2e`;
+public distribution admission remains separate.

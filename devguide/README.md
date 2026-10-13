@@ -28,6 +28,11 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
+For the current working state and the next authorized workflow, start with the
+[2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md). It distinguishes
+completed source and ordinary-wheel controls from the remaining provider and
+public-distribution work.
+
 1. `VISION.md`
 2. `DESIGN_PRINCIPLES.md`
 3. `SCIENTIFIC_SCOPE.md`
@@ -183,5 +188,5 @@ source/runtime identity and limited interpretation remain explicit.
 The [2026-10-13 provider compatibility checkpoint](validation/provider_compatibility_2026-10-13.md)
 records the current normally installed MolSysMT/ArgDigest/Viewer composition,
 source/native identity, executed consumer controls and immutable 3PTB receiving
-comparison. Complete hosted and public installed-distribution evidence remain
-separate qualification boundaries.
+comparison. The final hosted checkpoint and bounded ordinary-wheel receiving are
+complete; public installed-distribution admission remains a separate boundary.

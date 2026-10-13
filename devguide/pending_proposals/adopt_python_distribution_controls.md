@@ -116,3 +116,16 @@ checks actual HEAD/origin/installed directory. A real annotated-tag fixture
 rejects the tag as HEAD and accepts its exact target. No tag or scientific source
 is altered, and no publication policy permits tag-object substitution for a
 producer commit. The first failure and corrected hosted evidence remain separate.
+
+## Bounded ordinary-wheel receiving — 2026-10-13
+
+The ordinary `ef8ee2e` wheel is installed outside the source checkout into the
+qualified task-owned Python 3.14.8 receiver. Its exact bytes, PEP 610 identity,
+59 resources, core/addon import origins and dependency closure are checked. The
+shared installed-test operation executes 158 passing cases without skips, with
+one explicitly replaced source-bound case; all 24 saved 3PTB rows and 167 poses
+replay without new native work. The
+[pause handoff](../validation/pause_handoff_2026-10-13.md) links receipts, producer
+scripts, limits and retained original-wheel resources. This fulfills that bounded
+receiving gate; public channel/file/pair admission and the full installed
+scientific/platform/browser scope remain open. This report stays partial.

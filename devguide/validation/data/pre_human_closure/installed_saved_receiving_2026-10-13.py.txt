@@ -1,0 +1,70 @@
+"""Receive frozen 3PTB evidence through this exact installed wheel."""
+import gzip
+import hashlib
+import importlib.metadata as md
+import json
+from pathlib import Path
+
+import molsysmt as msm
+import numpy as np
+import pyunitwizard as puw
+from vina import Vina
+
+import dockingmt as dmt
+from devtools.qualify_3ptb_admission import DATA
+from devtools.qualify_3ptb_search import OUTPUT, baseline, evaluate, summarize
+from devtools.evaluate_3ptb_saved import OUTPUT as MEASURED
+
+TASK = Path('/tmp/dockingmt-pre-human-20261013')
+
+
+def test_all_saved_poses_receive_installed_code_without_native_work(tmp_path, monkeypatch):
+    original, _ = baseline()
+    raw = json.loads(gzip.decompress(OUTPUT.read_bytes()))
+    measured = json.loads(gzip.decompress(MEASURED.read_bytes()))
+    assert measured['search_archive_sha256'] == hashlib.sha256(OUTPUT.read_bytes()).hexdigest()
+    dist = md.distribution('dockingmt')
+    verified = []
+    for relative, expected in raw['original_producer']['consumer_source_sha256'].items():
+        if not relative.startswith('dockingmt/') or relative == 'dockingmt/_version.py':
+            continue
+        installed = Path(dist.locate_file(relative))
+        assert hashlib.sha256(installed.read_bytes()).hexdigest() == expected, relative
+        verified.append(relative)
+    assert verified
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError('Installed receiving attempted new preparation, score or search')
+
+    for name in ('compute_vina_maps', 'score', 'optimize', 'dock'):
+        monkeypatch.setattr(Vina, name, forbidden)
+    for name in ('dock', 'score', 'prepare_ligand', 'prepare_receptor'):
+        monkeypatch.setattr(dmt, name, forbidden)
+    source_path = tmp_path / '3PTB.pdb'
+    source_path.write_bytes(gzip.decompress((DATA / '3PTB.pdb.gz').read_bytes()))
+    rows = []
+    poses = 0
+    with puw.context(standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'degrees']):
+        source = msm.convert(source_path, to_form='molsysmt.MolSys', get_missing_bonds=False)
+        reference = msm.extract(source, selection="group_name=='BEN'", structure_indices=0)
+        for run, expected in zip(raw['runs'], measured['runs'], strict=True):
+            result = dmt.DockingResult.from_dict(run['result'])
+            assert dmt.verify_captured_inputs(result.provenance['backend_artifacts'])
+            box = dmt.BoxRegion(
+                puw.quantity(run['backend_box']['center'], 'angstrom'),
+                puw.quantity(run['backend_box']['size'], 'angstrom'),
+            )
+            current = evaluate(result, reference, box, original, run['arm'])
+            np.testing.assert_allclose(
+                [p['rmsd'] for p in current['report']['poses']],
+                [p['rmsd'] for p in expected['evaluation']['report']['poses']],
+                rtol=0, atol=1e-10,
+            )
+            for key in ('heavy_written_indices', 'heavy_to_reference_indices', 'pdbqt_to_full_source_atom_indices', 'containment', 'complete_energy_vectors', 'top1_near', 'any_near', 'first_near_rank'):
+                assert current[key] == expected['evaluation'][key]
+            poses += len(result.poses)
+            rows.append(dict(run, status='evaluated', evaluation=current))
+    assert len(rows) == 24 and poses == 167
+    assert summarize(rows) == measured['summary']
+    receipt = {'schema':'dockingmt.installed_saved_receiving@1', 'wheel_sha256':json.loads((TASK/'wheel-preflight.json').read_text())['sha256'], 'search_archive_sha256':hashlib.sha256(OUTPUT.read_bytes()).hexdigest(), 'receiving_archive_sha256':hashlib.sha256(MEASURED.read_bytes()).hexdigest(), 'verified_original_production_files':verified, 'runs':24, 'poses':167, 'summary':summarize(rows), 'rmsd_absolute_tolerance_angstrom':1e-10, 'new_searches':0, 'native_work_forbidden':True}
+    (TASK/'installed-saved-receiving.json').write_text(json.dumps(receipt,indent=2)+'\n')

@@ -1,0 +1,98 @@
+{
+  "schema": "dockingmt.pause_evidence@1",
+  "date": "2026-10-13",
+  "owner": "uibcdf/dockingmt#49",
+  "installed_owner": "uibcdf/dockingmt#47",
+  "resource_owner": "uibcdf/dockingmt#50",
+  "producer": "ef8ee2ec6a075456c0429a4011dcd2cd571bcfde",
+  "files": [
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/terminal-receipt.json",
+      "path": "terminal_2026-10-13.json",
+      "bytes": 4980,
+      "sha256": "bf00832f6afe5ec5085d7e0caaa255f5c5a85d26eb7cf35b6f07021f6e0ee963"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/installed-receipt.json",
+      "path": "installed_2026-10-13.json",
+      "bytes": 15433,
+      "sha256": "0fbb4a59582236aaa679ffce6f7a3503f4f7f1dd14657478f8f35fa73913b4be"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/installed-tests.log",
+      "path": "installed_tests_2026-10-13.txt.gz",
+      "bytes": 465,
+      "sha256": "9db10942594b8913c82fd189b0e16a4945d0b3622c74c10da5f093d193d4c3a0",
+      "original_bytes": 792,
+      "original_sha256": "9a33fefb2fe28d40da1ec56fbf246b9c7e6eef080f75af9bc63ee3acc5c7ce4e",
+      "encoding": "gzip"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/installed-saved-receiving.json",
+      "path": "saved_receiving_2026-10-13.json",
+      "bytes": 3353,
+      "sha256": "18217cca6d3ce11bfbae96065c26455fdce6ec445a406298a2547c1a89057fe8"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/installed-module-origins.json",
+      "path": "module_origins_2026-10-13.json",
+      "bytes": 7551,
+      "sha256": "38a731737b3f22e19418a0f2dcf40eea299ca7465352253336d18129eca327ec"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/wheel-preflight.json",
+      "path": "wheel_preflight_2026-10-13.json",
+      "bytes": 9961,
+      "sha256": "b10327e0642a46e4298e1a1e9ee8cf71c92bb2f6132b19421db89a5123732097"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/wheel-preflight.py",
+      "path": "wheel_preflight_2026-10-13.py.txt",
+      "bytes": 2955,
+      "sha256": "df27fdfaa5bf5feeffd5937ee431d552fde1eaf6804a0c95d71677359763276c"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/run-installed.py",
+      "path": "run_installed_2026-10-13.py.txt",
+      "bytes": 1341,
+      "sha256": "d223995eea05bfc952a4cd991553fced9cd51cbcbf201a40b249d7f1ca97e560"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/harness/tests/test_installed_saved_receiving.py",
+      "path": "installed_saved_receiving_2026-10-13.py.txt",
+      "bytes": 3911,
+      "sha256": "669d1c06ce4f640b2907ced7f5abd77599dc701fe9ee406c1864ff424a680651"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/build-wheel.log",
+      "path": "build_wheel_2026-10-13.txt",
+      "bytes": 854,
+      "sha256": "631deb95f733aba54c7bd39242675acd029e85e6c77b69cdb8007bd15bae5890"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/install-wheel.log",
+      "path": "install_wheel_2026-10-13.txt",
+      "bytes": 457,
+      "sha256": "8619b90fca60f7f4c3514b80b86f9e6fb6a0d1846ed31fe2aaca6ed52a020377"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/wheel-pip-check.log",
+      "path": "pip_check_2026-10-13.txt",
+      "bytes": 296,
+      "sha256": "abd0cbb8d1b0be2dd46fa4158c910af97b89bbe3deaf6b34641907d0af82a6ca"
+    },
+    {
+      "source": "/tmp/dockingmt-pre-human-20261013/provider-fixes.json",
+      "path": "provider_fixes_2026-10-13.json",
+      "bytes": 109,
+      "sha256": "bf1f4cf14ff4a8213477391c2b80341f6a85697b539f17e97ebddbfab95b1364"
+    }
+  ],
+  "retained_original_wheel": {
+    "path": "/tmp/dockingmt-pre-human-20261013/wheels/dockingmt-0.0.0+176.gef8ee2e-py3-none-any.whl",
+    "bytes": 121060,
+    "sha256": "0f6c0a97bcd584d2c45447909c8eef1f81368c9567ef70d1f89eda793f61da72",
+    "disposition": "Retain exact original bytes with task environment; no public release or artifact admission claimed"
+  },
+  "temporary_review_by": "2026-10-20"
+}

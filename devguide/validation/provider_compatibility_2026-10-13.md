@@ -176,3 +176,52 @@ consumer import in CI does not replace a source-free scientific receiving test o
 public Conda file/pair admission. DockingMT #49 remains partial for missing provider
 operations; #30/#47 retain installed/public qualification scope. Original 3PTB
 producer/archive bytes and the no-new-search boundary remain unchanged.
+
+## Final pre-human qualification — 2026-10-13
+
+The four delivered-provider consumer controls are qualified at
+`ef8ee2ec6a075456c0429a4011dcd2cd571bcfde` by
+[CI 38426588362](https://github.com/uibcdf/dockingmt/actions/runs/38426588362),
+attempt 1, all seven jobs successful. Every Linux Python 3.11–3.14 lane executes
+**1,129 tests with zero skips**, including independent installed dependency checks.
+[Policy 38426588937](https://github.com/uibcdf/dockingmt/actions/runs/38426588937)
+and [publication governance 38426588938](https://github.com/uibcdf/dockingmt/actions/runs/38426588938)
+also pass on that exact head. Actual coverage publication downloads the measured
+report and uploads 37,446 compressed bytes with the successful queued response;
+subsequent Codecov processing remains separate. The
+[new terminal receipt](data/pre_human_closure/terminal_2026-10-13.json) preserves
+run/attempt/job identity and test-log digests without replacing the earlier
+1,125-case checkpoint.
+
+The ordinary PEP 517 wheel built from that producer is
+`dockingmt-0.0.0+176.gef8ee2e-py3-none-any.whl` (121,060 bytes), SHA-256
+`0f6c0a97bcd584d2c45447909c8eef1f81368c9567ef70d1f89eda793f61da72`.
+It is normally installed into an isolated receiving prefix outside this checkout,
+inheriting only the qualified task-owned provider environment. PEP 610 identity,
+59 installed resources, `py.typed`, the Viewer addon entry point and all 54 loaded
+DockingMT/addon module origins are verified; `pip check` passes. The source-free
+test harness uses the shared installed-test operation at MolSysSuite
+`738fe8dd731abb99dac421b0bb2acc8564110180`, with importlib collection, cleared
+pytest pythonpath and no production namespaces in the harness.
+
+**158 receiving tests pass, zero skips, in 70.87 seconds** (529 retained warnings).
+One source-bound test is explicitly deselected and replaced by an installed-file
+case: it verifies 46 original production-file digests against the installed wheel
+and receives all 24 saved runs / 167 poses under non-default units, with preparation,
+scoring and search forbidden. Original RMSD, energy, maps, containment and summary
+records agree, including the original reporting-failure history. No new 3PTB
+searches execute. This is a bounded installed selection, not the complete installed
+scientific suite, browser/JavaScript qualification or public Conda/pair admission.
+
+The [installed receipt](data/pre_human_closure/installed_2026-10-13.json),
+[test result](data/pre_human_closure/installed_tests_2026-10-13.txt.gz),
+[saved receiving record](data/pre_human_closure/saved_receiving_2026-10-13.json),
+[installed replacement producer](data/pre_human_closure/installed_saved_receiving_2026-10-13.py.txt)
+and [evidence manifest](data/pre_human_closure/manifest_2026-10-13.json) retain the
+qualification and initial harness-only diagnostics. Original wheel bytes and full
+native bundles remain in the explicitly owned temporary resources described by
+the [pause handoff](pause_handoff_2026-10-13.md). They are not a public release.
+Owning evidence is synchronized to
+[#49](https://github.com/uibcdf/dockingmt/issues/49#issuecomment-6149978306),
+[#47](https://github.com/uibcdf/dockingmt/issues/47#issuecomment-6150011610) and
+[#30](https://github.com/uibcdf/dockingmt/issues/30#issuecomment-6150012065).

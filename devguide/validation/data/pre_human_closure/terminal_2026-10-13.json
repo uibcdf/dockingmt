@@ -1,0 +1,132 @@
+{
+  "schema": "dockingmt.provider_compatibility_terminal@1",
+  "date": "2026-10-13",
+  "owner": "uibcdf/dockingmt#49",
+  "head": "ef8ee2ec6a075456c0429a4011dcd2cd571bcfde",
+  "runs": [
+    {
+      "id": 38426588362,
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/38426588362",
+      "head": "ef8ee2ec6a075456c0429a4011dcd2cd571bcfde",
+      "attempt": 1,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 115397477783,
+          "name": "Quality on ubuntu-latest",
+          "conclusion": "success"
+        },
+        {
+          "id": 115397478177,
+          "name": "Test on ubuntu-latest, Python 3.11",
+          "conclusion": "success"
+        },
+        {
+          "id": 115397478191,
+          "name": "Distribution governance on Linux Python 3.14",
+          "conclusion": "success"
+        },
+        {
+          "id": 115397478229,
+          "name": "Test on ubuntu-latest, Python 3.14",
+          "conclusion": "success"
+        },
+        {
+          "id": 115397478277,
+          "name": "Test on ubuntu-latest, Python 3.13",
+          "conclusion": "success"
+        },
+        {
+          "id": 115397478378,
+          "name": "Test on ubuntu-latest, Python 3.12",
+          "conclusion": "success"
+        },
+        {
+          "id": 115404002970,
+          "name": "Publish default-branch Python coverage",
+          "conclusion": "success"
+        }
+      ],
+      "bundle": "/tmp/dockingmt-pre-human-20261013/ci-bundle",
+      "manifest_sha256": "5682ee1ab70561caedc38eb4be9870e96c5592f8eab898c9c4231ee04aea8bca"
+    },
+    {
+      "id": 38426588937,
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/38426588937",
+      "head": "ef8ee2ec6a075456c0429a4011dcd2cd571bcfde",
+      "attempt": 1,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 115397479836,
+          "name": "policy / conformance",
+          "conclusion": "success"
+        }
+      ],
+      "bundle": "/tmp/dockingmt-pre-human-20261013/policy-bundle",
+      "manifest_sha256": "4fe18b921fe408dd052a4d436359cdb9bacc7c9cf6953801ed343fc02c53bb9d"
+    },
+    {
+      "id": 38426588938,
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/38426588938",
+      "head": "ef8ee2ec6a075456c0429a4011dcd2cd571bcfde",
+      "attempt": 1,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 115397480487,
+          "name": "publication / check",
+          "conclusion": "success"
+        }
+      ],
+      "bundle": "/tmp/dockingmt-pre-human-20261013/governance-bundle",
+      "manifest_sha256": "f1dba1588ce2449f2de8eab4e71e65a6850c82e64be25a09c4c67bddad7a9d55"
+    }
+  ],
+  "source_suites": [
+    {
+      "log": "Test on ubuntu-latest, Python 3.13/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-13T16:11:27.4180397Z PASS exit=0 | 1129 passed | 568.83s | 846 warnings",
+      "sha256": "ed2f52ef77043c69b01215331a019d44f1a8e58aaf31c00384d4cef973b28711"
+    },
+    {
+      "log": "Test on ubuntu-latest, Python 3.12/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-13T16:08:43.4151158Z PASS exit=0 | 1129 passed | 442.29s | 846 warnings",
+      "sha256": "7df62d2a8d58f83e51ef2c984c94037a1865c65fed308d81158e01daf46b3c0b"
+    },
+    {
+      "log": "Test on ubuntu-latest, Python 3.14/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-13T16:10:05.7944487Z PASS exit=0 | 1129 passed | 508.39s | 846 warnings",
+      "sha256": "bb4367f50308c54eca545a3b8568b5586064185233ae395bdfd59cb1b7842072"
+    },
+    {
+      "log": "Test on ubuntu-latest, Python 3.11/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-13T16:06:21.3851090Z PASS exit=0 | 1129 passed | 327.02s | 846 warnings",
+      "sha256": "5e07c9b816796f3a71e09abf3329e03b2e50566ae5f102ab36777ad18747c739"
+    }
+  ],
+  "installed_dependency_checks": 4,
+  "source_case_count_per_minor": 1129,
+  "skips": 0,
+  "coverage_steps": {
+    "Set up job": "success",
+    "Run actions/checkout@v6": "success",
+    "Download the measured Python report": "success",
+    "Upload the measured report to Codecov": "success",
+    "Post Run actions/checkout@v6": "success",
+    "Complete job": "success"
+  },
+  "source_providers": {
+    "molsysmt": "a462b49c5566e8de993f83825576dc3860e9cfb1",
+    "argdigest": "3d1ec53c374098016452abab74706e9d80df5462",
+    "molsysviewer": "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
+  },
+  "original_scientific_archives": {
+    "devguide/validation/data/3ptb_admission/audit_2026-10-10.json.gz": "05f82e0ff16592c64d404c216a7e2feff0c0e62a2aebff240dc8653350e21075",
+    "devguide/validation/data/3ptb_search/audit_2026-10-10.json.gz": "97104903c93b3f7a729a5a6ac196cdb7b59d686e318efdcf324f70131abba1f2",
+    "devguide/validation/data/3ptb_search/evaluation_2026-10-10.json.gz": "8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af"
+  },
+  "new_3ptb_searches": 0,
+  "public_installed_artifact_admitted": false,
+  "provider_operations_complete": false
+}

@@ -146,3 +146,14 @@ reporting is checked separately. The initial hosted run
 finished with the same two legacy-workflow failures in each of four minors
 (1,066 passed/2 failed per lane); it is retained as diagnostic evidence only.
 The corrected published head requires a new complete unskipped matrix.
+
+## Final provider-consumer checkpoint — 2026-10-13
+
+Delivered MolSysMT #376 is consumed through both the native public
+`msm.set(..., atom_ff_type=...)` and mechanical-domain routes. Manual labels without
+a named assignment report remain rejected for both preparation roles; a setter
+does not fabricate provenance. The final `ef8ee2e` checkpoint passes 1,129 source
+cases on each supported minor and 158 ordinary-wheel receiving cases. See the
+[separate immutable receipts and limits](provider_compatibility_2026-10-13.md#final-pre-human-qualification--2026-10-13).
+This fulfills the later consumer gate while preserving earlier diagnostic results
+and their original producers. General molecular work remains MolSysMT-owned.

@@ -1,0 +1,20 @@
+"""Invoke the qualified shared receiving operation with an explicit owner selection."""
+import json,sys
+from pathlib import Path
+
+TASK=Path('/tmp/dockingmt-pre-human-20261013')
+HARNESS=TASK/'harness'
+SDK=Path('/tmp/dockingmt-provider739-dependency-sdk')
+sys.path[:0]=[str(HARNESS),str(HARNESS/'tests'),str(HARNESS/'devtools'),str(SDK)]
+from devtools.scripts.installed_noarch import run_tests
+inventory={'import_name':'dockingmt','installed_tests':{'paths':['tests/test_required_partial_charges.py','tests/test_required_autodock_types.py','tests/test_serialization_contracts.py','tests/test_viewer_addon.py','tests/test_viewer_reference.py','tests/test_3ptb_search.py','tests/test_installed_saved_receiving.py'],'pytest_args':['--receptor=llm','-o','pythonpath=','-k','not receiving_all_saved_poses_forbids_new_native_work','--junitxml='+str(TASK/'installed-tests.xml')]}}
+result=run_tests(HARNESS,inventory)
+modules={}
+for name,module in tuple(sys.modules.items()):
+ if any(name==prefix or name.startswith(prefix+'.') for prefix in ('dockingmt','molsysviewer_dockingmt')):
+  path=getattr(module,'__file__',None)
+  if path:
+   assert Path(path).resolve().is_relative_to(Path(sys.prefix).resolve()),(name,path)
+   modules[name]=path
+(TASK/'installed-module-origins.json').write_text(json.dumps(modules,indent=2)+'\n')
+raise SystemExit(result)

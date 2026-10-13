@@ -1,0 +1,44 @@
+"""Qualification of this exact local DockingMT wheel; no public artifact admission."""
+import hashlib,importlib,importlib.metadata as md,json,sys,tomllib,zipfile
+from pathlib import Path
+from packaging.specifiers import SpecifierSet
+from urllib.parse import unquote,urlsplit
+
+TASK=Path('/tmp/dockingmt-pre-human-20261013')
+PREFIX=Path(sys.prefix).resolve()
+WHEEL=TASK/'wheels/dockingmt-0.0.0+176.gef8ee2e-py3-none-any.whl'
+sha=hashlib.sha256(WHEEL.read_bytes()).hexdigest()
+assert sha=='0f6c0a97bcd584d2c45447909c8eef1f81368c9567ef70d1f89eda793f61da72'
+dist=md.distribution('dockingmt')
+assert dist.version=='0.0.0+176.gef8ee2e'
+assert SpecifierSet(dist.metadata['Requires-Python'])==SpecifierSet('>=3.11,<3.15')
+direct=json.loads(dist.read_text('direct_url.json'))
+assert Path(unquote(urlsplit(direct['url']).path))==WHEEL
+assert direct['archive_info']['hashes']['sha256']==sha and 'dir_info' not in direct
+resources=tomllib.loads((TASK/'harness/devtools/conda-build/resources.toml').read_text())
+verified=[]
+with zipfile.ZipFile(WHEEL) as archive:
+ for rel in resources['required_paths']:
+  name=rel.removeprefix('site-packages/')
+  target=Path(dist.locate_file(name)).resolve()
+  assert target.is_relative_to(PREFIX),target
+  assert target.read_bytes()==archive.read(name),name
+  verified.append({'path':name,'sha256':hashlib.sha256(target.read_bytes()).hexdigest()})
+marker=Path(dist.locate_file('dockingmt/py.typed'))
+assert marker.is_file()
+eps=md.entry_points(group='molsysviewer.addons').select(name='dockingmt')
+assert len(eps)==1
+entry=next(iter(eps))
+addon=entry.load()
+assert addon.__name__=='molsysviewer_dockingmt'
+loaded={}
+for name in ('dockingmt','molsysviewer_dockingmt'):
+ module=importlib.import_module(name)
+ assert Path(module.__file__).resolve().is_relative_to(PREFIX)
+ loaded[name]=module.__file__
+import molsysmt,pyunitwizard,molsysviewer
+native=Path(importlib.import_module('molsysmt._rust').__file__)
+assert hashlib.sha256(native.read_bytes()).hexdigest()=='feb001379201b92690eadf04fd0be6b710cdfe50bad240feba26cf666e19b41b'
+receipt={'schema':'dockingmt.ordinary_wheel_receiving@1','producer':'ef8ee2ec6a075456c0429a4011dcd2cd571bcfde','wheel':str(WHEEL),'sha256':sha,'installed_version':dist.version,'python':sys.version,'prefix':str(PREFIX),'imports':loaded,'entrypoint':entry.value,'resources':verified,'native_sha256':hashlib.sha256(native.read_bytes()).hexdigest(),'providers':{name:md.version(name) for name in ['molsysmt','argdigest','molsysviewer','pyunitwizard','depdigest','smonitor','vina','rdkit','numpy']},'limits':['Linux Python 3.14.8 receiving environment inherits qualified task-owned source dependencies','No public-channel solve or Conda-artifact qualification','No browser/JavaScript rendering qualification']}
+(TASK/'wheel-preflight.json').write_text(json.dumps(receipt,indent=2)+'\n')
+print(json.dumps({'wheel_sha256':sha,'resource_count':len(verified),'imports':loaded,'entrypoint':entry.value},indent=2))
