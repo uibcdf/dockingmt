@@ -299,3 +299,26 @@ the immutable producer and separate receiving evidence.
 Existing molecular projection/reconstruction and compressed-provider issues
 remain open; no new missing PharmacophoreMT operation is inferred. #49 stays
 partial/open, with an executed human notebook and source/native attribution.
+
+
+## Current provider composition — 2026-10-13
+
+The [registered compatibility checkpoint](../validation/provider_compatibility_2026-10-13.md)
+qualifies normally installed MolSysMT `a462b49c5`, ArgDigest `3d1ec53` and
+MolSysViewer `a61b75bc`, with a newly compiled native extension, in a task-owned
+Python 3.14.8 environment. The focused 270 cases pass. The full local run retains
+1,124 passing cases and one old-pin governance failure; the corrected six-case
+rerun passes. These are combined evidence, pending complete exact-head hosted
+qualification. Source workflows/inventory select the current exact composition;
+public installed-pair admission remains under #30/#47.
+
+The 3PTB receiving comparison preserves coordinates, maps, boxes and engine
+records; only the two truthful MolSysMT version remarks change the complete input
+digests. Original scientific archives/producers remain immutable and no new
+3PTB searches execute. The provider retains responsibility for missing molecular
+projection, permutation and symmetry capabilities. Public composition's pandas
+warnings are reported in [MolSysMT #386](https://github.com/uibcdf/molsysmt/issues/386).
+The observed shared environment-tool channel behavior is handed off in
+[MolSysSuite #108](https://github.com/uibcdf/molsyssuite/issues/108#issuecomment-6141735585).
+This issue stays partial; a current compatible source does not deliver all
+remaining provider operations or qualify a public distribution.

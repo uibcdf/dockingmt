@@ -1,0 +1,13 @@
+receptor: 20% 54/270 40s
+receptor: 40% 108/270 70s
+receptor: 60% 162/270 121s
+receptor: 80% 216/270 180s
+receptor: 100% 270/270 331s
+PASS exit=0 | 270 passed | 330.62s | 704 warnings
+
+warnings: 704 in 4 groups
+  Pandas4Warning x587 | form/molsysmt_Topology/merge.py:139 | The copy keyword is deprecated and will be removed in a future version. Copy-on-Write is active in pandas sinc...
+  StructuralAttributeOffAxisWarning x82 | molsysmt/basic/convert.py:323 | Structural attributes were dropped because only an item outside the structure axis of the molecular system pro...
+  LegacyH5MSMWarning x29 | form/molsysmt_H5MSMFileHandler/to_molsysmt_H5MSMFileHandler.py:44 | H5MSM 0.4 is deprecated; reading remains supported. Convert a copy to H5MSM 0.5 with molsysmt.h5msm.migrate_to...
+  StructuralAttributeDropWarning x6 | molsysmt/build/add_terminal_atoms.py:106 | Structural attributes were discarded during concatenation: b_factor, occupancy. Use attribute_policy='strict'...
+

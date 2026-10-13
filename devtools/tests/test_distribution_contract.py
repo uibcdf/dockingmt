@@ -256,12 +256,9 @@ class TestDistributionContract(unittest.TestCase):
                         for id in context['sources']
                     )
                 )
-        self.assertNotEqual(
-            sources['viewer-base']['commit'], sources['viewer-py314']['commit']
-        )
         self.assertEqual(sources['viewer-base']['role'], 'integration')
 
-    def test_directory_context_bindings_preserve_lane_specific_sources(self):
+    def test_directory_context_bindings_preserve_declared_sources(self):
         self.check_source_bindings()
 
     def test_annotated_checkout_input_is_distinct_from_the_verified_head_commit(self):
@@ -298,20 +295,16 @@ class TestDistributionContract(unittest.TestCase):
             record, 'provider', distribution, clone
         )
         self.assertEqual(receipt['commit'], commit)
-        source = tomllib.loads(
-            (self.root / 'devtools/dependency_routes.toml').read_text()
-        )['source_routes'][0]
-        self.assertEqual(
-            source['checkout_ref'], '1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e'
-        )
-        self.assertEqual(source['commit'], '57447cc4ec1f7ce85078f8a939892efd075bc919')
 
     def test_pin_drift_is_detected_even_after_refreshing_the_workflow_hash(self):
         p = self.root / '.github/workflows/ci.yml'
         original = p.read_text()
-        p.write_text(
-            original.replace('1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e', 'b' * 40)
-        )
+        source = tomllib.loads(
+            (self.root / 'devtools/dependency_routes.toml').read_text()
+        )['source_routes'][0]
+        checkout = source.get('checkout_ref', source['commit'])
+        self.assertIn(checkout, original)
+        p.write_text(original.replace(checkout, 'b' * 40))
         digest = hashlib.sha256(original.encode()).hexdigest()
         self.mutate(
             'devtools/dependency_routes.toml',

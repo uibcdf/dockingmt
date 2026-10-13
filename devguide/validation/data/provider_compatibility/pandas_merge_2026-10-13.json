@@ -1,0 +1,56 @@
+{
+  "pandas": "3.0.6",
+  "warning_count": 8,
+  "warnings": [
+    {
+      "category": "Pandas4Warning",
+      "message": "The copy keyword is deprecated and will be removed in a future version. Copy-on-Write is active in pandas since 3.0 which utilizes a lazy copy mechanism that defers copies until necessary. Use .copy() to make an eager copy if necessary.",
+      "file": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/form/molsysmt_Topology/merge.py",
+      "line": 139
+    },
+    {
+      "category": "Pandas4Warning",
+      "message": "The copy keyword is deprecated and will be removed in a future version. Copy-on-Write is active in pandas since 3.0 which utilizes a lazy copy mechanism that defers copies until necessary. Use .copy() to make an eager copy if necessary.",
+      "file": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/form/molsysmt_Topology/merge.py",
+      "line": 141
+    },
+    {
+      "category": "Pandas4Warning",
+      "message": "The copy keyword is deprecated and will be removed in a future version. Copy-on-Write is active in pandas since 3.0 which utilizes a lazy copy mechanism that defers copies until necessary. Use .copy() to make an eager copy if necessary.",
+      "file": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/form/molsysmt_Topology/merge.py",
+      "line": 142
+    },
+    {
+      "category": "Pandas4Warning",
+      "message": "The copy keyword is deprecated and will be removed in a future version. Copy-on-Write is active in pandas since 3.0 which utilizes a lazy copy mechanism that defers copies until necessary. Use .copy() to make an eager copy if necessary.",
+      "file": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/form/molsysmt_Topology/merge.py",
+      "line": 143
+    },
+    {
+      "category": "Pandas4Warning",
+      "message": "The copy keyword is deprecated and will be removed in a future version. Copy-on-Write is active in pandas since 3.0 which utilizes a lazy copy mechanism that defers copies until necessary. Use .copy() to make an eager copy if necessary.",
+      "file": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/form/molsysmt_Topology/merge.py",
+      "line": 144
+    },
+    {
+      "category": "Pandas4Warning",
+      "message": "The copy keyword is deprecated and will be removed in a future version. Copy-on-Write is active in pandas since 3.0 which utilizes a lazy copy mechanism that defers copies until necessary. Use .copy() to make an eager copy if necessary.",
+      "file": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/form/molsysmt_Topology/merge.py",
+      "line": 145
+    },
+    {
+      "category": "Pandas4Warning",
+      "message": "The copy keyword is deprecated and will be removed in a future version. Copy-on-Write is active in pandas since 3.0 which utilizes a lazy copy mechanism that defers copies until necessary. Use .copy() to make an eager copy if necessary.",
+      "file": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/form/molsysmt_Topology/merge.py",
+      "line": 147
+    },
+    {
+      "category": "Pandas4Warning",
+      "message": "The copy keyword is deprecated and will be removed in a future version. Copy-on-Write is active in pandas since 3.0 which utilizes a lazy copy mechanism that defers copies until necessary. Use .copy() to make an eager copy if necessary.",
+      "file": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/form/molsysmt_Topology/merge.py",
+      "line": 149
+    }
+  ],
+  "output_n_atoms": 44,
+  "input_n_atoms": 22
+}

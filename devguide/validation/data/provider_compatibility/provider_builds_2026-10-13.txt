@@ -1,0 +1,43 @@
+Processing /tmp/dockingmt-compatibility-20261013/sources/argdigest
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Processing /tmp/dockingmt-compatibility-20261013/sources/molsysmt
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Processing /tmp/dockingmt-compatibility-20261013/sources/molsysviewer
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: argdigest, molsysmt, molsysviewer
+  Building wheel for argdigest (pyproject.toml): started
+  Building wheel for argdigest (pyproject.toml): finished with status 'done'
+  Created wheel for argdigest: filename=argdigest-0.15.0+5.g3d1ec53-py3-none-any.whl size=58581 sha256=44dbbca9775366a97c0439c8da92587d749a4fdb56937c959eebe40e85118091
+  Stored in directory: /tmp/pip-ephem-wheel-cache-75kwa5h2/wheels/6d/c3/54/e9296ab8e1dae9fa166f271a4da6e469e7d5142824425dff44
+  Building wheel for molsysmt (pyproject.toml): started
+  Building wheel for molsysmt (pyproject.toml): still running...
+  Building wheel for molsysmt (pyproject.toml): finished with status 'done'
+  Created wheel for molsysmt: filename=molsysmt-0.23.0+65.ga462b49c5-cp311-abi3-linux_x86_64.whl size=61145774 sha256=363f87b9989c19a3bcaae13672d224d3d9484a803411e4ee86c84bbcae24a03a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-75kwa5h2/wheels/bf/a2/34/9c1713d6e6a209a8090404cd1c5d316ee74b89b640863d5bdd
+  Building wheel for molsysviewer (pyproject.toml): started
+  Building wheel for molsysviewer (pyproject.toml): finished with status 'done'
+  Created wheel for molsysviewer: filename=molsysviewer-0.24.0+76.ga61b75bc-py3-none-any.whl size=2015007 sha256=24a27b8719d49b9b4e931230ab8dd03957959cde4ac1b3acc1da2a9a4d01cd93
+  Stored in directory: /tmp/pip-ephem-wheel-cache-75kwa5h2/wheels/9a/a9/5b/69df8082abc3e602cd343f0b41b6ca51d698a9413fc217c4a5
+Successfully built argdigest molsysmt molsysviewer
+Installing collected packages: molsysviewer, molsysmt, argdigest
+  Attempting uninstall: argdigest
+    Found existing installation: argdigest 0.15.0
+    Uninstalling argdigest-0.15.0:
+      Successfully uninstalled argdigest-0.15.0
+
+Successfully installed argdigest-0.15.0+5.g3d1ec53 molsysmt-0.23.0+65.ga462b49c5 molsysviewer-0.24.0+76.ga61b75bc

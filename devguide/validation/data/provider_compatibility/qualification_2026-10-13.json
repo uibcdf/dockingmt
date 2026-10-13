@@ -1,0 +1,682 @@
+{
+  "3ptb": {
+    "boxes": {
+      "native": {
+        "backend_projection_equal": true,
+        "containment_equal": true
+      },
+      "negative": {
+        "backend_projection_equal": true,
+        "containment_equal": true
+      }
+    },
+    "current_import_identity": {
+      "executable": "/tmp/dockingmt-compatibility-20261013/envs/candidate/bin/python",
+      "providers": {
+        "argdigest": {
+          "direct_url": {
+            "dir_info": {},
+            "url": "file:///tmp/dockingmt-compatibility-20261013/sources/argdigest"
+          },
+          "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/argdigest/__init__.py",
+          "version": "0.15.0+5.g3d1ec53"
+        },
+        "dockingmt": {
+          "direct_url": {
+            "dir_info": {
+              "editable": true
+            },
+            "url": "file:///home/liliana/repos%40uibcdf/dockingmt"
+          },
+          "module_path": "/home/liliana/repos@uibcdf/dockingmt/dockingmt/__init__.py",
+          "version": "0.0.0+171.g1acab23"
+        },
+        "molsysmt": {
+          "direct_url": {
+            "dir_info": {},
+            "url": "file:///tmp/dockingmt-compatibility-20261013/sources/molsysmt"
+          },
+          "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/__init__.py",
+          "version": "0.23.0+65.ga462b49c5"
+        },
+        "molsysviewer": {
+          "direct_url": {
+            "dir_info": {},
+            "url": "file:///tmp/dockingmt-compatibility-20261013/sources/molsysviewer"
+          },
+          "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysviewer/__init__.py",
+          "version": "0.24.0+76.ga61b75bc"
+        },
+        "native": {
+          "path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/_rust.abi3.so",
+          "sha256": "feb001379201b92690eadf04fd0be6b710cdfe50bad240feba26cf666e19b41b"
+        },
+        "pyunitwizard": {
+          "direct_url": {
+            "dir_info": {},
+            "url": "file:///home/runner/micromamba/envs/build/conda-bld/pyunitwizard_1791202252997/work"
+          },
+          "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/pyunitwizard/__init__.py",
+          "version": "0.28.1"
+        },
+        "rdkit": {
+          "direct_url": {
+            "dir_info": {},
+            "url": "file:///home/conda/feedstock_root/build_artifacts/rdkit-meta_1774625989214/work"
+          },
+          "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/rdkit/__init__.py",
+          "version": "2026.3.1"
+        },
+        "vina": {
+          "direct_url": null,
+          "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/vina/__init__.py",
+          "version": "1.2.7"
+        }
+      },
+      "python": "3.14.8 | packaged by conda-forge | (main, Oct 12 2026, 17:35:27) [GCC 15.3.0]"
+    },
+    "fixed_evaluations_executed": 0,
+    "new_searches_executed": 0,
+    "original_admission": "devguide/validation/data/3ptb_admission/audit_2026-10-10.json.gz",
+    "population_equal": false,
+    "population_equal_except_version_bound_input_digests": true,
+    "roles": {
+      "flexible": {
+        "full_source_map_equal": true,
+        "max_coordinate_difference_angstrom": 0.0,
+        "native_parser_admitted": true,
+        "only_difference_is_recorded_molsysmt_version": true,
+        "original_pdbqt_sha256": "8c213525c2479481845e458d769ad605f62899646910fc2b8f33b64dcc1b9b37",
+        "pdbqt_equal": false,
+        "pdbqt_sha256": "28f295ad3d94f9f4da5e86f01ac732b3335d1a6777c5f0a39807458306d73014"
+      },
+      "receptor": {
+        "full_source_map_equal": true,
+        "max_coordinate_difference_angstrom": 0.0,
+        "native_parser_admitted": true,
+        "only_difference_is_recorded_molsysmt_version": true,
+        "original_pdbqt_sha256": "1b54b7cd65accbe27118f1ec4dbcadca483f2b36504743fdc17bbdb05e6a23d0",
+        "pdbqt_equal": false,
+        "pdbqt_sha256": "62b7ce18c146df6b5997691fbf8201363b1b8301e9edb1a93d12f1b73b74d2f3"
+      },
+      "rigid": {
+        "full_source_map_equal": true,
+        "max_coordinate_difference_angstrom": 0.0,
+        "native_parser_admitted": true,
+        "only_difference_is_recorded_molsysmt_version": true,
+        "original_pdbqt_sha256": "291736c1d44535c16cb0ec65d3eeb1fc99a5dfce0ac1bc39d5ca821181a8dd93",
+        "pdbqt_equal": false,
+        "pdbqt_sha256": "90524e20ee009e8d2ff33c424d8cd057937baa73537905a2bd169dcfb8351ad2"
+      }
+    },
+    "schema": "dockingmt.provider_admission_comparison@1"
+  },
+  "ambient_solver_channel": "ambermd; no installed package contribution observed",
+  "combined_evidence": "1124 unchanged passing cases plus corrected governance rerun; initial full run remains failed",
+  "conda_channels": {
+    "conda-forge": 245,
+    "uibcdf": 6
+  },
+  "date": "2026-10-13",
+  "dependency_context": {
+    "contexts": [
+      {
+        "bootstrap_selectors": [
+          "python >=3.11,<3.15",
+          "pip",
+          "setuptools >=68",
+          "wheel",
+          "pytest",
+          "pytest-cov",
+          "pytest-receptor",
+          "smonitor >=0.16.0",
+          "depdigest >=0.11.0",
+          "pyunitwizard >=0.28.1",
+          "numpy",
+          "scipy",
+          "vina",
+          "rdkit",
+          "biopython",
+          "openmm",
+          "h5py",
+          "pandas",
+          "networkx",
+          "tqdm",
+          "matplotlib",
+          "py-mmcif >=1.1.1",
+          "aiohttp",
+          "anywidget",
+          "packaging",
+          "traitlets"
+        ],
+        "environment": "devtools/conda-envs/test_env.yaml",
+        "final_constraints": {
+          "depdigest": ">=0.11.0",
+          "numpy": "",
+          "python": "<3.15,>=3.11",
+          "pyunitwizard": ">=0.28.1",
+          "smonitor": ">=0.16.0"
+        },
+        "name": "ci-3.11",
+        "narrowed": [
+          "depdigest",
+          "pyunitwizard",
+          "smonitor"
+        ],
+        "overlays": [],
+        "python_minor": "3.11",
+        "sources": [
+          "argdigest-source",
+          "molsysmt-source",
+          "viewer-base"
+        ]
+      },
+      {
+        "bootstrap_selectors": [
+          "python >=3.11,<3.15",
+          "pip",
+          "setuptools >=68",
+          "wheel",
+          "pytest",
+          "pytest-cov",
+          "pytest-receptor",
+          "smonitor >=0.16.0",
+          "depdigest >=0.11.0",
+          "pyunitwizard >=0.28.1",
+          "numpy",
+          "scipy",
+          "vina",
+          "rdkit",
+          "biopython",
+          "openmm",
+          "h5py",
+          "pandas",
+          "networkx",
+          "tqdm",
+          "matplotlib",
+          "py-mmcif >=1.1.1",
+          "aiohttp",
+          "anywidget",
+          "packaging",
+          "traitlets"
+        ],
+        "environment": "devtools/conda-envs/test_env.yaml",
+        "final_constraints": {
+          "depdigest": ">=0.11.0",
+          "numpy": "",
+          "python": "<3.15,>=3.11",
+          "pyunitwizard": ">=0.28.1",
+          "smonitor": ">=0.16.0"
+        },
+        "name": "ci-3.12",
+        "narrowed": [
+          "depdigest",
+          "pyunitwizard",
+          "smonitor"
+        ],
+        "overlays": [],
+        "python_minor": "3.12",
+        "sources": [
+          "argdigest-source",
+          "molsysmt-source",
+          "viewer-base"
+        ]
+      },
+      {
+        "bootstrap_selectors": [
+          "python >=3.11,<3.15",
+          "pip",
+          "setuptools >=68",
+          "wheel",
+          "pytest",
+          "pytest-cov",
+          "pytest-receptor",
+          "smonitor >=0.16.0",
+          "depdigest >=0.11.0",
+          "pyunitwizard >=0.28.1",
+          "numpy",
+          "scipy",
+          "vina",
+          "rdkit",
+          "biopython",
+          "openmm",
+          "h5py",
+          "pandas",
+          "networkx",
+          "tqdm",
+          "matplotlib",
+          "py-mmcif >=1.1.1",
+          "aiohttp",
+          "anywidget",
+          "packaging",
+          "traitlets"
+        ],
+        "environment": "devtools/conda-envs/test_env.yaml",
+        "final_constraints": {
+          "depdigest": ">=0.11.0",
+          "numpy": "",
+          "python": "<3.15,>=3.11",
+          "pyunitwizard": ">=0.28.1",
+          "smonitor": ">=0.16.0"
+        },
+        "name": "ci-3.13",
+        "narrowed": [
+          "depdigest",
+          "pyunitwizard",
+          "smonitor"
+        ],
+        "overlays": [],
+        "python_minor": "3.13",
+        "sources": [
+          "argdigest-source",
+          "molsysmt-source",
+          "viewer-base"
+        ]
+      },
+      {
+        "bootstrap_selectors": [
+          "python >=3.11,<3.15",
+          "pip",
+          "setuptools >=68",
+          "wheel",
+          "pytest",
+          "pytest-cov",
+          "pytest-receptor",
+          "smonitor >=0.16.0",
+          "depdigest >=0.11.0",
+          "pyunitwizard >=0.28.1",
+          "numpy",
+          "scipy",
+          "vina",
+          "rdkit",
+          "biopython",
+          "openmm",
+          "h5py",
+          "pandas",
+          "networkx",
+          "tqdm",
+          "matplotlib",
+          "py-mmcif >=1.1.1",
+          "aiohttp",
+          "anywidget",
+          "packaging",
+          "traitlets"
+        ],
+        "environment": "devtools/conda-envs/test_env.yaml",
+        "final_constraints": {
+          "depdigest": ">=0.11.0",
+          "numpy": "",
+          "python": "<3.15,>=3.11",
+          "pyunitwizard": ">=0.28.1",
+          "smonitor": ">=0.16.0"
+        },
+        "name": "ci-3.14",
+        "narrowed": [
+          "depdigest",
+          "pyunitwizard",
+          "smonitor"
+        ],
+        "overlays": [],
+        "python_minor": "3.14",
+        "sources": [
+          "argdigest-source",
+          "molsysmt-source",
+          "viewer-py314"
+        ]
+      }
+    ],
+    "installed_check_required": true,
+    "installed_sources": [
+      {
+        "commit": "3d1ec53c374098016452abab74706e9d80df5462",
+        "directory": "/tmp/dockingmt-compatibility-20261013/sources/argdigest",
+        "id": "argdigest-source",
+        "install": "pip-no-deps-directory",
+        "name": "argdigest",
+        "repository": "https://github.com/uibcdf/argdigest",
+        "version": "0.15.0+5.g3d1ec53"
+      },
+      {
+        "commit": "a462b49c5566e8de993f83825576dc3860e9cfb1",
+        "directory": "/tmp/dockingmt-compatibility-20261013/sources/molsysmt",
+        "id": "molsysmt-source",
+        "install": "pip-no-deps-directory",
+        "name": "molsysmt",
+        "repository": "https://github.com/uibcdf/molsysmt",
+        "version": "0.23.0+65.ga462b49c5"
+      },
+      {
+        "commit": "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f",
+        "directory": "/tmp/dockingmt-compatibility-20261013/sources/molsysviewer",
+        "id": "viewer-py314",
+        "install": "pip-no-deps-directory",
+        "name": "molsysviewer",
+        "repository": "https://github.com/uibcdf/molsysviewer",
+        "version": "0.24.0+76.ga61b75bc"
+      }
+    ],
+    "installed_versions": {
+      "argdigest": "0.15.0+5.g3d1ec53",
+      "depdigest": "0.13.0",
+      "molsysmt": "0.23.0+65.ga462b49c5",
+      "numpy": "2.5.4",
+      "python": "3.14.8",
+      "pyunitwizard": "0.28.1",
+      "smonitor": "0.19.0"
+    },
+    "package": "dockingmt",
+    "proof_domain": "numeric-release-versions",
+    "qualification": "declared-and-installed-context",
+    "routes": [
+      {
+        "kind": "shared-noarch",
+        "path": "devtools/conda-build/meta.yaml"
+      },
+      {
+        "kind": "runtime",
+        "path": "devtools/conda-envs/test_env.yaml",
+        "purpose": "test"
+      },
+      {
+        "kind": "reviewed-workflow",
+        "path": ".github/workflows/build_and_upload_conda_packages.yaml",
+        "sha256": "a7ae60a309898f9da75e01255fc69356d5a9ebf9e9091c9af4ef8ef5c804bd61"
+      },
+      {
+        "kind": "reviewed-workflow",
+        "path": ".github/workflows/ci.yml",
+        "sha256": "1815239c8dce4fe28205c93cbf3de0c3b36fe0f85abbddb9bef1e1b3d511549d"
+      },
+      {
+        "kind": "reviewed-workflow",
+        "path": ".github/workflows/conda_publication_governance.yaml",
+        "sha256": "eb54f756f9aa208adbc210b3839bf23be640457ff975f84415d12eb6c6b9cf4d"
+      },
+      {
+        "kind": "reviewed-workflow",
+        "path": ".github/workflows/full-matrix.yml",
+        "sha256": "b0cce4f3912eba48c1302a11ead2136566c0f41ca78b4a8f859df50b76d9ff10"
+      },
+      {
+        "kind": "reviewed-workflow",
+        "path": ".github/workflows/molsyssuite-policy.yml",
+        "sha256": "6cc62208156f765ca0456e3bc5f398934263e03afc7063c69afa692c5dafdffd"
+      },
+      {
+        "kind": "reviewed-workflow",
+        "path": ".github/workflows/promote_conda_package.yaml",
+        "sha256": "3cb1b6a85020a3b4cbe4cca0c4b592110f734dde0005d0b9579b33a0cd721a49"
+      },
+      {
+        "kind": "reviewed-workflow",
+        "path": ".github/workflows/test_installed_conda_package.yaml",
+        "sha256": "83bcd0126b7150334e31cc2407a39b4e9963834f7a027a341be268db7f2dcf28"
+      }
+    ],
+    "schema": "molsyssuite.dependency-routes@3",
+    "selected_context": "ci-3.14",
+    "source_dependencies": [
+      "argdigest-source",
+      "molsysmt-source",
+      "viewer-base",
+      "viewer-py314"
+    ],
+    "source_inputs": [],
+    "source_routes": [
+      {
+        "commit": "3d1ec53c374098016452abab74706e9d80df5462",
+        "id": "argdigest-source",
+        "install": "pip-no-deps-directory",
+        "name": "argdigest",
+        "reason": "Current provider composition qualified under dockingmt#49 on Python 3.14; normal pip --no-deps directory install and exact four-minor CI remain required.",
+        "role": "required-runtime",
+        "url": "https://github.com/uibcdf/argdigest"
+      },
+      {
+        "commit": "a462b49c5566e8de993f83825576dc3860e9cfb1",
+        "id": "molsysmt-source",
+        "install": "pip-no-deps-directory",
+        "name": "molsysmt",
+        "reason": "Current provider composition under dockingmt#49 includes the prepared-mechanics merge fix (molsysmt#352); preserve normal directory installation and qualify exact source in required CI.",
+        "role": "required-runtime",
+        "url": "https://github.com/uibcdf/molsysmt"
+      },
+      {
+        "commit": "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f",
+        "id": "viewer-base",
+        "install": "pip-no-deps-directory",
+        "name": "molsysviewer",
+        "reason": "Current provider composition qualified under dockingmt#49 on Python 3.14; normal pip --no-deps directory install and exact four-minor CI remain required.",
+        "role": "integration",
+        "url": "https://github.com/uibcdf/molsysviewer"
+      },
+      {
+        "commit": "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f",
+        "id": "viewer-py314",
+        "install": "pip-no-deps-directory",
+        "name": "molsysviewer",
+        "reason": "Current provider composition qualified under dockingmt#49 on Python 3.14; normal pip --no-deps directory install and exact four-minor CI remain required.",
+        "role": "integration",
+        "url": "https://github.com/uibcdf/molsysviewer"
+      }
+    ]
+  },
+  "final_administrative": {
+    "failed": 0,
+    "passed": 29,
+    "seconds": 2.77,
+    "skipped": 0
+  },
+  "focused": {
+    "errors": 0,
+    "failures": 0,
+    "seconds": 330.619,
+    "skipped": 0,
+    "tests": 270
+  },
+  "full_source_exit": 1,
+  "full_source_suite": {
+    "errors": 0,
+    "failures": 1,
+    "seconds": 815.415,
+    "skipped": 0,
+    "tests": 1125
+  },
+  "governance_correction": {
+    "errors": 0,
+    "failures": 0,
+    "seconds": 0.141,
+    "skipped": 0,
+    "tests": 6
+  },
+  "guide_sources": {
+    "DEPDIGEST_GUIDE.md": "1b746ece24587e920e49ea20f2bfebde7c3efc24",
+    "SMONITOR_GUIDE.md": "020b6bf7012281efae9a1a16ddec11cdcd49c1fd"
+  },
+  "imports": {
+    "executable": "/tmp/dockingmt-compatibility-20261013/envs/candidate/bin/python",
+    "providers": {
+      "argdigest": {
+        "direct_url": {
+          "dir_info": {},
+          "url": "file:///tmp/dockingmt-compatibility-20261013/sources/argdigest"
+        },
+        "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/argdigest/__init__.py",
+        "version": "0.15.0+5.g3d1ec53"
+      },
+      "dockingmt": {
+        "direct_url": {
+          "dir_info": {
+            "editable": true
+          },
+          "url": "file:///home/liliana/repos%40uibcdf/dockingmt"
+        },
+        "module_path": "/home/liliana/repos@uibcdf/dockingmt/dockingmt/__init__.py",
+        "version": "0.0.0+171.g1acab23"
+      },
+      "molsysmt": {
+        "direct_url": {
+          "dir_info": {},
+          "url": "file:///tmp/dockingmt-compatibility-20261013/sources/molsysmt"
+        },
+        "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/__init__.py",
+        "version": "0.23.0+65.ga462b49c5"
+      },
+      "molsysviewer": {
+        "direct_url": {
+          "dir_info": {},
+          "url": "file:///tmp/dockingmt-compatibility-20261013/sources/molsysviewer"
+        },
+        "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysviewer/__init__.py",
+        "version": "0.24.0+76.ga61b75bc"
+      },
+      "native": {
+        "path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/molsysmt/_rust.abi3.so",
+        "sha256": "feb001379201b92690eadf04fd0be6b710cdfe50bad240feba26cf666e19b41b"
+      },
+      "pyunitwizard": {
+        "direct_url": {
+          "dir_info": {},
+          "url": "file:///home/runner/micromamba/envs/build/conda-bld/pyunitwizard_1791202252997/work"
+        },
+        "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/pyunitwizard/__init__.py",
+        "version": "0.28.1"
+      },
+      "rdkit": {
+        "direct_url": {
+          "dir_info": {},
+          "url": "file:///home/conda/feedstock_root/build_artifacts/rdkit-meta_1774625989214/work"
+        },
+        "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/rdkit/__init__.py",
+        "version": "2026.3.1"
+      },
+      "vina": {
+        "direct_url": null,
+        "module_path": "/tmp/dockingmt-compatibility-20261013/envs/candidate/lib/python3.14/site-packages/vina/__init__.py",
+        "version": "1.2.7"
+      }
+    },
+    "python": "3.14.8 | packaged by conda-forge | (main, Oct 12 2026, 17:35:27) [GCC 15.3.0]"
+  },
+  "limits": [
+    "Linux Python 3.14 local source composition; other required minors need exact-head hosted qualification",
+    "No public Conda artifact or public installed pair admitted",
+    "No new 3PTB searches or fixed evaluations",
+    "Provider projection, permutation, symmetry and chemical/scoring acceptance remain separate"
+  ],
+  "original_scientific_archives": {
+    "devguide/validation/data/3ptb_admission/audit_2026-10-10.json.gz": "05f82e0ff16592c64d404c216a7e2feff0c0e62a2aebff240dc8653350e21075",
+    "devguide/validation/data/3ptb_search/audit_2026-10-10.json.gz": "97104903c93b3f7a729a5a6ac196cdb7b59d686e318efdcf324f70131abba1f2",
+    "devguide/validation/data/3ptb_search/evaluation_2026-10-10.json.gz": "8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af"
+  },
+  "owner": "uibcdf/dockingmt#49",
+  "pip_check": "No broken requirements found.",
+  "plan": {
+    "baseline_provider": "739395d7ea31bec5c3f77cdcb1135ecf7e7c9bac",
+    "candidate_adoption": "Only after executed compatibility; no existing pin or original archive rewritten.",
+    "consumer": "1acab23cb81f28a4ff5c4441045b823ad20d5b31",
+    "date": "2026-10-13",
+    "molecular_owner": "uibcdf/molsysmt",
+    "new_3ptb_searches_planned": 0,
+    "owner": "uibcdf/dockingmt#49",
+    "schema": "dockingmt.provider_compatibility_plan@1",
+    "scientific_controls": [
+      "181L",
+      "1IEP",
+      "5X72",
+      "3PTB"
+    ],
+    "sources": {
+      "argdigest": "3d1ec53c374098016452abab74706e9d80df5462",
+      "molsysmt": "a462b49c5566e8de993f83825576dc3860e9cfb1",
+      "molsysviewer": "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
+    }
+  },
+  "provider_feedback": [
+    "https://github.com/uibcdf/molsysmt/issues/386",
+    "https://github.com/uibcdf/molsyssuite/issues/108#issuecomment-6141735585"
+  ],
+  "registration_url": "https://github.com/uibcdf/dockingmt/issues/49#issuecomment-6141557097",
+  "retained_evidence": {
+    "administrative_2026-10-13.txt": {
+      "bytes": 33,
+      "sha256": "b1ed3593edf7568a103c69d30f9aa81adda7cd04a4097edf6d37c1c418e23827"
+    },
+    "admission_2026-10-13.json.gz": {
+      "bytes": 1095731,
+      "sha256": "3710c8d3a918573812caea9fc3a48ab3196d9a19d99b5e98c9cb2ea09a5c73f8"
+    },
+    "environment_2026-10-13.txt": {
+      "bytes": 9102,
+      "sha256": "7af005b0141421292793fb2e78edff9ebdcb43f094edafbdf3e9a849265ffe90"
+    },
+    "focused_2026-10-13.txt": {
+      "bytes": 978,
+      "sha256": "c011b55310c7178edd0489576863c96b9c436f0652a28ed539693ca7844347ed"
+    },
+    "full_suite_2026-10-13.txt": {
+      "bytes": 2273,
+      "sha256": "b6a992c9fa8aac0a7aacd87f9d21bccdde461ba462684672a71c0d334ff24405"
+    },
+    "governance_correction_2026-10-13.txt": {
+      "bytes": 32,
+      "sha256": "5024d08fcdaf5a307eecaa3962a2168be7a60668b34deb5154765aa64ab20236"
+    },
+    "pandas_merge_2026-10-13.json": {
+      "bytes": 3825,
+      "sha256": "f338aa8aa80940cf8f07e31d8dfd830a55ccba2ca34393875b2cb28279d4dff7"
+    },
+    "provider_builds_2026-10-13.txt": {
+      "bytes": 3043,
+      "sha256": "d6cabdda806e5b7dc927bf9447cb2176e3fd594f4f38c089672d40cf595399fb"
+    },
+    "receiving_comparison_2026-10-13.py.txt": {
+      "bytes": 3354,
+      "sha256": "31611508472bf3f7dc02980c68b45549c5890214ab89fbb7f65edf95b0641b60"
+    }
+  },
+  "runtime_augmentation": [
+    "setuptools==84.0.0",
+    "wheel==0.48.0"
+  ],
+  "schema": "dockingmt.provider_compatibility_receipt@1",
+  "shared_workspace": {
+    "observed_unrelated_editable_head_changes": [
+      "pharmacophoremt",
+      "sabueso"
+    ],
+    "routine_freeze_exactly_equal": false,
+    "task_modified_sibling_worktrees": false,
+    "task_target": "Task-owned temporary Conda prefix only"
+  },
+  "source_provenance": {
+    "scientific_imports_performed": false,
+    "sdk": "738fe8dd731abb99dac421b0bb2acc8564110180",
+    "sources": {
+      "argdigest": {
+        "commit": "3d1ec53c374098016452abab74706e9d80df5462",
+        "directory": "/tmp/dockingmt-compatibility-20261013/sources/argdigest",
+        "install": "pip-no-deps-directory",
+        "name": "argdigest",
+        "repository": "https://github.com/uibcdf/argdigest",
+        "version": "0.15.0+5.g3d1ec53"
+      },
+      "molsysmt": {
+        "commit": "a462b49c5566e8de993f83825576dc3860e9cfb1",
+        "directory": "/tmp/dockingmt-compatibility-20261013/sources/molsysmt",
+        "install": "pip-no-deps-directory",
+        "name": "molsysmt",
+        "repository": "https://github.com/uibcdf/molsysmt",
+        "version": "0.23.0+65.ga462b49c5"
+      },
+      "molsysviewer": {
+        "commit": "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f",
+        "directory": "/tmp/dockingmt-compatibility-20261013/sources/molsysviewer",
+        "install": "pip-no-deps-directory",
+        "name": "molsysviewer",
+        "repository": "https://github.com/uibcdf/molsysviewer",
+        "version": "0.24.0+76.ga61b75bc"
+      }
+    }
+  }
+}

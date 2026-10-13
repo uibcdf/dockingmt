@@ -62,49 +62,49 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       # The uibcdf channel does not yet publish this integrated set for Python 3.13.
-      # Released ArgDigest 0.15 satisfies PyUnitWizard 0.28.1; MolSysMT retains history/aromatic H.
-      # Viewer retains its previously qualified lane-specific sources.
+      # Exact current sibling composition is qualified under dockingmt#49.
+      # Both Viewer contexts now use the same source; public pair admission is separate.
       - name: Check out compatible ArgDigest source
         if: matrix.python-version != '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/argdigest
-          ref: "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e"
+          ref: "3d1ec53c374098016452abab74706e9d80df5462"
           path: .molsyssuite/argdigest
       - name: Check out compatible ArgDigest source for Python 3.14
         if: matrix.python-version == '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/argdigest
-          ref: "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e"
+          ref: "3d1ec53c374098016452abab74706e9d80df5462"
           path: .molsyssuite/argdigest
       - name: Check out compatible MolSysMT source
         if: matrix.python-version != '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "739395d7ea31bec5c3f77cdcb1135ecf7e7c9bac"
+          ref: "a462b49c5566e8de993f83825576dc3860e9cfb1"
           path: .molsyssuite/molsysmt
       - name: Check out compatible MolSysMT source for Python 3.14
         if: matrix.python-version == '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "739395d7ea31bec5c3f77cdcb1135ecf7e7c9bac"
+          ref: "a462b49c5566e8de993f83825576dc3860e9cfb1"
           path: .molsyssuite/molsysmt
       - name: Check out compatible MolSysViewer source
         if: matrix.python-version != '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysviewer
-          ref: "2c022507265c744d532f39df345322074f80a2a3"
+          ref: "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
           path: .molsyssuite/molsysviewer
       - name: Check out compatible MolSysViewer source for Python 3.14
         if: matrix.python-version == '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysviewer
-          ref: "ec4c71e574d798b7c8675b7e7e983da878ce9889"
+          ref: "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
           path: .molsyssuite/molsysviewer
       - name: Setup micromamba
         uses: mamba-org/setup-micromamba@v3.2.1

@@ -13,7 +13,7 @@ path = "devtools/conda-envs/test_env.yaml"
 kind = "runtime"
 purpose = "test"
 channel_priority = "strict"
-narrowing_reason = "Original compatible test bootstrap floors; exact runtime replacements remain contextual source evidence."
+narrowing_reason = "Compatible test bootstrap floors and Vina-declared setuptools/wheel requirements; exact runtime replacements remain contextual source evidence."
 reason = "Original scientific bootstrap and optional backend/integration tools; strict priority is enforced by both source workflows."
 
 [[source_routes]]
@@ -21,38 +21,36 @@ id = "argdigest-source"
 name = "argdigest"
 role = "required-runtime"
 url = "https://github.com/uibcdf/argdigest"
-# Owner-only checkout input: annotated tag object; SDK commit is its reviewed target.
-checkout_ref = "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e"
-commit = "57447cc4ec1f7ce85078f8a939892efd075bc919"
+commit = "3d1ec53c374098016452abab74706e9d80df5462"
 install = "pip-no-deps-directory"
-reason = "Preserve original reviewed checkout and normal pip --no-deps directory installation; workflow hashes bind the actual route."
+reason = "Current provider composition qualified under dockingmt#49 on Python 3.14; normal pip --no-deps directory install and exact four-minor CI remain required."
 
 [[source_routes]]
 id = "molsysmt-source"
 name = "molsysmt"
 role = "required-runtime"
 url = "https://github.com/uibcdf/molsysmt"
-commit = "739395d7ea31bec5c3f77cdcb1135ecf7e7c9bac"
+commit = "a462b49c5566e8de993f83825576dc3860e9cfb1"
 install = "pip-no-deps-directory"
-reason = "Adopt the prepared-mechanics merge fix (molsysmt#352) for public source-free conversion under dockingmt#49; preserve normal directory installation and qualify the exact source in required CI."
+reason = "Current provider composition under dockingmt#49 includes the prepared-mechanics merge fix (molsysmt#352); preserve normal directory installation and qualify exact source in required CI."
 
 [[source_routes]]
 id = "viewer-base"
 name = "molsysviewer"
 role = "integration"
 url = "https://github.com/uibcdf/molsysviewer"
-commit = "2c022507265c744d532f39df345322074f80a2a3"
+commit = "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
 install = "pip-no-deps-directory"
-reason = "Preserve original reviewed checkout and normal pip --no-deps directory installation; workflow hashes bind the actual route."
+reason = "Current provider composition qualified under dockingmt#49 on Python 3.14; normal pip --no-deps directory install and exact four-minor CI remain required."
 
 [[source_routes]]
 id = "viewer-py314"
 name = "molsysviewer"
 role = "integration"
 url = "https://github.com/uibcdf/molsysviewer"
-commit = "ec4c71e574d798b7c8675b7e7e983da878ce9889"
+commit = "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
 install = "pip-no-deps-directory"
-reason = "Preserve original reviewed checkout and normal pip --no-deps directory installation; workflow hashes bind the actual route."
+reason = "Current provider composition qualified under dockingmt#49 on Python 3.14; normal pip --no-deps directory install and exact four-minor CI remain required."
 
 [[contexts]]
 name = "ci-3.11"
@@ -60,7 +58,7 @@ environment = "devtools/conda-envs/test_env.yaml"
 python_minor = "3.11"
 sources = ["argdigest-source", "molsysmt-source", "viewer-base"]
 overlays = []
-reason = "Original Python 3.11 source selection; required directory sources supply omitted bootstrap providers, optional Viewer is explicitly qualified too."
+reason = "Current Python 3.11 source selection under dockingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
 
 [[contexts]]
 name = "ci-3.12"
@@ -68,7 +66,7 @@ environment = "devtools/conda-envs/test_env.yaml"
 python_minor = "3.12"
 sources = ["argdigest-source", "molsysmt-source", "viewer-base"]
 overlays = []
-reason = "Original Python 3.12 source selection; required directory sources supply omitted bootstrap providers, optional Viewer is explicitly qualified too."
+reason = "Current Python 3.12 source selection under dockingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
 
 [[contexts]]
 name = "ci-3.13"
@@ -76,7 +74,7 @@ environment = "devtools/conda-envs/test_env.yaml"
 python_minor = "3.13"
 sources = ["argdigest-source", "molsysmt-source", "viewer-base"]
 overlays = []
-reason = "Original Python 3.13 source selection; required directory sources supply omitted bootstrap providers, optional Viewer is explicitly qualified too."
+reason = "Current Python 3.13 source selection under dockingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
 
 [[contexts]]
 name = "ci-3.14"
@@ -84,7 +82,7 @@ environment = "devtools/conda-envs/test_env.yaml"
 python_minor = "3.14"
 sources = ["argdigest-source", "molsysmt-source", "viewer-py314"]
 overlays = []
-reason = "Original Python 3.14 source selection; required directory sources supply omitted bootstrap providers, optional Viewer is explicitly qualified too."
+reason = "Current Python 3.14 source selection under dockingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
 
 [[workflows]]
 path = ".github/workflows/build_and_upload_conda_packages.yaml"
@@ -93,7 +91,7 @@ reason = "Manual candidate/staged or eligible reviewed release caller; shared pu
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "9d67d77e4c25c813ded2ff8583b694a5b39b801183dd247df7cae626982207b9"
+sha256 = "1815239c8dce4fe28205c93cbf3de0c3b36fe0f85abbddb9bef1e1b3d511549d"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]
@@ -103,7 +101,7 @@ reason = "Administrative no-build recipe/resources and immutable publisher contr
 
 [[workflows]]
 path = ".github/workflows/full-matrix.yml"
-sha256 = "e352b0e3c29f772d1b1b63b8ec599cca5d8b7a0863b7d2d97d26bc46228063f1"
+sha256 = "b0cce4f3912eba48c1302a11ead2136566c0f41ca78b4a8f859df50b76d9ff10"
 reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under dockingmt#49; directory preflight does not dispatch or change the matrix."
 
 [[workflows]]

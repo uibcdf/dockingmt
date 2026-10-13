@@ -178,3 +178,10 @@ reporting failures and applies the unchanged nine-heavy-atom RMSD criterion.
 Both native-box arms have rank-1 near-reference recovery in six of six rows;
 the displaced-box arms have none among their returned poses. All containment,
 source/runtime identity and limited interpretation remain explicit.
+
+
+The [2026-10-13 provider compatibility checkpoint](validation/provider_compatibility_2026-10-13.md)
+records the current normally installed MolSysMT/ArgDigest/Viewer composition,
+source/native identity, executed consumer controls and immutable 3PTB receiving
+comparison. Complete hosted and public installed-distribution evidence remain
+separate qualification boundaries.

@@ -1,0 +1,61 @@
+"""Case-specific receiving comparison; original producer identity is not reused."""
+import gzip
+import json
+from pathlib import Path
+import numpy as np
+from devtools.qualify_3ptb_admission import admit, DATA, OUTPUT
+
+TASK = Path('/tmp/dockingmt-compatibility-20261013')
+source = TASK / '3PTB.pdb'
+source.write_bytes(gzip.decompress((DATA / '3PTB.pdb.gz').read_bytes()))
+current = admit(source)[-1]
+previous = json.loads(gzip.decompress(OUTPUT.read_bytes()))
+comparison = {
+    'schema': 'dockingmt.provider_admission_comparison@1',
+    'original_admission': str(OUTPUT.relative_to(DATA.parents[2])),
+    'current_import_identity': json.loads((TASK / 'import-preflight.json').read_text()),
+    'new_searches_executed': current['docking_searches_executed'],
+    'fixed_evaluations_executed': current['fixed_evaluations_executed'],
+    'population_equal': current['population'] == previous['population'],
+    'roles': {},
+    'boxes': {},
+}
+for role in ('receptor', 'rigid', 'flexible'):
+    a,b = current['prepared_inputs'][role],previous['prepared_inputs'][role]
+    comparison['roles'][role] = {
+        'pdbqt_equal': a['pdbqt'] == b['pdbqt'],
+        'pdbqt_sha256': a['pdbqt_sha256'],
+        'original_pdbqt_sha256': b['pdbqt_sha256'],
+        'full_source_map_equal': a['pdbqt_to_full_source_atom_indices'] == b['pdbqt_to_full_source_atom_indices'],
+        'max_coordinate_difference_angstrom': float(np.max(np.abs(np.asarray(a['coordinates']) - b['coordinates']))),
+        'native_parser_admitted': a['native_vina_parser_admitted'],
+    }
+for domain in ('native','negative'):
+    a,b=current['boxes'][domain],previous['boxes'][domain]
+    comparison['boxes'][domain] = {
+        'backend_projection_equal': a['backend_projection'] == b['backend_projection'],
+        'containment_equal': a['native_heavy_containment'] == b['native_heavy_containment'],
+    }
+(TASK/'admission-comparison.json').write_text(json.dumps(comparison,indent=2)+'\n')
+(TASK/'candidate-admission.json.gz').write_bytes(gzip.compress(json.dumps(current,sort_keys=True).encode(),mtime=0))
+print(json.dumps(comparison,indent=2))
+for role in ('receptor','rigid','flexible'):
+    a = current['prepared_inputs'][role]['pdbqt'].splitlines()
+    b = previous['prepared_inputs'][role]['pdbqt'].splitlines()
+    prefix = 'REMARK DOCKINGMT_'
+    assert all(line.startswith(prefix) for line in a[:2]+b[:2])
+    for x,y in zip(a[:2],b[:2],strict=True):
+        left_name,left_json=x.split(' ',2)[1:]
+        right_name,right_json=y.split(' ',2)[1:]
+        assert left_name==right_name
+        left,right=json.loads(left_json),json.loads(right_json)
+        assert left['software'].pop('molsysmt') == '0.23.0+65.ga462b49c5'
+        assert right['software'].pop('molsysmt') == '0.23.0+30.g739395d7e'
+        assert left == right
+    comparison['roles'][role]['only_difference_is_recorded_molsysmt_version'] = a[2:]==b[2:]
+fields={'receptor_pdbqt_sha256','partner_pdbqt_sha256'}
+comparison['population_equal_except_version_bound_input_digests'] = all(
+    {k:v for k,v in a.items() if k not in fields} == {k:v for k,v in b.items() if k not in fields}
+    for a,b in zip(current['population'],previous['population'],strict=True))
+comparison['original_admission'] = str(OUTPUT.relative_to(DATA.parents[3]))
+(TASK/'admission-comparison.json').write_text(json.dumps(comparison,indent=2)+'\n')

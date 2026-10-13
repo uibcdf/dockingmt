@@ -26,12 +26,13 @@ def test_shared_governance_surfaces_are_present():
 def test_ci_covers_supported_lanes_and_common_quality_gates():
     workflow = (ROOT / '.github/workflows/ci.yml').read_text(encoding='utf-8')
     assert 'python-version: ["3.11", "3.12", "3.13", "3.14"]' in workflow
-    assert 'repository: uibcdf/argdigest' in workflow
-    assert 'ref: "1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e"' in workflow
-    assert 'repository: uibcdf/molsysmt' in workflow
-    assert 'ref: "739395d7ea31bec5c3f77cdcb1135ecf7e7c9bac"' in workflow
-    assert 'repository: uibcdf/molsysviewer' in workflow
-    assert 'ref: "2c022507265c744d532f39df345322074f80a2a3"' in workflow
+    inventory = tomllib.loads(
+        (ROOT / 'devtools/dependency_routes.toml').read_text(encoding='utf-8')
+    )
+    for source in inventory['source_routes']:
+        assert f'repository: uibcdf/{source["name"]}' in workflow
+        checkout = source.get('checkout_ref', source['commit'])
+        assert f'ref: "{checkout}"' in workflow
     assert '.molsyssuite/argdigest' in workflow
     assert '.molsyssuite/molsysmt' in workflow
     assert '.molsyssuite/molsysviewer' in workflow
