@@ -83,8 +83,9 @@ template fixture explicitly declares coulomb as it now performs charge work.
 [MolSysMT #381](https://github.com/uibcdf/molsysmt/issues/381) records the narrower
 observed limitation when native charge assignment runs under a policy containing
 only pm/fs: its internal standardized quantity raises `NoStandardsError`.
-The native fixed-unit contract versus this policy prerequisite needs provider
-clarification; DockingMT neither overrides caller policy nor catches the error.
+This describes the original `739395d7e` source boundary. The provider resolved
+it under #381; the current adopted behavior is recorded below. DockingMT neither
+overrides caller policy nor catches the error.
 
 Use the unchanged CI provider source
 `739395d7ea31bec5c3f77cdcb1135ecf7e7c9bac`, retained native binary and qualified
@@ -126,3 +127,28 @@ unchanged earlier 169-case selection remains applicable; together these cover
 226 distinct local preparation/integration controls. Administrative gates also
 remain applicable; generated indexes and diff checks are checked again after
 this dated correction. Full hosted suites remain a separate gate.
+
+
+## Adopted provider unit-policy correction — 2026-10-13
+
+[MolSysMT #381](https://github.com/uibcdf/molsysmt/issues/381) is resolved by
+`3347a108a`, included in the qualified provider source `a462b49c5`.
+Native explicit charge assignment retains canonical elementary-charge storage
+without requiring a presentation standard. The provider's quantity-returning
+getter keeps its own configured-standard contract; this does not redefine it.
+
+`test_explicit_preparation_needs_no_charge_presentation_standard` checks both
+DockingMT preparation roles under a caller policy containing only pm/fs.
+Requested named charge and type assignment yields the same prepared charge
+values, maps, coordinates and PDBQT bytes as the default policy; the caller's
+policy and input system remain unchanged. Calculation and molecular state work
+stay in MolSysMT. These consumer controls establish compatibility with the
+already-delivered provider correction, not scientific model validation.
+
+
+The affected source selection passes **134 tests without skips in 78.46 seconds**
+on the qualified Python 3.14.8 provider composition. The
+[consumer receipt](data/provider_compatibility/consumer_controls_2026-10-13.json)
+and [log](data/provider_compatibility/consumer_controls_2026-10-13.txt) retain
+this four-case addition and its wider boundary checks. Final complete source CI
+and ordinary installed-wheel receiving remain separately recorded checkpoints.

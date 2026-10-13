@@ -436,3 +436,15 @@ single declared hypothesis does not establish affinity, general preparation or
 multi-case performance; #5 remains partial/open. The existing broad local
 environment's failed global pip check stays with MolSysSuite #82; exact-head
 hosted evidence is synchronized after execution.
+
+
+## Provider corrections adopted — 2026-10-13
+
+MolSysMT #376 and #381 are resolved and included in the current qualified provider
+`a462b49c5`. The [typing contract](../validation/required_named_typing.md) now
+covers native manual labels while retaining rejection without named provenance.
+The [charge contract](../validation/required_partial_charges.md) adds both-role
+preparation checks without a charge presentation standard, preserving caller
+policy, input identity and prepared bytes. Earlier limitations and measured
+receipts above remain historical. This issue stays partial for native projection
+and broader chemical/scoring acceptance; no new molecular helper is added here.

@@ -1,0 +1,28 @@
+{
+  "schema": "dockingmt.provider_corrections_consumption@1",
+  "date": "2026-10-13",
+  "owner": "uibcdf/dockingmt#49",
+  "registration": "https://github.com/uibcdf/dockingmt/issues/49#issuecomment-6149467471",
+  "consumer_parent": "06e2d84b92b6c44caa1108d5ef2cfcccc6b16d4e",
+  "provider_commit": "a462b49c5566e8de993f83825576dc3860e9cfb1",
+  "included_fixes": {
+    "376": "6f36c329e0014480c449b3b54362e76d9f570ab8",
+    "381": "3347a108a19177482dcab4bd73a02374c960cd5e"
+  },
+  "counts": {
+    "tests": 134,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "seconds": 78.46,
+  "new_consumer_cases": 4,
+  "new_case_contracts": [
+    "Both preparation roles preserve values, bytes, source and pm/fs caller policy without a charge presentation standard",
+    "Both preparation roles reject manual native type labels without named provenance"
+  ],
+  "log_sha256": "6a723ac0d6e09d7b3b62295e8d08527edf67560356224333e200edc0897aa2b7",
+  "new_molecular_implementation": false,
+  "new_3ptb_searches": 0,
+  "scope": "qualified Linux Python 3.14.8 source composition; final source checkpoint and installed-wheel receiving remain distinct"
+}

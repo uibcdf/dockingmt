@@ -166,6 +166,35 @@ def test_explicit_charge_then_typing_stage_matches_public_pipeline(
 
 
 @pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+def test_explicit_preparation_needs_no_charge_presentation_standard(prepare):
+    source = msm.convert(METHANOL, to_form='molsysmt.MolSys')
+    before = snapshot(source)
+    expected = prepare(
+        source, selection='all', charge_options=CHARGE, typing_options=TYPING
+    )
+    with puw.context(standard_units=['pm', 'fs']):
+        policy = puw.configure.report()
+        actual = prepare(
+            source, selection='all', charge_options=CHARGE, typing_options=TYPING
+        )
+        assert puw.configure.report() == policy
+        assert actual.charges == expected.charges
+        assert actual.to_pdbqt() == expected.to_pdbqt()
+        assert (
+            actual.metadata['charge_projection']
+            == expected.metadata['charge_projection']
+        )
+        np.testing.assert_allclose(
+            puw.get_value(actual.coordinates, to_unit='angstrom'),
+            puw.get_value(expected.coordinates, to_unit='angstrom'),
+            rtol=0,
+            atol=1e-10,
+        )
+    assert snapshot(source) == before
+    assert not msm.has_attribute(source, 'partial_charge')
+
+
+@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
 def test_charge_provider_failure_propagates_without_zero_fallback(prepare, monkeypatch):
     source = _typed_without_charges()
     before = snapshot(source)

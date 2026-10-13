@@ -113,7 +113,8 @@ attribute handling; its failures propagate instead of being bypassed.
   zero fabrication in both roles and delegates every explicit calculation to
   MolSysMT. Supplied zeros retain their own provenance. No new molecular
   transform is introduced. Scientific model acceptance remains #5; the native
-  unit-policy limitation is reported in MolSysMT #381.
+  original unit-policy limitation was resolved in MolSysMT #381; current adoption
+  and consumer guards are recorded below.
 
 - **Typing adopted:** the [2026-10-10 compatibility change](../validation/required_named_typing.md)
   removes both consumer classifiers. A valid named provider assignment or explicit
@@ -331,3 +332,24 @@ before science. The correction passes 29 local administrative cases, lint/format
 index and declared-route gates; complete corrected-head CI remains required.
 The reusable acquisition requirement is handed off to MolSysSuite #31, with
 [retained evidence](../validation/data/provider_compatibility/ci_history_correction_2026-10-13.json).
+
+
+## Pre-human closure — 2026-10-13
+
+The [terminal source checkpoint](../validation/provider_compatibility_2026-10-13.md#terminal-source-qualification--2026-10-13)
+fulfills the earlier required CI at `06e2d84`: four complete 1,125-case Linux
+source suites, zero test skips, installed dependency checks and measured coverage
+publication pass. Initial failed/cancelled records and their producers remain.
+
+Delivered MolSysMT #376 and #381 fixes are already included in `a462b49c5`.
+The required-type controls now reject unattributed manual labels through both
+public native and mechanical-domain setters. The required-charge controls
+exercise both explicit preparation roles without a charge presentation standard,
+including caller-policy/input preservation and unchanged prepared bytes. No
+consumer molecular operation or new typing/charge model is added.
+
+These four additional consumer cases require their own final source checkpoint;
+the preceding 1,125-case matrix is not relabelled as that later test run. Public
+installed file/pair admission, missing projection/permutation/symmetry and
+chemical/scoring acceptance stay separate. The next bounded gate checks an
+ordinary wheel outside the checkout under #30/#47.

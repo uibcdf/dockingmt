@@ -14,16 +14,20 @@ from dockingmt._private.smonitor import ArgumentError
 
 
 @pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
-@pytest.mark.parametrize('input_kind', ['untyped', 'charged', 'bare_column'])
+@pytest.mark.parametrize(
+    'input_kind', ['untyped', 'charged', 'bare_column', 'native_bare_column']
+)
 def test_missing_named_types_fail_without_implicit_molecular_work(
     prepare, input_kind, monkeypatch
 ):
     source = explicit_source('CN')
     if input_kind == 'charged':
         source = msm.build.assign_partial_charges(source, **CHARGE)
-    elif input_kind == 'bare_column':
+    elif input_kind in ('bare_column', 'native_bare_column'):
         msm.set(
-            source.molecular_mechanics,
+            source
+            if input_kind == 'native_bare_column'
+            else source.molecular_mechanics,
             element='atom',
             atom_ff_type=['C'] * msm.get(source, n_atoms=True),
         )

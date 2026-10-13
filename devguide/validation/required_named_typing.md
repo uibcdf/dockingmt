@@ -71,10 +71,15 @@ chemical graph. Tests now retain explicit rejection of that charge-only input;
 DockingMT adds no graph-completion routine. The earlier 364-atom charge-only
 export remains historical evidence on its original consumer source.
 
-[MolSysMT #376](https://github.com/uibcdf/molsysmt/issues/376) records the public
-`msm.set(MolSys, atom_ff_type=...)` adapter gap. Bare-label admission controls use
-the already supported public MolecularMechanics setter, with no invented named
-provenance or downstream mutation helper. That provider proposal is not a blocker.
+The original `739395d7e` provider exposed a public native
+`msm.set(MolSys, atom_ff_type=...)` adapter gap, recorded in
+[MolSysMT #376](https://github.com/uibcdf/molsysmt/issues/376). The provider fix
+`6f36c329e0014480c449b3b54362e76d9f570ab8` is included in the adopted
+`a462b49c5566e8de993f83825576dc3860e9cfb1`. Current negative admission controls
+exercise both the native MolSys and MolecularMechanics public setters. Both
+manual label routes must remain rejected without a named typing assignment;
+a working setter supplies no chemical-model provenance. No downstream setter or
+invented report is introduced.
 
 ## Validation scope
 

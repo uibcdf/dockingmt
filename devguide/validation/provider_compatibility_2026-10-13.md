@@ -68,7 +68,7 @@ warnings while preserving 44 output atoms. Provider improvement is reported in
 [MolSysMT #386](https://github.com/uibcdf/molsysmt/issues/386); DockingMT adds no
 warning filter or molecular merger.
 
-## Decision and remaining qualification
+## Local decision before hosted qualification
 
 The complete local run executes all 1,125 cases: **1,124 pass and one fails in
 815.81 seconds**, with 844 retained warnings. Its sole failure is the governance
@@ -149,3 +149,30 @@ preserve the observed failure. The corrected unskipped head requires fresh compl
 CI, including its installed dependency check, before source adoption is qualified.
 The reusable sibling-source mechanism and this versioning requirement belong to
 [MolSysSuite #31](https://github.com/uibcdf/molsyssuite/issues/31).
+
+
+## Terminal source qualification — 2026-10-13
+
+The corrected source adoption is qualified at
+`06e2d84b92b6c44caa1108d5ef2cfcccc6b16d4e` by
+[CI 38375329396](https://github.com/uibcdf/dockingmt/actions/runs/38375329396),
+attempt 1: all seven jobs succeed. Every Linux Python 3.11–3.14 cell executes
+**1,125 tests without skips**, with independent installed source/context
+verification, ordinary installed consumer import and `pip check` before science.
+The real three provider versions match the normally installed local composition.
+Python 3.11 uses NumPy 2.4.6; the other three use 2.5.4.
+
+[Policy 38375330236](https://github.com/uibcdf/dockingmt/actions/runs/38375330236)
+and [publication governance 38375330332](https://github.com/uibcdf/dockingmt/actions/runs/38375330332)
+also pass on that exact head. Native run/attempt/job/step facts and full logs are
+preserved in the [terminal receipt](data/provider_compatibility/terminal_2026-10-13.json).
+The measured Python 3.14 artifact is downloaded and its single report uploaded:
+37,197 compressed bytes, followed by `Upload queued for processing complete`.
+This establishes actual upload; subsequent Codecov processing is separate.
+
+This fulfills the source checkpoint required above. The initial local old-pin
+failure and cancelled first CI remain diagnostic records. The ordinary installed
+consumer import in CI does not replace a source-free scientific receiving test or
+public Conda file/pair admission. DockingMT #49 remains partial for missing provider
+operations; #30/#47 retain installed/public qualification scope. Original 3PTB
+producer/archive bytes and the no-new-search boundary remain unchanged.

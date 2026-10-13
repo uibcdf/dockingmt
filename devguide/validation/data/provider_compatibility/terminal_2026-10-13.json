@@ -1,0 +1,224 @@
+{
+  "schema": "dockingmt.provider_compatibility_terminal@1",
+  "date": "2026-10-13",
+  "owner": "uibcdf/dockingmt#49",
+  "head": "06e2d84b92b6c44caa1108d5ef2cfcccc6b16d4e",
+  "runs": [
+    {
+      "id": 38375329396,
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/38375329396",
+      "head": "06e2d84b92b6c44caa1108d5ef2cfcccc6b16d4e",
+      "attempt": 1,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 115222148224,
+          "name": "Distribution governance on Linux Python 3.14",
+          "conclusion": "success"
+        },
+        {
+          "id": 115222148451,
+          "name": "Quality on ubuntu-latest",
+          "conclusion": "success"
+        },
+        {
+          "id": 115222148594,
+          "name": "Test on ubuntu-latest, Python 3.13",
+          "conclusion": "success"
+        },
+        {
+          "id": 115222148610,
+          "name": "Test on ubuntu-latest, Python 3.12",
+          "conclusion": "success"
+        },
+        {
+          "id": 115222148647,
+          "name": "Test on ubuntu-latest, Python 3.11",
+          "conclusion": "success"
+        },
+        {
+          "id": 115222148783,
+          "name": "Test on ubuntu-latest, Python 3.14",
+          "conclusion": "success"
+        },
+        {
+          "id": 115227663372,
+          "name": "Publish default-branch Python coverage",
+          "conclusion": "success"
+        }
+      ],
+      "bundle": "/tmp/dockingmt-compatibility-20261013/corrected-ci-bundle",
+      "manifest_sha256": "6f9170e3d18a1def13f46512a0e01b3afe57be120c8d45b7eb2aea650fae9637"
+    },
+    {
+      "id": 38375330236,
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/38375330236",
+      "head": "06e2d84b92b6c44caa1108d5ef2cfcccc6b16d4e",
+      "attempt": 1,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 115222150977,
+          "name": "policy / conformance",
+          "conclusion": "success"
+        }
+      ],
+      "bundle": "/tmp/dockingmt-compatibility-20261013/corrected-policy-bundle",
+      "manifest_sha256": "40bfbbebe32e42467c6bdb1139bc557241dd956ee0c541bebf0333039b40d3d0"
+    },
+    {
+      "id": 38375330332,
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/38375330332",
+      "head": "06e2d84b92b6c44caa1108d5ef2cfcccc6b16d4e",
+      "attempt": 1,
+      "conclusion": "success",
+      "jobs": [
+        {
+          "id": 115222151458,
+          "name": "publication / check",
+          "conclusion": "success"
+        }
+      ],
+      "bundle": "/tmp/dockingmt-compatibility-20261013/corrected-governance-bundle",
+      "manifest_sha256": "82d45a769ea63340530caae8aa70e410f2c09b5f8f23b3c55c399ca84340f35a"
+    }
+  ],
+  "source_suites": [
+    {
+      "log": "Test on ubuntu-latest, Python 3.14/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-13T09:31:06.1505681Z PASS exit=0 | 1125 passed | 571.88s | 844 warnings",
+      "sha256": "4ec17ffe846bc6dbdab05f0a3f0b53f60b2ed7b60c982aaab65dd018079133c9"
+    },
+    {
+      "log": "Test on ubuntu-latest, Python 3.13/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-13T09:30:40.3608457Z PASS exit=0 | 1125 passed | 546.93s | 844 warnings",
+      "sha256": "04346f2c762205e960eb193ab08ebf844c0fac5e8e45ca51d46898a5ecbfe5b1"
+    },
+    {
+      "log": "Test on ubuntu-latest, Python 3.12/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-13T09:31:42.8783153Z PASS exit=0 | 1125 passed | 619.31s | 844 warnings",
+      "sha256": "73709830122cff218c1a51d73c1c2e6eda466ca8fbdb436e4d671201b3af8a4b"
+    },
+    {
+      "log": "Test on ubuntu-latest, Python 3.11/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-13T09:31:34.9142338Z PASS exit=0 | 1125 passed | 611.00s | 844 warnings",
+      "sha256": "02034004296e8ff7a1ca4536105a5358dd80bc05fa1752bd5755e54a432b5627"
+    }
+  ],
+  "installed_dependency_checks": 4,
+  "source_case_count_per_minor": 1125,
+  "skips": 0,
+  "coverage_steps": {
+    "Set up job": "success",
+    "Run actions/checkout@v6": "success",
+    "Download the measured Python report": "success",
+    "Upload the measured report to Codecov": "success",
+    "Post Run actions/checkout@v6": "success",
+    "Complete job": "success"
+  },
+  "source_providers": {
+    "molsysmt": "a462b49c5566e8de993f83825576dc3860e9cfb1",
+    "argdigest": "3d1ec53c374098016452abab74706e9d80df5462",
+    "molsysviewer": "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
+  },
+  "original_scientific_archives": {
+    "devguide/validation/data/3ptb_admission/audit_2026-10-10.json.gz": "05f82e0ff16592c64d404c216a7e2feff0c0e62a2aebff240dc8653350e21075",
+    "devguide/validation/data/3ptb_search/audit_2026-10-10.json.gz": "97104903c93b3f7a729a5a6ac196cdb7b59d686e318efdcf324f70131abba1f2",
+    "devguide/validation/data/3ptb_search/evaluation_2026-10-10.json.gz": "8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af"
+  },
+  "new_3ptb_searches": 0,
+  "public_installed_artifact_admitted": false,
+  "provider_operations_complete": false,
+  "installed_contexts": [
+    {
+      "context": "ci-3.14",
+      "installed_versions": {
+        "argdigest": "0.15.0+5.g3d1ec53",
+        "depdigest": "0.14.0",
+        "molsysmt": "0.23.0+65.ga462b49c5",
+        "numpy": "2.5.4",
+        "python": "3.14.8",
+        "pyunitwizard": "0.28.1",
+        "smonitor": "0.19.0"
+      },
+      "provider_versions": {
+        "argdigest": "0.15.0+5.g3d1ec53",
+        "molsysmt": "0.23.0+65.ga462b49c5",
+        "molsysviewer": "0.24.0+76.ga61b75bc"
+      }
+    },
+    {
+      "context": "ci-3.13",
+      "installed_versions": {
+        "argdigest": "0.15.0+5.g3d1ec53",
+        "depdigest": "0.14.0",
+        "molsysmt": "0.23.0+65.ga462b49c5",
+        "numpy": "2.5.4",
+        "python": "3.13.16",
+        "pyunitwizard": "0.28.1",
+        "smonitor": "0.19.0"
+      },
+      "provider_versions": {
+        "argdigest": "0.15.0+5.g3d1ec53",
+        "molsysmt": "0.23.0+65.ga462b49c5",
+        "molsysviewer": "0.24.0+76.ga61b75bc"
+      }
+    },
+    {
+      "context": "ci-3.12",
+      "installed_versions": {
+        "argdigest": "0.15.0+5.g3d1ec53",
+        "depdigest": "0.14.0",
+        "molsysmt": "0.23.0+65.ga462b49c5",
+        "numpy": "2.5.4",
+        "python": "3.12.15",
+        "pyunitwizard": "0.28.1",
+        "smonitor": "0.19.0"
+      },
+      "provider_versions": {
+        "argdigest": "0.15.0+5.g3d1ec53",
+        "molsysmt": "0.23.0+65.ga462b49c5",
+        "molsysviewer": "0.24.0+76.ga61b75bc"
+      }
+    },
+    {
+      "context": "ci-3.11",
+      "installed_versions": {
+        "argdigest": "0.15.0+5.g3d1ec53",
+        "depdigest": "0.14.0",
+        "molsysmt": "0.23.0+65.ga462b49c5",
+        "numpy": "2.4.6",
+        "python": "3.11.17",
+        "pyunitwizard": "0.28.1",
+        "smonitor": "0.19.0"
+      },
+      "provider_versions": {
+        "argdigest": "0.15.0+5.g3d1ec53",
+        "molsysmt": "0.23.0+65.ga462b49c5",
+        "molsysviewer": "0.24.0+76.ga61b75bc"
+      }
+    }
+  ],
+  "coverage_artifact": {
+    "archive_download_url": "https://api.github.com/repos/uibcdf/dockingmt/actions/artifacts/11800983654/zip",
+    "created_at": "2026-10-13T09:31:08Z",
+    "digest": "sha256:48a33a7c3c0070b5cf9d65fd307176c627f0a3e8ff5424d10ea3e01e905d500e",
+    "expired": false,
+    "expires_at": "2026-10-27T09:31:08Z",
+    "id": 11800983654,
+    "name": "dockingmt-python-coverage-38375329396-1",
+    "node_id": "MDg6QXJ0aWZhY3QxMTgwMDk4MzY1NA==",
+    "size_in_bytes": 11197,
+    "updated_at": "2026-10-13T09:31:08Z",
+    "url": "https://api.github.com/repos/uibcdf/dockingmt/actions/artifacts/11800983654",
+    "workflow_run": {
+      "head_branch": "main",
+      "head_repository_id": 1380446251,
+      "head_sha": "06e2d84b92b6c44caa1108d5ef2cfcccc6b16d4e",
+      "id": 38375329396,
+      "repository_id": 1380446251
+    }
+  },
+  "coverage_log_sha256": "9034422fb23d7bc4b4cca0963ba8c6de8ad76e61dc45987a186fb8e9b5d3581b",
+  "resource_owner_url": "https://github.com/uibcdf/dockingmt/issues/50#issuecomment-6142521385"
+}
