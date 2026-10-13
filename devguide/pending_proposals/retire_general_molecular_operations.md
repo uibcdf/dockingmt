@@ -322,3 +322,12 @@ The observed shared environment-tool channel behavior is handed off in
 [MolSysSuite #108](https://github.com/uibcdf/molsyssuite/issues/108#issuecomment-6141735585).
 This issue stays partial; a current compatible source does not deliver all
 remaining provider operations or qualify a public distribution.
+
+
+The first hosted source run is superseded before admission after reproducing
+ArgDigest's depth-one version fallback (`0.0.0` versus `0.15.0+5.g3d1ec53`).
+Both source routes now preserve full provider Git history and execute `pip check`
+before science. The correction passes 29 local administrative cases, lint/format,
+index and declared-route gates; complete corrected-head CI remains required.
+The reusable acquisition requirement is handed off to MolSysSuite #31, with
+[retained evidence](../validation/data/provider_compatibility/ci_history_correction_2026-10-13.json).

@@ -91,7 +91,7 @@ reason = "Manual candidate/staged or eligible reviewed release caller; shared pu
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "1815239c8dce4fe28205c93cbf3de0c3b36fe0f85abbddb9bef1e1b3d511549d"
+sha256 = "660f0bd136656282c9e4085619e7366ba120957c01bb71fdba84da31980d8250"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]
@@ -101,7 +101,7 @@ reason = "Administrative no-build recipe/resources and immutable publisher contr
 
 [[workflows]]
 path = ".github/workflows/full-matrix.yml"
-sha256 = "b0cce4f3912eba48c1302a11ead2136566c0f41ca78b4a8f859df50b76d9ff10"
+sha256 = "580c9bbb098d8162efbd531c2269ce864b90dea8779081138de7544436864dbe"
 reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under dockingmt#49; directory preflight does not dispatch or change the matrix."
 
 [[workflows]]

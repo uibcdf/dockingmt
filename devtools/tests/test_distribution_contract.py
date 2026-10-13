@@ -231,6 +231,7 @@ class TestDistributionContract(unittest.TestCase):
                 if s.get('with', {}).get('repository')
                 in {'uibcdf/argdigest', 'uibcdf/molsysmt', 'uibcdf/molsysviewer'}
             ]
+            self.assertTrue(all(s['with']['fetch-depth'] == 0 for s in clones))
             for context in inventory['contexts']:
                 condition = (
                     "matrix.python-version == '3.14'"
@@ -321,6 +322,10 @@ class TestDistributionContract(unittest.TestCase):
                 (self.root / '.github/workflows' / workflow).read_text()
             )['jobs'][key]['steps']
             names = {s.get('name'): i for i, s in enumerate(steps)}
+            self.assertLess(
+                names['Check installed dependency closure'],
+                names['Run tests with pytest-receptor'],
+            )
             check = names['Check dependency routes and installed clone context']
             self.assertLess(names['Install dockingmt'], check)
             self.assertLess(check, names['Run tests with pytest-receptor'])

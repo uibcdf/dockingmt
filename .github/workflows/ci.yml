@@ -41,6 +41,7 @@ jobs:
           repository: uibcdf/argdigest
           ref: "3d1ec53c374098016452abab74706e9d80df5462"
           path: .molsyssuite/argdigest
+          fetch-depth: 0
       - name: Check out compatible ArgDigest source for Python 3.14
         if: matrix.python-version == '3.14'
         uses: actions/checkout@v6
@@ -48,6 +49,7 @@ jobs:
           repository: uibcdf/argdigest
           ref: "3d1ec53c374098016452abab74706e9d80df5462"
           path: .molsyssuite/argdigest
+          fetch-depth: 0
       - name: Check out compatible MolSysMT source
         if: matrix.python-version != '3.14'
         uses: actions/checkout@v6
@@ -55,6 +57,7 @@ jobs:
           repository: uibcdf/molsysmt
           ref: "a462b49c5566e8de993f83825576dc3860e9cfb1"
           path: .molsyssuite/molsysmt
+          fetch-depth: 0
       - name: Check out compatible MolSysMT source for Python 3.14
         if: matrix.python-version == '3.14'
         uses: actions/checkout@v6
@@ -62,6 +65,7 @@ jobs:
           repository: uibcdf/molsysmt
           ref: "a462b49c5566e8de993f83825576dc3860e9cfb1"
           path: .molsyssuite/molsysmt
+          fetch-depth: 0
       - name: Check out compatible MolSysViewer source
         if: matrix.python-version != '3.14'
         uses: actions/checkout@v6
@@ -69,6 +73,7 @@ jobs:
           repository: uibcdf/molsysviewer
           ref: "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
           path: .molsyssuite/molsysviewer
+          fetch-depth: 0
       - name: Check out compatible MolSysViewer source for Python 3.14
         if: matrix.python-version == '3.14'
         uses: actions/checkout@v6
@@ -76,6 +81,7 @@ jobs:
           repository: uibcdf/molsysviewer
           ref: "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
           path: .molsyssuite/molsysviewer
+          fetch-depth: 0
       - name: Setup micromamba
         uses: mamba-org/setup-micromamba@v3.2.1
         with:
@@ -127,6 +133,9 @@ jobs:
           from packaging.specifiers import SpecifierSet;
           assert SpecifierSet(m.metadata("dockingmt")["Requires-Python"]) == SpecifierSet(">=3.11,<3.15");
           print("Installed", m.version("dockingmt"), dockingmt.__file__)'
+      - name: Check installed dependency closure
+        shell: bash -l {0}
+        run: python -m pip check
       - name: Run tests with pytest-receptor
         shell: bash -l {0}
         env:

@@ -1,0 +1,26 @@
+{
+  "schema": "dockingmt.source_history_correction@1",
+  "owner": "uibcdf/dockingmt#49",
+  "date": "2026-10-13",
+  "source": "argdigest@3d1ec53c374098016452abab74706e9d80df5462",
+  "normal_git_history_version": "0.15.0+5.g3d1ec53",
+  "shallow_git_version": "0.0.0",
+  "violated_provider_requirement": "molsysmt requires argdigest>=0.13.0",
+  "initial_consumer": "a7f753afc1b9191d48bfdcff8189f869431796a2",
+  "initial_run": 38374178868,
+  "initial_run_qualification": "Superseded before admission; source tests alone do not verify transitive package metadata floors",
+  "correction": "Full provider checkout history and explicit pip check before source tests in required and recurring workflows",
+  "retained_proof_sha256": "fb2bbc2cd68d734c1d65bf3a526cc600eca753b9a3f2cc8f36cae5d402491ece",
+  "scientific_source_changed": false,
+  "new_3ptb_searches": 0,
+  "shared_owner_feedback": "https://github.com/uibcdf/molsyssuite/issues/31#issuecomment-6142341804",
+  "initial_run_conclusion": "cancelled by this task after versioning reproduction; not an admitted full-suite checkpoint",
+  "correction_local_gates": {
+    "administrative_passed": 29,
+    "seconds": 2.82,
+    "pip_check": "No broken requirements found.",
+    "ruff": "lint and format pass",
+    "declared_routes": "pass",
+    "indexes": "current"
+  }
+}

@@ -126,3 +126,26 @@ installed distribution with recorded imports, units, preparations, captured back
 inputs and replayed outputs. The general vertical-pilot principle is human
 orchestration before agent orchestration; this public checkpoint includes no private
 scientific pilot content.
+
+
+## Source-history correction before CI admission
+
+The first published source candidate `a7f753a` starts CI
+[38374178868](https://github.com/uibcdf/dockingmt/actions/runs/38374178868).
+A receiving versioning probe of the exact ArgDigest source shows that its shallow
+Git checkout produces `0.0.0`, while the full source clone produces
+`0.15.0+5.g3d1ec53`. The former violates MolSysMT's declared ArgDigest >=0.13.0
+requirement. Scientific tests and direct consumer floor checks do not establish
+transitive installed-metadata compatibility. This run is superseded before
+admission; successful preliminary quality/governance gates stay bounded evidence.
+
+Both source workflows now fetch complete history for each scientific provider and
+execute `python -m pip check` before source tests. The existing declared-route
+control also checks full-history checkout inputs and dependency-check ordering.
+Exact source commits, scientific code, matrices and commands are unchanged. The
+[correction receipt](data/provider_compatibility/ci_history_correction_2026-10-13.json)
+and [version reproduction](data/provider_compatibility/shallow_version_2026-10-13.txt)
+preserve the observed failure. The corrected unskipped head requires fresh complete
+CI, including its installed dependency check, before source adoption is qualified.
+The reusable sibling-source mechanism and this versioning requirement belong to
+[MolSysSuite #31](https://github.com/uibcdf/molsyssuite/issues/31).
