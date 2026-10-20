@@ -357,3 +357,19 @@ new native work forbidden. The [pause handoff](../validation/pause_handoff_2026-
 links the immutable receipts and resumption route. Public installed file/pair
 admission, missing projection/permutation/symmetry and chemical/scoring acceptance
 stay separate; this issue remains partial.
+## Delivered provider continuation — 2026-10-20
+
+MolSysMT #310 and #385 are delivered and consumed through the
+[optional symmetry/input checkpoint](../validation/symmetry_redocking.md).
+The declared-state symmetry operation is no longer an undelivered provider need;
+its chemical context and limits remain explicit. General matching, RMSD and
+compressed molecular input are implemented by MolSysMT. A missing stereo-metadata
+composition requirement is proposed in [MolSysMT #390](https://github.com/uibcdf/molsysmt/issues/390);
+the bounded benzamidinium workflow uses an explicit public setter declaration,
+not a downstream chemical classifier or generic repair helper.
+
+The executed ordinary-wheel notebook covers preparation, one registered search,
+evaluation and receiving all 24/167 saved results, then stops before visualization
+for maintainer discussion. Source/public delivery and the remaining projection,
+pose-ensemble, permutation, connectivity and persistence work retain their existing
+owners and partial status. Original scientific producers and archives are intact.

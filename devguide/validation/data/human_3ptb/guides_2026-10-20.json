@@ -1,0 +1,44 @@
+[
+  {
+    "filename": "MOLSYSSUITE_GUIDE.md",
+    "canonical_blob": "651eb6dcca656f57a72f498e52c3fe76f3e9c4f5",
+    "matches": true,
+    "sha256": "3d7fd9a09745c1c53543abca309881ec7b2448dc6e3f4f7a474c6b7ca138fd7e"
+  },
+  {
+    "filename": "SMONITOR_GUIDE.md",
+    "canonical_blob": "fbde1d0af6dc10f76b5b414c06e28fa7163d0ada",
+    "matches": true,
+    "sha256": "e4c9464fffc29f442e2a53d6f7c029cbe96a54e76f29e808f3ebbddc4dbfa11d"
+  },
+  {
+    "filename": "DEPDIGEST_GUIDE.md",
+    "canonical_blob": "5918d76ab42f3cc41de7d06553ec9f3b37fa3344",
+    "matches": true,
+    "sha256": "f09328b84dfbfb0a51e2970c9f6c2b8b48d61e238cd4920637de629de261be55"
+  },
+  {
+    "filename": "ARGDIGEST_GUIDE.md",
+    "canonical_blob": "fa75e4d8942bc8231fc7bf255f81d5ee71e76f5e",
+    "matches": true,
+    "sha256": "7cada7b5afc796ccc35505760210117053c8c5ab8b9c03ab0a84ad452e26e97a"
+  },
+  {
+    "filename": "PYUNITWIZARD_GUIDE.md",
+    "canonical_blob": "cc49f9979c3ca4e801416cd8ef4c3b2dfdf4f82a",
+    "matches": true,
+    "sha256": "1da267f600c0179f8587d7a9a20cf0da6e6578c586ec576f4b70a0ea31fd5345"
+  },
+  {
+    "filename": "GH_RUN_RECEPTOR_GUIDE.md",
+    "canonical_blob": "0c2d4a3406c86d655e7e8090300c8d2a9de1add6",
+    "matches": true,
+    "sha256": "a3cf5c4d17c3dae3f9f419d1ddd9cf298017f9b4bca7e224e5d517b75cfc60f8"
+  },
+  {
+    "filename": "PYTEST_RECEPTOR_GUIDE.md",
+    "canonical_blob": "c1be410e4a33449fb0e7e376973c7d3300c7e6e5",
+    "matches": true,
+    "sha256": "edc16aef94ed06b7770b60e6bcda4fc5c2c468bf86a59ded93f41ec67dbce383"
+  }
+]

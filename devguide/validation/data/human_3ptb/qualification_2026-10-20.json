@@ -1,0 +1,176 @@
+{
+  "schema": "dockingmt.human_workflow_receiving@1",
+  "date": "2026-10-20",
+  "owner": "uibcdf/dockingmt#49",
+  "provider_proposal": "uibcdf/molsysmt#390",
+  "wheel_producer": "1decee504b112cfd92026c52dcbe22449de30f4f",
+  "providers": {
+    "molsysmt": "c35252d89a28a8faff11e0014bda91312167f549",
+    "argdigest": "3d1ec53c374098016452abab74706e9d80df5462",
+    "molsysviewer": "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
+  },
+  "native_sha256": "feb001379201b92690eadf04fd0be6b710cdfe50bad240feba26cf666e19b41b",
+  "installed_tests": {
+    "passed": 277,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 135.56,
+    "deselected": 0
+  },
+  "administrative_cases": 29,
+  "notebook_executions": {
+    "initial": "one fresh registered search completed; evaluation refused missing stereo metadata",
+    "recovery": "all code cells completed using exact saved result, no new search; public explicit stereo declaration on detached context"
+  },
+  "registered_searches": 1,
+  "actual_new_3ptb_searches": 1,
+  "historical_searches_reexecuted": 0,
+  "historical_rows_received": 24,
+  "historical_poses_received": 167,
+  "visualization_executed": false,
+  "pip_check": "No broken requirements found.",
+  "required_resources": 60,
+  "source_suite_qualification": "Final exact-head hosted result remains separately recorded on the owning issue",
+  "public_artifact_admitted": false,
+  "temporary_owner": "uibcdf/dockingmt#50",
+  "retained_root": "/tmp/dockingmt-human-20261020",
+  "review_by": "2026-10-27",
+  "files": [
+    {
+      "source": "/tmp/dockingmt-human-20261020/wheel-receipt.json",
+      "path": "wheel_2026-10-20.json",
+      "bytes": 374,
+      "sha256": "15e4fb3a1d5ec9f4813d2ba1d2a8af1a17200b33ac825979a6524e0bb37ee9ca",
+      "original_bytes": 374,
+      "original_sha256": "15e4fb3a1d5ec9f4813d2ba1d2a8af1a17200b33ac825979a6524e0bb37ee9ca",
+      "encoding": "identity"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/installed-preflight.json",
+      "path": "installed_preflight_2026-10-20.json",
+      "bytes": 244,
+      "sha256": "935aa4fff6ec767af0dd5ef06d5b734c0fbeff6b77a86b349caf3cbe76271019",
+      "original_bytes": 244,
+      "original_sha256": "935aa4fff6ec767af0dd5ef06d5b734c0fbeff6b77a86b349caf3cbe76271019",
+      "encoding": "identity"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/human-summary.json",
+      "path": "summary_2026-10-20.json",
+      "bytes": 1082,
+      "sha256": "bf5950c8fd19b364d0335ac5dfa934f3cdac7fdb0e36e7d3e811b3326ca59922",
+      "original_bytes": 1082,
+      "original_sha256": "bf5950c8fd19b364d0335ac5dfa934f3cdac7fdb0e36e7d3e811b3326ca59922",
+      "encoding": "identity"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/human-recovered-output/receipt.json",
+      "path": "kernel_receipt_2026-10-20.json",
+      "bytes": 6918,
+      "sha256": "48948ed393c9adca48509f8f99f6622b9963a352df4571b68c088c22a99ed0be",
+      "original_bytes": 6918,
+      "original_sha256": "48948ed393c9adca48509f8f99f6622b9963a352df4571b68c088c22a99ed0be",
+      "encoding": "identity"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/human-output/new_result.json",
+      "path": "native_result_2026-10-20.json.gz",
+      "bytes": 353939,
+      "sha256": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249",
+      "original_bytes": 3083636,
+      "original_sha256": "ed0eeb3ade25e54f8a5829729578fcbec9f0d73d6c0ceb03d146b0c3492d7fac",
+      "encoding": "gzip"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/human-recovered-output/new_evaluation.json",
+      "path": "evaluation_2026-10-20.json.gz",
+      "bytes": 147883,
+      "sha256": "6f4b62e5370d2e28a5f5db41a9fa10b8632fcd6ef2b60b3cf59a15a5174e0eb2",
+      "original_bytes": 1537154,
+      "original_sha256": "660783d0b4a36b9e36e242ac54db7aba4f6d6a543054e0a3914934a440175f97",
+      "encoding": "gzip"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/human-recovered-output/admission.json",
+      "path": "admission_2026-10-20.json.gz",
+      "bytes": 2093573,
+      "sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53",
+      "original_bytes": 97038061,
+      "original_sha256": "449920ebaae0db9b4442845cbfabeff2013470a19e6cfba6d10484305a4b53ce",
+      "encoding": "gzip"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/human-recovered-output/saved_symmetry_receiving.json",
+      "path": "saved_receiving_2026-10-20.json.gz",
+      "bytes": 1332023,
+      "sha256": "5579b1a111562aa6c1df40285f920f0d2a8b028cb6751357339bebe7a84b1341",
+      "original_bytes": 12125949,
+      "original_sha256": "92fa3d35885d44ed967adf5f9e95499f4b89d536f4dd609056a0740be4099c28",
+      "encoding": "gzip"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/installed-tests.log",
+      "path": "installed_tests_2026-10-20.txt.gz",
+      "bytes": 455,
+      "sha256": "3f2a74bc1f85dfc6f5f2c91048b103b4ade9e7d11b904255bd91b59db790ec0c",
+      "original_bytes": 798,
+      "original_sha256": "c555040715dc85b2dedd0523b604c2c04cffaed226bbfa35da3cfe343deaad87",
+      "encoding": "gzip"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/installed-origins.json",
+      "path": "installed_origins_2026-10-20.json",
+      "bytes": 5838,
+      "sha256": "c6bd8d05afb9c48e73a755778b60bb934d5bf62a3cd0e11c85784aee968de1da",
+      "original_bytes": 5838,
+      "original_sha256": "c6bd8d05afb9c48e73a755778b60bb934d5bf62a3cd0e11c85784aee968de1da",
+      "encoding": "identity"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/execution-registration.md",
+      "path": "execution_registration_2026-10-20.md",
+      "bytes": 2202,
+      "sha256": "9c6d103109a40eecbb6f50d97997496e0b0b5621fc9467d232178dc6128e3996",
+      "original_bytes": 2202,
+      "original_sha256": "9c6d103109a40eecbb6f50d97997496e0b0b5621fc9467d232178dc6128e3996",
+      "encoding": "identity"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/guide-check.json",
+      "path": "guides_2026-10-20.json",
+      "bytes": 1524,
+      "sha256": "857849c78c07ca4b384a49099b05d2bc9296400b0000864e7864d2545aa912d1",
+      "original_bytes": 1524,
+      "original_sha256": "857849c78c07ca4b384a49099b05d2bc9296400b0000864e7864d2545aa912d1",
+      "encoding": "identity"
+    },
+    {
+      "source": "/tmp/dockingmt-human-20261020/environment.yaml",
+      "path": "environment_2026-10-20.yaml",
+      "bytes": 862,
+      "sha256": "23895b3e330931717d496efda54c1bd34c3f0f04b8433aaaa1a4ab556455476b",
+      "original_bytes": 862,
+      "original_sha256": "23895b3e330931717d496efda54c1bd34c3f0f04b8433aaaa1a4ab556455476b",
+      "encoding": "identity"
+    },
+    {
+      "path": "diagnostics_2026-10-20.json",
+      "bytes": 1162,
+      "sha256": "53ece16f26dc4c1c5a9c6168e7bea51a029575080ba05338a600cad66ba1ba96",
+      "encoding": "identity"
+    },
+    {
+      "path": "runtime_2026-10-20.json",
+      "bytes": 3385,
+      "sha256": "e6e0cc02ab926dcfea7522443d11f99ee3fef2ac402f7635192a343e4b124562",
+      "encoding": "identity"
+    },
+    {
+      "path": "notebook_cells_2026-10-20.json",
+      "bytes": 2347,
+      "sha256": "cadb17f7754ad6f74f7c0618577b6e70ece25dbee81774e204f0dca66b8a80ed",
+      "encoding": "identity"
+    }
+  ]
+}

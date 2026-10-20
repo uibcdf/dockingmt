@@ -165,3 +165,13 @@ unchanged original coordinates, atom correspondence and charge conservation.
 A supported polar control is positive; original 181L BNZ remains explicitly
 provider-blocked on bond aromaticity (MolSysMT #314). Neither successful local
 H placement nor Vina admission establishes biological or preparation validity.
+
+The BNZ blocker above describes the original stage qualification: MolSysMT #314
+was subsequently delivered and consumed by the explicit 181L preparation workflow.
+For the 2026-10-20 continuation, see the
+[optional declared-state symmetry qualification](validation/symmetry_redocking.md)
+and executed [human notebook](validation/human_3ptb_workflow_2026-10-20.ipynb).
+Its new measurements retain positional baselines, explicit chemical hypotheses,
+initial admission diagnostics and negative controls. This does not promote the
+preparation model or all Core-MVP gates to scientific acceptance; visualization
+is deliberately pending maintainer discussion.

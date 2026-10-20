@@ -130,6 +130,37 @@ def test_benzamidinium_nitrogen_roles_are_not_normalized_by_resonance():
     assert report['poses'][0]['rmsd'] > 0.2
 
 
+def test_template_context_needs_an_explicit_stereo_declaration():
+    from molsysmt._private.smonitor import StructuralInconsistencyError
+
+    from devtools.qualify_3ptb_admission import DATA, expand
+    from devtools.qualify_chemical_templates import template_options
+
+    source = msm.convert(
+        DATA / '3PTB.pdb.gz', to_form='molsysmt.MolSys', get_missing_bonds=False
+    )
+    reference = msm.extract(source, selection="group_name=='BEN'")
+    template = declared_source('NC(=[NH2+])c1ccccc1')
+    options = template_options(
+        template,
+        np.column_stack((np.arange(9), [8, 6, 7, 0, 1, 2, 3, 4, 5])),
+        identity='Explicit declared benzamidinium',
+        uri='smiles:NC(=[NH2+])c1ccccc1',
+        hydrogen_policy='stored_counts',
+    )
+    applied = msm.physchem.apply_chemical_template(
+        reference, **options, connectivity_policy='complete_from_template'
+    )['molecular_system']
+    context, _ = expand(applied, receptor=False)
+    result = dmt.DockingResult([pose(context)])
+    with pytest.raises(StructuralInconsistencyError, match='stereochemistry'):
+        evaluate(result, context, symmetry_options={'molecular_system': context})
+    declared = msm.copy(context)
+    msm.set(declared, atom_stereochemistry='unspecified')
+    report = evaluate(result, declared, symmetry_options={'molecular_system': declared})
+    assert report['symmetry_evaluation']['poses'][0]['rmsd'] == pytest.approx(0)
+
+
 @pytest.mark.parametrize('query_smiles', ['C[NH2+]C', 'CNC'])
 def test_incompatible_chemical_state_or_h_encoding_propagates(query_smiles):
     from molsysmt._private.smonitor import StructuralInconsistencyError

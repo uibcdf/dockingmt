@@ -1,0 +1,87 @@
+{
+  "packages": {
+    "molsysmt": {
+      "version": "0.23.0+78.gc35252d89",
+      "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/molsysmt/__init__.py",
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///tmp/dockingmt-human-20261020/sources/molsysmt"
+      }
+    },
+    "argdigest": {
+      "version": "0.15.0+5.g3d1ec53",
+      "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/argdigest/__init__.py",
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///tmp/dockingmt-human-20261020/sources/argdigest"
+      }
+    },
+    "molsysviewer": {
+      "version": "0.24.0+76.ga61b75bc",
+      "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/molsysviewer/__init__.py",
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///tmp/dockingmt-human-20261020/sources/molsysviewer"
+      }
+    },
+    "pyunitwizard": {
+      "version": "0.28.1",
+      "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/pyunitwizard/__init__.py",
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///home/runner/micromamba/envs/build/conda-bld/pyunitwizard_1791202252997/work"
+      }
+    },
+    "smonitor": {
+      "version": "0.21.0",
+      "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/smonitor/__init__.py",
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///home/runner/micromamba/envs/build/conda-bld/smonitor_1791960671533/work"
+      }
+    },
+    "depdigest": {
+      "version": "0.15.1",
+      "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/depdigest/__init__.py",
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///home/runner/micromamba/envs/build/conda-bld/depdigest_1791922759285/work"
+      }
+    },
+    "vina": {
+      "version": "1.2.7",
+      "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/vina/__init__.py",
+      "direct_url": null
+    },
+    "numpy": {
+      "version": "2.5.4",
+      "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/numpy/__init__.py",
+      "direct_url": {
+        "archive_info": {
+          "hash": "sha256=7d3822dd8936e8f8f32ba03258b6a976ffeb298548df99098c8ea8f9232b53a5",
+          "hashes": {
+            "sha256": "7d3822dd8936e8f8f32ba03258b6a976ffeb298548df99098c8ea8f9232b53a5"
+          }
+        },
+        "url": "file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_numpy_1791675316/work/dist/numpy-2.5.4-cp314-cp314-linux_x86_64.whl"
+      }
+    },
+    "pandas": {
+      "version": "3.0.6",
+      "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/pandas/__init__.py",
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///home/conda/feedstock_root/build_artifacts/bld/rattler-build_pandas_1789803361/work"
+      }
+    },
+    "rdkit": {
+      "version": "2026.3.1",
+      "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/rdkit/__init__.py",
+      "direct_url": {
+        "dir_info": {},
+        "url": "file:///home/conda/feedstock_root/build_artifacts/rdkit-meta_1774625989214/work"
+      }
+    }
+  },
+  "native_sha256": "feb001379201b92690eadf04fd0be6b710cdfe50bad240feba26cf666e19b41b"
+}

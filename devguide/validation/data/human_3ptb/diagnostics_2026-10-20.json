@@ -1,0 +1,24 @@
+{
+  "initial_notebook_failure": {
+    "cell": 10,
+    "exception": "StructuralInconsistencyError",
+    "message": "Every context atom requires declared stereochemistry metadata.",
+    "native_result_retained": true,
+    "native_search_repeated": false
+  },
+  "test_construction_diagnostics": [
+    "Expected UnsupportedHeavyOperationError for correspondence max_matches rather than MemoryBudgetExceededError; fixed test expectation",
+    "Required search_domain and public selected-system properties supplied in compressed-input test"
+  ],
+  "historical_source_guard": {
+    "initial_selection": {
+      "passed": 133,
+      "failed": 1
+    },
+    "reason": "Original strict receiver correctly refuses changed source; the current receiver regression now evaluates independently and a separate guard retains strict source rejection."
+  },
+  "installation_diagnostics": [
+    "Conda env-create interface refused create-only channel flags; switched to conda create with explicit channels and strict priority",
+    "Initial non-escalated pip build could not reach its build dependencies; ordinary networked build succeeded without changing shared environment"
+  ]
+}

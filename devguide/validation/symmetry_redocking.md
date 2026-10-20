@@ -81,3 +81,75 @@ The [human notebook](human_3ptb_workflow_2026-10-20.ipynb) combines compressed i
 the accepted explicit preparation recipe, one preregistered fresh control search,
 both evaluation records, saved-result restoration and the historical receiver.
 **It stops before visualization**, as requested by the maintainer.
+
+## Executed installed workflow — 2026-10-20
+
+The ordinary wheel from `1decee504b112cfd92026c52dcbe22449de30f4f`,
+`dockingmt-0.0.0+180.g1decee5-py3-none-any.whl`, has SHA-256
+`24cfe209935b9bcdef371590427dc74818f23eece6711171346c72402c02ba4e`.
+All 60 required package files match the installed bytes; PEP 610 identity,
+ordinary import origins, addon entry-point declaration and dependency closure pass.
+The receiver is a separate prefix outside the checkout, inheriting the task-owned
+normally installed fixed provider composition. It is not a public-channel artifact
+or platform-admission claim.
+
+The shared source-free installed runner executes **277 tests without skips or
+deselections**, 135.56 seconds, 71 retained warnings. Selected evaluation,
+serialization, required preparation and frozen 3PTB contracts pass, including
+real provider symmetry/input controls. The new template-composition regression
+passes separately with the other symmetry controls (14 cases). Administrative
+contracts pass 29 cases. Initial test-construction diagnostics and the first
+strict historical-source rejection remain recorded; they are not passing gates.
+
+The notebook executes compressed input, the audited explicit preparation, the
+registered single rigid/native/seed-7/exhaustiveness-1 search and saved-result
+recovery. Five poses return. The first attempt stops at symmetry admission because
+template application leaves the original nine atoms' stereochemistry missing.
+The native result and its producer remain intact. A subsequent complete notebook
+execution restores that exact result, verifies protocol/submitted hashes and runs
+no additional search. It explicitly sets `atom_stereochemistry='unspecified'` on
+a detached context for this declared benzamidinium case. MolSysMT independently
+validates potential stereo and chemical equivalence; this is not a general filler,
+chirality classifier or a change to the saved preparation.
+
+The reusable composition/documentation need is proposed in
+[MolSysMT #390](https://github.com/uibcdf/molsysmt/issues/390). The first missing
+metadata failure is retained as an informative admission result rather than hidden
+by a favorable repeat search. These two notebook executions together establish the
+bounded human workflow; they are not described as one uninterrupted green run.
+
+Historical receiving evaluates all **24 rows / 167 poses**, with no reexecuted
+search. Positional RMSD agrees with the earlier receiver to `1e-10 angstrom`;
+complete native energy vectors and containment agree. The independently added
+symmetry criterion retains rank-1 recovery in 6/6 rows for each native arm and
+0/6 for each displaced-box arm, as does the positional criterion. This bounded
+comparison is not general docking accuracy or model validation. Original archived
+inputs, errors, metrics and producers remain unchanged.
+
+The [qualification manifest](data/human_3ptb/qualification_2026-10-20.json),
+[wheel receipt](data/human_3ptb/wheel_2026-10-20.json),
+[original fresh result](data/human_3ptb/native_result_2026-10-20.json.gz),
+[new evaluation](data/human_3ptb/evaluation_2026-10-20.json.gz),
+[separate historical measurements](data/human_3ptb/saved_receiving_2026-10-20.json.gz)
+and [kernel receipt](data/human_3ptb/kernel_receipt_2026-10-20.json) preserve scope,
+identities, source paths and digests. The executed notebook contains no error in
+the completed recovery run and ends with an explicit pre-visualization stop.
+
+Full exact-head source CI is a separate gate recorded on #49 after the final push;
+the installed wheel keeps its original producer above. C6, public distribution,
+the missing provider projections/permutations and broader chemical/scoring
+acceptance remain open.
+
+## Resource disposition
+
+The old receiving/candidate interpreters and wheel are absent at their registered
+2026-10-13 paths; absence does not identify who removed them. Versioned historical
+receipts remain in Git. The new task owns `/tmp/dockingmt-human-20261020` under
+[#50](https://github.com/uibcdf/dockingmt/issues/50). Retain the qualified provider
+environment, ordinary receiver, original wheel, source-free harness, exact source
+and SDK identities, initial failure/native result and complete execution/CI
+evidence for the immediate visualization discussion or recovery. Review by
+**2026-10-27**; no automatic cleanup is scheduled. Only disposable owned build/cache
+paths may be removed at closeout, preserving the installed native bytes, artifact
+and all still-required evidence. Shared environments and sibling worktrees remain
+outside this cleanup scope.

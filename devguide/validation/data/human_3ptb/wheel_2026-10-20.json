@@ -1,0 +1,8 @@
+{
+  "producer": "1decee504b112cfd92026c52dcbe22449de30f4f",
+  "wheel": "/tmp/dockingmt-human-20261020/wheels/dockingmt-0.0.0+180.g1decee5-py3-none-any.whl",
+  "sha256": "24cfe209935b9bcdef371590427dc74818f23eece6711171346c72402c02ba4e",
+  "bytes": 123838,
+  "required_resources": 60,
+  "notebook_sha256": "58b95a3e1cd174dcd01493eafdd0d91a0a9e4da4975317d0948f39b4dba9c276"
+}

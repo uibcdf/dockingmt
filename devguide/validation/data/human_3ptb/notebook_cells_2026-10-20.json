@@ -1,0 +1,82 @@
+[
+  {
+    "type": "markdown",
+    "source_sha256": "8f910afd0dfb6f70e7afb441859146e69e7498a580a04551d1b719b77b7f0825",
+    "execution_count": null
+  },
+  {
+    "type": "code",
+    "source_sha256": "660e041b06ffbaae0e01f3291bb7fa811874e79ca8343ca151fdf8ef76aa0ceb",
+    "execution_count": 1
+  },
+  {
+    "type": "markdown",
+    "source_sha256": "54f8158c4de7b8d5f4326d30a8e57b9dbb672e1d92854c6ed742094961338978",
+    "execution_count": null
+  },
+  {
+    "type": "code",
+    "source_sha256": "4e0b13cec1c17f028590d14c396195fdc0609792e51f6fd7908e9e880572637d",
+    "execution_count": 2
+  },
+  {
+    "type": "markdown",
+    "source_sha256": "196966238657397e4c613ca156aec1ca7f2fb4077fcb5e08df4dc2502ceae6a9",
+    "execution_count": null
+  },
+  {
+    "type": "code",
+    "source_sha256": "5bc88a76cb88432eef1a811fc08a407df75a50476aa7ba22b86ef4a1e2dba60e",
+    "execution_count": 3
+  },
+  {
+    "type": "markdown",
+    "source_sha256": "b1f24f8c343a5c6cfd5660d8798e00fa05deac961ddbe736087499ca9b4f14c4",
+    "execution_count": null
+  },
+  {
+    "type": "code",
+    "source_sha256": "43962a738b1fb07f2b085ef7166594b51bd2e42ba67761f3d8dc29f4833bb767",
+    "execution_count": 4
+  },
+  {
+    "type": "markdown",
+    "source_sha256": "bc11c7d2aeb092921bee32fcf51a973e54bb683aeadcaaef41218a794ac5641e",
+    "execution_count": null
+  },
+  {
+    "type": "code",
+    "source_sha256": "f601d82ee90419a589019985962438cd8690adddd542e11da19e962b66d1df21",
+    "execution_count": 5
+  },
+  {
+    "type": "markdown",
+    "source_sha256": "7ac555e4730d50d3c80d9143435ffdefed162ebbea65f0ffc9249190a8af255d",
+    "execution_count": null
+  },
+  {
+    "type": "code",
+    "source_sha256": "2d90af34b1a429320cecbaa4441a9c887befed683273c806d9a6f55c7e0bbe90",
+    "execution_count": 6
+  },
+  {
+    "type": "markdown",
+    "source_sha256": "134987949621d09f4be86f14d4df31cfae538246d53669ce17080e631215cbdb",
+    "execution_count": null
+  },
+  {
+    "type": "code",
+    "source_sha256": "66aa696014a8b153a06484b53746f32555fd5ada1b1b9259b40dedf4b29465b3",
+    "execution_count": 7
+  },
+  {
+    "type": "markdown",
+    "source_sha256": "372e498d752be24e68e12ee81dfbd036cbd19b9b200e1218fb5864deaf7ed255",
+    "execution_count": null
+  },
+  {
+    "type": "code",
+    "source_sha256": "36adfb28ad107968c73cd50cca5478ff68f3eafd897c06427fee9d8a9e8bcbd7",
+    "execution_count": 8
+  }
+]

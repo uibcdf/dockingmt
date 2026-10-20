@@ -1,0 +1,36 @@
+{
+  "registered_fresh_3ptb_searches": 1,
+  "executed_fresh_3ptb_searches": 1,
+  "recovery_additional_searches": 0,
+  "original_result_sha256": "ed0eeb3ade25e54f8a5829729578fcbec9f0d73d6c0ceb03d146b0c3492d7fac",
+  "recovered_result_matches_original": true,
+  "saved_groups": {
+    "rigid/native": {
+      "rows": 6,
+      "poses": 41,
+      "positional_top1": 6,
+      "symmetry_top1": 6
+    },
+    "rigid/negative": {
+      "rows": 6,
+      "poses": 39,
+      "positional_top1": 0,
+      "symmetry_top1": 0
+    },
+    "flexible/native": {
+      "rows": 6,
+      "poses": 41,
+      "positional_top1": 6,
+      "symmetry_top1": 6
+    },
+    "flexible/negative": {
+      "rows": 6,
+      "poses": 46,
+      "positional_top1": 0,
+      "symmetry_top1": 0
+    }
+  },
+  "visualization_executed": false,
+  "initial_diagnostic": "Missing stereochemistry on original template-applied heavy atoms; explicit unspecified declaration via public MolSysMT setter on a detached context; provider independently validates potential stereo",
+  "producer": "1decee504b112cfd92026c52dcbe22449de30f4f"
+}
