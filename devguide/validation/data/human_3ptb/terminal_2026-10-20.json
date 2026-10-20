@@ -1,0 +1,117 @@
+{
+  "schema": "dockingmt.human_workflow_terminal@1",
+  "date": "2026-10-20",
+  "head": "4695041ea8923bdf6180d5a86d66ebe015af1789",
+  "runs": [
+    {
+      "id": 39474773735,
+      "head": "4695041ea8923bdf6180d5a86d66ebe015af1789",
+      "attempt": 1,
+      "conclusion": "success",
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/39474773735",
+      "jobs": [
+        {
+          "id": 118807778596,
+          "name": "Distribution governance on Linux Python 3.14",
+          "conclusion": "success"
+        },
+        {
+          "id": 118807778936,
+          "name": "Test on ubuntu-latest, Python 3.14",
+          "conclusion": "success"
+        },
+        {
+          "id": 118807778977,
+          "name": "Test on ubuntu-latest, Python 3.11",
+          "conclusion": "success"
+        },
+        {
+          "id": 118807779037,
+          "name": "Test on ubuntu-latest, Python 3.12",
+          "conclusion": "success"
+        },
+        {
+          "id": 118807779042,
+          "name": "Quality on ubuntu-latest",
+          "conclusion": "success"
+        },
+        {
+          "id": 118807779214,
+          "name": "Test on ubuntu-latest, Python 3.13",
+          "conclusion": "success"
+        },
+        {
+          "id": 118815035087,
+          "name": "Publish default-branch Python coverage",
+          "conclusion": "success"
+        }
+      ],
+      "manifest_sha256": "0fe1516359ecd444a6ceb7f4ab67e7bebe8fc9690f4004a68f283b6fb43dc2c6"
+    },
+    {
+      "id": 39474774346,
+      "head": "4695041ea8923bdf6180d5a86d66ebe015af1789",
+      "attempt": 1,
+      "conclusion": "success",
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/39474774346",
+      "jobs": [
+        {
+          "id": 118807782541,
+          "name": "policy / conformance",
+          "conclusion": "success"
+        }
+      ],
+      "manifest_sha256": "28ed3b1b4c1832e50b11209ebefea0390b098655ff9549ab9461b624e4f4d2ab"
+    },
+    {
+      "id": 39474774289,
+      "head": "4695041ea8923bdf6180d5a86d66ebe015af1789",
+      "attempt": 1,
+      "conclusion": "success",
+      "url": "https://github.com/uibcdf/dockingmt/actions/runs/39474774289",
+      "jobs": [
+        {
+          "id": 118807780789,
+          "name": "publication / check",
+          "conclusion": "success"
+        }
+      ],
+      "manifest_sha256": "dbccae1ce25ea0cd4fad065bc08565d1b7c11557d65a1fff4aa2beb6e406d2aa"
+    }
+  ],
+  "science": [
+    {
+      "log": "Test on ubuntu-latest, Python 3.13/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-20T18:39:40.9773328Z PASS exit=0 | 1145 passed | 573.94s | 208 warnings",
+      "sha256": "12cf3ed2df6b2fb5ac33733cb23dee2d530cbd8f726bce2763d13040f646662b"
+    },
+    {
+      "log": "Test on ubuntu-latest, Python 3.12/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-20T18:40:54.4946147Z PASS exit=0 | 1145 passed | 639.98s | 208 warnings",
+      "sha256": "90c5b0781ae9419efbcb6c23a3ba611ea7114ccebd7fb66feabe0a2be61e0c0c"
+    },
+    {
+      "log": "Test on ubuntu-latest, Python 3.11/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-20T18:39:25.6722318Z PASS exit=0 | 1145 passed | 556.29s | 208 warnings",
+      "sha256": "bec1b833431535e13001e173163bdee81c93a8732c4eec6e05c62fd5b0340a1c"
+    },
+    {
+      "log": "Test on ubuntu-latest, Python 3.14/17_Run tests with pytest-receptor.txt",
+      "summary": "2026-10-20T18:34:43.0292343Z PASS exit=0 | 1145 passed | 311.80s | 208 warnings",
+      "sha256": "ed4ee97fd6051d2e77b1923bf1a2ee0f8d1e192b6b02106b3307911beccf9050"
+    }
+  ],
+  "tests_per_minor": 1145,
+  "test_skips": 0,
+  "installed_dependency_checks": 4,
+  "actual_coverage_upload": true,
+  "wheel_producer": "1decee504b112cfd92026c52dcbe22449de30f4f",
+  "wheel_sha256": "24cfe209935b9bcdef371590427dc74818f23eece6711171346c72402c02ba4e",
+  "installed_selection_passed": 277,
+  "historical_rows_received": 24,
+  "historical_poses_received": 167,
+  "new_3ptb_searches_in_human_workflow": 1,
+  "repeated_historical_searches": 0,
+  "visualization_executed": false,
+  "public_admission": false
+}

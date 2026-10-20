@@ -28,10 +28,13 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
-For the current working state and the next authorized workflow, start with the
-[roadmap checkpoint](ROADMAP.md#current-execution-checkpoint--2026-10-20) and
-[human notebook](validation/human_3ptb_workflow_2026-10-20.ipynb), which stops before
-visualization for discussion. The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)
+For the current working state, start with the
+[2026-10-20 pause checkpoint](validation/pause_handoff_2026-10-20.md). It records
+completed work, exact evidence, recovery instructions and the next discussion.
+The [roadmap](ROADMAP.md#current-execution-checkpoint--2026-10-20) and executed
+[human notebook](validation/human_3ptb_workflow_2026-10-20.ipynb) stop before
+visualization; scene design and acceptance criteria await maintainer agreement.
+The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)
 retains the earlier source and ordinary-wheel producers and their limits.
 
 1. `VISION.md`
@@ -173,9 +176,10 @@ classification under #5/#49. It leaves preparation defaults unchanged.
 
 The [executed 3PTB molecular admission](validation/3ptb_admission.md) and
 [human notebook](validation/3ptb_admission_2026-10-10.ipynb) retain the registered
-chemical/torsion/domain inputs before the fixed 24-row search population. Direct
-compressed-PDB support is proposed to MolSysMT; plain-input admission preserves
-original bytes and introduces no molecular implementation downstream.
+chemical/torsion/domain inputs before the fixed 24-row search population. That
+original admission used plain input. MolSysMT subsequently delivered compressed-PDB
+support, consumed in the [2026-10-20 workflow](validation/symmetry_redocking.md#executed-installed-workflow--2026-10-20)
+without introducing a molecular reader downstream.
 
 The [executed 3PTB search record](validation/3ptb_search.md) and
 [human notebook](validation/3ptb_search_2026-10-10.ipynb) retain all 24 registered

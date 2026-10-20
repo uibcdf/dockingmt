@@ -1,0 +1,13 @@
+{
+  "owner": "uibcdf/dockingmt#50",
+  "removed_owned_disposable_paths": [
+    "/tmp/dockingmt-human-20261020/pkgs",
+    "/tmp/dockingmt-human-20261020/sources/molsysmt/build"
+  ],
+  "retained_root": "/tmp/dockingmt-human-20261020",
+  "review_by": "2026-10-27",
+  "native_bytes_verified_after_cleanup": true,
+  "original_wheel_retained": true,
+  "old_paths_absent_without_attribution": true,
+  "caller_resources_preserved": true
+}

@@ -4,18 +4,27 @@ The roadmap defines direction and gates, not dates.
 
 ## Current execution checkpoint — 2026-10-20
 
-The next bounded objective is the human Core-MVP workflow through installed public
-APIs. The [2026-10-13 checkpoint](validation/pause_handoff_2026-10-13.md) retains
-its original qualified producers; missing temporary prefixes are recreated as new
-receivers with new identities. Current implementation accepts MolSysMT's delivered
-compressed PDB input and [optional declared-state symmetry evaluation](validation/symmetry_redocking.md),
-with the source-identity baseline preserved separately.
+**Paused at the user's request, before visualization.** The
+[current pause handoff](validation/pause_handoff_2026-10-20.md) is the resumption
+entry point. The installed environment was reconstructed and qualified; MolSysMT's
+compressed input and [optional declared-state symmetry evaluation](validation/symmetry_redocking.md)
+were consumed with the positional baseline preserved separately.
 
-Execute the [human 3PTB notebook](validation/human_3ptb_workflow_2026-10-20.ipynb)
-through input, explicit preparation, domain, one preregistered control search,
-evaluation and saved-result recovery. **Stop before visualization for maintainer
-discussion and planning.** C6 and whole-Core acceptance remain open at that stop.
-An installed control or green CI does not establish general scientific validity.
+The [human 3PTB notebook](validation/human_3ptb_workflow_2026-10-20.ipynb) completed
+input, explicit preparation, domain, one preregistered search, evaluation and
+saved-result recovery. Two recorded executions preserve the initial stereo-metadata
+refusal and successful recovery of the same native result; no second search was
+run. All 24 historical rows / 167 poses were received without repeating searches.
+Source CI at `4695041` passes 1,145 tests without skips on each Python 3.11–3.14;
+the original ordinary wheel independently passes its 277-case installed selection.
+See the handoff for exact producers and limits.
+
+**Next: discuss the purpose, scene and observable acceptance criteria with the
+maintainer before implementing visualization.** A suggested first scene contains
+the receptor, reference ligand, rank-1 pose under its named ranking criterion and
+search domain in the original coordinate frame. This suggestion is not an accepted
+design. C6 and whole-Core acceptance remain open. An installed control or green CI
+does not establish general scientific validity.
 
 Missing projection/maps and native pose/permutation operations remain provider-owned
 under [#49](https://github.com/uibcdf/dockingmt/issues/49); do not implement those
