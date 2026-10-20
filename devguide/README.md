@@ -29,9 +29,10 @@ Every proposed capability should be classified as:
 ## Reading order
 
 For the current working state and the next authorized workflow, start with the
-[2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md). It distinguishes
-completed source and ordinary-wheel controls from the remaining provider and
-public-distribution work.
+[roadmap checkpoint](ROADMAP.md#current-execution-checkpoint--2026-10-20) and
+[human notebook](validation/human_3ptb_workflow_2026-10-20.ipynb), which stops before
+visualization for discussion. The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)
+retains the earlier source and ordinary-wheel producers and their limits.
 
 1. `VISION.md`
 2. `DESIGN_PRINCIPLES.md`

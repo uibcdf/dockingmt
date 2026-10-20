@@ -91,7 +91,7 @@ def verify_replay(original, replay):
     )
 
 
-def evaluate(result, reference, domain, admission, arm):
+def evaluate(result, reference, domain, admission, arm, *, symmetry_options=None):
     """Select the nine admitted source identities; delegate positional geometry."""
     evidence = admission['prepared_inputs'][arm]
     full_source = admission['ligand_full_source_indices']
@@ -171,6 +171,7 @@ def evaluate(result, reference, domain, admission, arm):
             'scope': 'original_nine_observed_heavy_atoms',
             'full_source_indices': full_source,
         },
+        symmetry_options=symmetry_options,
     )
     near = [row for row in report['poses'] if row['recovered']]
     return {

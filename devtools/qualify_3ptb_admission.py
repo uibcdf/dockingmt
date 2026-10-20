@@ -1,6 +1,6 @@
 """Admit the registered 3PTB inputs through public molecular operations.
 
-The caller supplies authenticated, uncompressed PDB bytes. This case-specific
+The caller supplies authenticated PDB bytes, plain or gzip via MolSysMT. This case-specific
 orchestration performs no scoring, search, molecular repair or format adaptation.
 """
 
@@ -190,16 +190,23 @@ def prepared_evidence(prepared, source_indices):
     }
 
 
-def admit(path):
+def admit(path, *, include_chemical_context=False):
     """Execute the bounded admission; return preparations and detached evidence."""
     binding = registration()
     path = Path(path)
     payload = path.read_bytes()
+    input_sha256 = sha(payload)
+    compressed = path.name.endswith('.pdb.gz')
+    if compressed:
+        if sha(payload) != sha((DATA / '3PTB.pdb.gz').read_bytes()):
+            raise ValueError('Compressed input differs from the frozen source archive')
+        # General decompression and molecular format handling belong to MolSysMT.
+        payload = msm.convert(path, to_form='string:pdb_text').encode()
     if sha(payload) != SOURCE_SHA:
         raise ValueError(
             '3PTB plain input differs from the registered original PDB bytes'
         )
-    assert path.suffix == '.pdb'
+    assert path.suffix == '.pdb' or path.name.endswith('.pdb.gz')
     alternates = sorted(
         {
             line[16]
@@ -457,12 +464,12 @@ def admit(path):
                     )
     assert snapshot(source) == original and snapshot(reference) == original_ligand
     assert snapshot(receptor) == original_receptor
-    assert sha(path.read_bytes()) == SOURCE_SHA
+    assert sha(path.read_bytes()) == input_sha256
     record = {
         'schema': 'dockingmt.3ptb_molecular_admission@1',
-        'status': 'plain_input_admitted',
+        'status': 'compressed_input_admitted' if compressed else 'plain_input_admitted',
         'registration': binding,
-        'direct_compressed_input_admitted': False,
+        'direct_compressed_input_admitted': compressed,
         'fixed_evaluations_executed': 0,
         'docking_searches_executed': 0,
         'source_sha256': SOURCE_SHA,
@@ -513,7 +520,14 @@ def admit(path):
             'No pose generation, ranking, affinity or search performance evidence in this admission.',
         ],
     }
-    return prepared_receptor, prepared, reference, boxes, detached_record(record)
+    if compressed:
+        record.pop('original_plain_file_unchanged', None)
+        record['original_compressed_file_unchanged'] = True
+        record['compressed_source_sha256'] = input_sha256
+    outcome = prepared_receptor, prepared, reference, boxes, detached_record(record)
+    if include_chemical_context:
+        return (*outcome, charged_ligand)
+    return outcome
 
 
 def producer_identity():

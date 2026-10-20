@@ -2,6 +2,27 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Current execution checkpoint — 2026-10-20
+
+The next bounded objective is the human Core-MVP workflow through installed public
+APIs. The [2026-10-13 checkpoint](validation/pause_handoff_2026-10-13.md) retains
+its original qualified producers; missing temporary prefixes are recreated as new
+receivers with new identities. Current implementation accepts MolSysMT's delivered
+compressed PDB input and [optional declared-state symmetry evaluation](validation/symmetry_redocking.md),
+with the source-identity baseline preserved separately.
+
+Execute the [human 3PTB notebook](validation/human_3ptb_workflow_2026-10-20.ipynb)
+through input, explicit preparation, domain, one preregistered control search,
+evaluation and saved-result recovery. **Stop before visualization for maintainer
+discussion and planning.** C6 and whole-Core acceptance remain open at that stop.
+An installed control or green CI does not establish general scientific validity.
+
+Missing projection/maps and native pose/permutation operations remain provider-owned
+under [#49](https://github.com/uibcdf/dockingmt/issues/49); do not implement those
+molecular operations downstream. Public distribution remains #30/#47. Advance
+Extended-MVP or peer integrations only when an accepted human workflow requires
+them, following the vertical pilots' human-before-agent progression.
+
 ## Phase 0 — Foundations and MolSysSuite-native bootstrap
 
 Status: **NOW**

@@ -78,13 +78,15 @@ def evaluate_redocking(
     top_n: tuple[int, ...] = (1, 5),
     selection: Any = 'all',
     reference_info: Mapping | None = None,
+    symmetry_options: Mapping | None = None,
 ) -> dict[str, Any]:
     """Evaluate one result against one reference in a shared receptor frame.
 
     ``rmsd_cutoff`` is a finite non-negative scalar length with explicit units.
     Recovery means positional RMSD <= cutoff. Top-N uses the first N positions
     in the existing result order, retaining declared ranks separately. No
-    alignment, symmetry correction, score ranking or chemistry validation occurs.
+    alignment, score ranking or chemistry validation occurs. Positional results
+    remain unchanged when optional symmetry evaluation is requested.
 
     Molecular or DockingPose references require verified source atom keys.
     Coordinate quantities explicitly choose caller-declared positional matching.
@@ -97,11 +99,26 @@ def evaluate_redocking(
     preparation/protocol/ranking context. Caller ``reference_info`` is a recorded
     declaration, not authenticated provenance. Empty results have no best pose.
     Provider failures propagate. Vina and MolSysViewer are not needed to evaluate.
+
+    ``symmetry_options`` explicitly adds a separate ``symmetry_evaluation`` record.
+    It requires ``molecular_system``: the complete caller-declared query chemical
+    context with the verified pose identities, and a complete molecular reference.
+    Optional MolSysMT keys are ``chemical_state``, ``reference_chemical_state``,
+    ``method``, ``max_matches`` and ``tie_tolerance``. MolSysMT admits chemical
+    correspondences and computes unaligned RMSD; missing chemistry is rejected.
+    No resonance, protonation or H-representation equivalence is inferred here.
+    Unselected context coordinates are never measured as pose geometry. Aggregate
+    redocking summaries continue to use the original positional criterion.
     """
     import molsysmt as msm
 
     positional = puw.is_quantity(reference)
     pose_reference = isinstance(reference, DockingPose)
+    if symmetry_options is not None and (positional or pose_reference):
+        raise ArgumentError(
+            arg_name='reference',
+            reason='Symmetry requires a complete declared molecular reference.',
+        )
     if positional or pose_reference:
         if not isinstance(selection, str) or selection != 'all':
             raise ArgumentError(
@@ -299,4 +316,10 @@ def evaluate_redocking(
             'rmsd_function': 'molsysmt.structure.get_rmsd',
         },
     }
+    if symmetry_options is not None:
+        from dockingmt._private.symmetry import evaluate_symmetry
+
+        report['symmetry_evaluation'] = evaluate_symmetry(
+            result, resolved_reference, reference_selection, report, symmetry_options
+        )
     return _json_copy(report, 'result')

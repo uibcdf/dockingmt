@@ -85,7 +85,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "a462b49c5566e8de993f83825576dc3860e9cfb1"
+          ref: "c35252d89a28a8faff11e0014bda91312167f549"
           path: .molsyssuite/molsysmt
           fetch-depth: 0
       - name: Check out compatible MolSysMT source for Python 3.14
@@ -93,7 +93,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "a462b49c5566e8de993f83825576dc3860e9cfb1"
+          ref: "c35252d89a28a8faff11e0014bda91312167f549"
           path: .molsyssuite/molsysmt
           fetch-depth: 0
       - name: Check out compatible MolSysViewer source

@@ -250,17 +250,9 @@ def test_heavy_selection_ignores_hydrogens_without_aligning_the_pose(
 
 
 def test_receiving_all_saved_poses_forbids_new_native_work(
-    tmp_path, searches, monkeypatch
+    original, searches, reference, monkeypatch
 ):
     from vina import Vina
-
-    import devtools.evaluate_3ptb_saved as receiver
-
-    # CI tests the receiving behavior in each supported interpreter. Native/source
-    # qualification of the scientific producer is a separate executed receipt.
-    monkeypatch.setattr(
-        receiver, 'producer_identity', lambda: {'consumer_source_sha256': {}}
-    )
 
     def forbidden(*args, **kwargs):
         pytest.fail('Saved evaluation attempted new preparation, scoring or search')
@@ -269,24 +261,50 @@ def test_receiving_all_saved_poses_forbids_new_native_work(
         monkeypatch.setattr(Vina, name, forbidden)
     for name in ('dock', 'score', 'prepare_ligand', 'prepare_receptor'):
         monkeypatch.setattr(dmt, name, forbidden)
-    source = tmp_path / '3PTB.pdb'
-    source.write_bytes(gzip.decompress((DATA / '3PTB.pdb.gz').read_bytes()))
+    # A new receiver evaluates current code. The original strict receiver keeps
+    # its original source-hash requirement; it cannot certify a changed producer.
+    previous = json.loads(gzip.decompress(EVALUATIONS.read_bytes()))
     with puw.context(
         standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'degrees']
     ):
-        received = receiver.qualify(
-            source,
+        for saved, expected in zip(searches['runs'], previous['runs'], strict=True):
+            result = dmt.DockingResult.from_dict(saved['result'])
+            box = dmt.BoxRegion(
+                puw.quantity(saved['backend_box']['center'], 'angstrom'),
+                puw.quantity(saved['backend_box']['size'], 'angstrom'),
+            )
+            actual = evaluate(result, reference, box, original, saved['arm'])
+            np.testing.assert_allclose(
+                [row['rmsd'] for row in actual['report']['poses']],
+                [row['rmsd'] for row in expected['evaluation']['report']['poses']],
+                rtol=0,
+                atol=1e-10,
+            )
+            assert actual['containment'] == expected['evaluation']['containment']
+            assert (
+                actual['complete_energy_vectors']
+                == expected['evaluation']['complete_energy_vectors']
+            )
+            assert saved['status'] == expected['original_status']
+            assert saved.get('error') == expected['original_error']
+
+
+def test_original_receiver_still_rejects_changed_source(tmp_path, monkeypatch):
+    import devtools.evaluate_3ptb_saved as receiver
+
+    # Provide every original path but changed bytes. No source-identity waiver is
+    # introduced when the new consumer receives the old scientific population.
+    searches = json.loads(gzip.decompress(OUTPUT.read_bytes()))
+    for relative in searches['original_producer']['consumer_source_sha256']:
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(b'changed source')
+    monkeypatch.setattr(receiver, 'ROOT', tmp_path)
+    output = tmp_path / 'never-created.json.gz'
+    with pytest.raises(AssertionError):
+        receiver.qualify(
+            tmp_path / 'unused.pdb',
             search_sha256=sha(OUTPUT.read_bytes()),
-            output=tmp_path / 'received.json.gz',
+            output=output,
         )
-    original = json.loads(gzip.decompress(EVALUATIONS.read_bytes()))
-    assert received['summary'] == original['summary']
-    for expected, actual in zip(original['runs'], received['runs'], strict=True):
-        np.testing.assert_allclose(
-            [row['rmsd'] for row in actual['evaluation']['report']['poses']],
-            [row['rmsd'] for row in expected['evaluation']['report']['poses']],
-            rtol=0,
-            atol=1e-10,
-        )
-        assert actual['original_status'] == expected['original_status']
-        assert actual['original_error'] == expected['original_error']
+    assert not output.exists()
