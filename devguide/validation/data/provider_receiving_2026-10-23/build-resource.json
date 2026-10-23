@@ -1,0 +1,7 @@
+{
+  "owner": "uibcdf/dockingmt#50",
+  "target_directory": "/home/liliana/repos@uibcdf/dockingmt/.molsyssuite-tools/provider-receiving-20261023/cargo-target",
+  "reason": "initial native build failed with Disk quota exceeded on temporary storage",
+  "compiler_profile": "unchanged provider release profile; only Cargo output location moved",
+  "cleanup": "remove owned generated target after retaining successful wheel/native receipt or at resource review"
+}

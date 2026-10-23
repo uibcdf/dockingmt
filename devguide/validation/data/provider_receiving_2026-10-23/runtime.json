@@ -1,0 +1,47 @@
+{
+  "dockingmt": {
+    "version": "0.0.0+180.g1decee5",
+    "origin": "/tmp/dockingmt-provider-receiving-20261023/environment/lib/python3.14/site-packages/dockingmt/__init__.py"
+  },
+  "molsysmt": {
+    "version": "0.23.0+171.g128a0bbb9",
+    "origin": "/tmp/dockingmt-provider-receiving-20261023/environment/lib/python3.14/site-packages/molsysmt/__init__.py"
+  },
+  "argdigest": {
+    "version": "0.15.0+5.g3d1ec53",
+    "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/argdigest/__init__.py"
+  },
+  "molsysviewer": {
+    "version": "0.24.0+76.ga61b75bc",
+    "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/molsysviewer/__init__.py"
+  },
+  "pyunitwizard": {
+    "version": "0.28.1",
+    "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/pyunitwizard/__init__.py"
+  },
+  "smonitor": {
+    "version": "0.21.0",
+    "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/smonitor/__init__.py"
+  },
+  "depdigest": {
+    "version": "0.15.1",
+    "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/depdigest/__init__.py"
+  },
+  "pandas": {
+    "version": "3.0.6",
+    "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/pandas/__init__.py"
+  },
+  "numpy": {
+    "version": "2.5.4",
+    "origin": "/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/numpy/__init__.py"
+  },
+  "native_sha256": "0945a853b586e732f0d8870fd427066e91ac2462bd2f4d8b0805b082fa0302d4",
+  "candidate_wheel_sha256": "0d81240d331769843efd649b8025711a940122e042799c46292034b43e9c22cd",
+  "python": {
+    "version": "3.14.8 | packaged by conda-forge | (main, Oct 12 2026, 17:35:27) [GCC 15.3.0]",
+    "executable": "/tmp/dockingmt-provider-receiving-20261023/environment/bin/python",
+    "prefix": "/tmp/dockingmt-provider-receiving-20261023/environment",
+    "base_prefix": "/tmp/dockingmt-human-20261020/environment",
+    "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.43"
+  }
+}

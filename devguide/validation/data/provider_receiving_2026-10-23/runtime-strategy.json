@@ -1,0 +1,9 @@
+{
+  "strategy": "isolated venv inheriting retained provider dependencies",
+  "prefix": "/tmp/dockingmt-provider-receiving-20261023/environment",
+  "base": "/tmp/dockingmt-human-20261020/environment",
+  "failed_attempt": "offline Conda clone could not recover packages after the previous documented cache cleanup; incomplete owned prefix removed",
+  "base_environment_modified": false,
+  "candidate_provider": "normal source compilation/install into this venv",
+  "original_artifact_and_scientific_producers_preserved": true
+}

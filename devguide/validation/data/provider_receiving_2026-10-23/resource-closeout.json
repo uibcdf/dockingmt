@@ -1,0 +1,17 @@
+{
+  "owner": "uibcdf/dockingmt#50",
+  "task_issue": "uibcdf/dockingmt#51",
+  "retained_root": "/tmp/dockingmt-provider-receiving-20261023",
+  "review_by": "2026-10-30",
+  "dependent_runtime_root": "/tmp/dockingmt-human-20261020",
+  "dependent_runtime_review_by": "2026-10-27",
+  "removed_owned_disposable_paths": [
+    "/home/liliana/repos@uibcdf/dockingmt/.molsyssuite-tools/provider-receiving-20261023/cargo-target",
+    "/tmp/dockingmt-provider-receiving-20261023/sources/molsysmt/build",
+    "/tmp/dockingmt-provider-receiving-20261023/cargo"
+  ],
+  "retained_wheel": "/tmp/dockingmt-provider-receiving-20261023/wheels/molsysmt-0.23.0+171.g128a0bbb9-cp311-abi3-linux_x86_64.whl",
+  "original_wheel_and_scientific_archives_unchanged": true,
+  "shared_environment_modified": false,
+  "automatic_deletion": false
+}

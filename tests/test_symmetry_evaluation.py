@@ -130,11 +130,14 @@ def test_benzamidinium_nitrogen_roles_are_not_normalized_by_resonance():
     assert report['poses'][0]['rmsd'] > 0.2
 
 
-def test_template_context_needs_an_explicit_stereo_declaration():
+@pytest.mark.parametrize('missing_stereo', [None, 'unknown'])
+def test_template_context_retains_stereo_and_rejects_missing_declarations(
+    missing_stereo,
+):
     from molsysmt._private.smonitor import StructuralInconsistencyError
 
     from devtools.qualify_3ptb_admission import DATA, expand
-    from devtools.qualify_chemical_templates import template_options
+    from devtools.qualify_chemical_templates import snapshot, template_options
 
     source = msm.convert(
         DATA / '3PTB.pdb.gz', to_form='molsysmt.MolSys', get_missing_bonds=False
@@ -153,12 +156,24 @@ def test_template_context_needs_an_explicit_stereo_declaration():
     )['molecular_system']
     context, _ = expand(applied, receptor=False)
     result = dmt.DockingResult([pose(context)])
-    with pytest.raises(StructuralInconsistencyError, match='stereochemistry'):
-        evaluate(result, context, symmetry_options={'molecular_system': context})
-    declared = msm.copy(context)
-    msm.set(declared, atom_stereochemistry='unspecified')
-    report = evaluate(result, declared, symmetry_options={'molecular_system': declared})
+    before, saved = snapshot(context), result.to_dict()
+    assert (
+        list(msm.get(context, element='atom', atom_stereochemistry=True))
+        == ['unspecified'] * 18
+    )
+    report = evaluate(result, context, symmetry_options={'molecular_system': context})
     assert report['symmetry_evaluation']['poses'][0]['rmsd'] == pytest.approx(0)
+    maps = np.asarray(
+        report['symmetry_evaluation']['correspondences']['atom_correspondences']
+    )
+    assert maps.shape == (2, 9, 2)
+    np.testing.assert_array_equal(maps[:, 7:, 1], [[7, 8], [7, 8]])
+
+    incomplete = msm.copy(context)
+    msm.set(incomplete, atom_stereochemistry=[missing_stereo] * 18)
+    with pytest.raises(StructuralInconsistencyError, match='stereochemistry'):
+        evaluate(result, incomplete, symmetry_options={'molecular_system': incomplete})
+    assert snapshot(context) == before and result.to_dict() == saved
 
 
 @pytest.mark.parametrize('query_smiles', ['C[NH2+]C', 'CNC'])

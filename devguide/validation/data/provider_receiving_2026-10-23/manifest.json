@@ -1,0 +1,85 @@
+{
+  "schema": "dockingmt.evidence_manifest@1",
+  "files": [
+    {
+      "path": "1iep-sdf-export.json",
+      "bytes": 1254,
+      "sha256": "f32c142b1088aae817f396d27885396a5e772a52b6ae9441225c29d6de4fd423"
+    },
+    {
+      "path": "administrative-final.log.gz",
+      "bytes": 50,
+      "sha256": "66c22e0f22319d302673a1aac24ff78b644fe194084c2504a5118fe3c5084bfc"
+    },
+    {
+      "path": "baseline-origins.json",
+      "bytes": 5580,
+      "sha256": "d173187445c217e3b9b2e18621914b077c52d93264e6027fe02c355bad679968"
+    },
+    {
+      "path": "baseline.log.gz",
+      "bytes": 278,
+      "sha256": "799c16afc3eedd7e577574533ccad1e3ee3f602d61dcdf299c78a406242b3e87"
+    },
+    {
+      "path": "build-resource.json",
+      "bytes": 458,
+      "sha256": "626c38e6346d95ece75ee96a86a2804281451d9a65630697a9456f3d05205998"
+    },
+    {
+      "path": "candidate-broad-origins.json",
+      "bytes": 7790,
+      "sha256": "fb7baeb21d6a327d24623d4996a98e3a6da755e554fc797eb9a7417240847c69"
+    },
+    {
+      "path": "candidate-broad.log.gz",
+      "bytes": 468,
+      "sha256": "6a8cb5a8c0a625599f9740b2b46c2b57d0019446b576669395e54c6dcb1109fa"
+    },
+    {
+      "path": "candidate-origins.json",
+      "bytes": 6210,
+      "sha256": "b62f569a34fe5479fb21547c61b407cf72893410723e2fe0618cedb5c1d4dcff"
+    },
+    {
+      "path": "candidate.log.gz",
+      "bytes": 51,
+      "sha256": "8c7475da2e99d0e004c7a58ff12df5dccc6c5c46d3f61ea9caf09ee6ecd50743"
+    },
+    {
+      "path": "formats-corrected.log.gz",
+      "bytes": 96,
+      "sha256": "dce36442475ab900a4253beba656e4f5f711448a3cdaa6d577f31e08fe91dde5"
+    },
+    {
+      "path": "full-source.log.gz",
+      "bytes": 923,
+      "sha256": "df5959c57fbd00a4372ae66eea280a52af0315754a8e8975ed5fc6d31df55c95"
+    },
+    {
+      "path": "guides-inspection.json",
+      "bytes": 2092,
+      "sha256": "c2dd3164cc0101c710ff239e19b29ab12209c5dda38a68cb9b0e769ace447f41"
+    },
+    {
+      "path": "qualification.json",
+      "bytes": 2297,
+      "sha256": "f1c408dbec772bd974099a021368f6b07922511608946685226a3503b50b0096"
+    },
+    {
+      "path": "resource-closeout.json",
+      "bytes": 816,
+      "sha256": "c529cc8ac931a87ff970820346170ba2b2f5bf6fdfd8e1afca66a87039d6106f"
+    },
+    {
+      "path": "runtime-strategy.json",
+      "bytes": 526,
+      "sha256": "e5bf4400470151e8232af02b17eb54f427496d8905c5053f94750ab51c64719f"
+    },
+    {
+      "path": "runtime.json",
+      "bytes": 2060,
+      "sha256": "f62b84d7ebd20c71175022d4a94e951c2bf4b52c967f5a991b610dcdc20b3b43"
+    }
+  ]
+}

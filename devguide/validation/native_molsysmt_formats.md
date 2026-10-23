@@ -7,6 +7,10 @@ and declared torsion tree. It does not qualify or assign chemical preparation.
 The [executed notebook](native_molsysmt_formats.ipynb) exercises native round trips
 and a real 1IEP docking run using explicit MolSysMT strings.
 
+The [2026-10-23 receiving update](#subsequent-valence-and-legacy-version-receiving--2026-10-23)
+records the subsequently delivered input profiles. The initial rejection table
+below retains its original source and date.
+
 ## Source and executed paths
 
 Provider implementation: `eb0549b50689b2af5d8fbedb2687fb5746d43de6`, including the
@@ -123,3 +127,25 @@ The [stored-field audit consumer](chemical_readiness_consumption.md) now records
 compact MolSysMT coverage in preparation metadata and saved-result provenance.
 CI/full-matrix pins advance to `3edbf8ad0` for that operation. Presence and declared
 completeness do not certify the remaining chemical profile; #5 and #33 stay open.
+
+## Subsequent valence and legacy-version receiving — 2026-10-23
+
+The [new selected provider](provider_receiving_2026-10-23.md) at
+`128a0bbb94e6804f5663e58a45313c77de1cc30d` admits the original 1IEP valence and
+1S63 legacy-counts inputs without fixture edits. The updated module passes 18
+cases. Input checks compare original stored graphs, elements, formal charge and
+coordinates against an independent test-only CTAB oracle. The 1IEP atom-32
+virtual-H/implicit-H declarations remain intact. Explicit SD-property discard is
+required and reported as lossy; invalid version/connectivity controls still fail.
+
+Round trips use explicit named profiles: native V3000 with `stereo_engine=None`
+for the admitted 1IEP graph whose atom/bond CIP labels are all absent, and RDKit
+for 1S63 and the existing 5X72 stereoisomers. The optional explicit-RDKit 1IEP
+writer refuses, preserving the system and existing destination; its cause and
+intended boundary belong to [MolSysMT #436](https://github.com/uibcdf/molsysmt/issues/436).
+There is no catch/retry export fallback or downstream molecular repair.
+
+These two delivered input profiles supersede the earlier expected rejections in
+current tests. The dated table and notebook above keep their original producer.
+This receiving does not retire every source bridge, certify chemical preparation
+or close #33; broader mapping, torsion and format acceptance remain separate.

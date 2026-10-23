@@ -216,20 +216,137 @@ def test_supported_native_sdf_preserves_chemistry_and_stereo(name, tmp_path):
 
 
 @pytest.mark.parametrize(
-    'name,message',
-    [('1iep_ligand', 'Unsupported atom flag'), ('1s63_ligand', 'explicitly versioned')],
+    'name,n_atoms,n_bonds,n_hydrogens,total_charge',
+    [
+        ('1iep_ligand', 69, 73, 32, 1),
+        ('1s63_ligand', 29, 32, 0, 0),
+    ],
 )
-def test_pinned_sdf_dialects_outside_current_native_profile_fail_explicitly(
-    name, message
+def test_delivered_sdf_valence_and_legacy_version_profiles_preserve_declared_graph(
+    name, n_atoms, n_bonds, n_hydrogens, total_charge, tmp_path
 ):
-    # Profile gaps reported in molsysmt#215 and dockingmt#33; no normalization.
-    with pytest.raises(FormatError, match=message):
+    from rdkit import Chem
+
+    source = DATA / f'{name}.sdf'
+    original = source.read_bytes()
+    digest = next(case[1] for case in CASES if case[0] == name)
+    assert hashlib.sha256(original).hexdigest() == digest
+    # An independent test oracle reads the pinned CTAB without removing H or
+    # sanitizing/aromatizing its stored bond orders. This is no product fallback.
+    oracle = Chem.SDMolSupplier(str(source), removeHs=False, sanitize=False)[0]
+    assert oracle is not None
+    with pytest.raises(FormatError, match='discard_properties'):
+        msm.convert(source, to_form='molsysmt.MolSys', stereo_engine='rdkit')
+    native, report = msm.convert(
+        source,
+        to_form='molsysmt.MolSys',
+        stereo_engine='rdkit',
+        discard_properties=True,
+        return_report=True,
+    )
+    assert report.outcome == 'lossy'
+    assert any(issue.attribute == 'sdf_properties' for issue in report.issues)
+    assert msm.get(native, n_atoms=True) == n_atoms
+    assert msm.get(native, n_bonds=True) == n_bonds
+    elements = list(msm.get(native, element='atom', atom_type=True))
+    assert elements == [atom.GetSymbol() for atom in oracle.GetAtoms()]
+    assert elements.count('H') == n_hydrogens
+    charges = list(msm.get(native, element='atom', formal_charge=True))
+    assert charges == [atom.GetFormalCharge() for atom in oracle.GetAtoms()]
+    assert sum(charges) == total_charge
+    assert list(msm.get(native, element='atom', atom_id=True)) == [
+        str(index + 1) for index in range(n_atoms)
+    ]
+    expected_bonds = {
+        tuple(
+            sorted((bond.GetBeginAtomIdx(), bond.GetEndAtomIdx()))
+        ): bond.GetBondTypeAsDouble()
+        for bond in oracle.GetBonds()
+    }
+    actual_bonds = {
+        tuple(sorted(map(int, pair))): float(order)
+        for pair, order in zip(
+            msm.get(native, element='bond', bonded_atom_pairs=True),
+            msm.get(native, element='bond', bond_order=True),
+            strict=True,
+        )
+    }
+    assert actual_bonds == expected_bonds
+    np.testing.assert_allclose(
+        puw.get_value(msm.get(native, coordinates=True), to_unit='angstrom')[0],
+        oracle.GetConformer().GetPositions(),
+        rtol=0,
+        atol=1e-10,
+    )
+    if name == '1iep_ligand':
+        assert msm.get(native, selection=[31], n_explicit_hydrogens=True) == [0]
+        assert msm.get(native, selection=[31], n_implicit_hydrogens=True) == [0]
+        assert msm.get(native, selection=[31], allows_implicit_hydrogens=True) == [
+            False
+        ]
+
+    output = tmp_path / 'received.sdf'
+    before = msm.physchem.get_cip_stereochemistry(native)
+    encoding_engine = 'rdkit'
+    if name == '1iep_ligand':
+        assert all(label is None for label in before['atom_stereochemistry'])
+        assert all(label is None for label in before['bond_stereochemistry'])
+        # This declared no-stereo profile uses the native encoder explicitly.
+        # The separate optional RDKit writer limit is tracked in molsysmt#436.
+        encoding_engine = None
+    msm.convert(
+        native, to_form=output, ctfile_version='V3000', stereo_engine=encoding_engine
+    )
+    restored = msm.convert(output, to_form='molsysmt.MolSys', stereo_engine='rdkit')
+    after = msm.physchem.get_cip_stereochemistry(restored)
+    np.testing.assert_array_equal(
+        before['atom_stereochemistry'], after['atom_stereochemistry']
+    )
+    for attribute, element in [
+        ('atom_type', 'atom'),
+        ('formal_charge', 'atom'),
+        ('bond_order', 'bond'),
+        ('bonded_atom_pairs', 'bond'),
+    ]:
+        np.testing.assert_array_equal(
+            msm.get(native, element=element, **{attribute: True}),
+            msm.get(restored, element=element, **{attribute: True}),
+        )
+    np.testing.assert_allclose(
+        puw.get_value(msm.get(native, coordinates=True), to_unit='angstrom'),
+        puw.get_value(msm.get(restored, coordinates=True), to_unit='angstrom'),
+        rtol=0,
+        atol=1e-4,
+    )
+    if name == '1iep_ligand':
+        assert msm.get(restored, selection=[31], n_explicit_hydrogens=True) == [0]
+        assert msm.get(restored, selection=[31], n_implicit_hydrogens=True) == [0]
+        assert msm.get(restored, selection=[31], allows_implicit_hydrogens=True) == [
+            False
+        ]
+    assert source.read_bytes() == original
+
+
+@pytest.mark.parametrize('change', ['unknown-version', 'invalid-bond-endpoint'])
+def test_invalid_sdf_is_not_admitted_as_a_legacy_profile(change, tmp_path):
+    content = (DATA / '1iep_ligand.sdf').read_text()
+    if change == 'unknown-version':
+        content = content.replace('V2000', 'V4000', 1)
+    else:
+        lines = content.splitlines()
+        # The pinned source declares 69 atoms; the first bond cannot address 999.
+        lines[4 + 69] = '999' + lines[4 + 69][3:]
+        content = '\n'.join(lines) + '\n'
+    source = tmp_path / 'invalid.sdf'
+    source.write_text(content)
+    with pytest.raises(FormatError):
         msm.convert(
-            DATA / f'{name}.sdf',
+            source,
             to_form='molsysmt.MolSys',
             stereo_engine='rdkit',
             discard_properties=True,
         )
+    assert source.read_text() == content
 
 
 @pytest.mark.parametrize(

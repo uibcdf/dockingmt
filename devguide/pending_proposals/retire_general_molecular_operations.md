@@ -373,3 +373,16 @@ evaluation and receiving all 24/167 saved results, then stops before visualizati
 for maintainer discussion. Source/public delivery and the remaining projection,
 pose-ensemble, permutation, connectivity and persistence work retain their existing
 owners and partial status. Original scientific producers and archives are intact.
+
+## Native ownership and stereo receiving — 2026-10-23
+
+The [bounded provider receiving](../validation/provider_receiving_2026-10-23.md)
+selects MolSysMT `128a0bbb94e6804f5663e58a45313c77de1cc30d`, including #121,
+#390 and #431. Native-copy refusal/independent edits and retained template stereo
+now have consumer regression guards under DockingMT #51. The earlier explicit
+stereo declaration stays historical; no blanket setter or consumer classifier
+is introduced. Ten ownership controls and 174 installed receiving cases pass,
+including all 24 historical rows / 167 poses without repeating their searches.
+SDF admission has also advanced; optional explicit-RDKit 1IEP export is reported
+separately as MolSysMT #436. Projection/maps, native pose ensembles, permutations,
+connectivity and persistence retain their owners and this report remains partial.

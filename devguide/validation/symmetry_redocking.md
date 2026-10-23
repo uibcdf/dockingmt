@@ -56,7 +56,7 @@ hypothesis, affinity or broad docking accuracy.
 
 ## Provider and regression boundaries
 
-The controlled source composition selects MolSysMT
+The original 2026-10-20 controlled source composition selected MolSysMT
 `c35252d89a28a8faff11e0014bda91312167f549`, containing delivered #310 and compressed
 PDB input [#385](https://github.com/uibcdf/molsysmt/issues/385). ArgDigest
 `3d1ec53c374098016452abab74706e9d80df5462` and Viewer
@@ -153,3 +153,13 @@ evidence for the immediate visualization discussion or recovery. Review by
 paths may be removed at closeout, preserving the installed native bytes, artifact
 and all still-required evidence. Shared environments and sibling worktrees remain
 outside this cleanup scope.
+
+## Subsequent template-stereo receiving — 2026-10-23
+
+[Provider receiving](provider_receiving_2026-10-23.md) at
+`128a0bbb94e6804f5663e58a45313c77de1cc30d` consumes MolSysMT #390. The frozen
+benzamidinium template now retains all 18 explicit unspecified declarations
+through indexed H composition, admitting the two expected heavy-atom maps while
+fixing the distinct N roles. Missing/unknown declarations on a detached context
+still reject. This replaces the current test's old missing-metadata expectation;
+the prior notebook's explicit declaration, producer and observations stay intact.

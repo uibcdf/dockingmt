@@ -1,0 +1,60 @@
+{
+  "schema": "dockingmt.provider_receiving@1",
+  "date": "2026-10-23",
+  "owner": "uibcdf/dockingmt#51",
+  "molsysmt_source": "128a0bbb94e6804f5663e58a45313c77de1cc30d",
+  "molsysmt_wheel_sha256": "0d81240d331769843efd649b8025711a940122e042799c46292034b43e9c22cd",
+  "native_sha256": "0945a853b586e732f0d8870fd427066e91ac2462bd2f4d8b0805b082fa0302d4",
+  "dockingmt_installed_producer": "1decee504b112cfd92026c52dcbe22449de30f4f",
+  "dockingmt_wheel_sha256": "24cfe209935b9bcdef371590427dc74818f23eece6711171346c72402c02ba4e",
+  "baseline_ownership": {
+    "passed": 6,
+    "failed": 4,
+    "reason": "Original provider omits synthetic unavailable extension instead of propagating copy refusal"
+  },
+  "candidate_installed_ownership": {
+    "passed": 10,
+    "failed": 0,
+    "seconds": 5.97
+  },
+  "candidate_installed_selection": {
+    "passed": 174,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 72.27,
+    "includes_ownership_cases": true,
+    "warnings": 70
+  },
+  "initial_local_source_suite": {
+    "passed": 1154,
+    "failed": 2,
+    "seconds": 744.58,
+    "reason": "Two stale expected rejections for subsequently delivered SDF input profiles; not a green full run"
+  },
+  "corrected_local_format_module": {
+    "passed": 18,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 22.29
+  },
+  "historical_rows_received": 24,
+  "historical_poses_received": 167,
+  "historical_rmsd_tolerance_angstrom": 1e-10,
+  "new_registered_3ptb_searches": 0,
+  "historical_searches_repeated": 0,
+  "optional_1iep_rdkit_writer_issue": "uibcdf/molsysmt#436",
+  "explicit_1iep_native_encoder_profile": {
+    "stereo_engine": null,
+    "atom_and_bond_cip_labels": null,
+    "roundtrip_graph_and_coordinates_verified": true
+  },
+  "public_admission": false,
+  "browser_verified": false,
+  "C6_accepted": false,
+  "hosted_exact_head_evidence": "Recorded after the unskipped source push in the owning issue; not inferred from local selections",
+  "test_sha256": {
+    "tests/test_molecular_variant_ownership.py": "b6ecdb7ecd4f9809403621f2775e45c4f4cb20efc03f7a5a27ee3686ad84c581",
+    "tests/test_symmetry_evaluation.py": "6f5bfe3002374aa38a47b420bfb3a71d109387ba0ab208f9bf3a446e7c90b787",
+    "tests/test_native_molsysmt_formats.py": "93d3ca5a6e7fdcd13ad4c194c48170b90a4fdb10ec614cfdb49a515b74ddabda"
+  }
+}

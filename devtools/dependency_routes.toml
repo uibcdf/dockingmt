@@ -30,9 +30,9 @@ id = "molsysmt-source"
 name = "molsysmt"
 role = "required-runtime"
 url = "https://github.com/uibcdf/molsysmt"
-commit = "c35252d89a28a8faff11e0014bda91312167f549"
+commit = "128a0bbb94e6804f5663e58a45313c77de1cc30d"
 install = "pip-no-deps-directory"
-reason = "Bounded provider adoption under dockingmt#49 includes declared-state symmetry RMSD (#310), gzip PDB input (#385) and the earlier mechanics fix; qualify normal directory installation and complete exact-head CI."
+reason = "Bounded receiving under dockingmt#51/#49 includes native independent-copy ownership (#121), explicit template stereo transfer (#390), pandas 3.1 compatibility (#431) and earlier symmetry/input/mechanics deliveries; exact-head CI must qualify normal directory installs. Public artifact admission remains separate."
 
 [[source_routes]]
 id = "viewer-base"
@@ -91,7 +91,7 @@ reason = "Manual candidate/staged or eligible reviewed release caller; shared pu
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "14568c6ad474b94277c8e10595c8b4e416f36571d89ceeec3837459de0ddde90"
+sha256 = "b53b0c5316be4837fd6861a90d9ba842cc9eb9282922d83dc5f0ebb117040bc0"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]
@@ -101,7 +101,7 @@ reason = "Administrative no-build recipe/resources and immutable publisher contr
 
 [[workflows]]
 path = ".github/workflows/full-matrix.yml"
-sha256 = "42fa879594bf595ff496d70be6e72c444db38895a1d0f5fb66146e9e3a86a8cc"
+sha256 = "6f3c8203b1b8812d08f727066ae97d845140fde4624ee16199b2e61ef1373e8e"
 reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under dockingmt#49; directory preflight does not dispatch or change the matrix."
 
 [[workflows]]

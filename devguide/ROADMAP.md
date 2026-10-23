@@ -2,6 +2,25 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Provider receiving checkpoint — 2026-10-23
+
+**HTML review is deferred by the maintainer.** The scene and original producers
+remain unchanged; no browser observation or C6 acceptance is claimed. The bounded
+[native-copy/template-stereo receiving](validation/provider_receiving_2026-10-23.md)
+uses MolSysMT `128a0bbb94e6804f5663e58a45313c77de1cc30d` and retains the ArgDigest
+and Viewer pins. Ten ownership controls and the broader 174-case ordinary-wheel
+selection pass, including all 24 historical rows / 167 saved poses. Updated SDF
+input profiles have 18 passing format controls; optional explicit-RDKit 1IEP
+export has a separate provider report, MolSysMT #436. No molecular operation is
+implemented downstream, new registered 3PTB search is run or public floor raised.
+
+Next: verify the unskipped exact-head Python 3.11–3.14 gates and synchronize #51.
+Remaining projection/maps, pose ensembles and general molecular retirement stay
+provider-owned under #49; broader native-format retirement remains #33. Resume
+browser review only when the maintainer chooses it. Public release/file admission
+remains #30/#47, with the required version-specific MolSysSuite availability notice
+at publication closeout. This source receiving block does not publish a release.
+
 ## Current execution checkpoint — 2026-10-23
 
 The maintainer accepted the minimal 3PTB scene after the pause. The
