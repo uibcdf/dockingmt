@@ -2,6 +2,26 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Retained-connectivity implementation — 2026-10-23
+
+[Flexible preparation now delegates retained connectivity](validation/retained_connectivity.md)
+to MolSysMT's delivered state-aware induced-subset operation. The local traversal
+and its exception are removed without changing ROOT/cut policy or source pins.
+The selected 75-case fragment/torsion/flexible/format source gate passes, including
+assigned/reference disagreement, omitted connectors, source preservation and
+unchanged refusal. Installed candidate and exact-head CI evidence are recorded
+separately in [#49](https://github.com/uibcdf/dockingmt/issues/49).
+
+The preceding copy/stereo receiving is complete: [#51's terminal receipt](https://github.com/uibcdf/dockingmt/issues/51#issuecomment-6373232230)
+verifies 1,158 cases on each Python 3.11–3.14, zero skips, dependency closure and
+actual coverage publication. That count and source belong to the preceding commit.
+
+Next functional work remains the provider-owned export/projection and pose-axis
+contracts under #49/#33 (MolSysMT #223/#369). Receive delivered tools before
+retiring the corresponding consumer routes. HTML review remains deferred under
+#52; C6 and whole-Core scientific acceptance remain open. Public delivery remains
+#30/#47, with a MolSysSuite version notice at publication closeout.
+
 ## Provider receiving checkpoint — 2026-10-23
 
 **HTML review is deferred by the maintainer.** The scene and original producers
@@ -14,7 +34,7 @@ input profiles have 18 passing format controls; optional explicit-RDKit 1IEP
 export has a separate provider report, MolSysMT #436. No molecular operation is
 implemented downstream, new registered 3PTB search is run or public floor raised.
 
-Next: verify the unskipped exact-head Python 3.11–3.14 gates and synchronize #51.
+Completed: [exact-head Python 3.11–3.14 gates and #51 closeout](https://github.com/uibcdf/dockingmt/issues/51#issuecomment-6373232230).
 Remaining projection/maps, pose ensembles and general molecular retirement stay
 provider-owned under #49; broader native-format retirement remains #33. Resume
 browser review only when the maintainer chooses it. Public release/file admission

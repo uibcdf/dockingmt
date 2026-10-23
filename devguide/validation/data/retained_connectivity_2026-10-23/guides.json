@@ -1,0 +1,58 @@
+[
+  {
+    "filename": "MOLSYSSUITE_GUIDE.md",
+    "source": "uibcdf/molsyssuite",
+    "path": "MOLSYSSUITE_GUIDE.md",
+    "canonical_blob": "2964d994485e28ca1db573fc9c9be97c10cb44ba",
+    "matches": true,
+    "sha256": "caf48e39e3ba0dc044114c6b775ab799b541c4e342bab24435afbcef40005e5d"
+  },
+  {
+    "filename": "SMONITOR_GUIDE.md",
+    "source": "uibcdf/smonitor",
+    "path": "standards/SMONITOR_GUIDE.md",
+    "canonical_blob": "c3f8c8cc44092a166af8d88c4f61ff6b1fe3c70e",
+    "matches": true,
+    "sha256": "ce5afd02d563edd80bc4b5696fe3e51e00bd2c7343d6ca77309e2881fdfb2d8a"
+  },
+  {
+    "filename": "DEPDIGEST_GUIDE.md",
+    "source": "uibcdf/depdigest",
+    "path": "standards/DEPDIGEST_GUIDE.md",
+    "canonical_blob": "5918d76ab42f3cc41de7d06553ec9f3b37fa3344",
+    "matches": true,
+    "sha256": "f09328b84dfbfb0a51e2970c9f6c2b8b48d61e238cd4920637de629de261be55"
+  },
+  {
+    "filename": "ARGDIGEST_GUIDE.md",
+    "source": "uibcdf/argdigest",
+    "path": "standards/ARGDIGEST_GUIDE.md",
+    "canonical_blob": "fd70ad54b1add9057062ee368540cda305e20bb6",
+    "matches": true,
+    "sha256": "6e2137129995545492b57c09809f0e83d3f74d6f162260ecf79678f1f6f3b9a2"
+  },
+  {
+    "filename": "PYUNITWIZARD_GUIDE.md",
+    "source": "uibcdf/pyunitwizard",
+    "path": "standards/PYUNITWIZARD_GUIDE.md",
+    "canonical_blob": "a3990b6ec2d6f8e2c73cfdd2439df9898b337502",
+    "matches": true,
+    "sha256": "4d8ffa308b0a004b0b1caa1fa58a871fb715f200f4864b2c1b18416184afc184"
+  },
+  {
+    "filename": "GH_RUN_RECEPTOR_GUIDE.md",
+    "source": "uibcdf/gh-run-receptor",
+    "path": "standards/GH_RUN_RECEPTOR_GUIDE.md",
+    "canonical_blob": "0c2d4a3406c86d655e7e8090300c8d2a9de1add6",
+    "matches": true,
+    "sha256": "a3cf5c4d17c3dae3f9f419d1ddd9cf298017f9b4bca7e224e5d517b75cfc60f8"
+  },
+  {
+    "filename": "PYTEST_RECEPTOR_GUIDE.md",
+    "source": "uibcdf/pytest-receptor",
+    "path": "standards/PYTEST_RECEPTOR_GUIDE.md",
+    "canonical_blob": "c1be410e4a33449fb0e7e376973c7d3300c7e6e5",
+    "matches": true,
+    "sha256": "edc16aef94ed06b7770b60e6bcda4fc5c2c468bf86a59ded93f41ec67dbce383"
+  }
+]

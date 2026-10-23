@@ -1,0 +1,40 @@
+{
+  "schema": "dockingmt.evidence_manifest@1",
+  "files": [
+    {
+      "path": "administrative.log.gz",
+      "bytes": 50,
+      "sha256": "88c7a8a587269ea1b016119d49011ab5e1bbc4e5fe5bfe133585374c89ed768d"
+    },
+    {
+      "path": "baseline-preparations.json",
+      "bytes": 69037,
+      "sha256": "f51e4ceaa770e53bd523d065799baadc456cb1e5bd469e4a77bc10f52133d503"
+    },
+    {
+      "path": "before.log.gz",
+      "bytes": 363,
+      "sha256": "88dc04675ecdd6c276dd63db1e89f190fc007bb2fe4a8bf4eaf1ab8d53604226"
+    },
+    {
+      "path": "guides.json",
+      "bytes": 2092,
+      "sha256": "c2dd3164cc0101c710ff239e19b29ab12209c5dda38a68cb9b0e769ace447f41"
+    },
+    {
+      "path": "resources.json",
+      "bytes": 800,
+      "sha256": "96e355d9f9e05ba5745c19eaa16b6546db117bf7c74e95c5a4af3c9eeff1bc82"
+    },
+    {
+      "path": "source-receipt.json",
+      "bytes": 1940,
+      "sha256": "5c610dceeba2079ef8ebacc891d2ef4177243ec406e6ba437aa1697055b63f6f"
+    },
+    {
+      "path": "source.log.gz",
+      "bytes": 242,
+      "sha256": "ef3f5a10ca0b54bbc7d518fff741c476b673ecd8807b1080078fac2a909cf697"
+    }
+  ]
+}

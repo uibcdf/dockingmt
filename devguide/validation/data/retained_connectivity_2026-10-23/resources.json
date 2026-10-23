@@ -1,0 +1,14 @@
+{
+  "owner": "uibcdf/dockingmt#50",
+  "task_issue": "uibcdf/dockingmt#49",
+  "retained_root": "/tmp/dockingmt-connectivity-20261023",
+  "review_by": "2026-10-30",
+  "base_runtime": "/tmp/dockingmt-human-20261020/environment",
+  "base_runtime_review_by": "2026-10-27",
+  "provider_wheel_source": "/tmp/dockingmt-provider-receiving-20261023/wheels",
+  "base_and_prior_receivers_modified": false,
+  "new_prefix_strategy": "own venv inherits original dependency runtime read-only, ordinary candidate/provider wheel overrides in own prefix",
+  "initial_unused_prefix": "Routine-base prefix was cleared before qualification and replaced by scientific-base prefix",
+  "automatic_deletion": false,
+  "sibling_state": "Behind clones and human TopoMT version-file edit preserved; no sibling worktree edited"
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "dockingmt.retained_connectivity@1",
+  "date": "2026-10-23",
+  "owner": "uibcdf/dockingmt#49",
+  "provider_source": "128a0bbb94e6804f5663e58a45313c77de1cc30d",
+  "provider_delivery": "43e8ba8d3f6cbce87d6ed10beb23fd9a80f4cdd8",
+  "provider_wheel_sha256": "0d81240d331769843efd649b8025711a940122e042799c46292034b43e9c22cd",
+  "provider_native_sha256": "0945a853b586e732f0d8870fd427066e91ac2462bd2f4d8b0805b082fa0302d4",
+  "source_parent": "f49b1c3316aed24d3c78191a335efc4530d4ff2b",
+  "prechange_enhanced_module": {
+    "passed": 15,
+    "failed": 3,
+    "seconds": 8.53,
+    "failure_mechanisms": [
+      "missing public call (two cases)",
+      "provider refusal never reached (one case)"
+    ]
+  },
+  "selected_source": {
+    "passed": 75,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 56.55,
+    "warnings": 24,
+    "command": "python -m pytest --receptor=llm tests/test_rigid_fragment_consumption.py tests/test_torsion_policy_consumption.py tests/test_flexible_ligand.py tests/test_vina_torsion_matrix.py tests/test_native_molsysmt_formats.py"
+  },
+  "administrative": {
+    "passed": 29,
+    "seconds": 2.74
+  },
+  "source_interpreter": "/tmp/dockingmt-provider-receiving-20261023/environment/bin/python",
+  "source_profile": "current checkout with qualified normally installed provider; distinct from source-free installed candidate receiving",
+  "hashes": {
+    "dockingmt/preparation/_temporary_torsions.py": "ef379c3ec3516c12e5080a1b9c1b1c7bb2891e5e7b8ddea67dfecdf686ce2e50",
+    "tests/test_rigid_fragment_consumption.py": "dac2b382f3b993dea11b70f196fc99fe39668f0a09891e8a1947c5b3fcf82718"
+  },
+  "installed_candidate_and_terminal_gates": "Recorded after this candidate commit in owning issue #49; not inferred from selected source tests",
+  "browser_verified": false,
+  "C6_accepted": false,
+  "public_admission": false,
+  "new_registered_3ptb_searches": 0,
+  "historical_scientific_archives_rewritten": false
+}

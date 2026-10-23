@@ -133,9 +133,12 @@ attribute handling; its failures propagate instead of being bypassed.
   [molsysmt#226](https://github.com/uibcdf/molsysmt/issues/226) and #223. Keep the
   prepared atom axis explicit; provider extraction does not supply an arbitrary
   atom reorder. Do not add a consumer reordering or molecular parsing algorithm.
-- **Connectivity:** the existing retained-graph traversal remains the bounded
-  exception under [molsysmt#348](https://github.com/uibcdf/molsysmt/issues/348), with
-  its existing review date 2027-01-06.
+- **Connectivity delegated (2026-10-23):** the
+  [retained-connectivity migration](../validation/retained_connectivity.md) consumes
+  delivered [molsysmt#348](https://github.com/uibcdf/molsysmt/issues/348) at the
+  already qualified provider pin. The local traversal and its 2027-01-06 exception
+  are removed; exact retained source indices and the assigned chemical state go
+  to the public provider. This does not resolve projection or serialization.
 - **Source-free conversion:** replacing PDB reconstruction with native PDBQT
   conversion can retain molecular types/charges and restore full coordinate and
   charge precision through public setters. That adds mechanics to the native

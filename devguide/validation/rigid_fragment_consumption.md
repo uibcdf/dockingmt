@@ -89,3 +89,12 @@ The twelve existing provider warnings concern legacy H5MSM input (eleven) and
 occupancy loss on concatenation (one). Ruff lint, formatting (86 Python files),
 generated report indexes and diff checks pass. All four notebook code cells
 execute on the same interpreter; Vina accepts the four generated ligand inputs.
+
+## Retained-connectivity follow-up — 2026-10-23
+
+The [state-aware induced-connectivity migration](retained_connectivity.md)
+consumes delivered MolSysMT #348 at the already qualified provider pin. The
+remaining local retained-graph traversal is removed. The original partition
+notebook/table above retain their dated producer; current chemical eligibility
+is already delegated through the [explicit policy](explicit_torsion_policy.md).
+ROOT/branch choices and outstanding export/projection work remain separate.

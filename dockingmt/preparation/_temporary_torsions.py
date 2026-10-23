@@ -1,8 +1,8 @@
 """Explicit docking choices over public provider torsion/fragment operations.
 
 MolSysMT classifies chemistry and partitions fragments. DockingMT records selected
-cuts and explicit exceptions and orients ROOT/BRANCH. The retained-axis connectivity
-guard remains pending molsysmt#348; PDBQT writing is separate (dockingmt#33).
+cuts and explicit exceptions and orients ROOT/BRANCH. MolSysMT also checks the
+retained induced graph; PDBQT writing is separate (dockingmt#33).
 """
 
 from __future__ import annotations
@@ -33,21 +33,6 @@ class TorsionTree:
     atom_order: tuple[int, ...]
     active_bonds: tuple[tuple[int, int], ...]
     selection_report: dict[str, Any]
-
-
-def _retained_component(start: int, neighbors: list[set[int]]) -> set[int]:
-    # Temporary state-aware induced connectivity pending molsysmt#348.
-    # Owner: DockingMT contributors; review 2027-01-06. Retire when the public
-    # provider operation passes assigned-state and retained-subset controls.
-    visited = {start}
-    pending = [start]
-    while pending:
-        atom = pending.pop()
-        for neighbor in neighbors[atom]:
-            if neighbor not in visited:
-                visited.add(neighbor)
-                pending.append(neighbor)
-    return visited
 
 
 def build_torsion_tree(
@@ -99,13 +84,13 @@ def build_torsion_tree(
         {'values': msm.get(source_molsys, element='atom', atom_id=True)}
     )['values']
     retained_lookup = {source: index for index, source in enumerate(retained_indices)}
-    neighbors = [set() for _ in retained_indices]
-    for a, b in source_edges:
-        if a in retained_lookup and b in retained_lookup:
-            x, y = retained_lookup[a], retained_lookup[b]
-            neighbors[x].add(y)
-            neighbors[y].add(x)
-    if len(_retained_component(0, neighbors)) != len(retained_indices):
+    retained_blocks = msm.topology.get_covalent_blocks(
+        source_molsys,
+        selection=retained_indices,
+        chemical_state='structure',
+        structure_indices=0,
+    )
+    if len(retained_blocks) != 1:
         raise ArgumentError(
             arg_name='molecular_system',
             reason='A flexible PDBQT ligand must have one connected retained graph.',

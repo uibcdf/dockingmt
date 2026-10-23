@@ -11,6 +11,7 @@ from molsysmt._private.smonitor import StructuralInconsistencyError
 from test_flexible_ligand import _ligand
 from test_vina_torsion_matrix import _atom_map, _reference, _source, _source_graph
 
+from devtools.qualify_chemical_templates import snapshot
 from devtools.qualify_named_types import CHARGE, HYDROGEN, TYPING
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation import prepare_ligand
@@ -144,12 +145,27 @@ def test_nonmonotonic_retained_axis_preserves_root_and_branch_endpoints(
 ):
     source = _ligand('CCCCCC')
     provider = msm.topology.get_rigid_fragments
+    connectivity = msm.topology.get_covalent_blocks
+    connectivity_calls = []
 
     def same_source(molecular_system, **kwargs):
         assert molecular_system is source  # Partitioning makes no molecular copy.
         return provider(molecular_system, **kwargs)
 
+    def selected_connectivity(molecular_system, **kwargs):
+        assert molecular_system is source
+        assert kwargs == {
+            'selection': retained,
+            'chemical_state': 'structure',
+            'structure_indices': 0,
+        }
+        blocks = connectivity(molecular_system, **kwargs)
+        assert blocks.tolist() == [set(retained)]
+        connectivity_calls.append(blocks)
+        return blocks
+
     monkeypatch.setattr(msm.topology, 'get_rigid_fragments', same_source)
+    monkeypatch.setattr(msm.topology, 'get_covalent_blocks', selected_connectivity)
     tree = build_torsion_tree(
         source, retained, [cut], msm.get(source, element='atom', atom_type=True)
     )
@@ -159,6 +175,71 @@ def test_nonmonotonic_retained_axis_preserves_root_and_branch_endpoints(
     branch = tree.branches[0]
     assert (branch.parent_atom, branch.child_atom) == endpoints
     assert set(branch.atoms) == set(range(6)) - set(root)
+    assert len(connectivity_calls) == 1
+
+
+@pytest.mark.parametrize(
+    'split_assigned,retained,connected',
+    [
+        (True, [5, 1, 0, 4, 3, 2], False),
+        (False, [5, 1, 0, 4, 3, 2], True),
+        (False, [5, 4, 3, 1, 0], False),
+        (True, [2, 0, 1], True),
+    ],
+)
+def test_retained_connectivity_uses_assigned_induced_graph(
+    split_assigned, retained, connected
+):
+    source = _ligand('CCCCCC')
+    # Explicit test graphs: only one declared state lacks the middle C-C edge.
+    # The reference and assigned state therefore disagree on full connectivity.
+    bonds = source.topology.bonds.copy()
+    assigned = source.topology._append_chemical_state(state_id='assigned-control')
+    source.topology._set_chemical_state_bonds(bonds.copy(), state_index=assigned)
+    split = bonds.loc[
+        ~((bonds['atom1_index'] == 2) & (bonds['atom2_index'] == 3))
+    ].reset_index(drop=True)
+    assert len(split) == len(bonds) - 1
+    source.topology._set_chemical_state_bonds(
+        split, state_index=assigned if split_assigned else 0
+    )
+    source.topology._chemical_states[assigned].connectivity_completeness = 'complete'
+    source._set_structure_chemical_state_indices([assigned])
+    before = snapshot(source)
+    original_retained = retained.copy()
+    elements = msm.get(source, element='atom', atom_type=True)
+    if connected:
+        tree = build_torsion_tree(source, retained, [], elements)
+        assert tree.root_atoms == tuple(range(len(retained)))
+        assert tree.atom_order == tuple(range(len(retained)))
+        assert tree.branches == ()
+    else:
+        with pytest.raises(ArgumentError, match='connected retained'):
+            build_torsion_tree(source, retained, [], elements)
+    assert retained == original_retained
+    assert snapshot(source) == before
+
+
+def test_retained_connectivity_propagates_provider_failure_without_mutation(
+    monkeypatch,
+):
+    source = _ligand('CCCCCC')
+    before = snapshot(source)
+    failure = RuntimeError('controlled connectivity provider refusal')
+
+    def refuse(*args, **kwargs):
+        raise failure
+
+    monkeypatch.setattr(msm.topology, 'get_covalent_blocks', refuse)
+    with pytest.raises(RuntimeError) as raised:
+        build_torsion_tree(
+            source,
+            list(range(6)),
+            [(1, 2)],
+            msm.get(source, element='atom', atom_type=True),
+        )
+    assert raised.value is failure
+    assert snapshot(source) == before
 
 
 @pytest.mark.parametrize('completeness', ['partial', 'unavailable'])

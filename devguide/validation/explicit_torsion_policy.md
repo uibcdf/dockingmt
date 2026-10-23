@@ -76,24 +76,24 @@ pairs are unchanged. Prepared/result metadata retains this evidence. PDBQT gets
 no new torsion remark; original provisional reference bytes and permutations
 remain exact. Named charges/types retain their separate attribution and assessment.
 
-## Temporary retained-connectivity exception
+## Retained connectivity delegated — 2026-10-23
 
-The old per-cut chemical traversal and amide classifier are removed. One existing
-local traversal checks connectivity of the actual retained inventory in the
-structure-assigned graph. Public covalent-block/bond-graph operations cannot
-request that state; full-graph partition followed by membership projection does
-not establish induced-subset connectivity.
+The [connectivity migration](retained_connectivity.md) removes the last local
+retained-graph traversal. Public `msm.topology.get_covalent_blocks` now receives
+the actual retained source indices and `chemical_state='structure',
+structure_indices=0`. Exactly one block is required for a rooted flexible ligand;
+provider failures propagate unchanged. Full-graph partition followed by membership
+projection cannot replace this induced-subset check. ROOT, branch orientation and
+the explicit-cut policy stay local.
 
-[MolSysMT #348](https://github.com/uibcdf/molsysmt/issues/348) owns the public
-capability. The two-state control gives assigned fragment offsets `[0, 3, 6]`,
-versus one reference-default block; explicit state request raises
-`UnknownArgumentError`. Reference defaults are not alleged to be incorrect.
-DockingMT contributors own this bounded exception, reviewed by 2027-01-06. Remove
-the traversal when a public state-aware induced-connectivity operation passes
-assigned-state, disconnected and nonmonotonic-subset controls. No reference state
-rewriting or sibling implementation is added. PDBQT/H/charge-preserving export
-remains separate under [MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223)
-and DockingMT #33.
+[MolSysMT #348](https://github.com/uibcdf/molsysmt/issues/348) delivered the missing
+state scope at `43e8ba8d3f6cbce87d6ed10beb23fd9a80f4cdd8`, already contained in the
+qualified `128a0bbb94e6804f5663e58a45313c77de1cc30d` source. Assigned/reference
+disagreement, omitted connecting atoms, nonmonotonic subsets and refusal controls
+now protect its consumption. The former 2027-01-06 traversal exception is retired.
+The original 2026-10-06 measurements below retain their producer and observations.
+PDBQT/H/charge-preserving export remains separate under
+[MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223) and DockingMT #33.
 
 ## Qualification — 2026-10-06
 
