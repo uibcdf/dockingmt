@@ -1,0 +1,65 @@
+[
+  {
+    "filename": "MOLSYSSUITE_GUIDE.md",
+    "canonical_blob": "bda9f40be47d217a4190fad1782a917058ec94db",
+    "matches": true,
+    "sha256": "33d027c248ad1e8e0f0fc81f6ec052bed4e18f245017ba04e6478c407bc4e31a",
+    "source": "uibcdf/molsyssuite",
+    "path": "MOLSYSSUITE_GUIDE.md",
+    "canonical_commit": "54967e2b109f3d64d01d9ce2f97d136567915ffb"
+  },
+  {
+    "filename": "SMONITOR_GUIDE.md",
+    "canonical_blob": "c3f8c8cc44092a166af8d88c4f61ff6b1fe3c70e",
+    "matches": true,
+    "sha256": "ce5afd02d563edd80bc4b5696fe3e51e00bd2c7343d6ca77309e2881fdfb2d8a",
+    "source": "uibcdf/smonitor",
+    "path": "standards/SMONITOR_GUIDE.md",
+    "canonical_commit": "7df0118593a27126225bddb457644fc7764802c4"
+  },
+  {
+    "filename": "DEPDIGEST_GUIDE.md",
+    "canonical_blob": "5918d76ab42f3cc41de7d06553ec9f3b37fa3344",
+    "matches": true,
+    "sha256": "f09328b84dfbfb0a51e2970c9f6c2b8b48d61e238cd4920637de629de261be55",
+    "source": "uibcdf/depdigest",
+    "path": "standards/DEPDIGEST_GUIDE.md",
+    "canonical_commit": "ef64111a1b6ce6c2452d86918e7ea7ee067116cc"
+  },
+  {
+    "filename": "ARGDIGEST_GUIDE.md",
+    "canonical_blob": "fd70ad54b1add9057062ee368540cda305e20bb6",
+    "matches": true,
+    "sha256": "6e2137129995545492b57c09809f0e83d3f74d6f162260ecf79678f1f6f3b9a2",
+    "source": "uibcdf/argdigest",
+    "path": "standards/ARGDIGEST_GUIDE.md",
+    "canonical_commit": "7d1895d46ec4361e3f913cb2ed97b99a02449d12"
+  },
+  {
+    "filename": "PYUNITWIZARD_GUIDE.md",
+    "canonical_blob": "d9fee0aba51363caa70b4c887645e6ce6f35961f",
+    "matches": true,
+    "sha256": "b7eb20dbe5518f61d2c9c9f72c31f4134bfac09fc2b8015e76b59fb31b015d01",
+    "source": "uibcdf/pyunitwizard",
+    "path": "standards/PYUNITWIZARD_GUIDE.md",
+    "canonical_commit": "54bc76d989160c20319992c45c936dad5eadd491"
+  },
+  {
+    "filename": "GH_RUN_RECEPTOR_GUIDE.md",
+    "canonical_blob": "0c2d4a3406c86d655e7e8090300c8d2a9de1add6",
+    "matches": true,
+    "sha256": "a3cf5c4d17c3dae3f9f419d1ddd9cf298017f9b4bca7e224e5d517b75cfc60f8",
+    "source": "uibcdf/gh-run-receptor",
+    "path": "standards/GH_RUN_RECEPTOR_GUIDE.md",
+    "canonical_commit": "c60ed4f55e8f7160486cda8c6083a5b40933e309"
+  },
+  {
+    "filename": "PYTEST_RECEPTOR_GUIDE.md",
+    "canonical_blob": "c1be410e4a33449fb0e7e376973c7d3300c7e6e5",
+    "matches": true,
+    "sha256": "edc16aef94ed06b7770b60e6bcda4fc5c2c468bf86a59ded93f41ec67dbce383",
+    "source": "uibcdf/pytest-receptor",
+    "path": "standards/PYTEST_RECEPTOR_GUIDE.md",
+    "canonical_commit": "513582ad7abd8fc2931d06138f4127b04a521f1a"
+  }
+]

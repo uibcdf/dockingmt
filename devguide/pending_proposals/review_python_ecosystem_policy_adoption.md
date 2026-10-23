@@ -169,6 +169,24 @@ or claim suite-wide adoption from this block.
   run confirming that version with unchanged test selection.
 - Complete the remaining public-boundary and developer-tool review before closing.
 
+## Canonical provider-guide receiving — 2026-10-23
+
+Closing the saved 3PTB scene detected published guide drift. The official current
+MolSysSuite synchronizer copied SMonitor 0.22.0, ArgDigest 0.17.0 and the corrected
+PyUnitWizard dependency baseline from committed, remote-current canonical sources
+in isolated sparse checkouts. Sibling worktrees were preserved. All seven guide
+copies now match their canonical bytes; exact source commits, blobs and SHA-256
+digests are retained in [the synchronization receipt](../validation/data/3ptb_scene/guides_2026-10-23.json).
+The current suite contributor-route check passes. The older local suite checkout
+and frozen installed-test SDK are not today's canonical guide authority.
+
+This is documentation delivery only. No dependency floor, selected runtime,
+diagnostics policy, contract-owner configuration or optional pytest QA gate is
+changed. The scene keeps its independently qualified original wheel/providers;
+new capability adoption needs representative consumer checks under this issue.
+Central client delivery remains MolSysSuite #125/#126, with broader runtime
+receiving under #123; #19 remains partial.
+
 ## Canonical component-guide synchronization — 2026-10-07
 
 During the fixed-origin 1IEP qualification, the component-guide check detected canonical drift after MolSysSuite `aba762dde114dfa78e8947cf1fe6e0b66f0d1643` introduced policy-v1.5.8 guidance and the temporary-resource lifecycle under [MolSysSuite #104](https://github.com/uibcdf/molsyssuite/issues/104). The central `sync_component_guide.py ../dockingmt --write` copied the exact canonical bytes, and the repeated component-guide check passes. No local guide policy was authored; the existing automated workflow pin is preserved. Task resources retain explicit ownership and evidence purposes in the scientific checkpoint. Earlier SMonitor/ArgDigest guide drift and broader runtime/developer-tool adoption remain separate under #19 and MolSysSuite #106; #19 stays partial.
