@@ -2,6 +2,30 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Current execution checkpoint — 2026-10-23
+
+The maintainer accepted the minimal 3PTB scene after the pause. The
+[executed notebook and scene evidence](validation/3ptb_scene.md) use the unchanged
+ordinary wheel/provider composition and original saved result. Five code cells
+verify identities, original coordinates, box geometry, Python visibility/navigation,
+nondefault units and immutable inputs, then export a self-contained HTML. No new
+search or scoring is executed. Forty-one installed viewer/delegation controls pass
+without skips; this is a bounded Python/installed result.
+
+**Next: inspect the actual scene in an enabled browser.** The execution session
+has no browser available, so visible rendering, framing, controls and C6 remain
+pending under [#52](https://github.com/uibcdf/dockingmt/issues/52). Open the retained
+HTML or live notebook, compare receptor/reference/rank-1 pose/domain and record the
+observation before deciding C6 or reviewing whole-Core acceptance. No renderer or
+general molecular workaround belongs downstream.
+
+MolSysMT #390 has delivered explicit template stereo transfer; the newer native
+copy contract is tracked by DockingMT #51. Both require separate consumer adoption
+and do not silently replace this scene's qualified providers. Public delivery
+remains #30/#47; after a new public package and matching Release exist, announce
+the available version by an issue in MolSysSuite, as recorded in
+[the release closeout](release_titles.md#availability-announcement).
+
 ## Current execution checkpoint — 2026-10-20
 
 **Paused at the user's request, before visualization.** The

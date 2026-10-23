@@ -1,0 +1,85 @@
+{
+  "schema": "dockingmt.3ptb_scene@1",
+  "date": "2026-10-23",
+  "owner": "uibcdf/dockingmt#52",
+  "notebook": "devguide/validation/human_3ptb_scene_2026-10-23.ipynb",
+  "notebook_sha256": "fe21328d0035c3ec692b495b2d0315196fe0748dcc087cf33e095a896d5c46de",
+  "executed_code_cells": 5,
+  "installed_tests": {
+    "passed": 41,
+    "skipped": 0,
+    "seconds": 25.26,
+    "warnings": 29
+  },
+  "administrative_tests": {
+    "passed": 29,
+    "seconds": 11.56
+  },
+  "browser_verified": false,
+  "C6_accepted": false,
+  "new_searches": 0,
+  "new_scoring": 0,
+  "diagnostics": [
+    {
+      "scope": "exploratory script",
+      "outcome": "Used a nonexistent view.write_html convenience name; corrected to the documented public view.export.html. No provider defect claimed."
+    },
+    {
+      "scope": "initial notebook attempt",
+      "outcome": "Strict atom-map assertion compared a provider tuple to a list. Corrected expected container type; same full identities/geometry assertions then pass. Initial failed notebook retained locally; no search executed."
+    }
+  ],
+  "retained_root": "/tmp/dockingmt-3ptb-scene-20261023",
+  "resource_owner": "uibcdf/dockingmt#50",
+  "review_by": "2026-10-30",
+  "files": [
+    {
+      "path": "scene_2026-10-23.html.gz",
+      "bytes": 1500266,
+      "sha256": "c087d24040b8666e326986fc67d7f1e975553cd49bd977fa647482258bdedc8e",
+      "encoding": "gzip",
+      "original_bytes": 7758464,
+      "original_sha256": "25fb6eb625f96c721f3b0b4d14ab19ef1884b5d8a166272cae2e225d3b537439"
+    },
+    {
+      "path": "scene_state_2026-10-23.json.gz",
+      "bytes": 15993,
+      "sha256": "df4e02a4a21c49281724df16d30d950eaa107fe9f8905055ec7d14f98cbd4b1b",
+      "encoding": "gzip",
+      "original_bytes": 95291,
+      "original_sha256": "b3ec8a906199eaa8652d2a7f616925161474c2efd3124cdc14599dac273a14b3"
+    },
+    {
+      "path": "receipt_2026-10-23.json",
+      "bytes": 8558,
+      "sha256": "90bc57e2ee6e4dc85059d2e6c35e4f7c19e5b5818d48991d9ee861fd59fea031",
+      "encoding": "identity",
+      "original_bytes": 8558,
+      "original_sha256": "90bc57e2ee6e4dc85059d2e6c35e4f7c19e5b5818d48991d9ee861fd59fea031"
+    },
+    {
+      "path": "installed_tests_2026-10-23.txt.gz",
+      "bytes": 241,
+      "sha256": "b54cc85c4caf22c73bc6ee1c5e71559723d7128b59694e3c97b6e5fbe107f99d",
+      "encoding": "gzip",
+      "original_bytes": 332,
+      "original_sha256": "c2d7fe7fe4aaf641a33bc50f9f97a4fa75a132e080fc9cb9f8008904fc2e0fcc"
+    },
+    {
+      "path": "installed_origins_2026-10-23.json",
+      "bytes": 7335,
+      "sha256": "3838fc53f9721380323310c26adb563a19d33515ff057a5ba74532e47741d295",
+      "encoding": "identity",
+      "original_bytes": 7335,
+      "original_sha256": "3838fc53f9721380323310c26adb563a19d33515ff057a5ba74532e47741d295"
+    },
+    {
+      "path": "guides_2026-10-23.json",
+      "bytes": 2568,
+      "sha256": "1e20f92f011a6a858db2bab5a3b8cc4d0c78f64fdd0f232650f4833b71d4fd16",
+      "encoding": "identity",
+      "original_bytes": 2568,
+      "original_sha256": "1e20f92f011a6a858db2bab5a3b8cc4d0c78f64fdd0f232650f4833b71d4fd16"
+    }
+  ]
+}

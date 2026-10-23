@@ -29,11 +29,13 @@ Every proposed capability should be classified as:
 ## Reading order
 
 For the current working state, start with the
-[2026-10-20 pause checkpoint](validation/pause_handoff_2026-10-20.md). It records
-completed work, exact evidence, recovery instructions and the next discussion.
-The [roadmap](ROADMAP.md#current-execution-checkpoint--2026-10-20) and executed
-[human notebook](validation/human_3ptb_workflow_2026-10-20.ipynb) stop before
-visualization; scene design and acceptance criteria await maintainer agreement.
+[2026-10-23 scene record](validation/3ptb_scene.md) and executed
+[scene notebook](validation/human_3ptb_scene_2026-10-23.ipynb). The agreed minimal
+scene has passed its installed Python checks and HTML export; browser inspection
+and C6 acceptance remain pending under #52. The
+[roadmap](ROADMAP.md#current-execution-checkpoint--2026-10-23) gives the next action.
+The [2026-10-20 pause checkpoint](validation/pause_handoff_2026-10-20.md) retains
+the completed pre-visualization workflow, original producers and recovery details.
 The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)
 retains the earlier source and ordinary-wheel producers and their limits.
 
