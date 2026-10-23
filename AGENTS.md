@@ -112,6 +112,11 @@ version. Put descriptions in the body/notes. Read
 [the local release-title guide](devguide/release_titles.md) and
 [the canonical rule](MOLSYSSUITE_GUIDE.md#github-release-titles).
 
+After a new DockingMT package and its matching GitHub Release are publicly
+available, open an issue in `uibcdf/molsyssuite` announcing the available version
+and linking the package and release. Track this publication closeout in
+`uibcdf/dockingmt#47`; the announcement does not itself authorize publication.
+
 ## Modular reusable tools
 
 Before adding a feature, inspect existing tools and identify the owning module or

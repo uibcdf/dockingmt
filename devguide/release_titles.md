@@ -13,3 +13,13 @@ exception route retain their separate meanings.
 
 Accepted decision: [uibcdf/molsyssuite#119](https://github.com/uibcdf/molsyssuite/issues/119),
 coordinated with [uibcdf/moli#68](https://github.com/uibcdf/moli/issues/68).
+
+## Availability announcement
+
+Maintainer decision, 2026-10-23, tracked in
+[DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47): after both the new
+public package and its matching GitHub Release are available, open an issue in
+[`uibcdf/molsyssuite`](https://github.com/uibcdf/molsyssuite/issues) announcing the
+available version, with links to the package and release. Record the announcement
+link in the publication closeout. This is a post-publication action, not a release
+decision or permission to publish an unqualified candidate.
