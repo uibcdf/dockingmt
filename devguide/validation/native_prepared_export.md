@@ -1,5 +1,10 @@
 # Native prepared PDBQT export: adoption boundary
 
+[Production ligand projection](ligand_projection.md) now stores the actual
+provider-reduced native system with aggregate charges. The receptor still retains
+its earlier extracted source. The native writer/map integration remains the next
+consumer implementation; the dated earlier observations below keep their producer.
+
 The [2026-10-24 follow-up](known_source_poses.md) qualifies the subsequently
 delivered typed-H projection and completed maps with MolSysMT's pose reader.
 The dated 2026-10-10 evidence below retains its original producer and status.

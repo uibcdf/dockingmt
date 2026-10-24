@@ -2,6 +2,26 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Production ligand projection — 2026-10-24
+
+[`prepare_ligand` now delegates typed-H reduction and charge aggregation](validation/ligand_projection.md)
+to MolSysMT, retaining its actual reduced system, public maps and original/derived
+assignments. The local H-parent/aggregation loop is removed. Provider refusals and
+unknown-inventory constraints remain explicit; no general molecular helper or
+implicit state repair is added. Receptor preparation is a separate migration.
+
+Four reference preparations preserve atom records, trees and axis reports; the
+1S63 total-charge remark changes only a tiny floating-point aggregation residue.
+The full local run's six undeclared positive fixtures and corrected 22-case guard
+selection are retained separately. Installed candidate and exact-head gates have
+their own terminal handoff in [#49](https://github.com/uibcdf/dockingmt/issues/49).
+
+**Next: native PDBQT export with a completed map bound to the actual prepared
+payload, then parser replacement for that profile.** Keep explicit serial/name/
+group presentation, ROOT policy, stage maps, source identity and attribution.
+General permutations remain provider-owned #369; #49/#33/#5 remain partial.
+Public delivery remains #30/#47 and HTML/C6 stays deferred.
+
 ## Known-source pose qualification — 2026-10-24
 
 The [native pose receiving](validation/known_source_poses.md) qualifies public

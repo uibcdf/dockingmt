@@ -9,6 +9,7 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
+from molecular_fixtures import declared_methanol
 from test_engines import MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
@@ -20,7 +21,7 @@ METHANOL = Path(__file__).parent / 'data/charges/methanol.sdf'
 
 @pytest.fixture
 def assigned():
-    source = msm.convert(METHANOL, to_form='molsysmt.MolSys')
+    source = declared_methanol()
     return msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(source, method='gasteiger_marsili'), **TYPING
     )
@@ -86,10 +87,16 @@ def test_named_charges_preserve_original_model_and_explicit_transfers(
         abs(report['pdbqt']['rounding_difference'])
         <= report['pdbqt']['total_rounding_bound']
     )
-    # Native retained-source values have not been silently replaced with the
-    # consumer's united-atom values or attributed to a new provider calculation.
-    np.testing.assert_array_equal(
-        atom_charges(prepared.to_molecular_system()), before[[0, 1, 5]]
+    # Ligand source is now the actual provider-reduced preparation; receptor
+    # keeps its earlier extracted source until its separate migration.
+    expected_native = (
+        prepared.charges if prepare is dmt.prepare_ligand else before[[0, 1, 5]]
+    )
+    np.testing.assert_allclose(
+        atom_charges(prepared.to_molecular_system()).astype(float),
+        expected_native,
+        rtol=0,
+        atol=1e-12,
     )
     json.dumps(prepared.to_dict(), allow_nan=False)
     json.dumps(report, allow_nan=False)
@@ -187,7 +194,7 @@ def test_manual_charge_replacement_drops_named_attribution(assigned, monkeypatch
 
 
 def test_nondefault_charge_units_do_not_change_consumed_values():
-    source = msm.convert(METHANOL, to_form='molsysmt.MolSys')
+    source = declared_methanol()
     with puw.context(standard_units=['coulomb', 'pm']):
         assigned = msm.build.assign_partial_charges(source, method='gasteiger_marsili')
         prepared = dmt.prepare_ligand(assigned, selection='all', typing_options=TYPING)
@@ -262,6 +269,15 @@ def test_flexible_sdf_charge_export_follows_verified_tree_order():
         to_form='molsysmt.MolSys',
         stereo_engine='rdkit',
         discard_properties=True,
+    )
+    # This pinned hydrogen-complete fixture declares zero virtual H explicitly;
+    # the production preparator must never infer zeros from absent SDF fields.
+    msm.set(
+        source,
+        element='atom',
+        n_explicit_hydrogens=0,
+        n_implicit_hydrogens=0,
+        allows_implicit_hydrogens=False,
     )
     assigned = msm.build.assign_partial_charges(source, method='gasteiger_marsili')
     before = atom_charges(assigned).copy()

@@ -11,6 +11,7 @@ from dockingmt.preparation._molsys import (
     atom_metadata,
     autodock_element,
     chemistry_evidence,
+    detached_provider_report,
     select_one_structure,
     source_atom_types,
     source_charge_assignment,
@@ -278,7 +279,12 @@ def prepare_ligand(
     """Prepare a small molecule ligand for docking calculations.
 
     Extracts the selected ligand atoms using MolSysMT, consumes named AutoDock types,
-    and returns an inspectable PreparedLigand.
+    and delegates typed-H reduction and charge transfer to MolSysMT. The retained
+    native system carries the actual prepared charges and derived assignment;
+    original attribution and provider maps remain in preparation metadata.
+    Merged parents require a declared virtual-H inventory and zero implicit H.
+    Unknown counts are not inferred or repaired; supply an explicitly prepared
+    chemical state. No hydrogen, charge or typing model is selected implicitly.
 
     Parameters
     ----------
@@ -330,74 +336,31 @@ def prepare_ligand(
     n_atoms = msm.get(extracted, element='system', n_atoms=True)
 
     atom_names, group_names, group_ids, elements = atom_metadata(extracted, 'LIG')
-    named_types, typing_assignment = source_atom_types(extracted, n_atoms)
+    _, typing_assignment = source_atom_types(extracted, n_atoms)
     charges = source_partial_charges(extracted, n_atoms)
     assignment = source_charge_assignment(extracted)
-    bonded_atoms = (
-        msm.get(
-            extracted,
-            element='atom',
-            bonded_atoms=True,
-            get_missing_bonds=False,
-            chemical_state='structure',
-            structure_indices=0,
-        )
-        if msm.has_attribute(extracted, 'bonded_atoms')
-        else None
+    projected = msm.build.merge_nonpolar_hydrogens(
+        extracted,
+        typing_scheme='autodock4',
+        selection='all',
+        chemical_state='structure',
+        structure_indices=0,
+        return_report=True,
     )
-    coords = msm.get(extracted, element='atom', coordinates=True)[0]
-
-    primary_group = str(group_names[0]) if len(group_names) > 0 else 'LIG'
-
-    retained_names: list[str] = []
-    retained_gnames: list[str] = []
-    retained_gids: list[int] = []
-    retained_types: list[str] = []
-    retained_charges: list[float] = []
-    retained_indices: list[int] = []
-    merged_hydrogen_charges: dict[int, float] = {}
-    omitted_hydrogen_indices: list[int] = []
-    charge_transfers: list[tuple[int, int]] = []
-
-    for i, (aname, element) in enumerate(zip(atom_names, elements)):
-        aname_str = str(aname).strip()
-        gname_str = (
-            str(group_names[i]).strip() if i < len(group_names) else primary_group
-        )
-        gid_val = int(group_ids[i]) if i < len(group_ids) else 1
-        if element.upper() == 'H':
-            neighbors = bonded_atoms[i] if bonded_atoms is not None else []
-            heavy_neighbors = [
-                int(j) for j in neighbors if elements[int(j)].upper() != 'H'
-            ]
-            if len(heavy_neighbors) != 1:
-                raise ArgumentError(
-                    arg_name='molecular_system',
-                    reason='A ligand hydrogen needs exactly one explicit heavy-atom bond for Vina preparation.',
-                )
-            attached = heavy_neighbors[0]
-            if named_types[i] == 'H':
-                charge_transfers.append((i, attached))
-                merged_hydrogen_charges[attached] = (
-                    merged_hydrogen_charges.get(attached, 0.0) + charges[i]
-                )
-                omitted_hydrogen_indices.append(i)
-                continue
-
-        retained_names.append(aname_str)
-        retained_gnames.append(gname_str)
-        retained_gids.append(gid_val)
-        retained_types.append(named_types[i])
-        retained_charges.append(charges[i])
-        retained_indices.append(i)
-
-    for atom_index, hydrogen_charge in merged_hydrogen_charges.items():
-        retained_charges[retained_indices.index(atom_index)] += hydrogen_charge
-
-    retained_coords = puw.quantity(
-        puw.get_value(coords)[retained_indices],
-        puw.get_unit(coords),
-    )
+    reduced = projected['molecular_system']
+    projection = detached_provider_report(projected['report'])
+    retained_indices = projection['output_to_source_atom_indices']
+    charge_transfers = projection['merged_source_atom_pairs']
+    omitted_hydrogen_indices = [pair[0] for pair in charge_transfers]
+    # Preserve the existing docking presentation on the provider's retained axis.
+    # Molecular selection, H inventory and charge aggregation belong to MolSysMT.
+    retained_names = [str(atom_names[i]).strip() for i in retained_indices]
+    retained_gnames = [str(group_names[i]).strip() for i in retained_indices]
+    retained_gids = [int(group_ids[i]) for i in retained_indices]
+    retained_types = list(msm.get(reduced, element='atom', atom_ff_type=True))
+    retained_charges = source_partial_charges(reduced, len(retained_indices))
+    retained_coords = msm.get(reduced, element='atom', coordinates=True)[0]
+    primary_group = str(group_names[0])
 
     resolved_id = state_id if state_id is not None else f'ligand_state_{primary_group}'
     requested_bonds = active_torsion_bonds if active_torsion_bonds is not None else []
@@ -454,7 +417,14 @@ def prepare_ligand(
             'atom_map_status': 'identity'
             if len(retained_indices) == n_atoms
             else 'hydrogen_subset_mapped',
-            'merged_hydrogen_charges': bool(merged_hydrogen_charges),
+            'merged_hydrogen_charges': bool(charge_transfers),
+            'molecular_projection': projection,
+            'projected_partial_charge_assignment': detached_provider_report(
+                reduced.molecular_mechanics.partial_charge_assignment
+            ),
+            'projected_atom_type_assignment': detached_provider_report(
+                reduced.molecular_mechanics.atom_type_assignment
+            ),
             'partial_charge_assignment': assignment,
             **(
                 {
@@ -478,5 +448,5 @@ def prepare_ligand(
             ),
             'source_chemistry': chemistry_evidence(extracted),
         },
-        source_molsys=msm.extract(extracted, selection=retained_indices),
+        source_molsys=reduced,
     )

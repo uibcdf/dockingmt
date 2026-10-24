@@ -1,7 +1,7 @@
 """Consumer requirements for retiring the prepared PDBQT writers (#49).
 
-Exercise the supported serializer separately from the still-pending molecular
-projection (#223). These controls do not provide a production projection bridge.
+Exercise the supported serializer with native ligand projection and the earlier
+receptor source. Production writer adoption remains separate from projection.
 """
 
 from copy import deepcopy
@@ -10,8 +10,9 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
+from molecular_fixtures import declared_methanol
 from test_flexible_ligand import _ligand
-from test_named_partial_charges import METHANOL, atom_charges
+from test_named_partial_charges import atom_charges
 from vina import Vina
 
 from devtools.qualify_named_types import TYPING
@@ -25,7 +26,7 @@ def _atoms(payload):
 
 @pytest.fixture
 def assigned_methanol():
-    source = msm.convert(METHANOL, to_form='molsysmt.MolSys')
+    source = declared_methanol()
     return msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(source, method='gasteiger_marsili'),
         **TYPING,
@@ -61,11 +62,18 @@ def test_native_writer_requires_prepared_values_after_h_projection(
 
     native = msm.copy(prepared.source_molsys)
     retained_charges = atom_charges(native).astype(float)
-    # The current saved source is an extraction, not the charge-aggregated
-    # molecular output requested from #223. Conservation alone cannot replace
-    # atom-resolved values and transfer recipients.
-    np.testing.assert_allclose(retained_charges, original_charges[[0, 1, 5]])
-    assert retained_charges[0] != pytest.approx(prepared.charges[0])
+    # Ligand preparation now stores the provider-reduced molecular output;
+    # receptor preparation still stores the earlier extraction. Inspect actual
+    # atom-resolved values rather than inferring them from total conservation.
+    if prepare is prepare_ligand:
+        np.testing.assert_allclose(retained_charges, prepared.charges)
+        assert (
+            prepared.metadata['molecular_projection']['schema']
+            == 'molsysmt.atom_projection@1'
+        )
+    else:
+        np.testing.assert_allclose(retained_charges, original_charges[[0, 1, 5]])
+        assert retained_charges[0] != pytest.approx(prepared.charges[0])
     coordinates = puw.convert(prepared.coordinates, to_unit=length_unit)
     msm.set(
         native,

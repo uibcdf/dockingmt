@@ -1,0 +1,15 @@
+{
+  "owner": "uibcdf/dockingmt#50",
+  "task_issue": "uibcdf/dockingmt#49",
+  "retained_root": "/tmp/dockingmt-ligand-projection-20261024",
+  "review_by": "2026-10-31",
+  "new_receiver": "/tmp/dockingmt-ligand-projection-20261024/environment",
+  "base_runtime": "/tmp/dockingmt-human-20261020/environment",
+  "base_runtime_review_by": "2026-10-27",
+  "old_receivers_and_wheels_modified": false,
+  "strategy": "Own venv inherits retained dependency base read-only; normally install provider/candidate wheels into own prefix",
+  "shared_routine_environment_modified": false,
+  "sibling_worktrees": "Preserved after suite inventory, no merge or edits",
+  "automatic_deletion": false,
+  "single_diagnostic_stack": "Active public native fixture construction during long full-source run, not a performance claim"
+}

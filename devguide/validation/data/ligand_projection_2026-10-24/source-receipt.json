@@ -1,0 +1,69 @@
+{
+  "schema": "dockingmt.ligand_projection@1",
+  "date": "2026-10-24",
+  "owner": "uibcdf/dockingmt#49",
+  "source_parent": "fb6382f6bf617467f4a3fb1dbc4fc28dc2815b71",
+  "molsysmt_source": "128a0bbb94e6804f5663e58a45313c77de1cc30d",
+  "provider_wheel_sha256": "0d81240d331769843efd649b8025711a940122e042799c46292034b43e9c22cd",
+  "provider_native_sha256": "0945a853b586e732f0d8870fd427066e91ac2462bd2f4d8b0805b082fa0302d4",
+  "ordinary_baseline_producer": "173319a71b17b70bc6d13ecc68eb413edfd08640",
+  "ordinary_baseline_wheel_sha256": "81e12debc9c3c32c1fae7cf9cdade32f593af79ef4a73859a4850a6caaa4147f",
+  "initial_full_source": {
+    "passed": 1188,
+    "failed": 6,
+    "seconds": 813.49,
+    "warnings": 230,
+    "failure_reason": "Ownership positive fixture still had unassessed virtual-H counts; not a green full run"
+  },
+  "corrected_selection": {
+    "passed": 22,
+    "seconds": 11.31,
+    "skipped": 0
+  },
+  "focused_projection_and_reference": {
+    "passed": 8,
+    "seconds": 5.04
+  },
+  "first_targeted": {
+    "passed": 122,
+    "failed": 24,
+    "seconds": 70.35,
+    "reason": "Native input inventory precondition exposed"
+  },
+  "declared_targeted": {
+    "passed": 145,
+    "failed": 1,
+    "seconds": 73.87,
+    "reason": "Fixture converter route corrected separately"
+  },
+  "before_delegation": {
+    "passed": 1,
+    "failed": 3,
+    "seconds": 2.93
+  },
+  "production_h_parent_and_aggregation_loop_removed": true,
+  "receptor_migrated": false,
+  "native_writer_or_pose_parser_migrated": false,
+  "native_source_now_has_prepared_aggregate_charges": true,
+  "original_and_derived_assignments_distinct": true,
+  "unknown_counts_assumed_zero_in_production": false,
+  "fixture_inventory_declarations": "Finite CH4O and H-complete 5X72 hypotheses through public MolSysMT setters; raw negatives retained",
+  "provider_feedback": "https://github.com/uibcdf/molsysmt/issues/223#issuecomment-6388367762",
+  "wire_comparison": "All ATOM/tree/other-remark lines and torsion reports exact; only tiny pre-round-total remark differs in 1S63",
+  "candidate_installed_and_exact_head_gates": "Separate post-commit evidence in #49",
+  "new_registered_3ptb_searches": 0,
+  "original_scientific_archives_rewritten": false,
+  "browser_verified": false,
+  "C6_accepted": false,
+  "public_admission": false,
+  "file_sha256": {
+    "dockingmt/preparation/ligand.py": "c66e108fbc1bc50edcc3c942c069a58c10e1bd1541e63c1ca3026f64299b686e",
+    "tests/test_ligand_projection_consumption.py": "5c9cf6400c66d5635da909409dfc9dc57c3a003121f82da6930df546083be89a",
+    "tests/molecular_fixtures.py": "5b4eeadea4fd3687903645753aed2ad5cb8b962740ee3a3660dd831b4ef78f32",
+    "tests/test_named_partial_charges.py": "8d11b3725fc5dfe0387bd4ba7111b99326a6ece56906b52d8a9865f28abcad14",
+    "tests/test_required_partial_charges.py": "a2e574223c08b4c85777eb8a6f110b8a52317cf2cce643711d551d27fbb27a3e",
+    "tests/test_ligand_preparation_stages.py": "591af204e37dd3bf8f555d1fd13f55fa7e0b9dc53c062877f7f53e76044a7460",
+    "tests/test_native_prepared_export_contract.py": "ca9ac40f35abda6e63bbb5bf84a015473a9c396e8510ac36776b52370ce6b6cc",
+    "tests/test_molecular_variant_ownership.py": "c878732598826c7212030db99dc07f345d60cdd1efc1ff95555e7d0769ef1e89"
+  }
+}

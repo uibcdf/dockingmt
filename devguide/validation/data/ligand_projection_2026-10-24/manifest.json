@@ -1,0 +1,90 @@
+{
+  "schema": "dockingmt.evidence_manifest@1",
+  "files": [
+    {
+      "path": "1s63_ligand-after.pdbqt.gz",
+      "bytes": 1123,
+      "sha256": "78879b7f961c1be05bbd1655b51dcaa1299242777c7fe52eb17ff5c1b0691275"
+    },
+    {
+      "path": "1s63_ligand-before.pdbqt.gz",
+      "bytes": 1126,
+      "sha256": "5ba7b79ddd3ec3db351d633971661330d631dd35680dffea5d0db6e5abe660e2"
+    },
+    {
+      "path": "administrative.log.gz",
+      "bytes": 51,
+      "sha256": "cb7af7a183f959fb5b625915e423e94fc82cc8c9e67c10e4a0712a752c3f2602"
+    },
+    {
+      "path": "baseline-preparations.json.gz",
+      "bytes": 4092,
+      "sha256": "e5dabef14f234b758bd04857a919137f78e675810f3e5c931ff591adcea49e5c"
+    },
+    {
+      "path": "before.log.gz",
+      "bytes": 319,
+      "sha256": "f0698b51cc7e9ee75d9119f09ebff65f1d796acb943996bede0d06376399942b"
+    },
+    {
+      "path": "corrected.log.gz",
+      "bytes": 52,
+      "sha256": "95e6a0266327be23bff98411d79dc608e567f9d57f4e1313bf223c2a664c6330"
+    },
+    {
+      "path": "current-wire.json.gz",
+      "bytes": 4109,
+      "sha256": "d1ad59fb8a29bcc0880c679a70450cb23e9b0f0c129a35afdff1aa5e58e1f2d8"
+    },
+    {
+      "path": "declared-targeted.log.gz",
+      "bytes": 697,
+      "sha256": "860c87fc5da419850305e10aaa3d4fc42cb85a74a8228ec7acf498c6126a031c"
+    },
+    {
+      "path": "first-targeted.log.gz",
+      "bytes": 1006,
+      "sha256": "cd1f09b5c6f732e16d7fd77d6598862bc2f3f53b1ffcad809d26ca79f7389c59"
+    },
+    {
+      "path": "focused-final.log.gz",
+      "bytes": 50,
+      "sha256": "3fa56f2799b39a6d9fbef39672a086ebb4c8be3b080cf711118c8d8e94cc7e74"
+    },
+    {
+      "path": "focused.log.gz",
+      "bytes": 441,
+      "sha256": "fce562295c6e16e25484f538b67d5155076f834d2ec8aa243074dd690dfce71f"
+    },
+    {
+      "path": "full-source.log.gz",
+      "bytes": 1092,
+      "sha256": "f4df3915be181b9dbffae77dc7fb7a7290762905ead6dde79e367dfa20f3d798"
+    },
+    {
+      "path": "guides-inspection.json",
+      "bytes": 2092,
+      "sha256": "c2dd3164cc0101c710ff239e19b29ab12209c5dda38a68cb9b0e769ace447f41"
+    },
+    {
+      "path": "inventory_probe.json",
+      "bytes": 2679,
+      "sha256": "a22c6666eb780a6d772f2ac4d8b6db01f9c09b1d4582201f86a479bbf92eff5c"
+    },
+    {
+      "path": "resources.json",
+      "bytes": 808,
+      "sha256": "ed88cf360a06728d10ed61db97086a7a8289acf45fe2796f4929218b97c7f641"
+    },
+    {
+      "path": "source-receipt.json",
+      "bytes": 3239,
+      "sha256": "7430fa1a75dc31387fc670abe91957b93c786d1cdb0f1c42bf6fb5e4445ce88e"
+    },
+    {
+      "path": "wire-comparison.json",
+      "bytes": 1374,
+      "sha256": "202e550118cfb1176e965e5361c9c795f3ab05dd6cd2518ff704022ee6c3b66c"
+    }
+  ]
+}

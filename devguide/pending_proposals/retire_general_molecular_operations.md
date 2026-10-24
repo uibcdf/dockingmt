@@ -124,8 +124,10 @@ attribute handling; its failures propagate instead of being bypassed.
   belong to [molsysmt#223](https://github.com/uibcdf/molsysmt/issues/223). Its bounded
   typed-H projection and completed native export maps are delivered and consumed
   in the [2026-10-24 known-source pose qualification](../validation/known_source_poses.md).
-  Production prepared-producer adoption and earlier generation-map composition
-  remain; the whole open issue must not be read as an undelivered operation.
+  [Production ligand projection](../validation/ligand_projection.md) now consumes
+  the actual reduced system and derived bindings; its local loop is removed.
+  Receptor projection, native export/reader integration and earlier generation-map
+  composition remain. The whole open issue must not be read as an undelivered tool.
 - **Serialization:** public native PDBQT output is available under
   [molsysmt#214](https://github.com/uibcdf/molsysmt/issues/214). Its formatting differs
   from the legacy consumer output. Qualify the complete charge/type/tree/map

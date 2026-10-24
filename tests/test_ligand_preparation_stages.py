@@ -8,6 +8,7 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
+from molecular_fixtures import declared_methanol
 from molsysmt.native import Structures
 from test_engines import MINIMAL_REC_PDBQT
 
@@ -208,9 +209,7 @@ def test_h_and_types_without_charges_reject_and_charge_only_retains_input_mappin
             hydrogen_options=HYDROGEN,
             typing_options=TYPING,
         )
-    source = msm.convert(
-        Path(__file__).parent / 'data/charges/methanol.sdf', to_form='molsysmt.MolSys'
-    )
+    source = declared_methanol()
     charge_only = dmt.prepare_ligand(
         source, selection='all', charge_options=CHARGE, typing_options=TYPING
     )

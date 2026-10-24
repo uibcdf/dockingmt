@@ -7,7 +7,8 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from test_named_partial_charges import METHANOL, atom_charges
+from molecular_fixtures import declared_methanol
+from test_named_partial_charges import atom_charges
 
 import dockingmt as dmt
 from devtools.qualify_chemical_templates import detached_record, snapshot
@@ -29,7 +30,7 @@ def unit_policy(request):
 
 @pytest.fixture
 def source(unit_policy):
-    original = msm.convert(METHANOL, to_form='molsysmt.MolSys')
+    original = declared_methanol()
     charged = msm.build.assign_partial_charges(original, **CHARGE)
     return msm.build.assign_autodock_atom_types(charged, **TYPING)
 

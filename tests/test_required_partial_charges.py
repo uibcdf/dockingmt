@@ -6,8 +6,8 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
+from molecular_fixtures import declared_methanol
 from test_engines import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
-from test_named_partial_charges import METHANOL
 
 import dockingmt as dmt
 from devtools.qualify_chemical_templates import detached_record, snapshot
@@ -16,9 +16,7 @@ from dockingmt._private.smonitor import ArgumentError
 
 
 def _typed_without_charges():
-    return msm.build.assign_autodock_atom_types(
-        msm.convert(METHANOL, to_form='molsysmt.MolSys'), **TYPING
-    )
+    return msm.build.assign_autodock_atom_types(declared_methanol(), **TYPING)
 
 
 @pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
@@ -104,7 +102,7 @@ def test_explicit_supplied_zeros_remain_unattributed_and_are_not_placeholders(
 def test_explicit_charge_then_typing_stage_matches_public_pipeline(
     prepare, monkeypatch
 ):
-    source = msm.convert(METHANOL, to_form='molsysmt.MolSys')
+    source = declared_methanol()
     before = snapshot(source)
     options = deepcopy(CHARGE)
     expected = prepare(
@@ -167,7 +165,7 @@ def test_explicit_charge_then_typing_stage_matches_public_pipeline(
 
 @pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
 def test_explicit_preparation_needs_no_charge_presentation_standard(prepare):
-    source = msm.convert(METHANOL, to_form='molsysmt.MolSys')
+    source = declared_methanol()
     before = snapshot(source)
     expected = prepare(
         source, selection='all', charge_options=CHARGE, typing_options=TYPING

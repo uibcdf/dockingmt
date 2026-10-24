@@ -1,0 +1,112 @@
+{
+  "provider": "0.23.0+171.g128a0bbb9",
+  "origin": "/tmp/dockingmt-connectivity-20261023/environment/lib/python3.14/site-packages/molsysmt/__init__.py",
+  "inventory": {
+    "schema": "molsysmt.hydrogen_inventory@1",
+    "method": "stored_hydrogen_inventory",
+    "atom_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "chemical_state_index": 0,
+    "structure_index": 0,
+    "status": "unassessed",
+    "indexed_hydrogen_counts": [
+      3,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "missing_hydrogen_counts": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "total_hydrogen_counts": [
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1
+    ],
+    "parent_hydrogen_pairs": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        5
+      ]
+    ],
+    "explicit_hydrogen_atom_indices": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "issues": [
+      {
+        "reason_code": "missing_stored_hydrogen_counts",
+        "atom_index": 0,
+        "diagnostic_code": "MSM-ERR-STRUCT-003"
+      },
+      {
+        "reason_code": "missing_stored_hydrogen_counts",
+        "atom_index": 1,
+        "diagnostic_code": "MSM-ERR-STRUCT-003"
+      },
+      {
+        "reason_code": "missing_stored_hydrogen_counts",
+        "atom_index": 2,
+        "diagnostic_code": "MSM-ERR-STRUCT-003"
+      },
+      {
+        "reason_code": "missing_stored_hydrogen_counts",
+        "atom_index": 3,
+        "diagnostic_code": "MSM-ERR-STRUCT-003"
+      },
+      {
+        "reason_code": "missing_stored_hydrogen_counts",
+        "atom_index": 4,
+        "diagnostic_code": "MSM-ERR-STRUCT-003"
+      },
+      {
+        "reason_code": "missing_stored_hydrogen_counts",
+        "atom_index": 5,
+        "diagnostic_code": "MSM-ERR-STRUCT-003"
+      }
+    ],
+    "count_convention": "Stored implicit/explicit counts exclude indexed H neighbors; -1 is unknown.",
+    "unassessed_checks": [
+      "valence",
+      "protonation",
+      "coordinate_quality"
+    ],
+    "software": {
+      "molsysmt": "0.23.0+171.g128a0bbb9"
+    }
+  },
+  "explicit_H_stage": {
+    "type": "StructuralInconsistencyError",
+    "message": "Structural inconsistency detected: The declared hydrogen inventory is unresolved or conflicting: missing_stored_hydrogen_counts, missing_stored_hydrogen_counts, missing_stored_hydrogen_counts, missing_stored_hydrogen_counts, missing_stored_hydrogen_counts, missing_stored_hydrogen_counts. Ensure that the atoms, residues, or frames match between the systems being compared or merged. Docs: https://www.uibcdf.org/MolSysMT"
+  }
+}
