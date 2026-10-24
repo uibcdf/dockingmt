@@ -1,0 +1,15 @@
+{
+  "owner": "uibcdf/dockingmt#50",
+  "task_issue": "uibcdf/dockingmt#49",
+  "retained_root": "/tmp/dockingmt-known-source-poses-20261024",
+  "review_by": "2026-10-31",
+  "dependent_receiver": "/tmp/dockingmt-connectivity-20261023/environment",
+  "dependent_receiver_review_by": "2026-10-30",
+  "base_runtime": "/tmp/dockingmt-human-20261020/environment",
+  "base_runtime_review_by": "2026-10-27",
+  "prior_receivers_modified": false,
+  "no_new_wheel_or_native_build": true,
+  "automatic_deletion": false,
+  "sibling_worktrees": "Preserved after refreshed suite inventory; no merge or edits",
+  "background_scientific_kernel_required": false
+}

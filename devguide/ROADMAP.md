@@ -2,6 +2,29 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Known-source pose qualification — 2026-10-24
+
+The [native pose receiving](validation/known_source_poses.md) qualifies public
+projection, completed native export maps and MolSysMT #226 reading against actual
+DockingMT/Vina output, with default/nondefault units and strict negative controls.
+The first 23 focused tests, 105-case source selection and 272-case ordinary-wheel
+selection pass; the added legacy-wire boundary has separate evidence in #49.
+These are overlapping software profiles, not general chemical admission.
+
+MolSysMT #223 is broader than its delivered typed-H/map slice: that slice already
+exists in our qualified source and should be consumed. **Next implementation:
+integrate public projection and mapped native export into the prepared producer,
+then replace parsing for that bound profile.** The current legacy serializer does
+not produce the reader's completed map. Do not manufacture one from retained
+indices, or use a native export map against different legacy bytes. Preserve
+earlier stage maps, original/derived attribution and representation compatibility.
+
+The prior connectivity migration is complete at its own producer: [terminal
+evidence](https://github.com/uibcdf/dockingmt/issues/49#issuecomment-6373836819)
+verifies 1,163 tests per Python 3.11–3.14, zero skips and actual coverage upload.
+Native general permutation remains MolSysMT #369. #49/#33 and public delivery
+#30/#47 stay partial; HTML/C6 review remains deferred. No release is published.
+
 ## Retained-connectivity implementation — 2026-10-23
 
 [Flexible preparation now delegates retained connectivity](validation/retained_connectivity.md)

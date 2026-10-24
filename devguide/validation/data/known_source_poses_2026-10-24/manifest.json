@@ -1,0 +1,90 @@
+{
+  "schema": "dockingmt.evidence_manifest@1",
+  "files": [
+    {
+      "path": "administrative.log.gz",
+      "bytes": 51,
+      "sha256": "222d8038dd03174aebac696304b73d09584b396a49f873378064323a18b20482"
+    },
+    {
+      "path": "focused-final.log.gz",
+      "bytes": 220,
+      "sha256": "0d6ef8318fb92e1ab4fd7158cb1c4b3e0d28affd07cf04b7b566476eaf6c3925"
+    },
+    {
+      "path": "focused.log.gz",
+      "bytes": 221,
+      "sha256": "3024896782d13373bd3fdd1dc03cf3c3666be54302ea7453beb3068ef8cba46c"
+    },
+    {
+      "path": "guides-inspection.json",
+      "bytes": 2092,
+      "sha256": "c2dd3164cc0101c710ff239e19b29ab12209c5dda38a68cb9b0e769ace447f41"
+    },
+    {
+      "path": "initial-profile-diagnostics.log.gz",
+      "bytes": 1233,
+      "sha256": "73e60f52fa6c56bcba91db8be86ff0e85b750207e1753f500fcfa7c064850609"
+    },
+    {
+      "path": "installed-boundary-guarded.log.gz",
+      "bytes": 214,
+      "sha256": "4a9795513e5cbb9d5935a0e24a2ff9564986790cfab1248cc4d644f4b48223e9"
+    },
+    {
+      "path": "installed-boundary-origins.json",
+      "bytes": 6898,
+      "sha256": "046808dfbf6e7ad9f9ea44729e52401febca5d66f24d3b29e1c0a57beb2075de"
+    },
+    {
+      "path": "installed-origins.json",
+      "bytes": 7478,
+      "sha256": "9c4f3173b6b45b73db05cb48b796fae52500fb2ece57f77f248c625b5c3479ee"
+    },
+    {
+      "path": "installed.log.gz",
+      "bytes": 478,
+      "sha256": "3c45fc968bbdbbdf000ea8d9623275e259679228f1f8519a99cb735c771b2e65"
+    },
+    {
+      "path": "qualification.json",
+      "bytes": 2078,
+      "sha256": "cdd12579c1a3cf53334f304325e3abd7b26a9557e718926753f374b5265fbfb8"
+    },
+    {
+      "path": "real_control_0.json.gz",
+      "bytes": 6480,
+      "sha256": "467c10868f22ef79bbc1097e61a0285cce080fd25fecf3c3f675dda6d3c95030"
+    },
+    {
+      "path": "real_control_1.json.gz",
+      "bytes": 6481,
+      "sha256": "81092d0a9cdecab141595709296246f8af910173c6831ded238b10fa0eb57c10"
+    },
+    {
+      "path": "real_poses_0.pdbqt.gz",
+      "bytes": 842,
+      "sha256": "3a86034163c99b671bbc9b155f73ee3b8a85333181625769bd9562a9dd9355df"
+    },
+    {
+      "path": "real_poses_1.pdbqt.gz",
+      "bytes": 842,
+      "sha256": "3a86034163c99b671bbc9b155f73ee3b8a85333181625769bd9562a9dd9355df"
+    },
+    {
+      "path": "resources.json",
+      "bytes": 644,
+      "sha256": "d0b8427d00249f995752e7bdd2bbfc0e5f3afc32ce84706dd88dbca227b0de65"
+    },
+    {
+      "path": "serial-and-empty-diagnostics.log.gz",
+      "bytes": 962,
+      "sha256": "52ae67ad9832832cd536530d47a579ca1f534b4582f4aaa9ea6020cb34404558"
+    },
+    {
+      "path": "source-selected.log.gz",
+      "bytes": 400,
+      "sha256": "92e12f45080ab7d52aa1e38124b1985565f478a9e51812d66096ed425ed4e581"
+    }
+  ]
+}

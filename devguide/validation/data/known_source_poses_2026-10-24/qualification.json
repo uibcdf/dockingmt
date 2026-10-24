@@ -1,0 +1,56 @@
+{
+  "schema": "dockingmt.known_source_pose_receiving@1",
+  "date": "2026-10-24",
+  "owner": "uibcdf/dockingmt#49",
+  "molsysmt_source": "128a0bbb94e6804f5663e58a45313c77de1cc30d",
+  "molsysmt_wheel_sha256": "0d81240d331769843efd649b8025711a940122e042799c46292034b43e9c22cd",
+  "native_sha256": "0945a853b586e732f0d8870fd427066e91ac2462bd2f4d8b0805b082fa0302d4",
+  "dockingmt_installed_producer": "173319a71b17b70bc6d13ecc68eb413edfd08640",
+  "dockingmt_wheel_sha256": "81e12debc9c3c32c1fae7cf9cdade32f593af79ef4a73859a4850a6caaa4147f",
+  "runtime_package_changed": false,
+  "test_sha256": "13101c0c60c43545c0b954e22dc90659db23f405fb5c07084db609cd162b5730",
+  "initial_focused": {
+    "passed": 23,
+    "seconds": 25.76,
+    "warnings": 19
+  },
+  "final_focused": {
+    "passed": 24,
+    "seconds": 25.26,
+    "warnings": 20
+  },
+  "selected_source": {
+    "passed": 105,
+    "seconds": 91.4,
+    "warnings": 22,
+    "scope": "before the additive legacy-wire boundary test; unchanged earlier nodes"
+  },
+  "installed_broad": {
+    "passed": 272,
+    "seconds": 164.19,
+    "warnings": 113
+  },
+  "installed_additional_boundary": {
+    "passed": 1,
+    "deselected": 272,
+    "seconds": 2.86,
+    "warnings": 1
+  },
+  "distinct_installed_controls": 273,
+  "overlapping_focused_counts_added": false,
+  "historical_rows_received": 24,
+  "historical_poses_received": 167,
+  "repeated_historical_preparation_scoring_search": false,
+  "real_native_reader_software_controls_in_focused_module": 2,
+  "biological_redocking_claimed": false,
+  "legacy_production_parser_replaced": false,
+  "new_production_api": false,
+  "completed_maps_fabricated": false,
+  "native_projection_and_completed_export_map_available": true,
+  "native_derived_input_preparation_and_charge_audit": "passes, but legacy bytes do not match native export binding",
+  "provider_open_issue_223": "bounded projection/map slice delivered; broader scope remains open",
+  "exact_head_hosted_gates": "recorded after unskipped push in #49",
+  "browser_verified": false,
+  "C6_accepted": false,
+  "public_admission": false
+}

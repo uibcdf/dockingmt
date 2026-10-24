@@ -121,8 +121,11 @@ attribute handling; its failures propagate instead of being bypassed.
   typing options are required; DockingMT chooses no model. Scientific acceptance
   remains open under [#5](https://github.com/uibcdf/dockingmt/issues/5).
 - **Projection:** retained/omitted H, charge aggregation and derived atom maps
-  belong to [molsysmt#223](https://github.com/uibcdf/molsysmt/issues/223). Its public
-  operation must perform the transform, not merely describe a consumer transform.
+  belong to [molsysmt#223](https://github.com/uibcdf/molsysmt/issues/223). Its bounded
+  typed-H projection and completed native export maps are delivered and consumed
+  in the [2026-10-24 known-source pose qualification](../validation/known_source_poses.md).
+  Production prepared-producer adoption and earlier generation-map composition
+  remain; the whole open issue must not be read as an undelivered operation.
 - **Serialization:** public native PDBQT output is available under
   [molsysmt#214](https://github.com/uibcdf/molsysmt/issues/214). Its formatting differs
   from the legacy consumer output. Qualify the complete charge/type/tree/map
@@ -132,7 +135,10 @@ attribute handling; its failures propagate instead of being bypassed.
   and export/source maps belong to
   [molsysmt#226](https://github.com/uibcdf/molsysmt/issues/226) and #223. Keep the
   prepared atom axis explicit; provider extraction does not supply an arbitrary
-  atom reorder. Do not add a consumer reordering or molecular parsing algorithm.
+  atom reorder. #226 is delivered and its known-source profile is qualified;
+  current legacy PDBQT bytes do not acquire a completed native map. Retire parsing
+  only after the actual prepared producer supplies a bound export contract.
+  Do not add a consumer reordering or molecular parsing algorithm.
 - **Connectivity delegated (2026-10-23):** the
   [retained-connectivity migration](../validation/retained_connectivity.md) consumes
   delivered [molsysmt#348](https://github.com/uibcdf/molsysmt/issues/348) at the

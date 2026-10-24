@@ -29,17 +29,19 @@ Every proposed capability should be classified as:
 ## Reading order
 
 For the current nonvisual working state, start with the
-[retained-connectivity migration](validation/retained_connectivity.md), which
-removes the local molecular graph traversal in flexible preparation, and the
-[2026-10-23 provider receiving record](validation/provider_receiving_2026-10-23.md).
-It qualifies independent molecular variants and template-stereo transfer through
+[known-source pose receiving](validation/known_source_poses.md). It qualifies
+MolSysMT's delivered projection/export/reader chain and identifies the prepared
+producer migration needed before replacing the production parser. The
+[retained-connectivity migration](validation/retained_connectivity.md) removes
+the local molecular graph traversal in flexible preparation. The
+[2026-10-23 provider receiving record](validation/provider_receiving_2026-10-23.md)
+qualifies independent molecular variants and template-stereo transfer through
 MolSysMT; public delivery remains separate. The maintainer deferred HTML review.
-The
-[2026-10-23 scene record](validation/3ptb_scene.md) and executed
-[scene notebook](validation/human_3ptb_scene_2026-10-23.ipynb). The agreed minimal
-scene has passed its installed Python checks and HTML export; browser inspection
+The [2026-10-23 scene record](validation/3ptb_scene.md) and executed
+[scene notebook](validation/human_3ptb_scene_2026-10-23.ipynb) retain the minimal
+scene, its installed Python checks and HTML export. Browser inspection
 and C6 acceptance remain pending under #52. The
-[roadmap](ROADMAP.md#retained-connectivity-implementation--2026-10-23) gives the next action.
+[roadmap](ROADMAP.md#known-source-pose-qualification--2026-10-24) gives the next action.
 The [2026-10-20 pause checkpoint](validation/pause_handoff_2026-10-20.md) retains
 the completed pre-visualization workflow, original producers and recovery details.
 The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)

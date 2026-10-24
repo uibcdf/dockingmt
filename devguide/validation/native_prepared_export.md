@@ -1,5 +1,11 @@
 # Native prepared PDBQT export: adoption boundary
 
+The [2026-10-24 follow-up](known_source_poses.md) qualifies the subsequently
+delivered typed-H projection and completed maps with MolSysMT's pose reader.
+The dated 2026-10-10 evidence below retains its original producer and status.
+The next consumer implementation is native prepared-producer adoption with its
+representation/attribution contracts, before production parser retirement.
+
 ## Decision — 2026-10-10
 
 The public MolSysMT serializer can write explicit prepared charges, AutoDock
