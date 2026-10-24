@@ -29,8 +29,11 @@ Every proposed capability should be classified as:
 ## Reading order
 
 For the current nonvisual working state, start with the
-[flexible reconstruction migration](validation/flexible_reconstruction.md),
-which consumes public native permutation and removes local PDB reconstruction.
+[receptor projection migration](validation/receptor_projection.md), which completes
+public H reduction/charge-transfer consumption in both preparation roles while
+preserving original/derived attribution and strict inventory refusal. The
+[flexible reconstruction migration](validation/flexible_reconstruction.md)
+consumes public native permutation and removes local PDB reconstruction.
 Its exact provider source and canonical reader namespaces are qualified separately
 from public delivery. The
 [prepared-native writer receiving](validation/native_ligand_export_receiving.md)

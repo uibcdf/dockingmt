@@ -130,7 +130,9 @@ attribute handling; its failures propagate instead of being bypassed.
   in the [2026-10-24 known-source pose qualification](../validation/known_source_poses.md).
   [Production ligand projection](../validation/ligand_projection.md) now consumes
   the actual reduced system and derived bindings; its local loop is removed.
-  Receptor projection, native export/reader integration and earlier generation-map
+  [Receptor projection](../validation/receptor_projection.md) now does the same,
+  preserving actual aggregate native values and strict inventory refusal without
+  local H-parent/aggregation logic. Native export/reader integration and earlier generation-map
   composition remain. MolSysMT closed #223 on 2026-10-24 with its provider delivery
   guide; the remaining consumer adoption belongs here. Later provider namespace
   and stage-composition receiving require separate version-qualified evidence.

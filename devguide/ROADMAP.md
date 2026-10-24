@@ -2,6 +2,24 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Receptor projection delegated — 2026-10-24
+
+[`prepare_receptor` now consumes public native H projection](validation/receptor_projection.md),
+its actual aggregate charges/virtual-H state and detached original/derived
+attribution. The local H-parent/aggregation loop is removed; both preparation
+roles now delegate that operation. Unknown parent inventory rejects without
+repair, including provisional opt-in. Provider pins are unchanged.
+
+The declared 181L protein projects 2,603 atoms to 1,615, merging 988 H, with retained
+axes and charge agreement against the preserved ordinary baseline. Seven pre-change
+guards fail; the migrated 63-case selection passes. Broader source, installed and
+exact-head gates retain their own terminal receipt in #49.
+
+**Next:** receive native writer presentation/final-byte composition under MolSysMT
+#214, or explicitly accept native presentation as a compatibility change. Then
+retire the covered writer and adopt the reader against its actual completed map.
+#49/#33/#5 remain partial; HTML/C6 stays deferred and public delivery remains #30/#47.
+
 ## Flexible source-free reconstruction delegated — 2026-10-24
 
 [`PreparedLigand.to_molecular_system`](validation/flexible_reconstruction.md) now

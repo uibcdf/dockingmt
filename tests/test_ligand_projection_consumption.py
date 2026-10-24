@@ -130,14 +130,16 @@ def test_projection_failure_propagates_without_a_local_transform(source, monkeyp
     assert detached_record(source.molecular_mechanics.to_dict()) == mechanics
 
 
-def test_receptor_is_a_separate_migration(source, monkeypatch):
-    def forbidden(*args, **kwargs):
-        pytest.fail('This slice does not migrate receptor projection.')
-
-    monkeypatch.setattr(msm.build, 'merge_nonpolar_hydrogens', forbidden)
-    prepared = dmt.prepare_receptor(source, selection='all')
-    assert prepared.n_atoms == 3
-    assert 'molecular_projection' not in prepared.metadata
+def test_ligand_and_receptor_keep_independent_native_projections(source):
+    ligand = dmt.prepare_ligand(source, selection='all')
+    receptor = dmt.prepare_receptor(source, selection='all')
+    assert ligand.n_atoms == receptor.n_atoms == 3
+    assert ligand.charges == receptor.charges
+    assert ligand.source_molsys is not receptor.source_molsys
+    ligand.metadata['molecular_projection']['output_to_source_atom_indices'][0] = 999
+    assert receptor.metadata['molecular_projection'][
+        'output_to_source_atom_indices'
+    ] == [0, 1, 5]
 
 
 def test_unassessed_virtual_inventory_is_not_repaired_or_assumed_zero(monkeypatch):

@@ -105,13 +105,14 @@ in either preparator. Absent charges raise an error; supplied zeros remain valid
 `VinaProtocol(allow_provisional_preparation=True)` cannot bypass absent charges or
 missing named types. It retains inspection/opt-in for historical prepared objects
 that already declare provisional provenance.
-Ligand H reduction and charge transfer use public MolSysMT projection. Merged
-parents need a declared virtual-H inventory and zero implicit H; inspect it with
+Ligand and receptor H reduction and charge transfer use public MolSysMT projection.
+Merged parents need a declared virtual-H inventory and zero implicit H; inspect it with
 `msm.physchem.get_hydrogen_inventory(...)`. Unknown counts are not assumed zero,
 and fixed-state H addition also needs a declared inventory. Prepare or declare
 the source through MolSysMT; provisional opt-in cannot bypass this requirement.
-The retained native ligand now carries aggregate prepared charges and derived
-attribution. See the [production projection contract](devguide/validation/ligand_projection.md).
+Both retained native systems carry aggregate prepared charges and derived
+attribution. See the [ligand](devguide/validation/ligand_projection.md) and
+[receptor](devguide/validation/receptor_projection.md) projection contracts.
 The choice and assessment are recorded in result provenance. Externally
 provided PDBQT inputs are accepted with an `unassessed` chemistry assessment.
 Inspect a preparation before choosing an execution policy:

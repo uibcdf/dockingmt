@@ -1,0 +1,60 @@
+{
+  "schema": "dockingmt.evidence_manifest@1",
+  "files": [
+    {
+      "path": "administrative.log.gz",
+      "bytes": 50,
+      "sha256": "32fd60dbe2eba828f23ab4f4d23594f098eab62209ba0d09dcd989b57868c66d"
+    },
+    {
+      "path": "baseline-181l.pdbqt.gz",
+      "bytes": 30279,
+      "sha256": "7b19f4255589005b7aea3d4c33bd630eeb75cf113e8c9c9bc6239bfc2f79998f"
+    },
+    {
+      "path": "before.log.gz",
+      "bytes": 777,
+      "sha256": "f609fc8a803128e5b0b2d714a0f8b33cff58b0c17063ff8d59e5550154e57624"
+    },
+    {
+      "path": "focused.log.gz",
+      "bytes": 267,
+      "sha256": "d39fd9e1c7076b6baf368c9ca968de402cb3e7076d536f7fd5205647b3b8da36"
+    },
+    {
+      "path": "guides-inspection.json",
+      "bytes": 2092,
+      "sha256": "220ccee4eb36bd564ed95ce1a45e2abfdc464cc1b47587160b98f454dc9f2875"
+    },
+    {
+      "path": "protein-probe.json.gz",
+      "bytes": 82149,
+      "sha256": "e5fd83e0d4ead1f06467d19deb6d3636e7550f3506b465e13d96d47249415840"
+    },
+    {
+      "path": "protein-probe.log.gz",
+      "bytes": 423,
+      "sha256": "91ca447548ca55d67e645ac6a9edf339785f423ded80e58027f7c7dc4d5ccd04"
+    },
+    {
+      "path": "provider-proof.json",
+      "bytes": 1501,
+      "sha256": "f0a1d92613b9ef58e1201c7d49b6195d43434e5809019e1c6963f11bb7c0e496"
+    },
+    {
+      "path": "resources.json",
+      "bytes": 677,
+      "sha256": "63b5ba79900014c3c514ac312df0cdf35771261831111dc3be770161974a8a7b"
+    },
+    {
+      "path": "selected.log.gz",
+      "bytes": 536,
+      "sha256": "297146264f02db9ff297367216562a62e9b96753ede48402d628f965a112a2fb"
+    },
+    {
+      "path": "source-receipt.json",
+      "bytes": 2730,
+      "sha256": "1cb570f4948165779ec4a42be7d3100b914bcdc0ce63daa9b341ad13e0bbfa38"
+    }
+  ]
+}

@@ -87,11 +87,8 @@ def test_named_charges_preserve_original_model_and_explicit_transfers(
         abs(report['pdbqt']['rounding_difference'])
         <= report['pdbqt']['total_rounding_bound']
     )
-    # Ligand source is now the actual provider-reduced preparation; receptor
-    # keeps its earlier extracted source until its separate migration.
-    expected_native = (
-        prepared.charges if prepare is dmt.prepare_ligand else before[[0, 1, 5]]
-    )
+    # Both roles retain the actual provider-reduced native preparation.
+    expected_native = prepared.charges
     np.testing.assert_allclose(
         atom_charges(prepared.to_molecular_system()).astype(float),
         expected_native,

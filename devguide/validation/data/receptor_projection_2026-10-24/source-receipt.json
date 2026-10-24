@@ -1,0 +1,63 @@
+{
+  "schema": "dockingmt.receptor_projection@1",
+  "date": "2026-10-24",
+  "owner": "uibcdf/dockingmt#49",
+  "source_parent": "45e721bf7c56bdbf1c3ed6acfe539fed203d1155",
+  "provider_source": "3502232d802ee2927f6b6f5d19f0ae045777ecb5",
+  "provider_wheel_sha256": "f85b06b1297f2967510a806f7ac1c95a7914fbb96357ea45336e8076b6084841",
+  "provider_native_sha256": "feb001379201b92690eadf04fd0be6b710cdfe50bad240feba26cf666e19b41b",
+  "baseline_ordinary_producer": "45e721bf7c56bdbf1c3ed6acfe539fed203d1155",
+  "baseline_ordinary_wheel_sha256": "26c2382171a408ecff8d86f21b4e20ba3725d419278cf54d95076a421f860110",
+  "before": {
+    "failed": 7,
+    "seconds": 18.84,
+    "reason": "No receptor public projection, no refusal, ambiguous inventory reaches engine"
+  },
+  "focused": {
+    "passed": 63,
+    "seconds": 60.24,
+    "warnings": 2,
+    "skipped": 0
+  },
+  "broad_source": {
+    "passed": 355,
+    "seconds": 225.38,
+    "warnings": 131,
+    "skipped": 0
+  },
+  "focused_included_in_broad": true,
+  "administrative": {
+    "passed": 29,
+    "seconds": 2.7
+  },
+  "protein": {
+    "source_atoms": 2603,
+    "prepared_atoms": 1615,
+    "merged_hydrogens": 988,
+    "retained_axes_equal": true,
+    "charges_agree_atol_e": 1e-12,
+    "baseline_wire_sha256": "c372bbb4a83414cc82ddbc2263424dfe18b20df8ae6d5362f978c0d445a82ccc",
+    "source_immutable": true,
+    "hypothesis": "Existing 181L HIE/ammonium/carboxylate template and fixed-state H workflow; not biological admission"
+  },
+  "production_receptor_projection_delegated": true,
+  "local_h_parent_and_charge_aggregation_loop_removed": true,
+  "native_source_now_carries_actual_aggregate_charges_and_virtual_h": true,
+  "original_and_derived_assignments_distinct": true,
+  "unknown_counts_assumed_zero_or_repaired": false,
+  "native_writer_or_production_pose_parser_migrated": false,
+  "source_pin_changed": false,
+  "new_registered_3ptb_searches": 0,
+  "historical_archives_rewritten": false,
+  "browser_verified": false,
+  "C6_accepted": false,
+  "public_admission": false,
+  "candidate_installed_and_exact_head_gates": "Separate post-commit receipts in owning issue #49",
+  "file_sha256": {
+    "dockingmt/preparation/receptor.py": "4aee8f932b56c1ff5a9272fa670064ad8e84217f81638abe1c7285e86f59563d",
+    "tests/test_receptor_projection_consumption.py": "e721f01bafbbcb6d523be9ef82e0c712f4b6ad04a97e6e28316e463e0f4070cc",
+    "tests/test_ligand_projection_consumption.py": "355a9aafd339a352a30f85bfe23c43465c5de185988b93cfe6f35b01d9d499c4",
+    "tests/test_named_partial_charges.py": "5516d5127395843cd12caadef2adb60366951187b724abfc7773fbc8f50ac32b",
+    "tests/test_native_prepared_export_contract.py": "b07df30240b9b1f856abdfffc1edb263c77ee59696d9089ae9087ecf4f353932"
+  }
+}

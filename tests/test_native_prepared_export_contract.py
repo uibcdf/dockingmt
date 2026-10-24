@@ -1,7 +1,7 @@
 """Consumer requirements for retiring the prepared PDBQT writers (#49).
 
-Exercise the supported serializer with native ligand projection and the earlier
-receptor source. Production writer adoption remains separate from projection.
+Exercise the supported serializer with native ligand and receptor projection.
+Production writer adoption remains separate from projection.
 """
 
 from copy import deepcopy
@@ -62,18 +62,12 @@ def test_native_writer_requires_prepared_values_after_h_projection(
 
     native = msm.copy(prepared.source_molsys)
     retained_charges = atom_charges(native).astype(float)
-    # Ligand preparation now stores the provider-reduced molecular output;
-    # receptor preparation still stores the earlier extraction. Inspect actual
-    # atom-resolved values rather than inferring them from total conservation.
-    if prepare is prepare_ligand:
-        np.testing.assert_allclose(retained_charges, prepared.charges)
-        assert (
-            prepared.metadata['molecular_projection']['schema']
-            == 'molsysmt.atom_projection@1'
-        )
-    else:
-        np.testing.assert_allclose(retained_charges, original_charges[[0, 1, 5]])
-        assert retained_charges[0] != pytest.approx(prepared.charges[0])
+    # Both roles retain the provider's actual aggregate native values.
+    np.testing.assert_allclose(retained_charges, prepared.charges)
+    assert (
+        prepared.metadata['molecular_projection']['schema']
+        == 'molsysmt.atom_projection@1'
+    )
     coordinates = puw.convert(prepared.coordinates, to_unit=length_unit)
     msm.set(
         native,

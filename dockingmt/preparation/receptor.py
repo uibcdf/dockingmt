@@ -10,6 +10,7 @@ from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation._molsys import (
     atom_metadata,
     chemistry_evidence,
+    detached_provider_report,
     select_one_structure,
     source_atom_types,
     source_charge_assignment,
@@ -163,8 +164,11 @@ def prepare_receptor(
     """Prepare a conventional protein receptor for docking calculations.
 
     Extracts the selected protein component using MolSysMT, consumes named
-    AutoDock atom types, merges provider-classified non-polar hydrogens,
-    and returns an inspectable PreparedReceptor.
+    AutoDock atom types, and delegates typed-H reduction and charge transfer
+    to MolSysMT. The native source carries the actual aggregate charges and
+    virtual-H inventory; original and derived assignments remain distinct.
+    Merged parents require known virtual-H counts and zero implicit H.
+    Unknown counts are not inferred or repaired, and no model is chosen implicitly.
 
     Parameters
     ----------
@@ -201,71 +205,29 @@ def prepare_receptor(
     extracted, workflow = run_stages(extracted, None, charge_options, typing_options)
     n_atoms = msm.get(extracted, element='system', n_atoms=True)
 
-    atom_names, group_names, group_ids, elements = atom_metadata(extracted, 'REC')
-    named_types, typing_assignment = source_atom_types(extracted, n_atoms)
+    atom_names, group_names, group_ids, _ = atom_metadata(extracted, 'REC')
+    _, typing_assignment = source_atom_types(extracted, n_atoms)
     charges = source_partial_charges(extracted, n_atoms)
     assignment = source_charge_assignment(extracted)
-    bonded_atoms = (
-        msm.get(
-            extracted,
-            element='atom',
-            bonded_atoms=True,
-            get_missing_bonds=False,
-            chemical_state='structure',
-            structure_indices=0,
-        )
-        if msm.has_attribute(extracted, 'bonded_atoms')
-        else None
+    projected = msm.build.merge_nonpolar_hydrogens(
+        extracted,
+        typing_scheme='autodock4',
+        selection='all',
+        chemical_state='structure',
+        structure_indices=0,
+        return_report=True,
     )
-    coords = msm.get(extracted, element='atom', coordinates=True)[0]  # shape (N, 3)
-
-    retained_names: list[str] = []
-    retained_gnames: list[str] = []
-    retained_gids: list[int] = []
-    retained_types: list[str] = []
-    retained_charges: list[float] = []
-    retained_indices: list[int] = []
-    merged_hydrogen_charges: dict[int, float] = {}
-    omitted_hydrogen_indices: list[int] = []
-    charge_transfers: list[tuple[int, int]] = []
-
-    for i, (aname, gname, gid, element) in enumerate(
-        zip(atom_names, group_names, group_ids, elements)
-    ):
-        # Skip non-polar hydrogens (standard Vina united-atom convention for rigid receptor)
-        if element.upper() == 'H':
-            neighbors = bonded_atoms[i] if bonded_atoms is not None else []
-            heavy_neighbors = [
-                int(j) for j in neighbors if elements[int(j)].upper() != 'H'
-            ]
-            if len(heavy_neighbors) != 1:
-                raise ArgumentError(
-                    arg_name='molecular_system',
-                    reason='A receptor hydrogen needs exactly one explicit heavy-atom bond for Vina preparation.',
-                )
-            attached = heavy_neighbors[0]
-            if named_types[i] == 'H':
-                charge_transfers.append((i, attached))
-                merged_hydrogen_charges[attached] = (
-                    merged_hydrogen_charges.get(attached, 0.0) + charges[i]
-                )
-                omitted_hydrogen_indices.append(i)
-                continue
-
-        retained_names.append(str(aname))
-        retained_gnames.append(str(gname))
-        retained_gids.append(int(gid))
-        retained_types.append(named_types[i])
-        retained_charges.append(charges[i])
-        retained_indices.append(i)
-
-    for atom_index, hydrogen_charge in merged_hydrogen_charges.items():
-        retained_charges[retained_indices.index(atom_index)] += hydrogen_charge
-
-    retained_coords = puw.quantity(
-        puw.get_value(coords)[retained_indices],
-        puw.get_unit(coords),
-    )
+    reduced = projected['molecular_system']
+    projection = detached_provider_report(projected['report'])
+    retained_indices = projection['output_to_source_atom_indices']
+    charge_transfers = projection['merged_source_atom_pairs']
+    omitted_hydrogen_indices = [pair[0] for pair in charge_transfers]
+    retained_names = [str(atom_names[i]) for i in retained_indices]
+    retained_gnames = [str(group_names[i]) for i in retained_indices]
+    retained_gids = [int(group_ids[i]) for i in retained_indices]
+    retained_types = list(msm.get(reduced, element='atom', atom_ff_type=True))
+    retained_charges = source_partial_charges(reduced, len(retained_indices))
+    retained_coords = msm.get(reduced, element='atom', coordinates=True)[0]
 
     resolved_id = state_id if state_id is not None else 'receptor_state_0'
 
@@ -297,10 +259,17 @@ def prepare_receptor(
                 if workflow is not None
                 else {}
             ),
-            'merged_hydrogen_charges': bool(merged_hydrogen_charges),
+            'merged_hydrogen_charges': bool(charge_transfers),
             'hydrogen_policy': 'retain_polar_merge_nonpolar',
             'omitted_hydrogen_indices': omitted_hydrogen_indices,
             'partial_charge_assignment': assignment,
+            'molecular_projection': projection,
+            'projected_partial_charge_assignment': detached_provider_report(
+                reduced.molecular_mechanics.partial_charge_assignment
+            ),
+            'projected_atom_type_assignment': detached_provider_report(
+                reduced.molecular_mechanics.atom_type_assignment
+            ),
             'charge_projection': _charge_projection(
                 assignment,
                 charges,
@@ -312,5 +281,5 @@ def prepare_receptor(
                 extracted, include_residue_coverage=True
             ),
         },
-        source_molsys=msm.extract(extracted, selection=retained_indices),
+        source_molsys=reduced,
     )
