@@ -22,6 +22,13 @@ group presentation, ROOT policy, stage maps, source identity and attribution.
 General permutations remain provider-owned #369; #49/#33/#5 remain partial.
 Public delivery remains #30/#47 and HTML/C6 stays deferred.
 
+MolSysMT [closed #223 on 2026-10-24](https://github.com/uibcdf/molsysmt/issues/223#issuecomment-6388413966)
+with its [provider delivery guide](https://github.com/uibcdf/molsysmt/blob/8a43cb2eb/devguide/atom_correspondence_delivery.md).
+Production adoption remains here under #49. Later provider source changes the
+reader/composition namespaces; this checkpoint retains the qualified `128a0bbb`
+entry points and does not adopt the later revision implicitly. Wider inventory
+admission and full-system permutation remain separate from that delivery.
+
 ## Known-source pose qualification — 2026-10-24
 
 The [native pose receiving](validation/known_source_poses.md) qualifies public

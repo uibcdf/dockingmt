@@ -96,7 +96,9 @@ isolated installed import checks, in addition to the complete source suite.
 Source-backed conversion continues to copy the verified molecular source and
 replace coordinates publicly. Source-free flexible reconstruction still requires
 application of a known atom permutation; it retains the previous bounded bridge
-pending [molsysmt#369](https://github.com/uibcdf/molsysmt/issues/369), #223 and #226.
+pending [molsysmt#369](https://github.com/uibcdf/molsysmt/issues/369). The bounded
+projection/map/reader tools under #223/#226 are delivered; their production
+adoption remains here under #49.
 There is no new downstream permutation algorithm or general molecular helper.
 
 ## Why
@@ -127,7 +129,9 @@ attribute handling; its failures propagate instead of being bypassed.
   [Production ligand projection](../validation/ligand_projection.md) now consumes
   the actual reduced system and derived bindings; its local loop is removed.
   Receptor projection, native export/reader integration and earlier generation-map
-  composition remain. The whole open issue must not be read as an undelivered tool.
+  composition remain. MolSysMT closed #223 on 2026-10-24 with its provider delivery
+  guide; the remaining consumer adoption belongs here. Later provider namespace
+  and stage-composition receiving require separate version-qualified evidence.
 - **Serialization:** public native PDBQT output is available under
   [molsysmt#214](https://github.com/uibcdf/molsysmt/issues/214). Its formatting differs
   from the legacy consumer output. Qualify the complete charge/type/tree/map

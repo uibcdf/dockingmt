@@ -57,6 +57,15 @@ is [handed to the provider](https://github.com/uibcdf/molsysmt/issues/223#issuec
 with the raw input and executed refusals. No consumer inventory normalizer, state
 pruner or fallback is introduced.
 
+While this consumer checkpoint was being prepared, MolSysMT
+[closed #223](https://github.com/uibcdf/molsysmt/issues/223#issuecomment-6388413966)
+with its [provider delivery guide](https://github.com/uibcdf/molsysmt/blob/8a43cb2eb/devguide/atom_correspondence_delivery.md).
+That closure distinguishes delivered provider tools from DockingMT production
+adoption. Its later reader/composition namespaces have not been qualified here:
+the installed provider and its public entry points remain at `128a0bbb`. The raw
+inventory refusal and submitted boundary evidence remain valid for that revision;
+no later provider runtime or new declaration route is claimed by this checkpoint.
+
 Positive methanol controls explicitly declare their finite six-indexed-atom CH4O
 hypothesis, zero virtual H and disabled implicit H through public setters before
 parameterization. The H-complete 5X72 charge-export control declares its inventory
