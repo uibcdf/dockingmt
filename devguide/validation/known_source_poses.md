@@ -1,5 +1,10 @@
 # Known-source PDBQT pose receiving — 2026-10-24
 
+The subsequent [permutation receiving](flexible_reconstruction.md) adopts provider
+`3502232d8` and updates current tests to its form-owned `read_poses` entry points.
+The earlier qualification below retains provider `128a0bbb`, original artifact
+identities and its historical public spelling. Production parsing is still separate.
+
 Owners: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49) and
 [#33](https://github.com/uibcdf/dockingmt/issues/33). This qualifies the native
 projection → mapped export → actual DockingMT/Vina output → public known-source

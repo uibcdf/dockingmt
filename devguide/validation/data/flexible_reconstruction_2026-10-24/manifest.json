@@ -1,0 +1,80 @@
+{
+  "schema": "dockingmt.evidence_manifest@1",
+  "files": [
+    {
+      "path": "administrative-initial.log.gz",
+      "bytes": 438,
+      "sha256": "90fda822422a354333200b2c19542121eabe0ea856d8c81f6c3882c762f20a7d"
+    },
+    {
+      "path": "administrative.log.gz",
+      "bytes": 50,
+      "sha256": "ed74b1ba5194b53e5a338f770a737cfc0f7a96fe9849e3dcbc2fc49526e4a685"
+    },
+    {
+      "path": "before-initial.log.gz",
+      "bytes": 981,
+      "sha256": "4e3a4a37c70bb6a811bf2edc1f98d52bf2f71a533d33edf15d582bdc8b34acb9"
+    },
+    {
+      "path": "before.log.gz",
+      "bytes": 869,
+      "sha256": "4b8f3ad57ec9f53a77c3d22183a6baaac0816fd9e9dc25d892bdeffb3a53fa6a"
+    },
+    {
+      "path": "build-provider.log.gz",
+      "bytes": 559,
+      "sha256": "670d3719a7acd619d1298c0b5d960d08001b384c46bcea74ff94573b395b5120"
+    },
+    {
+      "path": "focused-final.log.gz",
+      "bytes": 203,
+      "sha256": "87b073afdc97e5f747310a6b41c931eb4791b9369bedc6f968c56cb3de0ee1fc"
+    },
+    {
+      "path": "focused-unit-observation.log.gz",
+      "bytes": 576,
+      "sha256": "b13c9a3c626a7afa7a87cbef91a9e6751edda5cef88e48d2eb1a1c426103d58b"
+    },
+    {
+      "path": "focused.log.gz",
+      "bytes": 557,
+      "sha256": "812618051dc0f9591ec86fdbc277d2d95bab014bff7b6dba23b376789e91c74d"
+    },
+    {
+      "path": "guides-inspection.json",
+      "bytes": 2092,
+      "sha256": "220ccee4eb36bd564ed95ce1a45e2abfdc464cc1b47587160b98f454dc9f2875"
+    },
+    {
+      "path": "provider-pip-check.log.gz",
+      "bytes": 218,
+      "sha256": "197ad0d0206824efae237968e557064cc8621ec355a307f72fa8401c764e3669"
+    },
+    {
+      "path": "provider-proof.json",
+      "bytes": 1501,
+      "sha256": "f0a1d92613b9ef58e1201c7d49b6195d43434e5809019e1c6963f11bb7c0e496"
+    },
+    {
+      "path": "qualified.log.gz",
+      "bytes": 221,
+      "sha256": "b5382f63d483ce22f9eb364fe2c4bf8c23270e4e1d23ade5b213c8416f33d287"
+    },
+    {
+      "path": "resources.json",
+      "bytes": 1320,
+      "sha256": "6b134f9459ba36cdd39aec5766f43d18f81823792dee3aa7064f2166f8e4758e"
+    },
+    {
+      "path": "selected.log.gz",
+      "bytes": 532,
+      "sha256": "9ca40d7a235f8b4a95f4458b77adfa22aa12bccbe739d336863e4dafad8aac63"
+    },
+    {
+      "path": "source-receipt.json",
+      "bytes": 2737,
+      "sha256": "bfcce57b3e69176f728a1bb9d637efc1c41afbf05b86bb48a8dfd0087c15809d"
+    }
+  ]
+}

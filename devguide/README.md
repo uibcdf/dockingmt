@@ -29,8 +29,12 @@ Every proposed capability should be classified as:
 ## Reading order
 
 For the current nonvisual working state, start with the
-[prepared-native writer receiving](validation/native_ligand_export_receiving.md).
-It qualifies actual reduced values and maps and records the presentation/final-byte
+[flexible reconstruction migration](validation/flexible_reconstruction.md),
+which consumes public native permutation and removes local PDB reconstruction.
+Its exact provider source and canonical reader namespaces are qualified separately
+from public delivery. The
+[prepared-native writer receiving](validation/native_ligand_export_receiving.md)
+qualifies actual reduced values and maps and records the presentation/final-byte
 composition requested in MolSysMT #214 before production writer retirement. The
 [production ligand projection](validation/ligand_projection.md) removes the
 local H-parent/charge-transfer loop and records the actual reduced molecular

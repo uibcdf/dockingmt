@@ -8,7 +8,6 @@ required_paths = [
   "site-packages/dockingmt/_private/argdigest/__init__.py",
   "site-packages/dockingmt/_private/argdigest/registry.py",
   "site-packages/dockingmt/_private/artifacts.py",
-  "site-packages/dockingmt/_private/conversion.py",
   "site-packages/dockingmt/_private/serialization.py",
   "site-packages/dockingmt/_private/symmetry.py",
   "site-packages/dockingmt/_private/smonitor/__init__.py",

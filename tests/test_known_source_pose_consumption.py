@@ -100,7 +100,9 @@ def test_native_projection_export_and_all_pose_axes(pose_case, length_unit, tmp_
     path = tmp_path / 'poses.pdbqt'
     path.write_text(payload.removeprefix('pdbqt_text:'))
     with puw.context(standard_units=[length_unit, 'fs', 'coulomb', 'kJ/mol']):
-        result = msm.form.read_pdbqt_poses(path, reduced, mapping, return_report=True)
+        result = msm.form.file_pdbqt.read_poses(
+            path, reduced, mapping, return_report=True
+        )
     native, report = result['molecular_system'], result['report']
     xyz = puw.get_value(msm.get(native, coordinates=True), to_unit='angstrom')
     expected = puw.get_value(msm.get(reduced, coordinates=True), to_unit='angstrom')
@@ -159,7 +161,9 @@ def test_native_projection_export_and_all_pose_axes(pose_case, length_unit, tmp_
         reduced.molecular_mechanics.partial_charge_assignment
     ) == detached_record(assignment)
     # The JSON report remains independently usable; returned reports are detached.
-    restored = msm.form.read_pdbqt_poses(text, reduced, map_before, return_report=True)
+    restored = msm.form.string_pdbqt_text.read_poses(
+        text, reduced, map_before, return_report=True
+    )
     assert restored['report']['n_input_structures'] == 1
     report['export_map']['output_to_source_atom_indices'][0] = 999
     assert detached_record(mapping) == map_before
@@ -185,7 +189,7 @@ def test_original_reference_inputs_keep_known_chemical_graph(case):
     before = snapshot(source)
     reduced = msm.build.merge_nonpolar_hydrogens(source, typing_scheme='autodock4')
     text, mapping = _export(reduced, _tree(reduced))
-    poses = msm.form.read_pdbqt_poses(text, reduced, mapping)
+    poses = msm.form.string_pdbqt_text.read_poses(text, reduced, mapping)
     assert msm.get(poses, n_atoms=True) == msm.get(reduced, n_atoms=True)
     assert snapshot(poses)['chemical_states'] == snapshot(reduced)['chemical_states']
     np.testing.assert_allclose(
@@ -200,7 +204,7 @@ def test_original_reference_inputs_keep_known_chemical_graph(case):
 @pytest.mark.parametrize('selection', [[2, 0, 2], []])
 def test_pose_selection_preserves_positions_and_repeats(pose_case, selection):
     _, reduced, _, _, mapping, tree = pose_case
-    result = msm.form.read_pdbqt_poses(
+    result = msm.form.string_pdbqt_text.read_poses(
         _ensemble(reduced, tree),
         reduced,
         mapping,
@@ -248,7 +252,9 @@ def test_all_models_are_validated_before_pose_selection(mutation):
             lines[index] = line[:30] + '     nan' + line[38:]
         payload = '\n'.join(lines) + '\n'
     with pytest.raises(FormatError):
-        msm.form.read_pdbqt_poses(payload, reduced, mapping, structure_indices=[0])
+        msm.form.string_pdbqt_text.read_poses(
+            payload, reduced, mapping, structure_indices=[0]
+        )
     assert snapshot(source) == before and snapshot(reduced) == reduced_before
 
 
@@ -266,7 +272,7 @@ def test_incomplete_or_stale_maps_are_not_repaired(mutation):
         msm.set(reduced, selection=[0], atom_name='EDIT')
     before = snapshot(reduced)
     with pytest.raises(FormatError):
-        msm.form.read_pdbqt_poses(text, reduced, mapping)
+        msm.form.string_pdbqt_text.read_poses(text, reduced, mapping)
     assert snapshot(reduced) == before
 
 
@@ -283,8 +289,8 @@ def test_omitted_h_is_explicit_subsystem_not_projected_chemistry():
         return_atom_map=True,
     )
     with pytest.raises(FormatError, match='omitted source atoms'):
-        msm.form.read_pdbqt_poses(text, source, mapping)
-    out = msm.form.read_pdbqt_poses(
+        msm.form.string_pdbqt_text.read_poses(text, source, mapping)
+    out = msm.form.string_pdbqt_text.read_poses(
         text, source, mapping, missing_atoms='omit', return_report=True
     )
     assert out['report']['omitted_source_atom_indices'].tolist() == [2, 3, 4]
@@ -329,7 +335,7 @@ def test_real_dockingmt_vina_output_matches_native_pose_reader(
             ),
         )
         assert len(observed) == 1
-        received = msm.form.read_pdbqt_poses(
+        received = msm.form.string_pdbqt_text.read_poses(
             'pdbqt_text:' + observed[0], reduced, mapping, return_report=True
         )
     native, report = received['molecular_system'], received['report']
@@ -387,6 +393,6 @@ def test_legacy_preparation_does_not_acquire_a_native_export_map():
     legacy = prepared.to_pdbqt()
     assert hashlib.sha256(legacy.encode()).hexdigest() != mapping['payload_sha256']
     with pytest.raises(FormatError, match='serial IDs'):
-        msm.form.read_pdbqt_poses('pdbqt_text:' + legacy, reduced, mapping)
+        msm.form.string_pdbqt_text.read_poses('pdbqt_text:' + legacy, reduced, mapping)
     assert prepared.to_pdbqt() == legacy
     assert snapshot(reduced) == before

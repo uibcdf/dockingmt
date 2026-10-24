@@ -94,9 +94,11 @@ candidate. CI must execute normal installation, source/metadata route checks and
 isolated installed import checks, in addition to the complete source suite.
 
 Source-backed conversion continues to copy the verified molecular source and
-replace coordinates publicly. Source-free flexible reconstruction still requires
-application of a known atom permutation; it retains the previous bounded bridge
-pending [molsysmt#369](https://github.com/uibcdf/molsysmt/issues/369). The bounded
+replace coordinates publicly. [Source-free flexible reconstruction now delegates
+its known permutation](../validation/flexible_reconstruction.md) to public
+MolSysMT #369 at qualified source `3502232d8`; the former PDB bridge and unused
+temporary-file helper are removed. Available PDBQT chemistry/labels and original
+prepared precision are retained without inferring absent chemistry. The bounded
 projection/map/reader tools under #223/#226 are delivered; their production
 adoption remains here under #49.
 There is no new downstream permutation algorithm or general molecular helper.
@@ -144,7 +146,7 @@ attribute handling; its failures propagate instead of being bypassed.
   The writer route awaits provider composition or an accepted native-presentation
   policy; independent work remains available. Later provider #369 now delivers
   general permutation, requiring its own version-qualified consumer receiving.
-- **Poses and flexible source-free reconstruction:** provider MODEL-aware reading
+- **Poses:** provider MODEL-aware reading
   and export/source maps belong to
   [molsysmt#226](https://github.com/uibcdf/molsysmt/issues/226) and #223. Keep the
   prepared atom axis explicit; provider extraction does not supply an arbitrary
@@ -152,6 +154,10 @@ attribute handling; its failures propagate instead of being bypassed.
   current legacy PDBQT bytes do not acquire a completed native map. Retire parsing
   only after the actual prepared producer supplies a bound export contract.
   Do not add a consumer reordering or molecular parsing algorithm.
+- **Flexible source-free reconstruction delegated:** public PDBQT conversion,
+  `permute_atoms` and precision-restoring setters replace the local PDB builder.
+  Current reader guards use canonical form-owned namespaces for the adopted
+  revision; source-backed copy/set is unchanged. See the receiving record above.
 - **Connectivity delegated (2026-10-23):** the
   [retained-connectivity migration](../validation/retained_connectivity.md) consumes
   delivered [molsysmt#348](https://github.com/uibcdf/molsysmt/issues/348) at the

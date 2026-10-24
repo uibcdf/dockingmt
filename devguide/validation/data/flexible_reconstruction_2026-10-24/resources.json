@@ -1,0 +1,32 @@
+{
+  "owner": "uibcdf/dockingmt#50",
+  "task_issue": "uibcdf/dockingmt#49",
+  "task_root": "/tmp/dockingmt-permutation-20261024",
+  "review_by": "2026-10-31",
+  "receiver": "/tmp/dockingmt-permutation-20261024/environment",
+  "dependency_base": "/tmp/dockingmt-human-20261020/environment",
+  "base_review_by": "2026-10-27",
+  "old_receivers_wheels_and_shared_environment_modified": false,
+  "sibling_worktrees": "Preserved TopoMT, PharmacophoreMT, OpenCASTP human edits and behind checkouts",
+  "removed_own_provider_build_outputs": [
+    {
+      "path": "build",
+      "reason": "Own ignored wheel build output; ordinary wheel/native/source proof retained"
+    },
+    {
+      "path": "molsysmt.egg-info",
+      "reason": "Own ignored wheel build output; ordinary wheel/native/source proof retained"
+    },
+    {
+      "path": "molsysmt/_version.py",
+      "reason": "Own ignored wheel build output; ordinary wheel/native/source proof retained"
+    },
+    {
+      "path": "rust/target",
+      "reason": "Own ignored wheel build output; ordinary wheel/native/source proof retained"
+    }
+  ],
+  "guide_sync": "Suite synchronizer against a task-owned clean canonical owner clone; registered consumer symlink; no owner/sibling edit",
+  "tool": "Exact gh-run-receptor 1.2.1 task-owned clone",
+  "automatic_deletion": false
+}

@@ -2,6 +2,25 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Flexible source-free reconstruction delegated — 2026-10-24
+
+[`PreparedLigand.to_molecular_system`](validation/flexible_reconstruction.md) now
+uses public PDBQT conversion, `permute_atoms` on the known inverse traversal and
+full-precision setters. Local PDB construction, duplicate-name rewriting, group
+truncation and the unused temporary-file helper are removed. Source-backed
+copy/set is unchanged; absent chemistry is not reconstructed.
+
+Adopt the normally built/installed provider source `3502232d8`, with canonical
+form-owned reader namespaces and unchanged ArgDigest/Viewer pins. Eight new
+guards, 32 reconstruction/reader cases and a separate 316-case broad selection
+pass; installed candidate and exact-head evidence are recorded separately in #49.
+Earlier producer/artifact records retain their original source and bytes.
+
+**Next independent implementation: receptor H projection/charge transfer through
+MolSysMT.** Writer presentation/final-byte composition remains requested under
+MolSysMT #214, followed by reader production adoption for those actual bytes.
+#49/#33/#5 remain partial, HTML/C6 stays deferred and public delivery remains #30/#47.
+
 ## Native ligand writer receiving — 2026-10-24
 
 The [prepared-native export controls](validation/native_ligand_export_receiving.md)

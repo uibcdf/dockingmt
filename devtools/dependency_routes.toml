@@ -30,9 +30,9 @@ id = "molsysmt-source"
 name = "molsysmt"
 role = "required-runtime"
 url = "https://github.com/uibcdf/molsysmt"
-commit = "128a0bbb94e6804f5663e58a45313c77de1cc30d"
+commit = "3502232d802ee2927f6b6f5d19f0ae045777ecb5"
 install = "pip-no-deps-directory"
-reason = "Bounded receiving under dockingmt#51/#49 includes native independent-copy ownership (#121), explicit template stereo transfer (#390), pandas 3.1 compatibility (#431) and earlier symmetry/input/mechanics deliveries; exact-head CI must qualify normal directory installs. Public artifact admission remains separate."
+reason = "Source-free flexible reconstruction under dockingmt#49 adopts public full-domain permutation (#369) and canonical form-owned pose readers, retaining earlier native-copy/stereo/mechanics qualification. Normal directory installation and exact-head four-minor scientific gates remain required; public artifact admission is separate."
 
 [[source_routes]]
 id = "viewer-base"
@@ -91,7 +91,7 @@ reason = "Manual candidate/staged or eligible reviewed release caller; shared pu
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "b53b0c5316be4837fd6861a90d9ba842cc9eb9282922d83dc5f0ebb117040bc0"
+sha256 = "abb7c901a18bee122fcc6701b6de46048366e7df761792f5b44355ffb9840a62"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]
@@ -101,7 +101,7 @@ reason = "Administrative no-build recipe/resources and immutable publisher contr
 
 [[workflows]]
 path = ".github/workflows/full-matrix.yml"
-sha256 = "6f3c8203b1b8812d08f727066ae97d845140fde4624ee16199b2e61ef1373e8e"
+sha256 = "00746520b8f20befca7cacbb01e93be2a4461140759ce2f2482c68bb82d5a1cb"
 reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under dockingmt#49; directory preflight does not dispatch or change the matrix."
 
 [[workflows]]

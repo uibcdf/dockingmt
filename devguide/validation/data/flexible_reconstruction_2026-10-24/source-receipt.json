@@ -1,0 +1,69 @@
+{
+  "schema": "dockingmt.flexible_reconstruction@1",
+  "date": "2026-10-24",
+  "owner": "uibcdf/dockingmt#49",
+  "provider_issue": "uibcdf/molsysmt#369",
+  "source_parent": "253f42adb2b0f1d59124e3bd11717cda2d8d26e4",
+  "provider_source": "3502232d802ee2927f6b6f5d19f0ae045777ecb5",
+  "previous_provider_source": "128a0bbb94e6804f5663e58a45313c77de1cc30d",
+  "new_guards": {
+    "passed": 8,
+    "seconds": 4.76,
+    "warnings": 2,
+    "skipped": 0
+  },
+  "before": {
+    "failed": 6,
+    "passed": 2,
+    "seconds": 4.77
+  },
+  "qualified": {
+    "passed": 32,
+    "seconds": 26.44,
+    "warnings": 22,
+    "skipped": 0
+  },
+  "broad_source": {
+    "passed": 316,
+    "seconds": 180.22,
+    "warnings": 108,
+    "skipped": 0
+  },
+  "distinct_source_cases": 348,
+  "focused_included_in_32": true,
+  "administrative": {
+    "passed": 29,
+    "seconds": 2.59
+  },
+  "exploratory_test_corrections": [
+    "Scope source-backed spy to reconstruction, not snapshot",
+    "Allow native inspection through conversion spy",
+    "Compare source snapshots under same unit policy"
+  ],
+  "administrative_initial": "Removed file was still declared as required package resource; obsolete path removed",
+  "production_flexible_reconstruction_delegated": true,
+  "local_pdb_builder_removed": true,
+  "unused_tempfile_conversion_helper_removed": true,
+  "partial_charge_and_autodock_values_preserved": true,
+  "unknown_chemistry_inferred": false,
+  "source_backed_route_changed": false,
+  "receptor_projection_migrated": false,
+  "native_writer_or_production_pose_parser_migrated": false,
+  "reader_guards_use_form_owned_namespaces": true,
+  "new_registered_3ptb_searches": 0,
+  "historical_archives_rewritten": false,
+  "browser_verified": false,
+  "C6_accepted": false,
+  "public_admission": false,
+  "candidate_installed_and_exact_head_gates": "Separate post-commit evidence in #49",
+  "file_sha256": {
+    "dockingmt/preparation/ligand.py": "2b4178908d64a263f6dd71c5c76a2d93312356635fdec6b09cbda38b4ab14fec",
+    "tests/test_flexible_reconstruction.py": "3a2bb2ad842f82bec4243a9bdae8b4c5aff9273b23682bbef1ec70b6c76d3de3",
+    "tests/test_known_source_pose_consumption.py": "7821aebc73d9af56ad08eeeed3c92e9e44b12c36f6c8eeea905cb635c0b9c917",
+    "devtools/dependency_routes.toml": "ef2dd29c2dc77fbfceb9b9bd951b2c820328862519b09d9ad79eb1492789160f",
+    "devtools/conda-build/resources.toml": "b3715d5784b752e986a34a678a69ef9e52d08fdec73cb2cd02c3199e236961a0",
+    ".github/workflows/ci.yml": "abb7c901a18bee122fcc6701b6de46048366e7df761792f5b44355ffb9840a62",
+    ".github/workflows/full-matrix.yml": "00746520b8f20befca7cacbb01e93be2a4461140759ce2f2482c68bb82d5a1cb"
+  },
+  "gh_run_receptor": "1.2.1 tag; canonical guide synchronized by suite tool"
+}

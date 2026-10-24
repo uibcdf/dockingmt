@@ -9,7 +9,6 @@ from argdigest import arg_digest
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation._molsys import (
     atom_metadata,
-    autodock_element,
     chemistry_evidence,
     detached_provider_report,
     select_one_structure,
@@ -185,17 +184,24 @@ class PreparedLigand:
     def to_molecular_system(self) -> Any:
         """Convert through MolSysMT, restoring full-precision prepared values.
 
-        A source-free rigid representation carries only PDBQT's partial chemistry;
+        A source-free representation carries only PDBQT's partial chemistry;
         conversion does not recover absent bonds or assign a chemical model.
+        MolSysMT applies the declared inverse traversal for a flexible ligand,
+        transporting all available native domains onto the prepared atom axis.
         """
-        if self.source_molsys is None and self._torsion_tree is None:
-            import molsysmt as msm
+        import molsysmt as msm
 
+        if self.source_molsys is None:
             molsys = msm.convert(
                 'pdbqt_text:' + self.to_pdbqt(),
                 to_form='molsysmt.MolSys',
                 discard_torsion_tree=True,
             )
+            if self._torsion_tree is not None:
+                molsys = msm.permute_atoms(
+                    molsys,
+                    atom_indices=np.argsort(self.pdbqt_atom_indices).tolist(),
+                )
             msm.set(
                 molsys,
                 coordinates=puw.quantity(
@@ -206,56 +212,18 @@ class PreparedLigand:
             )
             return molsys
 
-        if self.source_molsys is not None:
-            import molsysmt as msm
-
-            molsys = msm.copy(self.source_molsys)
-            if msm.get(molsys, element='system', n_atoms=True) != self.n_atoms:
-                raise ArgumentError(
-                    arg_name='source_molsys',
-                    reason='Prepared ligand atom count differs from its molecular source.',
-                )
-            coords = puw.quantity(
-                np.expand_dims(puw.get_value(self.coordinates), axis=0),
-                puw.get_unit(self.coordinates),
+        molsys = msm.copy(self.source_molsys)
+        if msm.get(molsys, element='system', n_atoms=True) != self.n_atoms:
+            raise ArgumentError(
+                arg_name='source_molsys',
+                reason='Prepared ligand atom count differs from its molecular source.',
             )
-            msm.set(molsys, element='atom', coordinates=coords)
-            return molsys
-
-        # Source-free flexible reconstruction must keep the prepared atom axis.
-        # The provider export/pose maps are pending molsysmt#223/#226; preserve
-        # this existing bridge until that axis is supported (dockingmt#49).
-        from .._private.conversion import pdb_text_to_molsys
-
-        coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))
-        seen_per_res: dict[tuple[str, int], set[str]] = {}
-        lines = []
-        for i, (name, gname, gid, (x, y, z), atom_type) in enumerate(
-            zip(
-                self.atom_names,
-                self.group_names,
-                self.group_ids,
-                coords_ang,
-                self.atom_types,
-            )
-        ):
-            res_key = (gname, gid)
-            if res_key not in seen_per_res:
-                seen_per_res[res_key] = set()
-            aname = name
-            c = 1
-            while aname in seen_per_res[res_key]:
-                aname = f'{name[:2]}{c}'
-                c += 1
-            seen_per_res[res_key].add(aname)
-
-            lines.append(
-                f'ATOM  {i + 1:5d} {aname:<4s} {gname[:3]:3s} A{gid:4d}    '
-                f'{x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00          {autodock_element(atom_type):>2s}'
-            )
-        lines.append('END\n')
-        pdb_text = '\n'.join(lines)
-        return pdb_text_to_molsys(pdb_text)
+        coords = puw.quantity(
+            np.expand_dims(puw.get_value(self.coordinates), axis=0),
+            puw.get_unit(self.coordinates),
+        )
+        msm.set(molsys, element='atom', coordinates=coords)
+        return molsys
 
     def __repr__(self) -> str:
         return (

@@ -32,6 +32,13 @@ report. Original source/artifact/CI/service evidence is recorded under
 
 ## Molecular input
 
+Prepared ligands without their original native source reconstruct the available
+PDBQT representation through MolSysMT. Flexible reconstruction delegates the known
+atom-order permutation and restores prepared coordinate/charge precision through
+public setters. It preserves available names and AutoDock labels; it does not
+recover chemistry absent from PDBQT. The qualified source context is recorded in
+[the reconstruction checkpoint](devguide/validation/flexible_reconstruction.md).
+
 `DockingProblem` accepts molecular inputs that MolSysMT can convert to
 `molsysmt.MolSys`. Select the receptor and partner independently, even when both
 come from the same complex:
