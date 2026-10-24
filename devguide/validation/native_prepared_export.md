@@ -1,5 +1,11 @@
 # Native prepared PDBQT export: adoption boundary
 
+The [2026-10-24 prepared-native writer receiving](native_ligand_export_receiving.md)
+now qualifies actual aggregate values, bound maps and nested trees. The explicit
+output-presentation/caller-remark route is requested in MolSysMT #214 before
+production writer retirement; this does not attribute absent native groups to a
+writer defect. Original dated observations below retain their producer.
+
 [Production ligand projection](ligand_projection.md) now stores the actual
 provider-reduced native system with aggregate charges. The receptor still retains
 its earlier extracted source. The native writer/map integration remains the next

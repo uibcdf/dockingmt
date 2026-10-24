@@ -1,0 +1,15 @@
+{
+  "owner": "uibcdf/dockingmt#50",
+  "task_issue": "uibcdf/dockingmt#49",
+  "task_root": "/tmp/dockingmt-ligand-export-20261024",
+  "review_by": "2026-10-31",
+  "existing_ordinary_receiver": "/tmp/dockingmt-ligand-projection-20261024/environment",
+  "inherited_dependency_base": "/tmp/dockingmt-human-20261020/environment",
+  "base_review_by": "2026-10-27",
+  "strategy": "Source-free test-only harness; reuse unchanged qualified ordinary package files and wheel; no new wheel or environment installation",
+  "ordinary_installed_files_unchanged": true,
+  "shared_environment_modified": false,
+  "sibling_worktrees_modified": false,
+  "human_topomt_version_edit_preserved": true,
+  "automatic_deletion": false
+}

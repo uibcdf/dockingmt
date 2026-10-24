@@ -29,10 +29,13 @@ Every proposed capability should be classified as:
 ## Reading order
 
 For the current nonvisual working state, start with the
-[production ligand projection](validation/ligand_projection.md). It removes the
+[prepared-native writer receiving](validation/native_ligand_export_receiving.md).
+It qualifies actual reduced values and maps and records the presentation/final-byte
+composition requested in MolSysMT #214 before production writer retirement. The
+[production ligand projection](validation/ligand_projection.md) removes the
 local H-parent/charge-transfer loop and records the actual reduced molecular
 state and the stricter explicit-inventory boundary. The
-[known-source pose receiving](validation/known_source_poses.md). It qualifies
+[known-source pose receiving](validation/known_source_poses.md) qualifies
 MolSysMT's delivered projection/export/reader chain and identifies the prepared
 producer migration needed before replacing the production parser. The
 [retained-connectivity migration](validation/retained_connectivity.md) removes
@@ -44,7 +47,7 @@ The [2026-10-23 scene record](validation/3ptb_scene.md) and executed
 [scene notebook](validation/human_3ptb_scene_2026-10-23.ipynb) retain the minimal
 scene, its installed Python checks and HTML export. Browser inspection
 and C6 acceptance remain pending under #52. The
-[roadmap](ROADMAP.md#production-ligand-projection--2026-10-24) gives the next action.
+[roadmap](ROADMAP.md#native-ligand-writer-receiving--2026-10-24) gives the next action.
 The [2026-10-20 pause checkpoint](validation/pause_handoff_2026-10-20.md) retains
 the completed pre-visualization workflow, original producers and recovery details.
 The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)

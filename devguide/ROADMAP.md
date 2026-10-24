@@ -2,6 +2,25 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Native ligand writer receiving — 2026-10-24
+
+The [prepared-native export controls](validation/native_ligand_export_receiving.md)
+receive the actual provider-reduced source through native writing, with bound maps,
+rigid/one-cut/nested trees, derived attribution and real Vina parsing under two unit
+policies. Eleven focused controls pass. Production writing remains unchanged.
+
+**Next for this route:** receive the explicit presentation/final-byte composition
+requested in [MolSysMT #214](https://github.com/uibcdf/molsysmt/issues/214#issuecomment-6389119365),
+or explicitly accept native presentation as a consumer compatibility change.
+Native absence of groups is correct; no molecular hierarchy builder, atom-record
+patcher or map rebinder belongs downstream. Caller remarks must be included before
+the provider completes its payload hash. Then retire the qualified writer and
+adopt the pose reader for its actual bound bytes.
+
+Independent work remains: receptor projection and qualification of later provider
+`permute_atoms`, delivered under #369. Its delivery is not runtime qualification
+of a new pin here. #49/#33/#5 remain partial; HTML/C6 stays deferred.
+
 ## Production ligand projection — 2026-10-24
 
 [`prepare_ligand` now delegates typed-H reduction and charge aggregation](validation/ligand_projection.md)

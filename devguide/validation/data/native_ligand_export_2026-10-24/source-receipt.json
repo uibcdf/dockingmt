@@ -1,0 +1,74 @@
+{
+  "schema": "dockingmt.native_ligand_export_receiving@1",
+  "date": "2026-10-24",
+  "owner": "uibcdf/dockingmt#49",
+  "source_parent": "2ffc2d5fe14b8f285695ac126b7160cb5d0060dc",
+  "provider_source": "128a0bbb94e6804f5663e58a45313c77de1cc30d",
+  "later_provider_inspected": "3502232d802ee2927f6b6f5d19f0ae045777ecb5",
+  "provider_writer_comparison": [
+    {
+      "path": "molsysmt/_private/pdbqt_writer.py",
+      "sha256": "d43a7e7e5591037b6dcf6eb6cbd5369fdcf9dcad436ea79fddad396cbd102252",
+      "byte_identical": true
+    },
+    {
+      "path": "molsysmt/form/molsysmt_MolSys/to_string_pdbqt_text.py",
+      "sha256": "0a0026376a502a7d9a7513b53492dc386704774ce72de57ba488abe51dc3a5e1",
+      "byte_identical": true
+    }
+  ],
+  "later_runtime_qualified": false,
+  "new_module": {
+    "passed": 11,
+    "seconds": 11.26,
+    "warnings": 11,
+    "skips": 0
+  },
+  "initial_module": {
+    "failed": 6,
+    "passed": 5,
+    "seconds": 9.93,
+    "reason": "Test incorrectly looked for direct assignment inside mechanics to_dict; public assignment property fixes test only"
+  },
+  "source_selected": {
+    "passed": 47,
+    "seconds": 39.65,
+    "warnings": 31,
+    "skips": 0
+  },
+  "ordinary_installed_selected": {
+    "passed": 47,
+    "seconds": 39.17,
+    "warnings": 31,
+    "skips": 0
+  },
+  "counts_overlap": true,
+  "administrative_initial": {
+    "passed": 5,
+    "errors": 19,
+    "reason": "SDK default directory absent; set existing documented DOCKINGMT_SUITE_ROOT to exact accepted SDK"
+  },
+  "administrative_final": {
+    "passed": 29,
+    "seconds": 2.72
+  },
+  "provider_feedback": "https://github.com/uibcdf/molsysmt/issues/214#issuecomment-6389119365",
+  "new_provider_issue": false,
+  "native_writer_works": true,
+  "native_missing_hierarchy_is_not_a_writer_defect": true,
+  "caller_remark_hash_mismatch_demonstrated": true,
+  "reader_comment_refusal_or_authentication_claimed": false,
+  "source_free_legacy_compatibility_qualified": false,
+  "production_writer_replaced": false,
+  "runtime_code_changed": false,
+  "new_molecular_builder_serializer_or_map_rebinder": false,
+  "source_pin_changed": false,
+  "new_registered_3ptb_searches": 0,
+  "historical_archives_rewritten": false,
+  "browser_verified": false,
+  "C6_accepted": false,
+  "public_admission": false,
+  "exact_head_terminal_gates": "Post-commit receipt in owning issue #49",
+  "guard": "tests/test_native_ligand_export_receiving.py",
+  "guard_sha256": "ed0ea19227ca53ce46d7d66adbf7f0ab0c080346db02a65fea17d4e7a557d147"
+}
