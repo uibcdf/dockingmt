@@ -2,6 +2,21 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Native receptor export received — 2026-10-24
+
+[The real 181L receptor](validation/native_receptor_export_receiving.md) now has
+native writer/map/Vina receiving controls under two unit policies. Its positive
+nonconsecutive IDs permit direct composition from the 2,603-atom pre-typing input
+to 1,615 written atoms. Renumbering a copy correctly breaks the previous ID-label
+chain; no consumer map repair is added. Production code and provider pins stay unchanged.
+
+**Next:** resolve output compatibility through the requested MolSysMT #214
+presentation/caller-remark contract or an accepted native-presentation policy.
+The current presentation stays intact pending that decision. Then retire the
+covered writer and adopt the reader for its actual completed map/payload.
+Three focused controls pass; broader/installed/exact-head receipts are in #49.
+HTML/C6 stays deferred, and #49/#33/#5 remain partial.
+
 ## Preparation correspondence delegated — 2026-10-24
 
 [Preparation map composition](validation/preparation_atom_maps.md) now calls public

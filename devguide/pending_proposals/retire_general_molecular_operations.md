@@ -146,12 +146,15 @@ attribute handling; its failures propagate instead of being bypassed.
   profile, explicitly retain old producer bytes and decide representation
   compatibility before replacing writers. Do not rewrite historical archives.
   [Prepared-native receiving](../validation/native_ligand_export_receiving.md)
-  qualifies actual reduced values, maps and nested trees. Explicit presentation
+  qualifies actual reduced values, maps and nested trees. The
+  [181L receptor receiving](../validation/native_receptor_export_receiving.md)
+  also qualifies native IDs and direct preparation/export map composition;
+  renumbering a copy correctly refuses that original label chain. Explicit presentation
   and caller remarks in final bound bytes are now requested in the owning #214;
   no consumer molecular builder, byte patcher or completed-map rebinder is added.
   The writer route awaits provider composition or an accepted native-presentation
-  policy; independent work remains available. Later provider #369 now delivers
-  general permutation, requiring its own version-qualified consumer receiving.
+  policy. Provider #369 permutation is already received separately; native
+  writing/parsing still requires the supported output contract.
 - **Poses:** provider MODEL-aware reading
   and export/source maps belong to
   [molsysmt#226](https://github.com/uibcdf/molsysmt/issues/226) and #223. Keep the

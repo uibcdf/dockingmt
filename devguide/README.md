@@ -29,7 +29,10 @@ Every proposed capability should be classified as:
 ## Reading order
 
 For the current nonvisual working state, start with the
-[preparation correspondence migration](validation/preparation_atom_maps.md), which
+[native receptor receiving](validation/native_receptor_export_receiving.md): real
+protein export/map composition passes, while production adoption awaits the
+presentation contract or an accepted compatibility policy. The
+[preparation correspondence migration](validation/preparation_atom_maps.md)
 delegates H-addition/projection lineage to `msm.compose_atom_maps` while retaining
 legacy selected-input/PDBQT order fields and detached native correspondence. The
 [receptor projection migration](validation/receptor_projection.md) completes

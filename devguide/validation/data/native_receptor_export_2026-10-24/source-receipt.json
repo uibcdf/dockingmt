@@ -1,0 +1,70 @@
+{
+  "schema": "dockingmt.native_receptor_export_receiving@1",
+  "date": "2026-10-24",
+  "owner": "uibcdf/dockingmt#49",
+  "source_parent": "fe8ad1351b8661b43957132236715115d495d795",
+  "ordinary_consumer_artifact": {
+    "producer": "fe8ad1351b8661b43957132236715115d495d795",
+    "wheel": "dockingmt-0.0.0+196.gfe8ad13-py3-none-any.whl",
+    "sha256": "962ce548821ee37a7b2cf986280de720ad39c989059da2dc3daa2c95c7ade05e",
+    "bytes": 122993,
+    "installed_version": "0.0.0+196.gfe8ad13",
+    "requires_python": "<3.15,>=3.11"
+  },
+  "runtime_code_unchanged_against_original_artifact": true,
+  "matched_python_files": 57,
+  "provider_source": "3502232d802ee2927f6b6f5d19f0ae045777ecb5",
+  "provider_wheel_sha256": "f85b06b1297f2967510a806f7ac1c95a7914fbb96357ea45336e8076b6084841",
+  "provider_native": [
+    {
+      "name": "_rust.abi3.so",
+      "sha256": "feb001379201b92690eadf04fd0be6b710cdfe50bad240feba26cf666e19b41b"
+    }
+  ],
+  "focused": {
+    "passed": 3,
+    "seconds": 28.68,
+    "warnings": 1,
+    "skipped": 0
+  },
+  "selected_source": {
+    "passed": 58,
+    "seconds": 96.44,
+    "warnings": 37,
+    "skipped": 0
+  },
+  "focused_included_in_selection": true,
+  "administrative": {
+    "passed": 6,
+    "seconds": 0.16
+  },
+  "protein": {
+    "pre_typing_source_atoms": 2603,
+    "prepared_written_atoms": 1615,
+    "merged_original_hydrogens": 988,
+    "generated_inside_this_map": 0,
+    "native_ids_nonconsecutive_and_preserved": true,
+    "legacy_wire_sha256": "c372bbb4a83414cc82ddbc2263424dfe18b20df8ae6d5362f978c0d445a82ccc",
+    "native_preserved_id_wire_sha256": "369d3307f4fc6ea55733c6c430197f3028010f78e3907bc6ba3003807fa1a181",
+    "native_serial_copy_wire_sha256": "95271ce199e3baa840a4a4d2964e2ef0b204307177f33116a06951fc21b5bb2a",
+    "serial_copy_original_map_composition": "provider refuses adjacent ID labels",
+    "native_derived_assignments_preserved": true,
+    "source_immutable": true,
+    "vina_receptor_parsed": true
+  },
+  "production_writer_or_parser_changed": false,
+  "presentation_policy_changed": false,
+  "provider_pin_changed": false,
+  "provider_source_changed": false,
+  "native_map_rebound_or_rename_report_fabricated": false,
+  "new_registered_searches": 0,
+  "historical_archives_rewritten": false,
+  "biological_or_whole_Core_admission": false,
+  "browser_verified": false,
+  "C6_accepted": false,
+  "public_release": false,
+  "installed_and_exact_head_receipts": "Separate terminal handoff in owning issue #49",
+  "file_sha256": {
+    "tests/test_native_receptor_export_receiving.py": "fe887b4d360ac0d7b5135707b1bb0a31e3fe8432d71d3a02e7bbc0b8d5eeb37c"
+  }
+}

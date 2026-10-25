@@ -1,0 +1,24 @@
+{
+  "schema": "dockingmt.native_writer_inspection@1",
+  "qualified_provider": "3502232d802ee2927f6b6f5d19f0ae045777ecb5",
+  "inspected_provider": "99cb831076c4725ddac0c6ab23fdcb5c3257fac0",
+  "new_provider_runtime_adopted": false,
+  "files": [
+    {
+      "path": "molsysmt/form/molsysmt_MolSys/to_string_pdbqt_text.py",
+      "sha256": "0a0026376a502a7d9a7513b53492dc386704774ce72de57ba488abe51dc3a5e1",
+      "unchanged": true
+    },
+    {
+      "path": "molsysmt/_private/pdbqt_writer.py",
+      "sha256": "d43a7e7e5591037b6dcf6eb6cbd5369fdcf9dcad436ea79fddad396cbd102252",
+      "unchanged": true
+    },
+    {
+      "path": "molsysmt/_private/pdbqt_adapter.py",
+      "sha256": "5cac9475d3f555771aa40870df9d2d47a84a3a18b739eb8a752c22cc4dfa46fa",
+      "unchanged": true
+    }
+  ],
+  "issue214_state": "open/partial; presentation/caller-remark request undelivered"
+}
