@@ -1,0 +1,80 @@
+{
+  "schema": "dockingmt.evidence_manifest@1",
+  "files": [
+    {
+      "path": "administrative.log.gz",
+      "bytes": 50,
+      "sha256": "aae5f788e036b7b4ce7e6dbdcbe3bbd5d4d105b0e269b9231270d937607fa164"
+    },
+    {
+      "path": "baseline-flexible_generated_pentanol.pdbqt.gz",
+      "bytes": 577,
+      "sha256": "0b9b41d4a4d407912d81482e4cf6238f7b8ff47e011ad3d58274905fc96241bd"
+    },
+    {
+      "path": "baseline-generated_methanol.pdbqt.gz",
+      "bytes": 467,
+      "sha256": "053305474bec4cd35096b32c52b73e266167784c9918c31952a0605d272411c1"
+    },
+    {
+      "path": "baseline-ligand_charge_only.pdbqt.gz",
+      "bytes": 463,
+      "sha256": "7fd2a4442dc5a6c9a5ef586e2998cd96f8b2d538b285b4772ce7cab4fbcb217f"
+    },
+    {
+      "path": "baseline-receptor_charge_only.pdbqt.gz",
+      "bytes": 445,
+      "sha256": "9e6f91421172ca568c21d6a2eaf8e914001947ee7c1babc1d94113b104c93f02"
+    },
+    {
+      "path": "before.log.gz",
+      "bytes": 1001,
+      "sha256": "aa63d30df088682387f4915b8e2e8ea481480313c91d0af4cc3acb7410785a18"
+    },
+    {
+      "path": "focused-final.log.gz",
+      "bytes": 329,
+      "sha256": "1f64610d6b8b4a34765635e0c2e255b0629827bb373912cb014dfae4f701f663"
+    },
+    {
+      "path": "focused.log.gz",
+      "bytes": 701,
+      "sha256": "d7a7c77fea1f855f3331ea43f7c0c8126773a49b88e8d71f5c6d9644130ba182"
+    },
+    {
+      "path": "guides-inspection.json",
+      "bytes": 2092,
+      "sha256": "cd3246c31b731eb52d3c879a30f3bc64e4667a5fbd339ebce1854f4ff38afd87"
+    },
+    {
+      "path": "provider-proof.json",
+      "bytes": 1525,
+      "sha256": "e40aa58bb0ea5a04e7b0a95c10a24b7ec740e340897ba2063992e6e0c7477126"
+    },
+    {
+      "path": "resources.json",
+      "bytes": 709,
+      "sha256": "8553cb0f734d7f4c9508736b5258859c77a2aabd24a33934ec6b762145383872"
+    },
+    {
+      "path": "selected.log.gz",
+      "bytes": 536,
+      "sha256": "2b4eecc78fb27f9ac6ef5300a360f43698caba23b1594d000332c81b82496650"
+    },
+    {
+      "path": "source-receipt.json",
+      "bytes": 2339,
+      "sha256": "68432891305606251a055c43a89da3be01488176ccffbcaf3f132c0f625d2cb4"
+    },
+    {
+      "path": "source-wire-comparison.json",
+      "bytes": 2476,
+      "sha256": "d32f766f2fe9846b3e556a2b59f98e8a4f1dbb4525cf5f313f4802372141b183"
+    },
+    {
+      "path": "tool-proof.json",
+      "bytes": 586,
+      "sha256": "38643ee82f361012496ed08bce18af0a5a47f7a065096582c3aab7f5839976ff"
+    }
+  ]
+}

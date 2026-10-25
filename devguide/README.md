@@ -29,7 +29,10 @@ Every proposed capability should be classified as:
 ## Reading order
 
 For the current nonvisual working state, start with the
-[receptor projection migration](validation/receptor_projection.md), which completes
+[preparation correspondence migration](validation/preparation_atom_maps.md), which
+delegates H-addition/projection lineage to `msm.compose_atom_maps` while retaining
+legacy selected-input/PDBQT order fields and detached native correspondence. The
+[receptor projection migration](validation/receptor_projection.md) completes
 public H reduction/charge-transfer consumption in both preparation roles while
 preserving original/derived attribution and strict inventory refusal. The
 [flexible reconstruction migration](validation/flexible_reconstruction.md)

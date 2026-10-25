@@ -1,0 +1,121 @@
+{
+  "schema": "dockingmt.preparation_atom_map_wire@1",
+  "baseline_producer": "489d0c2e2e3f0097ffa5579060d601de4d396195",
+  "baseline_wheel_sha256": "57dd8adf437533d9c36847806fe30cbe99d86925614baab94809cdefc4c0a131",
+  "candidate_scope": "working source before commit; ordinary installed candidate separate",
+  "all_four_cases_equal": true,
+  "cases": {
+    "generated_methanol": {
+      "wire_sha256": "40b5d7a4ae527e58e734760747111a02d7858568c1f4b0bf6011f0709d5f9c3f",
+      "n_atoms": 3,
+      "charges": [
+        0.19000057917061755,
+        -0.3996302435573072,
+        0.20962966438668965
+      ],
+      "prepared_to_input": [
+        0,
+        1,
+        null
+      ],
+      "pdbqt_to_input": [
+        0,
+        1,
+        null
+      ],
+      "written_order": [
+        0,
+        1,
+        2
+      ]
+    },
+    "flexible_generated_pentanol": {
+      "wire_sha256": "ce3f2d7cc25c4ce2e191e8f5d1a54616e7f35da8ade08de7575523428c6e4a88",
+      "n_atoms": 7,
+      "charges": [
+        0.0037250899397712964,
+        -0.0033432738331804213,
+        0.0020683506921509442,
+        0.028110937345586964,
+        0.1557789318136133,
+        -0.3963765707960063,
+        0.2100365348380643
+      ],
+      "prepared_to_input": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        null
+      ],
+      "pdbqt_to_input": [
+        4,
+        5,
+        null,
+        3,
+        2,
+        1,
+        0
+      ],
+      "written_order": [
+        4,
+        5,
+        6,
+        3,
+        2,
+        1,
+        0
+      ]
+    },
+    "receptor_charge_only": {
+      "wire_sha256": "167812552417dcefca9ce19cdd3da205105a7602014833559ee02304b84a5579",
+      "n_atoms": 3,
+      "charges": [
+        0.19000057917061755,
+        -0.3996302435573072,
+        0.20962966438668965
+      ],
+      "prepared_to_input": [
+        0,
+        1,
+        5
+      ],
+      "pdbqt_to_input": [
+        0,
+        1,
+        5
+      ],
+      "written_order": [
+        0,
+        1,
+        2
+      ]
+    },
+    "ligand_charge_only": {
+      "wire_sha256": "e2bb331ed65fa7fdf86f7240346b4a2b05dbcb869b5470c77a356002b0d0482f",
+      "n_atoms": 3,
+      "charges": [
+        0.19000057917061755,
+        -0.3996302435573072,
+        0.20962966438668965
+      ],
+      "prepared_to_input": [
+        0,
+        1,
+        5
+      ],
+      "pdbqt_to_input": [
+        0,
+        1,
+        5
+      ],
+      "written_order": [
+        0,
+        1,
+        2
+      ]
+    }
+  }
+}

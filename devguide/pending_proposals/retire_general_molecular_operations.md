@@ -132,8 +132,12 @@ attribute handling; its failures propagate instead of being bypassed.
   the actual reduced system and derived bindings; its local loop is removed.
   [Receptor projection](../validation/receptor_projection.md) now does the same,
   preserving actual aggregate native values and strict inventory refusal without
-  local H-parent/aggregation logic. Native export/reader integration and earlier generation-map
-  composition remain. MolSysMT closed #223 on 2026-10-24 with its provider delivery
+  local H-parent/aggregation logic. [Preparation correspondence composition](../validation/preparation_atom_maps.md)
+  now consumes public `msm.compose_atom_maps` on completed H-addition/projection
+  reports, removing the local lookup and no-H identity construction. Both legacy
+  selected-input fields remain compatible, with a detached native direct/representative
+  map alongside them. Legacy written order is not a completed native export map.
+  Native export/reader integration remains. MolSysMT closed #223 on 2026-10-24 with its provider delivery
   guide; the remaining consumer adoption belongs here. Later provider namespace
   and stage-composition receiving require separate version-qualified evidence.
 - **Serialization:** public native PDBQT output is available under

@@ -1,0 +1,13 @@
+{
+  "owner": "uibcdf/dockingmt#50",
+  "task_issue": "uibcdf/dockingmt#49",
+  "task_root": "/tmp/dockingmt-stage-maps-20261024",
+  "review_by": "2026-10-31",
+  "receiver": "/tmp/dockingmt-stage-maps-20261024/environment",
+  "dependency_base": "/tmp/dockingmt-human-20261020/environment",
+  "base_review_by": "2026-10-27",
+  "strategy": "Task-owned venv; normally install unchanged authenticated provider wheel and final consumer wheel into own prefix; source gates use own editable checkout registration",
+  "old_receivers_wheels_and_shared_environment_modified": false,
+  "sibling_human_work_preserved": "TopoMT version edit and behind checkouts in refreshed suite inventory",
+  "automatic_deletion": false
+}

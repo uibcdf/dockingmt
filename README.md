@@ -113,6 +113,10 @@ the source through MolSysMT; provisional opt-in cannot bypass this requirement.
 Both retained native systems carry aggregate prepared charges and derived
 attribution. See the [ligand](devguide/validation/ligand_projection.md) and
 [receptor](devguide/validation/receptor_projection.md) projection contracts.
+Requested preparation stages compose their atom correspondence through public
+MolSysMT maps, keeping generated atoms explicitly absent from the original input.
+See the [map contract](devguide/validation/preparation_atom_maps.md) for native
+direct/representative maps and compatible legacy output ordering.
 The choice and assessment are recorded in result provenance. Externally
 provided PDBQT inputs are accepted with an `unassessed` chemistry assessment.
 Inspect a preparation before choosing an execution policy:

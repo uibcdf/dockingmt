@@ -398,7 +398,7 @@ def prepare_ligand(
                 {
                     'preparation_workflow': finish_stage_maps(
                         workflow,
-                        retained_indices,
+                        projection,
                         list(torsion_tree.atom_order)
                         if torsion_tree
                         else list(range(len(retained_indices))),

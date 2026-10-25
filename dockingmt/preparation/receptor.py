@@ -253,7 +253,7 @@ def prepare_receptor(
             **(
                 {
                     'preparation_workflow': finish_stage_maps(
-                        workflow, retained_indices, list(range(len(retained_indices)))
+                        workflow, projection, list(range(len(retained_indices)))
                     )
                 }
                 if workflow is not None

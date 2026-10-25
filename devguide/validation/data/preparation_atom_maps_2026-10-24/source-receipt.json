@@ -1,0 +1,58 @@
+{
+  "schema": "dockingmt.preparation_atom_maps_receiving@1",
+  "date": "2026-10-24",
+  "owner": "uibcdf/dockingmt#49",
+  "source_parent": "489d0c2e2e3f0097ffa5579060d601de4d396195",
+  "provider_source": "3502232d802ee2927f6b6f5d19f0ae045777ecb5",
+  "provider_wheel_sha256": "f85b06b1297f2967510a806f7ac1c95a7914fbb96357ea45336e8076b6084841",
+  "provider_native_sha256": "feb001379201b92690eadf04fd0be6b710cdfe50bad240feba26cf666e19b41b",
+  "before": {
+    "failed": 8,
+    "seconds": 5.9,
+    "reason": "No public composition; no native correspondence or refusal; inconsistent H report accepted"
+  },
+  "initial_integrated": {
+    "passed": 55,
+    "failed": 2,
+    "seconds": 43.21,
+    "warnings": 17,
+    "cause": "Overstrong test assertion mutates consumer composition arguments rather than original provider H result; corrected guard, not a production defect"
+  },
+  "final_focused": {
+    "passed": 57,
+    "seconds": 45.0,
+    "warnings": 17,
+    "skipped": 0
+  },
+  "broad_source": {
+    "passed": 363,
+    "seconds": 222.44,
+    "warnings": 135,
+    "skipped": 0
+  },
+  "focused_included_in_broad": true,
+  "administrative": {
+    "passed": 29,
+    "seconds": 2.81
+  },
+  "public_composition_delegated_both_roles": true,
+  "local_correspondence_lookup_and_identity_construction_removed": true,
+  "legacy_selected_input_axes_marker_and_written_order_compatible": true,
+  "detached_native_map_added": true,
+  "generated_and_merged_atoms_distinct": true,
+  "four_original_wires_charges_maps_orders_preserved": true,
+  "native_writer_or_production_pose_parser_migrated": false,
+  "source_pin_changed": false,
+  "new_registered_3ptb_searches": 0,
+  "historical_archives_rewritten": false,
+  "browser_verified": false,
+  "C6_accepted": false,
+  "public_admission": false,
+  "candidate_installed_and_exact_head_gates": "Separate post-commit receipts in owning issue #49",
+  "file_sha256": {
+    "dockingmt/preparation/_stages.py": "84fe2ad25b001e89f4f2f1f3165573d6bde33a626075d98a3f9fd62daafb5243",
+    "dockingmt/preparation/ligand.py": "a6af723f64219e6578fa8eb7728eb6ca535aa58ce56543ea9bacfd0cf36489b8",
+    "dockingmt/preparation/receptor.py": "b36fc57ea3af549d88bb9d1c34223b352b61531640f204f91e24adb9ff928ac5",
+    "tests/test_preparation_map_consumption.py": "2914ca02d95cbde6cae66bb8eaf4cb79bde0c2ef6799e52dd9df8e35cfd3dae1"
+  }
+}

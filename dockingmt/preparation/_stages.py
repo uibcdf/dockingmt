@@ -93,20 +93,23 @@ def run_stages(source, hydrogen_options, charge_options, typing_options=None):
     }
 
 
-def finish_stage_maps(workflow, retained, written_order):
-    """Compose index correspondence, including explicit absence for generated H."""
+def finish_stage_maps(workflow, projection, written_order):
+    """Receive provider lineage and present its indices in legacy output order."""
     if workflow is None:
         return None
     hydrogen_report = workflow['hydrogen_addition']
-    correspondence = (
-        hydrogen_report['atom_correspondence']
-        if hydrogen_report is not None
-        else [[i, i] for i in range(workflow['input_n_atoms'])]
+    atom_map = detached_provider_report(
+        msm.compose_atom_maps(
+            ([hydrogen_report] if hydrogen_report is not None else []) + [projection]
+        )
     )
-    output_to_input = {int(output): int(source) for source, output in correspondence}
-    prepared_to_input = [output_to_input.get(int(i)) for i in retained]
+    prepared_to_input = [
+        None if index == -1 else index
+        for index in atom_map['output_to_source_atom_indices']
+    ]
     return {
         **workflow,
+        'atom_map': atom_map,
         'prepared_to_input_atom_indices': prepared_to_input,
         'pdbqt_to_input_atom_indices': [prepared_to_input[i] for i in written_order],
         'index_scope': 'selected_input_before_requested_stages',

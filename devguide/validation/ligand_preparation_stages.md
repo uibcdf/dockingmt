@@ -78,6 +78,13 @@ selected system before nonpolar-H projection. The provider's append contract
 preserves existing indices. Flexible output order is explicitly composed rather
 than inferred from names, counts or PDBQT serials.
 
+Since [the 2026-10-24 correspondence migration](preparation_atom_maps.md), public
+`msm.compose_atom_maps` composes the actual H-addition and typed-H projection
+reports. The detached `preparation_workflow.atom_map` retains provider `-1`
+absence, direct/representative axes and generated/merged distinctions. The
+existing legacy fields above preserve their `None` marker and traversal;
+they do not claim native export-map or final-payload binding.
+
 For methanol, 2 original atoms become 6 after H addition, then 3 prepared atoms.
 Three new carbon H atoms are omitted and their charges transferred by the
 existing projection; the polar O-H remains with prepared/input mapping

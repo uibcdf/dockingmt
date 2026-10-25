@@ -2,6 +2,25 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Preparation correspondence delegated — 2026-10-24
+
+[Preparation map composition](validation/preparation_atom_maps.md) now calls public
+`msm.compose_atom_maps` with completed H-addition/projection reports. The local
+correspondence dictionary and no-H identity construction are removed. Both roles
+retain their selected-input maps and legacy PDBQT ordering; a detached native map
+adds direct/representative correspondence and generated/merged distinctions.
+Provider source and molecular values remain unchanged. Legacy traversal does not
+become a completed native export map.
+
+Eight pre-change guards fail; final focused/source/installed/exact-head receipts
+remain linked from #49. Original artifacts and scientific producers stay intact.
+
+**Next:** receive native writer presentation/caller remarks before final-byte
+binding under MolSysMT #214, then retire the covered writer and adopt its reader
+against the actual payload. Independent MVP work can proceed from the accepted
+pilot/issue backlog without adding molecular operations here. #49/#33/#5 stay
+partial; HTML/C6 remains deferred and public delivery remains #30/#47.
+
 ## Receptor projection delegated — 2026-10-24
 
 [`prepare_receptor` now consumes public native H projection](validation/receptor_projection.md),
