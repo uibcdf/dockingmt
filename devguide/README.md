@@ -28,6 +28,10 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
+Work is paused at the [2026-10-26 handoff](validation/pause_handoff_2026-10-26.md).
+It records the fully verified CI checkpoint, retained artifacts, pending #214
+priority/compatibility decisions and the next steps for resuming.
+
 For the current nonvisual working state, start with the
 [native receptor receiving](validation/native_receptor_export_receiving.md): real
 protein export/map composition passes, while production adoption awaits the
@@ -60,7 +64,7 @@ The [2026-10-23 scene record](validation/3ptb_scene.md) and executed
 [scene notebook](validation/human_3ptb_scene_2026-10-23.ipynb) retain the minimal
 scene, its installed Python checks and HTML export. Browser inspection
 and C6 acceptance remain pending under #52. The
-[roadmap](ROADMAP.md#native-ligand-writer-receiving--2026-10-24) gives the next action.
+[roadmap](ROADMAP.md#paused--2026-10-26) gives the next action.
 The [2026-10-20 pause checkpoint](validation/pause_handoff_2026-10-20.md) retains
 the completed pre-visualization workflow, original producers and recovery details.
 The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)

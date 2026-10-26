@@ -2,6 +2,21 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Paused — 2026-10-26
+
+Start from the [pause handoff](validation/pause_handoff_2026-10-26.md).
+Native receptor qualification at `ae5940432b8672abf8efb96eb0e659151272e8c5` is
+fully verified: 1,231 tests per Python 3.11–3.14, zero skips, all seven CI jobs,
+installed/context/closure checks, actual coverage upload and policy/governance.
+The earlier pending-CI observation is historical; its terminal receipt is in #49.
+
+**At resume:** decide whether to prepare a MolSysMT #214 contribution through a
+linked PR or wait and select independent accepted DockingMT work. That choice
+remains open. Production presentation and writer/parser adoption stay unchanged;
+HTML/C6 remains deferred. The handoff records runtime/artifact identities,
+remaining boundaries and resource review dates. No new provider work starts
+automatically from this pause.
+
 ## Native receptor export received — 2026-10-24
 
 [The real 181L receptor](validation/native_receptor_export_receiving.md) now has
