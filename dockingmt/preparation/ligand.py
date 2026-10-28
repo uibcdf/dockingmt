@@ -7,6 +7,7 @@ import pyunitwizard as puw
 from argdigest import arg_digest
 
 from dockingmt._private.smonitor import ArgumentError
+from dockingmt.preparation._export import render_pdbqt
 from dockingmt.preparation._molsys import (
     atom_metadata,
     chemistry_evidence,
@@ -18,8 +19,8 @@ from dockingmt.preparation._molsys import (
 )
 from dockingmt.preparation._stages import finish_stage_maps, run_stages, stage_options
 from dockingmt.preparation._temporary_torsions import TorsionTree, build_torsion_tree
-from dockingmt.preparation._typing import type_projection, type_remark
-from dockingmt.preparation.charges import _charge_projection, _charge_remark
+from dockingmt.preparation._typing import type_projection
+from dockingmt.preparation.charges import _charge_projection
 
 
 class PreparedLigand:
@@ -112,7 +113,7 @@ class PreparedLigand:
         )
 
     def to_pdbqt(self) -> str:
-        """Generate a PDBQT formatted string for docking engines."""
+        """Render the declared ligand view through MolSysMT's native writer."""
         if self.torsion_dof != (
             len(self._torsion_tree.active_bonds) if self._torsion_tree else 0
         ):
@@ -120,49 +121,7 @@ class PreparedLigand:
                 arg_name='torsion_dof',
                 reason='A nonzero TORSDOF requires a ROOT/BRANCH tree (dockingmt#6).',
             )
-        coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))
-        serials = {
-            atom: serial for serial, atom in enumerate(self.pdbqt_atom_indices, 1)
-        }
-
-        def write_atom(atom: int) -> str:
-            x, y, z = coords_ang[atom]
-            name = self.atom_names[atom]
-            if not 1 <= len(name) <= 4:
-                raise ArgumentError(
-                    arg_name='atom_names',
-                    reason='PDBQT atom names must contain one to four characters.',
-                )
-            name_field = f' {name:<3s}' if len(name) <= 3 else name
-            return (
-                f'ATOM  {serials[atom]:5d} {name_field} '
-                f'{self.group_names[atom]:3s} A{self.group_ids[atom]:4d}    '
-                f'{x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00    '
-                f'{self.charges[atom]:6.3f} {self.atom_types[atom]:<2s}'
-            )
-
-        lines = _charge_remark(self) + type_remark(self) + ['ROOT']
-        root_atoms = (
-            self._torsion_tree.root_atoms
-            if self._torsion_tree is not None
-            else range(self.n_atoms)
-        )
-        lines.extend(write_atom(atom) for atom in root_atoms)
-        lines.append('ENDROOT')
-
-        def write_branches(branches: tuple) -> None:
-            for branch in branches:
-                parent_serial = serials[branch.parent_atom]
-                child_serial = serials[branch.child_atom]
-                lines.append(f'BRANCH {parent_serial:3d} {child_serial:3d}')
-                lines.extend(write_atom(atom) for atom in branch.atoms)
-                write_branches(branch.children)
-                lines.append(f'ENDBRANCH {parent_serial:3d} {child_serial:3d}')
-
-        if self._torsion_tree is not None:
-            write_branches(self._torsion_tree.branches)
-        lines.append(f'TORSDOF {self.torsion_dof}')
-        return '\n'.join(lines) + '\n'
+        return render_pdbqt(self, ligand=True)
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize prepared ligand to a versioned dictionary."""

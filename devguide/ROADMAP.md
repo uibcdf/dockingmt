@@ -2,6 +2,26 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Prepared writers delegated — 2026-10-28
+
+[Production writer consumption](validation/prepared_writer_consumption.md) removes
+both local PDBQT serializers and the AutoDock-element dictionary. Public MolSysMT
+construction/setters/decoding support source-free objects without a bootstrap
+cycle; source-backed exports preserve actual native IDs and unchanged assignments.
+Presentation and explicit ROOT choices remain docking policy. The completed map
+checks actual written order; no map is rebound or serializer fallback retained.
+
+Native provenance/whitespace and receptor END change current bytes. Known complete
+disconnected ligand graphs refuse the single-ROOT profile before Vina; the parent
+typing contract is retained and the broader profile is reported in MolSysMT #214.
+The original qualification artifacts remain at their own producers. Source,
+installed and exact-head receipts are owned by #49; wider issues stay partial.
+
+**Next:** carry the actual prepared native view, final bytes and completed map
+through engine execution, then replace known-source pose parsing for that bound
+profile. Preserve source-free identity and original-result compatibility.
+HTML/C6 stays deferred, with public delivery still #30/#47.
+
 ## PDBQT presentation received — 2026-10-28
 
 The [new receiving record](validation/pdbqt_presentation_receiving.md) resumes

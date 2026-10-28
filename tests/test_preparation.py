@@ -43,7 +43,7 @@ def test_four_character_receptor_name_keeps_fixed_columns_and_vina_parse(tmp_pat
         [0.345],
     )
     text = receptor.to_pdbqt()
-    line = text.splitlines()[-1]
+    line = next(line for line in text.splitlines() if line.startswith('ATOM'))
     assert line[12:16] == 'H50B'
     assert [float(line[i : i + 8]) for i in (30, 38, 46)] == [44.104, -3.558, 10.141]
     assert float(line[70:76]) == 0.345

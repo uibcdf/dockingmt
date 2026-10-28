@@ -14,28 +14,9 @@ from dockingmt._private.smonitor import ArgumentError
 
 def autodock_element(atom_type: str) -> str:
     """Decode only the element identity carried by a known AutoDock atom type."""
-    elements = {
-        'A': 'C',
-        'C': 'C',
-        'N': 'N',
-        'NA': 'N',
-        'O': 'O',
-        'OA': 'O',
-        'S': 'S',
-        'SA': 'S',
-        'HD': 'H',
-        'P': 'P',
-        'F': 'F',
-        'Cl': 'Cl',
-        'Br': 'Br',
-        'I': 'I',
-    }
-    if atom_type not in elements:
-        raise ArgumentError(
-            arg_name='atom_types',
-            reason=f'Cannot recover an element from AutoDock type {atom_type!r}.',
-        )
-    return elements[atom_type]
+    return msm.element.atom.get_atom_type_from_atom_ff_type(
+        atom_type, typing_scheme='autodock4'
+    )
 
 
 def select_one_structure(molecular_system: Any, selection: Any) -> Any:

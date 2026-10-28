@@ -28,11 +28,13 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
-Work resumes with [PDBQT presentation receiving](validation/pdbqt_presentation_receiving.md).
-MolSysMT has delivered the requested output-presentation/caller-remark contract;
-the new consumer controls receive it without changing native molecular identity.
-Next retire the covered production writers and adopt their mapped pose reader,
-with an explicit source-free prepared-object boundary. The
+Start with [prepared writer consumption](validation/prepared_writer_consumption.md).
+Both production roles now delegate writing; public native construction/decoding
+also covers source-free objects without a circular reconstruction route. The
+native complete-disconnected-ligand restriction and changed byte presentation are
+explicit. Next carry actual writer maps through the engine and adopt their pose
+reader. The earlier [presentation receiving](validation/pdbqt_presentation_receiving.md)
+retains the provider-adoption checkpoint. The
 [2026-10-26 handoff](validation/pause_handoff_2026-10-26.md) retains the earlier
 qualified CI checkpoint, original artifacts and historical pause decisions.
 
@@ -68,7 +70,7 @@ The [2026-10-23 scene record](validation/3ptb_scene.md) and executed
 [scene notebook](validation/human_3ptb_scene_2026-10-23.ipynb) retain the minimal
 scene, its installed Python checks and HTML export. Browser inspection
 and C6 acceptance remain pending under #52. The
-[roadmap](ROADMAP.md#pdbqt-presentation-received--2026-10-28) gives the next action.
+[roadmap](ROADMAP.md#prepared-writers-delegated--2026-10-28) gives the next action.
 The [2026-10-20 pause checkpoint](validation/pause_handoff_2026-10-20.md) retains
 the completed pre-visualization workflow, original producers and recovery details.
 The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)

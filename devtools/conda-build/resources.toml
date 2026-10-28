@@ -37,6 +37,7 @@ required_paths = [
   "site-packages/dockingmt/engines/vina.py",
   "site-packages/dockingmt/evaluation.py",
   "site-packages/dockingmt/preparation/__init__.py",
+  "site-packages/dockingmt/preparation/_export.py",
   "site-packages/dockingmt/preparation/_molsys.py",
   "site-packages/dockingmt/preparation/_stages.py",
   "site-packages/dockingmt/preparation/_temporary_torsions.py",

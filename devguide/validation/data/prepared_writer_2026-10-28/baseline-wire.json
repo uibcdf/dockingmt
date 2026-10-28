@@ -1,0 +1,114 @@
+{
+  "generated_methanol": {
+    "wire_sha256": "1be33063a3edb6e1d442b5c615417cc60e9318b218ba428abf83a152f35e340e",
+    "n_atoms": 3,
+    "charges": [
+      0.19000057917061755,
+      -0.3996302435573072,
+      0.20962966438668965
+    ],
+    "prepared_to_input": [
+      0,
+      1,
+      null
+    ],
+    "pdbqt_to_input": [
+      0,
+      1,
+      null
+    ],
+    "written_order": [
+      0,
+      1,
+      2
+    ]
+  },
+  "flexible_generated_pentanol": {
+    "wire_sha256": "143d5f473b43da99fcbd117133561baa72eaf34e298c27201579a2992cf9dfcb",
+    "n_atoms": 7,
+    "charges": [
+      0.0037250899397712964,
+      -0.0033432738331804213,
+      0.0020683506921509442,
+      0.028110937345586964,
+      0.1557789318136133,
+      -0.3963765707960063,
+      0.2100365348380643
+    ],
+    "prepared_to_input": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      null
+    ],
+    "pdbqt_to_input": [
+      4,
+      5,
+      null,
+      3,
+      2,
+      1,
+      0
+    ],
+    "written_order": [
+      4,
+      5,
+      6,
+      3,
+      2,
+      1,
+      0
+    ]
+  },
+  "receptor_charge_only": {
+    "wire_sha256": "c22d94a32e98ddd4347cb8a0db06fee13e3c33eaa81a61cc0a28aa97c2c16aeb",
+    "n_atoms": 3,
+    "charges": [
+      0.19000057917061755,
+      -0.3996302435573072,
+      0.20962966438668965
+    ],
+    "prepared_to_input": [
+      0,
+      1,
+      5
+    ],
+    "pdbqt_to_input": [
+      0,
+      1,
+      5
+    ],
+    "written_order": [
+      0,
+      1,
+      2
+    ]
+  },
+  "ligand_charge_only": {
+    "wire_sha256": "37c992360c562eb02849e2024e7141c7a2f9c61df90588e1eba1f71d40328882",
+    "n_atoms": 3,
+    "charges": [
+      0.19000057917061755,
+      -0.3996302435573072,
+      0.20962966438668965
+    ],
+    "prepared_to_input": [
+      0,
+      1,
+      5
+    ],
+    "pdbqt_to_input": [
+      0,
+      1,
+      5
+    ],
+    "written_order": [
+      0,
+      1,
+      2
+    ]
+  }
+}

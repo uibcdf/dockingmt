@@ -14,6 +14,17 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Production native writers — 2026-10-28
+
+[The writer migration](../validation/prepared_writer_consumption.md) delegates
+both prepared roles, including explicitly partial source-free inputs, to the
+received provider. The real/native field, charge/type and reconstruction controls
+retain their axes. Native attribution and receptor END change current bytes;
+the complete-disconnected-ligand restriction is explicit under MolSysMT #214.
+Broader format/chemical acceptance remains open. Native pose reading still needs
+the actual completed map/payload to be carried through engine execution; #49 owns
+that next step. No historical artifact is regenerated or public profile admitted.
+
 ## Current presentation receiving — 2026-10-28
 
 The [new #49 consumer receipt](../validation/pdbqt_presentation_receiving.md)

@@ -7,6 +7,7 @@ import pyunitwizard as puw
 from argdigest import arg_digest
 
 from dockingmt._private.smonitor import ArgumentError
+from dockingmt.preparation._export import render_pdbqt
 from dockingmt.preparation._molsys import (
     atom_metadata,
     chemistry_evidence,
@@ -17,8 +18,8 @@ from dockingmt.preparation._molsys import (
     source_partial_charges,
 )
 from dockingmt.preparation._stages import finish_stage_maps, run_stages, stage_options
-from dockingmt.preparation._typing import type_projection, type_remark
-from dockingmt.preparation.charges import _charge_projection, _charge_remark
+from dockingmt.preparation._typing import type_projection
+from dockingmt.preparation.charges import _charge_projection
 
 
 class PreparedReceptor:
@@ -75,31 +76,8 @@ class PreparedReceptor:
         return len(self.atom_names)
 
     def to_pdbqt(self) -> str:
-        """Generate a PDBQT formatted string for docking engines."""
-        coords_ang = puw.get_value(puw.convert(self.coordinates, to_unit='angstrom'))
-        lines = _charge_remark(self) + type_remark(self)
-        for i, (name, gname, gid, (x, y, z), atype, q) in enumerate(
-            zip(
-                self.atom_names,
-                self.group_names,
-                self.group_ids,
-                coords_ang,
-                self.atom_types,
-                self.charges,
-            )
-        ):
-            # Standard PDBQT ATOM record format
-            if not 1 <= len(name) <= 4:
-                raise ArgumentError(
-                    arg_name='atom_names',
-                    reason='PDBQT atom names must contain one to four characters.',
-                )
-            line = (
-                f'ATOM  {i + 1:5d} {name:<4s} {gname:3s} A{gid:4d}    '
-                f'{x:8.3f}{y:8.3f}{z:8.3f}  1.00  0.00    {q:6.3f} {atype:<2s}'
-            )
-            lines.append(line)
-        return '\n'.join(lines) + '\n'
+        """Render the declared receptor view through MolSysMT's native writer."""
+        return render_pdbqt(self, ligand=False)
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize prepared receptor to a versioned dictionary."""

@@ -147,7 +147,20 @@ def test_preassigned_projected_parent_labels_are_not_reclassified(prepare, monke
     assert prepared.metadata['atom_type_projection'][
         'retained_source_atom_indices'
     ] == [0, 3]
-    assert 'REMARK DOCKINGMT_ATOM_TYPES' in prepared.to_pdbqt()
+    # The disconnected selection retains parent typing, but the native ligand
+    # writer requires ROOT fragments consistent with its known complete graph.
+    # Receptor format has no ligand tree. No graph knowledge is erased to make
+    # the ligand export succeed (MolSysMT #214).
+    if prepare is dmt.prepare_ligand:
+        from molsysmt._private.smonitor import FormatError
+
+        from dockingmt.preparation._typing import type_remark
+
+        assert 'REMARK DOCKINGMT_ATOM_TYPES' in type_remark(prepared)[0]
+        with pytest.raises(FormatError, match='fragments must agree'):
+            prepared.to_pdbqt()
+    else:
+        assert 'REMARK DOCKINGMT_ATOM_TYPES' in prepared.to_pdbqt()
 
 
 @pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])

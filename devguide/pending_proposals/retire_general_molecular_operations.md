@@ -14,6 +14,20 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## Production writers — 2026-10-28
+
+[Native writer consumption](../validation/prepared_writer_consumption.md) removes
+both serializer loops and the remaining AutoDock-label/element dictionary. Public
+construction, setters and decoding support source-free objects; native copies
+preserve source identity and truthful attribution. DockingMT declares presentation
+and explicit ROOT choices and checks actual output order through the completed
+provider map. Known complete disconnected ligand graphs now propagate native
+refusal; the provider profile question is linked under #214. No graph erasure,
+format patching or local serializer fallback exists. Changed current payload bytes
+and historical producer identity remain separate. Next pass actual native export
+maps/payloads through the engine and retire covered parsing; broader acceptance
+stays partial, with installed/exact-head receipts owned by #49.
+
 ## Current receiving — 2026-10-28
 
 The [presentation receiving](../validation/pdbqt_presentation_receiving.md)

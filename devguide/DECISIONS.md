@@ -581,3 +581,28 @@ controls and executed notebook on the existing qualified source pin.
 template route and is rejected by H addition; MolSysMT #314 owns its correction.
 No downstream graph repair is admitted. Local H placement is not environmental
 refinement; typing/export/scoring qualification remains separately open.
+
+---
+
+## DMT-041 — Consume native prepared PDBQT writing and its explicit profile
+
+**Status:** Adopted for the qualified native writer profile, 2026-10-28; wider
+format/scientific acceptance stays partial under #49/#33/#5.
+
+**Decision:** Both prepared roles use public MolSysMT construction, setters,
+AutoDock label decoding and PDBQT writing. DockingMT retains presentation and
+explicit ROOT/cut choices. Preserve native source identity and truthful original/
+derived attribution, and verify actual written order from the completed map.
+Keep source-free partial objects supported without circular writer/reader bootstraps.
+
+**Compatibility:** Native provenance, whitespace and receptor END change current
+payload bytes; historical producers/archives remain immutable. The native writer
+rejects a complete disconnected graph declared as one rigid ligand ROOT. Propagate
+that refusal before Vina and retain independently checked parent typing; never
+erase graph knowledge or add a local writer fallback. A broader rigid-ROOT policy
+belongs to the [existing provider issue](https://github.com/uibcdf/molsysmt/issues/214#issuecomment-6478224407).
+
+**Evidence and revisit:** [Writer consumption](validation/prepared_writer_consumption.md)
+and its public-call/identity/precision/negative guards own this slice. Revisit the
+disconnected profile when MolSysMT delivers an explicit supported contract or an
+accepted workflow requires it. Engine map/pose-reader adoption remains next.

@@ -385,8 +385,9 @@ def test_real_dockingmt_vina_output_matches_native_pose_reader(
 def test_legacy_preparation_does_not_acquire_a_native_export_map():
     _, reduced, _, _, mapping, _ = _case('CO')
     before = snapshot(reduced)
-    # Existing preparation can consume the derived native input. Its legacy
-    # serializer still declares its own serial/presentation axis, not this map.
+    # Preserve this historical guard's selector. The prepared producer now uses
+    # native writing too, but its explicit presentation still differs from the
+    # independently exported default axis bound by this particular map.
     prepared = dmt.prepare_ligand(reduced, selection='all')
     assert prepared.n_atoms == 3
     assert dmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'

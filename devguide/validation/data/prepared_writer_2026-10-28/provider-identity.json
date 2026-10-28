@@ -1,0 +1,58 @@
+{
+  "schema": "dockingmt.pdbqt_presentation_provider_receiving@1",
+  "source": "e395e52646dab2ecb480d3d67aa7254be99b8524",
+  "python": "3.14.8 | packaged by conda-forge | (main, Oct 12 2026, 17:35:27) [GCC 15.3.0]",
+  "version": "0.23.0+232.ge395e5264",
+  "requires_python": "<3.15.0,>=3.11.0",
+  "wheel": "molsysmt-0.23.0+232.ge395e5264-cp311-abi3-linux_x86_64.whl",
+  "bytes": 61375025,
+  "sha256": "d08672224095fc23f078728040f061e678269aa1a41b3463409decbe01ad7b8c",
+  "source_wheel_installed_file_identity": [
+    {
+      "path": "molsysmt/_private/pdbqt_presentation.py",
+      "sha256": "e03fdaa10af2c0fa618ba6913e7250e5c9b2e23302a8a306a6d47cc610e7ac81"
+    },
+    {
+      "path": "molsysmt/_private/pdbqt_writer.py",
+      "sha256": "58787fa3f4d64e0d0acdc7ec18727854b9cd1686805ccb510da47ea5038cc3df"
+    },
+    {
+      "path": "molsysmt/_private/pdbqt_poses.py",
+      "sha256": "82ee311987a15ed19c2c89563a48fdd8bf81a050e7358efbf8bf279ef6c7d179"
+    },
+    {
+      "path": "molsysmt/form/molsysmt_MolSys/to_string_pdbqt_text.py",
+      "sha256": "6a1a2a1bddffa54c4d50fffe7031f1cdc449a99c63b97cbc0ea228b99c643772"
+    },
+    {
+      "path": "molsysmt/form/molsysmt_MolSys/to_file_pdbqt.py",
+      "sha256": "30463b4f9d02584bb412f4cc3cf08b762f24b6d70f3d8bb910215f9c246199a1"
+    },
+    {
+      "path": "molsysmt/form/string_pdbqt_text/read_poses.py",
+      "sha256": "a91a2b7774cc91f70dffa2a207903f78ce7bcf561ef36b6fb9441a3984547003"
+    },
+    {
+      "path": "molsysmt/form/file_pdbqt/read_poses.py",
+      "sha256": "401539600718ee4c93622f7c83a29fdaeebed92c114acf484e5da30420569364"
+    }
+  ],
+  "native": [
+    {
+      "path": "_rust.abi3.so",
+      "sha256": "f7db4906514c407775dd2a4e1d4911729b9ba233d49044e17330cf3a01fc240a"
+    }
+  ],
+  "dependencies": {
+    "argdigest": "0.15.0+5.g3d1ec53",
+    "pyunitwizard": "0.28.1",
+    "smonitor": "0.21.0",
+    "depdigest": "0.15.1",
+    "vina": "1.2.7",
+    "pandas": "3.0.6",
+    "numpy": "2.5.4",
+    "molsysviewer": "0.24.0+76.ga61b75bc"
+  },
+  "ordinary_install": true,
+  "shared_and_historical_environments_modified": false
+}

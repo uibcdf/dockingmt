@@ -1,0 +1,57 @@
+{
+  "schema": "dockingmt.prepared_writer_consumption@1",
+  "date": "2026-10-28",
+  "owner": "uibcdf/dockingmt#49",
+  "source_parent": "fe9a48bb27f171dfb2b0b6fac90d1a5063f99dce",
+  "provider_source": "e395e52646dab2ecb480d3d67aa7254be99b8524",
+  "provider_wheel_sha256": "d08672224095fc23f078728040f061e678269aa1a41b3463409decbe01ad7b8c",
+  "provider_pin_changed": false,
+  "provider_source_edited": false,
+  "production_ligand_and_receptor_writers_delegated": true,
+  "element_decoder_delegated": true,
+  "local_serializer_fallback": false,
+  "source_free_native_construction_uses_public_provider_tools": true,
+  "source_backed_original_ids_and_unchanged_assignments_preserved": true,
+  "actual_export_map_checks_declared_written_order": true,
+  "guards": {
+    "passed": 33,
+    "seconds": 27.22,
+    "warnings": 8,
+    "skipped": 0
+  },
+  "new_cases_included_in_guards": 15,
+  "selected_source": {
+    "passed": 183,
+    "seconds": 138.35,
+    "warnings": 99,
+    "skipped": 0
+  },
+  "administrative": {
+    "passed": 25,
+    "seconds": 2.81,
+    "warnings": 0,
+    "skipped": 0
+  },
+  "overlapping_counts": true,
+  "initial_preimplementation_cases": {
+    "failed": 11,
+    "seconds": 3.23
+  },
+  "superseded_incomplete_full_runs": 2,
+  "incomplete_runs_are_qualification": false,
+  "four_preparation_field_tree_charge_map_comparisons_passed": true,
+  "current_payload_bytes_changed": true,
+  "historical_payloads_rewritten": false,
+  "known_complete_disconnected_rigid_ligand": "provider refusal before Vina; MolSysMT #214",
+  "native_pose_parser_adopted": false,
+  "full_source_installed_and_exact_head_ci": "separate receipts under #49",
+  "source_hashes": {
+    "dockingmt/preparation/_export.py": "a88af82bcd5caf01948701e4d75897b2cc6e30bba06e47e1b7bbc7e57a2a51f0",
+    "dockingmt/preparation/ligand.py": "4e59a4ae4b0c9c0af095b3e16d477abf33a3a99dc72d465840b798882eb50b3c",
+    "dockingmt/preparation/receptor.py": "2a99b9fff9975b07359b7bcf82c211d64a92b80833cbbb1f0cb26454df67de47",
+    "dockingmt/preparation/_molsys.py": "96fd6f917c398cebdd663990bd6c0558aa9d481e638aece77d96ee3f63730d7c",
+    "tests/test_prepared_writer_delegation.py": "29532feed7a4f5c4c3395e4e59d416f93ee0bb62173fd68c8eae8770d6800608"
+  },
+  "public_release": false,
+  "C6_accepted": false
+}
