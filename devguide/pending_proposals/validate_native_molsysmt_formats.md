@@ -14,6 +14,17 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Current presentation receiving — 2026-10-28
+
+The [new #49 consumer receipt](../validation/pdbqt_presentation_receiving.md)
+receives MolSysMT `e395e52646` output-only presentation, caller REMARKs and
+final-byte map composition. Real prepared ligand/receptor fields and original
+source labels survive the declared output policy; 15 new controls and 66
+ordinary-installed cases pass. This is bounded representation/integration
+evidence. Production writer/parser retirement, source-free producer compatibility,
+chemical admission and the broader SDF/PDBQT profile remain separate. #33 stays
+partial; historical producer bytes and prior receipts retain their identities.
+
 ## What
 
 Consume and qualify the experimental forms delivered by MolSysMT at

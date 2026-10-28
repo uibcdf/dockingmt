@@ -2,6 +2,23 @@
 
 The roadmap defines direction and gates, not dates.
 
+## PDBQT presentation received — 2026-10-28
+
+The [new receiving record](validation/pdbqt_presentation_receiving.md) resumes
+work after the pause. MolSysMT `e395e52646dab2ecb480d3d67aa7254be99b8524`
+delivers the requested public output presentation and caller REMARKs. Fifteen
+new consumer controls and a 66-case ordinary-installed selection pass. Original
+IDs, prepared fields, actual trees, attribution, final-byte hashes and composed
+preparation/export/pose maps remain distinct and verified. Exact-head/full-source
+receipts are owned by #49; the provider's own tests do not substitute for them.
+
+**Next:** replace the covered production writers through the received public
+composition, then adopt known-source pose reading for their actual export maps.
+Define the source-free prepared-object producer boundary before changing it;
+no circular writer/reader bridge or downstream molecular fallback. The production
+writers/parser remain unchanged in this receiving checkpoint. #49/#33/#5 stay
+partial; HTML/C6 stays deferred and public delivery remains #30/#47.
+
 ## Paused — 2026-10-26
 
 Start from the [pause handoff](validation/pause_handoff_2026-10-26.md).

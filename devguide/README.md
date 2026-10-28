@@ -28,14 +28,18 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
-Work is paused at the [2026-10-26 handoff](validation/pause_handoff_2026-10-26.md).
-It records the fully verified CI checkpoint, retained artifacts, pending #214
-priority/compatibility decisions and the next steps for resuming.
+Work resumes with [PDBQT presentation receiving](validation/pdbqt_presentation_receiving.md).
+MolSysMT has delivered the requested output-presentation/caller-remark contract;
+the new consumer controls receive it without changing native molecular identity.
+Next retire the covered production writers and adopt their mapped pose reader,
+with an explicit source-free prepared-object boundary. The
+[2026-10-26 handoff](validation/pause_handoff_2026-10-26.md) retains the earlier
+qualified CI checkpoint, original artifacts and historical pause decisions.
 
-For the current nonvisual working state, start with the
+For the preceding nonvisual checkpoints, consult the
 [native receptor receiving](validation/native_receptor_export_receiving.md): real
-protein export/map composition passes, while production adoption awaits the
-presentation contract or an accepted compatibility policy. The
+protein export/map composition passes. The new receiving above resolves its
+provider-presentation gap; production writer adoption remains next. The
 [preparation correspondence migration](validation/preparation_atom_maps.md)
 delegates H-addition/projection lineage to `msm.compose_atom_maps` while retaining
 legacy selected-input/PDBQT order fields and detached native correspondence. The
@@ -64,7 +68,7 @@ The [2026-10-23 scene record](validation/3ptb_scene.md) and executed
 [scene notebook](validation/human_3ptb_scene_2026-10-23.ipynb) retain the minimal
 scene, its installed Python checks and HTML export. Browser inspection
 and C6 acceptance remain pending under #52. The
-[roadmap](ROADMAP.md#paused--2026-10-26) gives the next action.
+[roadmap](ROADMAP.md#pdbqt-presentation-received--2026-10-28) gives the next action.
 The [2026-10-20 pause checkpoint](validation/pause_handoff_2026-10-20.md) retains
 the completed pre-visualization workflow, original producers and recovery details.
 The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)

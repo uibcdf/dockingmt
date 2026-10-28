@@ -1,0 +1,56 @@
+{
+  "schema": "dockingmt.pdbqt_presentation_receiving@1",
+  "date": "2026-10-28",
+  "owner": "uibcdf/dockingmt#49",
+  "source_parent": "3fe6cb24d11ede1f38e2dd6fa1d4c671b98cc53f",
+  "provider_source": "e395e52646dab2ecb480d3d67aa7254be99b8524",
+  "focused": {
+    "passed": 15,
+    "seconds": 34.52,
+    "warnings": 14,
+    "skipped": 0
+  },
+  "ordinary_installed": {
+    "passed": 66,
+    "seconds": 84.28,
+    "warnings": 49,
+    "skipped": 0
+  },
+  "administrative": {
+    "passed": 25,
+    "seconds": 2.75,
+    "warnings": 0,
+    "skipped": 0
+  },
+  "overlapping_counts": true,
+  "old_provider_negative": {
+    "source": "3502232d802ee2927f6b6f5d19f0ae045777ecb5",
+    "failed": 1,
+    "deselected": 14,
+    "seconds": 2.63,
+    "cause": "UnknownArgumentError: output_presentation"
+  },
+  "ordinary_consumer_producer": "fe8ad1351b8661b43957132236715115d495d795",
+  "consumer_runtime_files_unchanged": 57,
+  "native_id_renaming_or_completed_map_rebinding": false,
+  "production_writer_or_parser_changed": false,
+  "provider_pin_changed": true,
+  "provider_source_edited": false,
+  "preparation_algorithm_or_defaults_changed": false,
+  "source_free_harness_import_origins_checked": true,
+  "ordinary_dependency_closure": true,
+  "new_registered_3ptb_searches": 0,
+  "historical_archives": {
+    "3ptb_admission/audit_2026-10-10.json.gz": "05f82e0ff16592c64d404c216a7e2feff0c0e62a2aebff240dc8653350e21075",
+    "3ptb_search/audit_2026-10-10.json.gz": "97104903c93b3f7a729a5a6ac196cdb7b59d686e318efdcf324f70131abba1f2",
+    "3ptb_search/evaluation_2026-10-10.json.gz": "8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af"
+  },
+  "scientific_preparation_or_affinity_admitted": false,
+  "browser_verified": false,
+  "C6_accepted": false,
+  "public_release_or_package_admission": false,
+  "full_source_and_exact_head_ci": "separate terminal receipts under owner #49",
+  "guards": {
+    "tests/test_pdbqt_presentation_receiving.py": "7a4d9b89cf7fd589562bab7137182a33d178ec1bc92c8df03315ce5daf65bfdb"
+  }
+}

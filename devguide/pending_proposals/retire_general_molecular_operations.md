@@ -14,6 +14,21 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## Current receiving — 2026-10-28
+
+The [presentation receiving](../validation/pdbqt_presentation_receiving.md)
+qualifies the public MolSysMT #214 extension delivered at `e395e52646`:
+explicit output labels/serials and caller REMARKs with final-byte export maps.
+Fifteen new consumer controls and 66 ordinary-installed cases preserve prepared
+values, original native IDs/hierarchy, rooted trees and preparation/export/pose
+correspondence, including the real 181L receptor. CI source bindings select the
+exact new provider with unchanged ArgDigest/Viewer pins. Full-source/exact-head
+receipts remain separate under #49. Production writing/parsing is unchanged.
+Next retire the covered writer using the public contract, explicitly resolving
+source-free prepared objects, then receive native reading for those actual bytes.
+This supersedes the old extension-undelivered observation; broader acceptance
+remains partial and HTML/C6 stays deferred.
+
 ## What
 
 The [owning review](https://github.com/uibcdf/dockingmt/issues/49) distinguishes

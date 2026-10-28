@@ -1,0 +1,50 @@
+{
+  "schema": "dockingmt.evidence_manifest@1",
+  "files": [
+    {
+      "path": "administrative.log.gz",
+      "bytes": 50,
+      "sha256": "7f8fe8e33633500698ed74829e26764a6814b5be5b5a32b0d70a3e1360b1ac2c"
+    },
+    {
+      "path": "artifact-proof.json",
+      "bytes": 3146,
+      "sha256": "c91b297fd00c7e713b2cb2e6270dcbe6a4e84ca0b7aa5c3631373f729f29d9de"
+    },
+    {
+      "path": "before.log.gz",
+      "bytes": 723,
+      "sha256": "1b603d9b71a961db62ae6afe6e5b5b7aca4a70db7c3126d2c1da63fb1e8b9244"
+    },
+    {
+      "path": "declarations.log.gz",
+      "bytes": 1603,
+      "sha256": "6781ada1d10439f5c5604e10f0f0220443d6c9183cf32bef7e8c2d0b4d33c1ac"
+    },
+    {
+      "path": "focused.log.gz",
+      "bytes": 309,
+      "sha256": "f4af4e2edf7e9a9b849a92180510c9b449dc1cfec8dc465e0eccaa770853fdbb"
+    },
+    {
+      "path": "guides-inspection.json",
+      "bytes": 2092,
+      "sha256": "c9c815e3208ed4cc5295bb7119f0259594157e9505dec09f7bcd14047ea29104"
+    },
+    {
+      "path": "installed.log.gz",
+      "bytes": 349,
+      "sha256": "3dfadf1cbdf8c3baa6e55935365d915af6d5b746f2569436cb5a5356a1344ea3"
+    },
+    {
+      "path": "provider-proof.json",
+      "bytes": 2085,
+      "sha256": "0164e155ddcc5f93d873cf28b8b3d92f7fbbfd97844b940ba122232863f841b0"
+    },
+    {
+      "path": "source-receipt.json",
+      "bytes": 2015,
+      "sha256": "9ba8ff6630862e07cb0e743553623a05fd6b435171d18250b277afad1390758f"
+    }
+  ]
+}

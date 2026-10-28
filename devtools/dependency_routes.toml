@@ -30,9 +30,9 @@ id = "molsysmt-source"
 name = "molsysmt"
 role = "required-runtime"
 url = "https://github.com/uibcdf/molsysmt"
-commit = "3502232d802ee2927f6b6f5d19f0ae045777ecb5"
+commit = "e395e52646dab2ecb480d3d67aa7254be99b8524"
 install = "pip-no-deps-directory"
-reason = "Source-free flexible reconstruction under dockingmt#49 adopts public full-domain permutation (#369) and canonical form-owned pose readers, retaining earlier native-copy/stereo/mechanics qualification. Normal directory installation and exact-head four-minor scientific gates remain required; public artifact admission is separate."
+reason = "PDBQT presentation receiving under dockingmt#49 adopts the explicit output_presentation/remarks contract (#214), final-byte export maps and source-label-restoring pose readers, retaining existing projection/permutation contracts. Normal directory installation and exact-head four-minor scientific gates remain required; production writer retirement and public artifact admission are separate."
 
 [[source_routes]]
 id = "viewer-base"
@@ -91,7 +91,7 @@ reason = "Manual candidate/staged or eligible reviewed release caller; shared pu
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "abb7c901a18bee122fcc6701b6de46048366e7df761792f5b44355ffb9840a62"
+sha256 = "651a1d9a7e84c672f8693d00009c20988cceec51e14a381edd2bb817a54fd741"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]
@@ -101,7 +101,7 @@ reason = "Administrative no-build recipe/resources and immutable publisher contr
 
 [[workflows]]
 path = ".github/workflows/full-matrix.yml"
-sha256 = "00746520b8f20befca7cacbb01e93be2a4461140759ce2f2482c68bb82d5a1cb"
+sha256 = "cf69b399eaa808e37159e8248862428fdf2bf2a759c1c3d413c84644251a19f2"
 reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under dockingmt#49; directory preflight does not dispatch or change the matrix."
 
 [[workflows]]
