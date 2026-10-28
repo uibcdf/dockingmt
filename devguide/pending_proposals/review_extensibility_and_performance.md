@@ -14,6 +14,20 @@ supersedes: []
 
 # Review extensibility and performance
 
+## Nonvisual Core acceptance audit — 2026-10-28
+
+The [Core MVP audit](../validation/core_mvp_audit_2026-10-28.md) maps all 32 C0–C5 criteria to implementation,
+original evidence, executed guards and remaining owners. The preserved human-first
+3PTB bundle supports a bounded workflow; it does not certify the latest production
+composition as a new human experiment or accept the whole Core. C4 has a measured
+nonvisual provenance gap now owned by #55, in addition to its deferred observation
+under #52. #4/#5/#33 retain their specific profile/provenance/scientific questions.
+The ordered next local step is #55, independent of MolSysMT #521 delivery.
+
+This changes neither earlier performance samples nor their producers, and creates
+no new engine, cache, executor or scientific benchmark. Original 24-search/167-pose
+and human-result records remain byte-identical. No issue is closed by this audit.
+
 ## 2026-10-03 chemical-coverage summary cost
 
 The [chemical readiness consumer record](../validation/chemical_readiness_consumption.md)

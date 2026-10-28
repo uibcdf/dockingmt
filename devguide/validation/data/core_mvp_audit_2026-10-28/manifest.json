@@ -1,0 +1,35 @@
+{
+  "schema": "dockingmt.evidence_manifest@1",
+  "files": [
+    {
+      "path": "audit-records.py.txt",
+      "bytes": 6717,
+      "sha256": "ef4669a61d0a3f751552870698ac0cb16ae1b61373b1bc66f0558a73817413b8"
+    },
+    {
+      "path": "domain-probe.json",
+      "bytes": 856,
+      "sha256": "5623d3cc088c45883b08206e2572b28ca5fcc8b19c235f53141bc7a14c513e69"
+    },
+    {
+      "path": "frozen-checks.log.gz",
+      "bytes": 223,
+      "sha256": "bfa46e93d0dece0fd563b20b404b718824e3cda706f1a649bde84851d83590f8"
+    },
+    {
+      "path": "installed-receipt.json",
+      "bytes": 844,
+      "sha256": "af0544392f441f40d7b5a520882a87ae20a5439c46e776085e0260169970248d"
+    },
+    {
+      "path": "probe-domain.py.txt",
+      "bytes": 1207,
+      "sha256": "05c458f705f121e83089266e73e3da48639a548032c39d72b8ef044b9fd3350f"
+    },
+    {
+      "path": "record-audit.json",
+      "bytes": 9070,
+      "sha256": "283b9fb0d181904fc03e2ff38abf7091ce69e6617b3434c6aba744d5763ab6bb"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "dockingmt.core_audit_installed@1",
+  "producer": "c9c819688a8ff9a9d662af842ef2c82627ceb8b3",
+  "wheel": "dockingmt-0.0.0+205.gc9c8196-py3-none-any.whl",
+  "wheel_sha256": "a50dc311fc31f201653324bde219d44d29cb0e572025c219652aa3209a33baac",
+  "passed": 6,
+  "deselected": 36,
+  "skipped": 0,
+  "seconds": 14.83,
+  "warnings": 4,
+  "same_process_origins_checked": true,
+  "consumer_module_count": 43,
+  "current_native_guard_forbids_preparation_scoring_maps_and_search": true,
+  "qualified_receiver": "/tmp/dockingmt-pose-adoption-20261028/environment",
+  "initial_runner_node_selector_rejection_preserved_privately": true,
+  "new_artifact_built": false,
+  "runtime_code_changed": false,
+  "task_owner": "uibcdf/dockingmt#28",
+  "lifecycle_owner": "uibcdf/dockingmt#50",
+  "review_by": "2026-11-04",
+  "automatic_deletion": false
+}

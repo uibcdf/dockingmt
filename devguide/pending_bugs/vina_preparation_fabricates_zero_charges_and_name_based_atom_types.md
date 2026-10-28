@@ -18,20 +18,31 @@ supersedes: []
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
 **Status:** Partial; DockingMT Core MVP work.
 
+## Current mechanism and acceptance status — 2026-10-28
+
+The [Core MVP audit](../validation/core_mvp_audit_2026-10-28.md) distinguishes the corrected original mechanisms
+from the remaining chemical/scoring-profile question. Current `c9c8196` requires
+complete supplied charges or explicit provider calculation, named provider types,
+public H reduction/charge transfer, and native writing/complete-source reading.
+Missing inputs and provider failures cannot become zero/heuristic fallbacks.
+Explicitly supplied zero values remain legitimate data, without invented credit.
+
+The title and dated records identify the original defect. This issue stays partial
+for justified acceptance of a bounded receptor/ligand model and scoring profile,
+not because those old placeholder mechanisms still execute. The declared 3PTB
+positive/negative evidence does not establish experimental protonation, affinity
+or multi-complex accuracy. #33 owns profile coordination, #4 source/decision
+provenance, #49 the remaining partial/reference migration (MolSysMT #521), and
+#55 the newly measured domain-provenance gap. These are separate acceptance owners.
+
 ## What
 
-The [native prepared-export checkpoint](../validation/native_prepared_export.md)
-records the remaining molecular projection/charge-provenance boundary in
-MolSysMT #223 separately from the functioning #214 serializer. Both preparation
-roles and non-default units have executed controls; production writer retirement
-and scientific charge-model acceptance remain incomplete.
-
 The original preparation wrote zero partial charges, guessed AutoDock types from
-names and dropped hydrogens by name. The dated slices below describe adopted
-provider capabilities. Current preparation requires named MolSysMT types;
-current preparation also requires complete supplied charges or explicit provider
-assignment. General projection/export and broader scientific qualification keep
-this issue partial; original placeholder workflows below remain historical.
+names and dropped hydrogens by name. The dated slices below retain those diagnoses
+and subsequent migrations. Current supported preparation has removed those
+mechanisms through public MolSysMT tools, as the audit above records. Remaining
+chemical/scoring-profile acceptance is explicit and separate from representation
+parity or Vina parser acceptance.
 
 ## How
 

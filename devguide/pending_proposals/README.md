@@ -17,9 +17,10 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 - [`select_molecular_states_and_record_preparation_decisions_for_docking.md`](select_molecular_states_and_record_preparation_decisions_for_docking.md) — [#4](https://github.com/uibcdf/dockingmt/issues/4) — Select molecular states and record preparation decisions for docking *(partial, measured)*
 - [`validate_native_molsysmt_formats.md`](validate_native_molsysmt_formats.md) — [#33](https://github.com/uibcdf/dockingmt/issues/33) — Validate native MolSysMT SDF/PDBQT inputs and define the supported preparation profile *(partial, measured)*
 
-### Open (2)
+### Open (3)
 
 - [`decide_validation_and_benchmark_publication.md`](decide_validation_and_benchmark_publication.md) — [#29](https://github.com/uibcdf/dockingmt/issues/29) — Decide how to collect and publish validation strategies and benchmarks *(open, asserted)*
+- [`retain_selection_domain_provenance.md`](retain_selection_domain_provenance.md) — [#55](https://github.com/uibcdf/dockingmt/issues/55) — Retain derivation provenance for selection-based search domains *(open, measured)*
 - [`support_selected_flexible_receptor_residues_in_the_vina_adapter.md`](support_selected_flexible_receptor_residues_in_the_vina_adapter.md) — [#7](https://github.com/uibcdf/dockingmt/issues/7) — Support selected flexible receptor residues in the Vina adapter *(open, inspected)*
 
 <!-- /generated -->

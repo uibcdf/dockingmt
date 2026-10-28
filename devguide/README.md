@@ -28,7 +28,14 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
-Start with [production pose reading](validation/prepared_pose_reading.md).
+Start with the [nonvisual Core MVP audit](validation/core_mvp_audit_2026-10-28.md):
+all 32 C0–C5 criteria have evidence, scope and owners. The next concrete nonvisual
+step is selection-domain derivation provenance under #55; C4 visibility/C6 remain
+explicitly deferred. The audit separates the preserved human producer from current
+runtime qualification and reconciles #4/#5/#33 without premature closure.
+
+[Production pose reading](validation/prepared_pose_reading.md) records the latest
+runtime migration.
 Complete single-state sources now use public MolSysMT reading against the actual
 prepared export view/map/bytes. Written result axes and source keys are retained;
 external/partial profiles have an explicit remaining route and removal condition.
@@ -40,8 +47,8 @@ qualified CI checkpoint, original artifacts and historical pause decisions.
 
 For the preceding nonvisual checkpoints, consult the
 [native receptor receiving](validation/native_receptor_export_receiving.md): real
-protein export/map composition passes. The new receiving above resolves its
-provider-presentation gap; production writer adoption remains next. The
+protein export/map composition passes. Its provider-presentation gap and covered writer adoption are now resolved by
+the later consumption records above; this receipt keeps its historical producer. The
 [preparation correspondence migration](validation/preparation_atom_maps.md)
 delegates H-addition/projection lineage to `msm.compose_atom_maps` while retaining
 legacy selected-input/PDBQT order fields and detached native correspondence. The

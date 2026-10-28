@@ -1,0 +1,36 @@
+{
+  "source_version": "0.0.0+205.gc9c8196",
+  "provider_version": "0.23.0+232.ge395e5264",
+  "requested_selection": [
+    1
+  ],
+  "requested_structure_indices": 0,
+  "requested_padding": {
+    "value": 3,
+    "unit": "angstrom"
+  },
+  "domain_record": {
+    "schema_version": "1.0",
+    "type": "BoxRegion",
+    "name": null,
+    "center": {
+      "value": [
+        0.19999999999999998,
+        0.39999999999999997,
+        0.6
+      ],
+      "unit": "nanometer"
+    },
+    "lengths": {
+      "value": [
+        0.6,
+        0.6,
+        0.6
+      ],
+      "unit": "nanometer"
+    }
+  },
+  "source_selection_padding_retained_in_domain": false,
+  "geometry_roundtrip_preserved": true,
+  "interpretation": "A missing derivation record, not incorrect geometric bounds. for_redocking separately retains partner selection but not a complete domain recipe."
+}

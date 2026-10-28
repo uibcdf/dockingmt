@@ -1,0 +1,16 @@
+import json
+from pathlib import Path
+import dockingmt as dmt
+import molsysmt as msm
+import pyunitwizard as puw
+from molsysmt.native import MolSys
+source=MolSys(n_atoms=2)
+msm.set(source,atom_id=['source-A','source-B'],atom_name=['C1','C2'],atom_type=['C','C'],coordinates=puw.quantity([[[0.,0.,0.],[2.,4.,6.]]],'angstrom'))
+box=dmt.BoxRegion.from_selection(source,selection=[1],structure_indices=0,padding=puw.quantity(3,'angstrom'))
+record=box.to_dict()
+assert set(record)=={'schema_version','type','name','center','lengths'}
+restored=dmt.BoxRegion.from_dict(record)
+assert restored.to_dict()==record
+receipt={'source_version':dmt.__version__,'provider_version':msm.__version__,'requested_selection':[1],'requested_structure_indices':0,'requested_padding':{'value':3,'unit':'angstrom'},'domain_record':record,'source_selection_padding_retained_in_domain':False,'geometry_roundtrip_preserved':True,'interpretation':'A missing derivation record, not incorrect geometric bounds. for_redocking separately retains partner selection but not a complete domain recipe.'}
+Path('/tmp/dockingmt-core-audit-20261028/domain-probe.json').write_text(json.dumps(receipt,indent=2)+'\n')
+print(json.dumps(receipt,indent=2))

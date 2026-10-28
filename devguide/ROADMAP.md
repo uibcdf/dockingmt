@@ -2,6 +2,23 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Nonvisual Core acceptance audited — 2026-10-28
+
+The [C0–C5 audit](validation/core_mvp_audit_2026-10-28.md) maps all 32 criteria to
+current implementation, original 3PTB evidence and precise remaining owners.
+The declared human workflow is supported as a bounded case; it is not a new
+experiment on the current writer/reader composition or whole-Core acceptance.
+#4/#5/#33 now distinguish corrected mechanisms from remaining profile/provenance
+and scientific questions. Historical inputs/results/producers remain unchanged.
+
+**Next: settle and implement #55, selection-domain derivation provenance.**
+Geometry survives serialization, but selection/frame/padding/source derivation
+does not. This nonvisual DockingMT task is independent of MolSysMT #521; molecular
+operations remain delegated. Then decide the bounded supported profile and
+prepared-input provenance under #5/#33/#4, registering any needed new scientific
+control separately before execution. Receive #521 when delivered. C4 visible
+observation/C6 remain deferred under #52; public delivery retains #30/#47 gates.
+
 ## Known-source pose reading delegated — 2026-10-28
 
 [Production pose reading](validation/prepared_pose_reading.md) carries one actual

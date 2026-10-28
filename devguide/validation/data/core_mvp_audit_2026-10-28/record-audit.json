@@ -1,0 +1,228 @@
+{
+  "schema": "dockingmt.core_mvp_record_audit@1",
+  "date": "2026-10-28",
+  "inspected_runtime_source": "c9c819688a8ff9a9d662af842ef2c82627ceb8b3",
+  "human_original_wheel_producer": "1decee504b112cfd92026c52dcbe22449de30f4f",
+  "human_original_provider": "c35252d89a28a8faff11e0014bda91312167f549",
+  "verified_human_manifest_members": 16,
+  "fresh_original_pose_count": 5,
+  "historical_rows": 24,
+  "historical_poses": 167,
+  "human_summary": {
+    "registered_fresh_3ptb_searches": 1,
+    "executed_fresh_3ptb_searches": 1,
+    "recovery_additional_searches": 0,
+    "original_result_sha256": "ed0eeb3ade25e54f8a5829729578fcbec9f0d73d6c0ceb03d146b0c3492d7fac",
+    "recovered_result_matches_original": true,
+    "saved_groups": {
+      "rigid/native": {
+        "rows": 6,
+        "poses": 41,
+        "positional_top1": 6,
+        "symmetry_top1": 6
+      },
+      "rigid/negative": {
+        "rows": 6,
+        "poses": 39,
+        "positional_top1": 0,
+        "symmetry_top1": 0
+      },
+      "flexible/native": {
+        "rows": 6,
+        "poses": 41,
+        "positional_top1": 6,
+        "symmetry_top1": 6
+      },
+      "flexible/negative": {
+        "rows": 6,
+        "poses": 46,
+        "positional_top1": 0,
+        "symmetry_top1": 0
+      }
+    },
+    "visualization_executed": false,
+    "initial_diagnostic": "Missing stereochemistry on original template-applied heavy atoms; explicit unspecified declaration via public MolSysMT setter on a detached context; provider independently validates potential stereo",
+    "producer": "1decee504b112cfd92026c52dcbe22449de30f4f"
+  },
+  "answers": {
+    "receptor": {
+      "declared_prepared_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+      "prepared_atoms": 2011,
+      "source_fingerprint_in_standalone_result": null,
+      "native_chemical_state_id": null,
+      "structure_index": 0,
+      "charge_method": "gasteiger_marsili",
+      "typing_scheme": "autodock4",
+      "type_rule_version": "chemical_environment@1",
+      "hydrogen_policy": "retain_polar_merge_nonpolar",
+      "assessment": "unassessed",
+      "backend_payload_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970",
+      "paths": {
+        "state": "/problem_info/receptor/value/state_id",
+        "input": "/problem_info/molecular_inputs/receptor",
+        "preparation": "/provenance/preparation/receptor/metadata",
+        "submitted_bytes": "/provenance/backend_artifacts/receptor"
+      }
+    },
+    "partner": {
+      "declared_prepared_state_id": "3PTB-benzamidinium-plus1",
+      "prepared_atoms": 13,
+      "source_fingerprint_in_standalone_result": null,
+      "native_chemical_state_id": null,
+      "structure_index": 0,
+      "charge_method": "gasteiger_marsili",
+      "typing_scheme": "autodock4",
+      "type_rule_version": "chemical_environment@1",
+      "hydrogen_policy": "retain_polar_merge_nonpolar",
+      "assessment": "unassessed",
+      "backend_payload_sha256": "a36bd740cc47045c2f2f6756bd8c11b41cbcc960a76ce42c2f2114b3c4b7be46",
+      "paths": {
+        "state": "/problem_info/partner/value/state_id",
+        "input": "/problem_info/molecular_inputs/partner",
+        "preparation": "/provenance/preparation/partner/metadata",
+        "submitted_bytes": "/provenance/backend_artifacts/partner"
+      }
+    }
+  },
+  "domain_record_path": "/provenance/search_domain",
+  "backend_parameters_path": "/provenance/backend_output/resolved_calls",
+  "scores_path": "/poses/0/metadata/score_definitions",
+  "all_saved_payload_hashes_and_score_contexts_match": true,
+  "historical_original_errors_preserved": true,
+  "new_searches_or_scoring_in_this_audit": 0,
+  "new_preparation_in_this_record_audit": 0,
+  "notebooks_reexecuted": false,
+  "visual_acceptance": false,
+  "whole_core_accepted": false,
+  "runtime_or_provider_changes": false,
+  "standalone_prepared_result_contains_original_source_fingerprints": false,
+  "source_traceability_scope": "Preserved qualification/admission/result bundle; do not invent a standalone file fingerprint.",
+  "new_domain_provenance_issue": "uibcdf/dockingmt#55",
+  "frozen_files": [
+    {
+      "path": "devguide/MVP.md",
+      "bytes": 4152,
+      "sha256": "68e99ed636855e1f876ad088e80a2ace1ff6a4aa44c3530569487cdcc302fccc"
+    },
+    {
+      "path": "devguide/validation/data/3ptb_admission/audit_2026-10-10.json.gz",
+      "bytes": 1256952,
+      "sha256": "05f82e0ff16592c64d404c216a7e2feff0c0e62a2aebff240dc8653350e21075"
+    },
+    {
+      "path": "devguide/validation/data/3ptb_search/audit_2026-10-10.json.gz",
+      "bytes": 4492320,
+      "sha256": "97104903c93b3f7a729a5a6ac196cdb7b59d686e318efdcf324f70131abba1f2"
+    },
+    {
+      "path": "devguide/validation/data/3ptb_search/evaluation_2026-10-10.json.gz",
+      "bytes": 1475823,
+      "sha256": "8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af"
+    },
+    {
+      "path": "devguide/validation/human_3ptb_workflow_2026-10-20.ipynb",
+      "bytes": 26504,
+      "sha256": "da661adaeb1ea5b402b1b9f6cfb6e1f19c227bf606cd45d56602065db969fda4"
+    },
+    {
+      "path": "devguide/validation/human_3ptb_scene_2026-10-23.ipynb",
+      "bytes": 21863,
+      "sha256": "fe21328d0035c3ec692b495b2d0315196fe0748dcc087cf33e095a896d5c46de"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/admission_2026-10-20.json.gz",
+      "bytes": 2093573,
+      "sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/diagnostics_2026-10-20.json",
+      "bytes": 1162,
+      "sha256": "53ece16f26dc4c1c5a9c6168e7bea51a029575080ba05338a600cad66ba1ba96"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/environment_2026-10-20.yaml",
+      "bytes": 862,
+      "sha256": "23895b3e330931717d496efda54c1bd34c3f0f04b8433aaaa1a4ab556455476b"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/evaluation_2026-10-20.json.gz",
+      "bytes": 147883,
+      "sha256": "6f4b62e5370d2e28a5f5db41a9fa10b8632fcd6ef2b60b3cf59a15a5174e0eb2"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/execution_registration_2026-10-20.md",
+      "bytes": 2202,
+      "sha256": "9c6d103109a40eecbb6f50d97997496e0b0b5621fc9467d232178dc6128e3996"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/guides_2026-10-20.json",
+      "bytes": 1524,
+      "sha256": "857849c78c07ca4b384a49099b05d2bc9296400b0000864e7864d2545aa912d1"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/installed_origins_2026-10-20.json",
+      "bytes": 5838,
+      "sha256": "c6bd8d05afb9c48e73a755778b60bb934d5bf62a3cd0e11c85784aee968de1da"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/installed_preflight_2026-10-20.json",
+      "bytes": 244,
+      "sha256": "935aa4fff6ec767af0dd5ef06d5b734c0fbeff6b77a86b349caf3cbe76271019"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/installed_tests_2026-10-20.txt.gz",
+      "bytes": 455,
+      "sha256": "3f2a74bc1f85dfc6f5f2c91048b103b4ade9e7d11b904255bd91b59db790ec0c"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/kernel_receipt_2026-10-20.json",
+      "bytes": 6918,
+      "sha256": "48948ed393c9adca48509f8f99f6622b9963a352df4571b68c088c22a99ed0be"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/native_result_2026-10-20.json.gz",
+      "bytes": 353939,
+      "sha256": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/notebook_cells_2026-10-20.json",
+      "bytes": 2347,
+      "sha256": "cadb17f7754ad6f74f7c0618577b6e70ece25dbee81774e204f0dca66b8a80ed"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/qualification_2026-10-20.json",
+      "bytes": 7235,
+      "sha256": "b89b8dcb9ec296d01f12cd28cb633577e868e5c60b264c5f4bb4eefd6f3b9bf2"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/resource_closeout_2026-10-20.json",
+      "bytes": 430,
+      "sha256": "c101f403cb2d5a3b2c25c142ac288c1a9b1b9f8ef6f8f2b9fce180bf0292ec01"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/runtime_2026-10-20.json",
+      "bytes": 3385,
+      "sha256": "e6e0cc02ab926dcfea7522443d11f99ee3fef2ac402f7635192a343e4b124562"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/saved_receiving_2026-10-20.json.gz",
+      "bytes": 1332023,
+      "sha256": "5579b1a111562aa6c1df40285f920f0d2a8b028cb6751357339bebe7a84b1341"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/summary_2026-10-20.json",
+      "bytes": 1082,
+      "sha256": "bf5950c8fd19b364d0335ac5dfa934f3cdac7fdb0e36e7d3e811b3326ca59922"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/terminal_2026-10-20.json",
+      "bytes": 4089,
+      "sha256": "095d4f7d3d3ee05d9ed952d8009a6939d6afc1fdbf2a6ff0a3fd4340d7622a44"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/wheel_2026-10-20.json",
+      "bytes": 374,
+      "sha256": "15e4fb3a1d5ec9f4813d2ba1d2a8af1a17200b33ac825979a6524e0bb37ee9ca"
+    }
+  ]
+}

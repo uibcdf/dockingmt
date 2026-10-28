@@ -17,6 +17,22 @@ supersedes: []
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
 **Status:** Partial; DockingMT Core MVP work.
 
+## Current acceptance audit — 2026-10-28
+
+The [Core MVP audit](../validation/core_mvp_audit_2026-10-28.md) verifies declared state IDs, selected frames/axes,
+named preparation, captured input hashes, backend defaults and per-score context
+in the preserved 3PTB evidence bundle. Current implementation is `c9c8196`;
+the original human result retains producer `1decee5` and its original provider.
+Six ordinary-installed saved/roundtrip/domain/state controls pass without
+repeating searches. Original errors and source identities remain intact.
+
+This issue stays partial for supported provenance across arbitrary prepared
+inputs and replay contexts. A standalone prepared-result JSON has absent original
+source-file fingerprints; its qualification/admission sidecars supply that binding.
+Do not infer pH, experimental state or a general native snapshot from state labels.
+The confirmed selection-domain recipe gap is separately owned by #55. Full Core
+acceptance and deferred visible evidence remain separate.
+
 ## What
 
 Make the chosen ligand and receptor states and preparation decisions explicit in a docking run.

@@ -14,6 +14,22 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Supported profile versus historical gaps — 2026-10-28
+
+The [Core MVP audit](../validation/core_mvp_audit_2026-10-28.md) reconciles current `c9c8196` with historical
+3PTB execution. Named chemistry, both-role H projection/charge transfer, preparation
+map composition, native writing and complete single-state pose reading are now
+consumed from MolSysMT. Earlier “not delivered” or “writer retirement next” sections
+below are dated checkpoints, not current blockers. The remaining partial/reference
+reader contract is proposed in MolSysMT #521; complete-disconnected single-ROOT
+writing stays under #214.
+
+This issue remains partial for explicit chemical/representation-profile acceptance,
+remaining input/state profiles and scientific limits. The frozen 24/167 population
+and five-pose human result are not new experiments on the latest provider. The
+C4 derivation descriptor is DockingMT #55; C6 remains deferred under #52. No generic
+chemical certification, affinity claim or public artifact admission is inferred.
+
 ## Production known-source pose reader — 2026-10-28
 
 [The consumer migration](../validation/prepared_pose_reading.md) retains one actual

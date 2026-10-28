@@ -1,0 +1,121 @@
+"""Inspect immutable stored records; no scientific execution or molecular parsing."""
+import base64
+import gzip
+import hashlib
+import json
+from pathlib import Path
+
+REPO = Path('/home/liliana/repos@uibcdf/dockingmt')
+DATA = REPO / 'devguide/validation/data'
+TASK = Path('/tmp/dockingmt-core-audit-20261028')
+
+def digest(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+def record(path):
+    raw = (DATA / path).read_bytes()
+    return json.loads(gzip.decompress(raw) if str(path).endswith('.gz') else raw)
+
+human = DATA / 'human_3ptb'
+qualification = record('human_3ptb/qualification_2026-10-20.json')
+for member in qualification['files']:
+    raw = (human / member['path']).read_bytes()
+    assert len(raw) == member['bytes'] and digest(raw) == member['sha256']
+    original = gzip.decompress(raw) if member.get('encoding') == 'gzip' else raw
+    if 'original_bytes' in member:
+        assert len(original) == member['original_bytes']
+    if 'original_sha256' in member:
+        assert digest(original) == member['original_sha256']
+
+result = record('human_3ptb/native_result_2026-10-20.json.gz')
+summary = record('human_3ptb/summary_2026-10-20.json')
+assert digest(gzip.decompress((human / 'native_result_2026-10-20.json.gz').read_bytes())) == summary['original_result_sha256']
+assert len(result['poses']) == 5
+provenance = result['provenance']
+assert result['protocol_info'] == provenance['protocol']
+assert result['problem_info']['search_domain'] == provenance['search_domain']
+assert provenance['seed'] == 7
+answers = {}
+for role in ['receptor', 'partner']:
+    prepared = result['problem_info'][role]['value']
+    preparation = provenance['preparation'][role]
+    assert prepared['state_id'] == preparation['state_id']
+    assert all(p[role + '_state_id'] == prepared['state_id'] for p in result['poses'])
+    assert prepared['metadata'] == preparation['metadata']
+    artifact = provenance['backend_artifacts'][role]
+    raw = base64.b64decode(artifact['content_base64'], validate=True)
+    assert digest(raw) == artifact['sha256']
+    metadata = preparation['metadata']
+    answers[role] = {
+        'declared_prepared_state_id': prepared['state_id'],
+        'prepared_atoms': prepared['n_atoms'],
+        'source_fingerprint_in_standalone_result': result['problem_info']['molecular_inputs'][role]['source_fingerprint'],
+        'native_chemical_state_id': result['problem_info']['molecular_inputs'][role]['chemical_state_id'],
+        'structure_index': result['problem_info']['molecular_inputs'][role]['structure_index'],
+        'charge_method': metadata['partial_charge_assignment']['method'],
+        'typing_scheme': metadata['atom_type_assignment']['typing_scheme'],
+        'type_rule_version': metadata['atom_type_assignment']['rule_version'],
+        'hydrogen_policy': metadata['hydrogen_policy'],
+        'assessment': preparation['assessment'],
+        'backend_payload_sha256': artifact['sha256'],
+        'paths': {
+            'state': f'/problem_info/{role}/value/state_id',
+            'input': f'/problem_info/molecular_inputs/{role}',
+            'preparation': f'/provenance/preparation/{role}/metadata',
+            'submitted_bytes': f'/provenance/backend_artifacts/{role}',
+        },
+    }
+
+energies = provenance['backend_output']['energies']
+assert len(energies) == len(result['poses'])
+for index, (pose, energy) in enumerate(zip(result['poses'], energies, strict=True)):
+    assert pose['rank'] == index + 1
+    assert [pose['scores'][k] for k in ['vina','inter','intra','torsion']] == energy[:4]
+    for definition in pose['metadata']['score_definitions'].values():
+        context = definition['context']
+        assert context['partner_sha256'] == provenance['backend_artifacts']['partner']['sha256']
+        assert context['receptor_sha256'] == provenance['backend_artifacts']['receptor']['sha256']
+
+searches = record('3ptb_search/audit_2026-10-10.json.gz')
+received = record('3ptb_search/evaluation_2026-10-10.json.gz')
+assert received['search_archive_sha256'] == digest((DATA/'3ptb_search/audit_2026-10-10.json.gz').read_bytes())
+assert len(searches['runs']) == len(received['runs']) == 24
+assert sum(len(r['result']['poses']) for r in searches['runs']) == 167
+assert received['new_searches_executed'] == 0 and not received['registered_criterion_changed']
+for old, new in zip(searches['runs'], received['runs'], strict=True):
+    assert old['status'] == new['original_status']
+    assert old.get('error') == new['original_error']
+
+frozen_paths = [
+    'devguide/MVP.md',
+    'devguide/validation/data/3ptb_admission/audit_2026-10-10.json.gz',
+    'devguide/validation/data/3ptb_search/audit_2026-10-10.json.gz',
+    'devguide/validation/data/3ptb_search/evaluation_2026-10-10.json.gz',
+    'devguide/validation/human_3ptb_workflow_2026-10-20.ipynb',
+    'devguide/validation/human_3ptb_scene_2026-10-23.ipynb',
+] + ['devguide/validation/data/human_3ptb/' + p.name for p in sorted(human.iterdir()) if p.is_file()]
+ledger = [{'path': p, 'bytes': (REPO/p).stat().st_size, 'sha256': digest((REPO/p).read_bytes())} for p in frozen_paths]
+report = {
+    'schema': 'dockingmt.core_mvp_record_audit@1', 'date':'2026-10-28',
+    'inspected_runtime_source':'c9c819688a8ff9a9d662af842ef2c82627ceb8b3',
+    'human_original_wheel_producer':qualification['wheel_producer'],
+    'human_original_provider':qualification['providers']['molsysmt'],
+    'verified_human_manifest_members':len(qualification['files']),
+    'fresh_original_pose_count':len(result['poses']), 'historical_rows':24,'historical_poses':167,
+    'human_summary':summary, 'answers':answers,
+    'domain_record_path':'/provenance/search_domain',
+    'backend_parameters_path':'/provenance/backend_output/resolved_calls',
+    'scores_path':'/poses/0/metadata/score_definitions',
+    'all_saved_payload_hashes_and_score_contexts_match':True,
+    'historical_original_errors_preserved':True,
+    'new_searches_or_scoring_in_this_audit':0,
+    'new_preparation_in_this_record_audit':0,
+    'notebooks_reexecuted':False,'visual_acceptance':False,'whole_core_accepted':False,
+    'runtime_or_provider_changes':False,
+    'standalone_prepared_result_contains_original_source_fingerprints':False,
+    'source_traceability_scope':'Preserved qualification/admission/result bundle; do not invent a standalone file fingerprint.',
+    'new_domain_provenance_issue':'uibcdf/dockingmt#55',
+    'frozen_files':ledger,
+}
+(TASK/'record-audit.json').write_text(json.dumps(report,indent=2)+'\n')
+print(json.dumps({k:report[k] for k in ['verified_human_manifest_members','fresh_original_pose_count','historical_rows','historical_poses','all_saved_payload_hashes_and_score_contexts_match','whole_core_accepted','new_domain_provenance_issue']}))
