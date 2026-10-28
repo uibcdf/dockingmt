@@ -1,0 +1,47 @@
+{
+  "schema": "dockingmt.prepared_pose_source@1",
+  "date": "2026-10-28",
+  "parent": "7954cb2cbd4c4012291f1db59de7a3834a4e3293",
+  "provider": "e395e52646dab2ecb480d3d67aa7254be99b8524",
+  "qualified_receiver": "/tmp/dockingmt-writer-fix-20261028/environment",
+  "source_selection_summary": "PASS exit=0 | 209 passed | 151.77s | 92 warnings",
+  "new_reader_cases": 15,
+  "extended_readonly_cases": 3,
+  "counts_overlap": true,
+  "initial_selection": {
+    "passed": 59,
+    "failed": 4,
+    "seconds": 54.04,
+    "reason": "Three new assertions incorrectly required original-object identity across unit conversion; one damage fixture used unsupported setter syntax."
+  },
+  "earlier_selection_before_unit_correction": {
+    "passed": 207,
+    "seconds": 149.06,
+    "skipped": 0
+  },
+  "reproduced_unit_roundtrip_copy_defect": {
+    "public_owning_issue": "https://github.com/uibcdf/dockingmt/issues/49#issuecomment-6479623097",
+    "diagnostic": "RuntimeError: test resource cannot be copied",
+    "fix": "Convert prepared coordinates once to the public getter unit; no numerical tolerance."
+  },
+  "source_hashes": {
+    "dockingmt/preparation/_export.py": "1dfd502efb4d61738fe272e4dbff4d79100e014ba417db1024a18d41da93da3f",
+    "dockingmt/preparation/ligand.py": "0be4491c28a5d0c07ccae23cc34f829f11a0b254a0a38c4f6c10765cb2e43725",
+    "dockingmt/engines/vina.py": "963c46e11f192de57d8b0893f3c2d3c06895585c4d668f1f7a659e307ccb5942",
+    "tests/test_prepared_pose_reading.py": "3c9fcad0b877a08ec43c7771fc3ccc815c7e77993f8d837ff8013683c705e7aa",
+    "tests/test_prepared_writer_delegation.py": "88036669fbfca6e18c051a997f07514420aa4c80e2df21c65a5aa5a3149c4148"
+  },
+  "provider_pin_or_shared_environment_changed": false,
+  "historical_populations_regenerated": false,
+  "production_known_source_reader_changed": true,
+  "unmapped_partial_legacy_route_retained": true,
+  "public_artifact_or_release_published": false,
+  "HTML_C6_reviewed": false,
+  "task_resources": {
+    "path": "/tmp/dockingmt-pose-adoption-20261028",
+    "owner": "uibcdf/dockingmt#49",
+    "lifecycle": "uibcdf/dockingmt#50",
+    "review": "2026-11-04",
+    "automatic_disposal": false
+  }
+}

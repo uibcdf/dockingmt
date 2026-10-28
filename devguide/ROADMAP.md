@@ -2,6 +2,25 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Known-source pose reading delegated — 2026-10-28
+
+[Production pose reading](validation/prepared_pose_reading.md) carries one actual
+prepared native view, final PDBQT payload and completed writer map through Vina.
+Single-state complete sources use public MolSysMT reading; provider failures
+propagate. Result coordinates retain the written axis and existing source keys,
+with explicit native report provenance and Vina numeric-output coherence.
+
+External/unmapped and partial/multiple-state profiles keep an explicit tracked
+legacy route, selected before execution; no missing chemistry is inferred. #49/#33
+own its remaining retirement and 2026-11-04 review; the partial/reference
+extension is proposed in [MolSysMT #521](https://github.com/uibcdf/molsysmt/issues/521). Source/ordinary-installed and
+exact-head receipts are separate under #49; prior artifacts remain immutable.
+
+**Next:** qualify provider-owned reading for remaining actual profiles before
+retiring their local verifier; keep chemical preparation acceptance separate under
+#5/#33. Reassess wider MVP acceptance against the accepted human pilot. HTML/C6
+stays deferred and public delivery remains #30/#47.
+
 ## Prepared writers delegated — 2026-10-28
 
 [Production writer consumption](validation/prepared_writer_consumption.md) removes

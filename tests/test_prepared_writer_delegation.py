@@ -239,7 +239,10 @@ def test_actual_export_map_must_match_the_declared_prepared_order():
         prepared.to_pdbqt()
 
 
-def test_readonly_export_ignores_unrelated_copy_resource_but_edits_require_copy():
+@pytest.mark.parametrize('length_unit', ['nm', 'angstrom', 'pm'])
+def test_readonly_export_ignores_unrelated_copy_resource_but_edits_require_copy(
+    length_unit,
+):
     from test_molecular_variant_ownership import UnavailableResource
 
     source = msm.build.assign_autodock_atom_types(
@@ -248,9 +251,11 @@ def test_readonly_export_ignores_unrelated_copy_resource_but_edits_require_copy(
     prepared = dmt.prepare_ligand(source, selection='all')
     before = snapshot(prepared.source_molsys)
     prepared.source_molsys.unavailable_resource = UnavailableResource()
-    assert 'ATOM' in prepared.to_pdbqt()
+    with puw.context(standard_units=[length_unit, 'fs', 'coulomb', 'kJ/mol']):
+        assert 'ATOM' in prepared.to_pdbqt()
     assert snapshot(prepared.source_molsys) == before
     prepared.coordinates = prepared.coordinates + puw.quantity(1, 'angstrom')
-    with pytest.raises(RuntimeError, match='test resource cannot be copied'):
-        prepared.to_pdbqt()
+    with puw.context(standard_units=[length_unit, 'fs', 'coulomb', 'kJ/mol']):
+        with pytest.raises(RuntimeError, match='test resource cannot be copied'):
+            prepared.to_pdbqt()
     assert snapshot(prepared.source_molsys) == before

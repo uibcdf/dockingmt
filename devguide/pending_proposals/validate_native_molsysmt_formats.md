@@ -14,6 +14,18 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Production known-source pose reader — 2026-10-28
+
+[The consumer migration](../validation/prepared_pose_reading.md) retains one actual
+writer view/map/final payload through Vina and calls public MolSysMT reading for
+single-state complete sources. The result keeps its written axis, source keys
+and numeric-output coherence; native reports retain original export and output
+hashes. Provider errors never invoke the local parser. External/unmapped,
+partial and multiple-state sources retain an explicit preselected legacy route
+under #49/#33 with 2026-11-04 review and provider-qualified removal condition.
+No graph is inferred, original archive regenerated or public package admitted.
+Broader scientific and format acceptance stays partial.
+
 ## Production native writers — 2026-10-28
 
 [The writer migration](../validation/prepared_writer_consumption.md) delegates

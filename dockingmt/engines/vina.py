@@ -32,7 +32,8 @@ from dockingmt.preparation import (
     prepare_ligand,
     prepare_receptor,
 )
-from dockingmt.preparation._molsys import autodock_element
+from dockingmt.preparation._export import export_pdbqt
+from dockingmt.preparation._molsys import autodock_element, detached_provider_report
 
 VINA_BOX_DECIMALS = 6
 
@@ -169,19 +170,68 @@ def _verify_pose_atom_order(
     for pose_index, pose_coordinates in enumerate(coordinates):
         records = output[pose_index * len(source) : (pose_index + 1) * len(source)]
         record_coordinates = np.asarray([record[1] for record in records])
-        if (
-            [record[0] for record in records] != expected
-            or not np.isfinite(pose_coordinates).all()
-            or not np.isfinite(record_coordinates).all()
-            or Counter(map(tuple, np.round(record_coordinates, 3)))
-            != Counter(map(tuple, np.round(pose_coordinates, 3)))
-        ):
+        if [record[0] for record in records] != expected:
             raise ArgumentError(
                 arg_name='problem.partner',
                 reason='Vina pose atom order or coordinates differ from the supplied ligand PDBQT.',
             )
         ordered_coordinates.append(record_coordinates)
-    return np.stack(ordered_coordinates)
+    return _verify_pose_coordinates(np.stack(ordered_coordinates), coordinates)
+
+
+def _verify_pose_coordinates(written, coordinates):
+    """Check Vina's two numeric outputs without assigning molecular identity."""
+    if (
+        written.shape != coordinates.shape
+        or not np.isfinite(written).all()
+        or not np.isfinite(coordinates).all()
+        or any(
+            Counter(map(tuple, np.round(record, 3)))
+            != Counter(map(tuple, np.round(numeric, 3)))
+            for record, numeric in zip(written, coordinates)
+        )
+    ):
+        raise ArgumentError(
+            arg_name='problem.partner',
+            reason='Vina pose atom order or coordinates differ from the supplied ligand PDBQT.',
+        )
+    return written
+
+
+def _read_staged_poses(staged, poses_pdbqt, coordinates):
+    """Read against the actual staged export; provider failures never fall back."""
+    if staged['pose_reading_mode'] == 'molsysmt_known_source':
+        exported = staged['partner_export']
+        if (
+            exported.atom_map['payload_sha256']
+            != hashlib.sha256(staged['partner_pdbqt']).hexdigest()
+        ):
+            raise ArgumentError(
+                arg_name='problem.partner',
+                reason='The completed export map does not bind the staged PDBQT payload.',
+            )
+        received = msm.form.string_pdbqt_text.read_poses(
+            'pdbqt_text:' + poses_pdbqt,
+            exported.molecular_system,
+            exported.atom_map,
+            return_report=True,
+        )
+        report = received['report']
+        source_coordinates = puw.get_value(
+            msm.get(received['molecular_system'], coordinates=True), to_unit='angstrom'
+        )
+        # DockingPose retains the established written axis. The provider report
+        # supplies this declared result-array order; no identity is inferred.
+        written = np.asarray(source_coordinates)[
+            :, report['pdbqt_to_output_atom_indices']
+        ]
+        return _verify_pose_coordinates(written, coordinates), {
+            'method': 'molsysmt.form.string_pdbqt_text.read_poses',
+            'report': detached_provider_report(report),
+        }
+    return _verify_pose_atom_order(
+        staged['partner_pdbqt'].decode('utf-8'), poses_pdbqt, coordinates
+    ), {'method': 'legacy_pdbqt_order', 'reason': staged['pose_reading_mode']}
 
 
 def _stage_pdbqt_bytes(content: bytes, temp_files: list[str]) -> str:
@@ -377,34 +427,6 @@ class VinaBackend(DockingBackend):
             },
         }
 
-        partner_atom_keys = None
-        if isinstance(partner, PreparedLigand):
-            partner_source = (
-                partner.source_molsys
-                if partner.source_molsys is not None
-                else partner.to_molecular_system()
-            )
-            prepared_atom_keys = _molecular_atom_keys(partner_source)
-            if (
-                len(prepared_atom_keys) != partner.n_atoms
-                or (
-                    all(
-                        record['atom_name'] is not None for record in prepared_atom_keys
-                    )
-                    and [record['atom_name'] for record in prepared_atom_keys]
-                    != partner.atom_names
-                )
-                or [record['element'] for record in prepared_atom_keys]
-                != [autodock_element(atom_type) for atom_type in partner.atom_types]
-            ):
-                raise ArgumentError(
-                    arg_name='problem.partner',
-                    reason='Prepared ligand names or elements do not match its molecular source.',
-                )
-            partner_atom_keys = [
-                prepared_atom_keys[i] for i in partner.pdbqt_atom_indices
-            ]
-
         # Prepare receptor and partner representations
         if timings is not None:
             timings.end_phase('preparation')
@@ -423,6 +445,38 @@ class VinaBackend(DockingBackend):
             partner_file = staged['partner_file']
             partner_string = staged['partner_string']
             backend_artifacts = staged['artifacts']
+            partner_atom_keys = None
+            if isinstance(partner, PreparedLigand):
+                exported = staged['partner_export']
+                # Source-free identities retain the existing PDBQT projection,
+                # now reading the already staged payload rather than reexporting.
+                if partner.source_molsys is None:
+                    source = msm.convert(
+                        'pdbqt_text:' + exported.text,
+                        to_form='molsysmt.MolSys',
+                        discard_torsion_tree=True,
+                    )
+                    partner_atom_keys = _molecular_atom_keys(source)
+                else:
+                    keys = _molecular_atom_keys(exported.molecular_system)
+                    partner_atom_keys = [keys[i] for i in partner.pdbqt_atom_indices]
+                if (
+                    len(partner_atom_keys) != partner.n_atoms
+                    or (
+                        all(key['atom_name'] is not None for key in partner_atom_keys)
+                        and [key['atom_name'] for key in partner_atom_keys]
+                        != [partner.atom_names[i] for i in partner.pdbqt_atom_indices]
+                    )
+                    or [key['element'] for key in partner_atom_keys]
+                    != [
+                        autodock_element(partner.atom_types[i])
+                        for i in partner.pdbqt_atom_indices
+                    ]
+                ):
+                    raise ArgumentError(
+                        arg_name='problem.partner',
+                        reason='Prepared ligand names or elements do not match its molecular source.',
+                    )
             if timings is not None:
                 timings.end_phase('input_projection')
 
@@ -518,20 +572,13 @@ class VinaBackend(DockingBackend):
             if coords_arr is not None and len(coords_arr) > 0:
                 coords_np = np.asarray(coords_arr)
                 energies_np = np.asarray(energies_arr)
-                ligand_pdbqt = (
-                    partner_string
-                    if partner_string is not None
-                    else Path(partner_file).read_text()
+                poses_pdbqt = v.poses(
+                    n_poses=protocol.n_poses,
+                    energy_range=energy_range_val,
+                    coordinates_only=False,
                 )
-                coords_np = _verify_pose_atom_order(
-                    ligand_pdbqt,
-                    v.poses(
-                        n_poses=protocol.n_poses,
-                        energy_range=energy_range_val,
-                        coordinates_only=False,
-                    ),
-                    coords_np,
-                )
+                coords_np, reading = _read_staged_poses(staged, poses_pdbqt, coords_np)
+                backend_output['pose_reading'] = reading
                 if isinstance(partner, PreparedLigand) and (
                     coords_np.ndim != 3 or coords_np.shape[1:] != (partner.n_atoms, 3)
                 ):
@@ -652,7 +699,24 @@ class VinaBackend(DockingBackend):
     def _stage_inputs(self, receptor, partner, protocol, temp_files):
         """Snapshot the exact bytes submitted to docking or scoring."""
         receptor_file = self._resolve_receptor_path(receptor, temp_files)
-        partner_file, partner_string = self._resolve_partner(partner, temp_files)
+        partner_export = None
+        if isinstance(partner, PreparedLigand):
+            partner_export = export_pdbqt(partner, ligand=True)
+            partner_file, partner_string = None, partner_export.text
+        else:
+            partner_file, partner_string = self._resolve_partner(partner, temp_files)
+        pose_reading_mode = 'unmapped_input'
+        if partner_export is not None:
+            # Decide the supported profile before engine execution. A later
+            # source change must be rejected by the bound reader, never switch
+            # a known-source operation silently to legacy parsing.
+            native = partner_export.molecular_system
+            if msm.get(native, n_chemical_states=True) != 1:
+                pose_reading_mode = 'multiple_source_states'
+            elif list(msm.get(native, connectivity_completeness=True)) != ['complete']:
+                pose_reading_mode = 'incomplete_source_connectivity'
+            else:
+                pose_reading_mode = 'molsysmt_known_source'
         receptor_pdbqt = Path(receptor_file).read_bytes()
         if receptor_file not in temp_files:
             receptor_file = _stage_pdbqt_bytes(receptor_pdbqt, temp_files)
@@ -686,6 +750,8 @@ class VinaBackend(DockingBackend):
             'partner_file': partner_file,
             'partner_string': partner_string,
             'partner_pdbqt': partner_pdbqt,
+            'partner_export': partner_export,
+            'pose_reading_mode': pose_reading_mode,
             'artifacts': backend_artifacts,
         }
 

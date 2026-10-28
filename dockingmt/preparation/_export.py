@@ -1,5 +1,8 @@
 """Docking presentation and declared ROOT choices over public MolSysMT export."""
 
+from dataclasses import dataclass
+from typing import Any
+
 import molsysmt as msm
 import numpy as np
 import pyunitwizard as puw
@@ -43,9 +46,11 @@ def _native_input(prepared):
             reason='Prepared atom count differs from its molecular source.',
         )
     original_coordinates = msm.get(native, element='atom', coordinates=True)
+    # Compare in the getter's unit: converting it back to the prepared unit
+    # would add a round trip and could falsely require copying unchanged data.
     coordinates_changed = original_coordinates is None or not np.array_equal(
-        puw.get_value(original_coordinates, to_unit=puw.get_unit(coordinates)),
-        puw.get_value(coordinates),
+        puw.get_value(original_coordinates),
+        puw.get_value(coordinates, to_unit=puw.get_unit(original_coordinates)),
     )
     values = msm.get(native, element='atom', partial_charge=True)
     if puw.is_quantity(values):
@@ -101,8 +106,24 @@ def _declared_tree(prepared, native):
     }
 
 
-def render_pdbqt(prepared, *, ligand):
-    """Render the current prepared view without a local molecular serializer."""
+@dataclass(frozen=True)
+class PreparedExport:
+    """One actual export operation, including its unchanged provider binding."""
+
+    text: str
+    molecular_system: Any
+    atom_map: dict
+
+
+def export_pdbqt(prepared, *, ligand):
+    """Retain the actual view, final bytes and map from one provider export."""
+    if ligand and prepared.torsion_dof != (
+        len(prepared._torsion_tree.active_bonds) if prepared._torsion_tree else 0
+    ):
+        raise ArgumentError(
+            arg_name='torsion_dof',
+            reason='A nonzero TORSDOF requires a ROOT/BRANCH tree (dockingmt#6).',
+        )
     # Keep the established public prepared-name diagnostic. The provider also
     # validates all field widths and the complete representation before output.
     if any(not 1 <= len(name) <= 4 for name in prepared.atom_names):
@@ -135,4 +156,9 @@ def render_pdbqt(prepared, *, ligand):
             arg_name='prepared',
             reason='Native written order differs from the declared prepared atom order.',
         )
-    return text.removeprefix('pdbqt_text:')
+    return PreparedExport(text.removeprefix('pdbqt_text:'), native, exported)
+
+
+def render_pdbqt(prepared, *, ligand):
+    """Render the current prepared view without a local molecular serializer."""
+    return export_pdbqt(prepared, ligand=ligand).text

@@ -608,3 +608,29 @@ belongs to the [existing provider issue](https://github.com/uibcdf/molsysmt/issu
 and its public-call/identity/precision/negative guards own this slice. Revisit the
 disconnected profile when MolSysMT delivers an explicit supported contract or an
 accepted workflow requires it. Engine map/pose-reader adoption remains next.
+
+---
+
+## DMT-042 — Read complete-source poses against their actual native export
+
+**Status:** Adopted for one complete source chemical state, 2026-10-28;
+remaining profiles and wider scientific acceptance stay partial under #49/#33/#5.
+
+**Decision:** Keep the actual native view, final payload and completed map from
+one prepared export through Vina execution. Delegate complete-source molecular
+pose validation/reconstruction to public MolSysMT `read_poses`; propagate its
+errors without recovery. Use its reported axis to preserve DockingPose written
+order, retaining only Vina-specific numeric-output coherence locally. Preserve
+source-free written identity by reading already staged bytes, without reexport.
+
+**Limits and revisit:** External/unmapped, partial and multiple-state profiles
+retain the explicitly selected existing verifier; do not fabricate chemical
+completeness to use the reader. #49/#33 own its retirement, review 2026-11-04,
+when provider tools cover and are qualified for those profiles. Native reader
+contract belongs to MolSysMT #226; the partial/reference extension is proposed
+in MolSysMT #521. Original results/artifacts retain their bytes
+and producers; no current success admits chemical preparation or public delivery.
+
+**Evidence:** [Production reader consumption](validation/prepared_pose_reading.md)
+and `tests/test_prepared_pose_reading.py`, with separate source, ordinary-installed
+and exact-head hosted receipts under #49. HTML/C6 remains deferred.

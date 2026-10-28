@@ -28,12 +28,12 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
-Start with [prepared writer consumption](validation/prepared_writer_consumption.md).
-Both production roles now delegate writing; public native construction/decoding
-also covers source-free objects without a circular reconstruction route. The
-native complete-disconnected-ligand restriction and changed byte presentation are
-explicit. Next carry actual writer maps through the engine and adopt their pose
-reader. The earlier [presentation receiving](validation/pdbqt_presentation_receiving.md)
+Start with [production pose reading](validation/prepared_pose_reading.md).
+Complete single-state sources now use public MolSysMT reading against the actual
+prepared export view/map/bytes. Written result axes and source keys are retained;
+external/partial profiles have an explicit remaining route and removal condition.
+[Prepared writer consumption](validation/prepared_writer_consumption.md) records
+the preceding serializer retirement and its compatibility limits. The earlier [presentation receiving](validation/pdbqt_presentation_receiving.md)
 retains the provider-adoption checkpoint. The
 [2026-10-26 handoff](validation/pause_handoff_2026-10-26.md) retains the earlier
 qualified CI checkpoint, original artifacts and historical pause decisions.
@@ -70,7 +70,7 @@ The [2026-10-23 scene record](validation/3ptb_scene.md) and executed
 [scene notebook](validation/human_3ptb_scene_2026-10-23.ipynb) retain the minimal
 scene, its installed Python checks and HTML export. Browser inspection
 and C6 acceptance remain pending under #52. The
-[roadmap](ROADMAP.md#prepared-writers-delegated--2026-10-28) gives the next action.
+[roadmap](ROADMAP.md#known-source-pose-reading-delegated--2026-10-28) gives the next action.
 The [2026-10-20 pause checkpoint](validation/pause_handoff_2026-10-20.md) retains
 the completed pre-visualization workflow, original producers and recovery details.
 The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)

@@ -114,13 +114,6 @@ class PreparedLigand:
 
     def to_pdbqt(self) -> str:
         """Render the declared ligand view through MolSysMT's native writer."""
-        if self.torsion_dof != (
-            len(self._torsion_tree.active_bonds) if self._torsion_tree else 0
-        ):
-            raise ArgumentError(
-                arg_name='torsion_dof',
-                reason='A nonzero TORSDOF requires a ROOT/BRANCH tree (dockingmt#6).',
-            )
         return render_pdbqt(self, ligand=True)
 
     def to_dict(self) -> dict[str, Any]:

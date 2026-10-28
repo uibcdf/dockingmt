@@ -1,0 +1,25 @@
+{
+  "schema": "dockingmt.evidence_manifest@1",
+  "files": [
+    {
+      "path": "administrative.log.gz",
+      "bytes": 50,
+      "sha256": "64fc05bcddf311795a7427335a5916198be97fb64815d4827fa709fec3e58929"
+    },
+    {
+      "path": "final-selection.log.gz",
+      "bytes": 410,
+      "sha256": "bdb5f767ca6bd51609b2bed50234f682393a899a6ee6933f55a0fd63f1e8c04c"
+    },
+    {
+      "path": "readonly-correction.log.gz",
+      "bytes": 205,
+      "sha256": "730fe457ee52e7262d9e42dec0aeb49aa93dd713253de69bf8f36181c5f2a201"
+    },
+    {
+      "path": "source-receipt.json",
+      "bytes": 2164,
+      "sha256": "58be5b4de6f00a3d1a0dea6d9fe886a89cbac5735888ce93d86e78f39333d2ca"
+    }
+  ]
+}
