@@ -1,0 +1,35 @@
+{
+  "schema": "dockingmt.prepared_writer_correction@1",
+  "date": "2026-10-28",
+  "owner": "uibcdf/dockingmt#49",
+  "source_parent": "19637d74aa10acb7fd985234951aa02fe1ea1428",
+  "initial_source": "19637d74aa10acb7fd985234951aa02fe1ea1428",
+  "initial_full_local": {
+    "passed": 1253,
+    "failed": 8,
+    "seconds": 861.1,
+    "skipped": 0
+  },
+  "initial_source_is_fully_qualified": false,
+  "selected_source": {
+    "passed": 212,
+    "seconds": 145.02,
+    "warnings": 100,
+    "skipped": 0
+  },
+  "new_guard_cases": 16,
+  "runtime_correction": "Read-only native export needs no independent copy; explicit changed values still require one.",
+  "test_instrumentation_correction": "Observe full-H preparation only; allow native writer to validate its reduced graph independently.",
+  "provider_source": "e395e52646dab2ecb480d3d67aa7254be99b8524",
+  "provider_changed": false,
+  "historical_archives_and_initial_wheel_preserved": true,
+  "source_hashes": {
+    "dockingmt/preparation/_export.py": "6be755610abde363eaa1ce926cb9514a859b54a0732e7416e9da1507f8407fcc",
+    "tests/test_rigid_fragment_consumption.py": "5ba13011191bef4e08192376c3784a6464d7b3cd4dfe55513ccae0769d456240",
+    "tests/test_prepared_writer_delegation.py": "75bb9d3798a9de18dd7142b2fbb268697e3288177e293ef8928361102685b87c"
+  },
+  "full_source_installed_exact_head_ci": "separate final receipts under #49",
+  "native_pose_parser_changed": false,
+  "C6_accepted": false,
+  "public_release": false
+}

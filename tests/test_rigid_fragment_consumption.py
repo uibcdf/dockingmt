@@ -69,11 +69,14 @@ def test_original_matrix_preserves_tree_and_consumes_provider(case, monkeypatch)
         )
         return report
 
-    monkeypatch.setattr(msm.topology, 'get_rigid_fragments', recorded_partition)
-    monkeypatch.setattr(msm.topology, 'get_rotatable_bonds', recorded_classification)
-    prepared = prepare_ligand(
-        source, selection='all', active_torsion_bonds=case['active_bonds']
-    )
+    # These assertions observe the preparation's original full-H axis. Native
+    # export independently validates the reduced graph, on its own atom axis.
+    with monkeypatch.context() as scope:
+        scope.setattr(msm.topology, 'get_rigid_fragments', recorded_partition)
+        scope.setattr(msm.topology, 'get_rotatable_bonds', recorded_classification)
+        prepared = prepare_ligand(
+            source, selection='all', active_torsion_bonds=case['active_bonds']
+        )
     assert len(calls) == 1
     assert len(classifications) == 1
     decisions = prepared.metadata['torsion_selection']['selected_bonds']

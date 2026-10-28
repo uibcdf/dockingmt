@@ -36,26 +36,38 @@ def _native_input(prepared):
         )
         return native
 
-    native = msm.copy(prepared.source_molsys)
+    native = prepared.source_molsys
     if msm.get(native, n_atoms=True) != prepared.n_atoms:
         raise ArgumentError(
             arg_name='source_molsys',
             reason='Prepared atom count differs from its molecular source.',
         )
-    msm.set(native, element='atom', coordinates=coordinates)
-    # Identical values retain the actual native original/derived reports.
-    # Manual replacement goes through public setters, which own invalidation.
+    original_coordinates = msm.get(native, element='atom', coordinates=True)
+    coordinates_changed = original_coordinates is None or not np.array_equal(
+        puw.get_value(original_coordinates, to_unit=puw.get_unit(coordinates)),
+        puw.get_value(coordinates),
+    )
     values = msm.get(native, element='atom', partial_charge=True)
     if puw.is_quantity(values):
         values = puw.get_value(values, to_unit='elementary_charge')
-    if not np.array_equal(values, prepared.charges):
+    charges_changed = not np.array_equal(values, prepared.charges)
+    labels = msm.get(native, element='atom', atom_ff_type=True)
+    types_changed = labels is None or list(labels) != list(prepared.atom_types)
+    # Native export is read-only. Unchanged data needs no molecular variant or
+    # copy of unrelated caller resources. Explicit edits require an independent
+    # provider copy, with public setters owning mechanical-report invalidation.
+    if not (coordinates_changed or charges_changed or types_changed):
+        return native
+    native = msm.copy(native)
+    if coordinates_changed:
+        msm.set(native, element='atom', coordinates=coordinates)
+    if charges_changed:
         msm.set(
             native,
             element='atom',
             partial_charge=puw.quantity(prepared.charges, 'elementary_charge'),
         )
-    labels = msm.get(native, element='atom', atom_ff_type=True)
-    if labels is None or list(labels) != list(prepared.atom_types):
+    if types_changed:
         msm.set(native, element='atom', atom_ff_type=prepared.atom_types)
     return native
 
@@ -103,7 +115,6 @@ def render_pdbqt(prepared, *, ligand):
     text, exported = msm.convert(
         native,
         to_form='string:pdbqt_text',
-        structure_indices=0,
         typing_scheme='autodock4',
         torsion_tree=_declared_tree(prepared, native) if ligand else None,
         output_presentation={

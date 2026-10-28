@@ -594,6 +594,8 @@ AutoDock label decoding and PDBQT writing. DockingMT retains presentation and
 explicit ROOT/cut choices. Preserve native source identity and truthful original/
 derived attribution, and verify actual written order from the completed map.
 Keep source-free partial objects supported without circular writer/reader bootstraps.
+An unchanged native view exports read-only without copying unrelated resources;
+explicit changed molecular values require an independent public copy and setters.
 
 **Compatibility:** Native provenance, whitespace and receptor END change current
 payload bytes; historical producers/archives remain immutable. The native writer

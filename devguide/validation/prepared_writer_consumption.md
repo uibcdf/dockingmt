@@ -18,12 +18,14 @@ the molecular representation. A returned completed export map checks that actual
 written order agrees with the prepared object's declared axis. No completed map
 is modified, and the engine does not yet consume that map.
 
-For a source-backed preparation, public `msm.copy` and `msm.set` supply its current
-coordinates without changing the source. Identical native charges/types retain
-their actual original/derived assignment reports. Explicitly manual replacement
-uses public setters, which own attribution invalidation; it does not calculate a
-model or retain a false native charge/type claim. Existing consumer charge/type
-guards still reject changes accompanied by stale named consumer evidence.
+For a source-backed preparation, identical native values are exported directly
+through the read-only provider. This does not require copying unrelated caller
+resources. Changed coordinates/charges/types require public `msm.copy` and
+`msm.set` on an independent view; their actual source is never modified. Identical
+native charges/types retain original/derived assignment reports. Manual replacement
+uses public setters, which own attribution invalidation; it neither calculates a
+model nor retains a false native claim. Existing consumer charge/type guards
+still reject changes accompanied by stale named consumer evidence.
 
 For a source-free object, `molsysmt.native.MolSys(n_atoms=...)` and public setters
 receive the object's available coordinates, charges and labels. Public
@@ -90,6 +92,28 @@ failed before using the supported `molsysmt.native.MolSys` namespace; the first
 initially omitted explicit charges and was corrected through public assignment.
 Two superseded full runs were terminated and do not qualify anything. Final
 passing selections and required exact-head gates retain their own results.
+
+### Full-suite correction
+
+Initial implementation `19637d74aa10acb7fd985234951aa02fe1ea1428` exposes eight
+additional failures in its completed 1,261-case local suite. Four show unnecessary
+copying during read-only export when a caller attaches a resource that correctly
+refuses independent copying. The corrected unchanged-data path calls the native
+read-only writer directly. Explicit molecular edits still require a provider copy
+and propagate that same resource refusal; both paths are guarded.
+
+Four failures come from a preparation-only partition spy remaining active during
+native export's separate validation on the reduced atom axis. Its monkeypatch
+scope now ends with preparation. All original full-H classification/partition,
+retained identity, reference-tree and geometry assertions remain; the actual
+writer validates the reduced graph without that test instrumentation. These
+diagnostics and the initial wheel/producer remain historical, not a full passing
+checkpoint. Final source/installed/exact-head results use the corrected source.
+The [correction evidence](data/prepared_writer_correction_2026-10-28/manifest.json)
+retains that unsuccessful full run and the corrected **212-case** source selection
+(145.02 s, zero skips). Sixteen new guards are included in the overlapping
+selection. The corrected implementation needs its own new ordinary artifact;
+the initial `19637d7` wheel is preserved and does not qualify the changed runtime.
 
 The new helper is included in the declared core/addon package inventory. A new
 ordinary consumer wheel must be built from the actual implementation producer,
