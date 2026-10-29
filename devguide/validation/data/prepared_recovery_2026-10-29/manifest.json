@@ -1,0 +1,46 @@
+{
+  "schema": "dockingmt.prepared_recovery_evidence@1",
+  "owner": "uibcdf/dockingmt#57",
+  "files": [
+    {
+      "path": "before.log.gz",
+      "bytes": 628,
+      "sha256": "4588c7b3afdcbdb650c9de3d7f5e33770083da08dab77462de735ac839ed6379"
+    },
+    {
+      "path": "final-source.log.gz",
+      "bytes": 455,
+      "sha256": "2c5c7ab01e6edf4fcf462e69b7f38ea0b60a12e409dbde6598d595cefc9814b7"
+    },
+    {
+      "path": "focused.log.gz",
+      "bytes": 399,
+      "sha256": "606c6fd40d2e767a6cf1bc39981205e14bed050409605f95a9f7a41888047f43"
+    },
+    {
+      "path": "frozen-files.json",
+      "bytes": 7630,
+      "sha256": "49fd55d11ba539eefbf53448f5abd00c67d6080f32143472be3fed6e08b67d0e"
+    },
+    {
+      "path": "guards.log.gz",
+      "bytes": 229,
+      "sha256": "59016f5fc52753f7ee43e64eadfba57779e081f48d6fe2a9894c77fd7f3344c1"
+    },
+    {
+      "path": "probe.json",
+      "bytes": 179,
+      "sha256": "4bd78e561dcabda082d5e6761155028267621af11878057b71c128ae11dc1493"
+    },
+    {
+      "path": "selected.log.gz",
+      "bytes": 430,
+      "sha256": "78e57173675d1f590942ef23c07e0f6627d5d508869e14380d4d8af5758b9fcc"
+    },
+    {
+      "path": "source-receipt.json",
+      "bytes": 1618,
+      "sha256": "372ec7b58c2604f367dd3408aecb0d908052677536d762bdfc9152a96ab0aec0"
+    }
+  ]
+}

@@ -2,6 +2,24 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Prepared-input recovery bound to recorded evidence — 2026-10-29
+
+[The #57 correction](validation/prepared_recovery.md) rejects supplied prepared
+states/parameters that differ from the saved object declaration. Where a Vina
+input hash exists, the public native writer binds actual submitted bytes before
+attaching the recovered problem. Corrupt retained evidence rejects before exports;
+provider errors, caller data and previous attachments are preserved. Missing
+legacy evidence establishes no extra identity. Source/installed/exact-head
+receipts remain distinct on #57.
+
+**Next:** #4 still owns the actual human case-bundle/recovery workflow beyond
+these consistency guards. Preserve the linked original-source/preparation/result
+records and inspect provider persistence/report tools before adding a reusable
+consumer boundary. No molecular snapshot belongs in DockingMT. Receive the
+ChemicalStates migration notice #56 only against delivered, qualified provider
+contracts; keep current pins meanwhile. Partial/reference reading remains
+#49/#33 with MolSysMT #521. Visible C4/C6 remains #52 and public delivery #30/#47.
+
 ## Bounded preparation/profile reconciled — 2026-10-29
 
 [The preparation and provenance profile](validation/preparation_profile.md)

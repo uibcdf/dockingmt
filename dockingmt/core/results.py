@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import hashlib
+import json
 from collections.abc import Mapping
 from copy import deepcopy
 from math import isfinite
@@ -10,6 +12,7 @@ import numpy as np
 import pyunitwizard as puw
 from argdigest import arg_digest
 
+from dockingmt._private.artifacts import inspect_artifact
 from dockingmt._private.serialization import SCHEMA_VERSION, validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core._scores import (
@@ -19,6 +22,73 @@ from dockingmt.core._scores import (
     ranking_history,
 )
 from dockingmt.core.problem import DockingProblem
+
+
+def _verify_prepared_recovery(problem, recorded, provenance):
+    """Bind supplied docking declarations and available submitted-byte evidence.
+
+    Molecular rendering belongs to the existing MolSysMT-backed prepared writer.
+    This checks recorded declarations/bytes, not original molecular identity.
+    """
+    from dockingmt.preparation import PreparedLigand, PreparedReceptor
+
+    inputs = {'receptor': problem.receptor, 'partner': problem.partner}
+    for role, value in inputs.items():
+        entry = recorded.get(role, {})
+        if entry.get('type') != 'object':
+            continue
+        serializer = getattr(value, 'to_dict', None)
+        if not callable(serializer):
+            raise ArgumentError(
+                arg_name=role,
+                reason='The recorded prepared input declaration requires a matching object, not a replacement representation.',
+            )
+        try:
+            expected = json.dumps(entry.get('value'), sort_keys=True, allow_nan=False)
+            actual = json.dumps(serializer(), sort_keys=True, allow_nan=False)
+        except (TypeError, ValueError) as exc:
+            raise ArgumentError(
+                arg_name=role,
+                reason='The prepared input declaration must contain finite JSON data.',
+            ) from exc
+        if actual != expected:
+            raise ArgumentError(
+                arg_name=role,
+                reason='The supplied prepared input declaration differs from the recorded one.',
+            )
+    prepared = {
+        role: value
+        for role, value in inputs.items()
+        if isinstance(value, (PreparedReceptor, PreparedLigand))
+    }
+    if provenance.get('backend') != 'vina' or not prepared:
+        return
+    artifacts = provenance.get('backend_artifacts', {})
+    if not isinstance(artifacts, Mapping):
+        raise ArgumentError(
+            arg_name='backend_artifacts',
+            reason='The recorded PDBQT artifacts are invalid.',
+        )
+    bound = {}
+    # Check all retained evidence before requesting any molecular export.
+    for role in prepared:
+        artifact = artifacts.get(role)
+        status, reason, _ = inspect_artifact(artifact, role)
+        if status == 'inconsistent':
+            raise ArgumentError(arg_name=role, reason=reason)
+        if (
+            isinstance(artifact, Mapping)
+            and artifact.get('format') == 'pdbqt'
+            and artifact.get('sha256') is not None
+        ):
+            bound[role] = artifact['sha256']
+    for role, expected in bound.items():
+        payload = prepared[role].to_pdbqt().encode('utf-8')
+        if hashlib.sha256(payload).hexdigest() != expected:
+            raise ArgumentError(
+                arg_name=role,
+                reason='The supplied PDBQT input differs from the recorded representation.',
+            )
 
 
 def _score_error(value: Any, score_name: str, pose_index: int | None) -> ArgumentError:
@@ -722,10 +792,15 @@ class DockingResult:
     def reconstruct_problem(
         self, receptor: Any = None, partner: Any = None
     ) -> DockingProblem:
-        """Recover the recorded problem, verifying available source fingerprints.
+        """Recover the recorded problem, checking available input evidence.
 
         File-backed inputs can be loaded from the manifest alone. Molecular
         objects that were not serialized must be supplied explicitly.
+        Prepared inputs must match stored declarations and available Vina input
+        hashes, rendered through their native writer. Missing legacy evidence
+        cannot establish original chemistry or full-precision coordinate identity.
+        No preparation, scoring or search is performed. A failure preserves the
+        previously attached problem and the saved record.
         """
         if not self.problem_info:
             raise ArgumentError(
@@ -735,6 +810,7 @@ class DockingResult:
         problem = DockingProblem.from_dict(
             self.problem_info, receptor=receptor, partner=partner
         )
+        _verify_prepared_recovery(problem, self.problem_info, self.provenance)
         self.problem = problem
         return problem
 

@@ -17,6 +17,16 @@ supersedes: []
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
 **Status:** Partial; DockingMT Core MVP work.
 
+## Prepared recovery consistency — 2026-10-29
+
+[The #57 recovery correction](../validation/prepared_recovery.md) binds supplied
+object declarations and available Vina input bytes before a saved result attaches
+its problem. It prevents changed state/charge/type/torsion declarations and
+coordinate changes at submitted precision, including substitution by backend text.
+Public MolSysMT performs molecular export; no parser or snapshot is implemented.
+Original-file identity, missing legacy evidence and full native persistence retain
+their explicit limits. This broader #4 source-bundle workflow remains partial.
+
 ## Preparation/profile checkpoint — 2026-10-29
 
 [The declared profile](../validation/preparation_profile.md) records the supported

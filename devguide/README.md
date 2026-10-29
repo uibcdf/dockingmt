@@ -28,7 +28,13 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
-Start with the [declared preparation/provenance profile](validation/preparation_profile.md).
+Start with [prepared-input recovery checks](validation/prepared_recovery.md),
+the #57 follow-up under #4. Supplied object declarations and available submitted
+PDBQT hashes must match before a recovered problem is attached; molecular export
+remains delegated to MolSysMT. Legacy missing evidence retains explicit limits.
+The broader source-bundle/persistence scope remains #4.
+
+See the [declared preparation/provenance profile](validation/preparation_profile.md).
 It records the supported one-state rigid-protein/small-molecule workflow, the
 executed current-composition admission without searches, and the linked case
 bundle required for original-source provenance. Placeholder preparation mechanisms

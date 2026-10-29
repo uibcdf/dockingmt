@@ -1,0 +1,47 @@
+{
+  "schema": "dockingmt.prepared_recovery_source@1",
+  "parent": "12b536046f6dc5fa9bd823d1f974be540037d225",
+  "provider": "e395e52646dab2ecb480d3d67aa7254be99b8524",
+  "new_guard_cases": 38,
+  "initial_guard_cases": 34,
+  "initial_passed": 4,
+  "initial_failed": 30,
+  "initial_coordinate_fixture_limit": "Integer-array fractional edits truncated; do not count those as a demonstrated changed-coordinate reproduction. The independent state/charge probe establishes the defect.",
+  "intermediate_selection": {
+    "passed": 194,
+    "failed": 4,
+    "seconds": 15.09,
+    "cause": "Coordinate fixture integer truncation, corrected to explicit float before final controls."
+  },
+  "earlier_source_selection": {
+    "passed": 267,
+    "seconds": 67.18,
+    "skipped": 0,
+    "warnings": 25
+  },
+  "earlier_guard_module": {
+    "passed": 36,
+    "seconds": 20.29,
+    "skipped": 0,
+    "warnings": 1
+  },
+  "final_source_selection": {
+    "passed": 271,
+    "seconds": 67.65,
+    "skipped": 0,
+    "warnings": 25,
+    "includes_all_new_guards": true
+  },
+  "source_hashes": {
+    "dockingmt/core/results.py": "d54032e0fc5f9a66b13aa66a331836707c880826e0caa72655b4443ab6b868a0",
+    "tests/test_prepared_recovery.py": "c1f082f3d434bf13c7753342a52b32c4d46d79473a3996ffce6da0b8a8bb705b"
+  },
+  "overlapping_counts_not_added": true,
+  "frozen_file_count": 55,
+  "no_new_molecular_operation_implementation": true,
+  "provider_pin_or_shared_environment_changed": false,
+  "historical_search_populations_reexecuted": false,
+  "public_publication": false,
+  "resource_owner": "uibcdf/dockingmt#50",
+  "review_by": "2026-11-05"
+}
