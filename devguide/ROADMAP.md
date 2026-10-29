@@ -2,6 +2,29 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Bounded preparation/profile reconciled — 2026-10-29
+
+[The preparation and provenance profile](validation/preparation_profile.md)
+defines one declared protein/small-molecule state, a rigid receptor, explicit
+ligand cuts, public MolSysMT molecular operations and actual writer/map/reader
+binding. A separately registered ordinary-installed admission passes for the
+unchanged 3PTB hypothesis under normal and pm/fs unit policies, with zero energy
+calculations/searches and all 44 frozen historical/authority files unchanged.
+Original scientific producers are preserved; this is not a new redocking result.
+
+Resolve #5's original placeholder mechanisms with required-charge/type and
+provider-consumption guards. Keep its scientific model/scoring follow-up in #33;
+`unassessed` is unchanged. #4 retains general prepared-source/replay persistence,
+while the current human route uses a linked source/admission/result bundle.
+
+**Next:** under #4, scope the smallest public workflow improvement needed to
+retain/recover that bundle for actual prepared inputs. First identify existing
+provider persistence/report contracts and the supported caller boundary; no
+consumer molecular snapshot or provenance inferred from a native object's history.
+Receive MolSysMT #521 under #49/#33 when delivered; broader chemical/model claims
+need their own registered question and controls. C4 visibility/C6 remains #52,
+and public delivery retains #30/#47.
+
 ## Selection-domain provenance implemented — 2026-10-28
 
 [The #55 contract](validation/domain_derivation.md) retains the requested/resolved

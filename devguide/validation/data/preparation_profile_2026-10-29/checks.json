@@ -1,0 +1,31 @@
+{
+  "schema": "dockingmt.preparation_profile_checks@1",
+  "runtime_source": "8d40870724e21cf579ce4d5289d46b5d8a5aaa1c",
+  "ordinary_installed_cases": 108,
+  "failed": 0,
+  "skipped": 0,
+  "seconds": 63.79,
+  "warnings": 35,
+  "source_free_harness": true,
+  "selection": [
+    "test_required_autodock_types",
+    "test_required_partial_charges",
+    "test_preparation_assessment",
+    "test_ligand_projection_consumption",
+    "test_receptor_projection_consumption",
+    "test_prepared_writer_delegation",
+    "test_prepared_pose_reading"
+  ],
+  "counts_not_added_to_admission_or_prior_suites": true,
+  "initial_guard_selection": {
+    "status": "rejected_before_pytest",
+    "cause": "Two nonexistent module names in selection; corrected to existing consumption modules. No product execution qualified."
+  },
+  "registration_url": "https://github.com/uibcdf/dockingmt/issues/33#issuecomment-6501548627",
+  "shared_environment_changed": false,
+  "runtime_or_dependencies_changed": false,
+  "administrative_cases": 24,
+  "governance_cases": 5,
+  "canonical_guides_matched": 7,
+  "relative_links_checked": 214
+}

@@ -14,6 +14,24 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Preparation/profile checkpoint — 2026-10-29
+
+[The declared profile](../validation/preparation_profile.md) records the supported
+one-state rigid-protein/small-molecule route and its linked source-bundle boundary.
+A separately registered ordinary-installed admission of the unchanged 3PTB
+hypothesis passes under two unit policies: both actual export/readback chains,
+complete named fields, conserved charges and native input parsing, with no energy,
+searches or generated poses. All 44 frozen source/evidence/authority files retain
+their hashes. Original historical experiments are not relabelled.
+
+#5's original placeholder defect is resolved; its remaining scientific model/
+scoring acceptance is explicitly retained in #33. #33 remains partial for that
+question and remaining input/reader profiles; #4 remains partial for general
+prepared-source/replay persistence. Native prepared inputs retain honest absent
+file fingerprints, with source binding established by the case bundle. No new
+molecular operation or snapshot is implemented downstream. DMT-043 records the
+bounded decision; visible C4/C6 remains deferred.
+
 ## Supported profile versus historical gaps — 2026-10-28
 
 The [Core MVP audit](../validation/core_mvp_audit_2026-10-28.md) reconciles current `c9c8196` with historical

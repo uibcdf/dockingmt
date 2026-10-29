@@ -1,14 +1,14 @@
 ---
 summary: Vina preparation fabricates zero charges and name-based atom types
 issue: uibcdf/dockingmt#5
-status: partial
+status: resolved
 opened: 2026-09-22
-closed:
+closed: 2026-10-29
 severity: high
 verification: measured
 area: [preparation, vina]
-guard: tests/test_engines.py::test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs
-normative:
+guard: tests/test_required_partial_charges.py
+normative: devguide/validation/preparation_profile.md
 blocked_by: []
 supersedes: []
 ---
@@ -16,7 +16,7 @@ supersedes: []
 # Vina preparation fabricates zero charges and name-based atom types
 
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
-**Status:** Partial; DockingMT Core MVP work.
+**Status:** Resolved for the original unsafe mechanisms; scientific model/profile follow-up remains in #33. See the 2026-10-29 resolution below.
 
 ## Current mechanism and acceptance status — 2026-10-28
 
@@ -459,3 +459,43 @@ preparation checks without a charge presentation standard, preserving caller
 policy, input identity and prepared bytes. Earlier limitations and measured
 receipts above remain historical. This issue stays partial for native projection
 and broader chemical/scoring acceptance; no new molecular helper is added here.
+
+
+## Resolution and retained scientific follow-up — 2026-10-29
+
+The original unsafe mechanisms are resolved: both preparation roles require
+complete finite charges or an explicit public provider calculation, valid named
+AutoDock typing or explicit provider typing options, and public H projection/
+charge transfer. Native writing replaces consumer serializers. Absent data and
+provider failures cannot become implicit zeros, name-derived labels or local
+H-parent guesses; explicitly supplied zeros remain legitimate unattributed data.
+Provisional opt-in does not bypass required fields.
+
+The primary guard `tests/test_required_partial_charges.py` checks absent values,
+provider refusals/nonfinite data, automatic Vina admission and legitimate supplied
+zeros. `tests/test_required_autodock_types.py` protects named-type requirements,
+explicit method choice and rejection before unrequested molecular work. Public
+projection, actual native writer/reader and preparation-assessment guards cover
+both roles and persistence of their truthful evidence.
+
+[The bounded profile](../validation/preparation_profile.md), DMT-043 and its
+separately registered current-composition 3PTB admission establish the precise
+supported software/representation scope without a new search. Both ligand arms,
+receptor, named fields, conserved charges, actual native export/map/readback and
+pm/fs policy pass. Preparation assessment remains `unassessed`; native parsing
+and complete fields do not establish experimental protonation or affinity.
+
+The earlier partial status combined this defect with a broader scientific
+acceptance question. That remaining **model/scoring acceptance is retained in
+uibcdf/dockingmt#33**, together with the explicit limits and requirements for
+additional registered informative cases. It is not declared resolved or silently
+dropped. #4 retains general source/replay provenance and #49/#33 the remaining
+reader profiles. Closing this original bug does not accept the whole Core MVP,
+visible C4/C6, general chemical validity or public distribution. Earlier dated
+partial statements above retain their historical meaning.
+
+The ordinary-installed correction guard selection passes **108 tests** in 63.79 s,
+zero skips, on the same qualified `8d40870` artifact. The current runtime's complete
+source matrix already passes 1,301 tests per Python 3.11–3.14; this documentation/
+evidence change preserves all 58 runtime file hashes. Exact documentation-head
+administrative/hosted receipts are recorded separately on the owning issues.

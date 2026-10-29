@@ -28,8 +28,16 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
-Start with [selection-domain provenance](validation/domain_derivation.md), the
-implemented nonvisual #55 follow-up. Optional recipes preserve original source/
+Start with the [declared preparation/provenance profile](validation/preparation_profile.md).
+It records the supported one-state rigid-protein/small-molecule workflow, the
+executed current-composition admission without searches, and the linked case
+bundle required for original-source provenance. Placeholder preparation mechanisms
+are resolved under #5; scientific model/input-profile acceptance stays #33, and
+general prepared-source/replay persistence stays #4. Molecular operations remain
+MolSysMT-owned. Visible C4/C6 and public delivery retain their separate gates.
+
+The preceding [selection-domain provenance](validation/domain_derivation.md)
+implements the nonvisual #55 follow-up. Optional recipes preserve original source/
 selection/frame context through serialization without changing box geometry or
 inventing native identity. Stale geometry rejects; legacy records stay readable.
 Visible C4/C6 remain deferred. The [nonvisual Core MVP audit](validation/core_mvp_audit_2026-10-28.md)

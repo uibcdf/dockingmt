@@ -1,0 +1,274 @@
+"""Registered current-composition 3PTB admission; no native search or energy."""
+
+# Imports follow explicit source-free harness selection.
+# ruff: noqa: E402
+import argparse
+import gzip
+import hashlib
+import importlib.metadata as md
+import json
+import subprocess
+import sys
+import warnings
+from pathlib import Path
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--harness', type=Path, required=True)
+parser.add_argument('--repository', type=Path, required=True)
+parser.add_argument('--qualification', type=Path, required=True)
+parser.add_argument('--registration', type=Path, required=True)
+parser.add_argument('--output', type=Path, required=True)
+args = parser.parse_args()
+sys.path.insert(0, str(args.harness))
+
+import molsysmt as msm
+import numpy as np
+import pyunitwizard as puw
+from vina import Vina
+
+import dockingmt as dmt
+from devtools.qualify_3ptb_admission import DATA, admit
+from devtools.qualify_chemical_templates import detached_record, snapshot
+from dockingmt.preparation._export import export_pdbqt
+
+
+def digest(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def encoded(value):
+    return json.dumps(detached_record(value), sort_keys=True, allow_nan=False).encode()
+
+
+registration = json.loads(args.registration.read_text())
+assert digest(Path(__file__).read_bytes()) == registration['producer_sha256']
+qualification = json.loads(args.qualification.read_text())
+assert qualification['producer'] == registration['runtime_source']
+assert md.version('dockingmt') == registration['consumer_version']
+assert md.version('molsysmt') == registration['provider_version']
+assert Path(dmt.__file__).resolve().is_relative_to(Path(sys.prefix).resolve())
+assert Path(msm.__file__).resolve().is_relative_to(Path(sys.prefix).resolve())
+for row in qualification['matched_runtime_files']:
+    installed = Path(dmt.__file__).parent.parent / row['path']
+    assert digest(installed.read_bytes()) == row['sha256']
+    assert digest((args.repository / row['path']).read_bytes()) == row['sha256']
+assert (
+    digest((Path(msm.__file__).parent / '_rust.abi3.so').read_bytes())
+    == registration['provider_native_sha256']
+)
+assert (
+    digest((args.harness / 'devtools/qualify_3ptb_admission.py').read_bytes())
+    == registration['admission_driver_sha256']
+)
+assert (
+    digest((DATA / '3PTB.pdb.gz').read_bytes())
+    == registration['compressed_input_sha256']
+)
+
+frozen_paths = subprocess.check_output(
+    [
+        'git',
+        'ls-tree',
+        '-r',
+        '--name-only',
+        registration['runtime_source'],
+        '--',
+        'devguide/validation/data/3ptb_prospective',
+        'devguide/validation/data/3ptb_admission',
+        'devguide/validation/data/3ptb_search',
+        'devguide/validation/data/human_3ptb',
+        'devguide/validation/3ptb_prospective_protocol.md',
+        'devguide/validation/3ptb_source_handoff_2026-10-10.md',
+        'devguide/validation/3ptb_admission_2026-10-10.ipynb',
+        'devguide/validation/3ptb_search_2026-10-10.ipynb',
+        'devguide/validation/human_3ptb_workflow_2026-10-20.ipynb',
+        'devguide/MVP.md',
+    ],
+    cwd=args.repository,
+    text=True,
+).splitlines()
+ledger = {name: digest((args.repository / name).read_bytes()) for name in frozen_paths}
+
+blocked = []
+
+
+def forbidden(*unused, **options):
+    blocked.append('forbidden_native_operation')
+    raise AssertionError('Registration forbids maps, energy, optimization and search')
+
+
+for name in ('compute_vina_maps', 'score', 'optimize', 'dock', 'randomize'):
+    setattr(Vina, name, forbidden)
+dmt.dock = dmt.score = forbidden
+
+
+def receive():
+    receptor, ligands, reference, boxes, raw = admit(DATA / '3PTB.pdb.gz')
+    assert raw['direct_compressed_input_admitted']
+    assert raw['docking_searches_executed'] == raw['fixed_evaluations_executed'] == 0
+    roles = {'receptor': receptor, **ligands}
+    result = {
+        'roles': {},
+        'boxes': raw['boxes'],
+        'source_counts': raw['source_counts'],
+        'source_file_unchanged': raw['original_compressed_file_unchanged'],
+        'source_molecule_unchanged': raw['original_source_unchanged'],
+        'disulfides': raw['receptor']['disulfide_author_pairs'],
+    }
+    for role, prepared in roles.items():
+        evidence = raw['prepared_inputs'][role]
+        assert msm.get(prepared.source_molsys, n_chemical_states=True) == 1
+        assert list(
+            msm.get(prepared.source_molsys, connectivity_completeness=True)
+        ) == ['complete']
+        row = {
+            'state_id': prepared.state_id,
+            'n_atoms': prepared.n_atoms,
+            'source_n_atoms': prepared.metadata['source_n_atoms'],
+            'pdbqt_sha256': evidence['pdbqt_sha256'],
+            'charge_audit': evidence['charge_audit'],
+            'assessment': evidence['preparation_assessment'],
+            'native_parser_admitted': evidence['native_vina_parser_admitted'],
+            'pdbqt_to_full_source_atom_indices': evidence[
+                'pdbqt_to_full_source_atom_indices'
+            ],
+            'named_charge_method': prepared.metadata['partial_charge_assignment'][
+                'method'
+            ],
+            'named_typing_rule': prepared.metadata['atom_type_assignment'][
+                'rule_version'
+            ],
+            'source_chemistry': prepared.metadata['source_chemistry'],
+            'complete_single_state': True,
+        }
+        if role != 'receptor':
+            before = snapshot(prepared.source_molsys)
+            exported = export_pdbqt(prepared, ligand=True)
+            assert exported.text == evidence['pdbqt']
+            assert exported.atom_map['payload_sha256'] == digest(exported.text.encode())
+            received = msm.form.string_pdbqt_text.read_poses(
+                'pdbqt_text:' + exported.text,
+                exported.molecular_system,
+                exported.atom_map,
+                return_report=True,
+            )
+            xyz = puw.get_value(
+                msm.get(received['molecular_system'], coordinates=True),
+                to_unit='angstrom',
+            )
+            native = puw.get_value(
+                msm.get(exported.molecular_system, coordinates=True), to_unit='angstrom'
+            )
+            np.testing.assert_allclose(xyz, native, rtol=0, atol=0.000501)
+            assert snapshot(prepared.source_molsys) == before
+            row.update(
+                {
+                    'torsion_dof': prepared.torsion_dof,
+                    'pdbqt_atom_indices': prepared.pdbqt_atom_indices,
+                    'writer_map': exported.atom_map,
+                    'reader_report': received['report'],
+                    'reader_is_export_roundtrip_not_generated_pose': True,
+                }
+            )
+        result['roles'][role] = row
+    problem = dmt.DockingProblem(
+        receptor=receptor, partner=ligands['rigid'], search_domain=boxes['native']
+    )
+    inputs = problem.to_dict()['molecular_inputs']
+    assert all(info['source_fingerprint'] is None for info in inputs.values())
+    result['prepared_problem_inputs'] = inputs
+    result['source_binding_scope'] = (
+        'Case source/selection maps and registration; prepared problem alone has no original file fingerprint.'
+    )
+    # The old helper's 24 rows are only its prospective template, not new attempts.
+    result['population_template_rows'] = len(raw['population'])
+    result['population_template_executed'] = False
+    return result
+
+
+args.output.mkdir(parents=True, exist_ok=True)
+with warnings.catch_warnings(record=True) as caught:
+    warnings.simplefilter('always')
+    baseline = receive()
+    policy = puw.configure.report()
+    with puw.context(
+        standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'degrees']
+    ):
+        alternate = receive()
+    assert puw.configure.report() == policy
+for role in baseline['roles']:
+    assert (
+        baseline['roles'][role]['pdbqt_sha256']
+        == alternate['roles'][role]['pdbqt_sha256']
+    )
+for domain in baseline['boxes']:
+    assert (
+        baseline['boxes'][domain]['backend_projection']
+        == alternate['boxes'][domain]['backend_projection']
+    )
+assert not blocked
+assert ledger == {
+    name: digest((args.repository / name).read_bytes()) for name in frozen_paths
+}
+receipt = {
+    'schema': 'dockingmt.preparation_profile_receiving@1',
+    'registration_sha256': digest(args.registration.read_bytes()),
+    'producer_sha256': digest(Path(__file__).read_bytes()),
+    'runtime_source': registration['runtime_source'],
+    'consumer_artifact_sha256': qualification['sha256'],
+    'consumer_version': md.version('dockingmt'),
+    'provider_source': registration['provider_source'],
+    'provider_native_sha256': registration['provider_native_sha256'],
+    'versions': {
+        name: md.version(name)
+        for name in [
+            'dockingmt',
+            'molsysmt',
+            'argdigest',
+            'molsysviewer',
+            'vina',
+            'rdkit',
+            'pyunitwizard',
+        ]
+    },
+    'matched_runtime_files': len(qualification['matched_runtime_files']),
+    'admission': baseline,
+    'unit_control': {
+        'standard_length': 'pm',
+        'standard_time': 'fs',
+        'identical_pdbqt_payloads': True,
+        'identical_backend_boxes': True,
+        'caller_policy_restored': True,
+    },
+    'warnings': [
+        {'category': type(w.message).__name__, 'message': str(w.message)}
+        for w in caught
+    ],
+    'frozen_files_unchanged': ledger,
+    'native_searches': 0,
+    'energy_evaluations': 0,
+    'generated_poses': 0,
+    'native_computation_entry_points_blocked': True,
+    'original_population_reexecuted': False,
+    'limitations': [
+        'One declared chemical hypothesis; no environmental protonation or affinity validation.',
+        'Native reader receives its actual export, not new Vina poses.',
+        'Prepared-source identity is a case-bundle contract; arbitrary native origin remains unknown.',
+    ],
+}
+raw = encoded(receipt)
+(args.output / 'receipt.json.gz').write_bytes(gzip.compress(raw, mtime=0))
+print(
+    json.dumps(
+        {
+            'status': 'admitted',
+            'roles': {k: v['n_atoms'] for k, v in baseline['roles'].items()},
+            'runtime_source': registration['runtime_source'],
+            'frozen_files_unchanged': len(ledger),
+            'warnings': len(caught),
+            'native_searches': 0,
+            'energy_evaluations': 0,
+            'receipt_sha256': digest((args.output / 'receipt.json.gz').read_bytes()),
+        }
+    )
+)

@@ -1,0 +1,57 @@
+{
+  "schema": "dockingmt.preparation_profile_evidence@1",
+  "owner": "uibcdf/dockingmt#33",
+  "date": "2026-10-29",
+  "files": [
+    {
+      "path": "administrative.log.gz",
+      "bytes": 50,
+      "sha256": "c7d052f5713d59d1c107f0c4c486974b4560c7f2a4741ca6c1b1193deea13304"
+    },
+    {
+      "path": "admission.log.gz",
+      "bytes": 400,
+      "sha256": "20a6af08bdfff36dd93145c7769a31cf6f042f82a31be07da2f505c4bbad3155"
+    },
+    {
+      "path": "checks.json",
+      "bytes": 1109,
+      "sha256": "3446b75599910b16c48c59b239c7885b732805f8fb249cf4e9db0b14da96b967"
+    },
+    {
+      "path": "governance-local.log.gz",
+      "bytes": 50,
+      "sha256": "c0bbebeec480b49e3ce9023b71bd47a881b23d2e9549c3862dc8f038660ef806"
+    },
+    {
+      "path": "guards.log.gz",
+      "bytes": 325,
+      "sha256": "ed3c1cadc09ebd80e4f2797d10b21687e75a65dba7634bcf8e724328e082a03d"
+    },
+    {
+      "path": "guides-inspection.json",
+      "bytes": 2092,
+      "sha256": "c9c815e3208ed4cc5295bb7119f0259594157e9505dec09f7bcd14047ea29104"
+    },
+    {
+      "path": "local-checks.json",
+      "bytes": 161,
+      "sha256": "b0f66aae1b5c3713537ff7899792c985ebce74469c2db7a149a7e4cd9d143c08"
+    },
+    {
+      "path": "producer.py.txt",
+      "bytes": 10533,
+      "sha256": "fa74f7aec258cc31520f5494cd874c2ed3a85c595885e893581f392879fed3be"
+    },
+    {
+      "path": "receipt.json.gz",
+      "bytes": 50895,
+      "sha256": "d1b8c434a68dbb5eb869511a09bea5360982af01234eb62e767c4afe87efbaf3"
+    },
+    {
+      "path": "registration.json",
+      "bytes": 2385,
+      "sha256": "8227afcc45309735d5d58857969e65729fb2b43e08cdb7c767da20ad6a8516c6"
+    }
+  ]
+}

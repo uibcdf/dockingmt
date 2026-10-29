@@ -634,3 +634,41 @@ and producers; no current success admits chemical preparation or public delivery
 **Evidence:** [Production reader consumption](validation/prepared_pose_reading.md)
 and `tests/test_prepared_pose_reading.py`, with separate source, ordinary-installed
 and exact-head hosted receipts under #49. HTML/C6 remains deferred.
+
+
+---
+
+## DMT-043 — Admit an explicit preparation profile with linked source evidence
+
+**Status:** Accepted for the bounded software/representation profile, 2026-10-29;
+scientific model and remaining input profiles stay partial under #33.
+
+**Decision:** The first molecular workflow uses one declared protein/small-molecule
+state, a rigid receptor and rigid or explicit-cut ligand. Public MolSysMT owns
+molecular preparation, characterization, maps, writing and known-source reading.
+Preserve explicit chemical choices, named assignments, losses and actual submitted
+bytes. `assess_preparation` remains `unassessed` unless its own scientific contract
+changes; format admission is not experimental state or affinity validation.
+
+Keep original input identity, decisions, transformations and execution linked in
+the existing case bundle. An already prepared/native input may truthfully lack
+an original-file fingerprint. Do not invent that identity or implement native
+molecular persistence in DockingMT; #4 owns the remaining consumer workflow and
+MolSysMT owns molecular storage. The pilot-inspired notebook composes APIs and
+records scientific intent rather than duplicating provider operations.
+
+**Evidence:** [Profile and current-composition admission](validation/preparation_profile.md),
+its pre-execution registration and immutable producer, existing 3PTB historical
+positive/negative evidence and charge/type/provider-consumption guards. The new
+admission performs no energy calculation, search or generated-pose evaluation.
+Original scientific artifacts and qualified package bytes retain their producers.
+
+**Issue disposition:** Resolve #5's original zero/heuristic preparation mechanisms;
+retain its scientific model/scoring follow-up explicitly in #33. #4 and #49/#33
+keep their persistence and remaining-reader scopes. This does not accept the
+whole Core MVP, visible C4/C6 or public delivery.
+
+**Revisit when:** An actual workflow requires another chemical/representation
+profile, provider persistence/partial reading is delivered, or a registered
+informative experiment changes the model's evidence. No default chemistry,
+implicit parameter calculation or broad support claim follows from this decision.

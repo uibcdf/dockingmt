@@ -1,0 +1,37 @@
+{
+  "schema": "dockingmt.preparation_profile_registration@1",
+  "date": "2026-10-29",
+  "owner": "uibcdf/dockingmt#33",
+  "related": [
+    "uibcdf/dockingmt#4",
+    "uibcdf/dockingmt#5"
+  ],
+  "purpose": "Current-composition molecular/representation admission of the unchanged 3PTB hypothesis; no searches or energy evaluation.",
+  "runtime_source": "8d40870724e21cf579ce4d5289d46b5d8a5aaa1c",
+  "consumer_version": "0.0.0+207.g8d40870",
+  "consumer_wheel_sha256": "cb18fbd0cb5b5476c5e9d3ee7236a1ac66b321304a1a6d4811f7ee3037cfd471",
+  "provider_source": "e395e52646dab2ecb480d3d67aa7254be99b8524",
+  "provider_version": "0.23.0+232.ge395e5264",
+  "provider_native_sha256": "f7db4906514c407775dd2a4e1d4911729b9ba233d49044e17330cf3a01fc240a",
+  "producer_sha256": "fa74f7aec258cc31520f5494cd874c2ed3a85c595885e893581f392879fed3be",
+  "admission_driver_sha256": "8c6a3e1cb4a22c20ee19b40fe9ae17b143d2ac3a9e5ea608ecade7835451c2ee",
+  "compressed_input_sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+  "chemical_hypothesis": "Unchanged registered dry chain A, HID57/HIE40/HIE91, six deposited CYX links and charged termini; benzamidinium +1; named gasteiger_marsili/autodock4 chemical_environment@1.",
+  "controls": [
+    "Direct compressed input; original heavy identities/coordinates and source immutability",
+    "Rigid ligand and only explicit C1-C active cut; complete named fields and conserved +6/+1 e projection",
+    "Native Vina input parsing only",
+    "Actual native export/map/readback of each ligand; this is not generated pose output",
+    "Repeat admission under pm/fs units; identical PDBQT payloads and backend boxes; restore caller policy",
+    "Prepared problem records honestly retain absent original-file fingerprints; source binding resides in the case bundle",
+    "Block native maps, score, optimize, dock and randomize; record any stop without model/parameter retuning",
+    "Preserve all original sources, notebooks, populations and qualification files"
+  ],
+  "maximum_new_searches": 0,
+  "maximum_energy_evaluations": 0,
+  "maximum_generated_poses": 0,
+  "failure_policy": "Stop and retain diagnostics; provider-owned gaps are reported upstream. A corrected producer must have a separate pre-execution amendment.",
+  "resource_owner": "uibcdf/dockingmt#50",
+  "resource_review": "2026-11-05",
+  "public_package_or_release": false
+}

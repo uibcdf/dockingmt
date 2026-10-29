@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (35)
+### Resolved (36)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
@@ -41,5 +41,6 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`use_molsysmt_as_canonical_molecular_input_for_the_core_mvp.md`](use_molsysmt_as_canonical_molecular_input_for_the_core_mvp.md) — [#9](https://github.com/uibcdf/dockingmt/issues/9) — Use MolSysMT as the canonical molecular input for the Core MVP *(resolved, measured)*
 - [`vina_adapter_advertises_unsupported_ad4_scoring.md`](vina_adapter_advertises_unsupported_ad4_scoring.md) — [#23](https://github.com/uibcdf/dockingmt/issues/23) — Reject unsupported AD4 scoring before Vina execution *(resolved, measured)*
 - [`vina_ignores_constraints_and_search_guidance.md`](vina_ignores_constraints_and_search_guidance.md) — [#26](https://github.com/uibcdf/dockingmt/issues/26) — Reject unsupported constraints and guidance before Vina execution *(resolved, measured)*
+- [`vina_preparation_fabricates_zero_charges_and_name_based_atom_types.md`](vina_preparation_fabricates_zero_charges_and_name_based_atom_types.md) — [#5](https://github.com/uibcdf/dockingmt/issues/5) — Vina preparation fabricates zero charges and name-based atom types *(resolved, measured)*
 
 <!-- /generated -->
