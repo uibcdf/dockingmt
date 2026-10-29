@@ -81,9 +81,9 @@ for this fix: the native writer and existing DockingMT integrity tool already
 cover the accepted recovery operation. The incoming ChemicalStates migration
 notice #56 retains its separate receiving scope and does not change provider pins.
 
-## Verification and retained evidence
+## Initial-candidate verification and retained evidence
 
-[The guard module](../../tests/test_prepared_recovery.py) has **38 cases**:
+At `37d83d0`, [the guard module](../../tests/test_prepared_recovery.py) has **38 cases**:
 both-role state/charge/type/hierarchy/metadata refusals, torsion changes, input-type
 substitution, shifted coordinates with and without captured bytes, corrupt
 artifacts, matching public exports under angstrom/pm policies, failed-recovery
@@ -111,3 +111,24 @@ automatic deletion. One verified unused prior build checkout is retired while
 its qualified wheel, receiver, harness and canonical source remain intact. Public
 records use resource categories; machine-specific diagnostics remain local.
 Visual C4/C6 stays deferred under #52. No package or release is published.
+
+
+## Mixed prepared/external inputs — final correction
+
+A separately retained two-case control against the initial ordinary-installed
+`37d83d0` wheel exposes a remaining preflight gap: with one prepared role and one
+external PDBQT role, corrupted capture for the external role was not inspected
+before a prepared export was attempted. Initial source/installed 271-case success
+does not establish this newly tested boundary. The initial wheel, bytes and
+receipts retain their own producer and identity.
+
+The corrected operation inspects both retained roles whenever prepared recovery
+needs Vina evidence; only actual prepared roles are rendered. Both mixed-role
+controls now reject before export. The final source selection passes **273 tests**,
+65.83 s, zero skips, 25 warnings, including the complete **40-case** guard module.
+[Separate correction evidence](data/prepared_recovery_2026-10-29/mixed/manifest.json)
+retains the red installed control, initial artifact, final source hashes and all
+64 unchanged historical/authority/initial-evidence members. Ordinary installed
+and exact-head checks for the final candidate remain separate under #57. The
+active task receiver can advance between interim candidates; original wheel files
+and receipts, historical qualified receivers and provider bytes are preserved.

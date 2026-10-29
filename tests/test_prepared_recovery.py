@@ -47,7 +47,9 @@ def _saved(receptor, partner, *, captured=True, artifacts=True):
     if artifacts:
         provenance['backend_artifacts'] = {}
         for role, prepared in [('receptor', receptor), ('partner', partner)]:
-            payload = prepared.to_pdbqt().encode()
+            payload = (
+                prepared if isinstance(prepared, str) else prepared.to_pdbqt()
+            ).encode()
             record = {'format': 'pdbqt', 'sha256': hashlib.sha256(payload).hexdigest()}
             if captured:
                 record['content_base64'] = base64.b64encode(payload).decode('ascii')
@@ -300,4 +302,22 @@ def test_backend_text_cannot_bypass_a_recorded_object_declaration(role):
     values[role] = values[role].to_pdbqt()
     with pytest.raises(ArgumentError, match='prepared.*declaration'):
         saved.reconstruct_problem(**values)
+    assert saved.problem is None
+
+
+@pytest.mark.parametrize('external_role', ['receptor', 'partner'])
+def test_mixed_inputs_check_external_capture_before_prepared_export(
+    external_role, monkeypatch
+):
+    receptor, partner = _pair()
+    inputs = {'receptor': receptor, 'partner': partner}
+    inputs[external_role] = inputs[external_role].to_pdbqt()
+    saved = _saved(inputs['receptor'], inputs['partner'])
+    saved.provenance['backend_artifacts'][external_role]['content_base64'] = (
+        base64.b64encode(b'changed').decode('ascii')
+    )
+    monkeypatch.setattr(dmt.PreparedReceptor, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(dmt.PreparedLigand, 'to_pdbqt', _forbidden)
+    with pytest.raises(ArgumentError):
+        saved.reconstruct_problem(**inputs)
     assert saved.problem is None

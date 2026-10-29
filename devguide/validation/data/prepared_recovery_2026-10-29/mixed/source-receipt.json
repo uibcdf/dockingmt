@@ -1,0 +1,35 @@
+{
+  "schema": "dockingmt.prepared_recovery_mixed_source@1",
+  "parent": "37d83d0cb9c34b022780b8605792b4d7b9eaa3e3",
+  "new_guard_cases": 40,
+  "mixed_regression_on_initial_installed_wheel": {
+    "failed": 2,
+    "deselected": 38,
+    "seconds": 1.39,
+    "cause": "Existing prepared-role-only loop did not reject corrupted captured bytes for the external role before attempting an export."
+  },
+  "initial_installed_selection": {
+    "passed": 271,
+    "seconds": 65.95,
+    "skipped": 0,
+    "warnings": 25,
+    "producer": "37d83d0cb9c34b022780b8605792b4d7b9eaa3e3",
+    "sha256": "04751853b1e78c6d70f895d5f7dd716da47403472c069a8b52c3d138da929936"
+  },
+  "final_source_selection": {
+    "passed": 273,
+    "seconds": 65.83,
+    "skipped": 0,
+    "warnings": 25,
+    "includes_all_40_guards": true
+  },
+  "source_hashes": {
+    "dockingmt/core/results.py": "6961abe153396229e6abb29cbfcc463ffda5e6d87808956449597cca19ed7fd7",
+    "tests/test_prepared_recovery.py": "7499368295190763d8f03fe6387447111b5bfd53d44a0cba9407974fda952dde"
+  },
+  "original_evidence_unchanged": 64,
+  "provider_or_shared_environment_changed": false,
+  "earlier_producer_or_wheel_relabelled": false,
+  "native_search_population_reexecuted": false,
+  "public_publication": false
+}

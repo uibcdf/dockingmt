@@ -1,0 +1,36 @@
+{
+  "schema": "dockingmt.prepared_recovery_mixed_evidence@1",
+  "owner": "uibcdf/dockingmt#57",
+  "files": [
+    {
+      "path": "before.log.gz",
+      "bytes": 291,
+      "sha256": "8857aa8ba084adf31229d422c52cff0f9f38a726ea6a8b7b7d46aed67a01861d"
+    },
+    {
+      "path": "frozen-files.json",
+      "bytes": 8915,
+      "sha256": "6a02203f06cb26bf3da94c3d0682b47ebd7de46b20902ee61dd13f257b0de1b1"
+    },
+    {
+      "path": "initial-artifact.json",
+      "bytes": 9208,
+      "sha256": "0781e6546419000b9e17e81f081d744e703e192b6a29614673f48320913ff34e"
+    },
+    {
+      "path": "initial-installed.log.gz",
+      "bytes": 455,
+      "sha256": "6a3b47fad3cce7ab7ad692419b4d24cd26a71726e035925cbe59d07ca3811910"
+    },
+    {
+      "path": "source-receipt.json",
+      "bytes": 1255,
+      "sha256": "08109d9c06f1a5fef710cffae79aee39861467352f4b7ea2e09fac7bbc6623e3"
+    },
+    {
+      "path": "source.log.gz",
+      "bytes": 454,
+      "sha256": "34606bc90b4b7ab404c2323d1ce0c15826eef37e54ad63a727bc4ab2121b2a22"
+    }
+  ]
+}

@@ -77,3 +77,14 @@ The final source selection passes 271 cases, zero skips. Ordinary installed and
 exact-head receipts are recorded separately on #57; #4 remains partial for the
 broader source-bundle/persistence contract. No molecular snapshot or original
 scientific result is reconstructed or rewritten by this fix.
+
+
+## Mixed-input preflight completion — 2026-10-29
+
+A two-case ordinary-installed control on the initial `37d83d0` candidate exposes
+missing validation of the external role's capture when the other role is prepared.
+The correction checks both retained roles before rendering either prepared input.
+The final source selection passes 273 cases, including all 40 guards. The earlier
+271-case/38-guard receipts retain their source/artifact identities and do not
+qualify this newly tested boundary. Separate final installed/exact-head receipts
+remain on #57; no historical artifact or molecular provider implementation changes.

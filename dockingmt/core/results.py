@@ -71,13 +71,14 @@ def _verify_prepared_recovery(problem, recorded, provenance):
         )
     bound = {}
     # Check all retained evidence before requesting any molecular export.
-    for role in prepared:
+    for role in inputs:
         artifact = artifacts.get(role)
         status, reason, _ = inspect_artifact(artifact, role)
         if status == 'inconsistent':
             raise ArgumentError(arg_name=role, reason=reason)
         if (
-            isinstance(artifact, Mapping)
+            role in prepared
+            and isinstance(artifact, Mapping)
             and artifact.get('format') == 'pdbqt'
             and artifact.get('sha256') is not None
         ):

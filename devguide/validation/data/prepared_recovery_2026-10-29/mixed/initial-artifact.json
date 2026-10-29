@@ -1,0 +1,250 @@
+{
+  "schema": "dockingmt.prepared_recovery_artifact@1",
+  "producer": "37d83d0cb9c34b022780b8605792b4d7b9eaa3e3",
+  "wheel": "dockingmt-0.0.0+209.g37d83d0-py3-none-any.whl",
+  "bytes": 129067,
+  "sha256": "04751853b1e78c6d70f895d5f7dd716da47403472c069a8b52c3d138da929936",
+  "version": "0.0.0+209.g37d83d0",
+  "python": "3.14.8 | packaged by conda-forge | (main, Oct 12 2026, 17:35:27) [GCC 15.3.0]",
+  "requires_python": "<3.15,>=3.11",
+  "normally_built_and_installed": true,
+  "matched_runtime_files": [
+    {
+      "path": "dockingmt/__init__.py",
+      "sha256": "07f71ed5cf3914d2e4cfbf35c43a7ea8b69497effd4dc8aa6336ae30e61a2359"
+    },
+    {
+      "path": "dockingmt/_argdigest.py",
+      "sha256": "e76d59bca5d24f3df78b4c3b361375a82236d95ac102218a615a48bb3555b6a7"
+    },
+    {
+      "path": "dockingmt/_depdigest.py",
+      "sha256": "c996d85d61ef70230b64c0a33bd69ea78e24c3c3148100f69d158ffe90d9ee36"
+    },
+    {
+      "path": "dockingmt/_pyunitwizard.py",
+      "sha256": "ced289b4e5423e80df232daac8916263995aafdbf20d06e73690599249d9e96b"
+    },
+    {
+      "path": "dockingmt/_smonitor.py",
+      "sha256": "830e3d288fe35a84ea283d0888799b72707ee0825b7f673162d79a791703a9d2"
+    },
+    {
+      "path": "dockingmt/aggregation.py",
+      "sha256": "d033c3a8bbfbd4e44ffa34eaee6901f5a30efe95fa3b45e60d5d849ad1945ae5"
+    },
+    {
+      "path": "dockingmt/batch.py",
+      "sha256": "01d7cfb44320c8d6ba2ad04c847093d0e7105458bab975edbc606d24d4cd37f2"
+    },
+    {
+      "path": "dockingmt/dock.py",
+      "sha256": "25ffc2190e5410e187e1165b912fcf2b6c4274d7e975c00e918283c96b52f256"
+    },
+    {
+      "path": "dockingmt/evaluation.py",
+      "sha256": "09484c50038b862a44f4f007acff3e7e2892dc9a0a19e0e1cd4ccb9930118a4e"
+    },
+    {
+      "path": "dockingmt/score.py",
+      "sha256": "6b05e5d92f03732e2280a4ca160d5b6e8bcf28b2b940f779ea84bd08dc00d670"
+    },
+    {
+      "path": "dockingmt/view.py",
+      "sha256": "427e4ba1dae9273e21d6f04148d21954284caa8d07e6208e97b9411766653da6"
+    },
+    {
+      "path": "dockingmt/_private/__init__.py",
+      "sha256": "4f23e529394a0c60adaca014f6852e07e108e6e826973d256b254e9e9e2f5cc0"
+    },
+    {
+      "path": "dockingmt/_private/artifacts.py",
+      "sha256": "750981bba46eccf57f085a099305574f4b19afa891892259709cbc1f49bebd2e"
+    },
+    {
+      "path": "dockingmt/_private/serialization.py",
+      "sha256": "f138c1f5dcdc5ff67ce5ac15df7c762ffefc6286a627e6859b9980e39ffc0680"
+    },
+    {
+      "path": "dockingmt/_private/symmetry.py",
+      "sha256": "1a377c14b2c5a5c1e5c5c1a61b3485eed87fe8cc0fab2475728600c4157e228d"
+    },
+    {
+      "path": "dockingmt/_private/vina_records.py",
+      "sha256": "ec13749e8410ca16bd3ad25ef6cb5e39ea8dc9af80fb6d2f3b3749c5d16fdc59"
+    },
+    {
+      "path": "dockingmt/_private/argdigest/__init__.py",
+      "sha256": "550f136bb66a889c4bdd34997d2925aee7aa2e95b359554e98f936927f39fea4"
+    },
+    {
+      "path": "dockingmt/_private/argdigest/registry.py",
+      "sha256": "c5568f306b69c77b43d28cf41b7127d7caa14f038ef6c4ba26cc674fd022d9cd"
+    },
+    {
+      "path": "dockingmt/_private/smonitor/__init__.py",
+      "sha256": "af179622d2bd19e0a4178f03624526d46ff24b047f2ca357b9d85024b34a9ce7"
+    },
+    {
+      "path": "dockingmt/_private/smonitor/catalog.py",
+      "sha256": "14b214b11fadd0678085507ccc295e1a2e0905356d8ac1732aff4c8ddb984b7b"
+    },
+    {
+      "path": "dockingmt/_private/smonitor/emitter.py",
+      "sha256": "83af0b66e89522f9732bc97c53bd73de551646cafcb758637d2c2e545b877a56"
+    },
+    {
+      "path": "dockingmt/_private/smonitor/meta.py",
+      "sha256": "7a1d95d8be1b37238dff60af83e87649331037366512e2e7b4fa218c6c61cafb"
+    },
+    {
+      "path": "dockingmt/_private/smonitor/warnings.py",
+      "sha256": "8130bc9008281d0f65f491b279a37536d3a2de5a7d86c3027e28dbbb69b6b950"
+    },
+    {
+      "path": "dockingmt/core/__init__.py",
+      "sha256": "6a6218f01c453e7973578f8aec19da42d02147fc603c401c3908ee00d0e1b8fa"
+    },
+    {
+      "path": "dockingmt/core/_scores.py",
+      "sha256": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136"
+    },
+    {
+      "path": "dockingmt/core/audit.py",
+      "sha256": "191d9c82936fada14761ccdae0d95ba46b17fdeb22c2cbf2e348554cb5d4cab3"
+    },
+    {
+      "path": "dockingmt/core/outcome.py",
+      "sha256": "d16cefba9c2a6f7057201a30fffde04d78eb7a3f55f3ff5e3c60a6600339fb04"
+    },
+    {
+      "path": "dockingmt/core/pose_audit.py",
+      "sha256": "de6ecac9713d6a96349e8b42884b7ddfa68d6c8a3440792fde41adad38180908"
+    },
+    {
+      "path": "dockingmt/core/problem.py",
+      "sha256": "05eb47aa03fa477557dada4af127efa717f0f7cfce046adea3b6c2360ecb08db"
+    },
+    {
+      "path": "dockingmt/core/protocol.py",
+      "sha256": "bdcefe43239851abaaf19ec67a5ddb1336617b4ceba05545d497793eaa6abc70"
+    },
+    {
+      "path": "dockingmt/core/results.py",
+      "sha256": "d54032e0fc5f9a66b13aa66a331836707c880826e0caa72655b4443ab6b868a0"
+    },
+    {
+      "path": "dockingmt/core/search_domain.py",
+      "sha256": "fcec2ffa9a5ebe1de5d121ff71652937598509352b47ef5389fbe81984c52a52"
+    },
+    {
+      "path": "dockingmt/engines/__init__.py",
+      "sha256": "07108a1391a34a122f4a9c9991db911a1b8f0fde9a42a828c9418a1a7ebcadf9"
+    },
+    {
+      "path": "dockingmt/engines/_vina_scoring.py",
+      "sha256": "e49a50fd48fc28af6a440961e95da6c23fcabd86bbaf865d5e5d86df5cd341bb"
+    },
+    {
+      "path": "dockingmt/engines/base.py",
+      "sha256": "127fc3393b37f2d173d768eb926295b911c8160038ed524da5896b35d89f83cc"
+    },
+    {
+      "path": "dockingmt/engines/vina.py",
+      "sha256": "963c46e11f192de57d8b0893f3c2d3c06895585c4d668f1f7a659e307ccb5942"
+    },
+    {
+      "path": "dockingmt/preparation/__init__.py",
+      "sha256": "ad1708354f51a1283fc98667c6abdea944ed8a7d26f79ee0ce03347b4509850f"
+    },
+    {
+      "path": "dockingmt/preparation/_export.py",
+      "sha256": "1dfd502efb4d61738fe272e4dbff4d79100e014ba417db1024a18d41da93da3f"
+    },
+    {
+      "path": "dockingmt/preparation/_molsys.py",
+      "sha256": "96fd6f917c398cebdd663990bd6c0558aa9d481e638aece77d96ee3f63730d7c"
+    },
+    {
+      "path": "dockingmt/preparation/_stages.py",
+      "sha256": "84fe2ad25b001e89f4f2f1f3165573d6bde33a626075d98a3f9fd62daafb5243"
+    },
+    {
+      "path": "dockingmt/preparation/_temporary_torsions.py",
+      "sha256": "ef379c3ec3516c12e5080a1b9c1b1c7bb2891e5e7b8ddea67dfecdf686ce2e50"
+    },
+    {
+      "path": "dockingmt/preparation/_typing.py",
+      "sha256": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2"
+    },
+    {
+      "path": "dockingmt/preparation/assessment.py",
+      "sha256": "5f8d3fe16c76ee401bdaaf94ad7714d1727c2732d48f72586fa95fc22d8eaaf8"
+    },
+    {
+      "path": "dockingmt/preparation/charges.py",
+      "sha256": "b23815cf64791c42bc5e7577f540b56deaeddb6ee6e12ad288824b7c8a4773b8"
+    },
+    {
+      "path": "dockingmt/preparation/ligand.py",
+      "sha256": "0be4491c28a5d0c07ccae23cc34f829f11a0b254a0a38c4f6c10765cb2e43725"
+    },
+    {
+      "path": "dockingmt/preparation/receptor.py",
+      "sha256": "2a99b9fff9975b07359b7bcf82c211d64a92b80833cbbb1f0cb26454df67de47"
+    },
+    {
+      "path": "dockingmt/viewer/__init__.py",
+      "sha256": "926524953c4cf37039415eaa5d36646e00580cffb7acb1e24deb0b9c7fd6d601"
+    },
+    {
+      "path": "molsysviewer_dockingmt/__init__.py",
+      "sha256": "ed9bd42c68be5d3b8f62804e295e8b8e9b4386f096fc134ee131d985738953e9"
+    },
+    {
+      "path": "molsysviewer_dockingmt/addon.py",
+      "sha256": "4c809486ea691f000b5959d3b7e300c45cb9833570e35b4d4f2c0ec448fd541f"
+    },
+    {
+      "path": "molsysviewer_dockingmt/export.py",
+      "sha256": "3bbfc952ed3b0dcc4a63500c880b5fe28a3f018436fa30474393140939958788"
+    },
+    {
+      "path": "molsysviewer_dockingmt/runtime.py",
+      "sha256": "9884fc025bc6f29c5419ebb608bc135aaae175c80adfb0aecbff933a99afdc18"
+    },
+    {
+      "path": "molsysviewer_dockingmt/workbench.py",
+      "sha256": "6e51c95a44dfbd28a4201913e4c1e7e6a97acf5f9991f58b504eaa9a4e63dc14"
+    },
+    {
+      "path": "molsysviewer_dockingmt/adapters/__init__.py",
+      "sha256": "f4e1db369ab18e4c7200edd4cf953df916ba5154de4c8417fb9bc299f9c80e1c"
+    },
+    {
+      "path": "molsysviewer_dockingmt/adapters/complex.py",
+      "sha256": "72701fd99ab6d74b84c0630c245549713c7682be8b4532effc07090bd7fe88c0"
+    },
+    {
+      "path": "molsysviewer_dockingmt/adapters/shapes.py",
+      "sha256": "def4441ed97ee693865f965cb1f1830e0140c093eceaf64b533b86e556da62ee"
+    },
+    {
+      "path": "molsysviewer_dockingmt/panels/__init__.py",
+      "sha256": "1f160141101212933339fc55478c02d43f922129ad633ec2d5bbe25db3990565"
+    },
+    {
+      "path": "molsysviewer_dockingmt/panels/domain.py",
+      "sha256": "a6a5f9678bd8e4dbb1b3d8dd93da23aab255bf2b6dacc1b16e8e496c7de9f926"
+    },
+    {
+      "path": "molsysviewer_dockingmt/panels/explorer.py",
+      "sha256": "d71c5c355404f32093d2805f305c6af3221a854024eda1f9ce1a44d7f2eaae7a"
+    }
+  ],
+  "provider_source": "e395e52646dab2ecb480d3d67aa7254be99b8524",
+  "provider_version": "0.23.0+232.ge395e5264",
+  "provider_wheel_sha256": "d08672224095fc23f078728040f061e678269aa1a41b3463409decbe01ad7b8c",
+  "historical_artifacts_rebuilt_or_relabelled": false,
+  "public_artifact_admission": false
+}
