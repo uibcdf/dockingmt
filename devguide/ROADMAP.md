@@ -2,6 +2,23 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Saved human case recovered offline — 2026-10-29
+
+[The #58 operation](validation/saved_human_case_recovery.md) verifies the original
+qualification trust root, all 16 retained members and source/admission/result
+links before recovering the five-pose result. Relocation ignores historical
+operational paths. No preparation, energy, search or molecular reconstruction
+occurs; the original producer and absent input fingerprints are preserved.
+The result remains detached. This bounded developer tool reuses the unchanged
+qualified runtime artifact rather than rebuilding it.
+
+**Next:** #4 remains partial for other source families and general molecular
+persistence, owned by MolSysMT (#256). Reassess against an accepted caller need
+and delivered provider contracts before adding a general boundary. Receive #56
+and partial/reference reading (#49/#33, MolSysMT #521) only after delivery and
+qualification. Visible C4/C6 remains deferred under #52; public delivery retains
+#30/#47. Record recovery does not establish new scientific acceptance.
+
 ## Prepared-input recovery bound to recorded evidence — 2026-10-29
 
 [The #57 correction](validation/prepared_recovery.md) rejects supplied prepared

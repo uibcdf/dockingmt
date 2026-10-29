@@ -252,3 +252,13 @@ is bounded evidence for this declared hypothesis, not experimental protonation,
 model/valence certification, affinity or a state-selection rule. Calcium/waters
 remain excluded; environmental H and other hypotheses are unassessed.
 No preparation default changes and #4 remains partial/open.
+
+## 2026-10-29 saved human-case recovery
+
+[The #58 case-specific developer tool](../validation/saved_human_case_recovery.md)
+verifies the existing qualification and all 16 retained members, then source,
+admission, protocol, prepared declarations, captured bytes and saved-result links.
+It recovers the five-pose record offline after relocation without molecular work,
+new computation or a native problem attachment. Original producers and absent
+source fingerprints remain unchanged. General molecular persistence remains
+MolSysMT-owned (#256); broader source families and replay remain partial here.

@@ -28,7 +28,13 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
-Start with [prepared-input recovery checks](validation/prepared_recovery.md),
+Start with [offline saved-case recovery](validation/saved_human_case_recovery.md).
+The #58 developer operation verifies the existing 3PTB bundle and returns its
+five-pose result without preparing or searching again. It preserves the original
+producer and leaves the result detached from a molecular problem. Broader #4
+persistence remains partial; molecular persistence stays MolSysMT-owned.
+
+Then read [prepared-input recovery checks](validation/prepared_recovery.md),
 the #57 follow-up under #4. Supplied object declarations and available submitted
 PDBQT hashes must match before a recovered problem is attached; molecular export
 remains delegated to MolSysMT. Legacy missing evidence retains explicit limits.
