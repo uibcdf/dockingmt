@@ -2,6 +2,23 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Selection-domain provenance implemented — 2026-10-28
+
+[The #55 contract](validation/domain_derivation.md) retains the requested/resolved
+selection, frame policy, available source/state identity, padding and canonical
+box binding. Redocking records original axes after public MolSysMT normalization.
+Optional derivation survives box/problem/result serialization alongside the actual
+backend projection. Legacy/explicit geometry stays without fabricated provenance;
+stale derived geometry rejects. Source/installed/exact-head evidence stays on #55.
+
+The nonvisual C4 construction-record gap is addressed. Visible C4 observation and
+C6 remain deferred under #52. **Next:** decide the bounded preparation/scoring
+profile and general prepared-source provenance under #5/#33/#4, preserving the
+historical human producer and registering any needed new control before execution.
+Receive MolSysMT #521 when delivered; do not implement its molecular reader locally.
+Public delivery retains #30/#47. The audit's earlier queued CI is now terminally
+verified separately; no old artifact or scientific archive is relabelled.
+
 ## Nonvisual Core acceptance audited — 2026-10-28
 
 The [C0–C5 audit](validation/core_mvp_audit_2026-10-28.md) maps all 32 criteria to

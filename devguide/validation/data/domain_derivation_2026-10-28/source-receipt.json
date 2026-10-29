@@ -1,0 +1,35 @@
+{
+  "schema": "dockingmt.domain_derivation_source@1",
+  "date": "2026-10-28",
+  "parent": "aa2f317c132e255470b0512649c3691c56364ed9",
+  "provider": "e395e52646dab2ecb480d3d67aa7254be99b8524",
+  "new_guard_cases": 22,
+  "final_source_summary": "PASS exit=0 | 188 passed | 66.07s | 40 warnings",
+  "initial_regression": {
+    "passed": 54,
+    "failed": 1,
+    "seconds": 10.23,
+    "cause": "Consumer attempted structure-state selection directly on a legacy file; corrected factory retains existing public native normalization and original axes."
+  },
+  "overlapping_counts_not_summed": true,
+  "source_hashes": {
+    "dockingmt/core/search_domain.py": "fcec2ffa9a5ebe1de5d121ff71652937598509352b47ef5389fbe81984c52a52",
+    "dockingmt/core/problem.py": "05eb47aa03fa477557dada4af127efa717f0f7cfce046adea3b6c2360ecb08db",
+    "tests/test_domain_derivation.py": "5a174d49fb05b8ec7f0ca54134f3c3912a396736e1f6d88687d00714a03e9c0e"
+  },
+  "optional_legacy_getter_feedback": "uibcdf/molsysmt#523",
+  "source_frame_policy": "first_returned_position_0",
+  "native_source_fingerprint_invented": false,
+  "old_explicit_box_serialization_changed": false,
+  "backend_numeric_box_shape_changed": false,
+  "quota_interrupted_attempts_qualified": false,
+  "provider_wheel_and_native_bytes_preserved": true,
+  "shared_environment_or_sibling_source_changed": false,
+  "historical_populations_regenerated": false,
+  "HTML_C6_accepted": false,
+  "public_publication": false,
+  "task_owner": "uibcdf/dockingmt#55",
+  "lifecycle_owner": "uibcdf/dockingmt#50",
+  "review_by": "2026-11-04",
+  "automatic_disposal": false
+}

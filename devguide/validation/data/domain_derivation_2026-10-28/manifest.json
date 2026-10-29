@@ -1,0 +1,30 @@
+{
+  "schema": "dockingmt.evidence_manifest@1",
+  "files": [
+    {
+      "path": "final-source.log.gz",
+      "bytes": 478,
+      "sha256": "c28d3fff73dec1f82e887d102f4c6f159ae66c07aad0de4d0401d50ebb5ebf7f"
+    },
+    {
+      "path": "focused.log.gz",
+      "bytes": 214,
+      "sha256": "5e1164c7086aee139a11535924d5e6b44fc5167921caf59fab0a947c6e9e98ab"
+    },
+    {
+      "path": "guards.log.gz",
+      "bytes": 214,
+      "sha256": "c35d36eb096b3aa3e838eba001879829cee59680c010d2c13f7110f82d1b8aeb"
+    },
+    {
+      "path": "initial.log.gz",
+      "bytes": 536,
+      "sha256": "3f22fb56ebda7e6fa162038cf9b2dfa5ea4ebfc95cc98b3eee211f40a4028e1f"
+    },
+    {
+      "path": "source-receipt.json",
+      "bytes": 1600,
+      "sha256": "38184dcb83bdb76488ca64f4c0f490604b8b5d47b981b9289de4b05ee735bfdd"
+    }
+  ]
+}

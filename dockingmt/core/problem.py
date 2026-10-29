@@ -337,23 +337,43 @@ class DockingProblem:
 
         A source with multiple structures requires an explicit ``structure_index``.
         """
-        selected, _, _, _, _, _, _ = _normalize_input(
-            complex_system,
-            partner_selection,
-            structure_index,
-            'partner',
-            structure_index_name='structure_index',
+        fingerprint = _source_fingerprint(complex_system)
+        selected, atoms, selected_structure_index, form, _, state_index, state_id = (
+            _normalize_input(
+                complex_system,
+                partner_selection,
+                structure_index,
+                'partner',
+                structure_index_name='structure_index',
+            )
         )
         if selected is None:
             raise ArgumentError(
                 arg_name='complex_system',
                 reason='Redocking requires a MolSysMT molecular input with coordinates.',
             )
-        domain = BoxRegion.from_selection(
-            selected,
+        # Molecular normalization/selection above owns the original axes and
+        # state. Build the same geometric box over those actual selected points,
+        # recording the original context rather than a reindexed temporary view.
+        coordinates = msm.get(selected, element='atom', coordinates=True)
+        domain = BoxRegion.from_points(coordinates[0], padding=padding)
+        domain._record_selection(
+            source={
+                'form': form,
+                'n_atoms': int(msm.get(complex_system, n_atoms=True)),
+                'fingerprint': fingerprint,
+            },
+            selection=partner_selection,
+            atom_indices=atoms,
+            structure_indices=selected_structure_index,
+            chemical_state='structure',
+            association=None
+            if state_index is None
+            else {'index': state_index, 'id': state_id},
             padding=padding,
+            method='redocking_partner_bounds',
         )
-        return cls(
+        problem = cls(
             receptor=complex_system,
             partner=complex_system,
             search_domain=domain,
@@ -363,6 +383,16 @@ class DockingProblem:
             partner_structure_index=structure_index,
             metadata=metadata,
         )
+        if (
+            fingerprint != _source_fingerprint(complex_system)
+            or problem._partner_fingerprint != fingerprint
+            or problem.partner_atom_indices != atoms
+        ):
+            raise ArgumentError(
+                arg_name='complex_system',
+                reason='Source changed while constructing the redocking problem.',
+            )
+        return problem
 
     @property
     def receptor(self) -> Any:

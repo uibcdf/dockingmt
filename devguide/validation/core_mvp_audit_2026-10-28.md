@@ -143,3 +143,13 @@ The human-first, public-API workflow is consistent with the previously inspected
 vertical-pilot direction. No private pilot text/data is copied, no pilot execution
 is claimed, and no new backend, flexible-receptor, screening or pharmacophore
 feature is authorized merely by this audit.
+
+
+## Subsequent nonvisual follow-up
+
+[Selection-domain provenance](domain_derivation.md) addresses the #55 construction-
+record gap in a separately qualified implementation. The table above retains its
+original `c9c8196` inspection and cannot be read as new visual/scientific acceptance.
+C4's observation/C6 stay deferred. The original audit head's hosted verification
+is now completed in [the terminal recovery](https://github.com/uibcdf/dockingmt/issues/28#issuecomment-6485389513),
+without overwriting its pending snapshots or scientific producers.

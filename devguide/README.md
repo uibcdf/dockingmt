@@ -28,14 +28,17 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
-Start with the [nonvisual Core MVP audit](validation/core_mvp_audit_2026-10-28.md):
-all 32 C0–C5 criteria have evidence, scope and owners. The next concrete nonvisual
-step is selection-domain derivation provenance under #55; C4 visibility/C6 remain
-explicitly deferred. The audit separates the preserved human producer from current
+Start with [selection-domain provenance](validation/domain_derivation.md), the
+implemented nonvisual #55 follow-up. Optional recipes preserve original source/
+selection/frame context through serialization without changing box geometry or
+inventing native identity. Stale geometry rejects; legacy records stay readable.
+Visible C4/C6 remain deferred. The [nonvisual Core MVP audit](validation/core_mvp_audit_2026-10-28.md)
+maps all 32 C0–C5 criteria to evidence, scope and owners. Its construction-record
+finding is addressed by the follow-up above. The audit separates the preserved human producer from current
 runtime qualification and reconciles #4/#5/#33 without premature closure.
 
-[Production pose reading](validation/prepared_pose_reading.md) records the latest
-runtime migration.
+[Production pose reading](validation/prepared_pose_reading.md) records the preceding
+molecular migration.
 Complete single-state sources now use public MolSysMT reading against the actual
 prepared export view/map/bytes. Written result axes and source keys are retained;
 external/partial profiles have an explicit remaining route and removal condition.

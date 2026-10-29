@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (34)
+### Resolved (35)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
@@ -31,6 +31,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`replay_file_backed_redocking_and_report_exploratory_metrics.md`](replay_file_backed_redocking_and_report_exploratory_metrics.md) — [#10](https://github.com/uibcdf/dockingmt/issues/10) — Replay file-backed redocking and report exploratory metrics *(resolved, measured)*
 - [`result_export_tracing_ownership.md`](result_export_tracing_ownership.md) — [#48](https://github.com/uibcdf/dockingmt/issues/48) — Preserve caller tracing in the developer result-export benchmark. *(resolved, reproduced)*
 - [`result_records_share_live_metadata.md`](result_records_share_live_metadata.md) — [#25](https://github.com/uibcdf/dockingmt/issues/25) — Isolate serialized docking results from live metadata and provenance *(resolved, measured)*
+- [`retain_selection_domain_provenance.md`](retain_selection_domain_provenance.md) — [#55](https://github.com/uibcdf/dockingmt/issues/55) — Retain derivation provenance for selection-based search domains *(resolved, measured)*
 - [`returned_vina_poses_lack_a_verified_map_to_source_ligand_atoms.md`](returned_vina_poses_lack_a_verified_map_to_source_ligand_atoms.md) — [#8](https://github.com/uibcdf/dockingmt/issues/8) — Returned Vina poses lack a verified map to source ligand atoms *(resolved, asserted)*
 - [`scientific_record_readers_ignore_schema_versions.md`](scientific_record_readers_ignore_schema_versions.md) — [#27](https://github.com/uibcdf/dockingmt/issues/27) — Validate scientific record schema versions before reconstruction *(resolved, measured)*
 - [`source_based_ci_omits_biopython.md`](source_based_ci_omits_biopython.md) — [#11](https://github.com/uibcdf/dockingmt/issues/11) — Source-based CI omits Biopython needed by the scientific test stack. *(resolved, reproduced)*

@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import json
+import re
 from abc import ABC, abstractmethod
+from copy import deepcopy
+from numbers import Real
 from typing import Any
 
 import numpy as np
@@ -9,6 +13,171 @@ from argdigest import arg_digest
 
 from dockingmt._private.serialization import SCHEMA_VERSION, validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
+
+
+def _descriptor(value):
+    """Detach the declared docking recipe, never a native molecular object."""
+
+    def numeric(item):
+        if isinstance(item, np.ndarray):
+            return item.tolist()
+        if isinstance(item, np.generic):
+            return item.item()
+        raise TypeError('Use JSON data in a domain derivation.')
+
+    try:
+        return json.loads(json.dumps(value, default=numeric, allow_nan=False))
+    except (TypeError, ValueError) as exc:
+        raise ArgumentError(
+            arg_name='derivation', reason='Use finite JSON data for domain derivation.'
+        ) from exc
+
+
+def _validate_derivation(record, center, lengths):
+    """Validate a declared recipe and its binding to the current box geometry."""
+
+    def require(condition, reason):
+        if not condition:
+            raise ArgumentError(arg_name='derivation', reason=reason)
+
+    def axis(value):
+        return (
+            isinstance(value, list)
+            and bool(value)
+            and all(type(i) is int and i >= 0 for i in value)
+        )
+
+    require(
+        isinstance(record, dict)
+        and set(record)
+        == {
+            'schema',
+            'method',
+            'source',
+            'selection',
+            'atom_indices',
+            'structure_indices',
+            'structure_position',
+            'selection_chemical_state',
+            'structure_chemical_state',
+            'padding',
+            'box',
+        },
+        'Use a complete selection-domain derivation record.',
+    )
+    require(
+        record['schema'] == 'dockingmt.box_derivation@1'
+        and record['method'] in ('selection_bounds', 'redocking_partner_bounds'),
+        'Unsupported domain derivation schema or method.',
+    )
+    source = record['source']
+    require(
+        isinstance(source, dict) and set(source) == {'form', 'n_atoms', 'fingerprint'},
+        'Invalid domain source descriptor.',
+    )
+    forms = source['form'] if isinstance(source['form'], list) else [source['form']]
+    require(
+        bool(forms) and all(isinstance(f, str) and bool(f) for f in forms),
+        'Invalid source form.',
+    )
+    require(
+        type(source['n_atoms']) is int and source['n_atoms'] > 0,
+        'Invalid source atom count.',
+    )
+    fingerprint = source['fingerprint']
+    require(
+        fingerprint is None
+        or (
+            isinstance(fingerprint, dict)
+            and set(fingerprint) == {'kind', 'sha256'}
+            and fingerprint['kind'] in ('file', 'literal')
+            and isinstance(fingerprint['sha256'], str)
+            and re.fullmatch('[0-9a-f]{64}', fingerprint['sha256']) is not None
+        ),
+        'Invalid input-byte fingerprint.',
+    )
+    require(
+        axis(record['atom_indices'])
+        and all(i < source['n_atoms'] for i in record['atom_indices']),
+        'Resolved domain atoms must lie on the declared source axis.',
+    )
+    selection = record['selection']
+    require(
+        selection is None
+        or isinstance(selection, str)
+        and bool(selection)
+        or axis(selection),
+        'Invalid requested selection record.',
+    )
+    frames = record['structure_indices']
+    require(
+        frames is None
+        or frames == 'all'
+        or type(frames) is int
+        and frames >= 0
+        or axis(frames),
+        'Invalid requested structure axis.',
+    )
+    require(
+        type(record['structure_position']) is int and record['structure_position'] == 0,
+        'The selection-box policy uses the first returned structure.',
+    )
+    state = record['selection_chemical_state']
+    require(
+        state is None
+        or state in ('reference', 'structure')
+        or type(state) is int
+        and state >= 0,
+        'Invalid chemical-state selection policy.',
+    )
+    state = record['structure_chemical_state']
+    require(
+        state is None
+        or (
+            isinstance(state, dict)
+            and set(state) == {'index', 'id'}
+            and type(state['index']) is int
+            and state['index'] >= 0
+            and (
+                state['id'] is None
+                or isinstance(state['id'], str)
+                and bool(state['id'])
+            )
+        ),
+        'Invalid structure chemical-state association.',
+    )
+    padding = record['padding']
+    require(
+        padding is None
+        or (
+            isinstance(padding, dict)
+            and set(padding) == {'value', 'unit'}
+            and padding['unit'] == 'nm'
+            and isinstance(padding['value'], Real)
+            and not isinstance(padding['value'], bool)
+            and padding['value'] >= 0
+        ),
+        'Padding must be a non-negative scalar length record in nm.',
+    )
+    box = record['box']
+    require(
+        isinstance(box, dict)
+        and set(box) == {'center', 'lengths', 'unit'}
+        and box['unit'] == 'nm',
+        'Invalid derived box binding.',
+    )
+    for name, current in [('center', center), ('lengths', lengths)]:
+        values = box[name]
+        require(
+            isinstance(values, list)
+            and len(values) == 3
+            and all(isinstance(v, Real) and not isinstance(v, bool) for v in values),
+            'Derived box binding needs three finite real values per axis.',
+        )
+        require(
+            np.array_equal(values, puw.get_value(current, to_unit='nm')),
+            'The box geometry no longer matches its derivation; construct a new domain.',
+        )
 
 
 def _ensure_length_quantity(val: Any, name: str, caller: str | None = None) -> Any:
@@ -137,6 +306,20 @@ class BoxRegion(SearchDomain):
         self._center = center
         self._lengths = lengths if lengths is not None else size
         self.name = name
+        self._derivation = None
+
+    @property
+    def derivation(self) -> dict[str, Any] | None:
+        """Detached selection recipe, or None for explicit/legacy geometry."""
+        if self._derivation is not None:
+            _validate_derivation(self._derivation, self._center, self._lengths)
+        return deepcopy(self._derivation)
+
+    def _set_derivation(self, value):
+        record = _descriptor(value)
+        if record is not None:
+            _validate_derivation(record, self._center, self._lengths)
+        self._derivation = record
 
     @property
     def center(self) -> Any:
@@ -179,6 +362,8 @@ class BoxRegion(SearchDomain):
         AutoDock Vina, which operates in Angstroms) while keeping backend-specific
         assumptions out of the core data model.
         """
+        # Reject stale attribution before submitting a derived box to an engine.
+        self.derivation
         center_conv = puw.convert(self._center, to_unit=unit)
         lengths_conv = puw.convert(self._lengths, to_unit=unit)
         c_vals = tuple(float(x) for x in puw.get_value(center_conv))
@@ -294,6 +479,7 @@ class BoxRegion(SearchDomain):
         structure_indices: int | list[int] = 0,
         padding: Any | None = None,
         name: str | None = None,
+        chemical_state: Any = 'reference',
     ) -> BoxRegion:
         """Construct a bounding BoxRegion from a MolSysMT molecular selection.
 
@@ -311,25 +497,120 @@ class BoxRegion(SearchDomain):
             Isotropic padding with length units added around the bounding box.
         name : str, optional
             Identifier for the box region.
+        chemical_state : Any, default 'reference'
+            Selection context forwarded unchanged to MolSysMT. If several frames
+            are requested, the existing policy uses the first returned frame;
+            the request and that position are retained in ``derivation``.
         """
         import molsysmt as msm
 
+        from dockingmt.core.problem import _source_fingerprint
+
+        fingerprint = _source_fingerprint(molecular_system)
+        indices = msm.select(
+            molecular_system,
+            selection=selection,
+            structure_indices=structure_indices,
+            chemical_state=chemical_state,
+        )
         coords = msm.get(
             molecular_system,
             element='atom',
-            selection=selection,
+            selection=indices,
             structure_indices=structure_indices,
+            chemical_state=chemical_state,
             coordinates=True,
         )
         raw_coords = puw.get_value(coords)
         if raw_coords.ndim == 3:
             raw_coords = raw_coords[0]
         pts = puw.quantity(raw_coords, puw.get_unit(coords))
-        return cls.from_points(pts, padding=padding, name=name)
+        box = cls.from_points(pts, padding=padding, name=name)
+        association = None
+        if msm.has_attribute(molecular_system, 'structure_chemical_state_index'):
+            state_indices = msm.get(
+                molecular_system,
+                structure_indices=structure_indices,
+                structure_chemical_state_index=True,
+            )
+            if (
+                state_indices is not None
+                and len(state_indices)
+                and state_indices[0] is not None
+            ):
+                index = int(state_indices[0])
+                state_ids = msm.get(molecular_system, chemical_state_id=True)
+                state_id = None if state_ids is None else state_ids[index]
+                association = {
+                    'index': index,
+                    'id': None if state_id in (None, '', 'None') else str(state_id),
+                }
+        box._record_selection(
+            source={
+                'form': msm.get_form(molecular_system),
+                'n_atoms': int(msm.get(molecular_system, n_atoms=True)),
+                'fingerprint': fingerprint,
+            },
+            selection=selection,
+            atom_indices=list(indices),
+            structure_indices=structure_indices,
+            chemical_state=chemical_state,
+            association=association,
+            padding=padding,
+        )
+        if fingerprint != _source_fingerprint(molecular_system):
+            raise ArgumentError(
+                arg_name='molecular_system',
+                reason='Source bytes changed while constructing the domain.',
+            )
+        return box
+
+    def _record_selection(
+        self,
+        *,
+        source,
+        selection,
+        atom_indices,
+        structure_indices,
+        chemical_state,
+        association,
+        padding,
+        method='selection_bounds',
+    ):
+        """Record an already executed docking-domain construction decision."""
+        pad = (
+            None
+            if padding is None
+            else {
+                'value': float(
+                    puw.get_value(_ensure_scalar_length_quantity(padding, 'padding'))
+                ),
+                'unit': 'nm',
+            }
+        )
+        self._set_derivation(
+            {
+                'schema': 'dockingmt.box_derivation@1',
+                'method': method,
+                'source': source,
+                'selection': selection,
+                'atom_indices': atom_indices,
+                'structure_indices': structure_indices,
+                'structure_position': 0,
+                'selection_chemical_state': chemical_state,
+                'structure_chemical_state': association,
+                'padding': pad,
+                'box': {
+                    'center': puw.get_value(self.center, to_unit='nm').tolist(),
+                    'lengths': puw.get_value(self.lengths, to_unit='nm').tolist(),
+                    'unit': 'nm',
+                },
+            }
+        )
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize BoxRegion into a versioned dictionary."""
-        return {
+        record = {
             'schema_version': SCHEMA_VERSION,
             'type': 'BoxRegion',
             'name': self.name,
@@ -342,6 +623,10 @@ class BoxRegion(SearchDomain):
                 'unit': str(puw.get_unit(self._lengths)),
             },
         }
+        derivation = self.derivation
+        if derivation is not None:
+            record['derivation'] = derivation
+        return record
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> BoxRegion:
@@ -351,7 +636,9 @@ class BoxRegion(SearchDomain):
         l_data = data['lengths']
         center = puw.quantity(np.asarray(c_data['value'], dtype=float), c_data['unit'])
         lengths = puw.quantity(np.asarray(l_data['value'], dtype=float), l_data['unit'])
-        return cls(center=center, lengths=lengths, name=data.get('name'))
+        box = cls(center=center, lengths=lengths, name=data.get('name'))
+        box._set_derivation(data.get('derivation'))
+        return box
 
     def __repr__(self) -> str:
         if not hasattr(self, '_lengths'):

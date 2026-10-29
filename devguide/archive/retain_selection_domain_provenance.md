@@ -1,12 +1,12 @@
 ---
 summary: Retain derivation provenance for selection-based search domains
 issue: uibcdf/dockingmt#55
-status: open
+status: resolved
 opened: 2026-10-28
-closed:
+closed: 2026-10-28
 verification: measured
 area: [domains, provenance, mvp]
-guard:
+guard: tests/test_domain_derivation.py
 normative: devguide/MVP.md
 blocked_by: []
 supersedes: []
@@ -68,3 +68,15 @@ a molecular reader, selector, fingerprint or snapshot implementation downstream.
 
 Design precedes runtime changes. Browser acceptance stays #52. No new scientific
 search, reranking or archive regeneration is needed for this proposal.
+
+
+## Resolution — 2026-10-28
+
+[The implemented contract](../validation/domain_derivation.md) provides an optional
+validated/detached selection recipe, original redocking axes, canonical padding/
+geometry binding and legacy-compatible restoration. Public MolSysMT owns all
+molecular resolution. The 22-case guard covers the observed missing record and
+its mutation/roundtrip/backend boundaries; the source selection passes 188 cases.
+Installed/exact-head receipts remain separately recorded on #55. This resolves
+the nonvisual derivation requirement, not C4/C6 visible acceptance or broader
+scientific preparation, public distribution or original-source snapshot contracts.
