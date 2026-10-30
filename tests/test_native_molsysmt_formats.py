@@ -419,7 +419,7 @@ def test_native_fragment_cuts_match_temporary_bridge_on_5x72():
     indices = [
         next(i for i, pair in enumerate(pairs) if set(pair) == set(cut)) for cut in cuts
     ]
-    provider = msm.topology.get_rigid_fragments(source, bond_indices=indices)
+    provider = msm.chemical_states.get_rigid_fragments(source, bond_indices=indices)
     packed, offsets = provider['fragment_atom_indices'], provider['fragment_offsets']
     retained = set(mapping)
     fragments = {

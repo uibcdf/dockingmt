@@ -59,7 +59,7 @@ def build_torsion_tree(
             arg_name='molecular_system',
             reason='Retained ligand atom indices are invalid.',
         )
-    classification = msm.topology.get_rotatable_bonds(
+    classification = msm.chemical_states.get_rotatable_bonds(
         source_molsys,
         method='conjugation_restricted',
         chemical_state='structure',
@@ -84,7 +84,7 @@ def build_torsion_tree(
         {'values': msm.get(source_molsys, element='atom', atom_id=True)}
     )['values']
     retained_lookup = {source: index for index, source in enumerate(retained_indices)}
-    retained_blocks = msm.topology.get_covalent_blocks(
+    retained_blocks = msm.chemical_states.get_covalent_blocks(
         source_molsys,
         selection=retained_indices,
         chemical_state='structure',
@@ -146,7 +146,7 @@ def build_torsion_tree(
         )
         selected.append(source_pair)
 
-    fragments = msm.topology.get_rigid_fragments(
+    fragments = msm.chemical_states.get_rigid_fragments(
         source_molsys,
         bond_indices=[decision['source_bond_index'] for decision in decisions],
         chemical_state='structure',

@@ -58,10 +58,10 @@ def snapshot(system):
         if structures[field] is not None:
             structures[field] = puw.get_value(structures[field], to_unit=unit)
     record = {
-        'schema': 'dockingmt.chemical_template_snapshot@2',
+        'schema': 'dockingmt.chemical_template_snapshot@3',
         'topology': {
             key: topology[key]
-            for key in ('atoms', 'groups', 'bonds', 'chains', 'molecules', 'entities')
+            for key in ('atoms', 'groups', 'chains', 'molecules', 'entities')
         },
         'structures': structures,
     }

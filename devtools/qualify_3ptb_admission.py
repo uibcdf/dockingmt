@@ -348,11 +348,11 @@ def admit(path, *, include_chemical_context=False):
     )
     charged_ligand = ligand_charged['molecular_system']
     charged_snapshot = snapshot(charged_ligand)
-    classification = msm.topology.get_rotatable_bonds(
+    classification = msm.chemical_states.get_rotatable_bonds(
         charged_ligand, chemical_state='structure', structure_indices=0
     )
     assert list(map(list, classification['rotatable_bonded_atom_pairs'])) == [[0, 6]]
-    fragments = msm.topology.get_rigid_fragments(
+    fragments = msm.chemical_states.get_rigid_fragments(
         charged_ligand,
         bond_indices=classification['rotatable_bond_indices'],
         chemical_state='structure',

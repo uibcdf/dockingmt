@@ -111,14 +111,15 @@ def test_summary_is_detached_and_preserves_chemical_source_and_coordinates():
 
 def test_assessment_uses_structure_state_and_reports_partial_formal_charge():
     source = _ligand('CCO')
-    assigned = source.topology._append_chemical_state(state_id='assigned')
-    source.topology._set_chemical_state_bonds(
-        source.topology.bonds.copy(), state_index=assigned
+    assigned = source.chemical_states.append_state()
+    source.chemical_states._states[assigned].state_id = 'assigned'
+    source.chemical_states._set_chemical_state_bonds(
+        source.chemical_states.get_bonds().copy(), state_index=assigned
     )
-    source.topology._set_chemical_state_atom_attribute(
+    source.chemical_states._set_chemical_state_atom_attribute(
         'formal_charge', [0, None, -1, 0, 0, 0, 0, 0, 0], state_index=assigned
     )
-    source.topology._chemical_states[assigned].connectivity_completeness = 'partial'
+    source.chemical_states._states[assigned].connectivity_completeness = 'partial'
     source._set_structure_chemical_state_indices([assigned])
     summary = chemistry_evidence(source)['chemical_readiness']
     assert summary['chemical_state_index'] == assigned

@@ -270,7 +270,7 @@ def chemistry_evidence(
         fields[name] = summary
     connectivity = report['connectivity']
     evidence = {
-        'connectivity_completeness': list(completeness)
+        'connectivity_completeness': [completeness]
         if completeness is not None
         else None,
         'bond_order_available': msm.has_attribute(

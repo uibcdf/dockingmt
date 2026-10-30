@@ -192,7 +192,7 @@ def test_pinned_vina_torsion_tree_matches_source_fragments(
     assert native_bonds == reference_bonds
     assert native_fragments == reference_fragments
     retained_sources = set(reference_serials.values())
-    provider_blocks = msm.topology.get_covalent_blocks(
+    provider_blocks = msm.chemical_states.get_covalent_blocks(
         molsys, remove_bonds=selected_bonds, output_type='sets'
     )
     assert native_fragments == {

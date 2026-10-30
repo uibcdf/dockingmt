@@ -47,8 +47,8 @@ def test_original_matrix_preserves_tree_and_consumes_provider(case, monkeypatch)
     before_ids = list(msm.get(source, element='atom', atom_id=True))
     calls = []
     classifications = []
-    provider = msm.topology.get_rigid_fragments
-    classifier = msm.topology.get_rotatable_bonds
+    provider = msm.chemical_states.get_rigid_fragments
+    classifier = msm.chemical_states.get_rotatable_bonds
 
     def recorded_classification(molecular_system, **kwargs):
         report = classifier(molecular_system, **kwargs)
@@ -72,8 +72,10 @@ def test_original_matrix_preserves_tree_and_consumes_provider(case, monkeypatch)
     # These assertions observe the preparation's original full-H axis. Native
     # export independently validates the reduced graph, on its own atom axis.
     with monkeypatch.context() as scope:
-        scope.setattr(msm.topology, 'get_rigid_fragments', recorded_partition)
-        scope.setattr(msm.topology, 'get_rotatable_bonds', recorded_classification)
+        scope.setattr(msm.chemical_states, 'get_rigid_fragments', recorded_partition)
+        scope.setattr(
+            msm.chemical_states, 'get_rotatable_bonds', recorded_classification
+        )
         prepared = prepare_ligand(
             source, selection='all', active_torsion_bonds=case['active_bonds']
         )
@@ -147,8 +149,8 @@ def test_nonmonotonic_retained_axis_preserves_root_and_branch_endpoints(
     retained, cut, root, order, endpoints, monkeypatch
 ):
     source = _ligand('CCCCCC')
-    provider = msm.topology.get_rigid_fragments
-    connectivity = msm.topology.get_covalent_blocks
+    provider = msm.chemical_states.get_rigid_fragments
+    connectivity = msm.chemical_states.get_covalent_blocks
     connectivity_calls = []
 
     def same_source(molecular_system, **kwargs):
@@ -167,8 +169,10 @@ def test_nonmonotonic_retained_axis_preserves_root_and_branch_endpoints(
         connectivity_calls.append(blocks)
         return blocks
 
-    monkeypatch.setattr(msm.topology, 'get_rigid_fragments', same_source)
-    monkeypatch.setattr(msm.topology, 'get_covalent_blocks', selected_connectivity)
+    monkeypatch.setattr(msm.chemical_states, 'get_rigid_fragments', same_source)
+    monkeypatch.setattr(
+        msm.chemical_states, 'get_covalent_blocks', selected_connectivity
+    )
     tree = build_torsion_tree(
         source, retained, [cut], msm.get(source, element='atom', atom_type=True)
     )
@@ -196,17 +200,18 @@ def test_retained_connectivity_uses_assigned_induced_graph(
     source = _ligand('CCCCCC')
     # Explicit test graphs: only one declared state lacks the middle C-C edge.
     # The reference and assigned state therefore disagree on full connectivity.
-    bonds = source.topology.bonds.copy()
-    assigned = source.topology._append_chemical_state(state_id='assigned-control')
-    source.topology._set_chemical_state_bonds(bonds.copy(), state_index=assigned)
+    bonds = source.chemical_states.get_bonds().copy()
+    assigned = source.chemical_states.append_state()
+    source.chemical_states._states[assigned].state_id = 'assigned-control'
+    source.chemical_states._set_chemical_state_bonds(bonds.copy(), state_index=assigned)
     split = bonds.loc[
         ~((bonds['atom1_index'] == 2) & (bonds['atom2_index'] == 3))
     ].reset_index(drop=True)
     assert len(split) == len(bonds) - 1
-    source.topology._set_chemical_state_bonds(
+    source.chemical_states._set_chemical_state_bonds(
         split, state_index=assigned if split_assigned else 0
     )
-    source.topology._chemical_states[assigned].connectivity_completeness = 'complete'
+    source.chemical_states._states[assigned].connectivity_completeness = 'complete'
     source._set_structure_chemical_state_indices([assigned])
     before = snapshot(source)
     original_retained = retained.copy()
@@ -233,7 +238,7 @@ def test_retained_connectivity_propagates_provider_failure_without_mutation(
     def refuse(*args, **kwargs):
         raise failure
 
-    monkeypatch.setattr(msm.topology, 'get_covalent_blocks', refuse)
+    monkeypatch.setattr(msm.chemical_states, 'get_covalent_blocks', refuse)
     with pytest.raises(RuntimeError) as raised:
         build_torsion_tree(
             source,
@@ -249,7 +254,7 @@ def test_retained_connectivity_propagates_provider_failure_without_mutation(
 def test_incomplete_chemical_graph_propagates_provider_rejection(completeness):
     source = _ligand('CCCCCC')
     # Native fixture construction follows the provider's graph-evidence tests.
-    source.topology._chemical_states[0].connectivity_completeness = completeness
+    source.chemical_states._states[0].connectivity_completeness = completeness
     with pytest.raises(StructuralInconsistencyError, match='complete'):
         build_torsion_tree(
             source,
@@ -261,12 +266,13 @@ def test_incomplete_chemical_graph_propagates_provider_rejection(completeness):
 
 def test_partition_uses_structure_assigned_chemical_state():
     source = _ligand('CCCCCC')
-    assigned = source.topology._append_chemical_state(state_id='assigned-complete')
-    source.topology._set_chemical_state_bonds(
-        source.topology.bonds.copy(), state_index=assigned
+    assigned = source.chemical_states.append_state()
+    source.chemical_states._states[assigned].state_id = 'assigned-complete'
+    source.chemical_states._set_chemical_state_bonds(
+        source.chemical_states.get_bonds().copy(), state_index=assigned
     )
-    source.topology._chemical_states[assigned].connectivity_completeness = 'complete'
-    source.topology._chemical_states[0].connectivity_completeness = 'partial'
+    source.chemical_states._states[assigned].connectivity_completeness = 'complete'
+    source.chemical_states._states[0].connectivity_completeness = 'partial'
     source._set_structure_chemical_state_indices([assigned])
     tree = build_torsion_tree(
         source,
