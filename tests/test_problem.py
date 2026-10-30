@@ -74,9 +74,8 @@ def _multi_structure_redocking_source():
     )
     coordinates[1] += [20.0, 0.0, 0.0]
     molsys.structures.coordinates = puw.quantity(coordinates, 'angstrom')
-    second_state = molsys.topology._append_chemical_state(
-        state_id='selected-second-state'
-    )
+    second_state = molsys.chemical_states.append_state()
+    molsys.chemical_states._states[second_state].state_id = 'selected-second-state'
     molsys._set_structure_chemical_state_indices([0, second_state])
     return molsys, coordinates
 
@@ -245,12 +244,13 @@ def test_problem_selects_chemistry_of_chosen_structure():
     molsys.topology.atoms['atom_id'] = ['0', '1']
     molsys.topology.atoms['atom_name'] = ['C', 'O']
     molsys.topology.atoms['atom_type'] = ['C', 'O']
-    molsys.topology._set_chemical_state_atom_attribute('formal_charge', [0, -1])
-    product = molsys.topology._append_chemical_state(state_id='product')
-    molsys.topology._set_chemical_state_atom_attribute(
+    molsys.chemical_states._set_chemical_state_atom_attribute('formal_charge', [0, -1])
+    product = molsys.chemical_states.append_state()
+    molsys.chemical_states._states[product].state_id = 'product'
+    molsys.chemical_states._set_chemical_state_atom_attribute(
         'formal_charge', [1, 0], state_index=product
     )
-    molsys.topology._set_reference_chemical_state_index(None)
+    molsys.chemical_states._set_reference_index(None)
     molsys.structures.coordinates = puw.quantity(np.zeros((2, 2, 3)), 'nm')
     molsys._set_structure_chemical_state_indices([0, 1])
     box = BoxRegion(

@@ -74,7 +74,7 @@ def test_nested_branches_match_molsysmt_covalent_blocks():
         for fragment in graph['fragments']
     }
     retained = set(range(prepared.n_atoms))
-    provider_blocks = msm.topology.get_covalent_blocks(
+    provider_blocks = msm.chemical_states.get_covalent_blocks(
         source, remove_bonds=selected_bonds, output_type='sets'
     )
     expected_fragments = {frozenset(block & retained) for block in provider_blocks}

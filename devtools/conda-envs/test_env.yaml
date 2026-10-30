@@ -11,7 +11,7 @@ dependencies:
   - pytest-cov
   - pytest-receptor
   - smonitor >=0.16.0
-  - depdigest >=0.11.0
+  - depdigest >=0.15.1
   - pyunitwizard >=0.28.1
   - numpy
   - scipy

@@ -283,9 +283,10 @@ def test_residue_summary_is_detached_and_read_only_under_nondefault_units():
 
 def test_residue_audit_follows_structure_assigned_state():
     source = _controls()
-    assigned = source.topology._append_chemical_state(state_id='incomplete')
-    source.topology._set_chemical_state_bonds(
-        source.topology.bonds.iloc[1:].copy(), state_index=assigned
+    assigned = source.chemical_states.append_state()
+    source.chemical_states._states[assigned].state_id = 'incomplete'
+    source.chemical_states._set_chemical_state_bonds(
+        source.chemical_states.get_bonds().iloc[1:].copy(), state_index=assigned
     )
     source._set_structure_chemical_state_indices([assigned])
     evidence = chemistry_evidence(source, include_residue_coverage=True)

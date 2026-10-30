@@ -109,8 +109,8 @@ def test_rigid_default_does_not_classify_or_invent_active_cuts(bonds, monkeypatc
     def forbidden(*args, **kwargs):
         raise AssertionError('Rigid preparation must not calculate a torsion policy.')
 
-    monkeypatch.setattr(msm.topology, 'get_rotatable_bonds', forbidden)
-    monkeypatch.setattr(msm.topology, 'get_rigid_fragments', forbidden)
+    monkeypatch.setattr(msm.chemical_states, 'get_rotatable_bonds', forbidden)
+    monkeypatch.setattr(msm.chemical_states, 'get_rigid_fragments', forbidden)
     prepared = dmt.prepare_ligand(source, selection='all', active_torsion_bonds=bonds)
     assert prepared.torsion_dof == 0
     assert 'torsion_selection' not in prepared.metadata
@@ -122,7 +122,7 @@ def test_one_public_native_classification_on_complete_graph_without_optional_typ
 ):
     source = explicit_source('CC(=O)OCC')
     calls = []
-    actual = msm.topology.get_rotatable_bonds
+    actual = msm.chemical_states.get_rotatable_bonds
     original_import = builtins.__import__
 
     def guarded_import(name, *args, **kwargs):
@@ -144,7 +144,7 @@ def test_one_public_native_classification_on_complete_graph_without_optional_typ
         return report
 
     monkeypatch.setattr(builtins, '__import__', guarded_import)
-    monkeypatch.setattr(msm.topology, 'get_rotatable_bonds', observed)
+    monkeypatch.setattr(msm.chemical_states, 'get_rotatable_bonds', observed)
     tree = build_torsion_tree(
         source,
         list(range(6)),
@@ -182,8 +182,8 @@ def test_provider_failure_propagates_unchanged_without_fallback(
             'A provider failure must not trigger partitioning or a fallback.'
         )
 
-    monkeypatch.setattr(msm.topology, 'get_rotatable_bonds', fail)
-    monkeypatch.setattr(msm.topology, 'get_rigid_fragments', forbidden)
+    monkeypatch.setattr(msm.chemical_states, 'get_rotatable_bonds', fail)
+    monkeypatch.setattr(msm.chemical_states, 'get_rigid_fragments', forbidden)
     with pytest.raises(error_class) as caught:
         dmt.prepare_ligand(source, selection='all', active_torsion_bonds=[(1, 2)])
     assert caught.value is error
@@ -191,7 +191,7 @@ def test_provider_failure_propagates_unchanged_without_fallback(
 
 def test_unknown_provider_exclusion_is_not_silently_allowed(monkeypatch):
     source = typed_source('CCCCCC')
-    actual = msm.topology.get_rotatable_bonds
+    actual = msm.chemical_states.get_rotatable_bonds
 
     def future_reason(system, **options):
         report = actual(system, **options)
@@ -205,7 +205,7 @@ def test_unknown_provider_exclusion_is_not_silently_allowed(monkeypatch):
         report['is_rotatable'][row] = False
         return report
 
-    monkeypatch.setattr(msm.topology, 'get_rotatable_bonds', future_reason)
+    monkeypatch.setattr(msm.chemical_states, 'get_rotatable_bonds', future_reason)
     with pytest.raises(ArgumentError, match='unsupported provider exclusions'):
         dmt.prepare_ligand(source, selection='all', active_torsion_bonds=[(1, 2)])
 
@@ -227,11 +227,12 @@ def test_source_bond_positions_follow_reordered_provider_axis():
 
 def test_classification_uses_assigned_state_instead_of_reference_chemistry():
     source = declared_source('CCCCCC')
-    assigned = source.topology._append_chemical_state(state_id='assigned-double')
-    bonds = source.topology.bonds.copy()
+    assigned = source.chemical_states.append_state()
+    source.chemical_states._states[assigned].state_id = 'assigned-double'
+    bonds = source.chemical_states.get_bonds().copy()
     bonds.loc[1, 'bond_order'] = 2.0
-    source.topology._set_chemical_state_bonds(bonds, state_index=assigned)
-    source.topology._chemical_states[assigned].connectivity_completeness = 'complete'
+    source.chemical_states._set_chemical_state_bonds(bonds, state_index=assigned)
+    source.chemical_states._states[assigned].connectivity_completeness = 'complete'
     source._set_structure_chemical_state_indices([assigned])
     with pytest.raises(ArgumentError, match='single bond order'):
         build_torsion_tree(source, list(range(6)), [(1, 2)], ['C'] * 6)
@@ -240,7 +241,7 @@ def test_classification_uses_assigned_state_instead_of_reference_chemistry():
 @pytest.mark.parametrize('defect', ['partial', 'order', 'aromatic_bridge'])
 def test_full_graph_evidence_is_required_even_outside_requested_pair(defect):
     source = declared_source('CCCCCC')
-    state = source.topology._chemical_states[0]
+    state = source.chemical_states._states[0]
     if defect == 'partial':
         state.connectivity_completeness = 'partial'
     elif defect == 'order':
@@ -312,3 +313,15 @@ def test_default_automatic_vina_retains_named_torsion_reports_and_pose_identity(
             atol=1e-3,
         )
     assert snapshot(typed) == before
+
+
+def test_qualification_probe_compares_assigned_and_reference_connectivity():
+    from devtools.qualify_chemical_domain_receiving import state_scope_probe
+
+    report = state_scope_probe()
+    assert report['explicit_state_request'] == {
+        'status': 'supported',
+        'blocks': [[0, 1, 2], [3, 4, 5]],
+    }
+    assert report['reference_default_blocks'] == [[0, 1, 2, 3, 4, 5]]
+    assert report['source_unchanged']

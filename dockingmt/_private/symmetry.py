@@ -71,7 +71,7 @@ def evaluate_symmetry(result, reference, reference_selection, report, options):
     correspondence_options = {
         name: value for name, value in options.items() if name != 'tie_tolerance'
     }
-    maps = msm.topology.get_atom_correspondences(
+    maps = msm.chemical_states.get_atom_correspondences(
         source,
         selection=selected,
         reference_molecular_system=reference,

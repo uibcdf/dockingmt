@@ -713,7 +713,7 @@ class VinaBackend(DockingBackend):
             native = partner_export.molecular_system
             if msm.get(native, n_chemical_states=True) != 1:
                 pose_reading_mode = 'multiple_source_states'
-            elif list(msm.get(native, connectivity_completeness=True)) != ['complete']:
+            elif msm.get(native, connectivity_completeness=True) != 'complete':
                 pose_reading_mode = 'incomplete_source_connectivity'
             else:
                 pose_reading_mode = 'molsysmt_known_source'

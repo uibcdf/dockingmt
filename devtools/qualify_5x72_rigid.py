@@ -151,10 +151,10 @@ def admit_geometry(source, fitted, reference):
         next(i for i, pair in enumerate(pairs) if sorted(pair) == sorted(cut))
         for cut in CUTS
     ]
-    fragments = msm.topology.get_rigid_fragments(source, bond_indices=cuts)
+    fragments = msm.chemical_states.get_rigid_fragments(source, bond_indices=cuts)
     labels = fragments['atom_fragment_indices']
     assert detached_record(fragments) == detached_record(
-        msm.topology.get_rigid_fragments(fitted, bond_indices=cuts)
+        msm.chemical_states.get_rigid_fragments(fitted, bond_indices=cuts)
     )
     matrices = [distances(system) for system in (source, fitted, reference)]
     rows = []
@@ -244,7 +244,7 @@ def construct(name, source, case):
     adjusted, steps = source, []
     for i, quartet in enumerate(QUARTETS):
         previous = snapshot(adjusted)
-        blocks = msm.topology.get_covalent_blocks(
+        blocks = msm.chemical_states.get_covalent_blocks(
             adjusted, remove_bonds=quartet[1:3].tolist()
         )
         moving = next(sorted(block) for block in blocks if int(quartet[3]) in block)

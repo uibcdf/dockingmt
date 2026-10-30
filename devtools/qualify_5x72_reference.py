@@ -257,9 +257,11 @@ def geometry_diagnostic(source, reference):
         next(i for i, pair in enumerate(pairs) if sorted(pair) == sorted(cut))
         for cut in CUTS
     ]
-    fragments = msm.topology.get_rigid_fragments(source, bond_indices=cut_indices)
+    fragments = msm.chemical_states.get_rigid_fragments(
+        source, bond_indices=cut_indices
+    )
     assert detached_record(
-        msm.topology.get_rigid_fragments(reference, bond_indices=cut_indices)
+        msm.chemical_states.get_rigid_fragments(reference, bond_indices=cut_indices)
     ) == detached_record(fragments)
     labels = fragments['atom_fragment_indices'][:24]
     distances, coordinates = [], []

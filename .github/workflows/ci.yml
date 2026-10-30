@@ -55,7 +55,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "e395e52646dab2ecb480d3d67aa7254be99b8524"
+          ref: "9fb77c3583b44dda31c0466348369de137301df9"
           path: .molsyssuite/molsysmt
           fetch-depth: 0
       - name: Check out compatible MolSysMT source for Python 3.14
@@ -63,7 +63,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "e395e52646dab2ecb480d3d67aa7254be99b8524"
+          ref: "9fb77c3583b44dda31c0466348369de137301df9"
           path: .molsyssuite/molsysmt
           fetch-depth: 0
       - name: Check out compatible MolSysViewer source
@@ -71,7 +71,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysviewer
-          ref: "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
+          ref: "ca7ebea60d530a7a0c65cb4d0ccea7b4288f3352"
           path: .molsyssuite/molsysviewer
           fetch-depth: 0
       - name: Check out compatible MolSysViewer source for Python 3.14
@@ -79,7 +79,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysviewer
-          ref: "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
+          ref: "ca7ebea60d530a7a0c65cb4d0ccea7b4288f3352"
           path: .molsyssuite/molsysviewer
           fetch-depth: 0
       - name: Setup micromamba

@@ -23,34 +23,34 @@ role = "required-runtime"
 url = "https://github.com/uibcdf/argdigest"
 commit = "3d1ec53c374098016452abab74706e9d80df5462"
 install = "pip-no-deps-directory"
-reason = "Current provider composition qualified under dockingmt#49 on Python 3.14; normal pip --no-deps directory install and exact four-minor CI remain required."
+reason = "Chemical-domain candidate composition under dockingmt#56; directory installation and the exact four-minor CI remain required. Historical #49 evidence is retained separately."
 
 [[source_routes]]
 id = "molsysmt-source"
 name = "molsysmt"
 role = "required-runtime"
 url = "https://github.com/uibcdf/molsysmt"
-commit = "e395e52646dab2ecb480d3d67aa7254be99b8524"
+commit = "9fb77c3583b44dda31c0466348369de137301df9"
 install = "pip-no-deps-directory"
-reason = "PDBQT presentation receiving under dockingmt#49 adopts the explicit output_presentation/remarks contract (#214), final-byte export maps and source-label-restoring pose readers, retaining existing projection/permutation contracts. Normal directory installation and exact-head four-minor scientific gates remain required; production writer retirement and public artifact admission are separate."
+reason = "ChemicalStates/Topology receiving under dockingmt#56 selects MolSysMT 9fb77c358. PDBQT contracts remain required; exact-source and installed/public qualification remain separate."
 
 [[source_routes]]
 id = "viewer-base"
 name = "molsysviewer"
 role = "integration"
 url = "https://github.com/uibcdf/molsysviewer"
-commit = "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
+commit = "ca7ebea60d530a7a0c65cb4d0ccea7b4288f3352"
 install = "pip-no-deps-directory"
-reason = "Current provider composition qualified under dockingmt#49 on Python 3.14; normal pip --no-deps directory install and exact four-minor CI remain required."
+reason = "Chemical-domain candidate composition under dockingmt#56; directory installation and the exact four-minor CI remain required. Historical #49 evidence is retained separately."
 
 [[source_routes]]
 id = "viewer-py314"
 name = "molsysviewer"
 role = "integration"
 url = "https://github.com/uibcdf/molsysviewer"
-commit = "a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f"
+commit = "ca7ebea60d530a7a0c65cb4d0ccea7b4288f3352"
 install = "pip-no-deps-directory"
-reason = "Current provider composition qualified under dockingmt#49 on Python 3.14; normal pip --no-deps directory install and exact four-minor CI remain required."
+reason = "Chemical-domain candidate composition under dockingmt#56; directory installation and the exact four-minor CI remain required. Historical #49 evidence is retained separately."
 
 [[contexts]]
 name = "ci-3.11"
@@ -91,7 +91,7 @@ reason = "Manual candidate/staged or eligible reviewed release caller; shared pu
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "651a1d9a7e84c672f8693d00009c20988cceec51e14a381edd2bb817a54fd741"
+sha256 = "e13539e390810fce7961988a0a0ea49c34846dcfe694101d925b7b684cdc8c0f"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]
@@ -101,7 +101,7 @@ reason = "Administrative no-build recipe/resources and immutable publisher contr
 
 [[workflows]]
 path = ".github/workflows/full-matrix.yml"
-sha256 = "cf69b399eaa808e37159e8248862428fdf2bf2a759c1c3d413c84644251a19f2"
+sha256 = "c42c443b38361608130a177bd2ef94ae310553090ed8fea01bfd27f6685ecbba"
 reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under dockingmt#49; directory preflight does not dispatch or change the matrix."
 
 [[workflows]]
