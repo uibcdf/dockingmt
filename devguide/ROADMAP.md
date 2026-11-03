@@ -5,17 +5,17 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which
-reviews all 35 C0–C6 criteria at source `92d31e0`. It distinguishes current
+reviews all 35 C0–C6 criteria against the unchanged runtime baseline `8f17116`. It distinguishes current
 implementation, original scientific evidence, private installed qualification
 and pending acceptance. The [human workflow review](human_workflow_review.md)
-defines the next bounded product slice. This section is the active queue;
+tracks the delivered record-inspection slice and next walkthrough. This section is the active queue;
 dated checkpoint entries below retain their original state and historical
 "Next" instructions.
 
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |
 | 1 | Current Core evidence and source CI (#28/#60) | The updated criterion map is delivered. Inspect the exact source/head's remaining hosted lanes and append their outcome to the owning issues; previous successes do not qualify another composition. |
-| 2 | Installed Python/Jupyter use (#4) | Implement the specified public-API saved-result inspection notebook: explicit input/trust, detached result, scores/units and damaged-evidence refusal, outside source with no developer-tool import or new molecular computation. Then scope the preparation-to-execution walkthrough. |
+| 2 | Installed Python/Jupyter use (#4) | The public-API saved-result notebook is delivered: both eight-cell profiles pass outside source, with explicit trust, detached records, units and refusal controls. Next scope the preparation-to-execution walkthrough against an actual need, keeping prescriptions explicit and new computations separately registered. |
 | 3 | Actual distribution readiness (#30/#47) | Review published provider coordinates/API minima and the real candidate plan, including frontend tests and actual installed platform/minor gates. No publication follows from private wheels. |
 | Deferred | Live observation (#52/#60) | On the maintainer's decision, observe real controls/comm/canvas, frame correspondence and reference/domain visibility; visible C4/C6 remain unaccepted. |
 | On provider delivery | Remaining molecular profiles (#49/#33) | Receive MolSysMT #521 against its actual partial/reference contract before removing the covered verifier. MolSysMT #256 remains post-1.0 general mechanics persistence, separate from the supported linked-record route. |
@@ -31,6 +31,22 @@ accepted workflow after the Core priorities above.
 
 The entries below are dated delivery/evidence records. Consult the operational
 plan above for current next work; preserve historical producers and claims.
+
+## Installed public-API result inspection — 2026-11-03
+
+[The #4 notebook](validation/installed_result_inspection.md) completes eight
+exact source cells in each of two real kernels: the original five-pose 3PTB
+record and an explicitly derived missing-capture control. Public schema/audit/
+reader/captured-byte APIs preserve identity, order, scores, units and producer;
+unsupported schema and a changed capture digest refuse. Missing evidence stays
+incomplete and the result stays detached. Both kernels close, original data and
+all 63 installed consumer files remain unchanged, and 144 existing audit/schema
+guards pass without skips. The original private wheel is reused; no runtime,
+dependency, molecular operation, scientific experiment or release is added.
+
+**Next:** scope the explicit preparation-to-execution walkthrough; retain the
+source/caller-input and persistence boundaries. Public artifact readiness stays
+#30/#47; browser/C6 observation remains deferred under #52/#60.
 
 ## Public player notifications received — 2026-11-03
 

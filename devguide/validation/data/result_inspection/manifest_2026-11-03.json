@@ -1,0 +1,23 @@
+{
+  "schema": "dockingmt.result_inspection_manifest@1",
+  "owner": "uibcdf/dockingmt#4",
+  "runtime_source_baseline": "8f1711621170c64f6256545e2d38b327cfdc9beb",
+  "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "original_result_producer": "1decee504b112cfd92026c52dcbe22449de30f4f",
+  "records": [
+    {
+      "path": "devguide/validation/installed_result_inspection.ipynb",
+      "sha256": "bfe922f86012834ba12bf9cb1ada5098944c6979fee00523ef9fd38ba25ee3e0"
+    },
+    {
+      "path": "devguide/validation/installed_result_inspection.md",
+      "sha256": "1e65de5a832f5a17cfd7d2cfecf08811f94b8daf73ba5eb5ad55322709e410fc"
+    },
+    {
+      "path": "devguide/validation/data/result_inspection/receiving_2026-11-03.json",
+      "sha256": "53e910cfd067395995fff142cf948329b69066371dabc395cf587923b197fc3c"
+    }
+  ],
+  "published": false,
+  "C6_accepted": false
+}

@@ -1,8 +1,9 @@
 # Current Core MVP acceptance map
 
 Owner: [#28](https://github.com/uibcdf/dockingmt/issues/28); workflow follow-up:
-[#4](https://github.com/uibcdf/dockingmt/issues/4). Reviewed source:
-`92d31e0bf6aaf128b79f8990732dbd5ac49b45e8`, 2026-11-03.
+[#4](https://github.com/uibcdf/dockingmt/issues/4). Runtime baseline:
+`8f1711621170c64f6256545e2d38b327cfdc9beb`, 2026-11-03. The unchanged runtime
+retains the preceding review; new notebook evidence is identified separately below.
 This maintained map supersedes the *next-action list* of the
 [2026-10-28 audit](validation/core_mvp_audit_2026-10-28.md), preserving that
 audit, its findings at its original source and all scientific/artifact receipts.
@@ -37,6 +38,7 @@ private wheel is also distinct from a publicly admitted distribution.
 | D | [Domain derivation](validation/domain_derivation.md) and [guard](../tests/test_domain_derivation.py): selection/frame/source/padding recipe, geometry binding, legacy readability and serialization. #55 is resolved. |
 | C | [ChemicalStates receiving](chemical_domain_receiving.md): current source and qualified wheel producers remain distinct; chemical operations stay in MolSysMT. |
 | R | [Saved-case recovery](validation/saved_human_case_recovery.md): authenticates the bounded original bundle and returns a detached result; no molecular restoration or search. |
+| I | [Installed record inspection](validation/installed_result_inspection.md): eight public-API cells pass for original and missing-capture records, with units, refusal controls and installed provenance. It reads records without authenticating the entire original bundle or restoring a molecular problem. |
 | V | [Player receiving](validation/player_notifications_receiving.md): exact Viewer `78ede79e`, real Python widgets, immediate navigation, full private installed gate and five-cell kernel replay. [DOM tests](validation/addon_dom.md) separately exercise shipped JavaScript with a model double. Browser comm/pixels remain unobserved. |
 
 The V receiving uses original DockingMT wheel producer
@@ -99,9 +101,11 @@ the evidence keys above identify executed results and their limits.
 1. The #55 domain-provenance work and MolSysViewer #291 reception are delivered;
    do not schedule them as missing implementation again. #5 is closed for its
    original unsafe mechanisms, with scientific follow-up explicitly in #33.
-2. The next local product slice is the
-   [installed Python/Jupyter workflow review](human_workflow_review.md), under #4.
-   It can proceed independently of visual observation and molecular snapshots.
+2. The [installed saved-result notebook](validation/installed_result_inspection.md)
+   is delivered under #4, with two exact eight-cell kernel profiles and 144
+   existing audit/schema guards passing. Next scope the explicit
+   preparation-to-execution walkthrough in the [workflow review](human_workflow_review.md),
+   independently of visual observation or general molecular snapshots.
 3. MolSysMT #521 remains an undelivered extension. Retain its bounded existing
    profile/refusal boundary; do not replace it locally. MolSysMT #256 is explicitly
    post-1.0 H5MSM 0.6 MolecularMechanics persistence, not a prerequisite for the

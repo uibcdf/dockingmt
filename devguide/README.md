@@ -31,11 +31,13 @@ Every proposed capability should be classified as:
 Start with the [current Core acceptance map](CORE_MVP_STATUS.md) and
 [operational roadmap](ROADMAP.md#current-operational-plan). They reconcile
 the 35 C0–C6 criteria and current priorities without rewriting historical
-evidence. Then read the [Python/Jupyter workflow review](human_workflow_review.md)
-for the next bounded #4 slice: installed saved-result inspection using existing
-public APIs, with explicit trust and molecular-recovery limits. That notebook
-is specified, not implemented or executed by the review. Visual acceptance
-remains deferred; no new scientific experiment or release is implied.
+evidence. The [installed saved-result guide](validation/installed_result_inspection.md)
+and [notebook](validation/installed_result_inspection.ipynb) now deliver the #4
+slice through existing public APIs: eight cells complete in both original and
+missing-capture profiles, with explicit trust and molecular-recovery limits.
+The [workflow review](human_workflow_review.md) retains the accepted scope and
+next preparation-to-execution boundary. Visual acceptance remains deferred;
+no new scientific experiment or release is implied.
 
 Start with [public player notification receiving](validation/player_notifications_receiving.md)
 for the current #60 checkpoint. MolSysViewer #291 has delivered synchronous

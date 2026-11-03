@@ -1,0 +1,309 @@
+{
+  "schema": "dockingmt.installed_result_notebook_receiving@1",
+  "owner": "uibcdf/dockingmt#4",
+  "runtime_source_reviewed": "8f1711621170c64f6256545e2d38b327cfdc9beb",
+  "runtime_changed": false,
+  "notebook": {
+    "path": "devguide/validation/installed_result_inspection.ipynb",
+    "sha256": "bfe922f86012834ba12bf9cb1ada5098944c6979fee00523ef9fd38ba25ee3e0"
+  },
+  "original_case_member": {
+    "qualification_sha256": "b89b8dcb9ec296d01f12cd28cb633577e868e5c60b264c5f4bb4eefd6f3b9bf2",
+    "member": "native_result_2026-10-20.json.gz",
+    "file_sha256": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249",
+    "decoded_sha256": "ed0eeb3ade25e54f8a5829729578fcbec9f0d73d6c0ceb03d146b0c3492d7fac",
+    "producer": "1decee504b112cfd92026c52dcbe22449de30f4f",
+    "entire_case_authentication_performed": false
+  },
+  "runs": [
+    {
+      "notebook_receipt": {
+        "schema": "dockingmt.installed_result_inspection@1",
+        "scope": "saved_result_record_inspection",
+        "input": {
+          "file_sha256": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249",
+          "decoded_sha256": "ed0eeb3ade25e54f8a5829729578fcbec9f0d73d6c0ceb03d146b0c3492d7fac",
+          "encoding": "gzip",
+          "external_expected_identity_matches": true
+        },
+        "recorded_producer": {
+          "dockingmt_version": "0.0.0+180.g1decee5",
+          "molsysmt_version": "0.23.0+78.gc35252d89",
+          "backend": "vina",
+          "backend_version": "1.2.7"
+        },
+        "reader": {
+          "dockingmt_version": "0.0.0+225.g50d8e33",
+          "python": "3.14.8",
+          "pyunitwizard_version": "0.29.0",
+          "smonitor_version": "0.22.0",
+          "module_origin_within_prefix": "lib/python3.14/site-packages/dockingmt/__init__.py",
+          "editable": false,
+          "archive_sha256_if_recorded": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98"
+        },
+        "record_audit_status": "consistent",
+        "pose_count": 5,
+        "captured_bytes_verified": true,
+        "captured_sizes_bytes": {
+          "receptor": 161531,
+          "partner": 1707
+        },
+        "schema_refusal": {
+          "code": "DMT-E002",
+          "argument": "schema_version"
+        },
+        "capture_refusal": {
+          "code": "DMT-E002",
+          "argument": "artifacts",
+          "role": "partner"
+        },
+        "identity_order_scores_and_descriptors_preserved": true,
+        "coordinate_roundtrip_relative_tolerance": 1e-12,
+        "coordinate_roundtrip_absolute_tolerance": 0,
+        "coordinate_display_unit": "angstrom",
+        "nondefault_policy_preserved": true,
+        "caller_policy_restored": true,
+        "detached_roundtrip_verified": true,
+        "input_file_and_record_unchanged": true,
+        "molecular_problem_restored": false,
+        "whole_case_authentication": false,
+        "historical_software_bytes_verified": false,
+        "chemical_validity_verified": false,
+        "browser_or_C6_acceptance": false
+      },
+      "validation": {
+        "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+        "consumer_archive_sha256": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98",
+        "all_63_consumer_files_verified_before_and_after": true,
+        "all_loaded_core_support_modules_prefix_owned": true,
+        "loaded_modules_before": 173,
+        "loaded_modules_after": 824,
+        "required_molsysmt_imports_at_bootstrap": 13,
+        "molecular_calls_guarded_after_bootstrap": true,
+        "forbidden_import_attempts": [],
+        "scientific_call_attempts": [],
+        "forbidden_namespaces_absent": [
+          "devtools",
+          "molsysviewer",
+          "molsysviewer_dockingmt",
+          "openmm",
+          "rdkit",
+          "vina"
+        ],
+        "developer_source_and_sdk_on_kernel_path": false,
+        "working_directory": "outside source checkout",
+        "derived_software_control": false
+      },
+      "variant": "original",
+      "execution": {
+        "code_cells": [
+          {
+            "id": "inputs",
+            "execution_count": 2,
+            "source_sha256": "ec374a171d563ae9bb2cfe3a50aac386e2e456be50138e42e125dbda22ea9a4b"
+          },
+          {
+            "id": "file-identity",
+            "execution_count": 3,
+            "source_sha256": "92c446cbfcfbb0fd0547c3e24927aabe02aa7ea79bb3a2fcdab82dfebe57aa1e"
+          },
+          {
+            "id": "audit-and-read",
+            "execution_count": 4,
+            "source_sha256": "9b8170f5bf44ba0f7b4b32125e54a35b37e1f71ea19b2e79ae8684072f8adcae"
+          },
+          {
+            "id": "pose-meaning",
+            "execution_count": 5,
+            "source_sha256": "bb4e802d232b574189d9437889e2b47f8794e31df887076a9882c2e804a3c7b8"
+          },
+          {
+            "id": "refusals",
+            "execution_count": 6,
+            "source_sha256": "a45cf1ceab5a104e6afc331712368f6f0a26ac730c9fb31b315c0eb11a51911a"
+          },
+          {
+            "id": "nondefault-policy",
+            "execution_count": 7,
+            "source_sha256": "c37821a5cf887e09f73c4fa2e0e3d9f05a87acf652ead183ef9d322f2c4a7b2a"
+          },
+          {
+            "id": "roundtrip",
+            "execution_count": 8,
+            "source_sha256": "8490aad3501be7b81dfaaf24285da8733812a72a2e9c160c3cb56827b41181c2"
+          },
+          {
+            "id": "receipt",
+            "execution_count": 9,
+            "source_sha256": "63723a925132ccda71de42b484471814378cb538e7b82448153b4dc10d07598b"
+          }
+        ],
+        "kernel_shutdown": true
+      }
+    },
+    {
+      "notebook_receipt": {
+        "schema": "dockingmt.installed_result_inspection@1",
+        "scope": "saved_result_record_inspection",
+        "input": {
+          "file_sha256": "efe7c3c5428c4ae4d8013d0ae8d59156afefaab104f7bfbb0b710827596e4420",
+          "decoded_sha256": "59e39ec79c222fab4cf34b30a003b201a09cf3088efa546060c023be9812255d",
+          "encoding": "gzip",
+          "external_expected_identity_matches": true
+        },
+        "recorded_producer": {
+          "dockingmt_version": "0.0.0+180.g1decee5",
+          "molsysmt_version": "0.23.0+78.gc35252d89",
+          "backend": "vina",
+          "backend_version": "1.2.7"
+        },
+        "reader": {
+          "dockingmt_version": "0.0.0+225.g50d8e33",
+          "python": "3.14.8",
+          "pyunitwizard_version": "0.29.0",
+          "smonitor_version": "0.22.0",
+          "module_origin_within_prefix": "lib/python3.14/site-packages/dockingmt/__init__.py",
+          "editable": false,
+          "archive_sha256_if_recorded": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98"
+        },
+        "record_audit_status": "incomplete",
+        "pose_count": 5,
+        "captured_bytes_verified": false,
+        "captured_sizes_bytes": null,
+        "schema_refusal": {
+          "code": "DMT-E002",
+          "argument": "schema_version"
+        },
+        "capture_refusal": null,
+        "identity_order_scores_and_descriptors_preserved": true,
+        "coordinate_roundtrip_relative_tolerance": 1e-12,
+        "coordinate_roundtrip_absolute_tolerance": 0,
+        "coordinate_display_unit": "angstrom",
+        "nondefault_policy_preserved": true,
+        "caller_policy_restored": true,
+        "detached_roundtrip_verified": true,
+        "input_file_and_record_unchanged": true,
+        "molecular_problem_restored": false,
+        "whole_case_authentication": false,
+        "historical_software_bytes_verified": false,
+        "chemical_validity_verified": false,
+        "browser_or_C6_acceptance": false
+      },
+      "validation": {
+        "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+        "consumer_archive_sha256": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98",
+        "all_63_consumer_files_verified_before_and_after": true,
+        "all_loaded_core_support_modules_prefix_owned": true,
+        "loaded_modules_before": 173,
+        "loaded_modules_after": 824,
+        "required_molsysmt_imports_at_bootstrap": 13,
+        "molecular_calls_guarded_after_bootstrap": true,
+        "forbidden_import_attempts": [],
+        "scientific_call_attempts": [],
+        "forbidden_namespaces_absent": [
+          "devtools",
+          "molsysviewer",
+          "molsysviewer_dockingmt",
+          "openmm",
+          "rdkit",
+          "vina"
+        ],
+        "developer_source_and_sdk_on_kernel_path": false,
+        "working_directory": "outside source checkout",
+        "derived_software_control": true
+      },
+      "variant": "missing-captures",
+      "execution": {
+        "code_cells": [
+          {
+            "id": "inputs",
+            "execution_count": 2,
+            "source_sha256": "ec374a171d563ae9bb2cfe3a50aac386e2e456be50138e42e125dbda22ea9a4b"
+          },
+          {
+            "id": "file-identity",
+            "execution_count": 3,
+            "source_sha256": "92c446cbfcfbb0fd0547c3e24927aabe02aa7ea79bb3a2fcdab82dfebe57aa1e"
+          },
+          {
+            "id": "audit-and-read",
+            "execution_count": 4,
+            "source_sha256": "9b8170f5bf44ba0f7b4b32125e54a35b37e1f71ea19b2e79ae8684072f8adcae"
+          },
+          {
+            "id": "pose-meaning",
+            "execution_count": 5,
+            "source_sha256": "bb4e802d232b574189d9437889e2b47f8794e31df887076a9882c2e804a3c7b8"
+          },
+          {
+            "id": "refusals",
+            "execution_count": 6,
+            "source_sha256": "a45cf1ceab5a104e6afc331712368f6f0a26ac730c9fb31b315c0eb11a51911a"
+          },
+          {
+            "id": "nondefault-policy",
+            "execution_count": 7,
+            "source_sha256": "c37821a5cf887e09f73c4fa2e0e3d9f05a87acf652ead183ef9d322f2c4a7b2a"
+          },
+          {
+            "id": "roundtrip",
+            "execution_count": 8,
+            "source_sha256": "8490aad3501be7b81dfaaf24285da8733812a72a2e9c160c3cb56827b41181c2"
+          },
+          {
+            "id": "receipt",
+            "execution_count": 9,
+            "source_sha256": "63723a925132ccda71de42b484471814378cb538e7b82448153b4dc10d07598b"
+          }
+        ],
+        "kernel_shutdown": true
+      }
+    }
+  ],
+  "selected_existing_guards": {
+    "exit": 0,
+    "prefix_origins_verified": true,
+    "test_context": "1c343924b4a144058685796783d72c174b032651",
+    "test_files_equal_reviewed_source": true,
+    "selection": [
+      "test_result_audit.py",
+      "test_serialization_contracts.py"
+    ],
+    "counts": {
+      "tests": 144,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "receptor": {
+      "passed": 144,
+      "seconds": 1.46,
+      "warnings": 1,
+      "warning": "preimported smonitor assertion rewriting"
+    }
+  },
+  "pip_check": "passed",
+  "attempts": [
+    {
+      "phase": "initial validation prelude",
+      "outcome": "failed before any tutorial cell",
+      "cause": "guard incorrectly rejected required MolSysMT bootstrap import",
+      "kernel_shutdown": true
+    },
+    {
+      "phase": "corrected guards before formatting",
+      "outcome": "both eight-cell profiles pass",
+      "identity": "retained separately; not final formatted cell identities",
+      "kernels_shutdown": true
+    },
+    {
+      "phase": "final formatted notebook",
+      "outcome": "both exact eight-cell profiles pass",
+      "kernels_shutdown": true
+    }
+  ],
+  "formatting_correction": "one import-order fix and shared notebook formatting before final execution",
+  "published": false,
+  "public_package_or_platform_admission": false,
+  "C6_accepted": false
+}

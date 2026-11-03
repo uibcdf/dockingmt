@@ -4,8 +4,24 @@ Owner: [#4](https://github.com/uibcdf/dockingmt/issues/4), coordinated with
 [#28](https://github.com/uibcdf/dockingmt/issues/28). Publication-route decision:
 [#29](https://github.com/uibcdf/dockingmt/issues/29).
 Source inspected: `92d31e0bf6aaf128b79f8990732dbd5ac49b45e8`, 2026-11-03.
-This is a source/workflow review and bounded next-slice specification, not a new
-executed notebook, search, API or scientific acceptance result.
+The original source/workflow review is retained below. The delivery update links
+the separately executed notebook evidence; no new search, API or scientific
+acceptance result follows.
+
+## Delivered installed-result slice — 2026-11-03
+
+The [guide](validation/installed_result_inspection.md) and
+[notebook](validation/installed_result_inspection.ipynb) now fulfill the accepted
+scope below. Both exact eight-cell real-kernel profiles complete outside source:
+the original five-pose record and a derived missing-capture control. Public APIs,
+unit meaning, external file identity, detached reading and refusal controls are
+verified with the original installed wheel. All 63 consumer files and loaded
+origins are checked before/after; molecular/engine/viewer actions remain guarded
+and uncalled. Both kernels close and 144 existing schema/audit guards pass.
+The [receiving record](validation/data/result_inspection/receiving_2026-11-03.json)
+preserves the initial overly strict bootstrap-guard failure and later exact-code
+passes separately. This remains private Linux/Python 3.14 qualification, not
+public artifact/platform admission, full case authentication or a new experiment.
 
 ## Workflow and existing public seams
 
@@ -54,9 +70,9 @@ the source/data harness. [README](../README.md) exposes the public primitives an
 their preparation prerequisites, but is not a complete replacement for that
 scientific recipe and qualification setup.
 
-## Next bounded slice: installed saved-result inspection
+## Accepted scope: installed saved-result inspection
 
-Create a separate maintained notebook showing the installed public APIs for
+The separate maintained notebook shows the installed public APIs for
 reading and inspecting a caller-supplied DockingResult JSON record. Keep the
 historical qualification notebooks and forensic recovery tool unchanged. This
 small first slice avoids selecting new chemistry or launching a new experiment;
@@ -86,7 +102,7 @@ Acceptance for that notebook:
    original versus reader identities, observed checks and explicit limitations.
    This is new tutorial evidence, not a new scientific result or public release.
 
-This specification is ready for the next implementation slice under #4. No new
+This bounded slice is delivered under #4. No new
 result IO convenience API, generalized bundle format, backend runner or snapshot
 is justified merely to write the example. Use standard JSON/file IO for the
 docking record and the existing package operations for its semantics.

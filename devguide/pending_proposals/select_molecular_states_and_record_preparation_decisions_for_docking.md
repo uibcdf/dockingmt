@@ -17,6 +17,24 @@ supersedes: []
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
 **Status:** Partial; DockingMT Core MVP work.
 
+## Installed saved-result inspection delivered — 2026-11-03
+
+[The maintained guide/notebook](../validation/installed_result_inspection.md)
+delivers the accepted installed-user record slice. Both eight-cell kernel
+profiles pass: original five-pose 3PTB evidence and an explicitly derived
+missing-capture control. Source-free public APIs preserve original versus reader
+identity, pose/score/unit meaning, detached reading and roundtrip; unsupported
+schema and changed-capture controls refuse. All 63 installed consumer files and
+loaded origins remain verified, all task kernels close, and 144 existing audit/
+schema guards pass. No runtime/provider/recipe change or new scientific calculation
+occurs; the original private archive and all historical evidence are preserved.
+
+The [workflow review](../human_workflow_review.md) now tracks delivery and the
+remaining preparation-to-execution walkthrough. This broader issue remains
+partial for prepared-source/replay contexts; no molecular snapshot or general
+archive is introduced. MolSysMT retains molecular operations/persistence, and
+visual/public-delivery decisions retain their separate owners.
+
 ## Installed human workflow review — 2026-11-03
 
 The [source/workflow review](../human_workflow_review.md) distinguishes existing

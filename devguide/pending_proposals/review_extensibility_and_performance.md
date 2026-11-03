@@ -14,6 +14,16 @@ supersedes: []
 
 # Review extensibility and performance
 
+## Installed record walkthrough delivered — 2026-11-03
+
+The #4 [installed-result example](../validation/installed_result_inspection.md)
+now fulfills the preceding review's first bounded product slice: both exact
+eight-cell kernel profiles and 144 existing schema/audit guards pass. Existing
+public APIs suffice; no molecular tool, runtime API, archive format or new
+execution abstraction is added. The current Core map and operational plan point
+to the delivered example and remaining preparation-to-execution scope, while
+keeping scientific/public/visual limits and historical identities explicit.
+
 ## Current Core map and workflow review — 2026-11-03
 
 The maintained [Core map](../CORE_MVP_STATUS.md) reviews all 35 C0–C6 criteria

@@ -170,8 +170,9 @@ omitted hydrogens remain absent from reconstructed poses.
 Raw PDBQT inputs without a molecular source map can still produce scores and
 coordinates, but cannot be reconstructed as molecular poses or compared by
 molecular RMSD. Explicit coordinate-array RMSD is positional. Other atom losses
-require a verified map. Scientific preparation qualification remains open under
-[issue #5](https://github.com/uibcdf/dockingmt/issues/5).
+require a verified map. Scientific preparation/model qualification remains scoped
+under [issue #33](https://github.com/uibcdf/dockingmt/issues/33); #5's original
+unsafe mechanisms are resolved.
 Ligands remain rigid by default (`TORSDOF 0`). For a molecular ligand with an
 explicit graph and bond orders, select active torsions by pairs of atom indices
 in the selected ligand before nonpolar hydrogen removal:
@@ -322,6 +323,15 @@ field. An explicitly unsupported or malformed version is rejected before
 interpreting the scientific payload. This applies to `BoxRegion`, `DockingPose`,
 `DockingResult`, `DockingProblem`, and `VinaProtocol`, including their nested
 pose and domain records.
+
+For an installed-package walkthrough, use the
+[saved-result inspection guide](devguide/validation/installed_result_inspection.md)
+and [notebook](devguide/validation/installed_result_inspection.ipynb). They read
+caller-supplied JSON with an externally expected identity, preserve the original
+producer and score/unit meaning, and demonstrate damaged-evidence refusal.
+Reading leaves the result detached; it does not reconstruct a molecular system
+or perform new calculations. The two kernel profiles and actual private-archive
+qualification retain their separate evidence and public-delivery limits.
 
 ## Governance and Design Authority
 
