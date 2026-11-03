@@ -68,8 +68,8 @@ def build_docking_complex_system(
 ) -> Any:
     """Build a multi-structure MolSysMT system containing receptor and candidate poses.
 
-    Each structure (frame) corresponds to a docking pose, with frame 0 representing
-    the top-ranked pose (rank 1).
+    Structure k corresponds to collection member k. Scientific ranks are kept
+    unchanged and need not match collection order.
 
     Parameters
     ----------
@@ -211,22 +211,42 @@ def render_docking_result(
 
 
 def set_active_pose(view: Any, rank: int) -> None:
-    """Activate and focus a specific docking pose by 1-based rank."""
+    """Activate a pose by one-based collection position.
+
+    The legacy argument name ``rank`` is preserved for compatibility. It is
+    not the scientific ``DockingPose.rank``; position k maps to frame k - 1.
+    """
     runtime = ensure_runtime(view)
     if runtime.result is None or not runtime.result.poses:
         raise RuntimeError('No docking result loaded in viewer.')
 
-    if rank < 1 or rank > len(runtime.result.poses):
+    if (
+        isinstance(rank, bool)
+        or not isinstance(rank, Integral)
+        or rank < 1
+        or rank > len(runtime.result.poses)
+    ):
         raise ValueError(
-            f'Invalid pose rank {rank}. Must be between 1 and {len(runtime.result.poses)}.'
+            f'Invalid pose position {rank}. Use an integer between '
+            f'1 and {len(runtime.result.poses)}.'
         )
+
+    rank = int(rank)
 
     player = getattr(view, 'player', None)
     if player is not None and hasattr(player, 'go_to_structure'):
         player.go_to_structure(rank - 1)
 
     runtime.active_pose_rank = rank
-    record_event(view, 'set_active_pose', rank=rank)
+    pose = runtime.result.poses[rank - 1]
+    record_event(
+        view,
+        'set_active_pose',
+        rank=rank,
+        index=rank - 1,
+        pose_id=pose.pose_id,
+        scientific_rank=pose.rank,
+    )
 
 
 def set_reference_visibility(view: Any, visible: bool) -> None:

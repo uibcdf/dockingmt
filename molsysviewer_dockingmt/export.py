@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from ._presentation import selected_pose_record
 from .runtime import ensure_runtime
 
 
@@ -15,6 +16,7 @@ def build_docking_export_payload(view: Any) -> dict[str, Any]:
     return {
         'title': 'DockingMT Result Export',
         'active_pose_rank': runtime.active_pose_rank,
+        'selected_pose': selected_pose_record(runtime),
         'domain_visible': runtime.domain_visible,
         'reference_visible': runtime.reference_visible,
         'result': result.to_dict() if result is not None else None,

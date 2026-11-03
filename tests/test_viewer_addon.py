@@ -152,13 +152,13 @@ def test_build_docking_complex_system_and_set_active_pose():
     )
 
     partner = msm.extract(rec, selection=[0, 1, 2])
-    # 3 mock poses with a declared and checked 3-atom source
+    # Collection order is independent of absent/nonconsecutive scientific ranks.
     poses = [
         _mapped_mock_pose(
             partner,
             puw.quantity(np.ones((3, 3)) * (i + 1), 'angstrom'),
             {'vina': -7.0 + i},
-            i + 1,
+            [7, None, 1][i],
         )
         for i in range(3)
     ]
@@ -169,6 +169,17 @@ def test_build_docking_complex_system_and_set_active_pose():
     n_rec_atoms = msm.get(rec, element='system', n_atoms=True)
     assert msm.get(complex_sys, element='system', n_atoms=True) == n_rec_atoms + 3
     assert msm.get(complex_sys, element='system', n_structures=True) == 3
+    for index in range(3):
+        coordinates = msm.get(
+            complex_sys,
+            selection=list(range(n_rec_atoms, n_rec_atoms + 3)),
+            structure_indices=index,
+            coordinates=True,
+        )
+        np.testing.assert_allclose(
+            puw.get_value(coordinates, to_unit='angstrom'), index + 1
+        )
+    assert [pose.rank for pose in poses] == [7, None, 1]
 
     # Render into MolSysView
     import molsysviewer as msv

@@ -2,6 +2,22 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Saved-result addon explorer — 2026-11-03
+
+[The #60 addon iteration](pending_proposals/qualify_saved_result_addon.md)
+extends the existing Docking workspace. Its first slice separates collection
+position/frame from scientific rank, preserves missing identities/ranks and
+shows all named scores with their declared units/meaning. A Vina zero is retained;
+unknown units stay unknown. Refresh/navigation performs no RMSD calculation.
+The existing positional Python API remains compatible.
+
+**Next:** complete coherent panel state and prerequisites using public Viewer
+contracts, then qualify actual controls and canvas behavior in live Jupyter
+with the saved five-pose 3PTB case and explicit molecular inputs. Molecular
+operations remain in MolSysMT; generic viewer services remain in MolSysViewer.
+The original #52 scene review stays deferred. No browser, public-package or
+whole-Core acceptance is implied by the presentation tests.
+
 ## MolSysMT main checkpoint and installed receiving — 2026-11-03
 
 [Current receiving](chemical_domain_receiving.md#main-source-receiving-and-complete-installed-gate--2026-11-03)

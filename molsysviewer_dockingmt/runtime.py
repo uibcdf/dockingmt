@@ -27,6 +27,15 @@ class DockingMTAddonRuntime:
     last_context_action: dict[str, Any] | None = None
     event_log: list[dict[str, Any]] = field(default_factory=list)
 
+    @property
+    def active_pose_index(self) -> int:
+        """Zero-based collection/frame index.
+
+        ``active_pose_rank`` is retained as the legacy one-based position;
+        it does not describe the selected pose's scientific ``rank``.
+        """
+        return self.active_pose_rank - 1
+
 
 def create_dockingmt_state(view: Any) -> DockingMTAddonRuntime:
     """Factory consumed by AddonSpec.state_factory."""

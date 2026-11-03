@@ -112,7 +112,7 @@ def get_addon():
                 id='explorer',
                 title='Docking Explorer',
                 entry='molsysviewer_dockingmt.panels.explorer',
-                description='Browse candidate docking poses, scores, ranks, and RMSD comparison.',
+                description='Browse candidate docking poses, named scores, ranks, and reference visibility.',
                 order=10,
                 widget_class='molsysviewer_dockingmt.panels.explorer.DockingExplorerPanel',
             ),

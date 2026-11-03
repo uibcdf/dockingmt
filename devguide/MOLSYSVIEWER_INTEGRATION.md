@@ -4,8 +4,10 @@
 
 Docking should be explorable as a scientific result, not merely exported as coordinates.
 
-DockingMT should eventually ship a dedicated MolSysViewer addon capable of understanding
-`DockingResult` and `DockingPose`.
+DockingMT ships `molsysviewer_dockingmt`, a dedicated MolSysViewer addon that
+understands `DockingResult` and `DockingPose`. Its bounded interactive
+qualification is tracked in [#60](https://github.com/uibcdf/dockingmt/issues/60)
+and the [current proposal](pending_proposals/qualify_saved_result_addon.md).
 
 Following the MolSysViewer ownership model, the addon belongs to the DockingMT repository
 and package distribution. MolSysViewer provides the host API; DockingMT owns the docking
@@ -29,7 +31,16 @@ view.show(result)
 
 or an equivalent explicit DockingMT addon API.
 
-## Docking Explorer — DESIGNED FOR
+## Docking Explorer — current bounded iteration
+
+The existing Explorer and Search Domain panels are the first interface. Pose
+selection uses collection/frame index, displayed separately from optional
+scientific rank and identity. Named scores retain their existing descriptors
+and units; absent meaning is explicit. Mounting and navigation perform no
+implicit RMSD calculation. Live Jupyter control/canvas qualification remains
+pending; successful Python widget tests do not establish visible behavior.
+
+## Richer Docking Explorer — DESIGNED FOR
 
 A richer viewer could provide:
 
@@ -75,7 +86,9 @@ pose
 
 DockingMT owns docking scientific data and analysis.
 
-MolSysViewer owns interactive presentation.
+DockingMT owns the docking-specific interaction in its addon. MolSysViewer owns
+generic presentation, rendering, panel hosting and transport. General molecular
+operations remain MolSysMT-owned.
 
 Do not place essential scientific information only inside viewer state.
 

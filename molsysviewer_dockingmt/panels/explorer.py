@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+from numbers import Integral
 from typing import Any
 
-import pyunitwizard as puw
 from molsysviewer.addons import AddonPanelWidget
 
+from .._presentation import pose_record
 from ..adapters.complex import set_active_pose, set_reference_visibility
 from ..adapters.shapes import set_search_domain_visibility
 from ..runtime import ensure_runtime, record_event
@@ -15,11 +16,13 @@ _ESM = """
 export function render({ model, el }) {
   let state = {
     n_poses: 0,
-    active_rank: 1,
+    active_index: null,
     poses: [],
     domain_visible: true,
     reference_visible: true,
     has_reference: false,
+    has_domain: false,
+    comparison_note: "RMSD unavailable: no recorded comparison is bound.",
     status: "idle",
     error: null,
   };
@@ -34,7 +37,7 @@ export function render({ model, el }) {
       <div class="dmt-nav-row">
         <button class="dmt-btn dmt-btn--nav" id="dmt-prev" title="Previous pose">&#8592; Prev</button>
         <div class="dmt-pose-display">
-          <span class="dmt-label">Pose</span>
+          <span class="dmt-label">Position</span>
           <input class="dmt-input" type="number" id="dmt-pose-input" min="1" step="1" value="1" />
         </div>
         <button class="dmt-btn dmt-btn--nav" id="dmt-next" title="Next pose">Next &#8594;</button>
@@ -44,13 +47,14 @@ export function render({ model, el }) {
         <table class="dmt-table" id="dmt-table">
           <thead>
             <tr>
+              <th>Position</th>
+              <th>Pose ID</th>
               <th>Rank</th>
-              <th>Score (kcal/mol)</th>
-              <th>RMSD (Å)</th>
+              <th>Named scores</th>
             </tr>
           </thead>
           <tbody id="dmt-tbody">
-            <tr><td colspan="3" class="dmt-empty">No docking poses loaded.</td></tr>
+            <tr><td colspan="4" class="dmt-empty">No docking poses loaded.</td></tr>
           </tbody>
         </table>
       </div>
@@ -60,6 +64,7 @@ export function render({ model, el }) {
         <button class="dmt-btn dmt-btn--toggle" id="dmt-toggle-ref">Toggle Reference</button>
       </div>
 
+      <div id="dmt-comparison-note"></div>
       <div class="dmt-status" id="dmt-status"></div>
     </div>
   `;
@@ -72,43 +77,52 @@ export function render({ model, el }) {
   const toggleBoxBtn = el.querySelector("#dmt-toggle-box");
   const toggleRefBtn = el.querySelector("#dmt-toggle-ref");
   const statusEl = el.querySelector("#dmt-status");
+  const comparisonEl = el.querySelector("#dmt-comparison-note");
 
   function applyState(s) {
     state = { ...state, ...s };
 
     countEl.textContent = `${state.n_poses} pose${state.n_poses === 1 ? '' : 's'}`;
-    poseInput.value = state.active_rank;
+    poseInput.value = state.active_index === null ? '' : state.active_index + 1;
     poseInput.max = state.n_poses || 1;
+    poseInput.disabled = !state.n_poses;
 
-    prevBtn.disabled = state.active_rank <= 1 || state.n_poses <= 1;
-    nextBtn.disabled = state.active_rank >= state.n_poses || state.n_poses <= 1;
+    prevBtn.disabled = state.active_index === null || state.active_index <= 0;
+    nextBtn.disabled = state.active_index === null || state.active_index >= state.n_poses - 1;
     toggleRefBtn.disabled = !state.has_reference;
+    toggleBoxBtn.disabled = !state.has_domain;
+    comparisonEl.textContent = state.comparison_note;
 
     toggleBoxBtn.textContent = state.domain_visible ? "Hide Search Box" : "Show Search Box";
     toggleRefBtn.textContent = state.reference_visible ? "Hide Reference" : "Show Reference";
 
     if (!state.poses || state.poses.length === 0) {
-      tbodyEl.innerHTML = '<tr><td colspan="3" class="dmt-empty">No docking poses loaded.</td></tr>';
+      tbodyEl.innerHTML = '<tr><td colspan="4" class="dmt-empty">No docking poses loaded.</td></tr>';
     } else {
-      tbodyEl.innerHTML = state.poses.map(p => {
-        const isSelected = p.rank === state.active_rank;
-        const rowClass = isSelected ? 'dmt-row dmt-row--active' : 'dmt-row';
-        const rmsdText = p.rmsd !== null && p.rmsd !== undefined ? p.rmsd.toFixed(2) : '-';
-        const scoreText = p.score !== null && p.score !== undefined ? p.score.toFixed(2) : '-';
-        return `
-          <tr class="${rowClass}" data-rank="${p.rank}">
-            <td><strong>#${p.rank}</strong></td>
-            <td>${scoreText}</td>
-            <td>${rmsdText}</td>
-          </tr>
-        `;
-      }).join('');
-
-      tbodyEl.querySelectorAll('.dmt-row').forEach(row => {
-        row.addEventListener('click', () => {
-          const rank = parseInt(row.getAttribute('data-rank'), 10);
-          model.send({ type: "action", id: "set_pose", payload: { rank: rank } });
+      tbodyEl.replaceChildren();
+      state.poses.forEach(p => {
+        const row = document.createElement('tr');
+        row.className = p.index === state.active_index ? 'dmt-row dmt-row--active' : 'dmt-row';
+        row.dataset.index = p.index;
+        [p.position, p.pose_id ?? 'Unavailable', p.rank ?? 'Unassigned'].forEach(value => {
+          const cell = document.createElement('td');
+          cell.textContent = String(value);
+          row.appendChild(cell);
         });
+        const scores = document.createElement('td');
+        if (!p.scores.length) scores.textContent = 'Unavailable';
+        p.scores.forEach(score => {
+          const line = document.createElement('div');
+          const unit = score.unit ?? 'unit unknown';
+          line.textContent = `${score.name}=${score.value.toFixed(2)} (${unit})`;
+          line.title = score.definition ? JSON.stringify(score.definition) : 'Score meaning undeclared';
+          scores.appendChild(line);
+        });
+        row.appendChild(scores);
+        row.addEventListener('click', () => {
+          model.send({ type: "action", id: "set_pose", payload: { index: p.index } });
+        });
+        tbodyEl.appendChild(row);
       });
     }
 
@@ -130,9 +144,9 @@ export function render({ model, el }) {
   });
 
   poseInput.addEventListener("change", () => {
-    const val = parseInt(poseInput.value, 10);
-    if (!isNaN(val) && val >= 1 && val <= (state.n_poses || 1)) {
-      model.send({ type: "action", id: "set_pose", payload: { rank: val } });
+    const val = Number(poseInput.value);
+    if (Number.isInteger(val) && val >= 1 && val <= state.n_poses) {
+      model.send({ type: "action", id: "set_pose", payload: { index: val - 1 } });
     }
   });
 
@@ -144,12 +158,14 @@ export function render({ model, el }) {
     model.send({ type: "action", id: "toggle_reference", payload: {} });
   });
 
-  model.on("msg:custom", (msg) => {
+  const onMessage = (msg) => {
     if (msg?.type === "state") applyState(msg.state);
-  });
+  };
+  model.on("msg:custom", onMessage);
 
   model.send({ type: "query", id: "viewer.context" });
   applyState(state);
+  return () => model.off("msg:custom", onMessage);
 }
 """
 
@@ -278,10 +294,18 @@ class DockingExplorerPanel(AddonPanelWidget):
 
         try:
             if action_id == 'set_pose':
-                rank = payload.get('rank')
-                if isinstance(rank, int):
-                    set_active_pose(view, rank)
-                    record_event(view, 'panel_set_pose', rank=rank)
+                if 'index' in payload and 'rank' not in payload:
+                    index = payload['index']
+                    if isinstance(index, bool) or not isinstance(index, Integral):
+                        raise ValueError('Use an integer pose index.')
+                    position = int(index) + 1
+                elif 'rank' in payload and 'index' not in payload:
+                    # Retain the old one-based position message for callers.
+                    position = payload['rank']
+                else:
+                    raise ValueError('Supply one pose index (or legacy position).')
+                set_active_pose(view, position)
+                record_event(view, 'panel_set_pose', index=runtime.active_pose_index)
 
             elif action_id == 'prev_pose':
                 new_rank = max(1, runtime.active_pose_rank - 1)
@@ -314,58 +338,19 @@ class DockingExplorerPanel(AddonPanelWidget):
 
     def _build_state(self, runtime: Any, view: Any) -> dict[str, Any]:
         result = runtime.result
-        if result is None or not result.poses:
-            return {
-                'n_poses': 0,
-                'active_rank': 1,
-                'poses': [],
-                'domain_visible': runtime.domain_visible,
-                'reference_visible': runtime.reference_visible,
-                'has_reference': runtime.reference is not None,
-                'status': 'idle',
-                'error': None,
-            }
-
-        poses_data = []
-        reference = runtime.reference
-
-        # Compute RMSDs if reference is present
-        rmsds = None
-        if reference is not None:
-            try:
-                raw_rmsds = result.get_rmsds(reference)
-                rmsds = [
-                    float(puw.get_value(puw.convert(r, to_unit='angstrom')))
-                    for r in raw_rmsds
-                ]
-            except Exception:
-                rmsds = None
-
-        for idx, pose in enumerate(result.poses):
-            # Prefer 'vina' score or first score
-            primary_score = None
-            if 'vina' in pose.scores:
-                primary_score = pose.scores['vina']
-            elif pose.scores:
-                primary_score = next(iter(pose.scores.values()))
-
-            pose_rmsd = rmsds[idx] if rmsds is not None and idx < len(rmsds) else None
-
-            poses_data.append(
-                {
-                    'rank': pose.rank if pose.rank is not None else idx + 1,
-                    'score': primary_score,
-                    'rmsd': pose_rmsd,
-                }
-            )
+        poses = result.poses if result is not None else []
+        index = runtime.active_pose_index
 
         return {
-            'n_poses': len(result.poses),
+            'n_poses': len(poses),
             'active_rank': runtime.active_pose_rank,
-            'poses': poses_data,
+            'active_index': index if 0 <= index < len(poses) else None,
+            'poses': [pose_record(pose, idx) for idx, pose in enumerate(poses)],
             'domain_visible': runtime.domain_visible,
             'reference_visible': runtime.reference_visible,
-            'has_reference': reference is not None,
+            'has_reference': runtime.reference is not None,
+            'has_domain': runtime.search_domain is not None,
+            'comparison_note': 'RMSD unavailable: no recorded comparison is bound.',
             'status': 'idle',
             'error': None,
         }

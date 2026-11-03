@@ -28,6 +28,13 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
+For current interactive work, start with the
+[saved-result addon explorer](pending_proposals/qualify_saved_result_addon.md)
+under #60. Its first slice separates pose identity/position/rank and displays
+named scores with declared units, without implicit RMSD computation. Next comes
+panel synchronization and a live Jupyter workflow. The deferred historical
+scene observation remains #52; Python tests do not accept C6.
+
 Start with [ChemicalStates receiving](chemical_domain_receiving.md) under #56 /
 [adopted PR #59](https://github.com/uibcdf/dockingmt/pull/59). MolSysMT has delivered development source for owner receiving; current
 controlled inputs select MolSysMT main `00abb958f` with Viewer `ca7ebea6`. The four graph callers
