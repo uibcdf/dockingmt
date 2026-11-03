@@ -31,8 +31,11 @@ Every proposed capability should be classified as:
 For current interactive work, start with the
 [saved-result addon explorer](pending_proposals/qualify_saved_result_addon.md)
 under #60. Its first slice separates pose identity/position/rank and displays
-named scores with declared units, without implicit RMSD computation. Next comes
-panel synchronization and a live Jupyter workflow. The deferred historical
+named scores with declared units, without implicit RMSD computation. Its second
+slice synchronizes addon actions, public frame callbacks and mounted widgets,
+with explicit readback and owned visual cleanup. Immediate notification for
+unrelated Python player calls awaits MolSysViewer #291; manual Refresh reads
+the current public state. Next comes the live Jupyter workflow. The deferred historical
 scene observation remains #52; Python tests do not accept C6.
 
 Start with [ChemicalStates receiving](chemical_domain_receiving.md) under #56 /

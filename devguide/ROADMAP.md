@@ -11,8 +11,14 @@ shows all named scores with their declared units/meaning. A Vina zero is retaine
 unknown units stay unknown. Refresh/navigation performs no RMSD calculation.
 The existing positional Python API remains compatible.
 
-**Next:** complete coherent panel state and prerequisites using public Viewer
-contracts, then qualify actual controls and canvas behavior in live Jupyter
+The second slice adds mounted-widget state propagation, public frame callbacks,
+explicit Refresh, prerequisites and cleanup of actual owned shape handles.
+Public Python player calls outside DockingMT do not currently emit callbacks;
+immediate synchronization is requested in MolSysViewer #291, with readback
+available meanwhile. The omitted first-slice module and the new helpers are now
+included in the package-resource inventory; original CI failure stays recorded.
+
+**Next:** qualify actual controls and canvas behavior in live Jupyter
 with the saved five-pose 3PTB case and explicit molecular inputs. Molecular
 operations remain in MolSysMT; generic viewer services remain in MolSysViewer.
 The original #52 scene review stays deferred. No browser, public-package or

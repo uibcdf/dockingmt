@@ -5,12 +5,14 @@ from __future__ import annotations
 from typing import Any
 
 from ._presentation import pose_record, score_text, selected_pose_record
+from ._scene import sync_scene_state
 from .runtime import ensure_runtime
 
 
 def get_docking_summary_section(view: Any) -> dict[str, Any]:
     """Build a workbench section dictionary summarizing the active docking state."""
     runtime = ensure_runtime(view)
+    sync_scene_state(view)
     result = runtime.result
 
     n_poses = len(result.poses) if result is not None else 0

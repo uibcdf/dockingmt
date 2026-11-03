@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from typing import Any
+from weakref import WeakSet
 
 
 @dataclass
@@ -26,6 +27,10 @@ class DockingMTAddonRuntime:
     tag_prefix: str = 'dockingmt'
     last_context_action: dict[str, Any] | None = None
     event_log: list[dict[str, Any]] = field(default_factory=list)
+    domain_layer: Any = field(default=None, repr=False)
+    domain_layers: list[Any] = field(default_factory=list, repr=False)
+    reference_region: Any = field(default=None, repr=False)
+    _panels: WeakSet = field(default_factory=WeakSet, repr=False)
 
     @property
     def active_pose_index(self) -> int:
@@ -80,3 +85,5 @@ def record_event(view: Any, event_name: str, **kwargs: Any) -> None:
     """Append a structured lifecycle/interaction event to the runtime event log."""
     runtime = ensure_runtime(view)
     runtime.event_log.append({'event': event_name, **kwargs})
+    for panel in tuple(runtime._panels):
+        panel._refresh()

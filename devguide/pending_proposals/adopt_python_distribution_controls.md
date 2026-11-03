@@ -14,6 +14,21 @@ supersedes: []
 
 # Distribution control adoption
 
+## Addon inventory correction — 2026-11-03
+
+The first #60 implementation head `1c96052` omitted `_presentation.py` from
+`devtools/conda-build/resources.toml`. Its
+[distribution job](https://github.com/uibcdf/dockingmt/actions/runs/41689015547/job/126102325478)
+passes 23 controls and fails the complete source/resource inventory assertion.
+The previous 104-case source selection did not include this separate gate.
+
+The maintained inventory now includes `_presentation.py`, `_scene.py` and
+`panels/_base.py`. The unchanged complete-inventory guard and all 24 scoped
+administrative tests pass with SDK `738fe8dd731abb99dac421b0bb2acc8564110180`.
+The second addon slice and its exact-head CI remain tracked on #60. This corrects
+the declaration; it does not build, qualify, publish or replace an artifact.
+The historical receipts and payload counts below retain their original sources.
+
 ## What
 
 Under uibcdf/molsyssuite#45, the maintainer accepts preparation of the shared

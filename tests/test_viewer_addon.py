@@ -35,6 +35,7 @@ def test_addon_spec_matches_molsysviewer_contract():
     assert isinstance(addon, msv.AddonSpec)
     assert addon.name == 'dockingmt'
     assert addon.package == 'dockingmt'
+    assert addon.version == dockingmt.__version__
 
     assert len(addon.workspaces) == 1
     assert addon.workspaces[0].id == 'dockingmt'
@@ -69,6 +70,14 @@ def test_lifecycle_hooks_and_runtime_events():
     assert runtime.enabled is True
     assert runtime.workspace == 'dockingmt'
     assert runtime.event_log[-1]['event'] == 'enable'
+
+    dmt_viewer.render_search_domain(
+        v,
+        BoxRegion(
+            center=puw.quantity([0, 0, 0], 'nm'),
+            lengths=puw.quantity([1, 1, 1], 'nm'),
+        ),
+    )
 
     dmt_viewer.on_context_action(v, 'toggle-search-domain', {})
     assert runtime.domain_visible is False

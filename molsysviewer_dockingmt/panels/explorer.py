@@ -5,12 +5,12 @@ from __future__ import annotations
 from numbers import Integral
 from typing import Any
 
-from molsysviewer.addons import AddonPanelWidget
-
 from .._presentation import pose_record
+from .._scene import sync_scene_state
 from ..adapters.complex import set_active_pose, set_reference_visibility
 from ..adapters.shapes import set_search_domain_visibility
 from ..runtime import ensure_runtime, record_event
+from ._base import _DockingPanel
 
 _ESM = """
 export function render({ model, el }) {
@@ -62,6 +62,7 @@ export function render({ model, el }) {
       <div class="dmt-controls">
         <button class="dmt-btn dmt-btn--toggle" id="dmt-toggle-box">Toggle Search Box</button>
         <button class="dmt-btn dmt-btn--toggle" id="dmt-toggle-ref">Toggle Reference</button>
+        <button class="dmt-btn" id="dmt-refresh">Refresh</button>
       </div>
 
       <div id="dmt-comparison-note"></div>
@@ -77,6 +78,7 @@ export function render({ model, el }) {
   const toggleBoxBtn = el.querySelector("#dmt-toggle-box");
   const toggleRefBtn = el.querySelector("#dmt-toggle-ref");
   const statusEl = el.querySelector("#dmt-status");
+  const refreshBtn = el.querySelector("#dmt-refresh");
   const comparisonEl = el.querySelector("#dmt-comparison-note");
 
   function applyState(s) {
@@ -89,8 +91,10 @@ export function render({ model, el }) {
 
     prevBtn.disabled = state.active_index === null || state.active_index <= 0;
     nextBtn.disabled = state.active_index === null || state.active_index >= state.n_poses - 1;
-    toggleRefBtn.disabled = !state.has_reference;
-    toggleBoxBtn.disabled = !state.has_domain;
+    toggleRefBtn.disabled = !state.reference_available;
+    toggleRefBtn.title = state.reference_reason ?? '';
+    toggleBoxBtn.disabled = !state.domain_available;
+    toggleBoxBtn.title = state.domain_reason ?? '';
     comparisonEl.textContent = state.comparison_note;
 
     toggleBoxBtn.textContent = state.domain_visible ? "Hide Search Box" : "Show Search Box";
@@ -157,15 +161,23 @@ export function render({ model, el }) {
   toggleRefBtn.addEventListener("click", () => {
     model.send({ type: "action", id: "toggle_reference", payload: {} });
   });
+  refreshBtn.addEventListener("click", () => {
+    model.send({ type: "action", id: "refresh", payload: {} });
+  });
 
   const onMessage = (msg) => {
     if (msg?.type === "state") applyState(msg.state);
   };
   model.on("msg:custom", onMessage);
+  const onState = () => applyState(model.get("explorer") ?? {});
+  model.on("change:explorer", onState);
 
   model.send({ type: "query", id: "viewer.context" });
-  applyState(state);
-  return () => model.off("msg:custom", onMessage);
+  applyState(model.get("explorer") ?? state);
+  return () => {
+    model.off("msg:custom", onMessage);
+    model.off("change:explorer", onState);
+  };
 }
 """
 
@@ -279,20 +291,18 @@ _CSS = """
 """
 
 
-class DockingExplorerPanel(AddonPanelWidget):
+class DockingExplorerPanel(_DockingPanel):
     """Panel widget for browsing candidate poses, scores, and reference comparison."""
 
     _esm: str = _ESM
     _css: str = _CSS
-
-    def on_mount(self, view: Any) -> None:
-        runtime = ensure_runtime(view)
-        self.push_state(self._build_state(runtime, view))
+    _state_key = 'explorer'
 
     def handle_action(self, view: Any, action_id: str, payload: dict[str, Any]) -> None:
         runtime = ensure_runtime(view)
 
         try:
+            sync_scene_state(view)
             if action_id == 'set_pose':
                 if 'index' in payload and 'rank' not in payload:
                     index = payload['index']
@@ -328,15 +338,16 @@ class DockingExplorerPanel(AddonPanelWidget):
                 set_reference_visibility(view, new_vis)
                 record_event(view, 'panel_toggle_reference', visible=new_vis)
 
-            self.push_state(self._build_state(runtime, view))
+            elif action_id != 'refresh':
+                raise ValueError(f'Unknown docking explorer action: {action_id!r}.')
+
+            self._refresh(view=view)
 
         except Exception as exc:
-            state = self._build_state(runtime, view)
-            state['status'] = 'error'
-            state['error'] = str(exc)
-            self.push_state(state)
+            self._refresh(str(exc), view=view)
 
     def _build_state(self, runtime: Any, view: Any) -> dict[str, Any]:
+        controls = sync_scene_state(view)
         result = runtime.result
         poses = result.poses if result is not None else []
         index = runtime.active_pose_index
@@ -353,4 +364,5 @@ class DockingExplorerPanel(AddonPanelWidget):
             'comparison_note': 'RMSD unavailable: no recorded comparison is bound.',
             'status': 'idle',
             'error': None,
+            **controls,
         }

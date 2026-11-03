@@ -5,12 +5,14 @@ from __future__ import annotations
 from typing import Any
 
 from ._presentation import selected_pose_record
+from ._scene import sync_scene_state
 from .runtime import ensure_runtime
 
 
 def build_docking_export_payload(view: Any) -> dict[str, Any]:
     """Build a serialized dictionary payload of the active docking session for export."""
     runtime = ensure_runtime(view)
+    sync_scene_state(view)
     result = runtime.result
 
     return {

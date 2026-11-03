@@ -17,6 +17,9 @@ def on_enable(view: Any) -> None:
 
 def on_disable(view: Any) -> None:
     """Invoked when the DockingMT addon is disabled."""
+    from .adapters.complex import clear_docking
+
+    clear_docking(view)
     runtime = ensure_runtime(view)
     runtime.enabled = False
     record_event(view, 'disable', workspace=runtime.workspace)
@@ -24,12 +27,14 @@ def on_disable(view: Any) -> None:
 
 def on_context_action(view: Any, action_id: str, payload: dict[str, Any]) -> None:
     """Handle context menu action triggers dispatched by MolSysViewer."""
+    from ._scene import sync_scene_state
     from .adapters.complex import set_active_pose, set_reference_visibility
     from .adapters.shapes import set_search_domain_visibility
 
     runtime = ensure_runtime(view)
     runtime.last_context_action = {'action_id': action_id, 'payload': dict(payload)}
     record_event(view, 'context_action', action_id=action_id)
+    sync_scene_state(view)
 
     if action_id == 'toggle-search-domain':
         new_vis = not runtime.domain_visible
@@ -87,10 +92,12 @@ def get_addon():
         AddonWorkspaceSpec,
     )
 
+    from dockingmt import __version__
+
     addon_kwargs: dict[str, Any] = {
         'name': 'dockingmt',
         'package': 'dockingmt',
-        'version': '0.1.0',
+        'version': __version__,
         'description': 'Molecular docking workspace for poses, search domains, and scores in MolSysViewer.',
     }
     if _accepts_keyword(AddonSpec, 'state_factory'):

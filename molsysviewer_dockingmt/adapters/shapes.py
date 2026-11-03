@@ -7,7 +7,24 @@ from typing import Any
 import numpy as np
 import pyunitwizard as puw
 
+from .._scene import domain_layer
 from ..runtime import ensure_runtime, record_event
+
+
+def _clear_domain_layers(view: Any) -> None:
+    """Retain failed handles for retry and leave reused tags to their current owner."""
+    runtime = ensure_runtime(view)
+    shapes = getattr(view, 'shapes', None)
+    if runtime.domain_layers and shapes is None:
+        raise RuntimeError(
+            'Owned search-domain cleanup requires Viewer shapes support.'
+        )
+    for layer in runtime.domain_layers.copy():
+        if shapes.get(layer.tag) is layer:
+            layer.delete()
+        runtime.domain_layers.remove(layer)
+        if runtime.domain_layer is layer:
+            runtime.domain_layer = None
 
 
 def compute_box_wireframe_coordinate_pairs(box_or_domain: Any) -> Any:
@@ -107,25 +124,36 @@ def render_search_domain(
     """
     runtime = ensure_runtime(view)
 
-    # If the shape already exists, delete it first to replace
-    shapes = getattr(view, 'shapes', None)
-    if shapes is not None and hasattr(shapes, 'contains') and shapes.contains(tag):
-        try:
-            shapes.delete(tag)
-        except Exception:
-            pass
-
+    # Validate docking geometry before touching any existing scene element.
     coord_pairs = compute_box_wireframe_coordinate_pairs(search_domain)
-
-    layer = None
-    if shapes is not None and hasattr(shapes, 'links'):
-        layer = shapes.links.add_links(
-            coordinate_pairs=coord_pairs,
-            radius=radius,
-            color=color,
-            tag=tag,
+    shapes = getattr(view, 'shapes', None)
+    if shapes is None or not callable(
+        getattr(getattr(shapes, 'links', None), 'add_links', None)
+    ):
+        raise RuntimeError(
+            'Search-domain rendering requires public Viewer shapes support.'
         )
+    previous = shapes.get(tag)
+    if previous is not None:
+        if not any(item is previous for item in runtime.domain_layers):
+            raise ValueError(
+                f'Shape tag {tag!r} is already owned by another scene element.'
+            )
+        previous.delete()
+        runtime.domain_layers.remove(previous)
+        if runtime.domain_layer is previous:
+            runtime.domain_layer = None
+    layer = shapes.links.add_links(
+        coordinate_pairs=coord_pairs,
+        radius=radius,
+        color=color,
+        tag=tag,
+    )
+    if layer is None:
+        raise RuntimeError('The Viewer did not return a rendered search-domain handle.')
 
+    runtime.domain_layers.append(layer)
+    runtime.domain_layer = layer
     runtime.search_domain = search_domain
     runtime.domain_visible = True
     record_event(view, 'render_search_domain', tag=tag)
@@ -135,15 +163,14 @@ def render_search_domain(
 def set_search_domain_visibility(
     view: Any,
     visible: bool,
-    tag: str = 'dockingmt:search_domain',
+    tag: str | None = None,
 ) -> None:
     """Toggle the visibility of the search domain wireframe box."""
-    shapes = getattr(view, 'shapes', None)
-    if shapes is not None and hasattr(shapes, 'contains') and shapes.contains(tag):
-        if visible:
-            shapes.show(tag)
-        else:
-            shapes.hide(tag)
+    layer = domain_layer(view, tag)
+    if visible:
+        layer.show()
+    else:
+        layer.hide()
     runtime = ensure_runtime(view)
     runtime.domain_visible = visible
     record_event(view, 'set_search_domain_visibility', visible=visible)

@@ -5,10 +5,11 @@ from __future__ import annotations
 from typing import Any
 
 import pyunitwizard as puw
-from molsysviewer.addons import AddonPanelWidget
 
+from .._scene import sync_scene_state
 from ..adapters.shapes import render_search_domain, set_search_domain_visibility
 from ..runtime import ensure_runtime, record_event
+from ._base import _DockingPanel
 
 _ESM = """
 export function render({ model, el }) {
@@ -33,6 +34,7 @@ export function render({ model, el }) {
       </div>
 
       <button class="dmt-btn dmt-btn--primary" id="dmt-domain-toggle">Toggle Box</button>
+      <button class="dmt-btn" id="dmt-domain-refresh">Refresh</button>
       <div class="dmt-status" id="dmt-status"></div>
     </div>
   `;
@@ -43,13 +45,20 @@ export function render({ model, el }) {
 
   function applyState(s) {
     state = { ...state, ...s };
+    if (state.has_domain && (state.length_unit !== 'angstrom' || state.volume_unit !== 'angstrom**3')) {
+      propsEl.textContent = 'Unsupported search-domain display units.';
+      toggleBtn.disabled = true;
+      statusEl.textContent = 'Expected angstrom and angstrom**3.';
+      return;
+    }
 
     if (!state.has_domain) {
       propsEl.innerHTML = '<span class="dmt-empty">No search domain loaded.</span>';
       toggleBtn.disabled = true;
     } else {
       toggleBtn.disabled = false;
-      toggleBtn.textContent = state.visible ? "Hide Search Domain" : "Show Search Domain";
+      toggleBtn.textContent = !state.domain_available ? "Render Search Domain" :
+        state.visible ? "Hide Search Domain" : "Show Search Domain";
       propsEl.innerHTML = `
         <div class="dmt-prop-row">
           <span class="dmt-label">Center (Å):</span>
@@ -65,18 +74,29 @@ export function render({ model, el }) {
         </div>
       `;
     }
+    statusEl.textContent = state.error ?? '';
   }
 
   toggleBtn.addEventListener("click", () => {
-    model.send({ type: "action", id: "toggle_domain", payload: {} });
+    model.send({ type: "action", id: state.domain_available ? "toggle_domain" : "render_domain", payload: {} });
+  });
+  el.querySelector("#dmt-domain-refresh").addEventListener("click", () => {
+    model.send({ type: "action", id: "refresh", payload: {} });
   });
 
-  model.on("msg:custom", (msg) => {
+  const onMessage = (msg) => {
     if (msg?.type === "state") applyState(msg.state);
-  });
+  };
+  const onState = () => applyState(model.get("domain") ?? {});
+  model.on("msg:custom", onMessage);
+  model.on("change:domain", onState);
 
   model.send({ type: "query", id: "viewer.context" });
-  applyState(state);
+  applyState(model.get("domain") ?? state);
+  return () => {
+    model.off("msg:custom", onMessage);
+    model.off("change:domain", onState);
+  };
 }
 """
 
@@ -149,33 +169,36 @@ _CSS = """
 """
 
 
-class SearchDomainPanel(AddonPanelWidget):
+class SearchDomainPanel(_DockingPanel):
     """Panel widget displaying search domain geometry and bounding box controls."""
 
     _esm: str = _ESM
     _css: str = _CSS
-
-    def on_mount(self, view: Any) -> None:
-        runtime = ensure_runtime(view)
-        self.push_state(self._build_state(runtime, view))
+    _state_key = 'domain'
 
     def handle_action(self, view: Any, action_id: str, payload: dict[str, Any]) -> None:
         runtime = ensure_runtime(view)
 
-        if action_id == 'toggle_domain':
-            new_vis = not runtime.domain_visible
-            set_search_domain_visibility(view, new_vis)
-            record_event(view, 'panel_toggle_domain', visible=new_vis)
-            self.push_state(self._build_state(runtime, view))
-
-        elif action_id == 'render_domain':
-            domain = runtime.search_domain
-            if domain is not None:
+        try:
+            sync_scene_state(view)
+            if action_id == 'toggle_domain':
+                new_vis = not runtime.domain_visible
+                set_search_domain_visibility(view, new_vis)
+                record_event(view, 'panel_toggle_domain', visible=new_vis)
+            elif action_id == 'render_domain':
+                domain = runtime.search_domain
+                if domain is None:
+                    raise RuntimeError('Supply a search domain before rendering it.')
                 render_search_domain(view, domain)
                 record_event(view, 'panel_render_domain')
-                self.push_state(self._build_state(runtime, view))
+            elif action_id != 'refresh':
+                raise ValueError(f'Unknown search-domain action: {action_id!r}.')
+            self._refresh(view=view)
+        except Exception as exc:
+            self._refresh(str(exc), view=view)
 
     def _build_state(self, runtime: Any, view: Any) -> dict[str, Any]:
+        controls = sync_scene_state(view)
         domain = runtime.search_domain
         if domain is None:
             return {
@@ -185,6 +208,10 @@ class SearchDomainPanel(AddonPanelWidget):
                 'volume': 0.0,
                 'visible': runtime.domain_visible,
                 'status': 'idle',
+                'error': None,
+                'length_unit': 'angstrom',
+                'volume_unit': 'angstrom**3',
+                **controls,
             }
 
         box = (
@@ -208,4 +235,8 @@ class SearchDomainPanel(AddonPanelWidget):
             'volume': v_ang,
             'visible': runtime.domain_visible,
             'status': 'idle',
+            'error': None,
+            'length_unit': 'angstrom',
+            'volume_unit': 'angstrom**3',
+            **controls,
         }

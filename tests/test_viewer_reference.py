@@ -227,3 +227,34 @@ def test_real_viewer_reference_regions_frames_visibility_and_reload(
         assert ensure_runtime(target).reference_visible is False
         set_reference_visibility(target, True)
         assert ensure_runtime(target).reference_visible is True
+
+
+def test_reload_without_optional_inputs_releases_old_reference_and_domain(example):
+    import molsysviewer as msv
+
+    from dockingmt import BoxRegion
+    from molsysviewer_dockingmt import render_search_domain
+
+    receptor, partner, result = example
+    target = msv.MolSysView()
+    try:
+        render_docking_result(target, result, receptor, partner, partner)
+        render_search_domain(
+            target,
+            BoxRegion(
+                center=puw.quantity([0, 0, 0], 'nm'),
+                lengths=puw.quantity([1, 1, 1], 'nm'),
+            ),
+        )
+        assert target.regions.contains('reference_ligand')
+        assert target.shapes.contains('dockingmt:search_domain')
+        render_docking_result(target, result, receptor, partner)
+        runtime = ensure_runtime(target)
+        assert runtime.reference is None
+        assert runtime.reference_region is None
+        assert runtime.search_domain is None
+        assert runtime.domain_layers == []
+        assert not target.regions.contains('reference_ligand')
+        assert not target.shapes.contains('dockingmt:search_domain')
+    finally:
+        target.close()

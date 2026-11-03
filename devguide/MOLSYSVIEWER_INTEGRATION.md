@@ -40,6 +40,15 @@ and units; absent meaning is explicit. Mounting and navigation perform no
 implicit RMSD calculation. Live Jupyter control/canvas qualification remains
 pending; successful Python widget tests do not establish visible behavior.
 
+Mounted panels refresh after docking adapter/context actions and subscribe to
+public frame callbacks with per-widget teardown. They publish separate state
+records in the addon namespace and offer explicit Refresh for public scene
+readback. Immediate callbacks from unrelated Python player calls await
+MolSysViewer #291. Search-domain handles, rather than tag names alone, determine
+cleanup ownership. Missing visuals are prerequisites; provider failures remain
+errors. Clear/disable releases the docking binding and its owned shape outputs,
+leaving molecular scene data with the Viewer.
+
 ## Richer Docking Explorer — DESIGNED FOR
 
 A richer viewer could provide:

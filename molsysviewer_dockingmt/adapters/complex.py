@@ -6,8 +6,9 @@ from inspect import signature
 from numbers import Integral
 from typing import Any
 
+from .._scene import reference_region
 from ..runtime import ensure_runtime, record_event
-from .shapes import render_search_domain
+from .shapes import _clear_domain_layers, render_search_domain
 
 
 def _ensure_molsys(entity: Any) -> Any:
@@ -156,6 +157,11 @@ def render_docking_result(
     if partner is None and getattr(result, 'problem', None) is not None:
         partner = result.problem.partner_molsys or result.problem.partner
 
+    if result.poses and receptor is None:
+        raise ValueError('A receptor is required to display molecular docking poses.')
+    if result.poses and partner is None:
+        raise ValueError('A source partner is required to reconstruct molecular poses.')
+
     # Resolve search domain
     if search_domain is None:
         if getattr(result, 'problem', None) is not None:
@@ -165,10 +171,6 @@ def render_docking_result(
 
             sd_info = result.provenance['search_domain']
             search_domain = BoxRegion.from_dict(sd_info)
-
-    # Resolve reference
-    if reference is None:
-        reference = getattr(runtime, 'reference', None)
 
     ref_multi = (
         build_docking_reference_system(reference, len(result.poses) or 1)
@@ -190,6 +192,7 @@ def render_docking_result(
         _load_reference(view, ref_multi)
 
     # Render search domain
+    _clear_domain_layers(view)
     if search_domain is not None:
         render_search_domain(view, search_domain)
 
@@ -202,6 +205,12 @@ def render_docking_result(
     runtime = ensure_runtime(view)
     runtime.result = result
     runtime.reference = reference
+    regions = getattr(view, 'regions', None)
+    runtime.reference_region = (
+        regions.get('reference_ligand')
+        if reference is not None and regions is not None
+        else None
+    )
     runtime.search_domain = search_domain
     runtime.active_pose_rank = 1
     runtime.reference_visible = True
@@ -234,8 +243,9 @@ def set_active_pose(view: Any, rank: int) -> None:
     rank = int(rank)
 
     player = getattr(view, 'player', None)
-    if player is not None and hasattr(player, 'go_to_structure'):
-        player.go_to_structure(rank - 1)
+    if player is None or not callable(getattr(player, 'go_to_structure', None)):
+        raise RuntimeError('Pose navigation requires the Viewer player.')
+    player.go_to_structure(rank - 1)
 
     runtime.active_pose_rank = rank
     pose = runtime.result.poses[rank - 1]
@@ -251,38 +261,29 @@ def set_active_pose(view: Any, rank: int) -> None:
 
 def set_reference_visibility(view: Any, visible: bool) -> None:
     """Toggle visibility of the reference ligand."""
-    regions = getattr(view, 'regions', None)
-    if (
-        regions is not None
-        and hasattr(regions, 'contains')
-        and regions.contains('reference_ligand')
-    ):
-        region = regions.get('reference_ligand')
-        if region is not None:
-            if visible:
-                region.show()
-            else:
-                region.hide()
+    region = reference_region(view)
+    if visible:
+        region.show()
+    else:
+        region.hide()
     runtime = ensure_runtime(view)
     runtime.reference_visible = visible
     record_event(view, 'set_reference_visibility', visible=visible)
 
 
 def clear_docking(view: Any) -> None:
-    """Clear docking shapes and reset runtime state."""
-    shapes = getattr(view, 'shapes', None)
-    if (
-        shapes is not None
-        and hasattr(shapes, 'contains')
-        and shapes.contains('dockingmt:search_domain')
-    ):
-        try:
-            shapes.delete('dockingmt:search_domain')
-        except Exception:
-            pass
+    """Delete only owned domain shapes and release the docking binding.
 
+    Molecular scene data remains in the Viewer. A deletion failure propagates
+    with the remaining handles intact so the caller can retry cleanup.
+    """
     runtime = ensure_runtime(view)
+    _clear_domain_layers(view)
     runtime.result = None
     runtime.search_domain = None
+    runtime.reference = None
+    runtime.reference_region = None
+    runtime.domain_visible = False
+    runtime.reference_visible = False
     runtime.active_pose_rank = 1
     record_event(view, 'clear_docking')

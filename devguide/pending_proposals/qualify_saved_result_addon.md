@@ -7,9 +7,9 @@ closed:
 severity: medium
 verification: measured
 area: [viewer, results]
-guard: tests/test_viewer_presentation.py
+guard: tests/test_viewer_state.py
 normative:
-blocked_by: []
+blocked_by: [uibcdf/molsysviewer#291]
 supersedes: []
 ---
 
@@ -45,8 +45,9 @@ RMSD is unavailable. The public scientific evaluation API remains available
 separately. A later comparison action needs explicit correspondence, reference,
 frame, policy and unit attribution, with molecular operations in MolSysMT.
 
-The final source selection of presentation, existing addon/reference, score and
-reporting tests passes **104 cases**, zero skips, on routine Python 3.14.7
+At first-slice source `1c96052`, the selection of presentation, existing
+addon/reference, score and reporting tests passes **104 cases**, zero skips,
+on routine Python 3.14.7
 (11.89 s; 26 existing legacy-H5MSM warnings). It includes 28 presentation cases
 and real provider-built frame coordinates for scientific ranks `[7, None, 1]`.
 Ruff lint/format, generated indexes, whitespace checks and Explorer ESM syntax
@@ -55,6 +56,71 @@ The initial new-test
 run had 26 passes and two failures caused by calling the wrong PyUnitWizard
 policy-inspection API in the test. The corrected test uses the documented
 `puw.configure.report()`. No provider defect is inferred.
+
+### Panel state and owned visuals — second slice
+
+Mounted widgets now refresh together after completed DockingMT actions, including
+Python adapter calls and context actions. Each widget publishes its own
+`explorer` or `domain` subrecord through public `set_state`, retaining the
+supported direct messages. Initial/reopened panels read current public state.
+Subscriptions use `on_frame_change` / `off_frame_change`; unmount/close detaches
+only that widget. Widget references in the per-view runtime are weak.
+
+Manual **Refresh**, workbench summaries and addon exports read `player.index`,
+owned shape metadata and reference-region visibility from public APIs. A datum
+being supplied is distinct from its visual being available. Missing visuals
+disable their controls with an explicit prerequisite; provider query/action
+failures remain errors. Domain state declares angstrom and angstrom**3, and the
+frontend refuses other display-unit records rather than interpreting them silently.
+
+Search-domain rendering records actual returned handles, validates geometry
+before replacement and refuses caller-owned tag collisions. Clear/disable
+deletes only still-owned handles, including renamed/custom-tag shapes; reused
+tags are preserved. Failed deletion retains outstanding handles for retry.
+Cleanup releases the result/reference/domain binding while leaving molecular
+scene data in the Viewer. Loading a new result requires receptor/partner inputs
+before any scene loading and does not inherit an omitted reference or old domain.
+Scene loading remains a series of public provider calls, not a transaction.
+
+The headless integration guard uses the public widget resolver and the same addon
+classes to check their reactive namespace, selection,
+domain visibility and cleanup. This is Python contract evidence, not an observed
+frontend/canvas session.
+
+The addon specification reports `dockingmt.__version__` instead of the former
+hardcoded `0.1.0`; the existing contract test checks that identity.
+
+The final routine selection passes **148 tests**, zero skips, in 16.77 s with
+28 legacy-H5MSM warnings. It includes source fidelity, 20 new state/ownership
+cases, real reference/reload guards and the administrative distribution controls.
+A separate **51-case** addon/state/reference selection passes in 12.44 s with
+the ordinary-installed qualified provider composition (28 legacy warnings).
+That selection imports this source addon with the retained providers; it does
+not qualify a new ordinary-installed DockingMT artifact. Ruff lint/format,
+both panel ESM syntax checks, whitespace and generated indexes pass. Exact-head
+hosted results remain separately recorded on #60.
+
+### Provider and distribution follow-up
+
+The executed ordinary-installed Viewer probe at qualified `ca7ebea6` loads two
+frames and registers a public callback. After Python `go_to_structure(1)`, the
+index is 1 and the callback list remains empty. Current Viewer main `d72f93f7`
+retains that implementation by inspection. The request for consistent public
+Python-navigation notifications is
+[MolSysViewer #291](https://github.com/uibcdf/molsysviewer/issues/291).
+Own actions, delivered frame callbacks and explicit readback can be qualified
+now; immediate notification after unrelated Python player calls awaits the
+provider. There is no polling, player replacement or private-field observer.
+Unrelated direct visibility edits are also read on mount/Refresh.
+
+The first implementation head `1c96052` has a failing distribution job in
+[CI 41689015547](https://github.com/uibcdf/dockingmt/actions/runs/41689015547/job/126102325478):
+23 controls pass and the full-inventory guard detects the omitted
+`_presentation.py`. Its earlier 104-case selection did not cover that gate.
+The declared resource inventory now includes that module, `_scene.py` and
+`panels/_base.py`. The unchanged administrative guards pass 24 cases with the
+accepted immutable SDK; current source/CI receipts are recorded separately on
+#60/#47. No old artifact or qualification is relabelled.
 
 ## Why
 
@@ -89,13 +155,11 @@ wheel, release, platform admission or visual acceptance follows.
 
 ## Acceptance criteria
 
-The first data-fidelity slice is implemented. Keep this proposal partial until:
+Data fidelity, addon-origin synchronization, explicit readback and ownership
+guards are implemented. Keep this proposal partial until:
 
-- Panel state coherently reflects public Python/context actions and actual
-  player changes across navigation and remounts. Inspect the supported host
-  notifications before implementation; provider gaps get owning issues.
-- Missing molecular inputs and unsupported/provider-failed actions have explicit
-  prerequisites and diagnostics. Teardown affects only owned visuals.
+- Receive and qualify the missing immediate Python player notification under
+  MolSysViewer #291, preserving its requested-state/rendered-frame distinction.
 - A live Jupyter workflow exercises table/navigation/reference/domain controls
   and observes the corresponding 3D scene using explicit molecular inputs and
   the retained public five-pose 3PTB case, in its original coordinate frame.
