@@ -29,10 +29,11 @@ Every proposed capability should be classified as:
 ## Reading order
 
 Start with [ChemicalStates receiving](chemical_domain_receiving.md) under #56 /
-PR #59. MolSysMT has delivered development source for owner receiving; current
+[adopted PR #59](https://github.com/uibcdf/dockingmt/pull/59). MolSysMT has delivered development source for owner receiving; current
 controlled inputs select `de7ffad2a` with Viewer `ca7ebea6`. The four graph callers
-and scalar connectivity consumers are adapted. Source, installed and hosted
-qualification retain separate evidence; public package admission remains #30/#47.
+and scalar connectivity consumers are adapted. The source suite and four-minor CI pass; installed
+receiving retains its initial harness failure and corrected selection separately.
+Public package/platform admission remains #30/#47.
 Molecular operations remain MolSysMT-owned and dated scientific evidence is frozen.
 
 Then read [offline saved-case recovery](validation/saved_human_case_recovery.md).

@@ -6,7 +6,7 @@ opened: 2026-10-28
 closed:
 verification: measured
 area: [integration, preparation, validation]
-guard: tests/test_torsion_policy_consumption.py::test_qualification_probe_compares_assigned_and_reference_connectivity
+guard: tests/test_chemical_domain_receiving.py
 normative: devguide/chemical_domain_receiving.md
 blocked_by: [uibcdf/molsysmt#255]
 supersedes: []
@@ -93,3 +93,23 @@ closure. The offline clean-environment attempt cannot resolve DepDigest >=0.15.1
 from its cache; a separately recorded online attempt follows the declared channels.
 Source/full/installed/hosted outcomes and provider matrix remain separate evidence.
 The issue remains partial until its owner acceptance conditions are settled.
+
+## Adopted source and retained qualification boundaries — 2026-11-02
+
+PR #59 source `79740b4ce373c8d98da6f1c9f5633456381f73fa` is reviewed and adopted.
+The [receiving contract](../chemical_domain_receiving.md#source-adoption-and-executed-owner-qualification--2026-11-02)
+records 1,381 passing source tests, both exact-source four-minor CI runs and the
+private ordinary-built consumer/provider artifacts. Full initial installed
+receiving has 1,376 passes / five harness-context failures. The corrected 131-case
+selection includes all five failed identities and passes without skips; the first
+run is not relabelled as clean. Test/helper bytes, scientific inputs, artifact and
+dependencies are preserved. Separate administrative checks pass 29 cases after
+replacing an incomplete historical SDK copy with the same clean immutable SDK.
+All 389 frozen evidence files retain their bytes.
+
+This source-adoption slice is complete. Keep this broader issue partial for the
+provider's final qualification and real installed/public/platform/minimum scope;
+no public coordinate is invented from development version `0.23.0+361.gde7ffad2a`.
+Final main-head CI is recorded on #56. Temporary resources belong to #56/#50,
+review 2026-11-09, with no automatic deletion. Scientific profile acceptance and
+historical requalification remain separately scoped.

@@ -5,7 +5,7 @@ This source migration is owned by `uibcdf/dockingmt#56`, coordinated with
 
 ## Current source contract
 
-The controlled source candidate is MolSysMT
+The adopted development source is MolSysMT
 `de7ffad2aef18ff3bccd184133dc69e081cb506e` with MolSysViewer
 `ca7ebea60d530a7a0c65cb4d0ccea7b4288f3352`. These are source inputs, not a
 new installed/public package pair. Source pins do not establish a public minimum.
@@ -85,3 +85,40 @@ Temporary verification resources belong to #56/#50, review 2026-11-09, without
 automatic deletion. Independent source copies and receivers preserve sibling
 worktrees and historical artifacts. Public records retain resource classes;
 operational diagnostics remain local.
+
+## Source adoption and executed owner qualification — 2026-11-02
+
+Source implementation `79740b4ce373c8d98da6f1c9f5633456381f73fa` is adopted from
+[PR #59](https://github.com/uibcdf/dockingmt/pull/59). Full local source validation
+passes **1,381 tests**, zero skips, 857.34 s, 327 warnings, Python 3.14.7/Pandas
+2.3.3. Exact-source [PR CI](https://github.com/uibcdf/dockingmt/actions/runs/41578225641)
+and [branch CI](https://github.com/uibcdf/dockingmt/actions/runs/41578221426)
+each pass **1,381 tests per Python 3.11–3.14**, zero test skips, ordinary installed,
+source-context and dependency-closure gates. Policy and publication governance
+pass. Coverage publication is intentionally inapplicable on those events; the
+final main checkpoint retains its separate workflow evidence on #56.
+
+The ordinary consumer wheel `0.0.0+217.g79740b4` has SHA-256
+`ebf1c30bc3c088b9fe707e50103866e2db1202411c2cace8853225ae9113b51d`.
+All 58 runtime Python files plus its generated version match Git/wheel/installed
+bytes where applicable. Its clean Linux/Python 3.14.8 receiver uses Pandas 3.0.6
+and passes dependency closure. The independently built MolSysMT wheel has SHA-256
+`4a8e58f40627ff468fab99301674429fba66362f549a31fb4cc747d9cf19a0ba`;
+all 3,055 Python/native members match installed bytes. These private verification
+artifacts are not public package availability or installed-platform admission.
+
+The initial complete installed selection has **1,376 passes / five failures**,
+879.83 s. Missing harness governance files and Git context cause all five failures;
+this result remains failed evidence. A corrected independent sparse checkout has
+no runtime source packages and retains all 146 existing test/helper files
+byte-for-byte. The **131-case correction passes**, zero skips, 76.42 s, including
+all five initially failed identities and the domain/state/reader/symmetry controls.
+The unchanged artifact, dependencies and scientific fixtures retain their initial
+passing evidence. No single clean full installed rerun is claimed.
+
+All **389 historical evidence files** remain unchanged. Original scientific
+producers and the earlier draft's provider/results remain distinct. #56 stays
+partial for provider-wide final receiving and the installed/public/platform and
+real published-minimum questions under #30/#47. Any new historical-producer
+experiment requires a separate identity; no old result is rewritten. Source
+adoption does not certify broader chemical profiles, visible C4/C6 or a release.
