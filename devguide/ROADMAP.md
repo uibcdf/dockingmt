@@ -2,6 +2,22 @@
 
 The roadmap defines direction and gates, not dates.
 
+## ChemicalStates source receiving — 2026-11-02
+
+[The #56 receiving contract](chemical_domain_receiving.md), proposed in PR #59,
+consumes the implemented ownership cutover rather than waiting for a published
+package. The controlled provider advances from `9fb77c358` to the requested
+`de7ffad2a`; Viewer stays `ca7ebea6`. Existing scientific expectations and historical
+producer identities remain unchanged. Additional guards cover state absence,
+ambiguity, known-empty connectivity, independent copies, remapping and native
+persistence through actual consumer boundaries.
+
+**Next:** complete exact-candidate source/installed/hosted receiving before owner
+integration; preserve separate provider #255 qualification and published minimum
+questions. Broader persistence remains #4/MolSysMT #256, partial/reference pose
+reading remains #49/#33/MolSysMT #521, and visible C4/C6 remains deferred under #52.
+No public package/release or new scientific profile follows from this migration.
+
 ## Saved human case recovered offline — 2026-10-29
 
 [The #58 operation](validation/saved_human_case_recovery.md) verifies the original

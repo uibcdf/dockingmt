@@ -28,7 +28,14 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
-Start with [offline saved-case recovery](validation/saved_human_case_recovery.md).
+Start with [ChemicalStates receiving](chemical_domain_receiving.md) under #56 /
+PR #59. MolSysMT has delivered development source for owner receiving; current
+controlled inputs select `de7ffad2a` with Viewer `ca7ebea6`. The four graph callers
+and scalar connectivity consumers are adapted. Source, installed and hosted
+qualification retain separate evidence; public package admission remains #30/#47.
+Molecular operations remain MolSysMT-owned and dated scientific evidence is frozen.
+
+Then read [offline saved-case recovery](validation/saved_human_case_recovery.md).
 The #58 developer operation verifies the existing 3PTB bundle and returns its
 five-pose result without preparing or searching again. It preserves the original
 producer and leaves the result detached from a molecular problem. Broader #4

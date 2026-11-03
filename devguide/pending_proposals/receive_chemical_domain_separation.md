@@ -19,7 +19,8 @@ What — Torsion preparation and symmetry consume the four moved graph tools fro
 
 How — The [receiving contract](../chemical_domain_receiving.md) identifies source
 pins, current audit tools, historical producers and qualification boundaries.
-Controlled CI inputs select MolSysMT 9fb77c358 and compatible Viewer ca7ebea60.
+Current controlled CI inputs select MolSysMT de7ffad2a and compatible Viewer
+ca7ebea60. The original draft receipts below retain provider 9fb77c358.
 The test bootstrap requires DepDigest >=0.15.1, the provider's actual floor.
 Workflow byte changes are limited to those two source pins; reviewed input
 hashes are updated only after checking that exact delta.
@@ -75,3 +76,20 @@ source-fingerprint paths or dated JSON. The separate state-scope receiving guard
 protects the supported state comparison. No old producer result is relabeled.
 The PR remains a draft for owner review, complete exact-source CI and delivery
 acceptance; #56 stays open.
+
+## Owner review of the requested checkpoint — 2026-11-02
+
+The latest #56 handoff requests actual receiving of MolSysMT
+`de7ffad2aef18ff3bccd184133dc69e081cb506e`. The four production graph callers,
+scalar connectivity consumers, active helper routes and fixtures were reviewed.
+Remaining old topology graph access is confined to the explicitly historical
+`qualify_torsion_policy` producer; current guards use its separately named state
+scope probe. Historical constants and all frozen evidence retain their identity.
+
+The existing 103-case selection and the additional 13-case consumer guard pass
+on Python 3.14.7/Pandas 2.3.3 with a newly built provider wheel. The shared base
+has unrelated dependency conflicts; these passes do not establish clean installed
+closure. The offline clean-environment attempt cannot resolve DepDigest >=0.15.1
+from its cache; a separately recorded online attempt follows the declared channels.
+Source/full/installed/hosted outcomes and provider matrix remain separate evidence.
+The issue remains partial until its owner acceptance conditions are settled.

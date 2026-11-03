@@ -6,11 +6,12 @@ This source migration is owned by `uibcdf/dockingmt#56`, coordinated with
 ## Current source contract
 
 The controlled source candidate is MolSysMT
-`9fb77c3583b44dda31c0466348369de137301df9` with MolSysViewer
+`de7ffad2aef18ff3bccd184133dc69e081cb506e` with MolSysViewer
 `ca7ebea60d530a7a0c65cb4d0ccea7b4288f3352`. These are source inputs, not a
 new installed/public package pair. Source pins do not establish a public minimum.
 Keep receiving open until the owner qualifies the final source/installed routes
-and justifies the published runtime floor before a release.
+and justifies the published runtime floor before a release. The earlier draft used provider `9fb77c358`; its results
+remain scoped to that source rather than qualifying this new checkpoint.
 
 Pass the complete MolSys to `msm.chemical_states.get_rotatable_bonds`,
 `get_covalent_blocks`, `get_rigid_fragments` and `get_atom_correspondences`.
@@ -61,3 +62,26 @@ backend; full source CI and installed candidate/platform qualification remain
 separate. Preserve failure, skip and warning evidence. No release, tag, package
 promotion, dependency cap or automatic scientific-profile migration follows from
 this source change. See the [receiving record](pending_proposals/receive_chemical_domain_separation.md).
+
+## Expanded owner receiving — 2026-11-02
+
+The owner review targets the provider checkpoint requested on #56. The additional
+[`chemical-domain guard`](../tests/test_chemical_domain_receiving.py) exercises
+13 consumer cases: absent versus zero-state chemistry, unavailable/partial graphs,
+missing associations, a valid structure-assigned state without a reference default,
+and an explicitly complete zero-bond graph. Copies, MolSysDict and H5MSM 0.5
+round trips preserve nonconsecutive selected atom axes, string IDs, structure state
+labels and coordinates under angstrom/pm application policies. A controlled
+provider edit of the recovered copy preserves both the source and the already
+extracted DockingMT input. No downstream chemical store or reconstruction is added.
+
+The preexisting 103-case receiving selection and all 13 new cases pass against
+the new ordinary-built provider wheel in the development receiver. Its inherited
+shared environment has unrelated dependency conflicts, so this evidence is source
+receiving only. Clean installed-consumer and complete hosted qualification are
+recorded separately on #56. No dated scientific producer is rerun or relabelled.
+
+Temporary verification resources belong to #56/#50, review 2026-11-09, without
+automatic deletion. Independent source copies and receivers preserve sibling
+worktrees and historical artifacts. Public records retain resource classes;
+operational diagnostics remain local.
