@@ -1,0 +1,126 @@
+{
+  "schema": "dockingmt.addon_dom_checkpoint@1",
+  "owner": "uibcdf/dockingmt#60",
+  "baseline_commit": "9f8b787213bf699c99eb2d6b37ede89769921315",
+  "executed_files_sha256": {
+    "devtools/frontend/panels.test.mjs": "193177cb6bc2b613d83f8cac0995ffd1346e220b78c1d2cb1e46faf010092de7",
+    "devtools/frontend/extract_panels.py": "83a73304abd1a1d01f4f974e1d9173cf4e2e9fa7a655669872dc6c0a25571b47",
+    "devtools/frontend/panel_states.json": "650e1d1c887bf1888d18a51feb05b7a6f7d2219f9271dfa3dbfd717f334ae458",
+    "devtools/frontend/package.json": "327ba8958d74d86b68ca405afa36867dea57b2b7a5c70e2f80bca80319c93376",
+    "devtools/frontend/package-lock.json": "f4931d34984dddd3a7f07f2e136ef62574a4280c0ee85192bf0eeb241db7c28e",
+    "tests/test_viewer_frontend_contract.py": "8ab4744b06b3d4b0d1b68ef4f9c898dafe950bac9b392375e08c18e8d5b3178f",
+    ".github/workflows/addon-frontend.yml": "65cb8c3e16d2d6ffba131f7b3d5aa1184d803d4f0bd15d76b61758574721bb0d",
+    "devtools/dependency_routes.toml": "aea83cb97fafd84c6df675067608c5ec0c930e653eb22ba87b1ede3d363420ee",
+    "devtools/tests/test_distribution_contract.py": "40adc5c35dceb2ea8a2ab9aaa4c7df7a4c3378d1c1c9c9c9d907ba24dd3f63a3",
+    "molsysviewer_dockingmt/panels/explorer.py": "569ab0c2d33a0c9be42f71dc2f50baba25f1280eb77364517875b4d47226ea35",
+    "molsysviewer_dockingmt/panels/domain.py": "8bf402db3bcb820c46e08006e7e60e5a352a9e7794969bd1407618648a0674c9"
+  },
+  "runtime_core_and_addon_unchanged": true,
+  "old_workflow_sha256_unchanged": {
+    ".github/workflows/build_and_upload_conda_packages.yaml": "a7ae60a309898f9da75e01255fc69356d5a9ebf9e9091c9af4ef8ef5c804bd61",
+    ".github/workflows/ci.yml": "6c4d283a623e8ee9a6b135a8d0cb6e2e1b26fee1d2777c24f7f4492e12d8bf8f",
+    ".github/workflows/conda_publication_governance.yaml": "eb54f756f9aa208adbc210b3839bf23be640457ff975f84415d12eb6c6b9cf4d",
+    ".github/workflows/full-matrix.yml": "1f114e2c23b4e90eb97521e72f3fe31b8f6a09f9311789ebed09f4c2637fa3a5",
+    ".github/workflows/molsyssuite-policy.yml": "6cc62208156f765ca0456e3bc5f398934263e03afc7063c69afa692c5dafdffd",
+    ".github/workflows/promote_conda_package.yaml": "3cb1b6a85020a3b4cbe4cca0c4b592110f734dde0005d0b9579b33a0cd721a49",
+    ".github/workflows/test_installed_conda_package.yaml": "83bcd0126b7150334e31cc2407a39b4e9963834f7a027a341be268db7f2dcf28"
+  },
+  "versions": {
+    "python": "3.14.7",
+    "node": "v26.3.1",
+    "npm": "11.16.0",
+    "jsdom": "30.1.3"
+  },
+  "javascript": {
+    "command": "npm test --prefix devtools/frontend",
+    "exit": 0,
+    "passed": 21,
+    "failed": 0,
+    "skipped": 0,
+    "duration_ms": 1817.097376,
+    "exact_native_esm_evaluated": true,
+    "widget_model": "test double, not a comm/Viewer implementation",
+    "dom_windows_closed_in_test_teardown": true,
+    "dom_handler_errors_fail_tests": true
+  },
+  "python": {
+    "selection": [
+      "tests/test_viewer_frontend_contract.py",
+      "tests/test_viewer_presentation.py",
+      "tests/test_viewer_state.py",
+      "devtools/tests/test_distribution_contract.py",
+      "devtools/tests/test_coverage_workflow.py",
+      "tests/test_reporting_protocol.py"
+    ],
+    "profile": "--receptor=llm",
+    "exit": 0,
+    "passed": 78,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 6.69,
+    "warnings": [
+      {
+        "category": "LegacyH5MSMWarning",
+        "count": 1
+      }
+    ],
+    "protocol_fixture_cases": 4,
+    "widget_module_identity_cases": 2
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "failed before case execution",
+      "category": "sandbox child-process EPERM",
+      "executed_cases": 0
+    },
+    {
+      "attempt": 2,
+      "status": "failed",
+      "passed": 20,
+      "failed": 1,
+      "reason": "Test expected kJ/mol abbreviation while actual Python state declares kilojoule / mole; no provider/runtime defect"
+    },
+    {
+      "attempt": 3,
+      "status": "passed",
+      "passed": 21,
+      "failed": 0,
+      "correction": "Assert the exact declared unit, keeping the numeric and descriptor expectations"
+    }
+  ],
+  "diagnostics": [
+    "Node ExperimentalWarning: VM Modules is an experimental feature and might change at any time"
+  ],
+  "declared_dependency_audit": {
+    "exit": 0,
+    "routes": 10,
+    "scientific_contexts": 4,
+    "scientific_source_records": 4,
+    "new_route": "test-only addon DOM workflow; no scientific imports/install"
+  },
+  "workflow_yaml_and_lock_consistency_verified": true,
+  "third_party_test_tools_only": true,
+  "registered_member_dependency_edges_changed": false,
+  "shared_pattern_proposal": "uibcdf/molsyssuite#161",
+  "browser_controls_verified": false,
+  "real_comm_round_trip_verified": false,
+  "rendered_pixels_verified": false,
+  "C6_accepted": false,
+  "maintainer_interactive_review": "deferred",
+  "new_package_or_release": false,
+  "original_private_wheel_rebuilt": false,
+  "resources": {
+    "owner": "uibcdf/dockingmt#60",
+    "tracking": "uibcdf/dockingmt#50",
+    "review_date": "2026-11-10",
+    "categories": [
+      "private logs and operational record",
+      "ignored development dependency tree"
+    ],
+    "shared_scientific_environments_preserved": true,
+    "npm_cache_retired": true,
+    "cleanup_errors": 0
+  },
+  "hosted_exact_head_results": "recorded separately on #60 after publishing; local tests do not certify hosted gates"
+}

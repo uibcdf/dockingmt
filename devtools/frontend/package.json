@@ -1,0 +1,14 @@
+{
+  "name": "dockingmt-addon-dom-tests",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=26 <27"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules --test panels.test.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "30.1.3"
+  }
+}

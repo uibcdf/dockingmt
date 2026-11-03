@@ -28,8 +28,14 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
-Start with [private installed-wheel addon receiving](validation/addon_installed_receiving.md)
-for the latest #47/#60 checkpoint. It binds the new private wheel, independent
+Start with [addon JavaScript DOM testing](validation/addon_dom.md) for the latest
+#60 slice: 21 JavaScript cases and 78 selected Python cases pass without changing
+runtime code. The actual panel modules execute in isolated test DOMs, with
+backend/module drift guards. Live comm/pixels/C6 remain pending; maintainer
+interaction is not required now.
+
+Then read [private installed-wheel addon receiving](validation/addon_installed_receiving.md)
+for the preceding #47/#60 checkpoint. It binds the new private wheel, independent
 receiver, complete installed test result and real-kernel 3PTB companion to exact
 identities. Browser review and public delivery remain pending; no maintainer
 interaction is required now. The earlier source notebook and receipts stay frozen.

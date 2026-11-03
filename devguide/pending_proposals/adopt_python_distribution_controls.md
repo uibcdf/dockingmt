@@ -14,6 +14,18 @@ supersedes: []
 
 # Distribution control adoption
 
+## Additional test-only frontend workflow — 2026-11-03
+
+The #60 [DOM checkpoint](../validation/addon_dom.md) adds one reviewed Node/jsdom
+workflow with standard-library-only Python extraction. The original Python CI,
+full matrix, publication workflows, four source records and scientific contexts
+are unchanged. The declaration inventory now contains ten routes; its existing
+exact count guard reflects that one additional classified workflow. All 24
+administrative controls pass in the final 78-case selection. npm tools are private
+development-only third-party dependencies, outside registered-member graph edges
+and Python/Conda runtime manifests. The future actual release plan must review
+this additional product gate; the example plan and old artifacts remain unchanged.
+
 ## Private addon wheel receiving — 2026-11-03
 
 The [new receiving checkpoint](../validation/addon_installed_receiving.md)

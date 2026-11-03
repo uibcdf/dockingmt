@@ -1,0 +1,31 @@
+name: Addon DOM
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  addon-dom:
+    name: Addon panel DOM on Linux Node 26
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "26"
+          cache: npm
+          cache-dependency-path: devtools/frontend/package-lock.json
+      - name: Install locked development-only DOM tools
+        working-directory: devtools/frontend
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Execute shipped addon JavaScript in the test DOM
+        working-directory: devtools/frontend
+        run: npm test

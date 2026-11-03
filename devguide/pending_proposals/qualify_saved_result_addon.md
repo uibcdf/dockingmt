@@ -15,6 +15,23 @@ supersedes: []
 
 # Saved-result addon explorer
 
+## Shipped JavaScript exercised in a DOM — 2026-11-03
+
+[The DOM checkpoint](../validation/addon_dom.md) adds 21 passing JavaScript
+cases and six backend/module contract cases. The complete local Python selection
+passes 78 cases without skips. Exact production `_esm` modules execute in isolated
+jsdom contexts; panel actions, display meaning, updates and subscription cleanup
+are checked. Production runtime and the original wheel/notebooks remain unchanged.
+The sandbox launch failure and 20-pass/one-expectation-failure run are retained
+before the corrected 21-pass result; no provider defect is inferred.
+
+A separate `Addon DOM` workflow keeps the original scientific jobs/source pins
+unchanged. Its one new reviewed workflow brings the inventory to ten routes,
+with four scientific contexts preserved. MolSysSuite #161 owns review of a
+reusable optional starter pattern. This remains DOM/model-double evidence:
+real comm transport, provider callback delivery, rendered pixels and C6 remain
+unaccepted. No maintainer interaction or public release is required now.
+
 ## Private installed-addon checkpoint — 2026-11-03
 
 [Installed receiving](../validation/addon_installed_receiving.md) qualifies the

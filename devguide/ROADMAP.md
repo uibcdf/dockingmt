@@ -2,6 +2,21 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Addon JavaScript DOM tests — 2026-11-03
+
+[The new DOM checkpoint](validation/addon_dom.md) passes 21 tests of the exact
+shipped panel JavaScript and 78 selected Python tests, including six cases that
+bind examples/modules to the actual backend. A separate test-only CI job covers
+actions, presentation, reactive updates, remount and local subscription cleanup.
+Runtime source, scientific routes, original wheel and frozen 3PTB evidence remain
+unchanged. The optional shared-pattern proposal belongs to MolSysSuite #161.
+
+**Next:** inspect exact-head hosted gates; receive MolSysViewer #291 when
+delivered; qualify live comm/control/canvas behavior when a browser is available.
+DOM tests do not accept real transport, pixels or C6. Maintainer interaction
+remains deferred. Distribution preparation under #47 can proceed independently,
+including license metadata and the future release plan's new frontend gate.
+
 ## Private installed-wheel addon checkpoint — 2026-11-03
 
 [Installed receiving](validation/addon_installed_receiving.md) binds the private

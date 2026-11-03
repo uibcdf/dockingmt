@@ -1,0 +1,135 @@
+{
+  "explorer_empty": {
+    "n_poses": 0,
+    "active_rank": 1,
+    "active_index": null,
+    "poses": [],
+    "domain_visible": false,
+    "reference_visible": false,
+    "has_reference": false,
+    "has_domain": false,
+    "comparison_note": "RMSD unavailable: no recorded comparison is bound.",
+    "status": "idle",
+    "error": null,
+    "domain_available": false,
+    "domain_reason": "Render the search domain before changing its visibility.",
+    "reference_available": false,
+    "reference_reason": "Load an explicit reference before changing its visibility."
+  },
+  "domain_empty": {
+    "has_domain": false,
+    "center": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "lengths": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "volume": 0.0,
+    "visible": false,
+    "status": "idle",
+    "error": null,
+    "length_unit": "angstrom",
+    "volume_unit": "angstrom**3",
+    "domain_available": false,
+    "domain_reason": "Render the search domain before changing its visibility.",
+    "reference_available": false,
+    "reference_reason": "Load an explicit reference before changing its visibility."
+  },
+  "explorer_poses": {
+    "n_poses": 3,
+    "active_rank": 1,
+    "active_index": 0,
+    "poses": [
+      {
+        "index": 0,
+        "position": 1,
+        "pose_id": "seventh",
+        "rank": 7,
+        "scores": [
+          {
+            "name": "custom",
+            "value": 12.0,
+            "unit": null,
+            "definition": null
+          }
+        ]
+      },
+      {
+        "index": 1,
+        "position": 2,
+        "pose_id": null,
+        "rank": null,
+        "scores": []
+      },
+      {
+        "index": 2,
+        "position": 3,
+        "pose_id": "first",
+        "rank": 1,
+        "scores": [
+          {
+            "name": "control",
+            "value": -2.0,
+            "unit": "kilojoule / mole",
+            "definition": {
+              "schema_version": "1.0",
+              "method": "explicit-method",
+              "method_version": "1",
+              "component": "reported-score",
+              "kind": "empirical",
+              "unit": "kilojoule / mole",
+              "preferred_direction": "lower",
+              "context": {
+                "input": "declared-state"
+              }
+            }
+          },
+          {
+            "name": "vina",
+            "value": 0.0,
+            "unit": null,
+            "definition": null
+          }
+        ]
+      }
+    ],
+    "domain_visible": false,
+    "reference_visible": false,
+    "has_reference": false,
+    "has_domain": true,
+    "comparison_note": "RMSD unavailable: no recorded comparison is bound.",
+    "status": "idle",
+    "error": null,
+    "domain_available": false,
+    "domain_reason": "Render the search domain before changing its visibility.",
+    "reference_available": false,
+    "reference_reason": "Load an explicit reference before changing its visibility."
+  },
+  "domain_supplied": {
+    "has_domain": true,
+    "center": [
+      0.9999999999999999,
+      1.9999999999999998,
+      3.0
+    ],
+    "lengths": [
+      1.9999999999999998,
+      3.9999999999999996,
+      6.0
+    ],
+    "volume": 48.0,
+    "visible": false,
+    "status": "idle",
+    "error": null,
+    "length_unit": "angstrom",
+    "volume_unit": "angstrom**3",
+    "domain_available": false,
+    "domain_reason": "Render the search domain before changing its visibility.",
+    "reference_available": false,
+    "reference_reason": "Load an explicit reference before changing its visibility."
+  }
+}

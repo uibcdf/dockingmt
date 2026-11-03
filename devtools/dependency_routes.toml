@@ -90,6 +90,11 @@ sha256 = "a7ae60a309898f9da75e01255fc69356d5a9ebf9e9091c9af4ef8ef5c804bd61"
 reason = "Manual candidate/staged or eligible reviewed release caller; shared publication gates supply runtime/build dependencies."
 
 [[workflows]]
+path = ".github/workflows/addon-frontend.yml"
+sha256 = "65cb8c3e16d2d6ffba131f7b3d5aa1184d803d4f0bd15d76b61758574721bb0d"
+reason = "DockingMT #60 addon-specific Node/jsdom DOM tests; standard-library AST extraction installs/imports no scientific member and preserves the existing Python routes."
+
+[[workflows]]
 path = ".github/workflows/ci.yml"
 sha256 = "6c4d283a623e8ee9a6b135a8d0cb6e2e1b26fee1d2777c24f7f4492e12d8bf8f"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
