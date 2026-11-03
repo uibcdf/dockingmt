@@ -2,6 +2,22 @@
 
 The roadmap defines direction and gates, not dates.
 
+## License metadata and private archives — 2026-11-03
+
+[The #47 checkpoint](validation/license_metadata.md) adopts SPDX MIT and explicit
+LICENSE inclusion with Setuptools >=77.0.3 aligned across build/recipe/bootstrap
+inputs. Six actual private archives from producer `50d8e33` pass with minimum
+and development backends: wheel, sdist and sdist-to-wheel per profile. Metadata,
+license bytes, versions, all 63 resources and installed entry-point discovery
+are checked. The earlier qualified wheel remains unchanged. Shared coordination
+is MolSysSuite #162; sibling build-floor findings retain their owners.
+
+**Next:** inspect the new hosted gates, review public dependency coordinates/API
+minima and the real candidate plan under #30/#47, including the DOM gate. Public
+Conda/archive/platform admission and visual C6 remain pending. The preceding
+runtime head `94f42e1` has terminal four-minor CI (1,436 passes per lane) and 21
+hosted DOM passes; these results are not relabelled as this producer's full gate.
+
 ## Addon JavaScript DOM tests — 2026-11-03
 
 [The new DOM checkpoint](validation/addon_dom.md) passes 21 tests of the exact

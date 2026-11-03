@@ -9,9 +9,14 @@ Owner: uibcdf/dockingmt#47. Shared publication SDK:
 The recipe declares `noarch: python`: both Python namespaces and py.typed carry
 no bundled native binaries. Third-party native Vina/OpenMM/RDKit stay separately
 distributed; Vina/Viewer are optional features, not new required runtime packages.
-`resources.toml` requires all 59 current tracked package paths plus the generated
-version file (60 paths). Bounded setuptools discovery excludes administration/tests.
-No actual archive, public dependency closure or platform qualification is claimed.
+`resources.toml` requires all 62 current tracked package paths plus the generated
+version file (63 paths). Bounded setuptools discovery excludes administration/tests.
+No actual Conda archive, public dependency closure or platform qualification is claimed.
+
+The local [PEP 639 checkpoint](../../devguide/validation/license_metadata.md)
+aligns Setuptools >=77.0.3 in build metadata/recipe/bootstrap, preserves the MIT
+license and qualifies new private wheel/sdist files against minimum/development
+backends. Those Python archive checks do not qualify this Conda publication route.
 
 `release_plan.example.toml` is administrative onboarding only. Its version/build
 are examples and do not select a release. There is no real release_plan.toml;

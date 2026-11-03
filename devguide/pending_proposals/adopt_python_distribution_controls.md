@@ -14,7 +14,7 @@ supersedes: []
 
 # Distribution control adoption
 
-## PEP 639 metadata migration in qualification — 2026-11-03
+## PEP 639 metadata migration qualified privately — 2026-11-03
 
 The maintainer accepts the local migration under MolSysSuite #162. The MIT
 expression and explicit `LICENSE` replace the deprecated table/classifier;
@@ -23,12 +23,15 @@ administrative CI. The dependency inventory reclassifies the changed CI tooling
 floor; scientific pins/steps and runtime dependencies retain their authority.
 All 24 administrative guards and declaration preflight pass before building.
 
-New private wheel/sdist and sdist-to-wheel builds will test both the selected
-minimum backend and the development backend in isolated build-only prefixes.
-Exact metadata, license bytes, version, entry point and all 63 package resources
-need actual archive verification before this bounded subtask is accepted. The
-original `376679c` wheel is preserved, not relabelled or rebuilt. Full scientific,
-public dependency/platform, real Conda archive and C6 gates remain separate.
+The [executed checkpoint](../validation/license_metadata.md) builds and verifies
+six new private archives from producer `50d8e33`: source wheel/sdist and a wheel
+from each sdist, using isolated Setuptools 77.0.3 and 84.0.0 profiles on Python
+3.14.7. License bytes/metadata, versions, unchanged requirements, addon entry
+points and all 63 resources pass; installed metadata/discovery also passes.
+The setup quota failure is retained before its recovery. The original `376679c`
+wheel is preserved, not relabelled or rebuilt. This bounded license subtask is
+verified; full scientific/public dependency/platform, real Conda archive and C6
+gates remain separate and the overall proposal stays partial.
 
 ## Additional test-only frontend workflow — 2026-11-03
 

@@ -28,8 +28,14 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
+Start with [license metadata and private archive qualification](validation/license_metadata.md)
+for the latest #47 slice. The SPDX migration and aligned build floor pass actual
+minimum/development-backend builds, archive checks and installed metadata discovery.
+Original qualified artifacts are preserved. Public delivery and visual review
+retain their separate pending gates.
+
 Start with [addon JavaScript DOM testing](validation/addon_dom.md) for the latest
-#60 slice: 21 JavaScript cases and 78 selected Python cases pass without changing
+#60 implementation slice: 21 JavaScript cases and 78 selected Python cases pass without changing
 runtime code. The actual panel modules execute in isolated test DOMs, with
 backend/module drift guards. Live comm/pixels/C6 remain pending; maintainer
 interaction is not required now.

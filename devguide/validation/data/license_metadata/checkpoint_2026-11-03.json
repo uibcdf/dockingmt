@@ -1,0 +1,342 @@
+{
+  "schema": "dockingmt.pep639_private_archives@1",
+  "owner": "uibcdf/dockingmt#47",
+  "coordination": "uibcdf/molsyssuite#162",
+  "producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "baseline": "94f42e152c403353fa4654631f4e0c2b14ddd042",
+  "python": "3.14.7",
+  "backend_profiles": {
+    "minimum": {
+      "setuptools": "77.0.3",
+      "expected_version": "0.0.0+225.g50d8e33",
+      "build_environment": {
+        "python": "3.14.7",
+        "distributions": {
+          "build": "1.6.1",
+          "versioningit": "3.3.0",
+          "wheel": "0.48.0",
+          "packaging": "26.3",
+          "pyproject_hooks": "1.2.0",
+          "setuptools": "77.0.3",
+          "pip": "26.2.1"
+        }
+      },
+      "source_build_exit": 0,
+      "sdist_sha256": "d2fd6c139902d95e116b5a08f52fcfef74e0dd72c830a327b323673ce38da487",
+      "sdist_wheel_exit": 0
+    },
+    "current": {
+      "setuptools": "84.0.0",
+      "expected_version": "0.0.0+225.g50d8e33",
+      "build_environment": {
+        "python": "3.14.7",
+        "distributions": {
+          "build": "1.6.1",
+          "versioningit": "3.3.0",
+          "wheel": "0.48.0",
+          "packaging": "26.3",
+          "pyproject_hooks": "1.2.0",
+          "setuptools": "84.0.0",
+          "pip": "26.2.1"
+        }
+      },
+      "source_checkout": "reused exact clean producer after retiring only prior ignored build outputs",
+      "source_build_exit": 0,
+      "sdist_sha256": "a08ed5c86aeb82befa2d9de51f846fb291dd3253e11f9240d6d15cf9a585ec81",
+      "sdist_wheel_exit": 0
+    }
+  },
+  "artifacts": [
+    {
+      "profile": "minimum",
+      "route": "from-source",
+      "kind": "wheel",
+      "filename": "dockingmt-0.0.0+225.g50d8e33-py3-none-any.whl",
+      "sha256": "99c37ec0ebe1b1fbbd436da17b5dea1947e1449cad38c5e5261ed19007be8dff",
+      "bytes": 133434,
+      "version": "0.0.0+225.g50d8e33",
+      "metadata_version": "2.4",
+      "license_expression": "MIT",
+      "license_file": "dockingmt-0.0.0+225.g50d8e33.dist-info/licenses/LICENSE",
+      "license_sha256": "39c2e0c912d910a33ff5e6a7fd82a02a6872ed479e0dcd816ac387a02e9c4063",
+      "required_payload_files": 63,
+      "payload_sha256_matches_canonical": true,
+      "addon_entry_point_verified": true,
+      "python_requirement": "<3.15,>=3.11",
+      "runtime_requirements_match_original": true
+    },
+    {
+      "profile": "minimum",
+      "route": "from-sdist",
+      "kind": "wheel",
+      "filename": "dockingmt-0.0.0+225.g50d8e33-py3-none-any.whl",
+      "sha256": "1333b2588d933f508f74477d2fed4eb44bf939096e414bda0010b7c1448d1c90",
+      "bytes": 133434,
+      "version": "0.0.0+225.g50d8e33",
+      "metadata_version": "2.4",
+      "license_expression": "MIT",
+      "license_file": "dockingmt-0.0.0+225.g50d8e33.dist-info/licenses/LICENSE",
+      "license_sha256": "39c2e0c912d910a33ff5e6a7fd82a02a6872ed479e0dcd816ac387a02e9c4063",
+      "required_payload_files": 63,
+      "payload_sha256_matches_canonical": true,
+      "addon_entry_point_verified": true,
+      "python_requirement": "<3.15,>=3.11",
+      "runtime_requirements_match_original": true
+    },
+    {
+      "profile": "minimum",
+      "route": "from-source",
+      "kind": "sdist",
+      "filename": "dockingmt-0.0.0+225.g50d8e33.tar.gz",
+      "sha256": "d2fd6c139902d95e116b5a08f52fcfef74e0dd72c830a327b323673ce38da487",
+      "bytes": 271138,
+      "version": "0.0.0+225.g50d8e33",
+      "metadata_version": "2.4",
+      "license_expression": "MIT",
+      "license_file": "LICENSE",
+      "license_sha256": "39c2e0c912d910a33ff5e6a7fd82a02a6872ed479e0dcd816ac387a02e9c4063",
+      "required_payload_files": 63,
+      "payload_sha256_matches_canonical": true,
+      "producer_pyproject_identical": true,
+      "runtime_requirements_match_original": true
+    },
+    {
+      "profile": "current",
+      "route": "from-source",
+      "kind": "wheel",
+      "filename": "dockingmt-0.0.0+225.g50d8e33-py3-none-any.whl",
+      "sha256": "c2e5e298b5551d0ce2eafed6565402fd695c8e85280eac2daafbb9d4477d2cb3",
+      "bytes": 133434,
+      "version": "0.0.0+225.g50d8e33",
+      "metadata_version": "2.4",
+      "license_expression": "MIT",
+      "license_file": "dockingmt-0.0.0+225.g50d8e33.dist-info/licenses/LICENSE",
+      "license_sha256": "39c2e0c912d910a33ff5e6a7fd82a02a6872ed479e0dcd816ac387a02e9c4063",
+      "required_payload_files": 63,
+      "payload_sha256_matches_canonical": true,
+      "addon_entry_point_verified": true,
+      "python_requirement": "<3.15,>=3.11",
+      "runtime_requirements_match_original": true
+    },
+    {
+      "profile": "current",
+      "route": "from-sdist",
+      "kind": "wheel",
+      "filename": "dockingmt-0.0.0+225.g50d8e33-py3-none-any.whl",
+      "sha256": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98",
+      "bytes": 133434,
+      "version": "0.0.0+225.g50d8e33",
+      "metadata_version": "2.4",
+      "license_expression": "MIT",
+      "license_file": "dockingmt-0.0.0+225.g50d8e33.dist-info/licenses/LICENSE",
+      "license_sha256": "39c2e0c912d910a33ff5e6a7fd82a02a6872ed479e0dcd816ac387a02e9c4063",
+      "required_payload_files": 63,
+      "payload_sha256_matches_canonical": true,
+      "addon_entry_point_verified": true,
+      "python_requirement": "<3.15,>=3.11",
+      "runtime_requirements_match_original": true
+    },
+    {
+      "profile": "current",
+      "route": "from-source",
+      "kind": "sdist",
+      "filename": "dockingmt-0.0.0+225.g50d8e33.tar.gz",
+      "sha256": "a08ed5c86aeb82befa2d9de51f846fb291dd3253e11f9240d6d15cf9a585ec81",
+      "bytes": 271357,
+      "version": "0.0.0+225.g50d8e33",
+      "metadata_version": "2.4",
+      "license_expression": "MIT",
+      "license_file": "LICENSE",
+      "license_sha256": "39c2e0c912d910a33ff5e6a7fd82a02a6872ed479e0dcd816ac387a02e9c4063",
+      "required_payload_files": 63,
+      "payload_sha256_matches_canonical": true,
+      "producer_pyproject_identical": true,
+      "runtime_requirements_match_original": true
+    }
+  ],
+  "canonical_payload_sha256": {
+    "dockingmt/__init__.py": "07f71ed5cf3914d2e4cfbf35c43a7ea8b69497effd4dc8aa6336ae30e61a2359",
+    "dockingmt/_argdigest.py": "e76d59bca5d24f3df78b4c3b361375a82236d95ac102218a615a48bb3555b6a7",
+    "dockingmt/_depdigest.py": "c996d85d61ef70230b64c0a33bd69ea78e24c3c3148100f69d158ffe90d9ee36",
+    "dockingmt/_private/__init__.py": "4f23e529394a0c60adaca014f6852e07e108e6e826973d256b254e9e9e2f5cc0",
+    "dockingmt/_private/argdigest/__init__.py": "550f136bb66a889c4bdd34997d2925aee7aa2e95b359554e98f936927f39fea4",
+    "dockingmt/_private/argdigest/registry.py": "c5568f306b69c77b43d28cf41b7127d7caa14f038ef6c4ba26cc674fd022d9cd",
+    "dockingmt/_private/artifacts.py": "750981bba46eccf57f085a099305574f4b19afa891892259709cbc1f49bebd2e",
+    "dockingmt/_private/serialization.py": "f138c1f5dcdc5ff67ce5ac15df7c762ffefc6286a627e6859b9980e39ffc0680",
+    "dockingmt/_private/smonitor/__init__.py": "af179622d2bd19e0a4178f03624526d46ff24b047f2ca357b9d85024b34a9ce7",
+    "dockingmt/_private/smonitor/catalog.py": "14b214b11fadd0678085507ccc295e1a2e0905356d8ac1732aff4c8ddb984b7b",
+    "dockingmt/_private/smonitor/emitter.py": "83af0b66e89522f9732bc97c53bd73de551646cafcb758637d2c2e545b877a56",
+    "dockingmt/_private/smonitor/meta.py": "7a1d95d8be1b37238dff60af83e87649331037366512e2e7b4fa218c6c61cafb",
+    "dockingmt/_private/smonitor/warnings.py": "8130bc9008281d0f65f491b279a37536d3a2de5a7d86c3027e28dbbb69b6b950",
+    "dockingmt/_private/symmetry.py": "5f71b56597fec77a497c1c63a3cb48418e1dbc5af436db0684b994407974f4da",
+    "dockingmt/_private/vina_records.py": "ec13749e8410ca16bd3ad25ef6cb5e39ea8dc9af80fb6d2f3b3749c5d16fdc59",
+    "dockingmt/_pyunitwizard.py": "ced289b4e5423e80df232daac8916263995aafdbf20d06e73690599249d9e96b",
+    "dockingmt/_smonitor.py": "830e3d288fe35a84ea283d0888799b72707ee0825b7f673162d79a791703a9d2",
+    "dockingmt/_version.py": "fcc4cd0dc6ec65269441996cdf9688d59e3f061dc2ed3d3dd3d3600182967d87",
+    "dockingmt/aggregation.py": "d033c3a8bbfbd4e44ffa34eaee6901f5a30efe95fa3b45e60d5d849ad1945ae5",
+    "dockingmt/batch.py": "01d7cfb44320c8d6ba2ad04c847093d0e7105458bab975edbc606d24d4cd37f2",
+    "dockingmt/core/__init__.py": "6a6218f01c453e7973578f8aec19da42d02147fc603c401c3908ee00d0e1b8fa",
+    "dockingmt/core/_scores.py": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136",
+    "dockingmt/core/audit.py": "191d9c82936fada14761ccdae0d95ba46b17fdeb22c2cbf2e348554cb5d4cab3",
+    "dockingmt/core/outcome.py": "d16cefba9c2a6f7057201a30fffde04d78eb7a3f55f3ff5e3c60a6600339fb04",
+    "dockingmt/core/pose_audit.py": "de6ecac9713d6a96349e8b42884b7ddfa68d6c8a3440792fde41adad38180908",
+    "dockingmt/core/problem.py": "05eb47aa03fa477557dada4af127efa717f0f7cfce046adea3b6c2360ecb08db",
+    "dockingmt/core/protocol.py": "bdcefe43239851abaaf19ec67a5ddb1336617b4ceba05545d497793eaa6abc70",
+    "dockingmt/core/results.py": "6961abe153396229e6abb29cbfcc463ffda5e6d87808956449597cca19ed7fd7",
+    "dockingmt/core/search_domain.py": "fcec2ffa9a5ebe1de5d121ff71652937598509352b47ef5389fbe81984c52a52",
+    "dockingmt/dock.py": "25ffc2190e5410e187e1165b912fcf2b6c4274d7e975c00e918283c96b52f256",
+    "dockingmt/engines/__init__.py": "07108a1391a34a122f4a9c9991db911a1b8f0fde9a42a828c9418a1a7ebcadf9",
+    "dockingmt/engines/_vina_scoring.py": "e49a50fd48fc28af6a440961e95da6c23fcabd86bbaf865d5e5d86df5cd341bb",
+    "dockingmt/engines/base.py": "127fc3393b37f2d173d768eb926295b911c8160038ed524da5896b35d89f83cc",
+    "dockingmt/engines/vina.py": "5c6868245d7cffd0385886f4ab1f02abec3ba76d865be4cbb3ce144a5f7b04ec",
+    "dockingmt/evaluation.py": "09484c50038b862a44f4f007acff3e7e2892dc9a0a19e0e1cd4ccb9930118a4e",
+    "dockingmt/preparation/__init__.py": "ad1708354f51a1283fc98667c6abdea944ed8a7d26f79ee0ce03347b4509850f",
+    "dockingmt/preparation/_export.py": "1dfd502efb4d61738fe272e4dbff4d79100e014ba417db1024a18d41da93da3f",
+    "dockingmt/preparation/_molsys.py": "71dca1b83da4577a57fef02695c384fedce79b8137e2bd3215496822a0216e63",
+    "dockingmt/preparation/_stages.py": "84fe2ad25b001e89f4f2f1f3165573d6bde33a626075d98a3f9fd62daafb5243",
+    "dockingmt/preparation/_temporary_torsions.py": "83a2f262e5e56d926a6db4f0887ffc019398f41a68fbe7c20832278b1e87d613",
+    "dockingmt/preparation/_typing.py": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2",
+    "dockingmt/preparation/assessment.py": "5f8d3fe16c76ee401bdaaf94ad7714d1727c2732d48f72586fa95fc22d8eaaf8",
+    "dockingmt/preparation/charges.py": "b23815cf64791c42bc5e7577f540b56deaeddb6ee6e12ad288824b7c8a4773b8",
+    "dockingmt/preparation/ligand.py": "0be4491c28a5d0c07ccae23cc34f829f11a0b254a0a38c4f6c10765cb2e43725",
+    "dockingmt/preparation/receptor.py": "2a99b9fff9975b07359b7bcf82c211d64a92b80833cbbb1f0cb26454df67de47",
+    "dockingmt/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "dockingmt/score.py": "6b05e5d92f03732e2280a4ca160d5b6e8bcf28b2b940f779ea84bd08dc00d670",
+    "dockingmt/view.py": "427e4ba1dae9273e21d6f04148d21954284caa8d07e6208e97b9411766653da6",
+    "dockingmt/viewer/__init__.py": "926524953c4cf37039415eaa5d36646e00580cffb7acb1e24deb0b9c7fd6d601",
+    "molsysviewer_dockingmt/__init__.py": "ed9bd42c68be5d3b8f62804e295e8b8e9b4386f096fc134ee131d985738953e9",
+    "molsysviewer_dockingmt/_presentation.py": "61a60550627e7606784cf9545fcc9b7c88c7e28f37c3cbdcd68404d0047455b1",
+    "molsysviewer_dockingmt/_scene.py": "6aaa6b1e795722f5fe35573340e9c225e4849d104d00830faee38fedff15605c",
+    "molsysviewer_dockingmt/adapters/__init__.py": "f4e1db369ab18e4c7200edd4cf953df916ba5154de4c8417fb9bc299f9c80e1c",
+    "molsysviewer_dockingmt/adapters/complex.py": "e6f94338971063a264cb1a30f544bdfb45ada1aa8ba36395163d3875ab3fa21a",
+    "molsysviewer_dockingmt/adapters/shapes.py": "02ceabc183fc31a91735027e6defd22c327a5da752b12af38e6e39d9b34b48ed",
+    "molsysviewer_dockingmt/addon.py": "2b7013d9b89a1125820f60021184b7974403eeff06acf05a9c61dc2d5d181976",
+    "molsysviewer_dockingmt/export.py": "e53b3c74c216a44f34dcb4fda68b53841d68eeac12a82533903c6fb9ba25031f",
+    "molsysviewer_dockingmt/panels/__init__.py": "1f160141101212933339fc55478c02d43f922129ad633ec2d5bbe25db3990565",
+    "molsysviewer_dockingmt/panels/_base.py": "6eeb1f290bd8ee08dfa559fa0c85d7afb8f8ea28f8d22964c6f98f5345cb95df",
+    "molsysviewer_dockingmt/panels/domain.py": "8bf402db3bcb820c46e08006e7e60e5a352a9e7794969bd1407618648a0674c9",
+    "molsysviewer_dockingmt/panels/explorer.py": "569ab0c2d33a0c9be42f71dc2f50baba25f1280eb77364517875b4d47226ea35",
+    "molsysviewer_dockingmt/runtime.py": "eded7afcc9083cc9f313d28925f3c5e9a20c5d6ffd679347b69b12c5ad7ed26a",
+    "molsysviewer_dockingmt/workbench.py": "ea988065b7f64ba71dfa5e8809f82ba39e5b36c1d808b327c989f7343f2d004a"
+  },
+  "license_sha256": "39c2e0c912d910a33ff5e6a7fd82a02a6872ed479e0dcd816ac387a02e9c4063",
+  "all_six_archive_payloads_identical": true,
+  "original_qualified_wheel": {
+    "producer": "376679c2fe77298eda7a80edd311335c2cfa205b",
+    "filename": "dockingmt-0.0.0+222.g376679c-py3-none-any.whl",
+    "sha256": "aa5626e1ee7073a2df32fdce75cf10c132eeedffc807aa71a5421d1a55a9391e",
+    "preserved": true
+  },
+  "logs": {
+    "current-sdist-wheel-build.log": {
+      "sha256": "fa3a44409025e355fdc26e20759c7cbf6c6bbf075d9159b1ced8bebd0567ad4c",
+      "license_deprecations": false,
+      "warning_lines": []
+    },
+    "current-source-build.log": {
+      "sha256": "4e09585ab9edaef04d075921276f973e1c5fd38a5b99300eb0eceef8fb8acc8c",
+      "license_deprecations": false,
+      "warning_lines": []
+    },
+    "minimum-sdist-wheel-build.log": {
+      "sha256": "6f562a4181e681cb76a6896131915b0188b7e0f9acfc0028d7f4c5288430373f",
+      "license_deprecations": false,
+      "warning_lines": []
+    },
+    "minimum-source-build.log": {
+      "sha256": "0dd88df2693d1b0861594ee41c1462a94980325ed316a1d40fb797385613c05a",
+      "license_deprecations": false,
+      "warning_lines": []
+    }
+  },
+  "setup_attempts": [
+    {
+      "status": "failed",
+      "category": "temporary filesystem quota during second checkout",
+      "minimum_artifacts_completed": true,
+      "current_backend_started": false,
+      "partial_clone_retired": true
+    },
+    {
+      "status": "recovered",
+      "category": "reuse exact producer checkout after removing prior ignored build outputs"
+    }
+  ],
+  "public_release": false,
+  "tag_created": false,
+  "conda_archive_built": false,
+  "scientific_dependency_closure_qualified": false,
+  "new_scientific_tests_or_searches": false,
+  "other_interpreters_platforms_qualified": false,
+  "installed_metadata_receiving": {
+    "schema": "dockingmt.pep639_installed_metadata@1",
+    "wheel_sha256": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98",
+    "version": "0.0.0+225.g50d8e33",
+    "python": "3.14.7",
+    "metadata_prefix_verified": true,
+    "editable_installation": false,
+    "license_expression": "MIT",
+    "license_file_sha256": "39c2e0c912d910a33ff5e6a7fd82a02a6872ed479e0dcd816ac387a02e9c4063",
+    "installed_payload_files_verified": 63,
+    "addon_entry_point_discovered": true,
+    "entry_point_value": "molsysviewer_dockingmt",
+    "entry_point_loaded": false,
+    "scientific_dependencies_installed": false,
+    "scientific_dependency_closure_qualified": false,
+    "install_mode": "ordinary no-deps/no-compile wheel installation into task-only build/inspection prefix after all builds completed"
+  },
+  "administrative_tests": {
+    "passed": 24,
+    "skipped": 0,
+    "seconds": 2.92
+  },
+  "declaration_preflight": {
+    "qualification": "declared-only",
+    "routes": 10,
+    "scientific_contexts": 4,
+    "exit": 0
+  },
+  "build_tool_wheels": {
+    "build-1.6.1-py3-none-any.whl": "ecd351a4be9d35a9eaaba244a7687143c9c7d4aea6ac964e7e7ddab20cbcf4e7",
+    "packaging-26.3-py3-none-any.whl": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+    "pyproject_hooks-1.2.0-py3-none-any.whl": "9e5c6bfa8dcc30091c74b0cf803c81fdd29d94f01992a7707bc97babb1141913",
+    "setuptools-77.0.3-py3-none-any.whl": "67122e78221da5cf550ddd04cf8742c8fe12094483749a792d56cd669d6cf58c",
+    "setuptools-84.0.0-py3-none-any.whl": "51a52592b3b99e102b609654876bd65f19f999935166d1352678931132b0c670",
+    "versioningit-3.3.0-py3-none-any.whl": "23b1db3c4756cded9bd6b0ddec6643c261e3d0c471707da3e0b230b81ce53e4b",
+    "wheel-0.48.0-py3-none-any.whl": "3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab"
+  },
+  "tools_and_verifier_scripts_sha256": {
+    "check_installed_metadata.py": "af3b7e97df06ea6a447074e928c19883cd0719f94411fd16d3f4527b785abf92",
+    "run_build_profiles.py": "cbde6d5577de6d3cf71c5eb50fcf7b597ff12dbf9db949ea39c4be61a757360b",
+    "run_current_profile.py": "ec549d138da3548779348e9194ee301299cc44b58b5882feca32166e038e3706",
+    "verify_artifacts.py": "e782ea3112f4ce4a27f2f1c5efe9a55af54c4ae64e26f9e5eca3d813f9d810b1"
+  },
+  "preceding_runtime_ci": {
+    "source": "94f42e152c403353fa4654631f4e0c2b14ddd042",
+    "run": 41711368701,
+    "conclusion": "success",
+    "linux_python_test_counts": {
+      "3.11": 1436,
+      "3.12": 1436,
+      "3.13": 1436,
+      "3.14": 1436
+    },
+    "dom_run": 41711369065,
+    "dom_conclusion": "success",
+    "dom_tests": 21,
+    "does_not_qualify_new_packaging_producer": true
+  },
+  "resources": {
+    "owner": "uibcdf/dockingmt#47",
+    "tracking": "uibcdf/dockingmt#50",
+    "review_date": "2026-11-10",
+    "categories": [
+      "six new private artifacts",
+      "pinned public build-tool wheels",
+      "private build/verification evidence"
+    ],
+    "scientific_receivers_preserved": true,
+    "build_only_prefixes_and_source_copies_retired": true,
+    "cleanup_errors": 0
+  }
+}
