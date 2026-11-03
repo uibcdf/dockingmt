@@ -2,6 +2,23 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Saved-case addon notebook executed without browser — 2026-11-03
+
+[The new workflow](validation/addon_3ptb_workflow.md) completes five code cells
+through a real kernel with source `a667dc1` and the retained ordinary-installed
+providers. It restores the original five poses, explicitly recreates the already
+declared molecular inputs, verifies the 2,033-atom scene and exercises real Python
+widget state/actions. All 33 monitored original files remain unchanged. New
+writer hashes remain separate from the original submitted bytes. There are no
+new searches, maps, energy evaluations, optimization or RMSD calculations.
+
+The maintainer's interactive review is deferred. No browser is connected, so
+actual frontend controls and pixels remain unobserved and C6 is unaccepted.
+**Next:** inspect final hosted CI; receive MolSysViewer #291 when delivered;
+perform the concrete browser checklist when a session is available. The notebook
+is ready for later use and does not require human interaction now. Provider
+operations retain their owning components, and public delivery stays #30/#47.
+
 ## Saved-result addon explorer — 2026-11-03
 
 [The #60 addon iteration](pending_proposals/qualify_saved_result_addon.md)

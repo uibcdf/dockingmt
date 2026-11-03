@@ -28,6 +28,12 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
+The [new real-kernel addon workflow](validation/addon_3ptb_workflow.md) executes
+the saved five-pose 3PTB case and real Python widgets without requiring a current
+maintainer interaction. Its notebook and path-free receipts distinguish explicit
+input recreation from record recovery, and Python success from pending browser
+observation. Start there for the current #60 handoff.
+
 For current interactive work, start with the
 [saved-result addon explorer](pending_proposals/qualify_saved_result_addon.md)
 under #60. Its first slice separates pose identity/position/rank and displays

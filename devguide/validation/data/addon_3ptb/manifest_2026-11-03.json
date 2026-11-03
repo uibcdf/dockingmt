@@ -1,0 +1,74 @@
+{
+  "schema": "dockingmt.addon_3ptb_kernel_receiving@1",
+  "owner": "uibcdf/dockingmt#60",
+  "runtime_source": "a667dc1681d734791cfb07239e03277d0252b5ea",
+  "notebook": {
+    "path": "devguide/validation/addon_3ptb_workflow_2026-11-03.ipynb",
+    "bytes": 21286,
+    "sha256": "64de313817511c943c95fdb4176a5ce51663a02a58e09e55120b82f206457c52",
+    "code_cells": 5
+  },
+  "kernel_receipt": {
+    "path": "devguide/validation/data/addon_3ptb/kernel_receipt_2026-11-03.json",
+    "bytes": 10156,
+    "sha256": "573d5d1b7ce6fe7d109d5758d24e9149c7b190fad3950a3499adcacc1d3c2c53"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "status": "failed",
+      "completed_code_cells": 1,
+      "failing_code_cell": 2,
+      "category": "notebook_assertion",
+      "reason": "Compared geometry projection with the full backend record including rounding metadata. Coordinates and input declarations had passed; no provider defect inferred.",
+      "molecular_preparation_calls": {
+        "receptor": 1,
+        "ligand": 2
+      },
+      "new_searches": 0,
+      "kernel_shutdown": true
+    },
+    {
+      "attempt": 2,
+      "status": "completed",
+      "completed_code_cells": 5,
+      "geometry_guard": "Compare center/size/unit and independently require recorded rounding_decimals=6; exact coordinate tolerance unchanged.",
+      "molecular_preparation_calls": {
+        "receptor": 1,
+        "ligand": 2
+      },
+      "new_searches": 0,
+      "kernel_shutdown": true,
+      "transport": "task-local IPC"
+    }
+  ],
+  "diagnostics": [
+    {
+      "message": "WARNING: Structural attributes were discarded during concatenation: atoms_ff. (Hint: Use attribute_policy='strict' to reject the operation instead. Docs: https://www.uibcdf.org/MolSysMT)",
+      "count": 1
+    },
+    {
+      "message": "WARNING: Structural attributes were discarded during concatenation: b_factor, occupancy. (Hint: Use attribute_policy='strict' to reject the operation instead. Docs: https://www.uibcdf.org/MolSysMT)",
+      "count": 3
+    },
+    {
+      "message": "WARNING: Structural attributes were discarded during concatenation: partial_charge_assignment, atom_type_assignment. (Hint: Use attribute_policy='strict' to reject the operation instead. Docs: https://www.uibcdf.org/MolSysMT)",
+      "count": 5
+    }
+  ],
+  "diagnostic_count": 9,
+  "browser_inventory": {
+    "apps": 0,
+    "browsers": 0
+  },
+  "rendered_pixels_verified": false,
+  "frontend_controls_verified": false,
+  "maintainer_interactive_review": "deferred",
+  "C6_accepted": false,
+  "original_scene_issue": "uibcdf/dockingmt#52",
+  "remaining_provider_issue": "uibcdf/molsysviewer#291",
+  "scientific_prefix_modified": false,
+  "shared_environment_modified": false,
+  "kernel_registration": "task-local, not installed in the user registry",
+  "task_review_date": "2026-11-10"
+}

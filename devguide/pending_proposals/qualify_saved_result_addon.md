@@ -155,6 +155,16 @@ wheel, release, platform admission or visual acceptance follows.
 
 ## Acceptance criteria
 
+The [new notebook](../validation/addon_3ptb_workflow.md) completes all five code
+cells in a real kernel, checking actual saved-case coordinates/identity and
+resolved Python widgets without a maintainer interaction. Its new receipts
+retain the failed assertion attempt and successful correction separately. Each
+attempt explicitly recreates the declared inputs; no new searches or energy
+calculations occur. The result stays detached and all 33 monitored original
+files are unchanged. Current export bytes differ and are not substituted into
+the original execution. The kernel is shut down after capture; no browser is
+connected. Actual frontend observation and the maintainer review remain deferred.
+
 Data fidelity, addon-origin synchronization, explicit readback and ownership
 guards are implemented. Keep this proposal partial until:
 
