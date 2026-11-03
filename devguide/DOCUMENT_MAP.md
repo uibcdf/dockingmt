@@ -12,6 +12,8 @@
 | `ARCHITECTURE.md` | How should those concepts be separated in software? |
 | `ENGINES.md` | How do Vina and future backends/providers fit? |
 | `MVP.md` | What workflows define the Core and Extended MVPs? |
+| `CORE_MVP_STATUS.md` | Which Core criteria have evidence, under what profile, and what remains? |
+| `human_workflow_review.md` | Which public operations already serve a scientist, and what is the next installed-notebook slice? |
 | `VALIDATION_STRATEGY.md` | How do we distinguish software correctness from scientific validity? |
 | `MOLSYSSUITE_INTEGRATION.md` | How does DockingMT interact scientifically with sibling components? |
 | `MOLSYSVIEWER_INTEGRATION.md` | How should DockingMT own its viewer integration? |

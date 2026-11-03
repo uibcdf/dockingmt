@@ -14,6 +14,24 @@ supersedes: []
 
 # Review extensibility and performance
 
+## Current Core map and workflow review — 2026-11-03
+
+The maintained [Core map](../CORE_MVP_STATUS.md) reviews all 35 C0–C6 criteria
+at `92d31e0`, retaining the original audit and all scientific/artifact producers.
+#55's construction record, #5's unsafe-placeholder mechanisms and MolSysViewer
+#291 receiving are delivered; visible C4/C6 remain deferred. The supported
+profile, current implementation and scientific/public claims remain distinct.
+The [operational roadmap](../ROADMAP.md#current-operational-plan) replaces
+historical "next" entries as the active queue.
+
+The [human workflow review](../human_workflow_review.md), under #4, identifies
+the next small product slice: an installed public-API saved-result inspection
+notebook. Existing scoring, incremental batches, evaluation and summary APIs are
+already present. Qualification helpers remain case-specific; no generic recipe,
+archive, molecular operation or execution abstraction is extracted by this review.
+That notebook is specified, not implemented/executed. This issue remains partial;
+no old acceptance result or performance sample is relabelled.
+
 ## Nonvisual Core acceptance audit — 2026-10-28
 
 The [Core MVP audit](../validation/core_mvp_audit_2026-10-28.md) maps all 32 C0–C5 criteria to implementation,

@@ -17,6 +17,24 @@ supersedes: []
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
 **Status:** Partial; DockingMT Core MVP work.
 
+## Installed human workflow review — 2026-11-03
+
+The [source/workflow review](../human_workflow_review.md) distinguishes existing
+public result/preparation/execution APIs from the existing case-specific developer tools.
+The executed addon notebook correctly verifies its qualification profile, but
+depends on a data harness and `devtools`; it is not an installed-user walkthrough.
+Do not promote the specific 3PTB prescription or its 24-row registration into
+hidden preparation defaults, and do not equate an internal record audit with
+the forensic tool's external case authentication.
+
+The next bounded slice is a separate public-API saved-result inspection notebook,
+running outside source with explicit caller data/identity, detached result,
+declared score meaning/units, captured-input checks and a refusal control. It
+performs no molecular restoration or new scientific computation. Acceptance is
+specified in the review; implementation/execution is still next work. Broader
+prepared-source/replay persistence stays partial. MolSysMT #256 remains the
+post-1.0 mechanics-persistence owner, not a requirement for this record workflow.
+
 ## Prepared recovery consistency — 2026-10-29
 
 [The #57 recovery correction](../validation/prepared_recovery.md) binds supplied

@@ -2,6 +2,36 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Current operational plan
+
+Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which
+reviews all 35 C0–C6 criteria at source `92d31e0`. It distinguishes current
+implementation, original scientific evidence, private installed qualification
+and pending acceptance. The [human workflow review](human_workflow_review.md)
+defines the next bounded product slice. This section is the active queue;
+dated checkpoint entries below retain their original state and historical
+"Next" instructions.
+
+| Order | Work and owner | Concrete completion / boundary |
+| --- | --- | --- |
+| 1 | Current Core evidence and source CI (#28/#60) | The updated criterion map is delivered. Inspect the exact source/head's remaining hosted lanes and append their outcome to the owning issues; previous successes do not qualify another composition. |
+| 2 | Installed Python/Jupyter use (#4) | Implement the specified public-API saved-result inspection notebook: explicit input/trust, detached result, scores/units and damaged-evidence refusal, outside source with no developer-tool import or new molecular computation. Then scope the preparation-to-execution walkthrough. |
+| 3 | Actual distribution readiness (#30/#47) | Review published provider coordinates/API minima and the real candidate plan, including frontend tests and actual installed platform/minor gates. No publication follows from private wheels. |
+| Deferred | Live observation (#52/#60) | On the maintainer's decision, observe real controls/comm/canvas, frame correspondence and reference/domain visibility; visible C4/C6 remain unaccepted. |
+| On provider delivery | Remaining molecular profiles (#49/#33) | Receive MolSysMT #521 against its actual partial/reference contract before removing the covered verifier. MolSysMT #256 remains post-1.0 general mechanics persistence, separate from the supported linked-record route. |
+
+Do not schedule #55 domain provenance, #5's unsafe-placeholder correction or
+MolSysViewer #291 as missing implementation: they have been delivered. Existing
+`score`, `dock_many` and redocking evaluation/summary APIs should be reused;
+their presence is not whole Extended-MVP acceptance. New engines, receptor
+flexibility, screening infrastructure and guided-search horizons need a concrete
+accepted workflow after the Core priorities above.
+
+## Checkpoint history
+
+The entries below are dated delivery/evidence records. Consult the operational
+plan above for current next work; preserve historical producers and claims.
+
 ## Public player notifications received — 2026-11-03
 
 [The #60 receiving](validation/player_notifications_receiving.md) selects

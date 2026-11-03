@@ -28,6 +28,15 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
+Start with the [current Core acceptance map](CORE_MVP_STATUS.md) and
+[operational roadmap](ROADMAP.md#current-operational-plan). They reconcile
+the 35 C0–C6 criteria and current priorities without rewriting historical
+evidence. Then read the [Python/Jupyter workflow review](human_workflow_review.md)
+for the next bounded #4 slice: installed saved-result inspection using existing
+public APIs, with explicit trust and molecular-recovery limits. That notebook
+is specified, not implemented or executed by the review. Visual acceptance
+remains deferred; no new scientific experiment or release is implied.
+
 Start with [public player notification receiving](validation/player_notifications_receiving.md)
 for the current #60 checkpoint. MolSysViewer #291 has delivered synchronous
 Python navigation notifications. The new guards and real-kernel 3PTB companion
@@ -154,7 +163,7 @@ The [2026-10-23 scene record](validation/3ptb_scene.md) and executed
 [scene notebook](validation/human_3ptb_scene_2026-10-23.ipynb) retain the minimal
 scene, its installed Python checks and HTML export. Browser inspection
 and C6 acceptance remain pending under #52. The
-[roadmap](ROADMAP.md#known-source-pose-reading-delegated--2026-10-28) gives the next action.
+[operational roadmap](ROADMAP.md#current-operational-plan) gives the next action.
 The [2026-10-20 pause checkpoint](validation/pause_handoff_2026-10-20.md) retains
 the completed pre-visualization workflow, original producers and recovery details.
 The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)
