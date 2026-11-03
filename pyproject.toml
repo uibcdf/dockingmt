@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68", "versioningit~=3.0", "wheel"]
+requires = ["setuptools>=77.0.3", "versioningit~=3.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -10,9 +10,9 @@ readme = "README.md"
 authors = [
   { name = "UIBCDF Development Team" }
 ]
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE"]
 classifiers = [
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",

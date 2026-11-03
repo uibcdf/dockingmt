@@ -13,7 +13,7 @@ path = "devtools/conda-envs/test_env.yaml"
 kind = "runtime"
 purpose = "test"
 channel_priority = "strict"
-narrowing_reason = "Compatible test bootstrap floors and Vina-declared setuptools/wheel requirements; exact runtime replacements remain contextual source evidence."
+narrowing_reason = "Compatible test bootstrap floors, DockingMT PEP 639 build tooling and Vina-declared setuptools/wheel requirements; exact runtime replacements remain contextual source evidence."
 reason = "Original scientific bootstrap and optional backend/integration tools; strict priority is enforced by both source workflows."
 
 [[source_routes]]
@@ -96,7 +96,7 @@ reason = "DockingMT #60 addon-specific Node/jsdom DOM tests; standard-library AS
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "6c4d283a623e8ee9a6b135a8d0cb6e2e1b26fee1d2777c24f7f4492e12d8bf8f"
+sha256 = "1a8da9976a648ca110a9037a39a3c9b0508022e416e79f3128ef20f7a290eb82"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]

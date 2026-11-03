@@ -14,6 +14,22 @@ supersedes: []
 
 # Distribution control adoption
 
+## PEP 639 metadata migration in qualification — 2026-11-03
+
+The maintainer accepts the local migration under MolSysSuite #162. The MIT
+expression and explicit `LICENSE` replace the deprecated table/classifier;
+Setuptools >=77.0.3 is aligned across build metadata, recipe, test bootstrap and
+administrative CI. The dependency inventory reclassifies the changed CI tooling
+floor; scientific pins/steps and runtime dependencies retain their authority.
+All 24 administrative guards and declaration preflight pass before building.
+
+New private wheel/sdist and sdist-to-wheel builds will test both the selected
+minimum backend and the development backend in isolated build-only prefixes.
+Exact metadata, license bytes, version, entry point and all 63 package resources
+need actual archive verification before this bounded subtask is accepted. The
+original `376679c` wheel is preserved, not relabelled or rebuilt. Full scientific,
+public dependency/platform, real Conda archive and C6 gates remain separate.
+
 ## Additional test-only frontend workflow — 2026-11-03
 
 The #60 [DOM checkpoint](../validation/addon_dom.md) adds one reviewed Node/jsdom

@@ -167,7 +167,7 @@ jobs:
         with:
           python-version: "3.14"
       - name: Install administrative tools
-        run: python -m pip install "PyYAML==6.0.3" "Jinja2>=3,<4" "packaging>=24" "pytest>=8,<10" "pytest-receptor==1.2.1" "setuptools>=68"
+        run: python -m pip install "PyYAML==6.0.3" "Jinja2>=3,<4" "packaging>=24" "pytest>=8,<10" "pytest-receptor==1.2.1" "setuptools>=77.0.3"
       - name: Validate report records and generated indexes
         run: python devtools/devguide_index.py --check
       - name: Review declared dependency routes
