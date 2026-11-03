@@ -2,6 +2,22 @@
 
 The roadmap defines direction and gates, not dates.
 
+## MolSysMT main checkpoint and installed receiving — 2026-11-03
+
+[Current receiving](chemical_domain_receiving.md#main-source-receiving-and-complete-installed-gate--2026-11-03)
+selects MolSysMT main `00abb958f`, replacing the development-branch location.
+Package, Rust, test and build-input Git objects match qualified `de7ffad2a` exactly.
+Current source routes move to main while original private wheel producers and
+bytes remain unchanged. The complete installed suite uses the verified corrected
+context, with its actual full-run and exact-main CI results recorded on #56.
+The earlier harness failure and 131-case correction remain historical evidence.
+
+**Next:** finish public artifact/platform admission and justify the actual
+published API minimum under #30/#47 when provider coordinates exist. Broader
+persistence remains MolSysMT-owned (#4/#256), partial/reference reading awaits
+MolSysMT #521 under #49/#33, and visible C4/C6 remains deferred under #52.
+No package or release is published by this source receiving.
+
 ## ChemicalStates source receiving — 2026-11-02
 
 [The #56 receiving contract](chemical_domain_receiving.md), adopted through PR #59,

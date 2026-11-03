@@ -30,9 +30,9 @@ id = "molsysmt-source"
 name = "molsysmt"
 role = "required-runtime"
 url = "https://github.com/uibcdf/molsysmt"
-commit = "de7ffad2aef18ff3bccd184133dc69e081cb506e"
+commit = "00abb958fb93649131d5ce5fe5e12e90cf4900e9"
 install = "pip-no-deps-directory"
-reason = "ChemicalStates/Topology receiving under dockingmt#56 selects MolSysMT de7ffad2a. PDBQT contracts remain required; exact-source and installed/public qualification remain separate."
+reason = "ChemicalStates/Topology receiving under dockingmt#56 selects MolSysMT main 00abb958f. PDBQT contracts remain required; exact-source and installed/public qualification remain separate."
 
 [[source_routes]]
 id = "viewer-base"
@@ -91,7 +91,7 @@ reason = "Manual candidate/staged or eligible reviewed release caller; shared pu
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "1a5bcec7d132150982ccdf63aba4aeadf1b05225531084f041c5de1b960fb081"
+sha256 = "6c4d283a623e8ee9a6b135a8d0cb6e2e1b26fee1d2777c24f7f4492e12d8bf8f"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]
@@ -101,7 +101,7 @@ reason = "Administrative no-build recipe/resources and immutable publisher contr
 
 [[workflows]]
 path = ".github/workflows/full-matrix.yml"
-sha256 = "cf5fadadae942b0d6c5d8f2fe16247c84bd65b3c434f69ddf990a79864c4f88f"
+sha256 = "1f114e2c23b4e90eb97521e72f3fe31b8f6a09f9311789ebed09f4c2637fa3a5"
 reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under dockingmt#49; directory preflight does not dispatch or change the matrix."
 
 [[workflows]]

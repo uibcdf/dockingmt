@@ -8,7 +8,7 @@ verification: measured
 area: [integration, preparation, validation]
 guard: tests/test_chemical_domain_receiving.py
 normative: devguide/chemical_domain_receiving.md
-blocked_by: [uibcdf/molsysmt#255]
+blocked_by: []
 supersedes: []
 ---
 
@@ -113,3 +113,20 @@ no public coordinate is invented from development version `0.23.0+361.gde7ffad2a
 Final main-head CI is recorded on #56. Temporary resources belong to #56/#50,
 review 2026-11-09, with no automatic deletion. Scientific profile acceptance and
 historical requalification remain separately scoped.
+
+## Main-source location and complete installed receiving — 2026-11-03
+
+Provider #255 is resolved and its main integration is `00abb958fb93649131d5ce5fe5e12e90cf4900e9`.
+Git-object comparison confirms unchanged package, Rust, test and build inputs
+relative to `de7ffad2a`. The source dependency/CI route selects that exact main
+checkpoint; neither an unavailable package minimum nor a different scientific
+implementation is inferred. Existing private wheels retain their original
+versions, producers and digests. The corrected context re-executes the complete
+installed selection as a new result; full receiving and final exact-head CI
+outcomes are recorded on #56, preserving both earlier attempts.
+
+The resolved provider implementation is no longer a blocking prerequisite.
+This broader record remains partial for actual public package/platform/minimum
+admission coordinated with #30/#47. See the
+[maintained main receiving contract](../chemical_domain_receiving.md#main-source-receiving-and-complete-installed-gate--2026-11-03).
+No publication or visible workflow acceptance occurs here.

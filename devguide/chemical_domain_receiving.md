@@ -6,12 +6,13 @@ This source migration is owned by `uibcdf/dockingmt#56`, coordinated with
 ## Current source contract
 
 The adopted development source is MolSysMT
-`de7ffad2aef18ff3bccd184133dc69e081cb506e` with MolSysViewer
+`00abb958fb93649131d5ce5fe5e12e90cf4900e9` on main, with MolSysViewer
 `ca7ebea60d530a7a0c65cb4d0ccea7b4288f3352`. These are source inputs, not a
 new installed/public package pair. Source pins do not establish a public minimum.
 Keep receiving open until the owner qualifies the final source/installed routes
-and justifies the published runtime floor before a release. The earlier draft used provider `9fb77c358`; its results
-remain scoped to that source rather than qualifying this new checkpoint.
+and justifies the published runtime floor before a release. The earlier draft used
+provider `9fb77c358`, followed by development checkpoint `de7ffad2a`. Their original
+artifact versions and receipts remain unchanged.
 
 Pass the complete MolSys to `msm.chemical_states.get_rotatable_bonds`,
 `get_covalent_blocks`, `get_rigid_fragments` and `get_atom_correspondences`.
@@ -122,3 +123,37 @@ partial for provider-wide final receiving and the installed/public/platform and
 real published-minimum questions under #30/#47. Any new historical-producer
 experiment requires a separate identity; no old result is rewritten. Source
 adoption does not certify broader chemical profiles, visible C4/C6 or a release.
+
+## Main-source receiving and complete installed gate — 2026-11-03
+
+MolSysMT #255 is resolved and its implementation is available at main commit
+`00abb958fb93649131d5ce5fe5e12e90cf4900e9`. Direct Git comparison verifies identical
+objects for `molsysmt`, `molsysviewer_molsysmt`, `rust`, `tests`, `pyproject.toml`
+and `MANIFEST.in` against `de7ffad2a`. The core package tree is
+`4dfb3a9419e912d024e0381427337e9383e8ce46`; the Rust tree is
+`32cfb07b9c26ae9ad3ed379c1b76fab85669cf67`. Source location and new generated
+version metadata are separate from this tracked implementation equivalence.
+Controlled CI/dependency routes now select the exact main commit. Viewer and
+ArgDigest pins, molecular implementation and scientific expectations are unchanged.
+
+The private ordinary wheels above retain their original producers, versions and
+SHA-256 values. Neither wheel is rebuilt or relabelled to represent main. Installed
+Python/native members and all 58 DockingMT runtime files are checked again before
+qualification. The complete `tests` selection is re-executed through immutable
+SDK `738fe8dd731abb99dac421b0bb2acc8564110180` in the verified corrected context:
+real Git history, root governance/workflow files, complete fixtures and no runtime
+source packages. Inherited pytest source paths remain cleared. Its new full-run
+receipt and actual result are recorded on [#56](https://github.com/uibcdf/dockingmt/issues/56),
+separately from the failed original run and 131-case correction above. The new
+run does not rewrite either earlier result.
+
+The provider's eight-cell source matrix and exact-main smoke gates have succeeded;
+the [owner handoff](https://github.com/uibcdf/dockingmt/issues/56#issuecomment-6596245045)
+retains disclosed optional skips and separates original versus main execution.
+This is not provider package publication. Remaining public coordinates, justified
+published API minimum and exact installed/platform admission stay under #30/#47;
+#56 records the current receiving disposition. Visual C4/C6 remains deferred.
+
+New verification receipts belong to #56/#50, review 2026-11-10, without automatic
+deletion. Existing artifact/receiver resources retain their prior ownership and
+review record. Operational diagnostics stay local; historical evidence is frozen.
