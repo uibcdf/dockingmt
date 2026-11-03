@@ -7,13 +7,34 @@ closed:
 severity: medium
 verification: measured
 area: [viewer, results]
-guard: tests/test_viewer_state.py
+guard: tests/test_viewer_player_receiving.py
 normative:
-blocked_by: [uibcdf/molsysviewer#291]
+blocked_by: []
 supersedes: []
 ---
 
 # Saved-result addon explorer
+
+## Public player notification receiving — 2026-11-03
+
+[Current receiving](../validation/player_notifications_receiving.md) adopts
+MolSysViewer `78ede79e`, delivered for #291, while keeping molecular-provider
+pins and DockingMT runtime unchanged. Thirteen actual player/widget guards
+cover immediate Python navigation/playback notifications, duplicate suppression,
+lifecycle and failure boundaries. The old provider fails informatively; the new
+selection passes 98 tests. Explicit readback remains covered independently.
+
+The complete source-free installed suite passes **1,449 tests**, zero skips,
+in 848.90 s, with all consumer/provider payloads and loaded origins verified.
+It reuses the original SPDX consumer wheel from `50d8e33` and a distinct
+qualification harness `1c34392`. The new five-cell real-kernel 3PTB companion
+also passes immediate navigation assertions, preserving original science and
+33 original files; its kernel is shut down. The provider blocker is removed.
+
+This proposal remains **partial** for real frontend comm/controls/canvas and
+visual C6 acceptance. No maintainer interaction is required now. Public
+dependency minima and artifact/platform admission remain #30/#47. Historical
+entries below retain their original provider and artifact identities.
 
 ## Shipped JavaScript exercised in a DOM — 2026-11-03
 

@@ -7,7 +7,10 @@ This source migration is owned by `uibcdf/dockingmt#56`, coordinated with
 
 The adopted development source is MolSysMT
 `00abb958fb93649131d5ce5fe5e12e90cf4900e9` on main, with MolSysViewer
-`ca7ebea60d530a7a0c65cb4d0ccea7b4288f3352`. These are source inputs, not a
+`78ede79e2e345593db5bfe80d246d3f6c70bd005`, received separately for
+[public player notifications](validation/player_notifications_receiving.md)
+under #60. The ChemicalStates checkpoint's original Viewer `ca7ebea6` and
+artifact identities remain frozen. These are source inputs, not a
 new installed/public package pair. Source pins do not establish a public minimum.
 Keep receiving open until the owner qualifies the final source/installed routes
 and justifies the published runtime floor before a release. The earlier draft used

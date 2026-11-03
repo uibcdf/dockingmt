@@ -1,0 +1,87 @@
+{
+  "schema": "dockingmt.private_player_installed@1",
+  "owner": "uibcdf/dockingmt#60",
+  "qualification_harness": "1c343924b4a144058685796783d72c174b032651",
+  "wheel_sha256": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98",
+  "producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "version": "0.0.0+225.g50d8e33",
+  "python": "3.14.8",
+  "required_resources_verified": 63,
+  "provider_archive_payload_files": {
+    "argdigest-0.15.0+5.g3d1ec53-py3-none-any.whl": 38,
+    "molsysmt-0.23.0+361.gde7ffad2a-cp311-abi3-linux_x86_64.whl": 3415,
+    "molsysviewer-0.24.0+260.g78ede79e-py3-none-any.whl": 635
+  },
+  "entry_point_loaded": true,
+  "public_widget_resolver_verified": true,
+  "source_packages_absent": true,
+  "editable_installation": false,
+  "published": false,
+  "counts": {
+    "tests": 1449,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "seconds_junit": 848.872,
+  "receptor": {
+    "exit": 0,
+    "passed": 1449,
+    "seconds": 848.9,
+    "warnings": 342
+  },
+  "warning_groups": [
+    {
+      "category": "StructuralAttributeOffAxisWarning",
+      "count": 196
+    },
+    {
+      "category": "LegacyH5MSMWarning",
+      "count": 121
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "count": 14
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "count": 6
+    },
+    {
+      "category": "PDBBondInferenceWarning",
+      "count": 2
+    },
+    {
+      "category": "PytestAssertRewriteWarning",
+      "count": 1
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "count": 1
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "count": 1
+    }
+  ],
+  "loaded_modules_before": 1546,
+  "loaded_modules_after": 2624,
+  "all_loaded_core_addon_and_provider_modules_prefix_owned": true,
+  "all_consumer_files_unchanged": true,
+  "all_provider_payloads_rechecked_unchanged": true,
+  "installed_sdk": "738fe8dd731abb99dac421b0bb2acc8564110180",
+  "test_context_git_head": "1c343924b4a144058685796783d72c174b032651",
+  "test_paths": [
+    "tests"
+  ],
+  "pytest_options": [
+    "--import-mode=importlib",
+    "--receptor=llm",
+    "-o",
+    "pythonpath=",
+    "-o",
+    "faulthandler_timeout=180"
+  ],
+  "working_directory": "outside all source checkouts",
+  "pip_check_after": "passed"
+}

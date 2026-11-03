@@ -2,6 +2,23 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Public player notifications received — 2026-11-03
+
+[The #60 receiving](validation/player_notifications_receiving.md) selects
+MolSysViewer `78ede79e`, delivered for #291, without changing molecular-provider
+pins or DockingMT runtime. The old-provider regression fails informatively;
+98 selected tests pass with the correction. Both actual Python widgets update
+without Refresh. The new real-kernel companion completes all five cells with
+the original five-pose 3PTB case and closes its kernel. The complete installed
+suite passes **1,449 tests**, zero skips, with a distinct harness and the
+original SPDX consumer wheel; final closure/payload/origin checks pass.
+
+**Next:** inspect exact-head CI, then observe actual
+frontend controls/comm/canvas when a browser session is available. No current
+maintainer interaction is required. #60 remains partial; #52/C6 stay deferred.
+Public dependency minima, candidate/platform admission and release planning
+remain #30/#47. The dated sections below retain their original provider state.
+
 ## License metadata and private archives — 2026-11-03
 
 [The #47 checkpoint](validation/license_metadata.md) adopts SPDX MIT and explicit

@@ -1,0 +1,46 @@
+{
+  "schema": "dockingmt.public_player_regression@1",
+  "owner": "uibcdf/dockingmt#60",
+  "provider_issue": "uibcdf/molsysviewer#291",
+  "qualification_harness": "1c343924b4a144058685796783d72c174b032651",
+  "guard": "tests/test_viewer_player_receiving.py",
+  "guard_sha256": "16244870090559d3c6017bed534b3b97edf99674f5d207f4f967de90bce36d87",
+  "old_provider": {
+    "commit": "ca7ebea60d530a7a0c65cb4d0ccea7b4288f3352",
+    "exit": 1,
+    "tests": 1,
+    "failures": 1,
+    "selection": "first failure under --maxfail=1",
+    "observation": {
+      "player_index": 2,
+      "addon_active_index": 0
+    },
+    "failure_is_informative": true,
+    "original_environment_preserved": true
+  },
+  "delivered_provider": {
+    "commit": "78ede79e2e345593db5bfe80d246d3f6c70bd005",
+    "selection_tests": 98,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds_receptor": 14.1,
+    "warnings": 43,
+    "new_guard_cases": 13,
+    "qualification": "actual provider prefix; current test harness; complete import provenance separately in installed gate"
+  },
+  "administrative_selection": {
+    "passed": 34,
+    "exit": 0,
+    "seconds": 3.21
+  },
+  "dependency_preflight": {
+    "declared_only": true,
+    "routes": 10,
+    "contexts": 4,
+    "exit": 0,
+    "initial_missing_mode_exit": 1,
+    "initial_mode_executed_qualification": false
+  },
+  "browser_accepted": false
+}

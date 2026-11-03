@@ -1,0 +1,51 @@
+{
+  "schema": "dockingmt.player_notebook_execution@1",
+  "owner": "uibcdf/dockingmt#60",
+  "status": "completed",
+  "code_cells": [
+    {
+      "cell": 1,
+      "execution_count": 1,
+      "source_sha256": "fad98196fb0d9649fc0df0d050cddac4b4f255db9910a5cef76401966ab9f4cc"
+    },
+    {
+      "cell": 3,
+      "execution_count": 2,
+      "source_sha256": "e24e4328a1d7e916fbe9b6014461c069bd075db333818d4932767c6a85bc2a9a"
+    },
+    {
+      "cell": 5,
+      "execution_count": 3,
+      "source_sha256": "8567eb36569fd7b7356c4ea7de67ffadf7a286f27542840f6d24afd47e6de9ea"
+    },
+    {
+      "cell": 7,
+      "execution_count": 4,
+      "source_sha256": "f2362a1f2b73b335d94e8690d23ab37f66b65e78c78f9266fb2b23c92ec8b59b"
+    },
+    {
+      "cell": 9,
+      "execution_count": 5,
+      "source_sha256": "7c8c7e25b0d49618336826432881cd43e2c81d89d295b10873fb1c2140c95be8"
+    }
+  ],
+  "kernel_shutdown": true,
+  "preparation_calls": {
+    "receptor": 1,
+    "ligand": 2
+  },
+  "original_files_unchanged": 33,
+  "warning_categories": [
+    "structure occupancy/B-factor",
+    "chemical assignments/types/charges",
+    "mechanical atom assignments"
+  ],
+  "warnings_total": 9,
+  "browser_review": "deferred",
+  "C6_accepted": false,
+  "warning_counts": {
+    "structural_occupancy_b_factor": 3,
+    "chemical_assignments": 5,
+    "mechanical_assignments": 1
+  }
+}

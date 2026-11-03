@@ -28,6 +28,14 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
+Start with [public player notification receiving](validation/player_notifications_receiving.md)
+for the current #60 checkpoint. MolSysViewer #291 has delivered synchronous
+Python navigation notifications. The new guards and real-kernel 3PTB companion
+verify immediate panel state without Refresh against the unchanged molecular
+providers. The complete private installed suite passes 1,449 tests without skips;
+exact-head hosted evidence is recorded separately on #60/#47.
+Live browser controls/comm/pixels and C6 remain pending.
+
 Start with [license metadata and private archive qualification](validation/license_metadata.md)
 for the latest #47 slice. The SPDX migration and aligned build floor pass actual
 minimum/development-backend builds, archive checks and installed metadata discovery.
@@ -57,14 +65,17 @@ For current interactive work, start with the
 under #60. Its first slice separates pose identity/position/rank and displays
 named scores with declared units, without implicit RMSD computation. Its second
 slice synchronizes addon actions, public frame callbacks and mounted widgets,
-with explicit readback and owned visual cleanup. Immediate notification for
-unrelated Python player calls awaits MolSysViewer #291; manual Refresh reads
-the current public state. Next comes the live Jupyter workflow. The deferred historical
+with explicit readback and owned visual cleanup. The current receiving above
+adds immediate notification for direct Python player calls from MolSysViewer #291;
+manual Refresh remains supported. Next comes live browser observation of the
+Jupyter workflow. The deferred historical
 scene observation remains #52; Python tests do not accept C6.
 
 Start with [ChemicalStates receiving](chemical_domain_receiving.md) under #56 /
 [adopted PR #59](https://github.com/uibcdf/dockingmt/pull/59). MolSysMT has delivered development source for owner receiving; current
-controlled inputs select MolSysMT main `00abb958f` with Viewer `ca7ebea6`. The four graph callers
+controlled inputs select MolSysMT main `00abb958f` with Viewer `78ede79e`.
+The earlier ChemicalStates checkpoint retains its original Viewer identity.
+The four graph callers
 and scalar connectivity consumers are adapted. The unchanged implementation retains its source/installed proofs. Complete
 installed receiving and exact-main CI results are recorded on #56; the original
 harness failure and corrected selection retain their own evidence.

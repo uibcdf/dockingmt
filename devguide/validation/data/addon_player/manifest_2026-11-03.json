@@ -1,0 +1,44 @@
+{
+  "schema": "dockingmt.player_receiving_manifest@1",
+  "owner": "uibcdf/dockingmt#60",
+  "provider_issue": "uibcdf/molsysviewer#291",
+  "qualification_harness": "1c343924b4a144058685796783d72c174b032651",
+  "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "provider_source": "78ede79e2e345593db5bfe80d246d3f6c70bd005",
+  "published": false,
+  "C6_accepted": false,
+  "records": [
+    {
+      "path": "devguide/validation/data/addon_player/consumer_wheel_2026-11-03.json",
+      "sha256": "36d08df4221ec13028bcdd561315b463b2a5aab14534f4c117918dd081b1be3a"
+    },
+    {
+      "path": "devguide/validation/data/addon_player/environment_2026-11-03.json",
+      "sha256": "620c2514b0d3f9eff39d480ac87a8ba36e9063f46e5905e2b6187206d5d22645"
+    },
+    {
+      "path": "devguide/validation/data/addon_player/installed_suite_2026-11-03.json",
+      "sha256": "8659b099af0873771145b773b9711a53c1fe8923c955443aa3b30bffee3078b2"
+    },
+    {
+      "path": "devguide/validation/data/addon_player/kernel_receipt_2026-11-03.json",
+      "sha256": "d3192beefd1af02aa1679d148ae5d18655959b25f2e4048d91de173b9133c3a1"
+    },
+    {
+      "path": "devguide/validation/data/addon_player/notebook_execution_2026-11-03.json",
+      "sha256": "bb360b2cd13be3591ae7cbd45cf8bbf819f9bb0622f4cefa8df6c47b88748797"
+    },
+    {
+      "path": "devguide/validation/data/addon_player/regression_2026-11-03.json",
+      "sha256": "bd48684cfef217f4eb552ba3c1c9388a9f155b767427a5bf5968a4bb05592cea"
+    },
+    {
+      "path": "devguide/validation/data/addon_player/viewer_wheel_2026-11-03.json",
+      "sha256": "550f0bad3808150a9f4d7ec3f76e2668e31b1a6845e6675e04b40d78a30e65c9"
+    }
+  ],
+  "notebook": {
+    "path": "devguide/validation/addon_3ptb_player_receiving_2026-11-03.ipynb",
+    "sha256": "4e039cfc1357a6cc4fefdf66df1631ef2a5a9723c179a342768f8f54807ee602"
+  }
+}
