@@ -28,11 +28,17 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
+Start with [private installed-wheel addon receiving](validation/addon_installed_receiving.md)
+for the latest #47/#60 checkpoint. It binds the new private wheel, independent
+receiver, complete installed test result and real-kernel 3PTB companion to exact
+identities. Browser review and public delivery remain pending; no maintainer
+interaction is required now. The earlier source notebook and receipts stay frozen.
+
 The [new real-kernel addon workflow](validation/addon_3ptb_workflow.md) executes
 the saved five-pose 3PTB case and real Python widgets without requiring a current
 maintainer interaction. Its notebook and path-free receipts distinguish explicit
 input recreation from record recovery, and Python success from pending browser
-observation. Start there for the current #60 handoff.
+observation. It retains the preceding source-profile #60 handoff.
 
 For current interactive work, start with the
 [saved-result addon explorer](pending_proposals/qualify_saved_result_addon.md)

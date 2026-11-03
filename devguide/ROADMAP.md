@@ -2,6 +2,22 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Private installed-wheel addon checkpoint — 2026-11-03
+
+[Installed receiving](validation/addon_installed_receiving.md) binds the private
+`0.0.0+222.g376679c` wheel to producer `376679c` and its original archive digest.
+The independent Linux/Python 3.14.8 receiver has consistent dependencies, all
+63 required files, installed core/addon origins and the public addon entry point.
+The complete installed suite passes **1,430 tests**, zero skips. The companion
+notebook completes all five cells with the same scientific/widget assertions as
+the source profile. Original inputs/results and the source receipts are unchanged.
+
+**Next:** inspect remaining exact-head hosted gates, receive MolSysViewer #291
+when delivered, and observe the actual controls/canvas when a browser is available.
+No human interaction is required now. Public dependency coordinates, API minima,
+platform/package admission and an authorized release stay #30/#47. This private
+wheel is not a public release. Molecular work remains MolSysMT-owned.
+
 ## Saved-case addon notebook executed without browser — 2026-11-03
 
 [The new workflow](validation/addon_3ptb_workflow.md) completes five code cells

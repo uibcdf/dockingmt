@@ -14,6 +14,24 @@ supersedes: []
 
 # Distribution control adoption
 
+## Private addon wheel receiving — 2026-11-03
+
+The [new receiving checkpoint](../validation/addon_installed_receiving.md)
+builds one private wheel from producer `376679c2fe77298eda7a80edd311335c2cfa205b`,
+then installs it in a genuinely independent Linux/Python 3.14.8 prefix with the
+unchanged controlled provider wheels. Exact archive/version/PEP 610 identity,
+63 resources, installed core/addon/provider origins and the public widget resolver
+are checked. Dependency closure passes before and after **1,430 passing installed
+tests**, zero skips; all consumer files and loaded module origins recheck. That result and
+five-cell real-kernel 3PTB proof are retained separately from earlier artifacts.
+Failed receiver/kernel setup attempts are preserved with their corrections.
+
+This fulfills only the recorded private receiving scope. Public coordinates,
+actual published minima, Conda candidate/archive gates and the remaining installed
+platform cells stay open. No release/tag/publication/promotion occurs. Setuptools
+license-metadata deprecations are a tracked cleanup for a future candidate; the
+qualified wheel is not rewritten or rebuilt. This proposal stays partial.
+
 ## Addon inventory correction — 2026-11-03
 
 The first #60 implementation head `1c96052` omitted `_presentation.py` from

@@ -1,5 +1,9 @@
 # Saved-case addon workflow in a real Jupyter kernel
 
+The later [private installed-wheel checkpoint](addon_installed_receiving.md)
+executes a separate companion profile in an independent receiver. This page and
+its linked original notebook/receipts retain the earlier source execution below.
+
 Owner: [DockingMT #60](https://github.com/uibcdf/dockingmt/issues/60).
 The maintainer cannot perform an interactive review at this checkpoint. The
 [new notebook](addon_3ptb_workflow_2026-11-03.ipynb) is prepared for that later

@@ -1,0 +1,101 @@
+{
+  "schema": "dockingmt.private_addon_installed@1",
+  "owner": "uibcdf/dockingmt#47",
+  "wheel_sha256": "aa5626e1ee7073a2df32fdce75cf10c132eeedffc807aa71a5421d1a55a9391e",
+  "producer": "376679c2fe77298eda7a80edd311335c2cfa205b",
+  "version": "0.0.0+222.g376679c",
+  "python": "3.14.8",
+  "required_resources_verified": 63,
+  "provider_archive_payload_files": {
+    "molsysmt-0.23.0+361.gde7ffad2a-cp311-abi3-linux_x86_64.whl": 3415,
+    "argdigest-0.15.0+5.g3d1ec53-py3-none-any.whl": 38,
+    "molsysviewer-0.24.0+238.gca7ebea6-py3-none-any.whl": 634
+  },
+  "entry_point_loaded": true,
+  "public_widget_resolver_verified": true,
+  "source_packages_absent": true,
+  "editable_installation": false,
+  "published": false,
+  "pytest_exit": 0,
+  "counts": {
+    "tests": 1430,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "seconds": 903.358,
+  "all_consumer_files_unchanged": true,
+  "loaded_modules_before": 1545,
+  "loaded_modules_after": 2622,
+  "all_loaded_core_addon_and_provider_modules_prefix_owned": true,
+  "installed_sdk": "738fe8dd731abb99dac421b0bb2acc8564110180",
+  "test_context_git_head": "376679c2fe77298eda7a80edd311335c2cfa205b",
+  "test_paths": [
+    "tests"
+  ],
+  "pytest_options": [
+    "--import-mode=importlib",
+    "--receptor=llm",
+    "-o",
+    "pythonpath=",
+    "-o",
+    "faulthandler_timeout=180"
+  ],
+  "working_directory": "outside all source checkouts",
+  "original_receiver_preserved": true,
+  "receptor_report": {
+    "exit": 0,
+    "passed": 1430,
+    "seconds": 903.38,
+    "warnings": 328
+  },
+  "warning_groups": [
+    {
+      "category": "StructuralAttributeOffAxisWarning",
+      "count": 196
+    },
+    {
+      "category": "LegacyH5MSMWarning",
+      "count": 107
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "attributes": [
+        "b_factor",
+        "occupancy"
+      ],
+      "count": 14
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "attributes": [
+        "partial_charge_assignment",
+        "atom_type_assignment"
+      ],
+      "count": 6
+    },
+    {
+      "category": "PDBBondInferenceWarning",
+      "count": 2
+    },
+    {
+      "category": "PytestAssertRewriteWarning",
+      "module": "smonitor",
+      "count": 1
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "attributes": [
+        "b_factor"
+      ],
+      "count": 1
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "attributes": [
+        "atoms_ff"
+      ],
+      "count": 1
+    }
+  ]
+}

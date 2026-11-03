@@ -15,6 +15,19 @@ supersedes: []
 
 # Saved-result addon explorer
 
+## Private installed-addon checkpoint — 2026-11-03
+
+[Installed receiving](../validation/addon_installed_receiving.md) qualifies the
+private wheel produced at `376679c`, including its actual addon discovery,
+installed resources, **1,430 passing installed tests** without skips and five-cell real-kernel
+3PTB companion. Only installation/origin/provenance checks differ from the frozen
+source notebook; all later scientific/widget cells are identical. The receiver
+is independent, dependency closure passes and task kernels are shut down.
+
+The maintainer review remains deferred. No browser/canvas acceptance, C6, public
+package or other platform follows. #291 remains provider-owned, and this proposal
+stays partial. The original source/kernel evidence below is not relabelled.
+
 ## What
 
 Complete the existing `molsysviewer_dockingmt` workspace as a faithful explorer
@@ -150,8 +163,9 @@ preparation, energy calculations or searches are changed.
 
 The shared development environment retains unrelated dependency-closure
 conflicts; this source test selection is not an ordinary-installed artifact
-qualification. CI uses the unchanged controlled provider composition. No new
-wheel, release, platform admission or visual acceptance follows.
+qualification. CI uses the unchanged controlled provider composition. That source
+slice built no new wheel and established no release, platform admission or visual
+acceptance. The later private-wheel qualification is recorded separately above.
 
 ## Acceptance criteria
 

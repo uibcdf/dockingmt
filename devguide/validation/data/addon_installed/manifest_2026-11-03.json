@@ -1,0 +1,251 @@
+{
+  "schema": "dockingmt.private_addon_receiving@1",
+  "owner": "uibcdf/dockingmt#47",
+  "consumer": "uibcdf/dockingmt#60",
+  "observed_at": "2026-11-03T19:57:16.201445+00:00",
+  "producer": "376679c2fe77298eda7a80edd311335c2cfa205b",
+  "wheel_sha256": "aa5626e1ee7073a2df32fdce75cf10c132eeedffc807aa71a5421d1a55a9391e",
+  "platform": "linux-x86_64",
+  "python": "3.14.8",
+  "evidence": [
+    {
+      "path": "devguide/validation/addon_3ptb_installed_workflow_2026-11-03.ipynb",
+      "bytes": 23179,
+      "sha256": "a169a74edc7ce9f665cbe724c1b7331636b2a5ca8e3bfcf72dce192fa6eb4ee1"
+    },
+    {
+      "path": "devguide/validation/addon_3ptb_workflow_2026-11-03.ipynb",
+      "bytes": 21286,
+      "sha256": "64de313817511c943c95fdb4176a5ce51663a02a58e09e55120b82f206457c52"
+    },
+    {
+      "path": "devguide/validation/data/addon_installed/environment_2026-11-03.json",
+      "bytes": 28245,
+      "sha256": "da5ffea4beab91d62bedb14adf40ab3edbe232def3331f12a374099f14cf1b50"
+    },
+    {
+      "path": "devguide/validation/data/addon_installed/installed_suite_2026-11-03.json",
+      "bytes": 2511,
+      "sha256": "c95803ec63489f16527ac3c669ff84f84015a05171e0ac654c27d824ab6d7585"
+    },
+    {
+      "path": "devguide/validation/data/addon_installed/kernel_receipt_2026-11-03.json",
+      "bytes": 10338,
+      "sha256": "f82f8912020fe3b20c4b5219e9b86c201fdc639a1b4bb144b236f9ee7dd7e729"
+    },
+    {
+      "path": "devguide/validation/data/addon_installed/wheel_2026-11-03.json",
+      "bytes": 7742,
+      "sha256": "05dc1ab4a828f109e377e116d0b535ae27d2fbd1530a7ce3fa6c1f846f5ad7d8"
+    }
+  ],
+  "controlled_provider_wheels": {
+    "molsysmt-0.23.0+361.gde7ffad2a-cp311-abi3-linux_x86_64.whl": {
+      "producer": "de7ffad2aef18ff3bccd184133dc69e081cb506e",
+      "sha256": "4a8e58f40627ff468fab99301674429fba66362f549a31fb4cc747d9cf19a0ba",
+      "bytes": 61910416
+    },
+    "argdigest-0.15.0+5.g3d1ec53-py3-none-any.whl": {
+      "producer": "3d1ec53c374098016452abab74706e9d80df5462",
+      "sha256": "1cb379478b1abea9d91c06fc6fa5dffa24ede35a24fb1a2d8657c9b13ed55f0c",
+      "bytes": 58581
+    },
+    "molsysviewer-0.24.0+238.gca7ebea6-py3-none-any.whl": {
+      "producer": "ca7ebea60d530a7a0c65cb4d0ccea7b4288f3352",
+      "sha256": "c24d2898cac0618075250740bb69bd565ed6e442c2c893558d379d252744f055",
+      "bytes": 2040834
+    }
+  },
+  "molsysmt_main_source_equivalence": "00abb958fb93649131d5ce5fe5e12e90cf4900e9 (package/Rust/tests/build-input objects; original wheel producer unchanged)",
+  "openmm_acquisition": {
+    "filename": "openmm-8.6.1-cp314-cp314-manylinux_2_34_x86_64.whl",
+    "sha256": "85fa5b75a16f57b3a6d98341653071f0fce1ae7b0864d99e4b0b6daf36aa1ae2",
+    "channel": "public PyPI wheel",
+    "conda_cuda_stack_requested": false
+  },
+  "installation": "new independent ordinary Conda prefix, followed by normal non-editable local wheel installation",
+  "consumer_archive_builds": 1,
+  "published": false,
+  "tag_or_release_created": false,
+  "promotion_performed": false,
+  "archive_validation_attempts": [
+    {
+      "attempt": 1,
+      "status": "failed",
+      "category": "validator compared Requires-Python as ordered text",
+      "archive_changed": false
+    },
+    {
+      "attempt": 2,
+      "status": "passed",
+      "category": "compare semantic SpecifierSet equality, preserving the same bounds",
+      "archive_changed": false
+    }
+  ],
+  "receiver_attempts": [
+    {
+      "attempt": 1,
+      "status": "interrupted",
+      "reason": "Conda solve included CUDA dependencies exceeding the preflight resource bound; interrupted before complete installation"
+    },
+    {
+      "attempt": 2,
+      "status": "failed",
+      "reason": "Headless Conda profile passed the conservative resource preflight, but temporary filesystem quota prevented completion"
+    },
+    {
+      "proposal": "hardlink clone",
+      "status": "automatic_review_rejected_before_execution",
+      "reason": "Later writes could affect the preserved original environment",
+      "executed": false
+    },
+    {
+      "attempt": 3,
+      "status": "completed",
+      "reason": "Fresh independent ordinary Conda installation on separate storage; no hardlink clone"
+    }
+  ],
+  "kernel_attempts": [
+    {
+      "attempt": 1,
+      "status": "failed",
+      "category": "kernel startup, missing task-tool Tornado",
+      "completed_code_cells": 0,
+      "preparation_calls": 0,
+      "kernel_shutdown": true
+    },
+    {
+      "attempt": 2,
+      "status": "failed",
+      "category": "kernel startup, missing task-owned IPC runtime directory",
+      "completed_code_cells": 0,
+      "preparation_calls": 0,
+      "kernel_shutdown": true
+    },
+    {
+      "attempt": 3,
+      "status": "completed",
+      "completed_code_cells": 5,
+      "preparation_calls": {
+        "receptor": 1,
+        "ligand": 2
+      },
+      "kernel_shutdown": true,
+      "transport": "task-local IPC"
+    }
+  ],
+  "kernel_task_support": {
+    "tornado": "6.5.10",
+    "psutil": "7.2.2",
+    "scientific_receiver_modified_for_kernel": false
+  },
+  "diagnostics": [
+    {
+      "message": "WARNING: Structural attributes were discarded during concatenation: atoms_ff. (Hint: Use attribute_policy='strict' to reject the operation instead. Docs: https://www.uibcdf.org/MolSysMT)",
+      "count": 1
+    },
+    {
+      "message": "WARNING: Structural attributes were discarded during concatenation: b_factor, occupancy. (Hint: Use attribute_policy='strict' to reject the operation instead. Docs: https://www.uibcdf.org/MolSysMT)",
+      "count": 3
+    },
+    {
+      "message": "WARNING: Structural attributes were discarded during concatenation: partial_charge_assignment, atom_type_assignment. (Hint: Use attribute_policy='strict' to reject the operation instead. Docs: https://www.uibcdf.org/MolSysMT)",
+      "count": 5
+    }
+  ],
+  "scientific_widget_cells_identical_to_source_profile": true,
+  "original_result_sha256": "ed0eeb3ade25e54f8a5829729578fcbec9f0d73d6c0ceb03d146b0c3492d7fac",
+  "original_files_verified_unchanged": 33,
+  "producer_ci_observed": {
+    "run": 41699697539,
+    "conclusion": "",
+    "headSha": "376679c2fe77298eda7a80edd311335c2cfa205b",
+    "jobs": [
+      {
+        "conclusion": "success",
+        "id": 126139426337,
+        "name": "Quality on ubuntu-latest",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "id": 126139426754,
+        "name": "Test on ubuntu-latest, Python 3.14",
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "id": 126139426773,
+        "name": "Distribution governance on Linux Python 3.14",
+        "status": "completed"
+      },
+      {
+        "conclusion": "",
+        "id": 126139426808,
+        "name": "Test on ubuntu-latest, Python 3.13",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "id": 126139426812,
+        "name": "Test on ubuntu-latest, Python 3.12",
+        "status": "queued"
+      },
+      {
+        "conclusion": "",
+        "id": 126139426826,
+        "name": "Test on ubuntu-latest, Python 3.11",
+        "status": "in_progress"
+      }
+    ],
+    "status": "queued",
+    "verified_linux_python_314_log": {
+      "passed": 1430,
+      "seconds": 522.33,
+      "warnings": 334
+    },
+    "policy_run": 41699698013,
+    "policy_conclusion": "success",
+    "publication_governance_run": 41699697902,
+    "publication_governance_conclusion": "success"
+  },
+  "administrative_tests": {
+    "passed": 24,
+    "skipped": 0,
+    "seconds": 3.06
+  },
+  "browser_controls_verified": false,
+  "rendered_pixels_verified": false,
+  "C6_accepted": false,
+  "maintainer_interactive_review": "deferred",
+  "remaining_issues": [
+    "uibcdf/molsysviewer#291",
+    "uibcdf/molsysmt#521",
+    "uibcdf/dockingmt#30",
+    "uibcdf/dockingmt#47",
+    "uibcdf/dockingmt#60"
+  ],
+  "temporary_resources": {
+    "owner": "uibcdf/dockingmt#47",
+    "consumer": "uibcdf/dockingmt#60",
+    "tracking": "uibcdf/dockingmt#50",
+    "review_date": "2026-11-10",
+    "categories": [
+      "private candidate wheel",
+      "independent scientific receiver",
+      "source-free test/data harness",
+      "build/setup attempts",
+      "task-only kernel tools and execution evidence"
+    ],
+    "old_receiver_preserved": true,
+    "no_automatic_deletion": true
+  },
+  "postflight": {
+    "task_owned_active_tests_controllers_kernels": 0,
+    "pip_check_after_tests": "No broken requirements found.",
+    "all_63_consumer_files_unchanged": true,
+    "loaded_modules_verified_after_tests": 2622,
+    "all_loaded_modules_prefix_owned": true
+  },
+  "build_follow_up": "Setuptools license-table and MIT-classifier deprecations tracked on #47; no rebuild of this candidate"
+}
