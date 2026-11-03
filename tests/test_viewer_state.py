@@ -149,7 +149,7 @@ def test_public_frame_callback_and_manual_readback_do_not_reissue_navigation(sta
     assert states[0][-1]['active_index'] == 1
     assert runtime.active_pose_index == 1
     assert view.moves == []
-    # The qualified host does not notify callbacks for direct Python player calls.
+    # This double omits notifications to exercise the explicit readback boundary.
     view.player.go_to_structure(0)
     assert states[0][-1]['active_index'] == 1
     panels[0].handle_action(view, 'refresh', {})
