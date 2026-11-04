@@ -14,6 +14,16 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## New panel inspection stays provider-owned — 2026-11-04
+
+The [source inspection](../validation/scientific_panel_admission_2026-11-04.md)
+uses public MolSysMT acquisition/read/get/readiness/missing-atom/residue/assembly
+operations. It identifies native CIF occupancy loss, now reported in MolSysMT
+#556 with source evidence and public reproduction. The affected field remains
+unavailable; there is no consumer parser, positional cross-format metadata patch
+or sibling edit. Chemistry/template admission remains #33, and plausibility #555
+is a separate provider proposal. No missing assembly capability was established.
+
 ## Plausibility ownership inventory — 2026-11-04
 
 The [static inventory](../validation/molecular_plausibility_inventory_2026-11-04.md)

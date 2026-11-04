@@ -45,6 +45,10 @@ identities, assemblies and chemical prescriptions must first be admitted and
 registered. The [molecular plausibility inventory](validation/molecular_plausibility_inventory_2026-11-04.md)
 distinguishes existing provider measurements from missing assessment rules;
 MolSysMT #555 owns that proposal, with no downstream molecular substitute.
+The [first source-admission observations](validation/scientific_panel_admission_2026-11-04.md)
+now preserve both input representations and provider-built assemblies. Chemistry,
+environment and truncation decisions remain pending; zero cases are admitted.
+CIF occupancy loss is reported in MolSysMT #556.
 
 Start with the [current Core acceptance map](CORE_MVP_STATUS.md) and
 [operational roadmap](ROADMAP.md#current-operational-plan). They reconcile

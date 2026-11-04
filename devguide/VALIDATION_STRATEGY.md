@@ -192,3 +192,9 @@ between a measurement and a chemically justified assessment. Missing reusable
 geometry/steric rules are proposed in [MolSysMT #555](https://github.com/uibcdf/molsysmt/issues/555).
 RMSD and plausibility must remain separate outcomes. Unknown chemistry or missing
 H-dependent geometry is unassessed, not silently passing or repaired downstream.
+
+The [first source inspection](validation/scientific_panel_admission_2026-11-04.md)
+preserves both PDB/CIF representations, actual provider assembly observations,
+missing-residue reports and incomplete ligand chemistry. It does not admit a
+case for search. MolSysMT #556 owns the observed native CIF occupancy loss;
+no local molecular parser or metadata patch is introduced.

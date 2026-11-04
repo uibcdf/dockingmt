@@ -496,3 +496,19 @@ Unavailable plausibility checks must remain unassessed in any interim scoped
 RMSD study. Exact documentation checks and committed-source CI observations are
 recorded in the owning issues; previous runtime and installed receipts retain
 their original source/artifact identities.
+
+## Follow-up 3 — first source-admission observations, 2026-11-04
+
+The [source-admission record](validation/scientific_panel_admission_2026-11-04.md)
+retains four acquired input representations and molecular observations obtained
+through public MolSysMT tools, including assembly 1 construction. The observed
+45/16-atom ligand populations, terminal missing-residue report for 1STP and
+incomplete declared chemical fields make the remaining admission choices concrete.
+No case is admitted and no preparation/search/RMSD is executed. A producer JSON
+encoding failure and its pre-continuation correction are preserved separately.
+
+Observed CIF occupancy loss is reported in
+[MolSysMT #556](https://github.com/uibcdf/molsysmt/issues/556), with no downstream
+parser or repair. Explicit chemistry, source/CCD revisions, binding-environment
+choices and terminal truncations must be resolved before preparation. This is
+progress on Q2/Q3/R3/R6, not scientific recovery or general model acceptance.

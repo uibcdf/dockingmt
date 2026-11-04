@@ -1,0 +1,67 @@
+{
+  "schema": "dockingmt.panel_admission_manifest@1",
+  "owner": "uibcdf/dockingmt#33",
+  "baseline": "86ac5724ac70870d3892e8ef7b0be71afb1fee9a",
+  "date": "2026-11-04",
+  "producer_sha256": "860418d35f045dd0ee8495194cf2a83b3543fda5d91c5ce0dec41f6cd3fa92be",
+  "provider_source_context": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+  "inspected_provider_main": "8b6e6d10ef0eb1ed9b738081e24fbadbca2a6e03",
+  "source_acquisition_calls": 4,
+  "scientific_preparations": 0,
+  "searches": 0,
+  "admitted_cases": 0,
+  "records": [
+    {
+      "path": "observations.json.gz",
+      "bytes": 36436,
+      "sha256": "a89e8e5c0e093528ff1fa2e6c72b14c0867a5641c7980a5738eba824244958ac",
+      "content_sha256": "6b439c28d1a9a0c6370ba421b44c0b383266d80c4f09cd88fb20ffd7c8b319a8"
+    },
+    {
+      "path": "1HSG.cif.gz",
+      "bytes": 54966,
+      "sha256": "5f5c425ebc623268dc58cf20b2c0e9707801d3169c80fb78ee88f6bbb41694e9",
+      "content_sha256": "d2ba73b5c4be05c45275571bbb4dd042347927f91c6c05038c0df5d1ce23c268"
+    },
+    {
+      "path": "1HSG.pdb.gz",
+      "bytes": 39388,
+      "sha256": "eef33be911e35b27f49b1ce97cde422ef4bb792af452959dd0c662957f7c2b3a",
+      "content_sha256": "d430675c358060808ef614002cfdcfcfa824714d89f1240adf5749d2ba60fed2"
+    },
+    {
+      "path": "1STP.cif.gz",
+      "bytes": 37215,
+      "sha256": "364f6003bb071fb9cc142d6e9c3e6bba6611fdb90457bae3fc31c87f33b2a073",
+      "content_sha256": "36be77b9722ebb9f603b27bf16cbc30057f87ab9923a2d2adab0eadbdb30c30f"
+    },
+    {
+      "path": "1STP.pdb.gz",
+      "bytes": 25709,
+      "sha256": "b774a319f3dd603fa3e056890e4b45a86c87ee0e45f248d7912e51b111d1a90c",
+      "content_sha256": "6fbb3d5c324e717fe7284703426e74ea58191431720daab1b2faa0bbb6430f30"
+    }
+  ],
+  "attempts": [
+    {
+      "producer_sha256": "43b7acaeae2cd3a47f64c8cefd24bafdafa90a09837ac306da2f445a61e880f0",
+      "exit": 1,
+      "outcome": "Stopped after 1HSG PDB acquisition/conversion: JSON encoder treated a plain chain label as a quantity. Consumer serialization defect."
+    },
+    {
+      "producer_sha256": "860418d35f045dd0ee8495194cf2a83b3543fda5d91c5ce0dec41f6cd3fa92be",
+      "exit": 0,
+      "outcome": "Completed four independent source inspections, reusing the verified first acquisition. No provider observation errors/warnings."
+    }
+  ],
+  "guards": {
+    "source_bytes_unchanged": true,
+    "native_count_chain_group_inventory_unchanged": true,
+    "full_coordinate_immutability_measured": false
+  },
+  "provider_issue": "uibcdf/molsysmt#556",
+  "registered_notes": [
+    "https://github.com/uibcdf/dockingmt/issues/33#issuecomment-6637079852",
+    "https://github.com/uibcdf/dockingmt/issues/33#issuecomment-6637108211"
+  ]
+}

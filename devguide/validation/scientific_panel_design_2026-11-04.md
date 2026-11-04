@@ -6,9 +6,10 @@ Evidence presentation remains [#29](https://github.com/uibcdf/dockingmt/issues/2
 Reviewed consumer: `71287ce86db365c9063846ae7d904c9586a99354`.
 
 **Status: proposed design; not execution-ready or a registered experiment.**
-Public entry descriptions were inspected, but molecular files, assemblies,
-templates and per-case prescriptions have not been acquired/admitted for this
-panel. No new preparation, scoring, search or RMSD was executed. No results are
+The [first source inspection](scientific_panel_admission_2026-11-04.md) now
+preserves four PDB/CIF inputs and provider-built assembly observations. Revision,
+template, state and environment decisions remain pending; no case is admitted.
+No new preparation, scoring, search or RMSD was executed. No results are
 predicted here. The specific unresolved decisions below must be frozen before
 search, rather than filled in after observing outcomes.
 
@@ -53,9 +54,9 @@ executable scientific prescription.
 
 | Item | Required decision/evidence | Current state |
 | --- | --- | --- |
-| Input identity | Exact downloaded entry/assembly and CCD files, revision/acquisition identities, SHA-256, usage attribution and immutable local copies. | Pending acquisition. |
-| Receptor context | Assembly and chain/operator identities, one coordinate structure, retained protein atoms, termini/disulfides, alternate locations, missing sites and any allowed exclusions. | Pending molecular inspection; no assembly construction downstream. |
-| Ligand/reference | One named ligand instance, original observed heavy coordinates, complete declared graph, atom map, stereochemistry and reference population. Symmetry-generated copies are not independent cases. | Pending molecular inspection. |
+| Input identity | Exact downloaded entry/assembly and CCD files, revision/acquisition identities, SHA-256, usage attribution and immutable local copies. | Entry PDB/CIF bytes acquired and hashed; exact revision/CCD/template admission pending. |
+| Receptor context | Assembly and chain/operator identities, one coordinate structure, retained protein atoms, termini/disulfides, alternate locations, missing sites and any allowed exclusions. | Provider assembly 1 observed; state/environment/truncation acceptance pending. |
+| Ligand/reference | One named ligand instance, original observed heavy coordinates, complete declared graph, atom map, stereochemistry and reference population. Symmetry-generated copies are not independent cases. | Provider source axes observed (45/16 atoms); complete chemistry, maps and instance admission pending. |
 | Chemical hypothesis | Explicit ligand protonation/tautomer and receptor residue states, including scientifically consequential catalytic-site choices. Record basis and uncertainty; no inferred experimental pH. | Pending case-specific review; no generic state default selected. |
 | Environment | Explicit disposition for waters, ions, cofactors and other occupants; justify the chosen bounded model or reject it as outside scope. | Pending inspection; no automatic deletion justified by this design. |
 | Preparation | Named provider template/H/charge/type methods and versions, original/expanded/projected maps, allowed losses, complete required fields and native export/readback. | Reuse the supported profile only where its applicability is demonstrated. |

@@ -14,6 +14,16 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## First two-candidate source inspection — 2026-11-04
+
+The [source-admission record](../validation/scientific_panel_admission_2026-11-04.md)
+retains four acquired PDB/CIF inputs, provider inventories and assembly 1
+construction. Zero cases are admitted. Next resolve revision/CCD identity,
+chemical hypotheses, waters/other ligand copies and terminal truncations before
+template assessment or preparation. MolSysMT #556 owns observed CIF occupancy
+loss. All molecular inspection/construction is delegated to public provider APIs;
+the producer has no molecular parser, classifier or geometry implementation.
+
 ## Scientific-panel design and provider inventory — 2026-11-04
 
 The [proposed panel](../validation/scientific_panel_design_2026-11-04.md) names

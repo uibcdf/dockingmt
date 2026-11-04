@@ -27,6 +27,7 @@
 | `validation/installed_support_receiving.md` | How are unshipped scientific helpers isolated, and what does the full 1,450-test private receiving qualify? |
 | `VALIDATION_STRATEGY.md` | How do we distinguish software correctness from scientific validity? |
 | [validation/scientific_panel_design_2026-11-04.md](validation/scientific_panel_design_2026-11-04.md) | Which two new candidate cases and controlled matrix are proposed, and what must be admitted before searching? |
+| [validation/scientific_panel_admission_2026-11-04.md](validation/scientific_panel_admission_2026-11-04.md) | What did MolSysMT observe in the four acquired source files, and which chemistry/environment decisions still prevent search admission? |
 | [validation/molecular_plausibility_inventory_2026-11-04.md](validation/molecular_plausibility_inventory_2026-11-04.md) | Which molecular checks already have provider primitives, and what reusable assessment contract is requested in MolSysMT #555? |
 | `MOLSYSSUITE_INTEGRATION.md` | How does DockingMT interact scientifically with sibling components? |
 | `MOLSYSVIEWER_INTEGRATION.md` | How should DockingMT own its viewer integration? |
