@@ -587,3 +587,23 @@ change, 135 existing/new summary and evaluation checks pass in 81.27 s, with
 source contract checks; prior installed/scientific artifacts are unchanged and
 do not inherit the new field. The panel's template/map/state/environment admission,
 public delivery and visible C4/C6 remain separate.
+
+## Follow-up 9 — exact-input native interface fidelity, 2026-11-04
+
+The [#62 control](validation/vina_adapter_fidelity_2026-11-04.md) addresses Q1/E3
+with one adapter and one independently prescribed direct Vina invocation, using
+authenticated captured 3PTB bytes. Both complete once, returning five poses each
+with identical native energies/arrays/PDBQT and matching calls, input hashes,
+score projection and provenance. This is two new searches in a separate software
+population, not a new preparation, recovery calculation or independent complex.
+
+The first gate fails 14/16 because the newly written observer assumes an abbreviated
+unit spelling and filters the wrong temporary-path keys. Its failed summary and
+producer remain intact. A separately attributed offline assessment reproduces
+that failure, corrects only those observer rules and passes 16 checks with 12
+adverse mutations rejected. No search is repeated; all numerical comparisons
+remain exact. The new evidence supports this bounded interface question, while
+chemical/source mapping, physical/model accuracy, known environment closure,
+new panel admission and public/visual acceptance retain their separate limits.
+The rigid-only ligand and zero internal/torsional terms do not qualify flexible
+or nonzero-term normalization behavior.

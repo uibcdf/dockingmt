@@ -1,5 +1,12 @@
 # Validation Strategy
 
+The [2026-11-04 exact-input Vina differential control](validation/vina_adapter_fidelity_2026-11-04.md)
+provides a separately registered software-fidelity observation: one adapter and
+one direct invocation on identical captured bytes/options. Its original observer
+failure is preserved with a separate offline correction and adverse controls.
+Native equality is not a molecular/model validation or a new recovery observation;
+ordinary source changes do not automatically authorize repeating these searches.
+
 ## Principle
 
 > **Software correctness is not scientific validation.**

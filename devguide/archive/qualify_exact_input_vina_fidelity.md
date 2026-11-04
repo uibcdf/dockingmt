@@ -1,10 +1,10 @@
 ---
 summary: Qualify exact-input adapter/direct Vina fidelity with a bounded control.
 issue: uibcdf/dockingmt#62
-status: partial
+status: resolved
 opened: 2026-11-04
-closed:
-verification: inspected
+closed: 2026-11-04
+verification: measured
 area: [validation, backend]
 guard:
 normative: devguide/VALIDATION_STRATEGY.md
@@ -61,3 +61,30 @@ The dated producer is prepared for pre-execution review. No new native search
 has been attempted. A maximum of two searches, serial CPU 1, timeout 300 s per
 worker and no retries is proposed. Observing one wrapper does not alter its
 arguments or return values; the direct route uses independently frozen options.
+
+## Resolution — 2026-11-04
+
+Published/registered producer `32599a8ea59dbe9615cef005b7f1c4685dae39b2` attempts
+both routes once. Each returns five poses with identical native energies, arrays
+and raw PDBQT bytes, matching prescribed input/options and score projection.
+The original gate fails 14/16 because its new oracle compares a unit abbreviation
+literally and excludes the wrong engine-info path keys. Preserve that failure,
+producer and all original output hashes. No DockingMT runtime defect is demonstrated.
+
+The separately registered offline amendment corrects those two observer rules
+on saved data through PyUnitWizard and exact nonpath metadata equality. It first
+reproduces the failed original gate, then passes 16 corrected checks and rejects
+12 adverse mutations, with zero additional searches or molecular/optional-engine
+imports. Numeric tolerances remain exact. The original two-search denominator
+and unassessed molecular/physical/public/visual scope remain unchanged.
+
+The saved ligand declaration is rigid-only and native internal/torsional terms
+are zero; flexible/nonzero-term behavior is outside this control's claim.
+
+[Report and reproduction](../validation/vina_adapter_fidelity_2026-11-04.md),
+[original identities/disclosure](../validation/data/adapter_fidelity_2026-11-04/manifest.json)
+and [separate offline assessment](../validation/data/adapter_fidelity_2026-11-04/offline_assessment.json)
+complete this bounded control under the existing validation/evidence policies.
+The source gate/checkpoint and hosted recovery are recorded in #62/#28; broader
+scientific/provider questions remain #33/#49. Original evidence remains retained
+under the declared custody; managed inputs/caches and workers are retired.

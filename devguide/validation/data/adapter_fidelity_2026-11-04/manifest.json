@@ -1,0 +1,103 @@
+{
+  "diagnosis_comment": "https://github.com/uibcdf/dockingmt/issues/62#issuecomment-6641478729",
+  "disclosure": "Two ephemeral receptor filename fields redacted; original bytes/hashes and empty raw logs retained in owner-controlled evidence. All native numerical/text outputs, normalized fields, calls and original failed summary remain.",
+  "observations": {
+    "bytes": 13618,
+    "path": "observations.json.gz",
+    "sha256": "c12ddf82559c057051c3ccf235dbf6379003dc876ab485b73f51dd8c552ba5e8",
+    "uncompressed_sha256": "4378b426a19a2c025ae9313ed4b61ce8bb8831a74fc6bf579edfb5891cdecb34"
+  },
+  "offline_extra_search_attempts": 0,
+  "original_files": [
+    {
+      "bytes": 1383,
+      "original_sha256": "c2e1eefcc6652eb2b9b3f844a0e7f6d722a31f0cf1fe5ac292d0f85017b9a471",
+      "path": "adapter/calls.json",
+      "redactions": []
+    },
+    {
+      "bytes": 108,
+      "original_sha256": "dc1cb7f04d9478234f3c7ed14bce0b2364ce57bff974f860893a0c91acc03c99",
+      "path": "adapter/completion.json",
+      "redactions": []
+    },
+    {
+      "bytes": 9052,
+      "original_sha256": "75109bcfa4dcf1a6ff119f9499288512fdb7ef907f32eaf1dad981099d88772b",
+      "path": "adapter/identity.json",
+      "redactions": []
+    },
+    {
+      "bytes": 15193,
+      "original_sha256": "62ff275194a31eb071f45557141d0ced70775cda6dafa0bdcee0ace6ab05be82",
+      "path": "adapter/native.json",
+      "redactions": [
+        "engine_info.rigid_receptor; distinct ephemeral values retained as route-labelled redaction markers"
+      ]
+    },
+    {
+      "bytes": 6488,
+      "original_sha256": "dd7b32ab9c80efd5f6b83032bd4b97bcd2dc20f61df13e5c2dc458e6eec6cc9c",
+      "path": "adapter/normalized.json",
+      "redactions": []
+    },
+    {
+      "bytes": 1383,
+      "original_sha256": "c2e1eefcc6652eb2b9b3f844a0e7f6d722a31f0cf1fe5ac292d0f85017b9a471",
+      "path": "direct/calls.json",
+      "redactions": []
+    },
+    {
+      "bytes": 108,
+      "original_sha256": "77d66f3414a38b243c2678e39292e7f2a4b09a14e9556fb9ec51a0452bcc8ce6",
+      "path": "direct/completion.json",
+      "redactions": []
+    },
+    {
+      "bytes": 9052,
+      "original_sha256": "75109bcfa4dcf1a6ff119f9499288512fdb7ef907f32eaf1dad981099d88772b",
+      "path": "direct/identity.json",
+      "redactions": []
+    },
+    {
+      "bytes": 15219,
+      "original_sha256": "93c9c34d243fd39e9bf0b0244dce5ce53ebfe789ebcf91c3ab0ea941a66adc29",
+      "path": "direct/native.json",
+      "redactions": [
+        "engine_info.rigid_receptor; distinct ephemeral values retained as route-labelled redaction markers"
+      ]
+    },
+    {
+      "bytes": 803,
+      "original_sha256": "10d1eb4edd456a020909bf3f5465ae241db325bb16cdd2799638f3905ca84b89",
+      "path": "summary.json",
+      "published_disposition": "original object retained in observations",
+      "redactions": []
+    },
+    {
+      "bytes": 97,
+      "original_sha256": "4969f5b6c40b66c04d69036ff40b59bafa085a572e26b74cf04161da2ff94f57",
+      "path": "failure.json",
+      "published_disposition": "original object retained in observations",
+      "redactions": []
+    },
+    {
+      "bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "adapter.log",
+      "published_disposition": "empty log retained locally",
+      "redactions": []
+    },
+    {
+      "bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "direct.log",
+      "published_disposition": "empty log retained locally",
+      "redactions": []
+    }
+  ],
+  "original_search_attempts": 2,
+  "owner": "uibcdf/dockingmt#62",
+  "pre_execution_comment": "https://github.com/uibcdf/dockingmt/issues/62#issuecomment-6641441751",
+  "producer_source": "32599a8ea59dbe9615cef005b7f1c4685dae39b2"
+}

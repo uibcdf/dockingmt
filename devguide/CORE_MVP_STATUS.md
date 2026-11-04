@@ -60,6 +60,13 @@ producer, interpreter/platform or scientific scope. Final-head hosted observatio
 and recovery remain on [#60](https://github.com/uibcdf/dockingmt/issues/60);
 queued/in-progress lanes are not passing evidence.
 
+The later [#62 exact-input differential control](validation/vina_adapter_fidelity_2026-11-04.md)
+adds two source software searches: adapter/direct native outputs agree for the
+captured 3PTB profile. The original observer gate fails 14/16; a separate offline
+correction passes 16 checks and 12 adverse controls without a new search. This
+supports interface fidelity, not molecular mapping, model validity or another
+installed/scientific population. Original artifact qualification remains intact.
+
 ## All 35 Core criteria
 
 Numbering follows the bullet order of each gate in `MVP.md`: 32 C0–C5 criteria

@@ -1,0 +1,85 @@
+{
+  "assessment": {
+    "checks": {
+      "adapter_completed_once": true,
+      "direct_completed_once": true,
+      "nonempty_consistent_pose_counts": true,
+      "normalized_four_score_columns": true,
+      "normalized_ranks": true,
+      "normalized_score_units": true,
+      "prescribed_adapter_calls": true,
+      "prescribed_direct_calls": true,
+      "recorded_box": true,
+      "recorded_full_energy_matrix": true,
+      "recorded_input_hashes": true,
+      "recorded_resolved_calls": true,
+      "same_engine_info": true,
+      "same_native_coordinate_array": true,
+      "same_native_energies": true,
+      "same_native_pdbqt_bytes": true
+    },
+    "passed": true
+  },
+  "assessment_producer_sha256": "a679f1e190ffd995d5d5346403d0ef2de97a87c89aefec67661b82e706d74172",
+  "controls": {
+    "equivalent_abbreviation_accepted": true,
+    "rejected_mutations": [
+      {
+        "mutation": "fifth native energy column",
+        "rejected_by": "same_native_energies"
+      },
+      {
+        "mutation": "native numeric array entry",
+        "rejected_by": "same_native_coordinate_array"
+      },
+      {
+        "mutation": "native PDBQT text byte",
+        "rejected_by": "same_native_pdbqt_bytes"
+      },
+      {
+        "mutation": "actual constructor seed",
+        "rejected_by": "prescribed_adapter_calls"
+      },
+      {
+        "mutation": "actual map spacing",
+        "rejected_by": "prescribed_direct_calls"
+      },
+      {
+        "mutation": "recorded input hash",
+        "rejected_by": "recorded_input_hashes"
+      },
+      {
+        "mutation": "normalized score value",
+        "rejected_by": "normalized_four_score_columns"
+      },
+      {
+        "mutation": "energy unit with different scale",
+        "rejected_by": "normalized_score_units"
+      },
+      {
+        "mutation": "incompatible unit dimension",
+        "rejected_by": "normalized_score_units"
+      },
+      {
+        "mutation": "engine scoring weight",
+        "rejected_by": "same_engine_info"
+      },
+      {
+        "mutation": "unexpected flexible receptor",
+        "rejected_by": "same_engine_info"
+      },
+      {
+        "mutation": "empty outputs on both routes",
+        "rejected_by": "nonempty_consistent_pose_counts"
+      }
+    ]
+  },
+  "geometry_identity_and_physical_validity": "not_assessed",
+  "new_search_attempts": 0,
+  "observations_sha256": "c12ddf82559c057051c3ccf235dbf6379003dc876ab485b73f51dd8c552ba5e8",
+  "optional_scientific_modules_loaded": [],
+  "original_checks_passed": 14,
+  "original_gate_passed": false,
+  "original_search_attempts": 2,
+  "original_source": "32599a8ea59dbe9615cef005b7f1c4685dae39b2"
+}

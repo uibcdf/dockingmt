@@ -33,6 +33,12 @@ top-N under #61. It preserves exact compatibility and failure denominators; the
 [public contract](validation/redocking_summary.md) distinguishes this output from
 historical summaries and from new molecular/scientific qualification.
 
+The [exact-input Vina fidelity control](validation/vina_adapter_fidelity_2026-11-04.md)
+answers audit Q1 for one captured profile. It retains the original observer's
+failed gate and a separate offline correction, with two searches total and no
+new molecular/physical qualification. The saved assessment can be reproduced
+without loading a molecular provider or scientific engine.
+
 The [scientific evidence overview](validation/scientific_evidence_overview_2026-11-04.md)
 provides a compact reproducible table of existing outcomes and E1–E11 limits.
 It preserves failed reporting stages and separate populations; no new molecular

@@ -42,6 +42,13 @@ presentation, a reproducible overview linked from the root README, one evidence
 source and explicit lifecycle/reconsideration rules. Do not schedule a dedicated
 site or new campaign without its concrete reader/scientific need.
 
+Audit Q1's [exact-input adapter/direct control](validation/vina_adapter_fidelity_2026-11-04.md)
+is delivered under #62: two searches, matching native outputs, original 14/16
+observer failure preserved and separate offline correction/12 adverse controls.
+Do not schedule that native pair again without a changed boundary or concrete
+diagnostic question. Provider-dependent panel admission and public compatibility
+remain the operational priorities; this control does not qualify either.
+
 The [full helper receiving](validation/installed_support_receiving.md) completes
 the separate #47 installed-caller source adoption using shared `95f693be`:
 1,450 installed tests pass with declared isolated support. The earlier
