@@ -14,6 +14,15 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## Native terminal-map receiving gap — 2026-11-04
+
+The [terminal-completion diagnostic](../validation/scientific_panel_terminal_probe_2026-11-04.md)
+calls only public MolSysMT operations. Its actual reordering without a new
+public completion map/history is reported in MolSysMT #558. Old-ID comparison
+is a diagnostic, not a downstream atom map. Old output coordinates stay
+unassessed without the provider evidence, and the unadmitted copy is not used
+for docking. Existing #557/#556/#555 retain their distinct scopes.
+
 ## CCD/template request and spatial-query continuation — 2026-11-04
 
 The [environment checkpoint](../validation/scientific_panel_environment_2026-11-04.md)

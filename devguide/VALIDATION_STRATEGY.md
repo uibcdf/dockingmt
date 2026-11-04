@@ -204,3 +204,10 @@ adds nonperiodic provider measurements and before/after coordinate/readiness
 digests. Water shells are descriptive, not hydrogen-bond or retention decisions;
 boundary distances do not prove safe truncation. Provider CCD/template #557 and
 existing provider terminal-completion tools retain their separate admission work.
+
+The [terminal-control receiving](validation/scientific_panel_terminal_probe_2026-11-04.md)
+executes one native OXT reconstruction on a detached 1HSG protein copy. Two OXT
+atoms are generated, with source/input immutability and an attribute-drop warning;
+the public map/new generation-history boundary is requested in MolSysMT #558.
+Output old-atom geometry stays unassessed without that map. This is a software
+control, not an admitted receptor or new docking outcome.

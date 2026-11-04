@@ -527,3 +527,17 @@ CCD/template/correspondence request. #555 is owner-triaged for post-freeze study
 #556 occupancy remains separate. Q2/Q3/R3/R6 are still partial, with the concrete
 next prerequisite now being supported templates and explicit state/environment
 decisions before provider-only completion and application.
+
+## Follow-up 5 — terminal reconstruction receiving boundary, 2026-11-04
+
+One [provider-only terminal software control](validation/scientific_panel_terminal_probe_2026-11-04.md)
+adds the two OXT atoms missing from an unadmitted 1HSG protein copy. Source/input
+snapshots remain unchanged; the output reorders atoms and diagnoses occupancy/
+B-factor loss. A new public completion map/history is not established, so old
+output-coordinate preservation remains unassessed rather than reconstructed by
+consumer matching. MolSysMT #558 owns the missing provenance contract.
+
+This is one explicitly counted diagnostic molecular reconstruction, not zero
+molecular work, an admitted preparation or a new docking outcome. Q2/Q3/R3/R6
+remain partial. Receive provider maps and CCD/templates, decide states/environment,
+then assess preparation before any search registration.

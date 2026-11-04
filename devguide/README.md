@@ -53,6 +53,9 @@ The [environment/template checkpoint](validation/scientific_panel_environment_20
 records nearby waters, other ligand copies, observed protein boundaries and the
 missing OXT prerequisite. Reusable CCD-to-template support is requested in
 MolSysMT #557; chemical/environment choices still precede preparation and search.
+The [terminal-completion diagnostic](validation/scientific_panel_terminal_probe_2026-11-04.md)
+now records one 1HSG reconstruction on an unadmitted copy: OXT is generated,
+but an exact completion map/history is requested in MolSysMT #558 before adoption.
 
 Start with the [current Core acceptance map](CORE_MVP_STATUS.md) and
 [operational roadmap](ROADMAP.md#current-operational-plan). They reconcile

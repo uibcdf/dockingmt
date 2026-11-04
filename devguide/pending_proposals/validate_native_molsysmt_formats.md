@@ -14,6 +14,16 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Native terminal reconstruction diagnostic — 2026-11-04
+
+The [one-call 1HSG control](../validation/scientific_panel_terminal_probe_2026-11-04.md)
+generates two OXT atoms on a detached unadmitted protein, with source/input
+snapshots unchanged and dropped occupancy/B-factor warnings retained. Output
+axes reorder, and no public map/new history record is established. MolSysMT #558
+owns this reconstruction-provenance boundary; no consumer matcher is added.
+CCD/template #557 and state/environment decisions remain separate. No receptor
+is admitted and no energy/RMSD/search is performed.
+
 ## Environment and template admission boundary — 2026-11-04
 
 The [continuation](../validation/scientific_panel_environment_2026-11-04.md)

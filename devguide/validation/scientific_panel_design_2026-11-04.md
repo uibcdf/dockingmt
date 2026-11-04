@@ -9,7 +9,7 @@ Reviewed consumer: `71287ce86db365c9063846ae7d904c9586a99354`.
 The [first source inspection](scientific_panel_admission_2026-11-04.md) now
 preserves four PDB/CIF inputs and provider-built assembly observations. Revision,
 template, state and environment decisions remain pending; no case is admitted.
-No new preparation, scoring, search or RMSD was executed. No results are
+No admitted docking preparation, scoring, search or RMSD was executed. No results are
 predicted here. The specific unresolved decisions below must be frozen before
 search, rather than filled in after observing outcomes.
 
@@ -17,6 +17,10 @@ The [environment/template continuation](scientific_panel_environment_2026-11-04.
 now records provider water shells, ligand-copy separations, observed protein
 boundaries and the OXT prerequisite. MolSysMT #557 owns the requested reusable
 CCD/template route. These observations do not resolve state/environment admission.
+
+The [subsequent terminal software control](scientific_panel_terminal_probe_2026-11-04.md)
+executes one unadmitted reconstruction, with its own counter and provider map/history
+request #558. It neither adds a search row nor qualifies a prepared receptor.
 
 ## Question and intended claim
 

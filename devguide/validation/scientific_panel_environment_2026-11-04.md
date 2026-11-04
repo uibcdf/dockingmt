@@ -10,6 +10,12 @@ at `d2079282e3fda0783f7c9e7aa4101111c94f8964` and the
 The results make environment and template decisions concrete. They do not select
 experimental protonation or certify a dry/truncated binding model.
 
+**Continuation:** the [terminal diagnostic](scientific_panel_terminal_probe_2026-11-04.md)
+now executes one OXT completion on an unadmitted 1HSG protein copy. It records
+source/input immutability, output reordering and missing public completion
+map/history, proposed in MolSysMT #558. The observations below retain their
+original inspection-only scope and unresolved chemical decisions.
+
 ## Executed public-provider composition
 
 [The producer](data/panel_environment_2026-11-04/inspect_environment.py) reads
