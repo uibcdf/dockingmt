@@ -1,0 +1,128 @@
+{
+  "consumer_installation": "editable_source",
+  "machine": "x86_64",
+  "modules": {
+    "argdigest": {
+      "distribution_version": "0.17.0+5.gcd9c4f3",
+      "entry_sha256": "07518ec0f8d53c99d67f40aa76dc1a9f021ab659fc97ee4eb24a2e325e4feaee",
+      "reported_version": "0.17.0+5.gcd9c4f3"
+    },
+    "depdigest": {
+      "distribution_version": "0.15.1+8.g0884f0c",
+      "entry_sha256": "401e1f2b69d68053bdf91b524eb9d876fa2839908ca2dc5df17e77d3a389b6b1",
+      "reported_version": "0.15.1+8.g0884f0c"
+    },
+    "dockingmt": {
+      "distribution_version": "0.0.0+226.g251e756",
+      "entry_sha256": "07f71ed5cf3914d2e4cfbf35c43a7ea8b69497effd4dc8aa6336ae30e61a2359",
+      "reported_version": "0.0.0+226.g251e756"
+    },
+    "molsysmt": {
+      "distribution_version": "0.23.0+322.g71fbe4f46",
+      "entry_sha256": "e5bba23f8df3fadf051f61e0f4f92b1c1ce92d62d16f38eaa648f0f82fc1c5a9",
+      "reported_version": "0.23.0+322.g71fbe4f46"
+    },
+    "numpy": {
+      "distribution_version": "2.4.6",
+      "entry_sha256": "92a46f791e453926d3292af2582b89995a289475f0eaaea71a949823200b838a",
+      "reported_version": "2.4.6"
+    },
+    "pyunitwizard": {
+      "distribution_version": "0.29.0+4.g9d74f0e",
+      "entry_sha256": "39eeae626315034598a55db948e160fbc09b0213d48d8649b07933563b86fdfc",
+      "reported_version": "0.29.0+4.g9d74f0e"
+    },
+    "smonitor": {
+      "distribution_version": "0.22.0+3.gebdd054",
+      "entry_sha256": "f60b1c2bff72dbbb70fe403e23908e62a8297f6190e18fdcac090092b84e6800",
+      "reported_version": "0.22.0+3.gebdd054"
+    },
+    "vina": {
+      "distribution_version": "1.2.7",
+      "entry_sha256": "ef6442ceea399f5a8eeac374fbf254fcf70d16cc04a0a321818c1cbe7f70b0d9",
+      "reported_version": "1.2.7"
+    }
+  },
+  "molsysmt_source": "71fbe4f46d3c70e4e973c8025f01752a8c9b1084",
+  "native_signatures": {
+    "__init__": "(self, sf_name='vina', cpu=0, seed=0, no_refine=False, verbosity=1)",
+    "compute_vina_maps": "(self, center, box_size, spacing=0.375, force_even_voxels=False)",
+    "dock": "(self, exhaustiveness=8, n_poses=20, min_rmsd=1.0, max_evals=0)",
+    "energies": "(self, n_poses=9, energy_range=3.0)",
+    "poses": "(self, n_poses=9, energy_range=3.0, coordinates_only=False)",
+    "set_ligand_from_file": "(self, pdbqt_filename)",
+    "set_ligand_from_string": "(self, pdbqt_string)",
+    "set_receptor": "(self, rigid_pdbqt_filename=None, flex_pdbqt_filename=None)"
+  },
+  "pip_check": {
+    "diagnostics": [
+      "packmol-memgen 2026.3.25 requires pdb2pqr, which is not installed.",
+      "proprep 1.0.0 requires pdb2pqr, which is not installed.",
+      "ndfes 3.6.5 has requirement numpy<2, but you have numpy 2.4.6.",
+      "edgembar 3.6.5 has requirement numpy<2, but you have numpy 2.4.6.",
+      "fetkutils 3.6.5 has requirement numpy<2, but you have numpy 2.4.6.",
+      "proprep 1.0.0 has requirement biopython<1.86,>=1.83, but you have biopython 1.88.",
+      "proprep 1.0.0 has requirement numpy<2.0,>=1.26, but you have numpy 2.4.6."
+    ],
+    "exit": 1
+  },
+  "python": "3.14.7",
+  "runtime_sha256": {
+    "dockingmt/__init__.py": "07f71ed5cf3914d2e4cfbf35c43a7ea8b69497effd4dc8aa6336ae30e61a2359",
+    "dockingmt/_argdigest.py": "e76d59bca5d24f3df78b4c3b361375a82236d95ac102218a615a48bb3555b6a7",
+    "dockingmt/_depdigest.py": "c996d85d61ef70230b64c0a33bd69ea78e24c3c3148100f69d158ffe90d9ee36",
+    "dockingmt/_private/__init__.py": "4f23e529394a0c60adaca014f6852e07e108e6e826973d256b254e9e9e2f5cc0",
+    "dockingmt/_private/argdigest/__init__.py": "550f136bb66a889c4bdd34997d2925aee7aa2e95b359554e98f936927f39fea4",
+    "dockingmt/_private/argdigest/registry.py": "c5568f306b69c77b43d28cf41b7127d7caa14f038ef6c4ba26cc674fd022d9cd",
+    "dockingmt/_private/artifacts.py": "750981bba46eccf57f085a099305574f4b19afa891892259709cbc1f49bebd2e",
+    "dockingmt/_private/serialization.py": "f138c1f5dcdc5ff67ce5ac15df7c762ffefc6286a627e6859b9980e39ffc0680",
+    "dockingmt/_private/smonitor/__init__.py": "af179622d2bd19e0a4178f03624526d46ff24b047f2ca357b9d85024b34a9ce7",
+    "dockingmt/_private/smonitor/catalog.py": "14b214b11fadd0678085507ccc295e1a2e0905356d8ac1732aff4c8ddb984b7b",
+    "dockingmt/_private/smonitor/emitter.py": "83af0b66e89522f9732bc97c53bd73de551646cafcb758637d2c2e545b877a56",
+    "dockingmt/_private/smonitor/meta.py": "7a1d95d8be1b37238dff60af83e87649331037366512e2e7b4fa218c6c61cafb",
+    "dockingmt/_private/smonitor/warnings.py": "8130bc9008281d0f65f491b279a37536d3a2de5a7d86c3027e28dbbb69b6b950",
+    "dockingmt/_private/symmetry.py": "5f71b56597fec77a497c1c63a3cb48418e1dbc5af436db0684b994407974f4da",
+    "dockingmt/_private/vina_records.py": "ec13749e8410ca16bd3ad25ef6cb5e39ea8dc9af80fb6d2f3b3749c5d16fdc59",
+    "dockingmt/_pyunitwizard.py": "ced289b4e5423e80df232daac8916263995aafdbf20d06e73690599249d9e96b",
+    "dockingmt/_smonitor.py": "830e3d288fe35a84ea283d0888799b72707ee0825b7f673162d79a791703a9d2",
+    "dockingmt/_version.py": "7f8c2fff9bb2c7549c5ccb3eef8b83cc4dc69cc8654e4579cc34f443176a5110",
+    "dockingmt/aggregation.py": "5b8cc96ead17445f6316b07fb6ef52203d8d7dd2f355f6069f10ce67e56b55f5",
+    "dockingmt/batch.py": "01d7cfb44320c8d6ba2ad04c847093d0e7105458bab975edbc606d24d4cd37f2",
+    "dockingmt/core/__init__.py": "6a6218f01c453e7973578f8aec19da42d02147fc603c401c3908ee00d0e1b8fa",
+    "dockingmt/core/_scores.py": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136",
+    "dockingmt/core/audit.py": "191d9c82936fada14761ccdae0d95ba46b17fdeb22c2cbf2e348554cb5d4cab3",
+    "dockingmt/core/outcome.py": "d16cefba9c2a6f7057201a30fffde04d78eb7a3f55f3ff5e3c60a6600339fb04",
+    "dockingmt/core/pose_audit.py": "de6ecac9713d6a96349e8b42884b7ddfa68d6c8a3440792fde41adad38180908",
+    "dockingmt/core/problem.py": "05eb47aa03fa477557dada4af127efa717f0f7cfce046adea3b6c2360ecb08db",
+    "dockingmt/core/protocol.py": "2860005fbd204101a0a0b35a5980e1ff6e218465eb5b938bebd0ec695490d7e9",
+    "dockingmt/core/results.py": "6961abe153396229e6abb29cbfcc463ffda5e6d87808956449597cca19ed7fd7",
+    "dockingmt/core/search_domain.py": "fcec2ffa9a5ebe1de5d121ff71652937598509352b47ef5389fbe81984c52a52",
+    "dockingmt/dock.py": "25ffc2190e5410e187e1165b912fcf2b6c4274d7e975c00e918283c96b52f256",
+    "dockingmt/engines/__init__.py": "07108a1391a34a122f4a9c9991db911a1b8f0fde9a42a828c9418a1a7ebcadf9",
+    "dockingmt/engines/_vina_scoring.py": "e49a50fd48fc28af6a440961e95da6c23fcabd86bbaf865d5e5d86df5cd341bb",
+    "dockingmt/engines/base.py": "127fc3393b37f2d173d768eb926295b911c8160038ed524da5896b35d89f83cc",
+    "dockingmt/engines/vina.py": "5c6868245d7cffd0385886f4ab1f02abec3ba76d865be4cbb3ce144a5f7b04ec",
+    "dockingmt/evaluation.py": "09484c50038b862a44f4f007acff3e7e2892dc9a0a19e0e1cd4ccb9930118a4e",
+    "dockingmt/preparation/__init__.py": "ad1708354f51a1283fc98667c6abdea944ed8a7d26f79ee0ce03347b4509850f",
+    "dockingmt/preparation/_export.py": "1dfd502efb4d61738fe272e4dbff4d79100e014ba417db1024a18d41da93da3f",
+    "dockingmt/preparation/_molsys.py": "71dca1b83da4577a57fef02695c384fedce79b8137e2bd3215496822a0216e63",
+    "dockingmt/preparation/_stages.py": "84fe2ad25b001e89f4f2f1f3165573d6bde33a626075d98a3f9fd62daafb5243",
+    "dockingmt/preparation/_temporary_torsions.py": "83a2f262e5e56d926a6db4f0887ffc019398f41a68fbe7c20832278b1e87d613",
+    "dockingmt/preparation/_typing.py": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2",
+    "dockingmt/preparation/assessment.py": "6af13747f9b21d1aca3aa492d3bf6d16efe59509725267771ffe5f9a12495836",
+    "dockingmt/preparation/charges.py": "b23815cf64791c42bc5e7577f540b56deaeddb6ee6e12ad288824b7c8a4773b8",
+    "dockingmt/preparation/ligand.py": "0be4491c28a5d0c07ccae23cc34f829f11a0b254a0a38c4f6c10765cb2e43725",
+    "dockingmt/preparation/receptor.py": "2a99b9fff9975b07359b7bcf82c211d64a92b80833cbbb1f0cb26454df67de47",
+    "dockingmt/score.py": "6b05e5d92f03732e2280a4ca160d5b6e8bcf28b2b940f779ea84bd08dc00d670",
+    "dockingmt/view.py": "427e4ba1dae9273e21d6f04148d21954284caa8d07e6208e97b9411766653da6",
+    "dockingmt/viewer/__init__.py": "926524953c4cf37039415eaa5d36646e00580cffb7acb1e24deb0b9c7fd6d601"
+  },
+  "system": "Linux",
+  "vina_payload_sha256": {
+    "__init__.py": "ef6442ceea399f5a8eeac374fbf254fcf70d16cc04a0a321818c1cbe7f70b0d9",
+    "_vina_wrapper.cpython-314-x86_64-linux-gnu.so": "d911feae47031bb4ea148ea6bdc74f24117449af25db49f4c8768e7b79673143",
+    "utils.py": "bf139342195d7ac596e919f080ca6345f619b00ee47f66fef1eda2bf768e0c9f",
+    "vina.py": "918ac5251d7db1c17cb4d69a09f52b9450d6e0d11f7f5e87a92affdd2fb01c0a",
+    "vina_wrapper.py": "6b29945d8a2bc7f00bf76f154fc9274078b6b209a0de7cfa75c7a8aaa097f824"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "attempts_per_route": 1,
+  "comparison": {
+    "call_arguments": "exact, including resolved defaults and actual input-byte hashes",
+    "empty_result": "inconclusive differential observation; do not claim passing score/pose qualification",
+    "engine_info": "exact excluding ephemeral file paths",
+    "mismatch": "fail and investigate; no tolerance change or retry",
+    "native_coordinate_array": "exact native output order, without molecular interpretation",
+    "native_energies": "exact all five columns",
+    "native_pose_text": "exact bytes, no parsing",
+    "normalized_scores": "exact first four native columns with named kcal/mol definitions"
+  },
+  "constructor": {
+    "cpu": 1,
+    "no_refine": false,
+    "seed": 7,
+    "sf_name": "vina",
+    "verbosity": 0
+  },
+  "consumer_runtime_baseline": "f26a4c2a618eb9c176706d692106a33a312aff2b",
+  "cpu_per_search": 1,
+  "custody": {
+    "evidence_limit_bytes": 33554432,
+    "observations": "retain all calls, failures, partial outputs and logs in a fresh task-owned directory; publish sanitized complete observations and hashes; retain raw logs locally",
+    "owner": "uibcdf/dockingmt#62, scientific coordination #33",
+    "retained_evidence_review": "2026-11-11; preserve while required for diagnosis/reproduction",
+    "stop_policy": "stop after first failed route or mismatch; no replacement attempt; every planned route retains its disposition",
+    "temporary_inputs_and_caches": "managed per worker; parent retires cache after success/failure/timeout"
+  },
+  "dock_call": {
+    "exhaustiveness": 1,
+    "max_evals": 0,
+    "min_rmsd": 1.0,
+    "n_poses": 9
+  },
+  "environment_limit": "Routine editable Python 3.14 source with known pip-check findings owned by MolSysSuite #82; this control does not qualify environment closure or public installation",
+  "map_call": {
+    "box_size": [
+      20.0,
+      20.0,
+      20.0
+    ],
+    "center": [
+      -1.759111,
+      14.461,
+      16.915778
+    ],
+    "force_even_voxels": false,
+    "spacing": 0.375
+  },
+  "max_total_new_searches": 2,
+  "max_wall_seconds_per_worker": 300,
+  "original_input": {
+    "path": "devguide/validation/data/human_3ptb/native_result_2026-10-20.json.gz",
+    "roles": {
+      "partner": "a36bd740cc47045c2f2f6756bd8c11b41cbcc960a76ce42c2f2114b3c4b7be46",
+      "receptor": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970"
+    },
+    "sha256": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249"
+  },
+  "output_call": {
+    "energy_range": 3.0,
+    "n_poses": 9
+  },
+  "owner": "uibcdf/dockingmt#62",
+  "preflight_sha256": "9fccb08eae2ec4b19665edf2ef468a72d3636ba02c10c00db406048e6ac8e2ad",
+  "producer_commit_binding": "Owning issue pre-execution comment and explicit --expected-head; no calculation before registration",
+  "producer_sha256": "38f4821166dfb0e2e914e2286d56ab76d095747f86b91daa88cbcbca580c9053",
+  "question": "Audit Q1: exact-input adapter/direct native-output fidelity",
+  "registered_date": "2026-11-04",
+  "route_order": [
+    "adapter",
+    "direct"
+  ],
+  "unassessed": [
+    "physical/model validity",
+    "native chemical/source atom correspondence",
+    "reference recovery/RMSD",
+    "general stochastic/platform reproducibility",
+    "installed/public artifact qualification",
+    "new panel admission",
+    "visible C4/C6"
+  ]
+}
