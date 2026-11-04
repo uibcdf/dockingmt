@@ -1,0 +1,161 @@
+{
+  "schema": "dockingmt.installed_two_search_source_registration@1",
+  "owner": "uibcdf/dockingmt#4",
+  "reviewed_baseline": "b743db0812a67dd2873cfc12128026649ea0f301",
+  "status_at_registration": "not_executed",
+  "planned_cases": [
+    "native",
+    "displaced"
+  ],
+  "maximum_searches": 2,
+  "maximum_returned_poses": 18,
+  "RMSD_evaluations": 0,
+  "records": [
+    {
+      "path": "devguide/validation/installed_3ptb_execution.ipynb",
+      "sha256": "9ee4394a17ebb369d75783f19e2ae523b651e4fc4c2c18f70b5d208611e89734",
+      "code_cells": [
+        {
+          "id": "inputs",
+          "sha256": "a900035db3371e46d99a364ce4398aa8622be94930ce74f8d9c590c04d5987e0"
+        },
+        {
+          "id": "preparation",
+          "sha256": "83f61e7208d965dea6fc881cfd6b650a310699a6c456373179ec31266a699a6c"
+        },
+        {
+          "id": "ledger",
+          "sha256": "6530e5df4e65fb8b5c61c0eb87393788df318119b95c016398651c12b44e4106"
+        },
+        {
+          "id": "searches",
+          "sha256": "a62f71178f2d1073df8eb675b6d2a402485d2cb544de981226fc52f5983e002a"
+        },
+        {
+          "id": "inspect-results",
+          "sha256": "11621e278ebb719062a81d6d9088f66963b73d4c7a1388907ffc59e8972bbdcb"
+        },
+        {
+          "id": "receipt",
+          "sha256": "86e1c02555c863246567370d9278ce96665e0dbfbaceb640da6da30e77fb6c00"
+        }
+      ]
+    },
+    {
+      "path": "devguide/validation/installed_3ptb_execution_registration.md",
+      "sha256": "ff79836df8e1527218781df62c7cd1972840ed93e9c231f8cd0749f2e6b061bc"
+    },
+    {
+      "path": "devguide/validation/installed_3ptb_preparation.ipynb",
+      "sha256": "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9",
+      "code_cells": [
+        {
+          "id": "inputs",
+          "sha256": "1b4ec8fa85ccae0fa1505937036a795ad40e630042fbc0ac038e489db6bdcfd8"
+        },
+        {
+          "id": "source",
+          "sha256": "331b500fc7cf49a1b9a002b906a0d35fe695fd78d50af2dfa9b7b9900b9bde8f"
+        },
+        {
+          "id": "templates",
+          "sha256": "502ce26a75efb3912fcb7e210bd51f03b98f5490925a0a0b40dc1562c75f8b11"
+        },
+        {
+          "id": "apply-templates",
+          "sha256": "093442bed27c5a49d6393d66b906f8d0b22a7d3a51b2d31a260d2c5b538dea6d"
+        },
+        {
+          "id": "hydrogens",
+          "sha256": "873393df759080e2ee171081d49d0647ad39974c173f33702f546503c4c340a9"
+        },
+        {
+          "id": "preparations",
+          "sha256": "9b843657cfc6c2932f4deff901e6a895d9a5a4a65fe07346d4ea9823b008238b"
+        },
+        {
+          "id": "prepared-values",
+          "sha256": "5d04e6353b7c0df7e256d66b61a9ebc205339b1d4ada5972c759510e0761eaf9"
+        },
+        {
+          "id": "plan",
+          "sha256": "60ac99c5dbde3a2d14c49a41debf25670565597755f465e12d56a9a6ce691a91"
+        },
+        {
+          "id": "reports",
+          "sha256": "2e787150c943f32fb32b150f046e8c63f8cb8d13b23866fd980fe7dfa6114952"
+        }
+      ]
+    },
+    {
+      "path": "devguide/validation/installed_result_inspection.ipynb",
+      "sha256": "bfe922f86012834ba12bf9cb1ada5098944c6979fee00523ef9fd38ba25ee3e0",
+      "code_cells": [
+        {
+          "id": "inputs",
+          "sha256": "ec374a171d563ae9bb2cfe3a50aac386e2e456be50138e42e125dbda22ea9a4b"
+        },
+        {
+          "id": "file-identity",
+          "sha256": "92c446cbfcfbb0fd0547c3e24927aabe02aa7ea79bb3a2fcdab82dfebe57aa1e"
+        },
+        {
+          "id": "audit-and-read",
+          "sha256": "9b8170f5bf44ba0f7b4b32125e54a35b37e1f71ea19b2e79ae8684072f8adcae"
+        },
+        {
+          "id": "pose-meaning",
+          "sha256": "bb4e802d232b574189d9437889e2b47f8794e31df887076a9882c2e804a3c7b8"
+        },
+        {
+          "id": "refusals",
+          "sha256": "a45cf1ceab5a104e6afc331712368f6f0a26ac730c9fb31b315c0eb11a51911a"
+        },
+        {
+          "id": "nondefault-policy",
+          "sha256": "c37821a5cf887e09f73c4fa2e0e3d9f05a87acf652ead183ef9d322f2c4a7b2a"
+        },
+        {
+          "id": "roundtrip",
+          "sha256": "8490aad3501be7b81dfaaf24285da8733812a72a2e9c160c3cb56827b41181c2"
+        },
+        {
+          "id": "receipt",
+          "sha256": "63723a925132ccda71de42b484471814378cb538e7b82448153b4dc10d07598b"
+        }
+      ]
+    }
+  ],
+  "vina_artifact": {
+    "version": "1.2.7",
+    "python": "3.14.8",
+    "files": [
+      {
+        "path_within_prefix": "lib/python3.14/site-packages/vina/__init__.py",
+        "sha256": "ef6442ceea399f5a8eeac374fbf254fcf70d16cc04a0a321818c1cbe7f70b0d9",
+        "bytes": 124
+      },
+      {
+        "path_within_prefix": "lib/python3.14/site-packages/vina/utils.py",
+        "sha256": "bf139342195d7ac596e919f080ca6345f619b00ee47f66fef1eda2bf768e0c9f",
+        "bytes": 696
+      },
+      {
+        "path_within_prefix": "lib/python3.14/site-packages/vina/vina.py",
+        "sha256": "918ac5251d7db1c17cb4d69a09f52b9450d6e0d11f7f5e87a92affdd2fb01c0a",
+        "bytes": 19305
+      },
+      {
+        "path_within_prefix": "lib/python3.14/site-packages/vina/vina_wrapper.py",
+        "sha256": "6b29945d8a2bc7f00bf76f154fc9274078b6b209a0de7cfa75c7a8aaa097f824",
+        "bytes": 25156
+      },
+      {
+        "module": "vina._vina_wrapper",
+        "path_within_prefix": "lib/python3.14/site-packages/vina/_vina_wrapper.cpython-314-x86_64-linux-gnu.so",
+        "sha256": "d911feae47031bb4ea148ea6bdc74f24117449af25db49f4c8768e7b79673143",
+        "bytes": 1309808
+      }
+    ]
+  }
+}
