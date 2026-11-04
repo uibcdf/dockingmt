@@ -1,0 +1,66 @@
+{
+  "schema": "dockingmt.saved_nine_atom_evaluation_registration@1",
+  "owner": "uibcdf/dockingmt#4",
+  "reviewed_baseline": "9bffd93f221c296115b16205e612629be1c2935d",
+  "status_at_registration": "no_RMSD_measured",
+  "records": [
+    {
+      "path": "devguide/validation/installed_3ptb_evaluation.ipynb",
+      "sha256": "ad56bda7b1a6d9f858622746c8ca20dcb04fc7e125db2f41ea6f8d2c4018c25f",
+      "code_cells": [
+        {
+          "id": "inputs",
+          "sha256": "22775255d32974024048e8d9b2da047a15ded8b1ddb983fa6a7d817d826cdc9f"
+        },
+        {
+          "id": "admit",
+          "sha256": "46bcab4c8e95e0e903049a4186288a0909bf96a152781a0d4c0efe0723c4bc1b"
+        },
+        {
+          "id": "axes",
+          "sha256": "838b7710f92db6d47cdc6126ae03ed2faa525dcd9ec36d4da71b7f2c97c6751d"
+        },
+        {
+          "id": "refusal",
+          "sha256": "e9b69e755ed36d90bfb93f21a442b7e63d83e7b6ce7063dacb067599971bf35e"
+        },
+        {
+          "id": "views",
+          "sha256": "ca427f7068c7475b790aa76614943dbf2f538f21350ca6b021dfd6a60a3759ba"
+        },
+        {
+          "id": "evaluate",
+          "sha256": "4f6ab5e5fcc89578377885612b87fe113c2358d96d156e3ef96bc4576a96e4ff"
+        },
+        {
+          "id": "persist",
+          "sha256": "7de026538320d089162d26d09e019289c9882fcaab8b4c17fa550f63c3e584ca"
+        }
+      ]
+    },
+    {
+      "path": "devguide/validation/installed_3ptb_evaluation_registration.md",
+      "sha256": "0b56762c151927bd08456f3ce00f762d2da9125a93ecef32f77b2df053db2d04"
+    }
+  ],
+  "distinct_saved_poses": 9,
+  "RMSD_per_policy": 9,
+  "policies": [
+    "normal",
+    "pm-fs"
+  ],
+  "total_RMSD_measurements": 18,
+  "new_searches": 0,
+  "criterion": {
+    "metric": "positional RMSD",
+    "cutoff_angstrom": 2.0,
+    "comparison": "<=",
+    "alignment": "none",
+    "symmetry": "none",
+    "top_n": [
+      1,
+      5
+    ]
+  },
+  "mapping_preflight": "passed before geometry; selected indices 0..8; original source IDs 1632..1640"
+}
