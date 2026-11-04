@@ -14,6 +14,23 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Pose-coordinate public-boundary follow-up — 2026-11-04
+
+[#63](https://github.com/uibcdf/dockingmt/issues/63) corrects finite-real numerical
+admission/export for DockingPose. Its [contract and source evidence](../validation/pose_coordinate_contract.md)
+preserve valid units/schema and reject lossy coercion/nonfinite snapshots, with
+453 relevant checks passing. Molecular inspection/manipulation remains provider-
+owned; the new guards concern DockingMT result-schema values only.
+
+The current controlled quantity-form probe passes pose roundtrips across all
+16 Pint/OpenMM/unyt/Astropy pairs. Protocol energy admission passes nine pairs
+over the first three forms and refuses seven involving Astropy's missing calorie
+unit. The PyUnitWizard-only reproduction is owned by
+[PyUnitWizard #137](https://github.com/uibcdf/pyunitwizard/issues/137), related to
+MolSysSuite #127. Retain provider causes; no local unit alias, forced form or
+policy override. This is source-profile evidence, not all translator families,
+public-file/minimum qualification or closure of #19's broader adoption review.
+
 ## What
 
 Review support-library and developer-tool adoption independently under

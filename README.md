@@ -347,6 +347,11 @@ geometry and known states. Existing names cannot be overwritten. The public
 [executed notebook](devguide/validation/fixed_pose_scoring.ipynb) for preparation,
 identity and comparison limits.
 
+Pose coordinates require finite real length data of shape `(N, 3)`. Complex or
+nonfinite values are rejected before lossy conversion, including malformed saved
+values and invalid mutable snapshots. See the
+[coordinate-record contract](devguide/validation/pose_coordinate_contract.md).
+
 Pose scores require nonempty names and finite real values. DockingMT normalizes
 them to Python floats without inferring units. `result.rank_by('vina')` returns
 a new result with lower scores first; use `ascending=False` for higher scores

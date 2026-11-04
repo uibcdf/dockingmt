@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (41)
+### Resolved (42)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
@@ -31,6 +31,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`receptor_pdbqt_atom_name_overflow.md`](receptor_pdbqt_atom_name_overflow.md) — [#44](https://github.com/uibcdf/dockingmt/issues/44) — Reject receptor atom names that overflow fixed PDBQT columns *(resolved, measured)*
 - [`recover_saved_human_case.md`](recover_saved_human_case.md) — [#58](https://github.com/uibcdf/dockingmt/issues/58) — Recover the saved 3PTB human result from verified linked evidence *(resolved, measured)*
 - [`reject_changed_prepared_recovery.md`](reject_changed_prepared_recovery.md) — [#57](https://github.com/uibcdf/dockingmt/issues/57) — Reject changed prepared inputs during saved-result recovery *(resolved, measured)*
+- [`reject_invalid_pose_coordinate_values.md`](reject_invalid_pose_coordinate_values.md) — [#63](https://github.com/uibcdf/dockingmt/issues/63) — Reject invalid pose-coordinate values before coercion and export. *(resolved, measured)*
 - [`replay_1iep_reference_and_control_from_saved_manifests.md`](replay_1iep_reference_and_control_from_saved_manifests.md) — [#16](https://github.com/uibcdf/dockingmt/issues/16) — Replay 1IEP reference and control from saved manifests *(resolved, measured)*
 - [`replay_file_backed_redocking_and_report_exploratory_metrics.md`](replay_file_backed_redocking_and_report_exploratory_metrics.md) — [#10](https://github.com/uibcdf/dockingmt/issues/10) — Replay file-backed redocking and report exploratory metrics *(resolved, measured)*
 - [`report_any_returned_recovery.md`](report_any_returned_recovery.md) — [#61](https://github.com/uibcdf/dockingmt/issues/61) — Report all-returned pose recovery independently of requested top-N. *(resolved, measured)*

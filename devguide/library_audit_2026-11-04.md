@@ -607,3 +607,26 @@ chemical/source mapping, physical/model accuracy, known environment closure,
 new panel admission and public/visual acceptance retain their separate limits.
 The rigid-only ligand and zero internal/torsional terms do not qualify flexible
 or nonzero-term normalization behavior.
+
+## Follow-up 10 — finite real pose-record admission, 2026-11-04
+
+The continuing #19 public-boundary review reproduces a concrete defect in
+DockingPose at `8087603`: nonfinite values are accepted, complex values lose
+their imaginary part during float coercion, and malformed saved/mutated values
+can reach result snapshots. [#63's correction](validation/pose_coordinate_contract.md)
+checks numerical schema contents before coercion and after normalization, using
+PyUnitWizard for units and the existing local coordinate diagnostic. It adds no
+molecular inspection, geometry, matching or repair; MolSysMT retains that work.
+
+Before the fix, 18 new controls fail/four valid cases pass. Afterward all 22
+coordinate controls pass within 453 relevant result/evaluation/audit/export/
+native-output checks, retaining the 40 warnings in their original selected gate.
+Valid schema/units/snapshots and shaped-empty behavior are preserved. These are
+new source checks; previous scientific producers and installed artifacts remain
+unchanged and do not inherit this correction's qualification.
+
+The bounded four-form probe passes 16 pose roundtrips and nine non-Astropy
+protocol-energy pairs, while seven Astropy energy pairs refuse kcal/kilocalorie
+parsing. The provider-only reproduction/request is PyUnitWizard #137, tracked
+under #19/MolSysSuite #127 without a local alias or caller-policy override. This
+is not full public-provider closure or a new molecular/model validity claim.

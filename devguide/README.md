@@ -39,6 +39,11 @@ failed gate and a separate offline correction, with two searches total and no
 new molecular/physical qualification. The saved assessment can be reproduced
 without loading a molecular provider or scientific engine.
 
+The [pose-coordinate contract](validation/pose_coordinate_contract.md) records
+#63's finite-real admission/export fix, source checks and the separate quantity-
+form probe. PyUnitWizard #137 owns the observed Astropy energy-unit limitation;
+no downstream unit workaround or molecular operation is introduced.
+
 The [scientific evidence overview](validation/scientific_evidence_overview_2026-11-04.md)
 provides a compact reproducible table of existing outcomes and E1–E11 limits.
 It preserves failed reporting stages and separate populations; no new molecular

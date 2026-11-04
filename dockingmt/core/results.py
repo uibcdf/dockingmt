@@ -134,8 +134,33 @@ def _normalize_scores(scores: Any) -> dict[str, float]:
     return normalized
 
 
+def _coordinate_values(values: Any) -> np.ndarray:
+    """Validate numerical pose-record contents without coercing or copying them."""
+    try:
+        raw = np.asarray(values)
+    except (TypeError, ValueError) as exc:
+        raise ArgumentError(
+            arg_name='coordinates', reason='Coordinates must have shape (N, 3).'
+        ) from exc
+    if raw.ndim != 2 or raw.shape[1:] != (3,):
+        raise ArgumentError(
+            arg_name='coordinates',
+            reason=f"'coordinates' must have shape (N, 3), got shape {raw.shape}.",
+        )
+    if (
+        not np.issubdtype(raw.dtype, np.number)
+        or not np.isrealobj(raw)
+        or not np.isfinite(raw).all()
+    ):
+        raise ArgumentError(
+            arg_name='coordinates',
+            reason='Coordinates must contain finite real numbers.',
+        )
+    return raw
+
+
 def _ensure_coordinates_quantity(coords: Any) -> Any:
-    """Validate that coords is an (N, 3) physical quantity with length units."""
+    """Require finite real (N, 3) length data and normalize it to nanometers."""
     if not puw.is_quantity(coords):
         raise ArgumentError(
             arg_name='coordinates',
@@ -147,14 +172,18 @@ def _ensure_coordinates_quantity(coords: Any) -> Any:
             arg_name='coordinates',
             reason=f"'coordinates' has unit '{unit_str}', which is not compatible with length.",
         )
-    raw = np.asarray(puw.get_value(coords), dtype=float)
-    if raw.ndim != 2 or raw.shape[1] != 3:
+    _coordinate_values(puw.get_value(coords))
+    try:
+        with np.errstate(over='raise', invalid='raise'):
+            normalized = puw.get_value(
+                coords, to_unit='nm', value_type=np.ndarray, dtype=float
+            )
+    except (FloatingPointError, OverflowError) as exc:
         raise ArgumentError(
             arg_name='coordinates',
-            reason=f"'coordinates' must have shape (N, 3), got shape {raw.shape}.",
-        )
-    unit = puw.get_unit(coords)
-    return puw.quantity(raw, unit)
+            reason='Coordinates must remain finite when normalized to nanometers.',
+        ) from exc
+    return puw.quantity(_coordinate_values(normalized), 'nm')
 
 
 def _atom_key(record: dict[str, str | None]) -> tuple[str | None, ...]:
@@ -236,7 +265,7 @@ class DockingPose:
     Parameters
     ----------
     coordinates : Any
-        Atomic coordinates of shape (N, 3) as a PyUnitWizard length quantity.
+        Finite real coordinates of shape (N, 3), with explicit length units.
     scores : dict[str, float], optional
         Finite real scores indexed by nonempty names (e.g. {'vina': -7.5}).
         Numeric values are normalized to Python floats without inferring units.
@@ -266,9 +295,7 @@ class DockingPose:
         metadata: dict[str, Any] | None = None,
         score_definitions: dict[str, dict[str, Any]] | None = None,
     ):
-        self._coordinates = puw.convert(
-            _ensure_coordinates_quantity(coordinates), to_unit='nm'
-        )
+        self._coordinates = _ensure_coordinates_quantity(coordinates)
         self.scores: dict[str, float] = _normalize_scores(scores)
         self.rank = rank
         self.pose_id = pose_id
@@ -346,6 +373,7 @@ class DockingPose:
 
     def to_dict(self) -> dict[str, Any]:
         """Serialize pose to an independent structured dictionary snapshot."""
+        coordinates = _coordinate_values(puw.get_value(self._coordinates))
         definitions = self.score_definitions
         metadata = dict(self.metadata)
         metadata.pop('score_definitions', None)
@@ -364,7 +392,7 @@ class DockingPose:
             record['metadata']['score_definitions'] = definitions
         # tolist owns its new nested lists; copying them again adds no isolation.
         record['coordinates'] = {
-            'value': puw.get_value(self._coordinates).tolist(),
+            'value': coordinates.tolist(),
             'unit': str(puw.get_unit(self._coordinates)),
         }
         return record
@@ -375,7 +403,23 @@ class DockingPose:
         validate_schema_version(data, cls.__name__)
         data = deepcopy(data)
         c_info = data['coordinates']
-        coords = puw.quantity(np.asarray(c_info['value'], dtype=float), c_info['unit'])
+        # Preserve wire scalar types until admission: NumPy/quantity factories
+        # can otherwise turn mixed booleans or numeric strings into real values.
+        try:
+            values = np.asarray(c_info['value'], dtype=object)
+        except (TypeError, ValueError) as exc:
+            raise ArgumentError(
+                arg_name='coordinates', reason='Coordinates must have shape (N, 3).'
+            ) from exc
+        if any(
+            isinstance(value, (bool, np.bool_)) or not isinstance(value, Real)
+            for value in values.flat
+        ):
+            raise ArgumentError(
+                arg_name='coordinates',
+                reason='Coordinates must contain finite real numbers.',
+            )
+        coords = puw.quantity(np.asarray(c_info['value']), c_info['unit'])
         return cls(
             coordinates=coords,
             scores=data.get('scores'),

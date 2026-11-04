@@ -49,6 +49,12 @@ Do not schedule that native pair again without a changed boundary or concrete
 diagnostic question. Provider-dependent panel admission and public compatibility
 remain the operational priorities; this control does not qualify either.
 
+The [#63 coordinate-record correction](validation/pose_coordinate_contract.md)
+rejects nonfinite/complex/coerced pose data and invalid mutable snapshots, with
+453 relevant source checks passing. Public-boundary review #19 remains partial;
+the observed Astropy kcal/mol limitation belongs to PyUnitWizard #137. These
+source checks do not relabel earlier installed or scientific qualifications.
+
 The [full helper receiving](validation/installed_support_receiving.md) completes
 the separate #47 installed-caller source adoption using shared `95f693be`:
 1,450 installed tests pass with declared isolated support. The earlier
