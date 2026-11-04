@@ -14,6 +14,20 @@ supersedes: []
 
 # Distribution control adoption
 
+## Shared multi-root validator received privately — 2026-11-04
+
+[Bounded installed receiving](../validation/installed_validator_receiving.md)
+exercises shared `95f693be` directly against the original actual private wheel.
+Both core/addon roots are inferred from the real payload inventory. Four
+source-origin/namespace/descriptor contaminations receive expected refusals,
+the inherited-path control selects the installed addon, and 162 existing
+addon/player/saved-audit tests pass with zero skips. All original receiver files
+verify unchanged. This is preparation for MolSysSuite #110 adoption, without
+changing the existing installed-workflow/source/scientific pins or claiming
+full-suite/staged/public/platform/helper qualification. Provider public delivery
+remains #294/#334. All four workflows at preceding exact head `2d7b410` now pass;
+this does not change the separately retained failed public Viewer receiving.
+
 ## Public Viewer artifact refused — 2026-11-04
 
 [Exact public Viewer receiving](../validation/public_viewer_receiving.md) verifies

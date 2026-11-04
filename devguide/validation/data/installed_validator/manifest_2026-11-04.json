@@ -1,0 +1,24 @@
+{
+  "schema": "dockingmt.installed_validator_manifest@1",
+  "owner": "uibcdf/dockingmt#47",
+  "provider_sha": "95f693be10c9205ab9b912cb53453710a207bf45",
+  "source_harness": "1c343924b4a144058685796783d72c174b032651",
+  "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "records": [
+    {
+      "path": "devguide/validation/data/installed_validator/cases_2026-11-04.json",
+      "sha256": "2e6b971b671cc7b3cfee54a1238df685efcc71393542086236143a77987b6715"
+    },
+    {
+      "path": "devguide/validation/data/installed_validator/sdk_source_2026-11-04.json",
+      "sha256": "115923cae1789bd7786061ce0a5ae49492c9f6bc380c6109461a46e4e5169f14"
+    },
+    {
+      "path": "devguide/validation/data/installed_validator/source_ci_2026-11-04.json",
+      "sha256": "4174f85277eae6e4ac86546930de90f08254df8dbc724d55d2e906071df4b4d2"
+    }
+  ],
+  "review": "2026-11-11",
+  "source_and_artifact_pins_unchanged": true,
+  "public_candidate_gate_passed": false
+}

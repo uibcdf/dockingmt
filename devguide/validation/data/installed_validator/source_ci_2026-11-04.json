@@ -1,0 +1,33 @@
+{
+  "schema": "dockingmt.source_checkpoint_ci@1",
+  "head": "2d7b410e3a8bf74a833554a4f55a01defd65f0e2",
+  "runs": [
+    {
+      "run": 41839976367,
+      "workflow": "CI",
+      "conclusion": "success",
+      "receptor_exit": 0,
+      "jobs": 7,
+      "python_test_lanes": 4
+    },
+    {
+      "run": 41839976417,
+      "workflow": "Addon DOM",
+      "conclusion": "success",
+      "receptor_exit": 0
+    },
+    {
+      "run": 41839976787,
+      "workflow": "Conda publication governance",
+      "conclusion": "success",
+      "receptor_exit": 0
+    },
+    {
+      "run": 41839976847,
+      "workflow": "MolSysSuite policy",
+      "conclusion": "success",
+      "receptor_exit": 0
+    }
+  ],
+  "public_viewer_receiving_remains_incompatible": true
+}

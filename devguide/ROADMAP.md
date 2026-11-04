@@ -34,10 +34,32 @@ scientific pins and public-minimum claims separate. Recover exact-head hosted
 gates in parallel. The bounded nine-atom path needs neither a new public selection
 API nor a downstream molecular helper.
 
+The [installed-validator receiving](validation/installed_validator_receiving.md)
+prepares a separate #47 profile while provider public files are pending. Exact
+shared `95f693be` passes 162 existing installed tests and four expected
+multi-root refusals; inherited source pytest paths are cleared. Installed caller
+adoption still needs the actual candidate/helper and full-suite review. No
+runtime, source/dependency pin, scientific record or public minimum changes.
+
 ## Checkpoint history
 
 The entries below are dated delivery/evidence records. Consult the operational
 plan above for current next work; preserve historical producers and claims.
+
+## Shared installed-validator receiving — 2026-11-04
+
+[Bounded #47 receiving](validation/installed_validator_receiving.md) verifies
+both actual installed import roots against shared `95f693be`: 162 existing
+tests pass, a separate inherited-path control passes, and four deliberately
+contaminated/missing-root profiles receive the expected provider refusal. The
+original wheel, private providers, all 45,015 receiver files and previous
+public-failure evidence remain unchanged. No kernel, preparation or engine/RMSD
+work occurs. Installed-workflow/source/scientific pins remain unchanged.
+
+**Next:** review the actual candidate/helper and full installed suite before
+installed-caller adoption; receive covering public provider files separately.
+All four workflows at `2d7b410` now complete successfully. Neither this source
+recovery nor the bounded validator receiving clears public/visual gates.
 
 ## Public Viewer artifact receiving — 2026-11-04
 

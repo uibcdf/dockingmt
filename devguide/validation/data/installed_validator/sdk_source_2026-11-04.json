@@ -1,0 +1,334 @@
+{
+  "commit": "95f693be10c9205ab9b912cb53453710a207bf45",
+  "export_sha256": "206a7b4ee33886e821eac6183ac3db2cb6971f9c07dff7e60a4bd99e2cc4de20",
+  "files": {
+    "devtools/README.md": {
+      "git_blob": "844a2ac61b6e7f06071a36e1cccfe32ed26ab0d8",
+      "sha256": "188b8cca14ec648f3082f4ec6657ab988247a3bcbf55b25da3a898e135e08029"
+    },
+    "devtools/ci_pilot_profiles.toml": {
+      "git_blob": "33f1e8969045d4817260d07a98df96ced4cd63ec",
+      "sha256": "2c4e0122cfae0a0fefbc2ea47b09d12302b2a6bcf887cf619a24aa20931a0272"
+    },
+    "devtools/conda-build/README.md": {
+      "git_blob": "b21f59f62fe3fe1c06f9660a8b627ed51472966d",
+      "sha256": "9381b0024d828e3e71e61c2efd100f17852ffe05957894a17adf13ebbb4038be"
+    },
+    "devtools/conda-build/molsyssuite-dev/meta.yaml": {
+      "git_blob": "6520b9641ced1b29ef9b7f34f16b14c00ec4e75c",
+      "sha256": "72eaaf6acfb4814dbb7ebe88ab211b562bfb88ee7ab9689c09f2e1d28eff4db4"
+    },
+    "devtools/conda-build/molsyssuite/meta.yaml": {
+      "git_blob": "afc19e91c5f5fdd32b02e2f3f02054d4fef55d3f",
+      "sha256": "b2b6d28d8b1c07c675ef3da812a841899c7c3c49f100ca2c1389a9b94900fdc3"
+    },
+    "devtools/conda-envs/README.md": {
+      "git_blob": "88a343f80fb882d242fcf5b44e29692b15adc140",
+      "sha256": "18f218862e88dc8d02567cceba814f37d20b48900e24f2e457dcb433322eeb90"
+    },
+    "devtools/conda-envs/molsyssuite-dev-py314.yaml": {
+      "git_blob": "d23f10e623a619d35e72248e2c320f404973a943",
+      "sha256": "ad1af9a324c37fa9a062130389a93d0010d95d9d1601a658bee96b445f2146d3"
+    },
+    "devtools/conda-envs/molsyssuite-dev.yaml": {
+      "git_blob": "81e57eca06788661a3b6ccd6b9fac5bf231991d2",
+      "sha256": "c4cc07985b83cc798baaf7b84a2158ae7d79e1fb0474fdedd6bd7e7f86e88f53"
+    },
+    "devtools/conda-envs/molsyssuite.yaml": {
+      "git_blob": "6b322662b6a194f0a45d0f4d173e978f423a1f7d",
+      "sha256": "28874ec7a0b95f04f7445570e469e9d755d1f623a503a4197069230cfd29c4aa"
+    },
+    "devtools/conda-envs/noarch-publisher.yaml": {
+      "git_blob": "8074a716026ddac40a8b7215a10923d9ebdf7890",
+      "sha256": "2d2802b07170ea23462f87fa5984500ea884787ce9022a5a5e1b3b569cfb928e"
+    },
+    "devtools/noarch_gate_profiles.toml": {
+      "git_blob": "fd49a5d190488f6408a733a5b061119d1a8d3078",
+      "sha256": "7dbdb0a58a50d9e61622e474bee975bb1f62195e55e108029962dae3f4be226d"
+    },
+    "devtools/scripts/_release_artifacts.py": {
+      "git_blob": "da7bc04076e37ccbfd00fc502612e85ba5345c59",
+      "sha256": "006e97bc5ef671942dcb2fbd9ab9047f8b3ca95021faa506de77530061d7fd77"
+    },
+    "devtools/scripts/_release_http.py": {
+      "git_blob": "22f8cf3e999c213a64a36dc223c798634e0b0245",
+      "sha256": "a9e10667cd66ebca2002d251106a7cfa0912b743eac4f227715a175a701a2081"
+    },
+    "devtools/scripts/adoption_status.py": {
+      "git_blob": "7a1c7cf3aa08b1cbef62ee85588c5916767c1f39",
+      "sha256": "8e750ced8a805c961a082872f3d48ccff50dd5da1a90a03c64b4eea89e4a0cf2"
+    },
+    "devtools/scripts/agent_instructions.py": {
+      "git_blob": "40cd4ee4f06fd2863a52c65f80451539cf2d085c",
+      "sha256": "73f5af2325beca483c7b2d88afae784a5acc0de0ceba97840cc8c801f0a97300"
+    },
+    "devtools/scripts/audit_zenodo.py": {
+      "git_blob": "e4facbf53db04158d69b954c170f9c4c375ac594",
+      "sha256": "5e8c6009d12cfc8ddad4b761ad12160eb23e66e893b9dac9b650e2320a597f3e"
+    },
+    "devtools/scripts/bootstrap_component.py": {
+      "git_blob": "3f1f6399a380e254b6fde3403d140a39ca5a54f9",
+      "sha256": "b934cfd79eae49faaa90918976426fc27f5a9e985673401f4d004ee329bc716c"
+    },
+    "devtools/scripts/central_metapackages.py": {
+      "git_blob": "d40915b8c0a9a94db3d531c28f832fd42aa745f1",
+      "sha256": "7a8f9721df4593c01353bc820f880db0808080563d1ac48bc90faab0c0f8037f"
+    },
+    "devtools/scripts/check_component_guide.py": {
+      "git_blob": "5371b8ea0870171c58a5e9654ee71e8123e67de3",
+      "sha256": "b3c3ff1a19992471b5a1bbfe5e2235d71e4380a016d7d4ae77a8aef839fbd9f2"
+    },
+    "devtools/scripts/check_repository.py": {
+      "git_blob": "46dd459727a198ba0cfe57a5708e2933f5238c26",
+      "sha256": "16a8473a8e2710b9483bbc8079b1cf63f179c80df1d56efeeee20eadb12fcc62"
+    },
+    "devtools/scripts/check_vendored_guides.py": {
+      "git_blob": "7cd238a3e2e282f99e2d636c8ea3fe04c6490b1c",
+      "sha256": "3ea895d769898fc0e3a528f513c273b971be6fe54f693e92fed7d5f40d093707"
+    },
+    "devtools/scripts/ci_lane_inventory.py": {
+      "git_blob": "5bf337e61b580d2704815daf5c912e2611d75a12",
+      "sha256": "16a74eed2109dde89d36b76ec872d6cc890501a8eae72b8a7d243162f62acca8"
+    },
+    "devtools/scripts/component_issue_labels.py": {
+      "git_blob": "a0d50c3e922801c34df9848f5ab6132079e212e1",
+      "sha256": "56c4b727a7bd50ddcd3ddcc524bc87ec440b1afb703dde4d084a779cbfaebb3e"
+    },
+    "devtools/scripts/conda_environment_tools.py": {
+      "git_blob": "bd7b1f9ea818b5348b12c5abddc70b45bcb71d7a",
+      "sha256": "ff3e77fabb5641ae2cdbd8bd105c79faac5e3531e61282ae17b09b7605d19278"
+    },
+    "devtools/scripts/conda_release_contract.py": {
+      "git_blob": "09e67416a366e44956dde6b277d69bb6fcf7c553",
+      "sha256": "ce166c0990f386eb5b020192ef9b8d8381a3da47aa8d95507a6adb51d30009f3"
+    },
+    "devtools/scripts/coverage_audit.py": {
+      "git_blob": "b67d7803e6a2f15730603eaf5adc11516a1b3037",
+      "sha256": "ca010df4998e259162637f9359cafe7c82be3f633ce335ceb1961abbcd622317"
+    },
+    "devtools/scripts/dependency_constraints.py": {
+      "git_blob": "cfa533d8f90307dc93c68dab0296830108087652",
+      "sha256": "83653a032be3140f3af3b34f656b0370ab76fe47eafeaab0962575e3d87837c2"
+    },
+    "devtools/scripts/dependency_graph.py": {
+      "git_blob": "35517cb447b5082731659364d7003ff9d7cd0e28",
+      "sha256": "716d8bd3d24f95fd8246fe7b969a0a93afe81b3f6acf2a249814da3b09e67f18"
+    },
+    "devtools/scripts/dependency_route_contexts.py": {
+      "git_blob": "f004eb504e5a54ce4f4d778b4c846093a55e1a76",
+      "sha256": "400dec60c009ba7bf889e38b3a349c7c94ac6400842024d81f93c5734dfafae7"
+    },
+    "devtools/scripts/dependency_routes.py": {
+      "git_blob": "00465c0b0908e267db3d982bce05e400511fad10",
+      "sha256": "873751a152174a4020b5f2d59fd4385890035d820c6dfd4defd331a08ce19a14"
+    },
+    "devtools/scripts/development_environment.py": {
+      "git_blob": "c5b5887c5243e85e78cce5961eecbffe1a7fa976",
+      "sha256": "94d16fc8837042c00bec0d8aaff424082cabb5a0ee8f24a97f9192aad15a048b"
+    },
+    "devtools/scripts/devguide_index.py": {
+      "git_blob": "8ebf63bb1e8c959227034fa0daff35e912a07cf0",
+      "sha256": "5f67b9b8b200e4f5aa58a04f9845753debae73252f6782d26872752fb4f9aa26"
+    },
+    "devtools/scripts/devguide_reports.py": {
+      "git_blob": "7bb8e4c9200baefc6ec027fa89e6d921d2f7be4f",
+      "sha256": "892e4d8357383bca0f00c6b2bb652409bb3530435610d505c717fee463f5d933"
+    },
+    "devtools/scripts/installed_imports.py": {
+      "git_blob": "c5816bd25dfc1a9dd02226bd287516b36f1028a2",
+      "sha256": "ff23458015bb7ce83bc3eea36571c4294bed09fff948e8eb6d9bcb3a0615fa3c"
+    },
+    "devtools/scripts/installed_noarch.py": {
+      "git_blob": "f816108a73c051ecb419a4ab1bec65e9ed3cd998",
+      "sha256": "3f34a46cab45f6987fc33da3a3d7f82178f395ea0980ac5b46b1d9b64ebffe57"
+    },
+    "devtools/scripts/installed_test_dependencies.py": {
+      "git_blob": "3fe1790123b8bd1a12dc0d5c46d6109c60f16db3",
+      "sha256": "4383b94ae7638d945e913b1f34055bd28214513feb5925ff6060d23aa94c76d8"
+    },
+    "devtools/scripts/installed_test_support.py": {
+      "git_blob": "36746a1b1da374081ca42a7354db15d14443bdb1",
+      "sha256": "11ae22606546b62f28536a7a4126e2bc25d676d55bc3b92d74b56e7094e0cf87"
+    },
+    "devtools/scripts/molsys_dev_setup.py": {
+      "git_blob": "2970ec393220d6ea3c42c3bd9e1162348c2293bd",
+      "sha256": "55b72dab90b99ed8ae769268e48b1aaada7df944b38673a7f891957c0f2f7295"
+    },
+    "devtools/scripts/native_conda.py": {
+      "git_blob": "30e8479bd0ca7fec5b4aec3f5bbdbcd27be073d1",
+      "sha256": "02bfcdea5640174d010f1197d0f5a05ba91364ecbdbaadaf62d47bf9d15db2c6"
+    },
+    "devtools/scripts/noarch_conda.py": {
+      "git_blob": "4bc5861f2f1d7193941ca324b853037d857953bd",
+      "sha256": "27ccce65d08b6076cd9a30eb288079c348d8c3e190b5ffc0a6ad47c10fd238f1"
+    },
+    "devtools/scripts/noarch_release.py": {
+      "git_blob": "0bed4135cc3c6c2083be5de7b4ddac20922b7369",
+      "sha256": "631b0bbc3f8ad916cef04e5a0b538dc8e4432a3537d74868e9341df071daa053"
+    },
+    "devtools/scripts/preflight_conda_release.py": {
+      "git_blob": "d6b6cf3d396012ae038f5c43f4fbf4b0dc156814",
+      "sha256": "75b4067aa29ff45190160823e2c12ea81fa0a0eabedf232e7d340ec0c964f83c"
+    },
+    "devtools/scripts/public_noarch_commands.py": {
+      "git_blob": "7fbb18e9e950f36e0d290646b50b12a35760e82a",
+      "sha256": "c49df952da1916b791b56f5658c5d0ae577c28e988173db6e49e700dbed004e7"
+    },
+    "devtools/scripts/python_ci_status.py": {
+      "git_blob": "a5d135e7eb50ce854f6d46a3825844d4c67a6aab",
+      "sha256": "d8e2a44b1a7c0449f3f10ac186db2d28cc3b4a039c95a0a344eef84c55774be8"
+    },
+    "devtools/scripts/python_distribution_status.py": {
+      "git_blob": "0e11c8847e0e1aae4f3bb59df2a1de3d9f4b3ea3",
+      "sha256": "02961e188824026e1e89795e0d66060cd8a7fbc12cb9175b27c560d8341736ac"
+    },
+    "devtools/scripts/python_ecosystem_status.py": {
+      "git_blob": "de9d65f4db4550c65dd89991ecf350ea36a5e7eb",
+      "sha256": "0c934e863fc9cd095d64163dc7abb206dfd2bd2a1a9bb18dd9b4ae6548abfcf6"
+    },
+    "devtools/scripts/qualify_noarch_install.py": {
+      "git_blob": "d0ff33d8ef2cd29d947486c257ccd96b5ce26251",
+      "sha256": "6af19d887b26e7486088d6f9a7239144ccd0f674f9771279a14a4afbd24c568e"
+    },
+    "devtools/scripts/repository_badges.py": {
+      "git_blob": "f2ea77caab857563f752bf9b2f7929122b1fb5a0",
+      "sha256": "a2bd23ec434318196dc18ffbbba700ad002a75fa412223182669a34f83b7ca0a"
+    },
+    "devtools/scripts/repository_read_access.py": {
+      "git_blob": "d8868a01f30edde52058625756e9e4610dfd4e67",
+      "sha256": "883f1645cbd7dadaaf36db92a3e8866ff47bbf6637cf195aa94df8ce134a1b8e"
+    },
+    "devtools/scripts/setup.py": {
+      "git_blob": "1816dd342637c8676d71a9607111b629a711cc8a",
+      "sha256": "b23af9c174a354d017ef9834d66591d8b6103df6ec708cd3b748f3615cd9f0e4"
+    },
+    "devtools/scripts/source_provenance.py": {
+      "git_blob": "23aef0c00ceecaa55050775d4627adfbd5810e00",
+      "sha256": "772491b54f2f3c14ffd602f39ae66438be3da5059ead0e8ee31644d9aa9e2e6c"
+    },
+    "devtools/scripts/suite_policy.py": {
+      "git_blob": "ad36ee64b69e0dc70a8152b9a9ce8719f1e8fc81",
+      "sha256": "8c5241faf41aea9f914da64dd289fd74d7c0a0ace8ba70728ffc2673f8dc3aba"
+    },
+    "devtools/scripts/suite_status.py": {
+      "git_blob": "2d787bfd5de88cc8540e66cc728ad9ebac5f3903",
+      "sha256": "bd51ad85600a4aa3c3333dc37ac900ad911c7a72deffb048294b7bf051ec2130"
+    },
+    "devtools/scripts/sync_component_guide.py": {
+      "git_blob": "3780c7a7ea149621a3e87cf976f0f0df94f0a164",
+      "sha256": "6e50f7f55cfa249983f0ad3217db88bae91822342bae8cb85fb79c74e560f17b"
+    },
+    "devtools/scripts/sync_vendored_guides.py": {
+      "git_blob": "08f65d56bf4fe4e30c2f6a7e47ea2509890e6f6a",
+      "sha256": "a04b1407fbb8922a40134b537b776ccc3c37a23da946f06a7f9f59c59c4de163"
+    },
+    "devtools/scripts/upstream_release_watch.py": {
+      "git_blob": "3a4c92e5c9e60532d18f1d5e3fb2abc33049a5ba",
+      "sha256": "7bb239194d218a92c793d1277833ab2ee56810e9672e0eccdfcb89db37651a39"
+    },
+    "devtools/scripts/validate_governance.py": {
+      "git_blob": "60c9199942f8eba28d7171f410c94afd94201f56",
+      "sha256": "e055f2c2af01d6e1120536dc29069aaf49ae709d9b0d10d7a911a5fcec46bf83"
+    },
+    "devtools/scripts/verify_installed_matrix.py": {
+      "git_blob": "7609f5062508a52c65b8c59768802a4d65e5e6a5",
+      "sha256": "83be50c5eca8e10de9117c62ddb7b350450815768324e3da31001637d41276c1"
+    },
+    "devtools/scripts/verify_public_conda.py": {
+      "git_blob": "01b93db6aeb5bf682c15b85718f525a0579c5028",
+      "sha256": "bb743343ec7a58659b90e6cbae1a06380c7fd8e2328b1b7c11c85e52fc890567"
+    },
+    "devtools/scripts/verify_zenodo_releases.py": {
+      "git_blob": "95725c2edec4e933b26a420a3affea5637724048",
+      "sha256": "be8ee8e1036d77f1bf67f90b1c02c913dbe24848dd5fb3729f773f6260a1c982"
+    },
+    "devtools/templates/python_component/.github/workflows/ci.yml": {
+      "git_blob": "8f1b53596e9ec0c1125835751b4ca191fe4d9707",
+      "sha256": "f3a3470da686cd5afe1869cc8879c1c4069c572d321ee879f6ca3b8f88a73d04"
+    },
+    "devtools/templates/python_component/.github/workflows/molsyssuite-policy.yml": {
+      "git_blob": "5b3e0d3fbcf9fef7e07a81bb75d633cb83220b4d",
+      "sha256": "faa6b96968a889c0eb0411892592d3330fa44f06445ef73e43d591754d525081"
+    },
+    "devtools/templates/python_component/.gitignore": {
+      "git_blob": "2993a2780a73d386177a9a02ed9d075d9c2f3f92",
+      "sha256": "723afa6ae156da80407b6cca00de41b5039e5bbb9298f32c898b5e86c7eaf339"
+    },
+    "devtools/templates/python_component/AGENTS.md": {
+      "git_blob": "7df106d2572a3396be4b1fdfc6dffee4fb628dd7",
+      "sha256": "c354781ac0ac58fb52326808ad6abb921be84b4095d4e3cedd8804a3c708621e"
+    },
+    "devtools/templates/python_component/README.md": {
+      "git_blob": "03213b07815cdbebea58d313aceb0f776c6efbf3",
+      "sha256": "090e9b705a539e7a5ef6b2d0e5608274286c12926f0f0010a4144df11943efc6"
+    },
+    "devtools/templates/python_component/devguide/AGENTS.md": {
+      "git_blob": "b45bb3258c92f2870ea648048e555803a2f07ff9",
+      "sha256": "b74cd60a6537a8508a8d540e5eb5ce3412745ff84c5fe1c834ee0cde79b6d094"
+    },
+    "devtools/templates/python_component/devguide/archive/README.md": {
+      "git_blob": "0d367dbdf3ab62b31f7d445da8f98ce5bb22ebb2",
+      "sha256": "852e3046dbc86c9f286d6ed1040b7023d788cee0195fc2c0fe51fc50866fcfda"
+    },
+    "devtools/templates/python_component/devguide/frontend_dom_review.md": {
+      "git_blob": "8ac2fd6beffe95a10fa6dd404280f42ec0726da3",
+      "sha256": "0771d3db854c85491caf44404f1f9e15dddd56745b62fab14dbafc7427b9daf7"
+    },
+    "devtools/templates/python_component/devguide/optional_engine_review.md": {
+      "git_blob": "df141a342645e5cd2f0a3ff67be67b541469ac76",
+      "sha256": "e79d0c6fb4d87792d589c512f43fe4d94a0d02e8b5d36b96d35457fe5e4900ad"
+    },
+    "devtools/templates/python_component/devguide/pending_bugs/README.md": {
+      "git_blob": "24888623c7fe6a3fd3b3fcfb66274736ba93a676",
+      "sha256": "3c87f3c4b276434e4cc1a0ad22f0034672639a3119813666bd79d9b722fd74ac"
+    },
+    "devtools/templates/python_component/devguide/pending_proposals/README.md": {
+      "git_blob": "f00508468fdcbd0a36ff3fbbd2875cfdadf79e2a",
+      "sha256": "3ffbe4727666950299c59e58d93ad4a6e4681f6f728c54d86001d09ce87c5435"
+    },
+    "devtools/templates/python_component/devguide/release_titles.md": {
+      "git_blob": "df69aca3bd109efffdea22fc82de803f4249eb79",
+      "sha256": "63c28bb6c16f5da22c0c60474b792e6f09a5659e0d82db5ff50e64c8898b1ce6"
+    },
+    "devtools/templates/python_component/devguide/reporting_protocol.md": {
+      "git_blob": "9672716ff87857f8ae2a300518cbb2140bd8749a",
+      "sha256": "a177ddda471c800f3e57b5eb24fb0aa045875557051c9d14776aab7c8e7dcbd0"
+    },
+    "devtools/templates/python_component/devguide/templates/report.md": {
+      "git_blob": "26c8add6130a5103c5abe62fac8d7cc8e6488448",
+      "sha256": "f220fc97e1ced7c2cbcf52fa0acd541b121a2adbe43c6d88b37db76f932b9bb8"
+    },
+    "devtools/templates/python_component/devtools/conda-envs/development_env.yaml": {
+      "git_blob": "9131cf0d984bf16788e2ddeb08cba5326d0c1d9d",
+      "sha256": "cf43a925026732edba652811393c2dd559fae508574d64846bc330180abdd150"
+    },
+    "devtools/templates/python_component/devtools/conda-envs/test_env.yaml": {
+      "git_blob": "f9cb0bebaa246cb8441fed94ec4bbc3465fa2e45",
+      "sha256": "89c2f6a55f5296d6d4691576c885640d1a0966508ae6dbe26314d3e1ae73dd5a"
+    },
+    "devtools/templates/python_component/devtools/devguide_index.py": {
+      "git_blob": "2ee1fba084d73a47e64b8fabb280cec0104a17b3",
+      "sha256": "85c00d4dc3afbff09f8adf8f96fb80d20c30354a83f6bed337be8c2ba0834e5e"
+    },
+    "devtools/templates/python_component/devtools/devguide_reports.py": {
+      "git_blob": "083bf0c7625df561302fe9070858e70123d89055",
+      "sha256": "dc1089962b5775fbcbc78068856c4c39848657247ff417bfc1c12ba2949ea75e"
+    },
+    "devtools/templates/python_component/pyproject.toml": {
+      "git_blob": "e92bc8480ddebfa4220c6c67004ac12d6eed25cf",
+      "sha256": "9c35b63230cf66a55f4d43b1fe088a5271f6f8b5934ac9d2e3af46c42f4cb71b"
+    },
+    "devtools/templates/python_component/src/__PACKAGE_NAME__/__init__.py": {
+      "git_blob": "36290b9b00a951012cd0e686013831296e2fb728",
+      "sha256": "81ffb1dd2a21811fd480712bde206df6c2ae4440009726579a8fc4508c8a1159"
+    },
+    "devtools/templates/python_component/tests/test_import.py": {
+      "git_blob": "4c4614ee40858493ad08162a268921c93d812858",
+      "sha256": "0ab573ec93272566dba7f1fc0c8d4d380895d4d4e68422a4ee0f923e6226577f"
+    },
+    "devtools/templates/python_component/tests/test_reporting_protocol.py": {
+      "git_blob": "89d445326b8c06a465ab40ffda22b01a016318c1",
+      "sha256": "fec2c7048d08f3d2a068b880c5c24fd5a7b0c5fcb0be0c07dc3e143549d54ad9"
+    }
+  }
+}

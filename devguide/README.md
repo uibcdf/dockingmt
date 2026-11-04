@@ -68,6 +68,14 @@ triage. Keep the successful private composition; repeat installed receiving
 against a covering file before the saved-case notebook. No molecular fallback,
 new minimum, release or visual acceptance follows.
 
+[Installed-validator receiving](validation/installed_validator_receiving.md)
+prepares another #47 boundary: the shared multi-root checker passes 162 existing
+tests on the retained private wheel and refuses four controlled source-origin/
+descriptor contaminations. The inherited-pytest-path control also passes. This
+does not adopt the installed workflow or qualify a staged/public candidate;
+source/scientific pins and previous receipts remain unchanged. The four hosted
+workflows at prior head `2d7b410` are now recovered successful.
+
 Start with [license metadata and private archive qualification](validation/license_metadata.md)
 for the latest #47 slice. The SPDX migration and aligned build floor pass actual
 minimum/development-backend builds, archive checks and installed metadata discovery.
