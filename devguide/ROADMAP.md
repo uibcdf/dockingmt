@@ -8,14 +8,14 @@ Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which
 reviews all 35 C0–C6 criteria against the unchanged runtime baseline `8f17116`. It distinguishes current
 implementation, original scientific evidence, private installed qualification
 and pending acceptance. The [human workflow review](human_workflow_review.md)
-tracks the delivered preparation, two-search execution and saved-record inspection. This section is the active queue;
+tracks the delivered preparation, two-search execution, saved-record inspection and nine-atom evaluation. This section is the active queue;
 dated checkpoint entries below retain their original state and historical
 "Next" instructions.
 
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |
 | 1 | Current Core evidence and source CI (#28/#60) | The updated criterion map is delivered. Inspect the exact source/head's remaining hosted lanes and append their outcome to the owning issues; previous successes do not qualify another composition. |
-| 2 | Installed Python/Jupyter use (#4/#33) | Preparation, the separately registered native/displaced execution and detached saved-record inspection are delivered outside source: two searches return 5+4 full poses, with no retry/RMSD/viewer call. Next declare and qualify the public evaluation route for the nine observed heavy atoms, using provider-owned selection/correspondence/geometry and preserving the full original result. |
+| 2 | Installed Python/Jupyter use (#4/#33) | The declared 3PTB preparation → two-search execution → saved inspection → nine-atom evaluation path is delivered outside source. Seven evaluation cells pass normal/pm/fs receiving with preserved full results, provider-owned selection/geometry and existing public reports. Broader source/replay/model questions remain partial; add another workflow only for a concrete need. |
 | 3 | Actual distribution readiness (#30/#47) | Review published provider coordinates/API minima and the real candidate plan, including frontend tests and actual installed platform/minor gates. No publication follows from private wheels. |
 | Deferred | Live observation (#52/#60) | On the maintainer's decision, observe real controls/comm/canvas, frame correspondence and reference/domain visibility; visible C4/C6 remain unaccepted. |
 | On provider delivery | Remaining molecular profiles (#49/#33) | Receive MolSysMT #521 against its actual partial/reference contract before removing the covered verifier. MolSysMT #256 remains post-1.0 general mechanics persistence, separate from the supported linked-record route. |
@@ -27,10 +27,35 @@ their presence is not whole Extended-MVP acceptance. New engines, receptor
 flexibility, screening infrastructure and guided-search horizons need a concrete
 accepted workflow after the Core priorities above.
 
+The next concrete product block is #30/#47: review actual published provider
+coordinates/API minima and the candidate plan before any artifact/publication
+claim. Recover exact-head hosted gates in parallel. The bounded nine-atom path
+needs neither a new public selection API nor a downstream molecular helper.
+
 ## Checkpoint history
 
 The entries below are dated delivery/evidence records. Consult the operational
 plan above for current next work; preserve historical producers and claims.
+
+## Installed saved-pose nine-atom evaluation — 2026-11-03
+
+[The registered #4/#33 evaluation](validation/installed_3ptb_evaluation.md)
+completes seven exact source cells under normal and pm/fs policies. MolSysMT
+selects/extracts coordinates and measures RMSD; fresh public DockingMT comparison
+views preserve original thirteen-atom records and public reports/summary retain
+the declared positional meaning. Full-population mismatch refuses before
+geometry. All five native/four displaced poses remain included; there are nine
+distinct poses and eighteen measurements across policies, zero new searches.
+
+At the registered inclusive 2 Å criterion, native first/closest are approximately
+1.934/0.228 Å; displaced first/closest are 65.312/62.074 Å. No fit/symmetry or
+reranking occurs. Both kernels close, original payloads/results verify, and 131
+installed offline tests pass with two engine-entry tests explicitly deselected.
+Earlier failed software selections remain separate, with engine requests guarded.
+
+**Next:** actual public dependency/candidate readiness under #30/#47 and hosted
+gate recovery. This retrospective one-hypothesis observation does not establish
+general model quality, affinity, dataset success rate or visible C4/C6 acceptance.
 
 ## Installed two-search execution and inspection — 2026-11-03
 

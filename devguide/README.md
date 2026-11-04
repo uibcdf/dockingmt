@@ -42,9 +42,13 @@ and two-problem protocol admission, with zero engine/evaluation/viewer attempts.
 The [execution guide/notebook](validation/installed_3ptb_execution.md) completes
 the separately registered two-search follow-up: 5+4 full poses, actual inputs/
 boxes/calls and detached saved-record inspection, with no RMSD or viewer action.
-The [workflow review](human_workflow_review.md) retains the next explicit public
-nine-heavy-atom evaluation boundary. Visual acceptance remains deferred; no
-recovery, affinity, whole-Core or release acceptance is implied.
+The [evaluation guide/notebook](validation/installed_3ptb_evaluation.md) now
+delivers that explicit public nine-heavy-atom comparison under normal and pm/fs
+policies, preserving full original poses with no new searches or molecular tool.
+The [workflow review](human_workflow_review.md) identifies public dependency/
+candidate readiness as the next block. Visual acceptance remains deferred;
+finite positional recovery does not establish affinity, general model quality,
+whole-Core or release acceptance.
 
 Start with [public player notification receiving](validation/player_notifications_receiving.md)
 for the current #60 checkpoint. MolSysViewer #291 has delivered synchronous

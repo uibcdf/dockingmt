@@ -14,6 +14,24 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Public saved-pose nine-atom evaluation — 2026-11-03
+
+[The #4 evaluation](../validation/installed_3ptb_evaluation.md) verifies the
+declared nine-heavy-atom axis through public MolSysMT selection/getters and
+passes seven cells under normal and pm/fs policies. Full original thirteen-atom
+results remain unchanged; fresh explicit coordinate views use public DockingMT
+constructors/evaluation/summary and provider RMSD, without private metadata
+projection or a new molecular routine. All nine saved poses remain included;
+native first/closest is about 1.934/0.228 Å, displaced 65.312/62.074 Å under the
+registered positional <=2 Å criterion, with no alignment/symmetry or reranking.
+
+Both kernels close with zero new preparation/energy/search/viewer attempts.
+Final installed offline tests pass 131 cases (two engine-entry cases deselected);
+initial guarded selection failures remain separate. This retrospective
+one-hypothesis result does not certify chemical preparation/model quality or
+affinity; #33 remains partial. Next public dependency/candidate readiness stays
+#30/#47, and remaining reader/visual/general persistence scopes retain their owners.
+
 ## Registered installed execution/inspection — 2026-11-03
 
 [The #4 follow-up](../validation/installed_3ptb_execution.md) attempts the native

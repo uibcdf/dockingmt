@@ -63,6 +63,27 @@ heavy-atom evaluation population and verify a public selection/correspondence/
 geometry route, preserving the original full poses. No recovery/affinity claim
 or whole-Core/public/visual acceptance follows from this demonstration.
 
+## Delivered public nine-atom evaluation — 2026-11-03
+
+The [evaluation guide/notebook](validation/installed_3ptb_evaluation.md) completes
+seven exact cells under normal and pm/fs policies, with zero preparation/engine/
+viewer attempts in either scientific kernel. MolSysMT selects the captured
+partner's nine heavy atoms, verifies the declared axis through public getters
+and extracts pose coordinates; fresh public DockingMT comparison records retain
+explicit parent bindings without slicing preparation metadata or inventing
+verified maps. Both original thirteen-atom results remain intact. Public
+`evaluate_redocking` / `summarize_redocking` use provider geometry and the
+registered positional <=2 Å / first-N 1,5 interpretation. The full 13-versus-9
+population refuses before geometry.
+
+All 5+4 poses remain included: nine distinct poses / eighteen measurements across
+policies. Native first/closest RMSD is approximately 1.934/0.228 Å; displaced is
+65.312/62.074 Å. This retrospective observation of one hypothesis has no fit,
+symmetry, reranking, affinity or general model/dataset claim. Both kernels close;
+original archives/results verify. The final installed offline selection passes
+131 tests with two engine-entry tests deselected; earlier guarded selection
+failures remain separately recorded. No new molecular tool/runtime API is needed.
+
 ## Workflow and existing public seams
 
 | Stage | Existing operation | Decision that remains with the scientist |
@@ -149,11 +170,13 @@ docking record and the existing package operations for its semantics.
 
 ## Subsequent steps and boundaries
 
-Preparation, protocol admission, separately registered two-search execution and
-detached saved-record inspection are delivered above. Next declare and qualify
-the nine-observed-heavy-atom evaluation route before RMSD. Keep the nine-heavy-
-atom reference versus 13-atom prepared-ligand decision explicit; no private
-heavy-pose helper becomes a public molecular operation.
+Preparation, protocol admission, separately registered two-search execution,
+detached saved-record inspection and explicit nine-observed-heavy-atom evaluation
+are delivered above. The public provider route preserves full source results
+without a private heavy-pose helper or new molecular tool. Next review actual
+published provider coordinates/API minima and candidate readiness under #30/#47,
+while recovering exact-head hosted gates. Broader source/replay and scientific
+profile questions remain #4/#33 and need concrete accepted workflows.
 Do not extract all of `admit` into a universal public preparation function.
 
 MolSysMT #256 owns future MolecularMechanics persistence, and #521 owns the

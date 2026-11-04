@@ -41,6 +41,7 @@ private wheel is also distinct from a publicly admitted distribution.
 | I | [Installed record inspection](validation/installed_result_inspection.md): eight public-API cells pass for original and missing-capture records, with units, refusal controls and installed provenance. It reads records without authenticating the entire original bundle or restoring a molecular problem. |
 | W | [Installed preparation/admission](validation/installed_3ptb_preparation.md): nine public-API cells pass under normal and pm/fs policies, recreating explicit 2,011/13-atom inputs and admitting two planned problems. Its own scope has no search/evaluation/viewer calls; actual execution is separate evidence E. |
 | E | [Installed two-search execution](validation/installed_3ptb_execution.md): separately registered workflow source `1ef85cb`, unchanged consumer/provider archives, native/displaced attempted once each and 5+4 full poses. Saved-record audits/captures, refusal controls and nondefault-policy inspection pass; no RMSD/recovery or affinity claim. |
+| G | [Installed saved-pose evaluation](validation/installed_3ptb_evaluation.md): source `d026434`; all 5+4 poses, nine originally observed heavy atoms, positional <=2 Å without fit/symmetry. Seven cells pass normal/pm/fs receiving (18 measurements, nine distinct poses); full original records remain intact. This is retrospective same-hypothesis evidence, not general model/dataset acceptance. |
 | V | [Player receiving](validation/player_notifications_receiving.md): exact Viewer `78ede79e`, real Python widgets, immediate navigation, full private installed gate and five-cell kernel replay. [DOM tests](validation/addon_dom.md) separately exercise shipped JavaScript with a model double. Browser comm/pixels remain unobserved. |
 
 The V receiving uses original DockingMT wheel producer
@@ -79,7 +80,7 @@ the evidence keys above identify executed results and their limits.
 | C1.4 Preparation failures | Supported: missing Q/types, unknown H, conflicts and provider errors reject; P/C. | #5's unsafe placeholder mechanisms are resolved; scientific follow-up stays #33. |
 | C2.1 Multiple normalized poses | Supported: S has 167 poses; H/R/V retain the five-pose case; E adds two current-composition searches and nine full poses. | E has its own finite denominator; V remains a saved-case receiving. |
 | C2.2 Scores/ranks | Supported: named descriptors, ranking history and distinct position/rank; S/H/V. | No implicit rescoring, arbitrary score substitution or fabricated rank. |
-| C2.3 Reference RMSD | Supported: [evaluation API](../dockingmt/evaluation.py), original positional criterion and separate optional symmetry; S/H. | Reference, correspondence, units and policy must be explicit; panel navigation computes no RMSD. |
+| C2.3 Reference RMSD | Supported: [evaluation API](../dockingmt/evaluation.py), original positional criterion and separate optional symmetry; S/H/G. | G verifies the public nine-atom route with preserved full poses; population/frame/correspondence remain explicit and no general recovery guarantee follows. |
 | C2.4 Molecular/receptor state | Supported: declared states and original frame retained; P/H/C/V. | State selection is not automatic chemical validation (#33). |
 | C2.5 Reconstructable run | Supported bounded record/byte/configuration recovery; H/P/R. | Supplied native objects or explicit recipe replay remain necessary; recovery is not re-execution (#4). |
 | C3.1 Backend-independent box | Supported: [BoxRegion](../dockingmt/core/search_domain.py), explicit/derived domains and physical units; D/S. | Rich domains and guidance remain future scope. |
@@ -109,9 +110,11 @@ the evidence keys above identify executed results and their limits.
    walkthrough also passes both unit-policy profiles, with 64 existing installed
    contract/assessment guards. Its separately registered execution E now returns
    5+4 full poses from two attempts, with 144 existing audit/schema guards and
-   saved-record reading passing. Next declare the public nine-heavy-atom
-   evaluation route in the [workflow review](human_workflow_review.md), before
-   RMSD. W/E add no whole-Core, recovery or visual acceptance claim.
+   saved-record reading passing. The seven-cell public nine-heavy-atom evaluation
+   G now passes both policies, with 131 offline tests passing and two engine-entry
+   tests deselected. The bounded installed workflow is delivered; next review
+   public dependency/candidate readiness under #30/#47. G's retrospective
+   observation adds no whole-Core, general-model or visual acceptance claim.
 3. MolSysMT #521 remains an undelivered extension. Retain its bounded existing
    profile/refusal boundary; do not replace it locally. MolSysMT #256 is explicitly
    post-1.0 H5MSM 0.6 MolecularMechanics persistence, not a prerequisite for the

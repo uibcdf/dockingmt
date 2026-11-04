@@ -18,6 +18,8 @@
 | `validation/installed_3ptb_preparation.md` | How can an installed-package user reproduce the declared preparation and admit a plan without executing Vina? |
 | `validation/installed_3ptb_execution.md` | How can an installed-package user execute the registered two-search demonstration and inspect its saved records? |
 | `validation/installed_3ptb_execution_registration.md` | Which population, controls and failure policy were fixed before the two new searches? |
+| `validation/installed_3ptb_evaluation.md` | How can saved poses be evaluated over nine observed heavy atoms through public APIs while preserving full results? |
+| `validation/installed_3ptb_evaluation_registration.md` | Which atom population, positional criterion and unit-policy receiving were fixed before RMSD? |
 | `VALIDATION_STRATEGY.md` | How do we distinguish software correctness from scientific validity? |
 | `MOLSYSSUITE_INTEGRATION.md` | How does DockingMT interact scientifically with sibling components? |
 | `MOLSYSVIEWER_INTEGRATION.md` | How should DockingMT own its viewer integration? |

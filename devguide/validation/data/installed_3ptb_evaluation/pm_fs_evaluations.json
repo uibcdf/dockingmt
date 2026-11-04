@@ -1,0 +1,2996 @@
+{
+  "native": {
+    "schema_version": "1.0",
+    "evaluation_type": "redocking",
+    "criterion": {
+      "metric": "positional_rmsd",
+      "unit": "angstrom",
+      "cutoff": 2.0,
+      "comparison": "<=",
+      "alignment": "none",
+      "symmetry_correction": "none",
+      "coordinate_frame": "caller_declared_shared_receptor_frame",
+      "atom_scope": "retained_pose_atoms",
+      "atom_correspondence": "caller_declared_positional",
+      "top_n_basis": "result_order"
+    },
+    "reference": {
+      "kind": "coordinates",
+      "coordinates": {
+        "value": [
+          [
+            -1.8530000000000002,
+            14.311,
+            16.658
+          ],
+          [
+            -2.107,
+            15.653000000000002,
+            16.758
+          ],
+          [
+            -1.774,
+            16.341,
+            17.932
+          ],
+          [
+            -1.175,
+            15.662000000000003,
+            19.005
+          ],
+          [
+            -0.914,
+            14.295,
+            18.885
+          ],
+          [
+            -1.257,
+            13.634,
+            17.708
+          ],
+          [
+            -2.193,
+            13.627000000000002,
+            15.496000000000002
+          ],
+          [
+            -2.7970000000000006,
+            14.235,
+            14.491
+          ],
+          [
+            -1.7620000000000002,
+            12.391,
+            15.309
+          ]
+        ],
+        "unit": "angstrom"
+      },
+      "atom_keys": null,
+      "selected_atom_indices": null,
+      "declared_info": {
+        "source_file_sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+        "selection": "group_name=='BEN'",
+        "ordered_observed_atom_fields": {
+          "atom_id": [
+            "1632",
+            "1633",
+            "1634",
+            "1635",
+            "1636",
+            "1637",
+            "1638",
+            "1639",
+            "1640"
+          ],
+          "atom_name": [
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C",
+            "N1",
+            "N2"
+          ],
+          "element": [
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "N",
+            "N"
+          ],
+          "group_id": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ],
+          "group_name": [
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN"
+          ]
+        },
+        "population": "nine originally observed heavy atoms",
+        "correspondence": "caller-declared positional, checked against original source keys",
+        "frame": "unchanged receptor frame"
+      },
+      "snapshot_sha256": "8ed332d970cfc94dc0e640de15ab1c84256852479712d487671a775d83be3871"
+    },
+    "poses": [
+      {
+        "position": 1,
+        "pose_id": "pose_1",
+        "rank": 1,
+        "partner_state_id": "3PTB-benzamidinium-plus1",
+        "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+        "n_atoms": 9,
+        "atom_keys": null,
+        "coordinates_sha256": "53781d0c0d700855ef939815225a14ff14941b3a8c21d5e040faa5276cbe3e3c",
+        "scores": {
+          "vina": -6.422,
+          "inter": -6.422,
+          "intra": 0.0,
+          "torsion": 0.0
+        },
+        "score_definitions": {
+          "vina": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "total docking score",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "inter": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intermolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "intra": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intramolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "torsion": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "torsional term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          }
+        },
+        "rmsd": 1.933697408248422,
+        "recovered": true
+      },
+      {
+        "position": 2,
+        "pose_id": "pose_2",
+        "rank": 2,
+        "partner_state_id": "3PTB-benzamidinium-plus1",
+        "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+        "n_atoms": 9,
+        "atom_keys": null,
+        "coordinates_sha256": "10afd5541ad8120e1cbad1f45cfe5ded886471dceffd4d8ede903050dee1dfe0",
+        "scores": {
+          "vina": -6.258,
+          "inter": -6.258,
+          "intra": 0.0,
+          "torsion": 0.0
+        },
+        "score_definitions": {
+          "vina": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "total docking score",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "inter": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intermolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "intra": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intramolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "torsion": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "torsional term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          }
+        },
+        "rmsd": 0.22834574175529745,
+        "recovered": true
+      },
+      {
+        "position": 3,
+        "pose_id": "pose_3",
+        "rank": 3,
+        "partner_state_id": "3PTB-benzamidinium-plus1",
+        "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+        "n_atoms": 9,
+        "atom_keys": null,
+        "coordinates_sha256": "1086f92cf5ecd6094d062936ae4eb2460dbd918ddc12e631f9969700db0761dd",
+        "scores": {
+          "vina": -4.104,
+          "inter": -4.104,
+          "intra": 0.0,
+          "torsion": 0.0
+        },
+        "score_definitions": {
+          "vina": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "total docking score",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "inter": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intermolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "intra": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intramolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "torsion": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "torsional term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          }
+        },
+        "rmsd": 9.99874749933988,
+        "recovered": false
+      },
+      {
+        "position": 4,
+        "pose_id": "pose_4",
+        "rank": 4,
+        "partner_state_id": "3PTB-benzamidinium-plus1",
+        "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+        "n_atoms": 9,
+        "atom_keys": null,
+        "coordinates_sha256": "e1cfd642c63ee7775fc5435c948ea3897b557d1e83254a156bb6eb51397cd78b",
+        "scores": {
+          "vina": -4.006,
+          "inter": -4.006,
+          "intra": 0.0,
+          "torsion": 0.0
+        },
+        "score_definitions": {
+          "vina": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "total docking score",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "inter": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intermolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "intra": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intramolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "torsion": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "torsional term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          }
+        },
+        "rmsd": 9.935508922826022,
+        "recovered": false
+      },
+      {
+        "position": 5,
+        "pose_id": "pose_5",
+        "rank": 5,
+        "partner_state_id": "3PTB-benzamidinium-plus1",
+        "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+        "n_atoms": 9,
+        "atom_keys": null,
+        "coordinates_sha256": "06e10f37945a698f86a20525c739a97fb426469cc05560905aae9d939746a962",
+        "scores": {
+          "vina": -3.507,
+          "inter": -3.507,
+          "intra": 0.0,
+          "torsion": 0.0
+        },
+        "score_definitions": {
+          "vina": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "total docking score",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "inter": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intermolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "intra": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intramolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "torsion": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "torsional term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  -1.759111,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          }
+        },
+        "rmsd": 11.2982912719874,
+        "recovered": false
+      }
+    ],
+    "n_poses": 5,
+    "first_pose": {
+      "position": 1,
+      "pose_id": "pose_1",
+      "rank": 1,
+      "partner_state_id": "3PTB-benzamidinium-plus1",
+      "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+      "n_atoms": 9,
+      "atom_keys": null,
+      "coordinates_sha256": "53781d0c0d700855ef939815225a14ff14941b3a8c21d5e040faa5276cbe3e3c",
+      "scores": {
+        "vina": -6.422,
+        "inter": -6.422,
+        "intra": 0.0,
+        "torsion": 0.0
+      },
+      "score_definitions": {
+        "vina": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "total docking score",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": "lower",
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                -1.759111,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "inter": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "intermolecular term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                -1.759111,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "intra": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "intramolecular term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                -1.759111,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "torsion": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "torsional term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                -1.759111,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        }
+      },
+      "rmsd": 1.933697408248422,
+      "recovered": true
+    },
+    "closest_pose": {
+      "position": 2,
+      "pose_id": "pose_2",
+      "rank": 2,
+      "partner_state_id": "3PTB-benzamidinium-plus1",
+      "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+      "n_atoms": 9,
+      "atom_keys": null,
+      "coordinates_sha256": "10afd5541ad8120e1cbad1f45cfe5ded886471dceffd4d8ede903050dee1dfe0",
+      "scores": {
+        "vina": -6.258,
+        "inter": -6.258,
+        "intra": 0.0,
+        "torsion": 0.0
+      },
+      "score_definitions": {
+        "vina": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "total docking score",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": "lower",
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                -1.759111,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "inter": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "intermolecular term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                -1.759111,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "intra": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "intramolecular term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                -1.759111,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "torsion": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "torsional term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                -1.759111,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        }
+      },
+      "rmsd": 0.22834574175529745,
+      "recovered": true
+    },
+    "top_n": [
+      {
+        "requested": 1,
+        "considered": 1,
+        "recovered": true
+      },
+      {
+        "requested": 5,
+        "considered": 5,
+        "recovered": true
+      }
+    ],
+    "context": {
+      "problem_info": {
+        "evaluation_view": {
+          "parent_result_sha256": "3dcbebda7d816c097f6e61dbea429fd7eea82389ea172d2220748bbd49913b27",
+          "parent_producer": {
+            "dockingmt_version": "0.0.0+225.g50d8e33",
+            "molsysmt_version": "0.23.0+361.gde7ffad2a",
+            "backend": "vina",
+            "backend_version": "1.2.7"
+          },
+          "parent_backend_box": {
+            "center": [
+              -1.759111,
+              14.461,
+              16.915778
+            ],
+            "size": [
+              20.0,
+              20.0,
+              20.0
+            ],
+            "unit": "angstrom",
+            "rounding_decimals": 6
+          },
+          "parent_input_sha256": {
+            "receptor": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90"
+          },
+          "selected_parent_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "scope": "derived coordinate-only comparison; not a new Vina result"
+        }
+      },
+      "protocol_info": {
+        "schema_version": "1.0",
+        "protocol_type": "VinaProtocol",
+        "parameters": {
+          "exhaustiveness": 1,
+          "n_poses": 9,
+          "energy_range": {
+            "value": 3.0,
+            "unit": "kilocalorie / mole"
+          },
+          "seed": 7,
+          "scoring": "vina",
+          "cpu": 1,
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "active_torsion_bonds": [],
+          "collect_timings": false
+        }
+      },
+      "backend": null,
+      "backend_version": null,
+      "preparation": null,
+      "ranking_history": [],
+      "input_artifacts": {}
+    },
+    "evaluator": {
+      "dockingmt_version": "0.0.0+225.g50d8e33",
+      "molsysmt_version": "0.23.0+361.gde7ffad2a",
+      "rmsd_function": "molsysmt.structure.get_rmsd"
+    }
+  },
+  "displaced": {
+    "schema_version": "1.0",
+    "evaluation_type": "redocking",
+    "criterion": {
+      "metric": "positional_rmsd",
+      "unit": "angstrom",
+      "cutoff": 2.0,
+      "comparison": "<=",
+      "alignment": "none",
+      "symmetry_correction": "none",
+      "coordinate_frame": "caller_declared_shared_receptor_frame",
+      "atom_scope": "retained_pose_atoms",
+      "atom_correspondence": "caller_declared_positional",
+      "top_n_basis": "result_order"
+    },
+    "reference": {
+      "kind": "coordinates",
+      "coordinates": {
+        "value": [
+          [
+            -1.8530000000000002,
+            14.311,
+            16.658
+          ],
+          [
+            -2.107,
+            15.653000000000002,
+            16.758
+          ],
+          [
+            -1.774,
+            16.341,
+            17.932
+          ],
+          [
+            -1.175,
+            15.662000000000003,
+            19.005
+          ],
+          [
+            -0.914,
+            14.295,
+            18.885
+          ],
+          [
+            -1.257,
+            13.634,
+            17.708
+          ],
+          [
+            -2.193,
+            13.627000000000002,
+            15.496000000000002
+          ],
+          [
+            -2.7970000000000006,
+            14.235,
+            14.491
+          ],
+          [
+            -1.7620000000000002,
+            12.391,
+            15.309
+          ]
+        ],
+        "unit": "angstrom"
+      },
+      "atom_keys": null,
+      "selected_atom_indices": null,
+      "declared_info": {
+        "source_file_sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+        "selection": "group_name=='BEN'",
+        "ordered_observed_atom_fields": {
+          "atom_id": [
+            "1632",
+            "1633",
+            "1634",
+            "1635",
+            "1636",
+            "1637",
+            "1638",
+            "1639",
+            "1640"
+          ],
+          "atom_name": [
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C",
+            "N1",
+            "N2"
+          ],
+          "element": [
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "C",
+            "N",
+            "N"
+          ],
+          "group_id": [
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1",
+            "1"
+          ],
+          "group_name": [
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN",
+            "BEN"
+          ]
+        },
+        "population": "nine originally observed heavy atoms",
+        "correspondence": "caller-declared positional, checked against original source keys",
+        "frame": "unchanged receptor frame"
+      },
+      "snapshot_sha256": "8ed332d970cfc94dc0e640de15ab1c84256852479712d487671a775d83be3871"
+    },
+    "poses": [
+      {
+        "position": 1,
+        "pose_id": "pose_1",
+        "rank": 1,
+        "partner_state_id": "3PTB-benzamidinium-plus1",
+        "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+        "n_atoms": 9,
+        "atom_keys": null,
+        "coordinates_sha256": "c2ab259124672c0c9a64c4e636e0472b1f7bbd157e6fc4258d63216041b4a4a0",
+        "scores": {
+          "vina": 0.0,
+          "inter": 0.0,
+          "intra": 0.0,
+          "torsion": 0.0
+        },
+        "score_definitions": {
+          "vina": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "total docking score",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "inter": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intermolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "intra": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intramolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "torsion": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "torsional term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          }
+        },
+        "rmsd": 65.31239092239693,
+        "recovered": false
+      },
+      {
+        "position": 2,
+        "pose_id": "pose_2",
+        "rank": 2,
+        "partner_state_id": "3PTB-benzamidinium-plus1",
+        "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+        "n_atoms": 9,
+        "atom_keys": null,
+        "coordinates_sha256": "353d4ac6e0129fa213c8bdd895b3e00405ec7844e6886152a762d1c19a08916b",
+        "scores": {
+          "vina": 0.0,
+          "inter": 0.0,
+          "intra": 0.0,
+          "torsion": 0.0
+        },
+        "score_definitions": {
+          "vina": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "total docking score",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "inter": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intermolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "intra": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intramolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "torsion": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "torsional term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          }
+        },
+        "rmsd": 65.38009264294445,
+        "recovered": false
+      },
+      {
+        "position": 3,
+        "pose_id": "pose_3",
+        "rank": 3,
+        "partner_state_id": "3PTB-benzamidinium-plus1",
+        "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+        "n_atoms": 9,
+        "atom_keys": null,
+        "coordinates_sha256": "58b15d228e6d805b5b11b0ddd4a45f9fb01457fa8163d5f05c39920838f70734",
+        "scores": {
+          "vina": 0.0,
+          "inter": 0.0,
+          "intra": 0.0,
+          "torsion": 0.0
+        },
+        "score_definitions": {
+          "vina": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "total docking score",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "inter": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intermolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "intra": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intramolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "torsion": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "torsional term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          }
+        },
+        "rmsd": 66.73458279299837,
+        "recovered": false
+      },
+      {
+        "position": 4,
+        "pose_id": "pose_4",
+        "rank": 4,
+        "partner_state_id": "3PTB-benzamidinium-plus1",
+        "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+        "n_atoms": 9,
+        "atom_keys": null,
+        "coordinates_sha256": "6ebdba2dd5d44b54cf7794204af7fa795457f949ddd9f9e772d264e8d4e5fe7d",
+        "scores": {
+          "vina": 0.0,
+          "inter": 0.0,
+          "intra": 0.0,
+          "torsion": 0.0
+        },
+        "score_definitions": {
+          "vina": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "total docking score",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": "lower",
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "inter": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intermolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "intra": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "intramolecular term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          },
+          "torsion": {
+            "schema_version": "1.0",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "component": "torsional term",
+            "kind": "empirical",
+            "unit": "kilocalorie / mole",
+            "preferred_direction": null,
+            "context": {
+              "stage": "docking",
+              "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+              "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+              "backend_box": {
+                "center": [
+                  58.240889,
+                  14.461,
+                  16.915778
+                ],
+                "size": [
+                  20.0,
+                  20.0,
+                  20.0
+                ],
+                "unit": "angstrom"
+              },
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ],
+              "grid_spacing": {
+                "value": 0.375,
+                "unit": "angstrom"
+              },
+              "preparation_assessment": {
+                "receptor": "unassessed",
+                "partner": "unassessed"
+              }
+            }
+          }
+        },
+        "rmsd": 62.0739580930146,
+        "recovered": false
+      }
+    ],
+    "n_poses": 4,
+    "first_pose": {
+      "position": 1,
+      "pose_id": "pose_1",
+      "rank": 1,
+      "partner_state_id": "3PTB-benzamidinium-plus1",
+      "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+      "n_atoms": 9,
+      "atom_keys": null,
+      "coordinates_sha256": "c2ab259124672c0c9a64c4e636e0472b1f7bbd157e6fc4258d63216041b4a4a0",
+      "scores": {
+        "vina": 0.0,
+        "inter": 0.0,
+        "intra": 0.0,
+        "torsion": 0.0
+      },
+      "score_definitions": {
+        "vina": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "total docking score",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": "lower",
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                58.240889,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "inter": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "intermolecular term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                58.240889,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "intra": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "intramolecular term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                58.240889,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "torsion": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "torsional term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                58.240889,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        }
+      },
+      "rmsd": 65.31239092239693,
+      "recovered": false
+    },
+    "closest_pose": {
+      "position": 4,
+      "pose_id": "pose_4",
+      "rank": 4,
+      "partner_state_id": "3PTB-benzamidinium-plus1",
+      "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+      "n_atoms": 9,
+      "atom_keys": null,
+      "coordinates_sha256": "6ebdba2dd5d44b54cf7794204af7fa795457f949ddd9f9e772d264e8d4e5fe7d",
+      "scores": {
+        "vina": 0.0,
+        "inter": 0.0,
+        "intra": 0.0,
+        "torsion": 0.0
+      },
+      "score_definitions": {
+        "vina": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "total docking score",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": "lower",
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                58.240889,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "inter": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "intermolecular term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                58.240889,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "intra": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "intramolecular term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                58.240889,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        },
+        "torsion": {
+          "schema_version": "1.0",
+          "method": "AutoDock Vina/vina",
+          "method_version": "1.2.7",
+          "component": "torsional term",
+          "kind": "empirical",
+          "unit": "kilocalorie / mole",
+          "preferred_direction": null,
+          "context": {
+            "stage": "docking",
+            "receptor_sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner_sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90",
+            "backend_box": {
+              "center": [
+                58.240889,
+                14.461,
+                16.915778
+              ],
+              "size": [
+                20.0,
+                20.0,
+                20.0
+              ],
+              "unit": "angstrom"
+            },
+            "weights": [
+              -0.035579,
+              -0.005156,
+              0.840245,
+              -0.035069,
+              -0.587439,
+              50.0,
+              0.05846
+            ],
+            "grid_spacing": {
+              "value": 0.375,
+              "unit": "angstrom"
+            },
+            "preparation_assessment": {
+              "receptor": "unassessed",
+              "partner": "unassessed"
+            }
+          }
+        }
+      },
+      "rmsd": 62.0739580930146,
+      "recovered": false
+    },
+    "top_n": [
+      {
+        "requested": 1,
+        "considered": 1,
+        "recovered": false
+      },
+      {
+        "requested": 5,
+        "considered": 4,
+        "recovered": false
+      }
+    ],
+    "context": {
+      "problem_info": {
+        "evaluation_view": {
+          "parent_result_sha256": "b43f9612c4fff73d7be24c2124dda1a08b2dc81cb3af0295bc2ba91885b7e6b3",
+          "parent_producer": {
+            "dockingmt_version": "0.0.0+225.g50d8e33",
+            "molsysmt_version": "0.23.0+361.gde7ffad2a",
+            "backend": "vina",
+            "backend_version": "1.2.7"
+          },
+          "parent_backend_box": {
+            "center": [
+              58.240889,
+              14.461,
+              16.915778
+            ],
+            "size": [
+              20.0,
+              20.0,
+              20.0
+            ],
+            "unit": "angstrom",
+            "rounding_decimals": 6
+          },
+          "parent_input_sha256": {
+            "receptor": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80",
+            "partner": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90"
+          },
+          "selected_parent_indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "scope": "derived coordinate-only comparison; not a new Vina result"
+        }
+      },
+      "protocol_info": {
+        "schema_version": "1.0",
+        "protocol_type": "VinaProtocol",
+        "parameters": {
+          "exhaustiveness": 1,
+          "n_poses": 9,
+          "energy_range": {
+            "value": 3.0,
+            "unit": "kilocalorie / mole"
+          },
+          "seed": 7,
+          "scoring": "vina",
+          "cpu": 1,
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "active_torsion_bonds": [],
+          "collect_timings": false
+        }
+      },
+      "backend": null,
+      "backend_version": null,
+      "preparation": null,
+      "ranking_history": [],
+      "input_artifacts": {}
+    },
+    "evaluator": {
+      "dockingmt_version": "0.0.0+225.g50d8e33",
+      "molsysmt_version": "0.23.0+361.gde7ffad2a",
+      "rmsd_function": "molsysmt.structure.get_rmsd"
+    }
+  }
+}

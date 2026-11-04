@@ -17,6 +17,27 @@ supersedes: []
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
 **Status:** Partial; DockingMT Core MVP work.
 
+## Installed public nine-atom evaluation delivered — 2026-11-03
+
+[The registered evaluation](../validation/installed_3ptb_evaluation.md) completes
+seven exact cells in normal and pm/fs kernels, preserving all 5+4 full original
+poses. Provider selection/getters/extraction verify the declared nine-atom axis;
+fresh public coordinate-only DockingMT records avoid private metadata slicing
+and fabricated verified maps. Public evaluation/summary use MolSysMT RMSD and
+the registered <=2 Å positional criterion, without fit/symmetry or reranking.
+Full-population mismatch refuses before geometry. Native first/closest is about
+1.934/0.228 Å, displaced 65.312/62.074 Å; this is retrospective one-hypothesis
+evidence, not a general model, affinity or dataset claim.
+
+Nine distinct poses produce eighteen measurements across policies; both kernels
+close with no scientific preparation/engine/viewer attempts. Original payloads,
+raw files and thirteen-atom records remain verified. Final offline tests pass
+131 cases, zero skips, with two engine-entry tests deselected; earlier guarded
+software selection failures remain separate. No missing molecular tool/runtime
+API is needed. The bounded installed workflow is delivered, while this broader
+source/replay issue remains partial. Next actual public dependency/candidate
+readiness stays #30/#47; visual C4/C6 remains deferred.
+
 ## Installed two-search execution/inspection delivered — 2026-11-03
 
 [The registered execution walkthrough](../validation/installed_3ptb_execution.md)

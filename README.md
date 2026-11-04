@@ -348,6 +348,13 @@ inspects the saved records through the public reader: native/displaced return
 5/4 full poses in the qualified profile. No retry, RMSD, fixed-pose rescoring or
 viewer action is included; recovery/affinity and public delivery remain separate.
 
+The [saved-pose evaluation](devguide/validation/installed_3ptb_evaluation.md) and
+[notebook](devguide/validation/installed_3ptb_evaluation.ipynb) complete the explicit
+nine-observed-heavy-atom follow-up through public MolSysMT selection/geometry
+and DockingMT reports. Both unit-policy profiles pass while preserving the full
+thirteen-atom original records. Its retrospective <=2 Å positional observation
+does not establish general model quality, affinity or public/visual acceptance.
+
 ## Governance and Design Authority
 
 * [`MOLSYSSUITE_GUIDE.md`](MOLSYSSUITE_GUIDE.md) routes suite-wide policies and cross-component issues to `uibcdf/molsyssuite`.

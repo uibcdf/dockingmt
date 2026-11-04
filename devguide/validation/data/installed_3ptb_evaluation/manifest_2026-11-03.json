@@ -1,0 +1,58 @@
+{
+  "schema": "dockingmt.installed_nine_atom_evaluation_manifest@1",
+  "owner": "uibcdf/dockingmt#4",
+  "workflow_source": "d026434f6e1171f52ef513436fc46bf4e766a382",
+  "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "molecular_archive_producer": "de7ffad2aef18ff3bccd184133dc69e081cb506e",
+  "records": [
+    {
+      "path": "devguide/validation/installed_3ptb_evaluation.ipynb",
+      "bytes": 20149,
+      "sha256": "ad56bda7b1a6d9f858622746c8ca20dcb04fc7e125db2f41ea6f8d2c4018c25f"
+    },
+    {
+      "path": "devguide/validation/installed_3ptb_evaluation.md",
+      "bytes": 8653,
+      "sha256": "3d322c8ae42d31596291f1d43d0b9fb6d73fa492cd6c05017e2f86aded4cd405"
+    },
+    {
+      "path": "devguide/validation/installed_3ptb_evaluation_registration.md",
+      "bytes": 5501,
+      "sha256": "0b56762c151927bd08456f3ce00f762d2da9125a93ecef32f77b2df053db2d04"
+    },
+    {
+      "path": "devguide/validation/data/installed_3ptb_evaluation/normal_evaluations.json",
+      "bytes": 90248,
+      "sha256": "7949117149a50118e3a3552013338b21598efa460f6b68474ad7ada220d1c675"
+    },
+    {
+      "path": "devguide/validation/data/installed_3ptb_evaluation/normal_summary.json",
+      "bytes": 10342,
+      "sha256": "e9dc9cfcf70462c679151e06a6f12eb4039568e95e595bd3314fc3a013e65d17"
+    },
+    {
+      "path": "devguide/validation/data/installed_3ptb_evaluation/pm_fs_evaluations.json",
+      "bytes": 90023,
+      "sha256": "d542bc7def656cdd30b692255a7bc098a0e0464be505a8f443bbc43b0c307ca6"
+    },
+    {
+      "path": "devguide/validation/data/installed_3ptb_evaluation/pm_fs_summary.json",
+      "bytes": 10340,
+      "sha256": "c94dcc10cf726295317b0cff2361593dc5846548d7c8c06c2523144c7f414ec7"
+    },
+    {
+      "path": "devguide/validation/data/installed_3ptb_evaluation/receiving_2026-11-03.json",
+      "bytes": 20713,
+      "sha256": "5ce663146f0413cdd5445bc5edfb18a3c3796895c8c22c3437dd03cbee40b510"
+    },
+    {
+      "path": "devguide/validation/data/installed_3ptb_evaluation/registration_2026-11-03.json",
+      "bytes": 1997,
+      "sha256": "8b7593b50e6311db0f69801cd3628a9fbace8b4fea0b0091e5e466a97c4d44fb"
+    }
+  ],
+  "distinct_saved_poses": 9,
+  "RMSD_measurements": 18,
+  "new_searches": 0,
+  "public_artifact_or_visual_acceptance": false
+}
