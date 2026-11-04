@@ -1,0 +1,92 @@
+{
+  "schema": "dockingmt.public_viewer_receiving@1",
+  "owner": "uibcdf/dockingmt#47",
+  "qualification_harness": "1c343924b4a144058685796783d72c174b032651",
+  "installed_sdk": "738fe8dd731abb99dac421b0bb2acc8564110180",
+  "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "consumer_wheel_sha256": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98",
+  "consumer_payload_files": 63,
+  "public_viewer_archive": "molsysviewer-0.24.0-py_1.tar.bz2",
+  "public_viewer_archive_sha256": "e31dfb114ab2e49f22b372992d0201455b91849f2631d0165b802069e13abeaa",
+  "public_viewer_site_package_files": 629,
+  "controlled_provider_payload_files": {
+    "argdigest-0.15.0+5.g3d1ec53-py3-none-any.whl": 38,
+    "molsysmt-0.23.0+361.gde7ffad2a-cp311-abi3-linux_x86_64.whl": 3415
+  },
+  "versions": {
+    "dockingmt": "0.0.0+225.g50d8e33",
+    "molsysmt": "0.23.0+361.gde7ffad2a",
+    "molsysviewer": "0.24.0",
+    "argdigest": "0.15.0+5.g3d1ec53",
+    "pyunitwizard": "0.29.0",
+    "smonitor": "0.22.0",
+    "depdigest": "0.15.1",
+    "vina": "1.2.7"
+  },
+  "python": "3.14.8",
+  "test_paths": [
+    "tests/test_viewer_player_receiving.py",
+    "tests/test_viewer_state.py",
+    "tests/test_viewer_addon.py",
+    "tests/test_viewer_reference.py",
+    "tests/test_viewer_presentation.py",
+    "tests/test_viewer_frontend_contract.py",
+    "tests/test_result_audit.py"
+  ],
+  "source_packages_absent": true,
+  "entry_point_loaded": true,
+  "payloads_verified_before": 4145,
+  "loaded_modules_before": 1086,
+  "full_public_dependency_closure_qualified": false,
+  "C6_accepted": false,
+  "pytest_exit": 1,
+  "payloads_verified_after": 4145,
+  "loaded_modules_after": 1244,
+  "all_loaded_scientific_modules_prefix_owned": true,
+  "forbidden_computation_attempts": 0,
+  "payloads_unchanged": true,
+  "outcome": "incompatible",
+  "counts": {
+    "tests": 162,
+    "failures": 7,
+    "errors": 36,
+    "skipped": 0,
+    "passed": 119
+  },
+  "receptor_seconds": 6.18,
+  "warnings": 2,
+  "warning_groups": [
+    {
+      "category": "PytestAssertRewriteWarning",
+      "count": 1
+    },
+    {
+      "category": "RuntimeWarning",
+      "count": 1
+    }
+  ],
+  "pip_check_before": "passed",
+  "pip_check_after": "passed",
+  "original_receiver_files_unchanged": 45015,
+  "independent_copy_inodes_checked": true,
+  "scientific_kernel_launched": false,
+  "molecular_preparation_calls": 0,
+  "new_searches": 0,
+  "new_maps": 0,
+  "new_energy": 0,
+  "new_rmsd": 0,
+  "notebook_disposition": "Stopped before kernel launch after incompatible installed receiving; unexecuted draft retired.",
+  "public_viewer_provider_issue": "uibcdf/molsysviewer#294",
+  "preflight_attempts": [
+    {
+      "attempt": 1,
+      "outcome": "refused_before_pytest",
+      "reason": "Conda clone restored managed ArgDigest bytes over controlled pip overlay."
+    },
+    {
+      "attempt": 2,
+      "outcome": "payload_verified_then_test_incompatibility",
+      "correction": "Ordinary reinstall of the unchanged controlled ArgDigest archive in the independent receiver only."
+    }
+  ]
+}

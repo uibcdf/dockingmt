@@ -1,0 +1,26 @@
+{
+  "schema": "dockingmt.public_viewer_archive@1",
+  "filename": "molsysviewer-0.24.0-py_1.tar.bz2",
+  "sha256": "e31dfb114ab2e49f22b372992d0201455b91849f2631d0165b802069e13abeaa",
+  "bytes": 1514120,
+  "public_url": "https://conda.anaconda.org/uibcdf/noarch/molsysviewer-0.24.0-py_1.tar.bz2",
+  "version": "0.24.0",
+  "build": "py_1",
+  "public_label": "main",
+  "conda_dependencies": [
+    "aiohttp >=3.10",
+    "anywidget >=0.9.15",
+    "argdigest >=0.13.0",
+    "depdigest",
+    "molsysmt >=0.23.0",
+    "numpy",
+    "packaging >=23",
+    "python >=3.11,<3.15",
+    "pyunitwizard >=0.25.0",
+    "smonitor >=0.13.0",
+    "traitlets >=5"
+  ],
+  "acquisition": "Previously downloaded exact public file; normal copy-only offline Conda installation into independent receiver with dependencies held fixed.",
+  "not_a_fresh_public_solve": true,
+  "embedded_build_wheel_url_used_as_provenance": false
+}

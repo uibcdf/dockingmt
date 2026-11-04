@@ -15,6 +15,18 @@ supersedes: []
 
 # Saved-result addon explorer
 
+## Public artifact boundary — 2026-11-04
+
+[Public Viewer 0.24.0 build-1 receiving](../validation/public_viewer_receiving.md)
+fails independently of the successful development-source checkpoint below.
+Payloads/origins/closure pass, but actual addon selection reports 119 passes,
+7 failures and 36 errors. Fresh public-provider probes confirm missing handle
+readback and synchronous frame callbacks; initialization errors are retained for
+triage. MolSysViewer #294 owns the additive public-file handoff. No downstream
+substitute, changed source pin or numerical minimum is introduced. The saved-case
+notebook stops before kernel launch/preparation. This proposal remains partial
+for live frontend observation, which this public-artifact test does not replace.
+
 ## Public player notification receiving — 2026-11-03
 
 [Current receiving](../validation/player_notifications_receiving.md) adopts

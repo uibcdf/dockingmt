@@ -14,6 +14,20 @@ supersedes: []
 
 # Distribution control adoption
 
+## Public Viewer artifact refused — 2026-11-04
+
+[Exact public Viewer receiving](../validation/public_viewer_receiving.md) verifies
+the 0.24.0 build-1 archive and 4,145 installed consumer/provider payloads, but
+reports 119 passes, 7 failures and 36 errors. Fresh probes isolate missing
+Shape.info and Python player notifications; initialization-order failures remain
+provider triage. MolSysViewer #294 owns the public-file disposition, alongside
+MolSysMT #334's reader/graph boundary. No saved-case kernel/preparation is started.
+The original private receiver verifies unchanged; scientific source pins and
+runtime bounds remain. This proposal stays partial: receive covering additive
+provider files before public combination/minima/installed-helper/candidate gates.
+All four workflows at prior exact head `8dbcab39` complete successfully; that
+source evidence does not qualify this incompatible public composition.
+
 ## Public readiness and scoped publisher adoption — 2026-11-03
 
 The [readiness review](../validation/public_candidate_readiness.md) verifies

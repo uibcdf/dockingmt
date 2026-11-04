@@ -16,7 +16,7 @@ dated checkpoint entries below retain their original state and historical
 | --- | --- | --- |
 | 1 | Current Core evidence and source CI (#28/#60) | The updated criterion map is delivered. Inspect the exact source/head's remaining hosted lanes and append their outcome to the owning issues; previous successes do not qualify another composition. |
 | 2 | Installed Python/Jupyter use (#4/#33) | The declared 3PTB preparation → two-search execution → saved inspection → nine-atom evaluation path is delivered outside source. Seven evaluation cells pass normal/pm/fs receiving with preserved full results, provider-owned selection/geometry and existing public reports. Broader source/replay/model questions remain partial; add another workflow only for a concrete need. |
-| 3 | Actual distribution readiness (#30/#47) | Public index/archive review and scoped publisher adoption are delivered. Main MolSysMT 0.23.0 and observed staging 1.0.0 omit required reader/graph APIs; provider handoff is #334. Next receive a covering public file, qualify the combination/minima and installed-helper profile, then select the actual staged candidate with fifteen native jobs/eight installed cells. No publication follows from static or private evidence. |
+| 3 | Actual distribution readiness (#30/#47) | Public Viewer 0.24.0 build 1 fails installed addon receiving; owner handoff is MolSysViewer #294. Main MolSysMT 0.23.0 and observed staging 1.0.0 omit required reader/graph APIs; provider handoff is #334. Receive covering additive public files, repeat installed compatibility, qualify combination/minima and installed-helper profile, then select the actual staged candidate with fifteen native jobs/eight installed cells. No publication follows from static or private evidence. |
 | Deferred | Live observation (#52/#60) | On the maintainer's decision, observe real controls/comm/canvas, frame correspondence and reference/domain visibility; visible C4/C6 remain unaccepted. |
 | On provider delivery | Remaining molecular profiles (#49/#33) | Receive MolSysMT #521 against its actual partial/reference contract before removing the covered verifier. MolSysMT #256 remains post-1.0 general mechanics persistence, separate from the supported linked-record route. |
 
@@ -29,7 +29,7 @@ accepted workflow after the Core priorities above.
 
 The [public readiness review](validation/public_candidate_readiness.md) supplies
 the concrete #30/#47 handoff and candidate controls. The next package boundary
-requires an actual MolSysMT artifact exposing the qualified APIs; keep existing
+requires actual MolSysMT and Viewer artifacts exposing the qualified behavior; keep existing
 scientific pins and public-minimum claims separate. Recover exact-head hosted
 gates in parallel. The bounded nine-atom path needs neither a new public selection
 API nor a downstream molecular helper.
@@ -38,6 +38,22 @@ API nor a downstream molecular helper.
 
 The entries below are dated delivery/evidence records. Consult the operational
 plan above for current next work; preserve historical producers and claims.
+
+## Public Viewer artifact receiving — 2026-11-04
+
+[Exact public build-1 receiving](validation/public_viewer_receiving.md) verifies
+installed provenance/payloads and dependency closure but fails compatibility:
+119 passed, 7 failed, 36 errors, zero skips. Fresh probes confirm missing
+Shape.info and Python navigation callbacks; initialization-order diagnostics
+retain their separate untriaged scope. MolSysViewer #294 owns the public-file
+handoff. No notebook kernel or preparation is started; the qualified private
+composition and every original receiver file remain unchanged.
+
+**Next:** receive additive public Viewer/MolSysMT files covering the qualified
+contracts, then repeat installed receiving before the saved-case notebook and
+public combination/candidate gates. No downstream substitutes or new minima.
+All four workflows at the preceding exact head `8dbcab39` are recovered green;
+new-head CI and deferred browser/C6 observation remain separate.
 
 ## Public dependency and candidate-control review — 2026-11-03
 

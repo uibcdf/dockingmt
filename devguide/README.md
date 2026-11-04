@@ -60,6 +60,14 @@ providers. The complete private installed suite passes 1,449 tests without skips
 exact-head hosted evidence is recorded separately on #60/#47.
 Live browser controls/comm/pixels and C6 remain pending.
 
+The separate [public Viewer artifact receiving](validation/public_viewer_receiving.md)
+now rejects 0.24.0 build 1 for this addon profile: installed bytes and closure
+verify, but scene-handle readback and synchronous navigation behavior are absent.
+MolSysViewer #294 owns an additive public-artifact disposition and initialization
+triage. Keep the successful private composition; repeat installed receiving
+against a covering file before the saved-case notebook. No molecular fallback,
+new minimum, release or visual acceptance follows.
+
 Start with [license metadata and private archive qualification](validation/license_metadata.md)
 for the latest #47 slice. The SPDX migration and aligned build floor pass actual
 minimum/development-backend builds, archive checks and installed metadata discovery.

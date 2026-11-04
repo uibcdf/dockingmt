@@ -1,0 +1,50 @@
+{
+  "schema": "dockingmt.public_viewer_probes@1",
+  "owner": "uibcdf/dockingmt#47",
+  "provider_issue": "uibcdf/molsysviewer#294",
+  "fresh_process_per_probe": true,
+  "scientific_preparation_calls": 0,
+  "new_searches": 0,
+  "new_rmsd": 0,
+  "molecular_demo_note": "Provider-owned pentalanine demo and explicit frame selection; diagnostic initialization order is not a supported workaround.",
+  "observations": [
+    {
+      "mode": "pandas-only",
+      "viewer_version": "0.24.0",
+      "pandas_version": "3.0.6",
+      "pandas_import": true,
+      "completed": true
+    },
+    {
+      "mode": "shape",
+      "viewer_version": "0.24.0",
+      "shape_class": "Shape",
+      "shape_info_callable": false,
+      "shape_info_error": "AttributeError",
+      "message": "'Shape' object has no attribute 'info'",
+      "completed": true
+    },
+    {
+      "mode": "molecular-import",
+      "viewer_version": "0.24.0",
+      "basic_get_callable": true,
+      "completed": true
+    },
+    {
+      "mode": "molecular-first",
+      "viewer_version": "0.24.0",
+      "basic_get_callable": true,
+      "frames": 3,
+      "index": 2,
+      "events": [],
+      "completed": true
+    },
+    {
+      "mode": "viewer-first",
+      "viewer_version": "0.24.0",
+      "completed": false,
+      "exception": "ImportError",
+      "message": "numpy._core.multiarray failed to import"
+    }
+  ]
+}

@@ -10,6 +10,13 @@ upload, promotion or credential operation is selected by this work.**
 
 ## Actual public observations
 
+Follow-up **2026-11-04**: [installed public Viewer receiving](public_viewer_receiving.md)
+fails with 119 passes, 7 failures and 36 errors. The exact build-1 artifact lacks
+the required handle readback and synchronous player behavior despite declaring
+the callback methods. MolSysViewer #294 owns the public-artifact handoff and
+initialization triage. The table below retains the original static observations;
+they do not establish installed compatibility. Controlled scientific pins remain.
+
 The [registry/archive receipt](data/public_readiness/registry_and_archives_2026-11-03.json)
 binds complete Anaconda package inventories, independent official `main` solver
 indexes for Linux, macOS arm64 and noarch, and six exact archive inspections.
@@ -115,8 +122,10 @@ their separate obligations and hosted state.
 
 ## Concrete continuation
 
-1. Receive the provider's disposition/public file for the missing MolSysMT APIs,
-   preserving its release scope and original package identities.
+1. Receive provider dispositions/additive public files for the missing MolSysMT
+   APIs (#334) and Viewer handle/player behavior (#294), preserving each owner's
+   release scope and original package identities. Repeat bounded installed
+   receiving before the saved-case notebook; the observed Viewer file failed.
 2. Qualify an actual public provider combination, including the observed Viewer
    profile and compatible support dependencies, on the required interpreters and
    platforms. Set numerical minima only from that evidence; presence of symbols

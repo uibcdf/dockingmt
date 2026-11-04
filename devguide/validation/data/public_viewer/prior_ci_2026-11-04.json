@@ -1,0 +1,25 @@
+{
+  "head": "8dbcab39f2b2a5defde25309146a747826e3d62a",
+  "runs": {
+    "41755973401": {
+      "conclusion": "success",
+      "receptor_exit": 0,
+      "report": "PASS conclusion=success | profile=ci | roles=publish:1,test:4,other:2 | jobs=7/7 | artifacts=1 | uibcdf/dockingmt run=41755973401"
+    },
+    "41755973066": {
+      "conclusion": "success",
+      "receptor_exit": 0,
+      "report": "PASS conclusion=success | profile=generic | jobs=1/1 | artifacts=0 | uibcdf/dockingmt run=41755973066"
+    },
+    "41755973544": {
+      "conclusion": "success",
+      "receptor_exit": 0,
+      "report": "PASS conclusion=success | profile=ci | roles=other:1 | jobs=1/1 | artifacts=0 | uibcdf/dockingmt run=41755973544"
+    },
+    "41755973005": {
+      "conclusion": "success",
+      "receptor_exit": 0,
+      "report": "PASS conclusion=success | profile=generic | jobs=1/1 | artifacts=0 | uibcdf/dockingmt run=41755973005"
+    }
+  }
+}

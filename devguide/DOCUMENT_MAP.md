@@ -21,6 +21,7 @@
 | `validation/installed_3ptb_evaluation.md` | How can saved poses be evaluated over nine observed heavy atoms through public APIs while preserving full results? |
 | `validation/installed_3ptb_evaluation_registration.md` | Which atom population, positional criterion and unit-policy receiving were fixed before RMSD? |
 | `validation/public_candidate_readiness.md` | Which actual public files cover the required APIs, which publisher controls are adopted, and what remains before a real candidate? |
+| `validation/public_viewer_receiving.md` | Why does the exact public Viewer 0.24.0 build 1 fail installed addon receiving, and which provider handoff is next? |
 | `VALIDATION_STRATEGY.md` | How do we distinguish software correctness from scientific validity? |
 | `MOLSYSSUITE_INTEGRATION.md` | How does DockingMT interact scientifically with sibling components? |
 | `MOLSYSVIEWER_INTEGRATION.md` | How should DockingMT own its viewer integration? |

@@ -1,0 +1,33 @@
+{
+  "schema": "dockingmt.public_viewer_manifest@1",
+  "owner": "uibcdf/dockingmt#47",
+  "provider_issue": "uibcdf/molsysviewer#294",
+  "outcome": "incompatible",
+  "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "qualification_harness": "1c343924b4a144058685796783d72c174b032651",
+  "review_date": "2026-11-11",
+  "records": [
+    {
+      "path": "devguide/validation/data/public_viewer/archive_2026-11-04.json",
+      "sha256": "4f7b467c654088d263e0bf6926bc56ed33c5a34de8803d66792a07f40e7a89cd"
+    },
+    {
+      "path": "devguide/validation/data/public_viewer/installed_selection_2026-11-04.json",
+      "sha256": "a67b54f8779fa8bddde03b493da77edac2c9291c5d7ec28d7ee7438bf6d330e7"
+    },
+    {
+      "path": "devguide/validation/data/public_viewer/prior_ci_2026-11-04.json",
+      "sha256": "955e2f46fd7f7a83729edc4b6bd41e8f87515f3740b8ae6d9ba9685529a054ce"
+    },
+    {
+      "path": "devguide/validation/data/public_viewer/provider_probes_2026-11-04.json",
+      "sha256": "a824feab3952de4b90c76302eb883f41bcbe2f850d3ff6df46f5154ebad11cd2"
+    },
+    {
+      "path": "devguide/validation/data/public_viewer/viewer_payload_2026-11-04.json",
+      "sha256": "bb1318dedbf43fb58c82018e96396908cbfc311675853f2a7b96ca12c6a2cf71"
+    }
+  ],
+  "full_public_dependency_closure_qualified": false,
+  "C6_accepted": false
+}
