@@ -115,7 +115,10 @@ a changed scientific question needs its own registration, not edited historical
 thresholds or erased failures. Physical quantities remain those of the saved
 schema; a future molecular calculation must use its owning provider.
 
-This is the initial repository presentation for the audit packet. The broader
-#29 audience, documentation-site route, lifecycle and maintenance decision remains
-open. No website, periodic benchmark service, publication policy or release claim
-is selected by generating this page.
+This is the initial repository presentation for the audit packet. The subsequent
+[DMT-044 decision](../DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
+and [local publication policy](evidence_publication_policy.md) now resolve #29's
+audience, route and maintenance/lifecycle questions: repository-first presentation,
+with rendered documentation when a concrete site or reader need exists. The
+original synthesis itself selects no website, periodic service or release claim;
+the decision does not upgrade its scientific evidence.

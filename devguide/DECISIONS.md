@@ -672,3 +672,38 @@ whole Core MVP, visible C4/C6 or public delivery.
 profile, provider persistence/partial reading is delivered, or a registered
 informative experiment changes the model's evidence. No default chemistry,
 implicit parameter calculation or broad support claim follows from this decision.
+
+---
+
+## DMT-044 — Publish evidence through a staged repository-first route
+
+**Status:** Accepted for the current collection, 2026-11-04; #29 resolves this
+publication/organization decision, not scientific or public-package acceptance.
+
+**Decision:** Publish the maintained scientific overview and original case
+records in this repository, with navigation from the root README. Keep one
+authoritative evidence source and its original producer identities. Separate
+scientific outcomes, performance measurements, software qualification and actual
+public/visual delivery. Use existing suite reporting/disclosure rules.
+
+**Reason:** The versioned collection and reproducible overview already exist;
+this checkout has no main documentation site/build. A repository-first stage
+provides immediate access without a new hosting/build system or duplicated data.
+
+**Alternatives and implementation:** The
+[local evidence publication policy](validation/evidence_publication_policy.md)
+compares a main-documentation section, separate site and staged route; inventories
+readers/material; and defines minimum records, contributor/maintainer ownership,
+corrections, rerun triggers, retention and possible external storage. The
+[scientific overview](validation/scientific_evidence_overview_2026-11-04.md)
+is the initial reader entry, retaining exact-source reproduction and limits.
+
+**Revisit when:** A user-documentation site exists, a demonstrated reader task
+fails with current navigation, or measured collection/archive scale requires a
+different presentation/store. Record that need and its maintenance cost in an
+owned follow-up. Future rendering consumes the same evidence; no separate site,
+periodic benchmark service, storage vendor or DOI is selected now.
+
+**Does not imply:** A new experiment, independent-complex success probability,
+physical model acceptance, public artifact qualification or visible C4/C6.
+Provider-owned molecular tools and their pending receiving remain separate.

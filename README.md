@@ -51,6 +51,16 @@ The detailed contracts below explain individual operations. Historical developer
 benchmarks retain their original software requirements and are not the current
 preparation walkthrough.
 
+## Scientific evidence
+
+The [scientific evidence overview](devguide/validation/scientific_evidence_overview_2026-11-04.md)
+compares retained recovery/ranking observations, adverse controls and their limits.
+Its table is reproducible from frozen records; repeated poses/seeds are not
+independent complexes, and no pooled accuracy or affinity claim is made.
+Original protocols, producers and failures remain linked. The
+[evidence publication policy](devguide/validation/evidence_publication_policy.md)
+explains the current repository presentation and when to reconsider it.
+
 ## Software qualification
 
 Coverage reports measure the Python packages `dockingmt` and

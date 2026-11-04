@@ -18,7 +18,6 @@ dated checkpoint entries below retain their original state and historical
 | 2 | Installed Python/Jupyter use (#4/#33) | The declared 3PTB preparation → two-search execution → saved inspection → nine-atom evaluation path is delivered outside source. Seven evaluation cells pass normal/pm/fs receiving with preserved full results, provider-owned selection/geometry and existing public reports. Broader source/replay/model questions remain partial; add another workflow only for a concrete need. |
 | 3 | Actual distribution readiness (#30/#47) | The isolated helper profile and installed caller are adopted after 1,450 passing private installed tests. Public Viewer 0.24.0 build 1 still fails addon receiving (#294); public MolSysMT reader/graph delivery remains #334. Receive covering additive public files, repeat compatibility and saved-case receiving, qualify actual public combination/minima, then select the staged candidate with fifteen native jobs/eight installed cells. No publication follows from private evidence. |
 | Parallel | Bounded scientific follow-up (#33/#49) | Source/assembly, environment and one unadmitted OXT-completion control are recorded. Next receive provider reconstruction maps/history (#558) and CCD/templates (#557), resolve explicit states and terminal/environment choices, then assess preparation. MolSysMT #556 owns CIF occupancy loss; #555 owns future assessment rules. The search matrix remains unregistered; no local molecular substitute or new Core gate. |
-| Parallel | Scientific evidence presentation (#29) | The dated overview now reproduces ten distinct strata from frozen records, preserves 3PTB's original reporting failures and links E1–E11 to their limits. No pooled accuracy claim or new experiment is made. The broader audience/publication-route decision remains open. |
 | Deferred | Live observation (#52/#60) | On the maintainer's decision, observe real controls/comm/canvas, frame correspondence and reference/domain visibility; visible C4/C6 remain unaccepted. |
 | On provider delivery | Remaining molecular profiles (#49/#33) | Receive MolSysMT #521 against its actual partial/reference contract before removing the covered verifier. MolSysMT #256 remains post-1.0 general mechanics persistence, separate from the supported linked-record route. |
 
@@ -35,6 +34,12 @@ requires actual MolSysMT and Viewer artifacts exposing the qualified behavior; k
 scientific pins and public-minimum claims separate. Recover exact-head hosted
 gates in parallel. The bounded nine-atom path needs neither a new public selection
 API nor a downstream molecular helper.
+
+The #29 publication-route decision is delivered as DMT-044 and the
+[local evidence policy](validation/evidence_publication_policy.md): repository-first
+presentation, a reproducible overview linked from the root README, one evidence
+source and explicit lifecycle/reconsideration rules. Do not schedule a dedicated
+site or new campaign without its concrete reader/scientific need.
 
 The [full helper receiving](validation/installed_support_receiving.md) completes
 the separate #47 installed-caller source adoption using shared `95f693be`:

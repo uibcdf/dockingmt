@@ -1,18 +1,41 @@
 ---
 summary: Decide how to collect and publish validation strategies and benchmarks
 issue: uibcdf/dockingmt#29
-status: open
+status: resolved
 opened: 2026-10-02
-closed:
-verification: asserted
+closed: 2026-11-04
+verification: inspected
 area: [validation, benchmarks, documentation]
 guard:
-normative:
+normative: devguide/validation/evidence_publication_policy.md
 blocked_by: []
 supersedes: []
 ---
 
 # Decide validation and benchmark publication
+
+## Resolution — 2026-11-04
+
+[DMT-044](../DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
+selects a staged repository-first route: the maintained scientific overview and
+original records remain in Git, with a root README entry. There is no main
+documentation site/build in the inspected checkout; rendered user documentation
+is the next presentation destination when a concrete site or reader need exists.
+A separate site remains conditional on a measured navigation/scale requirement.
+
+The [evidence publication policy](../validation/evidence_publication_policy.md)
+inventories readers/material, compares all three routes, and defines original
+versus derived sources, minimum evidence, interpretation, responsibilities,
+corrections, rerun triggers, retention and conditions for an immutable external
+store. The [existing reproducible overview](../validation/scientific_evidence_overview_2026-11-04.md)
+supplies the first reader presentation without copying archives or remeasuring
+geometry. Directory instructions carry the accepted contributor action.
+
+All decision acceptance criteria below are satisfied by those maintained sources
+and navigation. This resolves the organization/publication decision; no website,
+scheduled campaign, storage migration, release or scientific qualification is
+claimed. Molecular provider issues, #30/#47 public delivery and visible C4/C6
+remain separate. Original opening specification below is retained as history.
 
 ## What
 

@@ -32,6 +32,10 @@ The [scientific evidence overview](validation/scientific_evidence_overview_2026-
 provides a compact reproducible table of existing outcomes and E1–E11 limits.
 It preserves failed reporting stages and separate populations; no new molecular
 calculation or pooled success probability is introduced.
+The [local evidence publication policy](validation/evidence_publication_policy.md)
+and DMT-044 select repository-first publication with one authoritative evidence
+source, defined readers/lifecycle and concrete triggers for later documentation
+or storage changes. This resolves #29's decision, separately from scientific gates.
 
 The [technical and scientific audit of 2026-11-04](library_audit_2026-11-04.md)
 assesses correctness, scientific evidence, molecular ownership and usability at

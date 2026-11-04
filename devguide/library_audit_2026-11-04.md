@@ -556,3 +556,18 @@ This improves discoverability and bounded interpretation for R3/R4/R8 without
 adding a website or changing scientific evidence. E1–E11 retain their original
 limits. The broader #29 publication/lifecycle decision, provider-dependent panel
 admission and public/visual qualification remain open.
+
+## Follow-up 7 — evidence publication decision, 2026-11-04
+
+[DMT-044](DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
+and the [local evidence publication policy](validation/evidence_publication_policy.md)
+resolve #29's route/lifecycle decision: repository-first presentation linked from
+the root README, one authoritative evidence source and explicit reader, metadata,
+maintenance, correction, rerun, retention and reconsideration boundaries. The
+comparison with a documentation section and dedicated site records why new
+infrastructure is deferred. The resolved report is archived, and directory
+instructions carry the accepted evidence-maintenance action.
+
+This reduces the organization/discoverability part of R3/R4/R8. It creates no
+scientific measurement, provider workaround, new web service or qualification.
+Provider-dependent panel admission and public/visual gates remain open.

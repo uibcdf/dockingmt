@@ -217,3 +217,9 @@ summarizes existing registered/adverse/installed-saved populations from exact
 records, retaining their original producers, cutoffs, atom populations and
 reporting failures. Its ten strata are not independent complexes. Rebuilding the
 presentation performs no molecular/native calculation or new qualification.
+
+[DMT-044 and the local evidence policy](validation/evidence_publication_policy.md)
+select a staged repository-first presentation, preserving single-source records,
+readers, original producers, lifecycle and concrete rerun/migration triggers.
+That organizational decision does not establish new scientific/public/visual
+acceptance or require routine stochastic reruns.
