@@ -1,0 +1,517 @@
+{
+  "schema": "dockingmt.public_dependency_readiness@1",
+  "owner": "uibcdf/dockingmt#47",
+  "qualification_owner": "uibcdf/dockingmt#30",
+  "reviewed_source": "45fef6bc570c987922d64484780f0e9cf1a4f0b0",
+  "observation_type": "bounded read-only package API, official main solver indexes and exact archive inspection",
+  "providers": [
+    {
+      "name": "molsysmt",
+      "selected_main_version": "0.23.0",
+      "API_latest_version_field": "0.12.0",
+      "API_url": "https://api.anaconda.org/package/uibcdf/molsysmt",
+      "API_response_sha256": "6cccd9415a786f296a743bf5531baf1c6172059da0f195c80a46d0f197bffa6a",
+      "queried_main_index_versions": [
+        {
+          "subdir": "linux-64",
+          "versions": [
+            "0.11.2",
+            "0.11.3",
+            "0.12.0",
+            "0.22.4",
+            "0.23.0"
+          ]
+        },
+        {
+          "subdir": "osx-arm64",
+          "versions": [
+            "0.11.2",
+            "0.11.3",
+            "0.12.0",
+            "0.22.4",
+            "0.23.0"
+          ]
+        },
+        {
+          "subdir": "noarch",
+          "versions": []
+        }
+      ],
+      "archive": {
+        "basename": "linux-64/molsysmt-0.23.0-pyabi3h03bb3b7_0.conda",
+        "url": "https://conda.anaconda.org/uibcdf/linux-64/molsysmt-0.23.0-pyabi3h03bb3b7_0.conda",
+        "labels": [
+          "staging",
+          "main"
+        ],
+        "bytes": 55898508,
+        "sha256": "7ff102db1ceb3a6098b5c020193a2bef1c5eaa4dbcbc5a0b472ee2fa44a1971b",
+        "solver_and_API_digest_verified": true,
+        "depends": [
+          "_python_abi3_support 1.*",
+          "argdigest >=0.13.0",
+          "cpython >=3.11",
+          "depdigest >=0.10.0",
+          "h5py",
+          "libgcc >=16",
+          "matplotlib",
+          "molsysviewer",
+          "networkx",
+          "numpy >=1.26,<3",
+          "pandas",
+          "py-mmcif >=1.1.1",
+          "python >=3.11,<3.15",
+          "pyunitwizard >=0.28.1",
+          "smonitor >=0.16.0",
+          "tqdm"
+        ]
+      },
+      "static_scope_checks": {
+        "read_poses_declared": false,
+        "chemical_states_namespace_shipped": false,
+        "PDBQT_initializer_exports_read_poses": false
+      },
+      "installed_or_imported": false
+    },
+    {
+      "name": "molsysviewer",
+      "selected_main_version": "0.24.0",
+      "API_latest_version_field": "0.7.0",
+      "API_url": "https://api.anaconda.org/package/uibcdf/molsysviewer",
+      "API_response_sha256": "65de7f3d4cf2aec4381cb343e43adaa0e4c5c1d8cea372830806495f7bfa11fc",
+      "queried_main_index_versions": [
+        {
+          "subdir": "linux-64",
+          "versions": [
+            "0.5.3",
+            "0.6.0",
+            "0.6.1",
+            "0.7.0"
+          ]
+        },
+        {
+          "subdir": "osx-arm64",
+          "versions": [
+            "0.5.3",
+            "0.6.0",
+            "0.6.1",
+            "0.7.0"
+          ]
+        },
+        {
+          "subdir": "noarch",
+          "versions": [
+            "0.23.4",
+            "0.24.0"
+          ]
+        }
+      ],
+      "archive": {
+        "basename": "noarch/molsysviewer-0.24.0-py_1.tar.bz2",
+        "url": "https://conda.anaconda.org/uibcdf/noarch/molsysviewer-0.24.0-py_1.tar.bz2",
+        "labels": [
+          "staging",
+          "main"
+        ],
+        "bytes": 1514120,
+        "sha256": "e31dfb114ab2e49f22b372992d0201455b91849f2631d0165b802069e13abeaa",
+        "solver_and_API_digest_verified": true,
+        "depends": [
+          "aiohttp >=3.10",
+          "anywidget >=0.9.15",
+          "argdigest >=0.13.0",
+          "depdigest",
+          "molsysmt >=0.23.0",
+          "numpy",
+          "packaging >=23",
+          "python >=3.11,<3.15",
+          "pyunitwizard >=0.25.0",
+          "smonitor >=0.13.0",
+          "traitlets >=5"
+        ]
+      },
+      "static_scope_checks": {
+        "AddonPanelWidget": true,
+        "on_frame_change": true,
+        "off_frame_change": true
+      },
+      "installed_or_imported": false
+    },
+    {
+      "name": "argdigest",
+      "selected_main_version": "0.17.0",
+      "API_latest_version_field": "0.12.1",
+      "API_url": "https://api.anaconda.org/package/uibcdf/argdigest",
+      "API_response_sha256": "ffa5ea34520639ae03bb7c18000debaee5379f356aebfc9a6bfe7392e948a864",
+      "queried_main_index_versions": [
+        {
+          "subdir": "linux-64",
+          "versions": [
+            "0.5.0",
+            "0.5.1",
+            "0.5.4",
+            "0.7.0",
+            "0.9.0",
+            "0.9.2",
+            "0.11.0",
+            "0.12.0",
+            "0.12.1"
+          ]
+        },
+        {
+          "subdir": "osx-arm64",
+          "versions": [
+            "0.5.0",
+            "0.5.1",
+            "0.5.4",
+            "0.7.0",
+            "0.9.0",
+            "0.9.2",
+            "0.11.0",
+            "0.12.0",
+            "0.12.1"
+          ]
+        },
+        {
+          "subdir": "noarch",
+          "versions": [
+            "0.13.0",
+            "0.14.0",
+            "0.15.0",
+            "0.16.0",
+            "0.17.0"
+          ]
+        }
+      ],
+      "archive": {
+        "basename": "noarch/argdigest-0.17.0-py_0.tar.bz2",
+        "url": "https://conda.anaconda.org/uibcdf/noarch/argdigest-0.17.0-py_0.tar.bz2",
+        "labels": [
+          "staging",
+          "main"
+        ],
+        "bytes": 55325,
+        "sha256": "9c35fa297b5a85dc65ac49ccd108f60f08dbeac4f745d6c369a767c0a0b3a3e1",
+        "solver_and_API_digest_verified": true,
+        "depends": [
+          "depdigest >=0.11.0",
+          "python >=3.11,<3.15",
+          "smonitor >=0.16.0"
+        ]
+      },
+      "static_scope_checks": {
+        "arg_digest_declared": true
+      },
+      "installed_or_imported": false
+    },
+    {
+      "name": "depdigest",
+      "selected_main_version": "0.15.1",
+      "API_latest_version_field": "0.11.2",
+      "API_url": "https://api.anaconda.org/package/uibcdf/depdigest",
+      "API_response_sha256": "e19a329ad847138319a91d722311389f20d52039d8234c6c718edade0ab9e682",
+      "queried_main_index_versions": [
+        {
+          "subdir": "linux-64",
+          "versions": [
+            "0.4.0",
+            "0.9.1",
+            "0.10.0",
+            "0.10.1"
+          ]
+        },
+        {
+          "subdir": "osx-arm64",
+          "versions": [
+            "0.4.0",
+            "0.9.1",
+            "0.10.0",
+            "0.10.1"
+          ]
+        },
+        {
+          "subdir": "noarch",
+          "versions": [
+            "0.11.0",
+            "0.11.1",
+            "0.11.2",
+            "0.12.0",
+            "0.13.0",
+            "0.14.0",
+            "0.15.0",
+            "0.15.1"
+          ]
+        }
+      ],
+      "archive": {
+        "basename": "noarch/depdigest-0.15.1-py_0.tar.bz2",
+        "url": "https://conda.anaconda.org/uibcdf/noarch/depdigest-0.15.1-py_0.tar.bz2",
+        "labels": [
+          "staging",
+          "main"
+        ],
+        "bytes": 32244,
+        "sha256": "2765c692de4e6aacff4197c4226ebb42ec1f0df9edb27e92f196ef1390cb1850",
+        "solver_and_API_digest_verified": true,
+        "depends": [
+          "python >=3.11,<3.15",
+          "smonitor >=0.13.0"
+        ]
+      },
+      "static_scope_checks": {
+        "dep_digest_declared": true,
+        "LazyRegistry_declared": true
+      },
+      "installed_or_imported": false
+    },
+    {
+      "name": "pyunitwizard",
+      "selected_main_version": "0.29.0",
+      "API_latest_version_field": "0.25.0",
+      "API_url": "https://api.anaconda.org/package/uibcdf/pyunitwizard",
+      "API_response_sha256": "c13166a70540289fe7d1e4adbeec8aee7020d31a1c34122c9cd9a3a4684248a6",
+      "queried_main_index_versions": [
+        {
+          "subdir": "linux-64",
+          "versions": [
+            "0.11.0",
+            "0.12.0",
+            "0.13.0",
+            "0.14.0",
+            "0.15.0",
+            "0.16.0",
+            "0.17.0",
+            "0.18.1",
+            "0.18.2",
+            "0.21.0",
+            "0.21.1",
+            "0.23.0",
+            "0.24.0",
+            "0.25.0"
+          ]
+        },
+        {
+          "subdir": "osx-arm64",
+          "versions": [
+            "0.10.0",
+            "0.11.0",
+            "0.12.0",
+            "0.13.0",
+            "0.14.0",
+            "0.15.0",
+            "0.16.0",
+            "0.17.0",
+            "0.18.1",
+            "0.18.2",
+            "0.21.0",
+            "0.21.1",
+            "0.23.0",
+            "0.24.0",
+            "0.25.0"
+          ]
+        },
+        {
+          "subdir": "noarch",
+          "versions": [
+            "0.26.0",
+            "0.27.0",
+            "0.28.0",
+            "0.28.1",
+            "0.29.0"
+          ]
+        }
+      ],
+      "archive": {
+        "basename": "noarch/pyunitwizard-0.29.0-py_0.tar.bz2",
+        "url": "https://conda.anaconda.org/uibcdf/noarch/pyunitwizard-0.29.0-py_0.tar.bz2",
+        "labels": [
+          "staging",
+          "main"
+        ],
+        "bytes": 94325,
+        "sha256": "9169cd302dbda415ebc441ef6f5077dcde834d435626fcf80c179a9013657f34",
+        "solver_and_API_digest_verified": true,
+        "depends": [
+          "argdigest >=0.14.0",
+          "depdigest >=0.11.0",
+          "numpy",
+          "pint",
+          "python >=3.11,<3.15",
+          "smonitor >=0.16.0"
+        ]
+      },
+      "static_scope_checks": {
+        "has_active_policy": true,
+        "context": true,
+        "register_fast_track": true
+      },
+      "installed_or_imported": false
+    },
+    {
+      "name": "smonitor",
+      "selected_main_version": "0.22.0",
+      "API_latest_version_field": "0.17.3",
+      "API_url": "https://api.anaconda.org/package/uibcdf/smonitor",
+      "API_response_sha256": "445da5fd327f638b0d5ad3d408c72a27a7fe27772c6e6794798555ba92aac307",
+      "queried_main_index_versions": [
+        {
+          "subdir": "linux-64",
+          "versions": [
+            "0.11.4",
+            "0.12.0",
+            "0.13.0",
+            "0.14.0",
+            "0.15.0"
+          ]
+        },
+        {
+          "subdir": "osx-arm64",
+          "versions": [
+            "0.11.4",
+            "0.12.0",
+            "0.13.0",
+            "0.14.0",
+            "0.15.0"
+          ]
+        },
+        {
+          "subdir": "noarch",
+          "versions": [
+            "0.16.0",
+            "0.17.0",
+            "0.17.1",
+            "0.17.2",
+            "0.17.3",
+            "0.18.0",
+            "0.19.0",
+            "0.20.0",
+            "0.21.0",
+            "0.22.0"
+          ]
+        }
+      ],
+      "archive": {
+        "basename": "noarch/smonitor-0.22.0-py_0.tar.bz2",
+        "url": "https://conda.anaconda.org/uibcdf/noarch/smonitor-0.22.0-py_0.tar.bz2",
+        "labels": [
+          "staging",
+          "main"
+        ],
+        "bytes": 59744,
+        "sha256": "bbf5890bed4ea657044b904f07d3cef137d474f0862ef5f35b063db9c8f0c949",
+        "solver_and_API_digest_verified": true,
+        "depends": [
+          "python >=3.11,<3.15"
+        ]
+      },
+      "static_scope_checks": {
+        "CatalogException": true,
+        "DiagnosticBundle": true
+      },
+      "installed_or_imported": false
+    }
+  ],
+  "solver_index_receipts": [
+    {
+      "url": "https://conda.anaconda.org/uibcdf/linux-64/repodata.json",
+      "subdir": "linux-64",
+      "observed_at": "2026-11-04T01:30:42.710073+00:00",
+      "response_sha256": "8b7af2504761203f7a463f2326e050cc83e49ad7abce79303b945dfdf4d146c2"
+    },
+    {
+      "url": "https://conda.anaconda.org/uibcdf/osx-arm64/repodata.json",
+      "subdir": "osx-arm64",
+      "observed_at": "2026-11-04T01:30:43.088827+00:00",
+      "response_sha256": "026e3670b9a49065cac1ccf8b51dc73265e088fa54231e5f4bde6acc9e514950"
+    },
+    {
+      "url": "https://conda.anaconda.org/uibcdf/noarch/repodata.json",
+      "subdir": "noarch",
+      "observed_at": "2026-11-04T01:30:43.278414+00:00",
+      "response_sha256": "67bf6964f441d685fcfe2c073605238453c02dab4d6315e2189df00284baa30c"
+    }
+  ],
+  "PyPI_queries": [
+    {
+      "name": "dockingmt",
+      "url": "https://pypi.org/pypi/dockingmt/json",
+      "observed_at": "2026-11-04T01:25:10.115337+00:00",
+      "HTTP_status": 404
+    },
+    {
+      "name": "argdigest",
+      "url": "https://pypi.org/pypi/argdigest/json",
+      "observed_at": "2026-11-04T01:25:10.117171+00:00",
+      "HTTP_status": 404
+    },
+    {
+      "name": "depdigest",
+      "url": "https://pypi.org/pypi/depdigest/json",
+      "observed_at": "2026-11-04T01:25:10.312208+00:00",
+      "HTTP_status": 404
+    },
+    {
+      "name": "molsysmt",
+      "url": "https://pypi.org/pypi/molsysmt/json",
+      "observed_at": "2026-11-04T01:25:10.545222+00:00",
+      "HTTP_status": 404
+    },
+    {
+      "name": "molsysviewer",
+      "url": "https://pypi.org/pypi/molsysviewer/json",
+      "observed_at": "2026-11-04T01:25:10.708320+00:00",
+      "HTTP_status": 404
+    },
+    {
+      "name": "pyunitwizard",
+      "url": "https://pypi.org/pypi/pyunitwizard/json",
+      "observed_at": "2026-11-04T01:25:10.919333+00:00",
+      "HTTP_status": 404
+    },
+    {
+      "name": "smonitor",
+      "url": "https://pypi.org/pypi/smonitor/json",
+      "observed_at": "2026-11-04T01:25:11.085244+00:00",
+      "HTTP_status": 404
+    }
+  ],
+  "dockingmt_Conda_package_API_query": {
+    "name": "dockingmt",
+    "registry": "conda",
+    "url": "https://api.anaconda.org/package/uibcdf/dockingmt",
+    "observed_at": "2026-11-04T01:25:10.114134+00:00",
+    "HTTP_status": 404,
+    "status": "not_found"
+  },
+  "staged_MolSysMT": {
+    "name": "molsysmt",
+    "version": "1.0.0",
+    "labels": [
+      "staging"
+    ],
+    "url": "https://conda.anaconda.org/uibcdf/label/staging/linux-64/molsysmt-1.0.0-pyabi3h03bb3b7_0.conda",
+    "basename": "linux-64/molsysmt-1.0.0-pyabi3h03bb3b7_0.conda",
+    "bytes": 55853839,
+    "sha256": "f3354b2d34ed9152d41c71119b46b13f064b40e076af20e97771891e032640dd",
+    "expected_API_digest_verified": true,
+    "read_poses_declared": false,
+    "chemical_states_namespace_present": false,
+    "not_main_indexed": true,
+    "installed_or_imported": false,
+    "initializer_checks": {
+      "root_initializer_mentions_chemical_states": false,
+      "PDBQT_initializer_mentions_read_poses": false
+    }
+  },
+  "finding": "main MolSysMT 0.23.0 and observed staging 1.0.0 omit required known-source reader/public chemical_states namespace; controlled source qualification cannot become a published API minimum",
+  "provider_handoff": "https://github.com/uibcdf/molsysmt/issues/334#issuecomment-6620139147",
+  "limits": {
+    "API_latest_version_field_is_not_complete_file_inventory": true,
+    "solver_or_clean_install_executed": false,
+    "source_equivalence_to_private_provider_archives_proven": false,
+    "numerical_public_minimum_selected": false,
+    "actual_DockingMT_release_plan_or_version_selected": false,
+    "all_label_candidate_coordinate_absence_gate_executed": false,
+    "new_environment_build_scientific_execution_publication_or_credential_access": false
+  }
+}

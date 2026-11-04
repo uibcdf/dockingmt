@@ -14,6 +14,23 @@ supersedes: []
 
 # Required Python 3.14 adoption
 
+## Public provider readiness reviewed — 2026-11-03
+
+[The #47 readiness review](../validation/public_candidate_readiness.md) separates
+real main-indexed packages from stale package-API summary fields. Six exact
+provider files pass static checksum/API inspection; no clean public installation
+or new platform/minor gate is claimed. In particular, main MolSysMT 0.23.0 and
+observed staging 1.0.0 do not ship required `read_poses`/public `chemical_states`.
+The provider owns the public-artifact disposition under #334; preserve its
+initial-release scope and old bytes. Viewer 0.24.0 contains the requested
+addon/callback markers but is not a qualified installed pairing here.
+
+The source profile, Python bounds and support badge remain unchanged. Candidate
+controls now include the DOM gate and reviewed publication operations, with 29
+administrative/reporting tests passing; these do not establish public admission.
+This issue stays partial until actual provider/candidate/installed/public gates
+pass for the required files, platforms and minors.
+
 ## Installed consumer checkpoint — 2026-10-07
 
 Producer `8741fb2e104814e6f1012e0cb7073689e710f982` has successful

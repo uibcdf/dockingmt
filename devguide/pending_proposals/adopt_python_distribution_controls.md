@@ -14,6 +14,33 @@ supersedes: []
 
 # Distribution control adoption
 
+## Public readiness and scoped publisher adoption — 2026-11-03
+
+The [readiness review](../validation/public_candidate_readiness.md) verifies
+actual main solver indexes and six hash-checked provider archives, independently
+of stale API `latest_version` fields. Main MolSysMT 0.23.0 and the observed
+staging-only 1.0.0 lack the required known-source `read_poses` and public
+`chemical_states` namespace; static files are not installed qualification.
+MolSysViewer 0.24.0 build 1 exposes the addon/callback markers, but the full
+public combination and numerical API minima remain unqualified. Provider
+handoff is on MolSysMT #334 without adding an initial-1.0 integration gate.
+Runtime bounds/source pins remain unchanged; no local molecular fallback exists.
+
+Review of MolSysSuite #87 adopts shared source `95f693be...` for build/upload,
+promotion and publication governance. Only reviewed wrapper refs and their
+declaration hashes change; triggers, inputs, secrets and identities stay intact.
+Installed-scientific and source SDK pins retain their separately accepted
+profiles. The example candidate plan now requires the actual addon DOM workflow
+and steps: fifteen native jobs, with all eight installed cells unchanged.
+Both controlled DOM omissions fail; 29 administrative/reporting tests and the
+new SDK's contract/resource preflight pass. No real version/plan, environment,
+build, science, credential access, upload or promotion is performed.
+
+This issue stays partial. Next receive an actual provider artifact covering the
+missing APIs, qualify the public combination/minima and installed helper, then
+commit the real staged candidate plan and execute its gates. Existing scientific
+records/private artifacts and all broader public/platform/visual limits remain.
+
 ## PEP 639 metadata migration qualified privately — 2026-11-03
 
 The maintainer accepts the local migration under MolSysSuite #162. The MIT

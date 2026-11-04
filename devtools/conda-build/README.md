@@ -1,8 +1,17 @@
 # First guarded Conda route
 
-Owner: uibcdf/dockingmt#47. Shared publication SDK:
-`2d32048457c6d37093ae509f5626d00a5cda121b`. Dependency/source SDK:
-`738fe8dd731abb99dac421b0bb2acc8564110180`. These are separate accepted pins.
+Owner: uibcdf/dockingmt#47. Reviewed publication/build/upload/promotion and
+publication-governance SDK: `95f693be10c9205ab9b912cb53453710a207bf45`
+(MolSysSuite #87, Conda provider v2.3.0). The installed-scientific caller retains
+`2d32048457c6d37093ae509f5626d00a5cda121b`; its actual-candidate/multi-import-root
+receiving remains separately tracked under #47/MolSysSuite #110. Dependency/source
+SDK remains `738fe8dd731abb99dac421b0bb2acc8564110180`. These scopes are reviewed
+separately, not a blanket helper-pin replacement.
+
+The [public readiness review](../../devguide/validation/public_candidate_readiness.md)
+records current registry/archive evidence, required provider handoffs and the
+release stop condition. No real plan/version, build, upload or promotion is
+selected by the shared-caller adoption.
 
 ## Applicability and current status
 
@@ -33,8 +42,8 @@ its mapping/access before any publication.
    profile. The first Conda route uses staging. Preserve any already registered
    source and bytes; never overwrite an occupied coordinate.
 3. Execute every candidate gate at that exact full source commit. The example
-   requires fourteen jobs across routine CI, six-cell full compatibility, policy
-   and Conda controls. Successful administration or a debt probe with skipped
+   requires fifteen jobs across routine CI, six-cell full compatibility, policy,
+   Conda controls and the shipped addon's DOM workflow. Successful administration or a debt probe with skipped
    science cannot authorize a build. Existing weekly/manual routes remain; the
    developer selects the real qualification execution when ready.
 4. Dispatch build_and_upload_conda_packages.yaml with the candidate SHA/version.

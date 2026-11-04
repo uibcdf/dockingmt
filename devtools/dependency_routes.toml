@@ -86,7 +86,7 @@ reason = "Current Python 3.14 source selection under dockingmt#49; required dire
 
 [[workflows]]
 path = ".github/workflows/build_and_upload_conda_packages.yaml"
-sha256 = "a7ae60a309898f9da75e01255fc69356d5a9ebf9e9091c9af4ef8ef5c804bd61"
+sha256 = "3a21d8ec4cfc5e2a5e5899968594e6ebf719e2c420bc018a9206704741e3ab14"
 reason = "Manual candidate/staged or eligible reviewed release caller; shared publication gates supply runtime/build dependencies."
 
 [[workflows]]
@@ -101,7 +101,7 @@ reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under
 
 [[workflows]]
 path = ".github/workflows/conda_publication_governance.yaml"
-sha256 = "eb54f756f9aa208adbc210b3839bf23be640457ff975f84415d12eb6c6b9cf4d"
+sha256 = "a096607f342da5810337ea0e6609f90875cd7d5c7e3c4a640f677f49b44ad1f2"
 reason = "Administrative no-build recipe/resources and immutable publisher controls."
 
 [[workflows]]
@@ -116,7 +116,7 @@ reason = "Shared policy administrative caller; installs no member runtime."
 
 [[workflows]]
 path = ".github/workflows/promote_conda_package.yaml"
-sha256 = "3cb1b6a85020a3b4cbe4cca0c4b592110f734dde0005d0b9579b33a0cd721a49"
+sha256 = "cbf7a72f2cf3010eb8ae3ebd88a53467b620564e66dda9ea7a0dde70265783d4"
 reason = "Read-only qualification before exact-file promotion; no member source installation or rebuild."
 
 [[workflows]]

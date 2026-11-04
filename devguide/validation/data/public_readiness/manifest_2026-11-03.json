@@ -1,0 +1,59 @@
+{
+  "schema": "dockingmt.public_readiness_manifest@1",
+  "owner": "uibcdf/dockingmt#47",
+  "baseline": "45fef6bc570c987922d64484780f0e9cf1a4f0b0",
+  "publication_SDK": "95f693be10c9205ab9b912cb53453710a207bf45",
+  "records": [
+    {
+      "path": "devguide/validation/public_candidate_readiness.md",
+      "bytes": 8871,
+      "sha256": "e0fcdecf2387abb336c76a87c1e7b3ec1a981e850a2b043ea2d97d9dbaa3a321"
+    },
+    {
+      "path": "devtools/conda-build/README.md",
+      "bytes": 5903,
+      "sha256": "04020705d9a16bfda0af469512945b1e239038efb2952cde2e7c6bae1648a1ef"
+    },
+    {
+      "path": "devtools/conda-build/release_plan.example.toml",
+      "bytes": 3835,
+      "sha256": "c8a91171ff5f7709455fc4dc6e4bb0adb106e702bc01272eca03c04a371fc655"
+    },
+    {
+      "path": "devtools/dependency_routes.toml",
+      "bytes": 6274,
+      "sha256": "5b537542a21172b2020c46c12995a9652d5e6777f3d13839a7faab3c976e3f8d"
+    },
+    {
+      "path": "devtools/tests/test_distribution_contract.py",
+      "bytes": 20094,
+      "sha256": "166a9eb723f34c01a960afc4597df0bec70f4481b8fd02c98f27e1f4b929901f"
+    },
+    {
+      "path": ".github/workflows/build_and_upload_conda_packages.yaml",
+      "bytes": 865,
+      "sha256": "3a21d8ec4cfc5e2a5e5899968594e6ebf719e2c420bc018a9206704741e3ab14"
+    },
+    {
+      "path": ".github/workflows/promote_conda_package.yaml",
+      "bytes": 1314,
+      "sha256": "cbf7a72f2cf3010eb8ae3ebd88a53467b620564e66dda9ea7a0dde70265783d4"
+    },
+    {
+      "path": ".github/workflows/conda_publication_governance.yaml",
+      "bytes": 273,
+      "sha256": "a096607f342da5810337ea0e6609f90875cd7d5c7e3c4a640f677f49b44ad1f2"
+    },
+    {
+      "path": "devguide/validation/data/public_readiness/registry_and_archives_2026-11-03.json",
+      "bytes": 14991,
+      "sha256": "31a98c35b5299e2706f11eb0b1a0b7204f5c3d065045eeabb20b4e857f70e9b6"
+    },
+    {
+      "path": "devguide/validation/data/public_readiness/control_review_2026-11-03.json",
+      "bytes": 3300,
+      "sha256": "5aa22ede9cd6cbe36179cbbb58d132f5476e2cdbd6a14be3111fc4fedd8f98c7"
+    }
+  ],
+  "actual_release_candidate_or_publication": false
+}

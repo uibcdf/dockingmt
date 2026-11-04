@@ -11,7 +11,7 @@ decision_by = "Example only; replace with responsible maintainer and date."
 artifact_subdirs = ["noarch"]
 test_platforms = ["linux-64", "osx-arm64"]
 python_versions = ["3.11", "3.12", "3.13", "3.14"]
-required_workflows = [".github/workflows/ci.yml", ".github/workflows/full-matrix.yml", ".github/workflows/molsyssuite-policy.yml", ".github/workflows/conda_publication_governance.yaml"]
+required_workflows = [".github/workflows/ci.yml", ".github/workflows/full-matrix.yml", ".github/workflows/molsyssuite-policy.yml", ".github/workflows/conda_publication_governance.yaml", ".github/workflows/addon-frontend.yml"]
 requires_installed_gate = true
 new_compatibility_surface = true
 coupled_release = false
@@ -38,3 +38,6 @@ dependencies_public = false
 
 [gate_jobs.".github/workflows/conda_publication_governance.yaml"]
 "publication / check" = ["Check publication workflow controls", "Check declared noarch recipe and resources without building"]
+
+[gate_jobs.".github/workflows/addon-frontend.yml"]
+"Addon panel DOM on Linux Node 26" = ["Install locked development-only DOM tools", "Execute shipped addon JavaScript in the test DOM"]

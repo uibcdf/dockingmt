@@ -1,0 +1,83 @@
+{
+  "schema": "dockingmt.public_candidate_control_review@1",
+  "baseline": "45fef6bc570c987922d64484780f0e9cf1a4f0b0",
+  "publication_pin": "95f693be10c9205ab9b912cb53453710a207bf45",
+  "scopes": [
+    "build/upload",
+    "promotion",
+    "publication governance"
+  ],
+  "wrapper_changes_only_reviewed_uses_reference": true,
+  "triggers_secret_mappings_inputs_qualification_identity_preserved": true,
+  "installed_source_helpers_scientific_CI_metadata_recipe_resources_unchanged": true,
+  "DOM_required_workflow_and_both_executed_steps_bound_to_actual_source": true,
+  "negative_guard_regressions": [
+    {
+      "mutation": "missing DOM workflow",
+      "outcome": "rejected by actual candidate guard"
+    },
+    {
+      "mutation": "missing DOM executed step",
+      "outcome": "rejected by actual candidate guard"
+    }
+  ],
+  "actual_release_plan_exists": false,
+  "new_environment_build_scientific_execution_or_publication": false,
+  "owner": "uibcdf/dockingmt#47",
+  "central_handoff": "uibcdf/molsyssuite#87",
+  "installed_caller_retained_pin": "2d32048457c6d37093ae509f5626d00a5cda121b",
+  "source_SDK_retained_pin": "738fe8dd731abb99dac421b0bb2acc8564110180",
+  "candidate_example_jobs": 15,
+  "selected_administrative_tests": {
+    "passed": 34,
+    "skipped": 0,
+    "seconds": 3.378
+  },
+  "new_publication_SDK_contract_and_recipe_resource_preflight": "passed; declaration/synthetic evidence only",
+  "custody": {
+    "owner": "uibcdf/dockingmt#47",
+    "resource_coordination": "uibcdf/dockingmt#50",
+    "review_date": "2026-11-10",
+    "raw_registry_indexes_exact_archives_and_SDK_review": "retained task-owned evidence",
+    "obsolete_initial_latest_field_downloads": "verified then retired; structured inspections retained",
+    "shared_environments_and_sibling_work_preserved": true
+  },
+  "shared_reviewed_files": [
+    {
+      "path": ".github/workflows/publish-noarch-conda.yaml",
+      "sha256": "3d59fa18d60ef61fee2145e31fc838f6e2162ba62101bb8993e85348578d35c0"
+    },
+    {
+      "path": ".github/workflows/promote-noarch-conda.yaml",
+      "sha256": "204e2ecace736c1c3d273c6b889e630ca5fc06c4a3920158605bf83ab5393a67"
+    },
+    {
+      "path": ".github/workflows/check-conda-publication.yaml",
+      "sha256": "87a58d402b1d1bba573abfdfe22b63eb10904216ac9e4769d0e294b4c57122f1"
+    },
+    {
+      "path": ".github/workflows/test-installed-noarch-conda.yaml",
+      "sha256": "1805e0952e234556f113ec56e8eb318d7a09b6fc2cdbfe122fa07cfc775dcc82"
+    },
+    {
+      "path": "devtools/scripts/conda_release_contract.py",
+      "sha256": "ce166c0990f386eb5b020192ef9b8d8381a3da47aa8d95507a6adb51d30009f3"
+    },
+    {
+      "path": "devtools/scripts/noarch_conda.py",
+      "sha256": "27ccce65d08b6076cd9a30eb288079c348d8c3e190b5ffc0a6ad47c10fd238f1"
+    }
+  ],
+  "all_62_nongenerated_runtime_files_equal_original_private_wheel": true,
+  "local_checks": {
+    "ruff_check_and_format": "passed; 189 files formatted",
+    "generated_indexes": "current",
+    "dependency_routes_declared_only": "passed",
+    "publication_contract_new_SDK": "passed",
+    "recipe_resource_preflight_new_SDK": "passed",
+    "relative_documentation_links_checked": 181,
+    "Core_criteria_retained": 35,
+    "four_previous_scientific_manifests": "verified unchanged",
+    "diff_whitespace": "passed"
+  }
+}

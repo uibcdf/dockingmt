@@ -120,8 +120,11 @@ the evidence keys above identify executed results and their limits.
    post-1.0 H5MSM 0.6 MolecularMechanics persistence, not a prerequisite for the
    declared linked-bundle workflow or a reason to invent a DockingMT archive.
 4. #52/#60 remain partial for visible C4/C6. Resume that observation on the
-   maintainer's decision. Public API minima, candidate planning and actual
-   archive/platform admission remain #30/#47 and do not follow from private tests.
+   maintainer's decision. The [public readiness review](validation/public_candidate_readiness.md)
+   verifies current registry/archive facts and candidate controls; required
+   MolSysMT APIs are absent from the inspected main/staging files. Public
+   API minima, actual candidate/platform admission stay #30/#47 and do not
+   follow from private tests or static package inspection.
 
 ## Existing Extended-MVP pieces
 

@@ -18,7 +18,7 @@ permissions:
 jobs:
   publish:
     if: github.event_name == 'workflow_dispatch' || !startsWith(github.event.release.tag_name, 'policy-v')
-    uses: uibcdf/molsyssuite/.github/workflows/publish-noarch-conda.yaml@2d32048457c6d37093ae509f5626d00a5cda121b
+    uses: uibcdf/molsyssuite/.github/workflows/publish-noarch-conda.yaml@95f693be10c9205ab9b912cb53453710a207bf45
     with:
       candidate_sha: ${{ inputs.candidate_sha || github.sha }}
       version: ${{ inputs.version || github.event.release.tag_name }}

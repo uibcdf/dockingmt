@@ -173,9 +173,11 @@ docking record and the existing package operations for its semantics.
 Preparation, protocol admission, separately registered two-search execution,
 detached saved-record inspection and explicit nine-observed-heavy-atom evaluation
 are delivered above. The public provider route preserves full source results
-without a private heavy-pose helper or new molecular tool. Next review actual
-published provider coordinates/API minima and candidate readiness under #30/#47,
-while recovering exact-head hosted gates. Broader source/replay and scientific
+without a private heavy-pose helper or new molecular tool. The
+[public readiness review](validation/public_candidate_readiness.md) now supplies
+the #30/#47 package handoff: receive a MolSysMT artifact covering the required
+APIs, qualify actual public combination/minima/installed helper, then select the
+staged candidate. Recover exact-head hosted gates in parallel. Broader source/replay and scientific
 profile questions remain #4/#33 and need concrete accepted workflows.
 Do not extract all of `admit` into a universal public preparation function.
 

@@ -20,6 +20,7 @@
 | `validation/installed_3ptb_execution_registration.md` | Which population, controls and failure policy were fixed before the two new searches? |
 | `validation/installed_3ptb_evaluation.md` | How can saved poses be evaluated over nine observed heavy atoms through public APIs while preserving full results? |
 | `validation/installed_3ptb_evaluation_registration.md` | Which atom population, positional criterion and unit-policy receiving were fixed before RMSD? |
+| `validation/public_candidate_readiness.md` | Which actual public files cover the required APIs, which publisher controls are adopted, and what remains before a real candidate? |
 | `VALIDATION_STRATEGY.md` | How do we distinguish software correctness from scientific validity? |
 | `MOLSYSSUITE_INTEGRATION.md` | How does DockingMT interact scientifically with sibling components? |
 | `MOLSYSVIEWER_INTEGRATION.md` | How should DockingMT own its viewer integration? |

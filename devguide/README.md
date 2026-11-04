@@ -45,8 +45,10 @@ boxes/calls and detached saved-record inspection, with no RMSD or viewer action.
 The [evaluation guide/notebook](validation/installed_3ptb_evaluation.md) now
 delivers that explicit public nine-heavy-atom comparison under normal and pm/fs
 policies, preserving full original poses with no new searches or molecular tool.
-The [workflow review](human_workflow_review.md) identifies public dependency/
-candidate readiness as the next block. Visual acceptance remains deferred;
+The [public readiness review](validation/public_candidate_readiness.md) records
+actual indexed provider files, the concrete MolSysMT delivery gap and the
+reviewed publisher/DOM candidate controls. The [workflow review](human_workflow_review.md)
+keeps actual public combination/minima/installed gates separate. Visual acceptance remains deferred;
 finite positional recovery does not establish affinity, general model quality,
 whole-Core or release acceptance.
 

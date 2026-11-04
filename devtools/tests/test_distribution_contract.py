@@ -343,9 +343,18 @@ class TestDistributionContract(unittest.TestCase):
                 SDK_SHA,
             )
 
-    def test_example_requires_all_fourteen_candidate_jobs(self):
+    def test_example_requires_all_fifteen_candidate_jobs(self):
         jobs = self.plan['gate_jobs']
-        self.assertEqual(sum(len(v) for v in jobs.values()), 14)
+        self.assertEqual(sum(len(v) for v in jobs.values()), 15)
+        frontend_path = '.github/workflows/addon-frontend.yml'
+        frontend = yaml.safe_load((self.root / frontend_path).read_text())['jobs'][
+            'addon-dom'
+        ]
+        self.assertIn(frontend_path, self.plan['required_workflows'])
+        self.assertEqual(
+            jobs[frontend_path][frontend['name']],
+            [step['name'] for step in frontend['steps'] if 'run' in step],
+        )
         for minor in ('3.11', '3.12', '3.13', '3.14'):
             for workflow, prefix in (
                 ('ci.yml', 'Test'),
@@ -386,18 +395,18 @@ class TestDistributionContract(unittest.TestCase):
         )
 
     def test_wrappers_pin_sdk_and_keep_qualification_separate_from_producer(self):
-        for name in (
-            'build_and_upload_conda_packages.yaml',
-            'promote_conda_package.yaml',
-            'test_installed_conda_package.yaml',
-            'conda_publication_governance.yaml',
-        ):
+        # Publication/provider adoption is separate from the accepted installed
+        # helper profile, whose migration still requires an actual candidate.
+        pins = {
+            'build_and_upload_conda_packages.yaml': '95f693be10c9205ab9b912cb53453710a207bf45',
+            'promote_conda_package.yaml': '95f693be10c9205ab9b912cb53453710a207bf45',
+            'test_installed_conda_package.yaml': '2d32048457c6d37093ae509f5626d00a5cda121b',
+            'conda_publication_governance.yaml': '95f693be10c9205ab9b912cb53453710a207bf45',
+        }
+        for name, pin in pins.items():
             data = yaml.safe_load((self.root / '.github/workflows' / name).read_text())
             self.assertTrue(
-                all(
-                    j['uses'].endswith('@2d32048457c6d37093ae509f5626d00a5cda121b')
-                    for j in data['jobs'].values()
-                )
+                all(j['uses'].endswith('@' + pin) for j in data['jobs'].values())
             )
             if name.startswith('promote'):
                 values = data['jobs']['promote']['with']
