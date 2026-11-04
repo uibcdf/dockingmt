@@ -1,0 +1,307 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "9f775ac4",
+   "metadata": {},
+   "source": [
+    "# Inspect score meaning and preserve successive rankings\n",
+    "\n",
+    "This offline example loads a saved DockingMT result, ranks it twice and inspects\n",
+    "the retained scalar evidence. All coordinates and scores are **invented software\n",
+    "fixtures**, not docking/rescoring predictions or scientific validation.\n",
+    "\n",
+    "`example_affinity` is an empirical value in conventional kcal/mol;\n",
+    "`example_preference` is dimensionless. Neither is a measured physical energy or\n",
+    "calibrated probability. See [the contract](score_semantics.md) for actual Vina/Vinardo\n",
+    "descriptors and compatibility rules. The notebook requires the ordinary DockingMT\n",
+    "environment plus Jupyter; it performs no molecular operation or engine execution."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "1b18fd70",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T07:11:25.897877Z",
+     "iopub.status.busy": "2026-10-03T07:11:25.897451Z",
+     "iopub.status.idle": "2026-10-03T07:11:26.274240Z",
+     "shell.execute_reply": "2026-10-03T07:11:26.272993Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Synthetic software example; no engine, molecular preparation or scientific prediction\n",
+      "Initial order: ['A', 'B', 'C']\n",
+      "Optional providers loaded: {'vina': False, 'molsysviewer': False}\n"
+     ]
+    }
+   ],
+   "source": [
+    "from pathlib import Path\n",
+    "import json\n",
+    "import sys\n",
+    "\n",
+    "import pyunitwizard as puw\n",
+    "from dockingmt import DockingResult\n",
+    "\n",
+    "directory = Path.cwd()\n",
+    "while not (directory / \"devguide/validation/data/ranking/synthetic_result.json\").is_file():\n",
+    "    if directory == directory.parent:\n",
+    "        raise FileNotFoundError(\"Run this notebook from the DockingMT checkout\")\n",
+    "    directory = directory.parent\n",
+    "fixture = directory / \"devguide/validation/data/ranking/synthetic_result.json\"\n",
+    "saved = json.loads(fixture.read_text())\n",
+    "result = DockingResult.from_dict(saved)\n",
+    "assert result.to_dict() == saved\n",
+    "assert result.provenance[\"fixture_id\"] == \"ranking-example-v1\"\n",
+    "print(result.provenance[\"evidence\"])\n",
+    "print(\"Initial order:\", [pose.pose_id for pose in result])\n",
+    "print(\"Optional providers loaded:\", {name: name in sys.modules for name in (\"vina\", \"molsysviewer\")})\n",
+    "assert \"vina\" not in sys.modules and \"molsysviewer\" not in sys.modules"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a6d792cd",
+   "metadata": {},
+   "source": [
+    "Descriptors accompany each pose's score numbers and declare their method,\n",
+    "version, interpretation, unit and comparison context. A missing descriptor means\n",
+    "unknown semantics. `score_definitions` returns an independent validated snapshot;\n",
+    "the definitions are stored in the existing metadata extension point."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "4eddc221",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T07:11:26.278268Z",
+     "iopub.status.busy": "2026-10-03T07:11:26.277952Z",
+     "iopub.status.idle": "2026-10-03T07:11:26.283912Z",
+     "shell.execute_reply": "2026-10-03T07:11:26.282739Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "example_affinity -> empirical kilocalorie / mole lower\n",
+      "  context: {'fixture_id': 'ranking-example-v1', 'purpose': 'invented numbers for software behavior only'}\n",
+      "example_preference -> dimensionless dimensionless higher\n",
+      "  context: {'fixture_id': 'ranking-example-v1', 'purpose': 'invented numbers for software behavior only'}\n",
+      "A {'example_affinity': -8.0, 'example_preference': 0.4}\n",
+      "B {'example_affinity': -6.0, 'example_preference': 0.9}\n",
+      "C {'example_affinity': -7.0, 'example_preference': 0.9}\n"
+     ]
+    }
+   ],
+   "source": [
+    "for name, descriptor in result[0].score_definitions.items():\n",
+    "    print(name, \"->\", descriptor[\"kind\"], descriptor[\"unit\"], descriptor[\"preferred_direction\"])\n",
+    "    print(\"  context:\", descriptor[\"context\"])\n",
+    "for pose in result:\n",
+    "    print(pose.pose_id, pose.scores)\n",
+    "assert result[0].scores[\"example_affinity\"] == -8.0"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7f44efa3",
+   "metadata": {},
+   "source": [
+    "Rank by the empirical example first, then by the dimensionless example.\n",
+    "Directions are explicit; the descriptor's preference is advisory. The two tied\n",
+    "dimensionless values preserve their order in the result supplied to the second\n",
+    "ranking. Neither operation modifies the input result or the earlier decision."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "7ede7641",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T07:11:26.287300Z",
+     "iopub.status.busy": "2026-10-03T07:11:26.287128Z",
+     "iopub.status.idle": "2026-10-03T07:11:26.299764Z",
+     "shell.execute_reply": "2026-10-03T07:11:26.298489Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Empirical order: ['A', 'C', 'B']\n",
+      "Dimensionless order: ['C', 'B', 'A']\n"
+     ]
+    }
+   ],
+   "source": [
+    "affinity_ranked = result.rank_by(\"example_affinity\", ascending=True)\n",
+    "preference_ranked = affinity_ranked.rank_by(\"example_preference\", ascending=False)\n",
+    "print(\"Empirical order:\", [pose.pose_id for pose in affinity_ranked])\n",
+    "print(\"Dimensionless order:\", [pose.pose_id for pose in preference_ranked])\n",
+    "assert [pose.pose_id for pose in affinity_ranked] == [\"A\", \"C\", \"B\"]\n",
+    "assert [pose.pose_id for pose in preference_ranked] == [\"C\", \"B\", \"A\"]\n",
+    "assert result.to_dict() == saved\n",
+    "assert len(affinity_ranked.ranking_history) == 1\n",
+    "assert len(preference_ranked.ranking_history) == 2\n",
+    "assert preference_ranked.provenance[\"ranking_policy\"] == {\"score_name\": \"example_preference\", \"ascending\": False}"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "123c7305",
+   "metadata": {},
+   "source": [
+    "History retains the selected descriptor, observed values, input identities and\n",
+    "output indices. It records no coordinates. `output_order` refers to positions in\n",
+    "that entry's `input_order`, so repeated or missing IDs do not erase the local order.\n",
+    "This is inspection evidence, not an authenticated seal or a campaign identity."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "24aac01a",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T07:11:26.303149Z",
+     "iopub.status.busy": "2026-10-03T07:11:26.302919Z",
+     "iopub.status.idle": "2026-10-03T07:11:26.309509Z",
+     "shell.execute_reply": "2026-10-03T07:11:26.308304Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Decision 1 example_affinity ascending: True\n",
+      "  observations: [('A', -8.0), ('B', -6.0), ('C', -7.0)]\n",
+      "  output indices: [0, 2, 1]\n",
+      "Decision 2 example_preference ascending: False\n",
+      "  observations: [('A', 0.4), ('C', 0.9), ('B', 0.9)]\n",
+      "  output indices: [1, 2, 0]\n"
+     ]
+    }
+   ],
+   "source": [
+    "history = preference_ranked.ranking_history\n",
+    "for number, entry in enumerate(history, start=1):\n",
+    "    print(\"Decision\", number, entry[\"score_name\"], \"ascending:\", entry[\"ascending\"])\n",
+    "    print(\"  observations:\", [(item[\"pose_id\"], item[\"value\"]) for item in entry[\"input_order\"]])\n",
+    "    print(\"  output indices:\", entry[\"output_order\"])\n",
+    "assert history[0][\"output_order\"] == [0, 2, 1]\n",
+    "assert history[1][\"output_order\"] == [1, 2, 0]\n",
+    "assert all(\"coordinates\" not in item for entry in history for item in entry[\"input_order\"])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ebe805ef",
+   "metadata": {},
+   "source": [
+    "Serialize and restore under a different session unit policy. Score numbers\n",
+    "keep their declared conventional unit; coordinate records keep their explicit nm\n",
+    "unit. Earlier observations remain independent of subsequent score edits and\n",
+    "exported snapshots."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "2b016610",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T07:11:26.313371Z",
+     "iopub.status.busy": "2026-10-03T07:11:26.313130Z",
+     "iopub.status.idle": "2026-10-03T07:11:26.330720Z",
+     "shell.execute_reply": "2026-10-03T07:11:26.329509Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Round trip, identity, units, input preservation and history independence: PASS\n"
+     ]
+    }
+   ],
+   "source": [
+    "exported = json.loads(json.dumps(preference_ranked.to_dict(), allow_nan=False))\n",
+    "with puw.context(standard_units=[\"angstrom\", \"fs\", \"kJ/mol\"]):\n",
+    "    restored = DockingResult.from_dict(exported)\n",
+    "    assert restored.to_dict() == exported\n",
+    "    assert all(pose.to_dict()[\"coordinates\"][\"unit\"] == \"nanometer\" for pose in restored)\n",
+    "before = {pose.pose_id: pose.to_dict() for pose in result}\n",
+    "for pose in restored:\n",
+    "    record = pose.to_dict()\n",
+    "    assert record[\"scores\"] == before[pose.pose_id][\"scores\"]\n",
+    "    assert record[\"coordinates\"] == before[pose.pose_id][\"coordinates\"]\n",
+    "    assert record[\"partner_state_id\"] == before[pose.pose_id][\"partner_state_id\"]\n",
+    "    assert record[\"receptor_state_id\"] == before[pose.pose_id][\"receptor_state_id\"]\n",
+    "restored[0].scores[\"example_affinity\"] = 100.0\n",
+    "assert restored.ranking_history[0][\"input_order\"][0][\"value\"] == -8.0\n",
+    "exported[\"provenance\"][\"ranking_history\"][0][\"input_order\"][0][\"value\"] = 999.0\n",
+    "assert preference_ranked.ranking_history[0][\"input_order\"][0][\"value\"] == -8.0\n",
+    "assert result.to_dict() == saved\n",
+    "print(\"Round trip, identity, units, input preservation and history independence: PASS\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d2ea4386",
+   "metadata": {},
+   "source": [
+    "Fully undescribed legacy results remain explicitly rankable without inferred\n",
+    "meaning. A legacy latest policy is preserved as `legacy_policy_only`, with no\n",
+    "invented past score observations. Described rankings require matching descriptors\n",
+    "and state IDs; mixed, incompatible or malformed semantics fail before an output\n",
+    "is returned. See `tests/test_score_semantics.py` for those rejection guards.\n",
+    "\n",
+    "Repeat this example with:\n",
+    "\n",
+    "```bash\n",
+    "jupyter nbconvert --to notebook --execute --inplace devguide/validation/ranking_history.ipynb\n",
+    "```\n",
+    "\n",
+    "Native Vina/Vinardo descriptor and initial-order checks are part of\n",
+    "`tests/test_engines.py::test_vina_backend_docking_execution`. Their minimal prepared\n",
+    "PDBQT controls validate the adapter boundary, not molecular chemistry or redocking.\n",
+    "The broader publication strategy remains [#29](https://github.com/uibcdf/dockingmt/issues/29)."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.14"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -33,8 +33,9 @@ The original installed wheel remains `0.0.0+225.g50d8e33`, producer
 `50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9`, SHA-256
 `5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98`.
 Private MolSysMT `0.23.0+361.gde7ffad2a`, Viewer `0.24.0+260.g78ede79e` and
-ArgDigest `0.15.0+5.g3d1ec53` are unchanged. No wheel/environment is rebuilt or
-installed. The distinct committed test/helper source is
+ArgDigest `0.15.0+5.g3d1ec53` are unchanged. Scientific archives and the receiver
+are reused without rebuilding/installing them. A separate administrative-only
+tool environment validates the publication repair below. The distinct committed test/helper source is
 `3bf7abf5a72609f70ab730989a666f64a36585e7`; the earlier migration source `769401e` retains
 its failed receiving. No archive is relabelled as produced by the new helper
 commit.
@@ -92,8 +93,9 @@ shared workflow: `Recheck installed provenance after scientific tests`.
 The same two platforms/four minors retain eight mandatory installed cells.
 The provider passes distinct original candidate, qualification, provider, file,
 digest and run/attempt identities, and retains the optional support sidecar.
-Source/dependency SDK `738fe8dd...`, scientific pins and source science workflows
-remain unchanged. The [workflow review](data/installed_support/workflow_adoption_2026-11-04.json)
+Source/dependency SDK `738fe8dd...`, scientific pins and source science commands
+remain unchanged. The administrative CI selection now includes the four new
+support controls without scientific dependencies. The [workflow review](data/installed_support/workflow_adoption_2026-11-04.json)
 records this bounded source adoption, not execution of those future cells.
 
 All original receiver files and committed harness inputs verify unchanged;
@@ -112,3 +114,40 @@ and eight installed cells. Preserve each provider's frozen initial release scope
 The existing public Viewer failure remains valid; this private scientific gate
 does not clear it. Real plan/access/platform/public admission and visible C4/C6
 remain pending; no tag/release/upload/promotion is performed.
+
+## Publication preflight repair — 2026-11-04
+
+Exact head `ea9b302` passes the scientific installed receiving but its hosted
+publication-governance run `41858505123` rejects a changed support-input digest.
+The full gate used the frozen `b74b4ad` validation guide bytes; subsequently
+updating the living readiness guide changed its declared source. The failure
+is preserved. The receptor locates the failed recipe step; a bounded native
+failed-log fallback supplies the specific digest diagnostic.
+
+The 131 top-level guide/notebook inputs now come from committed inert text
+snapshots at `tests/data/installed_support/b74b4ad/`, mapped by the shared API
+to their original staged targets. Original live guides remain editable. Every
+one of the **570 staged target names, SHA-256 values, sizes and kinds** equals
+the successful full gate. Python code and scientific fixture target bytes do
+not change. Shared staging revalidates the complete target graph and a fresh
+21-test installed attribution/profiling selection passes with checked origins
+and retired support. The full 1,450-test scientific result is reused only for
+those identical executed inputs; no third full scientific run is claimed.
+
+The [repair receipt](data/installed_support/guide_mapping_repair_2026-11-04.json)
+and [separate repair manifest](data/installed_support/guide_mapping_manifest_2026-11-04.json)
+bind the source-path mapping, current declaration and new checks. The original
+full receipt/manifest remain unchanged. The published administrative commands
+also pass in an isolated tool environment with no scientific packages; all
+28 owner/distribution/coverage/reporting controls pass there. Compatibility
+controls import only the pure recovery helper, preserving that boundary.
+
+Two task-only diagnostic launches are retained: isolated mode omitted sibling
+administrative script imports, and pointing the installed guard at the owner
+root rejected the receiver nested inside that root. Correct published command
+semantics and a separate sparse source-free input context resolve them without
+changing provider guards. The redundant first failed harness is retired after
+its 818-file inventory is verified; its immutable source, input inventory and
+failed logs remain retained. Original receivers and scientific artifacts stay
+protected. Resource validation on a fresh committed export is the final local
+gate before pushing this repair; hosted current-head recovery remains #47-owned.

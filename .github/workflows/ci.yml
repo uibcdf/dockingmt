@@ -173,7 +173,7 @@ jobs:
       - name: Review declared dependency routes
         run: python devtools/check_dependency_routes.py --declared-only
       - name: Test distribution controls
-        run: python -m pytest --receptor=ci -o addopts= devtools/tests/test_distribution_contract.py devtools/tests/test_coverage_workflow.py tests/test_reporting_protocol.py
+        run: python -m pytest --receptor=ci -o addopts= devtools/tests/test_distribution_contract.py devtools/tests/test_installed_support.py devtools/tests/test_coverage_workflow.py tests/test_reporting_protocol.py
 
   coverage-upload:
     name: Publish default-branch Python coverage

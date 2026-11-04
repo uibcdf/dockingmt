@@ -1,0 +1,371 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "ed2f77e3",
+   "metadata": {},
+   "source": [
+    "# Explicit PDB connectivity profiles and native candidates\n",
+    "\n",
+    "Evidence for DockingMT #33 and MolSysMT #304. The current default reader uses\n",
+    "optional OpenMM inference; its absence leaves an incomplete explicit-only graph.\n",
+    "The residue audit correctly reports that graph. This notebook reproduces both\n",
+    "profiles and compares existing native candidates without applying any bonds.\n",
+    "See `pdb_bond_inference.md` for contracts, axes, exclusions and the CI correction.\n",
+    "\n",
+    "Run in `molsyssuite@uibcdf_3.14` with exact provider source\n",
+    "`e8e4fff22d0df0d26a3b91d80ea5a85c04981aef` on `PYTHONPATH`. OpenMM is required\n",
+    "for the comparison profile, not the candidate inference calls. This notebook\n",
+    "writes its own raw record and preserves previous preparation benchmarks."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "78d0dc15",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T13:54:29.369061Z",
+     "iopub.status.busy": "2026-10-03T13:54:29.368508Z",
+     "iopub.status.idle": "2026-10-03T13:54:39.720841Z",
+     "shell.execute_reply": "2026-10-03T13:54:39.719619Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Interpreter: /home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "/home/diego/repos@uibcdf/dockingmt/devguide/validation/data/pdb_bond_inference/probe.json\n",
+      "181L explicit: 13 OpenMM: 1322 native-only: 0 OpenMM-only: 0\n",
+      "1IEP explicit: 0 OpenMM: 4469 native-only: 2 OpenMM-only: 16\n",
+      "{\n",
+      "  \"evidence\": \"Read-only source-specific candidate comparison, not independent chemical validation or a performance benchmark\",\n",
+      "  \"provider_reference_source\": \"e8e4fff22d0df0d26a3b91d80ea5a85c04981aef\",\n",
+      "  \"provider_import\": \"/tmp/dockingmt-receptor-provider-e8e4fff22d0df0d26a3b91d80ea5a85c04981aef/molsysmt/__init__.py\",\n",
+      "  \"python\": \"3.14.7\",\n",
+      "  \"interpreter\": \"/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\",\n",
+      "  \"versions\": {\n",
+      "    \"openmm\": \"8.6.1\",\n",
+      "    \"numpy\": \"2.4.6\",\n",
+      "    \"pandas\": \"2.3.3\"\n",
+      "  },\n",
+      "  \"implementation_sha256\": {\n",
+      "    \"build/get_missing_bonds.py\": \"0e198912aacf8ce39ab8e52ca2a38eade037e3a1103e0ebd5844aee727b85416\",\n",
+      "    \"form/file_pdb/to_molsysmt_MolSys.py\": \"4985021a838a6f99893d3ac6eea0c5a864b6ee64b2f1ce32338d4f9a3f4747d2\",\n",
+      "    \"form/molsysmt_PDBFileHandler/to_molsysmt_MolSys.py\": \"ada289595bd9d9e26e35eae0d19bba6ae83be2c3b11f5a3f97e060a1ebef388b\",\n",
+      "    \"_private/residue_chemical_coverage.py\": \"acda73a3e29c689e3732e36d38ac279ee2da60982a8945b5dcc744d8c4f12fe5\"\n",
+      "  }\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "import json\n",
+    "from pathlib import Path\n",
+    "import runpy\n",
+    "import sys\n",
+    "import pandas as pd\n",
+    "\n",
+    "root = next(path for path in [Path.cwd(), *Path.cwd().parents]\n",
+    "            if (path / 'devtools/probe_pdb_bond_inference.py').is_file())\n",
+    "namespace = runpy.run_path(str(root / 'devtools/probe_pdb_bond_inference.py'))\n",
+    "print('Interpreter:', sys.executable)\n",
+    "namespace['main']()\n",
+    "payload = json.loads((root / 'devguide/validation/data/pdb_bond_inference/probe.json').read_text())\n",
+    "print(json.dumps({key: value for key, value in payload.items() if key != 'cases'}, indent=2))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5214dc3c",
+   "metadata": {},
+   "source": [
+    "## Actual graph and coverage depend on the reader policy\n",
+    "\n",
+    "With OpenMM imports blocked, the current file reader retains only explicitly\n",
+    "recorded edges. The public handler with `get_missing_bonds=False` yields the\n",
+    "same graph. At this provider source the direct file conversion silently discards\n",
+    "that flag; its correction is requested upstream. Heavy-atom presence remains\n",
+    "separate from complete stored connectivity. No input bytes are rewritten."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "8e489c7d",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T13:54:39.724532Z",
+     "iopub.status.busy": "2026-10-03T13:54:39.724097Z",
+     "iopub.status.idle": "2026-10-03T13:54:39.790598Z",
+     "shell.execute_reply": "2026-10-03T13:54:39.789486Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>case</th>\n",
+       "      <th>source_atoms</th>\n",
+       "      <th>explicit_handler_edges</th>\n",
+       "      <th>without_OpenMM_edges</th>\n",
+       "      <th>OpenMM_edges</th>\n",
+       "      <th>file_flag_false_edges</th>\n",
+       "      <th>assessed</th>\n",
+       "      <th>incomplete</th>\n",
+       "      <th>unassessed</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>181L</td>\n",
+       "      <td>1441</td>\n",
+       "      <td>13</td>\n",
+       "      <td>13</td>\n",
+       "      <td>1322</td>\n",
+       "      <td>1322</td>\n",
+       "      <td>0</td>\n",
+       "      <td>162</td>\n",
+       "      <td>140</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1IEP</td>\n",
+       "      <td>4412</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>4469</td>\n",
+       "      <td>4469</td>\n",
+       "      <td>0</td>\n",
+       "      <td>274</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   case  source_atoms  explicit_handler_edges  without_OpenMM_edges  \\\n",
+       "0  181L          1441                      13                    13   \n",
+       "1  1IEP          4412                       0                     0   \n",
+       "\n",
+       "   OpenMM_edges  file_flag_false_edges  assessed  incomplete  unassessed  \n",
+       "0          1322                   1322         0         162         140  \n",
+       "1          4469                   4469         0         274           0  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[\n",
+      "  {\n",
+      "    \"case\": \"181L\",\n",
+      "    \"reasons\": {\n",
+      "      \"incomplete_stored_connectivity\": 162,\n",
+      "      \"no_exact_residue_template\": 140\n",
+      "    }\n",
+      "  },\n",
+      "  {\n",
+      "    \"case\": \"1IEP\",\n",
+      "    \"reasons\": {\n",
+      "      \"incomplete_stored_connectivity\": 274\n",
+      "    }\n",
+      "  }\n",
+      "]\n"
+     ]
+    }
+   ],
+   "source": [
+    "display(pd.DataFrame([{\n",
+    "    'case': case['case'], 'source_atoms': case['source_atoms'],\n",
+    "    'explicit_handler_edges': case['explicit_handler_bonds'],\n",
+    "    'without_OpenMM_edges': case['without_openmm_bonds'],\n",
+    "    'OpenMM_edges': case['openmm_bonds'],\n",
+    "    'file_flag_false_edges': case['file_get_missing_bonds_false_bonds'],\n",
+    "    **case['without_openmm_summary'],\n",
+    "} for case in payload['cases']]))\n",
+    "print(json.dumps([{'case': case['case'], 'reasons': case['without_openmm_reason_counts']}\n",
+    "                  for case in payload['cases']], indent=2))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7e59a32f",
+   "metadata": {},
+   "source": [
+    "## A reusable native foundation, not yet a qualified replacement\n",
+    "\n",
+    "`msm.build.get_missing_bonds(engine='MolSysMT', pbc=False)` runs with OpenMM\n",
+    "imports blocked. Reference-selected source atom indices are reused on the\n",
+    "explicit-only input, verifying names, elements and IDs before comparing edge\n",
+    "sets. Connectivity itself can change molecule membership, so separately\n",
+    "selecting `molecule_type=='protein'` on each graph would change the population.\n",
+    "\n",
+    "Pairs below use the extracted selection's atom axis; the raw record retains its\n",
+    "complete source-index map. Native candidates remain unapplied. The 181L edge\n",
+    "sets agree exactly. The 1IEP differences and stdout warnings require investigation;\n",
+    "agreement with OpenMM would still not supply independent chemical validation,\n",
+    "bond orders, protonation, charge models, force-field types or docking readiness.\n",
+    "No timing or memory claim is made."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "b4c72085",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T13:54:39.794073Z",
+     "iopub.status.busy": "2026-10-03T13:54:39.793735Z",
+     "iopub.status.idle": "2026-10-03T13:54:39.808085Z",
+     "shell.execute_reply": "2026-10-03T13:54:39.806811Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>case</th>\n",
+       "      <th>selected_atoms</th>\n",
+       "      <th>native_candidate_edges</th>\n",
+       "      <th>OpenMM_comparison_edges</th>\n",
+       "      <th>native_only_edges</th>\n",
+       "      <th>OpenMM_only_edges</th>\n",
+       "      <th>native_stdout_lines</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>181L</td>\n",
+       "      <td>1289</td>\n",
+       "      <td>1309</td>\n",
+       "      <td>1309</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1IEP</td>\n",
+       "      <td>4412</td>\n",
+       "      <td>4455</td>\n",
+       "      <td>4469</td>\n",
+       "      <td>2</td>\n",
+       "      <td>16</td>\n",
+       "      <td>224</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   case  selected_atoms  native_candidate_edges  OpenMM_comparison_edges  \\\n",
+       "0  181L            1289                    1309                     1309   \n",
+       "1  1IEP            4412                    4455                     4469   \n",
+       "\n",
+       "   native_only_edges  OpenMM_only_edges  native_stdout_lines  \n",
+       "0                  0                  0                    0  \n",
+       "1                  2                 16                  224  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "181L native-only pairs: [] OpenMM-only pairs: []\n",
+      "1IEP native-only pairs: [[0, 3427], [4398, 4399]] OpenMM-only pairs: [[252, 254], [297, 299], [684, 686], [762, 764], [844, 846], [1312, 1314], [1472, 1474], [1538, 1540], [1958, 1960], [2666, 2668], [2699, 2701], [2734, 2736], [2924, 2926], [3368, 3370], [3408, 3421], [4349, 4351]]\n",
+      "Full source maps, implementation hashes and native stdout are retained in probe.json.\n"
+     ]
+    }
+   ],
+   "source": [
+    "display(pd.DataFrame([{\n",
+    "    'case': case['case'], 'selected_atoms': case['selected_atoms'],\n",
+    "    'native_candidate_edges': case['native_candidate_bonds'],\n",
+    "    'OpenMM_comparison_edges': case['openmm_comparison_bonds'],\n",
+    "    'native_only_edges': len(case['native_only_pairs']),\n",
+    "    'OpenMM_only_edges': len(case['openmm_only_pairs']),\n",
+    "    'native_stdout_lines': case['native_stdout_lines'],\n",
+    "} for case in payload['cases']]))\n",
+    "for case in payload['cases']:\n",
+    "    print(case['case'], 'native-only pairs:', case['native_only_pairs'],\n",
+    "          'OpenMM-only pairs:', case['openmm_only_pairs'])\n",
+    "print('Full source maps, implementation hashes and native stdout are retained in probe.json.')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,866 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "0ac80115",
+   "metadata": {},
+   "source": [
+    "# Explicit docking torsion policy — 2026-10-06\n",
+    "\n",
+    "DockingMT #17/#6 adopts public MolSysMT #224 classification before H projection. Selected cuts remain caller decisions; provider exclusions are preserved even when an explicit docking exception is accepted. This notebook tests software contracts, not rotational barriers or predictive accuracy. Earlier fragment/type receipts remain intact."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "c8b4ddd7",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T23:19:18.562079Z",
+     "iopub.status.busy": "2026-10-06T23:19:18.561647Z",
+     "iopub.status.idle": "2026-10-06T23:19:43.389047Z",
+     "shell.execute_reply": "2026-10-06T23:19:43.387234Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "[17:19:24] Warning: molecule is tagged as 2D, but at least one Z coordinate is not zero. Marking the mol as 3D.\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\n",
+      "5bd893c85fe8d211663b2b1f865f5f1d2c382a90\n"
+     ]
+    }
+   ],
+   "source": [
+    "from pathlib import Path\n",
+    "import sys\n",
+    "assert Path(sys.prefix).name == 'molsyssuite@uibcdf_3.14'\n",
+    "root = next(p for p in (Path.cwd(), *Path.cwd().parents) if (p / 'pyproject.toml').is_file())\n",
+    "sys.path.insert(0, str(root))\n",
+    "import json\n",
+    "import pandas as pd\n",
+    "import dockingmt as dmt\n",
+    "from devtools.qualify_torsion_policy import qualify, save\n",
+    "record = qualify()\n",
+    "save(record)\n",
+    "print(record['interpreter'])\n",
+    "print(record['qualified_provider_commit'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2a73d14f",
+   "metadata": {},
+   "source": [
+    "## Original reference matrix\n",
+    "\n",
+    "The unchanged four curated SDF files use the pre-existing explicit RDKit reader bridge. Native classification itself uses no RDKit or Meeko. Every generated PDBQT hash and written permutation matches the pre-migration baseline; previous coordinate/element reference tests independently compare exact bond/fragment identities. The published files are comparison inputs, not chemical ground truth."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "2890cf2d",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T23:19:43.394121Z",
+     "iopub.status.busy": "2026-10-06T23:19:43.393422Z",
+     "iopub.status.idle": "2026-10-06T23:19:43.416223Z",
+     "shell.execute_reply": "2026-10-06T23:19:43.414713Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>case</th>\n",
+       "      <th>provider_candidates</th>\n",
+       "      <th>selected_cuts</th>\n",
+       "      <th>explicit_exceptions</th>\n",
+       "      <th>prior_bytes_and_permutation</th>\n",
+       "      <th>parser</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>1iep_ligand</td>\n",
+       "      <td>7</td>\n",
+       "      <td>7</td>\n",
+       "      <td>0</td>\n",
+       "      <td>True</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1s63_ligand</td>\n",
+       "      <td>5</td>\n",
+       "      <td>6</td>\n",
+       "      <td>1</td>\n",
+       "      <td>True</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>5x72_ligand_p59</td>\n",
+       "      <td>2</td>\n",
+       "      <td>2</td>\n",
+       "      <td>0</td>\n",
+       "      <td>True</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>5x72_ligand_p69</td>\n",
+       "      <td>2</td>\n",
+       "      <td>2</td>\n",
+       "      <td>0</td>\n",
+       "      <td>True</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "              case  provider_candidates  selected_cuts  explicit_exceptions  \\\n",
+       "0      1iep_ligand                    7              7                    0   \n",
+       "1      1s63_ligand                    5              6                    1   \n",
+       "2  5x72_ligand_p59                    2              2                    0   \n",
+       "3  5x72_ligand_p69                    2              2                    0   \n",
+       "\n",
+       "   prior_bytes_and_permutation  parser  \n",
+       "0                         True    True  \n",
+       "1                         True    True  \n",
+       "2                         True    True  \n",
+       "3                         True    True  "
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "rows=[]\n",
+    "for name, case in record['original_cases'].items():\n",
+    "    selected=case['prepared']['metadata']['torsion_selection']['selected_bonds']\n",
+    "    rows.append({'case': name, 'provider_candidates': case['provider_candidate_count'], 'selected_cuts': len(selected), 'explicit_exceptions': sum(d['decision']=='explicit_override' for d in selected), 'prior_bytes_and_permutation': case['original_bytes_and_permutation_preserved'], 'parser': case['vina_parser_admitted']})\n",
+    "pd.DataFrame(rows)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "013acca1",
+   "metadata": {},
+   "source": [
+    "## Explicit exceptions retain provider disagreement\n",
+    "\n",
+    "The named consumer policy explicit_docking_cuts@1 retains explicitly requested ester/thioester C–O/S and triple-adjacent axes. The original provider mask and is_rotatable=False remain unchanged. These decisions do not silently redefine provider eligibility or activate any default cuts. Restricted C–N, ring, nonsingle, H and terminal-heavy bonds are rejected."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "1dda98c2",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T23:19:43.419709Z",
+     "iopub.status.busy": "2026-10-06T23:19:43.419266Z",
+     "iopub.status.idle": "2026-10-06T23:19:43.440233Z",
+     "shell.execute_reply": "2026-10-06T23:19:43.438625Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>case</th>\n",
+       "      <th>bond_id</th>\n",
+       "      <th>source_pair</th>\n",
+       "      <th>decision</th>\n",
+       "      <th>provider_exclusions</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>CCCCCC:(1, 2)</td>\n",
+       "      <td>1</td>\n",
+       "      <td>[1, 2]</td>\n",
+       "      <td>provider_candidate</td>\n",
+       "      <td>[]</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>CC(=O)OCC:(1, 3)</td>\n",
+       "      <td>2</td>\n",
+       "      <td>[1, 3]</td>\n",
+       "      <td>explicit_override</td>\n",
+       "      <td>[restricted_conjugation]</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>CC(=O)OCC:(3, 4)</td>\n",
+       "      <td>3</td>\n",
+       "      <td>[3, 4]</td>\n",
+       "      <td>provider_candidate</td>\n",
+       "      <td>[]</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>CC(=O)SCC:(1, 3)</td>\n",
+       "      <td>2</td>\n",
+       "      <td>[1, 3]</td>\n",
+       "      <td>explicit_override</td>\n",
+       "      <td>[restricted_conjugation]</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>c1ccccc1C#N:(5, 6)</td>\n",
+       "      <td>5</td>\n",
+       "      <td>[5, 6]</td>\n",
+       "      <td>explicit_override</td>\n",
+       "      <td>[adjacent_triple_bond]</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>CCC#CCC:(1, 2)</td>\n",
+       "      <td>1</td>\n",
+       "      <td>[1, 2]</td>\n",
+       "      <td>explicit_override</td>\n",
+       "      <td>[adjacent_triple_bond]</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                 case bond_id source_pair            decision  \\\n",
+       "0       CCCCCC:(1, 2)       1      [1, 2]  provider_candidate   \n",
+       "1    CC(=O)OCC:(1, 3)       2      [1, 3]   explicit_override   \n",
+       "2    CC(=O)OCC:(3, 4)       3      [3, 4]  provider_candidate   \n",
+       "3    CC(=O)SCC:(1, 3)       2      [1, 3]   explicit_override   \n",
+       "4  c1ccccc1C#N:(5, 6)       5      [5, 6]   explicit_override   \n",
+       "5      CCC#CCC:(1, 2)       1      [1, 2]   explicit_override   \n",
+       "\n",
+       "        provider_exclusions  \n",
+       "0                        []  \n",
+       "1  [restricted_conjugation]  \n",
+       "2                        []  \n",
+       "3  [restricted_conjugation]  \n",
+       "4    [adjacent_triple_bond]  \n",
+       "5    [adjacent_triple_bond]  "
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "decisions=[]\n",
+    "for name, case in record['analytical_cases'].items():\n",
+    "    selection=case['prepared']['metadata']['torsion_selection']\n",
+    "    decision=selection['selected_bonds'][0]\n",
+    "    decisions.append({'case': name, 'bond_id': decision['source_bond_id'], 'source_pair': decision['source_atom_indices'], 'decision': decision['decision'], 'provider_exclusions': decision['provider_exclusion_reasons']})\n",
+    "pd.DataFrame(decisions)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8cce6d80",
+   "metadata": {},
+   "source": [
+    "## Restricted C–N scope\n",
+    "\n",
+    "Amide/thioamide, amidine and tertiary-amide controls are rejected using the provider restricted_conjugation bit and the consumer C–N rule. Amidine rejection broadens the former local amide-only guard and is recorded as a behavior change. No symmetry exception or barrier calculation is introduced."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "6aa53d54",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T23:19:43.443583Z",
+     "iopub.status.busy": "2026-10-06T23:19:43.443345Z",
+     "iopub.status.idle": "2026-10-06T23:19:43.448387Z",
+     "shell.execute_reply": "2026-10-06T23:19:43.447335Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'CC(=O)NCC': {'exception': 'ArgumentError',\n",
+       "  'message': \"Invalid argument 'active_torsion_bonds': (1, 3) is an amide C-N or other restricted C-N bond.\"},\n",
+       " 'CC(=S)NCC': {'exception': 'ArgumentError',\n",
+       "  'message': \"Invalid argument 'active_torsion_bonds': (1, 3) is an amide C-N or other restricted C-N bond.\"},\n",
+       " 'CC(=N)NCC': {'exception': 'ArgumentError',\n",
+       "  'message': \"Invalid argument 'active_torsion_bonds': (1, 3) is an amide C-N or other restricted C-N bond.\"},\n",
+       " 'CC(=O)N(C)CC': {'exception': 'ArgumentError',\n",
+       "  'message': \"Invalid argument 'active_torsion_bonds': (1, 3) is an amide C-N or other restricted C-N bond.\"}}"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "assert len(record['restricted_c_n_rejections']) == 4\n",
+    "record['restricted_c_n_rejections']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5fe88683",
+   "metadata": {},
+   "source": [
+    "## Prepared and written atom axes\n",
+    "\n",
+    "The complete selected source graph is evaluated before nonpolar-H projection. Source bond positions and IDs remain separate. ROOT/BRANCH orientation belongs to DockingMT; every written atom maps to the recorded source axis. The 1S63 reference-only H remains excluded from source-index comparison."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "fd87291d",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T23:19:43.451389Z",
+     "iopub.status.busy": "2026-10-06T23:19:43.451157Z",
+     "iopub.status.idle": "2026-10-06T23:19:43.460455Z",
+     "shell.execute_reply": "2026-10-06T23:19:43.459467Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>written_index</th>\n",
+       "      <th>prepared_index</th>\n",
+       "      <th>selected_source_index</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>0</td>\n",
+       "      <td>7</td>\n",
+       "      <td>7</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1</td>\n",
+       "      <td>8</td>\n",
+       "      <td>8</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>2</td>\n",
+       "      <td>9</td>\n",
+       "      <td>9</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>3</td>\n",
+       "      <td>10</td>\n",
+       "      <td>10</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>4</td>\n",
+       "      <td>11</td>\n",
+       "      <td>11</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>5</td>\n",
+       "      <td>12</td>\n",
+       "      <td>12</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6</th>\n",
+       "      <td>6</td>\n",
+       "      <td>13</td>\n",
+       "      <td>13</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>7</td>\n",
+       "      <td>14</td>\n",
+       "      <td>14</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>8</td>\n",
+       "      <td>15</td>\n",
+       "      <td>15</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>9</th>\n",
+       "      <td>9</td>\n",
+       "      <td>16</td>\n",
+       "      <td>16</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>10</th>\n",
+       "      <td>10</td>\n",
+       "      <td>17</td>\n",
+       "      <td>17</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>11</th>\n",
+       "      <td>11</td>\n",
+       "      <td>24</td>\n",
+       "      <td>29</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>12</th>\n",
+       "      <td>12</td>\n",
+       "      <td>6</td>\n",
+       "      <td>6</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>13</th>\n",
+       "      <td>13</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>14</th>\n",
+       "      <td>14</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>15</th>\n",
+       "      <td>15</td>\n",
+       "      <td>2</td>\n",
+       "      <td>2</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>16</th>\n",
+       "      <td>16</td>\n",
+       "      <td>3</td>\n",
+       "      <td>3</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>17</th>\n",
+       "      <td>17</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>18</th>\n",
+       "      <td>18</td>\n",
+       "      <td>5</td>\n",
+       "      <td>5</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>19</th>\n",
+       "      <td>19</td>\n",
+       "      <td>18</td>\n",
+       "      <td>18</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>20</th>\n",
+       "      <td>20</td>\n",
+       "      <td>19</td>\n",
+       "      <td>19</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>21</th>\n",
+       "      <td>21</td>\n",
+       "      <td>20</td>\n",
+       "      <td>20</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>22</th>\n",
+       "      <td>22</td>\n",
+       "      <td>21</td>\n",
+       "      <td>21</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>23</th>\n",
+       "      <td>23</td>\n",
+       "      <td>22</td>\n",
+       "      <td>22</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>24</th>\n",
+       "      <td>24</td>\n",
+       "      <td>23</td>\n",
+       "      <td>23</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "    written_index  prepared_index  selected_source_index\n",
+       "0               0               7                      7\n",
+       "1               1               8                      8\n",
+       "2               2               9                      9\n",
+       "3               3              10                     10\n",
+       "4               4              11                     11\n",
+       "5               5              12                     12\n",
+       "6               6              13                     13\n",
+       "7               7              14                     14\n",
+       "8               8              15                     15\n",
+       "9               9              16                     16\n",
+       "10             10              17                     17\n",
+       "11             11              24                     29\n",
+       "12             12               6                      6\n",
+       "13             13               0                      0\n",
+       "14             14               1                      1\n",
+       "15             15               2                      2\n",
+       "16             16               3                      3\n",
+       "17             17               4                      4\n",
+       "18             18               5                      5\n",
+       "19             19              18                     18\n",
+       "20             20              19                     19\n",
+       "21             21              20                     20\n",
+       "22             22              21                     21\n",
+       "23             23              22                     22\n",
+       "24             24              23                     23"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "case=record['original_cases']['5x72_ligand_p59']\n",
+    "selection=case['prepared']['metadata']['torsion_selection']\n",
+    "order=case['prepared']['pdbqt_atom_indices']\n",
+    "assert selection['pdbqt_to_source_atom_indices'] == [selection['retained_source_atom_indices'][i] for i in order]\n",
+    "pd.DataFrame({'written_index': range(len(order)), 'prepared_index': order, 'selected_source_index': selection['pdbqt_to_source_atom_indices']})"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "94f56825",
+   "metadata": {},
+   "source": [
+    "## Automatic preparation with the default Vina gate\n",
+    "\n",
+    "The preassigned named/charged 5X72 ligand reaches automatic preparation with two protocol-selected cuts under a pm/fs context. The unrelated external 1IEP receptor is a parser/execution fixture; this combination is not a biological redocking case. One pose, captured inputs and saved-result correspondence establish software interoperability only. Scientific preparation assessment remains unassessed."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "ff8898d1",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T23:19:43.464383Z",
+     "iopub.status.busy": "2026-10-06T23:19:43.464106Z",
+     "iopub.status.idle": "2026-10-06T23:19:43.479139Z",
+     "shell.execute_reply": "2026-10-06T23:19:43.478307Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "poses: 1\n",
+      "assessment: unassessed\n",
+      "captured input bytes: {'receptor': 216160, 'partner': 2740}\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "[{'source_atom_indices': [6, 7],\n",
+       "  'source_bond_index': 11,\n",
+       "  'source_bond_id': '11',\n",
+       "  'source_atom_ids': ['7', '8'],\n",
+       "  'decision': 'provider_candidate',\n",
+       "  'provider_exclusion_reasons': []},\n",
+       " {'source_atom_indices': [17, 18],\n",
+       "  'source_bond_index': 30,\n",
+       "  'source_bond_id': '30',\n",
+       "  'source_atom_ids': ['18', '19'],\n",
+       "  'decision': 'provider_candidate',\n",
+       "  'provider_exclusion_reasons': []}]"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "saved=record['default_vina_result']\n",
+    "restored=dmt.DockingResult.from_dict(json.loads(json.dumps(saved,allow_nan=False)))\n",
+    "assert len(restored.poses)==1\n",
+    "assert dmt.verify_captured_inputs(restored.provenance['backend_artifacts'])==record['verified_captured_bytes']\n",
+    "selection=restored.provenance['preparation']['partner']['metadata']['torsion_selection']\n",
+    "assert selection['pdbqt_to_source_atom_indices']==restored.poses[0].metadata['selected_atom_indices']\n",
+    "print('poses:',len(restored.poses))\n",
+    "print('assessment:',restored.provenance['preparation']['partner']['assessment'])\n",
+    "print('captured input bytes:',record['verified_captured_bytes'])\n",
+    "selection['selected_bonds']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "dc865e27",
+   "metadata": {},
+   "source": [
+    "## Provider-owned retained-connectivity gap\n",
+    "\n",
+    "A declared assigned state splits a six-carbon chain into two components. Existing covalent-block defaults refer to the reference chain and cannot receive chemical_state/structure_indices. MolSysMT #348 owns the public state-aware induced-connectivity proposal. The existing local retained-axis traversal remains a tracked exception until that contract passes subset/assigned-state controls; review date 2027-01-06."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "345cad31",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T23:19:43.482460Z",
+     "iopub.status.busy": "2026-10-06T23:19:43.482243Z",
+     "iopub.status.idle": "2026-10-06T23:19:43.487631Z",
+     "shell.execute_reply": "2026-10-06T23:19:43.486377Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'owning_issue': 'uibcdf/molsysmt#348',\n",
+       " 'assigned_fragment_offsets': [0, 3, 6],\n",
+       " 'reference_default_blocks': [[0, 1, 2, 3, 4, 5]],\n",
+       " 'explicit_state_request': {'exception': 'UnknownArgumentError',\n",
+       "  'message': \"'molsysmt.topology.get_covalent_blocks.get_covalent_blocks' does not accept the argument 'chemical_state'. Check the arguments it accepts. It accepts: molecular_system, output_type, remove_bonds, selection, syntax. See https://www.uibcdf.org/argdigest.\"},\n",
+       " 'source_unchanged': True}"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "gap=record['state_scope_gap']\n",
+    "assert gap['assigned_fragment_offsets']==[0,3,6]\n",
+    "assert gap['reference_default_blocks']==[list(range(6))]\n",
+    "gap"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "22af55c1",
+   "metadata": {},
+   "source": [
+    "## Source identity and limits\n",
+    "\n",
+    "Loaded provider source bytes are checked against the committed 5bd893c85 source. Runtime distribution metadata and native build-provenance limitations remain separate. A bounded fetch found MolSysMT 14 commits behind remote, with consumed topology files unchanged; its worktree was preserved. No hosted, clean installed artifact or public support claim is made."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "26f16d51",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T23:19:43.490879Z",
+     "iopub.status.busy": "2026-10-06T23:19:43.490624Z",
+     "iopub.status.idle": "2026-10-06T23:19:43.502792Z",
+     "shell.execute_reply": "2026-10-06T23:19:43.501678Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'molsysmt': '0.22.4+215.g5bd893c85', 'argdigest': '0.15.0+1.g5c6711e', 'molsysviewer': '0.23.4+90.gc046fca1', 'rdkit': '2026.3.1', 'networkx': '3.7', 'vina': '1.2.7', 'pyunitwizard': '0.28.1+3.g2ab37a5'}\n",
+      "{'path': 'devguide/validation/data/chemical_templates/source_profile_2026-10-06.json', 'sha256': 'a201cf4b1429087cd714786b917a9f590b35bc8810ca5ee3e506971c8008236d'}\n",
+      "- Experimental provider conjugation_restricted@1 with explicit consumer overrides; no automatic torsion selection or barrier prediction.\n",
+      "- Original four SDFs retain the pre-existing explicit RDKit reader bridge; native graph classification itself imports no RDKit/Meeko.\n",
+      "- Original PDBQT byte parity is provisional software evidence, not chemically validated ground truth.\n",
+      "- The default Vina control pairs a named/charged 5X72 ligand with an unrelated external 1IEP receptor; it tests software/provenance, not biological redocking or affinity.\n",
+      "- Provider eligibility/metadata do not qualify scientific preparation/scoring; the default real control remains unassessed.\n",
+      "- Existing retained-axis connectivity remains a bounded exception under MolSysMT #348 (review 2027-01-06). PDBQT/H projection stays under #223/#33.\n",
+      "- Local Python 3.14 source composition only; no hosted, Python 3.11-3.13, macOS, clean installed or public admission claim.\n",
+      "- Prior source profile retains native artifact build-provenance limits, AmberTools host dependency conflicts and unchanged SMonitor/ArgDigest guide drift.\n"
+     ]
+    }
+   ],
+   "source": [
+    "assert json.loads(json.dumps(record,allow_nan=False))==record\n",
+    "print(record['producer_versions'])\n",
+    "print(record['prior_source_profile'])\n",
+    "for limit in record['limits']:\n",
+    "    print('-',limit)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "DockingMT qualification (MolSysSuite 3.14)",
+   "language": "python",
+   "name": "dockingmt-molsyssuite-314"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

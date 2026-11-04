@@ -1,0 +1,1135 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "3b8ea35c",
+   "metadata": {},
+   "source": [
+    "# Named AutoDock type consumption — 2026-10-06\n",
+    "\n",
+    "Bounded software qualification for DockingMT #43 and MolSysMT #222. Original provider rule/software attribution and parent atom axes are retained. Synthetic poses and real Vina admission do not establish docking readiness or predictive accuracy. Historical #42 receipts are preserved separately."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "1dd429b6",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:54:33.604589Z",
+     "iopub.status.busy": "2026-10-06T22:54:33.604149Z",
+     "iopub.status.idle": "2026-10-06T22:55:00.253510Z",
+     "shell.execute_reply": "2026-10-06T22:55:00.252188Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were discarded during concatenation: b_factor, occupancy. (Hint: Use attribute_policy='strict' to reject the operation instead. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\n",
+      "5bd893c85fe8d211663b2b1f865f5f1d2c382a90\n"
+     ]
+    }
+   ],
+   "source": [
+    "from pathlib import Path\n",
+    "import sys\n",
+    "assert Path(sys.prefix).name == 'molsyssuite@uibcdf_3.14'\n",
+    "root = next(p for p in (Path.cwd(), *Path.cwd().parents) if (p / 'pyproject.toml').is_file())\n",
+    "sys.path.insert(0, str(root))\n",
+    "import json\n",
+    "import pandas as pd\n",
+    "import dockingmt as dmt\n",
+    "from devtools.qualify_named_types import qualify, save\n",
+    "record = qualify()\n",
+    "save(record)\n",
+    "print(record['interpreter'])\n",
+    "print(record['qualified_provider_commit'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9406a6c8",
+   "metadata": {},
+   "source": [
+    "## Independent chemical controls\n",
+    "\n",
+    "Neutral/protonated amines, amide N, pyridine/pyrrole N and sulfur environments have explicit expected heavy-atom labels. All expected values are declared before provider evaluation. Charged source graphs and option mappings remain unchanged. Polygon/linear coordinates are declared test poses; they are not minimized conformers."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "1710a1a9",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:55:00.258218Z",
+     "iopub.status.busy": "2026-10-06T22:55:00.257724Z",
+     "iopub.status.idle": "2026-10-06T22:55:00.275622Z",
+     "shell.execute_reply": "2026-10-06T22:55:00.274118Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>case</th>\n",
+       "      <th>role</th>\n",
+       "      <th>evaluated</th>\n",
+       "      <th>prepared</th>\n",
+       "      <th>status</th>\n",
+       "      <th>assessment</th>\n",
+       "      <th>parser</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>methanol_stages</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>6</td>\n",
+       "      <td>3</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>CN:partner</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>7</td>\n",
+       "      <td>4</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>CN:receptor</td>\n",
+       "      <td>receptor</td>\n",
+       "      <td>7</td>\n",
+       "      <td>4</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>C[NH3+]:partner</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>8</td>\n",
+       "      <td>5</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>C[NH3+]:receptor</td>\n",
+       "      <td>receptor</td>\n",
+       "      <td>8</td>\n",
+       "      <td>5</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>CC(=O)N:partner</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>9</td>\n",
+       "      <td>6</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6</th>\n",
+       "      <td>CC(=O)N:receptor</td>\n",
+       "      <td>receptor</td>\n",
+       "      <td>9</td>\n",
+       "      <td>6</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>c1ccncc1:partner</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>11</td>\n",
+       "      <td>6</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>c1ccncc1:receptor</td>\n",
+       "      <td>receptor</td>\n",
+       "      <td>11</td>\n",
+       "      <td>6</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>9</th>\n",
+       "      <td>c1cc[nH]c1:partner</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>10</td>\n",
+       "      <td>6</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>10</th>\n",
+       "      <td>c1cc[nH]c1:receptor</td>\n",
+       "      <td>receptor</td>\n",
+       "      <td>10</td>\n",
+       "      <td>6</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>11</th>\n",
+       "      <td>CSC:partner</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>9</td>\n",
+       "      <td>3</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>12</th>\n",
+       "      <td>CSC:receptor</td>\n",
+       "      <td>receptor</td>\n",
+       "      <td>9</td>\n",
+       "      <td>3</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>13</th>\n",
+       "      <td>CS(=O)(=O)C:partner</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>11</td>\n",
+       "      <td>5</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>14</th>\n",
+       "      <td>CS(=O)(=O)C:receptor</td>\n",
+       "      <td>receptor</td>\n",
+       "      <td>11</td>\n",
+       "      <td>5</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>15</th>\n",
+       "      <td>F:polar_h</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>2</td>\n",
+       "      <td>2</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>16</th>\n",
+       "      <td>P:polar_h</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>17</th>\n",
+       "      <td>amide_parent_projection</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>9</td>\n",
+       "      <td>2</td>\n",
+       "      <td>projected</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>18</th>\n",
+       "      <td>nondefault_units</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>6</td>\n",
+       "      <td>3</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>19</th>\n",
+       "      <td>181l_bnz</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>12</td>\n",
+       "      <td>6</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>20</th>\n",
+       "      <td>5x72_flexible</td>\n",
+       "      <td>partner</td>\n",
+       "      <td>39</td>\n",
+       "      <td>25</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>21</th>\n",
+       "      <td>synthetic_receptor</td>\n",
+       "      <td>receptor</td>\n",
+       "      <td>6</td>\n",
+       "      <td>3</td>\n",
+       "      <td>assigned</td>\n",
+       "      <td>unassessed</td>\n",
+       "      <td>True</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                       case      role  evaluated  prepared     status  \\\n",
+       "0           methanol_stages   partner          6         3   assigned   \n",
+       "1                CN:partner   partner          7         4   assigned   \n",
+       "2               CN:receptor  receptor          7         4   assigned   \n",
+       "3           C[NH3+]:partner   partner          8         5   assigned   \n",
+       "4          C[NH3+]:receptor  receptor          8         5   assigned   \n",
+       "5           CC(=O)N:partner   partner          9         6   assigned   \n",
+       "6          CC(=O)N:receptor  receptor          9         6   assigned   \n",
+       "7          c1ccncc1:partner   partner         11         6   assigned   \n",
+       "8         c1ccncc1:receptor  receptor         11         6   assigned   \n",
+       "9        c1cc[nH]c1:partner   partner         10         6   assigned   \n",
+       "10      c1cc[nH]c1:receptor  receptor         10         6   assigned   \n",
+       "11              CSC:partner   partner          9         3   assigned   \n",
+       "12             CSC:receptor  receptor          9         3   assigned   \n",
+       "13      CS(=O)(=O)C:partner   partner         11         5   assigned   \n",
+       "14     CS(=O)(=O)C:receptor  receptor         11         5   assigned   \n",
+       "15                F:polar_h   partner          2         2   assigned   \n",
+       "16                P:polar_h   partner          4         4   assigned   \n",
+       "17  amide_parent_projection   partner          9         2  projected   \n",
+       "18         nondefault_units   partner          6         3   assigned   \n",
+       "19                 181l_bnz   partner         12         6   assigned   \n",
+       "20            5x72_flexible   partner         39        25   assigned   \n",
+       "21       synthetic_receptor  receptor          6         3   assigned   \n",
+       "\n",
+       "    assessment  parser  \n",
+       "0   unassessed    True  \n",
+       "1   unassessed    True  \n",
+       "2   unassessed    True  \n",
+       "3   unassessed    True  \n",
+       "4   unassessed    True  \n",
+       "5   unassessed    True  \n",
+       "6   unassessed    True  \n",
+       "7   unassessed    True  \n",
+       "8   unassessed    True  \n",
+       "9   unassessed    True  \n",
+       "10  unassessed    True  \n",
+       "11  unassessed    True  \n",
+       "12  unassessed    True  \n",
+       "13  unassessed    True  \n",
+       "14  unassessed    True  \n",
+       "15  unassessed    True  \n",
+       "16  unassessed    True  \n",
+       "17  unassessed    True  \n",
+       "18  unassessed    True  \n",
+       "19  unassessed    True  \n",
+       "20  unassessed    True  \n",
+       "21  unassessed    True  "
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "rows = []\n",
+    "for key, case in record['cases'].items():\n",
+    "    report = case['prepared']['metadata']['atom_type_assignment']\n",
+    "    rows.append({'case': key, 'role': case['role'], 'evaluated': report['n_atoms'], 'prepared': case['prepared']['n_atoms'], 'status': report['status'], 'assessment': case['preparation_assessment']['assessment'], 'parser': case['native_vina_parser_admitted']})\n",
+    "pd.DataFrame(rows)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2a0cbc26",
+   "metadata": {},
+   "source": [
+    "## Parent chemical context survives fragment selection\n",
+    "\n",
+    "The selected amide N retains its parent label N. Reclassifying the isolated fragment is not an equivalent operation. Provider complete coverage continues to refer to the original graph, while source maps identify the selected and retained inventory."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "52ebf0bd",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:55:00.279927Z",
+     "iopub.status.busy": "2026-10-06T22:55:00.279628Z",
+     "iopub.status.idle": "2026-10-06T22:55:00.287191Z",
+     "shell.execute_reply": "2026-10-06T22:55:00.285736Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'typing_scheme': 'autodock4', 'method': 'chemical_environment', 'rule_version': 'chemical_environment@1', 'status': 'projected', 'n_atoms': 9, 'atom_source_indices': [0, 3]}\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'schema_version': '1.0',\n",
+       " 'policy': 'retain_provider_polar_h_merge_provider_nonpolar_h',\n",
+       " 'selected_source_atom_indices': [0, 3],\n",
+       " 'retained_selected_atom_indices': [0, 1],\n",
+       " 'retained_source_atom_indices': [0, 3],\n",
+       " 'prepared_atom_types': ['C', 'N'],\n",
+       " 'pdbqt_atom_indices': [0, 1],\n",
+       " 'pdbqt_to_source_atom_indices': [0, 3]}"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "case = record['cases']['amide_parent_projection']\n",
+    "metadata = case['prepared']['metadata']\n",
+    "report = metadata['atom_type_assignment']\n",
+    "assert case['prepared']['atom_types'] == ['C', 'N']\n",
+    "assert report['n_atoms'] > case['prepared']['n_atoms']\n",
+    "print({key: report[key] for key in ('typing_scheme', 'method', 'rule_version', 'status', 'n_atoms', 'atom_source_indices')})\n",
+    "metadata['atom_type_projection']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "979a00c3",
+   "metadata": {},
+   "source": [
+    "## Explicit stages and indexed H\n",
+    "\n",
+    "Typing follows requested fixed-state H addition and named charge assignment. No typing method, H inventory or charge model is chosen implicitly. The named provider profile distinguishes H/HD even for supported F/P parents; omitted nonpolar H still uses the existing charge transfer policy."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "ace42f2c",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:55:00.290749Z",
+     "iopub.status.busy": "2026-10-06T22:55:00.290555Z",
+     "iopub.status.idle": "2026-10-06T22:55:00.298066Z",
+     "shell.execute_reply": "2026-10-06T22:55:00.296724Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['hydrogen_addition', 'partial_charge_assignment', 'atom_type_assignment'] [0, 1, None]\n",
+      "{'F:polar_h': ['F', 'HD'], 'P:polar_h': ['P', 'HD', 'HD', 'HD']}\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'schema_version': '1.0',\n",
+       " 'policy': 'retain_provider_polar_h_merge_provider_nonpolar_h',\n",
+       " 'selected_source_atom_indices': [0, 1, 2, 3, 4, 5],\n",
+       " 'retained_selected_atom_indices': [0, 1, 5],\n",
+       " 'retained_source_atom_indices': [0, 1, 5],\n",
+       " 'prepared_atom_types': ['C', 'OA', 'HD'],\n",
+       " 'pdbqt_atom_indices': [0, 1, 2],\n",
+       " 'pdbqt_to_source_atom_indices': [0, 1, 5]}"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "metadata = record['cases']['methanol_stages']['prepared']['metadata']\n",
+    "workflow = metadata['preparation_workflow']\n",
+    "assert workflow['stages'] == ['hydrogen_addition', 'partial_charge_assignment', 'atom_type_assignment']\n",
+    "assert workflow['prepared_to_input_atom_indices'] == [0, 1, None]\n",
+    "print(workflow['stages'], workflow['prepared_to_input_atom_indices'])\n",
+    "print({key: record['cases'][key]['prepared']['atom_types'] for key in ('F:polar_h', 'P:polar_h')})\n",
+    "metadata['atom_type_projection']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "78df45bd",
+   "metadata": {},
+   "source": [
+    "## Original 181L BNZ\n",
+    "\n",
+    "The same declared heavy-only benzene template precedes six local H additions, Gasteiger–Marsili charges and chemical_environment typing. Explicit intersection records B-factor/occupancy loss on the expanded copy. Experimental heavy-atom identity/pose and original native history remain source evidence; generated H geometry is modeled."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "3ad256b6",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:55:00.301532Z",
+     "iopub.status.busy": "2026-10-06T22:55:00.301310Z",
+     "iopub.status.idle": "2026-10-06T22:55:00.308802Z",
+     "shell.execute_reply": "2026-10-06T22:55:00.307602Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "6\n",
+      "['b_factor', 'occupancy']\n",
+      "[1299, 1300, 1301, 1302, 1303, 1304]\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "{'schema_version': '1.0',\n",
+       " 'policy': 'retain_provider_polar_h_merge_provider_nonpolar_h',\n",
+       " 'selected_source_atom_indices': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],\n",
+       " 'retained_selected_atom_indices': [0, 1, 2, 3, 4, 5],\n",
+       " 'retained_source_atom_indices': [0, 1, 2, 3, 4, 5],\n",
+       " 'prepared_atom_types': ['A', 'A', 'A', 'A', 'A', 'A'],\n",
+       " 'pdbqt_atom_indices': [0, 1, 2, 3, 4, 5],\n",
+       " 'pdbqt_to_source_atom_indices': [0, 1, 2, 3, 4, 5]}"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "case = record['cases']['181l_bnz']\n",
+    "metadata = case['prepared']['metadata']\n",
+    "assert case['prepared']['atom_types'] == ['A'] * 6\n",
+    "assert metadata['atom_type_assignment']['n_atoms'] == 12\n",
+    "assert case['charge_audit']['assessment'] == 'consistent'\n",
+    "print(metadata['preparation_workflow']['hydrogen_addition']['n_added_hydrogens'])\n",
+    "print(metadata['preparation_workflow']['hydrogen_addition']['dropped_attributes'])\n",
+    "print(case['full_source_atom_indices'])\n",
+    "metadata['atom_type_projection']"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b4e34256",
+   "metadata": {},
+   "source": [
+    "## Flexible written order\n",
+    "\n",
+    "Two explicitly declared active bonds in unchanged 5X72 P59 exercise ROOT/BRANCH permutation. Every written label and original provider source index follows that permutation; branch counts are not used to infer atom identity or automatic torsion eligibility."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "6e151086",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:55:00.312306Z",
+     "iopub.status.busy": "2026-10-06T22:55:00.312054Z",
+     "iopub.status.idle": "2026-10-06T22:55:00.323343Z",
+     "shell.execute_reply": "2026-10-06T22:55:00.321966Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>written_index</th>\n",
+       "      <th>prepared_index</th>\n",
+       "      <th>provider_source_index</th>\n",
+       "      <th>type</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>0</td>\n",
+       "      <td>7</td>\n",
+       "      <td>7</td>\n",
+       "      <td>C</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1</td>\n",
+       "      <td>8</td>\n",
+       "      <td>8</td>\n",
+       "      <td>N</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>2</td>\n",
+       "      <td>9</td>\n",
+       "      <td>9</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>3</td>\n",
+       "      <td>10</td>\n",
+       "      <td>10</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>4</td>\n",
+       "      <td>11</td>\n",
+       "      <td>11</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>5</td>\n",
+       "      <td>12</td>\n",
+       "      <td>12</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6</th>\n",
+       "      <td>6</td>\n",
+       "      <td>13</td>\n",
+       "      <td>13</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>7</td>\n",
+       "      <td>14</td>\n",
+       "      <td>14</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>8</td>\n",
+       "      <td>15</td>\n",
+       "      <td>15</td>\n",
+       "      <td>C</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>9</th>\n",
+       "      <td>9</td>\n",
+       "      <td>16</td>\n",
+       "      <td>16</td>\n",
+       "      <td>OA</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>10</th>\n",
+       "      <td>10</td>\n",
+       "      <td>17</td>\n",
+       "      <td>17</td>\n",
+       "      <td>N</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>11</th>\n",
+       "      <td>11</td>\n",
+       "      <td>24</td>\n",
+       "      <td>29</td>\n",
+       "      <td>HD</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>12</th>\n",
+       "      <td>12</td>\n",
+       "      <td>6</td>\n",
+       "      <td>6</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>13</th>\n",
+       "      <td>13</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>F</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>14</th>\n",
+       "      <td>14</td>\n",
+       "      <td>1</td>\n",
+       "      <td>1</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>15</th>\n",
+       "      <td>15</td>\n",
+       "      <td>2</td>\n",
+       "      <td>2</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>16</th>\n",
+       "      <td>16</td>\n",
+       "      <td>3</td>\n",
+       "      <td>3</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>17</th>\n",
+       "      <td>17</td>\n",
+       "      <td>4</td>\n",
+       "      <td>4</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>18</th>\n",
+       "      <td>18</td>\n",
+       "      <td>5</td>\n",
+       "      <td>5</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>19</th>\n",
+       "      <td>19</td>\n",
+       "      <td>18</td>\n",
+       "      <td>18</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>20</th>\n",
+       "      <td>20</td>\n",
+       "      <td>19</td>\n",
+       "      <td>19</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>21</th>\n",
+       "      <td>21</td>\n",
+       "      <td>20</td>\n",
+       "      <td>20</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>22</th>\n",
+       "      <td>22</td>\n",
+       "      <td>21</td>\n",
+       "      <td>21</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>23</th>\n",
+       "      <td>23</td>\n",
+       "      <td>22</td>\n",
+       "      <td>22</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>24</th>\n",
+       "      <td>24</td>\n",
+       "      <td>23</td>\n",
+       "      <td>23</td>\n",
+       "      <td>A</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "    written_index  prepared_index  provider_source_index type\n",
+       "0               0               7                      7    C\n",
+       "1               1               8                      8    N\n",
+       "2               2               9                      9    A\n",
+       "3               3              10                     10    A\n",
+       "4               4              11                     11    A\n",
+       "5               5              12                     12    A\n",
+       "6               6              13                     13    A\n",
+       "7               7              14                     14    A\n",
+       "8               8              15                     15    C\n",
+       "9               9              16                     16   OA\n",
+       "10             10              17                     17    N\n",
+       "11             11              24                     29   HD\n",
+       "12             12               6                      6    A\n",
+       "13             13               0                      0    F\n",
+       "14             14               1                      1    A\n",
+       "15             15               2                      2    A\n",
+       "16             16               3                      3    A\n",
+       "17             17               4                      4    A\n",
+       "18             18               5                      5    A\n",
+       "19             19              18                     18    A\n",
+       "20             20              19                     19    A\n",
+       "21             21              20                     20    A\n",
+       "22             22              21                     21    A\n",
+       "23             23              22                     22    A\n",
+       "24             24              23                     23    A"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "case = record['cases']['5x72_flexible']\n",
+    "projection = case['prepared']['metadata']['atom_type_projection']\n",
+    "order = projection['pdbqt_atom_indices']\n",
+    "assert order != list(range(case['prepared']['n_atoms']))\n",
+    "assert case['written_atom_types'] == [case['prepared']['atom_types'][i] for i in order]\n",
+    "pd.DataFrame({'written_index': range(len(order)), 'prepared_index': order, 'provider_source_index': projection['pdbqt_to_source_atom_indices'], 'type': case['written_atom_types']})"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1ad59461",
+   "metadata": {},
+   "source": [
+    "## Nondefault units\n",
+    "\n",
+    "The pm/coulomb context is admitted through public quantity conversion. Charges are audited in elementary charge and PDBQT coordinates in angstrom. Units do not choose or alter the named model."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "d2a10cd8",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:55:00.326463Z",
+     "iopub.status.busy": "2026-10-06T22:55:00.326200Z",
+     "iopub.status.idle": "2026-10-06T22:55:00.331519Z",
+     "shell.execute_reply": "2026-10-06T22:55:00.330325Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['C', 'OA', 'HD'] [0.19000057917061752, -0.3996302435573072, 0.20962966438668965]\n",
+      "elementary_charge\n"
+     ]
+    }
+   ],
+   "source": [
+    "case = record['cases']['nondefault_units']\n",
+    "assert case['charge_audit']['assessment'] == 'consistent'\n",
+    "print(case['prepared']['atom_types'], case['prepared']['charges'])\n",
+    "print(case['charge_audit']['charge_unit'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "06e37b55",
+   "metadata": {},
+   "source": [
+    "## Real default Vina and saved-result provenance\n",
+    "\n",
+    "A synthetic typed/charged receptor and methanol partner pass the default gate without exploratory provisional admission. One pose only proves backend interoperability. Scientific preparation assessment remains unassessed. Complete provider reports, consumer maps and captured exact input bytes survive finite JSON reload."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "b4b6a204",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:55:00.335132Z",
+     "iopub.status.busy": "2026-10-06T22:55:00.334864Z",
+     "iopub.status.idle": "2026-10-06T22:55:00.349947Z",
+     "shell.execute_reply": "2026-10-06T22:55:00.348603Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "poses: 1\n",
+      "{'receptor': 887, 'partner': 910}\n",
+      "{'receptor': 'chemical_environment@1', 'partner': 'chemical_environment@1'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "saved = record['default_vina_result']\n",
+    "assert len(saved['poses']) == 1\n",
+    "assert all(saved['provenance']['preparation'][role]['assessment'] == 'unassessed' for role in ('receptor', 'partner'))\n",
+    "assert dmt.verify_captured_inputs(saved['provenance']['backend_artifacts']) == record['verified_captured_bytes']\n",
+    "restored = dmt.DockingResult.from_dict(json.loads(json.dumps(saved, allow_nan=False)))\n",
+    "print('poses:', len(restored.poses))\n",
+    "print(record['verified_captured_bytes'])\n",
+    "print({role: saved['provenance']['preparation'][role]['metadata']['atom_type_assignment']['rule_version'] for role in ('receptor', 'partner')})"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "866da50d",
+   "metadata": {},
+   "source": [
+    "## Negative controls and limits\n",
+    "\n",
+    "Undeclared indexed H and changed prepared labels fail explicitly. Tests additionally cover stale native binding, manual label replacement, malformed evidence/maps and unchanged provider exception identity. Consumer guards detect accidental changes to saved labels/maps; they do not certify mutable molecular graphs or deliberate provenance rewriting."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "a150d394",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:55:00.353211Z",
+     "iopub.status.busy": "2026-10-06T22:55:00.352960Z",
+     "iopub.status.idle": "2026-10-06T22:55:00.405582Z",
+     "shell.execute_reply": "2026-10-06T22:55:00.404020Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'virtual_h': {'exception': 'StructuralInconsistencyError', 'message': 'Structural inconsistency detected: AutoDock typing requires all hydrogens as indexed atoms; materialize the fixed inventory first.. Ensure that the atoms, residues, or frames match between the systems being compared or merged. Docs: https://www.uibcdf.org/MolSysMT'}, 'changed_prepared_label': {'exception': 'ArgumentError', 'message': \"Invalid argument 'prepared': Prepared atom types no longer match their named assignment projection; prepare again with MolSysMT-assigned types.\"}}\n",
+      "finite JSON: 22 cases\n",
+      "- Local Python 3.14 source composition; no clean installed artifact, hosted or other Python/platform qualification.\n",
+      "- Synthetic polygon/linear poses are declared software controls, not conformers or experimental refinement.\n",
+      "- chemical_environment@1 is the provider experimental bounded profile, not a universal donor/acceptor model.\n",
+      "- Named type/charge declarations remove known provisional flags but assessment remains unassessed scientifically.\n",
+      "- Vina parsing and one default toy docking pose establish software interoperability only; AD4 scoring and predictive accuracy are not qualified.\n",
+      "- 5X72 uses explicit RDKit stereo and declared SDF property loss plus a public adapter template; native versionless MOLI legacy inputs are not repaired here.\n",
+      "- Torsion choice and charge-preserving H projection/export remain their existing policies (#33/provider #223).\n",
+      "- H5MSM 0.5 cannot preserve nonempty MolecularMechanics; use native/result JSON evidence as qualified.\n",
+      "- Original producer metadata is separate from committed source bytes; native artifact digest carries no fresh build provenance.\n",
+      "- The earlier source profile retains host AmberTools dependency conflicts and pre-existing synchronized guide drift; neither is resolved here.\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(record['negative_controls'])\n",
+    "assert json.loads(json.dumps(record, allow_nan=False)) == record\n",
+    "print('finite JSON:', len(record['cases']), 'cases')\n",
+    "for limit in record['limits']:\n",
+    "    print('-', limit)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "c3e9202a",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:55:00.408643Z",
+     "iopub.status.busy": "2026-10-06T22:55:00.408445Z",
+     "iopub.status.idle": "2026-10-06T22:55:00.413872Z",
+     "shell.execute_reply": "2026-10-06T22:55:00.412497Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'molsysmt': '0.22.4+215.g5bd893c85', 'argdigest': '0.15.0+1.g5c6711e', 'molsysviewer': '0.23.4+90.gc046fca1', 'pyunitwizard': '0.28.1+3.g2ab37a5', 'smonitor': '0.19.0', 'depdigest': '0.13.0+3.g0568f9a', 'rdkit': '2026.3.1', 'vina': '1.2.7', 'numpy': '2.4.6'}\n",
+      "{'path': 'devguide/validation/data/chemical_templates/source_profile_2026-10-06.json', 'sha256': 'a201cf4b1429087cd714786b917a9f590b35bc8810ca5ee3e506971c8008236d'}\n",
+      "provider source files: 9\n",
+      "consumer files: 7\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(record['producer_versions'])\n",
+    "print(record['prior_source_profile'])\n",
+    "print('provider source files:', len(record['provider_source_sha256']))\n",
+    "print('consumer files:', len(record['consumer_implementation_sha256']))"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "DockingMT qualification (MolSysSuite 3.14)",
+   "language": "python",
+   "name": "dockingmt-molsyssuite-314"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

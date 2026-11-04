@@ -1,0 +1,235 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "250ff902",
+   "metadata": {},
+   "source": [
+    "# Offline audit of a saved scoring pose\n",
+    "\n",
+    "This notebook loads a retained software control with successive Vina/Vinardo\n",
+    "evaluations and calls public `dockingmt.audit_pose(record)`. It does not execute\n",
+    "Vina or interpret molecular inputs. See [the contract](pose_audit.md) and\n",
+    "[issue #35](https://github.com/uibcdf/dockingmt/issues/35).\n",
+    "\n",
+    "The tiny control deliberately overlaps ligand and receptor. Its state labels\n",
+    "are declarations and its preparation remains unassessed. Internal agreement\n",
+    "does not establish chemical validity, score correctness or binding prediction.\n",
+    "Select the Python 3.14 `molsyssuite@uibcdf_3.14` kernel."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "913368a5",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T20:38:54.821255Z",
+     "iopub.status.busy": "2026-10-03T20:38:54.820808Z",
+     "iopub.status.idle": "2026-10-03T20:38:55.348251Z",
+     "shell.execute_reply": "2026-10-03T20:38:55.347045Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\n",
+      "  \"python\": \"3.14.7\",\n",
+      "  \"environment\": \"molsyssuite@uibcdf_3.14\",\n",
+      "  \"scope\": \"saved_pose_internal_consistency\",\n",
+      "  \"evaluations\": 2,\n",
+      "  \"scores\": 16,\n",
+      "  \"checks\": {\n",
+      "    \"consistent\": 378\n",
+      "  }\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "import json\n",
+    "import sys\n",
+    "from collections import Counter\n",
+    "from copy import deepcopy\n",
+    "from pathlib import Path\n",
+    "\n",
+    "import dockingmt as dmt\n",
+    "\n",
+    "assert sys.version_info[:2] == (3, 14)\n",
+    "assert Path(sys.prefix).name == 'molsyssuite@uibcdf_3.14'\n",
+    "root = next(\n",
+    "    path for path in [Path.cwd(), *Path.cwd().parents]\n",
+    "    if (path / 'devguide/validation/data/audit/minimal_scored_pose.json').is_file()\n",
+    ")\n",
+    "record = json.loads(\n",
+    "    (root / 'devguide/validation/data/audit/minimal_scored_pose.json').read_text()\n",
+    ")\n",
+    "before = deepcopy(record)\n",
+    "baseline = dmt.audit_pose(record)\n",
+    "assert baseline['status'] == 'consistent'\n",
+    "assert len(record['scores']) == 16\n",
+    "assert 'vina' not in sys.modules and 'molsysviewer' not in sys.modules\n",
+    "print(json.dumps({\n",
+    "    'python': sys.version.split()[0],\n",
+    "    'environment': Path(sys.prefix).name,\n",
+    "    'scope': baseline['scope'],\n",
+    "    'evaluations': len(record['metadata']['scoring_history']),\n",
+    "    'scores': len(record['scores']),\n",
+    "    'checks': dict(Counter(check['status'] for check in baseline['checks'])),\n",
+    "}, indent=2))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "26783946",
+   "metadata": {},
+   "source": [
+    "## Missing evidence and contradictory evidence\n",
+    "\n",
+    "Remove one captured byte string without replacing it, then independently edit a\n",
+    "current score while retaining its original history. Contradictions take\n",
+    "precedence when both kinds of finding occur."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "14dfacdb",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T20:38:55.351783Z",
+     "iopub.status.busy": "2026-10-03T20:38:55.351522Z",
+     "iopub.status.idle": "2026-10-03T20:38:55.436835Z",
+     "shell.execute_reply": "2026-10-03T20:38:55.435705Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "retained_control consistent {'consistent': 378}\n",
+      "missing_bytes incomplete {'consistent': 377, 'incomplete': 1}\n",
+      "changed_score inconsistent {'consistent': 377, 'inconsistent': 1}\n",
+      "missing_and_changed inconsistent {'consistent': 376, 'incomplete': 1, 'inconsistent': 1}\n",
+      "[\n",
+      "  {\n",
+      "    \"check\": \"evaluation_value\",\n",
+      "    \"path\": \"/metadata/scoring_history/0/scores/vina\",\n",
+      "    \"status\": \"inconsistent\",\n",
+      "    \"reason\": \"claims_disagree\"\n",
+      "  }\n",
+      "]\n"
+     ]
+    }
+   ],
+   "source": [
+    "missing = deepcopy(record)\n",
+    "missing['metadata']['scoring_history'][0]['backend_artifacts']['partner'].pop(\n",
+    "    'content_base64'\n",
+    ")\n",
+    "changed = deepcopy(record)\n",
+    "changed['scores']['vina'] += 1\n",
+    "both = deepcopy(missing)\n",
+    "both['scores']['vina'] += 1\n",
+    "reports = {\n",
+    "    'retained_control': baseline,\n",
+    "    'missing_bytes': dmt.audit_pose(missing),\n",
+    "    'changed_score': dmt.audit_pose(changed),\n",
+    "    'missing_and_changed': dmt.audit_pose(both),\n",
+    "}\n",
+    "assert [report['status'] for report in reports.values()] == [\n",
+    "    'consistent', 'incomplete', 'inconsistent', 'inconsistent'\n",
+    "]\n",
+    "for name, report in reports.items():\n",
+    "    print(name, report['status'], dict(Counter(\n",
+    "        check['status'] for check in report['checks']\n",
+    "    )))\n",
+    "print(json.dumps([\n",
+    "    check for check in reports['changed_score']['checks']\n",
+    "    if check['status'] == 'inconsistent'\n",
+    "], indent=2))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8cf9d064",
+   "metadata": {},
+   "source": [
+    "## Record independence, compatibility and geometry limits\n",
+    "\n",
+    "JSON roundtrips preserve declarations and audit results. Earlier records lacking\n",
+    "the independent name/box remain readable with incomplete audit evidence.\n",
+    "Coordinate shape, finiteness and length units are checked; matching coordinates\n",
+    "to captured PDBQT is outside this audit and would require MolSysMT."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "eb2f12b9",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T20:38:55.439986Z",
+     "iopub.status.busy": "2026-10-03T20:38:55.439805Z",
+     "iopub.status.idle": "2026-10-03T20:38:55.681025Z",
+     "shell.execute_reply": "2026-10-03T20:38:55.679940Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "JSON roundtrip: consistent; legacy evidence: incomplete\n",
+      "Finite geometry edits need a separate molecular check.\n",
+      "Input and reports are independent; no Vina or viewer was loaded.\n"
+     ]
+    }
+   ],
+   "source": [
+    "roundtrip = json.loads(json.dumps(record, allow_nan=False))\n",
+    "assert dmt.audit_pose(roundtrip) == baseline\n",
+    "legacy = deepcopy(record)\n",
+    "for evaluation in legacy['metadata']['scoring_history']:\n",
+    "    evaluation.pop('score_name')\n",
+    "    evaluation.pop('backend_box')\n",
+    "assert dmt.DockingPose.from_dict(legacy).to_dict() == legacy\n",
+    "assert dmt.audit_pose(legacy)['status'] == 'incomplete'\n",
+    "geometry_edit = deepcopy(record)\n",
+    "geometry_edit['coordinates']['value'][0][0] += 10\n",
+    "assert dmt.audit_pose(geometry_edit)['status'] == 'consistent'\n",
+    "assert record == before\n",
+    "baseline['checks'][0]['status'] = 'edited_report'\n",
+    "assert dmt.audit_pose(record)['status'] == 'consistent'\n",
+    "assert 'vina' not in sys.modules and 'molsysviewer' not in sys.modules\n",
+    "print('JSON roundtrip: consistent; legacy evidence: incomplete')\n",
+    "print('Finite geometry edits need a separate molecular check.')\n",
+    "print('Input and reports are independent; no Vina or viewer was loaded.')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
+   "language": "python",
+   "name": "dockingmt-molsyssuite-314"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

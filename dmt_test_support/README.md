@@ -17,6 +17,11 @@ The fixture corpus is the explicit `b74b4ad` validation/test-data snapshot,
 excluding two executable historical producer programs. Those programs remain
 unchanged; byte-identical `.py.txt` copies are declared as inert fingerprint
 evidence. New receiving outputs are not recursively added to the inputs.
+The 131 top-level validation guides/notebooks are stored at immutable
+`tests/data/installed_support/b74b4ad/` source paths and mapped to their original
+staged locations. Editing living guides therefore leaves the exact qualified
+support inputs unchanged. Validate the final declaration against committed
+bytes after documentation changes.
 
 Source-relative data paths preserve their original layout under managed staging.
 Some historical qualification entry points still require their real source/Git

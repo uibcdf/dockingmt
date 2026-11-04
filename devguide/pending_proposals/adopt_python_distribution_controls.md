@@ -28,6 +28,17 @@ scientific pins remain. This proposal stays partial for the actual staged file,
 public dependency/minimum qualification, eight installed cells and release gates.
 Provider public-artifact handoffs remain MolSysViewer #294 and MolSysMT #334.
 
+Hosted publication preflight at `ea9b302` rejects one live guide's changed
+digest after documentation edits. A separate repair freezes the 131 top-level
+guide/notebook sources at immutable inert fixture paths. All 570 staged target
+paths/bytes remain identical to the full scientific gate; shared staging and
+21 installed tests confirm the equivalent input graph. Minimal administrative
+tooling passes 28 controls and the published preflights without scientific
+dependencies. The original full receipt/manifest and hosted failure remain
+unchanged; committed-source resource validation/new-head CI have their own
+receiving records. This is a declaration/source-acquisition repair, not another
+scientific qualification or public artifact admission.
+
 ## Shared multi-root validator received privately — 2026-11-04
 
 [Bounded installed receiving](../validation/installed_validator_receiving.md)

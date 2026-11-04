@@ -1,0 +1,183 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "615f51a3",
+   "metadata": {},
+   "source": [
+    "# 1IEP order sensitivity at a fixed ROOT origin\n",
+    "\n",
+    "Owned by DockingMT #17/#6. Six new searches keep the first ROOT ATOM line and origin fixed while reversing the other seven. Eighteen historical observations are authenticated by reference, with their original producers. All outcomes are retained. This notebook reads saved data; it does not rerun searches or select a ROOT policy."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "c261c9c7",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-07T19:44:23.762720Z",
+     "iopub.status.busy": "2026-10-07T19:44:23.762246Z",
+     "iopub.status.idle": "2026-10-07T19:44:24.906849Z",
+     "shell.execute_reply": "2026-10-07T19:44:24.905415Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "New source base: dd571ef4dd0a1ddc9142e399a6da3683299a1db4\n",
+      "Baseline published by: dd571ef4dd0a1ddc9142e399a6da3683299a1db4\n",
+      "Original native producer: 7b11391e153f77f340fd039bc799352f90da83d3\n",
+      "Original JSON SHA-256: 587f7f89a8fe111faaa7135108e11dee151cc6f3a49707ebb2e52839b4fd4db0\n",
+      "Fixed ROOT source atom/origin: 28 [16.917, 46.907, 20.219]\n",
+      "Fixed-conformation score components: {'vina': -12.513, 'vina.flex_inter': 0.0, 'vina.flex_intra': 0.0, 'vina.lig_inter': -17.634, 'vina.lig_intra': -0.485, 'vina.lig_intra_best_pose': -0.485, 'vina.other_inter': 0.0, 'vina.torsions': 5.121}\n"
+     ]
+    }
+   ],
+   "source": [
+    "from pathlib import Path\n",
+    "import gzip, hashlib, json, sys\n",
+    "import numpy as np\n",
+    "import pyunitwizard as puw\n",
+    "import dockingmt as dmt\n",
+    "root = next(p for p in [Path.cwd(), *Path.cwd().parents] if (p / 'pyproject.toml').exists())\n",
+    "path = root / 'devguide/validation/data/1iep_root_order/audit_2026-10-07.json.gz'\n",
+    "raw = gzip.decompress(path.read_bytes())\n",
+    "record = json.loads(raw)\n",
+    "assert sys.executable == record['interpreter']\n",
+    "assert sys.version_info[:2] == (3, 14)\n",
+    "assert len(record['new_runs']) == 6\n",
+    "baseline_path = root / record['baseline']['path']\n",
+    "assert hashlib.sha256(baseline_path.read_bytes()).hexdigest() == record['baseline']['sha256']\n",
+    "baseline = json.loads(gzip.decompress(baseline_path.read_bytes()))\n",
+    "print('New source base:', record['consumer_base_commit'])\n",
+    "print('Baseline published by:', record['baseline']['published_by'])\n",
+    "print('Original native producer:', record['baseline']['original_native_producer'])\n",
+    "print('Original JSON SHA-256:', hashlib.sha256(raw).hexdigest())\n",
+    "print('Fixed ROOT source atom/origin:', record['control']['first_root_source_atom_index'], record['control']['rigid_body_origin_angstrom'])\n",
+    "scored = record['fixed_conformation_score']\n",
+    "assert scored['scores'] == baseline['fixed_conformation_scores']['native']['scores']\n",
+    "assert dmt.verify_captured_inputs(scored['metadata']['scoring_history'][0]['backend_artifacts'])\n",
+    "print('Fixed-conformation score components:', scored['scores'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "2aa1a6a3",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-07T19:44:24.910254Z",
+     "iopub.status.busy": "2026-10-07T19:44:24.909876Z",
+     "iopub.status.idle": "2026-10-07T19:44:24.919008Z",
+     "shell.execute_reply": "2026-10-07T19:44:24.917856Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "variant                      effort seed poses first-heavy closest-heavy first-score\n",
+      "native                           1    7     3     12.3453       12.3453     -10.899\n",
+      "native                           1   42     1     12.3663       12.3663     -10.779\n",
+      "native                           1 2026     3     12.3183       12.1256     -10.888\n",
+      "native                           8    7     3      0.2928        0.2928     -13.302\n",
+      "native                           8   42     5     12.3349       12.0659     -10.827\n",
+      "native                           8 2026     5     12.3183       12.0296     -10.888\n",
+      "published                        1    7     1      0.2718        0.2718     -13.293\n",
+      "published                        1   42     1      0.8969        0.8969     -13.286\n",
+      "published                        1 2026     3     12.3188       12.1504     -10.945\n",
+      "published                        8    7     4      0.9045        0.9045     -13.227\n",
+      "published                        8   42     4      0.8969        0.8969     -13.286\n",
+      "published                        8 2026     2      0.9045        0.9045     -13.193\n",
+      "native_root_reversed             1    7     2     12.3274       12.3274     -10.858\n",
+      "native_root_reversed             1   42     2     12.1680       12.1680     -11.218\n",
+      "native_root_reversed             1 2026     1      0.9067        0.9067     -13.275\n",
+      "native_root_reversed             8    7     3      1.2120        1.2120     -12.801\n",
+      "native_root_reversed             8   42     3      0.9469        0.9469     -13.035\n",
+      "native_root_reversed             8 2026     3      0.9067        0.9067     -13.275\n",
+      "native_root_first_fixed          1    7     1      0.9099        0.9099     -13.170\n",
+      "native_root_first_fixed          1   42     1      0.2561        0.2561     -13.203\n",
+      "native_root_first_fixed          1 2026     1      0.9088        0.9088     -13.195\n",
+      "native_root_first_fixed          8    7     4      0.2740        0.2740     -13.313\n",
+      "native_root_first_fixed          8   42     2      0.2786        0.2786     -13.294\n",
+      "native_root_first_fixed          8 2026     3      0.3209        0.3209     -13.224\n",
+      "native first: 1 /6; returned set: 1 /6\n",
+      "published first: 5 /6; returned set: 5 /6\n",
+      "native_root_reversed first: 4 /6; returned set: 4 /6\n",
+      "native_root_first_fixed first: 6 /6; returned set: 6 /6\n",
+      "Counts describe these observed cells; no recovery probability or policy ranking.\n"
+     ]
+    }
+   ],
+   "source": [
+    "print('variant                      effort seed poses first-heavy closest-heavy first-score')\n",
+    "for row in record['comparison_rows']:\n",
+    "    print(f\"{row['variant']:30s} {row['exhaustiveness']:3d} {row['seed']:4d} {row['poses']:5d} {row['first_heavy_rmsd_angstrom']:11.4f} {row['closest_heavy_rmsd_angstrom']:13.4f} {row['first_vina_score_kcal_mol']:11.3f}\")\n",
+    "for variant in dict.fromkeys(row['variant'] for row in record['comparison_rows']):\n",
+    "    rows = [row for row in record['comparison_rows'] if row['variant'] == variant]\n",
+    "    assert len(rows) == 6\n",
+    "    print(variant, 'first:', sum(row['first_pose_recovered'] for row in rows), '/6; returned set:', sum(row['returned_set_recovered'] for row in rows), '/6')\n",
+    "print('Counts describe these observed cells; no recovery probability or policy ranking.')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "39ab6f60",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-07T19:44:24.922441Z",
+     "iopub.status.busy": "2026-10-07T19:44:24.922172Z",
+     "iopub.status.idle": "2026-10-07T19:44:29.485866Z",
+     "shell.execute_reply": "2026-10-07T19:44:29.484758Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Saved 40-atom evaluation agrees under pm/fs; no searches rerun.\n"
+     ]
+    }
+   ],
+   "source": [
+    "run = record['new_runs'][0]\n",
+    "restored = dmt.DockingResult.from_dict(run['result'])\n",
+    "assert dmt.verify_captured_inputs(restored.provenance['backend_artifacts'])\n",
+    "xyz = puw.get_value(puw.quantity(record['audit']['source_snapshot']['structures']['coordinates'], 'nm'), to_unit='angstrom')[0]\n",
+    "reference = puw.quantity(xyz[run['pdbqt_to_source_atom_indices']], 'angstrom')\n",
+    "with puw.context(standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'radians']):\n",
+    "    report = dmt.evaluate_redocking(restored, reference, rmsd_cutoff=puw.quantity(250, 'pm'))\n",
+    "assert report['criterion'] == run['evaluation']['criterion']\n",
+    "np.testing.assert_allclose([row['rmsd'] for row in report['poses']], [row['rmsd'] for row in run['evaluation']['poses']], rtol=0, atol=1e-12)\n",
+    "print('Saved 40-atom evaluation agrees under pm/fs; no searches rerun.')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
+   "language": "python",
+   "name": "dockingmt-molsyssuite-314"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

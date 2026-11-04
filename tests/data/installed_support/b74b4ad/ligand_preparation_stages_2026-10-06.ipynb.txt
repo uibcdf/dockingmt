@@ -1,0 +1,195 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "ligand-stages-0",
+   "metadata": {},
+   "source": [
+    "# Explicit ligand hydrogen and charge stages — 2026-10-06\n",
+    "\n",
+    "Consumer qualification for DockingMT #42/#41 after MolSysMT #298/#318. Run in `molsyssuite@uibcdf_3.14` with committed MolSysMT `5bd893c85fe8d211663b2b1f865f5f1d2c382a90`, released ArgDigest 0.15.0 and the existing Python 3.14 CI viewer pin. Source hashes and original producer versions remain distinct. Chemistry/model choices are explicit. Local H geometry and heuristic AutoDock types remain provisional. The earlier notebook and receipt retain the historical negative BNZ control. See [the contract](ligand_preparation_stages.md)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "ligand-stages-1",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:30:06.008336Z",
+     "iopub.status.busy": "2026-10-06T22:30:06.008085Z",
+     "iopub.status.idle": "2026-10-06T22:30:14.271641Z",
+     "shell.execute_reply": "2026-10-06T22:30:14.270345Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were discarded during concatenation: b_factor, occupancy. (Hint: Use attribute_policy='strict' to reject the operation instead. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "/home/liliana/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\n",
+      "5bd893c85fe8d211663b2b1f865f5f1d2c382a90\n"
+     ]
+    }
+   ],
+   "source": [
+    "from pathlib import Path\n",
+    "import sys\n",
+    "assert Path(sys.prefix).name == 'molsyssuite@uibcdf_3.14'\n",
+    "root = next(p for p in (Path.cwd(), *Path.cwd().parents) if (p / 'pyproject.toml').is_file())\n",
+    "sys.path.insert(0, str(root))\n",
+    "from devtools.qualify_ligand_stages import qualify, save, polar_source, HYDROGEN, CHARGE\n",
+    "import dockingmt as dmt\n",
+    "record = qualify()\n",
+    "save(record)\n",
+    "print(record['interpreter'])\n",
+    "print(record['qualified_provider_commit'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ligand-stages-2",
+   "metadata": {},
+   "source": [
+    "## Explicit choices and source correspondence\n",
+    "\n",
+    "The methanol control declares heavy-atom chemistry and synthetic coordinates through public MolSysMT conversion and native composition. Its existing off-axis diagnostic is retained; tests compare source identity/coordinates. Fixed-state H addition uses pH=None and an explicit engine. Strict attribute preservation is the default; the caller must authorize a reported intersection policy for attributes unable to cover added atoms."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "ligand-stages-3",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:30:14.275946Z",
+     "iopub.status.busy": "2026-10-06T22:30:14.275465Z",
+     "iopub.status.idle": "2026-10-06T22:30:15.175633Z",
+     "shell.execute_reply": "2026-10-06T22:30:15.174075Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were dropped because only an item outside the structure axis of the molecular system provides them: atom_index. (Hint: A file holding a single reference conformation cannot supply a series for a whole trajectory. Take the attribute from the trajectory item, or convert first. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Input atoms: 2\n",
+      "Added H: 4\n",
+      "Prepared → input: [0, 1, None]\n",
+      "PDBQT → input: [0, 1, None]\n",
+      "Charge: -2.7755575615628914e-17 elementary_charge consistent\n",
+      "Default assessment: provisional\n"
+     ]
+    }
+   ],
+   "source": [
+    "prepared = dmt.prepare_ligand(polar_source(), selection='all', hydrogen_options=HYDROGEN, charge_options=CHARGE)\n",
+    "workflow = prepared.metadata['preparation_workflow']\n",
+    "audit = dmt.audit_preparation_charges(prepared)\n",
+    "print('Input atoms:', workflow['input_n_atoms'])\n",
+    "print('Added H:', workflow['hydrogen_addition']['n_added_hydrogens'])\n",
+    "print('Prepared → input:', workflow['prepared_to_input_atom_indices'])\n",
+    "print('PDBQT → input:', workflow['pdbqt_to_input_atom_indices'])\n",
+    "print('Charge:', audit['total_charge'], audit['charge_unit'], audit['assessment'])\n",
+    "print('Default assessment:', dmt.assess_preparation(prepared)['assessment'])\n",
+    "assert workflow['prepared_to_input_atom_indices'] == [0, 1, None]\n",
+    "assert record['idempotent_control']['prepared']['metadata']['preparation_workflow']['hydrogen_addition']['n_added_hydrogens'] == 0"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ligand-stages-4",
+   "metadata": {},
+   "source": [
+    "## Original 181L BNZ boundary\n",
+    "\n",
+    "The declared heavy-only benzene template preserves the experimental heavy-atom pose. Public fixed-state H addition now adds six H without inventing integer aromatic bond orders. Explicit intersection records loss of B-factor/occupancy on the expanded copy. Named charges are transferred from omitted nonpolar H to retained C. Source atom identity/coordinates and native preparation history remain intact. This is software qualification of the declared route."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "ligand-stages-5",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-06T22:30:15.179051Z",
+     "iopub.status.busy": "2026-10-06T22:30:15.178768Z",
+     "iopub.status.idle": "2026-10-06T22:30:15.185127Z",
+     "shell.execute_reply": "2026-10-06T22:30:15.183859Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "software_qualified_provisional_typing\n",
+      "Added H: 6\n",
+      "Charge audit: consistent\n",
+      "Original BNZ is qualified only for the declared template, fixed-state H and named-charge software route.\n",
+      "Generated local H geometry is not receptor or energy refinement.\n",
+      "AutoDock typing and the default provisional gate remain unchanged.\n",
+      "Charge projection/writing remains the existing temporary consumer profile (#223).\n",
+      "Template history is retained natively; H5MSM cannot retain a nonempty MolecularMechanics domain.\n",
+      "An explicit-H SDF can still lack the stored virtual-H counts required by fixed-state addition.\n",
+      "The public composition route emits its existing atom_index off-axis diagnostic; source identity/coordinates are checked.\n",
+      "Source qualification and original producer versions do not establish public artifact or biological acceptance.\n"
+     ]
+    }
+   ],
+   "source": [
+    "bnz = record['181l_bnz']\n",
+    "print(bnz['status'])\n",
+    "print('Added H:', bnz['hydrogen_addition']['n_added_hydrogens'])\n",
+    "print('Charge audit:', bnz['charge_audit']['assessment'])\n",
+    "assert bnz['status'] == 'software_qualified_provisional_typing'\n",
+    "assert bnz['hydrogen_addition']['n_added_hydrogens'] == 6\n",
+    "assert bnz['source_unchanged'] and bnz['vina_parser_admitted']\n",
+    "for limit in record['limits']:\n",
+    "    print(limit)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
+   "language": "python",
+   "name": "dockingmt-molsyssuite-314"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

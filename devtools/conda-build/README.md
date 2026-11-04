@@ -92,6 +92,11 @@ receiving reports are not recursively included. The shared operation validates,
 stages, checks and retires those files without exposing the owner/staging parent
 on Python paths. Original producer programs remain preserved, with byte-identical
 inert text copies for fingerprint-only use. Runtime discovery excludes support.
+Live guide/notebook fixture sources are stored as inert snapshots under
+`tests/data/installed_support/b74b4ad/`; their staged paths/bytes remain the
+qualified originals. Run the shared resource preflight after final guide edits
+and on a fresh committed export before pushing, keeping administrative checks
+independent of scientific imports.
 
 The [complete private receiving](../../devguide/validation/installed_support_receiving.md)
 passes 1,450 tests on Linux/Python 3.14.8 with the original controlled providers

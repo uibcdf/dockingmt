@@ -1,0 +1,208 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "f0e63129",
+   "metadata": {},
+   "source": [
+    "# 1IEP alternative-conformer challenge — 2026-10-08\n",
+    "\n",
+    "Prespecified +/-60 degree central-torsion controls; saved observations only. Evaluate against the original crystallographic geometry. See [workflow](1iep_conformer_workflow.md) for producer boundaries and limits."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "706017f2",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-08T21:19:00.386266Z",
+     "iopub.status.busy": "2026-10-08T21:19:00.385941Z",
+     "iopub.status.idle": "2026-10-08T21:19:01.668811Z",
+     "shell.execute_reply": "2026-10-08T21:19:01.667611Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "24 new observations; 12 authenticated historical cells with original producers.\n",
+      "Native producer: 7b11391e153f77f340fd039bc799352f90da83d3\n",
+      "Fixed-first producer: 2f2ee8f7cebe9b07e5ac240937896dfaf9df197e\n"
+     ]
+    }
+   ],
+   "source": [
+    "import gzip, json\n",
+    "from devtools.qualify_1iep_conformers import OUTPUT, load_baseline, comparison_rows\n",
+    "from devtools.qualify_1iep_root_order import load_baseline as load_representation\n",
+    "from devtools.qualify_1iep_representation import sha\n",
+    "record = json.loads(gzip.decompress(OUTPUT.read_bytes()))\n",
+    "baseline, representation = load_baseline(), load_representation()\n",
+    "assert record['comparison_rows'] == comparison_rows(record, baseline, representation)\n",
+    "assert len(record['new_runs']) == 24\n",
+    "for case in record['cases'].values():\n",
+    "    for control in case['controls'].values():\n",
+    "        assert sha(control['pdbqt'].encode()) == control['sha256']\n",
+    "print('24 new observations; 12 authenticated historical cells with original producers.')\n",
+    "print('Native producer:', record['baseline']['native_producer'])\n",
+    "print('Fixed-first producer:', record['baseline']['fixed_first_producer'])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "426db588",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-08T21:19:01.672987Z",
+     "iopub.status.busy": "2026-10-08T21:19:01.672522Z",
+     "iopub.status.idle": "2026-10-08T21:19:01.684710Z",
+     "shell.execute_reply": "2026-10-08T21:19:01.682885Z"
+    }
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/markdown": [
+       "| Geometry | Order | Effort | Seed | Poses | First heavy RMSD (A) | Closest (A) | First score (kcal/mol) |\n",
+       "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |\n",
+       "| bound_like | native | 1 | 7 | 3 | 12.3453 | 12.3453 | -10.899 |\n",
+       "| bound_like | native | 1 | 42 | 1 | 12.3663 | 12.3663 | -10.779 |\n",
+       "| bound_like | native | 1 | 2026 | 3 | 12.3183 | 12.1256 | -10.888 |\n",
+       "| bound_like | native | 8 | 7 | 3 | 0.2928 | 0.2928 | -13.302 |\n",
+       "| bound_like | native | 8 | 42 | 5 | 12.3349 | 12.0659 | -10.827 |\n",
+       "| bound_like | native | 8 | 2026 | 5 | 12.3183 | 12.0296 | -10.888 |\n",
+       "| bound_like | first_fixed | 1 | 7 | 1 | 0.9099 | 0.9099 | -13.170 |\n",
+       "| bound_like | first_fixed | 1 | 42 | 1 | 0.2561 | 0.2561 | -13.203 |\n",
+       "| bound_like | first_fixed | 1 | 2026 | 1 | 0.9088 | 0.9088 | -13.195 |\n",
+       "| bound_like | first_fixed | 8 | 7 | 4 | 0.2740 | 0.2740 | -13.313 |\n",
+       "| bound_like | first_fixed | 8 | 42 | 2 | 0.2786 | 0.2786 | -13.294 |\n",
+       "| bound_like | first_fixed | 8 | 2026 | 3 | 0.3209 | 0.3209 | -13.224 |\n",
+       "| plus60 | native | 1 | 7 | 2 | 12.3091 | 12.0668 | -10.937 |\n",
+       "| plus60 | native | 1 | 42 | 3 | 12.3447 | 12.2867 | -10.878 |\n",
+       "| plus60 | native | 1 | 2026 | 3 | 6.4088 | 6.4088 | -8.411 |\n",
+       "| plus60 | native | 8 | 7 | 5 | 12.3417 | 12.0668 | -10.823 |\n",
+       "| plus60 | native | 8 | 42 | 5 | 12.3208 | 6.5958 | -10.857 |\n",
+       "| plus60 | native | 8 | 2026 | 5 | 12.3224 | 12.0861 | -10.846 |\n",
+       "| plus60 | first_fixed | 1 | 7 | 3 | 12.2884 | 12.2146 | -10.917 |\n",
+       "| plus60 | first_fixed | 1 | 42 | 2 | 12.3421 | 12.3421 | -10.839 |\n",
+       "| plus60 | first_fixed | 1 | 2026 | 3 | 12.6683 | 11.9926 | -7.919 |\n",
+       "| plus60 | first_fixed | 8 | 7 | 3 | 0.9091 | 0.9091 | -13.197 |\n",
+       "| plus60 | first_fixed | 8 | 42 | 2 | 0.2923 | 0.2923 | -13.296 |\n",
+       "| plus60 | first_fixed | 8 | 2026 | 4 | 0.2969 | 0.2969 | -13.196 |\n",
+       "| minus60 | native | 1 | 7 | 3 | 12.3290 | 12.1194 | -10.848 |\n",
+       "| minus60 | native | 1 | 42 | 2 | 12.3039 | 10.1751 | -6.580 |\n",
+       "| minus60 | native | 1 | 2026 | 1 | 0.2646 | 0.2646 | -13.289 |\n",
+       "| minus60 | native | 8 | 7 | 3 | 0.3166 | 0.3166 | -13.258 |\n",
+       "| minus60 | native | 8 | 42 | 2 | 0.9083 | 0.9083 | -13.224 |\n",
+       "| minus60 | native | 8 | 2026 | 3 | 0.2646 | 0.2646 | -13.289 |\n",
+       "| minus60 | first_fixed | 1 | 7 | 3 | 12.2839 | 12.0126 | -10.767 |\n",
+       "| minus60 | first_fixed | 1 | 42 | 1 | 12.3130 | 12.3130 | -10.934 |\n",
+       "| minus60 | first_fixed | 1 | 2026 | 2 | 10.0805 | 10.0805 | -7.331 |\n",
+       "| minus60 | first_fixed | 8 | 7 | 3 | 0.9109 | 0.9109 | -13.187 |\n",
+       "| minus60 | first_fixed | 8 | 42 | 4 | 0.9056 | 0.9056 | -13.284 |\n",
+       "| minus60 | first_fixed | 8 | 2026 | 3 | 0.9070 | 0.9070 | -13.267 |"
+      ],
+      "text/plain": [
+       "<IPython.core.display.Markdown object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "bound_like native first/set near-native: 1 1 / 6\n",
+      "bound_like first_fixed first/set near-native: 6 6 / 6\n",
+      "plus60 native first/set near-native: 0 0 / 6\n",
+      "plus60 first_fixed first/set near-native: 3 3 / 6\n",
+      "minus60 native first/set near-native: 4 4 / 6\n",
+      "minus60 first_fixed first/set near-native: 3 3 / 6\n"
+     ]
+    }
+   ],
+   "source": [
+    "from IPython.display import display, Markdown\n",
+    "rows = record['comparison_rows']\n",
+    "table = ['| Geometry | Order | Effort | Seed | Poses | First heavy RMSD (A) | Closest (A) | First score (kcal/mol) |', '| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |']\n",
+    "for r in rows:\n",
+    "    table.append(f\"| {r['geometry']} | {r['order']} | {r['exhaustiveness']} | {r['seed']} | {r['poses']} | {r['first_heavy_rmsd_angstrom']:.4f} | {r['closest_heavy_rmsd_angstrom']:.4f} | {r['first_vina_score_kcal_mol']:.3f} |\")\n",
+    "display(Markdown('\\n'.join(table)))\n",
+    "for geometry in ('bound_like', 'plus60', 'minus60'):\n",
+    "    for order in ('native', 'first_fixed'):\n",
+    "        arm = [r for r in rows if r['geometry']==geometry and r['order']==order]\n",
+    "        print(geometry, order, 'first/set near-native:', sum(r['first_pose_recovered'] for r in arm), sum(r['returned_set_recovered'] for r in arm), '/', len(arm))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "c20de9b8",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-08T21:19:01.688248Z",
+     "iopub.status.busy": "2026-10-08T21:19:01.687965Z",
+     "iopub.status.idle": "2026-10-08T21:19:05.660440Z",
+     "shell.execute_reply": "2026-10-08T21:19:05.659065Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Saved result re-evaluated against ORIGINAL geometry under pm/fs; no searches repeated.\n",
+      "Unminimized controls, one complex and external unassessed receptor; no general ROOT/conformer policy.\n"
+     ]
+    }
+   ],
+   "source": [
+    "import numpy as np\n",
+    "import pyunitwizard as puw\n",
+    "import dockingmt as dmt\n",
+    "run = record['new_runs'][0]\n",
+    "original_xyz = np.array(record['audit']['source_snapshot']['structures']['coordinates'])[0] * 10\n",
+    "indices = run['pdbqt_to_source_atom_indices']\n",
+    "heavy = run['heavy_pdbqt_indices']\n",
+    "with puw.context(standard_units=['pm','fs','K','mole','dalton','e','kJ/mol','radians']):\n",
+    "    result = dmt.DockingResult.from_dict(run['result'])\n",
+    "    report = dmt.evaluate_redocking(result, puw.quantity(original_xyz[indices], 'angstrom'), rmsd_cutoff=puw.quantity(250, 'pm'))\n",
+    "    assert dmt.verify_captured_inputs(result.provenance['backend_artifacts'])\n",
+    "    for pose, row, saved, metric in zip(result.poses, report['poses'], run['evaluation']['poses'], run['heavy_atom_metrics'], strict=True):\n",
+    "        squared = np.sum((puw.get_value(pose.coordinates, to_unit='angstrom')-original_xyz[indices])**2, axis=-1)\n",
+    "        assert report['criterion'] == run['evaluation']['criterion']\n",
+    "        rmsd = row['rmsd']\n",
+    "        assert abs(float(rmsd)-saved['rmsd']) < 1e-10\n",
+    "        assert abs(float(rmsd)-np.sqrt(squared.mean())) < 1e-10\n",
+    "        assert abs(metric['heavy_atom_positional_rmsd_angstrom']-np.sqrt(squared[heavy].mean())) < 1e-10\n",
+    "print('Saved result re-evaluated against ORIGINAL geometry under pm/fs; no searches repeated.')\n",
+    "print('Unminimized controls, one complex and external unassessed receptor; no general ROOT/conformer policy.')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.14 (qualified source profile)",
+   "language": "python",
+   "name": "dockingmt-molsyssuite-314"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -59,6 +59,9 @@ imports in that namespace and update the exact helper/data SHA-256 declaration
 in `devtools/conda-build/resources.toml` when an input changes. Use MolSysSuite's
 declared installed-test support mechanism; keep support outside the runtime
 payload and preserve historical scientific inputs and producer identities.
+Snapshot live guides used as frozen fixtures at immutable test-data paths,
+preserving their staged targets. Run shared resource validation after final
+documentation edits, including on a fresh export of the committed source.
 
 Available commands (select applicable checks and test scope):
 

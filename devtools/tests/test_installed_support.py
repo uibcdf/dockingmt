@@ -50,15 +50,11 @@ def test_support_namespace_is_unshipped_by_actual_package_discovery():
     assert not any('dmt_test_support' in path for path in inventory['required_paths'])
 
 
-def test_legacy_helper_imports_delegate_to_the_same_implementation():
-    for name, operation in (
-        ('recover_saved_3ptb_case', '_fingerprint'),
-        ('qualify_named_types', 'explicit_source'),
-        ('qualify_3ptb_admission', 'admit'),
-    ):
-        legacy = importlib.import_module('devtools.' + name)
-        current = importlib.import_module('dmt_test_support.' + name)
-        assert getattr(legacy, operation) is getattr(current, operation)
+def test_legacy_helper_import_delegates_without_scientific_dependencies():
+    # This administrative control runs without the scientific dependency set.
+    legacy = importlib.import_module('devtools.recover_saved_3ptb_case')
+    current = importlib.import_module('dmt_test_support.recover_saved_3ptb_case')
+    assert legacy._fingerprint is current._fingerprint
 
 
 def test_legacy_script_entry_point_keeps_help_outside_the_clone(tmp_path):

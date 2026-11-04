@@ -1,0 +1,280 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "a9a4ed94",
+   "metadata": {},
+   "source": [
+    "# Fixed-pose scoring and additive evaluations\n",
+    "\n",
+    "This executed software control uses public DockingMT APIs and the previously retained minimal Vina input bytes. It evaluates the supplied conformation without search or optimization. The deliberately overlapping geometry is not a scientific docking benchmark. See [the contract](fixed_pose_scoring.md) and [issue #34](https://github.com/uibcdf/dockingmt/issues/34). No Meeko or MolSysViewer import is required.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "32f748bf",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T19:18:28.022544Z",
+     "iopub.status.busy": "2026-10-03T19:18:28.022036Z",
+     "iopub.status.idle": "2026-10-03T19:18:28.654107Z",
+     "shell.execute_reply": "2026-10-03T19:18:28.653174Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\n",
+      "  \"python\": \"3.14.7\",\n",
+      "  \"interpreter\": \"/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\",\n",
+      "  \"dockingmt\": \"0.0.0+101.gbe39d74.dirty\",\n",
+      "  \"molsysmt\": \"0.22.4+24.g42b487869\",\n",
+      "  \"vina\": \"1.2.7\",\n",
+      "  \"molsysmt_source\": \"/home/diego/repos@uibcdf/dockingmt/.pytest_cache/codex-source-archives/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt\"\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "import base64\n",
+    "import json\n",
+    "import platform\n",
+    "import sys\n",
+    "from pathlib import Path\n",
+    "import numpy as np\n",
+    "import pyunitwizard as puw\n",
+    "import molsysmt as msm\n",
+    "import vina\n",
+    "import dockingmt as dmt\n",
+    "\n",
+    "assert sys.version_info[:2] == (3, 14)\n",
+    "assert 'molsyssuite@uibcdf_3.14' in sys.executable\n",
+    "root = next(path for path in (Path.cwd(), *Path.cwd().parents) if (path / 'dockingmt').is_dir())\n",
+    "manifest = json.loads((root / 'devguide/validation/data/audit/minimal_vina_result.json').read_text())\n",
+    "artifacts = manifest['provenance']['backend_artifacts']\n",
+    "problem = dmt.DockingProblem(\n",
+    "    receptor=base64.b64decode(artifacts['receptor']['content_base64']).decode(),\n",
+    "    partner=base64.b64decode(artifacts['partner']['content_base64']).decode(),\n",
+    "    search_domain=dmt.BoxRegion.from_dict(manifest['problem_info']['search_domain']),\n",
+    ")\n",
+    "print(json.dumps({'python': platform.python_version(), 'interpreter': sys.executable,\n",
+    "                 'dockingmt': dmt.__version__, 'molsysmt': msm.__version__,\n",
+    "                 'vina': vina.__version__, 'molsysmt_source': str(Path(msm.__file__).parent)}, indent=2))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "119ea2a8",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T19:18:28.658315Z",
+     "iopub.status.busy": "2026-10-03T19:18:28.658038Z",
+     "iopub.status.idle": "2026-10-03T19:18:34.225967Z",
+     "shell.execute_reply": "2026-10-03T19:18:34.224975Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "vina                               38.197 kilocalorie / mole (empirical)\n",
+      "vina.lig_inter                     38.197 kilocalorie / mole (empirical)\n",
+      "vina.flex_inter                     0.000 kilocalorie / mole (empirical)\n",
+      "vina.other_inter                    0.000 kilocalorie / mole (empirical)\n",
+      "vina.flex_intra                     0.000 kilocalorie / mole (empirical)\n",
+      "vina.lig_intra                      0.000 kilocalorie / mole (empirical)\n",
+      "vina.torsions                       0.000 kilocalorie / mole (empirical)\n",
+      "vina.lig_intra_best_pose            0.000 kilocalorie / mole (empirical)\n",
+      "vinardo                            39.483 kilocalorie / mole (empirical)\n",
+      "vinardo.lig_inter                  39.483 kilocalorie / mole (empirical)\n",
+      "vinardo.flex_inter                  0.000 kilocalorie / mole (empirical)\n",
+      "vinardo.other_inter                 0.000 kilocalorie / mole (empirical)\n",
+      "vinardo.flex_intra                  0.000 kilocalorie / mole (empirical)\n",
+      "vinardo.lig_intra                   0.000 kilocalorie / mole (empirical)\n",
+      "vinardo.torsions                    0.000 kilocalorie / mole (empirical)\n",
+      "vinardo.lig_intra_best_pose         0.000 kilocalorie / mole (empirical)\n"
+     ]
+    }
+   ],
+   "source": [
+    "first = dmt.score(problem, dmt.VinaProtocol(cpu=1, seed=17, capture_backend_inputs=True), score_name='vina')\n",
+    "before = first.to_dict()\n",
+    "second = dmt.score(problem, dmt.VinaProtocol(cpu=1, seed=17, scoring='vinardo'), pose=first, score_name='vinardo')\n",
+    "assert first.to_dict() == before\n",
+    "np.testing.assert_array_equal(puw.get_value(first.coordinates), puw.get_value(second.coordinates))\n",
+    "assert len(second.scores) == 16\n",
+    "assert second.rank is None\n",
+    "for name, value in second.scores.items():\n",
+    "    definition = second.score_definitions[name]\n",
+    "    print(f\"{name:30s} {value:10.3f} {definition['unit']} ({definition['kind']})\")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "b918485d",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T19:18:34.229669Z",
+     "iopub.status.busy": "2026-10-03T19:18:34.229264Z",
+     "iopub.status.idle": "2026-10-03T19:18:34.235172Z",
+     "shell.execute_reply": "2026-10-03T19:18:34.234276Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\n",
+      "  \"operation\": \"score\",\n",
+      "  \"backend_version\": \"1.2.7\",\n",
+      "  \"applied_parameters\": {\n",
+      "    \"scoring\": \"vina\",\n",
+      "    \"cpu\": 1,\n",
+      "    \"seed\": 17,\n",
+      "    \"allow_provisional_preparation\": false,\n",
+      "    \"capture_backend_inputs\": true,\n",
+      "    \"collect_timings\": false\n",
+      "  },\n",
+      "  \"unused_search_parameters\": [\n",
+      "    \"exhaustiveness\",\n",
+      "    \"n_poses\",\n",
+      "    \"energy_range\"\n",
+      "  ],\n",
+      "  \"geometry_check\": {\n",
+      "    \"atom_order\": \"pdbqt_record_order\",\n",
+      "    \"identity_check\": \"positional_only\",\n",
+      "    \"coordinate_tolerance\": {\n",
+      "      \"value\": 0.000500001,\n",
+      "      \"unit\": \"angstrom\"\n",
+      "    },\n",
+      "    \"state_checks\": {\n",
+      "      \"partner\": \"unknown\",\n",
+      "      \"receptor\": \"unknown\"\n",
+      "    }\n",
+      "  },\n",
+      "  \"input_hashes\": {\n",
+      "    \"receptor\": \"fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b\",\n",
+      "    \"partner\": \"e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884\"\n",
+      "  },\n",
+      "  \"preparation_assessment\": {\n",
+      "    \"receptor\": \"unassessed\",\n",
+      "    \"partner\": \"unassessed\"\n",
+      "  }\n",
+      "}\n",
+      "{\n",
+      "  \"operation\": \"score\",\n",
+      "  \"backend_version\": \"1.2.7\",\n",
+      "  \"applied_parameters\": {\n",
+      "    \"scoring\": \"vinardo\",\n",
+      "    \"cpu\": 1,\n",
+      "    \"seed\": 17,\n",
+      "    \"allow_provisional_preparation\": false,\n",
+      "    \"capture_backend_inputs\": false,\n",
+      "    \"collect_timings\": false\n",
+      "  },\n",
+      "  \"unused_search_parameters\": [\n",
+      "    \"exhaustiveness\",\n",
+      "    \"n_poses\",\n",
+      "    \"energy_range\"\n",
+      "  ],\n",
+      "  \"geometry_check\": {\n",
+      "    \"atom_order\": \"pdbqt_record_order\",\n",
+      "    \"identity_check\": \"positional_only\",\n",
+      "    \"coordinate_tolerance\": {\n",
+      "      \"value\": 0.000500001,\n",
+      "      \"unit\": \"angstrom\"\n",
+      "    },\n",
+      "    \"state_checks\": {\n",
+      "      \"partner\": \"unknown\",\n",
+      "      \"receptor\": \"unknown\"\n",
+      "    }\n",
+      "  },\n",
+      "  \"input_hashes\": {\n",
+      "    \"receptor\": \"fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b\",\n",
+      "    \"partner\": \"e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884\"\n",
+      "  },\n",
+      "  \"preparation_assessment\": {\n",
+      "    \"receptor\": \"unassessed\",\n",
+      "    \"partner\": \"unassessed\"\n",
+      "  }\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "for evaluation in second.metadata['scoring_history']:\n",
+    "    report = {key: evaluation[key] for key in ('operation', 'backend_version', 'applied_parameters', 'unused_search_parameters', 'geometry_check')}\n",
+    "    report['input_hashes'] = {role: record['sha256'] for role, record in evaluation['backend_artifacts'].items()}\n",
+    "    report['preparation_assessment'] = {role: record['assessment_report']['assessment'] for role, record in evaluation['preparation'].items()}\n",
+    "    print(json.dumps(report, indent=2))\n",
+    "assert 'molsysviewer' not in sys.modules\n",
+    "assert 'meeko' not in sys.modules\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "f47c01ad",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T19:18:34.238760Z",
+     "iopub.status.busy": "2026-10-03T19:18:34.238516Z",
+     "iopub.status.idle": "2026-10-03T19:18:34.741688Z",
+     "shell.execute_reply": "2026-10-03T19:18:34.740748Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ArgumentError: an existing score cannot be replaced\n",
+      "Independent roundtrip: 17 scores; 2 native evaluations\n"
+     ]
+    }
+   ],
+   "source": [
+    "annotated = second.with_scores({'manual_review': 0.75})\n",
+    "assert 'manual_review' not in second.scores\n",
+    "assert 'manual_review' not in annotated.score_definitions  # Meaning remains undeclared.\n",
+    "restored = dmt.DockingPose.from_dict(json.loads(json.dumps(annotated.to_dict(), allow_nan=False)))\n",
+    "assert restored.to_dict() == annotated.to_dict()\n",
+    "try:\n",
+    "    second.with_scores({'vina': 0.0})\n",
+    "except Exception as error:\n",
+    "    print(type(error).__name__ + ': an existing score cannot be replaced')\n",
+    "else:\n",
+    "    raise AssertionError('Existing scores were overwritten')\n",
+    "print('Independent roundtrip:', len(restored.scores), 'scores;', len(restored.metadata['scoring_history']), 'native evaluations')\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
+   "language": "python",
+   "name": "dockingmt-molsyssuite-314"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,523 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "6ff39e0d",
+   "metadata": {},
+   "source": [
+    "# Docking poses and reference frame correspondence\n",
+    "\n",
+    "Public DockingMT/MolSysMT/MolSysViewer integration control using native Vina and\n",
+    "181L. Preparation is explicitly provisional; this is not a validated affinity\n",
+    "benchmark. Assertions inspect Python molecular geometry, regions and player state.\n",
+    "They do not certify browser rendering. See [the contract](viewer_reference.md) for\n",
+    "source profiles, legacy limitations and the provider issue handoff.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "6e94c34e",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T21:51:01.948007Z",
+     "iopub.status.busy": "2026-10-03T21:51:01.947550Z",
+     "iopub.status.idle": "2026-10-03T21:51:04.164566Z",
+     "shell.execute_reply": "2026-10-03T21:51:04.163469Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Type checks are disabled because the optional dependency 'beartype' is not available. (Hint: Install 'beartype' to enable runtime type checking.)\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\n",
+      "  \"python\": \"3.14.7\",\n",
+      "  \"vina\": \"1.2.7\",\n",
+      "  \"molsysmt_origin\": \"/home/diego/repos@uibcdf/dockingmt/.pytest_cache/codex-source-archives/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/__init__.py\",\n",
+      "  \"molsysviewer_origin\": \"/home/diego/repos@uibcdf/dockingmt/.pytest_cache/codex-source-archives/dockingmt-template-viewer-ec4c71e574d798b7c8675b7e7e983da878ce9889/molsysviewer/__init__.py\",\n",
+      "  \"explicit_pairing\": false,\n",
+      "  \"181l_sha256\": \"77018feaaa65bb22dea47c784e8c059b0ccc09cd6dc7442b79cce83f3170985f\"\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "from pathlib import Path\n",
+    "import hashlib\n",
+    "import inspect\n",
+    "import json\n",
+    "import platform\n",
+    "import importlib.metadata as metadata\n",
+    "import numpy as np\n",
+    "import pyunitwizard as puw\n",
+    "import molsysmt as msm\n",
+    "import molsysviewer as msv\n",
+    "import dockingmt as dmt\n",
+    "from molsysviewer_dockingmt import build_docking_reference_system, ensure_runtime\n",
+    "\n",
+    "path = Path(msm.systems['T4 lysozyme L99A']['181l.pdb'])\n",
+    "profile = {\n",
+    "    'python': platform.python_version(),\n",
+    "    'vina': metadata.version('vina'),\n",
+    "    'molsysmt_origin': msm.__file__,\n",
+    "    'molsysviewer_origin': msv.__file__,\n",
+    "    'explicit_pairing': 'structure_pairing' in inspect.signature(msv.MolSysView.load).parameters,\n",
+    "    '181l_sha256': hashlib.sha256(path.read_bytes()).hexdigest(),\n",
+    "}\n",
+    "print(json.dumps(profile, indent=2))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "0eb92b9d",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T21:51:04.168528Z",
+     "iopub.status.busy": "2026-10-03T21:51:04.168078Z",
+     "iopub.status.idle": "2026-10-03T21:51:09.332146Z",
+     "shell.execute_reply": "2026-10-03T21:51:09.331038Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'poses': 3, 'preparation': 'provisional', 'seed': 42}\n"
+     ]
+    }
+   ],
+   "source": [
+    "molecular_system = msm.convert(str(path), to_form='molsysmt.MolSys')\n",
+    "reference = msm.extract(molecular_system, selection=\"group_name=='BNZ'\")\n",
+    "domain = dmt.BoxRegion.from_selection(\n",
+    "    molecular_system, selection=\"group_name=='BNZ'\",\n",
+    "    padding=puw.quantity(8, 'angstrom'),\n",
+    ")\n",
+    "problem = dmt.DockingProblem(\n",
+    "    receptor=molecular_system, partner=molecular_system,\n",
+    "    receptor_selection=\"molecule_type=='protein'\",\n",
+    "    partner_selection=\"group_name=='BNZ'\", search_domain=domain,\n",
+    ")\n",
+    "result = dmt.dock(problem, dmt.VinaProtocol(\n",
+    "    seed=42, cpu=1, exhaustiveness=1, n_poses=3,\n",
+    "    energy_range=puw.quantity(10, 'kcal/mol'),\n",
+    "    allow_provisional_preparation=True,\n",
+    "))\n",
+    "assert len(result.poses) > 1\n",
+    "assert result.top_pose.metadata['pose_atom_order'] == 'verified_pdbqt_order'\n",
+    "assert result.provenance['preparation']['partner']['assessment'] == 'provisional'\n",
+    "print({'poses': len(result.poses), 'preparation': 'provisional', 'seed': 42})\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "2a80d315",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T21:51:09.336112Z",
+     "iopub.status.busy": "2026-10-03T21:51:09.335705Z",
+     "iopub.status.idle": "2026-10-03T21:51:11.277010Z",
+     "shell.execute_reply": "2026-10-03T21:51:11.275839Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were discarded during concatenation: occupancy. (Hint: Use attribute_policy='strict' to reject the operation instead. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "WARNING: Structural attributes were discarded during concatenation: occupancy. (Hint: Use attribute_policy='strict' to reject the operation instead. Docs: https://www.uibcdf.org/MolSysMT)\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'pose_frames': 3, 'atoms_after_reload': 1301, 'reference_frames': 3, 'active_pose_rank': 1}\n"
+     ]
+    }
+   ],
+   "source": [
+    "prepared_reference = build_docking_reference_system(reference, len(result.poses))\n",
+    "assert msm.get(prepared_reference, n_structures=True) == len(result.poses)\n",
+    "expected = np.repeat(\n",
+    "    puw.get_value(msm.get(reference, coordinates=True), to_unit='angstrom'),\n",
+    "    len(result.poses), axis=0,\n",
+    ")\n",
+    "viewer = dmt.view(result, reference=reference)\n",
+    "reference_region = viewer.regions.get('reference_ligand')\n",
+    "np.testing.assert_allclose(\n",
+    "    puw.get_value(reference_region.get(element='atom', coordinates=True), to_unit='angstrom'),\n",
+    "    expected,\n",
+    ")\n",
+    "assert viewer.player.n_structures == len(result.poses)\n",
+    "atom_count = viewer.whole.get(n_atoms=True)\n",
+    "for rank in range(len(result.poses), 0, -1):\n",
+    "    msv_runtime = ensure_runtime(viewer)\n",
+    "    from molsysviewer_dockingmt import set_active_pose\n",
+    "    set_active_pose(viewer, rank)\n",
+    "    assert viewer.player.index == rank - 1\n",
+    "    assert msv_runtime.active_pose_rank == rank\n",
+    "\n",
+    "# Reload the result: replacement prevents duplicate molecular components.\n",
+    "dmt.view(result, reference=prepared_reference, view=viewer)\n",
+    "assert viewer.whole.get(n_atoms=True) == atom_count\n",
+    "assert viewer.player.index == 0\n",
+    "assert viewer.regions.contains('reference_ligand')\n",
+    "print({'pose_frames': viewer.player.n_structures, 'atoms_after_reload': atom_count,\n",
+    "       'reference_frames': len(expected), 'active_pose_rank': ensure_runtime(viewer).active_pose_rank})\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "10bee62c",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T21:51:11.280752Z",
+     "iopub.status.busy": "2026-10-03T21:51:11.280514Z",
+     "iopub.status.idle": "2026-10-03T21:51:11.356203Z",
+     "shell.execute_reply": "2026-10-03T21:51:11.355114Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "ERROR: The reference must have 1 or 3 structures; got 4.\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'rejected_reference': 'The reference must have 1 or 3 structures; got 4.'}\n",
+      "Frame-count rejection occurs before scene replacement; source unchanged.\n"
+     ]
+    }
+   ],
+   "source": [
+    "bad_reference = msm.extract(reference, structure_indices=[0] * (len(result.poses) + 1))\n",
+    "previous = ensure_runtime(viewer).result\n",
+    "try:\n",
+    "    dmt.view(result, reference=bad_reference, view=viewer)\n",
+    "except ValueError as error:\n",
+    "    print({'rejected_reference': str(error)})\n",
+    "else:\n",
+    "    raise AssertionError('A mismatched reference was accepted')\n",
+    "assert ensure_runtime(viewer).result is previous\n",
+    "assert viewer.whole.get(n_atoms=True) == atom_count\n",
+    "assert viewer.regions.contains('reference_ligand')\n",
+    "assert msm.get(reference, n_structures=True) == 1\n",
+    "print('Frame-count rejection occurs before scene replacement; source unchanged.')\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
+   "language": "python",
+   "name": "dockingmt-molsyssuite-314"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  },
+  "widgets": {
+   "application/vnd.jupyter.widget-state+json": {
+    "state": {
+     "25bb855711194714b91e9b082af2acf2": {
+      "model_module": "anywidget",
+      "model_module_version": "~0.11.*",
+      "model_name": "AnyModel",
+      "state": {
+       "_anywidget_id": "molsysviewer.widget.MolSysViewerWidget",
+       "_dom_classes": [],
+       "_esm": "const CACHE_KEY = \"__molsysviewer_anywidget_runtime__\";\n\nasync function importRuntimeFromSource(source) {\n    const url = URL.createObjectURL(new Blob([source], { type: \"text/javascript\" }));\n    try {\n        return await import(url);\n    } finally {\n        URL.revokeObjectURL(url);\n    }\n}\n\nfunction requestRuntimeModule(model) {\n    const root = globalThis;\n    const cached = root[CACHE_KEY];\n    if (cached?.module) return Promise.resolve(cached.module);\n    if (cached?.promise) return cached.promise;\n\n    const promise = new Promise((resolve, reject) => {\n        let done = false;\n        const cleanup = () => {\n            done = true;\n            if (timer) clearTimeout(timer);\n            model.off(\"msg:custom\", onMessage);\n        };\n        const onMessage = async (msg) => {\n            if (!msg || msg.op !== \"widget_runtime_source\") return;\n            const source = typeof msg.source === \"string\" ? msg.source : \"\";\n            if (!source) {\n                cleanup();\n                root[CACHE_KEY] = undefined;\n                reject(new Error(\"MolSysViewer widget runtime response was empty\"));\n                return;\n            }\n            try {\n                const module = await importRuntimeFromSource(source);\n                root[CACHE_KEY] = { module, source };\n                cleanup();\n                resolve(module);\n            } catch (error) {\n                root[CACHE_KEY] = undefined;\n                cleanup();\n                reject(error);\n            }\n        };\n        const timer = setTimeout(() => {\n            if (done) return;\n            root[CACHE_KEY] = undefined;\n            cleanup();\n            reject(new Error(\"Timed out waiting for MolSysViewer widget runtime source\"));\n        }, 15000);\n        model.on(\"msg:custom\", onMessage);\n        model.send({ event: \"request_widget_runtime_source\" });\n    });\n\n    root[CACHE_KEY] = { promise };\n    return promise;\n}\n\nexport default {\n    async render(context) {\n        const module = await requestRuntimeModule(context.model);\n        const widget = module.default || module;\n        if (!widget || typeof widget.render !== \"function\") {\n            throw new Error(\"MolSysViewer runtime module does not export a render function\");\n        }\n        return widget.render(context);\n    },\n};\n",
+       "_model_module": "anywidget",
+       "_model_module_version": "~0.11.*",
+       "_model_name": "AnyModel",
+       "_view_count": null,
+       "_view_module": "anywidget",
+       "_view_module_version": "~0.11.*",
+       "_view_name": "AnyView",
+       "addon_states": {},
+       "autohide_controls": true,
+       "controls_mode": "minimal",
+       "controls_position": [
+        "top",
+        "right"
+       ],
+       "controls_position_fullscreen": [
+        "top",
+        "right"
+       ],
+       "debug_js": false,
+       "enable_popout": true,
+       "initial_messages": [],
+       "layout": "IPY_MODEL_63719aa056e742f391b71a3910958351",
+       "panel_mode_style": "integrated",
+       "runtime_session_id": "session-195367da-ab18-4e3a-9b52-900a86c6f7dd",
+       "runtime_viewer_id": "view-cacba1f2-c8e2-4288-ba9a-a621006cc7ce",
+       "show_controls": true,
+       "tabbable": null,
+       "tooltip": null,
+       "viewer_mode": "integrated"
+      }
+     },
+     "63719aa056e742f391b71a3910958351": {
+      "model_module": "@jupyter-widgets/base",
+      "model_module_version": "2.0.0",
+      "model_name": "LayoutModel",
+      "state": {
+       "_model_module": "@jupyter-widgets/base",
+       "_model_module_version": "2.0.0",
+       "_model_name": "LayoutModel",
+       "_view_count": null,
+       "_view_module": "@jupyter-widgets/base",
+       "_view_module_version": "2.0.0",
+       "_view_name": "LayoutView",
+       "align_content": null,
+       "align_items": null,
+       "align_self": null,
+       "border_bottom": null,
+       "border_left": null,
+       "border_right": null,
+       "border_top": null,
+       "bottom": null,
+       "display": null,
+       "flex": null,
+       "flex_flow": null,
+       "grid_area": null,
+       "grid_auto_columns": null,
+       "grid_auto_flow": null,
+       "grid_auto_rows": null,
+       "grid_column": null,
+       "grid_gap": null,
+       "grid_row": null,
+       "grid_template_areas": null,
+       "grid_template_columns": null,
+       "grid_template_rows": null,
+       "height": "480px",
+       "justify_content": null,
+       "justify_items": null,
+       "left": null,
+       "margin": null,
+       "max_height": null,
+       "max_width": null,
+       "min_height": "300px",
+       "min_width": null,
+       "object_fit": null,
+       "object_position": null,
+       "order": null,
+       "overflow": null,
+       "padding": null,
+       "right": null,
+       "top": null,
+       "visibility": null,
+       "width": "100%"
+      }
+     }
+    },
+    "version_major": 2,
+    "version_minor": 0
+   }
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

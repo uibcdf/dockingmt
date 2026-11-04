@@ -224,237 +224,237 @@ target = "dmt_test_support/validate_1iep_pdbqt.py"
 sha256 = "043a131358526eb4642e89810ebc65ff52ea2243646b8a91e1f8cda3368be627"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/181l_receptor_workflow.md"
+source = "tests/data/installed_support/b74b4ad/181l_receptor_workflow.md.txt"
 target = "devguide/validation/181l_receptor_workflow.md"
 sha256 = "51b2a54a86801e8f214b0c89111f2eb1be78020749826edf699e6b34839d1ff0"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/181l_receptor_workflow_2026-10-06.ipynb"
+source = "tests/data/installed_support/b74b4ad/181l_receptor_workflow_2026-10-06.ipynb.txt"
 target = "devguide/validation/181l_receptor_workflow_2026-10-06.ipynb"
 sha256 = "36164880013086980264ef4d72f80b14a0b2c9f2cb2c6000764a9eef2733aa4a"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/181l_redocking_exploratory.md"
+source = "tests/data/installed_support/b74b4ad/181l_redocking_exploratory.md.txt"
 target = "devguide/validation/181l_redocking_exploratory.md"
 sha256 = "21fc575b094b3ed29cf0d63b402595a0b5e48a13d573d0a8fcb8f52dcc4c0cbb"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/1iep_conformer_workflow.md"
+source = "tests/data/installed_support/b74b4ad/1iep_conformer_workflow.md.txt"
 target = "devguide/validation/1iep_conformer_workflow.md"
 sha256 = "4c18827d41e651053819a765ec91a2fc95ddfd8d934e849ca7fc9233e8b78437"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/1iep_conformer_workflow_2026-10-08.ipynb"
+source = "tests/data/installed_support/b74b4ad/1iep_conformer_workflow_2026-10-08.ipynb.txt"
 target = "devguide/validation/1iep_conformer_workflow_2026-10-08.ipynb"
 sha256 = "5ef50b3ff5a53dc0f43a5d0eddb70a11ba585086576e83e56b79b530b81d12f4"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/1iep_external_pdbqt.md"
+source = "tests/data/installed_support/b74b4ad/1iep_external_pdbqt.md.txt"
 target = "devguide/validation/1iep_external_pdbqt.md"
 sha256 = "2237baa00efaf06a709e80f46f2762f06f6a4d688129ddfd25f43bf57525dbab"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/1iep_flexibility_workflow.md"
+source = "tests/data/installed_support/b74b4ad/1iep_flexibility_workflow.md.txt"
 target = "devguide/validation/1iep_flexibility_workflow.md"
 sha256 = "ccc80b7acc1f023e46a12c143bb8f9cd838195aeb46b9e0d3a763c2d1452fb9a"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/1iep_flexibility_workflow_2026-10-07.ipynb"
+source = "tests/data/installed_support/b74b4ad/1iep_flexibility_workflow_2026-10-07.ipynb.txt"
 target = "devguide/validation/1iep_flexibility_workflow_2026-10-07.ipynb"
 sha256 = "80489b883bc42506a20f70b1d3bad7a400f68fde6045487722371b507edff53b"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/1iep_preparation_audit.md"
+source = "tests/data/installed_support/b74b4ad/1iep_preparation_audit.md.txt"
 target = "devguide/validation/1iep_preparation_audit.md"
 sha256 = "208f3ad4c4d321e6e969ade179ae8fa16e729b4d19ff6a71b8a7b3910bbb5c03"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/1iep_representation_workflow.md"
+source = "tests/data/installed_support/b74b4ad/1iep_representation_workflow.md.txt"
 target = "devguide/validation/1iep_representation_workflow.md"
 sha256 = "d2c6f14b91ee03ec903defe6e2e749efc7d0049c4e3d15f6979879a36fc78acb"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/1iep_representation_workflow_2026-10-07.ipynb"
+source = "tests/data/installed_support/b74b4ad/1iep_representation_workflow_2026-10-07.ipynb.txt"
 target = "devguide/validation/1iep_representation_workflow_2026-10-07.ipynb"
 sha256 = "9e921f5d23f3448c9300380c8b6df55e12adcb8435dbd447c4c50a500010829a"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/1iep_root_order_workflow.md"
+source = "tests/data/installed_support/b74b4ad/1iep_root_order_workflow.md.txt"
 target = "devguide/validation/1iep_root_order_workflow.md"
 sha256 = "baebe679e74820082b75d0472ca07ff031f489f13a47cb9ee978290e09428c9e"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/1iep_root_order_workflow_2026-10-07.ipynb"
+source = "tests/data/installed_support/b74b4ad/1iep_root_order_workflow_2026-10-07.ipynb.txt"
 target = "devguide/validation/1iep_root_order_workflow_2026-10-07.ipynb"
 sha256 = "078d7ab631178001da16e59516117c6c57e6f7797055dd41b5dcfc87f35a3787"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/3ptb_admission.md"
+source = "tests/data/installed_support/b74b4ad/3ptb_admission.md.txt"
 target = "devguide/validation/3ptb_admission.md"
 sha256 = "2edee0ac72fa1b1303f059473c9b308cd165c9178f13496dabf9715597e73b29"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/3ptb_admission_2026-10-10.ipynb"
+source = "tests/data/installed_support/b74b4ad/3ptb_admission_2026-10-10.ipynb.txt"
 target = "devguide/validation/3ptb_admission_2026-10-10.ipynb"
 sha256 = "ca70b20293489d1b718f159e268019edb56bc4965dbe873963b935885cf050ee"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/3ptb_execution_handoff_2026-10-10.md"
+source = "tests/data/installed_support/b74b4ad/3ptb_execution_handoff_2026-10-10.md.txt"
 target = "devguide/validation/3ptb_execution_handoff_2026-10-10.md"
 sha256 = "92390e8e6a409767fcc7e8397967c896d82526bcd7e39aee16b5cfb3e030e323"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/3ptb_prospective_protocol.md"
+source = "tests/data/installed_support/b74b4ad/3ptb_prospective_protocol.md.txt"
 target = "devguide/validation/3ptb_prospective_protocol.md"
 sha256 = "042fa8a871184ad30278565a8f517583b6079cd874d8d9b26e17159a8b4b49ad"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/3ptb_scene.md"
+source = "tests/data/installed_support/b74b4ad/3ptb_scene.md.txt"
 target = "devguide/validation/3ptb_scene.md"
 sha256 = "cdab8bc6b69735b16a2258e16b1efac81ceda672f3039b164bd4882893bfe674"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/3ptb_search.md"
+source = "tests/data/installed_support/b74b4ad/3ptb_search.md.txt"
 target = "devguide/validation/3ptb_search.md"
 sha256 = "e53476dec71ff994372c816fe1316cc2cfc6328cba3f75c2d2dd43cd02b7f371"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/3ptb_search_2026-10-10.ipynb"
+source = "tests/data/installed_support/b74b4ad/3ptb_search_2026-10-10.ipynb.txt"
 target = "devguide/validation/3ptb_search_2026-10-10.ipynb"
 sha256 = "2c665d5c5ac54b956f1d6c3465ff95b61850304345c6805a4dfdaed23cd64423"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/3ptb_source_handoff_2026-10-10.md"
+source = "tests/data/installed_support/b74b4ad/3ptb_source_handoff_2026-10-10.md.txt"
 target = "devguide/validation/3ptb_source_handoff_2026-10-10.md"
 sha256 = "60e8b4ccfb873666885a570d339f1ddc34d1c630ebf779862f66aa2c665ecf32"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_contact_workflow.md"
+source = "tests/data/installed_support/b74b4ad/5x72_contact_workflow.md.txt"
 target = "devguide/validation/5x72_contact_workflow.md"
 sha256 = "390891f0be17bb1f34cf7e5a88d5dc3e31838fe9ae3a047a4a451dfcdd803480"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_contact_workflow_2026-10-09.ipynb"
+source = "tests/data/installed_support/b74b4ad/5x72_contact_workflow_2026-10-09.ipynb.txt"
 target = "devguide/validation/5x72_contact_workflow_2026-10-09.ipynb"
 sha256 = "242dcdd914d0cd41f6701d364b80e6a18e5c80cee6942edf78f7c83e30e61161"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_displacement_workflow.md"
+source = "tests/data/installed_support/b74b4ad/5x72_displacement_workflow.md.txt"
 target = "devguide/validation/5x72_displacement_workflow.md"
 sha256 = "d48c2feae0b80a2e830ff03805e7bfdf08b2b0d0df33ebf2c6c447daa91f806c"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_displacement_workflow_2026-10-09.ipynb"
+source = "tests/data/installed_support/b74b4ad/5x72_displacement_workflow_2026-10-09.ipynb.txt"
 target = "devguide/validation/5x72_displacement_workflow_2026-10-09.ipynb"
 sha256 = "6578de0572a839dfe1fa6fe227bc566ebe7b5416c2eb02dfc5c80a95fe1ca3ae"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_occupancy_workflow.md"
+source = "tests/data/installed_support/b74b4ad/5x72_occupancy_workflow.md.txt"
 target = "devguide/validation/5x72_occupancy_workflow.md"
 sha256 = "3eedbbdea05884512b5c58fe49bb90024b2cf5278311d8b70090d769d0370453"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_occupancy_workflow_2026-10-09.ipynb"
+source = "tests/data/installed_support/b74b4ad/5x72_occupancy_workflow_2026-10-09.ipynb.txt"
 target = "devguide/validation/5x72_occupancy_workflow_2026-10-09.ipynb"
 sha256 = "f485b616538eb763b3e28cb6998d2ff3d5d3aff6dbe18a8751df0f7eefd51516"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_reciprocal_workflow.md"
+source = "tests/data/installed_support/b74b4ad/5x72_reciprocal_workflow.md.txt"
 target = "devguide/validation/5x72_reciprocal_workflow.md"
 sha256 = "3337b45a8327ace0d628bbce23d727bb81567b317a5fc2740df127fe56a8aa58"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_reciprocal_workflow_2026-10-09.ipynb"
+source = "tests/data/installed_support/b74b4ad/5x72_reciprocal_workflow_2026-10-09.ipynb.txt"
 target = "devguide/validation/5x72_reciprocal_workflow_2026-10-09.ipynb"
 sha256 = "3066c925813c914c089123c292ce489a34a46d77f575e2aa31cf203533ce3658"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_reference_workflow.md"
+source = "tests/data/installed_support/b74b4ad/5x72_reference_workflow.md.txt"
 target = "devguide/validation/5x72_reference_workflow.md"
 sha256 = "14e695b74f200714e8eba1a68a710e484d61ecd3ed3c5eb2f4f39ab95e457fc3"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_reference_workflow_2026-10-09.ipynb"
+source = "tests/data/installed_support/b74b4ad/5x72_reference_workflow_2026-10-09.ipynb.txt"
 target = "devguide/validation/5x72_reference_workflow_2026-10-09.ipynb"
 sha256 = "e25f9195785c1cabb790d66bf989d63321fadf9781e75ac28b7c89e7d03c1513"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_rigid_workflow.md"
+source = "tests/data/installed_support/b74b4ad/5x72_rigid_workflow.md.txt"
 target = "devguide/validation/5x72_rigid_workflow.md"
 sha256 = "6d982c9fdd8c4b8bbb8bd9c7a75f99029940d0bef29a058e6d371576e6aca596"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_rigid_workflow_2026-10-09.ipynb"
+source = "tests/data/installed_support/b74b4ad/5x72_rigid_workflow_2026-10-09.ipynb.txt"
 target = "devguide/validation/5x72_rigid_workflow_2026-10-09.ipynb"
 sha256 = "7e00722f1967338e09ad59276f5244304b8370b013b281821ecc9b0a6dcd3b2a"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_root_order_workflow.md"
+source = "tests/data/installed_support/b74b4ad/5x72_root_order_workflow.md.txt"
 target = "devguide/validation/5x72_root_order_workflow.md"
 sha256 = "400ac72e461a4266071f2e2d2bfb2aae72661e71e35e9fc01f24f59e2407e839"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/5x72_root_order_workflow_2026-10-09.ipynb"
+source = "tests/data/installed_support/b74b4ad/5x72_root_order_workflow_2026-10-09.ipynb.txt"
 target = "devguide/validation/5x72_root_order_workflow_2026-10-09.ipynb"
 sha256 = "7bc063b20340d4aa3e6363ec8b23c57a29bffaa8d06d331865abd75730cd8374"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/addon_3ptb_installed_workflow_2026-11-03.ipynb"
+source = "tests/data/installed_support/b74b4ad/addon_3ptb_installed_workflow_2026-11-03.ipynb.txt"
 target = "devguide/validation/addon_3ptb_installed_workflow_2026-11-03.ipynb"
 sha256 = "a169a74edc7ce9f665cbe724c1b7331636b2a5ca8e3bfcf72dce192fa6eb4ee1"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/addon_3ptb_player_receiving_2026-11-03.ipynb"
+source = "tests/data/installed_support/b74b4ad/addon_3ptb_player_receiving_2026-11-03.ipynb.txt"
 target = "devguide/validation/addon_3ptb_player_receiving_2026-11-03.ipynb"
 sha256 = "4e039cfc1357a6cc4fefdf66df1631ef2a5a9723c179a342768f8f54807ee602"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/addon_3ptb_workflow.md"
+source = "tests/data/installed_support/b74b4ad/addon_3ptb_workflow.md.txt"
 target = "devguide/validation/addon_3ptb_workflow.md"
 sha256 = "ee1f28dc1b8f5b972e902bdad9cca7277d354de3255820f48ec0ae0782e203d1"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/addon_3ptb_workflow_2026-11-03.ipynb"
+source = "tests/data/installed_support/b74b4ad/addon_3ptb_workflow_2026-11-03.ipynb.txt"
 target = "devguide/validation/addon_3ptb_workflow_2026-11-03.ipynb"
 sha256 = "64de313817511c943c95fdb4176a5ce51663a02a58e09e55120b82f206457c52"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/addon_dom.md"
+source = "tests/data/installed_support/b74b4ad/addon_dom.md.txt"
 target = "devguide/validation/addon_dom.md"
 sha256 = "aa95e15d769f78f52f44d151224af38b742d1069d4305e467a4b04a138875825"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/addon_installed_receiving.md"
+source = "tests/data/installed_support/b74b4ad/addon_installed_receiving.md.txt"
 target = "devguide/validation/addon_installed_receiving.md"
 sha256 = "1613cb1dfbc18ebf7ff47b39e0d9abb444afd1a64fe740786a2056f82ca11af3"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/chemical_readiness_consumption.ipynb"
+source = "tests/data/installed_support/b74b4ad/chemical_readiness_consumption.ipynb.txt"
 target = "devguide/validation/chemical_readiness_consumption.ipynb"
 sha256 = "abbc508faf951c7fa0a74e1833947f14cadfdd695a81b31c0b24213c03869fe1"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/chemical_readiness_consumption.md"
+source = "tests/data/installed_support/b74b4ad/chemical_readiness_consumption.md.txt"
 target = "devguide/validation/chemical_readiness_consumption.md"
 sha256 = "fcbaa328ab67164525a407aec75b8df99d77b5913f583604b03a97a2b8491658"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/chemical_template_consumption.ipynb"
+source = "tests/data/installed_support/b74b4ad/chemical_template_consumption.ipynb.txt"
 target = "devguide/validation/chemical_template_consumption.ipynb"
 sha256 = "93dc1b9cdbbb7cb4d50d9109c63dc293f2952769fc9a37eafe0bb597cda155d3"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/chemical_template_consumption.md"
+source = "tests/data/installed_support/b74b4ad/chemical_template_consumption.md.txt"
 target = "devguide/validation/chemical_template_consumption.md"
 sha256 = "cd1c4a15344634ad26a9e281c9555907a03b08c32da33074944ec97accd1fd37"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/chemical_template_consumption_2026-10-06.ipynb"
+source = "tests/data/installed_support/b74b4ad/chemical_template_consumption_2026-10-06.ipynb.txt"
 target = "devguide/validation/chemical_template_consumption_2026-10-06.ipynb"
 sha256 = "388d34162635c094b7674acc1e60ad970b899fd0907b0db898a5e95fff00d67c"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/core_mvp_audit_2026-10-28.md"
+source = "tests/data/installed_support/b74b4ad/core_mvp_audit_2026-10-28.md.txt"
 target = "devguide/validation/core_mvp_audit_2026-10-28.md"
 sha256 = "c763084ec3245b8e3a942f7f7078f5b9cc26779939ee20562ddb7ef2d97c8e6d"
 
@@ -2424,422 +2424,422 @@ target = "devguide/validation/data/workflow_profiling/181l_molecular_2026-10-02.
 sha256 = "43b759305bb1800f1b5d9645bac25ea80655df4620008729e5681d24d7cd4e0f"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/domain_derivation.md"
+source = "tests/data/installed_support/b74b4ad/domain_derivation.md.txt"
 target = "devguide/validation/domain_derivation.md"
 sha256 = "05b8b6beb485d6b4656dd44a8f96b52c9c1cca2b7bff34cf36f4fbb54af17a04"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/explicit_torsion_policy.md"
+source = "tests/data/installed_support/b74b4ad/explicit_torsion_policy.md.txt"
 target = "devguide/validation/explicit_torsion_policy.md"
 sha256 = "25bf3ce4f5a612af2e4346556ae2c8ca8c1759ea400bbd357ed6e028a2a60900"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/explicit_torsion_policy_2026-10-06.ipynb"
+source = "tests/data/installed_support/b74b4ad/explicit_torsion_policy_2026-10-06.ipynb.txt"
 target = "devguide/validation/explicit_torsion_policy_2026-10-06.ipynb"
 sha256 = "3158b6afc304aaa17a65676c44038c98f23b4e7513e1878857a10b2d039530b1"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/fixed_pose_scoring.ipynb"
+source = "tests/data/installed_support/b74b4ad/fixed_pose_scoring.ipynb.txt"
 target = "devguide/validation/fixed_pose_scoring.ipynb"
 sha256 = "3003a82fc560ea4936b2398cceed33ca5e65150dce85cac1eb2bf98af110161d"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/fixed_pose_scoring.md"
+source = "tests/data/installed_support/b74b4ad/fixed_pose_scoring.md.txt"
 target = "devguide/validation/fixed_pose_scoring.md"
 sha256 = "8c41bc1ccbf57bce9992927c27ff9462e1b1340d9fd26c6cbfec2d4a51d05f6b"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/flexible_reconstruction.md"
+source = "tests/data/installed_support/b74b4ad/flexible_reconstruction.md.txt"
 target = "devguide/validation/flexible_reconstruction.md"
 sha256 = "4295d9fe09f3184dbe5b2fb672ad3919a778056c11ba3152d6a9d820ad0c9d83"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/human_3ptb_scene_2026-10-23.ipynb"
+source = "tests/data/installed_support/b74b4ad/human_3ptb_scene_2026-10-23.ipynb.txt"
 target = "devguide/validation/human_3ptb_scene_2026-10-23.ipynb"
 sha256 = "fe21328d0035c3ec692b495b2d0315196fe0748dcc087cf33e095a896d5c46de"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/human_3ptb_workflow_2026-10-20.ipynb"
+source = "tests/data/installed_support/b74b4ad/human_3ptb_workflow_2026-10-20.ipynb.txt"
 target = "devguide/validation/human_3ptb_workflow_2026-10-20.ipynb"
 sha256 = "da661adaeb1ea5b402b1b9f6cfb6e1f19c227bf606cd45d56602065db969fda4"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/incremental_docking.ipynb"
+source = "tests/data/installed_support/b74b4ad/incremental_docking.ipynb.txt"
 target = "devguide/validation/incremental_docking.ipynb"
 sha256 = "8eb343d072b24c4956100d991e269d2b1730889cb4e5c7e0e6b492fabfdffe6f"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/incremental_docking.md"
+source = "tests/data/installed_support/b74b4ad/incremental_docking.md.txt"
 target = "devguide/validation/incremental_docking.md"
 sha256 = "24d0867eca59ce5d7c668657a183e04592728434630cecd387abeb332e993682"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_3ptb_evaluation.ipynb"
+source = "tests/data/installed_support/b74b4ad/installed_3ptb_evaluation.ipynb.txt"
 target = "devguide/validation/installed_3ptb_evaluation.ipynb"
 sha256 = "ad56bda7b1a6d9f858622746c8ca20dcb04fc7e125db2f41ea6f8d2c4018c25f"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_3ptb_evaluation.md"
+source = "tests/data/installed_support/b74b4ad/installed_3ptb_evaluation.md.txt"
 target = "devguide/validation/installed_3ptb_evaluation.md"
 sha256 = "3d322c8ae42d31596291f1d43d0b9fb6d73fa492cd6c05017e2f86aded4cd405"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_3ptb_evaluation_registration.md"
+source = "tests/data/installed_support/b74b4ad/installed_3ptb_evaluation_registration.md.txt"
 target = "devguide/validation/installed_3ptb_evaluation_registration.md"
 sha256 = "0b56762c151927bd08456f3ce00f762d2da9125a93ecef32f77b2df053db2d04"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_3ptb_execution.ipynb"
+source = "tests/data/installed_support/b74b4ad/installed_3ptb_execution.ipynb.txt"
 target = "devguide/validation/installed_3ptb_execution.ipynb"
 sha256 = "9ee4394a17ebb369d75783f19e2ae523b651e4fc4c2c18f70b5d208611e89734"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_3ptb_execution.md"
+source = "tests/data/installed_support/b74b4ad/installed_3ptb_execution.md.txt"
 target = "devguide/validation/installed_3ptb_execution.md"
 sha256 = "7d21bba2d502c3a00596c57fb0e86f57b31efbb32c3fce75568d4d14092802b4"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_3ptb_execution_registration.md"
+source = "tests/data/installed_support/b74b4ad/installed_3ptb_execution_registration.md.txt"
 target = "devguide/validation/installed_3ptb_execution_registration.md"
 sha256 = "ff79836df8e1527218781df62c7cd1972840ed93e9c231f8cd0749f2e6b061bc"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_3ptb_preparation.ipynb"
+source = "tests/data/installed_support/b74b4ad/installed_3ptb_preparation.ipynb.txt"
 target = "devguide/validation/installed_3ptb_preparation.ipynb"
 sha256 = "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_3ptb_preparation.md"
+source = "tests/data/installed_support/b74b4ad/installed_3ptb_preparation.md.txt"
 target = "devguide/validation/installed_3ptb_preparation.md"
 sha256 = "f1ba2a9b8d778b9e8156f179d675513264cabef22965fe1e7aea387ef04ae915"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_integration_checkpoint_2026-10-07.md"
+source = "tests/data/installed_support/b74b4ad/installed_integration_checkpoint_2026-10-07.md.txt"
 target = "devguide/validation/installed_integration_checkpoint_2026-10-07.md"
 sha256 = "3cdae8dacaa57f7ba258e9e39bebf2fc80afcc70a5a785dabed1fd5d490a5e08"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_result_inspection.ipynb"
+source = "tests/data/installed_support/b74b4ad/installed_result_inspection.ipynb.txt"
 target = "devguide/validation/installed_result_inspection.ipynb"
 sha256 = "bfe922f86012834ba12bf9cb1ada5098944c6979fee00523ef9fd38ba25ee3e0"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_result_inspection.md"
+source = "tests/data/installed_support/b74b4ad/installed_result_inspection.md.txt"
 target = "devguide/validation/installed_result_inspection.md"
 sha256 = "1e65de5a832f5a17cfd7d2cfecf08811f94b8daf73ba5eb5ad55322709e410fc"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/installed_validator_receiving.md"
+source = "tests/data/installed_support/b74b4ad/installed_validator_receiving.md.txt"
 target = "devguide/validation/installed_validator_receiving.md"
 sha256 = "828b9c1dec353e2fc171f6aecb107f9b449e582f264d34c46529e6374b829043"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/known_source_poses.md"
+source = "tests/data/installed_support/b74b4ad/known_source_poses.md.txt"
 target = "devguide/validation/known_source_poses.md"
 sha256 = "1450c0550fca4ee59ab2e5259bb2dc8a460e3d606daf47c6ca28f5313c3cfa6c"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/legacy_named_typing_comparison.md"
+source = "tests/data/installed_support/b74b4ad/legacy_named_typing_comparison.md.txt"
 target = "devguide/validation/legacy_named_typing_comparison.md"
 sha256 = "f4d92549027dd72ed6f4ed1e76d407bf8eca1fdc5a80a7a7bd5564b41ca46891"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/license_metadata.md"
+source = "tests/data/installed_support/b74b4ad/license_metadata.md.txt"
 target = "devguide/validation/license_metadata.md"
 sha256 = "b904587276368faeafd19b0d600ac61091572591f87cf723c75d7a1b31cb90c6"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/ligand_preparation_stages.ipynb"
+source = "tests/data/installed_support/b74b4ad/ligand_preparation_stages.ipynb.txt"
 target = "devguide/validation/ligand_preparation_stages.ipynb"
 sha256 = "420bc5b765c843318a868f786ba5fe06ce8e69adea717dc54e9a6f2344d418ed"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/ligand_preparation_stages.md"
+source = "tests/data/installed_support/b74b4ad/ligand_preparation_stages.md.txt"
 target = "devguide/validation/ligand_preparation_stages.md"
 sha256 = "4f4fe4926fa4fbd1a3c573b0d7a75d47878edce362b57e2f3e9e280ff29a11fa"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/ligand_preparation_stages_2026-10-06.ipynb"
+source = "tests/data/installed_support/b74b4ad/ligand_preparation_stages_2026-10-06.ipynb.txt"
 target = "devguide/validation/ligand_preparation_stages_2026-10-06.ipynb"
 sha256 = "952b85271b1daebeeaa80609b90a7424155a172ae80a777e6074f03d92012478"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/ligand_projection.md"
+source = "tests/data/installed_support/b74b4ad/ligand_projection.md.txt"
 target = "devguide/validation/ligand_projection.md"
 sha256 = "c636f16c8d8c991ebf84c4b0a014cf59acf937912a74f52da397ac3b9768a4ec"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/meeko_native_capability_review.md"
+source = "tests/data/installed_support/b74b4ad/meeko_native_capability_review.md.txt"
 target = "devguide/validation/meeko_native_capability_review.md"
 sha256 = "41bc297add8fc04cd782097aeecd432b475e69a9f92eb20a0d299720ff8b6bf5"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/named_autodock_types.md"
+source = "tests/data/installed_support/b74b4ad/named_autodock_types.md.txt"
 target = "devguide/validation/named_autodock_types.md"
 sha256 = "2b8bc1cd8651a7aeed8c6c2b09af72c58d58e587a668677040e6837a26020a39"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/named_autodock_types_2026-10-06.ipynb"
+source = "tests/data/installed_support/b74b4ad/named_autodock_types_2026-10-06.ipynb.txt"
 target = "devguide/validation/named_autodock_types_2026-10-06.ipynb"
 sha256 = "3466bf2437584ea34282759c19351d388adec226795a9122786b3f143d865be2"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/named_partial_charges.ipynb"
+source = "tests/data/installed_support/b74b4ad/named_partial_charges.ipynb.txt"
 target = "devguide/validation/named_partial_charges.ipynb"
 sha256 = "8d9a2fe2a80a32d99a3ba8ababe7a8dde3a6b5c157dcc4b882fe42c1fb2aa1c3"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/named_partial_charges.md"
+source = "tests/data/installed_support/b74b4ad/named_partial_charges.md.txt"
 target = "devguide/validation/named_partial_charges.md"
 sha256 = "eaef702a030145e7be997dc8f7455480c6f219cb921231e494d3a8c4f5833513"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/native_ligand_export_receiving.md"
+source = "tests/data/installed_support/b74b4ad/native_ligand_export_receiving.md.txt"
 target = "devguide/validation/native_ligand_export_receiving.md"
 sha256 = "9e93627c4923bea76be3ac6cef80121c723b90a59f9fc922e6357ab21ec8e88f"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/native_molsysmt_formats.ipynb"
+source = "tests/data/installed_support/b74b4ad/native_molsysmt_formats.ipynb.txt"
 target = "devguide/validation/native_molsysmt_formats.ipynb"
 sha256 = "68254ee55adc6b59d469d7c7584391905a508dc4a656b0fec0da618d2fe7e4ae"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/native_molsysmt_formats.md"
+source = "tests/data/installed_support/b74b4ad/native_molsysmt_formats.md.txt"
 target = "devguide/validation/native_molsysmt_formats.md"
 sha256 = "cdda42a8bb598e9d6a37b8858f42495b786b12b9110cc79078c2b7f898935b53"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/native_prepared_export.md"
+source = "tests/data/installed_support/b74b4ad/native_prepared_export.md.txt"
 target = "devguide/validation/native_prepared_export.md"
 sha256 = "21983d30da113428027fba847f21421c7c9e2e82c343c733e59636e618df7b38"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/native_receptor_export_receiving.md"
+source = "tests/data/installed_support/b74b4ad/native_receptor_export_receiving.md.txt"
 target = "devguide/validation/native_receptor_export_receiving.md"
 sha256 = "be016aa0d1e3c949d3364cb722d5132d6f962bfeb79da9fefbdb13d56cc9aba0"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/pause_handoff_2026-10-13.md"
+source = "tests/data/installed_support/b74b4ad/pause_handoff_2026-10-13.md.txt"
 target = "devguide/validation/pause_handoff_2026-10-13.md"
 sha256 = "fe55869469ca94855aa2178f517d1f7a53704fb6a7f64f9323e96c8c1ad3cef3"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/pause_handoff_2026-10-20.md"
+source = "tests/data/installed_support/b74b4ad/pause_handoff_2026-10-20.md.txt"
 target = "devguide/validation/pause_handoff_2026-10-20.md"
 sha256 = "73ca0ea5d9767cffa85e9ede3853d905a0ceb9a59f6293c1524d21ff27e7ee22"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/pause_handoff_2026-10-26.md"
+source = "tests/data/installed_support/b74b4ad/pause_handoff_2026-10-26.md.txt"
 target = "devguide/validation/pause_handoff_2026-10-26.md"
 sha256 = "37c3b5b511d9c0edacc45a386824acdbc21cfa10def7d799b4b8ff28189f957a"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/pdb_bond_inference.ipynb"
+source = "tests/data/installed_support/b74b4ad/pdb_bond_inference.ipynb.txt"
 target = "devguide/validation/pdb_bond_inference.ipynb"
 sha256 = "b724824a46eb3f8128d45280bca06b9a86cbe663747906de1abdf1e6987d05ee"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/pdb_bond_inference.md"
+source = "tests/data/installed_support/b74b4ad/pdb_bond_inference.md.txt"
 target = "devguide/validation/pdb_bond_inference.md"
 sha256 = "a02dd8483ee5840852be65d3fcb8976ec74146dc30381f41a1dff7bc82b89d57"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/pdbqt_presentation_receiving.md"
+source = "tests/data/installed_support/b74b4ad/pdbqt_presentation_receiving.md.txt"
 target = "devguide/validation/pdbqt_presentation_receiving.md"
 sha256 = "ba7ff86400441b3a7c7e8376d32ebeb901ef0bbd1a9acd4664dc73a28c5762a6"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/player_notifications_receiving.md"
+source = "tests/data/installed_support/b74b4ad/player_notifications_receiving.md.txt"
 target = "devguide/validation/player_notifications_receiving.md"
 sha256 = "9d9d64de85af668609caab45daf25f62712cd75d63a4c630d6e2e0ff231f3202"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/pose_audit.ipynb"
+source = "tests/data/installed_support/b74b4ad/pose_audit.ipynb.txt"
 target = "devguide/validation/pose_audit.ipynb"
 sha256 = "501973c2975ec9ea7b800f9d4f440ca191f8cec2d05b7e60103d5bb10ee769b1"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/pose_audit.md"
+source = "tests/data/installed_support/b74b4ad/pose_audit.md.txt"
 target = "devguide/validation/pose_audit.md"
 sha256 = "eee99b111d81f1016ac6ccad3074c6b63a310418ba6bccca38dc16018f400c81"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/preparation_assessment.ipynb"
+source = "tests/data/installed_support/b74b4ad/preparation_assessment.ipynb.txt"
 target = "devguide/validation/preparation_assessment.ipynb"
 sha256 = "17a58986c2d731a5f719122ba05dfc78631820660b9a5e4df034eae1daa3048d"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/preparation_assessment.md"
+source = "tests/data/installed_support/b74b4ad/preparation_assessment.md.txt"
 target = "devguide/validation/preparation_assessment.md"
 sha256 = "ae3a444d13b0f6ccdabbfb7b6e138820ba0dbb1eec7e1c6f5d63610284227364"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/preparation_atom_maps.md"
+source = "tests/data/installed_support/b74b4ad/preparation_atom_maps.md.txt"
 target = "devguide/validation/preparation_atom_maps.md"
 sha256 = "101196e07820d807fbf8948c89648ea69f10f84203a537f23bf966e38aec72ec"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/preparation_profile.md"
+source = "tests/data/installed_support/b74b4ad/preparation_profile.md.txt"
 target = "devguide/validation/preparation_profile.md"
 sha256 = "b558610ddb891e811ab4cb35a56ea3445ea0cf38134490b4b4d8cc646b4321e4"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/prepared_pose_reading.md"
+source = "tests/data/installed_support/b74b4ad/prepared_pose_reading.md.txt"
 target = "devguide/validation/prepared_pose_reading.md"
 sha256 = "e191810900820ac30640b962398dff211e7545890af022bdb87ffa2e3a02f8f7"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/prepared_recovery.md"
+source = "tests/data/installed_support/b74b4ad/prepared_recovery.md.txt"
 target = "devguide/validation/prepared_recovery.md"
 sha256 = "bfa5934e2878638c97e1312106216522a2ae1e6f243a56209dc3705695c3432c"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/prepared_writer_consumption.md"
+source = "tests/data/installed_support/b74b4ad/prepared_writer_consumption.md.txt"
 target = "devguide/validation/prepared_writer_consumption.md"
 sha256 = "25267bf92ad5f3f2719b3f98c67caf08885c9495cee54ccecfb137ef7b21b3e6"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/provider_compatibility_2026-10-13.md"
+source = "tests/data/installed_support/b74b4ad/provider_compatibility_2026-10-13.md.txt"
 target = "devguide/validation/provider_compatibility_2026-10-13.md"
 sha256 = "ae8d2d4042d4d7e98fda9afe5b2ba96d8de9474948d97974f7e35b46f3487a37"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/provider_receiving_2026-10-23.md"
+source = "tests/data/installed_support/b74b4ad/provider_receiving_2026-10-23.md.txt"
 target = "devguide/validation/provider_receiving_2026-10-23.md"
 sha256 = "413b7a75991f4f88677a3cfd31716bf771892b896fae44c3144b69091d0b5157"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/public_candidate_readiness.md"
+source = "tests/data/installed_support/b74b4ad/public_candidate_readiness.md.txt"
 target = "devguide/validation/public_candidate_readiness.md"
 sha256 = "d20b90e1931613abe40f9ba635e8a6885aebff985d80b8a483c85fdea58d5a74"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/public_viewer_receiving.md"
+source = "tests/data/installed_support/b74b4ad/public_viewer_receiving.md.txt"
 target = "devguide/validation/public_viewer_receiving.md"
 sha256 = "ffe868f14f54c2cab18c672e9153d7f1f356466bf5e5f8747dad57ed8d3c1d13"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/ranking_history.ipynb"
+source = "tests/data/installed_support/b74b4ad/ranking_history.ipynb.txt"
 target = "devguide/validation/ranking_history.ipynb"
 sha256 = "2b1fbfde3fc7969b04006a1ce6672f3f201ea7b0255d6370db7408dd91beeab9"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/receptor_coverage_consumption.ipynb"
+source = "tests/data/installed_support/b74b4ad/receptor_coverage_consumption.ipynb.txt"
 target = "devguide/validation/receptor_coverage_consumption.ipynb"
 sha256 = "52a1e7f3d8f4ce16ee17a454c84b39221ddd742acc6a64656e0b29769f850f41"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/receptor_coverage_consumption.md"
+source = "tests/data/installed_support/b74b4ad/receptor_coverage_consumption.md.txt"
 target = "devguide/validation/receptor_coverage_consumption.md"
 sha256 = "813eaf5adf02eaff6bc26ad651ec00e1fd9a28a0ff7f72f479854dd95d60af0e"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/receptor_projection.md"
+source = "tests/data/installed_support/b74b4ad/receptor_projection.md.txt"
 target = "devguide/validation/receptor_projection.md"
 sha256 = "e86139bf036554652f58394aefaef36019f0d071f2e91a96a6351af9e3e8ff13"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/redocking_evaluation.ipynb"
+source = "tests/data/installed_support/b74b4ad/redocking_evaluation.ipynb.txt"
 target = "devguide/validation/redocking_evaluation.ipynb"
 sha256 = "995f3e61f3cc2110fa78d2c8f8bf4e3fd917c2df7784d36cc03e707b119a112e"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/redocking_evaluation.md"
+source = "tests/data/installed_support/b74b4ad/redocking_evaluation.md.txt"
 target = "devguide/validation/redocking_evaluation.md"
 sha256 = "cdac68e444e1cbeeca9640d1ee647c1ad5c39b65b5e97bd24f4665ac4b48b58e"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/redocking_summary.ipynb"
+source = "tests/data/installed_support/b74b4ad/redocking_summary.ipynb.txt"
 target = "devguide/validation/redocking_summary.ipynb"
 sha256 = "6cdf3b2ae106fc9e7ec94aac09aec1fbb132dca65151eee468490df73d3d2646"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/redocking_summary.md"
+source = "tests/data/installed_support/b74b4ad/redocking_summary.md.txt"
 target = "devguide/validation/redocking_summary.md"
 sha256 = "70e56aed3b0401d0bfb9b029c29ab465d5f35d1acdbcf92a74b1b9302066b8f8"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/required_named_typing.md"
+source = "tests/data/installed_support/b74b4ad/required_named_typing.md.txt"
 target = "devguide/validation/required_named_typing.md"
 sha256 = "2489b2935ab03519f3dd8bdab461106372ef35efe82627ed9891693aeab87785"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/required_partial_charges.md"
+source = "tests/data/installed_support/b74b4ad/required_partial_charges.md.txt"
 target = "devguide/validation/required_partial_charges.md"
 sha256 = "ffbf799e21fa9c95c0028c47edca179967887314f6187109b17c2b031e775f03"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/result_audit.ipynb"
+source = "tests/data/installed_support/b74b4ad/result_audit.ipynb.txt"
 target = "devguide/validation/result_audit.ipynb"
 sha256 = "a3d1b225c27109c6965a007ca9deb4aab494ea55b64e7829922676e59dea743d"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/result_audit.md"
+source = "tests/data/installed_support/b74b4ad/result_audit.md.txt"
 target = "devguide/validation/result_audit.md"
 sha256 = "7d6967d664545ef8f7a188f571b4cff87c18edec6ac68ddd57d95e5086a4142a"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/result_export.ipynb"
+source = "tests/data/installed_support/b74b4ad/result_export.ipynb.txt"
 target = "devguide/validation/result_export.ipynb"
 sha256 = "e5d9d773889901fbc1f83baf55b4ef6088169fe22ddd9f444b23166b6482bf86"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/result_export.md"
+source = "tests/data/installed_support/b74b4ad/result_export.md.txt"
 target = "devguide/validation/result_export.md"
 sha256 = "55503172cf6354b0cd04f48f664719424bc1ff2f73869adfefecf7d2225e6f80"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/retained_connectivity.md"
+source = "tests/data/installed_support/b74b4ad/retained_connectivity.md.txt"
 target = "devguide/validation/retained_connectivity.md"
 sha256 = "c554c02d83bc09524c3062f5b80a350384d0e0e6bd838ff11caaae3a55400e51"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/rigid_fragment_consumption.ipynb"
+source = "tests/data/installed_support/b74b4ad/rigid_fragment_consumption.ipynb.txt"
 target = "devguide/validation/rigid_fragment_consumption.ipynb"
 sha256 = "00743c11d4a0f9f4779966c8f5c7cd80d1a211e8cc523cc71f9357778fc4e8d4"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/rigid_fragment_consumption.md"
+source = "tests/data/installed_support/b74b4ad/rigid_fragment_consumption.md.txt"
 target = "devguide/validation/rigid_fragment_consumption.md"
 sha256 = "f39920c782c5dafb44cf8acae7c710dd246b5db320dc843918fa1a87d7c44cbe"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/saved_human_case_recovery.md"
+source = "tests/data/installed_support/b74b4ad/saved_human_case_recovery.md.txt"
 target = "devguide/validation/saved_human_case_recovery.md"
 sha256 = "a9109a20816158ff2647c3844fa06e94da81ba5e064358870c18b00914dd3b43"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/score_semantics.md"
+source = "tests/data/installed_support/b74b4ad/score_semantics.md.txt"
 target = "devguide/validation/score_semantics.md"
 sha256 = "ce3c962db5ee1499a256f12a1185e794549d81492c0d5b4a134389efc816bc81"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/symmetry_redocking.md"
+source = "tests/data/installed_support/b74b4ad/symmetry_redocking.md.txt"
 target = "devguide/validation/symmetry_redocking.md"
 sha256 = "6994e8f83c4339a1b9b53c7f82ae3b2def053c7ad84b0d79dc59587d28bdca00"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/viewer_reference.ipynb"
+source = "tests/data/installed_support/b74b4ad/viewer_reference.ipynb.txt"
 target = "devguide/validation/viewer_reference.ipynb"
 sha256 = "9d1c9917112723729d9d135ea50da8b24aac4787641a9d27aad3e64221117bc0"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/viewer_reference.md"
+source = "tests/data/installed_support/b74b4ad/viewer_reference.md.txt"
 target = "devguide/validation/viewer_reference.md"
 sha256 = "ce6ebde30bec071861f22e66e81e3591ba9aea3ba5bee06e9a5989e66d927527"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/vina_torsion_matrix.md"
+source = "tests/data/installed_support/b74b4ad/vina_torsion_matrix.md.txt"
 target = "devguide/validation/vina_torsion_matrix.md"
 sha256 = "5ad0cbb77bf273a562d0723f5f54279a736e1f85255f3e2bb5afc1f6fb14b124"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/workflow_profiling.ipynb"
+source = "tests/data/installed_support/b74b4ad/workflow_profiling.ipynb.txt"
 target = "devguide/validation/workflow_profiling.ipynb"
 sha256 = "5986fdc0043acebde6ff3452f044b9fcb7c40bdedcbe2ecc9820a99e74337591"
 
 [[installed_tests.support.files]]
-source = "devguide/validation/workflow_profiling.md"
+source = "tests/data/installed_support/b74b4ad/workflow_profiling.md.txt"
 target = "devguide/validation/workflow_profiling.md"
 sha256 = "7ec84d5cd7fec4b9ee35349bfef7ce9d82e49e730696b2f30f1e0afb55d39b23"
 

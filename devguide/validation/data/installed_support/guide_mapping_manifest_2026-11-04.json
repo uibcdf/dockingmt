@@ -1,0 +1,17 @@
+{
+  "schema": "dockingmt.guide_mapping_manifest@1",
+  "owner": "uibcdf/dockingmt#47",
+  "original_full_manifest": {
+    "path": "devguide/validation/data/installed_support/manifest_2026-11-04.json",
+    "sha256": "070f8a49392dd505bbbf83bfcf7501d821d77b02a9bc669dd68279bf0ebb5941"
+  },
+  "repair_record": {
+    "path": "devguide/validation/data/installed_support/guide_mapping_repair_2026-11-04.json",
+    "sha256": "f38b9813da21f3dcb47bc490925b1384fc0eaf0a5d39e1652bd6862638577b4d"
+  },
+  "staged_target_byte_graph_unchanged": true,
+  "full_private_tests": 1450,
+  "post_mapping_installed_tests": 21,
+  "public_or_staged_candidate_qualified": false,
+  "review": "2026-11-11"
+}

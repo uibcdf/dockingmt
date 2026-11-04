@@ -1,0 +1,255 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "1e831312",
+   "metadata": {},
+   "source": [
+    "# Incremental docking of prepared inputs\n",
+    "\n",
+    "Public `dock_many(...)` executes prepared problems one at a time and returns\n",
+    "`DockingOutcome` records. See [the contract](incremental_docking.md) and\n",
+    "[issue #36](https://github.com/uibcdf/dockingmt/issues/36).\n",
+    "\n",
+    "This software control reuses exact captured PDBQT from the retained minimal Vina\n",
+    "result. No automatic preparation occurs. The tiny overlapping geometry and\n",
+    "declared control state labels do not establish docking quality or chemical\n",
+    "qualification. The recorded preparation remains unassessed.\n",
+    "Select the Python 3.14 `molsyssuite@uibcdf_3.14` kernel."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "e5972d6d",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T21:13:59.463574Z",
+     "iopub.status.busy": "2026-10-03T21:13:59.462183Z",
+     "iopub.status.idle": "2026-10-03T21:14:00.146961Z",
+     "shell.execute_reply": "2026-10-03T21:14:00.145843Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Python: 3.14.7 environment: molsyssuite@uibcdf_3.14\n",
+      "Verified input byte sizes: {'receptor': 317, 'partner': 181}\n",
+      "No input consumed before advancing the iterator.\n"
+     ]
+    }
+   ],
+   "source": [
+    "import base64\n",
+    "import json\n",
+    "import sys\n",
+    "from collections import Counter\n",
+    "from copy import deepcopy\n",
+    "from pathlib import Path\n",
+    "from tempfile import TemporaryDirectory\n",
+    "\n",
+    "import dockingmt as dmt\n",
+    "import pyunitwizard as puw\n",
+    "\n",
+    "assert sys.version_info[:2] == (3, 14)\n",
+    "assert Path(sys.prefix).name == 'molsyssuite@uibcdf_3.14'\n",
+    "root = next(\n",
+    "    path for path in [Path.cwd(), *Path.cwd().parents]\n",
+    "    if (path / 'devguide/validation/data/audit/minimal_vina_result.json').is_file()\n",
+    ")\n",
+    "saved = json.loads(\n",
+    "    (root / 'devguide/validation/data/audit/minimal_vina_result.json').read_text()\n",
+    ")\n",
+    "artifacts = saved['provenance']['backend_artifacts']\n",
+    "sizes = dmt.verify_captured_inputs(artifacts)\n",
+    "inputs = {\n",
+    "    role: base64.b64decode(artifact['content_base64']).decode()\n",
+    "    for role, artifact in artifacts.items()\n",
+    "}\n",
+    "box = saved['provenance']['backend_box']\n",
+    "domain = dmt.BoxRegion(\n",
+    "    puw.quantity(box['center'], box['unit']),\n",
+    "    puw.quantity(box['size'], box['unit']),\n",
+    ")\n",
+    "protocol = dmt.VinaProtocol(\n",
+    "    seed=123, cpu=1, exhaustiveness=1, n_poses=2,\n",
+    "    capture_backend_inputs=True,\n",
+    ")\n",
+    "\n",
+    "def prepared_problem(label, unsupported=False):\n",
+    "    return dmt.DockingProblem(\n",
+    "        inputs['receptor'], inputs['partner'], domain,\n",
+    "        constraints=[{'kind': 'unsupported-control'}] if unsupported else [],\n",
+    "        metadata={\n",
+    "            'ligand_id': label,\n",
+    "            'partner_state_id': label + '-state',\n",
+    "            'receptor_state_id': 'receptor-control',\n",
+    "        },\n",
+    "    )\n",
+    "\n",
+    "consumed = []\n",
+    "\n",
+    "def source():\n",
+    "    for label, unsupported in [('first', False), ('bad', True), ('third', False)]:\n",
+    "        consumed.append(label)\n",
+    "        yield prepared_problem(label, unsupported)\n",
+    "\n",
+    "stream = dmt.dock_many(source(), protocol, on_error='record')\n",
+    "assert consumed == []\n",
+    "print('Python:', sys.version.split()[0], 'environment:', Path(sys.prefix).name)\n",
+    "print('Verified input byte sizes:', sizes)\n",
+    "print('No input consumed before advancing the iterator.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "25709dca",
+   "metadata": {},
+   "source": [
+    "## Incremental persistence and explicit item failures\n",
+    "\n",
+    "Write each outcome as one JSON line. The consumer keeps counters and one\n",
+    "comparison snapshot, rather than collecting all results. The middle problem\n",
+    "requests an unsupported constraint; its capability failure is recorded and\n",
+    "the following prepared problem still executes."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "6c5c6594",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T21:14:00.150476Z",
+     "iopub.status.busy": "2026-10-03T21:14:00.150150Z",
+     "iopub.status.idle": "2026-10-03T21:14:01.699030Z",
+     "shell.execute_reply": "2026-10-03T21:14:01.698107Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\"index\": 0, \"status\": \"success\", \"ligand_id\": \"first\", \"failure_code\": null}\n",
+      "{\"index\": 1, \"status\": \"failure\", \"ligand_id\": \"bad\", \"failure_code\": \"DMT-E003\"}\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\"index\": 2, \"status\": \"success\", \"ligand_id\": \"third\", \"failure_code\": null}\n",
+      "Independent JSON Lines roundtrips: {'success': 2, 'failure': 1}\n"
+     ]
+    }
+   ],
+   "source": [
+    "counts = Counter()\n",
+    "first_scientific_record = None\n",
+    "with TemporaryDirectory(prefix='dockingmt-batch-validation-') as temporary:\n",
+    "    destination = Path(temporary) / 'outcomes.jsonl'\n",
+    "    with destination.open('w') as output:\n",
+    "        for outcome in stream:\n",
+    "            counts[outcome.status] += 1\n",
+    "            snapshot = outcome.to_dict()\n",
+    "            output.write(json.dumps(snapshot, allow_nan=False) + '\\n')\n",
+    "            assert consumed[-1] == outcome.problem_info['metadata']['ligand_id']\n",
+    "            if outcome.status == 'success':\n",
+    "                assert dmt.audit_result(snapshot['result'])['status'] == 'consistent'\n",
+    "                if first_scientific_record is None:\n",
+    "                    first_scientific_record = deepcopy(snapshot['result'])\n",
+    "            else:\n",
+    "                assert outcome.error['code'] == 'DMT-E003'\n",
+    "            print(json.dumps({\n",
+    "                'index': outcome.index,\n",
+    "                'status': outcome.status,\n",
+    "                'ligand_id': outcome.problem_info['metadata']['ligand_id'],\n",
+    "                'failure_code': outcome.error['code'] if outcome.error else None,\n",
+    "            }))\n",
+    "    restored_counts = Counter()\n",
+    "    with destination.open() as stored:\n",
+    "        for line in stored:\n",
+    "            record = json.loads(line)\n",
+    "            restored = dmt.DockingOutcome.from_dict(record)\n",
+    "            assert restored.to_dict() == record\n",
+    "            restored_counts[restored.status] += 1\n",
+    "    assert counts == restored_counts == {'success': 2, 'failure': 1}\n",
+    "assert consumed == ['first', 'bad', 'third']\n",
+    "print('Independent JSON Lines roundtrips:', dict(restored_counts))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ed589347",
+   "metadata": {},
+   "source": [
+    "## Native equivalence and early close\n",
+    "\n",
+    "Compare one streamed result with a standalone seeded call, excluding only\n",
+    "wall-clock elapsed time. Closing a new iterator before execution consumes no\n",
+    "source item. Explicit seeds are passed unchanged; no affinity-map reuse,\n",
+    "global ranking, campaign identities or scientific comparability are inferred."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "73910eb1",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T21:14:01.702623Z",
+     "iopub.status.busy": "2026-10-03T21:14:01.702344Z",
+     "iopub.status.idle": "2026-10-03T21:14:02.412798Z",
+     "shell.execute_reply": "2026-10-03T21:14:02.411663Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Scores, geometry, identity, hashes, descriptors and provenance match dock().\n",
+      "Early close consumed no input; no viewer was loaded.\n"
+     ]
+    }
+   ],
+   "source": [
+    "individual = dmt.dock(prepared_problem('first'), protocol).to_dict()\n",
+    "first_scientific_record['provenance'].pop('elapsed_seconds')\n",
+    "individual['provenance'].pop('elapsed_seconds')\n",
+    "assert first_scientific_record == individual\n",
+    "assert 'molsysviewer' not in sys.modules\n",
+    "consumed.clear()\n",
+    "unstarted = dmt.dock_many(source(), protocol)\n",
+    "unstarted.close()\n",
+    "assert consumed == []\n",
+    "print('Scores, geometry, identity, hashes, descriptors and provenance match dock().')\n",
+    "print('Early close consumed no input; no viewer was loaded.')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
+   "language": "python",
+   "name": "dockingmt-molsyssuite-314"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

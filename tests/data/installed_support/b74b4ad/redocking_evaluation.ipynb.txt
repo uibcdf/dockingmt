@@ -1,0 +1,219 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "1d537bbe",
+   "metadata": {},
+   "source": [
+    "# Explicit redocking evaluation\n",
+    "\n",
+    "Public `dockingmt.evaluate_redocking` produces a detached JSON report in angstrom.\n",
+    "The caller chooses the cutoff; top-N follows current result positions. No ligand\n",
+    "alignment, symmetry correction or chemistry validation is performed.\n",
+    "\n",
+    "These three seeded native Vina controls use provisional 181L preparation and\n",
+    "externally prepared 1IEP, including a displaced search-domain control. 1IEP uses\n",
+    "all 40 retained PDBQT atoms, including polar hydrogens, against the pinned prepared\n",
+    "input conformation. It is different from the historical 37-heavy-atom SDF metric.\n",
+    "No dataset success rate or biological affinity conclusion is inferred.\n",
+    "See [the evaluation contract](redocking_evaluation.md).\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "46f7ae0e",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T22:30:50.822379Z",
+     "iopub.status.busy": "2026-10-03T22:30:50.821929Z",
+     "iopub.status.idle": "2026-10-03T22:30:51.413840Z",
+     "shell.execute_reply": "2026-10-03T22:30:51.412738Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\n",
+      "  \"python\": \"3.14.7\",\n",
+      "  \"vina\": \"1.2.7\",\n",
+      "  \"molsysmt_origin\": \"/home/diego/repos@uibcdf/dockingmt/.pytest_cache/codex-source-archives/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/__init__.py\",\n",
+      "  \"dockingmt_origin\": \"/home/diego/repos@uibcdf/dockingmt/dockingmt/__init__.py\"\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "from pathlib import Path\n",
+    "import json\n",
+    "import platform\n",
+    "import importlib.metadata as metadata\n",
+    "import molsysmt as msm\n",
+    "import dockingmt as dmt\n",
+    "\n",
+    "root = next(path for path in [Path.cwd(), *Path.cwd().parents]\n",
+    "            if (path / 'tests/data/vina_torsions/1iep_ligand.pdbqt').is_file())\n",
+    "import sys\n",
+    "if str(root) not in sys.path:\n",
+    "    sys.path.insert(0, str(root))\n",
+    "from devtools.qualify_redocking_evaluation import qualify, summary\n",
+    "print(json.dumps({\n",
+    "    'python': platform.python_version(), 'vina': metadata.version('vina'),\n",
+    "    'molsysmt_origin': msm.__file__, 'dockingmt_origin': dmt.__file__,\n",
+    "}, indent=2))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "e876bd0e",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T22:30:51.418668Z",
+     "iopub.status.busy": "2026-10-03T22:30:51.418341Z",
+     "iopub.status.idle": "2026-10-03T22:31:40.259105Z",
+     "shell.execute_reply": "2026-10-03T22:31:40.257822Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\n",
+      "  \"181l_provisional\": {\n",
+      "    \"n_poses\": 1,\n",
+      "    \"rmsds_angstrom\": [\n",
+      "      2.2916067143673082\n",
+      "    ],\n",
+      "    \"top_n\": [\n",
+      "      {\n",
+      "        \"requested\": 1,\n",
+      "        \"considered\": 1,\n",
+      "        \"recovered\": true\n",
+      "      },\n",
+      "      {\n",
+      "        \"requested\": 5,\n",
+      "        \"considered\": 1,\n",
+      "        \"recovered\": true\n",
+      "      }\n",
+      "    ],\n",
+      "    \"atom_correspondence\": \"verified_source_atom_keys\",\n",
+      "    \"preparation\": \"provisional\"\n",
+      "  },\n",
+      "  \"1iep_external\": {\n",
+      "    \"n_poses\": 1,\n",
+      "    \"rmsds_angstrom\": [\n",
+      "      0.8760362292736524\n",
+      "    ],\n",
+      "    \"top_n\": [\n",
+      "      {\n",
+      "        \"requested\": 1,\n",
+      "        \"considered\": 1,\n",
+      "        \"recovered\": true\n",
+      "      },\n",
+      "      {\n",
+      "        \"requested\": 5,\n",
+      "        \"considered\": 1,\n",
+      "        \"recovered\": true\n",
+      "      }\n",
+      "    ],\n",
+      "    \"atom_correspondence\": \"caller_declared_positional\",\n",
+      "    \"preparation\": \"unassessed\"\n",
+      "  },\n",
+      "  \"1iep_displaced_domain\": {\n",
+      "    \"n_poses\": 3,\n",
+      "    \"rmsds_angstrom\": [\n",
+      "      25.247243153461323,\n",
+      "      22.874961337672243,\n",
+      "      22.243653168937875\n",
+      "    ],\n",
+      "    \"top_n\": [\n",
+      "      {\n",
+      "        \"requested\": 1,\n",
+      "        \"considered\": 1,\n",
+      "        \"recovered\": false\n",
+      "      },\n",
+      "      {\n",
+      "        \"requested\": 5,\n",
+      "        \"considered\": 3,\n",
+      "        \"recovered\": false\n",
+      "      }\n",
+      "    ],\n",
+      "    \"atom_correspondence\": \"caller_declared_positional\",\n",
+      "    \"preparation\": \"unassessed\"\n",
+      "  }\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "reports = qualify()\n",
+    "assert reports['181l_provisional']['first_pose']['recovered']\n",
+    "assert reports['1iep_external']['first_pose']['recovered']\n",
+    "assert not any(row['recovered'] for row in reports['1iep_displaced_domain']['poses'])\n",
+    "print(json.dumps(summary(reports), indent=2))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "9adbaa6f",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T22:31:40.262713Z",
+     "iopub.status.busy": "2026-10-03T22:31:40.262459Z",
+     "iopub.status.idle": "2026-10-03T22:31:40.273973Z",
+     "shell.execute_reply": "2026-10-03T22:31:40.272781Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'saved_reports': 3, 'path': 'devguide/validation/data/redocking_evaluation/cases.json', 'interpretation': 'single-case software controls, no dataset success rate'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "saved = json.dumps(reports, allow_nan=False, indent=2)\n",
+    "restored = json.loads(saved)\n",
+    "assert restored == reports\n",
+    "assert restored['181l_provisional']['context']['preparation']['partner']['assessment'] == 'provisional'\n",
+    "assert restored['1iep_external']['context']['preparation']['partner']['assessment'] == 'unassessed'\n",
+    "assert all(report['criterion']['alignment'] == 'none'\n",
+    "           and report['criterion']['symmetry_correction'] == 'none'\n",
+    "           and report['criterion']['unit'] == 'angstrom'\n",
+    "           for report in restored.values())\n",
+    "output = root / 'devguide/validation/data/redocking_evaluation/cases.json'\n",
+    "output.write_text(saved + '\\n')\n",
+    "print({'saved_reports': len(restored), 'path': str(output.relative_to(root)),\n",
+    "       'interpretation': 'single-case software controls, no dataset success rate'})\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
+   "language": "python",
+   "name": "dockingmt-molsyssuite-314"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

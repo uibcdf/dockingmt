@@ -63,6 +63,14 @@ installed cells, release/public gates and visual C4/C6 remain unexecuted. All
 four workflows at preceding source head `b74b4ad` complete successfully; final
 source CI retains its own observation/recovery.
 
+The first publication preflight at `ea9b302` catches a live guide accidentally
+left as a frozen support source. Immutable inert guide snapshots now preserve
+all 570 tested staged targets byte-for-byte. Shared staging and 21 installed
+tests recheck that equivalent mapping; 28 administrative controls run without
+scientific dependencies. The separate repair receipt preserves the original
+full 1,450-test evidence and the hosted failure. Final committed-source resource
+validation and new-head hosted recovery precede relying on the repair.
+
 ## Shared installed-validator receiving — 2026-11-04
 
 [Bounded #47 receiving](validation/installed_validator_receiving.md) verifies

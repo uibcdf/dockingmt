@@ -1,0 +1,182 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "a93c9ce8",
+   "metadata": {},
+   "source": [
+    "# Inspect preparation before docking\n",
+    "\n",
+    "This example uses the public `assess_preparation` tool independently of Vina. It inspects declared preparation markers, not chemical validity. MolSysMT supplies the original molecular input; general chemical coverage remains its responsibility."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "86cd3df9",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T16:10:30.665321Z",
+     "iopub.status.busy": "2026-10-03T16:10:30.664865Z",
+     "iopub.status.idle": "2026-10-03T16:10:31.182182Z",
+     "shell.execute_reply": "2026-10-03T16:10:31.180971Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\n",
+      "MolSysMT source: /home/diego/repos@uibcdf/dockingmt/.pytest_cache/codex-source-archives/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/__init__.py\n"
+     ]
+    }
+   ],
+   "source": [
+    "import sys\n",
+    "from pathlib import Path\n",
+    "import json\n",
+    "import dockingmt as dmt\n",
+    "import molsysmt as msm\n",
+    "\n",
+    "assert sys.version_info[:2] == (3, 14)\n",
+    "assert 'molsyssuite@uibcdf_3.14' in sys.executable\n",
+    "print(sys.executable)\n",
+    "print('MolSysMT source:', Path(msm.__file__).resolve())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9d2c9059",
+   "metadata": {},
+   "source": [
+    "Prepare the original six-atom 181L BNZ ligand through the existing MolSysMT input route, then inspect its declared preparation. No docking calculation occurs."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "aac0839d",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T16:10:31.185742Z",
+     "iopub.status.busy": "2026-10-03T16:10:31.185466Z",
+     "iopub.status.idle": "2026-10-03T16:10:35.488140Z",
+     "shell.execute_reply": "2026-10-03T16:10:35.486867Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\n",
+      "  \"schema_version\": \"1.0\",\n",
+      "  \"scope\": \"declared_preparation_metadata\",\n",
+      "  \"assessment\": \"provisional\",\n",
+      "  \"provisional_reason_codes\": [\n",
+      "    \"zero_placeholder_charges\",\n",
+      "    \"heuristic_atom_types\"\n",
+      "  ],\n",
+      "  \"provisional_reasons\": [\n",
+      "    \"zero-placeholder partial charges\",\n",
+      "    \"heuristic AutoDock atom types\"\n",
+      "  ],\n",
+      "  \"evidence\": {\n",
+      "    \"charge_source\": \"zero_placeholder\",\n",
+      "    \"atom_type_source\": \"element_group_heuristic\"\n",
+      "  }\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "source = msm.systems['T4 lysozyme L99A']['181l.pdb']\n",
+    "ligand = dmt.prepare_ligand(source, selection=\"group_name=='BNZ'\")\n",
+    "report = dmt.assess_preparation(ligand)\n",
+    "assert report['assessment'] == 'provisional'\n",
+    "assert report['provisional_reason_codes'] == ['zero_placeholder_charges', 'heuristic_atom_types']\n",
+    "print(json.dumps(report, indent=2))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4fbb6e70",
+   "metadata": {},
+   "source": [
+    "External paths stay unassessed. This declaration-only inspection does not open the file or validate its PDBQT content. Reports are detached and can be saved separately; editing one does not alter the prepared object."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "82b449f2",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-03T16:10:35.491984Z",
+     "iopub.status.busy": "2026-10-03T16:10:35.491659Z",
+     "iopub.status.idle": "2026-10-03T16:10:35.497477Z",
+     "shell.execute_reply": "2026-10-03T16:10:35.496230Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{\n",
+      "  \"schema_version\": \"1.0\",\n",
+      "  \"scope\": \"declared_preparation_metadata\",\n",
+      "  \"assessment\": \"unassessed\",\n",
+      "  \"provisional_reason_codes\": [],\n",
+      "  \"provisional_reasons\": [],\n",
+      "  \"evidence\": {\n",
+      "    \"charge_source\": null,\n",
+      "    \"atom_type_source\": null\n",
+      "  }\n",
+      "}\n",
+      "Fresh inspection preserves the original provisional evidence.\n"
+     ]
+    }
+   ],
+   "source": [
+    "external = dmt.assess_preparation(Path('externally-prepared.pdbqt'))\n",
+    "assert external['assessment'] == 'unassessed'\n",
+    "assert not external['provisional_reason_codes']\n",
+    "print(json.dumps(external, indent=2))\n",
+    "report['provisional_reason_codes'].clear()\n",
+    "assert dmt.assess_preparation(ligand)['provisional_reason_codes']\n",
+    "print('Fresh inspection preserves the original provisional evidence.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f9b8e02b",
+   "metadata": {},
+   "source": [
+    "Vina consumes this same public function. Known provisional input requires explicit exploratory opt-in; a completed chemical template transfer or successful engine run does not certify parameterization. See the [contract and guards](preparation_assessment.md)."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
+   "language": "python",
+   "name": "dockingmt-molsyssuite-314"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

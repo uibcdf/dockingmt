@@ -1,0 +1,366 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "155351c8",
+   "metadata": {},
+   "source": [
+    "# 5X72 fixed-P59 control: saved observations\n",
+    "\n",
+    "The [prespecified workflow](5x72_reciprocal_workflow.md) compares a same-writer protein-only sham with fixed experimental P59 while searching P69. This notebook reads the original 24-cell producer archive. It executes **no docking, scoring, minimization or molecular preparation**. Recovery uses 24 experimental P69 heavy atoms, positional RMSD <=2.5 Å, no fitting or symmetry correction. Generated companion H geometry is not experimental. #17/#6/#33 remain partial/open. Fixed P59 changes any-returned P69 recovery from 0/12 to 7/12, while first-ranked and lowest frozen-score recovery stay zero."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "51b16228",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-09T20:55:15.335043Z",
+     "iopub.status.busy": "2026-10-09T20:55:15.334653Z",
+     "iopub.status.idle": "2026-10-09T20:55:16.936580Z",
+     "shell.execute_reply": "2026-10-09T20:55:16.935240Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Original gzip SHA256: 323a5cb7a826368eb4914219c3a29c2fdf440956a792f9ebf7812e2cc228083d\n",
+      "Preserved provider source: 5bd893c85fe8d211663b2b1f865f5f1d2c382a90\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th>cells</th>\n",
+       "      <th>first_recovered</th>\n",
+       "      <th>returned_set_recovered</th>\n",
+       "      <th>returned_poses</th>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>receptor</th>\n",
+       "      <th>order</th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "      <th></th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th rowspan=\"2\" valign=\"top\">occupied</th>\n",
+       "      <th>first_fixed</th>\n",
+       "      <td>6</td>\n",
+       "      <td>0</td>\n",
+       "      <td>3</td>\n",
+       "      <td>14</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>native</th>\n",
+       "      <td>6</td>\n",
+       "      <td>0</td>\n",
+       "      <td>4</td>\n",
+       "      <td>15</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th rowspan=\"2\" valign=\"top\">sham</th>\n",
+       "      <th>first_fixed</th>\n",
+       "      <td>6</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>24</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>native</th>\n",
+       "      <td>6</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "      <td>25</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "                      cells  first_recovered  returned_set_recovered  \\\n",
+       "receptor order                                                         \n",
+       "occupied first_fixed      6                0                       3   \n",
+       "         native           6                0                       4   \n",
+       "sham     first_fixed      6                0                       0   \n",
+       "         native           6                0                       0   \n",
+       "\n",
+       "                      returned_poses  \n",
+       "receptor order                        \n",
+       "occupied first_fixed              14  \n",
+       "         native                   15  \n",
+       "sham     first_fixed              24  \n",
+       "         native                   25  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "import gzip, json, hashlib, sys\n",
+    "from pathlib import Path\n",
+    "checkout = next(p for p in (Path.cwd(), *Path.cwd().parents)\n",
+    "    if (p/'devtools/qualify_5x72_reciprocal.py').is_file())\n",
+    "sys.path.insert(0, str(checkout))\n",
+    "import numpy as np\n",
+    "import pandas as pd\n",
+    "import pyunitwizard as puw\n",
+    "import dockingmt as dmt\n",
+    "from devtools.qualify_5x72_reciprocal import OUTPUT\n",
+    "from devtools.qualify_5x72_occupancy import load_baseline, measure, atom_fields\n",
+    "\n",
+    "payload = OUTPUT.read_bytes()\n",
+    "record = json.loads(gzip.decompress(payload))\n",
+    "assert record['schema'] == 'dockingmt.5x72_reciprocal_audit@1'\n",
+    "assert len(record['new_runs']) == 24\n",
+    "print('Original gzip SHA256:', hashlib.sha256(payload).hexdigest())\n",
+    "print('Preserved provider source:', record['qualified_provider_commit'])\n",
+    "rows = pd.DataFrame(record['comparison_rows'])\n",
+    "summary = rows.groupby(['receptor', 'order']).agg(\n",
+    "    cells=('first_recovered', 'size'),\n",
+    "    first_recovered=('first_recovered', 'sum'),\n",
+    "    returned_set_recovered=('returned_set_recovered', 'sum'),\n",
+    "    returned_poses=('poses', 'sum'))\n",
+    "display(summary)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "724e842a",
+   "metadata": {},
+   "source": [
+    "All new returned poses are checked against the original P69 experimental reference under a pm/fs unit policy. The fixed occupant retains P59 heavy coordinates and contributes a generated, rigid polar H. Neither score magnitudes nor these small counts establish affinity, cooperativity, stereoselectivity, recovery probability or convergence."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "c7470692",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-09T20:55:16.939807Z",
+     "iopub.status.busy": "2026-10-09T20:55:16.939394Z",
+     "iopub.status.idle": "2026-10-09T20:55:21.305263Z",
+     "shell.execute_reply": "2026-10-09T20:55:21.304086Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "All 78 new poses verified against the unchanged 24-heavy-atom reference.\n"
+     ]
+    }
+   ],
+   "source": [
+    "checked = 0\n",
+    "with puw.context(standard_units=['pm','fs','K','mole','dalton','e','kJ/mol','radians']):\n",
+    "    for run in record['new_runs']:\n",
+    "        case = record['cases']['p69']\n",
+    "        result = dmt.DockingResult.from_dict(run['result'])\n",
+    "        control = case['controls'][run['order']]\n",
+    "        metrics = measure(result, case, control)\n",
+    "        reference = np.asarray(case['reference_coordinates_angstrom'])[control['heavy_pdbqt_to_reference_atom_indices']]\n",
+    "        for pose, saved, metric in zip(result.poses, run['heavy_atom_metrics'], metrics, strict=True):\n",
+    "            coordinates = puw.get_value(pose.coordinates, to_unit='angstrom')[control['heavy_pdbqt_indices']]\n",
+    "            independent = np.sqrt(np.mean(np.sum((coordinates-reference)**2, axis=1)))\n",
+    "            assert abs(independent-saved['heavy_atom_positional_rmsd_angstrom']) < 1e-10\n",
+    "            assert abs(independent-metric['heavy_atom_positional_rmsd_angstrom']) < 1e-10\n",
+    "            assert saved['recovered'] == bool(independent <= 2.5)\n",
+    "            checked += 1\n",
+    "assert checked == 78\n",
+    "print('All 78 new poses verified against the unchanged 24-heavy-atom reference.')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2c6d6ac3",
+   "metadata": {},
+   "source": [
+    "The following checks all 156 new-pose and 98 historical serialization evaluations. It verifies captured bytes and unchanged geometry; evaluations are read, not repeated. The lowest fixed score within each declared set is a finite diagnostic with original-rank tie breaking, distinct from Vina docking scores and public automatic ranking."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "be3dd2df",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-10-09T20:55:21.307949Z",
+     "iopub.status.busy": "2026-10-09T20:55:21.307466Z",
+     "iopub.status.idle": "2026-10-09T20:55:22.828769Z",
+     "shell.execute_reply": "2026-10-09T20:55:22.827442Z"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "254 captured frozen evaluations verified; all historical eight-component serialization pairs agree.\n"
+     ]
+    },
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>search_receptor</th>\n",
+       "      <th>order</th>\n",
+       "      <th>sham_lowest_recovered</th>\n",
+       "      <th>occupied_lowest_recovered</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>occupied</td>\n",
+       "      <td>first_fixed</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>occupied</td>\n",
+       "      <td>native</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>sham</td>\n",
+       "      <td>first_fixed</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>sham</td>\n",
+       "      <td>native</td>\n",
+       "      <td>0</td>\n",
+       "      <td>0</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "  search_receptor        order  sham_lowest_recovered  \\\n",
+       "0        occupied  first_fixed                      0   \n",
+       "1        occupied       native                      0   \n",
+       "2            sham  first_fixed                      0   \n",
+       "3            sham       native                      0   \n",
+       "\n",
+       "   occupied_lowest_recovered  \n",
+       "0                          0  \n",
+       "1                          0  \n",
+       "2                          0  \n",
+       "3                          0  "
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "evaluations = 0\n",
+    "for run in record['new_runs']:\n",
+    "    originals = dmt.DockingResult.from_dict(run['result']).poses\n",
+    "    for original, pair in zip(originals, run['fixed_scores'], strict=True):\n",
+    "        for name, data in pair.items():\n",
+    "            pose = dmt.DockingPose.from_dict(data)\n",
+    "            artifacts = pose.metadata['scoring_history'][-1]['backend_artifacts']\n",
+    "            assert dmt.verify_captured_inputs(artifacts)\n",
+    "            assert artifacts['receptor']['sha256'] == record['preparation']['receptors'][name]['sha256']\n",
+    "            np.testing.assert_allclose(puw.get_value(pose.coordinates, to_unit='angstrom'),\n",
+    "                puw.get_value(original.coordinates, to_unit='angstrom'), rtol=0, atol=1e-12)\n",
+    "            assert pose.rank == original.rank\n",
+    "            evaluations += 1\n",
+    "baseline = [r for r in load_baseline()['new_runs'] if r['ligand']=='p69']\n",
+    "for prior, control in zip(baseline, record['historical_serialization_scores'], strict=True):\n",
+    "    for original, pair in zip(dmt.DockingResult.from_dict(prior['result']).poses, control['fixed_scores'], strict=True):\n",
+    "        for data in pair.values():\n",
+    "            pose = dmt.DockingPose.from_dict(data)\n",
+    "            assert dmt.verify_captured_inputs(pose.metadata['scoring_history'][-1]['backend_artifacts'])\n",
+    "            np.testing.assert_allclose(puw.get_value(pose.coordinates, to_unit='angstrom'),\n",
+    "                puw.get_value(original.coordinates, to_unit='angstrom'), rtol=0, atol=1e-12)\n",
+    "            evaluations += 1\n",
+    "        a = pair['original']['metadata']['scoring_history'][-1]['scores']\n",
+    "        b = pair['sham']['metadata']['scoring_history'][-1]['scores']\n",
+    "        assert a == b\n",
+    "assert evaluations == 254\n",
+    "print('254 captured frozen evaluations verified; all historical eight-component serialization pairs agree.')\n",
+    "diagnostic = []\n",
+    "for (receptor, order), group in rows.groupby(['receptor','order']):\n",
+    "    diagnostic.append({'search_receptor':receptor, 'order':order,\n",
+    "        'sham_lowest_recovered':sum(r['sham']['recovered'] for r in group.fixed_score_lowest),\n",
+    "        'occupied_lowest_recovered':sum(r['occupied']['recovered'] for r in group.fixed_score_lowest)})\n",
+    "display(pd.DataFrame(diagnostic))"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "DockingMT qualified Python 3.14",
+   "language": "python",
+   "name": "dockingmt-reciprocal"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.14.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
