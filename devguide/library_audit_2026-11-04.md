@@ -630,3 +630,22 @@ protocol-energy pairs, while seven Astropy energy pairs refuse kcal/kilocalorie
 parsing. The provider-only reproduction/request is PyUnitWizard #137, tracked
 under #19/MolSysSuite #127 without a local alias or caller-policy override. This
 is not full public-provider closure or a new molecular/model validity claim.
+
+## Follow-up 11 — actual support-library use and installer guidance, 2026-11-04
+
+The maintainer-requested [comparative review](validation/support_library_review_2026-11-04.md)
+checks actual ArgDigest plans, delayed dependency imports, SMonitor wiring and
+application-policy preservation, with inspected examples in our sibling clones.
+Initial representative tests pass 70 cases and source SMonitor checks pass, but
+these do not certify full adoption: public model/factory contracts and preparation/
+addon diagnostic coverage still need #19 work. Private model-integrity checks
+remain valid and must not disappear merely to move admission into ArgDigest.
+
+The review exposes incorrect member installation advice in DepDigest metadata,
+including a test that required an unprovided pip route. #64 explicitly disables
+PyPI and selects uibcdf Conda for MolSysMT/Viewer through supported provider fields.
+Three corrected controls fail before the fix; 72 selected cases pass afterward.
+An unrelated shared scanner false positive for `from .vina import VinaBackend`
+is reproduced with absolute/lazy controls and filed as DepDigest #47. No local
+scanner workaround, provider copy, molecular operation or scientific run is added.
+Our Viewer source delivery is received; its covering public artifact remains #294.

@@ -44,6 +44,12 @@ The [pose-coordinate contract](validation/pose_coordinate_contract.md) records
 form probe. PyUnitWizard #137 owns the observed Astropy energy-unit limitation;
 no downstream unit workaround or molecular operation is introduced.
 
+The [support-library comparison](validation/support_library_review_2026-11-04.md)
+records actual ArgDigest/DepDigest/SMonitor use, remaining #19 work and our
+MolSysMT/TopoMT/ElastNetMT reference patterns. #64 fixes misleading member
+installation hints; the source scanner's relative-import false positive is
+owned by DepDigest #47. These checks do not close full ecosystem adoption.
+
 The [scientific evidence overview](validation/scientific_evidence_overview_2026-11-04.md)
 provides a compact reproducible table of existing outcomes and E1–E11 limits.
 It preserves failed reporting stages and separate populations; no new molecular

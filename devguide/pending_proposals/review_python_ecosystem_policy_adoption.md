@@ -14,6 +14,22 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Comparative support-library review — 2026-11-04
+
+The [current review](../validation/support_library_review_2026-11-04.md) confirms
+working representative integration, not complete adoption. ArgDigest still
+needs model/factory and owned-view argument coverage; SMonitor still needs
+preparation/addon tracing and catalog-backed owned validation. Necessary private
+mutable-object invariants remain appropriate. Our sibling source examples supply
+patterns, not a mandate to copy their larger dispatch architecture.
+
+Concrete #64 corrects MolSysMT/Viewer acquisition declarations using existing
+DepDigest fields. Three initial controls fail; the final source selection passes
+72 cases. DepDigest #47 owns the independently reproduced scanner false positive
+for a local relative adapter import. No provider implementation is duplicated.
+#19 remains partial; next review constructor/caller semantics on the actually
+selected ArgDigest versions, then diagnostic coverage and the declared inventory.
+
 ## Pose-coordinate public-boundary follow-up — 2026-11-04
 
 [#63](https://github.com/uibcdf/dockingmt/issues/63) corrects finite-real numerical

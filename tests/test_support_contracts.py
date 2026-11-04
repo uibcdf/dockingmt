@@ -106,7 +106,11 @@ def test_missing_optional_dependency_has_local_code_and_install_advice(
             dmt.VinaBackend().dock(problem)
     assert caught.value.code == 'DMT-E001'
     assert caught.value.extra['library'] == library
-    assert f'pip install {library}' in str(caught.value)
+    if library == 'vina':
+        assert 'pip install vina' in str(caught.value)
+    else:
+        assert 'conda install -c uibcdf molsysviewer' in str(caught.value)
+        assert 'pip install molsysviewer' not in str(caught.value)
 
 
 def test_optional_dependency_inventory_is_complete():
@@ -114,3 +118,12 @@ def test_optional_dependency_inventory_is_complete():
     dependencies = {entry['library']: entry for entry in info['dependencies']}
     for library in ('vina', 'molsysviewer'):
         assert dependencies[library]['type'] == 'soft'
+
+
+@pytest.mark.parametrize('library', ['molsysmt', 'molsysviewer'])
+def test_suite_dependency_installation_routes_match_actual_distribution(library):
+    info = depdigest.get_info('dockingmt', format='dict')
+    entry = next(item for item in info['dependencies'] if item['library'] == library)
+    assert entry['package_name'] == {'pypi': None, 'conda': library}
+    assert entry['install']['pypi'] is None
+    assert entry['install']['conda'] == f'conda install -c uibcdf {library}'
