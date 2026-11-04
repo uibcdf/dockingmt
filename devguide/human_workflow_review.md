@@ -4,9 +4,9 @@ Owner: [#4](https://github.com/uibcdf/dockingmt/issues/4), coordinated with
 [#28](https://github.com/uibcdf/dockingmt/issues/28). Publication-route decision:
 [#29](https://github.com/uibcdf/dockingmt/issues/29).
 Source inspected: `92d31e0bf6aaf128b79f8990732dbd5ac49b45e8`, 2026-11-03.
-The original source/workflow review is retained below. The delivery update links
-the separately executed notebook evidence; no new search, API or scientific
-acceptance result follows.
+The original source/workflow review is retained below. Dated delivery updates
+link separately executed notebook evidence with its finite scope; historical
+scientific producers and acceptance claims remain unchanged.
 
 ## Delivered installed-result slice — 2026-11-03
 
@@ -39,9 +39,29 @@ The [receipt](validation/data/installed_3ptb_preparation/receiving_2026-11-03.js
 retains exact cell/archive identities, public call counts, client assertion
 corrections and both kernel shutdowns. Engine/evaluation/viewer guards observe
 zero attempts; 64 existing installed contract/assessment tests pass. No runtime
-API or reusable molecular tool is added. Next register a separate native versus
-displaced two-search demonstration before executing the proposed calls. The
-notebook's final Markdown alone is not an execution registration or result.
+API or reusable molecular tool is added. The separately registered native versus
+displaced execution is delivered in the following section. The preparation
+notebook's final Markdown alone remains neither a registration nor a result.
+
+## Delivered two-search execution/inspection — 2026-11-03
+
+The [execution guide/notebook](validation/installed_3ptb_execution.md) completes
+the separately registered native/displaced follow-up: two attempts, no retries,
+5+4 full thirteen-atom poses. Six outer cells reuse one exact nine-cell
+preparation and two exact eight-cell inspections through trusted IPython `%run`,
+without developer imports. Actual inputs/boxes/resolved native calls are retained.
+Both saved audits/captures, unit-policy/refusal/roundtrip controls pass, all
+consumer/molecular/native payloads verify before/after, and the real kernel
+closes. One hundred forty-four existing installed software guards pass.
+
+The [receipt](validation/data/installed_3ptb_execution/receiving_2026-11-03.json)
+preserves pre-search startup/tooling stops separately from the two successful
+scientific attempts. New results keep their original archive/runtime identity
+and distinct workflow source `1ef85cb`; old populations are not relabelled.
+No standalone score, RMSD or viewer call occurs. Next fix the nine-observed-
+heavy-atom evaluation population and verify a public selection/correspondence/
+geometry route, preserving the original full poses. No recovery/affinity claim
+or whole-Core/public/visual acceptance follows from this demonstration.
 
 ## Workflow and existing public seams
 
@@ -129,11 +149,11 @@ docking record and the existing package operations for its semantics.
 
 ## Subsequent steps and boundaries
 
-The explicit preparation and protocol-admission part is now delivered above.
-Next register the proposed two-search execution demonstration, including actual
-artifact/source identities, controls, limits, custody and failure policy. Keep
-the nine-heavy-atom reference versus 13-atom prepared-ligand evaluation decision
-explicit; no private heavy-pose helper becomes a public molecular operation.
+Preparation, protocol admission, separately registered two-search execution and
+detached saved-record inspection are delivered above. Next declare and qualify
+the nine-observed-heavy-atom evaluation route before RMSD. Keep the nine-heavy-
+atom reference versus 13-atom prepared-ligand decision explicit; no private
+heavy-pose helper becomes a public molecular operation.
 Do not extract all of `admit` into a universal public preparation function.
 
 MolSysMT #256 owns future MolecularMechanics persistence, and #521 owns the

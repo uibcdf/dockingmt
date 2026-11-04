@@ -14,6 +14,22 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Registered installed execution/inspection — 2026-11-03
+
+[The #4 follow-up](../validation/installed_3ptb_execution.md) attempts the native
+and displaced rigid problems once each and returns 5/4 complete thirteen-atom
+poses. Actual submitted inputs/boxes/native calls and both saved audit/capture
+chains verify. The trusted preparation/inspection companions are reused without
+developer helpers; all installed payloads verify and the real kernel closes.
+One hundred forty-four existing installed audit/schema guards pass, zero skips.
+
+Exactly two new searches occur, with no retry, standalone score, RMSD or viewer
+action. This is finite workflow behavior, not recovery, affinity or chemical-model
+acceptance; #33 stays partial. No molecular operation is implemented downstream.
+Next declare the nine-observed-heavy-atom evaluation population and qualify its
+public provider route before measurement; old experiments retain their own
+producers and denominators.
+
 ## Installed public preparation/admission — 2026-11-03
 
 [The #4 walkthrough](../validation/installed_3ptb_preparation.md) exposes the

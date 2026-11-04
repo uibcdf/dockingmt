@@ -16,6 +16,8 @@
 | `human_workflow_review.md` | Which public operations already serve a scientist, and what is the next installed-notebook slice? |
 | `validation/installed_result_inspection.md` | How can an installed-package user inspect saved results with explicit trust, units and recovery limits? |
 | `validation/installed_3ptb_preparation.md` | How can an installed-package user reproduce the declared preparation and admit a plan without executing Vina? |
+| `validation/installed_3ptb_execution.md` | How can an installed-package user execute the registered two-search demonstration and inspect its saved records? |
+| `validation/installed_3ptb_execution_registration.md` | Which population, controls and failure policy were fixed before the two new searches? |
 | `VALIDATION_STRATEGY.md` | How do we distinguish software correctness from scientific validity? |
 | `MOLSYSSUITE_INTEGRATION.md` | How does DockingMT interact scientifically with sibling components? |
 | `MOLSYSVIEWER_INTEGRATION.md` | How should DockingMT own its viewer integration? |

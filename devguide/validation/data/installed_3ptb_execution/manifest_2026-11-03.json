@@ -1,0 +1,43 @@
+{
+  "schema": "dockingmt.installed_two_search_manifest@1",
+  "owner": "uibcdf/dockingmt#4",
+  "workflow_source": "1ef85cbdcbe75fb0c8a2f4dd37228f52a987f020",
+  "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "molecular_archive_producer": "de7ffad2aef18ff3bccd184133dc69e081cb506e",
+  "records": [
+    {
+      "path": "devguide/validation/installed_3ptb_execution.ipynb",
+      "bytes": 14920,
+      "sha256": "9ee4394a17ebb369d75783f19e2ae523b651e4fc4c2c18f70b5d208611e89734"
+    },
+    {
+      "path": "devguide/validation/installed_3ptb_execution.md",
+      "bytes": 8859,
+      "sha256": "7d21bba2d502c3a00596c57fb0e86f57b31efbb32c3fce75568d4d14092802b4"
+    },
+    {
+      "path": "devguide/validation/installed_3ptb_execution_registration.md",
+      "bytes": 5149,
+      "sha256": "ff79836df8e1527218781df62c7cd1972840ed93e9c231f8cd0749f2e6b061bc"
+    },
+    {
+      "path": "devguide/validation/data/installed_3ptb_execution/registration_2026-11-03.json",
+      "bytes": 5487,
+      "sha256": "741f09ab8d418ffe307820d9a465c4cb5fe12c7cde9b2df27adbf22cf8a92153"
+    },
+    {
+      "path": "devguide/validation/data/installed_3ptb_execution/receiving_2026-11-03.json",
+      "bytes": 20280,
+      "sha256": "c3be0df28f946e54ce5363a33b77e82b6834580e457946e0719fef9b1be21cea"
+    },
+    {
+      "path": "devguide/validation/data/installed_3ptb_execution/observations_2026-11-03.json",
+      "bytes": 121685,
+      "sha256": "8f9eedb78ecc4b6e63b24f9667b659ed0626ba03861936835dfb93cf3c47075e"
+    }
+  ],
+  "new_searches": 2,
+  "returned_poses": 9,
+  "RMSD_evaluations": 0,
+  "public_package_or_visual_acceptance": false
+}

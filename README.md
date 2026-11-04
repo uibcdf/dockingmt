@@ -341,6 +341,13 @@ two planned problems; it performs no engine, RMSD or viewer action. Both unit-po
 kernel profiles pass. The proposed execution follow-up requires a separate
 registration; general molecular persistence and public delivery retain their owners.
 
+The [execution follow-up](devguide/validation/installed_3ptb_execution.md) and
+[notebook](devguide/validation/installed_3ptb_execution.ipynb) now deliver that
+separately registered demonstration. Run All executes two new searches and
+inspects the saved records through the public reader: native/displaced return
+5/4 full poses in the qualified profile. No retry, RMSD, fixed-pose rescoring or
+viewer action is included; recovery/affinity and public delivery remain separate.
+
 ## Governance and Design Authority
 
 * [`MOLSYSSUITE_GUIDE.md`](MOLSYSSUITE_GUIDE.md) routes suite-wide policies and cross-component issues to `uibcdf/molsyssuite`.

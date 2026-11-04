@@ -39,7 +39,8 @@ private wheel is also distinct from a publicly admitted distribution.
 | C | [ChemicalStates receiving](chemical_domain_receiving.md): current source and qualified wheel producers remain distinct; chemical operations stay in MolSysMT. |
 | R | [Saved-case recovery](validation/saved_human_case_recovery.md): authenticates the bounded original bundle and returns a detached result; no molecular restoration or search. |
 | I | [Installed record inspection](validation/installed_result_inspection.md): eight public-API cells pass for original and missing-capture records, with units, refusal controls and installed provenance. It reads records without authenticating the entire original bundle or restoring a molecular problem. |
-| W | [Installed preparation/admission](validation/installed_3ptb_preparation.md): nine public-API cells pass under normal and pm/fs policies, recreating explicit 2,011/13-atom inputs and admitting two planned problems. No search/evaluation/viewer call occurs; new execution remains separately registered work. |
+| W | [Installed preparation/admission](validation/installed_3ptb_preparation.md): nine public-API cells pass under normal and pm/fs policies, recreating explicit 2,011/13-atom inputs and admitting two planned problems. Its own scope has no search/evaluation/viewer calls; actual execution is separate evidence E. |
+| E | [Installed two-search execution](validation/installed_3ptb_execution.md): separately registered workflow source `1ef85cb`, unchanged consumer/provider archives, native/displaced attempted once each and 5+4 full poses. Saved-record audits/captures, refusal controls and nondefault-policy inspection pass; no RMSD/recovery or affinity claim. |
 | V | [Player receiving](validation/player_notifications_receiving.md): exact Viewer `78ede79e`, real Python widgets, immediate navigation, full private installed gate and five-cell kernel replay. [DOM tests](validation/addon_dom.md) separately exercise shipped JavaScript with a model double. Browser comm/pixels remain unobserved. |
 
 The V receiving uses original DockingMT wheel producer
@@ -76,7 +77,7 @@ the evidence keys above identify executed results and their limits.
 | C1.2 Prepared-state identity | Supported: explicit receptor/ligand state IDs, axes and source maps; P/H/C. | Labels do not establish environmental protonation. |
 | C1.3 Traceable representation | Supported: actual export map, submitted bytes/hashes and source binding; P/H/R. | Standalone prepared JSON is not a molecular snapshot (#4). |
 | C1.4 Preparation failures | Supported: missing Q/types, unknown H, conflicts and provider errors reject; P/C. | #5's unsafe placeholder mechanisms are resolved; scientific follow-up stays #33. |
-| C2.1 Multiple normalized poses | Supported: S has 167 poses; H/R/V retain the five-pose case. | No new current-composition search is claimed by V. |
+| C2.1 Multiple normalized poses | Supported: S has 167 poses; H/R/V retain the five-pose case; E adds two current-composition searches and nine full poses. | E has its own finite denominator; V remains a saved-case receiving. |
 | C2.2 Scores/ranks | Supported: named descriptors, ranking history and distinct position/rank; S/H/V. | No implicit rescoring, arbitrary score substitution or fabricated rank. |
 | C2.3 Reference RMSD | Supported: [evaluation API](../dockingmt/evaluation.py), original positional criterion and separate optional symmetry; S/H. | Reference, correspondence, units and policy must be explicit; panel navigation computes no RMSD. |
 | C2.4 Molecular/receptor state | Supported: declared states and original frame retained; P/H/C/V. | State selection is not automatic chemical validation (#33). |
@@ -106,10 +107,11 @@ the evidence keys above identify executed results and their limits.
    is delivered under #4, with two exact eight-cell kernel profiles and 144
    existing audit/schema guards passing. The nine-cell preparation/admission
    walkthrough also passes both unit-policy profiles, with 64 existing installed
-   contract/assessment guards. Next register and execute its separate two-search
-   follow-up in the [workflow review](human_workflow_review.md), independently
-   of visual observation or general molecular snapshots. W does not add a new
-   current-composition search or whole-Core acceptance claim.
+   contract/assessment guards. Its separately registered execution E now returns
+   5+4 full poses from two attempts, with 144 existing audit/schema guards and
+   saved-record reading passing. Next declare the public nine-heavy-atom
+   evaluation route in the [workflow review](human_workflow_review.md), before
+   RMSD. W/E add no whole-Core, recovery or visual acceptance claim.
 3. MolSysMT #521 remains an undelivered extension. Retain its bounded existing
    profile/refusal boundary; do not replace it locally. MolSysMT #256 is explicitly
    post-1.0 H5MSM 0.6 MolecularMechanics persistence, not a prerequisite for the

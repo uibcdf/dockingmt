@@ -17,6 +17,25 @@ supersedes: []
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
 **Status:** Partial; DockingMT Core MVP work.
 
+## Installed two-search execution/inspection delivered — 2026-11-03
+
+[The registered execution walkthrough](../validation/installed_3ptb_execution.md)
+completes six exact outer cells, one unchanged nine-cell preparation and two
+unchanged eight-cell saved inspections outside source. Native/displaced are
+attempted once each and return 5+4 full thirteen-atom poses. Actual input hashes,
+submitted boxes and resolved calls are retained. Both audits/captures, refusal
+controls, unit-policy reading and detached roundtrip pass. All original
+consumer/molecular/native payloads verify before/after, the kernel closes and
+144 existing installed audit/schema guards pass, zero skips.
+
+Startup/tooling stops remain separately recorded before any scientific attempt;
+the frozen workflow code, chemistry and two-case denominator stay unchanged.
+There is no retry, standalone score, RMSD or viewer call. Original scientific
+populations are preserved; the new workflow source is distinct from archive
+producers. This broader issue and #33 stay partial. Next declare and qualify
+the public nine-observed-heavy-atom evaluation route before RMSD, keeping
+molecular operations in MolSysMT and preserving the original full poses.
+
 ## Installed preparation and protocol admission delivered — 2026-11-03
 
 [The public-API guide/notebook](../validation/installed_3ptb_preparation.md)

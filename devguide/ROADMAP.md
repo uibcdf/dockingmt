@@ -8,14 +8,14 @@ Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which
 reviews all 35 C0–C6 criteria against the unchanged runtime baseline `8f17116`. It distinguishes current
 implementation, original scientific evidence, private installed qualification
 and pending acceptance. The [human workflow review](human_workflow_review.md)
-tracks the delivered record-inspection and preparation/admission slices. This section is the active queue;
+tracks the delivered preparation, two-search execution and saved-record inspection. This section is the active queue;
 dated checkpoint entries below retain their original state and historical
 "Next" instructions.
 
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |
 | 1 | Current Core evidence and source CI (#28/#60) | The updated criterion map is delivered. Inspect the exact source/head's remaining hosted lanes and append their outcome to the owning issues; previous successes do not qualify another composition. |
-| 2 | Installed Python/Jupyter use (#4/#33) | Saved-result inspection and the explicit 3PTB preparation/protocol-admission notebooks are delivered outside source. The latter passes nine cells in normal and pm/fs kernels, with unchanged prepared controls and zero engine/evaluation/viewer attempts. Next register the proposed native/displaced two-search demonstration before execution; decide the reference/pose atom population explicitly before RMSD. |
+| 2 | Installed Python/Jupyter use (#4/#33) | Preparation, the separately registered native/displaced execution and detached saved-record inspection are delivered outside source: two searches return 5+4 full poses, with no retry/RMSD/viewer call. Next declare and qualify the public evaluation route for the nine observed heavy atoms, using provider-owned selection/correspondence/geometry and preserving the full original result. |
 | 3 | Actual distribution readiness (#30/#47) | Review published provider coordinates/API minima and the real candidate plan, including frontend tests and actual installed platform/minor gates. No publication follows from private wheels. |
 | Deferred | Live observation (#52/#60) | On the maintainer's decision, observe real controls/comm/canvas, frame correspondence and reference/domain visibility; visible C4/C6 remain unaccepted. |
 | On provider delivery | Remaining molecular profiles (#49/#33) | Receive MolSysMT #521 against its actual partial/reference contract before removing the covered verifier. MolSysMT #256 remains post-1.0 general mechanics persistence, separate from the supported linked-record route. |
@@ -31,6 +31,24 @@ accepted workflow after the Core priorities above.
 
 The entries below are dated delivery/evidence records. Consult the operational
 plan above for current next work; preserve historical producers and claims.
+
+## Installed two-search execution and inspection — 2026-11-03
+
+[The registered #4/#33 walkthrough](validation/installed_3ptb_execution.md)
+completes all six outer cells, one unchanged nine-cell preparation and two
+unchanged eight-cell inspections in a real kernel outside source. Native and
+displaced are each attempted once and return 5/4 thirteen-atom poses. Actual
+submitted bytes, boxes and resolved calls verify; the displaced zero scores
+remain zero. Saved-record audits/captures, refusal controls, detached roundtrip
+and nondefault-policy reading pass. The kernel closes; all original archive
+payloads remain verified and 144 existing installed audit/schema guards pass.
+There are exactly two new searches, no retry, standalone score, RMSD or viewer
+action. Startup/tooling stops before scientific work remain separately recorded.
+
+**Next:** declare the nine-observed-heavy-atom evaluation population and qualify
+its public route before RMSD. No private pose projection or molecular tool is
+copied downstream. This demonstration does not establish recovery, affinity,
+chemical-model suitability, public delivery or visual C4/C6 acceptance.
 
 ## Installed public-API preparation and admission — 2026-11-03
 

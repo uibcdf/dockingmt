@@ -1,0 +1,602 @@
+{
+  "notebook_receipt": {
+    "schema": "dockingmt.installed_3ptb_two_search@1",
+    "scope": "two_search_workflow_and_detached_inspection",
+    "companions": {
+      "preparation": "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9",
+      "inspection": "bfe922f86012834ba12bf9cb1ada5098944c6979fee00523ef9fd38ba25ee3e0"
+    },
+    "versions": {
+      "dockingmt": "0.0.0+225.g50d8e33",
+      "molsysmt": "0.23.0+361.gde7ffad2a",
+      "pyunitwizard": "0.29.0",
+      "rdkit": "2026.3.1",
+      "vina": "1.2.7"
+    },
+    "source_file_sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+    "declaration_file_sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53",
+    "cases": [
+      {
+        "case": "native",
+        "status": "returned",
+        "attempts": 1,
+        "returned_poses": 5,
+        "result_file": {
+          "filename": "native_result.json",
+          "bytes": 2798850,
+          "sha256": "3dcbebda7d816c097f6e61dbea429fd7eea82389ea172d2220748bbd49913b27"
+        }
+      },
+      {
+        "case": "displaced",
+        "status": "returned",
+        "attempts": 1,
+        "returned_poses": 4,
+        "result_file": {
+          "filename": "displaced_result.json",
+          "bytes": 2790828,
+          "sha256": "b43f9612c4fff73d7be24c2124dda1a08b2dc81cb3af0295bc2ba91885b7e6b3"
+        }
+      }
+    ],
+    "inspection_receipts": {
+      "native": {
+        "schema": "dockingmt.installed_result_inspection@1",
+        "scope": "saved_result_record_inspection",
+        "input": {
+          "file_sha256": "3dcbebda7d816c097f6e61dbea429fd7eea82389ea172d2220748bbd49913b27",
+          "decoded_sha256": "3dcbebda7d816c097f6e61dbea429fd7eea82389ea172d2220748bbd49913b27",
+          "encoding": "identity",
+          "external_expected_identity_matches": true
+        },
+        "recorded_producer": {
+          "dockingmt_version": "0.0.0+225.g50d8e33",
+          "molsysmt_version": "0.23.0+361.gde7ffad2a",
+          "backend": "vina",
+          "backend_version": "1.2.7"
+        },
+        "reader": {
+          "dockingmt_version": "0.0.0+225.g50d8e33",
+          "python": "3.14.8",
+          "pyunitwizard_version": "0.29.0",
+          "smonitor_version": "0.22.0",
+          "module_origin_within_prefix": "lib/python3.14/site-packages/dockingmt/__init__.py",
+          "editable": false,
+          "archive_sha256_if_recorded": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98"
+        },
+        "record_audit_status": "consistent",
+        "pose_count": 5,
+        "captured_bytes_verified": true,
+        "captured_sizes_bytes": {
+          "receptor": 161490,
+          "partner": 2934
+        },
+        "schema_refusal": {
+          "code": "DMT-E002",
+          "argument": "schema_version"
+        },
+        "capture_refusal": {
+          "code": "DMT-E002",
+          "argument": "artifacts",
+          "role": "partner"
+        },
+        "identity_order_scores_and_descriptors_preserved": true,
+        "coordinate_roundtrip_relative_tolerance": 1e-12,
+        "coordinate_roundtrip_absolute_tolerance": 0,
+        "coordinate_display_unit": "angstrom",
+        "nondefault_policy_preserved": true,
+        "caller_policy_restored": true,
+        "detached_roundtrip_verified": true,
+        "input_file_and_record_unchanged": true,
+        "molecular_problem_restored": false,
+        "whole_case_authentication": false,
+        "historical_software_bytes_verified": false,
+        "chemical_validity_verified": false,
+        "browser_or_C6_acceptance": false
+      },
+      "displaced": {
+        "schema": "dockingmt.installed_result_inspection@1",
+        "scope": "saved_result_record_inspection",
+        "input": {
+          "file_sha256": "b43f9612c4fff73d7be24c2124dda1a08b2dc81cb3af0295bc2ba91885b7e6b3",
+          "decoded_sha256": "b43f9612c4fff73d7be24c2124dda1a08b2dc81cb3af0295bc2ba91885b7e6b3",
+          "encoding": "identity",
+          "external_expected_identity_matches": true
+        },
+        "recorded_producer": {
+          "dockingmt_version": "0.0.0+225.g50d8e33",
+          "molsysmt_version": "0.23.0+361.gde7ffad2a",
+          "backend": "vina",
+          "backend_version": "1.2.7"
+        },
+        "reader": {
+          "dockingmt_version": "0.0.0+225.g50d8e33",
+          "python": "3.14.8",
+          "pyunitwizard_version": "0.29.0",
+          "smonitor_version": "0.22.0",
+          "module_origin_within_prefix": "lib/python3.14/site-packages/dockingmt/__init__.py",
+          "editable": false,
+          "archive_sha256_if_recorded": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98"
+        },
+        "record_audit_status": "consistent",
+        "pose_count": 4,
+        "captured_bytes_verified": true,
+        "captured_sizes_bytes": {
+          "receptor": 161490,
+          "partner": 2934
+        },
+        "schema_refusal": {
+          "code": "DMT-E002",
+          "argument": "schema_version"
+        },
+        "capture_refusal": {
+          "code": "DMT-E002",
+          "argument": "artifacts",
+          "role": "partner"
+        },
+        "identity_order_scores_and_descriptors_preserved": true,
+        "coordinate_roundtrip_relative_tolerance": 1e-12,
+        "coordinate_roundtrip_absolute_tolerance": 0,
+        "coordinate_display_unit": "angstrom",
+        "nondefault_policy_preserved": true,
+        "caller_policy_restored": true,
+        "detached_roundtrip_verified": true,
+        "input_file_and_record_unchanged": true,
+        "molecular_problem_restored": false,
+        "whole_case_authentication": false,
+        "historical_software_bytes_verified": false,
+        "chemical_validity_verified": false,
+        "browser_or_C6_acceptance": false
+      }
+    },
+    "pose_rows": {
+      "native": [
+        {
+          "position": 1,
+          "pose_id": "pose_1",
+          "rank": 1,
+          "n_atoms": 13,
+          "scores": {
+            "vina": -6.422,
+            "inter": -6.422,
+            "intra": 0.0,
+            "torsion": 0.0
+          }
+        },
+        {
+          "position": 2,
+          "pose_id": "pose_2",
+          "rank": 2,
+          "n_atoms": 13,
+          "scores": {
+            "vina": -6.258,
+            "inter": -6.258,
+            "intra": 0.0,
+            "torsion": 0.0
+          }
+        },
+        {
+          "position": 3,
+          "pose_id": "pose_3",
+          "rank": 3,
+          "n_atoms": 13,
+          "scores": {
+            "vina": -4.104,
+            "inter": -4.104,
+            "intra": 0.0,
+            "torsion": 0.0
+          }
+        },
+        {
+          "position": 4,
+          "pose_id": "pose_4",
+          "rank": 4,
+          "n_atoms": 13,
+          "scores": {
+            "vina": -4.006,
+            "inter": -4.006,
+            "intra": 0.0,
+            "torsion": 0.0
+          }
+        },
+        {
+          "position": 5,
+          "pose_id": "pose_5",
+          "rank": 5,
+          "n_atoms": 13,
+          "scores": {
+            "vina": -3.507,
+            "inter": -3.507,
+            "intra": 0.0,
+            "torsion": 0.0
+          }
+        }
+      ],
+      "displaced": [
+        {
+          "position": 1,
+          "pose_id": "pose_1",
+          "rank": 1,
+          "n_atoms": 13,
+          "scores": {
+            "vina": 0.0,
+            "inter": 0.0,
+            "intra": 0.0,
+            "torsion": 0.0
+          }
+        },
+        {
+          "position": 2,
+          "pose_id": "pose_2",
+          "rank": 2,
+          "n_atoms": 13,
+          "scores": {
+            "vina": 0.0,
+            "inter": 0.0,
+            "intra": 0.0,
+            "torsion": 0.0
+          }
+        },
+        {
+          "position": 3,
+          "pose_id": "pose_3",
+          "rank": 3,
+          "n_atoms": 13,
+          "scores": {
+            "vina": 0.0,
+            "inter": 0.0,
+            "intra": 0.0,
+            "torsion": 0.0
+          }
+        },
+        {
+          "position": 4,
+          "pose_id": "pose_4",
+          "rank": 4,
+          "n_atoms": 13,
+          "scores": {
+            "vina": 0.0,
+            "inter": 0.0,
+            "intra": 0.0,
+            "torsion": 0.0
+          }
+        }
+      ]
+    },
+    "new_searches": 2,
+    "retries": 0,
+    "fixed_pose_rescoring": false,
+    "RMSD_evaluations": 0,
+    "recovery_or_affinity_claim": false,
+    "chemical_model_suitability": "unassessed",
+    "unit_policy_preserved": true,
+    "native_molecular_snapshot_created": false,
+    "browser_or_C6_acceptance": false
+  },
+  "validation": {
+    "workflow_source": "1ef85cbdcbe75fb0c8a2f4dd37228f52a987f020",
+    "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+    "consumer_wheel_sha256": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98",
+    "all_63_consumer_files_verified_before_after": true,
+    "molsysmt_wheel_producer": "de7ffad2aef18ff3bccd184133dc69e081cb506e",
+    "molsysmt_controlled_source": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+    "molsysmt_wheel_sha256": "4a8e58f40627ff468fab99301674429fba66362f549a31fb4cc747d9cf19a0ba",
+    "molsysmt_payload_files_verified_before_after": 3415,
+    "vina_artifact": {
+      "version": "1.2.7",
+      "python": "3.14.8",
+      "files": [
+        {
+          "path_within_prefix": "lib/python3.14/site-packages/vina/__init__.py",
+          "sha256": "ef6442ceea399f5a8eeac374fbf254fcf70d16cc04a0a321818c1cbe7f70b0d9",
+          "bytes": 124
+        },
+        {
+          "path_within_prefix": "lib/python3.14/site-packages/vina/utils.py",
+          "sha256": "bf139342195d7ac596e919f080ca6345f619b00ee47f66fef1eda2bf768e0c9f",
+          "bytes": 696
+        },
+        {
+          "path_within_prefix": "lib/python3.14/site-packages/vina/vina.py",
+          "sha256": "918ac5251d7db1c17cb4d69a09f52b9450d6e0d11f7f5e87a92affdd2fb01c0a",
+          "bytes": 19305
+        },
+        {
+          "path_within_prefix": "lib/python3.14/site-packages/vina/vina_wrapper.py",
+          "sha256": "6b29945d8a2bc7f00bf76f154fc9274078b6b209a0de7cfa75c7a8aaa097f824",
+          "bytes": 25156
+        },
+        {
+          "module": "vina._vina_wrapper",
+          "path_within_prefix": "lib/python3.14/site-packages/vina/_vina_wrapper.cpython-314-x86_64-linux-gnu.so",
+          "sha256": "d911feae47031bb4ea148ea6bdc74f24117449af25db49f4c8768e7b79673143",
+          "bytes": 1309808
+        }
+      ]
+    },
+    "native_payloads_verified_before_after": true,
+    "loaded_modules_before": 1576,
+    "loaded_modules_after": 1823,
+    "all_loaded_core_support_molecular_engine_origins_prefix_owned": true,
+    "source_or_data_harness_or_sdk_on_kernel_path": false,
+    "developer_import_attempts": [],
+    "public_call_counts": {
+      "molsysmt.physchem.get_peptide_chemical_template": 1,
+      "molsysmt.physchem.assess_chemical_template": 3,
+      "molsysmt.physchem.apply_chemical_template": 2,
+      "molsysmt.build.add_missing_hydrogens": 2,
+      "dockingmt.prepare_receptor": 1,
+      "molsysmt.build.assign_partial_charges": 2,
+      "molsysmt.build.assign_autodock_atom_types": 2,
+      "dockingmt.prepare_ligand": 1,
+      "dockingmt.dock": 2,
+      "vina.Vina.__init__": 2,
+      "vina.Vina.compute_vina_maps": 2,
+      "vina.Vina.dock": 2,
+      "vina.Vina.energies": 2
+    },
+    "forbidden_fixed_score_RMSD_reconstruction_viewer_calls": [],
+    "nested_notebooks": [
+      {
+        "kind": "preparation",
+        "sha256": "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9",
+        "source_cells": [
+          {
+            "id": "inputs",
+            "sha256": "1b4ec8fa85ccae0fa1505937036a795ad40e630042fbc0ac038e489db6bdcfd8"
+          },
+          {
+            "id": "source",
+            "sha256": "331b500fc7cf49a1b9a002b906a0d35fe695fd78d50af2dfa9b7b9900b9bde8f"
+          },
+          {
+            "id": "templates",
+            "sha256": "502ce26a75efb3912fcb7e210bd51f03b98f5490925a0a0b40dc1562c75f8b11"
+          },
+          {
+            "id": "apply-templates",
+            "sha256": "093442bed27c5a49d6393d66b906f8d0b22a7d3a51b2d31a260d2c5b538dea6d"
+          },
+          {
+            "id": "hydrogens",
+            "sha256": "873393df759080e2ee171081d49d0647ad39974c173f33702f546503c4c340a9"
+          },
+          {
+            "id": "preparations",
+            "sha256": "9b843657cfc6c2932f4deff901e6a895d9a5a4a65fe07346d4ea9823b008238b"
+          },
+          {
+            "id": "prepared-values",
+            "sha256": "5d04e6353b7c0df7e256d66b61a9ebc205339b1d4ada5972c759510e0761eaf9"
+          },
+          {
+            "id": "plan",
+            "sha256": "60ac99c5dbde3a2d14c49a41debf25670565597755f465e12d56a9a6ce691a91"
+          },
+          {
+            "id": "reports",
+            "sha256": "2e787150c943f32fb32b150f046e8c63f8cb8d13b23866fd980fe7dfa6114952"
+          }
+        ],
+        "completed": true
+      },
+      {
+        "kind": "inspection",
+        "sha256": "bfe922f86012834ba12bf9cb1ada5098944c6979fee00523ef9fd38ba25ee3e0",
+        "source_cells": [
+          {
+            "id": "inputs",
+            "sha256": "ec374a171d563ae9bb2cfe3a50aac386e2e456be50138e42e125dbda22ea9a4b"
+          },
+          {
+            "id": "file-identity",
+            "sha256": "92c446cbfcfbb0fd0547c3e24927aabe02aa7ea79bb3a2fcdab82dfebe57aa1e"
+          },
+          {
+            "id": "audit-and-read",
+            "sha256": "9b8170f5bf44ba0f7b4b32125e54a35b37e1f71ea19b2e79ae8684072f8adcae"
+          },
+          {
+            "id": "pose-meaning",
+            "sha256": "bb4e802d232b574189d9437889e2b47f8794e31df887076a9882c2e804a3c7b8"
+          },
+          {
+            "id": "refusals",
+            "sha256": "a45cf1ceab5a104e6afc331712368f6f0a26ac730c9fb31b315c0eb11a51911a"
+          },
+          {
+            "id": "nondefault-policy",
+            "sha256": "c37821a5cf887e09f73c4fa2e0e3d9f05a87acf652ead183ef9d322f2c4a7b2a"
+          },
+          {
+            "id": "roundtrip",
+            "sha256": "8490aad3501be7b81dfaaf24285da8733812a72a2e9c160c3cb56827b41181c2"
+          },
+          {
+            "id": "receipt",
+            "sha256": "63723a925132ccda71de42b484471814378cb538e7b82448153b4dc10d07598b"
+          }
+        ],
+        "completed": true
+      },
+      {
+        "kind": "inspection",
+        "sha256": "bfe922f86012834ba12bf9cb1ada5098944c6979fee00523ef9fd38ba25ee3e0",
+        "source_cells": [
+          {
+            "id": "inputs",
+            "sha256": "ec374a171d563ae9bb2cfe3a50aac386e2e456be50138e42e125dbda22ea9a4b"
+          },
+          {
+            "id": "file-identity",
+            "sha256": "92c446cbfcfbb0fd0547c3e24927aabe02aa7ea79bb3a2fcdab82dfebe57aa1e"
+          },
+          {
+            "id": "audit-and-read",
+            "sha256": "9b8170f5bf44ba0f7b4b32125e54a35b37e1f71ea19b2e79ae8684072f8adcae"
+          },
+          {
+            "id": "pose-meaning",
+            "sha256": "bb4e802d232b574189d9437889e2b47f8794e31df887076a9882c2e804a3c7b8"
+          },
+          {
+            "id": "refusals",
+            "sha256": "a45cf1ceab5a104e6afc331712368f6f0a26ac730c9fb31b315c0eb11a51911a"
+          },
+          {
+            "id": "nondefault-policy",
+            "sha256": "c37821a5cf887e09f73c4fa2e0e3d9f05a87acf652ead183ef9d322f2c4a7b2a"
+          },
+          {
+            "id": "roundtrip",
+            "sha256": "8490aad3501be7b81dfaaf24285da8733812a72a2e9c160c3cb56827b41181c2"
+          },
+          {
+            "id": "receipt",
+            "sha256": "63723a925132ccda71de42b484471814378cb538e7b82448153b4dc10d07598b"
+          }
+        ],
+        "completed": true
+      }
+    ],
+    "new_searches": 2,
+    "new_fixed_pose_scores": 0,
+    "new_rmsd_evaluations": 0,
+    "unit_policy_preserved": true,
+    "working_directory": "outside source checkout"
+  },
+  "execution": {
+    "status": "completed",
+    "kernel_shutdown": true,
+    "source_cells": [
+      {
+        "id": "inputs",
+        "execution_count": 2,
+        "source_sha256": "a900035db3371e46d99a364ce4398aa8622be94930ce74f8d9c590c04d5987e0"
+      },
+      {
+        "id": "preparation",
+        "execution_count": 3,
+        "source_sha256": "83f61e7208d965dea6fc881cfd6b650a310699a6c456373179ec31266a699a6c"
+      },
+      {
+        "id": "ledger",
+        "execution_count": 4,
+        "source_sha256": "6530e5df4e65fb8b5c61c0eb87393788df318119b95c016398651c12b44e4106"
+      },
+      {
+        "id": "searches",
+        "execution_count": 5,
+        "source_sha256": "a62f71178f2d1073df8eb675b6d2a402485d2cb544de981226fc52f5983e002a"
+      },
+      {
+        "id": "inspect-results",
+        "execution_count": 6,
+        "source_sha256": "11621e278ebb719062a81d6d9088f66963b73d4c7a1388907ffc59e8972bbdcb"
+      },
+      {
+        "id": "receipt",
+        "execution_count": 7,
+        "source_sha256": "86e1c02555c863246567370d9278ce96665e0dbfbaceb640da6da30e77fb6c00"
+      }
+    ]
+  },
+  "schema": "dockingmt.installed_two_search_receiving@1",
+  "owner": "uibcdf/dockingmt#4",
+  "registration_comment": "https://github.com/uibcdf/dockingmt/issues/4#issuecomment-6619228750",
+  "workflow_source": "1ef85cbdcbe75fb0c8a2f4dd37228f52a987f020",
+  "runtime_changed": false,
+  "software_guards": {
+    "exit": 0,
+    "prefix_origins_verified": true,
+    "test_context": "1c343924b4a144058685796783d72c174b032651",
+    "test_files_equal_reviewed_source": true,
+    "selection": [
+      "test_result_audit.py",
+      "test_serialization_contracts.py"
+    ],
+    "passed": 144,
+    "skipped": 0,
+    "seconds": 1.624,
+    "warnings": [
+      {
+        "kind": "PytestAssertRewriteWarning",
+        "count": 1,
+        "cause": "preimported SMonitor"
+      }
+    ]
+  },
+  "installed_dependency_closure": {
+    "pip_check_exit": 0,
+    "result": "No broken requirements found."
+  },
+  "presearch_stops": [
+    {
+      "stage": "restricted controller startup",
+      "outcome": "stalled before scientific cells; stopped owned controller",
+      "preparation_output_or_search_ledger_created": false,
+      "new_searches": 0
+    },
+    {
+      "stage": "first real kernel",
+      "outcome": "companion run requires nbformat absent from minimal task kernel tooling",
+      "kernel_shutdown": true,
+      "preparation_output_or_search_ledger_created": false,
+      "new_searches": 0,
+      "amendment": "https://github.com/uibcdf/dockingmt/issues/4#issuecomment-6619316784"
+    },
+    {
+      "stage": "controller tooling amendment",
+      "outcome": "string escaping syntax stop before launching any kernel; corrected controller only",
+      "new_searches": 0
+    }
+  ],
+  "warnings": {
+    "provider_warning_count": 2,
+    "classification": "explicitly accepted occupancy/b_factor loss during unchanged preparation"
+  },
+  "notebook_tooling": {
+    "versions": {
+      "nbformat": "5.11.1",
+      "fastjsonschema": "2.22.2",
+      "jsonschema": "4.26.0",
+      "jsonschema-specifications": "2025.9.1",
+      "referencing": "0.37.0",
+      "rpds-py": "2026.6.3",
+      "attrs": "26.1.0"
+    },
+    "location": "isolated task tooling outside scientific prefix",
+    "scientific_prefix_modified": false
+  },
+  "custody": {
+    "owner": "uibcdf/dockingmt#4",
+    "resource_coordination": "uibcdf/dockingmt#50",
+    "review_date": "2026-11-10",
+    "raw_results_executed_notebook_failures": "retained task-owned reproducibility evidence",
+    "original_results_and_receivers_preserved": true,
+    "kernel_shutdown": true
+  },
+  "limits": {
+    "original_24_search_or_five_pose_population_rerun": false,
+    "scientific_model_suitability": "unassessed",
+    "RMSD_evaluations": 0,
+    "new_fixed_pose_rescoring": 0,
+    "visual_C6_accepted": false,
+    "public_package_or_platform_admission": false
+  },
+  "local_checks": {
+    "ruff_check_repository": "passed",
+    "ruff_format_repository": "189 files already formatted",
+    "explicit_execution_notebook_lint_and_format": "passed",
+    "reporting_protocol_test": {
+      "passed": 1,
+      "seconds": 0.13
+    },
+    "generated_report_indexes": "current",
+    "relative_documentation_links_checked": 262,
+    "Core_criteria_retained": 35,
+    "old_inspection_and_preparation_manifests": "unchanged and verified",
+    "runtime_tests_dependencies_build_CI_source": "unchanged",
+    "diff_whitespace": "passed"
+  }
+}
