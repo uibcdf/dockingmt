@@ -175,3 +175,20 @@ Its new measurements retain positional baselines, explicit chemical hypotheses,
 initial admission diagnostics and negative controls. This does not promote the
 preparation model or all Core-MVP gates to scientific acceptance; visualization
 is deliberately pending maintainer discussion.
+
+## 10. Proposed additional-case pilot and plausibility boundary
+
+The [2026-11-04 design](validation/scientific_panel_design_2026-11-04.md)
+proposes 1HSG/MK1 and 1STP/BTN as additional local-redocking candidates, with
+rigid/explicit-cut arms, three seeds and two effort levels (at most 24 searches).
+Their source files, assemblies, chemical states, maps and resource/producer
+identities are not yet admitted. This is a design, not an execution registration
+or new scientific result. Existing cases remain development/regression evidence
+with separate populations. The next step is source/admission review under #33.
+
+The [provider inventory](validation/molecular_plausibility_inventory_2026-11-04.md)
+records public MolSysMT coverage/CIP/geometry primitives and the distinction
+between a measurement and a chemically justified assessment. Missing reusable
+geometry/steric rules are proposed in [MolSysMT #555](https://github.com/uibcdf/molsysmt/issues/555).
+RMSD and plausibility must remain separate outcomes. Unknown chemistry or missing
+H-dependent geometry is unassessed, not silently passing or repaired downstream.

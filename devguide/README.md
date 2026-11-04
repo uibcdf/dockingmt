@@ -38,6 +38,14 @@ Its first dated follow-up corrects the current README/protocol instructions and
 clarifies scientific choices, with 104 existing source contract tests passing;
 the original audit findings remain anchored to their reviewed source.
 
+The [small scientific-panel design](validation/scientific_panel_design_2026-11-04.md)
+now proposes two additional public candidates and a maximum 24-search matrix,
+separating admission, sampling and ranking. It is not execution-ready: source
+identities, assemblies and chemical prescriptions must first be admitted and
+registered. The [molecular plausibility inventory](validation/molecular_plausibility_inventory_2026-11-04.md)
+distinguishes existing provider measurements from missing assessment rules;
+MolSysMT #555 owns that proposal, with no downstream molecular substitute.
+
 Start with the [current Core acceptance map](CORE_MVP_STATUS.md) and
 [operational roadmap](ROADMAP.md#current-operational-plan). They reconcile
 the 35 C0–C6 criteria and current priorities without rewriting historical

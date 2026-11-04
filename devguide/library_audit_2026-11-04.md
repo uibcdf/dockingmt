@@ -470,3 +470,29 @@ R1's two inspected documentation defects are corrected in this slice. User
 observation for R7, broader scientific wording/model acceptance under R4, public
 receiving, the panel design and provider plausibility inventory remain open.
 No new acceptance threshold, molecular implementation or experiment is introduced.
+
+## Follow-up 2 — scientific design and provider inventory, 2026-11-04
+
+The [small-panel design](validation/scientific_panel_design_2026-11-04.md)
+addresses the planning part of Q2/Q3 and R3/R6: two named public candidates,
+separate historical case roles, explicit admission decisions, a proposed maximum
+of 24 searches, per-case recovery/ranking endpoints and preserved failure
+denominators. Its proposed 2-angstrom criterion is not a reinterpretation of
+historical results. Input acquisition, molecular admission, chemical hypotheses,
+exact software and resource registration remain pending; this is not yet a
+registered experiment or new scientific evidence.
+
+The [molecular plausibility inventory](validation/molecular_plausibility_inventory_2026-11-04.md)
+addresses the discovery part of Q4/R6. It separates available MolSysMT coverage,
+correspondence, coordinate-CIP and geometry primitives from an unestablished
+complete rule-based assessment contract. The reusable missing capability is
+proposed in [MolSysMT #555](https://github.com/uibcdf/molsysmt/issues/555), with
+consumer ownership in DockingMT #33/#49. No local molecular validator, provider
+update, calculation or mandatory new dependency is introduced.
+
+These are partial dispositions, not closure of the scientific risks. Next work
+is source/assembly/state admission before searching, and provider review of #555.
+Unavailable plausibility checks must remain unassessed in any interim scoped
+RMSD study. Exact documentation checks and committed-source CI observations are
+recorded in the owning issues; previous runtime and installed receipts retain
+their original source/artifact identities.

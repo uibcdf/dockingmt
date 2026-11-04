@@ -14,6 +14,17 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## Plausibility ownership inventory — 2026-11-04
+
+The [static inventory](../validation/molecular_plausibility_inventory_2026-11-04.md)
+distinguishes MolSysMT coverage, coordinate-CIP, graph and geometry primitives
+from a complete assessment contract. The missing reusable geometry/steric rules
+are proposed as [MolSysMT #555](https://github.com/uibcdf/molsysmt/issues/555),
+linked to the #33 scientific-panel design. No consumer parser, stereo checker,
+clash detector or geometry-repair routine is introduced. Provider review owns
+methods, units, applicability, missing-H handling and scientific thresholds.
+Existing #521 pose-reading and #323 H-refinement work remain distinct.
+
 ## Production known-source pose reader — 2026-10-28
 
 [The consumer migration](../validation/prepared_pose_reading.md) retains one actual

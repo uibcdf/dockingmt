@@ -14,6 +14,23 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Scientific-panel design and provider inventory — 2026-11-04
+
+The [proposed panel](../validation/scientific_panel_design_2026-11-04.md) names
+two additional public candidates, their assembly/state admission questions and
+a maximum 24-search rigid/cut × seed × effort matrix. No source files are newly
+admitted and no molecular or engine work is executed. Existing development cases
+retain their own evidence; two new cases would remain a diagnostic pilot, not a
+general success-rate estimate. Next complete immutable source acquisition and
+case-specific admission before registering an executable population.
+
+The [static provider inventory](../validation/molecular_plausibility_inventory_2026-11-04.md)
+uses qualified and current fetched Git objects separately, preserving the older
+local provider checkout. General rule-based geometry/steric assessment is now
+proposed in MolSysMT #555. Available measurements do not certify plausible poses;
+missing checks remain unassessed. This proposal is not a provider initial-release
+gate and does not block separate admission or scoped positional-RMSD research.
+
 ## Public saved-pose nine-atom evaluation — 2026-11-03
 
 [The #4 evaluation](../validation/installed_3ptb_evaluation.md) verifies the
