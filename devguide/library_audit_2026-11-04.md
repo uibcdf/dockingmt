@@ -571,3 +571,19 @@ instructions carry the accepted evidence-maintenance action.
 This reduces the organization/discoverability part of R3/R4/R8. It creates no
 scientific measurement, provider workaround, new web service or qualification.
 Provider-dependent panel admission and public/visual gates remain open.
+
+## Follow-up 8 — explicit all-returned recovery summaries, 2026-11-04
+
+Current source `summarize_redocking` adds the `any_returned` aggregate under #61,
+using validated saved observations and unchanged exact compatibility/top-N rules.
+This directly supports E6/Q2's returned-set versus ordering distinction when a
+recovered pose appears beyond the largest requested N. Empty evaluated results
+and failed cases retain their distinct denominators; absent policy yields null.
+No molecular operation, geometry, reranking or seed-pooling policy is introduced.
+
+Six selected pre-implementation controls fail for the missing field. After the
+change, 135 existing/new summary and evaluation checks pass in 81.27 s, with
+39 LegacyH5MSMWarning and one StructuralAttributeDropWarning retained. These are
+source contract checks; prior installed/scientific artifacts are unchanged and
+do not inherit the new field. The panel's template/map/state/environment admission,
+public delivery and visible C4/C6 remain separate.

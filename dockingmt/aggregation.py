@@ -225,6 +225,17 @@ def _pose_summary(row):
     }
 
 
+def _recovery_counts(n_recovered, n_evaluated, n_failed):
+    """Keep observed nonrecovery and unknown failures in distinct counts."""
+    return {
+        'n_recovered': n_recovered,
+        'n_not_recovered': n_evaluated - n_recovered,
+        'n_unknown': n_failed,
+        'fraction_of_evaluated': n_recovered / n_evaluated,
+        'fraction_of_submitted': n_recovered / (n_evaluated + n_failed),
+    }
+
+
 @smonitor.signal(tags=['api', 'analysis', 'redocking', 'aggregation'])
 @arg_digest(config='dockingmt._argdigest')
 def summarize_redocking(
@@ -245,7 +256,9 @@ def summarize_redocking(
     Count empty results as evaluated/nonrecovered. Failed cases have unknown
     recovery, separate from observed nonrecovery. Fractions explicitly name
     evaluated or submitted denominators, and are None for zero denominators.
-    Empty/all-failure collections have no inferred policy or top-N statistics.
+    ``any_returned`` reports recovery anywhere in each complete returned set,
+    independently of requested top-N. Empty/all-failure collections have no
+    inferred policy or top-N statistics, and ``any_returned=None``.
 
     Return detached finite JSON with compact cases and original-report hashes.
     Retain original reports separately. No molecular operations, reranking,
@@ -264,6 +277,7 @@ def summarize_redocking(
     cases = []
     counts = []
     empty = 0
+    n_any_recovered = 0
     for case_id, original in evaluations.items():
         report, current = _validate_evaluation(original, case_id)
         if policy is None:
@@ -277,6 +291,9 @@ def summarize_redocking(
         for index, entry in enumerate(report['top_n']):
             counts[index] += entry['recovered']
         empty += report['n_poses'] == 0
+        n_any_recovered += bool(
+            report['closest_pose'] and report['closest_pose']['recovered']
+        )
         cases.append(
             {
                 'case_id': case_id,
@@ -352,14 +369,13 @@ def summarize_redocking(
             'n_failed': n_failed,
             'n_empty_results': empty,
             'evaluation_coverage': n_evaluated / n_submitted if n_submitted else None,
+            'any_returned': _recovery_counts(n_any_recovered, n_evaluated, n_failed)
+            if policy is not None
+            else None,
             'top_n': [
                 {
                     'requested': n,
-                    'n_recovered': count,
-                    'n_not_recovered': n_evaluated - count,
-                    'n_unknown': n_failed,
-                    'fraction_of_evaluated': count / n_evaluated,
-                    'fraction_of_submitted': count / n_submitted,
+                    **_recovery_counts(count, n_evaluated, n_failed),
                 }
                 for n, count in zip(
                     policy['top_n'] if policy is not None else [], counts

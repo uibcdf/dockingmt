@@ -5,6 +5,12 @@ small caller-selected collection of saved `evaluate_redocking` schema 1.0
 reports. It uses saved observations, with no molecular operation, engine run,
 ranking change or viewer access.
 
+The current output also reports `any_returned`: recovery in the full returned
+set, independent of requested top-N. This additive schema-1.0 field requires no
+new argument or input-report field and leaves the original top-N values and
+exact compatibility gate unchanged. Historical summary files keep their original
+bytes; an absent field means that producer did not report it, not nonrecovery.
+
 ```python
 summary = dockingmt.summarize_redocking(
     {'case-a': report_a, 'case-b': report_b},
@@ -72,6 +78,14 @@ Each successful evaluation counts once, regardless of its returned pose count.
 An empty docking result is an evaluated nonrecovery. A declared failure has
 unknown recovery; it is separate from evaluated nonrecovery.
 
+`any_returned` uses the same `n_recovered`, `n_not_recovered`, `n_unknown`,
+`fraction_of_evaluated` and `fraction_of_submitted` fields as a top-N entry,
+without `requested`. One result counts as recovered if its validated closest
+returned pose meets the recorded cutoff. For six returned poses with only the
+sixth near the reference, top-1/top-5 recovery is false while any-returned recovery
+is true. It does not measure unreturned internal search samples or establish a
+physical cause for failed sampling/ranking.
+
 | Field | Meaning |
 | --- | --- |
 | `n_submitted` | Caller-supplied evaluated cases plus declared failures |
@@ -91,12 +105,20 @@ counts stay in the case records; requesting N greater than available poses does
 not invent missing poses.
 
 Empty/all-failure collections have `policy=None` and no top-N entries: there is
-no observed evaluation policy to infer. An empty collection has null coverage;
+no observed evaluation policy to infer, and `any_returned=None`. An empty
+**evaluated result** instead contributes observed nonrecovery to any-returned,
+with the failed-case recovery count remaining separate. An empty collection has null coverage;
 an all-failure collection has zero coverage. These are observations in the
 selected submissions, not certified dataset success rates, independent samples,
 confidence intervals, predictive accuracy or a chemical preparation qualification.
 
 ## Detached evidence and reproducibility
+
+The any-returned extension is tracked in
+[#61](https://github.com/uibcdf/dockingmt/issues/61). Its source checks include
+recovery beyond the largest requested N, mixed positive/negative/empty/failure
+denominators, null-policy collections, detached output, a fresh offline reader
+and the existing exact-declaration refusals. No original experiment is rerun.
 
 Summary schema 1.0, type `redocking_collection`, retains the exact common policy,
 counts and compact case records. Evaluated cases retain first/closest pose IDs,

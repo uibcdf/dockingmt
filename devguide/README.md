@@ -28,6 +28,11 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
+The current source summary adds `any_returned` recovery independently of requested
+top-N under #61. It preserves exact compatibility and failure denominators; the
+[public contract](validation/redocking_summary.md) distinguishes this output from
+historical summaries and from new molecular/scientific qualification.
+
 The [scientific evidence overview](validation/scientific_evidence_overview_2026-11-04.md)
 provides a compact reproducible table of existing outcomes and E1–E11 limits.
 It preserves failed reporting stages and separate populations; no new molecular

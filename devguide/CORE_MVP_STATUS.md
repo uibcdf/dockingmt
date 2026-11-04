@@ -1,9 +1,12 @@
 # Current Core MVP acceptance map
 
 Owner: [#28](https://github.com/uibcdf/dockingmt/issues/28); workflow follow-up:
-[#4](https://github.com/uibcdf/dockingmt/issues/4). Runtime baseline:
-`8f1711621170c64f6256545e2d38b327cfdc9beb`, 2026-11-03. The unchanged runtime
-retains the preceding review; new notebook evidence is identified separately below.
+[#4](https://github.com/uibcdf/dockingmt/issues/4). Scientific/installed qualification
+baseline: `8f1711621170c64f6256545e2d38b327cfdc9beb`, 2026-11-03.
+The later #61 source extension adds offline any-returned summary counts; its
+source checks are separate from the original installed/scientific receipts.
+It changes no molecular operation, original experiment or C0–C6 criterion.
+New notebook evidence is identified separately below.
 This maintained map supersedes the *next-action list* of the
 [2026-10-28 audit](validation/core_mvp_audit_2026-10-28.md), preserving that
 audit, its findings at its original source and all scientific/artifact receipts.

@@ -138,6 +138,7 @@ def test_independent_denominators_empty_cases_and_pose_identity():
 def test_zero_evaluated_cases_infer_no_policy_or_recovery(failures):
     summary = dmt.summarize_redocking({}, failures=failures)
     assert summary['policy'] is None and summary['top_n'] == []
+    assert summary['any_returned'] is None
     assert summary['n_evaluated'] == summary['n_empty_results'] == 0
     assert summary['evaluation_coverage'] == (0 if failures else None)
     assert summary['n_submitted'] == summary['n_failed'] == (1 if failures else 0)
@@ -148,12 +149,65 @@ def test_empty_result_is_evaluated_nonrecovery():
     summary = dmt.summarize_redocking({'empty': make_report(())})
     assert summary['evaluation_coverage'] == 1
     assert summary['policy'] is not None
+    assert summary['any_returned'] == {
+        'n_recovered': 0,
+        'n_not_recovered': 1,
+        'n_unknown': 0,
+        'fraction_of_evaluated': 0,
+        'fraction_of_submitted': 0,
+    }
     assert all(
         entry['fraction_of_evaluated'] == entry['fraction_of_submitted'] == 0
         and entry['n_not_recovered'] == 1
         and entry['n_unknown'] == 0
         for entry in summary['top_n']
     )
+
+
+def test_any_returned_recovery_can_occur_beyond_every_requested_top_n():
+    report = make_report((9, 8, 7, 6, 5, 1), top_n=(1, 5))
+    before = deepcopy(report)
+    summary = dmt.summarize_redocking({'late': report})
+    assert [entry['n_recovered'] for entry in summary['top_n']] == [0, 0]
+    assert summary['any_returned'] == {
+        'n_recovered': 1,
+        'n_not_recovered': 0,
+        'n_unknown': 0,
+        'fraction_of_evaluated': 1,
+        'fraction_of_submitted': 1,
+    }
+    assert summary['cases'][0]['closest_pose']['position'] == 6
+    assert summary['cases'][0]['first_pose']['rmsd'] == 9
+    assert summary['cases'][0]['evaluation_sha256'] == digest(report)
+    assert report == before
+    summary['any_returned']['n_recovered'] = 99
+    assert [entry['n_recovered'] for entry in summary['top_n']] == [0, 0]
+    assert report == before
+
+
+def test_any_returned_denominators_separate_nonrecovery_empty_and_failed():
+    reports = {
+        'first': make_report((0,), top_n=(1, 5)),
+        'late': make_report((9, 8, 7, 6, 5, 1), top_n=(1, 5)),
+        'far': make_report((5, 6), top_n=(1, 5)),
+        'empty': make_report((), top_n=(1, 5)),
+    }
+    summary = dmt.summarize_redocking(reports, failures={'failed': failure()})
+    assert (
+        summary['n_evaluated'],
+        summary['n_failed'],
+        summary['n_empty_results'],
+    ) == (4, 1, 1)
+    assert summary['any_returned'] == {
+        'n_recovered': 2,
+        'n_not_recovered': 2,
+        'n_unknown': 1,
+        'fraction_of_evaluated': 0.5,
+        'fraction_of_submitted': 0.4,
+    }
+    assert [entry['n_recovered'] for entry in summary['top_n']] == [1, 1]
+    assert summary['cases'][-1]['recovery'] == 'unknown'
+    assert json.loads(json.dumps(summary, allow_nan=False)) == summary
 
 
 def test_json_detachment_in_both_directions_and_between_output_sections():
@@ -439,6 +493,7 @@ from pathlib import Path
 summary = dmt.summarize_redocking(json.loads(Path(sys.argv[1]).read_text()))
 assert summary['n_evaluated'] == 1
 assert summary['top_n'][0]['n_recovered'] == 0
+assert summary['any_returned']['n_recovered'] == 1
 assert json.loads(json.dumps(summary, allow_nan=False)) == summary
 assert 'vina' not in sys.modules and 'molsysviewer' not in sys.modules and 'meeko' not in sys.modules
 """

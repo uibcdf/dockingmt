@@ -5,7 +5,8 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which
-reviews all 35 C0–C6 criteria against the unchanged runtime baseline `8f17116`. It distinguishes current
+reviews all 35 C0–C6 criteria against the recorded scientific/installed baseline
+`8f17116`, with later source changes qualified separately. It distinguishes current
 implementation, original scientific evidence, private installed qualification
 and pending acceptance. The [human workflow review](human_workflow_review.md)
 tracks the delivered preparation, two-search execution, saved-record inspection and nine-atom evaluation. This section is the active queue;

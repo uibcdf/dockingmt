@@ -529,6 +529,14 @@ fixture. Equality of declarations does not certify scientific comparability,
 chemical validity or a dataset success rate. No geometry kernel, molecular
 matching, engine rerun, global ranking, cache, executor or sibling change occurs.
 
+**Additive follow-up, 2026-11-04 (#61):** The current schema-1.0 collection also
+reports `any_returned`, using validated closest-returned-pose recovery with the
+same observed/unknown counts and evaluated/submitted denominators. No evaluated
+policy means a null aggregate; an evaluated empty result is nonrecovery. Existing
+arguments, exact compatibility and top-N values are unchanged. Historical outputs
+may omit this new field; absence is not nonrecovery. This distinguishes returned
+coverage from ordering without inferring internal search sampling or model accuracy.
+
 ## DMT-039 — Preserve named charges and audit consumer conservation
 
 **Status:** Accepted, 2026-10-04.

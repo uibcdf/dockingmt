@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (39)
+### Resolved (40)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
@@ -32,6 +32,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`reject_changed_prepared_recovery.md`](reject_changed_prepared_recovery.md) — [#57](https://github.com/uibcdf/dockingmt/issues/57) — Reject changed prepared inputs during saved-result recovery *(resolved, measured)*
 - [`replay_1iep_reference_and_control_from_saved_manifests.md`](replay_1iep_reference_and_control_from_saved_manifests.md) — [#16](https://github.com/uibcdf/dockingmt/issues/16) — Replay 1IEP reference and control from saved manifests *(resolved, measured)*
 - [`replay_file_backed_redocking_and_report_exploratory_metrics.md`](replay_file_backed_redocking_and_report_exploratory_metrics.md) — [#10](https://github.com/uibcdf/dockingmt/issues/10) — Replay file-backed redocking and report exploratory metrics *(resolved, measured)*
+- [`report_any_returned_recovery.md`](report_any_returned_recovery.md) — [#61](https://github.com/uibcdf/dockingmt/issues/61) — Report all-returned pose recovery independently of requested top-N. *(resolved, measured)*
 - [`result_export_tracing_ownership.md`](result_export_tracing_ownership.md) — [#48](https://github.com/uibcdf/dockingmt/issues/48) — Preserve caller tracing in the developer result-export benchmark. *(resolved, reproduced)*
 - [`result_records_share_live_metadata.md`](result_records_share_live_metadata.md) — [#25](https://github.com/uibcdf/dockingmt/issues/25) — Isolate serialized docking results from live metadata and provenance *(resolved, measured)*
 - [`retain_selection_domain_provenance.md`](retain_selection_domain_provenance.md) — [#55](https://github.com/uibcdf/dockingmt/issues/55) — Retain derivation provenance for selection-based search domains *(resolved, measured)*
