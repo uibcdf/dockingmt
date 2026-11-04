@@ -26,33 +26,43 @@ RMSD_TOLERANCE_ANGSTROM = 0.25
 
 
 def _source_revision() -> dict[str, Any]:
-    """Identify the development checkout used by this bounded benchmark."""
+    """Fingerprint the imported core and helper, with Git only for a shared checkout."""
     root = Path(__file__).resolve().parents[1]
+    package = Path(dockingmt.__file__).resolve().parent
     code_digest = hashlib.sha256()
-    code_files = sorted([*root.joinpath('dockingmt').rglob('*.py'), Path(__file__)])
-    for path in code_files:
-        code_digest.update(path.relative_to(root).as_posix().encode())
+    code_files = [
+        ('dockingmt/' + path.relative_to(package).as_posix(), path)
+        for path in package.rglob('*.py')
+    ]
+    code_files.append(('dmt_test_support/redocking_181l.py', Path(__file__)))
+    for name, path in sorted(code_files):
+        code_digest.update(name.encode())
         code_digest.update(path.read_bytes())
-    head = subprocess.run(
-        ['git', 'rev-parse', 'HEAD'],
-        cwd=root,
-        capture_output=True,
-        text=True,
-        check=True,
-    ).stdout.strip()
-    dirty = bool(
-        subprocess.run(
-            ['git', 'status', '--porcelain'],
+    shared_checkout = package.parent == root and (root / '.git').exists()
+    head = dirty = None
+    if shared_checkout:
+        head = subprocess.run(
+            ['git', 'rev-parse', 'HEAD'],
             cwd=root,
             capture_output=True,
             text=True,
             check=True,
         ).stdout.strip()
-    )
+        dirty = bool(
+            subprocess.run(
+                ['git', 'status', '--porcelain'],
+                cwd=root,
+                capture_output=True,
+                text=True,
+                check=True,
+            ).stdout.strip()
+        )
     return {
         'git_head': head,
         'worktree_dirty': dirty,
         'code_sha256': code_digest.hexdigest(),
+        'code_scope': 'imported_dockingmt_core_and_redocking_helper',
+        'shared_checkout': shared_checkout,
     }
 
 
