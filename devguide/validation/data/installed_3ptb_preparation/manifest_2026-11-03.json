@@ -1,0 +1,37 @@
+{
+  "schema": "dockingmt.installed_3ptb_preparation_manifest@1",
+  "owner": "uibcdf/dockingmt#4",
+  "reviewed_source_baseline": "36a177a4d69890b8f3328e4b787f744f368ff04d",
+  "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "molecular_archive_producer": "de7ffad2aef18ff3bccd184133dc69e081cb506e",
+  "original_declaration_producer": "1decee504b112cfd92026c52dcbe22449de30f4f",
+  "records": [
+    {
+      "path": "devguide/validation/installed_3ptb_preparation.ipynb",
+      "bytes": 32601,
+      "sha256": "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9"
+    },
+    {
+      "path": "devguide/validation/installed_3ptb_preparation.md",
+      "bytes": 10301,
+      "sha256": "f1ba2a9b8d778b9e8156f179d675513264cabef22965fe1e7aea387ef04ae915"
+    },
+    {
+      "path": "devguide/validation/data/installed_3ptb_preparation/receiving_2026-11-03.json",
+      "bytes": 16031,
+      "sha256": "fe0f7e0892245c4079ec8acdbe89d726122093d2bb64664a96bf6439fb050689"
+    },
+    {
+      "path": "devguide/validation/data/3ptb_prospective/3PTB.pdb.gz",
+      "bytes": 38653,
+      "sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/admission_2026-10-20.json.gz",
+      "bytes": 2093573,
+      "sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53"
+    }
+  ],
+  "published_package": false,
+  "C6_accepted": false
+}

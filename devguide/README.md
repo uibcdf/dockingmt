@@ -35,8 +35,12 @@ evidence. The [installed saved-result guide](validation/installed_result_inspect
 and [notebook](validation/installed_result_inspection.ipynb) now deliver the #4
 slice through existing public APIs: eight cells complete in both original and
 missing-capture profiles, with explicit trust and molecular-recovery limits.
-The [workflow review](human_workflow_review.md) retains the accepted scope and
-next preparation-to-execution boundary. Visual acceptance remains deferred;
+The [preparation guide](validation/installed_3ptb_preparation.md) and
+[notebook](validation/installed_3ptb_preparation.ipynb) also deliver nine cells in
+normal and pm/fs kernels: explicit molecular prescription, provider preparation
+and two-problem protocol admission, with zero engine/evaluation/viewer attempts.
+The [workflow review](human_workflow_review.md) retains the next separately
+registered two-search execution boundary. Visual acceptance remains deferred;
 no new scientific experiment or release is implied.
 
 Start with [public player notification receiving](validation/player_notifications_receiving.md)

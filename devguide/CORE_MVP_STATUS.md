@@ -39,6 +39,7 @@ private wheel is also distinct from a publicly admitted distribution.
 | C | [ChemicalStates receiving](chemical_domain_receiving.md): current source and qualified wheel producers remain distinct; chemical operations stay in MolSysMT. |
 | R | [Saved-case recovery](validation/saved_human_case_recovery.md): authenticates the bounded original bundle and returns a detached result; no molecular restoration or search. |
 | I | [Installed record inspection](validation/installed_result_inspection.md): eight public-API cells pass for original and missing-capture records, with units, refusal controls and installed provenance. It reads records without authenticating the entire original bundle or restoring a molecular problem. |
+| W | [Installed preparation/admission](validation/installed_3ptb_preparation.md): nine public-API cells pass under normal and pm/fs policies, recreating explicit 2,011/13-atom inputs and admitting two planned problems. No search/evaluation/viewer call occurs; new execution remains separately registered work. |
 | V | [Player receiving](validation/player_notifications_receiving.md): exact Viewer `78ede79e`, real Python widgets, immediate navigation, full private installed gate and five-cell kernel replay. [DOM tests](validation/addon_dom.md) separately exercise shipped JavaScript with a model double. Browser comm/pixels remain unobserved. |
 
 The V receiving uses original DockingMT wheel producer
@@ -103,9 +104,12 @@ the evidence keys above identify executed results and their limits.
    original unsafe mechanisms, with scientific follow-up explicitly in #33.
 2. The [installed saved-result notebook](validation/installed_result_inspection.md)
    is delivered under #4, with two exact eight-cell kernel profiles and 144
-   existing audit/schema guards passing. Next scope the explicit
-   preparation-to-execution walkthrough in the [workflow review](human_workflow_review.md),
-   independently of visual observation or general molecular snapshots.
+   existing audit/schema guards passing. The nine-cell preparation/admission
+   walkthrough also passes both unit-policy profiles, with 64 existing installed
+   contract/assessment guards. Next register and execute its separate two-search
+   follow-up in the [workflow review](human_workflow_review.md), independently
+   of visual observation or general molecular snapshots. W does not add a new
+   current-composition search or whole-Core acceptance claim.
 3. MolSysMT #521 remains an undelivered extension. Retain its bounded existing
    profile/refusal boundary; do not replace it locally. MolSysMT #256 is explicitly
    post-1.0 H5MSM 0.6 MolecularMechanics persistence, not a prerequisite for the

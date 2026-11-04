@@ -14,6 +14,23 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Installed public preparation/admission — 2026-11-03
+
+[The #4 walkthrough](../validation/installed_3ptb_preparation.md) exposes the
+existing single-state rigid prescription without developer helpers or restoring
+stored native snapshots. Nine public-API cells pass in normal and pm/fs kernels:
+provider template admission/application, fixed H, named Q/types, 2,011/13-atom
+inputs, +6/+1 e conservation, original prepared-value controls and protocol
+admission. Both role PDBQT files match between policies. An invalid declared
+map refuses; all engine/evaluation/viewer attempt counters remain zero.
+Sixty-four existing installed contract/assessment guards pass, zero skips.
+
+This is preparation/admission tutorial evidence, not current-composition
+redocking or scientific model certification. No molecular operation is
+implemented downstream and no provider defect is inferred from the retained
+client assertion corrections. #33 remains partial; the next two-search workflow
+requires its own prior registration and explicit evaluation atom population.
+
 ## Preparation/profile checkpoint — 2026-10-29
 
 [The declared profile](../validation/preparation_profile.md) records the supported

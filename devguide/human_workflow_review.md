@@ -23,6 +23,26 @@ preserves the initial overly strict bootstrap-guard failure and later exact-code
 passes separately. This remains private Linux/Python 3.14 qualification, not
 public artifact/platform admission, full case authentication or a new experiment.
 
+## Delivered installed preparation/admission slice — 2026-11-03
+
+The [preparation guide](validation/installed_3ptb_preparation.md) and
+[notebook](validation/installed_3ptb_preparation.ipynb) expose the existing
+3PTB prescription through public MolSysMT/DockingMT APIs. All nine source cells
+complete in normal and pm/fs kernels outside source: explicit source/declaration
+trust, caller-supplied maps, template assessment/application, fixed-state H,
+named charge/type preparation, original prepared-value controls and protocol
+admission. The 2,011/13-atom inputs carry projected +6/+1 e; both current PDBQT
+files are identical across policies. An invalid map refuses. Chemical suitability
+remains unassessed, and standalone source fingerprints remain absent.
+
+The [receipt](validation/data/installed_3ptb_preparation/receiving_2026-11-03.json)
+retains exact cell/archive identities, public call counts, client assertion
+corrections and both kernel shutdowns. Engine/evaluation/viewer guards observe
+zero attempts; 64 existing installed contract/assessment tests pass. No runtime
+API or reusable molecular tool is added. Next register a separate native versus
+displaced two-search demonstration before executing the proposed calls. The
+notebook's final Markdown alone is not an execution registration or result.
+
 ## Workflow and existing public seams
 
 | Stage | Existing operation | Decision that remains with the scientist |
@@ -109,9 +129,11 @@ docking record and the existing package operations for its semantics.
 
 ## Subsequent steps and boundaries
 
-After this example, scope the explicit preparation-to-execution walkthrough
-against an actual user need. Keep chemical prescriptions visible and use public
-provider tools; register any new scientific computation and controls separately.
+The explicit preparation and protocol-admission part is now delivered above.
+Next register the proposed two-search execution demonstration, including actual
+artifact/source identities, controls, limits, custody and failure policy. Keep
+the nine-heavy-atom reference versus 13-atom prepared-ligand evaluation decision
+explicit; no private heavy-pose helper becomes a public molecular operation.
 Do not extract all of `admit` into a universal public preparation function.
 
 MolSysMT #256 owns future MolecularMechanics persistence, and #521 owns the

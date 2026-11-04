@@ -333,6 +333,14 @@ Reading leaves the result detached; it does not reconstruct a molecular system
 or perform new calculations. The two kernel profiles and actual private-archive
 qualification retain their separate evidence and public-delivery limits.
 
+For explicit preparation, the [3PTB guide](devguide/validation/installed_3ptb_preparation.md)
+and [notebook](devguide/validation/installed_3ptb_preparation.ipynb) use public
+MolSysMT/DockingMT APIs with caller-supplied source/declaration identities and
+scientific choices. Run All prepares one receptor and rigid ligand and admits
+two planned problems; it performs no engine, RMSD or viewer action. Both unit-policy
+kernel profiles pass. The proposed execution follow-up requires a separate
+registration; general molecular persistence and public delivery retain their owners.
+
 ## Governance and Design Authority
 
 * [`MOLSYSSUITE_GUIDE.md`](MOLSYSSUITE_GUIDE.md) routes suite-wide policies and cross-component issues to `uibcdf/molsyssuite`.

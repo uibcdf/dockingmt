@@ -1,0 +1,432 @@
+{
+  "schema": "dockingmt.installed_3ptb_preparation_receiving@1",
+  "owner": "uibcdf/dockingmt#4",
+  "coordination": "uibcdf/dockingmt#33",
+  "reviewed_source_baseline": "36a177a4d69890b8f3328e4b787f744f368ff04d",
+  "runtime_changed": false,
+  "all_62_nongenerated_consumer_runtime_files_equal_source": true,
+  "notebook": {
+    "path": "devguide/validation/installed_3ptb_preparation.ipynb",
+    "bytes": 32601,
+    "sha256": "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9"
+  },
+  "inputs": [
+    {
+      "path": "devguide/validation/data/3ptb_prospective/3PTB.pdb.gz",
+      "bytes": 38653,
+      "sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/admission_2026-10-20.json.gz",
+      "bytes": 2093573,
+      "sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53"
+    }
+  ],
+  "original_declaration_producer": "1decee504b112cfd92026c52dcbe22449de30f4f",
+  "entire_original_bundle_authentication_performed": false,
+  "runs": [
+    {
+      "notebook_receipt": {
+        "schema": "dockingmt.installed_3ptb_preparation@1",
+        "scope": "preparation_and_protocol_admission_only",
+        "source_file_sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+        "declaration_file_sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53",
+        "reader_versions": {
+          "dockingmt": "0.0.0+225.g50d8e33",
+          "molsysmt": "0.23.0+361.gde7ffad2a",
+          "pyunitwizard": "0.29.0",
+          "rdkit": "2026.3.1"
+        },
+        "python": "3.14.8",
+        "source_counts": {
+          "n_atoms": 1701,
+          "n_groups": 287,
+          "n_structures": 1,
+          "n_bonds": 21
+        },
+        "prepared_atoms": {
+          "receptor": 2011,
+          "partner": 13
+        },
+        "projected_charge_unit": "elementary_charge",
+        "projected_charges": {
+          "receptor": 5.999999999999994,
+          "partner": 1.0000000000000004
+        },
+        "coordinate_tolerance_angstrom": 1e-12,
+        "source_and_prepared_values_verified": true,
+        "invalid_map_refusal": {
+          "code": "MSM-ERR-ARG-001",
+          "argument": "atom_correspondence"
+        },
+        "artifacts": {
+          "provider_reports.json": {
+            "bytes": 6191437,
+            "sha256": "52ec0bc803471d9695d6b0e014e9436ae52b0a68ed50be4ba7fb82d974fe8eb6"
+          },
+          "prepared_declarations.json": {
+            "bytes": 2395069,
+            "sha256": "57f72c73f41a98e6a02ac02a5ac447fef6967ffc79cfe5422f6b960cfb17076a"
+          },
+          "execution_plan.json": {
+            "bytes": 6005652,
+            "sha256": "e26a4f0bd3daa63796a1c0d3445651e188c828fed383df5bd6ceca7c7c46e7d6"
+          },
+          "receptor.pdbqt": {
+            "bytes": 161490,
+            "sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80"
+          },
+          "partner.pdbqt": {
+            "bytes": 2934,
+            "sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90"
+          }
+        },
+        "planned_cases": [
+          "native",
+          "displaced"
+        ],
+        "execution_status": "not_executed",
+        "molecular_snapshot_created": false,
+        "chemical_model_suitability": "unassessed",
+        "C6_accepted": false
+      },
+      "validation": {
+        "variant": "normal",
+        "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+        "consumer_wheel_sha256": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98",
+        "all_63_consumer_files_verified_before_after": true,
+        "molsysmt_wheel_producer": "de7ffad2aef18ff3bccd184133dc69e081cb506e",
+        "molsysmt_controlled_source": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+        "molsysmt_wheel_sha256": "4a8e58f40627ff468fab99301674429fba66362f549a31fb4cc747d9cf19a0ba",
+        "molsysmt_payload_files_verified_before_after": 3415,
+        "loaded_modules_before": 1576,
+        "loaded_modules_after": 1805,
+        "all_loaded_core_support_molecular_engine_origins_prefix_owned": true,
+        "source_or_data_harness_or_sdk_on_kernel_path": false,
+        "developer_import_attempts": [],
+        "public_call_counts": {
+          "molsysmt.physchem.get_peptide_chemical_template": 1,
+          "molsysmt.physchem.assess_chemical_template": 3,
+          "molsysmt.physchem.apply_chemical_template": 2,
+          "molsysmt.build.add_missing_hydrogens": 2,
+          "dockingmt.prepare_receptor": 1,
+          "molsysmt.build.assign_partial_charges": 2,
+          "molsysmt.build.assign_autodock_atom_types": 2,
+          "dockingmt.prepare_ligand": 1
+        },
+        "forbidden_engine_evaluation_viewer_calls": [],
+        "new_searches": 0,
+        "new_energy_evaluations": 0,
+        "new_rmsd_evaluations": 0,
+        "unit_policy_preserved": true,
+        "working_directory": "outside source checkout"
+      },
+      "execution": {
+        "variant": "normal",
+        "status": "completed",
+        "kernel_shutdown": true,
+        "source_cells": [
+          {
+            "id": "inputs",
+            "execution_count": 2,
+            "source_sha256": "1b4ec8fa85ccae0fa1505937036a795ad40e630042fbc0ac038e489db6bdcfd8"
+          },
+          {
+            "id": "source",
+            "execution_count": 3,
+            "source_sha256": "331b500fc7cf49a1b9a002b906a0d35fe695fd78d50af2dfa9b7b9900b9bde8f"
+          },
+          {
+            "id": "templates",
+            "execution_count": 4,
+            "source_sha256": "502ce26a75efb3912fcb7e210bd51f03b98f5490925a0a0b40dc1562c75f8b11"
+          },
+          {
+            "id": "apply-templates",
+            "execution_count": 5,
+            "source_sha256": "093442bed27c5a49d6393d66b906f8d0b22a7d3a51b2d31a260d2c5b538dea6d"
+          },
+          {
+            "id": "hydrogens",
+            "execution_count": 6,
+            "source_sha256": "873393df759080e2ee171081d49d0647ad39974c173f33702f546503c4c340a9"
+          },
+          {
+            "id": "preparations",
+            "execution_count": 7,
+            "source_sha256": "9b843657cfc6c2932f4deff901e6a895d9a5a4a65fe07346d4ea9823b008238b"
+          },
+          {
+            "id": "prepared-values",
+            "execution_count": 8,
+            "source_sha256": "5d04e6353b7c0df7e256d66b61a9ebc205339b1d4ada5972c759510e0761eaf9"
+          },
+          {
+            "id": "plan",
+            "execution_count": 9,
+            "source_sha256": "60ac99c5dbde3a2d14c49a41debf25670565597755f465e12d56a9a6ce691a91"
+          },
+          {
+            "id": "reports",
+            "execution_count": 10,
+            "source_sha256": "2e787150c943f32fb32b150f046e8c63f8cb8d13b23866fd980fe7dfa6114952"
+          }
+        ]
+      },
+      "warnings": {
+        "count": 2,
+        "classification": "explicitly accepted occupancy/b_factor loss during provider H expansion"
+      }
+    },
+    {
+      "notebook_receipt": {
+        "schema": "dockingmt.installed_3ptb_preparation@1",
+        "scope": "preparation_and_protocol_admission_only",
+        "source_file_sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+        "declaration_file_sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53",
+        "reader_versions": {
+          "dockingmt": "0.0.0+225.g50d8e33",
+          "molsysmt": "0.23.0+361.gde7ffad2a",
+          "pyunitwizard": "0.29.0",
+          "rdkit": "2026.3.1"
+        },
+        "python": "3.14.8",
+        "source_counts": {
+          "n_atoms": 1701,
+          "n_groups": 287,
+          "n_structures": 1,
+          "n_bonds": 21
+        },
+        "prepared_atoms": {
+          "receptor": 2011,
+          "partner": 13
+        },
+        "projected_charge_unit": "elementary_charge",
+        "projected_charges": {
+          "receptor": 5.999999999999994,
+          "partner": 1.0000000000000004
+        },
+        "coordinate_tolerance_angstrom": 1e-12,
+        "source_and_prepared_values_verified": true,
+        "invalid_map_refusal": {
+          "code": "MSM-ERR-ARG-001",
+          "argument": "atom_correspondence"
+        },
+        "artifacts": {
+          "provider_reports.json": {
+            "bytes": 6181062,
+            "sha256": "1e9cad32a10e49785e002c6bff66baeb1046e54e50d0986043b396e48328f999"
+          },
+          "prepared_declarations.json": {
+            "bytes": 2395069,
+            "sha256": "57f72c73f41a98e6a02ac02a5ac447fef6967ffc79cfe5422f6b960cfb17076a"
+          },
+          "execution_plan.json": {
+            "bytes": 6005627,
+            "sha256": "afa6e9cb88b069c5d8ab7490b3ea52990aa32b45853ab73352dc7ab7a013097d"
+          },
+          "receptor.pdbqt": {
+            "bytes": 161490,
+            "sha256": "6e5c875ca16099422c311572f86c02817e0f7faf5ab546a40a8d93c8d6b27d80"
+          },
+          "partner.pdbqt": {
+            "bytes": 2934,
+            "sha256": "3f3d8a9556c4d2475c2a247c18a13b79ed9221d2bdc89d519f5216857ca25a90"
+          }
+        },
+        "planned_cases": [
+          "native",
+          "displaced"
+        ],
+        "execution_status": "not_executed",
+        "molecular_snapshot_created": false,
+        "chemical_model_suitability": "unassessed",
+        "C6_accepted": false
+      },
+      "validation": {
+        "variant": "pm-fs",
+        "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+        "consumer_wheel_sha256": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98",
+        "all_63_consumer_files_verified_before_after": true,
+        "molsysmt_wheel_producer": "de7ffad2aef18ff3bccd184133dc69e081cb506e",
+        "molsysmt_controlled_source": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+        "molsysmt_wheel_sha256": "4a8e58f40627ff468fab99301674429fba66362f549a31fb4cc747d9cf19a0ba",
+        "molsysmt_payload_files_verified_before_after": 3415,
+        "loaded_modules_before": 1576,
+        "loaded_modules_after": 1805,
+        "all_loaded_core_support_molecular_engine_origins_prefix_owned": true,
+        "source_or_data_harness_or_sdk_on_kernel_path": false,
+        "developer_import_attempts": [],
+        "public_call_counts": {
+          "molsysmt.physchem.get_peptide_chemical_template": 1,
+          "molsysmt.physchem.assess_chemical_template": 3,
+          "molsysmt.physchem.apply_chemical_template": 2,
+          "molsysmt.build.add_missing_hydrogens": 2,
+          "dockingmt.prepare_receptor": 1,
+          "molsysmt.build.assign_partial_charges": 2,
+          "molsysmt.build.assign_autodock_atom_types": 2,
+          "dockingmt.prepare_ligand": 1
+        },
+        "forbidden_engine_evaluation_viewer_calls": [],
+        "new_searches": 0,
+        "new_energy_evaluations": 0,
+        "new_rmsd_evaluations": 0,
+        "unit_policy_preserved": true,
+        "working_directory": "outside source checkout"
+      },
+      "execution": {
+        "variant": "pm-fs",
+        "status": "completed",
+        "kernel_shutdown": true,
+        "source_cells": [
+          {
+            "id": "inputs",
+            "execution_count": 2,
+            "source_sha256": "1b4ec8fa85ccae0fa1505937036a795ad40e630042fbc0ac038e489db6bdcfd8"
+          },
+          {
+            "id": "source",
+            "execution_count": 3,
+            "source_sha256": "331b500fc7cf49a1b9a002b906a0d35fe695fd78d50af2dfa9b7b9900b9bde8f"
+          },
+          {
+            "id": "templates",
+            "execution_count": 4,
+            "source_sha256": "502ce26a75efb3912fcb7e210bd51f03b98f5490925a0a0b40dc1562c75f8b11"
+          },
+          {
+            "id": "apply-templates",
+            "execution_count": 5,
+            "source_sha256": "093442bed27c5a49d6393d66b906f8d0b22a7d3a51b2d31a260d2c5b538dea6d"
+          },
+          {
+            "id": "hydrogens",
+            "execution_count": 6,
+            "source_sha256": "873393df759080e2ee171081d49d0647ad39974c173f33702f546503c4c340a9"
+          },
+          {
+            "id": "preparations",
+            "execution_count": 7,
+            "source_sha256": "9b843657cfc6c2932f4deff901e6a895d9a5a4a65fe07346d4ea9823b008238b"
+          },
+          {
+            "id": "prepared-values",
+            "execution_count": 8,
+            "source_sha256": "5d04e6353b7c0df7e256d66b61a9ebc205339b1d4ada5972c759510e0761eaf9"
+          },
+          {
+            "id": "plan",
+            "execution_count": 9,
+            "source_sha256": "60ac99c5dbde3a2d14c49a41debf25670565597755f465e12d56a9a6ce691a91"
+          },
+          {
+            "id": "reports",
+            "execution_count": 10,
+            "source_sha256": "2e787150c943f32fb32b150f046e8c63f8cb8d13b23866fd980fe7dfa6114952"
+          }
+        ]
+      },
+      "warnings": {
+        "count": 2,
+        "classification": "explicitly accepted occupancy/b_factor loss during provider H expansion"
+      }
+    }
+  ],
+  "pdbqt_bytes_identical_between_unit_policies": {
+    "receptor": true,
+    "partner": true
+  },
+  "installed_dependency_closure": {
+    "pip_check_exit": 0,
+    "result": "No broken requirements found."
+  },
+  "software_guards": {
+    "exit": 0,
+    "prefix_origins_verified": true,
+    "test_context": "1c343924b4a144058685796783d72c174b032651",
+    "test_files_equal_reviewed_source": true,
+    "selection": [
+      "test_backend_contracts.py",
+      "test_preparation_assessment.py"
+    ],
+    "passed": 64,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 1.174,
+    "new_scientific_cases": 0
+  },
+  "attempts": [
+    {
+      "stage": "notebook generation",
+      "outcome": "syntax stop before kernel execution",
+      "correction": "valid JSON encoding source; no scientific call"
+    },
+    {
+      "stage": "first normal kernel",
+      "outcome": "client refusal assertion expected arg_name instead of provider argument",
+      "kernel_shutdown": true,
+      "stopped_before_template_application": true,
+      "amendment": "https://github.com/uibcdf/dockingmt/issues/4#issuecomment-6618857115"
+    },
+    {
+      "stage": "second normal kernel",
+      "outcome": "client coordinate control expected coordinates inside Prepared.to_dict instead of admission sidecar",
+      "kernel_shutdown": true,
+      "preparation_calls_completed": true,
+      "amendment": "https://github.com/uibcdf/dockingmt/issues/4#issuecomment-6618882394"
+    },
+    {
+      "stage": "final normal and pm/fs kernels",
+      "outcome": "both exact nine-cell executions complete",
+      "chemistry_controls_or_tolerances_changed": false
+    }
+  ],
+  "execution_followup": {
+    "status": "proposed_not_registered_or_executed",
+    "planned_searches": 2,
+    "planned_cases": [
+      "rigid/native",
+      "rigid/displaced"
+    ],
+    "seed": 7,
+    "exhaustiveness": 1,
+    "cpu": 1,
+    "maximum_returned_poses": 18,
+    "retries": 0,
+    "rescoring": false,
+    "new_chemistry": false,
+    "reference_atom_population_and_correspondence_decision_required_before_RMSD": true
+  },
+  "limits": {
+    "new_searches": 0,
+    "new_energy_evaluations": 0,
+    "new_RMSD_evaluations": 0,
+    "new_runtime_API": false,
+    "native_molecular_snapshot_created": false,
+    "chemical_model_suitability": "unassessed",
+    "C6_accepted": false,
+    "public_package_or_platform_admission": false
+  },
+  "custody": {
+    "owner": "uibcdf/dockingmt#4",
+    "resource_coordination": "uibcdf/dockingmt#50",
+    "review_date": "2026-11-10",
+    "raw_executions_and_outputs": "task-owned retained evidence",
+    "original_inputs_results_receivers_preserved": true,
+    "active_kernels_servers_watchers": 0
+  },
+  "local_checks": {
+    "ruff_check_repository": "passed",
+    "ruff_format_repository": "189 files already formatted",
+    "explicit_notebook_lint_and_format": "passed",
+    "reporting_protocol_test": {
+      "passed": 1,
+      "seconds": 0.12
+    },
+    "generated_report_indexes": "current",
+    "relative_documentation_links_checked": 246,
+    "Core_criteria_retained": 35,
+    "diff_whitespace": "passed"
+  }
+}

@@ -17,6 +17,26 @@ supersedes: []
 **Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
 **Status:** Partial; DockingMT Core MVP work.
 
+## Installed preparation and protocol admission delivered — 2026-11-03
+
+[The public-API guide/notebook](../validation/installed_3ptb_preparation.md)
+completes nine exact source cells in normal and pm/fs kernels outside source.
+The original public source and declaration identities, explicit state/template
+maps, fixed-state H and named charge/type choices recreate the admitted
+2,011/13-atom inputs (+6/+1 e projected). Original prepared-value controls match;
+both current PDBQT files are identical between policies. An invalid map refuses.
+The unchanged consumer/molecular archives are checked before/after, both kernels
+close and 64 existing installed backend/assessment guards pass without skips.
+Initial generation/client assertion failures and corrections remain recorded
+separately; no chemistry or tolerance is changed to obtain a pass.
+
+All molecular operations use MolSysMT. No new runtime/API, native snapshot or
+engine/evaluation/viewer action is added. The final Markdown proposes a separate
+native/displaced two-search demonstration, which must be registered before
+execution; reference/pose atom populations still need an explicit evaluation
+decision. This broader issue and #33 remain partial. #52/#60 visual acceptance
+and #30/#47 public delivery retain their distinct owners.
+
 ## Installed saved-result inspection delivered — 2026-11-03
 
 [The maintained guide/notebook](../validation/installed_result_inspection.md)
