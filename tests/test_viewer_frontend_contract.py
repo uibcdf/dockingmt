@@ -21,9 +21,11 @@ def example_states():
     explorer = DockingExplorerPanel(view=view)
     domain = SearchDomainPanel(view=view)
     try:
+        explorer._refresh(view=view)
+        domain._refresh(view=view)
         states = {
-            'explorer_empty': explorer._build_state(runtime, view),
-            'domain_empty': domain._build_state(runtime, view),
+            'explorer_empty': explorer._last_state,
+            'domain_empty': domain._last_state,
         }
         runtime.result = DockingResult(
             [
@@ -58,8 +60,10 @@ def example_states():
             center=puw.quantity([1, 2, 3], 'angstrom'),
             lengths=puw.quantity([2, 4, 6], 'angstrom'),
         )
-        states['explorer_poses'] = explorer._build_state(runtime, view)
-        states['domain_supplied'] = domain._build_state(runtime, view)
+        explorer._refresh(view=view)
+        domain._refresh(view=view)
+        states['explorer_poses'] = explorer._last_state
+        states['domain_supplied'] = domain._last_state
         return states
     finally:
         explorer.close()

@@ -207,8 +207,9 @@ def test_absent_visual_rejects_visibility_change(state, which):
         set_search_domain_visibility if which == 'domain' else set_reference_visibility
     )
     event_count = len(runtime.event_log)
-    with pytest.raises(RuntimeError, match='before changing its visibility'):
+    with pytest.raises(RuntimeError) as caught:
         operation(view, True)
+    assert caught.value.code == 'DMT-E009'
     assert len(runtime.event_log) == event_count
     action = 'toggle_search_domain' if which == 'domain' else 'toggle_reference'
     panels[0].handle_action(view, action, {})
@@ -265,8 +266,9 @@ def test_reused_tag_is_not_mistaken_for_owned_shape(state, box):
     old = render_search_domain(view, box)
     old.delete()
     replacement = view.shapes.add(tag=old.tag)
-    with pytest.raises(RuntimeError, match='Render the search domain'):
+    with pytest.raises(RuntimeError) as caught:
         set_search_domain_visibility(view, False)
+    assert caught.value.code == 'DMT-E009'
     clear_docking(view)
     assert view.shapes.get(old.tag) is replacement
     assert runtime.domain_layers == []
@@ -341,7 +343,7 @@ def test_domain_panel_renders_explicitly_and_reports_missing_input(state, box):
     view, runtime, panels, states = state
     panels[1].handle_action(view, 'render_domain', {})
     assert states[1][-1]['status'] == 'error'
-    assert 'Supply a search domain' in states[1][-1]['error']
+    assert states[1][-1]['error_code'] == 'DMT-E009'
     runtime.search_domain = box
     panels[1].handle_action(view, 'render_domain', {})
     assert states[1][-1]['domain_available'] is True

@@ -79,8 +79,12 @@ def test_mismatched_reference_rejected_before_scene_changes(example):
     reference = msm.extract(partner, structure_indices=[0, 0])
     calls = []
     target = SimpleNamespace(load=lambda *args, **kwargs: calls.append(kwargs))
-    with pytest.raises(ValueError, match='reference.*1 or 3'):
+    with pytest.raises(ValueError) as caught:
         render_docking_result(target, result, receptor, partner, reference)
+    assert caught.value.code == 'DMT-E005'
+    assert caught.value.extra['role'] == 'reference'
+    assert caught.value.extra['expected'] == [1, 3]
+    assert caught.value.extra['observed'] == 2
     assert calls == []
     assert ensure_runtime(target).result is None
     assert ensure_runtime(target).event_log == []
@@ -89,16 +93,22 @@ def test_mismatched_reference_rejected_before_scene_changes(example):
 def test_multiframe_receptor_is_not_silently_truncated(example):
     receptor, partner, result = example
     receptor = msm.extract(receptor, structure_indices=[0, 0])
-    with pytest.raises(ValueError, match='receptor.*one structure'):
+    with pytest.raises(ValueError) as caught:
         build_docking_complex_system(receptor, result.poses, partner)
+    assert caught.value.code == 'DMT-E005'
+    assert caught.value.extra['role'] == 'receptor'
+    assert caught.value.extra['observed'] == 2
 
 
 def test_multiframe_reconstructed_pose_is_rejected(example):
     receptor, partner, _ = example
     trajectory = msm.extract(partner, structure_indices=[0, 0])
     pose = SimpleNamespace(to_molecular_system=lambda source: trajectory)
-    with pytest.raises(ValueError, match='pose.*one structure'):
+    with pytest.raises(ValueError) as caught:
         build_docking_complex_system(receptor, [pose], partner)
+    assert caught.value.code == 'DMT-E005'
+    assert caught.value.extra['role'] == 'reconstructed pose'
+    assert caught.value.extra['observed'] == 2
 
 
 def test_reference_preserves_declared_time_box_and_units(source):

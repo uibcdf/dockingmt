@@ -14,6 +14,30 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Preparation/addon diagnostic receiving — 2026-11-04
+
+The [diagnostic follow-up](../validation/support_library_review_2026-11-04.md#preparation-and-addon-diagnostic-receiving-follow-up)
+delivers preparation and addon orchestration signals, eight catalog-backed owned
+Viewer error identities and panel error_code state. Native Python catch families
+and provider exception identity remain intact; molecular work stays in MolSysMT.
+Shared panel recovery observes handled failures while expected idle absence stays
+quiet. The current frontend examples are synchronized with emitted panel states.
+
+The original thirteen controls reproduce twelve failures/one pass on the starting
+source. Forty-four routine focused checks, all 264 affected cases with the exact
+existing CI ArgDigest/MolSysMT/Viewer source pins, and 21 DOM cases pass. Fifteen
+failures with older routine molecular/viewer clones are independently reproduced
+against the starting DockingMT source; no provider contract or scientific pin is
+changed to accommodate them. This is source receiving, not public/installed or
+visible C4/C6 qualification.
+
+[SMonitor #59](https://github.com/uibcdf/smonitor/issues/59) owns the independently
+reproduced filtered-inner-DEBUG/outer-ERROR suppression. Trace controls explicitly
+use DEBUG; ordinary-threshold native-error delivery through ArgDigest remains
+unqualified. No downstream marker/reset or decorator-order workaround is added.
+#19 stays partial: receive that provider correction, complete prepared-constructor/
+owned-view contracts and reconcile dependency inventory/scanner receiving.
+
 ## Core model/factory receiving — 2026-11-04
 
 The [follow-up and exact provider evidence](../validation/support_library_review_2026-11-04.md#core-modelfactory-receiving-follow-up)

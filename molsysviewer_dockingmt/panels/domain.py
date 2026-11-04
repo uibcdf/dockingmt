@@ -6,6 +6,8 @@ from typing import Any
 
 import pyunitwizard as puw
 
+from dockingmt._private.smonitor import ViewerActionError, ViewerStateError
+
 from .._scene import sync_scene_state
 from ..adapters.shapes import render_search_domain, set_search_domain_visibility
 from ..runtime import ensure_runtime, record_event
@@ -176,26 +178,28 @@ class SearchDomainPanel(_DockingPanel):
     _css: str = _CSS
     _state_key = 'domain'
 
-    def handle_action(self, view: Any, action_id: str, payload: dict[str, Any]) -> None:
+    def _handle_action(
+        self, view: Any, action_id: str, payload: dict[str, Any]
+    ) -> None:
         runtime = ensure_runtime(view)
 
-        try:
-            sync_scene_state(view)
-            if action_id == 'toggle_domain':
-                new_vis = not runtime.domain_visible
-                set_search_domain_visibility(view, new_vis)
-                record_event(view, 'panel_toggle_domain', visible=new_vis)
-            elif action_id == 'render_domain':
-                domain = runtime.search_domain
-                if domain is None:
-                    raise RuntimeError('Supply a search domain before rendering it.')
-                render_search_domain(view, domain)
-                record_event(view, 'panel_render_domain')
-            elif action_id != 'refresh':
-                raise ValueError(f'Unknown search-domain action: {action_id!r}.')
-            self._refresh(view=view)
-        except Exception as exc:
-            self._refresh(str(exc), view=view)
+        sync_scene_state(view)
+        if action_id == 'toggle_domain':
+            new_vis = not runtime.domain_visible
+            set_search_domain_visibility(view, new_vis)
+            record_event(view, 'panel_toggle_domain', visible=new_vis)
+        elif action_id == 'render_domain':
+            domain = runtime.search_domain
+            if domain is None:
+                raise ViewerStateError(
+                    resource='search domain', operation='render_domain'
+                )
+            render_search_domain(view, domain)
+            record_event(view, 'panel_render_domain')
+        elif action_id != 'refresh':
+            raise ViewerActionError(
+                panel='search domain', action_id=action_id, operation='panel_action'
+            )
 
     def _build_state(self, runtime: Any, view: Any) -> dict[str, Any]:
         controls = sync_scene_state(view)

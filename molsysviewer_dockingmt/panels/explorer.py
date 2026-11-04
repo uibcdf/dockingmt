@@ -5,6 +5,8 @@ from __future__ import annotations
 from numbers import Integral
 from typing import Any
 
+from dockingmt._private.smonitor import ViewerActionError, ViewerPosePositionError
+
 from .._presentation import pose_record
 from .._scene import sync_scene_state
 from ..adapters.complex import set_active_pose, set_reference_visibility
@@ -298,53 +300,55 @@ class DockingExplorerPanel(_DockingPanel):
     _css: str = _CSS
     _state_key = 'explorer'
 
-    def handle_action(self, view: Any, action_id: str, payload: dict[str, Any]) -> None:
+    def _handle_action(
+        self, view: Any, action_id: str, payload: dict[str, Any]
+    ) -> None:
         runtime = ensure_runtime(view)
 
-        try:
-            sync_scene_state(view)
-            if action_id == 'set_pose':
-                if 'index' in payload and 'rank' not in payload:
-                    index = payload['index']
-                    if isinstance(index, bool) or not isinstance(index, Integral):
-                        raise ValueError('Use an integer pose index.')
-                    position = int(index) + 1
-                elif 'rank' in payload and 'index' not in payload:
-                    # Retain the old one-based position message for callers.
-                    position = payload['rank']
-                else:
-                    raise ValueError('Supply one pose index (or legacy position).')
-                set_active_pose(view, position)
-                record_event(view, 'panel_set_pose', index=runtime.active_pose_index)
+        sync_scene_state(view)
+        if action_id == 'set_pose':
+            if 'index' in payload and 'rank' not in payload:
+                index = payload['index']
+                if isinstance(index, bool) or not isinstance(index, Integral):
+                    raise ViewerPosePositionError(
+                        arg_name='index', position=index, operation='panel_action'
+                    )
+                position = int(index) + 1
+            elif 'rank' in payload and 'index' not in payload:
+                # Retain the old one-based position message for callers.
+                position = payload['rank']
+            else:
+                raise ViewerPosePositionError(
+                    arg_name='index/rank', operation='panel_action'
+                )
+            set_active_pose(view, position)
+            record_event(view, 'panel_set_pose', index=runtime.active_pose_index)
 
-            elif action_id == 'prev_pose':
-                new_rank = max(1, runtime.active_pose_rank - 1)
-                set_active_pose(view, new_rank)
-                record_event(view, 'panel_prev_pose', rank=new_rank)
+        elif action_id == 'prev_pose':
+            new_rank = max(1, runtime.active_pose_rank - 1)
+            set_active_pose(view, new_rank)
+            record_event(view, 'panel_prev_pose', rank=new_rank)
 
-            elif action_id == 'next_pose':
-                max_rank = len(runtime.result.poses) if runtime.result else 1
-                new_rank = min(max_rank, runtime.active_pose_rank + 1)
-                set_active_pose(view, new_rank)
-                record_event(view, 'panel_next_pose', rank=new_rank)
+        elif action_id == 'next_pose':
+            max_rank = len(runtime.result.poses) if runtime.result else 1
+            new_rank = min(max_rank, runtime.active_pose_rank + 1)
+            set_active_pose(view, new_rank)
+            record_event(view, 'panel_next_pose', rank=new_rank)
 
-            elif action_id == 'toggle_search_domain':
-                new_vis = not runtime.domain_visible
-                set_search_domain_visibility(view, new_vis)
-                record_event(view, 'panel_toggle_search_domain', visible=new_vis)
+        elif action_id == 'toggle_search_domain':
+            new_vis = not runtime.domain_visible
+            set_search_domain_visibility(view, new_vis)
+            record_event(view, 'panel_toggle_search_domain', visible=new_vis)
 
-            elif action_id == 'toggle_reference':
-                new_vis = not runtime.reference_visible
-                set_reference_visibility(view, new_vis)
-                record_event(view, 'panel_toggle_reference', visible=new_vis)
+        elif action_id == 'toggle_reference':
+            new_vis = not runtime.reference_visible
+            set_reference_visibility(view, new_vis)
+            record_event(view, 'panel_toggle_reference', visible=new_vis)
 
-            elif action_id != 'refresh':
-                raise ValueError(f'Unknown docking explorer action: {action_id!r}.')
-
-            self._refresh(view=view)
-
-        except Exception as exc:
-            self._refresh(str(exc), view=view)
+        elif action_id != 'refresh':
+            raise ViewerActionError(
+                panel='docking explorer', action_id=action_id, operation='panel_action'
+            )
 
     def _build_state(self, runtime: Any, view: Any) -> dict[str, Any]:
         controls = sync_scene_state(view)

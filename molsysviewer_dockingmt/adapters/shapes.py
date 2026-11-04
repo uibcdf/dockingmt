@@ -7,6 +7,12 @@ from typing import Any
 import numpy as np
 import pyunitwizard as puw
 
+from dockingmt._private.smonitor import (
+    ViewerCapabilityError,
+    ViewerShapeOwnershipError,
+    signal,
+)
+
 from .._scene import domain_layer
 from ..runtime import ensure_runtime, record_event
 
@@ -16,8 +22,8 @@ def _clear_domain_layers(view: Any) -> None:
     runtime = ensure_runtime(view)
     shapes = getattr(view, 'shapes', None)
     if runtime.domain_layers and shapes is None:
-        raise RuntimeError(
-            'Owned search-domain cleanup requires Viewer shapes support.'
+        raise ViewerCapabilityError(
+            capability='shapes', operation='clear_search_domain'
         )
     for layer in runtime.domain_layers.copy():
         if shapes.get(layer.tag) is layer:
@@ -95,6 +101,7 @@ def compute_box_wireframe_coordinate_pairs(box_or_domain: Any) -> Any:
     return puw.quantity(np.asarray(coord_pairs, dtype=float), 'angstrom')
 
 
+@signal(tags=['addon', 'viewer'])
 def render_search_domain(
     view: Any,
     search_domain: Any,
@@ -130,15 +137,13 @@ def render_search_domain(
     if shapes is None or not callable(
         getattr(getattr(shapes, 'links', None), 'add_links', None)
     ):
-        raise RuntimeError(
-            'Search-domain rendering requires public Viewer shapes support.'
+        raise ViewerCapabilityError(
+            capability='shapes', operation='render_search_domain'
         )
     previous = shapes.get(tag)
     if previous is not None:
         if not any(item is previous for item in runtime.domain_layers):
-            raise ValueError(
-                f'Shape tag {tag!r} is already owned by another scene element.'
-            )
+            raise ViewerShapeOwnershipError(tag=tag, operation='render_search_domain')
         previous.delete()
         runtime.domain_layers.remove(previous)
         if runtime.domain_layer is previous:
@@ -150,7 +155,9 @@ def render_search_domain(
         tag=tag,
     )
     if layer is None:
-        raise RuntimeError('The Viewer did not return a rendered search-domain handle.')
+        raise ViewerCapabilityError(
+            capability='search-domain handle', operation='render_search_domain'
+        )
 
     runtime.domain_layers.append(layer)
     runtime.domain_layer = layer
@@ -160,6 +167,7 @@ def render_search_domain(
     return layer
 
 
+@signal(tags=['addon', 'viewer'])
 def set_search_domain_visibility(
     view: Any,
     visible: bool,

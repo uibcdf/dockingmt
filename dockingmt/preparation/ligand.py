@@ -5,8 +5,9 @@ from typing import Any
 import numpy as np
 import pyunitwizard as puw
 from argdigest import arg_digest
+from smonitor.integrations import context_extra
 
-from dockingmt._private.smonitor import ArgumentError
+from dockingmt._private.smonitor import ArgumentError, signal
 from dockingmt.preparation._export import render_pdbqt
 from dockingmt.preparation._molsys import (
     atom_metadata,
@@ -184,6 +185,12 @@ class PreparedLigand:
         )
 
 
+@signal(
+    tags=['api', 'preparation'],
+    extra_factory=lambda args, kwargs: context_extra(
+        operation='prepare_ligand', provider='molsysmt'
+    ),
+)
 @arg_digest(config='dockingmt._argdigest')
 def prepare_ligand(
     molecular_system: Any,

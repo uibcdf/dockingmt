@@ -3,10 +3,12 @@
 from numbers import Integral
 from typing import Any
 
+from dockingmt._private.smonitor import ViewerStateError
+
 from .runtime import ensure_runtime
 
 
-class ScenePrerequisiteError(RuntimeError):
+class ScenePrerequisiteError(ViewerStateError):
     """A docking-owned visual is absent; provider failures remain distinct."""
 
 
@@ -20,7 +22,7 @@ def domain_layer(view: Any, tag: str | None = None) -> Any:
     )
     if layer is None or shapes is None or shapes.get(layer.tag) is not layer:
         raise ScenePrerequisiteError(
-            'Render the search domain before changing its visibility.'
+            resource='search domain', operation='set_search_domain_visibility'
         )
     return layer
 
@@ -31,7 +33,7 @@ def reference_region(view: Any) -> Any:
     regions = getattr(view, 'regions', None)
     if region is None or regions is None or regions.get(region.tag) is not region:
         raise ScenePrerequisiteError(
-            'Load an explicit reference before changing its visibility.'
+            resource='explicit reference', operation='set_reference_visibility'
         )
     return region
 

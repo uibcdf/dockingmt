@@ -4,6 +4,9 @@ from numbers import Integral
 from typing import Any
 
 from molsysviewer.addons import AddonPanelWidget
+from smonitor.integrations import context_extra
+
+from dockingmt._private.smonitor import signal
 
 from ..runtime import ensure_runtime
 
@@ -53,18 +56,50 @@ class _DockingPanel(AddonPanelWidget):
                 runtime.active_pose_rank = int(index) + 1
             self._refresh()
 
-    def _refresh(self, error: str | None = None, *, view: Any = None) -> None:
+    def handle_action(self, view: Any, action_id: str, payload: dict[str, Any]) -> None:
+        try:
+            self._apply_action(view, action_id, payload)
+            self._refresh(view=view)
+        except Exception as exc:
+            self._refresh(exc, view=view)
+
+    @signal(
+        tags=['addon', 'viewer', 'action'],
+        extra_factory=lambda args, kwargs: context_extra(
+            provider='molsysviewer', operation='panel_action'
+        ),
+    )
+    def _apply_action(self, view: Any, action_id: str, payload: dict[str, Any]) -> None:
+        self._handle_action(view, action_id, payload)
+
+    @signal(
+        tags=['addon', 'viewer', 'inspection'],
+        extra_factory=lambda args, kwargs: context_extra(
+            provider='molsysviewer', operation='read_panel_state'
+        ),
+    )
+    def _read_state(self, view: Any) -> dict[str, Any]:
+        return self._build_state(ensure_runtime(view), view)
+
+    def _refresh(
+        self, error: Exception | str | None = None, *, view: Any = None
+    ) -> None:
         view = self._bound_view if view is None else view
         if view is None:
             return
         try:
-            state = self._build_state(ensure_runtime(view), view)
+            state = self._read_state(view)
         except Exception as exc:
             state = dict(getattr(self, '_last_state', {}))
             state.update(domain_available=False, reference_available=False)
-            error = str(exc) if error is None else error
+            error = exc if error is None else error
+        state['error_code'] = None
         if error is not None:
-            state.update(status='error', error=error)
+            state.update(
+                status='error',
+                error=str(error),
+                error_code=getattr(error, 'code', None),
+            )
         self._last_state = state
         self.set_state({self._state_key: state})
         self.push_state(state)

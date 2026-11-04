@@ -5,9 +5,12 @@ from __future__ import annotations
 import inspect
 from typing import Any
 
+from dockingmt._private.smonitor import signal
+
 from .runtime import create_dockingmt_state, ensure_runtime, record_event
 
 
+@signal(tags=['addon', 'viewer'])
 def on_enable(view: Any) -> None:
     """Invoked when the DockingMT addon or workspace is enabled."""
     runtime = ensure_runtime(view)
@@ -15,6 +18,7 @@ def on_enable(view: Any) -> None:
     record_event(view, 'enable', workspace=runtime.workspace)
 
 
+@signal(tags=['addon', 'viewer'])
 def on_disable(view: Any) -> None:
     """Invoked when the DockingMT addon is disabled."""
     from .adapters.complex import clear_docking
@@ -25,6 +29,7 @@ def on_disable(view: Any) -> None:
     record_event(view, 'disable', workspace=runtime.workspace)
 
 
+@signal(tags=['addon', 'viewer'])
 def on_context_action(view: Any, action_id: str, payload: dict[str, Any]) -> None:
     """Handle context menu action triggers dispatched by MolSysViewer."""
     from ._scene import sync_scene_state

@@ -15,6 +15,14 @@ from dockingmt._private.smonitor import (
     CapabilityMismatchError,
     LibraryNotFoundError,
     NotDigestedArgumentWarning,
+    ViewerActionError,
+    ViewerCapabilityError,
+    ViewerInputMissingError,
+    ViewerPoseCountError,
+    ViewerPosePositionError,
+    ViewerShapeOwnershipError,
+    ViewerStateError,
+    ViewerStructureCountError,
     warn,
 )
 from dockingmt._private.smonitor.catalog import CATALOG, CODES
@@ -43,6 +51,18 @@ def test_catalog_messages_render_in_all_profiles(profile, monkeypatch):
         lambda: CapabilityMismatchError(capability='flexible_receptor', engine='vina'),
         lambda: BackendApproximationWarning(domain_type='sphere', engine='vina'),
         lambda: NotDigestedArgumentWarning(argument='selection', caller='example'),
+        lambda: ViewerPoseCountError(n_poses=True, operation='build_reference'),
+        lambda: ViewerStructureCountError(
+            role='reference', expected=[1, 3], observed=2, operation='build_reference'
+        ),
+        lambda: ViewerInputMissingError(resource='receptor', operation='render_result'),
+        lambda: ViewerPosePositionError(position=-1, operation='set_active_pose'),
+        lambda: ViewerShapeOwnershipError(tag='foreign', operation='render_domain'),
+        lambda: ViewerStateError(resource='search domain', operation='toggle_domain'),
+        lambda: ViewerCapabilityError(capability='shapes', operation='render_domain'),
+        lambda: ViewerActionError(
+            panel='explorer', action_id='unknown', operation='panel_action'
+        ),
     ],
 )
 def test_diagnostics_rebuild_and_preserve_structured_data(build):

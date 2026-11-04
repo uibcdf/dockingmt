@@ -8,9 +8,10 @@ passing numerical tests as complete adoption. No molecular workflow is changed.
 
 ## Assessment
 
-The table records the starting review. The [core model/factory follow-up](#core-modelfactory-receiving-follow-up)
-below now delivers that bounded ArgDigest work; prepared constructors, owned
-view arguments, diagnostics and dependency-audit receiving remain incomplete.
+The table records the starting review. The core model/factory and bounded
+preparation/addon diagnostic follow-ups below deliver those receiving blocks.
+Prepared constructors, owned view arguments, dependency-audit receiving and
+the SMonitor #59 provider limitation remain incomplete.
 
 | Tool | Actual adoption | Remaining work |
 | --- | --- | --- |
@@ -183,3 +184,104 @@ No dependency floor/pin, scientific producer or frozen input changes. #19 stays
 partial: prepared-object constructors and owned view arguments still need their
 own receiving work; molecular content validation must use MolSysMT. Preparation/
 addon diagnostics and the DepDigest inventory/scanner disposition remain next.
+
+## Preparation and addon diagnostic receiving follow-up
+
+Starting from `c957f52116c068ce27c57129aca64b150ca7f986`, #19 adds explicit
+SMonitor orchestration signals to prepare_ligand/prepare_receptor, addon
+lifecycle/context actions and public molecular-scene/domain adapters. Preparation
+frames use context_extra with operation and provider=molsysmt. Molecular work
+still goes through the existing MolSysMT operations; no preparation choice,
+geometry kernel, source mapping, frame policy or provider exception is replaced.
+
+Eight catalog identities (DMT-E004 through DMT-E011) distinguish corrections for
+pose count, structure pairing, missing display inputs, pose position, foreign
+shape ownership, missing scene state, unsupported Viewer capabilities and unknown
+panel actions. Their wording lives in the catalog; typed occurrence facts include
+operation/provider, resource, observed/expected counts, pose index/position,
+shape tag and action ID. Existing ValueError/RuntimeError catch families remain
+valid through catalog-backed subclasses. Published DMT-E001–E003/W001–W002
+meanings are retained. New classes survive args-only rebuilding, pickle and
+deepcopy; all thirteen codes render under the five supported profiles.
+
+Panel action dispatch and state reads have shared signal boundaries inside their
+existing recovery catches, so handled failures remain observable. Panel states
+add error_code, preserve the original error text and clear the code after a
+successful refresh. Provider failures retain their original identities, causes
+and codes, including an uncoded native error when appropriate. Expected absence
+of an unrendered domain/reference during ordinary refresh emits no error; an
+attempt to operate on that absent visual remains a coded refusal. Domain handles,
+failed-deletion retry state, subscriptions and molecular frame ordering retain
+their previous contracts.
+
+The frontend protocol examples now come from emitted production refresh states,
+including nullable error_code and catalog-backed prerequisite wording. Only
+these current developer examples change; frozen scientific/installed fixtures
+and their declared hashes retain their original bytes.
+
+### Source and protocol evidence
+
+- A verified export of the starting DockingMT source reproduces **12 failures /
+  one pass** in the original thirteen diagnostic controls. The final diagnostic
+  module has fourteen cases, including a normal-threshold owned-error control.
+- **44 routine source checks pass** for diagnostics, catalog contracts and
+  Python/DOM protocol examples. A fresh application-configured process preserves
+  the complete SMonitor configuration and warning hook across addon activation
+  and an owned diagnostic. The SMonitor config CLI and canonical integration
+  checker pass configuration, templates, rendering and reserved-name checks.
+- The broader first routine selection gives 244 passes/19 failures: four stale
+  protocol examples are corrected here. The remaining fifteen failures are
+  reproduced unchanged against the starting DockingMT source: thirteen Viewer
+  player receiving cases and two MolSysMT preparation/map profile cases. Routine
+  clones are Viewer `73a6f388e09146650349dfe83564ae318ba20298` and MolSysMT
+  `71fbe4f46d3c70e4e973c8025f01752a8c9b1084`; do not call that profile qualified
+  or modify a provider contract to accommodate it.
+- A separate managed export selects the exact existing CI ArgDigest
+  `3d1ec53c374098016452abab74706e9d80df5462`, MolSysMT
+  `00abb958fb93649131d5ce5fe5e12e90cf4900e9` and Viewer
+  `78ede79e2e345593db5bfe80d246d3f6c70bd005` sources. Package import origins and
+  inspected provider-file bytes are verified. **All 264 affected cases pass**,
+  48.79 s, no skips; 59 existing provider warnings remain (42 legacy-H5MSM,
+  14 off-axis attribute and three attribute-drop warnings). This includes actual
+  Python player/widget receiving, preparation stages/maps, core argument
+  contracts and addon state/reference/presentation behavior. Exports are retired.
+- **21 DOM tests pass**, Node 26.3.1, using the actual extracted panel modules;
+  the existing experimental VM-module warning remains. The initial sandboxed
+  command could not spawn its Python extractor; the authorized local rerun passes.
+  No browser/canvas, comm transport or human C4/C6 acceptance is claimed.
+
+The 264-case selection comprises test_preparation_addon_diagnostics,
+test_support_contracts, test_viewer_addon, test_viewer_state,
+test_viewer_reference, test_viewer_presentation, test_viewer_player_receiving,
+test_viewer_frontend_contract, test_preparation, test_ligand_preparation_stages,
+test_preparation_map_consumption, test_argument_contracts and
+test_model_argument_contracts, all under tests/ with --receptor=llm. SMonitor
+is the routine source `ebdd0542156ed1dbe8df93141dbddbc74132a6f0` in these probes.
+These source profiles are not complete installed/public dependency closure or
+qualification of every supported Python/platform lane. The separate installed-
+wheel diagnostic check and its exact file/source identity are recorded in #19;
+it does not replace the previous installed-science receipts or public gates.
+
+### Independently reproduced SMonitor limitation
+
+[SMonitor #59](https://github.com/uibcdf/smonitor/issues/59) owns a newly observed
+nested-signal defect, reproduced without DockingMT or ArgDigest: with application
+threshold WARNING, a filtered inner DEBUG signal marks the exception emitted
+and suppresses the outer ERROR event. At threshold DEBUG the one DEBUG event is
+observable; nested ERROR at threshold WARNING produces one ERROR. All controls
+preserve native exception identity/args/cause. The consumer-facing ArgDigest
+wrapper uses DEBUG, so this matters for ordinary preparation failures.
+
+Trace tests explicitly select DEBUG to inspect breadcrumbs. A separate owned
+addon error is verified at the ordinary WARNING threshold. This does **not**
+prove normal-threshold ERROR delivery for the affected ArgDigest composition.
+No production threshold, decorator order, private emission marker or provider
+implementation is changed to work around it. Receive the provider correction
+under #19 before closing that broader diagnostic claim; the owner issue includes
+ArgDigest/DockingMT relationships and the shared-impact handoff requirement.
+
+The local diagnostic block is delivered. #19 remains partial for SMonitor #59
+receiving, prepared-object/owned-view argument contracts and dependency inventory/
+scanner receiving (DepDigest #47). Scientific producers, provider pins, prior
+installed artifacts, public minimum claims and the deferred visual review retain
+their independent identities and gates.

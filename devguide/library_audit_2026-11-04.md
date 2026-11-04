@@ -668,3 +668,28 @@ state fixture replaces a removed private charge setter with public msm.set.
 These are Python 3.14 source/compatibility checks, not public delivery or complete
 support-library/scientific qualification. Prepared constructors, owned view
 arguments, diagnostic coverage and dependency audit receiving remain under #19.
+
+## Follow-up 13 — preparation and addon structured diagnostics, 2026-11-04
+
+The [#19 diagnostic receiving block](validation/support_library_review_2026-11-04.md#preparation-and-addon-diagnostic-receiving-follow-up)
+adds preparation/addon signals, eight owned Viewer diagnostic identities and
+panel error_code state. Catalog wording and typed occurrence fields replace raw
+owned errors; existing ValueError/RuntimeError catch families, foreign exception
+identities and scientific/molecular delegation are preserved. Expected idle
+visual absence stays quiet. Current DOM examples now use emitted refresh states.
+
+The original thirteen controls reproduce twelve failures/one pass; the final
+module has fourteen cases. All 264 affected cases pass with the exact existing
+ArgDigest/MolSysMT/Viewer CI source pins, plus 21 DOM cases. Forty-four focused
+checks pass with routine providers. Fifteen broader failures with older routine
+provider clones are independently reproduced on the original DockingMT source;
+the selected controlled composition succeeds without changing the scientific pins.
+These checks establish neither public/installed delivery nor visual C4/C6.
+
+A provider-only control exposes filtered DEBUG suppressing an outer ERROR under
+SMonitor #59. Trace tests explicitly enable DEBUG; ordinary-threshold delivery
+for that ArgDigest composition remains unqualified. The issue owns the shared
+correction; no local emission-marker or decorator workaround is introduced.
+#19 remains partial for that receiving work and remaining argument/dependency
+boundaries. Original scientific producers, frozen inputs and installed artifacts
+retain their own identities and qualification.

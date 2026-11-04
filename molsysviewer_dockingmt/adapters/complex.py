@@ -6,6 +6,16 @@ from inspect import signature
 from numbers import Integral
 from typing import Any
 
+from dockingmt._private.smonitor import (
+    ViewerCapabilityError,
+    ViewerInputMissingError,
+    ViewerPoseCountError,
+    ViewerPosePositionError,
+    ViewerStateError,
+    ViewerStructureCountError,
+    signal,
+)
+
 from .._scene import reference_region
 from ..runtime import ensure_runtime, record_event
 from .shapes import _clear_domain_layers, render_search_domain
@@ -20,6 +30,7 @@ def _ensure_molsys(entity: Any) -> Any:
     return msm.convert(entity, to_form='molsysmt.MolSys')
 
 
+@signal(tags=['addon', 'viewer'])
 def build_docking_reference_system(reference: Any, n_poses: int) -> Any:
     """Return a detached reference with one structure per docking pose.
 
@@ -33,15 +44,20 @@ def build_docking_reference_system(reference: Any, n_poses: int) -> Any:
     import molsysmt as msm
 
     if isinstance(n_poses, bool) or not isinstance(n_poses, Integral) or n_poses < 1:
-        raise ValueError('n_poses must be a positive integer.')
+        raise ViewerPoseCountError(
+            n_poses=n_poses, operation='build_docking_reference_system'
+        )
     source = _ensure_molsys(reference)
     n_structures = msm.get(source, n_structures=True)
     if n_structures == n_poses:
         return msm.copy(source)
     if n_structures == 1:
         return msm.extract(source, structure_indices=[0] * n_poses)
-    raise ValueError(
-        f'The reference must have 1 or {n_poses} structures; got {n_structures}.'
+    raise ViewerStructureCountError(
+        role='reference',
+        observed=n_structures,
+        expected=[1, int(n_poses)],
+        operation='build_docking_reference_system',
     )
 
 
@@ -62,6 +78,7 @@ def _load_reference(view: Any, reference: Any) -> None:
     view.load(reference, label='reference_ligand', mode='add', **options)
 
 
+@signal(tags=['addon', 'viewer'])
 def build_docking_complex_system(
     receptor: Any,
     poses: list[Any],
@@ -89,18 +106,37 @@ def build_docking_complex_system(
     import molsysmt as msm
 
     if not poses:
-        raise ValueError('Cannot build docking complex without candidate poses.')
+        raise ViewerInputMissingError(
+            resource='nonempty pose collection',
+            operation='build_docking_complex_system',
+        )
 
     rec_sys = _ensure_molsys(receptor)
-    if msm.get(rec_sys, n_structures=True) != 1:
-        raise ValueError('The receptor must have exactly one structure.')
+    n_structures = msm.get(rec_sys, n_structures=True)
+    if n_structures != 1:
+        raise ViewerStructureCountError(
+            role='receptor',
+            observed=n_structures,
+            expected=[1],
+            operation='build_docking_complex_system',
+        )
 
     if partner is None:
-        raise ValueError('A source partner is required to reconstruct molecular poses.')
+        raise ViewerInputMissingError(
+            resource='source partner', operation='build_docking_complex_system'
+        )
 
     ligand_frames = [pose.to_molecular_system(partner) for pose in poses]
-    if any(msm.get(frame, n_structures=True) != 1 for frame in ligand_frames):
-        raise ValueError('Each reconstructed pose must have exactly one structure.')
+    for index, frame in enumerate(ligand_frames):
+        n_structures = msm.get(frame, n_structures=True)
+        if n_structures != 1:
+            raise ViewerStructureCountError(
+                role='reconstructed pose',
+                observed=n_structures,
+                expected=[1],
+                pose_index=index,
+                operation='build_docking_complex_system',
+            )
     lig_frame0 = ligand_frames[0]
     complex_sys = msm.merge([rec_sys, lig_frame0])
 
@@ -112,6 +148,7 @@ def build_docking_complex_system(
     return complex_sys
 
 
+@signal(tags=['addon', 'viewer'])
 def render_docking_result(
     view: Any,
     result: Any,
@@ -158,9 +195,13 @@ def render_docking_result(
         partner = result.problem.partner_molsys or result.problem.partner
 
     if result.poses and receptor is None:
-        raise ValueError('A receptor is required to display molecular docking poses.')
+        raise ViewerInputMissingError(
+            resource='receptor', operation='render_docking_result'
+        )
     if result.poses and partner is None:
-        raise ValueError('A source partner is required to reconstruct molecular poses.')
+        raise ViewerInputMissingError(
+            resource='source partner', operation='render_docking_result'
+        )
 
     # Resolve search domain
     if search_domain is None:
@@ -219,6 +260,7 @@ def render_docking_result(
     return view
 
 
+@signal(tags=['addon', 'viewer'])
 def set_active_pose(view: Any, rank: int) -> None:
     """Activate a pose by one-based collection position.
 
@@ -227,7 +269,7 @@ def set_active_pose(view: Any, rank: int) -> None:
     """
     runtime = ensure_runtime(view)
     if runtime.result is None or not runtime.result.poses:
-        raise RuntimeError('No docking result loaded in viewer.')
+        raise ViewerStateError(resource='docking result', operation='set_active_pose')
 
     if (
         isinstance(rank, bool)
@@ -235,16 +277,17 @@ def set_active_pose(view: Any, rank: int) -> None:
         or rank < 1
         or rank > len(runtime.result.poses)
     ):
-        raise ValueError(
-            f'Invalid pose position {rank}. Use an integer between '
-            f'1 and {len(runtime.result.poses)}.'
+        raise ViewerPosePositionError(
+            position=rank,
+            n_poses=len(runtime.result.poses),
+            operation='set_active_pose',
         )
 
     rank = int(rank)
 
     player = getattr(view, 'player', None)
     if player is None or not callable(getattr(player, 'go_to_structure', None)):
-        raise RuntimeError('Pose navigation requires the Viewer player.')
+        raise ViewerCapabilityError(capability='player', operation='set_active_pose')
     player.go_to_structure(rank - 1)
 
     runtime.active_pose_rank = rank
@@ -259,6 +302,7 @@ def set_active_pose(view: Any, rank: int) -> None:
     )
 
 
+@signal(tags=['addon', 'viewer'])
 def set_reference_visibility(view: Any, visible: bool) -> None:
     """Toggle visibility of the reference ligand."""
     region = reference_region(view)
@@ -271,6 +315,7 @@ def set_reference_visibility(view: Any, visible: bool) -> None:
     record_event(view, 'set_reference_visibility', visible=visible)
 
 
+@signal(tags=['addon', 'viewer'])
 def clear_docking(view: Any) -> None:
     """Delete only owned domain shapes and release the docking binding.
 

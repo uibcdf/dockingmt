@@ -12,9 +12,10 @@
     "status": "idle",
     "error": null,
     "domain_available": false,
-    "domain_reason": "Render the search domain before changing its visibility.",
+    "domain_reason": "Supply the search domain before using this docking control.",
     "reference_available": false,
-    "reference_reason": "Load an explicit reference before changing its visibility."
+    "reference_reason": "Supply the explicit reference before using this docking control.",
+    "error_code": null
   },
   "domain_empty": {
     "has_domain": false,
@@ -35,9 +36,10 @@
     "length_unit": "angstrom",
     "volume_unit": "angstrom**3",
     "domain_available": false,
-    "domain_reason": "Render the search domain before changing its visibility.",
+    "domain_reason": "Supply the search domain before using this docking control.",
     "reference_available": false,
-    "reference_reason": "Load an explicit reference before changing its visibility."
+    "reference_reason": "Supply the explicit reference before using this docking control.",
+    "error_code": null
   },
   "explorer_poses": {
     "n_poses": 3,
@@ -105,9 +107,10 @@
     "status": "idle",
     "error": null,
     "domain_available": false,
-    "domain_reason": "Render the search domain before changing its visibility.",
+    "domain_reason": "Supply the search domain before using this docking control.",
     "reference_available": false,
-    "reference_reason": "Load an explicit reference before changing its visibility."
+    "reference_reason": "Supply the explicit reference before using this docking control.",
+    "error_code": null
   },
   "domain_supplied": {
     "has_domain": true,
@@ -128,8 +131,9 @@
     "length_unit": "angstrom",
     "volume_unit": "angstrom**3",
     "domain_available": false,
-    "domain_reason": "Render the search domain before changing its visibility.",
+    "domain_reason": "Supply the search domain before using this docking control.",
     "reference_available": false,
-    "reference_reason": "Load an explicit reference before changing its visibility."
+    "reference_reason": "Supply the explicit reference before using this docking control.",
+    "error_code": null
   }
 }
