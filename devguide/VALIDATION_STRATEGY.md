@@ -211,3 +211,9 @@ atoms are generated, with source/input immutability and an attribute-drop warnin
 the public map/new generation-history boundary is requested in MolSysMT #558.
 Output old-atom geometry stays unassessed without that map. This is a software
 control, not an admitted receptor or new docking outcome.
+
+The [scientific overview](validation/scientific_evidence_overview_2026-11-04.md)
+summarizes existing registered/adverse/installed-saved populations from exact
+records, retaining their original producers, cutoffs, atom populations and
+reporting failures. Its ten strata are not independent complexes. Rebuilding the
+presentation performs no molecular/native calculation or new qualification.

@@ -1,0 +1,37 @@
+{
+  "schema": "dockingmt.evidence_synthesis_manifest@1",
+  "owner": "uibcdf/dockingmt#29",
+  "baseline": "be1de30da4c1c5b319533d6b63fcfb2f2266d79c",
+  "date": "2026-11-04",
+  "producer_sha256": "da1bcd286dee02fcb0d86cb47ea5e8451fb19f08f1be0cf20866e94351d3e6e3",
+  "summary_sha256": "707d5250a85a272fa6cee5a36f82d5e589e6610794e6bc57195ffc143189833f",
+  "molecular_operations": 0,
+  "native_operations": 0,
+  "new_experimental_cases": 0,
+  "case_strata": 10,
+  "checks": [
+    "four immutable source digests",
+    "saved-observation recovery consistency",
+    "generated JSON and overview table equality",
+    "changed source refused before JSON decoding"
+  ],
+  "source_inputs": {
+    "search": {
+      "path": "3ptb_search/audit_2026-10-10.json.gz",
+      "sha256": "97104903c93b3f7a729a5a6ac196cdb7b59d686e318efdcf324f70131abba1f2"
+    },
+    "receiving": {
+      "path": "3ptb_search/evaluation_2026-10-10.json.gz",
+      "sha256": "8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af"
+    },
+    "root_order": {
+      "path": "5x72_root_order/audit_2026-10-09.json.gz",
+      "sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e"
+    },
+    "installed": {
+      "path": "installed_3ptb_evaluation/normal_evaluations.json",
+      "sha256": "7949117149a50118e3a3552013338b21598efa460f6b68474ad7ada220d1c675"
+    }
+  },
+  "limits": "Historical producers/measurements remain separate; no pooled accuracy or public qualification."
+}

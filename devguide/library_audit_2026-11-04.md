@@ -541,3 +541,18 @@ This is one explicitly counted diagnostic molecular reconstruction, not zero
 molecular work, an admitted preparation or a new docking outcome. Q2/Q3/R3/R6
 remain partial. Receive provider maps and CCD/templates, decide states/environment,
 then assess preparation before any search registration.
+
+## Follow-up 6 — reproducible scientific evidence presentation, 2026-11-04
+
+The [evidence overview](validation/scientific_evidence_overview_2026-11-04.md)
+delivers packet 5's compact case/protocol/outcome/limit presentation under #29.
+A standard-library producer authenticates four existing files and regenerates
+ten separate strata with continuous saved-RMSD ranges and first/any-returned
+recovery. Original 3PTB reporting failures and later receiving stay distinct;
+documented-only 181L/1IEP observations are separated from regenerated records.
+No molecular operation, new geometry, native call or scientific case is executed.
+
+This improves discoverability and bounded interpretation for R3/R4/R8 without
+adding a website or changing scientific evidence. E1–E11 retain their original
+limits. The broader #29 publication/lifecycle decision, provider-dependent panel
+admission and public/visual qualification remain open.

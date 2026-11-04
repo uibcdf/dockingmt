@@ -1,0 +1,268 @@
+{
+  "schema": "dockingmt.scientific_evidence_summary@1",
+  "owner": "uibcdf/dockingmt#29",
+  "date": "2026-11-04",
+  "inputs": {
+    "search": {
+      "path": "3ptb_search/audit_2026-10-10.json.gz",
+      "sha256": "97104903c93b3f7a729a5a6ac196cdb7b59d686e318efdcf324f70131abba1f2"
+    },
+    "receiving": {
+      "path": "3ptb_search/evaluation_2026-10-10.json.gz",
+      "sha256": "8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af"
+    },
+    "root_order": {
+      "path": "5x72_root_order/audit_2026-10-09.json.gz",
+      "sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e"
+    },
+    "installed": {
+      "path": "installed_3ptb_evaluation/normal_evaluations.json",
+      "sha256": "7949117149a50118e3a3552013338b21598efa460f6b68474ad7ada220d1c675"
+    }
+  },
+  "strata": [
+    {
+      "population": "registered_3ptb",
+      "stratum": "rigid/native",
+      "n_evaluated_results": 6,
+      "n_returned_poses": 41,
+      "first_recovered": 6,
+      "any_returned_recovered": 6,
+      "first_rmsd_range_angstrom": [
+        1.9298233079740745,
+        1.9446675808476872
+      ],
+      "closest_rmsd_range_angstrom": [
+        0.22834574175529812,
+        1.9347035948692495
+      ],
+      "criterion": {
+        "metric": "positional_rmsd",
+        "cutoff_angstrom": 2.0,
+        "n_observed_heavy_atoms": 9,
+        "alignment": "none",
+        "symmetry_correction": "none"
+      }
+    },
+    {
+      "population": "registered_3ptb",
+      "stratum": "rigid/negative",
+      "n_evaluated_results": 6,
+      "n_returned_poses": 39,
+      "first_recovered": 0,
+      "any_returned_recovered": 0,
+      "first_rmsd_range_angstrom": [
+        55.524895975689226,
+        65.31239092239693
+      ],
+      "closest_rmsd_range_angstrom": [
+        54.98928178593836,
+        62.07395809301459
+      ],
+      "criterion": {
+        "metric": "positional_rmsd",
+        "cutoff_angstrom": 2.0,
+        "n_observed_heavy_atoms": 9,
+        "alignment": "none",
+        "symmetry_correction": "none"
+      }
+    },
+    {
+      "population": "registered_3ptb",
+      "stratum": "flexible/native",
+      "n_evaluated_results": 6,
+      "n_returned_poses": 41,
+      "first_recovered": 6,
+      "any_returned_recovered": 6,
+      "first_rmsd_range_angstrom": [
+        1.133974769462609,
+        1.9156186410081155
+      ],
+      "closest_rmsd_range_angstrom": [
+        0.42082155099017643,
+        1.9156186410081155
+      ],
+      "criterion": {
+        "metric": "positional_rmsd",
+        "cutoff_angstrom": 2.0,
+        "n_observed_heavy_atoms": 9,
+        "alignment": "none",
+        "symmetry_correction": "none"
+      }
+    },
+    {
+      "population": "registered_3ptb",
+      "stratum": "flexible/negative",
+      "n_evaluated_results": 6,
+      "n_returned_poses": 46,
+      "first_recovered": 0,
+      "any_returned_recovered": 0,
+      "first_rmsd_range_angstrom": [
+        56.922935029154395,
+        66.50086555827676
+      ],
+      "closest_rmsd_range_angstrom": [
+        52.900654346929706,
+        59.47665079956447
+      ],
+      "criterion": {
+        "metric": "positional_rmsd",
+        "cutoff_angstrom": 2.0,
+        "n_observed_heavy_atoms": 9,
+        "alignment": "none",
+        "symmetry_correction": "none"
+      }
+    },
+    {
+      "population": "root_order_5x72",
+      "stratum": "p59/native",
+      "n_evaluated_results": 6,
+      "n_returned_poses": 25,
+      "first_recovered": 0,
+      "any_returned_recovered": 3,
+      "first_rmsd_range_angstrom": [
+        9.877680058259296,
+        9.910572622625459
+      ],
+      "closest_rmsd_range_angstrom": [
+        1.1658422920789917,
+        9.136961689569825
+      ],
+      "criterion": {
+        "metric": "positional_rmsd",
+        "cutoff_angstrom": 2.5,
+        "n_observed_heavy_atoms": 24,
+        "alignment": "none",
+        "symmetry_correction": "none"
+      }
+    },
+    {
+      "population": "root_order_5x72",
+      "stratum": "p59/first_fixed",
+      "n_evaluated_results": 6,
+      "n_returned_poses": 25,
+      "first_recovered": 0,
+      "any_returned_recovered": 4,
+      "first_rmsd_range_angstrom": [
+        9.88925417435511,
+        9.923656241946981
+      ],
+      "closest_rmsd_range_angstrom": [
+        1.1838886138484455,
+        9.847773193722528
+      ],
+      "criterion": {
+        "metric": "positional_rmsd",
+        "cutoff_angstrom": 2.5,
+        "n_observed_heavy_atoms": 24,
+        "alignment": "none",
+        "symmetry_correction": "none"
+      }
+    },
+    {
+      "population": "root_order_5x72",
+      "stratum": "p69/native",
+      "n_evaluated_results": 6,
+      "n_returned_poses": 25,
+      "first_recovered": 0,
+      "any_returned_recovered": 0,
+      "first_rmsd_range_angstrom": [
+        5.646871877420278,
+        16.599089545815456
+      ],
+      "closest_rmsd_range_angstrom": [
+        3.927960136423654,
+        16.555524367513502
+      ],
+      "criterion": {
+        "metric": "positional_rmsd",
+        "cutoff_angstrom": 2.5,
+        "n_observed_heavy_atoms": 24,
+        "alignment": "none",
+        "symmetry_correction": "none"
+      }
+    },
+    {
+      "population": "root_order_5x72",
+      "stratum": "p69/first_fixed",
+      "n_evaluated_results": 6,
+      "n_returned_poses": 24,
+      "first_recovered": 0,
+      "any_returned_recovered": 0,
+      "first_rmsd_range_angstrom": [
+        5.6497739187805855,
+        5.653030101930584
+      ],
+      "closest_rmsd_range_angstrom": [
+        3.8593788090399572,
+        5.550912608901951
+      ],
+      "criterion": {
+        "metric": "positional_rmsd",
+        "cutoff_angstrom": 2.5,
+        "n_observed_heavy_atoms": 24,
+        "alignment": "none",
+        "symmetry_correction": "none"
+      }
+    },
+    {
+      "population": "installed_saved_3ptb",
+      "stratum": "native",
+      "n_evaluated_results": 1,
+      "n_returned_poses": 5,
+      "first_recovered": 1,
+      "any_returned_recovered": 1,
+      "first_rmsd_range_angstrom": [
+        1.9336974082484217,
+        1.9336974082484217
+      ],
+      "closest_rmsd_range_angstrom": [
+        0.22834574175529812,
+        0.22834574175529812
+      ],
+      "criterion": {
+        "metric": "positional_rmsd",
+        "cutoff_angstrom": 2.0,
+        "n_observed_heavy_atoms": 9,
+        "alignment": "none",
+        "symmetry_correction": "none"
+      }
+    },
+    {
+      "population": "installed_saved_3ptb",
+      "stratum": "displaced",
+      "n_evaluated_results": 1,
+      "n_returned_poses": 4,
+      "first_recovered": 0,
+      "any_returned_recovered": 0,
+      "first_rmsd_range_angstrom": [
+        65.31239092239693,
+        65.31239092239693
+      ],
+      "closest_rmsd_range_angstrom": [
+        62.07395809301459,
+        62.07395809301459
+      ],
+      "criterion": {
+        "metric": "positional_rmsd",
+        "cutoff_angstrom": 2.0,
+        "n_observed_heavy_atoms": 9,
+        "alignment": "none",
+        "symmetry_correction": "none"
+      }
+    }
+  ],
+  "original_3ptb_reporting": {
+    "searches_attempted": 24,
+    "poses_returned": 167,
+    "evaluation_failures": 24,
+    "later_saved_evaluations": 24,
+    "new_searches_in_receiving": 0
+  },
+  "limits": [
+    "No molecular operations, RMSD recomputation or native execution.",
+    "Saved-report consistency is not original scientific validation.",
+    "Strata, poses, seeds and repeated 3PTB workflows are not independent complexes.",
+    "No pooled recovery rate, affinity or physical-plausibility claim."
+  ]
+}

@@ -28,6 +28,11 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
+The [scientific evidence overview](validation/scientific_evidence_overview_2026-11-04.md)
+provides a compact reproducible table of existing outcomes and E1–E11 limits.
+It preserves failed reporting stages and separate populations; no new molecular
+calculation or pooled success probability is introduced.
+
 The [technical and scientific audit of 2026-11-04](library_audit_2026-11-04.md)
 assesses correctness, scientific evidence, molecular ownership and usability at
 its stated source head. It records improvement proposals and two documentation

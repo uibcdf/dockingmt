@@ -26,6 +26,7 @@
 | `validation/installed_validator_receiving.md` | Does the shared multi-root verifier protect the actual private installed core/addon, and which candidate gates remain? |
 | `validation/installed_support_receiving.md` | How are unshipped scientific helpers isolated, and what does the full 1,450-test private receiving qualify? |
 | `VALIDATION_STRATEGY.md` | How do we distinguish software correctness from scientific validity? |
+| [validation/scientific_evidence_overview_2026-11-04.md](validation/scientific_evidence_overview_2026-11-04.md) | Which finite recovery/ranking outcomes are supported by frozen records, and what do E1–E11 still not establish? |
 | [validation/scientific_panel_design_2026-11-04.md](validation/scientific_panel_design_2026-11-04.md) | Which two new candidate cases and controlled matrix are proposed, and what must be admitted before searching? |
 | [validation/scientific_panel_admission_2026-11-04.md](validation/scientific_panel_admission_2026-11-04.md) | What did MolSysMT observe in the four acquired source files, and which chemistry/environment decisions still prevent search admission? |
 | [validation/scientific_panel_environment_2026-11-04.md](validation/scientific_panel_environment_2026-11-04.md) | What do provider water/ligand/terminal queries establish, and which CCD-template and terminal-chemistry prerequisites remain? |
