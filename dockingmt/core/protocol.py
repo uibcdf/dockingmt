@@ -72,7 +72,8 @@ class DockingProtocol(ABC):
 class VinaProtocol(DockingProtocol):
     """Standard docking protocol for AutoDock Vina.
 
-    Provides inspectable, scientifically meaningful defaults for global search optimization.
+    Records inspectable search settings for a declared prepared-state problem.
+    Defaults are execution choices, not a validated preparation or accuracy model.
 
     Parameters
     ----------
@@ -94,13 +95,17 @@ class VinaProtocol(DockingProtocol):
     cpu : int, default 0
         Number of CPU threads to utilize. 0 detects and uses all available cores.
     allow_provisional_preparation : bool, default False
-        Permit DockingMT's temporary zero-charge or heuristic AutoDock typing path.
-        Results from this path are exploratory and their chemistry remains unvalidated.
+        Permit supplied prepared objects whose metadata declares known provisional
+        charge/type sources. This does not generate placeholder charges or heuristic
+        types, bypass automatic preparation requirements, or certify chemistry.
+        External PDBQT and preparations without those markers remain unassessed.
     capture_backend_inputs : bool, default False
         Include the exact PDBQT input bytes in result provenance for independent audit.
     active_torsion_bonds : list[tuple[int, int]] | None, default None
         Explicit selected-ligand atom-index pairs to rotate during automatic ligand
-        preparation. None keeps the ligand rigid. Requires a complete molecular graph.
+        preparation. None or an empty list keeps that automatically prepared ligand
+        rigid. Requires a complete molecular graph. Already prepared ligands/PDBQT
+        retain their own torsion trees; nonempty cuts require automatic preparation.
     collect_timings : bool, default False
         Retain per-phase adapter wall times in result provenance. Does not include
         problem construction, public decorators, or export after docking returns.
@@ -170,7 +175,7 @@ class VinaProtocol(DockingProtocol):
 
     @property
     def allow_provisional_preparation(self) -> bool:
-        """Whether temporary DockingMT chemistry may be sent to Vina."""
+        """Whether to accept declared provisional inputs without certifying them."""
         return self._allow_provisional_preparation
 
     @property

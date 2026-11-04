@@ -28,6 +28,16 @@ Every proposed capability should be classified as:
 
 ## Reading order
 
+The [technical and scientific audit of 2026-11-04](library_audit_2026-11-04.md)
+assesses correctness, scientific evidence, molecular ownership and usability at
+its stated source head. It records improvement proposals and two documentation
+inconsistencies, a claim/evidence matrix, prioritized risks, test-independence and
+experimental-design limits, and scientific questions with decision rules. It is
+a bounded assessment; it does not accept new claims or replace the active roadmap.
+Its first dated follow-up corrects the current README/protocol instructions and
+clarifies scientific choices, with 104 existing source contract tests passing;
+the original audit findings remain anchored to their reviewed source.
+
 Start with the [current Core acceptance map](CORE_MVP_STATUS.md) and
 [operational roadmap](ROADMAP.md#current-operational-plan). They reconcile
 the 35 C0–C6 criteria and current priorities without rewriting historical

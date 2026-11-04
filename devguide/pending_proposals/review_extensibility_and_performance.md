@@ -14,6 +14,42 @@ supersedes: []
 
 # Review extensibility and performance
 
+## Audit follow-up: current user instructions — 2026-11-04
+
+The [first audit follow-up](../library_audit_2026-11-04.md#follow-up-1--current-instructions-and-scientific-choices-2026-11-04)
+corrects the two R1 documentation defects, provides a short README route through
+the existing installed workflows and clarifies effective torsions, provisional
+declarations and charge integrity versus Vina scoring. Historical evidence and
+the audit's original findings remain intact. The two Python changes are docstrings
+only, verified by executable-AST comparison; 104 existing source contract tests
+and Ruff checks pass. The known shared-prefix closure findings retain MolSysSuite
+#82 ownership. This is not a new installed artifact or experiment.
+
+The broader work remains partial: no user-observed usability, clean public solve,
+visual C4/C6, independent panel or general preparation validity is accepted.
+
+## Technical and scientific audit — 2026-11-04
+
+The [dated library audit](../library_audit_2026-11-04.md) reviews `07fc269`
+against its purpose, principal code paths, representative tests, retained
+experiments and owning issues. It finds a sound technical/scientific direction
+with bounded evidence, remaining public-delivery friction and insufficient
+multi-complex predictive qualification. It records stale protocol/181L usage
+documentation and proposes clearer scientific choices, compatible public
+receiving, a prespecified independent panel and provider-owned plausibility tools.
+
+The read-only review ran no new tests or experiments and changes no acceptance
+criterion or operational priority. #28 remains partial for follow-up; scientific
+scope stays #33, evidence presentation #29, and public distribution #30/#47.
+The original receipts and producers remain authoritative for their own results.
+
+The same-day requested expansion adds an eleven-claim evidence matrix, nine
+prioritized findings/risks, a sampled test-oracle independence review, an
+experimental-design assessment and six scientific questions with conditional
+decision rules. Five bounded work packets identify completion evidence and
+owners. This remains a non-exhaustive review: no new experiment, statistical
+estimate, runtime fix or public/visual acceptance is claimed.
+
 ## Installed record walkthrough delivered — 2026-11-03
 
 The #4 [installed-result example](../validation/installed_result_inspection.md)

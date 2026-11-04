@@ -13,6 +13,7 @@
 | `ENGINES.md` | How do Vina and future backends/providers fit? |
 | `MVP.md` | What workflows define the Core and Extended MVPs? |
 | `CORE_MVP_STATUS.md` | Which Core criteria have evidence, under what profile, and what remains? |
+| [library_audit_2026-11-04.md](library_audit_2026-11-04.md) | What did the 2026-11-04 audit conclude about technical correctness, scientific approach and improvement priorities? |
 | `human_workflow_review.md` | Which public operations already serve a scientist, and what is the next installed-notebook slice? |
 | `validation/installed_result_inspection.md` | How can an installed-package user inspect saved results with explicit trust, units and recovery limits? |
 | `validation/installed_3ptb_preparation.md` | How can an installed-package user reproduce the declared preparation and admit a plan without executing Vina? |

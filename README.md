@@ -18,6 +18,41 @@ provided by MolSysMT, TopoMT, ElastNetMT, and PharmacophoreMT.
 AutoDock Vina is the initial reference engine for canonical protein–small-molecule docking
 and redocking validation.
 
+## Start here
+
+The current supported starting profile is one explicitly declared small-molecule
+state and a rigid protein, with a physical search box and Vina. Molecular
+preparation and characterization use MolSysMT. The installed walkthroughs below
+have been qualified with a specific **private dependency composition**; a complete
+compatible public installation is still tracked in
+[the distribution review](devguide/validation/public_candidate_readiness.md).
+These examples do not establish general predictive accuracy or binding affinity.
+
+| Task | Current guide | What running the notebook does |
+| --- | --- | --- |
+| Inspect a saved result | [Result inspection](devguide/validation/installed_result_inspection.md) | Reads caller-supplied records and checks available evidence; no new docking. |
+| Prepare the declared 3PTB case | [Preparation and admission](devguide/validation/installed_3ptb_preparation.md) | Applies the explicit molecular recipe and checks inputs; no search. |
+| Execute that case | [Two-search workflow](devguide/validation/installed_3ptb_execution.md) | Performs two new Vina searches and saves their results. |
+| Evaluate saved poses | [Nine-heavy-atom evaluation](devguide/validation/installed_3ptb_evaluation.md) | Measures the declared positional RMSD without new searches. |
+
+Each guide specifies its inputs, qualified composition and limitations. The
+preparation walkthrough declares a dry protein, one ligand state and zero active
+ligand torsions; these are case-specific choices. For another system, explicitly
+choose states, waters/cofactors and active ligand bonds before execution.
+
+During **automatic molecular preparation**, an empty `active_torsion_bonds` list
+keeps the ligand rigid. Supplied prepared ligands and PDBQT retain their own
+torsion trees. `assess_preparation(...)` returns a declaration assessment, not a
+chemical-validity certificate: `unassessed` and an empty provisional-reason list
+do not mean scientifically validated. Scores carry their method and conventional
+units; they are not experimental binding free energies.
+
+The detailed contracts below explain individual operations. Historical developer
+benchmarks retain their original software requirements and are not the current
+preparation walkthrough.
+
+## Software qualification
+
 Coverage reports measure the Python packages `dockingmt` and
 `molsysviewer_dockingmt` through the existing unfiltered Linux/Python 3.14 CI suite,
 including branches. The separate publisher runs automatically after ordinary
@@ -125,7 +160,7 @@ Inspect a preparation before choosing an execution policy:
 from dockingmt import assess_preparation, prepare_ligand
 
 prepared = prepare_ligand(
-    ligand_with_declared_chemistry_and_indexed_hydrogens,
+    ligand_with_declared_chemistry_indexed_hydrogens_and_charges,
     selection='all',
     typing_options={'typing_scheme': 'autodock4', 'method': 'chemical_environment'},
 )
@@ -150,6 +185,16 @@ These numeric checks do not validate the charge model or chemical typing.
 See the [required-charge contract](devguide/validation/required_partial_charges.md)
 for explicit assignment, supplied zeros and failure behavior.
 
+Complete charges are a DockingMT molecular-preparation representation requirement.
+The Vina scoring function ignores supplied partial-charge values; its documentation
+also states that charge assignment is not needed for Vina/Vinardo. See the
+[official FAQ](https://autodock-vina.readthedocs.io/en/stable/faq.html) and
+[Vina documentation](https://autodock-vina.readthedocs.io/en/latest/).
+Charge conservation therefore checks representation integrity, not improved Vina
+accuracy. Protonation and donor/acceptor typing remain relevant. Do not replace
+missing charge data with invented zeros or infer that AD4 atom labels select AD4
+scoring; the current preparation requirements still apply.
+
 `prepare_ligand` also accepts explicit `hydrogen_options`, `charge_options` and
 `typing_options` to call MolSysMT's fixed-state H, named-charge and named-type
 builders in that order. Require
@@ -173,7 +218,8 @@ molecular RMSD. Explicit coordinate-array RMSD is positional. Other atom losses
 require a verified map. Scientific preparation/model qualification remains scoped
 under [issue #33](https://github.com/uibcdf/dockingmt/issues/33); #5's original
 unsafe mechanisms are resolved.
-Ligands remain rigid by default (`TORSDOF 0`). For a molecular ligand with an
+Automatically prepared ligands remain rigid by default (`TORSDOF 0`). Supplied
+prepared ligands or PDBQT retain their declared torsions. For a molecular ligand with an
 explicit graph and bond orders, select active torsions by pairs of atom indices
 in the selected ligand before nonpolar hydrogen removal:
 
@@ -182,9 +228,13 @@ from dockingmt import VinaProtocol
 
 protocol = VinaProtocol(
     active_torsion_bonds=[(1, 2)],
-    allow_provisional_preparation=True,
 )
 ```
+
+The pair above illustrates selected-ligand indices, not a bond recommendation for
+every ligand. Explicit flexibility does not require provisional-preparation opt-in;
+normal chemistry, charge and named-type requirements still apply. Nonempty
+protocol cuts are for automatic preparation, not for rewriting supplied PDBQT.
 
 `VinaProtocol` requires integer search parameters and explicit units for a supplied
 energy cutoff. Use `energy_range=puw.quantity(3.0, 'kcal/mol')` or
@@ -231,17 +281,13 @@ only native docking; constructing the problem and exporting the result happen
 outside the adapter timings. Successful runs retain timings after temporary-file
 cleanup; failures keep their normal exception behavior.
 
-Measure the current 181L workflow in fresh processes with paired profiling modes:
-
-```bash
-python devtools/profile_workflow.py --repeats 3 --report /tmp/181l-profile.json
-```
-
-Pass `--manifest /tmp/181l-manifest.json` to profile verified captured PDBQT inputs
-instead of automatic molecular preparation. The command checks matching inputs,
-outputs, and execution context, and separates import, problem construction,
-docking, dictionary export, JSON encoding, and file writing. See the
-[phase definitions and measured limits](devguide/validation/workflow_profiling.md).
+The [recorded profiling study](devguide/validation/workflow_profiling.md) separates
+import, problem construction, docking and export costs. Its developer runner's
+default raw-PDB 181L preparation is historical and now refuses absent named
+assignments. The separate `--manifest` route consumes verified captured PDBQT;
+it executes new searches and does not reconstruct the original molecular source
+or validate its chemistry. Consult the study's exact input/software requirements
+before collecting new measurements.
 The [profiling notebook](devguide/validation/workflow_profiling.ipynb) includes
 tables and plots from the versioned raw reports and an optional section to collect
 new measurements. Its default execution analyzes the saved baseline without docking.
@@ -249,29 +295,22 @@ The [result export benchmark](devguide/validation/result_export.md) and its
 [comparison notebook](devguide/validation/result_export.ipynb) record the measured
 reduction in time and Python allocations from removing redundant snapshot copies.
 
-For the file-backed 181L regression case, save a result manifest and replay it
-in a separate command:
-
-```bash
-python devtools/redocking_181l.py record --manifest /tmp/181l-manifest.json
-python devtools/redocking_181l.py replay --manifest /tmp/181l-manifest.json --report /tmp/181l-report.json
-```
-
-The report lists each pose's source-mapped RMSD and named scores, near-native
-rank at the declared 2.5 Å cutoff, failure mode, source and PDBQT fingerprints,
-code revision, and replay differences. The manifest retains both PDBQT inputs;
-replay validates their digests and checks that the new run submits identical
-bytes. Its assessment is **exploratory** while
-the chemical preparation in [issue #5](https://github.com/uibcdf/dockingmt/issues/5)
-remains provisional. Use the reported metrics for regression, not as a validated
-docking-performance claim. The measured case is documented in the
-[181L regression baseline](devguide/validation/181l_redocking_exploratory.md).
+The [181L regression baseline](devguide/validation/181l_redocking_exploratory.md)
+preserves the original file-backed record/replay commands, producer and exploratory
+results. Those commands require their historical source/environment: current
+raw-PDB preparation cannot recreate absent named assignments, and provisional
+opt-in does not bypass that refusal. Use the current installed walkthrough above
+for explicit preparation and saved-result inspection. The original unsafe
+placeholder mechanisms in [#5](https://github.com/uibcdf/dockingmt/issues/5) are
+resolved; scientific preparation/model qualification remains
+[#33](https://github.com/uibcdf/dockingmt/issues/33).
 
 An additional [1IEP external PDBQT check](devguide/validation/1iep_external_pdbqt.md)
 uses the official AutoDock Vina prepared receptor and flexible ligand to audit
 the Vina adapter. It retains the submitted PDBQT bytes, verifies pose atom
-identity, and records the exact search box sent to Vina. DockingMT's molecular
-preparation remains under [issue #5](https://github.com/uibcdf/dockingmt/issues/5).
+identity, and records the exact search box sent to Vina. Its external preparation
+does not validate DockingMT's molecular profile, tracked in
+[issue #33](https://github.com/uibcdf/dockingmt/issues/33).
 The [1IEP native preparation audit](devguide/validation/1iep_preparation_audit.md)
 also verifies seven explicitly selected torsions and records the remaining
 charge and atom-type differences.

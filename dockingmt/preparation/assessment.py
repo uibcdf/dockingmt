@@ -37,8 +37,10 @@ def assess_preparation(prepared):
     -----
     This inspects declarations, not charge values, molecular chemistry or
     scoring compatibility. Zero charge values alone do not imply placeholders.
-    An unassessed report does not certify readiness for docking. Chemical
-    coverage and validation remain MolSysMT operations (dockingmt#5).
+    An empty reason-code list means no known provisional markers were declared;
+    it is not a positive chemical assessment. Unassessed inputs are not certified
+    ready for docking. General molecular checks remain MolSysMT operations;
+    DockingMT's scientific preparation/scoring profile is tracked in dockingmt#33.
     """
     evidence = {'charge_source': None, 'atom_type_source': None}
     if isinstance(prepared, (PreparedLigand, PreparedReceptor)):

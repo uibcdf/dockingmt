@@ -46,6 +46,20 @@ and scientific pins, runtime code, original records and public minima remain.
 The entries below are dated delivery/evidence records. Consult the operational
 plan above for current next work; preserve historical producers and claims.
 
+## Audit follow-up: current instructions — 2026-11-04
+
+The [library audit](library_audit_2026-11-04.md) and its first follow-up under #28
+clarify the current user route and correct obsolete provisional-preparation and
+181L usage descriptions. Effective ligand flexibility, unassessed preparation and
+charge representation versus scoring are explicit. All 104 selected source
+contract tests pass; executable Python statements and scientific artifacts remain
+unchanged. Existing shared-environment closure findings remain MolSysSuite #82.
+
+**Next:** continue actual public compatibility under #30/#47 and separately scope
+the proposed scientific panel/provider-check inventory under #33/#49. The audit
+does not authorize a new experiment or accept user-visible C4/C6. Full usability,
+public installation and scientific acceptance remain distinct from this wording fix.
+
 ## Declared scientific support and installed-caller adoption — 2026-11-04
 
 [Full #47 receiving](validation/installed_support_receiving.md) moves 26 helper
