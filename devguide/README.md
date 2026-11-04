@@ -49,6 +49,10 @@ The [first source-admission observations](validation/scientific_panel_admission_
 now preserve both input representations and provider-built assemblies. Chemistry,
 environment and truncation decisions remain pending; zero cases are admitted.
 CIF occupancy loss is reported in MolSysMT #556.
+The [environment/template checkpoint](validation/scientific_panel_environment_2026-11-04.md)
+records nearby waters, other ligand copies, observed protein boundaries and the
+missing OXT prerequisite. Reusable CCD-to-template support is requested in
+MolSysMT #557; chemical/environment choices still precede preparation and search.
 
 Start with the [current Core acceptance map](CORE_MVP_STATUS.md) and
 [operational roadmap](ROADMAP.md#current-operational-plan). They reconcile

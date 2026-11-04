@@ -14,6 +14,16 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Environment and template admission boundary — 2026-11-04
+
+The [continuation](../validation/scientific_panel_environment_2026-11-04.md)
+records provider water shells, other ligand-copy distances and observed protein
+boundaries, without changing chemistry or performing preparation/search. Missing
+OXT is explicit; decide terminal chemistry before receiving existing MolSysMT
+completion. MolSysMT #557 requests reusable CCD-to-template identity/correspondence,
+with #555 owner-triaged as a future separate method study. State, water and other
+ligand-copy decisions remain unresolved; no docking row is admitted.
+
 ## First two-candidate source inspection — 2026-11-04
 
 The [source-admission record](../validation/scientific_panel_admission_2026-11-04.md)

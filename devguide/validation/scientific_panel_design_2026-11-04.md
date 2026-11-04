@@ -13,6 +13,11 @@ No new preparation, scoring, search or RMSD was executed. No results are
 predicted here. The specific unresolved decisions below must be frozen before
 search, rather than filled in after observing outcomes.
 
+The [environment/template continuation](scientific_panel_environment_2026-11-04.md)
+now records provider water shells, ligand-copy separations, observed protein
+boundaries and the OXT prerequisite. MolSysMT #557 owns the requested reusable
+CCD/template route. These observations do not resolve state/environment admission.
+
 ## Question and intended claim
 
 For two additional public complexes within an explicitly admitted one-state,

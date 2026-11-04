@@ -198,3 +198,9 @@ preserves both PDB/CIF representations, actual provider assembly observations,
 missing-residue reports and incomplete ligand chemistry. It does not admit a
 case for search. MolSysMT #556 owns the observed native CIF occupancy loss;
 no local molecular parser or metadata patch is introduced.
+
+The [environment/template continuation](validation/scientific_panel_environment_2026-11-04.md)
+adds nonperiodic provider measurements and before/after coordinate/readiness
+digests. Water shells are descriptive, not hydrogen-bond or retention decisions;
+boundary distances do not prove safe truncation. Provider CCD/template #557 and
+existing provider terminal-completion tools retain their separate admission work.

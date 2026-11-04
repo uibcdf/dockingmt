@@ -1,0 +1,32 @@
+{
+  "schema": "dockingmt.panel_environment_manifest@1",
+  "owner": "uibcdf/dockingmt#33",
+  "baseline": "d2079282e3fda0783f7c9e7aa4101111c94f8964",
+  "date": "2026-11-04",
+  "producer_sha256": "31b70ca88d31cc1ec78f423e264f80b97712140a86b38a106b57f2bfbf5f6a8c",
+  "input_manifest": "../panel_admission_2026-11-04/manifest.json",
+  "input_manifest_sha256": "745593977811c9f3618f20d6c0ecec2cd36acb03e6621f537e5295d1e90dbdff",
+  "provider_source_context": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+  "scientific_preparations": 0,
+  "searches": 0,
+  "new_downloads": 0,
+  "cases_admitted": 0,
+  "attempts": [
+    {
+      "exit": 0,
+      "outcome": "Both environments inspected using public provider operations; no error/warning output."
+    }
+  ],
+  "records": [
+    {
+      "path": "observations.json.gz",
+      "sha256": "e13366ef269d1ad67be39ef8d55272be77439186acb399fb778a515228f27538",
+      "content_sha256": "9893b6c390aaef1e4551619d321302640c51a5b9fc08f0bd9c733bed230bffa1"
+    }
+  ],
+  "registration": "https://github.com/uibcdf/dockingmt/issues/33#issuecomment-6637702259",
+  "provider_template_proposal": "uibcdf/molsysmt#557",
+  "source_and_assembly_coordinate_chemical_readiness_digests_unchanged": true,
+  "scope": "Descriptive geometry and provider group classifications; no chemical water recognition, hydrogen-bond assignment, energetic assessment or full native-state immutability proof.",
+  "ordinary_installed_provider_origin_verified": true
+}

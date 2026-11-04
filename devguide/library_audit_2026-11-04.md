@@ -512,3 +512,18 @@ Observed CIF occupancy loss is reported in
 parser or repair. Explicit chemistry, source/CCD revisions, binding-environment
 choices and terminal truncations must be resolved before preparation. This is
 progress on Q2/Q3/R3/R6, not scientific recovery or general model acceptance.
+
+## Follow-up 4 — environment observations and template request, 2026-11-04
+
+The [environment/template record](validation/scientific_panel_environment_2026-11-04.md)
+adds provider-only water shells, other ligand-copy and observed endpoint distances,
+plus before/after coordinate/readiness digests. It exposes missing OXT before
+peptide-template application and keeps truncation, waters and states unresolved.
+No distance cutoff is promoted to a hydrogen-bond, water-retention or safe-truncation
+rule. No chemical completion, preparation or search is executed.
+
+[MolSysMT #557](https://github.com/uibcdf/molsysmt/issues/557) owns the reusable
+CCD/template/correspondence request. #555 is owner-triaged for post-freeze study;
+#556 occupancy remains separate. Q2/Q3/R3/R6 are still partial, with the concrete
+next prerequisite now being supported templates and explicit state/environment
+decisions before provider-only completion and application.

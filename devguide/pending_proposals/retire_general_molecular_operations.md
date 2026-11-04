@@ -14,6 +14,15 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## CCD/template request and spatial-query continuation — 2026-11-04
+
+The [environment checkpoint](../validation/scientific_panel_environment_2026-11-04.md)
+uses provider spatial selection/minimum distances and preserves native coordinate
+and readiness digests. General CCD interpretation/template identity/correspondence
+is proposed in MolSysMT #557, reusing existing application tools rather than
+copying the provider's case-specific EST curator. Existing terminal-completion
+tools remain provider-owned and unexecuted here. No molecular routine is added.
+
 ## New panel inspection stays provider-owned — 2026-11-04
 
 The [source inspection](../validation/scientific_panel_admission_2026-11-04.md)

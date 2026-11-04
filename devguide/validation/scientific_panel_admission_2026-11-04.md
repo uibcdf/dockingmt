@@ -10,6 +10,11 @@ both representations of each entry, inspected native data and built assembly 1.
 No chemical completion, H addition, docking preparation, scoring, RMSD or search
 was executed. Observed ligand geometry is not an admitted chemical state.
 
+**Continuation:** the [environment/template checkpoint](scientific_panel_environment_2026-11-04.md)
+records additional provider-only spatial queries, nearby waters, other BTN copies
+and terminal/OXT prerequisites. It supersedes none of the original observations;
+template support is now proposed in MolSysMT #557, with zero cases still admitted.
+
 ## Reproducible records and ownership
 
 The [manifest](data/panel_admission_2026-11-04/manifest.json) binds the
