@@ -14,7 +14,7 @@ from test_flexible_reconstruction import _manual
 from test_known_source_pose_consumption import _case
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import snapshot
+from dmt_test_support.qualify_chemical_templates import snapshot
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.engines.vina import _read_staged_poses
 

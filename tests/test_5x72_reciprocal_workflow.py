@@ -12,7 +12,7 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.qualify_5x72_occupancy import (
+from dmt_test_support.qualify_5x72_occupancy import (
     DATA,
     atom_fields,
     diagnostic_rows,
@@ -25,7 +25,7 @@ from devtools.qualify_5x72_occupancy import (
     reference_box,
     sha,
 )
-from devtools.qualify_5x72_reciprocal import ARMS, BASELINE_SHA, OUTPUT
+from dmt_test_support.qualify_5x72_reciprocal import ARMS, BASELINE_SHA, OUTPUT
 
 UNITS = ['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'radians']
 

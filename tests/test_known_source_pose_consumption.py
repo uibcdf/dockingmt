@@ -14,8 +14,13 @@ from test_engines import MINIMAL_REC_PDBQT
 from test_vina_torsion_matrix import CASES, _source
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import detached_record, snapshot
-from devtools.qualify_named_types import CHARGE, HYDROGEN, TYPING, explicit_source
+from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from dmt_test_support.qualify_named_types import (
+    CHARGE,
+    HYDROGEN,
+    TYPING,
+    explicit_source,
+)
 from dockingmt.engines.vina import _verify_pose_atom_order
 
 DATA = Path(__file__).parent / 'data/vina_torsions'

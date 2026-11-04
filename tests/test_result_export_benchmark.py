@@ -8,7 +8,7 @@ from copy import deepcopy
 import molsysmt as msm
 import pytest
 
-from devtools import benchmark_result_export as benchmark
+from dmt_test_support import benchmark_result_export as benchmark
 
 
 def test_benchmark_cli_reads_no_molecular_or_optional_engine_operations(

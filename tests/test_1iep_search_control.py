@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from devtools.validate_1iep_pdbqt import _displaced_control_box
+from dmt_test_support.validate_1iep_pdbqt import _displaced_control_box
 from dockingmt import BoxRegion
 
 

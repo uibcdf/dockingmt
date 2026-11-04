@@ -10,8 +10,8 @@ from molecular_fixtures import declared_methanol
 from test_engines import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import detached_record, snapshot
-from devtools.qualify_named_types import CHARGE, TYPING
+from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from dmt_test_support.qualify_named_types import CHARGE, TYPING
 from dockingmt._private.smonitor import ArgumentError
 
 

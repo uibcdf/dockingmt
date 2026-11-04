@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from devtools.validate_1iep_pdbqt import _source_atom_map
+from dmt_test_support.validate_1iep_pdbqt import _source_atom_map
 
 
 def test_1iep_reference_map_preserves_source_indices_across_pdbqt_reordering():

@@ -15,7 +15,7 @@ from test_flexible_ligand import _ligand
 from test_named_partial_charges import atom_charges
 from vina import Vina
 
-from devtools.qualify_named_types import TYPING
+from dmt_test_support.qualify_named_types import TYPING
 from dockingmt import prepare_ligand, prepare_receptor
 
 

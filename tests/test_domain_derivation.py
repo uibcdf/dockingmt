@@ -12,7 +12,7 @@ from test_engines import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 from test_problem import _multi_structure_redocking_source
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import snapshot
+from dmt_test_support.qualify_chemical_templates import snapshot
 from dockingmt._private.smonitor import ArgumentError
 
 

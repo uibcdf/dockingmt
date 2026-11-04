@@ -10,7 +10,7 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.qualify_1iep_conformers import (
+from dmt_test_support.qualify_1iep_conformers import (
     BASELINE,
     BASELINE_SHA256,
     OUTPUT,
@@ -20,8 +20,10 @@ from devtools.qualify_1iep_conformers import (
     score_observation,
     xyz,
 )
-from devtools.qualify_1iep_representation import fixed_score, observe, sha
-from devtools.qualify_1iep_root_order import load_baseline as load_representation
+from dmt_test_support.qualify_1iep_representation import fixed_score, observe, sha
+from dmt_test_support.qualify_1iep_root_order import (
+    load_baseline as load_representation,
+)
 
 
 @pytest.fixture(scope='module')

@@ -11,7 +11,7 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.qualify_5x72_contact import (
+from dmt_test_support.qualify_5x72_contact import (
     OUTPUT,
     PAIR_CLASSES,
     PROTEIN_COUNT,
@@ -116,7 +116,7 @@ def test_saved_admission_refuses_mapping_and_receptor_drift(inputs, drift):
 
 
 def test_occupied_prefix_drift_is_rejected_before_any_distance(inputs, monkeypatch):
-    from devtools import qualify_5x72_contact as driver
+    from dmt_test_support import qualify_5x72_contact as driver
 
     altered = deepcopy(inputs)
     text = altered[2]['p59']['preparation']['receptors']['occupied']['pdbqt']
@@ -154,7 +154,7 @@ def test_saved_all_distances_original_captures_and_proximity_populations_are_com
         sha(gzip.decompress(payload)) == checkpoint['producer_archive']['json_sha256']
     )
     assert (
-        sha(OUTPUT.with_name('producer_2026-10-09.py').read_bytes())
+        sha(OUTPUT.with_name('producer_2026-10-09.py.txt').read_bytes())
         == record['consumer_source_sha256']['devtools/qualify_5x72_contact.py']
     )
     assert record['new_searches'] == record['new_fixed_evaluations'] == 0

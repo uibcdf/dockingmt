@@ -4,7 +4,7 @@ import pytest
 import pyunitwizard as puw
 from molecular_fixtures import named_181l_pair
 
-from devtools.qualify_named_types import TYPING
+from dmt_test_support.qualify_named_types import TYPING
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation import (
     PreparedLigand,

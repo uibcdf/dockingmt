@@ -9,8 +9,8 @@ import pyunitwizard as puw
 from test_engines import MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import detached_record, snapshot
-from devtools.qualify_named_types import CHARGE, TYPING, explicit_source
+from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from dmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
 from dockingmt.preparation._temporary_torsions import Branch, TorsionTree
 
 

@@ -82,3 +82,2858 @@ pytest_args = ["--receptor=ci", "-v", "-o", "pythonpath="]
 # Exact test tools observed in source CI 37589149276; not new core API floors.
 # All proposed installed cells still require actual solver/science qualification.
 conda_dependencies = ["vina==1.2.7", "rdkit==2026.03.1", "openmm==8.6.1"]
+
+[installed_tests.support]
+schema = "molsyssuite.installed-test-support@1"
+namespace = "dmt_test_support"
+reason = "Unshipped qualification helpers and the frozen b74b4ad scientific fixture corpus; molecular operations stay provider-owned."
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/__init__.py"
+target = "dmt_test_support/__init__.py"
+sha256 = "9ab782b7dcea54637a43efc569170db70b498e0067ad54cb5eea2e8269179d7e"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/audit_1iep_preparation.py"
+target = "dmt_test_support/audit_1iep_preparation.py"
+sha256 = "c450fad247bf2321dfa90db0729f7320b29912ae7e2e4a03030a08d00055f10b"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/benchmark_result_export.py"
+target = "dmt_test_support/benchmark_result_export.py"
+sha256 = "d4ad3a8bb7b81ee94314090894d299849142e5c275b32611026eee293c04eb2a"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/evaluate_3ptb_saved.py"
+target = "dmt_test_support/evaluate_3ptb_saved.py"
+sha256 = "0806b0676cf3584d442803ac532156cb0f2b2d344914658899ece15f87bf7efe"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/profile_workflow.py"
+target = "dmt_test_support/profile_workflow.py"
+sha256 = "91596aa7c500168f6275c9c57c100a000ffe53b1aa15a155abe2d916c30feb9f"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_181l_receptor.py"
+target = "dmt_test_support/qualify_181l_receptor.py"
+sha256 = "48d991a6f7e4317a7985660852f3e01d36f93f7ba5b8742c854476b8607adad3"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_1iep_conformers.py"
+target = "dmt_test_support/qualify_1iep_conformers.py"
+sha256 = "970d88feb2fb7439da7c2442406ed12fb173e18454c81613b73ecc1a926a8999"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_1iep_flexibility.py"
+target = "dmt_test_support/qualify_1iep_flexibility.py"
+sha256 = "e315eb32aea6fdfef40ae7ee17da5bb08b2bc9fc0781b38834a38f408707b2e6"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_1iep_representation.py"
+target = "dmt_test_support/qualify_1iep_representation.py"
+sha256 = "04027f2792ac559297ffd49d094b8ae9b9cd6c04e17595bfcd2350b0dd4d63b5"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_1iep_root_order.py"
+target = "dmt_test_support/qualify_1iep_root_order.py"
+sha256 = "8976fbb789445202820a2abe9f5442440e49da530c3e4e967b29294cb9043d6e"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_3ptb_admission.py"
+target = "dmt_test_support/qualify_3ptb_admission.py"
+sha256 = "ec2ebb64840c5a929e570759f7cf9285050bf72506cc4ae022fa3fb8baf996fb"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_3ptb_search.py"
+target = "dmt_test_support/qualify_3ptb_search.py"
+sha256 = "9f35ad7dc2a3f350555a4fe21023574586ec4e16542dadcf7273779f020c129c"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_5x72_contact.py"
+target = "dmt_test_support/qualify_5x72_contact.py"
+sha256 = "3dfab43a95892ad2506013a6926b7e23819ea2f76f086ed5bc1466d397fbb755"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_5x72_displacement.py"
+target = "dmt_test_support/qualify_5x72_displacement.py"
+sha256 = "7250399f55a7f3cdbb1918072e8c857d80e40ee3be547f77961dea6a40577c03"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_5x72_occupancy.py"
+target = "dmt_test_support/qualify_5x72_occupancy.py"
+sha256 = "5cbc1b5f45e1831f017d3f1c6264fb0d615deb377069a404a5a8bedb1eb3225a"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_5x72_reciprocal.py"
+target = "dmt_test_support/qualify_5x72_reciprocal.py"
+sha256 = "c7656a884739ec2aedf2a1baf25b14e95d8596b4b86e1cbb957e5fbca1e21038"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_5x72_reference.py"
+target = "dmt_test_support/qualify_5x72_reference.py"
+sha256 = "92386856da4534d936505968238d47e5351dcc022e119f6ccfa4ee6b76bde9d5"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_5x72_rigid.py"
+target = "dmt_test_support/qualify_5x72_rigid.py"
+sha256 = "baed3d63d139f015cc2519be03498f8f3f8a8573c3bc05fd4b711dfc78e03215"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_5x72_root_order.py"
+target = "dmt_test_support/qualify_5x72_root_order.py"
+sha256 = "a823945b34f1e62d66ce239cb5fb5f099f1a7693be9c5fa5f6e2f6d8fef6e43e"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_chemical_domain_receiving.py"
+target = "dmt_test_support/qualify_chemical_domain_receiving.py"
+sha256 = "32907499abdc2a613150460803ee5e32d7e934a428d934aa099f029fee299444"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_chemical_templates.py"
+target = "dmt_test_support/qualify_chemical_templates.py"
+sha256 = "91ce208225be5f1d872026ad3f1f12eea4b93d834175b83bd7be68b1bd634280"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_named_types.py"
+target = "dmt_test_support/qualify_named_types.py"
+sha256 = "028483cbf6d33a3e40093a1d1b7c4e1250d8464e42bbb60361e095eb513a3d25"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/qualify_redocking_evaluation.py"
+target = "dmt_test_support/qualify_redocking_evaluation.py"
+sha256 = "1c85f4d17352aee2599170ae659e6d1cb85f9c24cc8e6c87f14bceb12542163a"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/recover_saved_3ptb_case.py"
+target = "dmt_test_support/recover_saved_3ptb_case.py"
+sha256 = "f03b56b6d5b7b0e66246e823421c4f987291eddbd752647a13757b19fefb8e6e"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/redocking_181l.py"
+target = "dmt_test_support/redocking_181l.py"
+sha256 = "7315e3dfb594f673a286d491d3c5c78a99243583b2aba8b3ea222e5c9791b4cf"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/replay_1iep_pdbqt.py"
+target = "dmt_test_support/replay_1iep_pdbqt.py"
+sha256 = "40b1274a1e2fbd4ad46f61a01eccb659d1843ae7cf01621814c0feb703f6b920"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/validate_1iep_pdbqt.py"
+target = "dmt_test_support/validate_1iep_pdbqt.py"
+sha256 = "043a131358526eb4642e89810ebc65ff52ea2243646b8a91e1f8cda3368be627"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/181l_receptor_workflow.md"
+target = "devguide/validation/181l_receptor_workflow.md"
+sha256 = "51b2a54a86801e8f214b0c89111f2eb1be78020749826edf699e6b34839d1ff0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/181l_receptor_workflow_2026-10-06.ipynb"
+target = "devguide/validation/181l_receptor_workflow_2026-10-06.ipynb"
+sha256 = "36164880013086980264ef4d72f80b14a0b2c9f2cb2c6000764a9eef2733aa4a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/181l_redocking_exploratory.md"
+target = "devguide/validation/181l_redocking_exploratory.md"
+sha256 = "21fc575b094b3ed29cf0d63b402595a0b5e48a13d573d0a8fcb8f52dcc4c0cbb"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/1iep_conformer_workflow.md"
+target = "devguide/validation/1iep_conformer_workflow.md"
+sha256 = "4c18827d41e651053819a765ec91a2fc95ddfd8d934e849ca7fc9233e8b78437"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/1iep_conformer_workflow_2026-10-08.ipynb"
+target = "devguide/validation/1iep_conformer_workflow_2026-10-08.ipynb"
+sha256 = "5ef50b3ff5a53dc0f43a5d0eddb70a11ba585086576e83e56b79b530b81d12f4"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/1iep_external_pdbqt.md"
+target = "devguide/validation/1iep_external_pdbqt.md"
+sha256 = "2237baa00efaf06a709e80f46f2762f06f6a4d688129ddfd25f43bf57525dbab"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/1iep_flexibility_workflow.md"
+target = "devguide/validation/1iep_flexibility_workflow.md"
+sha256 = "ccc80b7acc1f023e46a12c143bb8f9cd838195aeb46b9e0d3a763c2d1452fb9a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/1iep_flexibility_workflow_2026-10-07.ipynb"
+target = "devguide/validation/1iep_flexibility_workflow_2026-10-07.ipynb"
+sha256 = "80489b883bc42506a20f70b1d3bad7a400f68fde6045487722371b507edff53b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/1iep_preparation_audit.md"
+target = "devguide/validation/1iep_preparation_audit.md"
+sha256 = "208f3ad4c4d321e6e969ade179ae8fa16e729b4d19ff6a71b8a7b3910bbb5c03"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/1iep_representation_workflow.md"
+target = "devguide/validation/1iep_representation_workflow.md"
+sha256 = "d2c6f14b91ee03ec903defe6e2e749efc7d0049c4e3d15f6979879a36fc78acb"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/1iep_representation_workflow_2026-10-07.ipynb"
+target = "devguide/validation/1iep_representation_workflow_2026-10-07.ipynb"
+sha256 = "9e921f5d23f3448c9300380c8b6df55e12adcb8435dbd447c4c50a500010829a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/1iep_root_order_workflow.md"
+target = "devguide/validation/1iep_root_order_workflow.md"
+sha256 = "baebe679e74820082b75d0472ca07ff031f489f13a47cb9ee978290e09428c9e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/1iep_root_order_workflow_2026-10-07.ipynb"
+target = "devguide/validation/1iep_root_order_workflow_2026-10-07.ipynb"
+sha256 = "078d7ab631178001da16e59516117c6c57e6f7797055dd41b5dcfc87f35a3787"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/3ptb_admission.md"
+target = "devguide/validation/3ptb_admission.md"
+sha256 = "2edee0ac72fa1b1303f059473c9b308cd165c9178f13496dabf9715597e73b29"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/3ptb_admission_2026-10-10.ipynb"
+target = "devguide/validation/3ptb_admission_2026-10-10.ipynb"
+sha256 = "ca70b20293489d1b718f159e268019edb56bc4965dbe873963b935885cf050ee"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/3ptb_execution_handoff_2026-10-10.md"
+target = "devguide/validation/3ptb_execution_handoff_2026-10-10.md"
+sha256 = "92390e8e6a409767fcc7e8397967c896d82526bcd7e39aee16b5cfb3e030e323"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/3ptb_prospective_protocol.md"
+target = "devguide/validation/3ptb_prospective_protocol.md"
+sha256 = "042fa8a871184ad30278565a8f517583b6079cd874d8d9b26e17159a8b4b49ad"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/3ptb_scene.md"
+target = "devguide/validation/3ptb_scene.md"
+sha256 = "cdab8bc6b69735b16a2258e16b1efac81ceda672f3039b164bd4882893bfe674"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/3ptb_search.md"
+target = "devguide/validation/3ptb_search.md"
+sha256 = "e53476dec71ff994372c816fe1316cc2cfc6328cba3f75c2d2dd43cd02b7f371"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/3ptb_search_2026-10-10.ipynb"
+target = "devguide/validation/3ptb_search_2026-10-10.ipynb"
+sha256 = "2c665d5c5ac54b956f1d6c3465ff95b61850304345c6805a4dfdaed23cd64423"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/3ptb_source_handoff_2026-10-10.md"
+target = "devguide/validation/3ptb_source_handoff_2026-10-10.md"
+sha256 = "60e8b4ccfb873666885a570d339f1ddc34d1c630ebf779862f66aa2c665ecf32"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_contact_workflow.md"
+target = "devguide/validation/5x72_contact_workflow.md"
+sha256 = "390891f0be17bb1f34cf7e5a88d5dc3e31838fe9ae3a047a4a451dfcdd803480"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_contact_workflow_2026-10-09.ipynb"
+target = "devguide/validation/5x72_contact_workflow_2026-10-09.ipynb"
+sha256 = "242dcdd914d0cd41f6701d364b80e6a18e5c80cee6942edf78f7c83e30e61161"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_displacement_workflow.md"
+target = "devguide/validation/5x72_displacement_workflow.md"
+sha256 = "d48c2feae0b80a2e830ff03805e7bfdf08b2b0d0df33ebf2c6c447daa91f806c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_displacement_workflow_2026-10-09.ipynb"
+target = "devguide/validation/5x72_displacement_workflow_2026-10-09.ipynb"
+sha256 = "6578de0572a839dfe1fa6fe227bc566ebe7b5416c2eb02dfc5c80a95fe1ca3ae"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_occupancy_workflow.md"
+target = "devguide/validation/5x72_occupancy_workflow.md"
+sha256 = "3eedbbdea05884512b5c58fe49bb90024b2cf5278311d8b70090d769d0370453"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_occupancy_workflow_2026-10-09.ipynb"
+target = "devguide/validation/5x72_occupancy_workflow_2026-10-09.ipynb"
+sha256 = "f485b616538eb763b3e28cb6998d2ff3d5d3aff6dbe18a8751df0f7eefd51516"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_reciprocal_workflow.md"
+target = "devguide/validation/5x72_reciprocal_workflow.md"
+sha256 = "3337b45a8327ace0d628bbce23d727bb81567b317a5fc2740df127fe56a8aa58"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_reciprocal_workflow_2026-10-09.ipynb"
+target = "devguide/validation/5x72_reciprocal_workflow_2026-10-09.ipynb"
+sha256 = "3066c925813c914c089123c292ce489a34a46d77f575e2aa31cf203533ce3658"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_reference_workflow.md"
+target = "devguide/validation/5x72_reference_workflow.md"
+sha256 = "14e695b74f200714e8eba1a68a710e484d61ecd3ed3c5eb2f4f39ab95e457fc3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_reference_workflow_2026-10-09.ipynb"
+target = "devguide/validation/5x72_reference_workflow_2026-10-09.ipynb"
+sha256 = "e25f9195785c1cabb790d66bf989d63321fadf9781e75ac28b7c89e7d03c1513"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_rigid_workflow.md"
+target = "devguide/validation/5x72_rigid_workflow.md"
+sha256 = "6d982c9fdd8c4b8bbb8bd9c7a75f99029940d0bef29a058e6d371576e6aca596"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_rigid_workflow_2026-10-09.ipynb"
+target = "devguide/validation/5x72_rigid_workflow_2026-10-09.ipynb"
+sha256 = "7e00722f1967338e09ad59276f5244304b8370b013b281821ecc9b0a6dcd3b2a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_root_order_workflow.md"
+target = "devguide/validation/5x72_root_order_workflow.md"
+sha256 = "400ac72e461a4266071f2e2d2bfb2aae72661e71e35e9fc01f24f59e2407e839"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/5x72_root_order_workflow_2026-10-09.ipynb"
+target = "devguide/validation/5x72_root_order_workflow_2026-10-09.ipynb"
+sha256 = "7bc063b20340d4aa3e6363ec8b23c57a29bffaa8d06d331865abd75730cd8374"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/addon_3ptb_installed_workflow_2026-11-03.ipynb"
+target = "devguide/validation/addon_3ptb_installed_workflow_2026-11-03.ipynb"
+sha256 = "a169a74edc7ce9f665cbe724c1b7331636b2a5ca8e3bfcf72dce192fa6eb4ee1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/addon_3ptb_player_receiving_2026-11-03.ipynb"
+target = "devguide/validation/addon_3ptb_player_receiving_2026-11-03.ipynb"
+sha256 = "4e039cfc1357a6cc4fefdf66df1631ef2a5a9723c179a342768f8f54807ee602"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/addon_3ptb_workflow.md"
+target = "devguide/validation/addon_3ptb_workflow.md"
+sha256 = "ee1f28dc1b8f5b972e902bdad9cca7277d354de3255820f48ec0ae0782e203d1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/addon_3ptb_workflow_2026-11-03.ipynb"
+target = "devguide/validation/addon_3ptb_workflow_2026-11-03.ipynb"
+sha256 = "64de313817511c943c95fdb4176a5ce51663a02a58e09e55120b82f206457c52"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/addon_dom.md"
+target = "devguide/validation/addon_dom.md"
+sha256 = "aa95e15d769f78f52f44d151224af38b742d1069d4305e467a4b04a138875825"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/addon_installed_receiving.md"
+target = "devguide/validation/addon_installed_receiving.md"
+sha256 = "1613cb1dfbc18ebf7ff47b39e0d9abb444afd1a64fe740786a2056f82ca11af3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/chemical_readiness_consumption.ipynb"
+target = "devguide/validation/chemical_readiness_consumption.ipynb"
+sha256 = "abbc508faf951c7fa0a74e1833947f14cadfdd695a81b31c0b24213c03869fe1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/chemical_readiness_consumption.md"
+target = "devguide/validation/chemical_readiness_consumption.md"
+sha256 = "fcbaa328ab67164525a407aec75b8df99d77b5913f583604b03a97a2b8491658"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/chemical_template_consumption.ipynb"
+target = "devguide/validation/chemical_template_consumption.ipynb"
+sha256 = "93dc1b9cdbbb7cb4d50d9109c63dc293f2952769fc9a37eafe0bb597cda155d3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/chemical_template_consumption.md"
+target = "devguide/validation/chemical_template_consumption.md"
+sha256 = "cd1c4a15344634ad26a9e281c9555907a03b08c32da33074944ec97accd1fd37"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/chemical_template_consumption_2026-10-06.ipynb"
+target = "devguide/validation/chemical_template_consumption_2026-10-06.ipynb"
+sha256 = "388d34162635c094b7674acc1e60ad970b899fd0907b0db898a5e95fff00d67c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/core_mvp_audit_2026-10-28.md"
+target = "devguide/validation/core_mvp_audit_2026-10-28.md"
+sha256 = "c763084ec3245b8e3a942f7f7078f5b9cc26779939ee20562ddb7ef2d97c8e6d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/181l_receptor/audit_2026-10-06.json.gz"
+target = "devguide/validation/data/181l_receptor/audit_2026-10-06.json.gz"
+sha256 = "5b9bd57c4f72d63ec9283c971056d71e34f3360a365338f2bee1e3dbe6105cf0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/181l_receptor/checkpoint_2026-10-06.json"
+target = "devguide/validation/data/181l_receptor/checkpoint_2026-10-06.json"
+sha256 = "fb1cf7ceb66d398545ba5acf07f047a00ddfadec75d0b436480fc7e74d0f5242"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/1iep_conformers/audit_2026-10-08.json.gz"
+target = "devguide/validation/data/1iep_conformers/audit_2026-10-08.json.gz"
+sha256 = "52ccfc30cd0feb98e169b6625290664aa32ee58d9cee278d6313f3de55774e8f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/1iep_conformers/checkpoint_2026-10-08.json"
+target = "devguide/validation/data/1iep_conformers/checkpoint_2026-10-08.json"
+sha256 = "ee2a4ebff92776ef2301d5d5824b62e699d0179be42c2648ebb257d5cfae81ec"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/1iep_flexibility/audit_2026-10-07.json.gz"
+target = "devguide/validation/data/1iep_flexibility/audit_2026-10-07.json.gz"
+sha256 = "a8e7891094593223e5b8518d6a0695cce673022182cde2eaa076fba397755eca"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/1iep_flexibility/checkpoint_2026-10-07.json"
+target = "devguide/validation/data/1iep_flexibility/checkpoint_2026-10-07.json"
+sha256 = "95f01a5eefa46a2464355239b5a0ff08e4eb39fc997a9222210b9732046838aa"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/1iep_representation/audit_2026-10-07.json.gz"
+target = "devguide/validation/data/1iep_representation/audit_2026-10-07.json.gz"
+sha256 = "a7ba98a15191b7345e55c2de01533efe22a917d1c948bccd735970bf5d868436"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/1iep_representation/checkpoint_2026-10-07.json"
+target = "devguide/validation/data/1iep_representation/checkpoint_2026-10-07.json"
+sha256 = "123d0d3b091e775f3153841f7637ce8a4f3e3eec4e82a7167be4974acb846984"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/1iep_root_order/audit_2026-10-07.json.gz"
+target = "devguide/validation/data/1iep_root_order/audit_2026-10-07.json.gz"
+sha256 = "cfea8e331a9d3b53fe8adf6ca766bfaf68a8483f0d8984aae28949e6084b5eba"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/1iep_root_order/checkpoint_2026-10-07.json"
+target = "devguide/validation/data/1iep_root_order/checkpoint_2026-10-07.json"
+sha256 = "7904645bb7782dda0dcec9d201f3d106de16e5ca1bde288ed4cd9ced513e637a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_admission/audit_2026-10-10.json.gz"
+target = "devguide/validation/data/3ptb_admission/audit_2026-10-10.json.gz"
+sha256 = "05f82e0ff16592c64d404c216a7e2feff0c0e62a2aebff240dc8653350e21075"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_admission/checkpoint_2026-10-10.json"
+target = "devguide/validation/data/3ptb_admission/checkpoint_2026-10-10.json"
+sha256 = "a29a3fb99b4d7131266c7282a311381c46a9d2a68b66b8919550e6e866f08579"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_admission/producer_2026-10-10.py.txt"
+target = "devguide/validation/data/3ptb_admission/producer_2026-10-10.py.txt"
+sha256 = "4a14b7c525ee20bed1cc4a139235a1320824e1042fe38528aa55720329885cd8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_prospective/3PTB.pdb.gz"
+target = "devguide/validation/data/3ptb_prospective/3PTB.pdb.gz"
+sha256 = "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_prospective/BEN.cif.gz"
+target = "devguide/validation/data/3ptb_prospective/BEN.cif.gz"
+sha256 = "0a3c36d1fb61b1d9d0e9d63eb5d52b5e1f4b2d1802729d34665c3bc42cc6c4e7"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_prospective/acquisition_2026-10-10.json"
+target = "devguide/validation/data/3ptb_prospective/acquisition_2026-10-10.json"
+sha256 = "f00fe2d8bcc4f22042f37e6d01a114bdc436f48b02a58d32b1a7a85e048e7af1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_prospective/entry.json"
+target = "devguide/validation/data/3ptb_prospective/entry.json"
+sha256 = "72f53e884a08dc758905d3e3ec663a1b2f00327cdbe148d7bf45dc380da25899"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_prospective/registration_2026-10-10.json"
+target = "devguide/validation/data/3ptb_prospective/registration_2026-10-10.json"
+sha256 = "3747164543d403b810dc73c921813f462ef8b97d27bf9028b7a5a08693926720"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_scene/guides_2026-10-23.json"
+target = "devguide/validation/data/3ptb_scene/guides_2026-10-23.json"
+sha256 = "1e20f92f011a6a858db2bab5a3b8cc4d0c78f64fdd0f232650f4833b71d4fd16"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_scene/installed_origins_2026-10-23.json"
+target = "devguide/validation/data/3ptb_scene/installed_origins_2026-10-23.json"
+sha256 = "3838fc53f9721380323310c26adb563a19d33515ff057a5ba74532e47741d295"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_scene/installed_tests_2026-10-23.txt.gz"
+target = "devguide/validation/data/3ptb_scene/installed_tests_2026-10-23.txt.gz"
+sha256 = "b54cc85c4caf22c73bc6ee1c5e71559723d7128b59694e3c97b6e5fbe107f99d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_scene/manifest_2026-10-23.json"
+target = "devguide/validation/data/3ptb_scene/manifest_2026-10-23.json"
+sha256 = "ba0e68bd23833a21f8b1799e0b0be2647ce73c0f1c7b6a2724a74030b9516b1e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_scene/receipt_2026-10-23.json"
+target = "devguide/validation/data/3ptb_scene/receipt_2026-10-23.json"
+sha256 = "90bc57e2ee6e4dc85059d2e6c35e4f7c19e5b5818d48991d9ee861fd59fea031"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_scene/scene_2026-10-23.html.gz"
+target = "devguide/validation/data/3ptb_scene/scene_2026-10-23.html.gz"
+sha256 = "c087d24040b8666e326986fc67d7f1e975553cd49bd977fa647482258bdedc8e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_scene/scene_state_2026-10-23.json.gz"
+target = "devguide/validation/data/3ptb_scene/scene_state_2026-10-23.json.gz"
+sha256 = "df4e02a4a21c49281724df16d30d950eaa107fe9f8905055ec7d14f98cbd4b1b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_search/audit_2026-10-10.json.gz"
+target = "devguide/validation/data/3ptb_search/audit_2026-10-10.json.gz"
+sha256 = "97104903c93b3f7a729a5a6ac196cdb7b59d686e318efdcf324f70131abba1f2"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_search/checkpoint_2026-10-10.json"
+target = "devguide/validation/data/3ptb_search/checkpoint_2026-10-10.json"
+sha256 = "5bc3b68e570cdeb02a1122a3b55542c81e179fb8c43339ccdb7a0648aa2e28eb"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_search/ci_comparison_correction_2026-10-10.json"
+target = "devguide/validation/data/3ptb_search/ci_comparison_correction_2026-10-10.json"
+sha256 = "6cf05482cd35f69b6b993fce2e10ab3aa21b5b48c0c39e1dd442bf434055a1c8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_search/evaluation_2026-10-10.json.gz"
+target = "devguide/validation/data/3ptb_search/evaluation_2026-10-10.json.gz"
+sha256 = "8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_search/presearch_producer_2026-10-10.py.txt"
+target = "devguide/validation/data/3ptb_search/presearch_producer_2026-10-10.py.txt"
+sha256 = "5ac67e6de0e7e1351a644f284337d55c571178e2b837cea56809ee0a3239b2db"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_search/presearch_stop_2026-10-10.json.gz"
+target = "devguide/validation/data/3ptb_search/presearch_stop_2026-10-10.json.gz"
+sha256 = "c5782b5b4663c3200e4212b31fe123c5fefd70585a2e805f35512380d6ae7bad"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_search/producer_2026-10-10.py.txt"
+target = "devguide/validation/data/3ptb_search/producer_2026-10-10.py.txt"
+sha256 = "28fd3cbd41f871e54ac704628166186d622160d52630f3b4661f6ce0253a1b76"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_search/receiving_producer_2026-10-10.py.txt"
+target = "devguide/validation/data/3ptb_search/receiving_producer_2026-10-10.py.txt"
+sha256 = "4a61ff485d3a53da9edfdc63eae2c8a5eeb2581dac0204209c9bcb28a1545dc4"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_search/receiving_search_helper_2026-10-10.py.txt"
+target = "devguide/validation/data/3ptb_search/receiving_search_helper_2026-10-10.py.txt"
+sha256 = "b291744bff0281b6abe0022a2f8c2c09d4685f08fab6f9d5030b4b85f316f7cf"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_search/registration_2026-10-10.json"
+target = "devguide/validation/data/3ptb_search/registration_2026-10-10.json"
+sha256 = "2734bd1f786978cc8c75e8e3bcef8b8ef1985923cc8933f6bb5e360444a92522"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/3ptb_search/registration_initial_2026-10-10.json"
+target = "devguide/validation/data/3ptb_search/registration_initial_2026-10-10.json"
+sha256 = "1980ad892c9c97570399ab37c63299b85365aeccac6334de345273508efee80e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_contact/audit_2026-10-09.json.gz"
+target = "devguide/validation/data/5x72_contact/audit_2026-10-09.json.gz"
+sha256 = "84ad1212925bd0765f99b5e9a8932d5b7976e887f51a14964ec295b501aa5490"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_contact/checkpoint_2026-10-09.json"
+target = "devguide/validation/data/5x72_contact/checkpoint_2026-10-09.json"
+sha256 = "6fba93770e306131e622e288e230b5784f97e3d94b67a9e4e8e70c8738d82028"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_displacement/audit_2026-10-09.json.gz"
+target = "devguide/validation/data/5x72_displacement/audit_2026-10-09.json.gz"
+sha256 = "afb8bfa4092abc78f8cd2daf33da7248fe39fbd1856b23e24a192f4813fb72a8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_displacement/checkpoint_2026-10-10.json"
+target = "devguide/validation/data/5x72_displacement/checkpoint_2026-10-10.json"
+sha256 = "72bdbf1efba22613b354b0fdceace34f93b8bb7ef7b26b5de20bec7e6d71962c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_displacement/producer_2026-10-09.py.txt"
+target = "devguide/validation/data/5x72_displacement/producer_2026-10-09.py.txt"
+sha256 = "ed2db70e65c8248e6502169c8043f3f7e0dbe5b8b278af6b0c0eb44370fd9e23"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_occupancy/audit_2026-10-09.json.gz"
+target = "devguide/validation/data/5x72_occupancy/audit_2026-10-09.json.gz"
+sha256 = "5f698db8afee0df5d4323e30991d7f9061cc6ddd783d09fdeec148dc45e9db20"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_occupancy/checkpoint_2026-10-09.json"
+target = "devguide/validation/data/5x72_occupancy/checkpoint_2026-10-09.json"
+sha256 = "882552145c8bc8b93e18113e0eecc2807b6f3cfc94cdc9a155e4b12b4759829d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_reciprocal/audit_2026-10-09.json.gz"
+target = "devguide/validation/data/5x72_reciprocal/audit_2026-10-09.json.gz"
+sha256 = "323a5cb7a826368eb4914219c3a29c2fdf440956a792f9ebf7812e2cc228083d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_reciprocal/checkpoint_2026-10-09.json"
+target = "devguide/validation/data/5x72_reciprocal/checkpoint_2026-10-09.json"
+sha256 = "5a1ea657448e051e4c549bfefd607383d4eac8c82ab6f03cfbc01343687ef42f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_reference/audit_2026-10-09.json.gz"
+target = "devguide/validation/data/5x72_reference/audit_2026-10-09.json.gz"
+sha256 = "8b53aac76447951737e0f477124fa11b074c8e0d6ae4244eac686968d471c1d3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_reference/checkpoint_2026-10-09.json"
+target = "devguide/validation/data/5x72_reference/checkpoint_2026-10-09.json"
+sha256 = "741bcf7853c7c196ae12be44ec911b5da0e5d8ddaa6c7407ce69b27a264024ae"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_rigid/audit_2026-10-09.json.gz"
+target = "devguide/validation/data/5x72_rigid/audit_2026-10-09.json.gz"
+sha256 = "f0e91b99793bc61403aedf660016f532e1a46c5815f92441f511dbac8ffb4179"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_rigid/checkpoint_2026-10-09.json"
+target = "devguide/validation/data/5x72_rigid/checkpoint_2026-10-09.json"
+sha256 = "7f60806b225460abe0b6bedba7aeadf4da172ae054fef71674dd4eb52310090a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_rigid/producer_2026-10-09.py.txt"
+target = "devguide/validation/data/5x72_rigid/producer_2026-10-09.py.txt"
+sha256 = "2b95be9b555bfdadb380327fe1d3fffdefe95eb535aeb8aa32d84ae195a0a0e4"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_root_order/audit_2026-10-09.json.gz"
+target = "devguide/validation/data/5x72_root_order/audit_2026-10-09.json.gz"
+sha256 = "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_root_order/checkpoint_2026-10-09.json"
+target = "devguide/validation/data/5x72_root_order/checkpoint_2026-10-09.json"
+sha256 = "4d244153ef8358fdd32c48327c5f9b798a1b03d82dfc0c714e1689694050bcde"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_3ptb/kernel_receipt_2026-11-03.json"
+target = "devguide/validation/data/addon_3ptb/kernel_receipt_2026-11-03.json"
+sha256 = "573d5d1b7ce6fe7d109d5758d24e9149c7b190fad3950a3499adcacc1d3c2c53"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_3ptb/manifest_2026-11-03.json"
+target = "devguide/validation/data/addon_3ptb/manifest_2026-11-03.json"
+sha256 = "16957660b7552396a8e08ee19bad86ae636c215b24c5c6571c1284af8ee116bf"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_dom/checkpoint_2026-11-03.json"
+target = "devguide/validation/data/addon_dom/checkpoint_2026-11-03.json"
+sha256 = "7b1281a2eed3c8e282269b37e390bdf176b7a2341d695c8aaaf60b4ae166c5ed"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_installed/environment_2026-11-03.json"
+target = "devguide/validation/data/addon_installed/environment_2026-11-03.json"
+sha256 = "da5ffea4beab91d62bedb14adf40ab3edbe232def3331f12a374099f14cf1b50"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_installed/installed_suite_2026-11-03.json"
+target = "devguide/validation/data/addon_installed/installed_suite_2026-11-03.json"
+sha256 = "c95803ec63489f16527ac3c669ff84f84015a05171e0ac654c27d824ab6d7585"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_installed/kernel_receipt_2026-11-03.json"
+target = "devguide/validation/data/addon_installed/kernel_receipt_2026-11-03.json"
+sha256 = "f82f8912020fe3b20c4b5219e9b86c201fdc639a1b4bb144b236f9ee7dd7e729"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_installed/manifest_2026-11-03.json"
+target = "devguide/validation/data/addon_installed/manifest_2026-11-03.json"
+sha256 = "866829e2c5d5e10efa5a421527355bd4019eccbc3cea74ad0ca98b0f174f1ec0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_installed/wheel_2026-11-03.json"
+target = "devguide/validation/data/addon_installed/wheel_2026-11-03.json"
+sha256 = "05dc1ab4a828f109e377e116d0b535ae27d2fbd1530a7ce3fa6c1f846f5ad7d8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_player/consumer_wheel_2026-11-03.json"
+target = "devguide/validation/data/addon_player/consumer_wheel_2026-11-03.json"
+sha256 = "36d08df4221ec13028bcdd561315b463b2a5aab14534f4c117918dd081b1be3a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_player/environment_2026-11-03.json"
+target = "devguide/validation/data/addon_player/environment_2026-11-03.json"
+sha256 = "620c2514b0d3f9eff39d480ac87a8ba36e9063f46e5905e2b6187206d5d22645"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_player/installed_suite_2026-11-03.json"
+target = "devguide/validation/data/addon_player/installed_suite_2026-11-03.json"
+sha256 = "8659b099af0873771145b773b9711a53c1fe8923c955443aa3b30bffee3078b2"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_player/kernel_receipt_2026-11-03.json"
+target = "devguide/validation/data/addon_player/kernel_receipt_2026-11-03.json"
+sha256 = "d3192beefd1af02aa1679d148ae5d18655959b25f2e4048d91de173b9133c3a1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_player/manifest_2026-11-03.json"
+target = "devguide/validation/data/addon_player/manifest_2026-11-03.json"
+sha256 = "b2e98b7b671fbfd81fbfa0926af0e27864514d29f11fba179f8244e4cb64b810"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_player/notebook_execution_2026-11-03.json"
+target = "devguide/validation/data/addon_player/notebook_execution_2026-11-03.json"
+sha256 = "bb360b2cd13be3591ae7cbd45cf8bbf819f9bb0622f4cefa8df6c47b88748797"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_player/regression_2026-11-03.json"
+target = "devguide/validation/data/addon_player/regression_2026-11-03.json"
+sha256 = "bd48684cfef217f4eb552ba3c1c9388a9f155b767427a5bf5968a4bb05592cea"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/addon_player/viewer_wheel_2026-11-03.json"
+target = "devguide/validation/data/addon_player/viewer_wheel_2026-11-03.json"
+sha256 = "550f0bad3808150a9f4d7ec3f76e2668e31b1a6845e6675e04b40d78a30e65c9"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/audit/minimal_scored_pose.json"
+target = "devguide/validation/data/audit/minimal_scored_pose.json"
+sha256 = "970f516aadc19d6e5df8b5f7e930a7c8b7c239ab603f4e9f6d74769beb095723"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/audit/minimal_vina_result.json"
+target = "devguide/validation/data/audit/minimal_vina_result.json"
+sha256 = "4d66f4e3d00f5e5e6014ce00bd0ec11370890997f570f6272dc1f5205f1c0a88"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/chemical_templates/cases.json"
+target = "devguide/validation/data/chemical_templates/cases.json"
+sha256 = "4b99d97aadd82af47ab98eac2df00b92ff12b8eb4474a9cb49c22f111d919925"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/chemical_templates/cases_2026-10-06.json"
+target = "devguide/validation/data/chemical_templates/cases_2026-10-06.json"
+sha256 = "036d8d6616333f1246c716205f0fb132c50f42bb33b660beb8fa87d845653f0e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/chemical_templates/source_profile_2026-10-06.json"
+target = "devguide/validation/data/chemical_templates/source_profile_2026-10-06.json"
+sha256 = "a201cf4b1429087cd714786b917a9f590b35bc8810ca5ee3e506971c8008236d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/core_mvp_audit_2026-10-28/audit-records.py.txt"
+target = "devguide/validation/data/core_mvp_audit_2026-10-28/audit-records.py.txt"
+sha256 = "ef4669a61d0a3f751552870698ac0cb16ae1b61373b1bc66f0558a73817413b8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/core_mvp_audit_2026-10-28/domain-probe.json"
+target = "devguide/validation/data/core_mvp_audit_2026-10-28/domain-probe.json"
+sha256 = "5623d3cc088c45883b08206e2572b28ca5fcc8b19c235f53141bc7a14c513e69"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/core_mvp_audit_2026-10-28/frozen-checks.log.gz"
+target = "devguide/validation/data/core_mvp_audit_2026-10-28/frozen-checks.log.gz"
+sha256 = "bfa46e93d0dece0fd563b20b404b718824e3cda706f1a649bde84851d83590f8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/core_mvp_audit_2026-10-28/installed-receipt.json"
+target = "devguide/validation/data/core_mvp_audit_2026-10-28/installed-receipt.json"
+sha256 = "af0544392f441f40d7b5a520882a87ae20a5439c46e776085e0260169970248d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/core_mvp_audit_2026-10-28/manifest.json"
+target = "devguide/validation/data/core_mvp_audit_2026-10-28/manifest.json"
+sha256 = "25ccddb575bef0817d713ee9798205441369e464361ee4105046c5d4b1434052"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/core_mvp_audit_2026-10-28/probe-domain.py.txt"
+target = "devguide/validation/data/core_mvp_audit_2026-10-28/probe-domain.py.txt"
+sha256 = "05c458f705f121e83089266e73e3da48639a548032c39d72b8ef044b9fd3350f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/core_mvp_audit_2026-10-28/record-audit.json"
+target = "devguide/validation/data/core_mvp_audit_2026-10-28/record-audit.json"
+sha256 = "283b9fb0d181904fc03e2ff38abf7091ce69e6617b3434c6aba744d5763ab6bb"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/domain_derivation_2026-10-28/final-source.log.gz"
+target = "devguide/validation/data/domain_derivation_2026-10-28/final-source.log.gz"
+sha256 = "c28d3fff73dec1f82e887d102f4c6f159ae66c07aad0de4d0401d50ebb5ebf7f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/domain_derivation_2026-10-28/focused.log.gz"
+target = "devguide/validation/data/domain_derivation_2026-10-28/focused.log.gz"
+sha256 = "5e1164c7086aee139a11535924d5e6b44fc5167921caf59fab0a947c6e9e98ab"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/domain_derivation_2026-10-28/guards.log.gz"
+target = "devguide/validation/data/domain_derivation_2026-10-28/guards.log.gz"
+sha256 = "c35d36eb096b3aa3e838eba001879829cee59680c010d2c13f7110f82d1b8aeb"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/domain_derivation_2026-10-28/initial.log.gz"
+target = "devguide/validation/data/domain_derivation_2026-10-28/initial.log.gz"
+sha256 = "3f22fb56ebda7e6fa162038cf9b2dfa5ea4ebfc95cc98b3eee211f40a4028e1f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/domain_derivation_2026-10-28/manifest.json"
+target = "devguide/validation/data/domain_derivation_2026-10-28/manifest.json"
+sha256 = "904a352a5c08d7b4d8ddd6181f789de8bdd26883773447702de973120df1f2a8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/domain_derivation_2026-10-28/source-receipt.json"
+target = "devguide/validation/data/domain_derivation_2026-10-28/source-receipt.json"
+sha256 = "38184dcb83bdb76488ca64f4c0f490604b8b5d47b981b9289de4b05ee735bfdd"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/administrative-initial.log.gz"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/administrative-initial.log.gz"
+sha256 = "90fda822422a354333200b2c19542121eabe0ea856d8c81f6c3882c762f20a7d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/administrative.log.gz"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/administrative.log.gz"
+sha256 = "ed74b1ba5194b53e5a338f770a737cfc0f7a96fe9849e3dcbc2fc49526e4a685"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/before-initial.log.gz"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/before-initial.log.gz"
+sha256 = "4e3a4a37c70bb6a811bf2edc1f98d52bf2f71a533d33edf15d582bdc8b34acb9"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/before.log.gz"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/before.log.gz"
+sha256 = "4b8f3ad57ec9f53a77c3d22183a6baaac0816fd9e9dc25d892bdeffb3a53fa6a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/build-provider.log.gz"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/build-provider.log.gz"
+sha256 = "670d3719a7acd619d1298c0b5d960d08001b384c46bcea74ff94573b395b5120"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/focused-final.log.gz"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/focused-final.log.gz"
+sha256 = "87b073afdc97e5f747310a6b41c931eb4791b9369bedc6f968c56cb3de0ee1fc"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/focused-unit-observation.log.gz"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/focused-unit-observation.log.gz"
+sha256 = "b13c9a3c626a7afa7a87cbef91a9e6751edda5cef88e48d2eb1a1c426103d58b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/focused.log.gz"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/focused.log.gz"
+sha256 = "812618051dc0f9591ec86fdbc277d2d95bab014bff7b6dba23b376789e91c74d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/guides-inspection.json"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/guides-inspection.json"
+sha256 = "220ccee4eb36bd564ed95ce1a45e2abfdc464cc1b47587160b98f454dc9f2875"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/manifest.json"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/manifest.json"
+sha256 = "5becbb88088f08b4ee6c9718a6c39448dbb9f573c44e763b9a4984836e823499"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/provider-pip-check.log.gz"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/provider-pip-check.log.gz"
+sha256 = "197ad0d0206824efae237968e557064cc8621ec355a307f72fa8401c764e3669"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/provider-proof.json"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/provider-proof.json"
+sha256 = "f0a1d92613b9ef58e1201c7d49b6195d43434e5809019e1c6963f11bb7c0e496"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/qualified.log.gz"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/qualified.log.gz"
+sha256 = "b5382f63d483ce22f9eb364fe2c4bf8c23270e4e1d23ade5b213c8416f33d287"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/resources.json"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/resources.json"
+sha256 = "6b134f9459ba36cdd39aec5766f43d18f81823792dee3aa7064f2166f8e4758e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/selected.log.gz"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/selected.log.gz"
+sha256 = "9ca40d7a235f8b4a95f4458b77adfa22aa12bccbe739d336863e4dafad8aac63"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/flexible_reconstruction_2026-10-24/source-receipt.json"
+target = "devguide/validation/data/flexible_reconstruction_2026-10-24/source-receipt.json"
+sha256 = "bfcce57b3e69176f728a1bb9d637efc1c41afbf05b86bb48a8dfd0087c15809d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/fragments/legacy_trees.json"
+target = "devguide/validation/data/fragments/legacy_trees.json"
+sha256 = "ed0d65e81f26bc119bea66a0b5eace06ed46d6112f0eb1c71c289f83f97fd9d6"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/admission_2026-10-20.json.gz"
+target = "devguide/validation/data/human_3ptb/admission_2026-10-20.json.gz"
+sha256 = "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/diagnostics_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/diagnostics_2026-10-20.json"
+sha256 = "53ece16f26dc4c1c5a9c6168e7bea51a029575080ba05338a600cad66ba1ba96"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/environment_2026-10-20.yaml"
+target = "devguide/validation/data/human_3ptb/environment_2026-10-20.yaml"
+sha256 = "23895b3e330931717d496efda54c1bd34c3f0f04b8433aaaa1a4ab556455476b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/evaluation_2026-10-20.json.gz"
+target = "devguide/validation/data/human_3ptb/evaluation_2026-10-20.json.gz"
+sha256 = "6f4b62e5370d2e28a5f5db41a9fa10b8632fcd6ef2b60b3cf59a15a5174e0eb2"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/execution_registration_2026-10-20.md"
+target = "devguide/validation/data/human_3ptb/execution_registration_2026-10-20.md"
+sha256 = "9c6d103109a40eecbb6f50d97997496e0b0b5621fc9467d232178dc6128e3996"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/guides_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/guides_2026-10-20.json"
+sha256 = "857849c78c07ca4b384a49099b05d2bc9296400b0000864e7864d2545aa912d1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/installed_origins_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/installed_origins_2026-10-20.json"
+sha256 = "c6bd8d05afb9c48e73a755778b60bb934d5bf62a3cd0e11c85784aee968de1da"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/installed_preflight_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/installed_preflight_2026-10-20.json"
+sha256 = "935aa4fff6ec767af0dd5ef06d5b734c0fbeff6b77a86b349caf3cbe76271019"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/installed_tests_2026-10-20.txt.gz"
+target = "devguide/validation/data/human_3ptb/installed_tests_2026-10-20.txt.gz"
+sha256 = "3f2a74bc1f85dfc6f5f2c91048b103b4ade9e7d11b904255bd91b59db790ec0c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/kernel_receipt_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/kernel_receipt_2026-10-20.json"
+sha256 = "48948ed393c9adca48509f8f99f6622b9963a352df4571b68c088c22a99ed0be"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/native_result_2026-10-20.json.gz"
+target = "devguide/validation/data/human_3ptb/native_result_2026-10-20.json.gz"
+sha256 = "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/notebook_cells_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/notebook_cells_2026-10-20.json"
+sha256 = "cadb17f7754ad6f74f7c0618577b6e70ece25dbee81774e204f0dca66b8a80ed"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/qualification_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/qualification_2026-10-20.json"
+sha256 = "b89b8dcb9ec296d01f12cd28cb633577e868e5c60b264c5f4bb4eefd6f3b9bf2"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/resource_closeout_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/resource_closeout_2026-10-20.json"
+sha256 = "c101f403cb2d5a3b2c25c142ac288c1a9b1b9f8ef6f8f2b9fce180bf0292ec01"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/runtime_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/runtime_2026-10-20.json"
+sha256 = "e6e0cc02ab926dcfea7522443d11f99ee3fef2ac402f7635192a343e4b124562"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/saved_receiving_2026-10-20.json.gz"
+target = "devguide/validation/data/human_3ptb/saved_receiving_2026-10-20.json.gz"
+sha256 = "5579b1a111562aa6c1df40285f920f0d2a8b028cb6751357339bebe7a84b1341"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/summary_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/summary_2026-10-20.json"
+sha256 = "bf5950c8fd19b364d0335ac5dfa934f3cdac7fdb0e36e7d3e811b3326ca59922"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/terminal_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/terminal_2026-10-20.json"
+sha256 = "095d4f7d3d3ee05d9ed952d8009a6939d6afc1fdbf2a6ff0a3fd4340d7622a44"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/wheel_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/wheel_2026-10-20.json"
+sha256 = "15e4fb3a1d5ec9f4813d2ba1d2a8af1a17200b33ac825979a6524e0bb37ee9ca"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_evaluation/manifest_2026-11-03.json"
+target = "devguide/validation/data/installed_3ptb_evaluation/manifest_2026-11-03.json"
+sha256 = "37a6f9ac3c2ac9213519bde94550031e8685c77e16fca9826b61d862edfe050e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_evaluation/normal_evaluations.json"
+target = "devguide/validation/data/installed_3ptb_evaluation/normal_evaluations.json"
+sha256 = "7949117149a50118e3a3552013338b21598efa460f6b68474ad7ada220d1c675"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_evaluation/normal_summary.json"
+target = "devguide/validation/data/installed_3ptb_evaluation/normal_summary.json"
+sha256 = "e9dc9cfcf70462c679151e06a6f12eb4039568e95e595bd3314fc3a013e65d17"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_evaluation/pm_fs_evaluations.json"
+target = "devguide/validation/data/installed_3ptb_evaluation/pm_fs_evaluations.json"
+sha256 = "d542bc7def656cdd30b692255a7bc098a0e0464be505a8f443bbc43b0c307ca6"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_evaluation/pm_fs_summary.json"
+target = "devguide/validation/data/installed_3ptb_evaluation/pm_fs_summary.json"
+sha256 = "c94dcc10cf726295317b0cff2361593dc5846548d7c8c06c2523144c7f414ec7"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_evaluation/receiving_2026-11-03.json"
+target = "devguide/validation/data/installed_3ptb_evaluation/receiving_2026-11-03.json"
+sha256 = "5ce663146f0413cdd5445bc5edfb18a3c3796895c8c22c3437dd03cbee40b510"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_evaluation/registration_2026-11-03.json"
+target = "devguide/validation/data/installed_3ptb_evaluation/registration_2026-11-03.json"
+sha256 = "8b7593b50e6311db0f69801cd3628a9fbace8b4fea0b0091e5e466a97c4d44fb"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_execution/manifest_2026-11-03.json"
+target = "devguide/validation/data/installed_3ptb_execution/manifest_2026-11-03.json"
+sha256 = "bfdfdfd611c84da7531f7950780f5561e44d6d128d44518cf0d02256ceb1b529"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_execution/observations_2026-11-03.json"
+target = "devguide/validation/data/installed_3ptb_execution/observations_2026-11-03.json"
+sha256 = "8f9eedb78ecc4b6e63b24f9667b659ed0626ba03861936835dfb93cf3c47075e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_execution/receiving_2026-11-03.json"
+target = "devguide/validation/data/installed_3ptb_execution/receiving_2026-11-03.json"
+sha256 = "c3be0df28f946e54ce5363a33b77e82b6834580e457946e0719fef9b1be21cea"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_execution/registration_2026-11-03.json"
+target = "devguide/validation/data/installed_3ptb_execution/registration_2026-11-03.json"
+sha256 = "741f09ab8d418ffe307820d9a465c4cb5fe12c7cde9b2df27adbf22cf8a92153"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_preparation/manifest_2026-11-03.json"
+target = "devguide/validation/data/installed_3ptb_preparation/manifest_2026-11-03.json"
+sha256 = "12a84c92b3d0ff6759722e6ba8f8e5d59878eee87d3392de007fe2ce621dc80e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_3ptb_preparation/receiving_2026-11-03.json"
+target = "devguide/validation/data/installed_3ptb_preparation/receiving_2026-11-03.json"
+sha256 = "fe0f7e0892245c4079ec8acdbe89d726122093d2bb64664a96bf6439fb050689"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_integration/checkpoint_2026-10-07.json"
+target = "devguide/validation/data/installed_integration/checkpoint_2026-10-07.json"
+sha256 = "200a296dfb3fdeca48254c5a752dc25bf9a08ced41fe0838fc72921683982f1e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_validator/cases_2026-11-04.json"
+target = "devguide/validation/data/installed_validator/cases_2026-11-04.json"
+sha256 = "2e6b971b671cc7b3cfee54a1238df685efcc71393542086236143a77987b6715"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_validator/manifest_2026-11-04.json"
+target = "devguide/validation/data/installed_validator/manifest_2026-11-04.json"
+sha256 = "5e249e3c90043e187acc9c44d10facc3f8d43a95e7a23043cbcc8a7eb5408d87"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_validator/sdk_source_2026-11-04.json"
+target = "devguide/validation/data/installed_validator/sdk_source_2026-11-04.json"
+sha256 = "115923cae1789bd7786061ce0a5ae49492c9f6bc380c6109461a46e4e5169f14"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/installed_validator/source_ci_2026-11-04.json"
+target = "devguide/validation/data/installed_validator/source_ci_2026-11-04.json"
+sha256 = "4174f85277eae6e4ac86546930de90f08254df8dbc724d55d2e906071df4b4d2"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/administrative.log.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/administrative.log.gz"
+sha256 = "222d8038dd03174aebac696304b73d09584b396a49f873378064323a18b20482"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/focused-final.log.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/focused-final.log.gz"
+sha256 = "0d6ef8318fb92e1ab4fd7158cb1c4b3e0d28affd07cf04b7b566476eaf6c3925"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/focused.log.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/focused.log.gz"
+sha256 = "3024896782d13373bd3fdd1dc03cf3c3666be54302ea7453beb3068ef8cba46c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/guides-inspection.json"
+target = "devguide/validation/data/known_source_poses_2026-10-24/guides-inspection.json"
+sha256 = "c2dd3164cc0101c710ff239e19b29ab12209c5dda38a68cb9b0e769ace447f41"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/initial-profile-diagnostics.log.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/initial-profile-diagnostics.log.gz"
+sha256 = "73e60f52fa6c56bcba91db8be86ff0e85b750207e1753f500fcfa7c064850609"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/installed-boundary-guarded.log.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/installed-boundary-guarded.log.gz"
+sha256 = "4a9795513e5cbb9d5935a0e24a2ff9564986790cfab1248cc4d644f4b48223e9"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/installed-boundary-origins.json"
+target = "devguide/validation/data/known_source_poses_2026-10-24/installed-boundary-origins.json"
+sha256 = "046808dfbf6e7ad9f9ea44729e52401febca5d66f24d3b29e1c0a57beb2075de"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/installed-origins.json"
+target = "devguide/validation/data/known_source_poses_2026-10-24/installed-origins.json"
+sha256 = "9c4f3173b6b45b73db05cb48b796fae52500fb2ece57f77f248c625b5c3479ee"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/installed.log.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/installed.log.gz"
+sha256 = "3c45fc968bbdbbdf000ea8d9623275e259679228f1f8519a99cb735c771b2e65"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/manifest.json"
+target = "devguide/validation/data/known_source_poses_2026-10-24/manifest.json"
+sha256 = "41cecdc23bc0c2e465beb8719926fa78bfb72b579034ee9a03b6bf3249032965"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/qualification.json"
+target = "devguide/validation/data/known_source_poses_2026-10-24/qualification.json"
+sha256 = "cdd12579c1a3cf53334f304325e3abd7b26a9557e718926753f374b5265fbfb8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/real_control_0.json.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/real_control_0.json.gz"
+sha256 = "467c10868f22ef79bbc1097e61a0285cce080fd25fecf3c3f675dda6d3c95030"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/real_control_1.json.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/real_control_1.json.gz"
+sha256 = "81092d0a9cdecab141595709296246f8af910173c6831ded238b10fa0eb57c10"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/real_poses_0.pdbqt.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/real_poses_0.pdbqt.gz"
+sha256 = "3a86034163c99b671bbc9b155f73ee3b8a85333181625769bd9562a9dd9355df"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/real_poses_1.pdbqt.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/real_poses_1.pdbqt.gz"
+sha256 = "3a86034163c99b671bbc9b155f73ee3b8a85333181625769bd9562a9dd9355df"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/resources.json"
+target = "devguide/validation/data/known_source_poses_2026-10-24/resources.json"
+sha256 = "d0b8427d00249f995752e7bdd2bbfc0e5f3afc32ce84706dd88dbca227b0de65"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/serial-and-empty-diagnostics.log.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/serial-and-empty-diagnostics.log.gz"
+sha256 = "52ae67ad9832832cd536530d47a579ca1f534b4582f4aaa9ea6020cb34404558"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/known_source_poses_2026-10-24/source-selected.log.gz"
+target = "devguide/validation/data/known_source_poses_2026-10-24/source-selected.log.gz"
+sha256 = "92e12f45080ab7d52aa1e38124b1985565f478a9e51812d66096ed425ed4e581"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/license_metadata/checkpoint_2026-11-03.json"
+target = "devguide/validation/data/license_metadata/checkpoint_2026-11-03.json"
+sha256 = "58d9a8beea432ac76b50ad1daedd36e402679afa6dd5333f034312b60a281ea9"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/1s63_ligand-after.pdbqt.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/1s63_ligand-after.pdbqt.gz"
+sha256 = "78879b7f961c1be05bbd1655b51dcaa1299242777c7fe52eb17ff5c1b0691275"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/1s63_ligand-before.pdbqt.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/1s63_ligand-before.pdbqt.gz"
+sha256 = "5ba7b79ddd3ec3db351d633971661330d631dd35680dffea5d0db6e5abe660e2"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/administrative.log.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/administrative.log.gz"
+sha256 = "cb7af7a183f959fb5b625915e423e94fc82cc8c9e67c10e4a0712a752c3f2602"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/baseline-preparations.json.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/baseline-preparations.json.gz"
+sha256 = "e5dabef14f234b758bd04857a919137f78e675810f3e5c931ff591adcea49e5c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/before.log.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/before.log.gz"
+sha256 = "f0698b51cc7e9ee75d9119f09ebff65f1d796acb943996bede0d06376399942b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/corrected.log.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/corrected.log.gz"
+sha256 = "95e6a0266327be23bff98411d79dc608e567f9d57f4e1313bf223c2a664c6330"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/current-wire.json.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/current-wire.json.gz"
+sha256 = "d1ad59fb8a29bcc0880c679a70450cb23e9b0f0c129a35afdff1aa5e58e1f2d8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/declared-targeted.log.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/declared-targeted.log.gz"
+sha256 = "860c87fc5da419850305e10aaa3d4fc42cb85a74a8228ec7acf498c6126a031c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/first-targeted.log.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/first-targeted.log.gz"
+sha256 = "cd1f09b5c6f732e16d7fd77d6598862bc2f3f53b1ffcad809d26ca79f7389c59"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/focused-final.log.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/focused-final.log.gz"
+sha256 = "3fa56f2799b39a6d9fbef39672a086ebb4c8be3b080cf711118c8d8e94cc7e74"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/focused.log.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/focused.log.gz"
+sha256 = "fce562295c6e16e25484f538b67d5155076f834d2ec8aa243074dd690dfce71f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/full-source.log.gz"
+target = "devguide/validation/data/ligand_projection_2026-10-24/full-source.log.gz"
+sha256 = "f4df3915be181b9dbffae77dc7fb7a7290762905ead6dde79e367dfa20f3d798"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/guides-inspection.json"
+target = "devguide/validation/data/ligand_projection_2026-10-24/guides-inspection.json"
+sha256 = "c2dd3164cc0101c710ff239e19b29ab12209c5dda38a68cb9b0e769ace447f41"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/inventory_probe.json"
+target = "devguide/validation/data/ligand_projection_2026-10-24/inventory_probe.json"
+sha256 = "a22c6666eb780a6d772f2ac4d8b6db01f9c09b1d4582201f86a479bbf92eff5c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/manifest.json"
+target = "devguide/validation/data/ligand_projection_2026-10-24/manifest.json"
+sha256 = "ada910ba4fbf3d23bc328b339f67e78bfe40c08ce8e5bc481cb19120db5fabbf"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/resources.json"
+target = "devguide/validation/data/ligand_projection_2026-10-24/resources.json"
+sha256 = "ed88cf360a06728d10ed61db97086a7a8289acf45fe2796f4929218b97c7f641"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/source-receipt.json"
+target = "devguide/validation/data/ligand_projection_2026-10-24/source-receipt.json"
+sha256 = "7430fa1a75dc31387fc670abe91957b93c786d1cdb0f1c42bf6fb5e4445ce88e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_projection_2026-10-24/wire-comparison.json"
+target = "devguide/validation/data/ligand_projection_2026-10-24/wire-comparison.json"
+sha256 = "202e550118cfb1176e965e5361c9c795f3ab05dd6cd2518ff704022ee6c3b66c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_stages/qualification.json"
+target = "devguide/validation/data/ligand_stages/qualification.json"
+sha256 = "22869a0c3906d1daec5628c02f31e0d77185fc1868b0cb927d24523a9e83e3a1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ligand_stages/qualification_2026-10-06.json"
+target = "devguide/validation/data/ligand_stages/qualification_2026-10-06.json"
+sha256 = "5985c7712e33d3cba5017387ad69682ad4929b7e6459e3077f2884cde6d65d6d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/named_charges/qualification.json"
+target = "devguide/validation/data/named_charges/qualification.json"
+sha256 = "6fc9d538cce0f8a8e1c0a7bcf58b801dd3dac3c4402116196e4b084b18e67c66"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/named_types/checkpoint_2026-10-06.json"
+target = "devguide/validation/data/named_types/checkpoint_2026-10-06.json"
+sha256 = "7bd29be6ffb6f2cadeca074a0ff054ed3a37a4893478acf241b48eb9b89bf6ee"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/named_types/qualification_2026-10-06.json"
+target = "devguide/validation/data/named_types/qualification_2026-10-06.json"
+sha256 = "8e2dc00a0857bcf51e00977e962d4ec4a85bc43e0bd7faaa8aa9570d5fb9ddec"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/administrative-initial.log.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/administrative-initial.log.gz"
+sha256 = "da709e74b35342666d4372787df2d8231777ccfd42e816fcf491f4c758b3c9e4"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/administrative.log.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/administrative.log.gz"
+sha256 = "06807df13b2ae0472767d54acda9e4429169dd27a2cfbdb96f3955a1b3753f57"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/artifact-proof.json"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/artifact-proof.json"
+sha256 = "9f56c3b9aa38caf341ee65b7253961659309186ff869a19c789afa7ba72791fe"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/focused-final.log.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/focused-final.log.gz"
+sha256 = "901dd74d3eb2c82d13927c8fabd368e559d8e139dab9b8cf0b4d7cd1b9e2002e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/focused.log.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/focused.log.gz"
+sha256 = "bea09221ed765e5e3bacc4c8b08bec0f997e2dadb2ae4006a1d0ff8999e74f9c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/guides-inspection.json"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/guides-inspection.json"
+sha256 = "c2dd3164cc0101c710ff239e19b29ab12209c5dda38a68cb9b0e769ace447f41"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/hexane-legacy.pdbqt.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/hexane-legacy.pdbqt.gz"
+sha256 = "5c4f5960fe240d0aec71acb237035e0c8e35184b469afd5e2984b8f66683e974"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/hexane-native.pdbqt.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/hexane-native.pdbqt.gz"
+sha256 = "d8a5325dfdd2c2d797c7182e8e136b45121e942db131e88fb074a4ba5c66ff88"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/installed.log.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/installed.log.gz"
+sha256 = "91351d54bc73b6e03533cad9900663ade9b4084e8cdf35163f3cde161f946552"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/manifest.json"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/manifest.json"
+sha256 = "895a05805c05c0b2d4dcbf7c1f02120f37eb87000fa09701b26851b375b1b83f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/methanol-legacy.pdbqt.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/methanol-legacy.pdbqt.gz"
+sha256 = "b16b190b56113d1856bd8ce192c68a113a1ec0985aca1f1faec3eb6d3295dde8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/methanol-native.pdbqt.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/methanol-native.pdbqt.gz"
+sha256 = "e9457e164b74349669286a7894582a5cd3f1b45e03130f9c6eccd46af3ff1419"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/probe-final.log.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/probe-final.log.gz"
+sha256 = "182e4d21b6a784a66cd26fa69cd62143b5b8ff78e2aa90d1e5bf52eb47b15211"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/probe.json.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/probe.json.gz"
+sha256 = "4cc056e1294b7270357199ed313e74a472b6a6cb84070896bc1a2084796e48ba"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/resources.json"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/resources.json"
+sha256 = "6f69c505c0ad086984706384bde17e717ddbde3aa7fd5b38aa514064258a506a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/selected.log.gz"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/selected.log.gz"
+sha256 = "e92e41be24cc7b7c9e0f35f7e1ca7c7a2622f1b49ba3eb492f310b66a8ed97c7"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_ligand_export_2026-10-24/source-receipt.json"
+target = "devguide/validation/data/native_ligand_export_2026-10-24/source-receipt.json"
+sha256 = "bb01cbc528177ff4153789d6b123b5a59fdcb946d26acf1a4f9a891e880f0886"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/181l-legacy.pdbqt.gz"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/181l-legacy.pdbqt.gz"
+sha256 = "7b19f4255589005b7aea3d4c33bd630eeb75cf113e8c9c9bc6239bfc2f79998f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/181l-native.pdbqt.gz"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/181l-native.pdbqt.gz"
+sha256 = "e286d42dc2beb4ff9dad168cbe61585f0e7b04c732d33fbf07aea8f363678e72"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/181l-preserved-native.pdbqt.gz"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/181l-preserved-native.pdbqt.gz"
+sha256 = "87d496f3c92f6f39c9d741a6b678d39b5c5bdd6a9b3fbfa25609b537b6a6c636"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/administrative.log.gz"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/administrative.log.gz"
+sha256 = "fbcfe8c22a9245a963cb5a53bf24a25cced077e82e9dcc5b80ae5cdbf6328f4c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/focused.log.gz"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/focused.log.gz"
+sha256 = "67d5dad58fdfacc1121b465bc635e31634a7854b4b0d1a23283a9cc11286f4ae"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/guides-inspection.json"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/guides-inspection.json"
+sha256 = "cd3246c31b731eb52d3c879a30f3bc64e4667a5fbd339ebce1854f4ff38afd87"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/manifest.json"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/manifest.json"
+sha256 = "2e496acd1d784a861e1fad6fbc1d9e5b29a91aee1e8c2327c1cedadcf68d36cf"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/preserved-id-probe.json.gz"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/preserved-id-probe.json.gz"
+sha256 = "f8a3bd8cc84c70ac96f902c031749405e37b9088e0a8c12354a38924a5d1d8d6"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/protein-probe.json.gz"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/protein-probe.json.gz"
+sha256 = "ca4e0ad25dec30fd34200920c7aa053bfde81be46430dbbb7a2fe21970dc0bf0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/provider-inspection.json"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/provider-inspection.json"
+sha256 = "b795540dd59be8a259063adb14d030f2e1da6b69a021987bd08dfda51566cf82"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/resources.json"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/resources.json"
+sha256 = "b6b40418b6af824aa00f9fad25c976f302ecaf188601a89bad711e95a5ddc839"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/selected.log.gz"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/selected.log.gz"
+sha256 = "f4296ba7cfb97920672a04260cb7c7e2276a0e44962930b3f9ed3aee4b8b3704"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/native_receptor_export_2026-10-24/source-receipt.json"
+target = "devguide/validation/data/native_receptor_export_2026-10-24/source-receipt.json"
+sha256 = "1f0c790bbf1c3b299fdc5fb029e0e8b0a414af91bdb435b9881f3abf55492953"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pdb_bond_inference/probe.json"
+target = "devguide/validation/data/pdb_bond_inference/probe.json"
+sha256 = "11d5d27a6e0d62a6abd8049c637d12383c67e0d55f7697cc53a0ad5f32b90a8b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pdbqt_presentation_2026-10-28/administrative.log.gz"
+target = "devguide/validation/data/pdbqt_presentation_2026-10-28/administrative.log.gz"
+sha256 = "7f8fe8e33633500698ed74829e26764a6814b5be5b5a32b0d70a3e1360b1ac2c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pdbqt_presentation_2026-10-28/artifact-proof.json"
+target = "devguide/validation/data/pdbqt_presentation_2026-10-28/artifact-proof.json"
+sha256 = "c91b297fd00c7e713b2cb2e6270dcbe6a4e84ca0b7aa5c3631373f729f29d9de"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pdbqt_presentation_2026-10-28/before.log.gz"
+target = "devguide/validation/data/pdbqt_presentation_2026-10-28/before.log.gz"
+sha256 = "1b603d9b71a961db62ae6afe6e5b5b7aca4a70db7c3126d2c1da63fb1e8b9244"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pdbqt_presentation_2026-10-28/declarations.log.gz"
+target = "devguide/validation/data/pdbqt_presentation_2026-10-28/declarations.log.gz"
+sha256 = "6781ada1d10439f5c5604e10f0f0220443d6c9183cf32bef7e8c2d0b4d33c1ac"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pdbqt_presentation_2026-10-28/focused.log.gz"
+target = "devguide/validation/data/pdbqt_presentation_2026-10-28/focused.log.gz"
+sha256 = "f4af4e2edf7e9a9b849a92180510c9b449dc1cfec8dc465e0eccaa770853fdbb"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pdbqt_presentation_2026-10-28/guides-inspection.json"
+target = "devguide/validation/data/pdbqt_presentation_2026-10-28/guides-inspection.json"
+sha256 = "c9c815e3208ed4cc5295bb7119f0259594157e9505dec09f7bcd14047ea29104"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pdbqt_presentation_2026-10-28/installed.log.gz"
+target = "devguide/validation/data/pdbqt_presentation_2026-10-28/installed.log.gz"
+sha256 = "3dfadf1cbdf8c3baa6e55935365d915af6d5b746f2569436cb5a5356a1344ea3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pdbqt_presentation_2026-10-28/manifest.json"
+target = "devguide/validation/data/pdbqt_presentation_2026-10-28/manifest.json"
+sha256 = "6bfab51cdace1bb6a237dacede632b215bf81f595d1d280573543302fbf1c1e0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pdbqt_presentation_2026-10-28/provider-proof.json"
+target = "devguide/validation/data/pdbqt_presentation_2026-10-28/provider-proof.json"
+sha256 = "0164e155ddcc5f93d873cf28b8b3d92f7fbbfd97844b940ba122232863f841b0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pdbqt_presentation_2026-10-28/source-receipt.json"
+target = "devguide/validation/data/pdbqt_presentation_2026-10-28/source-receipt.json"
+sha256 = "9ba8ff6630862e07cb0e743553623a05fd6b435171d18250b277afad1390758f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/build_wheel_2026-10-13.txt"
+target = "devguide/validation/data/pre_human_closure/build_wheel_2026-10-13.txt"
+sha256 = "631deb95f733aba54c7bd39242675acd029e85e6c77b69cdb8007bd15bae5890"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/install_wheel_2026-10-13.txt"
+target = "devguide/validation/data/pre_human_closure/install_wheel_2026-10-13.txt"
+sha256 = "8619b90fca60f7f4c3514b80b86f9e6fb6a0d1846ed31fe2aaca6ed52a020377"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/installed_2026-10-13.json"
+target = "devguide/validation/data/pre_human_closure/installed_2026-10-13.json"
+sha256 = "0fbb4a59582236aaa679ffce6f7a3503f4f7f1dd14657478f8f35fa73913b4be"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/installed_saved_receiving_2026-10-13.py.txt"
+target = "devguide/validation/data/pre_human_closure/installed_saved_receiving_2026-10-13.py.txt"
+sha256 = "669d1c06ce4f640b2907ced7f5abd77599dc701fe9ee406c1864ff424a680651"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/installed_tests_2026-10-13.txt.gz"
+target = "devguide/validation/data/pre_human_closure/installed_tests_2026-10-13.txt.gz"
+sha256 = "9db10942594b8913c82fd189b0e16a4945d0b3622c74c10da5f093d193d4c3a0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/manifest_2026-10-13.json"
+target = "devguide/validation/data/pre_human_closure/manifest_2026-10-13.json"
+sha256 = "59993013220a8d1cf76d61ba4e56c9bd9870b110e0b49980a8b503eec793fede"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/module_origins_2026-10-13.json"
+target = "devguide/validation/data/pre_human_closure/module_origins_2026-10-13.json"
+sha256 = "38a731737b3f22e19418a0f2dcf40eea299ca7465352253336d18129eca327ec"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/pip_check_2026-10-13.txt"
+target = "devguide/validation/data/pre_human_closure/pip_check_2026-10-13.txt"
+sha256 = "abd0cbb8d1b0be2dd46fa4158c910af97b89bbe3deaf6b34641907d0af82a6ca"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/provider_fixes_2026-10-13.json"
+target = "devguide/validation/data/pre_human_closure/provider_fixes_2026-10-13.json"
+sha256 = "bf1f4cf14ff4a8213477391c2b80341f6a85697b539f17e97ebddbfab95b1364"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/run_installed_2026-10-13.py.txt"
+target = "devguide/validation/data/pre_human_closure/run_installed_2026-10-13.py.txt"
+sha256 = "d223995eea05bfc952a4cd991553fced9cd51cbcbf201a40b249d7f1ca97e560"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/saved_receiving_2026-10-13.json"
+target = "devguide/validation/data/pre_human_closure/saved_receiving_2026-10-13.json"
+sha256 = "18217cca6d3ce11bfbae96065c26455fdce6ec445a406298a2547c1a89057fe8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/terminal_2026-10-13.json"
+target = "devguide/validation/data/pre_human_closure/terminal_2026-10-13.json"
+sha256 = "bf00832f6afe5ec5085d7e0caaa255f5c5a85d26eb7cf35b6f07021f6e0ee963"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/wheel_preflight_2026-10-13.json"
+target = "devguide/validation/data/pre_human_closure/wheel_preflight_2026-10-13.json"
+sha256 = "b10327e0642a46e4298e1a1e9ee8cf71c92bb2f6132b19421db89a5123732097"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/pre_human_closure/wheel_preflight_2026-10-13.py.txt"
+target = "devguide/validation/data/pre_human_closure/wheel_preflight_2026-10-13.py.txt"
+sha256 = "df27fdfaa5bf5feeffd5937ee431d552fde1eaf6804a0c95d71677359763276c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/administrative.log.gz"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/administrative.log.gz"
+sha256 = "aae5f788e036b7b4ce7e6dbdcbe3bbd5d4d105b0e269b9231270d937607fa164"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/baseline-flexible_generated_pentanol.pdbqt.gz"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/baseline-flexible_generated_pentanol.pdbqt.gz"
+sha256 = "0b9b41d4a4d407912d81482e4cf6238f7b8ff47e011ad3d58274905fc96241bd"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/baseline-generated_methanol.pdbqt.gz"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/baseline-generated_methanol.pdbqt.gz"
+sha256 = "053305474bec4cd35096b32c52b73e266167784c9918c31952a0605d272411c1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/baseline-ligand_charge_only.pdbqt.gz"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/baseline-ligand_charge_only.pdbqt.gz"
+sha256 = "7fd2a4442dc5a6c9a5ef586e2998cd96f8b2d538b285b4772ce7cab4fbcb217f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/baseline-receptor_charge_only.pdbqt.gz"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/baseline-receptor_charge_only.pdbqt.gz"
+sha256 = "9e6f91421172ca568c21d6a2eaf8e914001947ee7c1babc1d94113b104c93f02"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/before.log.gz"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/before.log.gz"
+sha256 = "aa63d30df088682387f4915b8e2e8ea481480313c91d0af4cc3acb7410785a18"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/focused-final.log.gz"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/focused-final.log.gz"
+sha256 = "1f64610d6b8b4a34765635e0c2e255b0629827bb373912cb014dfae4f701f663"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/focused.log.gz"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/focused.log.gz"
+sha256 = "d7a7c77fea1f855f3331ea43f7c0c8126773a49b88e8d71f5c6d9644130ba182"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/guides-inspection.json"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/guides-inspection.json"
+sha256 = "cd3246c31b731eb52d3c879a30f3bc64e4667a5fbd339ebce1854f4ff38afd87"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/manifest.json"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/manifest.json"
+sha256 = "834117bdd80c4768bbfe80fb45264b2e2988851cacbb18faf44e13bbd9f22c29"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/provider-proof.json"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/provider-proof.json"
+sha256 = "e40aa58bb0ea5a04e7b0a95c10a24b7ec740e340897ba2063992e6e0c7477126"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/resources.json"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/resources.json"
+sha256 = "8553cb0f734d7f4c9508736b5258859c77a2aabd24a33934ec6b762145383872"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/selected.log.gz"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/selected.log.gz"
+sha256 = "2b4eecc78fb27f9ac6ef5300a360f43698caba23b1594d000332c81b82496650"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/source-receipt.json"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/source-receipt.json"
+sha256 = "68432891305606251a055c43a89da3be01488176ccffbcaf3f132c0f625d2cb4"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/source-wire-comparison.json"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/source-wire-comparison.json"
+sha256 = "d32f766f2fe9846b3e556a2b59f98e8a4f1dbb4525cf5f313f4802372141b183"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_atom_maps_2026-10-24/tool-proof.json"
+target = "devguide/validation/data/preparation_atom_maps_2026-10-24/tool-proof.json"
+sha256 = "38643ee82f361012496ed08bce18af0a5a47f7a065096582c3aab7f5839976ff"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_profile_2026-10-29/administrative.log.gz"
+target = "devguide/validation/data/preparation_profile_2026-10-29/administrative.log.gz"
+sha256 = "c7d052f5713d59d1c107f0c4c486974b4560c7f2a4741ca6c1b1193deea13304"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_profile_2026-10-29/admission.log.gz"
+target = "devguide/validation/data/preparation_profile_2026-10-29/admission.log.gz"
+sha256 = "20a6af08bdfff36dd93145c7769a31cf6f042f82a31be07da2f505c4bbad3155"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_profile_2026-10-29/checks.json"
+target = "devguide/validation/data/preparation_profile_2026-10-29/checks.json"
+sha256 = "3446b75599910b16c48c59b239c7885b732805f8fb249cf4e9db0b14da96b967"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_profile_2026-10-29/governance-local.log.gz"
+target = "devguide/validation/data/preparation_profile_2026-10-29/governance-local.log.gz"
+sha256 = "c0bbebeec480b49e3ce9023b71bd47a881b23d2e9549c3862dc8f038660ef806"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_profile_2026-10-29/guards.log.gz"
+target = "devguide/validation/data/preparation_profile_2026-10-29/guards.log.gz"
+sha256 = "ed3c1cadc09ebd80e4f2797d10b21687e75a65dba7634bcf8e724328e082a03d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_profile_2026-10-29/guides-inspection.json"
+target = "devguide/validation/data/preparation_profile_2026-10-29/guides-inspection.json"
+sha256 = "c9c815e3208ed4cc5295bb7119f0259594157e9505dec09f7bcd14047ea29104"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_profile_2026-10-29/local-checks.json"
+target = "devguide/validation/data/preparation_profile_2026-10-29/local-checks.json"
+sha256 = "b0f66aae1b5c3713537ff7899792c985ebce74469c2db7a149a7e4cd9d143c08"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_profile_2026-10-29/manifest.json"
+target = "devguide/validation/data/preparation_profile_2026-10-29/manifest.json"
+sha256 = "249fd65aae94ac4fb331470c09faf0c0a735ff38647f0340f9265684dc910d75"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_profile_2026-10-29/producer.py.txt"
+target = "devguide/validation/data/preparation_profile_2026-10-29/producer.py.txt"
+sha256 = "fa74f7aec258cc31520f5494cd874c2ed3a85c595885e893581f392879fed3be"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_profile_2026-10-29/receipt.json.gz"
+target = "devguide/validation/data/preparation_profile_2026-10-29/receipt.json.gz"
+sha256 = "d1b8c434a68dbb5eb869511a09bea5360982af01234eb62e767c4afe87efbaf3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/preparation_profile_2026-10-29/registration.json"
+target = "devguide/validation/data/preparation_profile_2026-10-29/registration.json"
+sha256 = "8227afcc45309735d5d58857969e65729fb2b43e08cdb7c767da20ad6a8516c6"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_pose_reading_2026-10-28/administrative.log.gz"
+target = "devguide/validation/data/prepared_pose_reading_2026-10-28/administrative.log.gz"
+sha256 = "64fc05bcddf311795a7427335a5916198be97fb64815d4827fa709fec3e58929"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_pose_reading_2026-10-28/final-selection.log.gz"
+target = "devguide/validation/data/prepared_pose_reading_2026-10-28/final-selection.log.gz"
+sha256 = "bdb5f767ca6bd51609b2bed50234f682393a899a6ee6933f55a0fd63f1e8c04c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_pose_reading_2026-10-28/manifest.json"
+target = "devguide/validation/data/prepared_pose_reading_2026-10-28/manifest.json"
+sha256 = "eaf752cc22507918d1b7c93a4f50063d538b0666c5bedcd5d5de87956e396f18"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_pose_reading_2026-10-28/readonly-correction.log.gz"
+target = "devguide/validation/data/prepared_pose_reading_2026-10-28/readonly-correction.log.gz"
+sha256 = "730fe457ee52e7262d9e42dec0aeb49aa93dd713253de69bf8f36181c5f2a201"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_pose_reading_2026-10-28/source-receipt.json"
+target = "devguide/validation/data/prepared_pose_reading_2026-10-28/source-receipt.json"
+sha256 = "58be5b4de6f00a3d1a0dea6d9fe886a89cbac5735888ce93d86e78f39333d2ca"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/before.log.gz"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/before.log.gz"
+sha256 = "4588c7b3afdcbdb650c9de3d7f5e33770083da08dab77462de735ac839ed6379"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/final-source.log.gz"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/final-source.log.gz"
+sha256 = "2c5c7ab01e6edf4fcf462e69b7f38ea0b60a12e409dbde6598d595cefc9814b7"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/focused.log.gz"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/focused.log.gz"
+sha256 = "606c6fd40d2e767a6cf1bc39981205e14bed050409605f95a9f7a41888047f43"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/frozen-files.json"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/frozen-files.json"
+sha256 = "49fd55d11ba539eefbf53448f5abd00c67d6080f32143472be3fed6e08b67d0e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/guards.log.gz"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/guards.log.gz"
+sha256 = "59016f5fc52753f7ee43e64eadfba57779e081f48d6fe2a9894c77fd7f3344c1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/manifest.json"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/manifest.json"
+sha256 = "77568f772280f6c805104f1b5b49f5c1953f7793acd32579fd93716ee64e1914"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/before.log.gz"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/before.log.gz"
+sha256 = "8857aa8ba084adf31229d422c52cff0f9f38a726ea6a8b7b7d46aed67a01861d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/frozen-files.json"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/frozen-files.json"
+sha256 = "6a02203f06cb26bf3da94c3d0682b47ebd7de46b20902ee61dd13f257b0de1b1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/initial-artifact.json"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/initial-artifact.json"
+sha256 = "0781e6546419000b9e17e81f081d744e703e192b6a29614673f48320913ff34e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/initial-installed.log.gz"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/initial-installed.log.gz"
+sha256 = "6a3b47fad3cce7ab7ad692419b4d24cd26a71726e035925cbe59d07ca3811910"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/manifest.json"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/manifest.json"
+sha256 = "f0d79caf69b987066b975053e471fe958351a49f1267cc57ba67b520517b4e87"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/source-receipt.json"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/source-receipt.json"
+sha256 = "08109d9c06f1a5fef710cffae79aee39861467352f4b7ea2e09fac7bbc6623e3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/source.log.gz"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/mixed/source.log.gz"
+sha256 = "34606bc90b4b7ab404c2323d1ce0c15826eef37e54ad63a727bc4ab2121b2a22"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/probe.json"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/probe.json"
+sha256 = "4bd78e561dcabda082d5e6761155028267621af11878057b71c128ae11dc1493"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/selected.log.gz"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/selected.log.gz"
+sha256 = "78e57173675d1f590942ef23c07e0f6627d5d508869e14380d4d8af5758b9fcc"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_recovery_2026-10-29/source-receipt.json"
+target = "devguide/validation/data/prepared_recovery_2026-10-29/source-receipt.json"
+sha256 = "372ec7b58c2604f367dd3408aecb0d908052677536d762bdfc9152a96ab0aec0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/administrative-final.log.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/administrative-final.log.gz"
+sha256 = "ac021c2656432e5ac24afa40c1a6f12c1a103c091626a8b8ebb6338bbb482351"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/baseline-flexible_generated_pentanol.pdbqt.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/baseline-flexible_generated_pentanol.pdbqt.gz"
+sha256 = "fa91f8b090a0959bbf13be423aa02317927261ba8dee16ab6bd2faab20958888"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/baseline-generated_methanol.pdbqt.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/baseline-generated_methanol.pdbqt.gz"
+sha256 = "d0297c5a1daa7192a3628e485154f8c0ec8a62d3b501653bea5d00323f2f52dd"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/baseline-ligand_charge_only.pdbqt.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/baseline-ligand_charge_only.pdbqt.gz"
+sha256 = "55238a382bd642a591018de29a5eab0777727f4b4c5578563aaa073eddbbb7e8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/baseline-receptor_charge_only.pdbqt.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/baseline-receptor_charge_only.pdbqt.gz"
+sha256 = "19cbee80168b6372de819afb2541fc549d8f5fd4c336eb7f1b4e5988c4071447"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/baseline-wire.json"
+target = "devguide/validation/data/prepared_writer_2026-10-28/baseline-wire.json"
+sha256 = "f23d6062006926e05eaf27ccd15883ce9bc7045d5f1040f5cdff39e2bec4cf41"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/before.log.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/before.log.gz"
+sha256 = "797484b35815d73fe4a4f6eb38cb69f480dc19217f96116a2a2fb32de92e96f8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/candidate-flexible_generated_pentanol.pdbqt.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/candidate-flexible_generated_pentanol.pdbqt.gz"
+sha256 = "80e831795730dcf93af724287c33da29c6cbcf4b83e8c55a7c0091b0247403da"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/candidate-generated_methanol.pdbqt.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/candidate-generated_methanol.pdbqt.gz"
+sha256 = "340237a854437e3ebaf18088c022a5a3ef0fe56eb6d6475e05a2f856a7b9544d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/candidate-ligand_charge_only.pdbqt.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/candidate-ligand_charge_only.pdbqt.gz"
+sha256 = "af422f25c761b7b58be0661d9f243d2e13419086a6021a6a930f116afbb338c2"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/candidate-receptor_charge_only.pdbqt.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/candidate-receptor_charge_only.pdbqt.gz"
+sha256 = "cda298588eb1a80147a219919a1330de8e8212032a6441aa0d2a200499eb50db"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/candidate-wire.json"
+target = "devguide/validation/data/prepared_writer_2026-10-28/candidate-wire.json"
+sha256 = "cddd528cd0db8ac09f6bdee70b10f1da4e0b32c2f7a46b9342d89bfa896ef9b4"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/focused-final.log.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/focused-final.log.gz"
+sha256 = "c3421123dcdb93a9209231d863941d54a828cfa88209088beed87beb855aa2c7"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/focused-initial.log.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/focused-initial.log.gz"
+sha256 = "9253827748eb772af304dd5cdfe3d840e60b0551fc95fed36df9ffd52a87ba50"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/focused.log.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/focused.log.gz"
+sha256 = "f06e8f3c64fd3a3d25800ddfcaa6e7e11e20b307c4a203fd6c1c0c013f06e2b8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/guards-final.log.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/guards-final.log.gz"
+sha256 = "15b2efe36f609b5369f5004a8ebc80a9276b7da8ec1d625132b530097d952a31"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/guides-inspection.json"
+target = "devguide/validation/data/prepared_writer_2026-10-28/guides-inspection.json"
+sha256 = "c9c815e3208ed4cc5295bb7119f0259594157e9505dec09f7bcd14047ea29104"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/manifest.json"
+target = "devguide/validation/data/prepared_writer_2026-10-28/manifest.json"
+sha256 = "625a27a789e9603d9416d5ac31baf30d6a6e4e15efa6a73f3a4c02e40c0dd14c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/provider-identity.json"
+target = "devguide/validation/data/prepared_writer_2026-10-28/provider-identity.json"
+sha256 = "0164e155ddcc5f93d873cf28b8b3d92f7fbbfd97844b940ba122232863f841b0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/selected-release.log.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/selected-release.log.gz"
+sha256 = "1e356692f084592df06b1e0c4026cc73b97271d45973571d7c9a1b83e7d1bf5d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/selected.log.gz"
+target = "devguide/validation/data/prepared_writer_2026-10-28/selected.log.gz"
+sha256 = "49f1373ed8cbc52cac286eb2869ac257bb861edb6a4d5a0e2d4c27caa99c74b2"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/source-receipt.json"
+target = "devguide/validation/data/prepared_writer_2026-10-28/source-receipt.json"
+sha256 = "90aac9d7928999915be9f32784828d7029c95f6ce8635ce267351b6af3a24aa3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_2026-10-28/wire-comparison.json"
+target = "devguide/validation/data/prepared_writer_2026-10-28/wire-comparison.json"
+sha256 = "7a827f805aecb3c0a2af66b6515627ade27d7cd9f13b4dd393e166002b68d63e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_correction_2026-10-28/corrected-selection.log.gz"
+target = "devguide/validation/data/prepared_writer_correction_2026-10-28/corrected-selection.log.gz"
+sha256 = "db29d45ac2a851a64f254c2d449e2033fed7d7068890b5381b8edada9faa71c9"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_correction_2026-10-28/correction.log.gz"
+target = "devguide/validation/data/prepared_writer_correction_2026-10-28/correction.log.gz"
+sha256 = "cf6b626f406901267bd0f95bc38679b8b7b7e3e8d40b1093d179523b464d2163"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_correction_2026-10-28/full-source.log.gz"
+target = "devguide/validation/data/prepared_writer_correction_2026-10-28/full-source.log.gz"
+sha256 = "9dccf7d81237a2a39f70be4a69783741a59696ba97385ff15e44f0660f130e1a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_correction_2026-10-28/manifest.json"
+target = "devguide/validation/data/prepared_writer_correction_2026-10-28/manifest.json"
+sha256 = "85c7a1bea1d9050a486a57c9e46baef8bdd0c4ca686dd0ad875e953721bfb28b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/prepared_writer_correction_2026-10-28/source-receipt.json"
+target = "devguide/validation/data/prepared_writer_correction_2026-10-28/source-receipt.json"
+sha256 = "3b8c397ef9d1249325259b7ef886788441f729e766fbae38119c3be4d147356c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/administrative_2026-10-13.txt"
+target = "devguide/validation/data/provider_compatibility/administrative_2026-10-13.txt"
+sha256 = "b1ed3593edf7568a103c69d30f9aa81adda7cd04a4097edf6d37c1c418e23827"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/admission_2026-10-13.json.gz"
+target = "devguide/validation/data/provider_compatibility/admission_2026-10-13.json.gz"
+sha256 = "3710c8d3a918573812caea9fc3a48ab3196d9a19d99b5e98c9cb2ea09a5c73f8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/ci_history_correction_2026-10-13.json"
+target = "devguide/validation/data/provider_compatibility/ci_history_correction_2026-10-13.json"
+sha256 = "76c4f0608ca4610581c6e0043e36ac8f6a11f4e8a5da8c14566e3c740340fdff"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/consumer_controls_2026-10-13.json"
+target = "devguide/validation/data/provider_compatibility/consumer_controls_2026-10-13.json"
+sha256 = "4113ab499422c03293ae3ac0d5622a459fd4776bf77dcdd7cdf07d3544a2ef0f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/consumer_controls_2026-10-13.txt"
+target = "devguide/validation/data/provider_compatibility/consumer_controls_2026-10-13.txt"
+sha256 = "6a723ac0d6e09d7b3b62295e8d08527edf67560356224333e200edc0897aa2b7"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/environment_2026-10-13.txt"
+target = "devguide/validation/data/provider_compatibility/environment_2026-10-13.txt"
+sha256 = "7af005b0141421292793fb2e78edff9ebdcb43f094edafbdf3e9a849265ffe90"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/focused_2026-10-13.txt"
+target = "devguide/validation/data/provider_compatibility/focused_2026-10-13.txt"
+sha256 = "c011b55310c7178edd0489576863c96b9c436f0652a28ed539693ca7844347ed"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/full_suite_2026-10-13.txt"
+target = "devguide/validation/data/provider_compatibility/full_suite_2026-10-13.txt"
+sha256 = "b6a992c9fa8aac0a7aacd87f9d21bccdde461ba462684672a71c0d334ff24405"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/governance_correction_2026-10-13.txt"
+target = "devguide/validation/data/provider_compatibility/governance_correction_2026-10-13.txt"
+sha256 = "5024d08fcdaf5a307eecaa3962a2168be7a60668b34deb5154765aa64ab20236"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/pandas_merge_2026-10-13.json"
+target = "devguide/validation/data/provider_compatibility/pandas_merge_2026-10-13.json"
+sha256 = "f338aa8aa80940cf8f07e31d8dfd830a55ccba2ca34393875b2cb28279d4dff7"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/provider_builds_2026-10-13.txt"
+target = "devguide/validation/data/provider_compatibility/provider_builds_2026-10-13.txt"
+sha256 = "d6cabdda806e5b7dc927bf9447cb2176e3fd594f4f38c089672d40cf595399fb"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/qualification_2026-10-13.json"
+target = "devguide/validation/data/provider_compatibility/qualification_2026-10-13.json"
+sha256 = "3f6a5f2b1a5424eaed658b4ccdac09b02bc286c23b8bb0d99a716765ac2a2da5"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/receiving_comparison_2026-10-13.py.txt"
+target = "devguide/validation/data/provider_compatibility/receiving_comparison_2026-10-13.py.txt"
+sha256 = "31611508472bf3f7dc02980c68b45549c5890214ab89fbb7f65edf95b0641b60"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/shallow_version_2026-10-13.txt"
+target = "devguide/validation/data/provider_compatibility/shallow_version_2026-10-13.txt"
+sha256 = "fb2bbc2cd68d734c1d65bf3a526cc600eca753b9a3f2cc8f36cae5d402491ece"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_compatibility/terminal_2026-10-13.json"
+target = "devguide/validation/data/provider_compatibility/terminal_2026-10-13.json"
+sha256 = "5e7762e9dfa1dd706a713567141855caa62e8a9fff56b23144dcedc053ba0795"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/1iep-sdf-export.json"
+target = "devguide/validation/data/provider_receiving_2026-10-23/1iep-sdf-export.json"
+sha256 = "f32c142b1088aae817f396d27885396a5e772a52b6ae9441225c29d6de4fd423"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/administrative-final.log.gz"
+target = "devguide/validation/data/provider_receiving_2026-10-23/administrative-final.log.gz"
+sha256 = "66c22e0f22319d302673a1aac24ff78b644fe194084c2504a5118fe3c5084bfc"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/baseline-origins.json"
+target = "devguide/validation/data/provider_receiving_2026-10-23/baseline-origins.json"
+sha256 = "d173187445c217e3b9b2e18621914b077c52d93264e6027fe02c355bad679968"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/baseline.log.gz"
+target = "devguide/validation/data/provider_receiving_2026-10-23/baseline.log.gz"
+sha256 = "799c16afc3eedd7e577574533ccad1e3ee3f602d61dcdf299c78a406242b3e87"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/build-resource.json"
+target = "devguide/validation/data/provider_receiving_2026-10-23/build-resource.json"
+sha256 = "626c38e6346d95ece75ee96a86a2804281451d9a65630697a9456f3d05205998"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/candidate-broad-origins.json"
+target = "devguide/validation/data/provider_receiving_2026-10-23/candidate-broad-origins.json"
+sha256 = "fb7baeb21d6a327d24623d4996a98e3a6da755e554fc797eb9a7417240847c69"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/candidate-broad.log.gz"
+target = "devguide/validation/data/provider_receiving_2026-10-23/candidate-broad.log.gz"
+sha256 = "6a8cb5a8c0a625599f9740b2b46c2b57d0019446b576669395e54c6dcb1109fa"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/candidate-origins.json"
+target = "devguide/validation/data/provider_receiving_2026-10-23/candidate-origins.json"
+sha256 = "b62f569a34fe5479fb21547c61b407cf72893410723e2fe0618cedb5c1d4dcff"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/candidate.log.gz"
+target = "devguide/validation/data/provider_receiving_2026-10-23/candidate.log.gz"
+sha256 = "8c7475da2e99d0e004c7a58ff12df5dccc6c5c46d3f61ea9caf09ee6ecd50743"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/formats-corrected.log.gz"
+target = "devguide/validation/data/provider_receiving_2026-10-23/formats-corrected.log.gz"
+sha256 = "dce36442475ab900a4253beba656e4f5f711448a3cdaa6d577f31e08fe91dde5"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/full-source.log.gz"
+target = "devguide/validation/data/provider_receiving_2026-10-23/full-source.log.gz"
+sha256 = "df5959c57fbd00a4372ae66eea280a52af0315754a8e8975ed5fc6d31df55c95"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/guides-inspection.json"
+target = "devguide/validation/data/provider_receiving_2026-10-23/guides-inspection.json"
+sha256 = "c2dd3164cc0101c710ff239e19b29ab12209c5dda38a68cb9b0e769ace447f41"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/manifest.json"
+target = "devguide/validation/data/provider_receiving_2026-10-23/manifest.json"
+sha256 = "5738d240f4260129febc331769777ee94619fb41173c3d659cb9640982963f1b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/qualification.json"
+target = "devguide/validation/data/provider_receiving_2026-10-23/qualification.json"
+sha256 = "f1c408dbec772bd974099a021368f6b07922511608946685226a3503b50b0096"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/resource-closeout.json"
+target = "devguide/validation/data/provider_receiving_2026-10-23/resource-closeout.json"
+sha256 = "c529cc8ac931a87ff970820346170ba2b2f5bf6fdfd8e1afca66a87039d6106f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/runtime-strategy.json"
+target = "devguide/validation/data/provider_receiving_2026-10-23/runtime-strategy.json"
+sha256 = "e5bf4400470151e8232af02b17eb54f427496d8905c5053f94750ab51c64719f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/provider_receiving_2026-10-23/runtime.json"
+target = "devguide/validation/data/provider_receiving_2026-10-23/runtime.json"
+sha256 = "f62b84d7ebd20c71175022d4a94e951c2bf4b52c967f5a991b610dcdc20b3b43"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/public_readiness/control_review_2026-11-03.json"
+target = "devguide/validation/data/public_readiness/control_review_2026-11-03.json"
+sha256 = "5aa22ede9cd6cbe36179cbbb58d132f5476e2cdbd6a14be3111fc4fedd8f98c7"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/public_readiness/manifest_2026-11-03.json"
+target = "devguide/validation/data/public_readiness/manifest_2026-11-03.json"
+sha256 = "6d75df3112ed2c1337bb020ac68563cf234703a5bf5bc37220e3da28bb929127"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/public_readiness/registry_and_archives_2026-11-03.json"
+target = "devguide/validation/data/public_readiness/registry_and_archives_2026-11-03.json"
+sha256 = "31a98c35b5299e2706f11eb0b1a0b7204f5c3d065045eeabb20b4e857f70e9b6"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/public_viewer/archive_2026-11-04.json"
+target = "devguide/validation/data/public_viewer/archive_2026-11-04.json"
+sha256 = "4f7b467c654088d263e0bf6926bc56ed33c5a34de8803d66792a07f40e7a89cd"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/public_viewer/installed_selection_2026-11-04.json"
+target = "devguide/validation/data/public_viewer/installed_selection_2026-11-04.json"
+sha256 = "a67b54f8779fa8bddde03b493da77edac2c9291c5d7ec28d7ee7438bf6d330e7"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/public_viewer/manifest_2026-11-04.json"
+target = "devguide/validation/data/public_viewer/manifest_2026-11-04.json"
+sha256 = "20311c6bc0ae3a0a482c269dc984f92ff0a4cfa4cde070d7528bfedf4a44862f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/public_viewer/prior_ci_2026-11-04.json"
+target = "devguide/validation/data/public_viewer/prior_ci_2026-11-04.json"
+sha256 = "955e2f46fd7f7a83729edc4b6bd41e8f87515f3740b8ae6d9ba9685529a054ce"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/public_viewer/provider_probes_2026-11-04.json"
+target = "devguide/validation/data/public_viewer/provider_probes_2026-11-04.json"
+sha256 = "a824feab3952de4b90c76302eb883f41bcbe2f850d3ff6df46f5154ebad11cd2"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/public_viewer/viewer_payload_2026-11-04.json"
+target = "devguide/validation/data/public_viewer/viewer_payload_2026-11-04.json"
+sha256 = "bb1318dedbf43fb58c82018e96396908cbfc311675853f2a7b96ca12c6a2cf71"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/ranking/synthetic_result.json"
+target = "devguide/validation/data/ranking/synthetic_result.json"
+sha256 = "99310e9ddcc03897ba000d34fdd6512f2c08523496635c385a65d63422697501"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/readiness/preparation_profile.json"
+target = "devguide/validation/data/readiness/preparation_profile.json"
+sha256 = "1b337889b7d20660469dc6030b920c7bc50c8e7afd7e080d1a4bd71e36b6a290"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_coverage/cases.json"
+target = "devguide/validation/data/receptor_coverage/cases.json"
+sha256 = "ad8302662d9c2d445998a92db70c19a2296c390795c7b32c11358c14cc958d2b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_coverage/profile.json"
+target = "devguide/validation/data/receptor_coverage/profile.json"
+sha256 = "dde54b2a69efe289d32144788325db507947b19fcd3c59a0c5ac36e6a55431eb"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/administrative.log.gz"
+target = "devguide/validation/data/receptor_projection_2026-10-24/administrative.log.gz"
+sha256 = "32fd60dbe2eba828f23ab4f4d23594f098eab62209ba0d09dcd989b57868c66d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/baseline-181l.pdbqt.gz"
+target = "devguide/validation/data/receptor_projection_2026-10-24/baseline-181l.pdbqt.gz"
+sha256 = "7b19f4255589005b7aea3d4c33bd630eeb75cf113e8c9c9bc6239bfc2f79998f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/before.log.gz"
+target = "devguide/validation/data/receptor_projection_2026-10-24/before.log.gz"
+sha256 = "f609fc8a803128e5b0b2d714a0f8b33cff58b0c17063ff8d59e5550154e57624"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/focused.log.gz"
+target = "devguide/validation/data/receptor_projection_2026-10-24/focused.log.gz"
+sha256 = "d39fd9e1c7076b6baf368c9ca968de402cb3e7076d536f7fd5205647b3b8da36"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/guides-inspection.json"
+target = "devguide/validation/data/receptor_projection_2026-10-24/guides-inspection.json"
+sha256 = "220ccee4eb36bd564ed95ce1a45e2abfdc464cc1b47587160b98f454dc9f2875"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/manifest.json"
+target = "devguide/validation/data/receptor_projection_2026-10-24/manifest.json"
+sha256 = "ae74eb791d0993021c87dc98a67837dbe2e832d1b44896d98c879800b4ebfdd3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/protein-probe.json.gz"
+target = "devguide/validation/data/receptor_projection_2026-10-24/protein-probe.json.gz"
+sha256 = "e5fd83e0d4ead1f06467d19deb6d3636e7550f3506b465e13d96d47249415840"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/protein-probe.log.gz"
+target = "devguide/validation/data/receptor_projection_2026-10-24/protein-probe.log.gz"
+sha256 = "91ca447548ca55d67e645ac6a9edf339785f423ded80e58027f7c7dc4d5ccd04"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/provider-proof.json"
+target = "devguide/validation/data/receptor_projection_2026-10-24/provider-proof.json"
+sha256 = "f0a1d92613b9ef58e1201c7d49b6195d43434e5809019e1c6963f11bb7c0e496"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/resources.json"
+target = "devguide/validation/data/receptor_projection_2026-10-24/resources.json"
+sha256 = "63b5ba79900014c3c514ac312df0cdf35771261831111dc3be770161974a8a7b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/selected.log.gz"
+target = "devguide/validation/data/receptor_projection_2026-10-24/selected.log.gz"
+sha256 = "297146264f02db9ff297367216562a62e9b96753ede48402d628f965a112a2fb"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/receptor_projection_2026-10-24/source-receipt.json"
+target = "devguide/validation/data/receptor_projection_2026-10-24/source-receipt.json"
+sha256 = "1cb570f4948165779ec4a42be7d3100b914bcdc0ce63daa9b341ad13e0bbfa38"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/redocking_evaluation/cases.json"
+target = "devguide/validation/data/redocking_evaluation/cases.json"
+sha256 = "383a3b1c75d66881d59862b0ff3e0676e1116b71530b72fe1af7d4c326870e1a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/redocking_summary/summary.json"
+target = "devguide/validation/data/redocking_summary/summary.json"
+sha256 = "c42b4af592d0606199ab18d2888d02a9c91b5cc1cc763e43a4dba9c632e64468"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/result_export/after_2026-10-02.json"
+target = "devguide/validation/data/result_export/after_2026-10-02.json"
+sha256 = "ab2a916cef2f19c121b21d4ce489fa78ab19da0e3b76b59913831dca9080b9da"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/result_export/before_2026-10-02.json"
+target = "devguide/validation/data/result_export/before_2026-10-02.json"
+sha256 = "fba1b4324eb963610228e8984f04d66d32ef64a1949dd4e9f33f52b12c3d037e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/result_inspection/manifest_2026-11-03.json"
+target = "devguide/validation/data/result_inspection/manifest_2026-11-03.json"
+sha256 = "4bfb91a3ff0e2d5b1a3e3a83015ebe66677edd16890e8a917cad6010c848a3ea"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/result_inspection/receiving_2026-11-03.json"
+target = "devguide/validation/data/result_inspection/receiving_2026-11-03.json"
+sha256 = "53e910cfd067395995fff142cf948329b69066371dabc395cf587923b197fc3c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/retained_connectivity_2026-10-23/administrative.log.gz"
+target = "devguide/validation/data/retained_connectivity_2026-10-23/administrative.log.gz"
+sha256 = "88c7a8a587269ea1b016119d49011ab5e1bbc4e5fe5bfe133585374c89ed768d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/retained_connectivity_2026-10-23/baseline-preparations.json"
+target = "devguide/validation/data/retained_connectivity_2026-10-23/baseline-preparations.json"
+sha256 = "f51e4ceaa770e53bd523d065799baadc456cb1e5bd469e4a77bc10f52133d503"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/retained_connectivity_2026-10-23/before.log.gz"
+target = "devguide/validation/data/retained_connectivity_2026-10-23/before.log.gz"
+sha256 = "88dc04675ecdd6c276dd63db1e89f190fc007bb2fe4a8bf4eaf1ab8d53604226"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/retained_connectivity_2026-10-23/guides.json"
+target = "devguide/validation/data/retained_connectivity_2026-10-23/guides.json"
+sha256 = "c2dd3164cc0101c710ff239e19b29ab12209c5dda38a68cb9b0e769ace447f41"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/retained_connectivity_2026-10-23/manifest.json"
+target = "devguide/validation/data/retained_connectivity_2026-10-23/manifest.json"
+sha256 = "14b613e578acdb5be63c61ffe7bf1baa4d99c5c455090ec592956a0c103639d3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/retained_connectivity_2026-10-23/resources.json"
+target = "devguide/validation/data/retained_connectivity_2026-10-23/resources.json"
+sha256 = "96e355d9f9e05ba5745c19eaa16b6546db117bf7c74e95c5a4af3c9eeff1bc82"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/retained_connectivity_2026-10-23/source-receipt.json"
+target = "devguide/validation/data/retained_connectivity_2026-10-23/source-receipt.json"
+sha256 = "5c610dceeba2079ef8ebacc891d2ef4177243ec406e6ba437aa1697055b63f6f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/retained_connectivity_2026-10-23/source.log.gz"
+target = "devguide/validation/data/retained_connectivity_2026-10-23/source.log.gz"
+sha256 = "ef3f5a10ca0b54bbc7d518fff741c476b673ecd8807b1080078fac2a909cf697"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/torsion_policy/checkpoint_2026-10-06.json"
+target = "devguide/validation/data/torsion_policy/checkpoint_2026-10-06.json"
+sha256 = "ec3dd317b0bc06f8ff03b6e6d7ca3a654a85af19cd9400d043da8251c8ea9e54"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/torsion_policy/qualification_2026-10-06.json"
+target = "devguide/validation/data/torsion_policy/qualification_2026-10-06.json"
+sha256 = "f022bb7f26bcef0edd95cbb3a46f8cd20d506ef19c120806043424b73d715255"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/typing_comparison/audit_2026-10-10.json.gz"
+target = "devguide/validation/data/typing_comparison/audit_2026-10-10.json.gz"
+sha256 = "eadbbff0145873634ca14edda90eb076e145ff38bb3a01c208596e540e1ecc8a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/typing_comparison/producer_2026-10-10.log"
+target = "devguide/validation/data/typing_comparison/producer_2026-10-10.log"
+sha256 = "2563dfa6c9816b533029a59f334c47218e1f3d5a063720d487af5bf0f97f78c6"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/typing_comparison/producer_2026-10-10.py.txt"
+target = "devguide/validation/data/typing_comparison/producer_2026-10-10.py.txt"
+sha256 = "c5c192fb7f8be17e7444d9e09aee73952bcd9591607f92b3bcb45f97080f136b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/viewer_reference/candidate_notebook.json"
+target = "devguide/validation/data/viewer_reference/candidate_notebook.json"
+sha256 = "a31bbc448eec280b85b24ec475fc1a0db39fe85321d6b99109eb7f47ec5ba053"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/viewer_reference/candidate_source.json"
+target = "devguide/validation/data/viewer_reference/candidate_source.json"
+sha256 = "16e39e7bb04be1df20ef1ba41cc9d56feefa2e2bb40c039beb907767b3864151"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/workflow_profiling/181l_captured_pdbqt_2026-10-02.json"
+target = "devguide/validation/data/workflow_profiling/181l_captured_pdbqt_2026-10-02.json"
+sha256 = "50fd1d45e26e38ed78692aabe2acd3cc3ac79797247b89f8ad06273e10102841"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/workflow_profiling/181l_molecular_2026-10-02.json"
+target = "devguide/validation/data/workflow_profiling/181l_molecular_2026-10-02.json"
+sha256 = "43b759305bb1800f1b5d9645bac25ea80655df4620008729e5681d24d7cd4e0f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/domain_derivation.md"
+target = "devguide/validation/domain_derivation.md"
+sha256 = "05b8b6beb485d6b4656dd44a8f96b52c9c1cca2b7bff34cf36f4fbb54af17a04"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/explicit_torsion_policy.md"
+target = "devguide/validation/explicit_torsion_policy.md"
+sha256 = "25bf3ce4f5a612af2e4346556ae2c8ca8c1759ea400bbd357ed6e028a2a60900"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/explicit_torsion_policy_2026-10-06.ipynb"
+target = "devguide/validation/explicit_torsion_policy_2026-10-06.ipynb"
+sha256 = "3158b6afc304aaa17a65676c44038c98f23b4e7513e1878857a10b2d039530b1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/fixed_pose_scoring.ipynb"
+target = "devguide/validation/fixed_pose_scoring.ipynb"
+sha256 = "3003a82fc560ea4936b2398cceed33ca5e65150dce85cac1eb2bf98af110161d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/fixed_pose_scoring.md"
+target = "devguide/validation/fixed_pose_scoring.md"
+sha256 = "8c41bc1ccbf57bce9992927c27ff9462e1b1340d9fd26c6cbfec2d4a51d05f6b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/flexible_reconstruction.md"
+target = "devguide/validation/flexible_reconstruction.md"
+sha256 = "4295d9fe09f3184dbe5b2fb672ad3919a778056c11ba3152d6a9d820ad0c9d83"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/human_3ptb_scene_2026-10-23.ipynb"
+target = "devguide/validation/human_3ptb_scene_2026-10-23.ipynb"
+sha256 = "fe21328d0035c3ec692b495b2d0315196fe0748dcc087cf33e095a896d5c46de"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/human_3ptb_workflow_2026-10-20.ipynb"
+target = "devguide/validation/human_3ptb_workflow_2026-10-20.ipynb"
+sha256 = "da661adaeb1ea5b402b1b9f6cfb6e1f19c227bf606cd45d56602065db969fda4"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/incremental_docking.ipynb"
+target = "devguide/validation/incremental_docking.ipynb"
+sha256 = "8eb343d072b24c4956100d991e269d2b1730889cb4e5c7e0e6b492fabfdffe6f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/incremental_docking.md"
+target = "devguide/validation/incremental_docking.md"
+sha256 = "24d0867eca59ce5d7c668657a183e04592728434630cecd387abeb332e993682"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_3ptb_evaluation.ipynb"
+target = "devguide/validation/installed_3ptb_evaluation.ipynb"
+sha256 = "ad56bda7b1a6d9f858622746c8ca20dcb04fc7e125db2f41ea6f8d2c4018c25f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_3ptb_evaluation.md"
+target = "devguide/validation/installed_3ptb_evaluation.md"
+sha256 = "3d322c8ae42d31596291f1d43d0b9fb6d73fa492cd6c05017e2f86aded4cd405"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_3ptb_evaluation_registration.md"
+target = "devguide/validation/installed_3ptb_evaluation_registration.md"
+sha256 = "0b56762c151927bd08456f3ce00f762d2da9125a93ecef32f77b2df053db2d04"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_3ptb_execution.ipynb"
+target = "devguide/validation/installed_3ptb_execution.ipynb"
+sha256 = "9ee4394a17ebb369d75783f19e2ae523b651e4fc4c2c18f70b5d208611e89734"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_3ptb_execution.md"
+target = "devguide/validation/installed_3ptb_execution.md"
+sha256 = "7d21bba2d502c3a00596c57fb0e86f57b31efbb32c3fce75568d4d14092802b4"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_3ptb_execution_registration.md"
+target = "devguide/validation/installed_3ptb_execution_registration.md"
+sha256 = "ff79836df8e1527218781df62c7cd1972840ed93e9c231f8cd0749f2e6b061bc"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_3ptb_preparation.ipynb"
+target = "devguide/validation/installed_3ptb_preparation.ipynb"
+sha256 = "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_3ptb_preparation.md"
+target = "devguide/validation/installed_3ptb_preparation.md"
+sha256 = "f1ba2a9b8d778b9e8156f179d675513264cabef22965fe1e7aea387ef04ae915"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_integration_checkpoint_2026-10-07.md"
+target = "devguide/validation/installed_integration_checkpoint_2026-10-07.md"
+sha256 = "3cdae8dacaa57f7ba258e9e39bebf2fc80afcc70a5a785dabed1fd5d490a5e08"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_result_inspection.ipynb"
+target = "devguide/validation/installed_result_inspection.ipynb"
+sha256 = "bfe922f86012834ba12bf9cb1ada5098944c6979fee00523ef9fd38ba25ee3e0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_result_inspection.md"
+target = "devguide/validation/installed_result_inspection.md"
+sha256 = "1e65de5a832f5a17cfd7d2cfecf08811f94b8daf73ba5eb5ad55322709e410fc"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/installed_validator_receiving.md"
+target = "devguide/validation/installed_validator_receiving.md"
+sha256 = "828b9c1dec353e2fc171f6aecb107f9b449e582f264d34c46529e6374b829043"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/known_source_poses.md"
+target = "devguide/validation/known_source_poses.md"
+sha256 = "1450c0550fca4ee59ab2e5259bb2dc8a460e3d606daf47c6ca28f5313c3cfa6c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/legacy_named_typing_comparison.md"
+target = "devguide/validation/legacy_named_typing_comparison.md"
+sha256 = "f4d92549027dd72ed6f4ed1e76d407bf8eca1fdc5a80a7a7bd5564b41ca46891"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/license_metadata.md"
+target = "devguide/validation/license_metadata.md"
+sha256 = "b904587276368faeafd19b0d600ac61091572591f87cf723c75d7a1b31cb90c6"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/ligand_preparation_stages.ipynb"
+target = "devguide/validation/ligand_preparation_stages.ipynb"
+sha256 = "420bc5b765c843318a868f786ba5fe06ce8e69adea717dc54e9a6f2344d418ed"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/ligand_preparation_stages.md"
+target = "devguide/validation/ligand_preparation_stages.md"
+sha256 = "4f4fe4926fa4fbd1a3c573b0d7a75d47878edce362b57e2f3e9e280ff29a11fa"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/ligand_preparation_stages_2026-10-06.ipynb"
+target = "devguide/validation/ligand_preparation_stages_2026-10-06.ipynb"
+sha256 = "952b85271b1daebeeaa80609b90a7424155a172ae80a777e6074f03d92012478"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/ligand_projection.md"
+target = "devguide/validation/ligand_projection.md"
+sha256 = "c636f16c8d8c991ebf84c4b0a014cf59acf937912a74f52da397ac3b9768a4ec"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/meeko_native_capability_review.md"
+target = "devguide/validation/meeko_native_capability_review.md"
+sha256 = "41bc297add8fc04cd782097aeecd432b475e69a9f92eb20a0d299720ff8b6bf5"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/named_autodock_types.md"
+target = "devguide/validation/named_autodock_types.md"
+sha256 = "2b8bc1cd8651a7aeed8c6c2b09af72c58d58e587a668677040e6837a26020a39"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/named_autodock_types_2026-10-06.ipynb"
+target = "devguide/validation/named_autodock_types_2026-10-06.ipynb"
+sha256 = "3466bf2437584ea34282759c19351d388adec226795a9122786b3f143d865be2"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/named_partial_charges.ipynb"
+target = "devguide/validation/named_partial_charges.ipynb"
+sha256 = "8d9a2fe2a80a32d99a3ba8ababe7a8dde3a6b5c157dcc4b882fe42c1fb2aa1c3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/named_partial_charges.md"
+target = "devguide/validation/named_partial_charges.md"
+sha256 = "eaef702a030145e7be997dc8f7455480c6f219cb921231e494d3a8c4f5833513"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/native_ligand_export_receiving.md"
+target = "devguide/validation/native_ligand_export_receiving.md"
+sha256 = "9e93627c4923bea76be3ac6cef80121c723b90a59f9fc922e6357ab21ec8e88f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/native_molsysmt_formats.ipynb"
+target = "devguide/validation/native_molsysmt_formats.ipynb"
+sha256 = "68254ee55adc6b59d469d7c7584391905a508dc4a656b0fec0da618d2fe7e4ae"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/native_molsysmt_formats.md"
+target = "devguide/validation/native_molsysmt_formats.md"
+sha256 = "cdda42a8bb598e9d6a37b8858f42495b786b12b9110cc79078c2b7f898935b53"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/native_prepared_export.md"
+target = "devguide/validation/native_prepared_export.md"
+sha256 = "21983d30da113428027fba847f21421c7c9e2e82c343c733e59636e618df7b38"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/native_receptor_export_receiving.md"
+target = "devguide/validation/native_receptor_export_receiving.md"
+sha256 = "be016aa0d1e3c949d3364cb722d5132d6f962bfeb79da9fefbdb13d56cc9aba0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/pause_handoff_2026-10-13.md"
+target = "devguide/validation/pause_handoff_2026-10-13.md"
+sha256 = "fe55869469ca94855aa2178f517d1f7a53704fb6a7f64f9323e96c8c1ad3cef3"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/pause_handoff_2026-10-20.md"
+target = "devguide/validation/pause_handoff_2026-10-20.md"
+sha256 = "73ca0ea5d9767cffa85e9ede3853d905a0ceb9a59f6293c1524d21ff27e7ee22"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/pause_handoff_2026-10-26.md"
+target = "devguide/validation/pause_handoff_2026-10-26.md"
+sha256 = "37c3b5b511d9c0edacc45a386824acdbc21cfa10def7d799b4b8ff28189f957a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/pdb_bond_inference.ipynb"
+target = "devguide/validation/pdb_bond_inference.ipynb"
+sha256 = "b724824a46eb3f8128d45280bca06b9a86cbe663747906de1abdf1e6987d05ee"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/pdb_bond_inference.md"
+target = "devguide/validation/pdb_bond_inference.md"
+sha256 = "a02dd8483ee5840852be65d3fcb8976ec74146dc30381f41a1dff7bc82b89d57"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/pdbqt_presentation_receiving.md"
+target = "devguide/validation/pdbqt_presentation_receiving.md"
+sha256 = "ba7ff86400441b3a7c7e8376d32ebeb901ef0bbd1a9acd4664dc73a28c5762a6"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/player_notifications_receiving.md"
+target = "devguide/validation/player_notifications_receiving.md"
+sha256 = "9d9d64de85af668609caab45daf25f62712cd75d63a4c630d6e2e0ff231f3202"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/pose_audit.ipynb"
+target = "devguide/validation/pose_audit.ipynb"
+sha256 = "501973c2975ec9ea7b800f9d4f440ca191f8cec2d05b7e60103d5bb10ee769b1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/pose_audit.md"
+target = "devguide/validation/pose_audit.md"
+sha256 = "eee99b111d81f1016ac6ccad3074c6b63a310418ba6bccca38dc16018f400c81"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/preparation_assessment.ipynb"
+target = "devguide/validation/preparation_assessment.ipynb"
+sha256 = "17a58986c2d731a5f719122ba05dfc78631820660b9a5e4df034eae1daa3048d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/preparation_assessment.md"
+target = "devguide/validation/preparation_assessment.md"
+sha256 = "ae3a444d13b0f6ccdabbfb7b6e138820ba0dbb1eec7e1c6f5d63610284227364"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/preparation_atom_maps.md"
+target = "devguide/validation/preparation_atom_maps.md"
+sha256 = "101196e07820d807fbf8948c89648ea69f10f84203a537f23bf966e38aec72ec"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/preparation_profile.md"
+target = "devguide/validation/preparation_profile.md"
+sha256 = "b558610ddb891e811ab4cb35a56ea3445ea0cf38134490b4b4d8cc646b4321e4"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/prepared_pose_reading.md"
+target = "devguide/validation/prepared_pose_reading.md"
+sha256 = "e191810900820ac30640b962398dff211e7545890af022bdb87ffa2e3a02f8f7"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/prepared_recovery.md"
+target = "devguide/validation/prepared_recovery.md"
+sha256 = "bfa5934e2878638c97e1312106216522a2ae1e6f243a56209dc3705695c3432c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/prepared_writer_consumption.md"
+target = "devguide/validation/prepared_writer_consumption.md"
+sha256 = "25267bf92ad5f3f2719b3f98c67caf08885c9495cee54ccecfb137ef7b21b3e6"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/provider_compatibility_2026-10-13.md"
+target = "devguide/validation/provider_compatibility_2026-10-13.md"
+sha256 = "ae8d2d4042d4d7e98fda9afe5b2ba96d8de9474948d97974f7e35b46f3487a37"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/provider_receiving_2026-10-23.md"
+target = "devguide/validation/provider_receiving_2026-10-23.md"
+sha256 = "413b7a75991f4f88677a3cfd31716bf771892b896fae44c3144b69091d0b5157"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/public_candidate_readiness.md"
+target = "devguide/validation/public_candidate_readiness.md"
+sha256 = "d20b90e1931613abe40f9ba635e8a6885aebff985d80b8a483c85fdea58d5a74"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/public_viewer_receiving.md"
+target = "devguide/validation/public_viewer_receiving.md"
+sha256 = "ffe868f14f54c2cab18c672e9153d7f1f356466bf5e5f8747dad57ed8d3c1d13"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/ranking_history.ipynb"
+target = "devguide/validation/ranking_history.ipynb"
+sha256 = "2b1fbfde3fc7969b04006a1ce6672f3f201ea7b0255d6370db7408dd91beeab9"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/receptor_coverage_consumption.ipynb"
+target = "devguide/validation/receptor_coverage_consumption.ipynb"
+sha256 = "52a1e7f3d8f4ce16ee17a454c84b39221ddd742acc6a64656e0b29769f850f41"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/receptor_coverage_consumption.md"
+target = "devguide/validation/receptor_coverage_consumption.md"
+sha256 = "813eaf5adf02eaff6bc26ad651ec00e1fd9a28a0ff7f72f479854dd95d60af0e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/receptor_projection.md"
+target = "devguide/validation/receptor_projection.md"
+sha256 = "e86139bf036554652f58394aefaef36019f0d071f2e91a96a6351af9e3e8ff13"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/redocking_evaluation.ipynb"
+target = "devguide/validation/redocking_evaluation.ipynb"
+sha256 = "995f3e61f3cc2110fa78d2c8f8bf4e3fd917c2df7784d36cc03e707b119a112e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/redocking_evaluation.md"
+target = "devguide/validation/redocking_evaluation.md"
+sha256 = "cdac68e444e1cbeeca9640d1ee647c1ad5c39b65b5e97bd24f4665ac4b48b58e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/redocking_summary.ipynb"
+target = "devguide/validation/redocking_summary.ipynb"
+sha256 = "6cdf3b2ae106fc9e7ec94aac09aec1fbb132dca65151eee468490df73d3d2646"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/redocking_summary.md"
+target = "devguide/validation/redocking_summary.md"
+sha256 = "70e56aed3b0401d0bfb9b029c29ab465d5f35d1acdbcf92a74b1b9302066b8f8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/required_named_typing.md"
+target = "devguide/validation/required_named_typing.md"
+sha256 = "2489b2935ab03519f3dd8bdab461106372ef35efe82627ed9891693aeab87785"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/required_partial_charges.md"
+target = "devguide/validation/required_partial_charges.md"
+sha256 = "ffbf799e21fa9c95c0028c47edca179967887314f6187109b17c2b031e775f03"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/result_audit.ipynb"
+target = "devguide/validation/result_audit.ipynb"
+sha256 = "a3d1b225c27109c6965a007ca9deb4aab494ea55b64e7829922676e59dea743d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/result_audit.md"
+target = "devguide/validation/result_audit.md"
+sha256 = "7d6967d664545ef8f7a188f571b4cff87c18edec6ac68ddd57d95e5086a4142a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/result_export.ipynb"
+target = "devguide/validation/result_export.ipynb"
+sha256 = "e5d9d773889901fbc1f83baf55b4ef6088169fe22ddd9f444b23166b6482bf86"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/result_export.md"
+target = "devguide/validation/result_export.md"
+sha256 = "55503172cf6354b0cd04f48f664719424bc1ff2f73869adfefecf7d2225e6f80"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/retained_connectivity.md"
+target = "devguide/validation/retained_connectivity.md"
+sha256 = "c554c02d83bc09524c3062f5b80a350384d0e0e6bd838ff11caaae3a55400e51"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/rigid_fragment_consumption.ipynb"
+target = "devguide/validation/rigid_fragment_consumption.ipynb"
+sha256 = "00743c11d4a0f9f4779966c8f5c7cd80d1a211e8cc523cc71f9357778fc4e8d4"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/rigid_fragment_consumption.md"
+target = "devguide/validation/rigid_fragment_consumption.md"
+sha256 = "f39920c782c5dafb44cf8acae7c710dd246b5db320dc843918fa1a87d7c44cbe"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/saved_human_case_recovery.md"
+target = "devguide/validation/saved_human_case_recovery.md"
+sha256 = "a9109a20816158ff2647c3844fa06e94da81ba5e064358870c18b00914dd3b43"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/score_semantics.md"
+target = "devguide/validation/score_semantics.md"
+sha256 = "ce3c962db5ee1499a256f12a1185e794549d81492c0d5b4a134389efc816bc81"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/symmetry_redocking.md"
+target = "devguide/validation/symmetry_redocking.md"
+sha256 = "6994e8f83c4339a1b9b53c7f82ae3b2def053c7ad84b0d79dc59587d28bdca00"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/viewer_reference.ipynb"
+target = "devguide/validation/viewer_reference.ipynb"
+sha256 = "9d1c9917112723729d9d135ea50da8b24aac4787641a9d27aad3e64221117bc0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/viewer_reference.md"
+target = "devguide/validation/viewer_reference.md"
+sha256 = "ce6ebde30bec071861f22e66e81e3591ba9aea3ba5bee06e9a5989e66d927527"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/vina_torsion_matrix.md"
+target = "devguide/validation/vina_torsion_matrix.md"
+sha256 = "5ad0cbb77bf273a562d0723f5f54279a736e1f85255f3e2bb5afc1f6fb14b124"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/workflow_profiling.ipynb"
+target = "devguide/validation/workflow_profiling.ipynb"
+sha256 = "5986fdc0043acebde6ff3452f044b9fcb7c40bdedcbe2ecc9820a99e74337591"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/workflow_profiling.md"
+target = "devguide/validation/workflow_profiling.md"
+sha256 = "7ec84d5cd7fec4b9ee35349bfef7ce9d82e49e730696b2f30f1e0afb55d39b23"
+
+[[installed_tests.support.files]]
+source = "tests/data/charges/methanol.sdf"
+target = "tests/data/charges/methanol.sdf"
+sha256 = "b3bbaddb2f1dbc2626bd97e66f1f01aa709e7e6db5130ecef7bf78a85ab0bdd3"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/1iep_ligand.pdbqt"
+target = "tests/data/vina_torsions/1iep_ligand.pdbqt"
+sha256 = "15fb35648d8c18c70317842f3a0631b73a19429c710a037ab07310084d579bb8"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/1iep_ligand.sdf"
+target = "tests/data/vina_torsions/1iep_ligand.sdf"
+sha256 = "051b8742c32adc05c07fb486a4e7c9327f84e131cee33ac4e6a568d07553eb38"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/1iep_receptor.pdbqt"
+target = "tests/data/vina_torsions/1iep_receptor.pdbqt"
+sha256 = "f13cf3b36f61d87c3b58983e0b8ecf1c3456a685eb86dfe9ccfb139c7bdc2586"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/1iep_receptorH.pdb"
+target = "tests/data/vina_torsions/1iep_receptorH.pdb"
+sha256 = "5f6aee6029f9a2a2c2be32d4eb948ae70808690573e1b69a0850cdffd7048ca7"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/1s63_ligand.pdbqt"
+target = "tests/data/vina_torsions/1s63_ligand.pdbqt"
+sha256 = "04fb28c75bc5a8b32fd7f985ef8ac9a9b4581a40141f4f5b1b3951c2051fb7dc"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/1s63_ligand.sdf"
+target = "tests/data/vina_torsions/1s63_ligand.sdf"
+sha256 = "6eb488b5770df7f132745249e64000fcfe394acf938b45f0e082f44365f59119"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/5x72.pdb"
+target = "tests/data/vina_torsions/5x72.pdb"
+sha256 = "3694cbd211e444f0a56150be2fe8ca7f7ed584a7ca448c40d45699ac80490e77"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/5x72_ligand_p59.pdbqt"
+target = "tests/data/vina_torsions/5x72_ligand_p59.pdbqt"
+sha256 = "67cf462419372e365b8129bc1047f94598f3a1f3c495375781c1c1100e95c92e"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/5x72_ligand_p59.sdf"
+target = "tests/data/vina_torsions/5x72_ligand_p59.sdf"
+sha256 = "a476b0d62652664596801fc88024fbd756294e9e2faf9234c8d90c2288aaa373"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/5x72_ligand_p59H.sdf"
+target = "tests/data/vina_torsions/5x72_ligand_p59H.sdf"
+sha256 = "ef26c05a198a16972efcf8baae644f6b38fd953561f130ee230626088766b08a"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/5x72_ligand_p69.pdbqt"
+target = "tests/data/vina_torsions/5x72_ligand_p69.pdbqt"
+sha256 = "276a991d56ddc7778ed36c10aba6b7231de00b87294a7f77e2fceb9a96ae08e5"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/5x72_ligand_p69.sdf"
+target = "tests/data/vina_torsions/5x72_ligand_p69.sdf"
+sha256 = "e8c2df94d37439aa558f47eee8f20504d01d11b2d974bbb3cf3d9675a88b1ea1"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/5x72_ligand_p69H.sdf"
+target = "tests/data/vina_torsions/5x72_ligand_p69H.sdf"
+sha256 = "637a992134b2038a0ea3cff0c1f8355ea232720c9eae5347100b7186170fcdf1"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/5x72_receptor.box.txt"
+target = "tests/data/vina_torsions/5x72_receptor.box.txt"
+sha256 = "e1e87f640b1976109f7358e871e8e63b6f965ad7e76a54b9e848c10518ac3354"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/5x72_receptor.pdbqt"
+target = "tests/data/vina_torsions/5x72_receptor.pdbqt"
+sha256 = "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+
+[[installed_tests.support.files]]
+source = "tests/data/vina_torsions/README.md"
+target = "tests/data/vina_torsions/README.md"
+sha256 = "4495f617a84885fbd9954902334a5ec2e115197f8ae2d81cd05d731bdcf90d0d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_contact/producer_2026-10-09.py.txt"
+target = "devguide/validation/data/5x72_contact/producer_2026-10-09.py.txt"
+sha256 = "2c92d7ab41686a7b299b7b4d6961f9e370c96fe9639e6ec0c3ea2237fb08d092"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_reference/producer_2026-10-09.py.txt"
+target = "devguide/validation/data/5x72_reference/producer_2026-10-09.py.txt"
+sha256 = "31494874c4ec49f69e6eaa043c50d9606fc900c231710614b7b265342ed82cf8"

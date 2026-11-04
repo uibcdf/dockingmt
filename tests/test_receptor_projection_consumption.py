@@ -11,9 +11,9 @@ from test_engines import MINIMAL_LIG_PDBQT
 from test_named_partial_charges import METHANOL, atom_charges
 
 import dockingmt as dmt
-from devtools.qualify_181l_receptor import prepare_case
-from devtools.qualify_chemical_templates import detached_record, snapshot
-from devtools.qualify_named_types import CHARGE, TYPING
+from dmt_test_support.qualify_181l_receptor import prepare_case
+from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from dmt_test_support.qualify_named_types import CHARGE, TYPING
 
 
 @pytest.fixture

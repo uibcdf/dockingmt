@@ -13,7 +13,7 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.qualify_5x72_displacement import (
+from dmt_test_support.qualify_5x72_displacement import (
     ARMS,
     OFFSETS,
     OUTPUT,
@@ -29,8 +29,8 @@ from devtools.qualify_5x72_displacement import (
     translated_point,
     xyz,
 )
-from devtools.qualify_5x72_occupancy import fixed_pair
-from devtools.qualify_5x72_reference import score_components
+from dmt_test_support.qualify_5x72_occupancy import fixed_pair
+from dmt_test_support.qualify_5x72_reference import score_components
 
 ARCHIVE_SHA = 'afb8bfa4092abc78f8cd2daf33da7248fe39fbd1856b23e24a192f4813fb72a8'
 JSON_SHA = '0bbf5990234cec5b739d7f32f00e035ada42d9bd3277932eab831c9f3545226c'

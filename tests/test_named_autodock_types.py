@@ -11,19 +11,19 @@ import pyunitwizard as puw
 from test_engines import MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import (
+from dmt_test_support.qualify_chemical_templates import (
     load_5x72,
     load_181l_benzene,
     snapshot,
     template_options,
 )
-from devtools.qualify_named_types import (
+from dmt_test_support.qualify_named_types import (
     CHARGE,
     HYDROGEN,
     TYPING,
     declared_source,
 )
-from devtools.qualify_named_types import (
+from dmt_test_support.qualify_named_types import (
     explicit_source as _explicit_source,
 )
 from dockingmt._private.smonitor import ArgumentError

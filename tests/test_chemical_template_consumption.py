@@ -9,7 +9,7 @@ import pytest
 import pyunitwizard as puw
 from test_engines import MINIMAL_REC_PDBQT
 
-from devtools.qualify_chemical_templates import (
+from dmt_test_support.qualify_chemical_templates import (
     ROOT,
     SDF_DIGESTS,
     checked_application,
@@ -21,7 +21,7 @@ from devtools.qualify_chemical_templates import (
     snapshot,
     template_options,
 )
-from devtools.qualify_named_types import CHARGE, HYDROGEN, TYPING
+from dmt_test_support.qualify_named_types import CHARGE, HYDROGEN, TYPING
 from dockingmt import BoxRegion, DockingProblem, DockingResult, VinaProtocol
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.engines.vina import VinaBackend

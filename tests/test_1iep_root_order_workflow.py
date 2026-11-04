@@ -9,8 +9,8 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.qualify_1iep_representation import fixed_score, observe, sha
-from devtools.qualify_1iep_root_order import (
+from dmt_test_support.qualify_1iep_representation import fixed_score, observe, sha
+from dmt_test_support.qualify_1iep_root_order import (
     OUTPUT,
     VARIANT,
     comparison_rows,

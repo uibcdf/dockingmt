@@ -11,8 +11,8 @@ from molsysmt._private.smonitor import StructuralInconsistencyError
 from test_flexible_ligand import _ligand
 from test_vina_torsion_matrix import _atom_map, _reference, _source, _source_graph
 
-from devtools.qualify_chemical_templates import snapshot
-from devtools.qualify_named_types import CHARGE, HYDROGEN, TYPING
+from dmt_test_support.qualify_chemical_templates import snapshot
+from dmt_test_support.qualify_named_types import CHARGE, HYDROGEN, TYPING
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation import prepare_ligand
 from dockingmt.preparation._temporary_torsions import build_torsion_tree

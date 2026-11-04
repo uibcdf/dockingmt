@@ -6,8 +6,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from devtools.replay_1iep_pdbqt import _compare_run, _decode_source
-from devtools.validate_1iep_pdbqt import INPUT_SHA256, UPSTREAM_COMMIT
+from dmt_test_support.replay_1iep_pdbqt import _compare_run, _decode_source
+from dmt_test_support.validate_1iep_pdbqt import INPUT_SHA256, UPSTREAM_COMMIT
 from dockingmt import DockingPose, DockingResult
 
 

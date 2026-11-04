@@ -11,8 +11,8 @@ from molecular_fixtures import declared_methanol
 from test_named_partial_charges import atom_charges
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import detached_record, snapshot
-from devtools.qualify_named_types import CHARGE, TYPING
+from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from dmt_test_support.qualify_named_types import CHARGE, TYPING
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.results import _molecular_atom_keys
 

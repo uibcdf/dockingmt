@@ -8,7 +8,7 @@ from types import SimpleNamespace
 import pytest
 import pyunitwizard as puw
 
-from devtools.profile_workflow import _sample, _summarize
+from dmt_test_support.profile_workflow import _sample, _summarize
 from dockingmt import BoxRegion, DockingProblem, VinaBackend, VinaProtocol
 from dockingmt._private.smonitor import CapabilityMismatchError
 

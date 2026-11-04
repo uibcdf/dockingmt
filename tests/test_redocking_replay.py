@@ -8,7 +8,7 @@ import pytest
 import pyunitwizard as puw
 from molecular_fixtures import named_181l_pair
 
-from devtools.redocking_181l import (
+from dmt_test_support.redocking_181l import (
     _compare,
     _summarize,
     record_manifest,

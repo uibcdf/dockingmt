@@ -1,6 +1,6 @@
 import pytest
 
-from devtools.audit_1iep_preparation import (
+from dmt_test_support.audit_1iep_preparation import (
     _compare_pdbqt,
     _compare_torsion_graphs,
     _pdbqt_inventory,

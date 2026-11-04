@@ -11,9 +11,9 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.evaluate_3ptb_saved import OUTPUT as EVALUATIONS
-from devtools.qualify_3ptb_admission import DATA, sha
-from devtools.qualify_3ptb_search import (
+from dmt_test_support.evaluate_3ptb_saved import OUTPUT as EVALUATIONS
+from dmt_test_support.qualify_3ptb_admission import DATA, sha
+from dmt_test_support.qualify_3ptb_search import (
     OUTPUT,
     baseline,
     evaluate,
@@ -290,7 +290,7 @@ def test_receiving_all_saved_poses_forbids_new_native_work(
 
 
 def test_original_receiver_still_rejects_changed_source(tmp_path, monkeypatch):
-    import devtools.evaluate_3ptb_saved as receiver
+    import dmt_test_support.evaluate_3ptb_saved as receiver
 
     # Provide every original path but changed bytes. No source-identity waiver is
     # introduced when the new consumer receives the old scientific population.

@@ -11,7 +11,7 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.qualify_5x72_root_order import (
+from dmt_test_support.qualify_5x72_root_order import (
     DATA,
     INPUTS,
     NAMES,

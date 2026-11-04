@@ -9,7 +9,7 @@ import pyunitwizard as puw
 from molsysmt._private.smonitor import StructuralInconsistencyError
 
 import dockingmt as dmt
-from devtools.qualify_named_types import declared_source
+from dmt_test_support.qualify_named_types import declared_source
 from dockingmt.preparation._temporary_torsions import build_torsion_tree
 
 

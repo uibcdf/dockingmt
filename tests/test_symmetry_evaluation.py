@@ -8,7 +8,7 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.qualify_named_types import declared_source, explicit_source
+from dmt_test_support.qualify_named_types import declared_source, explicit_source
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.results import _molecular_atom_keys
 
@@ -136,8 +136,8 @@ def test_template_context_retains_stereo_and_rejects_missing_declarations(
 ):
     from molsysmt._private.smonitor import StructuralInconsistencyError
 
-    from devtools.qualify_3ptb_admission import DATA, expand
-    from devtools.qualify_chemical_templates import snapshot, template_options
+    from dmt_test_support.qualify_3ptb_admission import DATA, expand
+    from dmt_test_support.qualify_chemical_templates import snapshot, template_options
 
     source = msm.convert(
         DATA / '3PTB.pdb.gz', to_form='molsysmt.MolSys', get_missing_bonds=False

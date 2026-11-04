@@ -5,7 +5,7 @@ import pytest
 import pyunitwizard as puw
 from molecular_fixtures import named_181l_pair
 
-from devtools.qualify_named_types import TYPING, explicit_source
+from dmt_test_support.qualify_named_types import TYPING, explicit_source
 from dockingmt._private.smonitor import ArgumentError, CapabilityMismatchError
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import DockingProtocol, VinaProtocol

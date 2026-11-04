@@ -15,7 +15,7 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools import recover_saved_3ptb_case as tool
+from dmt_test_support import recover_saved_3ptb_case as tool
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGINAL = ROOT / 'devguide/validation/data/human_3ptb'
@@ -239,7 +239,7 @@ def _command(bundle, report):
     return [
         sys.executable,
         '-m',
-        'devtools.recover_saved_3ptb_case',
+        'dmt_test_support.recover_saved_3ptb_case',
         '--bundle',
         str(bundle),
         '--source',

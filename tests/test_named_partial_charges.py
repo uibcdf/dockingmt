@@ -13,7 +13,7 @@ from molecular_fixtures import declared_methanol
 from test_engines import MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
-from devtools.qualify_named_types import TYPING
+from dmt_test_support.qualify_named_types import TYPING
 from dockingmt._private.smonitor import ArgumentError
 
 METHANOL = Path(__file__).parent / 'data/charges/methanol.sdf'

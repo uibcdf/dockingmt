@@ -12,8 +12,8 @@ from molsysmt._private.smonitor import FormatError
 from vina import Vina
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import detached_record, snapshot
-from devtools.qualify_named_types import CHARGE, TYPING, explicit_source
+from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from dmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
 
 
 @pytest.fixture(params=['rigid', 'one-cut', 'nested'])

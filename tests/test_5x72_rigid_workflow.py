@@ -12,8 +12,12 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.qualify_5x72_occupancy import atom_fields, fixed_pair, frozen_partner
-from devtools.qualify_5x72_rigid import (
+from dmt_test_support.qualify_5x72_occupancy import (
+    atom_fields,
+    fixed_pair,
+    frozen_partner,
+)
+from dmt_test_support.qualify_5x72_rigid import (
     OUTPUT,
     QUARTETS,
     admit_geometry,

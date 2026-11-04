@@ -11,7 +11,7 @@ from functools import lru_cache
 
 @lru_cache(maxsize=1)
 def _named_181l_pair():
-    from devtools.qualify_181l_receptor import prepare_case
+    from dmt_test_support.qualify_181l_receptor import prepare_case
 
     receptor, ligand, _, _ = prepare_case()
     return receptor, ligand

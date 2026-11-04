@@ -10,7 +10,7 @@ import pyunitwizard as puw
 from vina import Vina
 
 import dockingmt as dmt
-from devtools.qualify_3ptb_admission import (
+from dmt_test_support.qualify_3ptb_admission import (
     DATA,
     DISULFIDES,
     OUTPUT,

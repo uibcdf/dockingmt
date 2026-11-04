@@ -327,7 +327,7 @@ def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
 
     # The original producer stays untouched. Current external controls use the
     # same digest-checked input bytes and full 40-atom positional reference.
-    from devtools.qualify_redocking_evaluation import DATA, INPUT_DIGESTS
+    from dmt_test_support.qualify_redocking_evaluation import DATA, INPUT_DIGESTS
 
     for filename, digest in INPUT_DIGESTS.items():
         assert hashlib.sha256((DATA / filename).read_bytes()).hexdigest() == digest
@@ -403,7 +403,7 @@ def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
 
 
 def test_legacy_evaluation_producer_requires_its_original_source():
-    from devtools.qualify_redocking_evaluation import qualify
+    from dmt_test_support.qualify_redocking_evaluation import qualify
 
     with pytest.raises(
         ArgumentError, match='Named MolSysMT AutoDock4 types are required'

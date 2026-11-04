@@ -13,8 +13,11 @@ from molsysmt.native import Structures
 from test_engines import MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import load_181l_benzene, template_options
-from devtools.qualify_named_types import TYPING
+from dmt_test_support.qualify_chemical_templates import (
+    load_181l_benzene,
+    template_options,
+)
+from dmt_test_support.qualify_named_types import TYPING
 from dockingmt._private.smonitor import ArgumentError
 
 HYDROGEN = {'mode': 'fixed_chemical_state', 'pH': None, 'engine': 'RDKit'}

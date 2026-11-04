@@ -9,8 +9,8 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import Lipinski, rdMolDescriptors
 
-from devtools.audit_1iep_preparation import _pdbqt_torsion_graph
-from devtools.qualify_named_types import CHARGE, HYDROGEN, TYPING
+from dmt_test_support.audit_1iep_preparation import _pdbqt_torsion_graph
+from dmt_test_support.qualify_named_types import CHARGE, HYDROGEN, TYPING
 from dockingmt.preparation import prepare_ligand
 from dockingmt.preparation._molsys import autodock_element
 

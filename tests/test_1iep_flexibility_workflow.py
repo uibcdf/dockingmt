@@ -9,8 +9,11 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.audit_1iep_preparation import _compare_pdbqt, _compare_torsion_graphs
-from devtools.qualify_1iep_flexibility import CUTS, OUTPUT, prepare_case, redock
+from dmt_test_support.audit_1iep_preparation import (
+    _compare_pdbqt,
+    _compare_torsion_graphs,
+)
+from dmt_test_support.qualify_1iep_flexibility import CUTS, OUTPUT, prepare_case, redock
 
 
 @pytest.fixture(scope='module')

@@ -10,8 +10,8 @@ import pyunitwizard as puw
 from test_engines import MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import load_5x72, snapshot
-from devtools.qualify_named_types import (
+from dmt_test_support.qualify_chemical_templates import load_5x72, snapshot
+from dmt_test_support.qualify_named_types import (
     CHARGE,
     TYPING,
     declared_source,
@@ -316,7 +316,7 @@ def test_default_automatic_vina_retains_named_torsion_reports_and_pose_identity(
 
 
 def test_qualification_probe_compares_assigned_and_reference_connectivity():
-    from devtools.qualify_chemical_domain_receiving import state_scope_probe
+    from dmt_test_support.qualify_chemical_domain_receiving import state_scope_probe
 
     report = state_scope_probe()
     assert report['explicit_state_request'] == {

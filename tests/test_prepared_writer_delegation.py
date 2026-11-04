@@ -10,8 +10,8 @@ from test_flexible_reconstruction import _manual
 from test_molecular_delegation import _manual_prepared
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import detached_record, snapshot
-from devtools.qualify_named_types import CHARGE, TYPING, explicit_source
+from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from dmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
 from dockingmt.preparation._molsys import autodock_element
 
 

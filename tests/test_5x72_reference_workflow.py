@@ -12,8 +12,12 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.qualify_5x72_occupancy import atom_fields, fixed_pair, frozen_partner
-from devtools.qualify_5x72_reference import (
+from dmt_test_support.qualify_5x72_occupancy import (
+    atom_fields,
+    fixed_pair,
+    frozen_partner,
+)
+from dmt_test_support.qualify_5x72_reference import (
     OUTPUT,
     chemical_axis,
     compare_saved,
@@ -165,7 +169,7 @@ def test_saved_references_all_156_poses_and_552_indexed_distances(inputs):
     checkpoint = json.loads(OUTPUT.with_name('checkpoint_2026-10-09.json').read_text())
     assert sha(payload) == checkpoint['producer_archive']['gzip_sha256']
     record = json.loads(gzip.decompress(payload))
-    producer = OUTPUT.with_name('producer_2026-10-09.py')
+    producer = OUTPUT.with_name('producer_2026-10-09.py.txt')
     assert (
         sha(producer.read_bytes())
         == record['consumer_source_sha256']['devtools/qualify_5x72_reference.py']

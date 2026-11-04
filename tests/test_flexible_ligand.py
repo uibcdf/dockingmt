@@ -3,7 +3,7 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from devtools.audit_1iep_preparation import _pdbqt_torsion_graph
+from dmt_test_support.audit_1iep_preparation import _pdbqt_torsion_graph
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import VinaProtocol

@@ -11,8 +11,8 @@ from molsysmt.native import Structures
 from test_ligand_preparation_stages import CHARGE, HYDROGEN, methanol_source
 
 import dockingmt as dmt
-from devtools.qualify_chemical_templates import snapshot
-from devtools.qualify_named_types import TYPING
+from dmt_test_support.qualify_chemical_templates import snapshot
+from dmt_test_support.qualify_named_types import TYPING
 
 
 @pytest.mark.parametrize('length_unit', ['angstrom', 'pm'])

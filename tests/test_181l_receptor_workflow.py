@@ -7,7 +7,7 @@ import pytest
 import pyunitwizard as puw
 
 import dockingmt as dmt
-from devtools.qualify_181l_receptor import prepare_case, redock
+from dmt_test_support.qualify_181l_receptor import prepare_case, redock
 
 
 @pytest.fixture(scope='module')
