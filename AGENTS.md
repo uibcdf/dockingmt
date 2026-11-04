@@ -53,6 +53,13 @@ is tracked by `uibcdf/molsyssuite#31`.
 
 ## Local gates
 
+Scientific test helpers live in the unshipped `dmt_test_support` namespace;
+`devtools` keeps compatible source entry points. Keep installed-test helper
+imports in that namespace and update the exact helper/data SHA-256 declaration
+in `devtools/conda-build/resources.toml` when an input changes. Use MolSysSuite's
+declared installed-test support mechanism; keep support outside the runtime
+payload and preserve historical scientific inputs and producer identities.
+
 Available commands (select applicable checks and test scope):
 
 ```bash

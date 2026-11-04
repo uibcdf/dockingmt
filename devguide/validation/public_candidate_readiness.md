@@ -82,6 +82,13 @@ overwrite, forced release or new molecular implementation is requested.
 
 ## Reviewed shared publisher adoption
 
+Follow-up **2026-11-04**: [complete isolated helper receiving](installed_support_receiving.md)
+passes 1,450 private installed tests and adopts `95f693be...` for the installed
+caller too, with the actual final provenance-step label and all eight cells
+retained. The table below preserves the original November 3 scope decision;
+the new source adoption and its failed/corrected receiving have separate
+receipts. Actual staged/platform/public qualification remains pending.
+
 MolSysSuite #87 delivers immutable shared source
 `95f693be10c9205ab9b912cb53453710a207bf45`, using Conda provider v2.3.0. Review
 compares each operation with the prior `2d320484...` publication profile:
@@ -129,7 +136,8 @@ their separate obligations and hosted state.
 2. Qualify an actual public provider combination, including the observed Viewer
    profile and compatible support dependencies, on the required interpreters and
    platforms. Set numerical minima only from that evidence; presence of symbols
-   alone is insufficient. Complete the reviewed installed-helper transition.
+   alone is insufficient. The installed-helper source transition is delivered;
+   execute its actual candidate/eight-cell gates with the covering public closure.
 3. Select and commit the real version/staged plan with all fifteen native jobs
    and eight installed cells, then execute exact-candidate gates before building.
 4. Follow exact-file staging/installed/promotion/public receiving and the required

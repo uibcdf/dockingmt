@@ -385,7 +385,7 @@ class TestDistributionContract(unittest.TestCase):
                 'Install exact artifact',
                 'Validate installed files',
                 'Run installed tests',
-                'Recheck dependency provenance after installed tests',
+                'Recheck installed provenance after scientific tests',
             ],
         )
         self.assertEqual(self.inventory['installed_tests']['paths'], ['tests'])
@@ -395,12 +395,12 @@ class TestDistributionContract(unittest.TestCase):
         )
 
     def test_wrappers_pin_sdk_and_keep_qualification_separate_from_producer(self):
-        # Publication/provider adoption is separate from the accepted installed
-        # helper profile, whose migration still requires an actual candidate.
+        # All publisher/installed callers use the reviewed provider; actual staged
+        # artifact/platform acceptance remains separate from source adoption.
         pins = {
             'build_and_upload_conda_packages.yaml': '95f693be10c9205ab9b912cb53453710a207bf45',
             'promote_conda_package.yaml': '95f693be10c9205ab9b912cb53453710a207bf45',
-            'test_installed_conda_package.yaml': '2d32048457c6d37093ae509f5626d00a5cda121b',
+            'test_installed_conda_package.yaml': '95f693be10c9205ab9b912cb53453710a207bf45',
             'conda_publication_governance.yaml': '95f693be10c9205ab9b912cb53453710a207bf45',
         }
         for name, pin in pins.items():

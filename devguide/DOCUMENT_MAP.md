@@ -23,6 +23,7 @@
 | `validation/public_candidate_readiness.md` | Which actual public files cover the required APIs, which publisher controls are adopted, and what remains before a real candidate? |
 | `validation/public_viewer_receiving.md` | Why does the exact public Viewer 0.24.0 build 1 fail installed addon receiving, and which provider handoff is next? |
 | `validation/installed_validator_receiving.md` | Does the shared multi-root verifier protect the actual private installed core/addon, and which candidate gates remain? |
+| `validation/installed_support_receiving.md` | How are unshipped scientific helpers isolated, and what does the full 1,450-test private receiving qualify? |
 | `VALIDATION_STRATEGY.md` | How do we distinguish software correctness from scientific validity? |
 | `MOLSYSSUITE_INTEGRATION.md` | How does DockingMT interact scientifically with sibling components? |
 | `MOLSYSVIEWER_INTEGRATION.md` | How should DockingMT own its viewer integration? |

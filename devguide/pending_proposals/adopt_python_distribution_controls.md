@@ -14,6 +14,20 @@ supersedes: []
 
 # Distribution control adoption
 
+## Complete helper receiving and installed-caller adoption — 2026-11-04
+
+[The full checkpoint](../validation/installed_support_receiving.md) completes
+the shared #117 helper integration: 26 existing implementations move to the
+unshipped namespace, with compatible source entry points and 570 explicit
+helper/data records. An initial full run has 1,448 passes/one benchmark Git
+attribution failure; its corrected repeated gate passes 1,450 tests, zero skips,
+and retires shared support. Original private wheel/provider/receiver bytes and
+all archived scientific assertions/records remain. Installed caller `95f693be`
+is adopted with its actual final provenance step; source SDK `738fe8dd` and
+scientific pins remain. This proposal stays partial for the actual staged file,
+public dependency/minimum qualification, eight installed cells and release gates.
+Provider public-artifact handoffs remain MolSysViewer #294 and MolSysMT #334.
+
 ## Shared multi-root validator received privately — 2026-11-04
 
 [Bounded installed receiving](../validation/installed_validator_receiving.md)

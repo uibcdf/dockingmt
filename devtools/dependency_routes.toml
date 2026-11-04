@@ -121,5 +121,5 @@ reason = "Read-only qualification before exact-file promotion; no member source 
 
 [[workflows]]
 path = ".github/workflows/test_installed_conda_package.yaml"
-sha256 = "83bcd0126b7150334e31cc2407a39b4e9963834f7a027a341be268db7f2dcf28"
+sha256 = "c22ef8fedc6c7355b03ff32f0db3f21c1ddd825740f385eeb6f2828f0b835eac"
 reason = "Manual exact-file public dependency solve/installed scientific gate; no pinned source fallback permitted."

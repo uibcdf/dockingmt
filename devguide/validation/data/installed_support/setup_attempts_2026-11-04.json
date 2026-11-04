@@ -1,0 +1,31 @@
+{
+  "schema": "dockingmt.installed_support_setup@1",
+  "attempts": [
+    {
+      "stage": "pure-support-declaration",
+      "result": "rejected before staging",
+      "reason": "Two original producer programs cannot be declared as executable Python outside support namespace.",
+      "correction": "Preserve originals; declare byte-identical inert text copies for fingerprint-only use."
+    },
+    {
+      "stage": "local-support-binding",
+      "result": "rejected before pytest/preparation",
+      "reason": "Conda-only archive filename field received a private wheel filename.",
+      "correction": "Leave Conda-specific context unknown; retain actual wheel identity separately."
+    },
+    {
+      "stage": "full-installed-selection-at-source-769401e",
+      "result": "failed",
+      "passed": 1448,
+      "failed": 1,
+      "reason": "Case benchmark assumed a shared Git checkout for staged helpers.",
+      "correction": "Fingerprint actual imported core/helper bytes and record unknown Git when they do not share a checkout."
+    },
+    {
+      "stage": "full-installed-selection-after-attribution-regression",
+      "result": "passed",
+      "tests": 1450
+    }
+  ],
+  "failed_full_suite_attempts": 1
+}

@@ -2,9 +2,10 @@
 
 Owner: uibcdf/dockingmt#47. Reviewed publication/build/upload/promotion and
 publication-governance SDK: `95f693be10c9205ab9b912cb53453710a207bf45`
-(MolSysSuite #87, Conda provider v2.3.0). The installed-scientific caller retains
-`2d32048457c6d37093ae509f5626d00a5cda121b`; its actual-candidate/multi-import-root
-receiving remains separately tracked under #47/MolSysSuite #110. Dependency/source
+(MolSysSuite #87, Conda provider v2.3.0). The installed-scientific caller adopts
+that same immutable revision after full private-wheel receiving of the isolated
+test-support profile under #47/MolSysSuite #110/#117. Actual staged/public artifact
+and eight-cell receiving remain pending. Dependency/source
 SDK remains `738fe8dd731abb99dac421b0bb2acc8564110180`. These scopes are reviewed
 separately, not a blanket helper-pin replacement.
 
@@ -79,9 +80,24 @@ The source pytest profile adds the owner root. The installed profile explicitly
 uses `-o pythonpath=` so collection cannot inherit that source route. A regression
 runs the actual shared runner against separate installed/source addon fixtures:
 the original inherited configuration selects source; the declared override selects
-the installed addon. The broader shared multi-import-root guard need is owned by
-uibcdf/molsyssuite#110; this receiving control stays linked until a reviewed shared
-replacement covers the boundary. No global installer/pytest profile is altered.
+the installed addon. The adopted shared #110 verifier independently clears that
+route and checks every loaded core/addon root inferred from the actual payload.
+The compatible explicit override stays in the descriptor. No global installer/
+pytest profile is altered.
+
+Scientific helpers use the unshipped `dmt_test_support` namespace. The optional
+shared #117 declaration selects 27 Python files and 543 explicit fixture/text
+files with exact SHA-256. Keep it synchronized when changing an input; new
+receiving reports are not recursively included. The shared operation validates,
+stages, checks and retires those files without exposing the owner/staging parent
+on Python paths. Original producer programs remain preserved, with byte-identical
+inert text copies for fingerprint-only use. Runtime discovery excludes support.
+
+The [complete private receiving](../../devguide/validation/installed_support_receiving.md)
+passes 1,450 tests on Linux/Python 3.14.8 with the original controlled providers
+and consumer wheel. Its first full 1,448-pass/one-failure run and corrected
+source attribution remain separately recorded. This source adoption does not
+qualify a staged Conda archive, public closure or all eight installed cells.
 
 Run offline recipe and resource review using the accepted SDK and example plan;
 these are declarations/synthetic negative guards, not release evidence. Future

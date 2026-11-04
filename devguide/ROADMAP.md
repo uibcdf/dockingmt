@@ -16,7 +16,7 @@ dated checkpoint entries below retain their original state and historical
 | --- | --- | --- |
 | 1 | Current Core evidence and source CI (#28/#60) | The updated criterion map is delivered. Inspect the exact source/head's remaining hosted lanes and append their outcome to the owning issues; previous successes do not qualify another composition. |
 | 2 | Installed Python/Jupyter use (#4/#33) | The declared 3PTB preparation → two-search execution → saved inspection → nine-atom evaluation path is delivered outside source. Seven evaluation cells pass normal/pm/fs receiving with preserved full results, provider-owned selection/geometry and existing public reports. Broader source/replay/model questions remain partial; add another workflow only for a concrete need. |
-| 3 | Actual distribution readiness (#30/#47) | Public Viewer 0.24.0 build 1 fails installed addon receiving; owner handoff is MolSysViewer #294. Main MolSysMT 0.23.0 and observed staging 1.0.0 omit required reader/graph APIs; provider handoff is #334. Receive covering additive public files, repeat installed compatibility, qualify combination/minima and installed-helper profile, then select the actual staged candidate with fifteen native jobs/eight installed cells. No publication follows from static or private evidence. |
+| 3 | Actual distribution readiness (#30/#47) | The isolated helper profile and installed caller are adopted after 1,450 passing private installed tests. Public Viewer 0.24.0 build 1 still fails addon receiving (#294); public MolSysMT reader/graph delivery remains #334. Receive covering additive public files, repeat compatibility and saved-case receiving, qualify actual public combination/minima, then select the staged candidate with fifteen native jobs/eight installed cells. No publication follows from private evidence. |
 | Deferred | Live observation (#52/#60) | On the maintainer's decision, observe real controls/comm/canvas, frame correspondence and reference/domain visibility; visible C4/C6 remain unaccepted. |
 | On provider delivery | Remaining molecular profiles (#49/#33) | Receive MolSysMT #521 against its actual partial/reference contract before removing the covered verifier. MolSysMT #256 remains post-1.0 general mechanics persistence, separate from the supported linked-record route. |
 
@@ -34,17 +34,34 @@ scientific pins and public-minimum claims separate. Recover exact-head hosted
 gates in parallel. The bounded nine-atom path needs neither a new public selection
 API nor a downstream molecular helper.
 
-The [installed-validator receiving](validation/installed_validator_receiving.md)
-prepares a separate #47 profile while provider public files are pending. Exact
-shared `95f693be` passes 162 existing installed tests and four expected
-multi-root refusals; inherited source pytest paths are cleared. Installed caller
-adoption still needs the actual candidate/helper and full-suite review. No
-runtime, source/dependency pin, scientific record or public minimum changes.
+The [full helper receiving](validation/installed_support_receiving.md) completes
+the separate #47 installed-caller source adoption using shared `95f693be`:
+1,450 installed tests pass with declared isolated support. The earlier
+[162-test validator receiving](validation/installed_validator_receiving.md) and
+four expected multi-root refusals retain their own scope. Source/dependency SDK
+and scientific pins, runtime code, original records and public minima remain.
 
 ## Checkpoint history
 
 The entries below are dated delivery/evidence records. Consult the operational
 plan above for current next work; preserve historical producers and claims.
+
+## Declared scientific support and installed-caller adoption — 2026-11-04
+
+[Full #47 receiving](validation/installed_support_receiving.md) moves 26 helper
+implementations to unshipped `dmt_test_support`, preserves source entry points
+and scientific assertions, and declares 570 exact helper/fixture records. A
+Git-attribution assumption yields 1,448 passes/one failure; the corrected
+benchmark records actual imported code and explicitly unknown Git when separate.
+The repeated full gate passes 1,450 tests and retires shared support. All original
+receiver/artifact bytes remain unchanged. Installed caller `95f693be` and its
+actual required-step label are adopted; source/dependency SDK stays `738fe8dd`.
+
+**Next:** receive covering public provider artifacts and qualify the actual
+public combination/minima before selecting the real staged candidate. The eight
+installed cells, release/public gates and visual C4/C6 remain unexecuted. All
+four workflows at preceding source head `b74b4ad` complete successfully; final
+source CI retains its own observation/recovery.
 
 ## Shared installed-validator receiving — 2026-11-04
 

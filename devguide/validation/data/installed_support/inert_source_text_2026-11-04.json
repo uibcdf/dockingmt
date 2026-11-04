@@ -1,0 +1,17 @@
+{
+  "schema": "dockingmt.inert_producer_text@1",
+  "files": [
+    {
+      "source": "devguide/validation/data/5x72_contact/producer_2026-10-09.py",
+      "inert_text": "devguide/validation/data/5x72_contact/producer_2026-10-09.py.txt",
+      "sha256": "2c92d7ab41686a7b299b7b4d6961f9e370c96fe9639e6ec0c3ea2237fb08d092"
+    },
+    {
+      "source": "devguide/validation/data/5x72_reference/producer_2026-10-09.py",
+      "inert_text": "devguide/validation/data/5x72_reference/producer_2026-10-09.py.txt",
+      "sha256": "31494874c4ec49f69e6eaa043c50d9606fc900c231710614b7b265342ed82cf8"
+    }
+  ],
+  "source_programs_preserved": true,
+  "purpose": "Byte fingerprint evidence only; inert text is never imported or executed."
+}

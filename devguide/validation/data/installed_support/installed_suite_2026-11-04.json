@@ -1,0 +1,88 @@
+{
+  "schema": "dockingmt.installed_support_full@1",
+  "owner": "uibcdf/dockingmt#47",
+  "qualification_source": "3bf7abf5a72609f70ab730989a666f64a36585e7",
+  "consumer_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "consumer_wheel_sha256": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98",
+  "provider_sdk": "95f693be10c9205ab9b912cb53453710a207bf45",
+  "python": "3.14.8",
+  "consumer_version": "0.0.0+225.g50d8e33",
+  "provider_versions": {
+    "molsysmt": "0.23.0+361.gde7ffad2a",
+    "molsysviewer": "0.24.0+260.g78ede79e",
+    "argdigest": "0.15.0+5.g3d1ec53",
+    "pyunitwizard": "0.29.0",
+    "vina": "1.2.7",
+    "smonitor": "0.22.0",
+    "depdigest": "0.15.1"
+  },
+  "provider_payload_counts": {
+    "argdigest-0.15.0+5.g3d1ec53-py3-none-any.whl": 38,
+    "molsysmt-0.23.0+361.gde7ffad2a-cp311-abi3-linux_x86_64.whl": 3415,
+    "molsysviewer-0.24.0+260.g78ede79e-py3-none-any.whl": 635
+  },
+  "verified_payloads_before": 4151,
+  "loaded_scientific_modules_before": 1092,
+  "owner_and_staging_parents_on_sys_path": false,
+  "source_runtime_packages_absent": true,
+  "bytecode_writes_disabled": true,
+  "whole_test_selection": [
+    "tests"
+  ],
+  "scope": "Existing full qualification suite, including its real preparation/engine controls; no new benchmark population or original evidence overwrite.",
+  "pytest_exit": 0,
+  "verified_payloads_after": 4151,
+  "loaded_scientific_modules_after": 2624,
+  "installed_scientific_origins_verified": true,
+  "support_namespace_retired": true,
+  "counts": {
+    "tests": 1450,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "receptor_seconds": 889.61,
+  "warning_count": 342,
+  "warning_groups": [
+    {
+      "category": "StructuralAttributeOffAxisWarning",
+      "count": 196
+    },
+    {
+      "category": "LegacyH5MSMWarning",
+      "count": 121
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "count": 14
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "count": 6
+    },
+    {
+      "category": "PDBBondInferenceWarning",
+      "count": 2
+    },
+    {
+      "category": "PytestAssertRewriteWarning",
+      "count": 1
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "count": 1
+    },
+    {
+      "category": "StructuralAttributeDropWarning",
+      "count": 1
+    }
+  ],
+  "original_receiver_files_unchanged": 45015,
+  "harness_files_unchanged": 818,
+  "harness_export_sha256": "a93de3d3aa5c9f28144e400a7b7217c872ba87237378060f6d016eed6a2296b7",
+  "pip_check_after": "passed",
+  "runtime_source_files_changed": false,
+  "real_staged_conda_artifact": false,
+  "full_public_dependency_closure_qualified": false,
+  "C6_accepted": false
+}

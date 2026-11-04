@@ -1,0 +1,11 @@
+{
+  "provider": "95f693be10c9205ab9b912cb53453710a207bf45",
+  "namespace": "dmt_test_support",
+  "files": 570,
+  "bytes": 69142730,
+  "declaration_sha256": "6e161ff22256d5ecfb791fa6aa7d7c0fa5c1604a378d630ecc737261353dc9e9",
+  "pure_validation_passed": true,
+  "real_release_plan_selected": false,
+  "original_producer_programs_preserved": 2,
+  "byte_identical_inert_text_copies": 2
+}

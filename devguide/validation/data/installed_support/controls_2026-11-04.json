@@ -1,0 +1,27 @@
+{
+  "schema": "dockingmt.installed_support_controls@1",
+  "owner": "uibcdf/dockingmt#47",
+  "source_controls_after_attribution_fix": {
+    "passed": 44,
+    "seconds": 5.57
+  },
+  "installed_attribution_profiling_selection": {
+    "passed": 21,
+    "seconds": 1.24,
+    "support_retired": true
+  },
+  "final_component_distribution_reporting_controls": {
+    "passed": 24,
+    "seconds": 9.53
+  },
+  "declared_routes": 10,
+  "declared_contexts": 4,
+  "source_sdk_preserved": "738fe8dd731abb99dac421b0bb2acc8564110180",
+  "workflow_actual_change_only_shared_reference": true,
+  "scientific_helper_bodies_unchanged_except_import_namespace_inert_evidence_paths_and_explicit_attribution_fix": true,
+  "actual_runtime_source_payloads_match_original": 62,
+  "ruff_lint_format": "passed",
+  "generated_indexes": "passed",
+  "source_context_git_bindings_not_fabricated": true,
+  "real_release_plan_exists": false
+}

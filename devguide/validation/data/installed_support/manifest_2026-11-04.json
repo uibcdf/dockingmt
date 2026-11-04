@@ -1,0 +1,53 @@
+{
+  "schema": "dockingmt.installed_support_manifest@1",
+  "owner": "uibcdf/dockingmt#47",
+  "provider_issue": "uibcdf/molsyssuite#117",
+  "provider_source": "95f693be10c9205ab9b912cb53453710a207bf45",
+  "qualification_source": "3bf7abf5a72609f70ab730989a666f64a36585e7",
+  "original_wheel_producer": "50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9",
+  "original_wheel_sha256": "5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98",
+  "runtime_nongenerated_source_files_match_original": 62,
+  "records": [
+    {
+      "path": "devguide/validation/data/installed_support/controls_2026-11-04.json",
+      "sha256": "bde209a460819618bde1efcffaa0db34ff233118232a8c7e9e24155e8e9f4206"
+    },
+    {
+      "path": "devguide/validation/data/installed_support/failed_installed_suite_2026-11-04.json",
+      "sha256": "5ca48c91aa323f50e0738b1486706eb3341ddc703ef81ffa5414b6a07456a4dc"
+    },
+    {
+      "path": "devguide/validation/data/installed_support/inert_source_text_2026-11-04.json",
+      "sha256": "34875c71ec5068eafe332270aa42d6a600f4894249eb8d104c4fbfe781d4cc6f"
+    },
+    {
+      "path": "devguide/validation/data/installed_support/installed_suite_2026-11-04.json",
+      "sha256": "32c348f720a333d7f52577ec7df384862b5e74f0bbd6c2c48fcb767fead4f2d4"
+    },
+    {
+      "path": "devguide/validation/data/installed_support/preflight_2026-11-04.json",
+      "sha256": "c1c25d41e2f16c993a4040fad34449d6f13177e1b3a0967e405b28f3a2a6b53b"
+    },
+    {
+      "path": "devguide/validation/data/installed_support/prior_ci_2026-11-04.json",
+      "sha256": "1ef917683f63d39c0429881c4c4356a7fc21132e52d21dc6587842c126c2a71f"
+    },
+    {
+      "path": "devguide/validation/data/installed_support/setup_attempts_2026-11-04.json",
+      "sha256": "188daa8511a50c0a5e8999cb33e4c6e8e87d500f4924c82885eb13e5c5211776"
+    },
+    {
+      "path": "devguide/validation/data/installed_support/support_sidecar_2026-11-04.json",
+      "sha256": "ece42f37a68b795c20adc0cd8bf6c98ce15f5e1af39790f29e60432d875a80c2"
+    },
+    {
+      "path": "devguide/validation/data/installed_support/workflow_adoption_2026-11-04.json",
+      "sha256": "c0b670e417a06bbdf6d437bb3606243324663b0c67b46d71dad7e5fd055c1222"
+    }
+  ],
+  "review": "2026-11-11",
+  "private_installed_gate": "passed",
+  "real_staged_conda_artifact_qualified": false,
+  "public_dependency_closure_qualified": false,
+  "C6_accepted": false
+}

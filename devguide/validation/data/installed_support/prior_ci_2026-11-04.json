@@ -1,0 +1,25 @@
+{
+  "head": "b74b4ad0bd11eca3c6f0b1d6b6f7af2636e2a46f",
+  "runs": [
+    {
+      "run": 41846140654,
+      "exit": 0,
+      "report": "PASS conclusion=success | profile=ci | roles=publish:1,test:4,other:2 | jobs=7/7 | artifacts=1 | uibcdf/dockingmt run=41846140654"
+    },
+    {
+      "run": 41846140795,
+      "exit": 0,
+      "report": "PASS conclusion=success | profile=generic | jobs=1/1 | artifacts=0 | uibcdf/dockingmt run=41846140795"
+    },
+    {
+      "run": 41846141342,
+      "exit": 0,
+      "report": "PASS conclusion=success | profile=ci | roles=other:1 | jobs=1/1 | artifacts=0 | uibcdf/dockingmt run=41846141342"
+    },
+    {
+      "run": 41846141471,
+      "exit": 0,
+      "report": "PASS conclusion=success | profile=generic | jobs=1/1 | artifacts=0 | uibcdf/dockingmt run=41846141471"
+    }
+  ]
+}

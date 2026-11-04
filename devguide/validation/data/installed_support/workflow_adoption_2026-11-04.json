@@ -1,0 +1,22 @@
+{
+  "old_provider": "2d32048457c6d37093ae509f5626d00a5cda121b",
+  "new_provider": "95f693be10c9205ab9b912cb53453710a207bf45",
+  "workflow_inputs_unchanged": true,
+  "wrapper_inputs_triggers_permissions_preserved_by_planned_reference_only_change": true,
+  "required_scientific_and_provenance_steps": [
+    "Install exact artifact",
+    "Validate installed files",
+    "Run installed tests",
+    "Recheck installed provenance after scientific tests"
+  ],
+  "support_output_and_all_seven_identity_fields_present": true,
+  "original_candidate_distinct_from_qualification_and_provider": true,
+  "eight_installed_cells_retained": true,
+  "shared_workflow_sha256": "1805e0952e234556f113ec56e8eb318d7a09b6fc2cdbfe122fa07cfc775dcc82",
+  "old_installed_wrapper_sha256": "83bcd0126b7150334e31cc2407a39b4e9963834f7a027a341be268db7f2dcf28",
+  "actual_real_release_plan_selected": false,
+  "installed_wrapper_new_sha256": "c22ef8fedc6c7355b03ff32f0db3f21c1ddd825740f385eeb6f2828f0b835eac",
+  "source_adoption_preceded_by_full_private_suite": true,
+  "actual_staged_conda_artifact_received": false,
+  "eight_cells_executed": false
+}
