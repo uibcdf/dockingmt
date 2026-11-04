@@ -384,6 +384,7 @@ class BoxRegion(SearchDomain):
         return bool(np.all(p_val >= min_val) and np.all(p_val <= max_val))
 
     @classmethod
+    @arg_digest(config='dockingmt._argdigest')
     def from_bounds(
         cls,
         min_coords: Any,
@@ -407,10 +408,8 @@ class BoxRegion(SearchDomain):
         name : str, optional
             Identifier for the box region.
         """
-        min_q = _ensure_length_quantity_1d(min_coords, 'min_coords')
-        max_q = _ensure_length_quantity_1d(max_coords, 'max_coords')
-        min_val = puw.get_value(min_q)
-        max_val = puw.get_value(max_q)
+        min_val = puw.get_value(min_coords)
+        max_val = puw.get_value(max_coords)
         if np.any(min_val > max_val):
             raise ArgumentError(
                 arg_name='min_coords',
@@ -420,12 +419,7 @@ class BoxRegion(SearchDomain):
         lengths_val = max_val - min_val
 
         if padding is not None:
-            pad_q = _ensure_scalar_length_quantity(padding, 'padding')
-            pad_val = puw.get_value(pad_q)
-            if pad_val < 0.0:
-                raise ArgumentError(
-                    arg_name='padding', reason='padding must be non-negative (>= 0).'
-                )
+            pad_val = puw.get_value(padding)
             lengths_val += 2.0 * pad_val
 
         center = puw.quantity(center_val, 'nm')
@@ -433,6 +427,7 @@ class BoxRegion(SearchDomain):
         return cls(center=center, lengths=lengths, name=name)
 
     @classmethod
+    @arg_digest(config='dockingmt._argdigest')
     def from_points(
         cls,
         points: Any,
@@ -450,13 +445,7 @@ class BoxRegion(SearchDomain):
         name : str, optional
             Identifier for the box region.
         """
-        pts_conv = _ensure_length_quantity(points, 'points')
-        raw_pts = puw.get_value(pts_conv)
-        if raw_pts.ndim != 2 or raw_pts.shape[1] != 3 or raw_pts.shape[0] == 0:
-            raise ArgumentError(
-                arg_name='points',
-                reason=f"'points' must be a non-empty array of shape (N, 3), got shape {raw_pts.shape}.",
-            )
+        raw_pts = puw.get_value(points)
         min_vals = np.min(raw_pts, axis=0)
         max_vals = np.max(raw_pts, axis=0)
 
@@ -472,6 +461,10 @@ class BoxRegion(SearchDomain):
         return cls.from_bounds(min_q, max_q, padding=padding, name=name)
 
     @classmethod
+    @arg_digest(
+        config='dockingmt._argdigest',
+        native_factory='dockingmt.core.search_domain.BoxRegion.from_selection',
+    )
     def from_selection(
         cls,
         molecular_system: Any,
@@ -629,6 +622,7 @@ class BoxRegion(SearchDomain):
         return record
 
     @classmethod
+    @arg_digest(config='dockingmt._argdigest')
     def from_dict(cls, data: dict[str, Any]) -> BoxRegion:
         """Reconstruct BoxRegion from a serialized dictionary."""
         validate_schema_version(data, cls.__name__)

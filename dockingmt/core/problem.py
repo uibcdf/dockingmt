@@ -8,6 +8,7 @@ from typing import Any
 import molsysmt as msm
 import numpy as np
 import pyunitwizard as puw
+from argdigest import arg_digest
 
 from dockingmt._private.serialization import SCHEMA_VERSION, validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
@@ -261,6 +262,7 @@ class DockingProblem:
         Structure to dock. Required when the input has multiple structures.
     """
 
+    @arg_digest(config='dockingmt._argdigest')
     def __init__(
         self,
         receptor: Any,
@@ -274,22 +276,6 @@ class DockingProblem:
         receptor_structure_index: int | None = None,
         partner_structure_index: int | None = None,
     ):
-        if receptor is None:
-            raise ArgumentError(
-                arg_name='receptor',
-                reason="'receptor' must be provided and cannot be None.",
-            )
-        if partner is None:
-            raise ArgumentError(
-                arg_name='partner',
-                reason="'partner' must be provided and cannot be None.",
-            )
-        if search_domain is None or not isinstance(search_domain, SearchDomain):
-            raise ArgumentError(
-                arg_name='search_domain',
-                reason=f"'search_domain' must be an instance of SearchDomain, got {type(search_domain)}.",
-            )
-
         self._receptor = receptor
         self._partner = partner
         self._receptor_fingerprint = _source_fingerprint(receptor)
@@ -324,6 +310,7 @@ class DockingProblem:
         self._metadata = dict(metadata) if metadata is not None else {}
 
     @classmethod
+    @arg_digest(config='dockingmt._argdigest')
     def for_redocking(
         cls,
         complex_system: Any,
@@ -527,6 +514,7 @@ class DockingProblem:
         }
 
     @classmethod
+    @arg_digest(config='dockingmt._argdigest', record_factory=True)
     def from_dict(
         cls,
         data: dict[str, Any],
@@ -612,6 +600,8 @@ class DockingProblem:
         return reconstructed
 
     def __repr__(self) -> str:
+        if not hasattr(self, '_search_domain'):
+            return f'{type(self).__name__}(uninitialized)'
         rec_repr = (
             self._receptor
             if isinstance(self._receptor, str)

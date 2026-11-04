@@ -8,6 +8,10 @@ passing numerical tests as complete adoption. No molecular workflow is changed.
 
 ## Assessment
 
+The table records the starting review. The [core model/factory follow-up](#core-modelfactory-receiving-follow-up)
+below now delivers that bounded ArgDigest work; prepared constructors, owned
+view arguments, diagnostics and dependency-audit receiving remain incomplete.
+
 | Tool | Actual adoption | Remaining work |
 | --- | --- | --- |
 | ArgDigest | Strict registry configuration and real digesters protect dock/score/batch/evaluation/summary, VinaProtocol, BoxRegion and selected preparation/result methods. | DockingPose/Result/Problem constructors, prepared-object constructors, record factories and view's DockingMT-owned arguments are not uniformly covered. |
@@ -101,3 +105,81 @@ installation, version floor, scientific pin or new API is selected here.
 
 Use our owning repositories for reusable fixes and #19 for DockingMT receiving;
 source access permits coordinated implementation without duplicating providers.
+
+## Core model/factory receiving follow-up
+
+Starting from `4cfbac66ba643276533c8574a85c3d9e5f809f9b`, #19 extends real
+ArgDigest admission to DockingPose, DockingResult and DockingProblem constructors,
+their record factories, BoxRegion's bounds/points/selection/record factories,
+DockingProblem.for_redocking and VinaProtocol.from_dict. BoxRegion and
+VinaProtocol constructors already used ArgDigest. Closed signatures refuse
+unknown keywords before processing values.
+
+The value contracts require optional positive integer pose ranks, optional text
+identifiers, mapping metadata/context records, actual pose collections and
+optional DockingProblem references. Lists of key/value pairs are not metadata
+mappings. Generators of poses remain supported and are consumed once. A pose
+constructor still accepts scores=None, and a result constructor problem=None;
+with_scores(None) and dock(None) remain invalid. Record recovery still accepts
+absent receptor/partner overrides when the record supplies the inputs.
+
+Those differences use explicit decorator context (`native_constructor`,
+`native_factory` and `record_factory`) supported by the selected older ArgDigest, rather than
+depending on runtime subclass module names or the newer contract_owner option.
+They do not add public keywords: callers cannot spoof that context. The shared
+caller helper performs exact constructor-key matching. Inherited constructors,
+a super-delegating override and inherited class factories are exercised with
+classes declared in a different module namespace.
+
+Existing numerical pose and box validators now supply the corresponding
+digesters; constructors/factories do not repeat those same input checks in
+their bodies. Mutable pose export, schema admission, score semantics, ranking
+history and domain-derivation consistency checks remain in their independent
+boundaries. Values normalized to nanometers retain the original numerical,
+unit and snapshot contracts under a non-default session policy. Constructor
+repr methods now handle pre-initialization tracing without spurious SMonitor
+summary warnings; new admission tests treat RuntimeWarning as an error.
+
+Molecular forms, selections, structure indices and chemical states keep their
+MolSysMT route. Explicit pass-through digesters document that ownership; they
+do not interpret or normalize provider values. The selection factory preserves
+None/array selections, original structure/state objects and native provider
+exception identity, including through inheritance. DockingMT checks only absent
+required sources and its own domain/options. Invalid metadata/domain/guidance
+or padding fails before molecular operations. A pre-existing state-selection
+test used a removed private charge setter; it now assigns the same charges
+through public msm.set, and explicitly imports the native fixture class so it
+also runs independently of test import order. No molecular routine is added.
+
+### Executed evidence
+
+- The first 47 new controls reproduce **44 failures / 3 passes** before the
+  implementation. The final model module contains **50 passing cases**,
+  including the protocol factory and provider-delegation controls.
+- Routine Python 3.14.7, editable ArgDigest `cd9c4f3` and MolSysMT `71fbe4f`:
+  **477 cases pass**, 20.09 s. Seven legacy-H5MSM warnings remain; there are no
+  new constructor-summary warnings. The model module uses its stricter
+  RuntimeWarning policy.
+- A managed, read-only export selects CI's exact ArgDigest
+  `3d1ec53c374098016452abab74706e9d80df5462` and MolSysMT
+  `00abb958fb93649131d5ce5fe5e12e90cf4900e9`: the same **477 cases pass**,
+  19.88 s, seven legacy-H5MSM warnings. Import origins are asserted inside
+  those exports, inspected provider file bytes match their Git objects, and
+  DigestConfig is confirmed to lack contract_owner. Import metadata can still
+  show the routine installed distribution's version; the verified source
+  commits, not that string, identify this probe. Both exports are retired.
+
+The 477-case selection comprises test_model_argument_contracts,
+test_argument_contracts, test_pose_coordinates, test_result_contracts,
+test_search_domain_contracts, test_serialization_contracts, test_problem,
+test_results, test_protocol, test_search_domain, test_score_semantics,
+test_result_audit, test_pose_audit, test_result_export_benchmark and
+test_support_contracts (all under tests/, using --receptor=llm).
+
+This qualifies the bounded source contracts on Python 3.14 with both selected
+ArgDigest generations; it is not the complete CI environment, all supported
+Python/platform lanes, a new installed artifact or public-minimum qualification.
+No dependency floor/pin, scientific producer or frozen input changes. #19 stays
+partial: prepared-object constructors and owned view arguments still need their
+own receiving work; molecular content validation must use MolSysMT. Preparation/
+addon diagnostics and the DepDigest inventory/scanner disposition remain next.

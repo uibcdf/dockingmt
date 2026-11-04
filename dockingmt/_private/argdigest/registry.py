@@ -10,6 +10,7 @@ from pathlib import Path
 
 import numpy as np
 import pyunitwizard as puw
+from argdigest.core.caller import caller_is_one_of
 
 from dockingmt._private.smonitor import ArgumentError
 
@@ -75,9 +76,13 @@ def digest_energy_range(energy_range, caller=None):
     return quantity
 
 
-def digest_problem(problem, caller=None):
+def digest_problem(problem, caller=None, native_constructor=None):
     from dockingmt.core.problem import DockingProblem
 
+    if problem is None and caller_is_one_of(
+        native_constructor, ['dockingmt.core.results.DockingResult.__init__']
+    ):
+        return None
     if not isinstance(problem, DockingProblem):
         raise _invalid('problem', caller, 'Use a DockingProblem instance.')
     return problem
@@ -272,12 +277,117 @@ def digest_pose(pose, caller=None):
     return pose
 
 
-def digest_scores(scores, caller=None):
+def digest_scores(scores, caller=None, native_constructor=None):
     from dockingmt.core.results import _normalize_scores
 
+    if scores is None and caller_is_one_of(
+        native_constructor, ['dockingmt.core.results.DockingPose.__init__']
+    ):
+        return {}
     if not isinstance(scores, Mapping):
         raise _invalid('scores', caller, 'Use a mapping of named finite scores.')
     return _normalize_scores(scores)
+
+
+def digest_coordinates(coordinates, caller=None):
+    # Pose-record numerical admission, not molecular-system interpretation.
+    from dockingmt.core.results import _ensure_coordinates_quantity
+
+    return _ensure_coordinates_quantity(coordinates)
+
+
+def digest_poses(poses, caller=None):
+    from dockingmt.core.results import DockingPose
+
+    if isinstance(poses, (str, bytes, Mapping)) or not isinstance(poses, Iterable):
+        raise _invalid('poses', caller, 'Use an iterable of DockingPose instances.')
+    values = list(poses)
+    if any(not isinstance(pose, DockingPose) for pose in values):
+        raise _invalid('poses', caller, 'Use an iterable of DockingPose instances.')
+    return values
+
+
+def _optional_mapping(argument):
+    def digest(value, caller=None):
+        if value is not None and not isinstance(value, Mapping):
+            raise _invalid(argument, caller, 'Use a mapping or None.')
+        return value
+
+    return digest
+
+
+def _optional_string(argument):
+    def digest(value, caller=None):
+        if value is not None and not isinstance(value, str):
+            raise _invalid(argument, caller, 'Use a string or None.')
+        return value
+
+    return digest
+
+
+def digest_search_domain(search_domain, caller=None):
+    from dockingmt.core.search_domain import SearchDomain
+
+    if not isinstance(search_domain, SearchDomain):
+        raise _invalid('search_domain', caller, 'Use a SearchDomain instance.')
+    return search_domain
+
+
+def _optional_guidance(argument):
+    def digest(value, caller=None):
+        if value is not None and not isinstance(value, (list, Mapping)):
+            raise _invalid(argument, caller, 'Use a list, mapping, or None.')
+        return value
+
+    return digest
+
+
+def _problem_input(value, argument, caller, record_factory):
+    if value is None and record_factory is not True:
+        raise _invalid(argument, caller, 'Supply an input supported by MolSysMT.')
+    return value
+
+
+def digest_receptor(receptor, caller=None, record_factory=None):
+    return _problem_input(receptor, 'receptor', caller, record_factory)
+
+
+def digest_partner(partner, caller=None, record_factory=None):
+    return _problem_input(partner, 'partner', caller, record_factory)
+
+
+def _provider_owned(value):
+    """Leave molecular selection/state semantics to the existing MolSysMT route."""
+    return value
+
+
+def digest_selection(selection, caller=None, native_factory=None):
+    if selection is None and not caller_is_one_of(
+        native_factory, ['dockingmt.core.search_domain.BoxRegion.from_selection']
+    ):
+        raise _invalid('selection', caller, 'Supply an input supported by MolSysMT.')
+    return selection
+
+
+def digest_padding(padding, caller=None):
+    if padding is None:
+        return None
+    from dockingmt.core.search_domain import _ensure_scalar_length_quantity
+
+    quantity = _ensure_scalar_length_quantity(padding, 'padding')
+    if puw.get_value(quantity) < 0:
+        raise _invalid('padding', caller, 'padding must be non-negative (>= 0).')
+    return quantity
+
+
+def digest_points(points, caller=None):
+    from dockingmt.core.search_domain import _ensure_length_quantity
+
+    quantity = _ensure_length_quantity(points, 'points', caller=caller)
+    values = puw.get_value(quantity)
+    if values.ndim != 2 or values.shape[1:] != (3,) or values.shape[0] == 0:
+        raise _invalid('points', caller, 'Use a non-empty array of shape (N, 3).')
+    return quantity
 
 
 def digest_score_definitions(score_definitions, caller=None):
@@ -307,6 +417,34 @@ def _optional_provider_options(argument):
 
 
 ARGUMENT_DIGESTERS = {
+    'data': _mapping('data'),
+    'coordinates': digest_coordinates,
+    'poses': digest_poses,
+    'rank': _integer('rank', minimum=1, optional=True),
+    'pose_id': _optional_string('pose_id'),
+    'partner_state_id': _optional_string('partner_state_id'),
+    'receptor_state_id': _optional_string('receptor_state_id'),
+    'metadata': _optional_mapping('metadata'),
+    'problem_info': _optional_mapping('problem_info'),
+    'protocol_info': _optional_mapping('protocol_info'),
+    'provenance': _optional_mapping('provenance'),
+    'search_domain': digest_search_domain,
+    'constraints': _optional_guidance('constraints'),
+    'search_guidance': _optional_guidance('search_guidance'),
+    'receptor': digest_receptor,
+    'partner': digest_partner,
+    'complex_system': _required_provider_input('complex_system'),
+    'receptor_selection': _provider_owned,
+    'partner_selection': _provider_owned,
+    'receptor_structure_index': _provider_owned,
+    'partner_structure_index': _provider_owned,
+    'structure_index': _provider_owned,
+    'structure_indices': _provider_owned,
+    'chemical_state': _provider_owned,
+    'min_coords': _box_vector('min_coords'),
+    'max_coords': _box_vector('max_coords'),
+    'points': digest_points,
+    'padding': digest_padding,
     'symmetry_options': _optional_provider_options('symmetry_options'),
     'hydrogen_options': _optional_provider_options('hydrogen_options'),
     'charge_options': _optional_provider_options('charge_options'),
@@ -347,7 +485,7 @@ ARGUMENT_DIGESTERS = {
     'collect_timings': _boolean('collect_timings'),
     'active_torsion_bonds': digest_active_torsion_bonds,
     'molecular_system': _required_provider_input('molecular_system'),
-    'selection': _required_provider_input('selection'),
+    'selection': digest_selection,
     'state_id': digest_state_id,
     'torsion_dof': _integer('torsion_dof', minimum=0, optional=True),
 }

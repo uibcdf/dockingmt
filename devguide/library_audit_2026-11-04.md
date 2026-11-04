@@ -649,3 +649,22 @@ An unrelated shared scanner false positive for `from .vina import VinaBackend`
 is reproduced with absolute/lazy controls and filed as DepDigest #47. No local
 scanner workaround, provider copy, molecular operation or scientific run is added.
 Our Viewer source delivery is received; its covering public artifact remains #294.
+
+## Follow-up 12 — core model and factory argument contracts, 2026-11-04
+
+The [#19 receiving follow-up](validation/support_library_review_2026-11-04.md#core-modelfactory-receiving-follow-up)
+extends ArgDigest to core pose/result/problem constructors and record factories,
+BoxRegion factories, the redocking factory and protocol record recovery.
+Constructor-specific optional values survive inheritance without weakening
+with_scores or dock. Existing pose/box validators supply digesters; independent
+mutable-output/schema/ranking checks remain. MolSysMT still interprets molecular
+forms, selections, frames and chemical states. No molecular kernel is added.
+
+The original 47 new controls fail 44/pass three before implementation. The final
+50-case model module passes, within 477 relevant source cases passing both with
+routine providers and verified exact CI ArgDigest/MolSysMT source exports.
+Pre-initialization tracing no longer emits local repr summary warnings. A selected
+state fixture replaces a removed private charge setter with public msm.set.
+These are Python 3.14 source/compatibility checks, not public delivery or complete
+support-library/scientific qualification. Prepared constructors, owned view
+arguments, diagnostic coverage and dependency audit receiving remain under #19.

@@ -254,6 +254,7 @@ class VinaProtocol(DockingProtocol):
         }
 
     @classmethod
+    @arg_digest(config='dockingmt._argdigest')
     def from_dict(cls, data: dict[str, Any]) -> VinaProtocol:
         """Reconstruct VinaProtocol from a serialized dictionary."""
         validate_schema_version(data, cls.__name__)

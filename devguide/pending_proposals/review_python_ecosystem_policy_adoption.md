@@ -14,6 +14,23 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Core model/factory receiving — 2026-11-04
+
+The [follow-up and exact provider evidence](../validation/support_library_review_2026-11-04.md#core-modelfactory-receiving-follow-up)
+deliver ArgDigest admission for core pose/result/problem constructors and their
+factories, BoxRegion factories, and VinaProtocol.from_dict. Explicit supported
+context preserves constructor-only optional values across inheritance without
+requiring ArgDigest 0.17 contract_owner. Existing unit/schema/snapshot checks
+remain; molecular interpretation still delegates unchanged to MolSysMT.
+
+The initial 47 controls yield 44 failures/three passes. The final module has
+50 cases, and 477 relevant source cases pass with both the routine providers
+and verified exports of the exact ArgDigest/MolSysMT CI pins. A state-selection
+fixture now uses public msm.set instead of a removed private charge setter.
+No dependency or scientific artifact is changed. #19 remains partial: prepared
+constructors, owned view arguments, preparation/addon diagnostic coverage and
+the DepDigest inventory/scanner receiving are outstanding.
+
 ## Comparative support-library review — 2026-11-04
 
 The [current review](../validation/support_library_review_2026-11-04.md) confirms
@@ -27,8 +44,9 @@ Concrete #64 corrects MolSysMT/Viewer acquisition declarations using existing
 DepDigest fields. Three initial controls fail; the final source selection passes
 72 cases. DepDigest #47 owns the independently reproduced scanner false positive
 for a local relative adapter import. No provider implementation is duplicated.
-#19 remains partial; next review constructor/caller semantics on the actually
-selected ArgDigest versions, then diagnostic coverage and the declared inventory.
+#19 remains partial. The subsequent block above receives core constructor/caller
+semantics on the selected ArgDigest sources; diagnostic coverage, remaining
+boundaries and the declared inventory still require work.
 
 ## Pose-coordinate public-boundary follow-up — 2026-11-04
 

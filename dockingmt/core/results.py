@@ -270,7 +270,7 @@ class DockingPose:
         Finite real scores indexed by nonempty names (e.g. {'vina': -7.5}).
         Numeric values are normalized to Python floats without inferring units.
     rank : int, optional
-        1-indexed ranking assigned by an explicit ranking policy.
+        Positive 1-indexed integer ranking assigned by an explicit ranking policy.
     pose_id : str, optional
         Unique identifier for the pose.
     partner_state_id : str, optional
@@ -284,6 +284,10 @@ class DockingPose:
         Absent descriptors remain unknown; units are never inferred from names.
     """
 
+    @arg_digest(
+        config='dockingmt._argdigest',
+        native_constructor='dockingmt.core.results.DockingPose.__init__',
+    )
     def __init__(
         self,
         coordinates: Any,
@@ -295,8 +299,8 @@ class DockingPose:
         metadata: dict[str, Any] | None = None,
         score_definitions: dict[str, dict[str, Any]] | None = None,
     ):
-        self._coordinates = _ensure_coordinates_quantity(coordinates)
-        self.scores: dict[str, float] = _normalize_scores(scores)
+        self._coordinates = coordinates
+        self.scores: dict[str, float] = scores
         self.rank = rank
         self.pose_id = pose_id
         self.partner_state_id = partner_state_id
@@ -398,6 +402,7 @@ class DockingPose:
         return record
 
     @classmethod
+    @arg_digest(config='dockingmt._argdigest')
     def from_dict(cls, data: dict[str, Any]) -> DockingPose:
         """Reconstruct a pose independently of its supplied dictionary record."""
         validate_schema_version(data, cls.__name__)
@@ -626,6 +631,8 @@ class DockingPose:
         return molsys
 
     def __repr__(self) -> str:
+        if not hasattr(self, '_coordinates'):
+            return f'{type(self).__name__}(uninitialized)'
         rank_str = f', rank={self.rank}' if self.rank is not None else ''
         scores_str = f', scores={self.scores}' if self.scores else ''
         return f'DockingPose(n_atoms={self.n_atoms}{rank_str}{scores_str})'
@@ -648,6 +655,10 @@ class DockingResult:
         Original DockingProblem instance if available in-memory.
     """
 
+    @arg_digest(
+        config='dockingmt._argdigest',
+        native_constructor='dockingmt.core.results.DockingResult.__init__',
+    )
     def __init__(
         self,
         poses: list[DockingPose],
@@ -820,6 +831,7 @@ class DockingResult:
         return record
 
     @classmethod
+    @arg_digest(config='dockingmt._argdigest')
     def from_dict(cls, data: dict[str, Any]) -> DockingResult:
         """Reconstruct a result independently of its supplied dictionary record."""
         validate_schema_version(data, cls.__name__)
@@ -880,4 +892,6 @@ class DockingResult:
         ]
 
     def __repr__(self) -> str:
+        if not hasattr(self, '_poses'):
+            return f'{type(self).__name__}(uninitialized)'
         return f'DockingResult(n_poses={len(self._poses)})'

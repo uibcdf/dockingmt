@@ -240,16 +240,16 @@ def test_reconstruction_rejects_changed_source_file(tmp_path):
 
 
 def test_problem_selects_chemistry_of_chosen_structure():
-    molsys = msm.native.MolSys(n_atoms=2)
+    from molsysmt.native import MolSys
+
+    molsys = MolSys(n_atoms=2)
     molsys.topology.atoms['atom_id'] = ['0', '1']
     molsys.topology.atoms['atom_name'] = ['C', 'O']
     molsys.topology.atoms['atom_type'] = ['C', 'O']
-    molsys.chemical_states._set_chemical_state_atom_attribute('formal_charge', [0, -1])
+    msm.set(molsys, element='atom', chemical_state=0, formal_charge=[0, -1])
     product = molsys.chemical_states.append_state()
     molsys.chemical_states._states[product].state_id = 'product'
-    molsys.chemical_states._set_chemical_state_atom_attribute(
-        'formal_charge', [1, 0], state_index=product
-    )
+    msm.set(molsys, element='atom', chemical_state=product, formal_charge=[1, 0])
     molsys.chemical_states._set_reference_index(None)
     molsys.structures.coordinates = puw.quantity(np.zeros((2, 2, 3)), 'nm')
     molsys._set_structure_chemical_state_indices([0, 1])
