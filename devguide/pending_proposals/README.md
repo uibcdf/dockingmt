@@ -19,8 +19,9 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 - [`select_molecular_states_and_record_preparation_decisions_for_docking.md`](select_molecular_states_and_record_preparation_decisions_for_docking.md) — [#4](https://github.com/uibcdf/dockingmt/issues/4) — Select molecular states and record preparation decisions for docking *(partial, measured)*
 - [`validate_native_molsysmt_formats.md`](validate_native_molsysmt_formats.md) — [#33](https://github.com/uibcdf/dockingmt/issues/33) — Validate native MolSysMT SDF/PDBQT inputs and define the supported preparation profile *(partial, measured)*
 
-### Open (1)
+### Open (2)
 
+- [`describe_saved_search_variability.md`](describe_saved_search_variability.md) — [#67](https://github.com/uibcdf/dockingmt/issues/67) — Describe seed and effort variability in frozen search results *(open, inspected)*
 - [`support_selected_flexible_receptor_residues_in_the_vina_adapter.md`](support_selected_flexible_receptor_residues_in_the_vina_adapter.md) — [#7](https://github.com/uibcdf/dockingmt/issues/7) — Support selected flexible receptor residues in the Vina adapter *(open, inspected)*
 
 <!-- /generated -->
