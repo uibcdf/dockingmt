@@ -2938,3 +2938,43 @@ sha256 = "2c92d7ab41686a7b299b7b4d6961f9e370c96fe9639e6ec0c3ea2237fb08d092"
 source = "devguide/validation/data/5x72_reference/producer_2026-10-09.py.txt"
 target = "devguide/validation/data/5x72_reference/producer_2026-10-09.py.txt"
 sha256 = "31494874c4ec49f69e6eaa043c50d9606fc900c231710614b7b265342ed82cf8"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/saved_search_variability.py"
+target = "dmt_test_support/saved_search_variability.py"
+sha256 = "91ef4d7a591ff0d9904d5d26be93e9b1bad6116bbeba004325ea3974664064a5"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/saved_search_variability_2026-11-05/artifacts.json"
+target = "devguide/validation/data/saved_search_variability_2026-11-05/artifacts.json"
+sha256 = "1e21b780225ad79751229abe1b053fe65ab67d1a8335d27c69cb4cb23df4aa90"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/saved_search_variability_2026-11-05/effort_differences.png"
+target = "devguide/validation/data/saved_search_variability_2026-11-05/effort_differences.png"
+sha256 = "1d0a5c84edf78f07a71d46eaa004d50c466a9c1518907cf24173e15b6ea44225"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/saved_search_variability_2026-11-05/effort_differences.svg"
+target = "devguide/validation/data/saved_search_variability_2026-11-05/effort_differences.svg"
+sha256 = "3a9070cf35ba251906071d1f764f3d66c02b259dc26f84de3b09b6e0d2a36e64"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/saved_search_variability_2026-11-05/runs.md"
+target = "devguide/validation/data/saved_search_variability_2026-11-05/runs.md"
+sha256 = "6381733ba4c59af71cf179cfb2e2fd2a91b07aac1a4cd366a13179189d101111"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/saved_search_variability_2026-11-05/summary.json"
+target = "devguide/validation/data/saved_search_variability_2026-11-05/summary.json"
+sha256 = "0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/saved_search_variability_2026-11-05/top_n.png"
+target = "devguide/validation/data/saved_search_variability_2026-11-05/top_n.png"
+sha256 = "a5f89048c16b1485bf62681e33874352fecb85ec70630d9406eba7fe2346a025"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/saved_search_variability_2026-11-05/top_n.svg"
+target = "devguide/validation/data/saved_search_variability_2026-11-05/top_n.svg"
+sha256 = "2ad0fda33561fa82de76d82ba1e337e027d869c0a78ba73fcf469eca494c9804"

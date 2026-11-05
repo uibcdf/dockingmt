@@ -1,0 +1,32 @@
+{
+  "analysis_producer": {
+    "module": "dmt_test_support/saved_search_variability.py",
+    "prescription_source_commit": "d1435ff8662787afa29798fc0824ac30d9d0c6b6",
+    "sha256": "91ef4d7a591ff0d9904d5d26be93e9b1bad6116bbeba004325ea3974664064a5"
+  },
+  "files": {
+    "effort_differences.png": "1d0a5c84edf78f07a71d46eaa004d50c466a9c1518907cf24173e15b6ea44225",
+    "effort_differences.svg": "3a9070cf35ba251906071d1f764f3d66c02b259dc26f84de3b09b6e0d2a36e64",
+    "runs.md": "6381733ba4c59af71cf179cfb2e2fd2a91b07aac1a4cd366a13179189d101111",
+    "summary.json": "0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc",
+    "top_n.png": "a5f89048c16b1485bf62681e33874352fecb85ec70630d9406eba7fe2346a025",
+    "top_n.svg": "2ad0fda33561fa82de76d82ba1e337e027d869c0a78ba73fcf469eca494c9804"
+  },
+  "inputs": {
+    "receiving": {
+      "path": "3ptb_search/evaluation_2026-10-10.json.gz",
+      "sha256": "8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af"
+    },
+    "root_order": {
+      "path": "5x72_root_order/audit_2026-10-09.json.gz",
+      "sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e"
+    },
+    "search": {
+      "path": "3ptb_search/audit_2026-10-10.json.gz",
+      "sha256": "97104903c93b3f7a729a5a6ac196cdb7b59d686e318efdcf324f70131abba1f2"
+    }
+  },
+  "renderer": {
+    "matplotlib": "3.11.2"
+  }
+}

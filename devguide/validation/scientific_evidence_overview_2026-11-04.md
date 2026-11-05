@@ -94,6 +94,14 @@ inspection and confidence limits. It does not upgrade the underlying evidence.
 
 ## Reproduction and maintenance boundary
 
+The subsequent [2026-11-05 seed/effort analysis](saved_search_variability_2026-11-05.md)
+adds per-run tables, cumulative top-N and within-seed effort differences for the
+same frozen 3PTB and 5X72 campaigns. P59's effort-8 recovered poses first appear
+at position four in both ROOT arms for all three seeds, while their first poses
+fail. Original producers, separate criteria, failures and denominators remain;
+this is additional descriptive resolution, not new independent experiments.
+The frozen table above and its four-input synthesis are unchanged.
+
 From the checkout, use the routine Python interpreter:
 
 ```bash

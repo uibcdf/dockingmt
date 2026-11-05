@@ -1,12 +1,12 @@
 ---
 summary: Describe seed and effort variability in frozen search results
 issue: uibcdf/dockingmt#67
-status: open
+status: resolved
 opened: 2026-11-05
-closed:
-verification: inspected
+closed: 2026-11-05
+verification: measured
 area: [science, analysis, reporting]
-guard:
+guard: tests/test_saved_search_variability.py
 normative:
 blocked_by: []
 supersedes: []
@@ -82,4 +82,22 @@ scientific-profile acceptance.
 Deliver the declared outputs and a check mode verifying exact inputs and derived
 records, with meaningful controls for denominators and position/rank distinction.
 Keep original populations/producers separate and make reproduction steps explicit.
-This prescription is delivered; the new numerical analysis has not been run.
+At prescription checkpoint d1435ff, the new numerical analysis had not been run.
+
+## Resolution — 2026-11-05
+
+The [dated methods/results](../validation/saved_search_variability_2026-11-05.md)
+deliver the retrospective analysis, 48-run table, machine-readable records,
+cumulative top-N and 24 within-seed effort comparisons, with standalone PNG/SVG
+figures. The reader authenticates all three frozen archives, retains eight arms
+and their separate 167/99 pose populations, and preserves original reporting
+failures and later receiving. No new molecular or native operation is executed.
+
+Twenty controls verify denominators, complete cells, source/receiver joins,
+criteria, input integrity, invalid observations and position/rank independence.
+The check-mode subprocess blocks molecular and plotting imports. Original
+producers remain distinct from this analysis. P59's effort-8 recovered poses
+first appear at position four for all three seeds in each ROOT arm while all
+first poses fail; no general recovery/affinity claim follows. #33's broader
+scientific acceptance, provider/public qualification and visible C4/C6 remain
+separate. Other components' issues remain deferred.

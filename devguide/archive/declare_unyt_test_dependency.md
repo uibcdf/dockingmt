@@ -1,9 +1,9 @@
 ---
 summary: Declare the alternate unit backend required by box-export tests
 issue: uibcdf/dockingmt#66
-status: partial
+status: resolved
 opened: 2026-11-05
-closed:
+closed: 2026-11-05
 severity: medium
 verification: measured
 area: [testing, dependencies, units]
@@ -60,3 +60,14 @@ the shared installed-tool resolver retains `unyt==3.1.0`. Runtime requirements
 remain unchanged. The existing distribution control now checks the four selected
 test backends/tools while retaining its exact core-runtime assertion. Hosted
 four-minor qualification remains pending and is not inferred from these checks.
+
+## Hosted closure — 2026-11-05
+
+[CI 42079300841](https://github.com/uibcdf/dockingmt/actions/runs/42079300841)
+at exact source `d1435ff8662787afa29798fc0824ac30d9d0c6b6` completes successfully
+in all seven jobs. Published GH Run Receptor 1.4.0 and native run/job facts
+confirm successful dependency closure and test steps on Python 3.11, 3.12, 3.13
+and 3.14, plus quality, distribution and coverage publication. This supplies the
+previously pending hosted test-profile evidence. Original e50ce10 failures and
+earlier local observations remain unchanged; this source-CI closure is not a
+new installed artifact or scientific qualification.

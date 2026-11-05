@@ -2,14 +2,16 @@
 
 The roadmap defines direction and gates, not dates.
 
-Current test-profile correction: [#66](pending_bugs/declare_unyt_test_dependency.md)
-declares the unyt backend required by the new unit-policy tests. Local developer
-availability did not qualify the previously incomplete CI environment. Verify the
-corrected exact-head science lanes before closing that issue. Work in other
-components remains deferred at the maintainer's request. The next proposed
-DockingMT-only task is [#67's declared seed/effort analysis](pending_proposals/describe_saved_search_variability.md)
-of frozen 3PTB and 5X72 records, retaining separate populations and producers.
-Its prescription is recorded; the new numerical analysis has not yet run.
+The [#66 test-profile correction](archive/declare_unyt_test_dependency.md) is
+qualified at d1435ff: CI 42079300841 passes all seven jobs, including the four
+Python 3.11–3.14 dependency/test lanes. Original failures remain recorded.
+The [#67 saved-search analysis](validation/saved_search_variability_2026-11-05.md)
+is delivered: 48 saved runs, eight separate arms, top-N recovery and 24 effort
+comparisons, without new molecular operations. P59 exposes returned-set versus
+first-pose recovery; this is not general scientific acceptance. Observe this
+implementation's exact-head CI under #28. Work in other components remains
+deferred at the maintainer's request; no provider-dependent admission, public
+release or live visual acceptance is inferred from this analysis.
 
 ## Current operational plan
 

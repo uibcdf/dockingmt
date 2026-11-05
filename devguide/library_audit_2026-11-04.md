@@ -811,3 +811,26 @@ already installed; they did not prove declared hosted closure. The correction
 adds unyt only to source/test-extra and installed-test requirements. Ninety
 focused checks pass, with declared-route and installed-tool inspection; exact-head
 hosted recovery remains pending. #65's source/API correction remains resolved.
+
+Follow-up receiving: exact d1435ff CI 42079300841 passes all seven jobs,
+including dependency closure and tests on Python 3.11–3.14. This resolves #66's
+hosted requirement without changing its original failed evidence.
+
+## Follow-up 21 — saved-search seed, effort and ordering, 2026-11-05
+
+The [#67 retrospective analysis](validation/saved_search_variability_2026-11-05.md)
+adds 48 per-run observations, 16 arm/effort groups and 24 within-seed comparisons
+from three authenticated existing archives. Eight arms and the 167/99 pose
+populations retain their original criteria/producers; the 3PTB reporting failure
+and later evaluation of the same results remain distinct. No new molecular
+measurement, native search, scoring or reranking occurs.
+
+P59 effort 8 has recovered poses first at position four for all three seeds in
+both ROOT arms, with no first-pose recovery. Closest saved RMSD does not improve
+uniformly with effort, and P69 retains nonrecovery despite some large continuous
+improvements. These observations refine E5/E6/Q2 within the recorded cases; they
+do not isolate a sampling/scoring/filtering cause or replace the independent
+panel and admission work. Twenty controls cover input integrity, associations,
+denominators and position/rank meanings, including import-blocked check mode.
+Standalone figures and a hash-bound reproducer are delivered. Other components'
+issues and live visual checks remain deferred; no new public release is claimed.
