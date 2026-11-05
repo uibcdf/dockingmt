@@ -435,6 +435,10 @@ class DockingPose:
             metadata=data.get('metadata'),
         )
 
+    @arg_digest(
+        config='dockingmt._argdigest',
+        native_helper='dockingmt.core.results.DockingPose.get_rmsd',
+    )
     def get_rmsd(self, reference: Any, selection: str = 'all') -> Any:
         """Compute the RMSD of this pose against a reference structure or pose.
 
@@ -559,6 +563,7 @@ class DockingPose:
             )
         return keys
 
+    @arg_digest(config='dockingmt._argdigest')
     def to_molecular_system(self, partner: Any) -> Any:
         """Convert this pose into a MolSysMT molecular system using partner topology.
 
@@ -846,6 +851,7 @@ class DockingResult:
             provenance=data.get('provenance'),
         )
 
+    @arg_digest(config='dockingmt._argdigest', record_factory=True)
     def reconstruct_problem(
         self, receptor: Any = None, partner: Any = None
     ) -> DockingProblem:
@@ -871,6 +877,10 @@ class DockingResult:
         self.problem = problem
         return problem
 
+    @arg_digest(
+        config='dockingmt._argdigest',
+        native_helper='dockingmt.core.results.DockingResult.get_rmsds',
+    )
     def get_rmsds(self, reference: Any, selection: str = 'all') -> list[Any]:
         """Compute the RMSD of each pose in this result against a reference structure.
 

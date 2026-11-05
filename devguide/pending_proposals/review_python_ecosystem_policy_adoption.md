@@ -14,6 +14,21 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Remaining concrete core-helper review — 2026-11-05
+
+The [six-helper review](../validation/support_library_review_2026-11-04.md#remaining-core-helper-applicability-review--2026-11-05)
+delivers ArgDigest admission for RMSD, pose reconstruction, problem recovery,
+protocol validation and numerical box export. Molecular forms/selections pass
+unchanged to MolSysMT; unit parsing/conversion remains in PyUnitWizard. #65's
+unlabelled `unit=None` export is separately guarded and archived. Defaults,
+optional recovery overrides, live records, typed provider causes, precision and
+caller policy remain. Initial 31 controls give twenty failures/eleven passes;
+final affected selections pass 353 cases on each selected ArgDigest generation.
+The parameterized concrete core-helper review is delivered; no-input getters and
+abstract hooks require no blanket decoration. #19 remains partial for DepDigest
+acceptance/routine receiving, public-provider compatibility and central handoff.
+Outcome-head CI transport recovery and each new source head retain #28 ownership.
+
 ## Batch-outcome admission — 2026-11-05
 
 The [outcome receiving block](../validation/support_library_review_2026-11-04.md#batch-outcome-constructor-and-reader-receiving--2026-11-05)

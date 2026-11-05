@@ -225,6 +225,7 @@ class VinaProtocol(DockingProtocol):
             'collect_timings': self._collect_timings,
         }
 
+    @arg_digest(config='dockingmt._argdigest')
     def validate_problem(self, problem: DockingProblem) -> None:
         """Validate problem compatibility with VinaProtocol.
 

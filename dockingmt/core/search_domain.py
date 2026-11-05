@@ -355,12 +355,17 @@ class BoxRegion(SearchDomain):
         """For a BoxRegion, the approximation is identically self."""
         return self
 
-    def to_backend_box(self, unit: str = 'angstrom') -> dict[str, Any]:
+    @arg_digest(config='dockingmt._argdigest')
+    def to_backend_box(self, unit: Any = 'angstrom') -> dict[str, Any]:
         """Convert the box geometry to raw numerical tuples in the requested unit.
 
         This boundary conversion facilitates interfacing with external engines (such as
         AutoDock Vina, which operates in Angstroms) while keeping backend-specific
         assumptions out of the core data model.
+
+        ``unit`` must be an explicit length-unit string or a unit object supported
+        by PyUnitWizard. The returned label retains that representation; ``None``
+        cannot label a numerical export. The caller's unit policy is preserved.
         """
         # Reject stale attribution before submitting a derived box to an engine.
         self.derivation

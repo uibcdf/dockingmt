@@ -628,3 +628,64 @@ retains its actual provider gates, and remaining parameterized public helpers
 (RMSD/reconstruction, backend-box export and protocol validation) need their own
 contract applicability review; undecorated no-input getters and abstract hooks
 are not automatically missing argument validation.
+
+## Remaining core-helper applicability review — 2026-11-05
+
+Starting from `5071731168bab30cab514fcf32142b76d732cae4`, #19 reviews the six
+remaining parameterized concrete core helpers identified above. No-input
+getters, Python collection protocols and abstract extension hooks retain their
+existing role; decoration is not a coverage metric by itself.
+
+| Public boundary | Owned admission now applied | Preserved delegation and later checks |
+| --- | --- | --- |
+| `DockingPose.get_rmsd` / `DockingResult.get_rmsds` | Closed names and a supplied reference, including refusal of None for an empty collection. | Molecular forms and selection objects, including None, pass unchanged to MolSysMT. Coordinate/pose routes and existing verified-map checks remain; MolSysMT still calculates RMSD. |
+| `DockingPose.to_molecular_system` | Closed names and a supplied partner. | Molecular recognition/copy/extract/set stay in MolSysMT. The existing retained-pose map verifier remains scoped under #49; no new matcher is introduced. |
+| `DockingResult.reconstruct_problem` | Closed names with the existing optional receptor/partner overrides. | Record/schema and captured-input checks remain. Attach only after successful recovery; failure preserves the attached problem and record. |
+| `VinaProtocol.validate_problem` | A DockingProblem before its intent fields are inspected. | Vina's existing intent/capability and box-compatibility rules remain; no molecular classification is added. |
+| `BoxRegion.to_backend_box` | An explicit recognized length unit, using public PyUnitWizard predicates. | Provider conversion, original string/unit-object representation, caller unit policy, source geometry, derivation verification and engine-specific precision remain. |
+
+The unit review reproduces a real separate defect: `unit=None` returned bare
+nanometer values with no unit label. [#65](https://github.com/uibcdf/dockingmt/issues/65)
+owns its [guarded resolution](../archive/backend_box_requires_explicit_unit.md).
+The Vina adapter already requests angstrom; no new incorrect docking result is
+inferred. #13's decimal-noise correction remains distinct. General unit parsing,
+dimensional compatibility and conversion remain in PyUnitWizard; molecular
+inspection, manipulation and geometric kernels remain in MolSysMT.
+
+The 31 new controls initially give **twenty failures / eleven passes**, then all
+pass. Final affected selections pass **353 cases on each** of routine development
+ArgDigest `7e09e974c36bcf5cace99a7b898d0f5f7a9d3ff2` and unchanged exact CI
+ArgDigest `3d1ec53c374098016452abab74706e9d80df5462`, using published Pytest
+Receptor 1.2.2. The same 73 fixture/provider warnings remain (72 legacy H5MSM
+reads, one terminal attribute drop). Controls observe exact selection/form
+passthrough, a provider validation cause, valid recovery, typed refusal and
+explicit-unit values/input-policy preservation in Pint/unyt contexts. Existing
+real molecular RMSD/reconstruction, replay and Vina-contract tests are retained.
+Distribution/installed-support controls pass 23 cases; reporting passes after
+archive/index regeneration. The initial combined administrative run's sole
+failure is the then-stale new-report index, corrected by that regeneration.
+These are source/API software checks, not new scientific populations or public
+installed-provider qualification. No dependency or frozen fixture/helper changes.
+
+The six-helper review is delivered under #19. Broader completion still requires
+DepDigest #48 owner acceptance/routine receiving, the independently recorded
+public-provider compatibility and central adoption handoff. This does not close
+#19 or molecular retirement #49, or accept visible C4/C6.
+
+### Exact-source CI observation and transport recovery
+
+Preceding reporter head `cddf894` finishes all seven CI jobs, including coverage;
+its four 3.11–3.14 lanes pass 1,613 cases each, as the #19/#28 issue closeout
+records. The subsequent outcome head `5071731` has distinct evidence: original
+CI `42059033330`, attempt 1, passes 3.13/3.14, quality, distribution and coverage,
+but 3.11/3.12 fail before installation/tests on uibcdf index-download timeouts
+(libmamba error 28). The later micromamba cleanup ENOENT is secondary.
+
+Same-source failed-job recovery is requested as attempt 2; retain the original
+failed attempt and observe the retry separately in #28. No pins, channel routes,
+action implementation, cache policy or test selection change to conceal the
+transport failure. Published GH Run Receptor 1.4.0 preserves the native failure
+state but reports only the cleanup cause; native job logs identify transport.
+That known provider limitation receives this evidence in GH Run Receptor #81,
+with `component:dockingmt`. Later source changes need their own CI observation;
+neither a successful subset nor a scheduled skipped matrix qualifies them.

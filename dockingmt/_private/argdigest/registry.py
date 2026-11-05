@@ -19,6 +19,10 @@ _PREPARED_CONSTRUCTORS = (
     'dockingmt.preparation.receptor.PreparedReceptor.__init__',
 )
 _OUTCOME_CONSTRUCTOR = 'dockingmt.core.outcome.DockingOutcome.__init__'
+_RMSD_HELPERS = (
+    'dockingmt.core.results.DockingPose.get_rmsd',
+    'dockingmt.core.results.DockingResult.get_rmsds',
+)
 
 
 def _invalid(argument, caller, reason):
@@ -419,12 +423,29 @@ def _provider_owned(value):
     return value
 
 
-def digest_selection(selection, caller=None, native_factory=None):
+def digest_selection(selection, caller=None, native_factory=None, native_helper=None):
+    if caller_is_one_of(native_helper, _RMSD_HELPERS):
+        # MolSysMT owns selection values, including its handling of None.
+        return selection
     if selection is None and not caller_is_one_of(
         native_factory, ['dockingmt.core.search_domain.BoxRegion.from_selection']
     ):
         raise _invalid('selection', caller, 'Supply an input supported by MolSysMT.')
     return selection
+
+
+def digest_backend_unit(unit, caller=None):
+    reason = 'Use an explicit length unit supported by PyUnitWizard.'
+    if unit is None:
+        raise _invalid('unit', caller, reason)
+    try:
+        valid = puw.is_unit(unit) and puw.check(unit, dimensionality={'[L]': 1})
+    except Exception as exc:
+        raise _invalid('unit', caller, reason) from exc
+    if not valid:
+        raise _invalid('unit', caller, reason)
+    # Retain the caller's unit representation; conversion stays in PyUnitWizard.
+    return unit
 
 
 def digest_padding(padding, caller=None):
@@ -555,6 +576,7 @@ def digest_pose_rank(pose_rank, caller=None, native_view=None):
 
 
 ARGUMENT_DIGESTERS = {
+    'unit': digest_backend_unit,
     'index': digest_outcome_index,
     'error': digest_outcome_error,
     'item': digest_view_item,

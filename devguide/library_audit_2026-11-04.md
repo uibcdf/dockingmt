@@ -788,3 +788,17 @@ selections pass 293 cases on each selected ArgDigest generation and another 24
 administrative checks. Fresh optional-provider isolation covers both outcomes.
 This is record/API source qualification; molecular work, original scientific
 populations, public provider gates and visible C4/C6 retain their own owners.
+
+## Follow-up 19 — remaining concrete core helpers, 2026-11-05
+
+The [#19 applicability review](validation/support_library_review_2026-11-04.md#remaining-core-helper-applicability-review--2026-11-05)
+receives six helpers through ArgDigest while retaining provider-owned molecular
+forms, selections, conversion and RMSD, and PyUnitWizard-owned unit operations.
+It also identifies and corrects #65's numerical box export with no declared unit;
+the Vina adapter's explicit angstrom route and #13 precision remain unchanged.
+The 31 initial controls give twenty failures/eleven passes; final relevant
+selections pass 353 cases on each selected ArgDigest generation. Existing maps,
+schema/record guards, reconstruction ownership and caller unit policy remain.
+Original CI transport failures/recovery are separately attributed to exact
+5071731 attempts under #28 and the known GH Run Receptor #81 limitation. No new
+scientific population, provider pin, public file or visual acceptance is claimed.
