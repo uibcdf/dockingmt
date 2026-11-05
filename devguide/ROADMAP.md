@@ -72,6 +72,20 @@ exact-head gates; public packaging and a source/tag-only release retain separate
 evidence and notification obligations. Do not use a GitHub Release to start an
 unplanned Conda publication attempt.
 
+The [0.1.0 source dossier](releases/0.1.0.md) now fixes candidate
+`905abc9698cf9d4add78a52d57dab707859a148d` under #74. A private independent
+versioning context generates `0.1.0`; its wheel contains all 63 required runtime
+paths, with 62 non-generated paths matching the candidate and a successful
+fresh unpacked-wheel import. This is not an installed/public closure or a
+scientific gate. Source CI/closure, the applicable version-input/gate decision
+and the required source-event notice remain before publication. Keep the target
+fixed while publishing later evidence documents.
+
+The last runtime-change head `837de4b` now has successful seven-job CI, including
+the actual coverage publisher, plus separate DOM/policy/publication-governance.
+That terminal evidence is source-specific and does not replace the fixed
+candidate's still-pending CI or qualify the new generated version.
+
 The [fresh main-index/API check](validation/data/public_readiness/registry_refresh_2026-11-05.json)
 finds the same already reviewed MolSysMT `0.23.0` and Viewer `0.24.0` build-1
 artifact hashes. SMonitor `0.22.1` is newly indexed, but no new compatible full

@@ -65,7 +65,10 @@ administrative/index/publication/resource checks and a fresh committed export
 must pass; their exact-source receipts are recorded in #73/#47.
 
 The scope decision is complete. The issue stays partial until the first concrete
-candidate/version consolidation is received. Preparation of prospective `0.1.0` is next;
+candidate/version consolidation is received. Preparation of `0.1.0` now has a
+fixed candidate and private metadata/payload check under
+[#74](https://github.com/uibcdf/dockingmt/issues/74), with the
+[dossier](../releases/0.1.0.md) separating that progress from release readiness;
 tagging is not performed on an incompletely qualified source or with the
 required central handoff silently omitted. #30/#47 keep actual Conda delivery,
 #28 exact-source CI, #33 scientific admission, and #52/#60 visible acceptance.

@@ -1,0 +1,253 @@
+{
+  "owner": "uibcdf/dockingmt#74",
+  "candidate_source": "905abc9698cf9d4add78a52d57dab707859a148d",
+  "intended_version": "0.1.0",
+  "route": "source-only preparation; no release published",
+  "private_validation_tag": {
+    "context": "independent disposable repository",
+    "target": "905abc9698cf9d4add78a52d57dab707859a148d",
+    "remotes": [],
+    "pushed": false,
+    "real_checkout_tag_created": false
+  },
+  "tools": {
+    "python": "3.14.7",
+    "build": "1.6.1",
+    "setuptools": "84.0.0",
+    "wheel": "0.48.0",
+    "versioningit": "3.3.0"
+  },
+  "wheel": {
+    "filename": "dockingmt-0.1.0-py3-none-any.whl",
+    "bytes": 140853,
+    "sha256": "fbe3591068d9633ae0066ab3dcd593508f7fc31d86eefad01975fd4e4bb71752",
+    "private_unpublished": true
+  },
+  "archive_checks": {
+    "version": "0.1.0",
+    "python_requires": "<3.15,>=3.11",
+    "requires_dist": [
+      "argdigest",
+      "depdigest",
+      "molsysmt",
+      "numpy",
+      "pyunitwizard",
+      "smonitor",
+      "vina; extra == \"vina\"",
+      "packaging; extra == \"test\"",
+      "pytest>=8; extra == \"test\"",
+      "pytest-cov; extra == \"test\"",
+      "pytest-receptor==1.2.2; extra == \"test\"",
+      "rdkit; extra == \"test\"",
+      "unyt; extra == \"test\"",
+      "molsysviewer; extra == \"viewer\"",
+      "ruff==0.16.5; extra == \"dev\""
+    ],
+    "license_expression": "MIT",
+    "license_bytes_match_source": true,
+    "purelib": true,
+    "tag": "py3-none-any",
+    "addon_entry_point": "dockingmt = molsysviewer_dockingmt",
+    "runtime_paths": 63,
+    "non_generated_runtime_paths_equal_candidate": 62,
+    "generated_version_file_sha256": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed",
+    "developer_helpers_tests_evidence_unshipped": true,
+    "runtime_sha256": {
+      "dockingmt/__init__.py": "07f71ed5cf3914d2e4cfbf35c43a7ea8b69497effd4dc8aa6336ae30e61a2359",
+      "dockingmt/_argdigest.py": "e76d59bca5d24f3df78b4c3b361375a82236d95ac102218a615a48bb3555b6a7",
+      "dockingmt/_depdigest.py": "e774b79e24acae58bf8b94a6cfb34a5157f20fbda88913e8801856297ff09966",
+      "dockingmt/_private/__init__.py": "4f23e529394a0c60adaca014f6852e07e108e6e826973d256b254e9e9e2f5cc0",
+      "dockingmt/_private/argdigest/__init__.py": "550f136bb66a889c4bdd34997d2925aee7aa2e95b359554e98f936927f39fea4",
+      "dockingmt/_private/argdigest/registry.py": "1202a4bb38449152881819985ed3387a0886ef5e3b8952da13f490b3228c2098",
+      "dockingmt/_private/artifacts.py": "750981bba46eccf57f085a099305574f4b19afa891892259709cbc1f49bebd2e",
+      "dockingmt/_private/serialization.py": "f138c1f5dcdc5ff67ce5ac15df7c762ffefc6286a627e6859b9980e39ffc0680",
+      "dockingmt/_private/smonitor/__init__.py": "b77e840a2b20526b1ca1d518b5f23f6901ada423eeae9afc7c85f0bd358223b4",
+      "dockingmt/_private/smonitor/catalog.py": "fb665b78c1550791ef6fc4dd0fb2bbe3bc238901598fc6a8e1d4fff19bc1b5b2",
+      "dockingmt/_private/smonitor/emitter.py": "83af0b66e89522f9732bc97c53bd73de551646cafcb758637d2c2e545b877a56",
+      "dockingmt/_private/smonitor/meta.py": "7a1d95d8be1b37238dff60af83e87649331037366512e2e7b4fa218c6c61cafb",
+      "dockingmt/_private/smonitor/warnings.py": "696832be93760c6683d39b14cddc8d389a5a8beca57362fe75efe41f32857d6a",
+      "dockingmt/_private/symmetry.py": "5f71b56597fec77a497c1c63a3cb48418e1dbc5af436db0684b994407974f4da",
+      "dockingmt/_private/vina_records.py": "ec13749e8410ca16bd3ad25ef6cb5e39ea8dc9af80fb6d2f3b3749c5d16fdc59",
+      "dockingmt/_pyunitwizard.py": "ced289b4e5423e80df232daac8916263995aafdbf20d06e73690599249d9e96b",
+      "dockingmt/_smonitor.py": "830e3d288fe35a84ea283d0888799b72707ee0825b7f673162d79a791703a9d2",
+      "dockingmt/_version.py": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed",
+      "dockingmt/aggregation.py": "5b8cc96ead17445f6316b07fb6ef52203d8d7dd2f355f6069f10ce67e56b55f5",
+      "dockingmt/batch.py": "01d7cfb44320c8d6ba2ad04c847093d0e7105458bab975edbc606d24d4cd37f2",
+      "dockingmt/core/__init__.py": "6a6218f01c453e7973578f8aec19da42d02147fc603c401c3908ee00d0e1b8fa",
+      "dockingmt/core/_scores.py": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136",
+      "dockingmt/core/audit.py": "191d9c82936fada14761ccdae0d95ba46b17fdeb22c2cbf2e348554cb5d4cab3",
+      "dockingmt/core/outcome.py": "2dc43cfa0cad7a5577ec6ce572415c3beedf97e360d9ecfb8ae7e1f1a2f033df",
+      "dockingmt/core/pose_audit.py": "de6ecac9713d6a96349e8b42884b7ddfa68d6c8a3440792fde41adad38180908",
+      "dockingmt/core/problem.py": "17ef8943ee74f377cc0b62c310bd92aef80c2e595a9d10dd0397b97c6a618838",
+      "dockingmt/core/protocol.py": "ff2a50994f97ebdc432b706693a241b2a001dcf5b8cab608e8683e541b862e15",
+      "dockingmt/core/results.py": "25bf89b023021230b5bac8fd72426acdb5c820e00bab1608574f4d2985e28ad4",
+      "dockingmt/core/search_domain.py": "6a31cc8476f722b0b3b9aee540aa09a24d488122e0098529476dc90d8ee56313",
+      "dockingmt/dock.py": "25ffc2190e5410e187e1165b912fcf2b6c4274d7e975c00e918283c96b52f256",
+      "dockingmt/engines/__init__.py": "07108a1391a34a122f4a9c9991db911a1b8f0fde9a42a828c9418a1a7ebcadf9",
+      "dockingmt/engines/_vina_scoring.py": "ca7d0edbcd53e78291ca200047eed9ee7292e58a868001e2413a09ce9b45deae",
+      "dockingmt/engines/base.py": "127fc3393b37f2d173d768eb926295b911c8160038ed524da5896b35d89f83cc",
+      "dockingmt/engines/vina.py": "1aac0af9ba381b6ba4034b5652147e806b23b49784ff553f92e982a19aefb0aa",
+      "dockingmt/evaluation.py": "09484c50038b862a44f4f007acff3e7e2892dc9a0a19e0e1cd4ccb9930118a4e",
+      "dockingmt/preparation/__init__.py": "ad1708354f51a1283fc98667c6abdea944ed8a7d26f79ee0ce03347b4509850f",
+      "dockingmt/preparation/_export.py": "1dfd502efb4d61738fe272e4dbff4d79100e014ba417db1024a18d41da93da3f",
+      "dockingmt/preparation/_molsys.py": "71dca1b83da4577a57fef02695c384fedce79b8137e2bd3215496822a0216e63",
+      "dockingmt/preparation/_stages.py": "84fe2ad25b001e89f4f2f1f3165573d6bde33a626075d98a3f9fd62daafb5243",
+      "dockingmt/preparation/_temporary_torsions.py": "83a2f262e5e56d926a6db4f0887ffc019398f41a68fbe7c20832278b1e87d613",
+      "dockingmt/preparation/_typing.py": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2",
+      "dockingmt/preparation/assessment.py": "6af13747f9b21d1aca3aa492d3bf6d16efe59509725267771ffe5f9a12495836",
+      "dockingmt/preparation/charges.py": "b23815cf64791c42bc5e7577f540b56deaeddb6ee6e12ad288824b7c8a4773b8",
+      "dockingmt/preparation/ligand.py": "818fa0cb42124baf8ac3e13e352e051c076add04ba5c36f22de872a06162298f",
+      "dockingmt/preparation/receptor.py": "992ab5eb1e07069174d06194e06dfab172488b9f64bdf113505a41c7c5c7afba",
+      "dockingmt/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "dockingmt/score.py": "6b05e5d92f03732e2280a4ca160d5b6e8bcf28b2b940f779ea84bd08dc00d670",
+      "dockingmt/view.py": "1bab50f2d6d6a0e9aac1e3944c3fb61be8045a77ab0e5d95372064de5171781e",
+      "dockingmt/viewer/__init__.py": "926524953c4cf37039415eaa5d36646e00580cffb7acb1e24deb0b9c7fd6d601",
+      "molsysviewer_dockingmt/__init__.py": "ed9bd42c68be5d3b8f62804e295e8b8e9b4386f096fc134ee131d985738953e9",
+      "molsysviewer_dockingmt/_presentation.py": "61a60550627e7606784cf9545fcc9b7c88c7e28f37c3cbdcd68404d0047455b1",
+      "molsysviewer_dockingmt/_scene.py": "78ee1c2ec4dad0046b5b59c3b27ec4c152849349b1e0dc28dbc987152e238e28",
+      "molsysviewer_dockingmt/adapters/__init__.py": "f4e1db369ab18e4c7200edd4cf953df916ba5154de4c8417fb9bc299f9c80e1c",
+      "molsysviewer_dockingmt/adapters/complex.py": "9ab3fa6bb66a1a8a015d645245e2dfd0845751eefaff3423ba6582fb95ca4373",
+      "molsysviewer_dockingmt/adapters/shapes.py": "e53057ccb8973cd2ad6bfbcbaac9d834b5b9df593f6ebb7bbf26e2e1c4f596a8",
+      "molsysviewer_dockingmt/addon.py": "1e9a92d3435c2ad6d1e7c9a15ee3f5731d4168106008bab72cbfd64a5c921134",
+      "molsysviewer_dockingmt/export.py": "e53b3c74c216a44f34dcb4fda68b53841d68eeac12a82533903c6fb9ba25031f",
+      "molsysviewer_dockingmt/panels/__init__.py": "1f160141101212933339fc55478c02d43f922129ad633ec2d5bbe25db3990565",
+      "molsysviewer_dockingmt/panels/_base.py": "e5f18b2e56afdb54b9873f7dce14d5b1c852c1e619a3314a15720d3c40754fcb",
+      "molsysviewer_dockingmt/panels/domain.py": "de8c1b984041ed4b51fe56ada74b7ca3a66f68a3b35cc55ed73f4fca6fffdbfa",
+      "molsysviewer_dockingmt/panels/explorer.py": "d027a085ab99ab7c8eb74e60d080e8530040deb469351b714b52784dd92f4383",
+      "molsysviewer_dockingmt/runtime.py": "eded7afcc9083cc9f313d28925f3c5e9a20c5d6ffd679347b69b12c5ad7ed26a",
+      "molsysviewer_dockingmt/workbench.py": "ea988065b7f64ba71dfa5e8809f82ba39e5b36c1d808b327c989f7343f2d004a"
+    }
+  },
+  "import_probe": {
+    "version": "0.1.0",
+    "primary_origin": "private unpacked wheel",
+    "metadata_origin": "private unpacked wheel",
+    "optional_engines_imported": false,
+    "dependencies": {
+      "argdigest": "0.17.0+5.gcd9c4f3",
+      "depdigest": "0.15.1+8.g0884f0c",
+      "molsysmt": "0.23.0+322.g71fbe4f46",
+      "numpy": "2.4.6",
+      "pyunitwizard": "0.29.0+4.g9d74f0e",
+      "smonitor": "0.22.0+16.gccdcace"
+    }
+  },
+  "qualified_scope": "Local intended-version generation, archive/payload integrity, fresh isolated-path unpacked-wheel import and 30 existing non-native support contracts; routine development dependencies are reused, not a clean installed closure or source-CI closure.",
+  "not_qualified": [
+    "full versioned-wheel scientific suite",
+    "ordinary installed qualification",
+    "public Conda dependency combination/platform admission",
+    "whole Core or Extended",
+    "browser C4/C6",
+    "public release readiness"
+  ],
+  "source_pins_unchanged": true,
+  "new_scientific_operations": 0,
+  "environment_installations": 0,
+  "public_tag_release_package_created": false,
+  "candidate_tree": "4f1583e0d2b315b503afa6d6d9912f1844beea9e",
+  "source_input_sha256": {
+    "pyproject.toml": "1fa47b0f27522bf59db27de3d6617d742ceeab3d8e6dab30ae5cdd1fe6538950",
+    "LICENSE": "39c2e0c912d910a33ff5e6a7fd82a02a6872ed479e0dcd816ac387a02e9c4063",
+    "devtools/conda-build/resources.toml": "426564972b7567cde03f4d3612ce3086a1ea183d8a6ab48605f6f6b9d7843a7f",
+    "devtools/conda-envs/test_env.yaml": "36a29434ca24e7e9a31d5856ee9ad55a2e40f407e1d11dbe37e1e9a588991cff",
+    "devtools/dependency_routes.toml": "5a5d6aa05cfa92c21906b84c284db172767172504e16aa4382b6895a0cb263eb",
+    ".github/workflows/ci.yml": "980e946dcd31e5cf0e57e7e8629be49ddfa08eccbc3f7c06d8e953f95841ecb6",
+    ".github/workflows/build_and_upload_conda_packages.yaml": "3a21d8ec4cfc5e2a5e5899968594e6ebf719e2c420bc018a9206704741e3ab14"
+  },
+  "declared_source_routes": [
+    {
+      "id": "argdigest-source",
+      "name": "argdigest",
+      "role": "required-runtime",
+      "url": "https://github.com/uibcdf/argdigest",
+      "commit": "3d1ec53c374098016452abab74706e9d80df5462",
+      "install": "pip-no-deps-directory"
+    },
+    {
+      "id": "molsysmt-source",
+      "name": "molsysmt",
+      "role": "required-runtime",
+      "url": "https://github.com/uibcdf/molsysmt",
+      "commit": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+      "install": "pip-no-deps-directory"
+    },
+    {
+      "id": "viewer-base",
+      "name": "molsysviewer",
+      "role": "integration",
+      "url": "https://github.com/uibcdf/molsysviewer",
+      "commit": "78ede79e2e345593db5bfe80d246d3f6c70bd005",
+      "install": "pip-no-deps-directory"
+    },
+    {
+      "id": "viewer-py314",
+      "name": "molsysviewer",
+      "role": "integration",
+      "url": "https://github.com/uibcdf/molsysviewer",
+      "commit": "78ede79e2e345593db5bfe80d246d3f6c70bd005",
+      "install": "pip-no-deps-directory"
+    }
+  ],
+  "declared_source_contexts": [
+    {
+      "name": "ci-3.11",
+      "python_minor": "3.11",
+      "environment": "devtools/conda-envs/test_env.yaml",
+      "sources": [
+        "argdigest-source",
+        "molsysmt-source",
+        "viewer-base"
+      ]
+    },
+    {
+      "name": "ci-3.12",
+      "python_minor": "3.12",
+      "environment": "devtools/conda-envs/test_env.yaml",
+      "sources": [
+        "argdigest-source",
+        "molsysmt-source",
+        "viewer-base"
+      ]
+    },
+    {
+      "name": "ci-3.13",
+      "python_minor": "3.13",
+      "environment": "devtools/conda-envs/test_env.yaml",
+      "sources": [
+        "argdigest-source",
+        "molsysmt-source",
+        "viewer-base"
+      ]
+    },
+    {
+      "name": "ci-3.14",
+      "python_minor": "3.14",
+      "environment": "devtools/conda-envs/test_env.yaml",
+      "sources": [
+        "argdigest-source",
+        "molsysmt-source",
+        "viewer-py314"
+      ]
+    }
+  ],
+  "closure_limits": "The bootstrap YAML is not a complete lock; declared source pins differ from the routine development dependencies used for the import probe. Exact candidate hosted closure/gates remain separate pending evidence.",
+  "versioned_support_tests": {
+    "module": "tests/test_support_contracts.py",
+    "source_commit": "905abc9698cf9d4add78a52d57dab707859a148d",
+    "module_sha256": "f4268d22b7a3a17add128f54cb796083ae71613d6023c8fa7f4c01b50854ead5",
+    "passed": 30,
+    "failed": 0,
+    "skipped": 0,
+    "pytest_receptor": "1.2.2",
+    "reporter_wheel_sha256": "48c290fba7e12d19015fa436989fdad465d5ff7bba78fa94f7825e305ccf7961",
+    "scope": "existing non-native support/catalog/dependency/metadata contracts against the unpacked private 0.1.0 wheel; not full scientific or ordinary installed qualification",
+    "warnings": 0,
+    "initial_harness_observation": {
+      "passed": 30,
+      "warnings": 1,
+      "cause": "test launcher imported reporter before pytest assertion rewriting; launcher corrected without product/provider changes"
+    },
+    "final_launcher": "Reporter origin checked through import discovery before pytest; normal plugin loading retained."
+  }
+}

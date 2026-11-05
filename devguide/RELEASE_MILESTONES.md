@@ -26,7 +26,7 @@ package version or real `release_plan.toml` is created by this plan.
 ## Proposed ladder
 
 The numbers are prospective identities attached to outcomes, not dates or a
-requirement to manufacture six releases. Combine milestones if their actual
+requirement to manufacture every intermediate release. Combine milestones if their actual
 evidence arrives together. Do not advance a number solely because time or commit
 count has increased. Patch versions such as `0.1.1` describe reviewed corrections
 within a declared scope; new capabilities or intentional pre-1.0 compatibility
@@ -92,6 +92,11 @@ whether to use it is decided in the actual release record. If the public closure
 arrives first, the source and package milestones can be consolidated instead.
 An archive tag has a different historical purpose and is not this version ladder;
 this repository's older policy caller has not adopted the archive-tag capability.
+
+Preparation is now concrete under [#74](https://github.com/uibcdf/dockingmt/issues/74):
+the [0.1.0 candidate dossier](releases/0.1.0.md) fixes source `905abc9`, records
+the private version/payload check and separates pending source/closure/gate
+receiving from a public tag. Later evidence commits do not move that target.
 
 ## First-tag readiness checklist
 
