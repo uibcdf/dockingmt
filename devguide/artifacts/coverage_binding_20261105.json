@@ -1,0 +1,47 @@
+{
+  "api_input_digests": [
+    {
+      "route": "jobs",
+      "sha256": "98375b3b253ec5bb7a800b4ccd81d32533c05b3b2916133358e3408e73686a60"
+    },
+    {
+      "route": "artifacts",
+      "sha256": "4f87dd228f14e65d11698d9381b4bdb3e2b69148daacbacac7533dc08da9b95f"
+    }
+  ],
+  "artifact_verification": {
+    "archive_sha256": "3ecc8a52c0eb4e4b1c8972e444e48ecd56f4c25e917c49bc98a7b242d7358a2c",
+    "id": 13431816891,
+    "members": [
+      "coverage.xml"
+    ],
+    "xml_bytes": 189622,
+    "xml_sha256": "b77d0a50b6bfe6e5c54e469cf1fad34f38b63ec61b4a50167f53da7768f36c92"
+  },
+  "consumer_base_commit": "9b8677d82f37af3b916950516e0a888e378f55d9",
+  "date": "2026-11-05",
+  "historical_run": {
+    "conclusion": "failure",
+    "head_sha": "5071731168bab30cab514fcf32142b76d732cae4",
+    "id": 42059033330,
+    "publisher_attempt": 2
+  },
+  "limits": [
+    "The selection body is identified by its own hash, separate from the base commit.",
+    "No new scientific population or installed artifact qualification.",
+    "The historical attempt remains failed.",
+    "Exact-head hosted binding/download/upload observation remains dockingmt#28."
+  ],
+  "owner": "uibcdf/dockingmt#68",
+  "scope": "Read-only receiving of the local workflow script against original GitHub API/artifact evidence; no workflow rerun or Codecov upload.",
+  "selected": {
+    "artifact_id": 13431816891,
+    "producer_attempt": 1,
+    "publisher_attempt": 2,
+    "retention_completed_at": "2026-11-05T16:02:44Z",
+    "retention_started_at": "2026-11-05T16:02:33Z",
+    "run_id": 42059033330,
+    "source_sha": "5071731168bab30cab514fcf32142b76d732cae4"
+  },
+  "selection_script_sha256": "bbeeef4008d3f770e960effb3fc9e5c0a88800ee0ad7ea3eff7ea2e1c7083bc2"
+}

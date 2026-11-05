@@ -13,6 +13,13 @@ implementation's exact-head CI under #28. Work in other components remains
 deferred at the maintainer's request; no provider-dependent admission, public
 release or live visual acceptance is inferred from this analysis.
 
+The [#68 coverage correction](archive/resolve_coverage_producer_attempt.md)
+binds the publisher to the actual retained measurement across partial reruns.
+Thirty-three administrative controls and read-only historical API/artifact
+receiving pass; the original failed attempt remains failed. Observe the new
+head's actual binding/download/upload under #28. This adds no scientific
+campaign or public-package qualification.
+
 ## Current operational plan
 
 Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which

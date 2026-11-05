@@ -1,0 +1,57 @@
+{
+  "evidence": {
+    "observed": "2026-11-05",
+    "owner": "uibcdf/dockingmt#68",
+    "scope": "Selected public API metadata only; attempt-2 job representation retains attempt-1 execution timestamps."
+  },
+  "context": {
+    "repo": {
+      "owner": "uibcdf",
+      "repo": "dockingmt"
+    },
+    "runId": 42059033330,
+    "sha": "5071731168bab30cab514fcf32142b76d732cae4"
+  },
+  "publisher_attempt": 2,
+  "jobs": [
+    {
+      "id": 127363353426,
+      "run_id": 42059033330,
+      "run_attempt": 2,
+      "head_sha": "5071731168bab30cab514fcf32142b76d732cae4",
+      "name": "Test on ubuntu-latest, Python 3.14",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Run tests with pytest-receptor",
+          "number": 17,
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-05T15:56:55Z",
+          "completed_at": "2026-11-05T16:02:33Z"
+        },
+        {
+          "name": "Retain measured Python coverage",
+          "number": 18,
+          "status": "completed",
+          "conclusion": "success",
+          "started_at": "2026-11-05T16:02:33Z",
+          "completed_at": "2026-11-05T16:02:44Z"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 13431816891,
+      "name": "dockingmt-python-coverage-42059033330-1",
+      "created_at": "2026-11-05T16:02:44Z",
+      "expired": false,
+      "workflow_run": {
+        "id": 42059033330,
+        "head_sha": "5071731168bab30cab514fcf32142b76d732cae4"
+      }
+    }
+  ]
+}

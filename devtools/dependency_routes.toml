@@ -96,7 +96,7 @@ reason = "DockingMT #60 addon-specific Node/jsdom DOM tests; standard-library AS
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "e0b0c6fcccb23655a1619018e7175dc378a76bb2d3d1fb997cc30318ec07685b"
+sha256 = "4b8eebda9a775937fa39e8c5798fd670ecb406a84be49890e70e3218ac8d4d95"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]

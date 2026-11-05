@@ -122,3 +122,11 @@ The live badge and scope/cadence/last-report limits are delivered in the README;
 no numeric percentage is hardcoded. No scientific correctness, new support
 admission, release/public package or cleared unrelated scientific debt is claimed.
 Final guide-only administrative gates are recorded in the owning issue.
+
+## Subsequent partial-rerun correction — 2026-11-05
+
+[#68](resolve_coverage_producer_attempt.md) corrects publisher input selection
+when a partial rerun reuses coverage from an earlier producer attempt. The
+original #22 measurement and public-report qualification above retain their
+source and outcome. The correction's controlled metadata/artifact receiving and
+later hosted execution are separate evidence; no old run is relabelled green.

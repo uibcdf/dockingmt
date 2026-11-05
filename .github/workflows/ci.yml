@@ -171,6 +171,9 @@ jobs:
           python-version: "3.14"
       - name: Install administrative tools
         run: python -m pip install "PyYAML==6.0.3" "Jinja2>=3,<4" "packaging>=24" "pytest>=8,<10" "pytest-receptor==1.2.1" "setuptools>=77.0.3"
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "26"
       - name: Validate report records and generated indexes
         run: python devtools/devguide_index.py --check
       - name: Review declared dependency routes
@@ -189,15 +192,77 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      actions: read
       id-token: write
     steps:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+      - name: Bind the measured Python report
+        id: coverage-report
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        env:
+          COVERAGE_PUBLISHER_ATTEMPT: ${{ github.run_attempt }}
+        with:
+          script: |
+            const run_id = context.runId;
+            const publisherAttempt = Number(process.env.COVERAGE_PUBLISHER_ATTEMPT);
+            const jobs = await github.paginate(github.rest.actions.listJobsForWorkflowRun, {
+              ...context.repo, run_id, filter: 'latest', per_page: 100
+            });
+            const producers = jobs.filter(job => job.name === 'Test on ubuntu-latest, Python 3.14');
+            if (producers.length !== 1) throw new Error('Expected one effective Python 3.14 coverage job');
+            const job = producers[0];
+            if (job.run_id !== run_id || job.head_sha !== context.sha || job.status !== 'completed') {
+              throw new Error('Coverage job has the wrong run/source or is incomplete');
+            }
+            const tests = job.steps.filter(step => step.name === 'Run tests with pytest-receptor');
+            const retained = job.steps.filter(step => step.name === 'Retain measured Python coverage');
+            if (tests.length !== 1 || tests[0].status !== 'completed'
+                || !['success', 'failure'].includes(tests[0].conclusion)
+                || retained.length !== 1 || retained[0].status !== 'completed'
+                || retained[0].conclusion !== 'success' || tests[0].number >= retained[0].number) {
+              throw new Error('Coverage requires executed tests and successful retention');
+            }
+            const retention = retained[0];
+            const start = Date.parse(retention.started_at);
+            const end = Date.parse(retention.completed_at);
+            if (!Number.isFinite(start) || !Number.isFinite(end) || start > end
+                || !(Date.parse(tests[0].completed_at) <= start)) {
+              throw new Error('Coverage retention timing is incomplete or inconsistent');
+            }
+            // Partial reruns can relabel a reused job's ID/attempt. Its execution
+            // timestamps still identify the actual successful retention operation.
+            const artifacts = await github.paginate(github.rest.actions.listWorkflowRunArtifacts, {
+              ...context.repo, run_id, per_page: 100
+            });
+            const prefix = `dockingmt-python-coverage-${run_id}-`;
+            const matches = artifacts.filter(artifact => artifact.name.startsWith(prefix)
+              && Date.parse(artifact.created_at) >= start && Date.parse(artifact.created_at) <= end);
+            if (matches.length !== 1) throw new Error('Expected one coverage artifact from the actual retention step');
+            const artifact = matches[0];
+            const suffix = artifact.name.slice(prefix.length);
+            const producerAttempt = Number(suffix);
+            if (!/^[1-9][0-9]*$/.test(suffix) || !Number.isSafeInteger(producerAttempt)
+                || !Number.isSafeInteger(publisherAttempt) || producerAttempt > publisherAttempt
+                || publisherAttempt < 1 || !Number.isSafeInteger(artifact.id) || artifact.id < 1
+                || artifact.expired !== false || artifact.workflow_run?.id !== run_id
+                || artifact.workflow_run?.head_sha !== context.sha) {
+              throw new Error('Coverage artifact has invalid attempt, expiry or source identity');
+            }
+            core.info(JSON.stringify({run_id, source_sha: context.sha,
+              producer_attempt: producerAttempt, publisher_attempt: publisherAttempt,
+              artifact_id: artifact.id, retention_started_at: retention.started_at,
+              retention_completed_at: retention.completed_at}));
+            core.setOutput('artifact-id', String(artifact.id));
+            core.setOutput('producer-attempt', String(producerAttempt));
       - name: Download the measured Python report
         uses: actions/download-artifact@v4
         with:
-          name: dockingmt-python-coverage-${{ github.run_id }}-${{ github.run_attempt }}
+          artifact-ids: ${{ steps.coverage-report.outputs.artifact-id }}
+          github-token: ${{ github.token }}
+          run-id: ${{ github.run_id }}
+          merge-multiple: true
           path: coverage-report
       - name: Upload the measured report to Codecov
         uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7.1.1

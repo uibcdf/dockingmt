@@ -834,3 +834,17 @@ panel and admission work. Twenty controls cover input integrity, associations,
 denominators and position/rank meanings, including import-blocked check mode.
 Standalone figures and a hash-bound reproducer are delivered. Other components'
 issues and live visual checks remain deferred; no new public release is claimed.
+
+## Follow-up 22 — coverage custody after partial reruns, 2026-11-05
+
+The [#68 correction](archive/resolve_coverage_producer_attempt.md) selects the
+unique same-run/source coverage artifact created during the effective Python
+3.14 retention step, preserving its producer attempt separately from the
+publisher's. The actual inline selection body passes historical partial-rerun,
+new-producer and failed-test controls, including 21 adverse mutations. The full
+affected administrative selection passes 33 tests. Fresh read-only native
+metadata receiving selects the original attempt-1 artifact for attempt 2;
+independent ID-based acquisition verifies the XML and retains sanitized hashes.
+The historical overall failure remains unchanged. This improves software
+evidence custody; exact-head hosted execution stays #28, with no new scientific
+population, molecular operation, runtime API, public artifact or visual claim.
