@@ -14,6 +14,20 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Batch-outcome admission — 2026-11-05
+
+The [outcome receiving block](../validation/support_library_review_2026-11-04.md#batch-outcome-constructor-and-reader-receiving--2026-11-05)
+integrates the constructor and offline reader with ArgDigest. Caller-specific
+optional results/backend labels, strict index/error schema, inherited consumers,
+borrowed live results and detached records remain. Unknown names use ArgDigest;
+malformed reader input identifies `record`. The 27 controls give nine failures/
+eighteen passes before receiving; final affected selections pass 293 cases with
+each of routine development and exact CI ArgDigest, plus 24 administrative cases.
+Fresh blocked-provider processes recover both success/failure records. Molecular
+operations, pins, frozen inputs and visual/public acceptance remain independent.
+DepDigest #48 remains under owner review; #19 stays partial for that receiving
+and the remaining public-helper/tool/provider review.
+
 ## Published source-test reporter — 2026-11-05
 
 The [receiving record](../validation/test_reporter_receiving_2026-11-05.md)
@@ -24,9 +38,11 @@ digests match #133 and all six runtime files agree. A private published-plugin
 profile passes 122 source and 27 administrative cases; deliberate human/CI
 failure/warning/skip controls agree on exit/counts and preserve their evidence.
 The routine editable tool and independent administrative/installed SDK profiles
-retain their identities. Exact-head hosted probe/lane observation remains #28;
-the preceding 74bf2cc's four workflows all pass. #19 stays partial for DepDigest
-owner acceptance, wider adoption and public compatibility.
+retain their identities. At cddf894, all four Linux 3.11–3.14 source lanes pass
+1,613 cases each and their actual logs verify the installed 1.2.2 pin/origin;
+the CI coverage-publisher observation remains #28. The scheduled backlog probe
+skips the full matrix and does not qualify new matrix cells. #19 stays partial
+for DepDigest owner acceptance, wider adoption and public compatibility.
 
 ## Direct dependency ownership and audit proposal — 2026-11-04
 

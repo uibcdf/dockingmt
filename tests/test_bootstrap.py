@@ -63,6 +63,12 @@ sys.meta_path.insert(0, BlockOptional())
 import dockingmt as dmt
 record = dmt.DockingResult([]).to_dict()
 assert dmt.DockingResult.from_dict(record).to_dict() == record
+for outcome in (
+    dmt.DockingOutcome(0, result=dmt.DockingResult([]), backend='control'),
+    dmt.DockingOutcome(1, error={'type': 'ValueError', 'message': '', 'code': None}),
+):
+    record = outcome.to_dict()
+    assert dmt.DockingOutcome.from_dict(record).to_dict() == record
 assert not blocked & sys.modules.keys()
 """
     completed = subprocess.run(

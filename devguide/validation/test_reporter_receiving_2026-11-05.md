@@ -78,3 +78,25 @@ for DepDigest #47 / owner-review PR #48, remaining tool adoption and public
 compatibility. No release, new scientific population or visible C4/C6 acceptance
 is claimed. Task-owned environments/downloads are temporary; keep only these
 bounded receipts after the durable handoff.
+
+### Hosted source receiving observed — 2026-11-05
+
+At exact source `cddf8941482e410a62fd191923f1e26fdf69015b`, CI
+[42051846017](https://github.com/uibcdf/dockingmt/actions/runs/42051846017)
+passes all four Linux Python **3.11–3.14** science jobs, **1,613 tests each**.
+Native job/step facts and the actual completed-job logs confirm reporter
+**1.2.2**, its site-packages origin, the isolated installed-package probe,
+dependency closure and unchanged full source-test command. Published GH Run
+Receptor 1.4.0 supplies the initial inspection; the bounded
+[hosted receipt](data/test_reporter_2026-11-05/hosted.json) retains the exact
+job identities without raw logs or runner paths. This verifies the outstanding
+published source-CI pin item in #19. Quality and distribution jobs also pass;
+the overall CI workflow still awaits its coverage-publication job at this
+observation, owned by #28.
+
+Addon DOM `42051846044`, policy `42051847342` and publication governance
+`42051847212` succeed on the same source. Scheduled run `42056029256` succeeds
+only at the backlog decision and **skips** the full-matrix job. It is not six
+executed Linux/macOS cells. The matrix retains its actual cadence and evidence
+requirements. These observations belong to `cddf894`; later source changes need
+their own hosted observation. #19's broader provider/helper review remains open.

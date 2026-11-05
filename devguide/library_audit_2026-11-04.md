@@ -775,3 +775,16 @@ profiles retain their identities. Exact-head hosted receiving remains #28;
 preceding source 74bf2cc's four workflows pass independently. This tooling work
 adds no scientific population, public DockingMT qualification or visible C4/C6
 acceptance. #19 stays partial for provider/tool/public receiving.
+
+## Follow-up 18 — batch-outcome argument contracts, 2026-11-05
+
+The [#19 receiving block](validation/support_library_review_2026-11-04.md#batch-outcome-constructor-and-reader-receiving--2026-11-05)
+adds caller-correct ArgDigest admission to the existing success/failure outcome
+constructor and reader. Built-in index rules, custom backend labels, exclusive
+result/error payloads, inherited consumers and detached offline records remain.
+Unknown names and malformed `record` inputs now use the intended public contract.
+The 27 initial controls give nine failures/eighteen passes; final affected
+selections pass 293 cases on each selected ArgDigest generation and another 24
+administrative checks. Fresh optional-provider isolation covers both outcomes.
+This is record/API source qualification; molecular work, original scientific
+populations, public provider gates and visible C4/C6 retain their own owners.

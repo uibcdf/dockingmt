@@ -578,3 +578,53 @@ owner-review proposal, not accepted main or a public package. #19 stays partial
 for that acceptance/receiving, wider developer-tool adoption and actual public
 compatibility. Development against source checkouts continues; original
 scientific/installed producers and deferred visual C4/C6 remain unchanged.
+
+## Batch-outcome constructor and reader receiving — 2026-11-05
+
+Starting from `cddf8941482e410a62fd191923f1e26fdf69015b`, #19 extends the
+existing ArgDigest registry to `DockingOutcome.__init__` and `from_dict`.
+This is the success/failure envelope emitted by the existing `dock_many`
+workflow, not a molecular operation or another result schema. Unknown names
+now use ArgDigest's closed-signature diagnostic; invalid reader values name
+the actual `record` parameter rather than the shared reader's generic `data`.
+
+The index remains a built-in nonnegative integer, including refusal of booleans
+and NumPy integers. Error summaries retain the exact type/message/code schema.
+Outcome backend values remain optional labels, including custom adapter names
+and original capitalization. Only this constructor allows an absent result for
+a recorded failure; execution/backend resolution and evaluation remain strict.
+Explicit native-constructor context preserves inherited and super-delegating
+consumer subclasses without depending on their module names. Users cannot
+spoof the decorator context through an extra keyword.
+
+The constructor still enforces exactly one result or error, borrows the live
+result and detaches declaration/error snapshots. The reader retains schema and
+status/payload consistency checks, leaves its input unchanged and reconstructs
+successful records offline. Fresh-process bootstrap controls recover both
+success/failure envelopes with Vina, Viewer, RDKit, OpenMM, Meeko and PDBFixer
+imports blocked. Molecular work remains delegated to MolSysMT.
+
+The 27 new controls initially give **nine failures / eighteen passes**: unknown
+names, caller-context spoofing and reader argument attribution expose the
+unreceived boundary; existing value/ownership behaviors already pass. Final
+source controls, batch/native equivalence, model/argument contracts, bootstrap,
+prepared/view admission, diagnostics and redocking evaluation pass **293 cases**
+with routine development ArgDigest `7e09e974c36bcf5cace99a7b898d0f5f7a9d3ff2`,
+and another **293** with the unchanged exact CI ArgDigest source
+`3d1ec53c374098016452abab74706e9d80df5462`. Both use verified published Pytest
+Receptor 1.2.2. The same forty fixture/provider warnings remain: 39 legacy H5MSM
+reads and one terminal-concatenation attribute drop. An earlier 218-case
+in-process probe has one harness import-rewrite warning; final ordinary
+`python -m pytest` runs avoid that harness condition. Distribution, installed
+support and reporting controls pass another **24 cases** using unchanged
+SDK `738fe8dd731abb99dac421b0bb2acc8564110180`.
+
+Guards: `tests/test_outcome_argument_contracts.py`, existing
+`tests/test_batch.py` and expanded `tests/test_bootstrap.py`. No helper/fixture
+payload, dependency pin or historical producer changes. This source receiving
+does not repeat public/installed qualification or accept visible C4/C6. #19
+remains partial: DepDigest #48 awaits owner acceptance, public compatibility
+retains its actual provider gates, and remaining parameterized public helpers
+(RMSD/reconstruction, backend-box export and protocol validation) need their own
+contract applicability review; undecorated no-input getters and abstract hooks
+are not automatically missing argument validation.

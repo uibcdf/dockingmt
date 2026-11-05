@@ -1,7 +1,8 @@
 """One item outcome from incremental docking, separate from scientific results."""
 
-from collections.abc import Mapping
 from copy import deepcopy
+
+from argdigest import arg_digest
 
 from dockingmt._private.serialization import SCHEMA_VERSION, validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
@@ -16,6 +17,10 @@ class DockingOutcome:
     Declaration/error properties and dictionary exports are detached snapshots.
     """
 
+    @arg_digest(
+        config='dockingmt._argdigest',
+        native_constructor='dockingmt.core.outcome.DockingOutcome.__init__',
+    )
     def __init__(
         self,
         index,
@@ -26,36 +31,10 @@ class DockingOutcome:
         result=None,
         error=None,
     ):
-        if type(index) is not int or index < 0:
-            raise ArgumentError(arg_name='index', reason='Use a non-negative integer.')
         if (result is None) == (error is None):
             raise ArgumentError(
                 arg_name='result', reason='Supply exactly one result or error summary.'
             )
-        if result is not None and not isinstance(result, DockingResult):
-            raise ArgumentError(arg_name='result', reason='Use a DockingResult.')
-        if backend is not None and (
-            not isinstance(backend, str) or not backend.strip()
-        ):
-            raise ArgumentError(
-                arg_name='backend', reason='Use an adapter name or None.'
-            )
-        if error is not None and (
-            not isinstance(error, Mapping)
-            or set(error) != {'type', 'message', 'code'}
-            or not isinstance(error['type'], str)
-            or not error['type'].strip()
-            or not isinstance(error['message'], str)
-            or error['code'] is not None
-            and (not isinstance(error['code'], str) or not error['code'].strip())
-        ):
-            raise ArgumentError(arg_name='error', reason='Use a typed error summary.')
-        for name, value in (
-            ('problem_info', problem_info),
-            ('protocol_info', protocol_info),
-        ):
-            if value is not None and not isinstance(value, Mapping):
-                raise ArgumentError(arg_name=name, reason='Use a declaration mapping.')
         self._index = index
         self._backend = backend
         self._problem_info = deepcopy(dict(problem_info or {}))
@@ -114,6 +93,7 @@ class DockingOutcome:
         return record
 
     @classmethod
+    @arg_digest(config='dockingmt._argdigest')
     def from_dict(cls, record):
         """Restore an outcome offline; no problem reconstruction or execution."""
         validate_schema_version(record, cls.__name__)

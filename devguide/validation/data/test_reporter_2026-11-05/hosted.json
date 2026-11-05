@@ -1,0 +1,67 @@
+{
+  "source": "cddf8941482e410a62fd191923f1e26fdf69015b",
+  "run_id": 42051846017,
+  "status": "queued",
+  "conclusion": "",
+  "observed_science_jobs": [
+    {
+      "job_id": 127329698771,
+      "python_minor": "3.14",
+      "conclusion": "success",
+      "reporter_version": "1.2.2",
+      "reporter_origin_in_site_packages": true,
+      "installed_package_probe": "success",
+      "dependency_closure": "success",
+      "source_tests": {
+        "passed": 1613,
+        "exit": 0
+      }
+    },
+    {
+      "job_id": 127329698776,
+      "python_minor": "3.11",
+      "conclusion": "success",
+      "reporter_version": "1.2.2",
+      "reporter_origin_in_site_packages": true,
+      "installed_package_probe": "success",
+      "dependency_closure": "success",
+      "source_tests": {
+        "passed": 1613,
+        "exit": 0
+      }
+    },
+    {
+      "job_id": 127329698840,
+      "python_minor": "3.13",
+      "conclusion": "success",
+      "reporter_version": "1.2.2",
+      "reporter_origin_in_site_packages": true,
+      "installed_package_probe": "success",
+      "dependency_closure": "success",
+      "source_tests": {
+        "passed": 1613,
+        "exit": 0
+      }
+    },
+    {
+      "job_id": 127329699013,
+      "python_minor": "3.12",
+      "conclusion": "success",
+      "reporter_version": "1.2.2",
+      "reporter_origin_in_site_packages": true,
+      "installed_package_probe": "success",
+      "dependency_closure": "success",
+      "source_tests": {
+        "passed": 1613,
+        "exit": 0
+      }
+    }
+  ],
+  "remaining_ci_job": "Publish default-branch Python coverage",
+  "scheduled_backlog_probe": {
+    "run_id": 42056029256,
+    "conclusion": "success",
+    "backlog_check": "success",
+    "full_matrix": "skipped"
+  }
+}

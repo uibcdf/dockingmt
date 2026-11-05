@@ -18,6 +18,7 @@ _PREPARED_CONSTRUCTORS = (
     'dockingmt.preparation.ligand.PreparedLigand.__init__',
     'dockingmt.preparation.receptor.PreparedReceptor.__init__',
 )
+_OUTCOME_CONSTRUCTOR = 'dockingmt.core.outcome.DockingOutcome.__init__'
 
 
 def _invalid(argument, caller, reason):
@@ -134,7 +135,14 @@ def digest_protocol(protocol, caller=None):
     return protocol
 
 
-def digest_backend(backend, caller=None):
+def digest_backend(backend, caller=None, native_constructor=None):
+    if caller_is_one_of(native_constructor, [_OUTCOME_CONSTRUCTOR]):
+        # An outcome records an adapter's label; it does not resolve execution.
+        if backend is not None and (
+            not isinstance(backend, str) or not backend.strip()
+        ):
+            raise _invalid('backend', caller, 'Use an adapter name or None.')
+        return backend
     from dockingmt.engines.base import DockingBackend
 
     if backend is None or isinstance(backend, DockingBackend):
@@ -223,14 +231,37 @@ def digest_score_name(score_name, caller=None):
     return score_name
 
 
-def digest_result(result, caller=None, native_view=None):
+def digest_result(result, caller=None, native_view=None, native_constructor=None):
     from dockingmt.core.results import DockingResult
 
     if native_view == 'dockingmt.view.view':
         return _view_option(result, 'result', DockingResult, 'poses')
+    if result is None and caller_is_one_of(native_constructor, [_OUTCOME_CONSTRUCTOR]):
+        return None
     if not isinstance(result, DockingResult):
         raise _invalid('result', caller, 'Use a DockingResult instance.')
     return result
+
+
+def digest_outcome_index(index, caller=None):
+    # Preserve the serialized outcome's existing built-in-int contract.
+    if type(index) is not int or index < 0:
+        raise _invalid('index', caller, 'Use a non-negative integer.')
+    return index
+
+
+def digest_outcome_error(error, caller=None):
+    if error is not None and (
+        not isinstance(error, Mapping)
+        or set(error) != {'type', 'message', 'code'}
+        or not isinstance(error['type'], str)
+        or not error['type'].strip()
+        or not isinstance(error['message'], str)
+        or error['code'] is not None
+        and (not isinstance(error['code'], str) or not error['code'].strip())
+    ):
+        raise _invalid('error', caller, 'Use a typed error summary.')
+    return error
 
 
 def digest_rmsd_cutoff(rmsd_cutoff, caller=None):
@@ -524,6 +555,8 @@ def digest_pose_rank(pose_rank, caller=None, native_view=None):
 
 
 ARGUMENT_DIGESTERS = {
+    'index': digest_outcome_index,
+    'error': digest_outcome_error,
     'item': digest_view_item,
     'pose_rank': digest_pose_rank,
     'atom_names': _prepared_sequence('atom_names'),
