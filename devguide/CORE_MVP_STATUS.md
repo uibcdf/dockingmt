@@ -141,6 +141,13 @@ the evidence keys above identify executed results and their limits.
 
 ## Existing Extended-MVP pieces
 
+The maintainer's [DMT-045 decision](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100)
+requires both Core and Extended before 1.0.0. This map still assesses Core's
+35 criteria; the following existing pieces are not an acceptance map for E1–E5.
+Their complete workflows, including missing clustering/interaction and broader
+reproducibility evidence, remain pre-1.0 work under the
+[version milestones](RELEASE_MILESTONES.md).
+
 Public `score`, `DockingPose.with_scores`, `DockingResult.rank_by`, `dock_many`,
 `evaluate_redocking` and `summarize_redocking` already exist. `dock_many` is serial,
 incremental execution of prepared problems with explicit error handling, not a

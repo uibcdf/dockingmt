@@ -6,6 +6,17 @@ The MVP is judged by complete scientific workflows, not by number of functions.
 
 Redocking is the primary end-to-end scientific validation workflow.
 
+## Release 1.0.0 target
+
+Maintainer decision, 2026-11-05:
+[DMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100) requires
+**both Core MVP (C0–C6) and Extended MVP (E1–E5)** before 1.0.0. Acceptance is
+based on complete executed workflows within the declared scientific scope,
+together with the public-delivery, reproducibility and stability requirements in
+the [release milestones](RELEASE_MILESTONES.md). Intermediate releases may
+consolidate earlier subsets without claiming whole-1.0 acceptance. The gate
+definitions below are unchanged.
+
 # Part I — Core MVP
 
 ## Gate C0 — Foundations

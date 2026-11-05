@@ -20,9 +20,11 @@ The maintainer requests intermediate tags on the way to 1.0.0, even when a publi
 Conda package is not ready. The [proposed release ladder](../RELEASE_MILESTONES.md)
 defines source, public-package, accepted-Core, scientific and stabilization
 milestones with prospective numeric identities and concrete evidence.
-The maintainer then requests a [Core/Extended comparison](../CORE_EXTENDED_COMPARISON.md)
-before deciding the 1.0 boundary; this reminder is delivered with current
-implementation/acceptance distinctions and leaves that decision open.
+The maintainer requests a [Core/Extended comparison](../CORE_EXTENDED_COMPARISON.md)
+and then explicitly selects **Core plus Extended for 1.0.0** on 2026-11-05.
+[DMT-045](../DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100) records
+the accepted scope. Both C0–C6 and E1–E5 are release prerequisites; intermediate
+numeric identities and actual candidate/tag selection remain prospective.
 
 ## How
 
@@ -50,8 +52,9 @@ repair the identical public MolSysMT/Viewer artifacts.
 Roadmap, milestone/readiness guidance and a read-only availability refresh only.
 No source/package release, real plan, version floor, dependency pin, workflow,
 provider, environment, molecular operation or scientific producer is changed.
-The Core-versus-Core-plus-Extended 1.0 boundary is explicitly pending the
-maintainer preference; neither original MVP part is rewritten.
+The Core-plus-Extended 1.0 boundary is accepted; neither original MVP part's
+gate definitions nor their current acceptance state is rewritten. The proposed
+`0.5.0` milestone consolidates E1–E5 before `0.9.0` stabilization.
 
 ## Acceptance criteria and current handoff
 
@@ -61,8 +64,8 @@ artifact identities while leaving the prior observations intact. Final local
 administrative/index/publication/resource checks and a fresh committed export
 must pass; their exact-source receipts are recorded in #73/#47.
 
-The issue stays partial until the scope decision and first concrete candidate/
-version consolidation are received. Preparation of prospective `0.1.0` is next;
+The scope decision is complete. The issue stays partial until the first concrete
+candidate/version consolidation is received. Preparation of prospective `0.1.0` is next;
 tagging is not performed on an incompletely qualified source or with the
 required central handoff silently omitted. #30/#47 keep actual Conda delivery,
 #28 exact-source CI, #33 scientific admission, and #52/#60 visible acceptance.

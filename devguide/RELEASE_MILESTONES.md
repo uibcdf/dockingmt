@@ -6,6 +6,10 @@ selected release candidate, a public version announcement or permission to infer
 unexecuted gates. The [operational roadmap](ROADMAP.md#current-operational-plan),
 [scientific MVP](MVP.md) and [Core acceptance map](CORE_MVP_STATUS.md) retain their
 own authority. Existing scientific producers and package identities remain intact.
+The maintainer has accepted **Core plus Extended MVP for 1.0.0** under
+[DMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100).
+That target scope is settled; intermediate numeric identities and actual release
+candidates remain prospective.
 
 ## Why consolidate intermediate versions
 
@@ -34,29 +38,33 @@ changes get a reviewed minor milestone and migration notes.
 | `0.2.0` | First independently installable public Conda delivery. | Covering real public providers, measured compatible minima/closure, the staged candidate's fifteen required native jobs and eight installed cells, exact-file archive/resource checks and same-byte promotion/public receiving. Matching release identity and availability notice. #30/#47. A partial/private solve cannot satisfy this milestone. |
 | `0.3.0` | Core MVP accepted for its declared scientific profile. | All 35 C0–C6 criteria have explicit acceptance, including actual visible domain/reference/pose observation and a scientifically credible complete redocking workflow. Preserve refusals, preparation assumptions, score meaning and source/state/selection provenance. #4/#33/#49/#52/#60 and the Core map. |
 | `0.4.0` | Bounded scientific qualification beyond the original worked example. | Admit a small transparent independent set before execution, with provider-owned source/chemistry/plausibility tools, explicit preparation hypotheses, informative search-versus-ranking controls and all adverse/unassessed outcomes. Prespecify scope, denominators, budgets and decision rules. Existing 5X72/3PTB repetitions are not new independent complexes. #33/#49 and the audit Q2–Q4 plan. |
-| `0.9.0` | Stabilization against a declared 1.0 contract. | Agree the actual 1.0 scope, public API/schema and compatibility promises, supported dependency/platform combination, reproducibility instructions, examples and remaining critical findings. Freeze intended scope; close or explicitly defer work outside it. This numeric release is not an `rc`/prerelease tag. #73/#28/#30/#47. |
-| `1.0.0` | Stable release of the explicitly accepted scope. | Accepted Core/scientific contract, reproducible public installation and workflows, relevant platform/minor qualification, stable documented API/schema/migration policy, complete exact-candidate delivery gates and published limitations. No unresolved critical defect may contradict that scope. Final release authority and evidence decide readiness, not this table. |
+| `0.5.0` | Extended MVP workflows accepted within their declared scientific scope. | Explicit scoring/rescoring E1, modest collection screening E2, pose comparison/clustering E3, structured interaction analysis E4 and an independent reproducibility audit E5 all have concrete executed acceptance evidence. Reuse existing APIs, scope missing provider contracts and preserve all failures/provenance. #73/#28/#33/#49; individual implementation/receiving work gets its concrete workflow and owner before execution. |
+| `0.9.0` | Stabilization of the accepted Core-plus-Extended 1.0 contract. | Verify C0–C6 and E1–E5 acceptance, public API/schema and compatibility promises, supported dependency/platform combination, reproducibility instructions, examples and remaining critical findings. Freeze intended scope; close or explicitly defer work outside it. No Extended gate is deferred beyond 1.0 by default. This numeric release is not an `rc`/prerelease tag. #73/#28/#30/#47. |
+| `1.0.0` | Stable release of Core plus Extended MVP. | Accepted C0–C6 and E1–E5, bounded scientific qualification, reproducible public installation and workflows, relevant platform/minor qualification, stable documented API/schema/migration policy, complete exact-candidate delivery gates and published limitations. No unresolved critical defect may contradict that scope. Final release authority and evidence decide readiness, not this table. |
 
-## Boundary proposed for 1.0.0
+## Accepted boundary for 1.0.0 — 2026-11-05
 
 The requested [Core/Extended reminder](CORE_EXTENDED_COMPARISON.md) lists every
 C0–C6 and E1–E5 capability, its actual delivered pieces and remaining boundaries,
-so the maintainer can decide from scope and evidence rather than gate names.
+and records the maintainer's resulting decision.
 
-The recommended boundary is a stable, publicly usable **Core MVP with a bounded
-scientifically qualified profile**. Extended MVP E1–E5 and later peer integrations
-retain their existing roadmap and concrete-workflow requirement. Their partial
-implementation does not imply their acceptance, and their presence in the design
-does not silently make all of them new 1.0 prerequisites.
+The maintainer explicitly selects **Core plus Extended MVP**. Before 1.0.0,
+both C0–C6 and E1–E5 must be accepted for the declared scientific profile, together
+with public installation, platform/minor qualification, API/record stability and
+documented scientific limits. Existing pieces such as `score` and `dock_many`
+must be reused and qualified in complete workflows; their presence alone is not
+gate acceptance.
 
-The maintainer requested that comparison before choosing whether 1.0 should
-require both Core and Extended MVP. That preference is **pending** in this
-proposal. Do not describe
-either mapping as accepted or remove/change the existing E1–E5 gates. If Extended
-is selected, add its demonstrated workflows and acceptance before stabilization;
-general clustering/interaction/ensemble operations remain in their providers.
-This decision does not block preparation of the earlier source/public/Core
-milestones.
+In particular, missing clustering/interaction workflows and the independent
+reproducibility audit remain pre-1.0 work. General molecular operations belong
+to MolSysMT, specialized tools to their providers, and DockingMT owns scientific
+orchestration, result interpretation and evidence. Concrete workflow/ownership
+review still precedes implementation; accepting this target does not authorize
+unbounded speculative frameworks or new scientific experiments.
+
+Intermediate source/public/Core milestones can be released earlier with their
+actual scope and limitations. Later advanced engines, receptor flexibility,
+large campaigns and peer-guided protocols are not added to 1.0 by this decision.
 
 ## A source tag, a GitHub Release and a package are distinct events
 
@@ -129,8 +137,8 @@ exact-coordinate absence check required for a real candidate publication.
 No new artifact download, environment, install, molecular/native operation,
 build, tag, release or upload is performed.
 
-The immediate progression is: deliver/review this ladder, finish exact-head
-receiving under #28, prepare the `0.1.0` source-candidate decision, and resume
+The immediate progression is: retain the accepted Core-plus-Extended target,
+finish exact-head receiving under #28, prepare the `0.1.0` source-candidate decision, and resume
 actual public compatibility under #30/#47 only when covering provider bytes are
 available. Molecular capabilities remain MolSysMT-owned; visual acceptance stays
 deferred until the maintainer resumes it.

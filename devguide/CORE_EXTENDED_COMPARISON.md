@@ -1,4 +1,4 @@
-# Core and Extended MVP: scope reminder for the 1.0 decision
+# Core and Extended MVP: scope of the 1.0 target
 
 Requested by the maintainer on 2026-11-05 under
 [#73](https://github.com/uibcdf/dockingmt/issues/73). Definitions come from
@@ -6,6 +6,10 @@ Requested by the maintainer on 2026-11-05 under
 [`CORE_MVP_STATUS.md`](CORE_MVP_STATUS.md), the current source and linked
 qualification records. This comparison changes no gate or acceptance decision.
 It accompanies the [prospective version ladder](RELEASE_MILESTONES.md).
+After this reminder, the maintainer explicitly selected **Core plus Extended
+for 1.0.0** on 2026-11-05; see
+[DMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100).
+The definitions and evidence distinctions below remain unchanged.
 
 ## Core: a complete, traceable docking workflow
 
@@ -64,10 +68,11 @@ limitations and API/record stability remain obligations for a credible 1.0 under
 either option. Requiring Extended does not establish general docking accuracy;
 choosing Core does not waive scientific validation or public installation.
 
-The recommendation is **Core consolidated for 1.0**, preserving already useful
-Extended APIs and delivering later Extended milestones when their concrete
-workflows and provider contracts are ready. The maintainer has requested this
-reminder before deciding, so the actual 1.0 mapping remains open in #73.
+The maintainer selected **Core plus Extended for 1.0.0** after reviewing these
+options. Both C0–C6 and E1–E5 are therefore required before stabilization and
+release. The earlier Core-only recommendation was not selected. The comparison
+table retains the alternatives to explain that choice; it is not an unresolved
+scope question. #73 tracks consolidation and the concrete version milestones.
 
 Later horizons retain their own scope: additional engines/ML, receptor
 flexibility, broad ensembles, TopoMT/PharmacophoreMT/ElastNetMT-guided protocols,

@@ -59,11 +59,14 @@ experiment is needed for these fixes.
 The [version ladder toward 1.0.0](RELEASE_MILESTONES.md), requested on 2026-11-05
 under [#73](https://github.com/uibcdf/dockingmt/issues/73), proposes meaningful
 `0.1.0` source, `0.2.0` public Conda, `0.3.0` accepted-Core, `0.4.0` bounded
-scientific and `0.9.0` stabilization milestones before `1.0.0`. These are
-prospective identities, not published releases or selected candidates. The
-recommended Core-based 1.0 scope versus requiring Extended too remains a
-maintainer decision; the [requested capability comparison](CORE_EXTENDED_COMPARISON.md)
-provides C0–C6/E1–E5 definitions and present implementation/acceptance. Next
+scientific, `0.5.0` accepted-Extended and `0.9.0` stabilization milestones before
+`1.0.0`. These numeric identities remain prospective, not published releases or
+selected candidates. The maintainer has accepted **Core plus Extended for
+1.0.0**: C0–C6 and E1–E5 must all pass within the declared scientific scope,
+with public delivery, reproducibility and stable documented API/records.
+[DMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100) records the
+decision; the [capability comparison](CORE_EXTENDED_COMPARISON.md) provides
+definitions and present implementation/acceptance. Next
 prepare the first source-candidate decision after
 exact-head gates; public packaging and a source/tag-only release retain separate
 evidence and notification obligations. Do not use a GitHub Release to start an
@@ -93,6 +96,14 @@ and pending acceptance. The [human workflow review](human_workflow_review.md)
 tracks the delivered preparation, two-search execution, saved-record inspection and nine-atom evaluation. This section is the active queue;
 dated checkpoint entries below retain their original state and historical
 "Next" instructions.
+
+After Core acceptance, complete and qualify the Extended workflows before 1.0:
+reuse named scoring/ranking and serial prepared-problem execution for E1/E2;
+scope provider-owned comparison/clustering and interaction contracts for E3/E4;
+and demonstrate an independent representative-workflow reproducibility audit
+for E5. Their detailed implementation and experiments still require concrete
+accepted workflows. This target does not resume deferred provider issue work or
+live visual observation automatically.
 
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |

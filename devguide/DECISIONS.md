@@ -715,3 +715,41 @@ periodic benchmark service, storage vendor or DOI is selected now.
 **Does not imply:** A new experiment, independent-complex success probability,
 physical model acceptance, public artifact qualification or visible C4/C6.
 Provider-owned molecular tools and their pending receiving remain separate.
+
+---
+
+## DMT-045 — Require Core and Extended MVP for 1.0.0
+
+**Status:** Accepted by the maintainer, 2026-11-05; tracked in
+[DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
+
+**Decision:** DockingMT 1.0.0 includes both Core C0–C6 and Extended E1–E5.
+Release readiness requires their complete accepted workflows within the declared
+scientific profile, reproducible public delivery, applicable platform/minor
+qualification, stable documented API/records and explicit scientific limits.
+Existing APIs or isolated software tests alone do not accept a gate.
+
+**Reason:** After reviewing the Core/Extended functionality comparison, the
+maintainer selects a first stable scope that also includes named rescoring,
+modest ligand collections, pose comparison/clustering, structured interaction
+analysis and an independent representative-workflow reproducibility audit.
+The earlier Core-only recommendation is not the selected target.
+
+**Implementation and milestones:** The
+[release ladder](RELEASE_MILESTONES.md) places accepted Extended workflows
+before stabilization, with a prospective `0.5.0` milestone. Earlier numeric
+source/public/Core milestones can consolidate bounded useful subsets. Actual
+version/candidate/gate/route decisions remain separate; this creates no tag,
+Release, package or publication authorization.
+
+**Ownership:** Reuse existing scoring, ranking, batch and evaluation APIs.
+Inspect and receive general molecular capabilities from MolSysMT; specialized
+capabilities remain with their providers. DockingMT owns docking-specific
+orchestration, interpretation and evidence. Each missing capability still needs
+a concrete accepted workflow and owning contract before implementation. Existing
+provider-issue and visual-observation deferrals remain in force.
+
+**Revisit when:** The maintainer explicitly changes the 1.0 scope with a recorded
+decision. Until then, no Extended gate is silently moved beyond 1.0. Advanced
+engines, receptor flexibility, broad ensembles and later peer-guided protocols
+retain their separate horizons.
