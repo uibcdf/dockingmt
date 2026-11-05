@@ -1,0 +1,726 @@
+{
+  "date": "2026-11-05",
+  "inputs": {
+    "contact": {
+      "json_sha256": "f6765c5daa0c09923058c399b10e295f664aee266b1791558f9a4e6454425098",
+      "path": "5x72_contact/audit_2026-10-09.json.gz",
+      "sha256": "84ad1212925bd0765f99b5e9a8932d5b7976e887f51a14964ec295b501aa5490"
+    },
+    "displacement": {
+      "json_sha256": "0bbf5990234cec5b739d7f32f00e035ada42d9bd3277932eab831c9f3545226c",
+      "path": "5x72_displacement/audit_2026-10-09.json.gz",
+      "sha256": "afb8bfa4092abc78f8cd2daf33da7248fe39fbd1856b23e24a192f4813fb72a8"
+    },
+    "occupancy": {
+      "json_sha256": "43fe91ffa091b179dc28aa357c4b14935dd9e4cc2fbaf72ea354ce818e475266",
+      "path": "5x72_occupancy/audit_2026-10-09.json.gz",
+      "sha256": "5f698db8afee0df5d4323e30991d7f9061cc6ddd783d09fdeec148dc45e9db20"
+    },
+    "reciprocal": {
+      "json_sha256": "d61ecc11544e65e7548f743627995ed585607e78bf128b8b9f4cf3d53ca7e127",
+      "path": "5x72_reciprocal/audit_2026-10-09.json.gz",
+      "sha256": "323a5cb7a826368eb4914219c3a29c2fdf440956a792f9ebf7812e2cc228083d"
+    },
+    "reference": {
+      "json_sha256": "b9ef59927caff00ebee26145bdab1a64ff5ced94342cf5f762638cb8953c309e",
+      "path": "5x72_reference/audit_2026-10-09.json.gz",
+      "sha256": "8b53aac76447951737e0f477124fa11b074c8e0d6ae4244eac686968d471c1d3"
+    },
+    "rigid": {
+      "json_sha256": "a2ae7e8f6b5b9cb2cfd663bd2a5907a6f5edfc4a0d903074c2bee082141905eb",
+      "path": "5x72_rigid/audit_2026-10-09.json.gz",
+      "sha256": "f0e91b99793bc61403aedf660016f532e1a46c5815f92441f511dbac8ffb4179"
+    },
+    "root_order": {
+      "json_sha256": "9dea3e79ec9126c2057037d6db95eccf5e8f5c066acb3d4d2b867c3507758ea2",
+      "path": "5x72_root_order/audit_2026-10-09.json.gz",
+      "sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e"
+    }
+  },
+  "limits": [
+    "No pooled recovery probability or independent-complex count.",
+    "Reused geometries/evaluations and equivalent sham trajectories remain dependent.",
+    "Original source-proof flags are retained, not reverified or upgraded.",
+    "No molecular operation, geometry measurement, search, scoring, optimization or reranking."
+  ],
+  "owner": "uibcdf/dockingmt#70",
+  "presentation_producer": {
+    "module": "dmt_test_support/synthesize_5x72_controls.py",
+    "scope": "retrospective saved-record projection; not an original scientific producer",
+    "sha256": "73fc9ad74db3616efce2d99460bc0e9175aac98db6980794124dc62f19ae0023"
+  },
+  "schema": "dockingmt.5x72_control_synthesis@1",
+  "score_modes": {
+    "docking": {
+      "provider_call": "Vina.energies",
+      "unit": "kilocalorie / mole"
+    },
+    "fixed": {
+      "provider_call": "Vina.score",
+      "unit": "kilocalorie / mole"
+    }
+  },
+  "stages": [
+    {
+      "dependencies": [],
+      "operation_counts": {
+        "original_new_fixed_evaluations": 0,
+        "original_new_searches": 24,
+        "original_returned_poses": 99,
+        "previous_fixed_evaluations_reused": null,
+        "previous_saved_poses_reused": null
+      },
+      "original_producer": {
+        "consumer_base_commit": "357cd87f273360a30af4fe67f0a5df7b9b21a4e7",
+        "consumer_source_record_sha256": "83df1b2d396c40be4c2c3cfb601adaf4bc3e93737faedb387fff524ddbacacb3",
+        "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+        "recorded_versions": {
+          "argdigest": "0.15.0+1.g5c6711e",
+          "molsysmt": "0.22.4+215.g5bd893c85",
+          "pyunitwizard": "0.28.1+3.g2ab37a5",
+          "rdkit": "2026.3.1",
+          "vina": "1.2.7"
+        }
+      },
+      "original_schema": "dockingmt.5x72_root_order_audit@1",
+      "recorded_facts": {
+        "search_recovery": [
+          {
+            "any_returned_recovered": 3,
+            "evaluated_runs": 6,
+            "first_recovered": 0,
+            "ligand": "p59",
+            "order": "native",
+            "recorded_minimum_fixed_recovered": null,
+            "returned_poses": 25,
+            "search_receptor": "protein_only"
+          },
+          {
+            "any_returned_recovered": 4,
+            "evaluated_runs": 6,
+            "first_recovered": 0,
+            "ligand": "p59",
+            "order": "first_fixed",
+            "recorded_minimum_fixed_recovered": null,
+            "returned_poses": 25,
+            "search_receptor": "protein_only"
+          },
+          {
+            "any_returned_recovered": 0,
+            "evaluated_runs": 6,
+            "first_recovered": 0,
+            "ligand": "p69",
+            "order": "native",
+            "recorded_minimum_fixed_recovered": null,
+            "returned_poses": 25,
+            "search_receptor": "protein_only"
+          },
+          {
+            "any_returned_recovered": 0,
+            "evaluated_runs": 6,
+            "first_recovered": 0,
+            "ligand": "p69",
+            "order": "first_fixed",
+            "recorded_minimum_fixed_recovered": null,
+            "returned_poses": 24,
+            "search_receptor": "protein_only"
+          }
+        ]
+      },
+      "stage": "root_order"
+    },
+    {
+      "dependencies": [
+        {
+          "field": "baseline_sha256",
+          "sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e",
+          "target": "root_order"
+        }
+      ],
+      "operation_counts": {
+        "original_new_fixed_evaluations": 256,
+        "original_new_searches": 24,
+        "original_returned_poses": 78,
+        "previous_fixed_evaluations_reused": null,
+        "previous_saved_poses_reused": 50
+      },
+      "original_producer": {
+        "consumer_base_commit": "ee095f4548441dfd043e4f322095810c54c4e002",
+        "consumer_source_record_sha256": "d6f366c620b5167729818bb774477e99032dfbc4305e9aab29d25f5e8e2c9926",
+        "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+        "recorded_versions": {
+          "argdigest": "0.15.0+1.g5c6711e",
+          "molsysmt": "0.22.4+215.g5bd893c85",
+          "pyunitwizard": "0.28.1+3.g2ab37a5",
+          "rdkit": "2026.3.1",
+          "vina": "1.2.7"
+        }
+      },
+      "original_schema": "dockingmt.5x72_occupancy_audit@1",
+      "recorded_facts": {
+        "fixed_evaluations_on_new_search_poses": 156,
+        "fixed_serialization_evaluations_on_historical_poses": 100,
+        "search_recovery": [
+          {
+            "any_returned_recovered": 3,
+            "evaluated_runs": 6,
+            "first_recovered": 0,
+            "ligand": "p59",
+            "order": "native",
+            "recorded_minimum_fixed_recovered": {
+              "occupied": 3,
+              "sham": 0
+            },
+            "returned_poses": 25,
+            "search_receptor": "sham"
+          },
+          {
+            "any_returned_recovered": 4,
+            "evaluated_runs": 6,
+            "first_recovered": 0,
+            "ligand": "p59",
+            "order": "first_fixed",
+            "recorded_minimum_fixed_recovered": {
+              "occupied": 4,
+              "sham": 0
+            },
+            "returned_poses": 25,
+            "search_receptor": "sham"
+          },
+          {
+            "any_returned_recovered": 5,
+            "evaluated_runs": 6,
+            "first_recovered": 5,
+            "ligand": "p59",
+            "order": "native",
+            "recorded_minimum_fixed_recovered": {
+              "occupied": 5,
+              "sham": 5
+            },
+            "returned_poses": 13,
+            "search_receptor": "occupied"
+          },
+          {
+            "any_returned_recovered": 5,
+            "evaluated_runs": 6,
+            "first_recovered": 5,
+            "ligand": "p59",
+            "order": "first_fixed",
+            "recorded_minimum_fixed_recovered": {
+              "occupied": 5,
+              "sham": 5
+            },
+            "returned_poses": 15,
+            "search_receptor": "occupied"
+          }
+        ]
+      },
+      "stage": "occupancy"
+    },
+    {
+      "dependencies": [
+        {
+          "field": "baseline_sha256",
+          "sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e",
+          "target": "root_order"
+        }
+      ],
+      "operation_counts": {
+        "original_new_fixed_evaluations": 254,
+        "original_new_searches": 24,
+        "original_returned_poses": 78,
+        "previous_fixed_evaluations_reused": null,
+        "previous_saved_poses_reused": 49
+      },
+      "original_producer": {
+        "consumer_base_commit": "5b29047652b89485eadd3bb95c8b0f001becb6ff",
+        "consumer_source_record_sha256": "051b42e0eaa61d156249d770249365560dbfb73d5474f5a63f748cef3c45860d",
+        "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+        "recorded_versions": {
+          "argdigest": "0.15.0+1.g5c6711e",
+          "molsysmt": "0.22.4+215.g5bd893c85",
+          "pyunitwizard": "0.28.1+3.g2ab37a5",
+          "rdkit": "2026.3.1",
+          "vina": "1.2.7"
+        }
+      },
+      "original_schema": "dockingmt.5x72_reciprocal_audit@1",
+      "recorded_facts": {
+        "fixed_evaluations_on_new_search_poses": 156,
+        "fixed_serialization_evaluations_on_historical_poses": 98,
+        "search_recovery": [
+          {
+            "any_returned_recovered": 0,
+            "evaluated_runs": 6,
+            "first_recovered": 0,
+            "ligand": "p69",
+            "order": "native",
+            "recorded_minimum_fixed_recovered": {
+              "occupied": 0,
+              "sham": 0
+            },
+            "returned_poses": 25,
+            "search_receptor": "sham"
+          },
+          {
+            "any_returned_recovered": 0,
+            "evaluated_runs": 6,
+            "first_recovered": 0,
+            "ligand": "p69",
+            "order": "first_fixed",
+            "recorded_minimum_fixed_recovered": {
+              "occupied": 0,
+              "sham": 0
+            },
+            "returned_poses": 24,
+            "search_receptor": "sham"
+          },
+          {
+            "any_returned_recovered": 4,
+            "evaluated_runs": 6,
+            "first_recovered": 0,
+            "ligand": "p69",
+            "order": "native",
+            "recorded_minimum_fixed_recovered": {
+              "occupied": 0,
+              "sham": 0
+            },
+            "returned_poses": 15,
+            "search_receptor": "occupied"
+          },
+          {
+            "any_returned_recovered": 3,
+            "evaluated_runs": 6,
+            "first_recovered": 0,
+            "ligand": "p69",
+            "order": "first_fixed",
+            "recorded_minimum_fixed_recovered": {
+              "occupied": 0,
+              "sham": 0
+            },
+            "returned_poses": 14,
+            "search_receptor": "occupied"
+          }
+        ]
+      },
+      "stage": "reciprocal"
+    },
+    {
+      "dependencies": [
+        {
+          "field": "historical_archives/p59",
+          "original_proof_record_sha256": "3c38d6053193269dc039d5d7c5116e1d6c2efb18c0850a72261f7ca08cffed80",
+          "original_sources_verified": true,
+          "producer_commit": "5fee9c2e5e99eb26ddc98bae529a511eb9d4ea60",
+          "sha256": "5f698db8afee0df5d4323e30991d7f9061cc6ddd783d09fdeec148dc45e9db20",
+          "target": "occupancy"
+        },
+        {
+          "field": "historical_archives/p69",
+          "original_proof_record_sha256": "4f103f74a5cb4a70e8f205f8c9a69220af6f31d68831f8e6070a448b1cebee1d",
+          "original_sources_verified": true,
+          "producer_commit": "3b8258f8a34fbb32dc8d5d09207553bff4b47bf5",
+          "sha256": "323a5cb7a826368eb4914219c3a29c2fdf440956a792f9ebf7812e2cc228083d",
+          "target": "reciprocal"
+        }
+      ],
+      "operation_counts": {
+        "original_new_fixed_evaluations": 8,
+        "original_new_searches": 0,
+        "original_returned_poses": 0,
+        "previous_fixed_evaluations_reused": 312,
+        "previous_saved_poses_reused": 156
+      },
+      "original_producer": {
+        "consumer_base_commit": "4826bba171d9a8ae1dfd93f9a96808a37ea40070",
+        "consumer_source_record_sha256": "307c0631dbdf2e50ba5f9e4db39e609193c4ca072649d0ccd73c21610eccec18",
+        "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+        "recorded_versions": {
+          "argdigest": "0.15.0+1.g5c6711e",
+          "molsysmt": "0.22.4+215.g5bd893c85",
+          "pyunitwizard": "0.28.1+3.g2ab37a5",
+          "rdkit": "2026.3.1",
+          "vina": "1.2.7"
+        }
+      },
+      "original_schema": "dockingmt.5x72_reference_audit@1",
+      "recorded_facts": {
+        "recorded_root_order_agreement": {
+          "p59": true,
+          "p69": true
+        },
+        "saved_cell_summaries": 96,
+        "saved_comparison_rows": 312
+      },
+      "stage": "reference"
+    },
+    {
+      "dependencies": [
+        {
+          "field": "experimental_reference_archive_sha256",
+          "sha256": "8b53aac76447951737e0f477124fa11b074c8e0d6ae4244eac686968d471c1d3",
+          "target": "reference"
+        },
+        {
+          "field": "historical_archives/p59",
+          "original_proof_record_sha256": "3c38d6053193269dc039d5d7c5116e1d6c2efb18c0850a72261f7ca08cffed80",
+          "original_sources_verified": true,
+          "producer_commit": "5fee9c2e5e99eb26ddc98bae529a511eb9d4ea60",
+          "sha256": "5f698db8afee0df5d4323e30991d7f9061cc6ddd783d09fdeec148dc45e9db20",
+          "target": "occupancy"
+        },
+        {
+          "field": "historical_archives/p69",
+          "original_proof_record_sha256": "4f103f74a5cb4a70e8f205f8c9a69220af6f31d68831f8e6070a448b1cebee1d",
+          "original_sources_verified": true,
+          "producer_commit": "3b8258f8a34fbb32dc8d5d09207553bff4b47bf5",
+          "sha256": "323a5cb7a826368eb4914219c3a29c2fdf440956a792f9ebf7812e2cc228083d",
+          "target": "reciprocal"
+        }
+      ],
+      "operation_counts": {
+        "original_new_fixed_evaluations": 8,
+        "original_new_searches": 0,
+        "original_returned_poses": 0,
+        "previous_fixed_evaluations_reused": 312,
+        "previous_saved_poses_reused": 156
+      },
+      "original_producer": {
+        "consumer_base_commit": "8a46c8f32c936d3052cd6b53ce8d88b2b8118b67",
+        "consumer_source_record_sha256": "a48ea508428e4873b8d45d55d42a947b3c89e3ea2bcb4cd62a1ad8d428b40a74",
+        "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+        "recorded_versions": {
+          "argdigest": "0.15.0+1.g5c6711e",
+          "molsysmt": "0.22.4+215.g5bd893c85",
+          "pyunitwizard": "0.28.1+3.g2ab37a5",
+          "rdkit": "2026.3.1",
+          "vina": "1.2.7"
+        }
+      },
+      "original_schema": "dockingmt.5x72_rigid_audit@1",
+      "recorded_facts": {
+        "recorded_root_order_agreement": {
+          "p59": true,
+          "p69": true
+        },
+        "saved_cell_summaries": 96,
+        "saved_comparison_rows": 312
+      },
+      "stage": "rigid"
+    },
+    {
+      "dependencies": [
+        {
+          "field": "reference_archive_sha256",
+          "sha256": "8b53aac76447951737e0f477124fa11b074c8e0d6ae4244eac686968d471c1d3",
+          "target": "reference"
+        },
+        {
+          "field": "rigid_archive_sha256",
+          "sha256": "f0e91b99793bc61403aedf660016f532e1a46c5815f92441f511dbac8ffb4179",
+          "target": "rigid"
+        },
+        {
+          "field": "historical_archives/p59",
+          "original_proof_record_sha256": "b5df73c905089fff938e40daf8c9421f49d4d0da6b540c2a98ef3bcc0a986460",
+          "original_sources_verified": false,
+          "producer_commit": "5fee9c2e5e99eb26ddc98bae529a511eb9d4ea60",
+          "sha256": "5f698db8afee0df5d4323e30991d7f9061cc6ddd783d09fdeec148dc45e9db20",
+          "target": "occupancy"
+        },
+        {
+          "field": "historical_archives/p69",
+          "original_proof_record_sha256": "f1fe01d9d3e783b70b85d7724e4e48f5489162bfc76f86969177965159a62f71",
+          "original_sources_verified": false,
+          "producer_commit": "3b8258f8a34fbb32dc8d5d09207553bff4b47bf5",
+          "sha256": "323a5cb7a826368eb4914219c3a29c2fdf440956a792f9ebf7812e2cc228083d",
+          "target": "reciprocal"
+        }
+      ],
+      "operation_counts": {
+        "original_new_fixed_evaluations": 0,
+        "original_new_searches": 0,
+        "original_returned_poses": 0,
+        "previous_fixed_evaluations_reused": null,
+        "previous_saved_poses_reused": null
+      },
+      "original_producer": {
+        "consumer_base_commit": "a2b282a4ea1afa4524e92cbb4a444c0c6fe1dad8",
+        "consumer_source_record_sha256": "891bca7fb701de2ce71af1ff9b083371eaa5036362beb529541d1f32e567ddcb",
+        "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+        "recorded_versions": {
+          "argdigest": "0.15.0+1.g5c6711e",
+          "molsysmt": "0.22.4+215.g5bd893c85",
+          "pyunitwizard": "0.28.1+3.g2ab37a5",
+          "rdkit": "2026.3.1",
+          "vina": "1.2.7"
+        }
+      },
+      "original_schema": "dockingmt.5x72_contact_audit@1",
+      "recorded_facts": {
+        "distance_entries": 298700,
+        "distance_matrices": 8,
+        "recorded_geometry_flags": {
+          "p59": {
+            "protein_prefix_exact": true,
+            "root_order_exact_on_source_axis": true
+          },
+          "p69": {
+            "protein_prefix_exact": true,
+            "root_order_exact_on_source_axis": true
+          }
+        },
+        "strict_thresholds_angstrom": [
+          1.5,
+          2.0,
+          2.5,
+          3.0,
+          4.0,
+          5.0
+        ]
+      },
+      "stage": "contact"
+    },
+    {
+      "dependencies": [
+        {
+          "field": "contact_archive_sha256",
+          "sha256": "84ad1212925bd0765f99b5e9a8932d5b7976e887f51a14964ec295b501aa5490",
+          "target": "contact"
+        },
+        {
+          "field": "historical_archives/p59",
+          "original_proof_record_sha256": "b5df73c905089fff938e40daf8c9421f49d4d0da6b540c2a98ef3bcc0a986460",
+          "original_sources_verified": false,
+          "producer_commit": "5fee9c2e5e99eb26ddc98bae529a511eb9d4ea60",
+          "sha256": "5f698db8afee0df5d4323e30991d7f9061cc6ddd783d09fdeec148dc45e9db20",
+          "target": "occupancy"
+        },
+        {
+          "field": "historical_archives/p69",
+          "original_proof_record_sha256": "f1fe01d9d3e783b70b85d7724e4e48f5489162bfc76f86969177965159a62f71",
+          "original_sources_verified": false,
+          "producer_commit": "3b8258f8a34fbb32dc8d5d09207553bff4b47bf5",
+          "sha256": "323a5cb7a826368eb4914219c3a29c2fdf440956a792f9ebf7812e2cc228083d",
+          "target": "reciprocal"
+        }
+      ],
+      "operation_counts": {
+        "original_new_fixed_evaluations": 112,
+        "original_new_searches": 0,
+        "original_returned_poses": 0,
+        "previous_fixed_evaluations_reused": null,
+        "previous_saved_poses_reused": null
+      },
+      "original_producer": {
+        "consumer_base_commit": "b793075e8a06bea6d8704eb0db24239b16671e57",
+        "consumer_source_record_sha256": "cc859ce496fbc2548e82a4ae6fda2dcc0447f63a9c4e297865eafe226da14ecf",
+        "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90",
+        "recorded_versions": {
+          "argdigest": "0.15.0+1.g5c6711e",
+          "molsysmt": "0.22.4+215.g5bd893c85",
+          "pyunitwizard": "0.28.1+3.g2ab37a5",
+          "rdkit": "2026.3.1",
+          "vina": "1.2.7"
+        }
+      },
+      "original_schema": "dockingmt.5x72_displacement_audit@1",
+      "recorded_facts": {
+        "constructed_points": 28,
+        "fresh_zero_anchor_evaluations": 16,
+        "nonzero_fixed_evaluations": 96,
+        "offsets_angstrom": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.25,
+            0.0,
+            0.0
+          ],
+          [
+            0.25,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            -0.25,
+            0.0
+          ],
+          [
+            0.0,
+            0.25,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            -0.25
+          ],
+          [
+            0.0,
+            0.0,
+            0.25
+          ]
+        ],
+        "original_unit_contract": {
+          "coordinates": "angstrom",
+          "pair_distance": "angstrom",
+          "rmsd": "angstrom",
+          "scores": "kcal/mol",
+          "translation": "angstrom"
+        },
+        "saved_summary_rows": [
+          {
+            "context": "sham",
+            "finite_maximum_minus_zero_kcal_mol": 1.3440000000000003,
+            "finite_minimum_minus_zero_kcal_mol": -0.7899999999999991,
+            "geometry_arm": "original_rigid",
+            "ligand": "p59",
+            "nonzero_offsets_with_strictly_lower_reported_total": 3,
+            "order": "native"
+          },
+          {
+            "context": "sham",
+            "finite_maximum_minus_zero_kcal_mol": 1.3440000000000003,
+            "finite_minimum_minus_zero_kcal_mol": -0.7899999999999991,
+            "geometry_arm": "original_rigid",
+            "ligand": "p59",
+            "nonzero_offsets_with_strictly_lower_reported_total": 3,
+            "order": "first_fixed"
+          },
+          {
+            "context": "occupied",
+            "finite_maximum_minus_zero_kcal_mol": 1.2039999999999997,
+            "finite_minimum_minus_zero_kcal_mol": -0.6189999999999998,
+            "geometry_arm": "original_rigid",
+            "ligand": "p59",
+            "nonzero_offsets_with_strictly_lower_reported_total": 1,
+            "order": "native"
+          },
+          {
+            "context": "occupied",
+            "finite_maximum_minus_zero_kcal_mol": 1.2039999999999997,
+            "finite_minimum_minus_zero_kcal_mol": -0.6189999999999998,
+            "geometry_arm": "original_rigid",
+            "ligand": "p59",
+            "nonzero_offsets_with_strictly_lower_reported_total": 1,
+            "order": "first_fixed"
+          },
+          {
+            "context": "sham",
+            "finite_maximum_minus_zero_kcal_mol": 1.4379999999999988,
+            "finite_minimum_minus_zero_kcal_mol": -0.7270000000000003,
+            "geometry_arm": "experimental_reference",
+            "ligand": "p59",
+            "nonzero_offsets_with_strictly_lower_reported_total": 1,
+            "order": "native"
+          },
+          {
+            "context": "sham",
+            "finite_maximum_minus_zero_kcal_mol": 1.4379999999999988,
+            "finite_minimum_minus_zero_kcal_mol": -0.7270000000000003,
+            "geometry_arm": "experimental_reference",
+            "ligand": "p59",
+            "nonzero_offsets_with_strictly_lower_reported_total": 1,
+            "order": "first_fixed"
+          },
+          {
+            "context": "occupied",
+            "finite_maximum_minus_zero_kcal_mol": 1.1170000000000009,
+            "finite_minimum_minus_zero_kcal_mol": 0.0,
+            "geometry_arm": "experimental_reference",
+            "ligand": "p59",
+            "nonzero_offsets_with_strictly_lower_reported_total": 0,
+            "order": "native"
+          },
+          {
+            "context": "occupied",
+            "finite_maximum_minus_zero_kcal_mol": 1.1170000000000009,
+            "finite_minimum_minus_zero_kcal_mol": 0.0,
+            "geometry_arm": "experimental_reference",
+            "ligand": "p59",
+            "nonzero_offsets_with_strictly_lower_reported_total": 0,
+            "order": "first_fixed"
+          },
+          {
+            "context": "sham",
+            "finite_maximum_minus_zero_kcal_mol": 3.6999999999999997,
+            "finite_minimum_minus_zero_kcal_mol": -2.512,
+            "geometry_arm": "original_rigid",
+            "ligand": "p69",
+            "nonzero_offsets_with_strictly_lower_reported_total": 3,
+            "order": "native"
+          },
+          {
+            "context": "sham",
+            "finite_maximum_minus_zero_kcal_mol": 3.6999999999999997,
+            "finite_minimum_minus_zero_kcal_mol": -2.512,
+            "geometry_arm": "original_rigid",
+            "ligand": "p69",
+            "nonzero_offsets_with_strictly_lower_reported_total": 3,
+            "order": "first_fixed"
+          },
+          {
+            "context": "occupied",
+            "finite_maximum_minus_zero_kcal_mol": 3.758,
+            "finite_minimum_minus_zero_kcal_mol": -2.5540000000000003,
+            "geometry_arm": "original_rigid",
+            "ligand": "p69",
+            "nonzero_offsets_with_strictly_lower_reported_total": 3,
+            "order": "native"
+          },
+          {
+            "context": "occupied",
+            "finite_maximum_minus_zero_kcal_mol": 3.758,
+            "finite_minimum_minus_zero_kcal_mol": -2.5540000000000003,
+            "geometry_arm": "original_rigid",
+            "ligand": "p69",
+            "nonzero_offsets_with_strictly_lower_reported_total": 3,
+            "order": "first_fixed"
+          },
+          {
+            "context": "sham",
+            "finite_maximum_minus_zero_kcal_mol": 1.346,
+            "finite_minimum_minus_zero_kcal_mol": -0.6260000000000012,
+            "geometry_arm": "experimental_reference",
+            "ligand": "p69",
+            "nonzero_offsets_with_strictly_lower_reported_total": 2,
+            "order": "native"
+          },
+          {
+            "context": "sham",
+            "finite_maximum_minus_zero_kcal_mol": 1.346,
+            "finite_minimum_minus_zero_kcal_mol": -0.6260000000000012,
+            "geometry_arm": "experimental_reference",
+            "ligand": "p69",
+            "nonzero_offsets_with_strictly_lower_reported_total": 2,
+            "order": "first_fixed"
+          },
+          {
+            "context": "occupied",
+            "finite_maximum_minus_zero_kcal_mol": 1.423,
+            "finite_minimum_minus_zero_kcal_mol": -0.7240000000000002,
+            "geometry_arm": "experimental_reference",
+            "ligand": "p69",
+            "nonzero_offsets_with_strictly_lower_reported_total": 2,
+            "order": "native"
+          },
+          {
+            "context": "occupied",
+            "finite_maximum_minus_zero_kcal_mol": 1.423,
+            "finite_minimum_minus_zero_kcal_mol": -0.7240000000000002,
+            "geometry_arm": "experimental_reference",
+            "ligand": "p69",
+            "nonzero_offsets_with_strictly_lower_reported_total": 2,
+            "order": "first_fixed"
+          }
+        ]
+      },
+      "stage": "displacement"
+    }
+  ]
+}

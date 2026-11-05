@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (48)
+### Resolved (49)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
@@ -49,6 +49,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`source_based_ci_omits_biopython.md`](source_based_ci_omits_biopython.md) — [#11](https://github.com/uibcdf/dockingmt/issues/11) — Source-based CI omits Biopython needed by the scientific test stack. *(resolved, reproduced)*
 - [`stochastic_redocking_ci_expectations.md`](stochastic_redocking_ci_expectations.md) — [#46](https://github.com/uibcdf/dockingmt/issues/46) — Portable evaluation CI assumes recovery from a low-budget stochastic search. *(resolved, measured)*
 - [`summarize_redocking.md`](summarize_redocking.md) — [#39](https://github.com/uibcdf/dockingmt/issues/39) — Summarize compatible redocking evaluations with explicit failure denominators. *(resolved, measured)*
+- [`synthesize_5x72_control_chain.md`](synthesize_5x72_control_chain.md) — [#70](https://github.com/uibcdf/dockingmt/issues/70) — Integrate the historical 5X72 control chain into the scientific synthesis. *(resolved, measured)*
 - [`update_chemical_preparation_qualification.md`](update_chemical_preparation_qualification.md) — [#42](https://github.com/uibcdf/dockingmt/issues/42) — Qualify retained MolSysMT preparation history and successful fixed-state benzene hydrogen addition. *(resolved, measured)*
 - [`use_molsysmt_as_canonical_molecular_input_for_the_core_mvp.md`](use_molsysmt_as_canonical_molecular_input_for_the_core_mvp.md) — [#9](https://github.com/uibcdf/dockingmt/issues/9) — Use MolSysMT as the canonical molecular input for the Core MVP *(resolved, measured)*
 - [`vina_adapter_advertises_unsupported_ad4_scoring.md`](vina_adapter_advertises_unsupported_ad4_scoring.md) — [#23](https://github.com/uibcdf/dockingmt/issues/23) — Reject unsupported AD4 scoring before Vina execution *(resolved, measured)*

@@ -183,7 +183,7 @@ Figures have also been inspected for readable labels, visible coincident
 curves and clipping. This static figure review does not qualify live C4/C6.
 
 The 20 controls also pass on Python 3.14 with published Pytest Receptor 1.2.2
-outside the owner tree, using the shared support stager's 578-file declaration.
+with the owner root excluded from Python paths, using shared support's 578-file declaration.
 Only the helper namespace is bound; the owner is absent from Python paths.
 Four shared integrity checks pass, and the staged resources and imports are
 retired. This is bounded helper/test receiving of the working tree, not a new

@@ -3013,3 +3013,23 @@ sha256 = "7e433ad8e04c326b0332da2a1f92c2b5e9ac2620623d5fc113da8501bc909630"
 source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/summary.json"
 target = "devguide/validation/data/p59_score_diagnostic_2026-11-05/summary.json"
 sha256 = "436c224048abba465f29bcee379f049b8b65ab6f16718a3b6a7193384a6668ab"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/synthesize_5x72_controls.py"
+target = "dmt_test_support/synthesize_5x72_controls.py"
+sha256 = "73fc9ad74db3616efce2d99460bc0e9175aac98db6980794124dc62f19ae0023"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_synthesis_2026-11-05/manifest.json"
+target = "devguide/validation/data/5x72_synthesis_2026-11-05/manifest.json"
+sha256 = "da7be1e83ce80160474947d7a7d5d52e1bc88d83c3c6c593cfdeb36adf484bcc"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_synthesis_2026-11-05/summary.json"
+target = "devguide/validation/data/5x72_synthesis_2026-11-05/summary.json"
+sha256 = "64b2d10a6c2b1ac9913d7fdb528789c666c3ba8a6a180723687b28939389570c"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/5x72_synthesis_2026-11-05/tables.md"
+target = "devguide/validation/data/5x72_synthesis_2026-11-05/tables.md"
+sha256 = "3882136a53122e5b992ec064eb2c8b6860abd77dc18cb7798509942f85d22dcd"

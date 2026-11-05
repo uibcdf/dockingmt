@@ -1,0 +1,48 @@
+{
+  "files": {
+    "summary.json": "64b2d10a6c2b1ac9913d7fdb528789c666c3ba8a6a180723687b28939389570c",
+    "tables.md": "3882136a53122e5b992ec064eb2c8b6860abd77dc18cb7798509942f85d22dcd"
+  },
+  "inputs": {
+    "contact": {
+      "json_sha256": "f6765c5daa0c09923058c399b10e295f664aee266b1791558f9a4e6454425098",
+      "path": "5x72_contact/audit_2026-10-09.json.gz",
+      "sha256": "84ad1212925bd0765f99b5e9a8932d5b7976e887f51a14964ec295b501aa5490"
+    },
+    "displacement": {
+      "json_sha256": "0bbf5990234cec5b739d7f32f00e035ada42d9bd3277932eab831c9f3545226c",
+      "path": "5x72_displacement/audit_2026-10-09.json.gz",
+      "sha256": "afb8bfa4092abc78f8cd2daf33da7248fe39fbd1856b23e24a192f4813fb72a8"
+    },
+    "occupancy": {
+      "json_sha256": "43fe91ffa091b179dc28aa357c4b14935dd9e4cc2fbaf72ea354ce818e475266",
+      "path": "5x72_occupancy/audit_2026-10-09.json.gz",
+      "sha256": "5f698db8afee0df5d4323e30991d7f9061cc6ddd783d09fdeec148dc45e9db20"
+    },
+    "reciprocal": {
+      "json_sha256": "d61ecc11544e65e7548f743627995ed585607e78bf128b8b9f4cf3d53ca7e127",
+      "path": "5x72_reciprocal/audit_2026-10-09.json.gz",
+      "sha256": "323a5cb7a826368eb4914219c3a29c2fdf440956a792f9ebf7812e2cc228083d"
+    },
+    "reference": {
+      "json_sha256": "b9ef59927caff00ebee26145bdab1a64ff5ced94342cf5f762638cb8953c309e",
+      "path": "5x72_reference/audit_2026-10-09.json.gz",
+      "sha256": "8b53aac76447951737e0f477124fa11b074c8e0d6ae4244eac686968d471c1d3"
+    },
+    "rigid": {
+      "json_sha256": "a2ae7e8f6b5b9cb2cfd663bd2a5907a6f5edfc4a0d903074c2bee082141905eb",
+      "path": "5x72_rigid/audit_2026-10-09.json.gz",
+      "sha256": "f0e91b99793bc61403aedf660016f532e1a46c5815f92441f511dbac8ffb4179"
+    },
+    "root_order": {
+      "json_sha256": "9dea3e79ec9126c2057037d6db95eccf5e8f5c066acb3d4d2b867c3507758ea2",
+      "path": "5x72_root_order/audit_2026-10-09.json.gz",
+      "sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e"
+    }
+  },
+  "presentation_producer": {
+    "module": "dmt_test_support/synthesize_5x72_controls.py",
+    "scope": "retrospective saved-record projection; not an original scientific producer",
+    "sha256": "73fc9ad74db3616efce2d99460bc0e9175aac98db6980794124dc62f19ae0023"
+  }
+}

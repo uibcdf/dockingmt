@@ -108,6 +108,12 @@ the GitHub Script action's Node 24 runtime has executed here. Existing #22
 public-report evidence retains its original producer. Other components' issues,
 new scientific work, package qualification and visible C4/C6 remain separate.
 
+Hosted receiving: exact `ae2a9a924bf860e8c2f4315f2beaabb6eb6c23a7`
+[CI 42094443810, attempt 1](https://github.com/uibcdf/dockingmt/actions/runs/42094443810/attempts/1)
+passes 7/7, including actual binding, download and Codecov upload. This adds
+normal-attempt hosted integration to the historical partial-rerun controlled
+receiving; it does not turn the original failed attempt into success.
+
 ## Primary contracts
 
 - [Official workflow-job API](https://docs.github.com/en/rest/actions/workflow-jobs#list-jobs-for-a-workflow-run): effective-job selection and pagination.

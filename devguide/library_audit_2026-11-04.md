@@ -104,10 +104,10 @@ This complements, rather than replaces, the criterion-by-criterion
 | E2. Molecular pose reconstruction preserves available identity and geometry. | [Reconstruction contract](validation/flexible_reconstruction.md) and [delegation tests](../tests/test_molecular_delegation.py). | Supported for the retained mapped representation; absent PDBQT chemistry and omitted atoms are not recovered. | A separately qualified provider persistence/reconstruction contract for any richer claim. |
 | E3. The adapter preserves backend scores, units and executed settings. | [Native-output tests](../tests/test_vina_output.py), [score semantics](validation/score_semantics.md), external 1IEP observations. | Supported for inspected Vina/Vinardo paths and recorded versions; not proof that the score estimates experimental affinity. | Exact-input differential receiving for any changed backend/version or new scoring mode. |
 | E4. Saved results can be inspected and recovered without changing their scientific identity. | [Installed inspection](validation/installed_result_inspection.md), [prepared recovery](validation/prepared_recovery.md), linked case records. | Supported bounded recovery; detached JSON is not a complete molecular snapshot or guaranteed re-execution. | Actual broader user recovery requirements and provider-owned molecular persistence. |
-| E5. The workflow can generate a pose close to an experimental reference. | Registered 3PTB and external 1IEP observations; mixed 5X72 outcomes. | Demonstrated in particular cases, not an estimated general success rate. | Prespecified independent-complex panel with explicit preparation, initial-conformation and metric strata. |
-| E6. The first returned pose is reliably the scientifically relevant pose. | 3PTB first-pose recovery; 5X72 P59 returned-set recovery without first-pose recovery. | General reliability unestablished; generation and ranking demonstrably differ in this corpus. | Separate top-1/top-k/any-returned measurements and ranking diagnostics over a common admitted cohort. |
-| E7. Preparation choices are chemically and biologically suitable. | [Declared profile](validation/preparation_profile.md), named assignment reports, charge/map controls. | Traceability and representation admission are supported; environmental state/model suitability remains unassessed. | Scientifically justified alternative hypotheses, independent reference review and controlled sensitivity studies. |
-| E8. A recovered pose is physically plausible. | Explicit graph/stereo admission in selected cases, mapped positional RMSD, optional provider symmetry evaluation. | No systematic output-plausibility acceptance across the corpus is established by this audit. Input stereo checks alone do not qualify every output. | Provider-backed output chemistry/geometry/contact checks with known positive and adverse controls and documented applicability. |
+| E5. The workflow can generate a pose close to an experimental reference. | Registered 3PTB/external 1IEP and the [complete 5X72 control chain](validation/5x72_control_synthesis_2026-11-05.md). | Demonstrated in finite cases; constructed near-reference points and reused poses add no independent recovery estimate. | Prespecified independent-complex panel with explicit preparation, initial-conformation and metric strata. |
+| E6. The first returned pose is reliably the scientifically relevant pose. | 3PTB plus original, matched-occupancy and reciprocal 5X72 search/fixed-score controls. | General reliability unestablished. Occupancy improves P59 first recovery in the tested model; P69 retains a score-preference discrepancy despite returned recovery. | Broader admitted cases and explicitly comparable model/intervention studies; preserve sampling versus recorded preference. |
+| E7. Preparation choices are chemically and biologically suitable. | [Declared profile](validation/preparation_profile.md), named assignment reports, charge/map controls and 5X72 occupancy/reference/rigid/displacement studies. | Traceability and model-conditional sensitivity are supported; chemical/biological suitability remains unassessed. Generated-H and rigid/environmental assumptions remain explicit. | Justified hypotheses and independent chemical/reference assessment beyond the existing finite controls. |
+| E8. A recovered pose is physically plausible. | Graph/stereo admission, mapped positional RMSD, optional provider symmetry and archived 5X72 prepared-input distance contrasts. | No systematic output-plausibility acceptance is established. A proximity bin is not a clash/interaction definition or energy attribution. | Provider-backed output chemistry/geometry/contact checks with positive/adverse controls and documented applicability. |
 | E9. Scores rank different ligands, affinities or binders correctly. | Named score semantics and within-result ranking APIs. | Unestablished; those APIs and redocking observations are not a screening or affinity benchmark. | A separately scoped experimental dataset, appropriate negatives/metrics and a justified comparison/calibration protocol. |
 | E10. Ordinary users can install and use the complete supported workflow. | Full private installed qualification and [failed public Viewer receiving](validation/public_viewer_receiving.md). | Private composition supported; complete public composition and actual frontend behavior remain separate unresolved boundaries. | Compatible public artifacts, actual candidate/platform gates and deferred end-to-end visual observation. |
 | E11. Multiple backends or molecular-landscape guidance improve results. | Backend contracts and [scientific horizons](SCIENTIFIC_HORIZONS.md). | Architectural intent only; no comparative improvement claim is established. | A concrete accepted workflow, real provider/backend support and controlled comparisons against a simple baseline. |
@@ -169,6 +169,17 @@ none ranked first; P69 did not meet the registered recovery criterion in any
 returned set. The preserved population contains 24 searches and 99 poses.
 These observations distinguish returned-set sampling from ranking without
 isolating the physical cause or establishing general recovery probabilities.
+
+**Evidence-coverage correction, 2026-11-05:** the paragraph above describes
+the original ROOT-order population. The [integrated 5X72 record](validation/5x72_control_synthesis_2026-11-05.md)
+now incorporates its already executed occupancy, reciprocal, reference,
+original-rigid, distance and displacement controls. P59 first recovery is 5/6
+in each occupied ROOT arm, while P69 occupied first recovery stays 0/6 despite
+returned recovery of 4/6 and 3/6. Same-geometry fixed scoring separates a
+model-conditional occupancy preference effect from new sampling. The earlier
+overview did not synthesize these controls; they are historical evidence being
+integrated now, not new experiments or independent complexes. Current E5–E8
+and the design assessment below include this correction.
 
 The [181L baseline](validation/181l_redocking_exploratory.md),
 [external 1IEP check](validation/1iep_external_pdbqt.md) and subsequent conformer
@@ -268,7 +279,7 @@ explicit in any expanded validation:
 | --- | --- | --- |
 | Case selection | 3PTB was prospectively selected; other cases include upstream tutorials and diagnostic controls. Their combined corpus is not a representative sampling design. | Freeze inclusion/exclusion reasons before outcomes; include admitted failures and distinguish development cases from untouched evaluation cases. |
 | Initial conformation | Bound-like rigid cases primarily test placement/orientation. The existing [1IEP alternative-conformer challenge](validation/1iep_conformer_workflow.md) already probes a different difficulty. | Report bound-conformation and independently prepared/perturbed-conformer strata separately; never replace the experimental reference with the perturbed input. |
-| Receptor and chemical state | The 3PTB dry receptor and declared ligand/residue states are hypotheses. 5X72's experimental co-occupancy differs from its single-ligand search context. | Record excluded waters/cofactors/occupants and state assumptions; do not interpret these experiments as isolating their effects. |
+| Receptor and chemical state | 3PTB dry/state choices remain hypotheses. Original 5X72 single-ligand searches omit co-occupancy; later matched occupancy/reciprocal controls isolate a conditional model intervention, with explicit rigid/H assumptions. | Preserve that measured intervention and its sham controls; document new state/occupant choices and avoid extrapolating physical cause, chemical validity or affinity from the finite model. |
 | Search-domain knowledge | Native boxes use known site information; displaced boxes test a spatial negative control. | State that local redocking supplies site knowledge. Blind docking and nonbinder discrimination require different questions and controls. |
 | Metric and symmetry | Existing cases use different cutoffs and positional atom populations; optional symmetry evaluation has its own provider admission. | Freeze frame, atom population, map, cutoff and symmetry policy. Report continuous RMSDs as well as threshold decisions; do not change correspondence to rescue a result. |
 | Sampling and ranking | Some cases generate a close pose without ranking it first. | Separate generation, ordering and output filtering. Record requested/returned counts and energy-window/clustering settings. “Any returned” is not all poses visited internally. |
@@ -867,3 +878,27 @@ through shared support, plus 24 administrative checks. Original inputs,
 producers and earlier outputs remain intact. Provider-dependent assessment,
 independent-panel/public qualification and live C4/C6 retain their deferrals;
 no new molecular operation, scoring, search or runtime API is introduced.
+
+## Follow-up 24 — complete historical 5X72 chain, 2026-11-05
+
+The [#70 synthesis](validation/5x72_control_synthesis_2026-11-05.md) corrects
+coverage of historical evidence in the audit and overview. It authenticates
+the seven ROOT-order, occupancy, reciprocal, reference, original-rigid, contact
+and displacement archives, keeping per-stage operations and reuse separate.
+These controls already existed; integration is not new scientific execution.
+Current E5–E8 and the receptor/state design row include their bounded findings.
+
+Matched occupancy changes P59's first recovery and same-geometry fixed-score
+preference. P69's reciprocal improves returned coverage but retains first/
+minimum-fixed nonrecovery. Reference, geometry and complete displacement controls
+do not identify physical pair causes or a production remedy; generated-H and
+unrelaxed/model assumptions remain. Fixed-score and docking totals are separate.
+The initial protein-only #69 result remains valid within its original inputs.
+
+The reproducible ledger retains all twelve search strata, seven original
+producer identities and the historical false source-proof flags. Twenty-one
+saved-record controls pass through shared support with source imports isolated;
+no runtime artifact qualification is inferred. Existing independent-panel,
+provider/public delivery and live visual work retains its owners and deferrals.
+The experimental frontier is after the already executed displacement control,
+with any new intervention requiring a separately declared question and method.

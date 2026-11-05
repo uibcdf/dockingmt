@@ -1,12 +1,12 @@
 ---
 summary: Integrate the historical 5X72 control chain into the scientific synthesis.
 issue: uibcdf/dockingmt#70
-status: active
+status: resolved
 opened: 2026-11-05
-closed:
-verification: inspected
+closed: 2026-11-05
+verification: measured
 area: [science, reporting]
-guard:
+guard: tests/test_5x72_control_synthesis.py
 normative:
 blocked_by: []
 supersedes: []
@@ -68,3 +68,33 @@ check mode. Keep old reproducers passing, regenerate report indexes and run
 applicable quality and shared publication/resource gates after final docs,
 including committed export. Preserve historical source-proof limitations and
 distinguish old scientific producers from new head CI.
+
+## Resolution — 2026-11-05
+
+The [seven-stage synthesis](../validation/5x72_control_synthesis_2026-11-05.md)
+delivers the operation/reuse ledger, all twelve search recovery strata, complete
+input/source fingerprints and historical proof flags. A standard-library
+reproducer authenticates the seven original archives and their dependency
+links, without molecular imports or new scientific execution. Original files,
+the earlier overview table and #67/#69 numerical outputs remain unchanged.
+
+The audit's E5–E8/design map and current overview now include occupancy,
+reciprocal, reference, original-rigid, distance and displacement evidence.
+P59's conditional occupancy preference effect and P69's remaining discrepancy
+are explicit. Fixed and docking scores, constructed and returned geometries,
+reused and new original operations stay separate. No physical cause, automatic
+remedy, general affinity/recovery claim or new public API follows.
+
+Twenty-one controls pass using shared declared support with the owner root
+excluded from Python paths; managed resources/imports retire. The private
+staging area is workspace-owned, so the claim is import/source isolation rather
+than a different filesystem location. Original source-proof flags remain
+unchanged, including the contact/displacement false flags. Existing provider,
+independent-panel, public-delivery and live C4/C6 work retains its own scope and
+deferrals. #28 retains exact-head hosted observation.
+
+Another 24 administrative controls pass (45 affected tests total), along with
+Ruff, current indexes, all earlier synthesis/check modes and shared publication/
+resource preflights. Hosted `ae2a9a9` closure is recorded separately, including
+actual corrected coverage binding/download/upload in attempt 1. The new
+synthesis head retains its own hosted observation under #28.

@@ -111,3 +111,15 @@ Fresh check mode blocks molecular and plotting imports. Figures were inspected.
 The helper/six outputs have exact shared support declarations, with no runtime
 payload change. Hosted exact-head observation remains #28; provider/public
 qualification and live C4/C6 remain separate and deferred as applicable.
+
+Hosted source receiving: exact `ae2a9a9` CI 42094443810 passes all seven jobs,
+including executed tests on Python 3.11–3.14 and the coverage publisher.
+The later [#70 synthesis](../validation/5x72_control_synthesis_2026-11-05.md)
+contextualizes this protein-only subset using already executed controls without
+changing these inputs, outputs or conclusions within their original scope.
+
+Receiving-scope clarification: the private shared staging was workspace-owned;
+the recorded isolation concerns the owner root's exclusion from Python paths
+and the declared staged import origins. It does not establish a filesystem
+location outside the checkout. Counts, source bytes and artifact limits remain
+as originally recorded.

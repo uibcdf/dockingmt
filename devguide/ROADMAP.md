@@ -28,6 +28,20 @@ refines the finite E6/Q2 diagnosis, with no chemical-cause or general scoring
 claim. Independent-panel admission, public delivery and live observation retain
 their existing owners/deferrals; exact-head source CI remains #28.
 
+Hosted checkpoint `ae2a9a9` now passes all seven CI jobs and the separate DOM,
+policy and publication-governance workflows. The corrected coverage binding,
+download and Codecov upload actually execute successfully in attempt 1. This
+qualifies that source head, separately from original scientific producers and
+the historical partial-rerun failure.
+
+The [#70 seven-stage 5X72 synthesis](validation/5x72_control_synthesis_2026-11-05.md)
+now integrates the already executed occupancy/reciprocal, reference,
+original-rigid, distance and displacement evidence. Read this chain before
+planning another 5X72 experiment: the earlier follow-ups are complete within
+their stated scope. P59 shows a conditional occupancy preference effect;
+P69 retains adverse ordering. The new ledger adds no searches, scores or
+molecular measurements and preserves original producers/reuse/proof limits.
+
 ## Current operational plan
 
 Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which

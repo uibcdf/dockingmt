@@ -125,6 +125,15 @@ is the original cutoff. Points are not pooled into an independent-pose model.
 
 ## Interpretation and next scientific boundary
 
+The subsequent [integrated 5X72 synthesis](5x72_control_synthesis_2026-11-05.md)
+places this original protein-only subset alongside already executed occupancy,
+reciprocal, reference, rigid, distance and displacement controls. In particular,
+fixed P69 changes P59's model preference on unchanged saved geometries; the
+P69 reciprocal retains adverse ordering outcomes. Interpret the present docking
+score contrasts within that full context, keeping fixed-score evaluations and
+their different definitions separate. These earlier controlled observations
+were outside this diagnostic's declared two inputs and remain unchanged.
+
 The result supports a finite score-preference mismatch relative to this
 structural criterion. It motivates diagnosis of the scoring/model/preparation
 relationship in the declared case. Existing chemical states, reference/model
@@ -169,8 +178,8 @@ molecular and plotting imports during check mode. Figures were inspected for
 readable units, position labels and clipping. The helper and six derived files
 have exact installed-support declarations; no runtime payload is extended.
 
-The 29 new guards and 20 existing #67 controls pass together (49 tests) outside
-the owner tree through the shared support stager's 585-file declaration. Four
+The 29 new guards and 20 existing #67 controls pass together (49 tests) with
+the owner root excluded from Python paths through shared support's 585-file declaration. Four
 shared integrity checks pass; staged resources and imports retire, with the
 owner absent from Python paths. This is bounded working-tree helper receiving,
 with published Pytest Receptor 1.2.2 on Python 3.14, not an installed DockingMT

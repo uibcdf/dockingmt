@@ -58,6 +58,26 @@ evaluated those unchanged results. The original failures are not docking failure
 not observed nonrecovery and not successful original evaluations. The synthesis
 checks the original/receiver archive binding and keeps both stages visible.
 
+### Integrated historical 5X72 controls — 2026-11-05
+
+The [seven-stage synthesis](5x72_control_synthesis_2026-11-05.md) and
+[reproducible ledger](data/5x72_synthesis_2026-11-05/tables.md) extend the
+presentation beyond the original ROOT-order rows above. They authenticate
+separate occupancy, reciprocal, reference, original-rigid, distance and
+displacement archives while retaining original producers and reuse links.
+The frozen four-input table remains unchanged and keeps its declared scope.
+
+| Conditional model question | Existing controlled observation | Limit |
+| --- | --- | --- |
+| Does fixed companion occupancy affect P59? | Occupied first recovery is 5/6 in each ROOT arm versus 0/6 sham. All seven sham sets with recovered geometries prefer one under occupied fixed scoring without moving the poses. | Separates an empirical same-geometry preference effect from new sampling, within this rigid model; no general affinity/cooperativity claim. |
+| Does the reciprocal resolve P69 ordering? | Occupied returned recovery is 4/6 native and 3/6 first-fixed, while first/minimum-fixed recovery stays 0/6 in both. | Occupancy alone does not remove this conditional preference discrepancy. |
+| Do reference and original-rigid controls explain everything? | Experimental-heavy/generated-H reference scoring and near-reference original-rigid constructions have distinct fixed-score outcomes; full prepared-input distance and seven-offset controls are retained. | Generated-H/geometry confounds and unrelaxed models remain; neither short pairs nor favorable offsets identify physical causes or an optimization/preparation remedy. |
+
+Docking `Vina.energies` observations and fixed `Vina.score` components are
+separate modes. Reused poses/evaluations and equivalent sham trajectories are
+not extra independent cases. The synthesis reads saved records only; it adds no
+molecular measurement, score/search, reranking or current-source scientific run.
+
 ### Historical narratives outside the generated table
 
 These linked documents retain useful historical observations, but this synthesis
@@ -85,8 +105,8 @@ inspection and confidence limits. It does not upgrade the underlying evidence.
 | E1/E2: atom identity and reconstruction | [Prepared reading](prepared_pose_reading.md), [reconstruction](flexible_reconstruction.md), [terminal diagnostic](scientific_panel_terminal_probe_2026-11-04.md) | Complete known-source pose profiles have receiving controls. Partial reading #521 and new terminal reconstruction maps #558 remain separate provider boundaries. |
 | E3: scores and executed settings | [Score semantics](score_semantics.md), external 1IEP record above | Adapter transport/fidelity evidence does not calibrate binding free energy or establish Vina model accuracy. |
 | E4: saved inspection/recovery | [Installed inspection](installed_result_inspection.md), [prepared recovery](prepared_recovery.md) | Bounded saved workflows are supported; detached JSON is not a complete native molecular/mechanics snapshot. |
-| E5/E6: close poses and their ordering | Generated table and original records above | Favorable and adverse finite cases exist. Returned-set and first-pose recovery differ. Additional independent-complex evidence and explicit hypotheses remain needed. |
-| E7: preparation/model suitability | [Declared profile](preparation_profile.md), [new panel admission](scientific_panel_admission_2026-11-04.md) | Named fields, hashes, parser admission and charge bookkeeping do not establish experimental state or environmental validity. |
+| E5/E6: close poses and their ordering | Generated table and [integrated 5X72 controls](5x72_control_synthesis_2026-11-05.md) | Favorable and adverse finite cases differ in coverage and preference; conditional occupancy effects are recorded. Independent-complex evidence remains needed. |
+| E7: preparation/model suitability | [Declared profile](preparation_profile.md), 5X72 controls, [new panel admission](scientific_panel_admission_2026-11-04.md) | Controlled model sensitivity is observed; fields, hashes and charge bookkeeping do not establish experimental chemical states or general environmental validity. |
 | E8: output plausibility | [Provider inventory](molecular_plausibility_inventory_2026-11-04.md), MolSysMT #555 | Complete output-plausibility acceptance remains unestablished; missing checks are unassessed. No repair is implicit. |
 | E9: affinity/screening ranking | [Scientific scope](../SCIENTIFIC_SCOPE.md) | No affinity calibration, screening-specific negatives or corresponding predictive-accuracy dataset is established here. |
 | E10: ordinary installation and use | [Private installed receiving](installed_support_receiving.md), [public Viewer failure](public_viewer_receiving.md), [public readiness](public_candidate_readiness.md) | Private installed qualification and source CI are software evidence; actual compatible public delivery and deferred visible C4/C6 remain separate. |
@@ -113,6 +133,7 @@ From the checkout, use the routine Python interpreter:
 
 ```bash
 python devguide/validation/data/evidence_synthesis_2026-11-04/build_summary.py --check
+python -m dmt_test_support.synthesize_5x72_controls --check
 ```
 
 The case-specific producer authenticates four exact source files, reads only saved
@@ -121,6 +142,10 @@ and summary. It imports only the standard library. No molecular read/selection,
 geometry, native backend, model inference or generic benchmark framework is added.
 Running without `--check` regenerates the same two presentation outputs from the
 same immutable inputs; it does not recreate the original experiments.
+
+The second command independently checks the seven-stage 5X72 ledger and its
+source/reuse relationships. Its inputs/producers are distinct from the four-input
+table, and it does not change that earlier synthesis or rerun any experiment.
 
 The original archives, producer scripts, notebooks, failures and scientific
 prescriptions remain the evidence authority. This dated synthesis has a bounded
