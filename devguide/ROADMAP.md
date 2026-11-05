@@ -2,6 +2,14 @@
 
 The roadmap defines direction and gates, not dates.
 
+Current test-profile correction: [#66](pending_bugs/declare_unyt_test_dependency.md)
+declares the unyt backend required by the new unit-policy tests. Local developer
+availability did not qualify the previously incomplete CI environment. Verify the
+corrected exact-head science lanes before closing that issue. Work in other
+components remains deferred at the maintainer's request; the next proposed
+DockingMT-only scientific task is descriptive seed/effort analysis of the frozen
+3PTB and 5X72 records, retaining their separate populations and producers.
+
 ## Current operational plan
 
 Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which

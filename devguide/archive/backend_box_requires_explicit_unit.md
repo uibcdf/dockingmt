@@ -72,3 +72,11 @@ correct angstrom/pm values, original geometry and pm/fs/kJ/mol caller policy.
 Those are software/unit-contract checks, not new molecular or docking evidence.
 The six-case guard directly refuses the previously unlabelled None export and
 invalid unit categories. Existing public/release/visual gates stay independent.
+
+### Subsequent test-profile correction — 2026-11-05
+
+CI at e50ce10 exposes an undeclared unyt requirement in the new tests. #66 owns
+that separate environment omission and its hosted recovery. The earlier passing
+local source checks used an environment where unyt was already available; they
+remain local evidence and do not certify the incomplete CI profile. The source
+unit-label correction and this archived issue's guard remain unchanged.

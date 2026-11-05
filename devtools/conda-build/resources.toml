@@ -79,9 +79,10 @@ required_steps = ["Install exact artifact", "Validate installed files", "Run ins
 paths = ["tests"]
 # The source pytest profile adds the owner root; installed imports must exclude it.
 pytest_args = ["--receptor=ci", "-v", "-o", "pythonpath="]
-# Exact test tools observed in source CI 37589149276; not new core API floors.
+# Native test tools observed in source CI 37589149276; not new core API floors.
+# #66 adds the locally exercised unit-backend snapshot, not a runtime API floor.
 # All proposed installed cells still require actual solver/science qualification.
-conda_dependencies = ["vina==1.2.7", "rdkit==2026.03.1", "openmm==8.6.1"]
+conda_dependencies = ["vina==1.2.7", "rdkit==2026.03.1", "openmm==8.6.1", "unyt==3.1.0"]
 
 [installed_tests.support]
 schema = "molsyssuite.installed-test-support@1"

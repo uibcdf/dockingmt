@@ -802,3 +802,12 @@ schema/record guards, reconstruction ownership and caller unit policy remain.
 Original CI transport failures/recovery are separately attributed to exact
 5071731 attempts under #28 and the known GH Run Receptor #81 limitation. No new
 scientific population, provider pin, public file or visual acceptance is claimed.
+
+## Follow-up 20 — test-profile dependency closure, 2026-11-05
+
+CI at e50ce10 exposes the missing unyt test requirement under #66. The earlier
+353-case developer runs remain valid source-profile observations, with unyt
+already installed; they did not prove declared hosted closure. The correction
+adds unyt only to source/test-extra and installed-test requirements. Ninety
+focused checks pass, with declared-route and installed-tool inspection; exact-head
+hosted recovery remains pending. #65's source/API correction remains resolved.

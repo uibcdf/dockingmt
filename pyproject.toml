@@ -40,6 +40,7 @@ test = [
   "pytest-cov",
   "pytest-receptor==1.2.2",
   "rdkit",
+  "unyt",
 ]
 viewer = [
   "molsysviewer",

@@ -13,6 +13,8 @@ dependencies:
   - smonitor >=0.16.0
   - depdigest >=0.15.1
   - pyunitwizard >=0.28.1
+  # Explicit alternate unit backend exercised by the public box-export tests.
+  - unyt
   - numpy
   - scipy
   - vina

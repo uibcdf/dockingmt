@@ -165,8 +165,8 @@ class TestDistributionContract(unittest.TestCase):
             },
         )
         self.assertEqual(
-            self.installed.test_dependencies(self.plan, self.inventory)[-3:],
-            ['vina==1.2.7', 'rdkit==2026.03.1', 'openmm==8.6.1'],
+            self.installed.test_dependencies(self.plan, self.inventory)[-4:],
+            ['vina==1.2.7', 'rdkit==2026.03.1', 'openmm==8.6.1', 'unyt==3.1.0'],
         )
 
     def test_namespace_discovery_excludes_sdk_and_tests(self):
