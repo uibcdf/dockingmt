@@ -848,3 +848,22 @@ independent ID-based acquisition verifies the XML and retains sanitized hashes.
 The historical overall failure remains unchanged. This improves software
 evidence custody; exact-head hosted execution stays #28, with no new scientific
 population, molecular operation, runtime API, public artifact or visual claim.
+
+## Follow-up 23 — saved P59 score preference, 2026-11-05
+
+The [#69 diagnostic](validation/p59_score_diagnostic_2026-11-05.md) follows
+E6/Q2 by pairing fifty saved total scores with saved RMSD across twelve P59
+runs, using the original archive and authenticated #67 projection. Native and
+first-fixed ROOT contexts, seed/effort, positions/ranks and absent recovered
+contrasts remain explicit. All twelve lists follow the recorded ascending total
+score; recovered poses have less preferred scores than first in their runs.
+This sharpens the finite score-versus-structural-criterion diagnosis without
+isolating a chemical cause or establishing a general model defect/affinity
+claim. Preparation remains unassessed. No score is reconstructed or changed.
+
+The standard-library reproducer, per-run/per-pose tables and standalone panels
+are delivered; 29 new controls and 20 lineage controls pass outside source
+through shared support, plus 24 administrative checks. Original inputs,
+producers and earlier outputs remain intact. Provider-dependent assessment,
+independent-panel/public qualification and live C4/C6 retain their deferrals;
+no new molecular operation, scoring, search or runtime API is introduced.

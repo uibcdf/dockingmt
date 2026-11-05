@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (47)
+### Resolved (48)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
@@ -19,6 +19,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`declare_unyt_test_dependency.md`](declare_unyt_test_dependency.md) — [#66](https://github.com/uibcdf/dockingmt/issues/66) — Declare the alternate unit backend required by box-export tests *(resolved, measured)*
 - [`describe_saved_search_variability.md`](describe_saved_search_variability.md) — [#67](https://github.com/uibcdf/dockingmt/issues/67) — Describe seed and effort variability in frozen search results *(resolved, measured)*
 - [`describe_scores_and_preserve_ranking_history.md`](describe_scores_and_preserve_ranking_history.md) — [#31](https://github.com/uibcdf/dockingmt/issues/31) — Describe score semantics and preserve ranking history *(resolved, measured)*
+- [`diagnose_p59_score_preference.md`](diagnose_p59_score_preference.md) — [#69](https://github.com/uibcdf/dockingmt/issues/69) — Diagnose saved P59 total-score preference versus positional recovery. *(resolved, measured)*
 - [`evaluate_redocking.md`](evaluate_redocking.md) — [#38](https://github.com/uibcdf/dockingmt/issues/38) — Evaluate redocking with explicit RMSD policy and detached comparison evidence. *(resolved, measured)*
 - [`fixed_pose_scoring.md`](fixed_pose_scoring.md) — [#34](https://github.com/uibcdf/dockingmt/issues/34) — Score prepared fixed conformations independently of docking and preserve prior evaluations. *(resolved, measured)*
 - [`flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md`](flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md) — [#12](https://github.com/uibcdf/dockingmt/issues/12) — Flexible-ligand Vina coordinate arrays differ in order from PDBQT pose records *(resolved, measured)*

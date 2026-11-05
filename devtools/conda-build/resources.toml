@@ -2978,3 +2978,38 @@ sha256 = "a5f89048c16b1485bf62681e33874352fecb85ec70630d9406eba7fe2346a025"
 source = "devguide/validation/data/saved_search_variability_2026-11-05/top_n.svg"
 target = "devguide/validation/data/saved_search_variability_2026-11-05/top_n.svg"
 sha256 = "2ad0fda33561fa82de76d82ba1e337e027d869c0a78ba73fcf469eca494c9804"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/p59_score_diagnostic.py"
+target = "dmt_test_support/p59_score_diagnostic.py"
+sha256 = "dbbd67c354fe81d77e5c4be451fb9a868a1ac8beeb3e30e832917897295d4b78"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/artifacts.json"
+target = "devguide/validation/data/p59_score_diagnostic_2026-11-05/artifacts.json"
+sha256 = "53dea848d900d4286c6531928695e6260f5166a4f764e7eef4bb84cc9f6882a1"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/poses.csv"
+target = "devguide/validation/data/p59_score_diagnostic_2026-11-05/poses.csv"
+sha256 = "816ff7d373f01c4ceed3291e625a73ada7752bd01820f802335e85eeeaad748e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/runs.md"
+target = "devguide/validation/data/p59_score_diagnostic_2026-11-05/runs.md"
+sha256 = "06db15fbd831861fdfbd150ba0abbfc6a8e2a6f1659b4fa293714a6a0d96d47f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/score_rmsd.png"
+target = "devguide/validation/data/p59_score_diagnostic_2026-11-05/score_rmsd.png"
+sha256 = "9ef4c4d83731406b82dfe4aee84c5c735f71f3d050e7fe40801ee0a4e7e6dcf8"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/score_rmsd.svg"
+target = "devguide/validation/data/p59_score_diagnostic_2026-11-05/score_rmsd.svg"
+sha256 = "7e433ad8e04c326b0332da2a1f92c2b5e9ac2620623d5fc113da8501bc909630"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/summary.json"
+target = "devguide/validation/data/p59_score_diagnostic_2026-11-05/summary.json"
+sha256 = "436c224048abba465f29bcee379f049b8b65ab6f16718a3b6a7193384a6668ab"

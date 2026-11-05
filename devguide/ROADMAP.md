@@ -20,6 +20,14 @@ receiving pass; the original failed attempt remains failed. Observe the new
 head's actual binding/download/upload under #28. This adds no scientific
 campaign or public-package qualification.
 
+The [#69 P59 score diagnostic](validation/p59_score_diagnostic_2026-11-05.md)
+is delivered from twelve saved runs/fifty poses, with the original archive and
+#67 projection unchanged. Ordering follows the recorded total-score preference;
+recovered poses have less preferred scores than first within their runs. This
+refines the finite E6/Q2 diagnosis, with no chemical-cause or general scoring
+claim. Independent-panel admission, public delivery and live observation retain
+their existing owners/deferrals; exact-head source CI remains #28.
+
 ## Current operational plan
 
 Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which

@@ -102,6 +102,13 @@ fail. Original producers, separate criteria, failures and denominators remain;
 this is additional descriptive resolution, not new independent experiments.
 The frozen table above and its four-input synthesis are unchanged.
 
+The [P59 score diagnostic](p59_score_diagnostic_2026-11-05.md) then pairs fifty
+saved total scores with their saved RMSDs across twelve runs. The actual lists
+follow the recorded score preference, while recovered poses have less preferred
+scores than first within the same run. Its per-run panels/contrasts preserve
+definitions, missing recoveries and retrospective limits; this is no new score
+or independent molecular experiment.
+
 From the checkout, use the routine Python interpreter:
 
 ```bash

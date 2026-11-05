@@ -4,10 +4,6 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
-### Active (1)
-
-- [`diagnose_p59_score_preference.md`](diagnose_p59_score_preference.md) — [#69](https://github.com/uibcdf/dockingmt/issues/69) — Diagnose saved P59 total-score preference versus positional recovery. *(active, inspected)*
-
 ### Partial (12)
 
 - [`adopt_python_distribution_controls.md`](adopt_python_distribution_controls.md) — [#47](https://github.com/uibcdf/dockingmt/issues/47) — Adopt distribution controls and the agreed first noarch Conda route. *(partial, measured)*

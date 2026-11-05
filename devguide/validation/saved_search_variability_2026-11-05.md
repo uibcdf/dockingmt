@@ -200,3 +200,8 @@ is qualified here. #33 retains independent-complex panel acceptance; its
 provider-dependent admission remains deferred. Any next experiment needs its
 own declared question, inputs, preparation, metric and budget. Preserve these
 historical outcomes when providers or DockingMT advance.
+
+The subsequent [#69 P59 diagnostic](p59_score_diagnostic_2026-11-05.md) reuses
+this unchanged numerical projection, binding it to the original archive before
+adding saved total-score contrasts. It describes the recorded score preference
+within each P59 run without reranking, rescoring or changing these results.

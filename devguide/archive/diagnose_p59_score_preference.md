@@ -1,12 +1,12 @@
 ---
 summary: Diagnose saved P59 total-score preference versus positional recovery.
 issue: uibcdf/dockingmt#69
-status: active
+status: resolved
 opened: 2026-11-05
-closed:
-verification: inspected
+closed: 2026-11-05
+verification: measured
 area: [science, analysis, reporting]
-guard:
+guard: tests/test_p59_score_diagnostic.py
 normative:
 blocked_by: []
 supersedes: []
@@ -84,4 +84,30 @@ and text outputs and verifies figure hashes without importing molecular or
 plotting tools. Declare exact unshipped helper/data inputs through shared
 installed-test support. Follow DMT-044 publication and report/resource custody.
 
-This prescription is recorded before running the new numerical diagnostic.
+At prescription checkpoint 414ff0e, the new numerical diagnostic had not run.
+
+## Resolution — 2026-11-05
+
+The [dated diagnostic](../validation/p59_score_diagnostic_2026-11-05.md) delivers
+twelve-run/fifty-pose tables, a unit-labelled CSV, full machine-readable
+provenance/contexts, within-run score contrasts and standalone PNG/SVG panels.
+Both original inputs and all #67 outputs remain unchanged. The reader uses
+saved scalar observations and performs no molecular or native operation.
+
+All twelve saved lists follow the recorded ascending `vina` total-score policy,
+with unique first-position score minima. In recovering effort-8 cases, recovered
+scores are +0.472/+0.523/+0.480 kcal/mol above first in native ROOT and
++0.512/+0.511/+0.510 in first-fixed ROOT (seeds 7/42/2026). The first-fixed
+seed-42 effort-1 recovery has a +0.535 contrast. Nonrecovering runs have explicit
+unavailable recovered contrasts; ranks, ties and original ordering remain.
+This supports a finite mismatch with the declared RMSD criterion without
+establishing its chemical cause or a general scoring defect.
+
+Twenty-nine new guards plus twenty #67 controls pass through shared support
+outside the owner tree; another 24 administrative controls pass. Guarded cases
+include altered definitions/units/contexts, mismatched joins, finite values,
+rank/position/tie distinctions, retained discordance and missing contrasts.
+Fresh check mode blocks molecular and plotting imports. Figures were inspected.
+The helper/six outputs have exact shared support declarations, with no runtime
+payload change. Hosted exact-head observation remains #28; provider/public
+qualification and live C4/C6 remain separate and deferred as applicable.

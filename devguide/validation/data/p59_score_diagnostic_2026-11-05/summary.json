@@ -1,0 +1,3399 @@
+{
+  "analysis_producer": {
+    "module": "dmt_test_support/p59_score_diagnostic.py",
+    "prescription_commit": "414ff0e4e0a3932261b7eeb36c10594deb4ba4f9",
+    "sha256": "dbbd67c354fe81d77e5c4be451fb9a868a1ac8beeb3e30e832917897295d4b78"
+  },
+  "date": "2026-11-05",
+  "inputs": {
+    "archive": {
+      "path": "5x72_root_order/audit_2026-10-09.json.gz",
+      "sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e"
+    },
+    "projection": {
+      "path": "saved_search_variability_2026-11-05/summary.json",
+      "sha256": "0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc"
+    }
+  },
+  "limits": [
+    "Retrospective within-case description; poses/seeds are not independent complexes.",
+    "Only saved total scores and RMSDs; no molecular operation, scoring, search or reranking.",
+    "No pooled correlation, significance, affinity, causal or general scoring-accuracy claim."
+  ],
+  "original_producer": {
+    "consumer_base_commit": "357cd87f273360a30af4fe67f0a5df7b9b21a4e7",
+    "consumer_source_record_sha256": "83df1b2d396c40be4c2c3cfb601adaf4bc3e93737faedb387fff524ddbacacb3",
+    "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90"
+  },
+  "owner": "uibcdf/dockingmt#69",
+  "population": {
+    "archive_runs": 24,
+    "nonselected_p69_runs": 12,
+    "selected_poses": 50,
+    "selected_runs": 12
+  },
+  "prior_analysis_producer": {
+    "module": "dmt_test_support/saved_search_variability.py",
+    "prescription_source_commit": "d1435ff8662787afa29798fc0824ac30d9d0c6b6",
+    "sha256": "91ef4d7a591ff0d9904d5d26be93e9b1bad6116bbeba004325ea3974664064a5"
+  },
+  "runs": [
+    {
+      "arm": "p59/native",
+      "closest": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": false,
+        "rmsd_angstrom": 5.145932491622228,
+        "score_difference_from_first": 1.811,
+        "vina_score": -9.168
+      },
+      "closest_rmsd_tied_positions": [
+        4
+      ],
+      "closest_score_difference_from_first": 1.811,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": null,
+      "exhaustiveness": 1,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.90166510828692,
+        "score_difference_from_first": 0.0,
+        "vina_score": -10.979
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": null,
+      "lowest_recovered_score_positions": [],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 4,
+      "original_result_sha256": "9bb1fcd8b134c6ac58a55b516c5cd0d15e6a94176e92d82a59f0616a4c56da1d",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.90166510828692,
+          "score_difference_from_first": 0.0,
+          "vina_score": -10.979
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 7.824658967541865,
+          "score_difference_from_first": 0.7909999999999986,
+          "vina_score": -10.188
+        },
+        {
+          "pose_id": "pose_3",
+          "position": 3,
+          "rank": 3,
+          "recovered": false,
+          "rmsd_angstrom": 5.288306735146893,
+          "score_difference_from_first": 1.0169999999999995,
+          "vina_score": -9.962
+        },
+        {
+          "pose_id": "pose_4",
+          "position": 4,
+          "rank": 4,
+          "recovered": false,
+          "rmsd_angstrom": 5.145932491622228,
+          "score_difference_from_first": 1.811,
+          "vina_score": -9.168
+        }
+      ],
+      "projection_row_sha256": "4a7cf9ca88c318a07d2ccbc442bda4bccd524c51068e1e51bced1737fe474c93",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 7
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -10.979
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -10.188
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_3",
+              "rank": 3,
+              "receptor_state_id": null,
+              "value": -9.962
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_4",
+              "rank": 4,
+              "receptor_state_id": null,
+              "value": -9.168
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": null,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 7,
+      "source_pointers": {
+        "archive": "/new_runs/0",
+        "projection": "/runs/24"
+      }
+    },
+    {
+      "arm": "p59/native",
+      "closest": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": false,
+        "rmsd_angstrom": 5.288444194656874,
+        "score_difference_from_first": 0.9819999999999993,
+        "vina_score": -9.992
+      },
+      "closest_rmsd_tied_positions": [
+        4
+      ],
+      "closest_score_difference_from_first": 0.9819999999999993,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": null,
+      "exhaustiveness": 1,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.882380003909315,
+        "score_difference_from_first": 0.0,
+        "vina_score": -10.974
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": null,
+      "lowest_recovered_score_positions": [],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 4,
+      "original_result_sha256": "5eb47124e948907f34208af40e4d615e34b72b8fb72b1ba2786b0c41b63e0e29",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.882380003909315,
+          "score_difference_from_first": 0.0,
+          "vina_score": -10.974
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 10.069896240362493,
+          "score_difference_from_first": 0.3100000000000005,
+          "vina_score": -10.664
+        },
+        {
+          "pose_id": "pose_3",
+          "position": 3,
+          "rank": 3,
+          "recovered": false,
+          "rmsd_angstrom": 7.2739995216982685,
+          "score_difference_from_first": 0.8480000000000008,
+          "vina_score": -10.126
+        },
+        {
+          "pose_id": "pose_4",
+          "position": 4,
+          "rank": 4,
+          "recovered": false,
+          "rmsd_angstrom": 5.288444194656874,
+          "score_difference_from_first": 0.9819999999999993,
+          "vina_score": -9.992
+        }
+      ],
+      "projection_row_sha256": "07fe07261b55ef0ae1979c204f66c8ec72f17e9dfceff4e76045c0e5db341b92",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 42
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -10.974
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -10.664
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_3",
+              "rank": 3,
+              "receptor_state_id": null,
+              "value": -10.126
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_4",
+              "rank": 4,
+              "receptor_state_id": null,
+              "value": -9.992
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": null,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 42,
+      "source_pointers": {
+        "archive": "/new_runs/1",
+        "projection": "/runs/25"
+      }
+    },
+    {
+      "arm": "p59/native",
+      "closest": {
+        "pose_id": "pose_2",
+        "position": 2,
+        "rank": 2,
+        "recovered": false,
+        "rmsd_angstrom": 9.136961689569825,
+        "score_difference_from_first": 2.469000000000001,
+        "vina_score": -8.501
+      },
+      "closest_rmsd_tied_positions": [
+        2
+      ],
+      "closest_score_difference_from_first": 2.469000000000001,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": null,
+      "exhaustiveness": 1,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.899007338701525,
+        "score_difference_from_first": 0.0,
+        "vina_score": -10.97
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": null,
+      "lowest_recovered_score_positions": [],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 2,
+      "original_result_sha256": "95bd228b60600d8815a7fafcae85d12bffa4e896b8b64a907d2b983cc9941e84",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.899007338701525,
+          "score_difference_from_first": 0.0,
+          "vina_score": -10.97
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 9.136961689569825,
+          "score_difference_from_first": 2.469000000000001,
+          "vina_score": -8.501
+        }
+      ],
+      "projection_row_sha256": "407b9ada5723786b2de0a5371a2931d74ff32df327ae31e02b1933ceffb3aa22",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 2026
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -10.97
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -8.501
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": null,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 2026,
+      "source_pointers": {
+        "archive": "/new_runs/2",
+        "projection": "/runs/26"
+      }
+    },
+    {
+      "arm": "p59/native",
+      "closest": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.1814230120212328,
+        "score_difference_from_first": 0.4720000000000013,
+        "vina_score": -10.482
+      },
+      "closest_rmsd_tied_positions": [
+        4
+      ],
+      "closest_score_difference_from_first": 0.4720000000000013,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.1814230120212328,
+        "score_difference_from_first": 0.4720000000000013,
+        "vina_score": -10.482
+      },
+      "exhaustiveness": 8,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.877680058259296,
+        "score_difference_from_first": 0.0,
+        "vina_score": -10.954
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": -10.482,
+      "lowest_recovered_score_positions": [
+        4
+      ],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 5,
+      "original_result_sha256": "2b5b5bb4c974dfb4a2c02348b3f80fa56e745c4d7a516cddb4426d07d7acf1ec",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.877680058259296,
+          "score_difference_from_first": 0.0,
+          "vina_score": -10.954
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 10.074158947525094,
+          "score_difference_from_first": 0.3150000000000013,
+          "vina_score": -10.639
+        },
+        {
+          "pose_id": "pose_3",
+          "position": 3,
+          "rank": 3,
+          "recovered": false,
+          "rmsd_angstrom": 9.843709262349565,
+          "score_difference_from_first": 0.41000000000000014,
+          "vina_score": -10.544
+        },
+        {
+          "pose_id": "pose_4",
+          "position": 4,
+          "rank": 4,
+          "recovered": true,
+          "rmsd_angstrom": 1.1814230120212328,
+          "score_difference_from_first": 0.4720000000000013,
+          "vina_score": -10.482
+        },
+        {
+          "pose_id": "pose_5",
+          "position": 5,
+          "rank": 5,
+          "recovered": false,
+          "rmsd_angstrom": 7.813832782316242,
+          "score_difference_from_first": 0.7710000000000008,
+          "vina_score": -10.183
+        }
+      ],
+      "projection_row_sha256": "598e540fb016811efceefa19feb3f1b3c40e5a1c8e08e2e1425c3ee215541fe1",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 8,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 7
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -10.954
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -10.639
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_3",
+              "rank": 3,
+              "receptor_state_id": null,
+              "value": -10.544
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_4",
+              "rank": 4,
+              "receptor_state_id": null,
+              "value": -10.482
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_5",
+              "rank": 5,
+              "receptor_state_id": null,
+              "value": -10.183
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": 0.4720000000000013,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 7,
+      "source_pointers": {
+        "archive": "/new_runs/3",
+        "projection": "/runs/27"
+      }
+    },
+    {
+      "arm": "p59/native",
+      "closest": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.190490725149365,
+        "score_difference_from_first": 0.5229999999999997,
+        "vina_score": -10.468
+      },
+      "closest_rmsd_tied_positions": [
+        4
+      ],
+      "closest_score_difference_from_first": 0.5229999999999997,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.190490725149365,
+        "score_difference_from_first": 0.5229999999999997,
+        "vina_score": -10.468
+      },
+      "exhaustiveness": 8,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.910572622625459,
+        "score_difference_from_first": 0.0,
+        "vina_score": -10.991
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": -10.468,
+      "lowest_recovered_score_positions": [
+        4
+      ],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 5,
+      "original_result_sha256": "0cc7ac10bef801128ae185fe39d5fcdc9fd1e65e7f043db29ecd10b506eb1011",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.910572622625459,
+          "score_difference_from_first": 0.0,
+          "vina_score": -10.991
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 10.082340605401772,
+          "score_difference_from_first": 0.35999999999999943,
+          "vina_score": -10.631
+        },
+        {
+          "pose_id": "pose_3",
+          "position": 3,
+          "rank": 3,
+          "recovered": false,
+          "rmsd_angstrom": 9.855603141952635,
+          "score_difference_from_first": 0.42499999999999893,
+          "vina_score": -10.566
+        },
+        {
+          "pose_id": "pose_4",
+          "position": 4,
+          "rank": 4,
+          "recovered": true,
+          "rmsd_angstrom": 1.190490725149365,
+          "score_difference_from_first": 0.5229999999999997,
+          "vina_score": -10.468
+        },
+        {
+          "pose_id": "pose_5",
+          "position": 5,
+          "rank": 5,
+          "recovered": false,
+          "rmsd_angstrom": 7.2739995216982685,
+          "score_difference_from_first": 0.8970000000000002,
+          "vina_score": -10.094
+        }
+      ],
+      "projection_row_sha256": "bf19a8547e6a5dc5e660512a4682a47e4a052fe2339518924dad44a411753cb3",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 8,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 42
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -10.991
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -10.631
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_3",
+              "rank": 3,
+              "receptor_state_id": null,
+              "value": -10.566
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_4",
+              "rank": 4,
+              "receptor_state_id": null,
+              "value": -10.468
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_5",
+              "rank": 5,
+              "receptor_state_id": null,
+              "value": -10.094
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": 0.5229999999999997,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 42,
+      "source_pointers": {
+        "archive": "/new_runs/4",
+        "projection": "/runs/28"
+      }
+    },
+    {
+      "arm": "p59/native",
+      "closest": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.1658422920789917,
+        "score_difference_from_first": 0.4800000000000004,
+        "vina_score": -10.474
+      },
+      "closest_rmsd_tied_positions": [
+        4
+      ],
+      "closest_score_difference_from_first": 0.4800000000000004,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.1658422920789917,
+        "score_difference_from_first": 0.4800000000000004,
+        "vina_score": -10.474
+      },
+      "exhaustiveness": 8,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.895562688228832,
+        "score_difference_from_first": 0.0,
+        "vina_score": -10.954
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": -10.474,
+      "lowest_recovered_score_positions": [
+        4
+      ],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 5,
+      "original_result_sha256": "8d14bc3ed5205c0c00c62b243b787057b3fae93f27a105c3d397cb3ea5b2e98c",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.895562688228832,
+          "score_difference_from_first": 0.0,
+          "vina_score": -10.954
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 10.071300708365996,
+          "score_difference_from_first": 0.3280000000000012,
+          "vina_score": -10.626
+        },
+        {
+          "pose_id": "pose_3",
+          "position": 3,
+          "rank": 3,
+          "recovered": false,
+          "rmsd_angstrom": 9.842386624103593,
+          "score_difference_from_first": 0.41100000000000136,
+          "vina_score": -10.543
+        },
+        {
+          "pose_id": "pose_4",
+          "position": 4,
+          "rank": 4,
+          "recovered": true,
+          "rmsd_angstrom": 1.1658422920789917,
+          "score_difference_from_first": 0.4800000000000004,
+          "vina_score": -10.474
+        },
+        {
+          "pose_id": "pose_5",
+          "position": 5,
+          "rank": 5,
+          "recovered": false,
+          "rmsd_angstrom": 7.831790232762874,
+          "score_difference_from_first": 0.7789999999999999,
+          "vina_score": -10.175
+        }
+      ],
+      "projection_row_sha256": "8e7eaa8f8fc80b308bb85e2919b49d82bfa3398452db0a97dfe9364e0cf73ced",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 8,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 2026
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -10.954
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -10.626
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_3",
+              "rank": 3,
+              "receptor_state_id": null,
+              "value": -10.543
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_4",
+              "rank": 4,
+              "receptor_state_id": null,
+              "value": -10.474
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_5",
+              "rank": 5,
+              "receptor_state_id": null,
+              "value": -10.175
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": 0.4800000000000004,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "0ec29c4648c571d69830b323be7613881f766038b7fde2ed7e373d3ef6049586",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 2026,
+      "source_pointers": {
+        "archive": "/new_runs/5",
+        "projection": "/runs/29"
+      }
+    },
+    {
+      "arm": "p59/first_fixed",
+      "closest": {
+        "pose_id": "pose_3",
+        "position": 3,
+        "rank": 3,
+        "recovered": false,
+        "rmsd_angstrom": 9.847773193722528,
+        "score_difference_from_first": 0.4399999999999995,
+        "vina_score": -10.541
+      },
+      "closest_rmsd_tied_positions": [
+        3
+      ],
+      "closest_score_difference_from_first": 0.4399999999999995,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": null,
+      "exhaustiveness": 1,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.923656241946981,
+        "score_difference_from_first": 0.0,
+        "vina_score": -10.981
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": null,
+      "lowest_recovered_score_positions": [],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 3,
+      "original_result_sha256": "d26e60c00d1674dde6c723cf2d5b1f9a34577a7158f48eb6fb882ba1757f2acd",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.923656241946981,
+          "score_difference_from_first": 0.0,
+          "vina_score": -10.981
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 10.06760758571767,
+          "score_difference_from_first": 0.35800000000000054,
+          "vina_score": -10.623
+        },
+        {
+          "pose_id": "pose_3",
+          "position": 3,
+          "rank": 3,
+          "recovered": false,
+          "rmsd_angstrom": 9.847773193722528,
+          "score_difference_from_first": 0.4399999999999995,
+          "vina_score": -10.541
+        }
+      ],
+      "projection_row_sha256": "dcdcb447fd9df224b593968efdff3adc5f97bb4c7ef5c7ff79ce60afb3c1271d",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 7
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -10.981
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -10.623
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_3",
+              "rank": 3,
+              "receptor_state_id": null,
+              "value": -10.541
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1,
+            2
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": null,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 7,
+      "source_pointers": {
+        "archive": "/new_runs/6",
+        "projection": "/runs/30"
+      }
+    },
+    {
+      "arm": "p59/first_fixed",
+      "closest": {
+        "pose_id": "pose_3",
+        "position": 3,
+        "rank": 3,
+        "recovered": true,
+        "rmsd_angstrom": 1.187186765705659,
+        "score_difference_from_first": 0.5350000000000001,
+        "vina_score": -10.503
+      },
+      "closest_rmsd_tied_positions": [
+        3
+      ],
+      "closest_score_difference_from_first": 0.5350000000000001,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": {
+        "pose_id": "pose_3",
+        "position": 3,
+        "rank": 3,
+        "recovered": true,
+        "rmsd_angstrom": 1.187186765705659,
+        "score_difference_from_first": 0.5350000000000001,
+        "vina_score": -10.503
+      },
+      "exhaustiveness": 1,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.894679445708855,
+        "score_difference_from_first": 0.0,
+        "vina_score": -11.038
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": -10.503,
+      "lowest_recovered_score_positions": [
+        3
+      ],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 4,
+      "original_result_sha256": "ca886ead665216485955ae0ad17a5407537eaa645fb2228a1a422a9d502697f6",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.894679445708855,
+          "score_difference_from_first": 0.0,
+          "vina_score": -11.038
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 10.07843126227159,
+          "score_difference_from_first": 0.36400000000000077,
+          "vina_score": -10.674
+        },
+        {
+          "pose_id": "pose_3",
+          "position": 3,
+          "rank": 3,
+          "recovered": true,
+          "rmsd_angstrom": 1.187186765705659,
+          "score_difference_from_first": 0.5350000000000001,
+          "vina_score": -10.503
+        },
+        {
+          "pose_id": "pose_4",
+          "position": 4,
+          "rank": 4,
+          "recovered": false,
+          "rmsd_angstrom": 5.285710244770013,
+          "score_difference_from_first": 1.0700000000000003,
+          "vina_score": -9.968
+        }
+      ],
+      "projection_row_sha256": "7aaf9742e83981df5196643ad03fef880cff373b7b2582ddbe34d3272dbfeea5",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 42
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -11.038
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -10.674
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_3",
+              "rank": 3,
+              "receptor_state_id": null,
+              "value": -10.503
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_4",
+              "rank": 4,
+              "receptor_state_id": null,
+              "value": -9.968
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": 0.5350000000000001,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 42,
+      "source_pointers": {
+        "archive": "/new_runs/7",
+        "projection": "/runs/31"
+      }
+    },
+    {
+      "arm": "p59/first_fixed",
+      "closest": {
+        "pose_id": "pose_3",
+        "position": 3,
+        "rank": 3,
+        "recovered": false,
+        "rmsd_angstrom": 5.285885521840214,
+        "score_difference_from_first": 1.001999999999999,
+        "vina_score": -9.954
+      },
+      "closest_rmsd_tied_positions": [
+        3
+      ],
+      "closest_score_difference_from_first": 1.001999999999999,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": null,
+      "exhaustiveness": 1,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.88925417435511,
+        "score_difference_from_first": 0.0,
+        "vina_score": -10.956
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": null,
+      "lowest_recovered_score_positions": [],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 3,
+      "original_result_sha256": "6776ea88bb7d3bccab83ec9b34d462cc5e91e6767178e967e86b02ea780c5e14",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.88925417435511,
+          "score_difference_from_first": 0.0,
+          "vina_score": -10.956
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 7.285816129073437,
+          "score_difference_from_first": 0.8650000000000002,
+          "vina_score": -10.091
+        },
+        {
+          "pose_id": "pose_3",
+          "position": 3,
+          "rank": 3,
+          "recovered": false,
+          "rmsd_angstrom": 5.285885521840214,
+          "score_difference_from_first": 1.001999999999999,
+          "vina_score": -9.954
+        }
+      ],
+      "projection_row_sha256": "c8c49616026c894f1713eb4dde7ea0251166192d5750e2f90331b195dc438b12",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 1,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 2026
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -10.956
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -10.091
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_3",
+              "rank": 3,
+              "receptor_state_id": null,
+              "value": -9.954
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1,
+            2
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": null,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 2026,
+      "source_pointers": {
+        "archive": "/new_runs/8",
+        "projection": "/runs/32"
+      }
+    },
+    {
+      "arm": "p59/first_fixed",
+      "closest": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.2003631915660606,
+        "score_difference_from_first": 0.5120000000000005,
+        "vina_score": -10.452
+      },
+      "closest_rmsd_tied_positions": [
+        4
+      ],
+      "closest_score_difference_from_first": 0.5120000000000005,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.2003631915660606,
+        "score_difference_from_first": 0.5120000000000005,
+        "vina_score": -10.452
+      },
+      "exhaustiveness": 8,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.911195374423814,
+        "score_difference_from_first": 0.0,
+        "vina_score": -10.964
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": -10.452,
+      "lowest_recovered_score_positions": [
+        4
+      ],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 5,
+      "original_result_sha256": "d5357decb0bff60cc7df530eb9159d7fd822eaa55eea1ae6bd1d0f938f9c6b1c",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.911195374423814,
+          "score_difference_from_first": 0.0,
+          "vina_score": -10.964
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 10.076832908128095,
+          "score_difference_from_first": 0.3390000000000004,
+          "vina_score": -10.625
+        },
+        {
+          "pose_id": "pose_3",
+          "position": 3,
+          "rank": 3,
+          "recovered": false,
+          "rmsd_angstrom": 9.878471533255198,
+          "score_difference_from_first": 0.4220000000000006,
+          "vina_score": -10.542
+        },
+        {
+          "pose_id": "pose_4",
+          "position": 4,
+          "rank": 4,
+          "recovered": true,
+          "rmsd_angstrom": 1.2003631915660606,
+          "score_difference_from_first": 0.5120000000000005,
+          "vina_score": -10.452
+        },
+        {
+          "pose_id": "pose_5",
+          "position": 5,
+          "rank": 5,
+          "recovered": false,
+          "rmsd_angstrom": 7.817108685974201,
+          "score_difference_from_first": 0.793000000000001,
+          "vina_score": -10.171
+        }
+      ],
+      "projection_row_sha256": "129a185c581e5c05f6ce6d072ee88307b81c633b4f8459f81885046f60bbac7c",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 8,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 7
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -10.964
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -10.625
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_3",
+              "rank": 3,
+              "receptor_state_id": null,
+              "value": -10.542
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_4",
+              "rank": 4,
+              "receptor_state_id": null,
+              "value": -10.452
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_5",
+              "rank": 5,
+              "receptor_state_id": null,
+              "value": -10.171
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": 0.5120000000000005,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 7,
+      "source_pointers": {
+        "archive": "/new_runs/9",
+        "projection": "/runs/33"
+      }
+    },
+    {
+      "arm": "p59/first_fixed",
+      "closest": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.187186765705659,
+        "score_difference_from_first": 0.511000000000001,
+        "vina_score": -10.469
+      },
+      "closest_rmsd_tied_positions": [
+        4
+      ],
+      "closest_score_difference_from_first": 0.511000000000001,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.187186765705659,
+        "score_difference_from_first": 0.511000000000001,
+        "vina_score": -10.469
+      },
+      "exhaustiveness": 8,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.913922138420629,
+        "score_difference_from_first": 0.0,
+        "vina_score": -10.98
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": -10.469,
+      "lowest_recovered_score_positions": [
+        4
+      ],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 5,
+      "original_result_sha256": "e2d98cee4863affc24aec6a55f156fcc7ac34abc8689350bcb851e378b374235",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.913922138420629,
+          "score_difference_from_first": 0.0,
+          "vina_score": -10.98
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 10.067288775617127,
+          "score_difference_from_first": 0.35299999999999976,
+          "vina_score": -10.627
+        },
+        {
+          "pose_id": "pose_3",
+          "position": 3,
+          "rank": 3,
+          "recovered": false,
+          "rmsd_angstrom": 9.836596864515695,
+          "score_difference_from_first": 0.46000000000000085,
+          "vina_score": -10.52
+        },
+        {
+          "pose_id": "pose_4",
+          "position": 4,
+          "rank": 4,
+          "recovered": true,
+          "rmsd_angstrom": 1.187186765705659,
+          "score_difference_from_first": 0.511000000000001,
+          "vina_score": -10.469
+        },
+        {
+          "pose_id": "pose_5",
+          "position": 5,
+          "rank": 5,
+          "recovered": false,
+          "rmsd_angstrom": 7.817628106294986,
+          "score_difference_from_first": 0.8150000000000013,
+          "vina_score": -10.165
+        }
+      ],
+      "projection_row_sha256": "8bc09ebd1c38e51353628e366c5e3cd280ba666a81867c654e8a31dd85f0c256",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 8,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 42
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -10.98
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -10.627
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_3",
+              "rank": 3,
+              "receptor_state_id": null,
+              "value": -10.52
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_4",
+              "rank": 4,
+              "receptor_state_id": null,
+              "value": -10.469
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_5",
+              "rank": 5,
+              "receptor_state_id": null,
+              "value": -10.165
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": 0.511000000000001,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 42,
+      "source_pointers": {
+        "archive": "/new_runs/10",
+        "projection": "/runs/34"
+      }
+    },
+    {
+      "arm": "p59/first_fixed",
+      "closest": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.1838886138484455,
+        "score_difference_from_first": 0.5099999999999998,
+        "vina_score": -10.477
+      },
+      "closest_rmsd_tied_positions": [
+        4
+      ],
+      "closest_score_difference_from_first": 0.5099999999999998,
+      "criterion": {
+        "alignment": "none",
+        "cutoff": 2.5,
+        "metric": "positional_rmsd",
+        "n_heavy_atoms": 24,
+        "position_basis": "saved_result_order",
+        "symmetry_correction": "none",
+        "unit": "angstrom"
+      },
+      "earliest_recovered": {
+        "pose_id": "pose_4",
+        "position": 4,
+        "rank": 4,
+        "recovered": true,
+        "rmsd_angstrom": 1.1838886138484455,
+        "score_difference_from_first": 0.5099999999999998,
+        "vina_score": -10.477
+      },
+      "exhaustiveness": 8,
+      "first": {
+        "pose_id": "pose_1",
+        "position": 1,
+        "rank": 1,
+        "recovered": false,
+        "rmsd_angstrom": 9.90203693480959,
+        "score_difference_from_first": 0.0,
+        "vina_score": -10.987
+      },
+      "first_is_score_minimum": true,
+      "input_context": {
+        "backend": "vina",
+        "backend_box": {
+          "center": [
+            -15.0,
+            15.0,
+            129.0
+          ],
+          "rounding_decimals": 6,
+          "size": [
+            30.0,
+            24.0,
+            24.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "preparation_sha256": "38b17d29f3bcae5e87cc0128bd95ca9bd4216819d2f12eef7b7c972ebfdb7c5a",
+        "reference_record_sha256": "515928781f7a2fbe63f61fae00d3b7fc5bf3b73ef3ec2c64ee4256a679a211ed",
+        "submitted_input_sha256": {
+          "partner": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "receptor": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6"
+        }
+      },
+      "lowest_recovered_score": -10.477,
+      "lowest_recovered_score_positions": [
+        4
+      ],
+      "minimum_score_positions": [
+        1
+      ],
+      "n_requested": 5,
+      "n_returned": 5,
+      "original_result_sha256": "ac4def74da700c6ee73f82ec16882f897ad4493f757590e88691bffe8a54de5c",
+      "poses": [
+        {
+          "pose_id": "pose_1",
+          "position": 1,
+          "rank": 1,
+          "recovered": false,
+          "rmsd_angstrom": 9.90203693480959,
+          "score_difference_from_first": 0.0,
+          "vina_score": -10.987
+        },
+        {
+          "pose_id": "pose_2",
+          "position": 2,
+          "rank": 2,
+          "recovered": false,
+          "rmsd_angstrom": 10.076425825493216,
+          "score_difference_from_first": 0.354000000000001,
+          "vina_score": -10.633
+        },
+        {
+          "pose_id": "pose_3",
+          "position": 3,
+          "rank": 3,
+          "recovered": false,
+          "rmsd_angstrom": 9.861378423763417,
+          "score_difference_from_first": 0.43299999999999983,
+          "vina_score": -10.554
+        },
+        {
+          "pose_id": "pose_4",
+          "position": 4,
+          "rank": 4,
+          "recovered": true,
+          "rmsd_angstrom": 1.1838886138484455,
+          "score_difference_from_first": 0.5099999999999998,
+          "vina_score": -10.477
+        },
+        {
+          "pose_id": "pose_5",
+          "position": 5,
+          "rank": 5,
+          "recovered": false,
+          "rmsd_angstrom": 7.815049432025365,
+          "score_difference_from_first": 0.7929999999999993,
+          "vina_score": -10.194
+        }
+      ],
+      "projection_row_sha256": "acdb3b41196ef59c990b3f2304050b72313176c5f76f5cbc4e4a71d651ce297a",
+      "protocol": {
+        "parameters": {
+          "active_torsion_bonds": [],
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "energy_range": {
+            "unit": "kilocalorie / mole",
+            "value": 3.0
+          },
+          "exhaustiveness": 8,
+          "n_poses": 5,
+          "scoring": "vina",
+          "seed": 2026
+        },
+        "protocol_type": "VinaProtocol",
+        "schema_version": "1.0"
+      },
+      "ranking_history": [
+        {
+          "ascending": true,
+          "evidence": "recorded",
+          "input_order": [
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_1",
+              "rank": 1,
+              "receptor_state_id": null,
+              "value": -10.987
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_2",
+              "rank": 2,
+              "receptor_state_id": null,
+              "value": -10.633
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_3",
+              "rank": 3,
+              "receptor_state_id": null,
+              "value": -10.554
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_4",
+              "rank": 4,
+              "receptor_state_id": null,
+              "value": -10.477
+            },
+            {
+              "partner_state_id": null,
+              "pose_id": "pose_5",
+              "rank": 5,
+              "receptor_state_id": null,
+              "value": -10.194
+            }
+          ],
+          "origin": "backend",
+          "output_order": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "schema_version": "1.0",
+          "score_definition": {
+            "component": "total docking score",
+            "context": {
+              "backend_box": {
+                "center": [
+                  -15.0,
+                  15.0,
+                  129.0
+                ],
+                "size": [
+                  30.0,
+                  24.0,
+                  24.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+              "stage": "docking",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "score_name": "vina"
+        }
+      ],
+      "ranking_policy": {
+        "ascending": true,
+        "score_name": "vina"
+      },
+      "recovered_score_difference_from_first": 0.5099999999999998,
+      "score_definition": {
+        "component": "total docking score",
+        "context": {
+          "backend_box": {
+            "center": [
+              -15.0,
+              15.0,
+              129.0
+            ],
+            "size": [
+              30.0,
+              24.0,
+              24.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "cf1755741c6f5c5c2d8cc5e5ce0c7d383a2f601876ffc6df0da97561c7c44fd7",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+          "stage": "docking",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "scores_nondecreasing": true,
+      "seed": 2026,
+      "source_pointers": {
+        "archive": "/new_runs/11",
+        "projection": "/runs/35"
+      }
+    }
+  ],
+  "schema": "dockingmt.p59_score_diagnostic@1"
+}
