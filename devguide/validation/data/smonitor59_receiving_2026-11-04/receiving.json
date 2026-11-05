@@ -1,0 +1,404 @@
+{
+  "consumer_runtime_source": "656cacb10a432f77c9a9f4b8bef21136e1270cd3",
+  "producer_sha256": "7e137ea466fb58dfd6c26cdeffff22ff6f72507ce9c742fc231ab2b6a74d2110",
+  "profiles": [
+    {
+      "smonitor_source": "a3fd6d9858973b887e7a8ef0ed1b44f1dd1f2a1d",
+      "argdigest_source": "3d1ec53c374098016452abab74706e9d80df5462",
+      "profile": "baseline",
+      "passed": 0,
+      "total": 10,
+      "cases": [
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "native",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "catalog",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "ERROR",
+          "failure": "native",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "ERROR",
+          "failure": "catalog",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "native",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "catalog",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "ERROR",
+          "failure": "native",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "ERROR",
+          "failure": "catalog",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "metadata",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "metadata",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        }
+      ]
+    },
+    {
+      "smonitor_source": "a3fd6d9858973b887e7a8ef0ed1b44f1dd1f2a1d",
+      "argdigest_source": "cd9c4f3ab80e892075fc5bee9b4ae9ce0ab5e018",
+      "profile": "baseline",
+      "passed": 0,
+      "total": 10,
+      "cases": [
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "native",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "catalog",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "ERROR",
+          "failure": "native",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "ERROR",
+          "failure": "catalog",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "native",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "catalog",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "ERROR",
+          "failure": "native",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "ERROR",
+          "failure": "catalog",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "metadata",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "metadata",
+          "passed": false,
+          "error_events": 0,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        }
+      ]
+    },
+    {
+      "smonitor_source": "82dad5a7e26e0fba712e30657a6739188d770d79",
+      "argdigest_source": "3d1ec53c374098016452abab74706e9d80df5462",
+      "profile": "accepted",
+      "passed": 10,
+      "total": 10,
+      "cases": [
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "native",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "catalog",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "ERROR",
+          "failure": "native",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "ERROR",
+          "failure": "catalog",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "native",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "catalog",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "ERROR",
+          "failure": "native",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "ERROR",
+          "failure": "catalog",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "metadata",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "metadata",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        }
+      ]
+    },
+    {
+      "smonitor_source": "82dad5a7e26e0fba712e30657a6739188d770d79",
+      "argdigest_source": "cd9c4f3ab80e892075fc5bee9b4ae9ce0ab5e018",
+      "profile": "accepted",
+      "passed": 10,
+      "total": 10,
+      "cases": [
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "native",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "catalog",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "ERROR",
+          "failure": "native",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "ERROR",
+          "failure": "catalog",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "native",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "catalog",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "ERROR",
+          "failure": "native",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "ERROR",
+          "failure": "catalog",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "ligand",
+          "threshold": "WARNING",
+          "failure": "metadata",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        },
+        {
+          "role": "receptor",
+          "threshold": "WARNING",
+          "failure": "metadata",
+          "passed": true,
+          "error_events": 1,
+          "identity_args_cause_preserved": true,
+          "application_policy_preserved": true
+        }
+      ]
+    }
+  ],
+  "provider_exports_retired": true,
+  "public_artifact": false
+}

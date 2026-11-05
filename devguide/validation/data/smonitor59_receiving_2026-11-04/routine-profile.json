@@ -1,0 +1,10 @@
+{
+  "sources": {
+    "smonitor": "82dad5a7e26e0fba712e30657a6739188d770d79",
+    "argdigest": "cd9c4f3ab80e892075fc5bee9b4ae9ce0ab5e018",
+    "dockingmt": "656cacb10a432f77c9a9f4b8bef21136e1270cd3"
+  },
+  "producer_sha256": "7e137ea466fb58dfd6c26cdeffff22ff6f72507ce9c742fc231ab2b6a74d2110",
+  "result": "routine-receiving.json",
+  "public_artifact": false
+}

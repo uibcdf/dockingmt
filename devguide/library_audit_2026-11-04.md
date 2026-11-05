@@ -693,3 +693,24 @@ correction; no local emission-marker or decorator workaround is introduced.
 #19 remains partial for that receiving work and remaining argument/dependency
 boundaries. Original scientific producers, frozen inputs and installed artifacts
 retain their own identities and qualification.
+
+## Follow-up 14 — SMonitor source correction receiving, 2026-11-04
+
+The [#19 source checkpoint](validation/support_library_review_2026-11-04.md#smonitor-filtered-signal-source-receiving)
+receives the ordinary nested-signal correction already integrated in SMonitor
+main `82dad5a7`. Twenty consumer controls pass on two selected ArgDigest source
+generations, versus twenty reproduced failures with the old provider. Ten more
+controls pass in the updated routine editable environment. The frozen producer
+and receipts preserve exact identities, native exceptions/foreign codes,
+metadata-only behavior and application policy without running molecular work.
+
+A separately reproduced callback-emission bug belongs to SMonitor #61 and its
+PR #60. The provider maintainer integrates it independently as `5ee88c1`, with
+final accepted record/guards at `ccdcace`. That accepted source passes 812 tests
+and another ten routine consumer controls. Parallel proposal `11116e2` retains
+its distinct 813-source/44-private-installed receipt; the branch is not claimed
+merged and no public artifact is qualified. Shared handoffs are MolSysSuite #163
+and ArgDigest #49. No public floor,
+scientific pin, historical artifact or visual gate changes. #19 continues with
+prepared/owned-view contracts and DepDigest #47/inventory receiving; routine
+environment closure remains MolSysSuite #82.

@@ -11,7 +11,9 @@ passing numerical tests as complete adoption. No molecular workflow is changed.
 The table records the starting review. The core model/factory and bounded
 preparation/addon diagnostic follow-ups below deliver those receiving blocks.
 Prepared constructors, owned view arguments, dependency-audit receiving and
-the SMonitor #59 provider limitation remain incomplete.
+public support-provider qualification remain incomplete. The later SMonitor
+receiving block below qualifies the ordinary #59 source correction and receives
+the subsequent accepted callback correction tracked independently as #61.
 
 | Tool | Actual adoption | Remaining work |
 | --- | --- | --- |
@@ -285,3 +287,95 @@ receiving, prepared-object/owned-view argument contracts and dependency inventor
 scanner receiving (DepDigest #47). Scientific producers, provider pins, prior
 installed artifacts, public minimum claims and the deferred visual review retain
 their independent identities and gates.
+
+## SMonitor filtered-signal source receiving
+
+The ordinary SMonitor #59 correction is now integrated independently in provider
+commit `b1241ef`, received here from accepted main
+`82dad5a7e26e0fba712e30657a6739188d770d79`. A filtered inner observation no longer
+acknowledges the exception before the outer ERROR can report it. An already
+accepted DEBUG observation still wins; this does not promote every nested event.
+DockingMT keeps its ordinary signal/ArgDigest composition without a local marker
+reset, decorator-order change or application-policy override.
+
+The frozen [control producer](data/smonitor59_receiving_2026-11-04/control.py)
+and [source matrix receipt](data/smonitor59_receiving_2026-11-04/receiving.json)
+record consumer runtime `656cacb10a432f77c9a9f4b8bef21136e1270cd3` and producer
+SHA-256 `7e137ea466fb58dfd6c26cdeffff22ff6f72507ce9c742fc231ab2b6a74d2110`.
+Each selected profile exercises the real public prepare_ligand/prepare_receptor
+wrappers with a controlled provider refusal: WARNING/ERROR thresholds, native
+and foreign catalog exceptions, plus metadata-only opaque values. It requires
+one correctly attributed ERROR, unchanged exception identity/args/cause and
+foreign code/context, no opaque string/repr access, and unchanged application
+configuration. The controlled refusal replaces only the existing selection
+call, restored afterward; no molecular inspection, manipulation or docking runs.
+
+| SMonitor source | ArgDigest source | Passing / total |
+| --- | --- | --- |
+| `a3fd6d9858973b887e7a8ef0ed1b44f1dd1f2a1d` | `3d1ec53c374098016452abab74706e9d80df5462` | 0 / 10, expected adverse control |
+| Same old provider | `cd9c4f3ab80e892075fc5bee9b4ae9ce0ab5e018` | 0 / 10, expected adverse control |
+| Accepted `82dad5a7e26e0fba712e30657a6739188d770d79` | `3d1ec53c374098016452abab74706e9d80df5462` | 10 / 10 |
+| Same accepted provider | `cd9c4f3ab80e892075fc5bee9b4ae9ce0ab5e018` | 10 / 10 |
+
+The matrix verifies selected import origins before running; temporary source
+exports are retired. These are two ArgDigest generations, not the entire CI
+dependency composition. After fast-forwarding the clean SMonitor sibling to the
+accepted source and reinstalling its editable without dependencies, the routine
+environment independently passes **10/10** with no provider override. Its
+[profile identities](data/smonitor59_receiving_2026-11-04/routine-profile.json)
+and [observations](data/smonitor59_receiving_2026-11-04/routine-receiving.json)
+are separate from the matrix. Run the frozen producer from the repository root
+using the selected Python/provider environment, with a disposable output file:
+
+```bash
+python devguide/validation/data/smonitor59_receiving_2026-11-04/control.py /tmp/receiving.json
+```
+
+The routine environment still fails pip check on the separately owned
+MolSysSuite #82 dependency-closure findings. This receiving does not qualify
+that whole environment, public files/minima, other Python/platform lanes, prior
+installed artifacts or visible C4/C6. Scientific provider pins and frozen inputs
+remain unchanged; molecular work stays in MolSysMT.
+
+### Separate callback follow-up and provider handoff
+
+Additional independent controls find a narrower residual bug on accepted main:
+a diagnostic emitted by exception formatting or manager template resolution can
+acknowledge a different, filtered event. **18/20** independent controls pass on
+that source; these two callback cases fail. The owning
+[SMonitor #61](https://github.com/uibcdf/smonitor/issues/61) and owner-review
+[PR #60](https://github.com/uibcdf/smonitor/pull/60) retain this follow-up, rather
+than treating the ordinary #59 fix as missing.
+
+Proposal head `11116e25581f9eb46f561ed9d891040a52c08edd` extends the accepted
+implementation with invocation-bound receipts and message construction before
+capture. Its full provider suite passes **813 tests**, no skips; Ruff, generated
+indexes, all fifteen distribution preflights and the docs build pass. A private
+wheel built from that exact head passes **44 installed regressions** and a CLI
+smoke check; one pytest pre-import rewrite warning remains. Its SHA-256 is
+`60831f4bc97caece9f20017ec1382e94e1e466a6dbad20ad96f977c2ba5242d9`.
+This proposal was published for owner review. During receiving, the provider
+maintainer integrated the runtime correction independently as `5ee88c1` and
+retained the final guards/owner record in accepted main
+`ccdcace55ba5caf431b4a6a6904d8d18173114a3`. Runtime code differs from the proposal
+only in a comment. PR #60 is superseded by that integration; its parallel branch
+is not represented as merged. The original matrix above still identifies the
+earlier accepted source `82dad5a7`, without relabeling its observations.
+
+An independent full provider run on accepted `ccdcace` passes **812 tests**,
+no skips, with required collective E2E enabled. Its CI `41951351240`, QA CI
+`41951351174` and policy `41951351465` succeed, inspected through GH Run Receptor.
+After a second clean sibling fast-forward/editable reinstall, the frozen
+DockingMT producer passes **10/10** again with no source override; separate
+[accepted-main identities](data/smonitor59_receiving_2026-11-04/accepted-main-profile.json)
+and [observations](data/smonitor59_receiving_2026-11-04/accepted-main-routine.json)
+retain this later profile. These checks qualify accepted source, not a new
+public artifact or the earlier proposal's private wheel as another producer.
+
+Advance shared impact/receiving is coordinated in
+[MolSysSuite #163](https://github.com/uibcdf/molsyssuite/issues/163), related to
+#106, and [ArgDigest #49](https://github.com/uibcdf/argdigest/issues/49). Other
+registered consumers are candidates for their own receiving, not qualified by
+DockingMT's controls. #19 remains partial for prepared constructors, owned-view
+arguments, dependency inventory/scanner receiving (DepDigest #47) and actual
+public dependency qualification.

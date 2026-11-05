@@ -1,0 +1,96 @@
+{
+  "passed": 10,
+  "total": 10,
+  "cases": [
+    {
+      "role": "ligand",
+      "threshold": "WARNING",
+      "failure": "native",
+      "passed": true,
+      "error_events": 1,
+      "identity_args_cause_preserved": true,
+      "application_policy_preserved": true
+    },
+    {
+      "role": "ligand",
+      "threshold": "WARNING",
+      "failure": "catalog",
+      "passed": true,
+      "error_events": 1,
+      "identity_args_cause_preserved": true,
+      "application_policy_preserved": true
+    },
+    {
+      "role": "ligand",
+      "threshold": "ERROR",
+      "failure": "native",
+      "passed": true,
+      "error_events": 1,
+      "identity_args_cause_preserved": true,
+      "application_policy_preserved": true
+    },
+    {
+      "role": "ligand",
+      "threshold": "ERROR",
+      "failure": "catalog",
+      "passed": true,
+      "error_events": 1,
+      "identity_args_cause_preserved": true,
+      "application_policy_preserved": true
+    },
+    {
+      "role": "receptor",
+      "threshold": "WARNING",
+      "failure": "native",
+      "passed": true,
+      "error_events": 1,
+      "identity_args_cause_preserved": true,
+      "application_policy_preserved": true
+    },
+    {
+      "role": "receptor",
+      "threshold": "WARNING",
+      "failure": "catalog",
+      "passed": true,
+      "error_events": 1,
+      "identity_args_cause_preserved": true,
+      "application_policy_preserved": true
+    },
+    {
+      "role": "receptor",
+      "threshold": "ERROR",
+      "failure": "native",
+      "passed": true,
+      "error_events": 1,
+      "identity_args_cause_preserved": true,
+      "application_policy_preserved": true
+    },
+    {
+      "role": "receptor",
+      "threshold": "ERROR",
+      "failure": "catalog",
+      "passed": true,
+      "error_events": 1,
+      "identity_args_cause_preserved": true,
+      "application_policy_preserved": true
+    },
+    {
+      "role": "ligand",
+      "threshold": "WARNING",
+      "failure": "metadata",
+      "passed": true,
+      "error_events": 1,
+      "identity_args_cause_preserved": true,
+      "application_policy_preserved": true
+    },
+    {
+      "role": "receptor",
+      "threshold": "WARNING",
+      "failure": "metadata",
+      "passed": true,
+      "error_events": 1,
+      "identity_args_cause_preserved": true,
+      "application_policy_preserved": true
+    }
+  ]
+}

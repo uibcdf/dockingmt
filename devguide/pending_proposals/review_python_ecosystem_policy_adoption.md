@@ -14,6 +14,28 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## SMonitor filtered-signal source receiving — 2026-11-04
+
+The [source receiving checkpoint](../validation/support_library_review_2026-11-04.md#smonitor-filtered-signal-source-receiving)
+receives the ordinary #59 correction from accepted SMonitor main `82dad5a7`.
+Twenty consumer controls pass across the two selected ArgDigest generations;
+the old provider fails all twenty corresponding adverse controls. After the
+clean sibling fast-forward/editable reinstall, ten routine controls also pass.
+Frozen producer, exact source identities and observations are retained with
+the review. Native identity/args/cause, foreign diagnostics, metadata-only
+capture and application configuration are preserved; no molecular work runs.
+
+A distinct callback-emission limitation is tracked as SMonitor #61, proposed
+in PR #60 and integrated independently by the provider maintainer as `5ee88c1`.
+Final accepted source `ccdcace` passes 812 provider tests and another ten routine
+DockingMT controls. The parallel proposal `11116e2` retains its separate 813-test/
+44-private-installed receipt; it is not represented as merged or publicly
+delivered. MolSysSuite #163 and ArgDigest #49 hold the shared handoff. #19 stays
+partial: prepared constructors, owned-view
+contracts, DepDigest #47/inventory receiving and public dependency qualification
+remain. Scientific pins, prior artifacts and deferred visual gates retain their
+independent identities; routine dependency closure remains MolSysSuite #82.
+
 ## Preparation/addon diagnostic receiving — 2026-11-04
 
 The [diagnostic follow-up](../validation/support_library_review_2026-11-04.md#preparation-and-addon-diagnostic-receiving-follow-up)
