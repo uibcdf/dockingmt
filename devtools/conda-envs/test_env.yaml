@@ -9,7 +9,7 @@ dependencies:
   - wheel
   - pytest
   - pytest-cov
-  - pytest-receptor
+  - pytest-receptor ==1.2.2
   - smonitor >=0.16.0
   - depdigest >=0.15.1
   - pyunitwizard >=0.28.1

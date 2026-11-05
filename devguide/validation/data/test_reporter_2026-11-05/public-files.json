@@ -1,0 +1,17 @@
+{
+  "version": "1.2.2",
+  "producer": "531bafde5d48ddd8974e29ac91ae53ecae0fd787",
+  "files": {
+    "wheel": {
+      "name": "pytest_receptor-1.2.2-py3-none-any.whl",
+      "sha256": "48c290fba7e12d19015fa436989fdad465d5ff7bba78fa94f7825e305ccf7961"
+    },
+    "conda": {
+      "name": "pytest-receptor-1.2.2-py_0.tar.bz2",
+      "sha256": "c0b075286f45e8fce5ab5852947611bfba82b7d509115fc5dadf1a9572b9dd74"
+    }
+  },
+  "equal_runtime_file_count": 6,
+  "runtime_payloads_equal": true,
+  "prior_public_qualification": "uibcdf/molsyssuite#133"
+}

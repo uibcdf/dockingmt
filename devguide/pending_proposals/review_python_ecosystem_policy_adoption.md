@@ -14,6 +14,20 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Published source-test reporter — 2026-11-05
+
+The [receiving record](../validation/test_reporter_receiving_2026-11-05.md)
+selects public Pytest Receptor 1.2.2 for the source-science environment and test
+extra. Both source workflows verify the installed version/origin; native test
+selection, coverage, cadence and scientific pins remain. Public wheel/Conda
+digests match #133 and all six runtime files agree. A private published-plugin
+profile passes 122 source and 27 administrative cases; deliberate human/CI
+failure/warning/skip controls agree on exit/counts and preserve their evidence.
+The routine editable tool and independent administrative/installed SDK profiles
+retain their identities. Exact-head hosted probe/lane observation remains #28;
+the preceding 74bf2cc's four workflows all pass. #19 stays partial for DepDigest
+owner acceptance, wider adoption and public compatibility.
+
 ## Direct dependency ownership and audit proposal — 2026-11-04
 
 The [inventory/audit block](../validation/support_library_review_2026-11-04.md#dependency-ownership-channels-and-scoped-audit-receiving)

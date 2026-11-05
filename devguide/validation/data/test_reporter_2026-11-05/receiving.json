@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-05",
+  "reporter": "1.2.2",
+  "python": "3.14.7",
+  "profiles": {
+    "human": {
+      "exit": 1,
+      "junit_counts": {
+        "passed": 2,
+        "failed": 1,
+        "skipped": 1
+      },
+      "warning_retained": true,
+      "skip_reason_retained": true
+    },
+    "ci": {
+      "exit": 1,
+      "junit_counts": {
+        "passed": 2,
+        "failed": 1,
+        "skipped": 1
+      },
+      "warning_retained": true,
+      "skip_reason_retained": true,
+      "artifact_complete": true,
+      "artifact_integrity_valid": true,
+      "warnings": 1,
+      "wrapper_rerun_retained": true
+    }
+  },
+  "workflow_probes": [
+    {
+      "workflow": ".github/workflows/ci.yml",
+      "exit": 0,
+      "reporter_version": "1.2.2",
+      "isolated_mode": true
+    },
+    {
+      "workflow": ".github/workflows/full-matrix.yml",
+      "exit": 0,
+      "reporter_version": "1.2.2",
+      "isolated_mode": true
+    }
+  ],
+  "focused_source_tests": {
+    "passed": 122,
+    "exit": 0
+  },
+  "administrative_tests": {
+    "passed": 27,
+    "exit": 0
+  },
+  "scope": "Linux source checkout, private published reporter over routine shared scientific dependencies; not a new Conda solve or DockingMT installed/public qualification"
+}

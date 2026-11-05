@@ -38,7 +38,7 @@ test = [
   "packaging",
   "pytest>=8",
   "pytest-cov",
-  "pytest-receptor",
+  "pytest-receptor==1.2.2",
   "rdkit",
 ]
 viewer = [
@@ -91,6 +91,7 @@ require-match = true
 file = "dockingmt/_version.py"
 
 [tool.pytest.ini_options]
+receptor_rerun_command = "python -m pytest"
 testpaths = ["tests"]
 pythonpath = ["."]
 addopts = "-q"

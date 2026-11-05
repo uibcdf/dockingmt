@@ -13,7 +13,7 @@ path = "devtools/conda-envs/test_env.yaml"
 kind = "runtime"
 purpose = "test"
 channel_priority = "strict"
-narrowing_reason = "Compatible test bootstrap floors, DockingMT PEP 639 build tooling and Vina-declared setuptools/wheel requirements; exact runtime replacements remain contextual source evidence."
+narrowing_reason = "Compatible test bootstrap floors, reviewed Pytest Receptor 1.2.2, DockingMT PEP 639 build tooling and Vina-declared setuptools/wheel requirements; exact runtime replacements remain contextual source evidence."
 reason = "Original scientific bootstrap and optional backend/integration tools; strict priority is enforced by both source workflows."
 
 [[source_routes]]
@@ -96,7 +96,7 @@ reason = "DockingMT #60 addon-specific Node/jsdom DOM tests; standard-library AS
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "83ae5360397238308fafe9565de5e2b8655454fdf2582d0b80e2ead82dd75568"
+sha256 = "e0b0c6fcccb23655a1619018e7175dc378a76bb2d3d1fb997cc30318ec07685b"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22."
 
 [[workflows]]
@@ -106,7 +106,7 @@ reason = "Administrative no-build recipe/resources and immutable publisher contr
 
 [[workflows]]
 path = ".github/workflows/full-matrix.yml"
-sha256 = "5c84953ac84881db17852703e27c02c0d01fee3ccc2a9982ec384574d0aeddb2"
+sha256 = "533adc353043d7f5fd4cc826415749804bd2ac21bc176623469fb13e58f38b76"
 reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under dockingmt#49; directory preflight does not dispatch or change the matrix."
 
 [[workflows]]

@@ -87,6 +87,8 @@ Public installation guidance for our MolSysSuite packages currently uses the
 `uibcdf` Conda channel. Keep their DepDigest PyPI routes explicitly disabled
 until an owning publisher supplies a reviewed alternative. Local editable
 source installation remains the development route described above.
+Pytest Receptor retains its documented additional PyPI route, the current
+exception recorded in MolI #81 and MolSysSuite #167.
 
 ## External tooling guides
 

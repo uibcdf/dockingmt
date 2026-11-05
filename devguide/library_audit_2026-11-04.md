@@ -758,3 +758,20 @@ an injected new leak still fails. MolSysSuite #166 owns shared impact/receiving.
 Owner acceptance, routine receiving and public artifacts remain distinct from
 this proposal. No molecular routine, scientific pin/producer or visual C4/C6
 acceptance changes. #19 remains partial for that receiving and wider tool work.
+
+## Follow-up 17 — published source-test reporter, 2026-11-05
+
+The [#19 receiving record](validation/test_reporter_receiving_2026-11-05.md)
+pins the science source-test environment/extra to published Pytest Receptor
+1.2.2 and verifies its installed metadata/origin in both source workflows.
+Original test selection, coverage, cadence and scientific provider pins remain.
+Verified public wheel/Conda hashes and six equal runtime files retain the #133
+release identity. With a private published-plugin profile, 122 source and 27
+administrative cases pass; deliberate native/compact failure controls preserve
+exit/counts, warning, skip reason, artifact integrity and wrapper rerun evidence.
+
+The routine editable reporter and independent administrative/installed caller
+profiles retain their identities. Exact-head hosted receiving remains #28;
+preceding source 74bf2cc's four workflows pass independently. This tooling work
+adds no scientific population, public DockingMT qualification or visible C4/C6
+acceptance. #19 stays partial for provider/tool/public receiving.

@@ -132,6 +132,9 @@ jobs:
           python -I -c 'import importlib.metadata as m; import dockingmt;
           from packaging.specifiers import SpecifierSet;
           assert SpecifierSet(m.metadata("dockingmt")["Requires-Python"]) == SpecifierSet(">=3.11,<3.15");
+          import pytest_receptor;
+          assert m.version("pytest-receptor") == "1.2.2";
+          print("Test reporter", m.version("pytest-receptor"), pytest_receptor.__file__);
           print("Installed", m.version("dockingmt"), dockingmt.__file__)'
       - name: Check installed dependency closure
         shell: bash -l {0}
