@@ -8,6 +8,25 @@ this review checks the separate public package boundary and prepares controls.
 **No release version, real release plan, environment, build, scientific run,
 upload, promotion or credential operation is selected by this work.**
 
+## Availability refresh — 2026-11-05
+
+The separate [current API/main-index receipt](data/public_readiness/registry_refresh_2026-11-05.json)
+rechecks complete official file inventories and independent Linux, macOS arm64
+and noarch `main` solver indexes, without using stale API summary versions.
+The previously inspected MolSysMT `0.23.0` Linux and Viewer `0.24.0` build-1
+noarch files remain the relevant highest-version files with identical SHA-256
+identities. Their earlier static/installed findings remain historical; no new
+covering file is available in this observation to justify repeating receiving.
+SMonitor `0.22.1` is newly indexed; this is availability evidence only, not its
+runtime receiving or a qualified public consumer closure.
+
+The DockingMT API still returns 404 and the three queried `main` indexes contain
+no DockingMT record. This is not a release-candidate all-label coordinate check.
+No archive download, installation, clean solve, environment, scientific/native
+operation, build or publication occurs. Existing public minima/source pins stay.
+The [#73 version ladder](../RELEASE_MILESTONES.md) now separates preparing the
+first source milestone from actually delivering a public Conda artifact.
+
 ## Actual public observations
 
 Follow-up **2026-11-04**: [installed public Viewer receiving](public_viewer_receiving.md)

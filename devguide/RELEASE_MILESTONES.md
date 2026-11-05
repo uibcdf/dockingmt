@@ -1,0 +1,136 @@
+# Versioned milestones toward 1.0.0
+
+Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
+Maintainer request: 2026-11-05. This is a **prospective release ladder**, not a
+selected release candidate, a public version announcement or permission to infer
+unexecuted gates. The [operational roadmap](ROADMAP.md#current-operational-plan),
+[scientific MVP](MVP.md) and [Core acceptance map](CORE_MVP_STATUS.md) retain their
+own authority. Existing scientific producers and package identities remain intact.
+
+## Why consolidate intermediate versions
+
+DockingMT has meaningful software, workflow and scientific checkpoints worth
+making easy to identify. A version should name a reviewed, reproducible scope
+with explicit limitations. It need not claim the whole Core, general docking
+accuracy or a public Conda package merely because a tag exists.
+
+No remote tags or GitHub Releases are observed at this review's source
+`37e3771a6540d66992f799e500fdb82e221377dd`. Development identities derived from
+the `0.0.0` fallback are not previously published releases. No tag, Release,
+package version or real `release_plan.toml` is created by this plan.
+
+## Proposed ladder
+
+The numbers are prospective identities attached to outcomes, not dates or a
+requirement to manufacture six releases. Combine milestones if their actual
+evidence arrives together. Do not advance a number solely because time or commit
+count has increased. Patch versions such as `0.1.1` describe reviewed corrections
+within a declared scope; new capabilities or intentional pre-1.0 compatibility
+changes get a reviewed minor milestone and migration notes.
+
+| Prospective version | Meaning | Completion evidence / owner |
+| --- | --- | --- |
+| `0.1.0` | First consolidated reproducible source baseline. | Exact candidate, truthful version metadata, qualified source dependency composition, executed applicable source/quality/policy/addon gates, source-use instructions and release notes. Bound the claim to delivered Vina/box/preparation/result/score/recovery behavior and existing evidence. State that public dependency pairing, whole-Core and visible C4/C6 remain unaccepted where applicable. #73/#28/#19/#33. |
+| `0.2.0` | First independently installable public Conda delivery. | Covering real public providers, measured compatible minima/closure, the staged candidate's fifteen required native jobs and eight installed cells, exact-file archive/resource checks and same-byte promotion/public receiving. Matching release identity and availability notice. #30/#47. A partial/private solve cannot satisfy this milestone. |
+| `0.3.0` | Core MVP accepted for its declared scientific profile. | All 35 C0–C6 criteria have explicit acceptance, including actual visible domain/reference/pose observation and a scientifically credible complete redocking workflow. Preserve refusals, preparation assumptions, score meaning and source/state/selection provenance. #4/#33/#49/#52/#60 and the Core map. |
+| `0.4.0` | Bounded scientific qualification beyond the original worked example. | Admit a small transparent independent set before execution, with provider-owned source/chemistry/plausibility tools, explicit preparation hypotheses, informative search-versus-ranking controls and all adverse/unassessed outcomes. Prespecify scope, denominators, budgets and decision rules. Existing 5X72/3PTB repetitions are not new independent complexes. #33/#49 and the audit Q2–Q4 plan. |
+| `0.9.0` | Stabilization against a declared 1.0 contract. | Agree the actual 1.0 scope, public API/schema and compatibility promises, supported dependency/platform combination, reproducibility instructions, examples and remaining critical findings. Freeze intended scope; close or explicitly defer work outside it. This numeric release is not an `rc`/prerelease tag. #73/#28/#30/#47. |
+| `1.0.0` | Stable release of the explicitly accepted scope. | Accepted Core/scientific contract, reproducible public installation and workflows, relevant platform/minor qualification, stable documented API/schema/migration policy, complete exact-candidate delivery gates and published limitations. No unresolved critical defect may contradict that scope. Final release authority and evidence decide readiness, not this table. |
+
+## Boundary proposed for 1.0.0
+
+The requested [Core/Extended reminder](CORE_EXTENDED_COMPARISON.md) lists every
+C0–C6 and E1–E5 capability, its actual delivered pieces and remaining boundaries,
+so the maintainer can decide from scope and evidence rather than gate names.
+
+The recommended boundary is a stable, publicly usable **Core MVP with a bounded
+scientifically qualified profile**. Extended MVP E1–E5 and later peer integrations
+retain their existing roadmap and concrete-workflow requirement. Their partial
+implementation does not imply their acceptance, and their presence in the design
+does not silently make all of them new 1.0 prerequisites.
+
+The maintainer requested that comparison before choosing whether 1.0 should
+require both Core and Extended MVP. That preference is **pending** in this
+proposal. Do not describe
+either mapping as accepted or remove/change the existing E1–E5 gates. If Extended
+is selected, add its demonstrated workflows and acceptance before stabilization;
+general clustering/interaction/ensemble operations remain in their providers.
+This decision does not block preparation of the earlier source/public/Core
+milestones.
+
+## A source tag, a GitHub Release and a package are distinct events
+
+Follow the [suite release policy](https://github.com/uibcdf/molsyssuite/blob/main/devguide/release_version_policy.md).
+Public release identities and tags are exact `X.Y.Z`, without `v`, `alpha`, `beta`,
+`rc` or local-version suffixes. GitHub Release title equals that same version.
+Development-derived versions remain truthful development identities.
+
+1. A canonical source/tag-only release can preserve a useful qualified baseline
+   while explicitly stating that no package is public. It still has an owning
+   release record, exact-candidate gates and a release-specific MolSysSuite notice.
+2. The current Conda wrapper runs on GitHub `release: released` or a reviewed
+   manual dispatch. A tag push alone does not trigger that wrapper; policy and
+   ordinary source CI remain separate. Do not publish a GitHub Release as a
+   supposedly harmless source marker and accidentally start an unplanned package
+   attempt. Review the concrete route before the event. No wrapper is changed here.
+3. A Conda package requires its own exact artifact, version/build/route, installation
+   evidence and same-byte public receiving. Its current distribution route is
+   Conda `uibcdf`. A source release does not advertise a PyPI route or a compatible
+   public molecular minimum.
+
+The first `0.1.0` is therefore a useful **next candidate to prepare**, not a tag
+to push immediately. A source-only delivery could precede the first Conda package;
+whether to use it is decided in the actual release record. If the public closure
+arrives first, the source and package milestones can be consolidated instead.
+An archive tag has a different historical purpose and is not this version ladder;
+this repository's older policy caller has not adopted the archive-tag capability.
+
+## First-tag readiness checklist
+
+- Select one clean full source commit, intended `0.1.0` identity, source-only or
+  package route, scope and responsible release owner. Preserve every historical
+  producer and never retag a published identity.
+- Record every applicable required gate, complete immutable inputs, actual
+  outcome and reuse/replacement decision before publication. Resolve pending
+  exact-head CI; an earlier green head, successful test jobs or a queued coverage
+  publisher is not a terminal passing release receipt. This plan waives no gate.
+- Verify intended version generation/metadata and tag/parser/title consistency
+  using a controlled candidate context. Leave ordinary development metadata and
+  source pins unchanged until that candidate is actually prepared.
+- For a source-only release, document the exact source dependency composition,
+  reproducible supported installation/use route, tested scope and explicit
+  absence of a public package. Public dependency minima and unsupported platforms
+  stay unqualified. Select the GitHub event/publisher behavior deliberately.
+- For a package, select and commit the real staged plan, acquire the exact
+  public dependency closure, execute all required native and installed gates,
+  build/inspect/stage once, qualify, and promote the same bytes. The current
+  administrative example is not that plan.
+- Prepare release notes and the release-specific central notice. Source-only
+  releases are notified too; update that same notice when packages arrive.
+  The maintainer's package-plus-Release availability announcement remains due.
+  Other-repository issue work is currently deferred: do not publish a release
+  now and silently omit its required handoff. This is a reporting obligation,
+  not a new central permission gate.
+
+## Current disposition — 2026-11-05
+
+The [fresh package inventory](validation/data/public_readiness/registry_refresh_2026-11-05.json)
+compares complete official package APIs and independent `main` solver indexes.
+The previously inspected MolSysMT `0.23.0` Linux and Viewer `0.24.0` build-1
+noarch files remain at the highest relevant version with the same hashes.
+There is no new artifact covering the missing reader/graph or handle/player
+boundary, so repeating their prior failed receiving is not informative.
+SMonitor `0.22.1` is newly indexed; its presence alone qualifies neither its
+runtime nor DockingMT's full dependency pairing. Public pins/minima remain.
+
+No DockingMT package appears in the three queried `main` indexes; its package API
+returns 404. This bounded availability observation is not the all-label,
+exact-coordinate absence check required for a real candidate publication.
+No new artifact download, environment, install, molecular/native operation,
+build, tag, release or upload is performed.
+
+The immediate progression is: deliver/review this ladder, finish exact-head
+receiving under #28, prepare the `0.1.0` source-candidate decision, and resume
+actual public compatibility under #30/#47 only when covering provider bytes are
+available. Molecular capabilities remain MolSysMT-owned; visual acceptance stays
+deferred until the maintainer resumes it.

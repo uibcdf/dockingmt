@@ -56,6 +56,26 @@ experiment is needed for these fixes.
 
 ## Current operational plan
 
+The [version ladder toward 1.0.0](RELEASE_MILESTONES.md), requested on 2026-11-05
+under [#73](https://github.com/uibcdf/dockingmt/issues/73), proposes meaningful
+`0.1.0` source, `0.2.0` public Conda, `0.3.0` accepted-Core, `0.4.0` bounded
+scientific and `0.9.0` stabilization milestones before `1.0.0`. These are
+prospective identities, not published releases or selected candidates. The
+recommended Core-based 1.0 scope versus requiring Extended too remains a
+maintainer decision; the [requested capability comparison](CORE_EXTENDED_COMPARISON.md)
+provides C0–C6/E1–E5 definitions and present implementation/acceptance. Next
+prepare the first source-candidate decision after
+exact-head gates; public packaging and a source/tag-only release retain separate
+evidence and notification obligations. Do not use a GitHub Release to start an
+unplanned Conda publication attempt.
+
+The [fresh main-index/API check](validation/data/public_readiness/registry_refresh_2026-11-05.json)
+finds the same already reviewed MolSysMT `0.23.0` and Viewer `0.24.0` build-1
+artifact hashes. SMonitor `0.22.1` is newly indexed, but no new compatible full
+provider combination is established. Keep #30/#47 partial and original scientific
+pins/minima intact; no repeated failed receiving, new environment or publication
+is justified by unchanged molecular/Viewer files.
+
 The [2026-11-05 local resource checkpoint](pending_proposals/review_temporary_resources.md)
 completes #50's operation/disposition review: explicit retained contexts, original
 artifact/receiver dependencies, elapsed and future reviews, and protected
