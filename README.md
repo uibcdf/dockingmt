@@ -18,6 +18,9 @@ provided by MolSysMT, TopoMT, ElastNetMT, and PharmacophoreMT.
 AutoDock Vina is the initial reference engine for canonical protein–small-molecule docking
 and redocking validation.
 
+Our current public package route is the `uibcdf` Conda channel. Development
+uses the local source checkouts; the qualified installation scope is described below.
+
 ## Start here
 
 The current supported starting profile is one explicitly declared small-molecule

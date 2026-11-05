@@ -9,10 +9,30 @@ LIBRARIES = {
         'conda': 'molsysmt',
         'channel': 'uibcdf',
     },
-    'pyunitwizard': {'type': 'hard', 'pypi': 'pyunitwizard'},
-    'argdigest': {'type': 'hard', 'pypi': 'argdigest'},
-    'depdigest': {'type': 'hard', 'pypi': 'depdigest'},
-    'smonitor': {'type': 'hard', 'pypi': 'smonitor'},
+    'pyunitwizard': {
+        'type': 'hard',
+        'pypi': None,
+        'conda': 'pyunitwizard',
+        'channel': 'uibcdf',
+    },
+    'argdigest': {
+        'type': 'hard',
+        'pypi': None,
+        'conda': 'argdigest',
+        'channel': 'uibcdf',
+    },
+    'depdigest': {
+        'type': 'hard',
+        'pypi': None,
+        'conda': 'depdigest',
+        'channel': 'uibcdf',
+    },
+    'smonitor': {
+        'type': 'hard',
+        'pypi': None,
+        'conda': 'smonitor',
+        'channel': 'uibcdf',
+    },
     'vina': {'type': 'soft', 'pypi': 'vina', 'conda': 'vina'},
     'molsysviewer': {
         'type': 'soft',
@@ -20,10 +40,10 @@ LIBRARIES = {
         'conda': 'molsysviewer',
         'channel': 'uibcdf',
     },
-    'rdkit': {'type': 'soft', 'pypi': 'rdkit', 'conda': 'rdkit'},
-    'pdbfixer': {'type': 'soft', 'pypi': 'pdbfixer', 'conda': 'pdbfixer'},
-    'openmm': {'type': 'soft', 'pypi': 'openmm', 'conda': 'openmm'},
 }
+
+# Molecular engines are selected and checked by MolSysMT. They are not
+# DockingMT runtime capabilities; scientific test tools retain their own scope.
 
 MAPPING = {}
 

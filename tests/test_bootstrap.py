@@ -51,12 +51,25 @@ def test_vina_extra_does_not_install_meeko():
 
 def test_no_leaky_optional_imports():
     # A fresh import must be independent of previous real-engine tests.
+    script = """
+import importlib.abc
+import sys
+blocked = {'vina', 'meeko', 'pdbfixer', 'molsysviewer', 'rdkit', 'openmm'}
+class BlockOptional(importlib.abc.MetaPathFinder):
+    def find_spec(self, fullname, path=None, target=None):
+        if fullname.split('.')[0] in blocked:
+            raise ModuleNotFoundError(fullname)
+sys.meta_path.insert(0, BlockOptional())
+import dockingmt as dmt
+record = dmt.DockingResult([]).to_dict()
+assert dmt.DockingResult.from_dict(record).to_dict() == record
+assert not blocked & sys.modules.keys()
+"""
     completed = subprocess.run(
         [
             sys.executable,
             '-c',
-            'import dockingmt; import sys; '
-            "assert not {'vina', 'meeko', 'pdbfixer', 'molsysviewer'} & sys.modules.keys()",
+            script,
         ],
         cwd=Path(__file__).resolve().parents[1],
         capture_output=True,

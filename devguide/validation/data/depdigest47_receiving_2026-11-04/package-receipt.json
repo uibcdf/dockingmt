@@ -1,0 +1,8 @@
+{
+  "source": "23c028c1bafe6b8241e0a3d57b1df1773afa2322",
+  "wheel": "depdigest-0.15.1+15.g23c028c-py3-none-any.whl",
+  "wheel_sha256": "5966e339b832f3d42392470e19a559ab8750e1ac44294151678f824311c2b737",
+  "installed_owning_tests": 27,
+  "cli_smoke_exit": 0,
+  "public_artifact": false
+}

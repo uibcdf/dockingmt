@@ -81,6 +81,13 @@ Routine development uses the Conda environment `molsyssuite@uibcdf_3.14`
 Install this checkout in that environment with `python -m pip install --no-deps
 --editable .`, and run the local gates with its interpreter and tools.
 
+## Current package routes
+
+Public installation guidance for our MolSysSuite packages currently uses the
+`uibcdf` Conda channel. Keep their DepDigest PyPI routes explicitly disabled
+until an owning publisher supplies a reviewed alternative. Local editable
+source installation remains the development route described above.
+
 ## External tooling guides
 
 The synchronized root guides are read-only copies owned by their named repositories.

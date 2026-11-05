@@ -276,7 +276,7 @@ class VinaBackend(DockingBackend):
 
     @property
     def is_available(self) -> bool:
-        """Whether the 'vina' package is installed and importable."""
+        """Whether DepDigest can discover the optional Vina Python package."""
         return depdigest.is_installed('vina')
 
     @arg_digest(config='dockingmt._argdigest')

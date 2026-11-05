@@ -738,3 +738,23 @@ registration is corrected. Development continues with source checkouts while
 provider publication proceeds independently. #19 continues with DepDigest #47/
 inventory and wider developer-tool receiving; public artifacts, scientific
 producers and visible C4/C6 retain their separate gates.
+
+## Follow-up 16 — dependency ownership and scoped audit, 2026-11-04
+
+The [#19 inventory block](validation/support_library_review_2026-11-04.md#dependency-ownership-channels-and-scoped-audit-receiving)
+aligns DepDigest with actual runtime metadata/extras: Vina and Viewer are direct
+optional capabilities; molecular engines remain owned by MolSysMT. Existing
+RDKit test and RDKit/OpenMM CI requirements retain their separate purposes.
+All six suite-package hints use the maintainer-confirmed current uibcdf Conda
+route, with PyPI disabled. Source development and provider publication proceed
+independently. Initial inventory/route controls fail one/four cases; the final
+selection passes 121 cases, including blocked-provider saved-result isolation.
+
+The reusable relative-import fix is proposed in DepDigest #48 for #47, with
+332 source tests, twenty distribution controls and 27 private installed tests
+passing. Consumer audit controls improve from 5/7 to 7/7 on both proposal source
+and private wheel. One exact addon-widget definition exception remains visible;
+an injected new leak still fails. MolSysSuite #166 owns shared impact/receiving.
+Owner acceptance, routine receiving and public artifacts remain distinct from
+this proposal. No molecular routine, scientific pin/producer or visual C4/C6
+acceptance changes. #19 remains partial for that receiving and wider tool work.

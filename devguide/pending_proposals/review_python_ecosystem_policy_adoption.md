@@ -14,6 +14,27 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Direct dependency ownership and audit proposal — 2026-11-04
+
+The [inventory/audit block](../validation/support_library_review_2026-11-04.md#dependency-ownership-channels-and-scoped-audit-receiving)
+removes MolSysMT-owned molecular engines from DockingMT's direct runtime inventory
+and aligns all six suite-package hints with the maintainer-confirmed current
+uibcdf Conda route. PyPI hints are explicitly disabled; local source development
+continues. Required runtime names, optional extras, test/CI tools and scientific
+pins retain their existing scopes. Initial inventory and route controls expose
+one and four failures respectively; the final local selection passes 121 cases,
+including both Vina guards and fresh blocked-provider saved-record isolation.
+
+DepDigest #47's shared scanner correction is proposed in owner-review PR #48
+at 23c028c: 332 source tests, no skips; twenty distribution checks; 27 private
+installed regressions and CLI smoke pass. Frozen consumer controls give 5/7
+on the old provider and 7/7 on proposal source and its private installed wheel.
+The addon class-definition import has one documented exact-file scope; a new
+leak still fails. No local scanner or core-file workaround is added. Shared
+impact is MolSysSuite #166. #19 remains partial for provider acceptance/routine
+receiving, wider developer-tool adoption and public compatibility; private
+proposal evidence is not a new public package or visual acceptance.
+
 ## Prepared declarations and owned view arguments — 2026-11-04
 
 The [receiving block](../validation/support_library_review_2026-11-04.md#prepared-declaration-and-owned-view-argument-receiving)

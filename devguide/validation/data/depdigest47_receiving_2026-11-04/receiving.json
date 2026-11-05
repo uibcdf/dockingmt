@@ -1,0 +1,260 @@
+{
+  "consumer_base": "6305b2bb2f997c9eca16966684ee247337536329",
+  "consumer_inventory_sha256": "e774b79e24acae58bf8b94a6cfb34a5157f20fbda88913e8801856297ff09966",
+  "producer_sha256": "e16b04e90932724ee9c937967211c8b885227a9a46f10c7879c50d6328af08fe",
+  "profiles": [
+    {
+      "provider_source": "0884f0cc1dd60b79ed01930e68d80c87e51744c9",
+      "profile": "baseline",
+      "soft_dependencies": [
+        "molsysviewer",
+        "vina"
+      ],
+      "passed": 5,
+      "total": 7,
+      "cases": [
+        {
+          "case": "core",
+          "exit": 1,
+          "violation_count": 1,
+          "findings": [
+            {
+              "path": "engines/__init__.py",
+              "line": 4,
+              "module": "vina"
+            }
+          ],
+          "passed": false
+        },
+        {
+          "case": "addon_raw",
+          "exit": 1,
+          "violation_count": 1,
+          "findings": [
+            {
+              "path": "panels/_base.py",
+              "line": 6,
+              "module": "molsysviewer.addons"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "case": "addon_exact_widget_exception",
+          "exit": 0,
+          "violation_count": 0,
+          "findings": [],
+          "passed": true
+        },
+        {
+          "case": "relative_adapter",
+          "exit": 1,
+          "violation_count": 1,
+          "findings": [
+            {
+              "path": "adapter.py",
+              "line": 1,
+              "module": "vina"
+            }
+          ],
+          "passed": false
+        },
+        {
+          "case": "absolute_engine",
+          "exit": 1,
+          "violation_count": 1,
+          "findings": [
+            {
+              "path": "adapter.py",
+              "line": 1,
+              "module": "vina"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "case": "lazy_engine",
+          "exit": 0,
+          "violation_count": 0,
+          "findings": [],
+          "passed": true
+        },
+        {
+          "case": "new_addon_leak",
+          "exit": 1,
+          "violation_count": 1,
+          "findings": [
+            {
+              "path": "new_leak.py",
+              "line": 1,
+              "module": "molsysviewer"
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "temporary_fixtures_retired": true
+    },
+    {
+      "provider_source": "23c028c1bafe6b8241e0a3d57b1df1773afa2322",
+      "profile": "proposal",
+      "soft_dependencies": [
+        "molsysviewer",
+        "vina"
+      ],
+      "passed": 7,
+      "total": 7,
+      "cases": [
+        {
+          "case": "core",
+          "exit": 0,
+          "violation_count": 0,
+          "findings": [],
+          "passed": true
+        },
+        {
+          "case": "addon_raw",
+          "exit": 1,
+          "violation_count": 1,
+          "findings": [
+            {
+              "path": "panels/_base.py",
+              "line": 6,
+              "module": "molsysviewer.addons"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "case": "addon_exact_widget_exception",
+          "exit": 0,
+          "violation_count": 0,
+          "findings": [],
+          "passed": true
+        },
+        {
+          "case": "relative_adapter",
+          "exit": 0,
+          "violation_count": 0,
+          "findings": [],
+          "passed": true
+        },
+        {
+          "case": "absolute_engine",
+          "exit": 1,
+          "violation_count": 1,
+          "findings": [
+            {
+              "path": "adapter.py",
+              "line": 1,
+              "module": "vina"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "case": "lazy_engine",
+          "exit": 0,
+          "violation_count": 0,
+          "findings": [],
+          "passed": true
+        },
+        {
+          "case": "new_addon_leak",
+          "exit": 1,
+          "violation_count": 1,
+          "findings": [
+            {
+              "path": "new_leak.py",
+              "line": 1,
+              "module": "molsysviewer"
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "temporary_fixtures_retired": true
+    },
+    {
+      "provider_source": "23c028c1bafe6b8241e0a3d57b1df1773afa2322",
+      "profile": "installed-proposal",
+      "soft_dependencies": [
+        "molsysviewer",
+        "vina"
+      ],
+      "passed": 7,
+      "total": 7,
+      "cases": [
+        {
+          "case": "core",
+          "exit": 0,
+          "violation_count": 0,
+          "findings": [],
+          "passed": true
+        },
+        {
+          "case": "addon_raw",
+          "exit": 1,
+          "violation_count": 1,
+          "findings": [
+            {
+              "path": "panels/_base.py",
+              "line": 6,
+              "module": "molsysviewer.addons"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "case": "addon_exact_widget_exception",
+          "exit": 0,
+          "violation_count": 0,
+          "findings": [],
+          "passed": true
+        },
+        {
+          "case": "relative_adapter",
+          "exit": 0,
+          "violation_count": 0,
+          "findings": [],
+          "passed": true
+        },
+        {
+          "case": "absolute_engine",
+          "exit": 1,
+          "violation_count": 1,
+          "findings": [
+            {
+              "path": "adapter.py",
+              "line": 1,
+              "module": "vina"
+            }
+          ],
+          "passed": true
+        },
+        {
+          "case": "lazy_engine",
+          "exit": 0,
+          "violation_count": 0,
+          "findings": [],
+          "passed": true
+        },
+        {
+          "case": "new_addon_leak",
+          "exit": 1,
+          "violation_count": 1,
+          "findings": [
+            {
+              "path": "new_leak.py",
+              "line": 1,
+              "module": "molsysviewer"
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "temporary_fixtures_retired": true
+    }
+  ],
+  "public_artifact": false
+}

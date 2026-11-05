@@ -1,0 +1,33 @@
+{
+  "observed_date_utc": "2026-11-05",
+  "source_authorities": {
+    "argdigest": "7e09e974c36bcf5cace99a7b898d0f5f7a9d3ff2",
+    "smonitor": "ccdcace55ba5caf431b4a6a6904d8d18173114a3",
+    "depdigest": "0884f0cc1dd60b79ed01930e68d80c87e51744c9",
+    "pyunitwizard": "9d74f0e1e911d78c1906948e74ce8da93935557d"
+  },
+  "projects": [
+    {
+      "name": "argdigest",
+      "endpoint": "https://pypi.org/pypi/argdigest/json",
+      "http_status": 404
+    },
+    {
+      "name": "smonitor",
+      "endpoint": "https://pypi.org/pypi/smonitor/json",
+      "http_status": 404
+    },
+    {
+      "name": "depdigest",
+      "endpoint": "https://pypi.org/pypi/depdigest/json",
+      "http_status": 404
+    },
+    {
+      "name": "pyunitwizard",
+      "endpoint": "https://pypi.org/pypi/pyunitwizard/json",
+      "http_status": 404
+    }
+  ],
+  "conda_channel": "uibcdf",
+  "public_compatibility_qualified": false
+}

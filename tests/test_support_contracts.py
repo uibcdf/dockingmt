@@ -2,11 +2,13 @@ import copy
 import pickle
 import warnings
 from dataclasses import replace
+from importlib.metadata import requires
 
 import depdigest
 import pytest
 import pyunitwizard as puw
 import smonitor
+from packaging.requirements import Requirement
 
 import dockingmt as dmt
 from dockingmt._private.smonitor import (
@@ -99,9 +101,11 @@ def test_warning_emission_preserves_fields_and_python_filters():
     assert matching[-1]['extra']['engine'] == 'vina'
 
 
-@pytest.mark.parametrize('library', ['vina', 'molsysviewer'])
+@pytest.mark.parametrize(
+    'library,operation', [('vina', 'dock'), ('vina', 'score'), ('molsysviewer', 'view')]
+)
 def test_missing_optional_dependency_has_local_code_and_install_advice(
-    library, monkeypatch
+    library, operation, monkeypatch
 ):
     from depdigest.core import checker
 
@@ -123,7 +127,7 @@ def test_missing_optional_dependency_has_local_code_and_install_advice(
                     size=puw.quantity([1, 1, 1], 'nm'),
                 ),
             )
-            dmt.VinaBackend().dock(problem)
+            getattr(dmt.VinaBackend(), operation)(problem)
     assert caught.value.code == 'DMT-E001'
     assert caught.value.extra['library'] == library
     if library == 'vina':
@@ -136,11 +140,30 @@ def test_missing_optional_dependency_has_local_code_and_install_advice(
 def test_optional_dependency_inventory_is_complete():
     info = depdigest.get_info('dockingmt', format='dict')
     dependencies = {entry['library']: entry for entry in info['dependencies']}
-    for library in ('vina', 'molsysviewer'):
-        assert dependencies[library]['type'] == 'soft'
+    requirements = [Requirement(value) for value in requires('dockingmt')]
+    hard = {
+        item.name
+        for item in requirements
+        if item.marker is None or item.marker.evaluate({'extra': ''})
+    }
+    optional = {
+        item.name
+        for item in requirements
+        if item.marker is not None
+        and any(item.marker.evaluate({'extra': extra}) for extra in ('vina', 'viewer'))
+    } - hard
+    assert {
+        name for name, entry in dependencies.items() if entry['type'] == 'hard'
+    } == hard
+    assert {
+        name for name, entry in dependencies.items() if entry['type'] == 'soft'
+    } == optional
 
 
-@pytest.mark.parametrize('library', ['molsysmt', 'molsysviewer'])
+@pytest.mark.parametrize(
+    'library',
+    ['molsysmt', 'molsysviewer', 'argdigest', 'depdigest', 'smonitor', 'pyunitwizard'],
+)
 def test_suite_dependency_installation_routes_match_actual_distribution(library):
     info = depdigest.get_info('dockingmt', format='dict')
     entry = next(item for item in info['dependencies'] if item['library'] == library)

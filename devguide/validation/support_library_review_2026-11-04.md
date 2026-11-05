@@ -11,9 +11,11 @@ passing numerical tests as complete adoption. No molecular workflow is changed.
 The table records the starting review. The follow-ups below deliver core model/
 factory admission, preparation/addon diagnostics, the accepted SMonitor #59/#61
 source corrections, prepared-constructor admission and owned view arguments.
-Dependency-audit receiving and public support-provider qualification remain
-incomplete. Development continues against the selected editable providers while
-their publishers prepare public files independently.
+The later dependency block reconciles the local inventory/routes and proposes
+the shared audit correction for owner review. Accepted scanner and public
+support-provider qualification remain incomplete. Development continues against
+the selected editable providers while their publishers prepare public files
+independently, currently through the uibcdf Conda channel.
 
 | Tool | Actual adoption | Remaining work |
 | --- | --- | --- |
@@ -467,3 +469,112 @@ Frozen scientific/installed producers retain their identities. #19 remains
 partial for dependency inventory/scanner receiving (DepDigest #47), wider
 developer-tool adoption and actual public dependency qualification. The routine
 environment's separate dependency-closure findings remain MolSysSuite #82.
+
+## Dependency ownership, channels and scoped audit receiving
+
+Starting from `6305b2bb2f997c9eca16966684ee247337536329`, #19 reconciles the
+DepDigest inventory with DockingMT's actual direct runtime and optional extras.
+The required dependencies remain NumPy, MolSysMT, PyUnitWizard, ArgDigest,
+DepDigest and SMonitor. The directly owned optional capabilities are Vina's
+Python API and MolSysViewer integration. RDKit, OpenMM and PDBFixer are removed
+from this runtime inventory: molecular tools are selected and checked by
+MolSysMT. RDKit's test extra and the declared RDKit/OpenMM scientific CI tools
+retain their existing, separate purposes. No environment/recipe, dependency
+floor, CI source pin or molecular implementation changes.
+
+| Capability | Owner / route and boundary |
+| --- | --- |
+| Docking and fixed-pose scoring | Vina Python API, guarded by DepDigest on VinaBackend.dock/score; no CLI route or automatic backend substitution is added. |
+| Molecular forms, preparation and optional molecular engines | MolSysMT; DockingMT passes the explicit workflow/options through its existing provider calls. |
+| Widget, player and panels | MolSysViewer; public view is guarded, and explicitly selecting the addon requires its Viewer contracts. |
+| Saved records and declaration assessment | DockingMT; fresh import/empty-result roundtrip works with Vina, Viewer, RDKit, OpenMM, PDBFixer and Meeko blocked. |
+
+`VinaBackend.is_available` documents discovery, matching DepDigest's find_spec
+check. Discovery is distinct from loading a native extension, solving its
+dependencies or scientific qualification. Existing provider exceptions remain
+separate from diagnosed absence.
+
+### Current installation guidance
+
+The maintainer confirms that our current public package route is **Conda,
+channel uibcdf**, for now. The four support-library entries join the already
+corrected MolSysMT/Viewer entries: all six explicitly disable PyPI and advertise
+their own uibcdf Conda names. NumPy and the third-party Vina provider retain
+their existing routes. Source/editable installation remains the development
+route; package publication proceeds independently. Root instructions and the
+README retain this current route and its future provider-handoff condition.
+
+The [route observation](data/depdigest47_receiving_2026-11-04/installation-routes.json)
+retains inspected provider README source identities and the four official PyPI
+API responses (HTTP 404, 2026-11-05 UTC / local 2026-11-04). This is dated route
+evidence, not a claim about future channels or a qualified public dependency set.
+The earlier #64 two-entry correction retains its original measurements; this
+block completes the four support-library hints under #19.
+
+The initial inventory/guard selection gives **one failure / 30 passes**: the
+runtime inventory contains three provider-owned tools absent from the actual
+runtime extras. The six-route control then reproduces **four failures / two
+passes** before the four hint corrections. Afterward **121 source cases pass**,
+4.17 s: test_support_contracts, test_bootstrap, test_preparation_assessment and
+test_prepared_view_argument_contracts, all under tests/ with --receptor=llm.
+Inventory checks compare real installed package requirements/extras with
+DepDigest's introspection rather than duplicating a hard-coded dependency list.
+Their packaging requirement parser is declared in the test extra; the maintained
+Conda test environment already supplies it. Runtime requirements stay unchanged.
+The guard selection now covers both Vina dock and score plus missing Viewer;
+fresh-process isolation also executes an empty-result saved roundtrip.
+
+### Provider correction and exact addon scope
+
+The relative-import false positive remains in accepted DepDigest main `9dc5621`
+(the runtime file is unchanged from `0884f0c`). The narrow correction is proposed
+in [DepDigest #48](https://github.com/uibcdf/depdigest/pull/48), for
+[owner #47](https://github.com/uibcdf/depdigest/issues/47), at exact source
+`23c028c1bafe6b8241e0a3d57b1df1773afa2322`. It classifies ImportFrom.level in
+DepDigest; DockingMT adds no scanner implementation or core-file exemption.
+The 27 owning controls reproduce fifteen failures/twelve passes before repair.
+The proposal passes **332 provider tests**, no skips, including supplied
+shared-SDK and sibling integration gates, Ruff/index/format checks and all
+twenty configured distribution routes.
+
+A private wheel from that exact source passes **27 installed owning tests**
+and CLI smoke. Its [package receipt](data/depdigest47_receiving_2026-11-04/package-receipt.json)
+retains the original file/SHA-256 and explicitly unpublic state. The
+[consumer producer](data/depdigest47_receiving_2026-11-04/control.py) and
+[observations](data/depdigest47_receiving_2026-11-04/receiving.json) retain the
+consumer base, actual inventory/producer hashes and three separate profiles:
+old provider **5/7**, proposal source **7/7**, installed proposal **7/7**.
+Original import origins are checked before execution. All controlled fixtures
+are retired; no docking or molecular operation runs in these audit controls.
+
+The raw addon finding is real and remains visible:
+`molsysviewer_dockingmt/panels/_base.py` imports AddonPanelWidget at definition
+time because its local panel inherits that Viewer class. This is an explicitly
+selected Viewer integration, reached after requesting the addon/panels; core
+DockingMT import stays independent. The supported exact-file exception is scoped
+only to this class-definition boundary. Owner: #19; review by 2026-11-11; remove
+or revise it if panel ownership, import reachability or the provider's class
+construction contract changes. A new absolute import in another addon file
+still produces a failing finding. No directory exemption or allow-violations
+mode is used for the consumer's scoped pass.
+
+With the proposal selected explicitly, run from the repository root:
+
+```bash
+depdigest audit --src-root dockingmt --soft-deps vina,molsysviewer --json
+depdigest audit --src-root molsysviewer_dockingmt --soft-deps vina,molsysviewer --exempt-file molsysviewer_dockingmt/panels/_base.py --json
+```
+
+Both scoped checks pass on the proposal; raw addon audit retains one finding.
+The scanner remains a syntax check, with its documented dynamic-import and
+reachability limits. Fresh import, runtime guard tests and science keep their
+own evidence. No new CI gate relies on the unmerged provider fix.
+
+Shared advance notice and candidate consumers are tracked in
+[MolSysSuite #166](https://github.com/uibcdf/molsyssuite/issues/166). The original
+sibling clones are preserved. Source acceptance, receiving in the routine
+provider clone and eventual public files/floors remain separate: #48 is an open
+owner-review proposal, not accepted main or a public package. #19 stays partial
+for that acceptance/receiving, wider developer-tool adoption and actual public
+compatibility. Development against source checkouts continues; original
+scientific/installed producers and deferred visual C4/C6 remain unchanged.

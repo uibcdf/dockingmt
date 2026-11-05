@@ -35,6 +35,7 @@ vina = [
   "vina",
 ]
 test = [
+  "packaging",
   "pytest>=8",
   "pytest-cov",
   "pytest-receptor",
