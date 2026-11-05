@@ -56,6 +56,15 @@ experiment is needed for these fixes.
 
 ## Current operational plan
 
+The [2026-11-05 local resource checkpoint](pending_proposals/review_temporary_resources.md)
+completes #50's operation/disposition review: explicit retained contexts, original
+artifact/receiver dependencies, elapsed and future reviews, and protected
+attribution/worktree holds. No pre-existing resource is removed. The remaining
+central handoff is deferred with other-repository issue work, so #50 stays
+partial; do not schedule another broad inventory or purge as missing work.
+Next receive exact-head hosted CI under #28. Public receiving #30/#47 and live
+observation #52/#60 retain their existing delivery/maintainer boundaries.
+
 Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which
 reviews all 35 C0–C6 criteria against the recorded scientific/installed baseline
 `8f17116`, with later source changes qualified separately. It distinguishes current

@@ -1,0 +1,170 @@
+---
+summary: Complete the local resource disposition and retain the deferred central handoff.
+issue: uibcdf/dockingmt#50
+status: partial
+opened: 2026-11-05
+closed:
+verification: inspected
+area: [tooling, governance, evidence]
+guard: tests/test_vina_staging_lifecycle.py
+normative: https://github.com/uibcdf/molsyssuite/blob/main/devguide/temporary_resources.md
+blocked_by: []
+supersedes: []
+---
+
+# Temporary-resource review — 2026-11-05
+
+## What
+
+The local review requested in #50 is complete for the operation classes and
+explicit task contexts below. This is a custody/disposition checkpoint, not a
+host-wide inventory or a new scientific/package qualification. The issue stays
+partial because the handoff to MolSysSuite #104 is deferred by the maintainer.
+No issue, comment, implementation or adoption state in another repository is
+changed by this review.
+
+The existing common policy is inspected read-only at MolSysSuite
+`b9852d973e96613a68cab7278491ff647bfd0b7d`,
+[`devguide/temporary_resources.md`](https://github.com/uibcdf/molsyssuite/blob/b9852d973e96613a68cab7278491ff647bfd0b7d/devguide/temporary_resources.md),
+document SHA-256
+`d1a38cd1feca561631a625e3c97651bbd4b3a49984145588c42ad13afe428cc5`.
+The local policy file is clean. No new policy, reusable tool or provider
+adoption is introduced.
+
+Inspected source is `837de4b82c67189a3ef1b43fe938d238b8bd9d02`. The preceding
+[#71 lifecycle repair](../archive/vina_staging_lifecycle.md) and
+[#72 guard correction](../archive/restore_export_resource_guards.md) resolve the
+two concrete implementation defects found during this review. Their original
+failure evidence and executed checks retain their own source identity.
+
+## How
+
+Review actual allocation, output, subprocess and cleanup paths in the Vina
+adapter, addon, developer helpers, frontend tests and publication wrappers.
+Compare the existing #50 custody history with explicit current task locations,
+their metadata, declared receiver dependencies and registered Git worktrees.
+Discovery by a name is not ownership or permission to remove it.
+
+The ignored local custody ledger records **38 task directories, six operational
+files and six pre-existing ignored task/tool contexts**, with 30 local ownership
+or closeout metadata records fingerprinted. It also records generated checkout
+classes, shared development/SDK dependencies and one absent registered worktree.
+Its exact-path/process details stay local. Snapshot SHA-256:
+`6e723925a5a1f4410d87da5f6593e00761d3b975eebf29dad6d648782b9721b4`.
+This snapshot excludes this review's own new ledger and disposable scratch.
+
+The observation does not rehash every installed payload or establish new
+compatibility. Earlier complete receiver inventories retain their original
+receipts. Current inspection does not substitute for those executed checks.
+
+## Reviewed operations and dispositions
+
+| Operation / resource | Ownership and purpose | Disposition and release condition | Evidence / boundary |
+| --- | --- | --- | --- |
+| Vina staging for `dock` and `score` | DockingMT backend owns only newly allocated input copies. Caller input paths remain caller-owned. | Attempt every owned removal on success/failure; missing files are harmless. Retained paths are reported; the same primary error survives. | `engines/vina.py`, `engines/_vina_scoring.py`; #71's 19 controlled lifecycle cases. No molecular export change. |
+| Addon shapes, state and DOM fixtures | Addon owns its registered domain handles; MolSysViewer owns molecular scene/render/comm resources. The DOM test owns its emulated windows. | `clear_docking` removes owned shapes and releases binding; failed deletion preserves remaining handles for retry. DOM teardown closes its windows in `finally`. | `molsysviewer_dockingmt/adapters/complex.py`, `tests/test_viewer_state.py`, `devtools/frontend/panels.test.mjs`. This neither closes caller scene data nor certifies a live canvas. |
+| Profile/replay and preparation qualification scratch | Each helper owns its managed temporary input/output directory; report/input destinations belong to the caller or declared case. | Existing `TemporaryDirectory` scopes dispose scratch on success/failure. Persistent reports remain outside that scope for their declared evidence use. | `profile_workflow.py`, `replay_1iep_pdbqt.py`, `qualify_named_types.py`, `qualify_chemical_templates.py`, `qualify_3ptb_admission.py`, and `devtools/qualify_named_charges.py`. Source inspection only; no rerun of their molecular/native operations. |
+| Export memory profiling | Benchmark owns tracing only when it starts tracing. | Stop owned tracing on success/failure; preserve an already active caller tracer. | #48 mechanism, #72's five restored isolated child guards. No benchmark population rerun. |
+| Saved-case recovery report | Recovery writer owns only a newly created report, never an existing output. | Exclusive creation protects existing files; a failed new write removes the partial file or exposes its cleanup failure. | `recover_saved_3ptb_case.py::_write_report` and its existing failed-write guard. No general molecular serialization or reconstruction is added. |
+| Administrative tests and installed-test support | Each test owns its managed fixture/child; the shared installed-support mechanism owns its declared staging. | Test/child contexts finish and dispose managed scratch. Support is unshipped; retain exact fixtures and original failed/corrected receiving evidence. | Distribution/support/resource guard modules; [installed support receiving](../validation/installed_support_receiving.md). No new installer, test framework or environment is introduced. |
+| Documentation, notebooks, HTML and scientific records | Owning case issues retain originals, producers, package identities, executed notebooks and both positive/adverse observations. | Retain for reproducibility, deferred visual observation or admission. Remove only an explicitly redundant working copy after preserving its unique evidence and checking dependencies. | [Evidence policy](../validation/evidence_publication_policy.md), #4/#33, #52/#60 and #62. This review launches no kernel/server and reruns no experiment or HTML export. |
+| Private wheels, receivers and source/build contexts | #47/#49/#56 and originating case issues own exact artifacts, molecular lineage, dependency SDKs and installed compatibility diagnostics. | Retain originals and dependent receivers until covering receiving/admission and an owner-reviewed archival/disposal decision. A finished task does not authorize deleting a reused environment. | Existing artifact/closeout records; [public readiness](../validation/public_candidate_readiness.md), [public Viewer failure](../validation/public_viewer_receiving.md), [prepared recovery](../validation/prepared_recovery.md). No package build/install or provider mutation. |
+| Hosted CI/publication workspaces and artifacts | Existing jobs and immutable shared publisher own their runner workspaces, caches and exact candidate/coverage receipts. | Preserve run/attempt/artifact identity and service retention. No local deletion claim is inferred from an ephemeral runner or a shared workflow reference. | Existing CI, DOM, source/dependency and shared `95f693be...` publisher/installed wrappers; #21/#28/#30/#47. No workflow dispatch, upload, promotion, cache purge or credentials operation. |
+| Editable checkout metadata, caches and legacy build output | Routine development owns editable metadata, generated version and tool caches. Historical build/output attribution requires exact owner review. | Keep active development inputs/caches. Preserve local build/dist material on hold until its originating artifact and possible human edits are compared. No blanket cache/build purge. | Ignored local inventory; follow-up #47/#50. Current tracked tree cleanliness is separate from ignored retained resources. |
+
+## Retained evidence and review dates
+
+The reviewed task lineage covers the original human runtime and molecular
+writer/projection/map receivers; prepared recovery/domain/admission and Core
+audits; saved-result/scene/addon receiving; the installed preparation, execution,
+inspection and evaluation walkthroughs; source-panel observations; and public
+artifact/installed-support diagnostics. These have distinct scientific producers
+and dependencies. Keeping a later receiver does not automatically replace an
+earlier wheel, failure record or reproducibility environment.
+
+The local ledger retains an earlier future review when one already exists:
+one context on **2026-11-09**, 11 on **2026-11-10**, and seven on
+**2026-11-11**. The 31 entries with elapsed dates or no future date in their
+inspected metadata have now been reviewed and are next reviewed by
+**2026-11-12**. An earlier original retention contract still takes precedence if
+recovered during follow-up. These counts refer to the
+50 explicit task entries, not all files/environments on the host. Original
+metadata is unchanged; the new ledger records the current decision separately.
+No date grants automatic deletion.
+
+The earlier #55 domain, #57 prepared-recovery and #33 preparation-profile
+review dates are elapsed. Current inspection confirms their custody/closeout
+records and retained contexts. Keep their original wheels, initial/final
+diagnostics, frozen prescriptions and reused receiver chain for the open
+provenance/admission/public-receiving work. The next review is 2026-11-12; removal
+requires checking that no retained workflow depends on the exact environment and
+that any unique original evidence has a verified retained copy.
+
+## Explicit holds and unresolved handoff
+
+| Hold / remaining work | Responsible owner | Interim procedure, review and removal condition |
+| --- | --- | --- |
+| Six loose operational snapshots and local build/dist attribution | #50 with originating task owners; #47 for package material | Preserve. Compare exact receipts/artifacts and possible human changes before treating a target as redundant. Review by 2026-11-12. An unverified snapshot is not proof of ownership. |
+| One registered ecosystem-review worktree is absent | #19/#50 | Preserve its branch and Git registration; absence/cause is not a deletion attribution. Inspect branch/worktree ownership and recover any needed human work before an owner-approved Git cleanup. Review by 2026-11-12. No prune was run. |
+| Original compatibility/pre-human locations and older 55-entry inventory | #50 / existing historical receipts | Two explicitly checked early locations remain absent; the historical inventory's earlier absence report is preserved. Do not infer cause, actor, disposal or global completeness. Preserve the surviving versioned receipts. |
+| Shared scientific environment, private archives and immutable SDKs | Maintainers and #19/#47/#49/#56 | Protect their independent lifecycle and consumer dependencies; this component review does not authorize changes to shared/sibling resources. Existing earlier reviews remain due. |
+| Central coordination closeout | #50, then MolSysSuite #104 | Local dispositions and gaps are ready. Keep #50 partial; deliver the sanitized handoff when the maintainer resumes other-repository issue work. Do not silently reopen that work. |
+
+No matching active local task runtime was observed in the declared task paths
+and runtime-command check. Unrelated activity and the agent/tool host are
+preserved. This is a bounded observation, not a claim that the whole machine is
+idle. No pre-existing resource was deleted, no process was terminated and no
+scientific/provider operation was executed by this review.
+
+## Why
+
+The missing piece was a consolidated disposition across operations and retained
+task contexts, rather than another directory sweep or molecular implementation.
+The prior issue history contained useful separate closeouts but no single local
+review covering the present dependencies, elapsed review dates and remaining
+holds. This record makes continuation possible without converting temporary
+location, age, an absent path or a completed experiment into disposal authority.
+
+## What was refuted
+
+- #71/#72 do not alone complete #50's full operational review.
+- Managed scratch is not the same resource as a caller report, scientific
+  artifact, private receiver or shared persistent environment.
+- No evidence establishes a new scientific leak, a returned tracing-ownership
+  defect, or the cause of historical absent resources.
+- This review needs no new resource framework, universal matrix, molecular
+  routine, experiment, browser observation or provider change.
+
+## Scope and exclusions
+
+Local DockingMT operations and explicitly identified retained contexts only.
+Machine paths, account/environment diagnostics and process details stay in the
+ignored local ledger. Public records contain categories, owners, decisions,
+counts, source identities and this ledger's digest. Runtime code, existing
+scientific/fixture/helper bytes, dependency pins and synchronized guides remain
+unchanged. There is no release, public installation or C4/C6 acceptance.
+
+## Acceptance criteria and verification
+
+The local part is complete when applicable operations have an owner/disposition,
+retained resources have a follow-up purpose/review/removal condition, unknown
+attribution is protected, gaps have owners, and the sanitized checkpoint is
+published under #50. Final report/index, relevant administrative and shared
+publication/resource checks must pass, including a fresh committed export.
+Their exact-source receipts belong in #50; hosted recovery remains #28.
+
+The unchanged 38-test administrative selection passes with its existing published
+Pytest Receptor 1.2.1 profile. Canonical Ruff, report indexes and the workspace
+publication/resource preflights pass. The checks require no new environment,
+scientific import/experiment or molecular/native execution. Fresh committed-export
+receipts are delivered in #50 after the final documentation commit.
+
+At the inspected runtime checkpoint `837de4b`, policy run 42118256374,
+publication-governance run 42118256683 and DOM run 42118256185 are successful;
+main CI 42118256218 is in progress at the latest observation. These are source-specific
+facts, not terminal success for this new documentation head. No repeated
+scientific gate is needed solely for this custody document.
+
+The full issue closes after the maintainer-authorized central handoff. Neither
+the local review nor the assigned holds silently grants disposal or clears the
+separate scientific, installed/public or visible workflow gates.
