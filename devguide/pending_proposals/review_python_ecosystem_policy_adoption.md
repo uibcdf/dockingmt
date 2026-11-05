@@ -14,6 +14,30 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Prepared declarations and owned view arguments — 2026-11-04
+
+The [receiving block](../validation/support_library_review_2026-11-04.md#prepared-declaration-and-owned-view-argument-receiving)
+adds ArgDigest admission to both prepared constructors and a closed owned-input
+resolver for view/show. Ordered declarations, required identifiers and optional
+ligand defaults survive inheritance; coordinates/source objects retain identity
+and may remain absent for metadata-only assessment. Molecular interpretation and
+representation validation remain in MolSysMT. Existing tree/count invariants stay.
+
+Owned view errors and out-of-range collection positions fail before scene changes.
+MolSysViewer kwargs retain their own value/domain contracts; its forwarded
+skip_digestion cannot bypass the owned resolver. Existing widget/duck-typed item
+routes and provider exception identities remain.
+
+The final sixty controls reproduce 52 failures/eight passes on the starting
+source. The result passes 170 routine cases, 355 affected cases with development
+ArgDigest and the existing CI molecular/Viewer sources, and 208 compatibility
+cases with the exact CI ArgDigest source. The independent misleading diagnostic
+for an ambiguous consumer registration is ArgDigest #50; the consumer registration
+is already corrected. No public package, dependency/scientific pin, frozen input
+or visual acceptance changes. #19 remains partial for inventory/scanner receiving
+(DepDigest #47), wider developer-tool adoption and public compatibility. Work with
+development checkouts continues independently of the providers' package releases.
+
 ## SMonitor filtered-signal source receiving — 2026-11-04
 
 The [source receiving checkpoint](../validation/support_library_review_2026-11-04.md#smonitor-filtered-signal-source-receiving)

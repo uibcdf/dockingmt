@@ -31,6 +31,9 @@ class PreparedLigand:
     rotatable-bond degrees of freedom, and coordinates, and can render
     backend-specific representations such as PDBQT.
 
+    Construction admits declared fields without assessing molecular validity;
+    coordinates/source interpretation and export remain owned by MolSysMT.
+
     Parameters
     ----------
     state_id : str
@@ -52,6 +55,10 @@ class PreparedLigand:
         Arbitrary preparation metadata.
     """
 
+    @arg_digest(
+        config='dockingmt._argdigest',
+        native_constructor='dockingmt.preparation.ligand.PreparedLigand.__init__',
+    )
     def __init__(
         self,
         state_id: str,
@@ -179,6 +186,8 @@ class PreparedLigand:
         return molsys
 
     def __repr__(self) -> str:
+        if not hasattr(self, 'torsion_dof'):
+            return f'{type(self).__name__}(uninitialized)'
         return (
             f'PreparedLigand(state_id={self.state_id!r}, n_atoms={self.n_atoms}, '
             f'torsion_dof={self.torsion_dof})'

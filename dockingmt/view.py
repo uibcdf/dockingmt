@@ -5,11 +5,54 @@ from __future__ import annotations
 from typing import Any
 
 import smonitor
+from argdigest import arg_digest
 from depdigest import dep_digest
 
+from dockingmt._private.smonitor import ArgumentError, ViewerPosePositionError
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.results import DockingResult
 from dockingmt.core.search_domain import SearchDomain
+
+
+@arg_digest(config='dockingmt._argdigest', native_view='dockingmt.view.view')
+def _resolve_view_inputs(item, result, problem, search_domain, pose_rank):
+    """Digest owned options in a closed boundary, apart from provider kwargs.
+
+    In particular, MolSysViewer's forwarded skip_digestion cannot bypass this
+    boundary. Molecular inputs and widget options retain provider ownership.
+    """
+    if item is not None:
+        if isinstance(item, DockingResult) or hasattr(item, 'poses'):
+            if result is not None and result is not item:
+                raise ArgumentError(
+                    arg_name='result',
+                    caller='dockingmt.view.view',
+                    reason='Supply the result once, positionally or by keyword.',
+                )
+            result = item
+        elif isinstance(item, DockingProblem) or hasattr(item, 'search_domain'):
+            if problem is not None and problem is not item:
+                raise ArgumentError(
+                    arg_name='problem',
+                    caller='dockingmt.view.view',
+                    reason='Supply the problem once, positionally or by keyword.',
+                )
+            problem = item
+        else:
+            if search_domain is not None and search_domain is not item:
+                raise ArgumentError(
+                    arg_name='search_domain',
+                    caller='dockingmt.view.view',
+                    reason='Supply the search domain once, positionally or by keyword.',
+                )
+            search_domain = item
+    if result is not None and pose_rank > 1 and pose_rank > len(result.poses):
+        raise ViewerPosePositionError(
+            position=pose_rank,
+            n_poses=len(result.poses),
+            operation='view',
+        )
+    return result, problem, search_domain, pose_rank
 
 
 @dep_digest('molsysviewer')
@@ -48,7 +91,7 @@ def view(
     partner : Any, optional
         Explicit partner system if not attached to result or problem.
     pose_rank : int, default 1
-        Initial candidate pose rank to focus in the viewer (1-indexed).
+        Initial one-based collection position, independent of scientific pose rank.
     view : MolSysView | None, optional
         An existing MolSysView instance to reuse. If None, a new view is created.
         Displaying a result replaces its molecular scene. Provider loading and
@@ -59,6 +102,10 @@ def view(
     MolSysView
         Interactive MolSysViewer widget with loaded docking components and addon.
     """
+    result, problem, search_domain, pose_rank = _resolve_view_inputs(
+        item, result, problem, search_domain, pose_rank
+    )
+
     import molsysviewer as msv
 
     from molsysviewer_dockingmt.adapters.complex import (
@@ -67,21 +114,6 @@ def view(
     )
     from molsysviewer_dockingmt.adapters.shapes import render_search_domain
     from molsysviewer_dockingmt.addon import on_enable
-
-    # Resolve positional item
-    if item is not None:
-        if isinstance(item, DockingResult):
-            result = item
-        elif isinstance(item, DockingProblem):
-            problem = item
-        elif isinstance(item, SearchDomain):
-            search_domain = item
-        elif hasattr(item, 'poses'):
-            result = item
-        elif hasattr(item, 'search_domain'):
-            problem = item
-        elif hasattr(item, 'bounds'):
-            search_domain = item
 
     # If problem is provided and result is None, extract domain, receptor, partner
     if problem is not None:

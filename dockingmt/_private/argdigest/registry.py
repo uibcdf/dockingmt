@@ -4,7 +4,7 @@ Molecular forms and selection syntax are delegated unchanged to MolSysMT.
 Only absence is checked here; recognition and extraction stay in the provider.
 """
 
-from collections.abc import Iterable, Mapping
+from collections.abc import Iterable, Mapping, Set
 from numbers import Integral
 from pathlib import Path
 
@@ -13,6 +13,11 @@ import pyunitwizard as puw
 from argdigest.core.caller import caller_is_one_of
 
 from dockingmt._private.smonitor import ArgumentError
+
+_PREPARED_CONSTRUCTORS = (
+    'dockingmt.preparation.ligand.PreparedLigand.__init__',
+    'dockingmt.preparation.receptor.PreparedReceptor.__init__',
+)
 
 
 def _invalid(argument, caller, reason):
@@ -76,9 +81,11 @@ def digest_energy_range(energy_range, caller=None):
     return quantity
 
 
-def digest_problem(problem, caller=None, native_constructor=None):
+def digest_problem(problem, caller=None, native_constructor=None, native_view=None):
     from dockingmt.core.problem import DockingProblem
 
+    if native_view == 'dockingmt.view.view':
+        return _view_option(problem, 'problem', DockingProblem, 'search_domain')
     if problem is None and caller_is_one_of(
         native_constructor, ['dockingmt.core.results.DockingResult.__init__']
     ):
@@ -156,9 +163,15 @@ def _required_provider_input(argument):
     return digest
 
 
-def digest_state_id(state_id, caller=None):
-    if state_id is not None and (not isinstance(state_id, str) or not state_id.strip()):
-        raise _invalid('state_id', caller, 'Use a nonempty string or None.')
+def digest_state_id(state_id, caller=None, native_constructor=None):
+    required = caller_is_one_of(native_constructor, _PREPARED_CONSTRUCTORS)
+    if state_id is None and not required:
+        return None
+    if not isinstance(state_id, str) or not state_id.strip():
+        reason = (
+            'Use a nonempty string.' if required else 'Use a nonempty string or None.'
+        )
+        raise _invalid('state_id', caller, reason)
     return state_id
 
 
@@ -210,9 +223,11 @@ def digest_score_name(score_name, caller=None):
     return score_name
 
 
-def digest_result(result, caller=None):
+def digest_result(result, caller=None, native_view=None):
     from dockingmt.core.results import DockingResult
 
+    if native_view == 'dockingmt.view.view':
+        return _view_option(result, 'result', DockingResult, 'poses')
     if not isinstance(result, DockingResult):
         raise _invalid('result', caller, 'Use a DockingResult instance.')
     return result
@@ -289,7 +304,11 @@ def digest_scores(scores, caller=None, native_constructor=None):
     return _normalize_scores(scores)
 
 
-def digest_coordinates(coordinates, caller=None):
+def digest_coordinates(coordinates, caller=None, native_constructor=None):
+    if caller_is_one_of(native_constructor, _PREPARED_CONSTRUCTORS):
+        # Prepared declarations can be assessed without coordinates. Molecular
+        # values and representation validation stay with the MolSysMT consumer.
+        return coordinates
     # Pose-record numerical admission, not molecular-system interpretation.
     from dockingmt.core.results import _ensure_coordinates_quantity
 
@@ -325,9 +344,17 @@ def _optional_string(argument):
     return digest
 
 
-def digest_search_domain(search_domain, caller=None):
+def digest_search_domain(search_domain, caller=None, native_view=None):
     from dockingmt.core.search_domain import SearchDomain
 
+    if native_view == 'dockingmt.view.view':
+        return _view_option(
+            search_domain,
+            'search_domain',
+            SearchDomain,
+            'bounds',
+            'as_box_approximation',
+        )
     if not isinstance(search_domain, SearchDomain):
         raise _invalid('search_domain', caller, 'Use a SearchDomain instance.')
     return search_domain
@@ -416,7 +443,97 @@ def _optional_provider_options(argument):
     return digest
 
 
+def _prepared_sequence(argument):
+    def digest(value, caller=None):
+        if isinstance(value, (str, bytes, Mapping, Set)) or not isinstance(
+            value, Iterable
+        ):
+            raise _invalid(
+                argument, caller, 'Use an ordered iterable of declared values.'
+            )
+        # Preserve the supplied axis. Do not classify labels, inspect source
+        # atoms, assign charges or validate molecular representation here.
+        return list(value)
+
+    return digest
+
+
+def digest_group_names(group_names, caller=None, native_constructor=None):
+    if group_names is None and caller_is_one_of(
+        native_constructor, _PREPARED_CONSTRUCTORS[:1]
+    ):
+        return None
+    return _prepared_sequence('group_names')(group_names, caller)
+
+
+def digest_group_ids(group_ids, caller=None, native_constructor=None):
+    if group_ids is None and caller_is_one_of(
+        native_constructor, _PREPARED_CONSTRUCTORS[:1]
+    ):
+        return None
+    return _prepared_sequence('group_ids')(group_ids, caller)
+
+
+def digest_group_name(group_name, caller=None):
+    if not isinstance(group_name, str):
+        raise _invalid('group_name', caller, 'Use a string.')
+    return group_name
+
+
+def digest_torsion_dof(torsion_dof, caller=None, native_constructor=None):
+    optional = not caller_is_one_of(native_constructor, _PREPARED_CONSTRUCTORS)
+    return _integer('torsion_dof', minimum=0, optional=optional)(torsion_dof, caller)
+
+
+def digest_torsion_tree(value, caller=None):
+    from dockingmt.preparation._temporary_torsions import TorsionTree
+
+    if value is not None and not isinstance(value, TorsionTree):
+        raise _invalid('_torsion_tree', caller, 'Use a declared TorsionTree or None.')
+    return value
+
+
+def _view_option(value, argument, model, *attributes):
+    if (
+        value is None
+        or isinstance(value, model)
+        or any(hasattr(value, attribute) for attribute in attributes)
+    ):
+        return value
+    raise _invalid(argument, 'dockingmt.view.view', f'Use a {model.__name__} or None.')
+
+
+def digest_view_item(item, caller=None):
+    from dockingmt.core.problem import DockingProblem
+    from dockingmt.core.results import DockingResult
+    from dockingmt.core.search_domain import SearchDomain
+
+    if item is None or isinstance(item, (DockingResult, DockingProblem, SearchDomain)):
+        return item
+    if any(hasattr(item, name) for name in ('poses', 'search_domain', 'bounds')):
+        return item
+    raise _invalid(
+        'item',
+        'dockingmt.view.view',
+        'Use a docking result, problem, search domain, or None.',
+    )
+
+
+def digest_pose_rank(pose_rank, caller=None, native_view=None):
+    return _integer('pose_rank', minimum=1)(pose_rank, native_view or caller)
+
+
 ARGUMENT_DIGESTERS = {
+    'item': digest_view_item,
+    'pose_rank': digest_pose_rank,
+    'atom_names': _prepared_sequence('atom_names'),
+    'atom_types': _prepared_sequence('atom_types'),
+    'charges': _prepared_sequence('charges'),
+    'group_names': digest_group_names,
+    'group_ids': digest_group_ids,
+    'group_name': digest_group_name,
+    'source_molsys': _provider_owned,
+    '_torsion_tree': digest_torsion_tree,
     'data': _mapping('data'),
     'coordinates': digest_coordinates,
     'poses': digest_poses,
@@ -487,5 +604,5 @@ ARGUMENT_DIGESTERS = {
     'molecular_system': _required_provider_input('molecular_system'),
     'selection': digest_selection,
     'state_id': digest_state_id,
-    'torsion_dof': _integer('torsion_dof', minimum=0, optional=True),
+    'torsion_dof': digest_torsion_dof,
 }

@@ -714,3 +714,27 @@ and ArgDigest #49. No public floor,
 scientific pin, historical artifact or visual gate changes. #19 continues with
 prepared/owned-view contracts and DepDigest #47/inventory receiving; routine
 environment closure remains MolSysSuite #82.
+
+## Follow-up 15 — prepared and view argument admission, 2026-11-04
+
+The [#19 receiving block](validation/support_library_review_2026-11-04.md#prepared-declaration-and-owned-view-argument-receiving)
+adds ArgDigest to prepared declarations and a closed resolver for view's own
+arguments. Required state identifiers, ordered columns and caller-specific
+ligand defaults are checked without interpreting molecular values. Coordinates
+may remain absent for declaration assessment; MolSysMT retains molecular work.
+Independent torsion-tree/count invariants remain in the constructor.
+
+Invalid display inputs, conflicting objects and out-of-range collection
+positions fail before scene changes. Viewer options pass through unchanged,
+and its skip_digestion cannot bypass the separate owned resolver. Existing
+provider/duck-typed routes and exception identity are retained. No visual UI
+observation or new molecular feature is claimed.
+
+The final sixty controls reproduce 52 failures/eight passes on the starting
+source. All 170 routine, 355 affected development-profile and 208 exact-CI-
+ArgDigest compatibility cases pass. ArgDigest #50 owns a separate diagnostic-
+attribution improvement for ambiguous consumer registration; the actual consumer
+registration is corrected. Development continues with source checkouts while
+provider publication proceeds independently. #19 continues with DepDigest #47/
+inventory and wider developer-tool receiving; public artifacts, scientific
+producers and visible C4/C6 retain their separate gates.

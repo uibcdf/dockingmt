@@ -8,12 +8,12 @@ passing numerical tests as complete adoption. No molecular workflow is changed.
 
 ## Assessment
 
-The table records the starting review. The core model/factory and bounded
-preparation/addon diagnostic follow-ups below deliver those receiving blocks.
-Prepared constructors, owned view arguments, dependency-audit receiving and
-public support-provider qualification remain incomplete. The later SMonitor
-receiving block below qualifies the ordinary #59 source correction and receives
-the subsequent accepted callback correction tracked independently as #61.
+The table records the starting review. The follow-ups below deliver core model/
+factory admission, preparation/addon diagnostics, the accepted SMonitor #59/#61
+source corrections, prepared-constructor admission and owned view arguments.
+Dependency-audit receiving and public support-provider qualification remain
+incomplete. Development continues against the selected editable providers while
+their publishers prepare public files independently.
 
 | Tool | Actual adoption | Remaining work |
 | --- | --- | --- |
@@ -379,3 +379,91 @@ registered consumers are candidates for their own receiving, not qualified by
 DockingMT's controls. #19 remains partial for prepared constructors, owned-view
 arguments, dependency inventory/scanner receiving (DepDigest #47) and actual
 public dependency qualification.
+
+## Prepared declaration and owned view argument receiving
+
+Starting from `4cba4b8665f1e122d7d6a247adf1405fc9b83267`, #19 adds ArgDigest to
+PreparedLigand/PreparedReceptor construction. State identifiers require nonempty
+text; metadata requires a mapping; declared columns require ordered iterables,
+preserving generators and NumPy vectors. Bare strings, mappings and unordered
+sets cannot silently become atom-axis columns. Ligand group defaults remain
+optional without relaxing the required receptor group columns. Integer torsion
+counts normalize without boolean/fractional coercion; the existing independent
+tree/count invariant remains in the constructor. A supplied private tree must
+have the declared local TorsionTree type. Initialization-safe repr avoids
+diagnostic warnings before constructor fields exist.
+
+These are declaration/container contracts. Prepared coordinates and source
+objects pass through unchanged, including coordinates=None for metadata-only
+preparation assessment. MolSysMT retains molecular interpretation, coordinate/
+representation validation on use, chemical classification, graph operations and
+export. The constructor neither certifies preparation nor selects a chemical
+model. Native sources, mappings, charges and the established writer route retain
+their existing behavior.
+
+`view()` now digests its own item/result/problem/domain and one-based pose
+position through a closed `_resolve_view_inputs` boundary before importing
+rendering adapters, creating a widget, enabling the addon or loading a molecular
+scene. Invalid owned inputs, conflicting positional/named objects and positions
+outside a supplied result are refused before scene changes. Position remains
+collection order, independent of scientific pose.rank; NumPy integers normalize
+to Python integers. The existing duck-typed item route, same-object repetitions,
+optional defaults and existing-widget reuse are preserved.
+
+The closed helper is deliberate: public view's open kwargs belong to MolSysViewer.
+They bypass DockingMT's registry entirely, including names also used by local
+digesters, a literal kwargs key and the provider's skip_digestion option. That
+provider option cannot bypass the separate owned-argument boundary. Viewer
+options are not copied into a local domain or reinterpreted; provider exceptions
+retain identity. Receptor, partner and reference values likewise stay provider-
+owned. No shared ArgDigest policy, contract_owner generation, decorator order or
+provider implementation is changed.
+
+### Measured source evidence
+
+- The final **60** controls in `tests/test_prepared_view_argument_contracts.py`
+  reproduce **52 failures / eight passes** against a verified managed export of
+  the starting DockingMT source. Final test-producer SHA-256 is
+  `05d62f9f69f5a847733d69317e486ee5b5fefc8c0fe72366098dd4a55ee1d440`.
+- **170 routine source cases pass**, 2.97 s: the new module plus
+  test_model_argument_contracts, test_argument_contracts and
+  test_preparation_assessment. Inherited/overridden constructors preserve optional
+  semantics and opaque molecular values while molecular operations are forbidden.
+  Controlled viewer factories/adapters observe admission before side effects,
+  provider-option identity, alias behavior and original provider exceptions.
+- **355 affected source cases pass**, 45.20 s, no skips, with development
+  ArgDigest `7e09e974c36bcf5cace99a7b898d0f5f7a9d3ff2`, SMonitor
+  `ccdcace55ba5caf431b4a6a6904d8d18173114a3` and verified exports of existing CI
+  MolSysMT `00abb958fb93649131d5ce5fe5e12e90cf4900e9` / Viewer
+  `78ede79e2e345593db5bfe80d246d3f6c70bd005`. The 62 provider warnings remain:
+  45 legacy-H5MSM, 14 off-axis and three attribute-drop warnings.
+- **208 bounded compatibility cases pass**, 2.28 s, selecting exact CI ArgDigest
+  `3d1ec53c374098016452abab74706e9d80df5462` with the same molecular/Viewer exports.
+  These cover the first six modules in the selection below. Package origins and
+  inspected file bytes are verified; all managed exports/caches are retired.
+
+The 355-case selection comprises test_prepared_view_argument_contracts,
+test_model_argument_contracts, test_argument_contracts, test_preparation_assessment,
+test_preparation_addon_diagnostics, test_support_contracts, test_preparation,
+test_ligand_preparation_stages, test_preparation_map_consumption,
+test_molecular_delegation, test_viewer_addon, test_viewer_state,
+test_viewer_reference, test_viewer_presentation and test_viewer_player_receiving,
+all under tests/ with --receptor=llm on Python 3.14.7. These checks include existing
+preparation/export and real Python Viewer receiving; controlled adapter tests
+do not establish browser/comm/canvas or visible C4/C6 acceptance.
+
+An initially ambiguous consumer digester registration was corrected locally by
+naming its value parameter explicitly when declaring extra context. Its provider
+diagnostic incorrectly attributes that consumer mistake to an internal ArgDigest
+defect and loses function/argument context. An independent registry-only control
+is handed to [ArgDigest #50](https://github.com/uibcdf/argdigest/issues/50).
+That diagnostic improvement does not block this receiving or require a local
+copy of provider logic.
+
+The runtime changes use the development checkouts and the existing compatible
+CI generation. Public package preparation proceeds in the providers; no release,
+minimum/pin change or scientific experiment is required for this source block.
+Frozen scientific/installed producers retain their identities. #19 remains
+partial for dependency inventory/scanner receiving (DepDigest #47), wider
+developer-tool adoption and actual public dependency qualification. The routine
+environment's separate dependency-closure findings remain MolSysSuite #82.
