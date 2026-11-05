@@ -1,0 +1,179 @@
+{
+  "schema": "dockingmt.private-installed-source-receiving@1",
+  "date": "2026-11-05",
+  "owner": "uibcdf/dockingmt#74",
+  "scope": "Ordinary private wheel receiving of four non-native test modules; borrowed historical private Conda base. No clean solve, full scientific suite, source-CI closure, public artifact or platform-matrix qualification.",
+  "candidate_source": "905abc9698cf9d4add78a52d57dab707859a148d",
+  "consumer_version": "0.1.0",
+  "python": "3.14.8",
+  "profile": "ordinary private wheel in a venv borrowing retained private Conda dependencies; no clean solve",
+  "artifacts": [
+    {
+      "filename": "dockingmt-0.1.0-py3-none-any.whl",
+      "sha256": "fbe3591068d9633ae0066ab3dcd593508f7fc31d86eefad01975fd4e4bb71752",
+      "runtime_payloads": 63,
+      "role": "new private consumer"
+    },
+    {
+      "filename": "argdigest-0.15.0+5.g3d1ec53-py3-none-any.whl",
+      "sha256": "1cb379478b1abea9d91c06fc6fa5dffa24ede35a24fb1a2d8657c9b13ed55f0c",
+      "runtime_payloads": 38,
+      "role": "borrowed retained private provider"
+    },
+    {
+      "filename": "molsysmt-0.23.0+361.gde7ffad2a-cp311-abi3-linux_x86_64.whl",
+      "sha256": "4a8e58f40627ff468fab99301674429fba66362f549a31fb4cc747d9cf19a0ba",
+      "runtime_payloads": 3415,
+      "role": "borrowed retained private provider"
+    },
+    {
+      "filename": "molsysviewer-0.24.0+260.g78ede79e-py3-none-any.whl",
+      "sha256": "3d31a4d9edb7ed0e72fadcd81b3952196795218f55776478a7625b79e47e9e2a",
+      "runtime_payloads": 635,
+      "role": "borrowed retained private provider"
+    }
+  ],
+  "verified_payloads": 4151,
+  "before_origins": {
+    "consumer": 50,
+    "borrowed_providers": 1042
+  },
+  "selection": [
+    "tests/test_support_contracts.py",
+    "tests/test_vina_staging_lifecycle.py",
+    "tests/test_result_audit.py",
+    "tests/test_saved_3ptb_case_recovery.py"
+  ],
+  "dependency_versions": {
+    "molsysmt": "0.23.0+361.gde7ffad2a",
+    "molsysviewer": "0.24.0+260.g78ede79e",
+    "argdigest": "0.15.0+5.g3d1ec53",
+    "smonitor": "0.22.0",
+    "depdigest": "0.15.1",
+    "pyunitwizard": "0.29.0",
+    "vina": "1.2.7",
+    "pytest": "9.1.1",
+    "pytest-receptor": "1.2.2"
+  },
+  "forbidden_attempts": [],
+  "pytest_exit": 0,
+  "after_origins": {
+    "consumer": 52,
+    "borrowed_providers": 1264
+  },
+  "support_namespace_retired": true,
+  "runtime_payload_verification": "All 4151 non-dist-info files from four exact wheels match installed files before and after the test selection.",
+  "installation": {
+    "ordinary": true,
+    "editable": false,
+    "dependencies_installed": false,
+    "consumer_layer": "new system-site-packages venv",
+    "provider_layer": "retained private Conda base",
+    "source_checkout_on_sys_path": false,
+    "runtime_source_namespaces_in_harness": false,
+    "runtime_cwd": "dedicated runtime directory outside the exported harness; workspace-owned",
+    "consumer_direct_url_hash_verified": true,
+    "pip_check_before": 0,
+    "pip_check_after": 0,
+    "final_pip_check_exit": 0
+  },
+  "tests": {
+    "passed": 139,
+    "failures": 0,
+    "skips": 0,
+    "exit_code": 0,
+    "elapsed_seconds": 18.99,
+    "warnings": [
+      {
+        "category": "PytestAssertRewriteWarning",
+        "module": "smonitor",
+        "count": 1,
+        "cause": "Provider imported during origin/payload preflight before pytest assertion rewriting."
+      }
+    ],
+    "rerun_for_warning": false
+  },
+  "saved_case": {
+    "restored_poses": 5,
+    "bound_files_verified": 16,
+    "original_producer": "1decee504b112cfd92026c52dcbe22449de30f4f",
+    "verifier_version": "0.1.0",
+    "new_molecular_or_native_work": false
+  },
+  "support": {
+    "schema": "molsyssuite.installed-test-support@1",
+    "scope": "unshipped test support; no installed/scientific/public artifact qualification",
+    "state": "verified-support",
+    "declaration_sha256": "7a2311a85e9cf01bcedd65b970979ed9e4d33ec338a1ba84398a9c2af404834b",
+    "namespace": "dmt_test_support",
+    "bytes": 70861090,
+    "checks": 7,
+    "executed_tests": 139,
+    "loaded": [
+      "dmt_test_support",
+      "dmt_test_support.recover_saved_3ptb_case"
+    ],
+    "provider_files_sha256": {
+      "devtools/scripts/installed_imports.py": "ff23458015bb7ce83bc3eea36571c4294bed09fff948e8eb6d9bcb3a0615fa3c",
+      "devtools/scripts/installed_noarch.py": "3f34a46cab45f6987fc33da3a3d7f82178f395ea0980ac5b46b1d9b64ebffe57",
+      "devtools/scripts/installed_test_support.py": "11ae22606546b62f28536a7a4126e2bc25d676d55bc3b92d74b56e7094e0cf87"
+    },
+    "binding": {
+      "context": {
+        "candidate_sha": null,
+        "filename": null,
+        "provider_sha": null,
+        "qualification_sha": "905abc9698cf9d4add78a52d57dab707859a148d",
+        "run_attempt": null,
+        "run_id": null,
+        "sha256": null
+      },
+      "provider_state": "unknown",
+      "scope": "artifact/qualification/run labels are caller context; not artifact verification",
+      "source_state": "unknown"
+    },
+    "pytest_exit_code": 0,
+    "resources_retired": true,
+    "imports_retired": true
+  },
+  "support_file_count": 589,
+  "support_sdk_export": {
+    "source_revision": "95f693be10c9205ab9b912cb53453710a207bf45",
+    "git_checkout_claim": false
+  },
+  "original_preservation": {
+    "inventory_entries": 45015,
+    "verified_entries": 45015,
+    "complete": true,
+    "inventory_sha256": "6b7c6cd6eb205f7b4932501a28c8c819ae42ecb8b3b2bd0d00d22b88a13f132b",
+    "comparison": "Every inventoried original file byte and literal symlink target matches; known paths only, no new-entry detection.",
+    "elapsed_seconds": 13.39,
+    "diagnostics": [
+      "Initial bounded comparison has no final receipt; no surviving own process observed.",
+      "Next comparison incorrectly normalized a literal symlink target using pathlib; raw os.readlink confirms the original target and the corrected comparison passes."
+    ]
+  },
+  "withdrawn_copy_attempt": {
+    "initial_inventory_completed": 45015,
+    "copy_completed": false,
+    "own_process_terminated": true,
+    "partial_receiver_retired": true,
+    "source_modified_by_copy": false,
+    "reason": "Full-prefix operation stalled on auxiliary locale-directory filesystem I/O; no copy qualification is inferred.",
+    "replacement": "new system-site-packages venv with explicit borrowed private dependency ancestry"
+  },
+  "raw_evidence_sha256": {
+    "installed-receipt.json": "c6f82f4c54516489934a548205acf18741121550f119d90397e5a2beb682966b",
+    "installed-tests.log": "a9ee1336d9b9d1d4fc342c375234bc004e8db1659a47c336074cb27c2f20cf2a",
+    "installed-tests.xml": "2b71f66486d6e8c430c33129e8c95859833ac5fde4967bc31704a2afd431addd",
+    "support-sidecar.json": "1e3cf68291a5dfe1fcb99e307aa895e2fb346cf4540748aec0d91fa2a1f26f97",
+    "import.json": "63786e7da6ccfe2a1bce810ce3dad97c1e0f88c224416af0c574c04168525da9",
+    "install.log": "cafbd4cbc9af2516602b5db8ff4f0bfb0a3c4bac1026a6155a48e207552fdc1b",
+    "pip-check-before.log": "2a54d6d6817a12b2072d24a30b7db3b0d1e96ac74a3e75df52188be9972a46e2",
+    "pip-check-after.log": "2a54d6d6817a12b2072d24a30b7db3b0d1e96ac74a3e75df52188be9972a46e2",
+    "original-preservation.json": "63dd0aea7202c56318fa32e24bfd5aeacc813037603d3f37ae3cfe524265d2af",
+    "final-pip-check.log": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+  },
+  "previous_metadata_payload_receipt_sha256": "be3c5a08668ff72d84caadaa847865e53b96bc7062ade4e647d8b288977e7c5f",
+  "public_tag_release_or_registry_write": false
+}

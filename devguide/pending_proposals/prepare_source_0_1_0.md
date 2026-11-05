@@ -29,7 +29,10 @@ canonical version configuration. Build a private wheel without dependency
 installation; inspect all declared runtime bytes, generated version, license,
 metadata and addon entry point, then import the unpacked wheel in a fresh
 isolated-path child. Keep private version/build evidence separate from ordinary
-installed, full scientific and public-provider qualification.
+installed, full scientific and public-provider qualification. Extend the same
+wheel through an ordinary installation in a new venv borrowing the preserved
+private Conda base; consume the existing shared installed runner and record
+effective closure/provenance without calling it a clean solve.
 
 ## Why
 
@@ -50,8 +53,9 @@ candidate. No local molecular fallback is needed.
 ## Scope and exclusions
 
 Release preparation and bounded software checks only. No public tag, GitHub
-Release, registry write, environment installation, provider change or new
-scientific/native operation. Original artifacts, frozen helper/fixture inputs,
+Release, registry write, dependency installation/update, provider change or new
+scientific/native operation. The later ordinary consumer installation is confined
+to the new private venv. Original artifacts, frozen helper/fixture inputs,
 source pins and workflows remain. Core plus Extended stays the 1.0 target;
 provider-issue and live-visual deferrals remain in force.
 
@@ -66,8 +70,14 @@ the unpacked `0.1.0` wheel with published Pytest Receptor 1.2.2 and zero final
 warnings; the initial launcher-only warning is retained. The separate 38-test
 administrative selection passes with its existing published Receptor 1.2.1
 profile. These are scoped software checks, not installed/scientific acceptance.
-Local Ruff/index/link and final committed-export resource/publication controls
-must pass before handoff.
+The separate ordinary installed population passes 139 non-native cases with
+published Receptor 1.2.2 and one retained SMonitor assertion-rewriting warning.
+It verifies 4,151 exact wheel payloads/import origins before/after, retires shared
+support and preserves all 45,015 inventoried original file/link entries. The
+observed inventory records 206 base Conda packages, 97 effective Python metadata
+records and private overrides. Neither population qualifies full installed
+science, clean source-CI reconstruction or public delivery. Local Ruff/index/link
+and final committed-export resource/publication controls must pass before handoff.
 
 The issue remains partial: receive candidate CI/closure, qualify the actual
 source-use route and complete the required gate/reuse decision before releasing.

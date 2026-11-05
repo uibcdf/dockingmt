@@ -76,8 +76,11 @@ The [0.1.0 source dossier](releases/0.1.0.md) now fixes candidate
 `905abc9698cf9d4add78a52d57dab707859a148d` under #74. A private independent
 versioning context generates `0.1.0`; its wheel contains all 63 required runtime
 paths, with 62 non-generated paths matching the candidate and a successful
-fresh unpacked-wheel import. This is not an installed/public closure or a
-scientific gate. Source CI/closure, the applicable version-input/gate decision
+fresh unpacked-wheel import. The same wheel now also passes 139 non-native tests
+after ordinary private installation in a new venv borrowing the preserved private
+Conda base. Exact payload/import checks and an observed base/override inventory
+are recorded; this is not a clean source-CI/public closure or full scientific
+gate. Source CI/reconstruction, the applicable version-input/gate decision
 and the required source-event notice remain before publication. Keep the target
 fixed while publishing later evidence documents.
 
