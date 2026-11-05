@@ -17,7 +17,7 @@ import pyunitwizard as puw
 from argdigest import arg_digest
 from depdigest import dep_digest
 
-from dockingmt._private.smonitor import ArgumentError
+from dockingmt._private.smonitor import ArgumentError, TemporaryFileCleanupWarning, warn
 from dockingmt._private.vina_records import score_components
 from dockingmt._version import __version__ as dockingmt_version
 from dockingmt.core._scores import make_ranking_record
@@ -45,13 +45,28 @@ def _resolved_native_call(function, **arguments):
     return dict(bound.arguments)
 
 
-def _cleanup_staged_files(temp_files):
+def _cleanup_staged_files(temp_files, *, primary_error=None):
+    """Attempt every owned removal, retaining the operation's primary failure."""
+    failures = []
     for temp_path in temp_files:
-        if os.path.exists(temp_path):
-            try:
-                os.remove(temp_path)
-            except OSError:
-                pass
+        try:
+            os.remove(temp_path)
+        except FileNotFoundError:
+            continue
+        except OSError as exc:
+            failures.append(
+                {
+                    'path': temp_path,
+                    'errno': exc.errno,
+                    'error_type': type(exc).__name__,
+                }
+            )
+    if failures:
+        diagnostic = TemporaryFileCleanupWarning(failures=failures)
+        if primary_error is not None:
+            primary_error.add_note(f'{diagnostic.code}: {diagnostic}')
+        else:
+            warn(diagnostic)
 
 
 def _vina_score_definitions(
@@ -239,8 +254,8 @@ def _stage_pdbqt_bytes(content: bytes, temp_files: list[str]) -> str:
     with tempfile.NamedTemporaryFile(
         suffix='.pdbqt', mode='wb', delete=False
     ) as staged:
+        temp_files.append(staged.name)
         staged.write(content)
-    temp_files.append(staged.name)
     return staged.name
 
 
@@ -437,6 +452,7 @@ class VinaBackend(DockingBackend):
         if timings is not None:
             timings.end_phase('backend_import')
         result = None
+        primary_error = None
         try:
             staged = self._stage_inputs(
                 receptor, partner, protocol, temp_files_to_remove
@@ -676,8 +692,11 @@ class VinaBackend(DockingBackend):
                 timings.end_phase('result_normalization')
             return result
 
+        except BaseException as exc:
+            primary_error = exc
+            raise
         finally:
-            _cleanup_staged_files(temp_files_to_remove)
+            _cleanup_staged_files(temp_files_to_remove, primary_error=primary_error)
             if timings is not None and result is not None:
                 timings.end_phase('cleanup')
                 result.provenance['timings'] = timings.to_dict()
@@ -759,11 +778,11 @@ class VinaBackend(DockingBackend):
         """Resolve receptor input to a filesystem path acceptable by Vina."""
         if hasattr(receptor, 'to_pdbqt'):
             pdbqt_str = receptor.to_pdbqt()
-            tmp = tempfile.NamedTemporaryFile(suffix='.pdbqt', mode='w', delete=False)
-            tmp.write(pdbqt_str)
-            tmp.flush()
-            tmp.close()
-            temp_files.append(tmp.name)
+            with tempfile.NamedTemporaryFile(
+                suffix='.pdbqt', mode='w', delete=False
+            ) as tmp:
+                temp_files.append(tmp.name)
+                tmp.write(pdbqt_str)
             return tmp.name
 
         if isinstance(receptor, (str, Path)):
@@ -773,13 +792,11 @@ class VinaBackend(DockingBackend):
             path_str = path_str.removeprefix('pdbqt_text:')
             # Might be a raw PDBQT string
             if 'ATOM' in path_str or 'HETATM' in path_str:
-                tmp = tempfile.NamedTemporaryFile(
+                with tempfile.NamedTemporaryFile(
                     suffix='.pdbqt', mode='w', delete=False
-                )
-                tmp.write(path_str)
-                tmp.flush()
-                tmp.close()
-                temp_files.append(tmp.name)
+                ) as tmp:
+                    temp_files.append(tmp.name)
+                    tmp.write(path_str)
                 return tmp.name
 
         raise ArgumentError(

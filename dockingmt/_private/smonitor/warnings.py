@@ -30,10 +30,26 @@ class BackendApproximationWarning(UserDockingMTWarning):
         super().__init__(message, extra={'domain_type': domain_type, 'engine': engine})
 
 
+class TemporaryFileCleanupWarning(UserDockingMTWarning):
+    catalog_key = 'TemporaryFileCleanupWarning'
+
+    def __init__(self, message=None, *, failures=()):
+        failures = [dict(failure) for failure in failures]
+        super().__init__(
+            message,
+            extra={
+                'failures': failures,
+                'paths': [failure['path'] for failure in failures],
+                'failure_count': len(failures),
+            },
+        )
+
+
 __all__ = [
     'UserDockingMTWarning',
     'NotDigestedArgumentWarning',
     'BackendApproximationWarning',
+    'TemporaryFileCleanupWarning',
     'warn',
     'warn_once',
 ]

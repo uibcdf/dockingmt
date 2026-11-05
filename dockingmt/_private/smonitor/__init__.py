@@ -7,6 +7,7 @@ from .meta import META
 from .warnings import (
     BackendApproximationWarning,
     NotDigestedArgumentWarning,
+    TemporaryFileCleanupWarning,
     UserDockingMTWarning,
 )
 from .warnings import (
@@ -95,6 +96,7 @@ __all__ = [
     'DockingMTException',
     'DockingMTWarning',
     'UserDockingMTWarning',
+    'TemporaryFileCleanupWarning',
     'LibraryNotFoundError',
     'ArgumentError',
     'CapabilityMismatchError',

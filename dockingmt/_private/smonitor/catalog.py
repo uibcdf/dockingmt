@@ -26,6 +26,7 @@ CATALOG = {
     'warnings': {
         'BackendApproximationWarning': {'code': 'DMT-W001', 'category': 'domain'},
         'NotDigestedArgumentWarning': {'code': 'DMT-W002', 'category': 'validation'},
+        'TemporaryFileCleanupWarning': {'code': 'DMT-W003', 'category': 'resource'},
     },
 }
 
@@ -70,5 +71,8 @@ CODES = {
     },
     'DMT-W002': {
         'user_message': "The argument '{argument}' in '{caller}' was not digested.",
+    },
+    'DMT-W003': {
+        'user_message': 'Vina could not remove {failure_count} staged temporary file(s). Inspect these owned paths before retrying disposal: {paths}.',
     },
 }

@@ -218,6 +218,7 @@ def score_prepared(backend, problem, protocol, pose, score_name):
         timings.end_phase('validation')
     temp_files = []
     result = None
+    primary_error = None
     try:
         staged = backend._stage_inputs(
             problem.receptor, problem.partner, protocol, temp_files
@@ -316,8 +317,11 @@ def score_prepared(backend, problem, protocol, pose, score_name):
         if timings is not None:
             timings.end_phase('result_normalization')
         return result
+    except BaseException as exc:
+        primary_error = exc
+        raise
     finally:
-        _cleanup_staged_files(temp_files)
+        _cleanup_staged_files(temp_files, primary_error=primary_error)
         if timings is not None and result is not None:
             timings.end_phase('cleanup')
             report = timings.to_dict()

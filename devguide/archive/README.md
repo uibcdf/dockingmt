@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (49)
+### Resolved (51)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
@@ -41,6 +41,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`replay_file_backed_redocking_and_report_exploratory_metrics.md`](replay_file_backed_redocking_and_report_exploratory_metrics.md) — [#10](https://github.com/uibcdf/dockingmt/issues/10) — Replay file-backed redocking and report exploratory metrics *(resolved, measured)*
 - [`report_any_returned_recovery.md`](report_any_returned_recovery.md) — [#61](https://github.com/uibcdf/dockingmt/issues/61) — Report all-returned pose recovery independently of requested top-N. *(resolved, measured)*
 - [`resolve_coverage_producer_attempt.md`](resolve_coverage_producer_attempt.md) — [#68](https://github.com/uibcdf/dockingmt/issues/68) — Resolve coverage from its actual retention step after partial reruns. *(resolved, measured)*
+- [`restore_export_resource_guards.md`](restore_export_resource_guards.md) — [#72](https://github.com/uibcdf/dockingmt/issues/72) — Restore isolated tracing guards against the migrated export benchmark implementation. *(resolved, reproduced)*
 - [`result_export_tracing_ownership.md`](result_export_tracing_ownership.md) — [#48](https://github.com/uibcdf/dockingmt/issues/48) — Preserve caller tracing in the developer result-export benchmark. *(resolved, reproduced)*
 - [`result_records_share_live_metadata.md`](result_records_share_live_metadata.md) — [#25](https://github.com/uibcdf/dockingmt/issues/25) — Isolate serialized docking results from live metadata and provenance *(resolved, measured)*
 - [`retain_selection_domain_provenance.md`](retain_selection_domain_provenance.md) — [#55](https://github.com/uibcdf/dockingmt/issues/55) — Retain derivation provenance for selection-based search domains *(resolved, measured)*
@@ -55,5 +56,6 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`vina_adapter_advertises_unsupported_ad4_scoring.md`](vina_adapter_advertises_unsupported_ad4_scoring.md) — [#23](https://github.com/uibcdf/dockingmt/issues/23) — Reject unsupported AD4 scoring before Vina execution *(resolved, measured)*
 - [`vina_ignores_constraints_and_search_guidance.md`](vina_ignores_constraints_and_search_guidance.md) — [#26](https://github.com/uibcdf/dockingmt/issues/26) — Reject unsupported constraints and guidance before Vina execution *(resolved, measured)*
 - [`vina_preparation_fabricates_zero_charges_and_name_based_atom_types.md`](vina_preparation_fabricates_zero_charges_and_name_based_atom_types.md) — [#5](https://github.com/uibcdf/dockingmt/issues/5) — Vina preparation fabricates zero charges and name-based atom types *(resolved, measured)*
+- [`vina_staging_lifecycle.md`](vina_staging_lifecycle.md) — [#71](https://github.com/uibcdf/dockingmt/issues/71) — Track allocated Vina inputs before writes and report failed cleanup without masking primary errors. *(resolved, reproduced)*
 
 <!-- /generated -->

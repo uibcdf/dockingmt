@@ -59,7 +59,7 @@ class TestResultExportResources(unittest.TestCase):
                     '-S',
                     '-c',
                     CHILD,
-                    str(ROOT / 'devtools/benchmark_result_export.py'),
+                    str(ROOT / 'dmt_test_support/benchmark_result_export.py'),
                     str(caller_owned).lower(),
                     str(failure).lower(),
                     str(memory).lower(),

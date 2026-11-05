@@ -42,6 +42,18 @@ their stated scope. P59 shows a conditional occupancy preference effect;
 P69 retains adverse ordering. The new ledger adds no searches, scores or
 molecular measurements and preserves original producers/reuse/proof limits.
 
+The local #50 resource review resolves two concrete findings on 2026-11-05:
+[#71 Vina staging custody](archive/vina_staging_lifecycle.md) registers allocated
+inputs before writes, attempts all cleanup and reports retained files without
+masking primary errors; [#72 migrated resource guards](archive/restore_export_resource_guards.md)
+restores five isolated export-benchmark guards and adds them to administrative CI.
+The selected source modules pass 129 tests and the updated administrative
+selection passes 38. These are local source checks; the exact new head still
+needs its own hosted CI receiving under #28. #50's broader inventory/central
+handoff remains open. Sibling issue work and live visual observation remain
+deferred by the maintainer; neither molecular substitutes nor a new scientific
+experiment is needed for these fixes.
+
 ## Current operational plan
 
 Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which

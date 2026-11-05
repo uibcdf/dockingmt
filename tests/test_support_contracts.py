@@ -17,6 +17,7 @@ from dockingmt._private.smonitor import (
     CapabilityMismatchError,
     LibraryNotFoundError,
     NotDigestedArgumentWarning,
+    TemporaryFileCleanupWarning,
     ViewerActionError,
     ViewerCapabilityError,
     ViewerInputMissingError,
@@ -53,6 +54,11 @@ def test_catalog_messages_render_in_all_profiles(profile, monkeypatch):
         lambda: CapabilityMismatchError(capability='flexible_receptor', engine='vina'),
         lambda: BackendApproximationWarning(domain_type='sphere', engine='vina'),
         lambda: NotDigestedArgumentWarning(argument='selection', caller='example'),
+        lambda: TemporaryFileCleanupWarning(
+            failures=[
+                {'path': 'owned.pdbqt', 'errno': 13, 'error_type': 'PermissionError'}
+            ]
+        ),
         lambda: ViewerPoseCountError(n_poses=True, operation='build_reference'),
         lambda: ViewerStructureCountError(
             role='reference', expected=[1, 3], observed=2, operation='build_reference'

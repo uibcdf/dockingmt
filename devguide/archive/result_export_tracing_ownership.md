@@ -65,3 +65,13 @@ conditional internal skip; they do not execute these regressions remotely or
 clear full-suite debt. The five guards are executed locally on the committed
 code. Diego/Liliana and existing nightly/manual recovery retain full-suite
 evidence under uibcdf/dockingmt#30 and uibcdf/molsyssuite#104.
+
+## Guard entry-point correction — 2026-11-05
+
+After the #47 helper migration, the isolated child still loaded the old source
+shim and failed its import before reaching the five assertions. #72 corrects the
+entry point to the actual unshipped, standard-library-only implementation and
+adds the existing guard module to administrative CI. This does not revise the
+original measurements or indicate a tracing-ownership regression. Its new
+verification and source qualification are recorded separately in
+[the #72 report](restore_export_resource_guards.md).
