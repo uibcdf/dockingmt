@@ -33,6 +33,9 @@ installed, full scientific and public-provider qualification. Extend the same
 wheel through an ordinary installation in a new venv borrowing the preserved
 private Conda base; consume the existing shared installed runner and record
 effective closure/provenance without calling it a clean solve.
+Then reconstruct a fresh candidate bootstrap with the exact source providers,
+verify native isolation and run the complete declared installed selection against
+the unchanged consumer wheel. Preserve rejected builds and pre-collection errors.
 
 ## Why
 
@@ -53,9 +56,11 @@ candidate. No local molecular fallback is needed.
 ## Scope and exclusions
 
 Release preparation and bounded software checks only. No public tag, GitHub
-Release, registry write, dependency installation/update, provider change or new
-scientific/native operation. The later ordinary consumer installation is confined
-to the new private venv. Original artifacts, frozen helper/fixture inputs,
+Release, registry write, shared environment mutation, provider source/issue change
+or new independent scientific campaign. The later ordinary consumer installation
+is confined to its new private venv; the fresh source-assisted reconstruction
+uses another new prefix and the existing full automated native/molecular tests.
+Original artifacts, frozen helper/fixture inputs,
 source pins and workflows remain. Core plus Extended stays the 1.0 target;
 provider-issue and live-visual deferrals remain in force.
 
@@ -76,10 +81,25 @@ It verifies 4,151 exact wheel payloads/import origins before/after, retires shar
 support and preserves all 45,015 inventoried original file/link entries. The
 observed inventory records 206 base Conda packages, 97 effective Python metadata
 records and private overrides. Neither population qualifies full installed
-science, clean source-CI reconstruction or public delivery. Local Ruff/index/link
+science, clean source-CI reconstruction or public delivery.
+
+The separate fresh source-assisted population now passes **1,761 complete
+installed tests** at intended version `0.1.0` on Linux x86_64 / Python 3.14.10,
+zero failures/errors/skips and 349 retained warnings. Its 259 Conda records,
+101 effective Python distributions, three exact directory-installed sources,
+four wheel identities and isolated SDK tools are recorded. An initial inherited
+native-linker leak is rejected and corrected before collection; two launcher-only
+errors and the rejected artifact remain separate. Exact payload/import,
+post-metadata/pip/source and shared-support retirement checks pass. This is
+one complete private installed cell, not a public Conda solve or eight-cell gate.
+
+The four exact-candidate source lanes each pass 1,761 tests at actual version
+`0.0.0`, with 348 warnings; overall CI still awaits its coverage publisher.
+The dossier records concrete reuse/replacement decisions. Local Ruff/index/link
 and final committed-export resource/publication controls must pass before handoff.
 
-The issue remains partial: receive candidate CI/closure, qualify the actual
-source-use route and complete the required gate/reuse decision before releasing.
+The issue remains partial: finish actual candidate source CI, preserve closure
+limits and execute intended-version consuming cells for Python 3.11–3.13 before
+claiming that qualification. Complete the source-event decision before releasing.
 The central source-release notice is drafted but currently deferred with
 other-repository issue work; it must not be omitted after an actual event.

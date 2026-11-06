@@ -80,14 +80,23 @@ fresh unpacked-wheel import. The same wheel now also passes 139 non-native tests
 after ordinary private installation in a new venv borrowing the preserved private
 Conda base. Exact payload/import checks and an observed base/override inventory
 are recorded; this is not a clean source-CI/public closure or full scientific
-gate. Source CI/reconstruction, the applicable version-input/gate decision
-and the required source-event notice remain before publication. Keep the target
+gate. The [fresh source reconstruction](validation/data/source_0_1_0_2026-11-05/source_reconstruction.json)
+now also passes all **1,761 installed tests** on Linux x86_64 / Python 3.14.10,
+with exact declared provider sources, the same `0.1.0` consumer wheel and a
+separately recorded fresh closure. Its initial host-linker leakage is corrected
+before collection; qualified/rejected artifacts and launcher diagnostics remain
+separate. The [gate/reuse decision](releases/0.1.0.md#gate-reuse-and-replacement-decision)
+retains earlier populations and leaves intended-version 3.11–3.13 cells, actual
+source-CI completion and source-event/notice decisions pending. Keep the target
 fixed while publishing later evidence documents.
 
 The last runtime-change head `837de4b` now has successful seven-job CI, including
 the actual coverage publisher, plus separate DOM/policy/publication-governance.
 That terminal evidence is source-specific and does not replace the fixed
-candidate's still-pending CI or qualify the new generated version.
+candidate's own gate set. Its [four source lanes](validation/data/source_0_1_0_2026-11-05/source_ci_observation.json)
+each pass 1,761 tests at actual fallback version `0.0.0`; quality/distribution pass,
+while coverage publication still prevents terminal overall success. Do not
+relate those source results to `0.1.0` as though they tested that version.
 
 The [fresh main-index/API check](validation/data/public_readiness/registry_refresh_2026-11-05.json)
 finds the same already reviewed MolSysMT `0.23.0` and Viewer `0.24.0` build-1

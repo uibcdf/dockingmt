@@ -1,0 +1,270 @@
+{
+  "schema": "dockingmt.source-candidate-hosted-test-observation@1",
+  "date": "2026-11-05",
+  "candidate_source": "905abc9698cf9d4add78a52d57dab707859a148d",
+  "run_id": 42124901045,
+  "attempt": 1,
+  "url": "https://github.com/uibcdf/dockingmt/actions/runs/42124901045",
+  "scope": "Four completed Linux source-test lanes, not a terminal overall CI verdict or intended-version installed matrix.",
+  "source_dependency_sdk": "738fe8dd731abb99dac421b0bb2acc8564110180",
+  "lanes": [
+    {
+      "python_minor": "3.11",
+      "actual_python": "3.11.18",
+      "job_id": 127586456139,
+      "job_name": "Test on ubuntu-latest, Python 3.11",
+      "conclusion": "success",
+      "test_step": "success",
+      "passed": 1761,
+      "seconds": 712.23,
+      "warnings": 348,
+      "test_skips": 0,
+      "consumer_installed_version": "0.0.0",
+      "required_steps": {
+        "Install compatible scientific sibling sources": "success",
+        "Install dockingmt": "success",
+        "Check dependency routes and installed clone context": "success",
+        "Verify ordinary installed package": "success",
+        "Check installed dependency closure": "success",
+        "Run tests with pytest-receptor": "success"
+      },
+      "source_preflight": {
+        "qualification": "declared-and-installed-context",
+        "selected_context": "ci-3.11",
+        "installed_versions": {
+          "argdigest": "0.15.0+5.g3d1ec53",
+          "depdigest": "0.15.1",
+          "molsysmt": "0.23.0+368.g00abb958f",
+          "numpy": "2.4.6",
+          "python": "3.11.18",
+          "pyunitwizard": "0.29.0",
+          "smonitor": "0.22.1"
+        },
+        "installed_sources": [
+          {
+            "commit": "3d1ec53c374098016452abab74706e9d80df5462",
+            "id": "argdigest-source",
+            "install": "pip-no-deps-directory",
+            "name": "argdigest",
+            "repository": "https://github.com/uibcdf/argdigest",
+            "version": "0.15.0+5.g3d1ec53"
+          },
+          {
+            "commit": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+            "id": "molsysmt-source",
+            "install": "pip-no-deps-directory",
+            "name": "molsysmt",
+            "repository": "https://github.com/uibcdf/molsysmt",
+            "version": "0.23.0+368.g00abb958f"
+          },
+          {
+            "commit": "78ede79e2e345593db5bfe80d246d3f6c70bd005",
+            "id": "viewer-base",
+            "install": "pip-no-deps-directory",
+            "name": "molsysviewer",
+            "repository": "https://github.com/uibcdf/molsysviewer",
+            "version": "0.24.0+260.g78ede79e"
+          }
+        ]
+      },
+      "raw_job_log_sha256": "3d23a59ace5a210276f8b27c0c393296f0af456b6aa1995a95b8f1bb446f07d9"
+    },
+    {
+      "python_minor": "3.12",
+      "actual_python": "3.12.16",
+      "job_id": 127586455662,
+      "job_name": "Test on ubuntu-latest, Python 3.12",
+      "conclusion": "success",
+      "test_step": "success",
+      "passed": 1761,
+      "seconds": 630.07,
+      "warnings": 348,
+      "test_skips": 0,
+      "consumer_installed_version": "0.0.0",
+      "required_steps": {
+        "Install compatible scientific sibling sources": "success",
+        "Install dockingmt": "success",
+        "Check dependency routes and installed clone context": "success",
+        "Verify ordinary installed package": "success",
+        "Check installed dependency closure": "success",
+        "Run tests with pytest-receptor": "success"
+      },
+      "source_preflight": {
+        "qualification": "declared-and-installed-context",
+        "selected_context": "ci-3.12",
+        "installed_versions": {
+          "argdigest": "0.15.0+5.g3d1ec53",
+          "depdigest": "0.15.1",
+          "molsysmt": "0.23.0+368.g00abb958f",
+          "numpy": "2.5.4",
+          "python": "3.12.16",
+          "pyunitwizard": "0.29.0",
+          "smonitor": "0.22.1"
+        },
+        "installed_sources": [
+          {
+            "commit": "3d1ec53c374098016452abab74706e9d80df5462",
+            "id": "argdigest-source",
+            "install": "pip-no-deps-directory",
+            "name": "argdigest",
+            "repository": "https://github.com/uibcdf/argdigest",
+            "version": "0.15.0+5.g3d1ec53"
+          },
+          {
+            "commit": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+            "id": "molsysmt-source",
+            "install": "pip-no-deps-directory",
+            "name": "molsysmt",
+            "repository": "https://github.com/uibcdf/molsysmt",
+            "version": "0.23.0+368.g00abb958f"
+          },
+          {
+            "commit": "78ede79e2e345593db5bfe80d246d3f6c70bd005",
+            "id": "viewer-base",
+            "install": "pip-no-deps-directory",
+            "name": "molsysviewer",
+            "repository": "https://github.com/uibcdf/molsysviewer",
+            "version": "0.24.0+260.g78ede79e"
+          }
+        ]
+      },
+      "raw_job_log_sha256": "26ffab6d546a9422ef4350cf8582ba644862b8124c4f5b50a09ad683377890d5"
+    },
+    {
+      "python_minor": "3.13",
+      "actual_python": "3.13.18",
+      "job_id": 127586455987,
+      "job_name": "Test on ubuntu-latest, Python 3.13",
+      "conclusion": "success",
+      "test_step": "success",
+      "passed": 1761,
+      "seconds": 438.49,
+      "warnings": 348,
+      "test_skips": 0,
+      "consumer_installed_version": "0.0.0",
+      "required_steps": {
+        "Install compatible scientific sibling sources": "success",
+        "Install dockingmt": "success",
+        "Check dependency routes and installed clone context": "success",
+        "Verify ordinary installed package": "success",
+        "Check installed dependency closure": "success",
+        "Run tests with pytest-receptor": "success"
+      },
+      "source_preflight": {
+        "qualification": "declared-and-installed-context",
+        "selected_context": "ci-3.13",
+        "installed_versions": {
+          "argdigest": "0.15.0+5.g3d1ec53",
+          "depdigest": "0.15.1",
+          "molsysmt": "0.23.0+368.g00abb958f",
+          "numpy": "2.5.4",
+          "python": "3.13.18",
+          "pyunitwizard": "0.29.0",
+          "smonitor": "0.22.1"
+        },
+        "installed_sources": [
+          {
+            "commit": "3d1ec53c374098016452abab74706e9d80df5462",
+            "id": "argdigest-source",
+            "install": "pip-no-deps-directory",
+            "name": "argdigest",
+            "repository": "https://github.com/uibcdf/argdigest",
+            "version": "0.15.0+5.g3d1ec53"
+          },
+          {
+            "commit": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+            "id": "molsysmt-source",
+            "install": "pip-no-deps-directory",
+            "name": "molsysmt",
+            "repository": "https://github.com/uibcdf/molsysmt",
+            "version": "0.23.0+368.g00abb958f"
+          },
+          {
+            "commit": "78ede79e2e345593db5bfe80d246d3f6c70bd005",
+            "id": "viewer-base",
+            "install": "pip-no-deps-directory",
+            "name": "molsysviewer",
+            "repository": "https://github.com/uibcdf/molsysviewer",
+            "version": "0.24.0+260.g78ede79e"
+          }
+        ]
+      },
+      "raw_job_log_sha256": "99b16a3f06329081b235c45663d76182b1ec033af8348b1747e7256f301c4f10"
+    },
+    {
+      "python_minor": "3.14",
+      "actual_python": "3.14.10",
+      "job_id": 127586455977,
+      "job_name": "Test on ubuntu-latest, Python 3.14",
+      "conclusion": "success",
+      "test_step": "success",
+      "passed": 1761,
+      "seconds": 440.42,
+      "warnings": 348,
+      "test_skips": 0,
+      "consumer_installed_version": "0.0.0",
+      "required_steps": {
+        "Install compatible scientific sibling sources": "success",
+        "Install dockingmt": "success",
+        "Check dependency routes and installed clone context": "success",
+        "Verify ordinary installed package": "success",
+        "Check installed dependency closure": "success",
+        "Run tests with pytest-receptor": "success"
+      },
+      "source_preflight": {
+        "qualification": "declared-and-installed-context",
+        "selected_context": "ci-3.14",
+        "installed_versions": {
+          "argdigest": "0.15.0+5.g3d1ec53",
+          "depdigest": "0.15.1",
+          "molsysmt": "0.23.0+368.g00abb958f",
+          "numpy": "2.5.4",
+          "python": "3.14.10",
+          "pyunitwizard": "0.29.0",
+          "smonitor": "0.22.1"
+        },
+        "installed_sources": [
+          {
+            "commit": "3d1ec53c374098016452abab74706e9d80df5462",
+            "id": "argdigest-source",
+            "install": "pip-no-deps-directory",
+            "name": "argdigest",
+            "repository": "https://github.com/uibcdf/argdigest",
+            "version": "0.15.0+5.g3d1ec53"
+          },
+          {
+            "commit": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+            "id": "molsysmt-source",
+            "install": "pip-no-deps-directory",
+            "name": "molsysmt",
+            "repository": "https://github.com/uibcdf/molsysmt",
+            "version": "0.23.0+368.g00abb958f"
+          },
+          {
+            "commit": "78ede79e2e345593db5bfe80d246d3f6c70bd005",
+            "id": "viewer-py314",
+            "install": "pip-no-deps-directory",
+            "name": "molsysviewer",
+            "repository": "https://github.com/uibcdf/molsysviewer",
+            "version": "0.24.0+260.g78ede79e"
+          }
+        ]
+      },
+      "raw_job_log_sha256": "82406b977ffe4c18e259b31c632275c36843e310e2f6d4c5cc7dc7955463575e"
+    }
+  ],
+  "overall_at_observation": {
+    "status": "queued",
+    "conclusion": null,
+    "successful_jobs": 6,
+    "queued_jobs": 1,
+    "pending_job": "Publish default-branch Python coverage"
+  },
+  "limits": [
+    "Job-only log captures retain their own time-qualified run state; full attempt logs were unavailable while the publisher was queued.",
+    "Hosted tests consume an untagged development version, not the private 0.1.0 wheel.",
+    "Source/context preflights and pip check pass, but this observation does not retain the complete resolved hosted transitive closure.",
+    "The fresh source reconstruction has a separately observed closure; it is not silently substituted for any hosted lane.",
+    "Zero test skips is distinct from intentional conditional checkout/coverage-retention step skips."
+  ]
+}
