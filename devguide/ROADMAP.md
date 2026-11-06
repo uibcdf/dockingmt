@@ -197,6 +197,16 @@ the qualified consumer pin. Receive provider contracts and define the actual
 comparison/execution population before a multi-pose native study; this metadata
 slice alone does not accept E1.
 
+Independent E3/E4 work now has concrete owners and a
+[dated source/contract inspection](validation/extended_provider_scope_2026-11-06.md).
+[#79](pending_proposals/qualify_pose_comparison_and_clustering.md) requests
+provider-supported bounded pairwise positional RMSD/clustering in MolSysMT #604.
+[#80](pending_proposals/receive_docking_interaction_analysis.md) receives existing
+typed interaction tools for selected poses; it needs actual provider assembly,
+analysis, persistence and consumer-association evidence. Neither workflow is
+accepted by this scoping. Existing metrics/detectors stay in MolSysMT; no local
+geometry, matcher, chemical rules or molecular codec is introduced.
+
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |
 | 1 | Current Core evidence and source CI (#28/#60) | The updated criterion map is delivered. Inspect the exact source/head's remaining hosted lanes and append their outcome to the owning issues; previous successes do not qualify another composition. |

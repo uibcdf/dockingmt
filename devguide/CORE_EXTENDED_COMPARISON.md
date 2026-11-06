@@ -62,6 +62,13 @@ does not accept E1–E5 as a whole. In particular, generic reference-summary sup
 is not evidence of screening enrichment, and named empirical scores do not
 establish comparable binding free energies across ligands or receptor states.
 
+Concrete E3/E4 receiving is now scoped under
+[#79](pending_proposals/qualify_pose_comparison_and_clustering.md) and
+[#80](pending_proposals/receive_docking_interaction_analysis.md).
+The [dated provider inspection](validation/extended_provider_scope_2026-11-06.md)
+requests supported clustering in MolSysMT #604 and identifies existing typed
+interaction tools to receive. This is workflow scoping, not gate acceptance.
+
 ## What changes in the 1.0 choice
 
 | Target | What 1.0 promises | Consequence for remaining work |

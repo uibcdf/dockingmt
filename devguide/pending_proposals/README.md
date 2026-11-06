@@ -4,6 +4,11 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
+### Active (2)
+
+- [`qualify_pose_comparison_and_clustering.md`](qualify_pose_comparison_and_clustering.md) — [#79](https://github.com/uibcdf/dockingmt/issues/79) — Qualify provider-backed positional pose comparison and declared geometric clustering for E3. *(active, inspected)*
+- [`receive_docking_interaction_analysis.md`](receive_docking_interaction_analysis.md) — [#80](https://github.com/uibcdf/dockingmt/issues/80) — Receive MolSysMT structured interactions and associate them with existing docking poses for E4. *(active, inspected)*
+
 ### Partial (16)
 
 - [`adopt_python_distribution_controls.md`](adopt_python_distribution_controls.md) — [#47](https://github.com/uibcdf/dockingmt/issues/47) — Adopt distribution controls and the agreed first noarch Conda route. *(partial, measured)*

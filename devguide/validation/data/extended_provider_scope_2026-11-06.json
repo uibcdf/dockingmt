@@ -1,0 +1,231 @@
+{
+  "classification": "static_source_contract_inspection",
+  "consumer_source": "2a2168d4b7ccd382f0cd4ac0e9e6f78009d71979",
+  "owners": [
+    "uibcdf/dockingmt#79",
+    "uibcdf/dockingmt#80"
+  ],
+  "provider_request": "uibcdf/molsysmt#604",
+  "date": "2026-11-06",
+  "provider_sources": {
+    "qualified_pin": {
+      "commit": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+      "files": [
+        {
+          "path": "molsysmt/structure/__init__.py",
+          "git_blob": "7dcb7732932c5631f789e174cf98af2ff806beec",
+          "sha256": "93ceafed474a26a6f93076c65bc0c327bd5724e9e7ed37a0b3db42820cce712f",
+          "public_declarations": []
+        },
+        {
+          "path": "molsysmt/structure/get_rmsd.py",
+          "git_blob": "aa39514bbc2dc640a74dbaa66639dacf312390c8",
+          "sha256": "b8f6cae8afbefc5ebe19147b208a540f235d630857c30bed85cdf2f66af4beca",
+          "public_declarations": [
+            {
+              "name": "get_rmsd",
+              "line": 60,
+              "arguments": "molecular_system, selection='atom_type!=\"H\"', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_index=0, syntax='MolSysMT', engine='MolSysMT', heavy_mode='auto', use_gpu=None, parallel=None, num_threads=None"
+            }
+          ]
+        },
+        {
+          "path": "molsysmt/structure/get_symmetry_corrected_rmsd.py",
+          "git_blob": "c3a2c5ed3d0dea5b8a619a33f2b963b9cff918c0",
+          "sha256": "971ef6854a2bfb35eb31c54b6988606c768eb3a1ee1a8816132c6144c67697fe",
+          "public_declarations": [
+            {
+              "name": "get_symmetry_corrected_rmsd",
+              "line": 23,
+              "arguments": "molecular_system, selection='atom_type!=\"H\"', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_index=0, chemical_state='reference', reference_chemical_state='reference', correspondences=None, baseline_atom_correspondence=None, method='declared_graph_isomorphism', max_matches=100000, tie_tolerance='1e-12 nm', syntax='MolSysMT', heavy_mode='auto', parallel=None, num_threads=None, skip_digestion=False, *, fixed_atom_correspondence=None, candidate_atom_correspondences=None"
+            }
+          ]
+        },
+        {
+          "path": "molsysmt/interactions/hbonds/get_hbonds.py",
+          "git_blob": "f82b32ce565173ae2ae9098759046f825a006eed",
+          "sha256": "591982c38b630bf7fa3cde1da90c0fbbe0d3564aed7c122e184302b2036f30be",
+          "public_declarations": [
+            {
+              "name": "get_hbonds",
+              "line": 30,
+              "arguments": "molecular_system, selection='all', selection_2=None, structure_indices='all', chemical_state='reference', method='baker_hubbard', distance_threshold=None, angle_threshold=None, selection_mode='internal', pbc=True, assume_complete_connectivity=False, output_type='molsysmt.Interactions', syntax='MolSysMT', skip_digestion=False, *, donor_hydrogen_pairs=None, acceptor_atom_indices=None, max_matches=100000, heavy_mode='auto', profile=None"
+            }
+          ]
+        },
+        {
+          "path": "molsysmt/interactions/hydrophobic/get_hydrophobic_interactions.py",
+          "git_blob": "6cef99364d63fa1178bd9ea647be90c91faccef4",
+          "sha256": "68e64847eca53577a7446eee98467b6eea7f4b09b9e7c2026669196d6c6bc5bc",
+          "public_declarations": [
+            {
+              "name": "get_hydrophobic_interactions",
+              "line": 22,
+              "arguments": "molecular_system, selection='all', selection_2=None, structure_indices='all', chemical_state='reference', method='atom_pair_distance', distance_threshold=None, selection_mode='internal', pbc=True, assume_complete_connectivity=False, output_type='molsysmt.Interactions', syntax='MolSysMT', skip_digestion=False, *, max_matches=100000, heavy_mode='auto', profile=None"
+            }
+          ]
+        },
+        {
+          "path": "molsysmt/interactions/result.py",
+          "git_blob": "44ef1536fd07f7015ee5ab6e7e403c841b359dd8",
+          "sha256": "76b5e188f634ac05d7ecc28368e4cd1d7e01c5ac4b7b9ba0af817dc5eee2ff20",
+          "public_declarations": [
+            {
+              "name": "Interactions.query",
+              "line": 1098,
+              "arguments": "self, structure_indices=None, atom_indices=None, mode='involving_selection', interaction_types=None, *, skip_digestion=False"
+            },
+            {
+              "name": "Interactions.between_selections",
+              "line": 1286,
+              "arguments": "self, atom_indices_a, atom_indices_b, structure_indices=None, exclusive=False, interaction_types=None, *, skip_digestion=False"
+            },
+            {
+              "name": "Interactions.to_dict",
+              "line": 1364,
+              "arguments": "self, *, skip_digestion=False"
+            },
+            {
+              "name": "Interactions.to_page",
+              "line": 1453,
+              "arguments": "self, offset=0, limit=50, max_participant_atoms=10000, skip_digestion=False"
+            }
+          ]
+        },
+        {
+          "path": "molsysmt/native/interactions_dict.py",
+          "git_blob": "eb240630b496d832d0d5e9e4eb97f7a021e44eb3",
+          "sha256": "566f1e28c12596567a7d4eaed1649408dfada98eb274ffbff9543c4c55dcc1a6",
+          "public_declarations": [
+            {
+              "name": "InteractionsDict.to_dict",
+              "line": 34,
+              "arguments": "self, copy=True"
+            }
+          ]
+        }
+      ],
+      "cluster_named_paths": []
+    },
+    "inspected_main": {
+      "commit": "ed09f64539a5af6c1dbe9bd352c7ef65dcd4a7a6",
+      "files": [
+        {
+          "path": "molsysmt/structure/__init__.py",
+          "git_blob": "7dcb7732932c5631f789e174cf98af2ff806beec",
+          "sha256": "93ceafed474a26a6f93076c65bc0c327bd5724e9e7ed37a0b3db42820cce712f",
+          "public_declarations": []
+        },
+        {
+          "path": "molsysmt/structure/get_rmsd.py",
+          "git_blob": "aa39514bbc2dc640a74dbaa66639dacf312390c8",
+          "sha256": "b8f6cae8afbefc5ebe19147b208a540f235d630857c30bed85cdf2f66af4beca",
+          "public_declarations": [
+            {
+              "name": "get_rmsd",
+              "line": 60,
+              "arguments": "molecular_system, selection='atom_type!=\"H\"', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_index=0, syntax='MolSysMT', engine='MolSysMT', heavy_mode='auto', use_gpu=None, parallel=None, num_threads=None"
+            }
+          ]
+        },
+        {
+          "path": "molsysmt/structure/get_symmetry_corrected_rmsd.py",
+          "git_blob": "c3a2c5ed3d0dea5b8a619a33f2b963b9cff918c0",
+          "sha256": "971ef6854a2bfb35eb31c54b6988606c768eb3a1ee1a8816132c6144c67697fe",
+          "public_declarations": [
+            {
+              "name": "get_symmetry_corrected_rmsd",
+              "line": 23,
+              "arguments": "molecular_system, selection='atom_type!=\"H\"', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_index=0, chemical_state='reference', reference_chemical_state='reference', correspondences=None, baseline_atom_correspondence=None, method='declared_graph_isomorphism', max_matches=100000, tie_tolerance='1e-12 nm', syntax='MolSysMT', heavy_mode='auto', parallel=None, num_threads=None, skip_digestion=False, *, fixed_atom_correspondence=None, candidate_atom_correspondences=None"
+            }
+          ]
+        },
+        {
+          "path": "molsysmt/interactions/hbonds/get_hbonds.py",
+          "git_blob": "1e3dca627ad6628440eb005e65529013e9b5d609",
+          "sha256": "dd941cf153094fd1fef08b52f20cd2b93237ce1d04a3624ddc163fd88428099f",
+          "public_declarations": [
+            {
+              "name": "get_hbonds",
+              "line": 30,
+              "arguments": "molecular_system, selection='all', selection_2=None, structure_indices='all', chemical_state='reference', method='baker_hubbard', distance_threshold=None, angle_threshold=None, selection_mode='internal', pbc=True, assume_complete_connectivity=False, output_type='molsysmt.Interactions', syntax='MolSysMT', skip_digestion=False, *, donor_hydrogen_pairs=None, acceptor_atom_indices=None, max_matches=100000, heavy_mode='auto', profile=None"
+            }
+          ]
+        },
+        {
+          "path": "molsysmt/interactions/hydrophobic/get_hydrophobic_interactions.py",
+          "git_blob": "3dca391ed59bc1822c94f7d8600149b32e38fd4f",
+          "sha256": "8d22979aa603c619b0bdbca2dff79d64d61d68478b2d4a97180a6843d91b4db6",
+          "public_declarations": [
+            {
+              "name": "get_hydrophobic_interactions",
+              "line": 22,
+              "arguments": "molecular_system, selection='all', selection_2=None, structure_indices='all', chemical_state='reference', method='atom_pair_distance', distance_threshold=None, selection_mode='internal', pbc=True, assume_complete_connectivity=False, output_type='molsysmt.Interactions', syntax='MolSysMT', skip_digestion=False, *, max_matches=100000, heavy_mode='auto', profile=None"
+            }
+          ]
+        },
+        {
+          "path": "molsysmt/interactions/result.py",
+          "git_blob": "44ef1536fd07f7015ee5ab6e7e403c841b359dd8",
+          "sha256": "76b5e188f634ac05d7ecc28368e4cd1d7e01c5ac4b7b9ba0af817dc5eee2ff20",
+          "public_declarations": [
+            {
+              "name": "Interactions.query",
+              "line": 1098,
+              "arguments": "self, structure_indices=None, atom_indices=None, mode='involving_selection', interaction_types=None, *, skip_digestion=False"
+            },
+            {
+              "name": "Interactions.between_selections",
+              "line": 1286,
+              "arguments": "self, atom_indices_a, atom_indices_b, structure_indices=None, exclusive=False, interaction_types=None, *, skip_digestion=False"
+            },
+            {
+              "name": "Interactions.to_dict",
+              "line": 1364,
+              "arguments": "self, *, skip_digestion=False"
+            },
+            {
+              "name": "Interactions.to_page",
+              "line": 1453,
+              "arguments": "self, offset=0, limit=50, max_participant_atoms=10000, skip_digestion=False"
+            }
+          ]
+        },
+        {
+          "path": "molsysmt/native/interactions_dict.py",
+          "git_blob": "eb240630b496d832d0d5e9e4eb97f7a021e44eb3",
+          "sha256": "566f1e28c12596567a7d4eaed1649408dfada98eb274ffbff9543c4c55dcc1a6",
+          "public_declarations": [
+            {
+              "name": "InteractionsDict.to_dict",
+              "line": 34,
+              "arguments": "self, copy=True"
+            }
+          ]
+        }
+      ],
+      "cluster_named_paths": []
+    }
+  },
+  "provider_imports": false,
+  "molecular_or_native_execution": false,
+  "dependency_pin_changes": false,
+  "runtime_or_public_acceptance": false,
+  "limits": [
+    "File/signature equality is not behavior or dependency-closure qualification.",
+    "No cluster-named path is bounded inspection, not proof all supported public compositions are absent.",
+    "Interactions.to_dict/to_page are inspection projections, not complete persistence codecs.",
+    "Existing E1/#49/scientific/public/visible obligations remain."
+  ],
+  "byte_identical_selected_files": [
+    "molsysmt/structure/__init__.py",
+    "molsysmt/structure/get_rmsd.py",
+    "molsysmt/structure/get_symmetry_corrected_rmsd.py",
+    "molsysmt/interactions/result.py",
+    "molsysmt/native/interactions_dict.py"
+  ],
+  "selected_detector_files_changed_with_equal_public_signatures": [
+    "molsysmt/interactions/hbonds/get_hbonds.py",
+    "molsysmt/interactions/hydrophobic/get_hydrophobic_interactions.py"
+  ]
+}

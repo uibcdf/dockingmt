@@ -40,8 +40,8 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | C6 visualization | Real addon controls, communication and canvas display correctly paired receptor/domain/poses/reference, with actual interaction evidence. | Python/DOM/export/private evidence exists; live acceptance is still unproven. Respect the maintainer's scheduling decision. |
 | E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ranked and audited reproducibly. | #78 owns native reference semantics, provider identity/projection, explicit comparison admission and the representative execution. Strict current ranking remains. |
 | E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | Reuse serial `dock_many` and existing outcomes. Actual collection study, admission/denominators and comparison scope remain to be qualified. |
-| E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | Reference/RMSD pieces exist. Inspect supported MolSysMT operations and request missing reusable tools before consumer composition. |
-| E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | Scope a concrete workflow using MolSysMT detection/characterization, with specialized providers where applicable. No local contact/chemistry engine. |
+| E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | #79 scopes the concrete positional workflow. MolSysMT #604 requests supported bounded pairwise/clustering tools or an existing composition; no local molecular algorithm. |
+| E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 scopes receiving existing MolSysMT typed interactions for selected docking poses. Prove provider assembly/detection/persistence and actual pose association; no local contact/chemistry engine. |
 | E5 independent reproduction | A separate receiving installation reconstructs a representative stored workflow from documented inputs, with observed agreement/tolerances, failures and missing information. | Captures/replay/recovery supply pieces; a whole independent workflow audit remains unproven. |
 | Bounded scientific qualification | An admitted transparent independent panel and informative positive/adverse controls, explicit preparation/search/ranking hypotheses, denominators, budgets and all outcomes. | Audit Q2–Q4 and #33/#49 own admission. Existing within-case repetitions do not become independent complexes. |
 | Public delivery and support | Actual compatible public dependencies, exact staged Conda artifact, required source/native gates and eight Linux/macOS arm64 × Python 3.11–3.14 installed cells, same-byte promotion and public receiving. | #30/#47 remain partial. Refresh artifact availability before acquiring/receiving; old private receipts do not certify a new public file. Distribution is Conda `uibcdf`. |
@@ -65,7 +65,12 @@ implemented API or record-only test is not acceptance of a scientific workflow.
    resources and failure rules before computation.
 5. Scope and qualify E2–E5 with their owners and receive the remaining Core,
    scientific, visual and public-delivery evidence. Independent requirements may
-   progress while another provider or hosted run is pending.
+   progress while another provider or hosted run is pending. E3's
+   [provider-backed contract](pending_proposals/qualify_pose_comparison_and_clustering.md)
+   is #79/MolSysMT #604; E4's
+   [existing-tool receiving](pending_proposals/receive_docking_interaction_analysis.md)
+   is #80. Their [dated inspection](validation/extended_provider_scope_2026-11-06.md)
+   is not runtime/scientific acceptance.
 6. Select/qualify the actual functional release candidate only when every row's
    evidence supports the complete declared scope; perform the version-specific
    release/package/notice route. Enter stabilization afterwards.
