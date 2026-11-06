@@ -109,3 +109,29 @@ Retrieve the needed evidence before expiry; archive a sanitized durable receivin
 record in this repository and cross-link #80. Custody review: **2026-11-13**.
 No public package, platform/minor matrix, independent panel, live-canvas
 acceptance, complete E4 or functional-release claim follows from this bounded run.
+
+## First disposition and explicit-atom amendment
+
+Initial producer `988d8a1cd9cc069d2d44d3bd229cd1ff10fc780f` is
+[registered before execution](https://github.com/uibcdf/dockingmt/issues/80#issuecomment-6682811593).
+[Run 42203647830](https://github.com/uibcdf/dockingmt/actions/runs/42203647830)
+fails after preparation and before detectors because omitted-element XYZ
+coordinate extraction selects an unavailable system getter. Its final observer
+verifies zero detector attempts, passing pip closure and unchanged payloads;
+normal reader and pm/fs are not reached. Preserve the full
+[receiving record](data/interaction_hosted_receiving_2026-11-06.json).
+
+The client amendment explicitly supplies `element='atom'` to public `msm.get`,
+using the provider's existing atom getter/rank normalization, source-inspected
+at the same qualified pin. [MolSysMT #610](https://github.com/uibcdf/molsysmt/issues/610)
+owns clarification of the public XYZ composition/default behavior. No provider
+pin, model, scientific population, molecular operation or six-call denominator
+changes. New notebook SHA-256:
+`6c43428ea9053dde56039828e16cfb14884a65fc91d9b76eb1e8455000336c01`.
+
+This is an unexecuted amendment. Publish/register the new full source on #80
+before dispatching one new attempt; do not rerun the old producer. The twelve-call
+new hosted maximum plus the original unknown six-call local reserve remains
+eighteen: the first hosted attempt has a verified zero and releases its unused
+detector budget. All other scientific/resource/retention/failure conditions above
+remain. A proposed composition and successful preparation do not accept E4.

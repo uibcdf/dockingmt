@@ -81,8 +81,14 @@ now defines current-source installed Linux/Python 3.14 receiving, normal then
 pm/fs, with a fresh saved reader per profile. The manual caller preserves the
 local hold, registers at most twelve new detector calls and reserves the old
 unknown six-call budget separately. Its record/source/archive admission controls
-have focused administrative guards; no molecular cells have executed through
-this route. Register the full published source on #80 before dispatch.
+have focused administrative guards. The first hosted run `42203647830` at
+`988d8a1` completes preparation, then refuses omitted-element XYZ coordinate
+extraction; final detector counts are zero, payloads remain unchanged and pip
+closure passes. Fresh readers and pm/fs are not reached. The separate
+[hosted receipt](../validation/data/interaction_hosted_receiving_2026-11-06.json)
+preserves the failed population. MolSysMT #610 receives the public composition
+question. The new explicit-atom public getter amendment is source-inspected,
+not executed; register its exact new published source/budget before a new run.
 
 All 63 fixed private consumer payloads and the applicable active provider file
 records remain identical before/after; pip check passes. Four preliminary

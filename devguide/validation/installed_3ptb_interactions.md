@@ -4,12 +4,14 @@ Owner: [DockingMT #80](https://github.com/uibcdf/dockingmt/issues/80).
 The [six-cell notebook](installed_3ptb_interactions.ipynb) composes existing public
 MolSysMT tools for one retained docking pose. **Receiving has not passed.** The
 first attempt lacks notebook tooling; the corrected-tooling attempt is stopped
-by the RAM-reserve guard. No completed interaction analysis, scientific result
+by the RAM-reserve guard. The first hosted attempt completes preparation but
+refuses XYZ coordinate extraction before detectors. No completed interaction analysis, scientific result
 or E4 acceptance is reported.
 
 A separate [hosted receiving registration](installed_3ptb_interactions_hosted_registration.md)
-now defines exact-source Linux/Python 3.14 normal/pm-fs execution and independent
-saved readers. It is prospective; the local computational hold stays active.
+defines exact-source Linux/Python 3.14 normal/pm-fs execution and independent
+saved readers. Its first failure and later unexecuted explicit-atom amendment
+remain separate; the local computational hold stays active.
 
 ## Inputs and executed work
 
@@ -83,8 +85,8 @@ flushed `progress.jsonl` before preparation and each detector phase. Completed,
 failed and started-without-completion states remain distinct after interruption.
 Partial directories are retained; an existing output directory is refused.
 
-This refinement is syntax/format checked and **its molecular cells are not
-executed**. A small isolated standard-library control runs the actual journal
+At that checkpoint the refinement is syntax/format checked and **its molecular
+cells are unexecuted**. A small isolated standard-library control runs the actual journal
 helper, terminates its own process with SIGTERM and retains one valid started
 event. It verifies durable software evidence, not the molecular notebook.
 It changes workflow evidence, not molecular operations or the six-call
@@ -100,6 +102,44 @@ registered separately before dispatch. Source-provider persistence stores the
 resolved site definition; the reader verifies `site_definition` rather than
 assuming the caller's `profile` label is a persisted field. This is a client
 contract correction, without a provider or molecular algorithm change.
+
+## First hosted receiving and client amendment
+
+Source `988d8a1cd9cc069d2d44d3bd229cd1ff10fc780f`, notebook SHA-256
+`549d3216cc4f5ec810da95c0c292dafbe9b49f8eb9ca56f1647624b068ccee0a`, is
+registered before [run 42203647830](https://github.com/uibcdf/dockingmt/actions/runs/42203647830).
+The [durable receipt](data/interaction_hosted_receiving_2026-11-06.json)
+retains its same-run archive, exact source/inputs, Python 3.14.10 composition,
+original preparation outputs, final observer and nonpassing disposition.
+
+Conda setup, exact sibling/consumer installation, routes and pip closure pass.
+The preparation companion completes its 2,011/13-atom checks and controlled map
+refusal. Next, `msm.get(pose.coordinates, coordinates=True)` selects the XYZ
+system getter and raises `NotWithThisFormError`. The normal profile exits after
+13.264 seconds without a resource stop. Its final observer confirms **zero
+detector attempts**, all forbidden counters zero and unchanged consumer/source-
+provider payloads. Pose H completion, assembly, analyses, persistence, fresh
+readers and pm/fs are not reached. This is not evaluated-empty interaction data;
+the overall unit-policy acceptance is not manufactured after the exception.
+
+The original artifact has 31 entries; its 4,106,592-byte ZIP independently
+matches GitHub digest `e4f12b46f1255141cefe621f9959c54c7432cb68ced49849ac35dddaed9a6700`.
+It is retained locally before remote expiry. Existing local interrupted counts
+remain unknown and separate from this verified hosted zero.
+Seven byte-exact original registration/build/preparation/receiving/observer,
+journal and diagnostic exports are also preserved compressed in Git, with both
+compressed/original digests in the receipt. These do not duplicate the full ZIP
+or pretend that missing interaction files exist.
+
+[MolSysMT #610](https://github.com/uibcdf/molsysmt/issues/610) receives the exact
+refusal and asks for the supported public delivery contract. Inspection at the
+qualified pin finds the public atom-level getter and provider-owned rank-three
+normalization. The amended notebook explicitly requests `element='atom'` in
+that same public call. It adds no coordinate getter, reshaper or molecular
+adapter here. Its SHA-256 is
+`6c43428ea9053dde56039828e16cfb14884a65fc91d9b76eb1e8455000336c01`.
+This amendment is unexecuted; register its exact published source and budget
+before a new run. Preserve the failed run and do not rerun it automatically.
 
 ## Remaining acceptance
 

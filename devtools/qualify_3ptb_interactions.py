@@ -33,7 +33,7 @@ ROOT = Path(__file__).resolve().parents[1]
 INPUTS = {
     'notebook': (
         'devguide/validation/installed_3ptb_interactions.ipynb',
-        '549d3216cc4f5ec810da95c0c292dafbe9b49f8eb9ca56f1647624b068ccee0a',
+        '6c43428ea9053dde56039828e16cfb14884a65fc91d9b76eb1e8455000336c01',
     ),
     'preparation': (
         'devguide/validation/installed_3ptb_preparation.ipynb',

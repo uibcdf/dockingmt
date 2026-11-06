@@ -1,0 +1,234 @@
+{
+  "schema": "dockingmt.hosted_interaction_receiving@1",
+  "owner": "uibcdf/dockingmt#80",
+  "date": "2026-11-06",
+  "classification": "nonpassing hosted receiving; public XYZ getter refuses before detectors",
+  "source": "988d8a1cd9cc069d2d44d3bd229cd1ff10fc780f",
+  "registration_comment": 6682811593,
+  "run": {
+    "id": 42203647830,
+    "attempt": 1,
+    "status": "completed",
+    "conclusion": "failure",
+    "job_id": 127844786528
+  },
+  "artifact": {
+    "id": 13496526074,
+    "name": "dockingmt-e4-42203647830-1",
+    "zip_bytes": 4106592,
+    "zip_sha256": "e4f12b46f1255141cefe621f9959c54c7432cb68ced49849ac35dddaed9a6700",
+    "independent_download_hash_verified": true,
+    "members": 31,
+    "expires": "2026-11-20",
+    "custody_review": "2026-11-13"
+  },
+  "inputs": {
+    "notebook": {
+      "repository_path": "devguide/validation/installed_3ptb_interactions.ipynb",
+      "sha256": "549d3216cc4f5ec810da95c0c292dafbe9b49f8eb9ca56f1647624b068ccee0a",
+      "filename": "installed_3ptb_interactions.ipynb"
+    },
+    "preparation": {
+      "repository_path": "devguide/validation/installed_3ptb_preparation.ipynb",
+      "sha256": "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9",
+      "filename": "installed_3ptb_preparation.ipynb"
+    },
+    "source": {
+      "repository_path": "devguide/validation/data/3ptb_prospective/3PTB.pdb.gz",
+      "sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+      "filename": "3PTB.pdb.gz"
+    },
+    "declarations": {
+      "repository_path": "devguide/validation/data/human_3ptb/admission_2026-10-20.json.gz",
+      "sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53",
+      "filename": "admission_2026-10-20.json.gz"
+    },
+    "result": {
+      "repository_path": "devguide/validation/data/human_3ptb/native_result_2026-10-20.json.gz",
+      "sha256": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249",
+      "filename": "native_result_2026-10-20.json.gz"
+    }
+  },
+  "installed_consumer": {
+    "version": "0.0.0+291.g988d8a1",
+    "sha256": "819660cfc61129acb277372f0ba7a9134846e2b4264eba58751fc4b11a51def9",
+    "filename": "dockingmt-0.0.0+291.g988d8a1-py3-none-any.whl",
+    "source": "988d8a1cd9cc069d2d44d3bd229cd1ff10fc780f"
+  },
+  "consumer_runtime_payloads": 63,
+  "python": "3.14.10",
+  "preparation": {
+    "schema": "dockingmt.installed_3ptb_preparation@1",
+    "scope": "preparation_and_protocol_admission_only",
+    "source_file_sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+    "declaration_file_sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53",
+    "reader_versions": {
+      "dockingmt": "0.0.0+291.g988d8a1",
+      "molsysmt": "0.23.0+368.g00abb958f",
+      "pyunitwizard": "0.29.0",
+      "rdkit": "2026.3.1"
+    },
+    "python": "3.14.10",
+    "source_counts": {
+      "n_atoms": 1701,
+      "n_groups": 287,
+      "n_structures": 1,
+      "n_bonds": 21
+    },
+    "prepared_atoms": {
+      "receptor": 2011,
+      "partner": 13
+    },
+    "projected_charge_unit": "elementary_charge",
+    "projected_charges": {
+      "receptor": 5.999999999999994,
+      "partner": 1.0000000000000004
+    },
+    "coordinate_tolerance_angstrom": 1e-12,
+    "source_and_prepared_values_verified": true,
+    "invalid_map_refusal": {
+      "code": "MSM-ERR-ARG-001",
+      "argument": "atom_correspondence"
+    },
+    "artifacts": {
+      "provider_reports.json": {
+        "bytes": 6191437,
+        "sha256": "d44d6e4c047ed50d9d1cea757066f05a330e50dfbf2bd080a4358336d206f484"
+      },
+      "prepared_declarations.json": {
+        "bytes": 2395069,
+        "sha256": "c0a544e047d3b9c4a1750f3ed5f56658554f9b1065d94a043a8a3965ab782c36"
+      },
+      "execution_plan.json": {
+        "bytes": 6005652,
+        "sha256": "df63a5feae25b23533a0fb77c125ce248a84884c1a41d73128aee21615f83ea6"
+      },
+      "receptor.pdbqt": {
+        "bytes": 161490,
+        "sha256": "719fd7d1cd4ac2e7d1ac3aec4cbc1b63c9faaead0578252e17a677e935febf58"
+      },
+      "partner.pdbqt": {
+        "bytes": 2934,
+        "sha256": "497d9824990dc3685531899c32bcd38f0222147acf94e028b48cd0df09816ca8"
+      }
+    },
+    "planned_cases": [
+      "native",
+      "displaced"
+    ],
+    "execution_status": "not_executed",
+    "molecular_snapshot_created": false,
+    "chemical_model_suitability": "unassessed",
+    "C6_accepted": false
+  },
+  "operations": [
+    {
+      "profile": "normal",
+      "operation": "profile",
+      "status": "failed",
+      "returncode": 1,
+      "seconds": 13.264199950000034,
+      "resource_stop": null
+    }
+  ],
+  "final_detector_calls": {
+    "hbonds": {
+      "attempted": 0,
+      "completed": 0
+    },
+    "hydrophobic": {
+      "attempted": 0,
+      "completed": 0
+    }
+  },
+  "forbidden_calls": {
+    "dockingmt.dock": 0,
+    "dockingmt.score": 0,
+    "dockingmt.evaluate_redocking": 0,
+    "dockingmt.view": 0,
+    "dockingmt.show": 0,
+    "Vina.__init__": 0,
+    "Vina.compute_vina_maps": 0,
+    "Vina.dock": 0,
+    "Vina.score": 0,
+    "Vina.optimize": 0,
+    "Vina.write_poses": 0,
+    "molsysmt.view": 0
+  },
+  "runtime_payloads_preserved": true,
+  "exact_before_after_maps_equal": true,
+  "pip_check_after": 0,
+  "completed_gate": false,
+  "refusal": {
+    "phase": "original pose coordinate delivery after successful preparation",
+    "type": "molsysmt._private.smonitor.exceptions.NotWithThisFormError",
+    "message": "Form 'XYZ' declares attribute 'coordinates' but does not implement 'get_coordinates_from_system', a registered derivation, or a usable attribute pipe.",
+    "provider_issue": "uibcdf/molsysmt#610",
+    "explicit_atom_getter_candidate": "source-inspected at qualified pin; not received by this run"
+  },
+  "not_reached": [
+    "pose H materialization",
+    "assembly",
+    "interaction detectors",
+    "H5MSM analysis persistence",
+    "normal fresh reader",
+    "pm_fs profile and fresh reader"
+  ],
+  "unit_policy_preserved": "not verified after exception; not manufactured as passing",
+  "old_local_resource_hold_preserved": true,
+  "prior_local_interrupted_detector_counts": "unknown; retain full six-call reserve separately",
+  "automatic_retry": false,
+  "remaining_claims": "E4, panel, public package/platform/minor matrix, visible and whole functional acceptance remain unproven",
+  "selected_original_exports": {
+    "normal/observer.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_20261106/normal-observer.json.gz",
+      "compressed_bytes": 377250,
+      "compressed_sha256": "89bb7462396a86a9477898e869be17a32c5e5ec1433566f266668d3d9139bfff",
+      "original_bytes": 1264486,
+      "original_sha256": "7f2c93bf3a6611e218345c0deafbb43fc5dfd6497327359cad200156d6164666"
+    },
+    "normal/profile.log": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_20261106/normal-profile.log.gz",
+      "compressed_bytes": 4787,
+      "compressed_sha256": "29cd272ba7309fc3a55310c278d8b15c9298fd73ae102d69ac0979d13b8776f8",
+      "original_bytes": 19259,
+      "original_sha256": "9779cc2c3b137357dfc9b2d642cd149495759e18635d9311bfea2aced50caac1"
+    },
+    "normal/interactions/progress.jsonl": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_20261106/normal-interactions-progress.jsonl.gz",
+      "compressed_bytes": 82,
+      "compressed_sha256": "acc2f51d891a6dcba2abf4e52c28ad1be7122622c87825b2b25c9ba97c7eb00c",
+      "original_bytes": 137,
+      "original_sha256": "e347d50a1e5791317f51ce227f019a2c754e9146c82c1ed496b1b40ffae4e981"
+    },
+    "registration.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_20261106/registration.json.gz",
+      "compressed_bytes": 820,
+      "compressed_sha256": "be9451481fc15a7cf06eb23cb0c32959d21243e9245c8f86856920608091ee0e",
+      "original_bytes": 1894,
+      "original_sha256": "912fff82b3e5037c8800c4e022968ea784ae16cfdc3de375dde813de28c49777"
+    },
+    "build.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_20261106/build.json.gz",
+      "compressed_bytes": 3199,
+      "compressed_sha256": "5e317b4eeb6c0a8904540efa073cc900826d71e2f9002da043903f733a4949fc",
+      "original_bytes": 6983,
+      "original_sha256": "342e4b98ef64feab69c96c3b5416bfa84759e4542091a00fd81ad931740daa2c"
+    },
+    "receiving.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_20261106/receiving.json.gz",
+      "compressed_bytes": 255,
+      "compressed_sha256": "dea3bf0f0a766a223502435ea41c063f2d181372eadc71aad1e2d6e16dae403d",
+      "original_bytes": 387,
+      "original_sha256": "70eac0f0de60aefbc758fd8c3012e512c483dfff902471144ea64f6c06eaeb70"
+    },
+    "normal/preparation/receipt.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_20261106/normal-preparation-receipt.json.gz",
+      "compressed_bytes": 963,
+      "compressed_sha256": "030771fa95e42c2791fbcefe86e9e5790141e196ad4880fb22123c0d6604f258",
+      "original_bytes": 1930,
+      "original_sha256": "a354e5d76bcc2b017c77ca127e011fd9f188b4400be6e0979f3f8856ad4d5972"
+    }
+  },
+  "full_original_zip_custody": "Verified local retained original, review 2026-11-13 before Actions expiry; selected original receipts/diagnostic/journal are independently preserved in Git."
+}
