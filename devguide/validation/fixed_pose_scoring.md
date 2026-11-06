@@ -91,8 +91,10 @@ usual pose reader/writer preserves these records without a live engine.
 Use [`audit_pose(record)`](pose_audit.md) to check standalone saved evaluations
 against current pose scores and declarations. Missing independent name/box
 evidence in older scoring records stays incomplete; their reader remains compatible.
-`audit_result` currently audits docking-result provenance; this new pose record
-does not imply support for auditing a result assembled from several stages.
+`audit_result` also checks these per-pose evaluation histories when a collection
+stores them, keeping original result-level docking provenance separate. Missing
+collection evidence stays incomplete; an evaluation is not promoted to that
+provenance. This is not a general stage-composition or score-comparison policy.
 
 ## Reproduction and limits
 

@@ -6,6 +6,11 @@ access. The audit performs no molecular reads, preparation, engine execution or
 viewer operations. Invalid claims become report checks; ArgDigest rejects a
 non-mapping argument.
 
+`audit_result` reuses the same evaluation-history checks for poses inside a
+collection, with collection-relative report paths. Missing original collection
+provenance stays incomplete. This does not change the standalone report contract
+or authorize cross-pose score comparison; see the [result audit](result_audit.md).
+
 ```python
 import json
 import dockingmt as dmt

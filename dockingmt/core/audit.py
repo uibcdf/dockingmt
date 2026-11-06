@@ -463,6 +463,14 @@ def audit_result(record):
         record.get('protocol_info'),
         provenance.get('protocol'),
     )
+    protocol = provenance.get('protocol', {})
+    parameters = protocol.get('parameters', {}) if isinstance(protocol, Mapping) else {}
+    scoring = parameters.get('scoring') if isinstance(parameters, Mapping) else None
+    docking_names = (
+        score_components(scoring)
+        if provenance.get('backend') == 'vina' and scoring in ('vina', 'vinardo')
+        else {}
+    )
     definitions = []
     admitted_poses = []
     for index, pose in enumerate(poses):
@@ -472,7 +480,37 @@ def audit_result(record):
         admitted_poses.append(admitted)
         if described is None:
             continue
+        scoring_stage = any(
+            definition['context'].get('stage') == 'scoring'
+            for definition in described.values()
+        )
+        scoring_owners = set()
+        if 'scoring_history' in admitted.get('metadata', {}) or scoring_stage:
+            # Imported lazily: pose_audit shares the result payload/Vina checks.
+            from dockingmt.core.pose_audit import _audit_scoring_history
+
+            scoring_owners = _audit_scoring_history(
+                report, admitted, scores, described, path, required=scoring_stage
+            )
         for name, definition in described.items():
+            if name in scoring_owners and name in docking_names:
+                report.add(
+                    'score_ownership',
+                    f'{path}/scores/{name}',
+                    'inconsistent',
+                    'docking_and_scoring_ownership_overlap',
+                )
+            if name not in docking_names:
+                if name in scoring_owners:
+                    continue
+                if definition['context'].get('stage') == 'scoring':
+                    report.add(
+                        'score_origin',
+                        f'{path}/scores/{name}',
+                        'incomplete',
+                        'scoring_evidence_missing',
+                    )
+                    continue
             _audit_vina(report, definition, name, provenance, f'{path}/scores/{name}')
     _audit_ranking(report, admitted_poses, definitions, provenance)
     return report.export()

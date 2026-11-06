@@ -157,6 +157,15 @@ source-overlay refusal pass five bounded receiving profiles. No new scores or
 molecular operations are computed; this is not whole-E1 acceptance or permission
 to relax cross-pose comparison contexts.
 
+The next concrete E1 record boundary is [#76](pending_bugs/audit_result_scoring_stages.md):
+result audits must inspect their poses' scoring histories and distinguish those
+evaluations from original docking provenance. The baseline silently ignores a
+future history schema and invents 16 docking-stage contradictions for a valid
+scored-pose collection. The correction reuses the pose auditor, protects original
+docking ownership and leaves missing collection evidence incomplete. This new
+runtime source is separate from fixed candidate `905abc9`; #74's old receipts
+do not qualify this correction or move the proposed tag automatically.
+
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |
 | 1 | Current Core evidence and source CI (#28/#60) | The updated criterion map is delivered. Inspect the exact source/head's remaining hosted lanes and append their outcome to the owning issues; previous successes do not qualify another composition. |

@@ -310,6 +310,44 @@ def _evaluation(report, pose, entry, path, current_scores, current_definitions, 
                 )
 
 
+def _audit_scoring_history(report, record, scores, definitions, path, *, required=True):
+    """Crosscheck one pose's recorded evaluations; return claimed score names."""
+    owners = set()
+    metadata = record.get('metadata', {})
+    if not isinstance(metadata, Mapping):
+        return owners
+    history_path = path.rstrip('/') + '/metadata/scoring_history'
+    history = metadata.get('scoring_history', [])
+    if not isinstance(history, list):
+        report.add(
+            'scoring_history',
+            history_path,
+            'inconsistent',
+            'invalid_history_container',
+        )
+        return owners
+    if not history and required:
+        report.add(
+            'scoring_history',
+            history_path,
+            'incomplete',
+            'scoring_evidence_missing',
+        )
+    for index, entry in enumerate(history):
+        entry_path = f'{history_path}/{index}'
+        if _schema(report, entry, entry_path, 'ScoringEvaluation'):
+            _evaluation(
+                report,
+                record,
+                entry,
+                entry_path,
+                scores or {},
+                definitions or {},
+                owners,
+            )
+    return owners
+
+
 @arg_digest(config='dockingmt._argdigest')
 def audit_pose(record):
     """Audit an already loaded saved DockingPose mapping, including rescoring.
@@ -327,29 +365,10 @@ def audit_pose(record):
     metadata = record.get('metadata', {})
     if not isinstance(metadata, Mapping):
         return report.export(scope)
-    history = metadata.get('scoring_history', [])
-    if not isinstance(history, list):
-        report.add(
-            'scoring_history',
-            '/metadata/scoring_history',
-            'inconsistent',
-            'invalid_history_container',
-        )
+    # Preserve the standalone report's early return for malformed history.
+    owners = _audit_scoring_history(report, record, scores, definitions, '/')
+    if not isinstance(metadata.get('scoring_history', []), list):
         return report.export(scope)
-    if not history:
-        report.add(
-            'scoring_history',
-            '/metadata/scoring_history',
-            'incomplete',
-            'scoring_evidence_missing',
-        )
-    owners = set()
-    for index, entry in enumerate(history):
-        path = f'/metadata/scoring_history/{index}'
-        if _schema(report, entry, path, 'ScoringEvaluation'):
-            _evaluation(
-                report, record, entry, path, scores or {}, definitions or {}, owners
-            )
     for name in sorted(set(scores or {}) - owners):
         report.add(
             'score_origin',

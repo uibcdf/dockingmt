@@ -8,6 +8,10 @@ report entries; a non-mapping API argument is rejected by ArgDigest.
 Standalone scoring/rescoring poses use the separate
 [`audit_pose(record)` contract](pose_audit.md). Their evaluation history does
 not replace a docking result's provenance or establish ranking evidence.
+When such poses are stored in a result collection, their recorded evaluations
+are checked with the same scoring-history implementation. Result-level
+snapshots retain their original docking meaning; an evaluation is not substituted
+for missing collection provenance.
 
 ```python
 import json
@@ -70,10 +74,25 @@ unit, method, input, ranking observation or source identity.
   membership, identities, selected numeric values, assigned ranks and declared
   semantics must agree with the current poses. Earlier observed scores may differ
   after explicit rescoring. Legacy policy-only entries retain missing observations.
+- Reserved per-pose `scoring_history`: evaluation schema, current named values,
+  descriptors, declared states, captured-input integrity, protocol/applied
+  parameters and scoring-stage claims use the shared pose-audit crosschecks.
+  Paths start at `/poses/<index>/metadata/scoring_history`. Additional names
+  claimed by these evaluations are checked there, rather than attributed to the
+  original docking protocol. A score claimed by both the original Vina docking
+  component set and a scoring evaluation is inconsistent. Missing history for
+  a scoring descriptor is incomplete. An empty optional history on an unchanged
+  docking-only record does not invent an extra evidence requirement.
 
 The check list is bounded: this is not complete validation of every metadata,
 problem, protocol or search-domain extension. Unknown metadata is not interpreted.
 Numeric agreement and coherent ranking do not establish scientific comparability.
+
+A collection containing the retained two-evaluation scored control but no
+collection-level provenance is **incomplete**, without false docking-stage
+contradictions. Appended scoring stages do not relax the existing `rank_by`
+context/state admission. Coordinate correspondence with captured PDBQT remains
+unassessed by these record-only checks; molecular inspection belongs to MolSysMT.
 
 ## Shared integrity operation
 
@@ -97,3 +116,10 @@ Guards forbid file access, molecular operations and live backend/viewer imports
 during the supported operations. Replay regression tests exercise the shared
 integrity rule. Issue [#32](https://github.com/uibcdf/dockingmt/issues/32) owns this
 bounded Core C5 follow-up; validation publication remains the separate #29 decision.
+
+The separate [#76 correction](../pending_bugs/audit_result_scoring_stages.md)
+and `tests/test_scored_result_audit.py` cover scored collections, malformed and
+missing histories, duplicate/conflicting producers and original-docking
+protection. Its appended-stage control is explicitly synthetic record evidence,
+not a measured evaluation of the saved docking pose. Original native fixtures
+and standalone/docking-only report content remain unchanged.
