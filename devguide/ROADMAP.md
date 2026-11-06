@@ -157,14 +157,16 @@ source-overlay refusal pass five bounded receiving profiles. No new scores or
 molecular operations are computed; this is not whole-E1 acceptance or permission
 to relax cross-pose comparison contexts.
 
-The next concrete E1 record boundary is [#76](pending_bugs/audit_result_scoring_stages.md):
-result audits must inspect their poses' scoring histories and distinguish those
-evaluations from original docking provenance. The baseline silently ignores a
-future history schema and invents 16 docking-stage contradictions for a valid
-scored-pose collection. The correction reuses the pose auditor, protects original
-docking ownership and leaves missing collection evidence incomplete. This new
-runtime source is separate from fixed candidate `905abc9`; #74's old receipts
-do not qualify this correction or move the proposed tag automatically.
+The [#76 collection-scoring correction](archive/audit_result_scoring_stages.md)
+is delivered with [separate receiving](validation/data/scored_result_audit_2026-11-05/receiving.json):
+130 source record tests and 83 private installed tests pass. Collection audits
+now inspect per-pose histories and retain original docking ownership. The valid
+two-evaluation collection stays incomplete for absent collection provenance,
+without the 16 false stage contradictions; original docking/standalone reports
+and strict ranking contexts are preserved. No new native/molecular work occurs.
+This new runtime source is separate from fixed candidate `905abc9`; #74's old
+receipts do not qualify this correction or move the proposed tag automatically.
+Broader new-head regression remains #28; E1 workflow acceptance remains #73.
 
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |

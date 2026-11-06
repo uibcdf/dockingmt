@@ -88,3 +88,15 @@ main inventories for six providers. Frozen November 3/4 inspections and failed
 receiving remain unchanged. No numerical public minimum is selected. Only local
 registry/CI evidence is retained for review by 2026-11-12; managed test/export
 scratch is retired after the durable handoff.
+
+
+### Separate E1 record correction — 2026-11-05
+
+[#76](../archive/audit_result_scoring_stages.md) delivers shared per-pose scoring
+history checks in saved collections, with 130 source and 83 private installed
+record tests. It fixes ignored contradictions and false docking-stage attribution;
+unknown collection evidence stays incomplete and ranking context refusals remain.
+This later runtime implementation is separate from fixed 0.1.0 candidate `905abc9`.
+Its new private development wheel and focused receipt do not extend #74's existing
+minor qualification, move a tag or establish whole E1 acceptance. Broad new-head
+regression remains #28; no new scientific or molecular work is introduced.

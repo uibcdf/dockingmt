@@ -123,3 +123,26 @@ missing histories, duplicate/conflicting producers and original-docking
 protection. Its appended-stage control is explicitly synthetic record evidence,
 not a measured evaluation of the saved docking pose. Original native fixtures
 and standalone/docking-only report content remain unchanged.
+
+## Collection scoring-history receiving — 2026-11-05
+
+[Issue #76](https://github.com/uibcdf/dockingmt/issues/76) corrects ignored known
+histories and false original-docking attribution. The
+[receiving receipt](data/scored_result_audit_2026-11-05/receiving.json) binds the
+separate implementation, unchanged inputs, source/installed test selection,
+private wheel and preserved baseline report contents. Source Python 3.14 passes
+130 record tests with one native execution case excluded. Private installed
+Python 3.12.16 passes 83 tests without optional native/viewer imports or external
+operations; the original 0.1.0 base consumer stays intact. Tests cover malformed,
+future, missing, conflicting and duplicate histories as well as original docking
+ownership and unchanged ranking refusals. This is software consistency evidence,
+not a new molecular/scientific evaluation, whole-E1 acceptance or public delivery.
+
+A full export first hit local disk quota before build/environment creation; its
+owned partial archive was retired. The replacement uses a minimal committed
+package/test/data context and a small borrowing installation. Its Git-free build
+truthfully yields the configured `0.0.0+unknown` version, with committed source
+and exact wheel bytes recorded separately. One installed pytest assertion-rewrite
+warning for preimported SMonitor is retained. Supported-minor/full hosted
+regression remains #28; fixed 0.1.0 candidate `905abc9` and earlier receipts are
+not relabelled by this correction.

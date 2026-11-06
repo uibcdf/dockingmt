@@ -1,0 +1,302 @@
+{
+  "baseline": {
+    "false_docking_score_stage_checks": 16,
+    "scored_collection_status": "inconsistent",
+    "unsupported_history_99_status": "consistent"
+  },
+  "baseline_source": "289b7b73d232ead5e392a4ffd8d39a7131bfa587",
+  "claim": "DockingMT saved-record consistency correction; no new molecular/scientific observations",
+  "date": "2026-11-05",
+  "diagnostics": [
+    {
+      "disposition": "Only owned partial archive retired; minimal committed package/two-test/two-fixture context used instead. No original or shared resource removed.",
+      "kind": "resource_interruption",
+      "reason": "local disk quota",
+      "scope": "initial full source export before build/environment creation"
+    },
+    {
+      "disposition": "Not a 0.1.0 or release artifact; exact source and generated-version bytes bound separately.",
+      "kind": "build_version",
+      "observed": "versioningit reports NotVCSError and uses declared 0.0.0+unknown fallback; runtime/distribution versions agree",
+      "scope": "private minimal export without Git metadata"
+    },
+    {
+      "category": "PytestAssertRewriteWarning",
+      "count": 1,
+      "disposition": "Retained administrative warning; no test skip or runtime failure.",
+      "kind": "pytest_warning",
+      "observed": "smonitor already imported by the production bootstrap before pytest assertion rewriting",
+      "scope": "private installed run"
+    }
+  ],
+  "git_source_payload_sha256": {
+    "dockingmt/__init__.py": "07f71ed5cf3914d2e4cfbf35c43a7ea8b69497effd4dc8aa6336ae30e61a2359",
+    "dockingmt/_argdigest.py": "e76d59bca5d24f3df78b4c3b361375a82236d95ac102218a615a48bb3555b6a7",
+    "dockingmt/_depdigest.py": "e774b79e24acae58bf8b94a6cfb34a5157f20fbda88913e8801856297ff09966",
+    "dockingmt/_private/__init__.py": "4f23e529394a0c60adaca014f6852e07e108e6e826973d256b254e9e9e2f5cc0",
+    "dockingmt/_private/argdigest/__init__.py": "550f136bb66a889c4bdd34997d2925aee7aa2e95b359554e98f936927f39fea4",
+    "dockingmt/_private/argdigest/registry.py": "1202a4bb38449152881819985ed3387a0886ef5e3b8952da13f490b3228c2098",
+    "dockingmt/_private/artifacts.py": "750981bba46eccf57f085a099305574f4b19afa891892259709cbc1f49bebd2e",
+    "dockingmt/_private/serialization.py": "f138c1f5dcdc5ff67ce5ac15df7c762ffefc6286a627e6859b9980e39ffc0680",
+    "dockingmt/_private/smonitor/__init__.py": "b77e840a2b20526b1ca1d518b5f23f6901ada423eeae9afc7c85f0bd358223b4",
+    "dockingmt/_private/smonitor/catalog.py": "fb665b78c1550791ef6fc4dd0fb2bbe3bc238901598fc6a8e1d4fff19bc1b5b2",
+    "dockingmt/_private/smonitor/emitter.py": "83af0b66e89522f9732bc97c53bd73de551646cafcb758637d2c2e545b877a56",
+    "dockingmt/_private/smonitor/meta.py": "7a1d95d8be1b37238dff60af83e87649331037366512e2e7b4fa218c6c61cafb",
+    "dockingmt/_private/smonitor/warnings.py": "696832be93760c6683d39b14cddc8d389a5a8beca57362fe75efe41f32857d6a",
+    "dockingmt/_private/symmetry.py": "5f71b56597fec77a497c1c63a3cb48418e1dbc5af436db0684b994407974f4da",
+    "dockingmt/_private/vina_records.py": "ec13749e8410ca16bd3ad25ef6cb5e39ea8dc9af80fb6d2f3b3749c5d16fdc59",
+    "dockingmt/_pyunitwizard.py": "ced289b4e5423e80df232daac8916263995aafdbf20d06e73690599249d9e96b",
+    "dockingmt/_smonitor.py": "830e3d288fe35a84ea283d0888799b72707ee0825b7f673162d79a791703a9d2",
+    "dockingmt/aggregation.py": "5b8cc96ead17445f6316b07fb6ef52203d8d7dd2f355f6069f10ce67e56b55f5",
+    "dockingmt/batch.py": "01d7cfb44320c8d6ba2ad04c847093d0e7105458bab975edbc606d24d4cd37f2",
+    "dockingmt/core/__init__.py": "6a6218f01c453e7973578f8aec19da42d02147fc603c401c3908ee00d0e1b8fa",
+    "dockingmt/core/_scores.py": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136",
+    "dockingmt/core/audit.py": "29f03d07a7e0b90219ae7b5696964fa883f39f92f143d37df4656dd677bf9249",
+    "dockingmt/core/outcome.py": "2dc43cfa0cad7a5577ec6ce572415c3beedf97e360d9ecfb8ae7e1f1a2f033df",
+    "dockingmt/core/pose_audit.py": "3229e931ee6da47a7f7f2d80b75769f6ba3d55de4c4a2a52c237243e289362d0",
+    "dockingmt/core/problem.py": "17ef8943ee74f377cc0b62c310bd92aef80c2e595a9d10dd0397b97c6a618838",
+    "dockingmt/core/protocol.py": "ff2a50994f97ebdc432b706693a241b2a001dcf5b8cab608e8683e541b862e15",
+    "dockingmt/core/results.py": "25bf89b023021230b5bac8fd72426acdb5c820e00bab1608574f4d2985e28ad4",
+    "dockingmt/core/search_domain.py": "6a31cc8476f722b0b3b9aee540aa09a24d488122e0098529476dc90d8ee56313",
+    "dockingmt/dock.py": "25ffc2190e5410e187e1165b912fcf2b6c4274d7e975c00e918283c96b52f256",
+    "dockingmt/engines/__init__.py": "07108a1391a34a122f4a9c9991db911a1b8f0fde9a42a828c9418a1a7ebcadf9",
+    "dockingmt/engines/_vina_scoring.py": "ca7d0edbcd53e78291ca200047eed9ee7292e58a868001e2413a09ce9b45deae",
+    "dockingmt/engines/base.py": "127fc3393b37f2d173d768eb926295b911c8160038ed524da5896b35d89f83cc",
+    "dockingmt/engines/vina.py": "1aac0af9ba381b6ba4034b5652147e806b23b49784ff553f92e982a19aefb0aa",
+    "dockingmt/evaluation.py": "09484c50038b862a44f4f007acff3e7e2892dc9a0a19e0e1cd4ccb9930118a4e",
+    "dockingmt/preparation/__init__.py": "ad1708354f51a1283fc98667c6abdea944ed8a7d26f79ee0ce03347b4509850f",
+    "dockingmt/preparation/_export.py": "1dfd502efb4d61738fe272e4dbff4d79100e014ba417db1024a18d41da93da3f",
+    "dockingmt/preparation/_molsys.py": "71dca1b83da4577a57fef02695c384fedce79b8137e2bd3215496822a0216e63",
+    "dockingmt/preparation/_stages.py": "84fe2ad25b001e89f4f2f1f3165573d6bde33a626075d98a3f9fd62daafb5243",
+    "dockingmt/preparation/_temporary_torsions.py": "83a2f262e5e56d926a6db4f0887ffc019398f41a68fbe7c20832278b1e87d613",
+    "dockingmt/preparation/_typing.py": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2",
+    "dockingmt/preparation/assessment.py": "6af13747f9b21d1aca3aa492d3bf6d16efe59509725267771ffe5f9a12495836",
+    "dockingmt/preparation/charges.py": "b23815cf64791c42bc5e7577f540b56deaeddb6ee6e12ad288824b7c8a4773b8",
+    "dockingmt/preparation/ligand.py": "818fa0cb42124baf8ac3e13e352e051c076add04ba5c36f22de872a06162298f",
+    "dockingmt/preparation/receptor.py": "992ab5eb1e07069174d06194e06dfab172488b9f64bdf113505a41c7c5c7afba",
+    "dockingmt/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "dockingmt/score.py": "6b05e5d92f03732e2280a4ca160d5b6e8bcf28b2b940f779ea84bd08dc00d670",
+    "dockingmt/view.py": "1bab50f2d6d6a0e9aac1e3944c3fb61be8045a77ab0e5d95372064de5171781e",
+    "dockingmt/viewer/__init__.py": "926524953c4cf37039415eaa5d36646e00580cffb7acb1e24deb0b9c7fd6d601",
+    "molsysviewer_dockingmt/__init__.py": "ed9bd42c68be5d3b8f62804e295e8b8e9b4386f096fc134ee131d985738953e9",
+    "molsysviewer_dockingmt/_presentation.py": "61a60550627e7606784cf9545fcc9b7c88c7e28f37c3cbdcd68404d0047455b1",
+    "molsysviewer_dockingmt/_scene.py": "78ee1c2ec4dad0046b5b59c3b27ec4c152849349b1e0dc28dbc987152e238e28",
+    "molsysviewer_dockingmt/adapters/__init__.py": "f4e1db369ab18e4c7200edd4cf953df916ba5154de4c8417fb9bc299f9c80e1c",
+    "molsysviewer_dockingmt/adapters/complex.py": "9ab3fa6bb66a1a8a015d645245e2dfd0845751eefaff3423ba6582fb95ca4373",
+    "molsysviewer_dockingmt/adapters/shapes.py": "e53057ccb8973cd2ad6bfbcbaac9d834b5b9df593f6ebb7bbf26e2e1c4f596a8",
+    "molsysviewer_dockingmt/addon.py": "1e9a92d3435c2ad6d1e7c9a15ee3f5731d4168106008bab72cbfd64a5c921134",
+    "molsysviewer_dockingmt/export.py": "e53b3c74c216a44f34dcb4fda68b53841d68eeac12a82533903c6fb9ba25031f",
+    "molsysviewer_dockingmt/panels/__init__.py": "1f160141101212933339fc55478c02d43f922129ad633ec2d5bbe25db3990565",
+    "molsysviewer_dockingmt/panels/_base.py": "e5f18b2e56afdb54b9873f7dce14d5b1c852c1e619a3314a15720d3c40754fcb",
+    "molsysviewer_dockingmt/panels/domain.py": "de8c1b984041ed4b51fe56ada74b7ca3a66f68a3b35cc55ed73f4fca6fffdbfa",
+    "molsysviewer_dockingmt/panels/explorer.py": "d027a085ab99ab7c8eb74e60d080e8530040deb469351b714b52784dd92f4383",
+    "molsysviewer_dockingmt/runtime.py": "eded7afcc9083cc9f313d28925f3c5e9a20c5d6ffd679347b69b12c5ad7ed26a",
+    "molsysviewer_dockingmt/workbench.py": "ea988065b7f64ba71dfa5e8809f82ba39e5b36c1d808b327c989f7343f2d004a"
+  },
+  "implementation_source": "d4aac964732bf6bdb1637f5297ccf95f3d3a272d",
+  "installed_test_inputs_sha256": {
+    "devguide/validation/data/audit/minimal_scored_pose.json": "970f516aadc19d6e5df8b5f7e930a7c8b7c239ab603f4e9f6d74769beb095723",
+    "devguide/validation/data/audit/minimal_vina_result.json": "4d66f4e3d00f5e5e6014ce00bd0ec11370890997f570f6272dc1f5205f1c0a88",
+    "devtools/conda-build/resources.toml": "426564972b7567cde03f4d3612ce3086a1ea183d8a6ab48605f6f6b9d7843a7f",
+    "pyproject.toml": "1fa47b0f27522bf59db27de3d6617d742ceeab3d8e6dab30ae5cdd1fe6538950",
+    "tests/test_result_audit.py": "e50c036269d7204ce06f73e858fd628017cc50602ee6eb321ec233ae72642593",
+    "tests/test_scored_result_audit.py": "cead09cb6d470b4a82567540d1ef4a480281f846ea09647b460e5e07cf633f0e"
+  },
+  "limits": [
+    "Private borrowing wheel installation on Linux Python 3.12.16, not a newly solved dependency closure or public Conda evidence.",
+    "83 installed record tests do not qualify the full suite, supported-minor/platform matrix or scientific accuracy.",
+    "Addon payload/origin declaration retained, but optional addon not imported or visually accepted.",
+    "Synthetic appended-stage record is a mutation control, not a fresh evaluation of the native docking pose.",
+    "No native scoring/docking, molecular preparation/reconstruction/geometry or viewer operation executed in receiving.",
+    "Scoring histories do not replace missing collection provenance or prove molecular identity/coordinate correspondence.",
+    "The fixed 0.1.0 candidate 905abc9698cf9d4add78a52d57dab707859a148d and its older receipts remain separate; no tag/release/package/central notice.",
+    "Broader new-source/head hosted regression remains owned by #28."
+  ],
+  "owner": "uibcdf/dockingmt#76",
+  "private_installed_checks": {
+    "base_consumer": {
+      "archive_metadata_preserved": true,
+      "runtime_payloads_preserved": 63,
+      "version": "0.1.0",
+      "wheel_sha256": "fbe3591068d9633ae0066ab3dcd593508f7fc31d86eefad01975fd4e4bb71752"
+    },
+    "baseline_reports_equal": true,
+    "collection_inconsistent_checks": 0,
+    "collection_status": "incomplete",
+    "counts": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 83
+    },
+    "guards": {
+      "external_operation_attempts": 0,
+      "optional_import_attempts": 0
+    },
+    "loaded_runtime_modules_after": 43,
+    "loaded_runtime_modules_before": 43,
+    "optional_providers_loaded": false,
+    "payload_files_after": 63,
+    "payload_files_before": 63,
+    "pip_check_exit_code": 0,
+    "profile": "private borrowing wheel installation; not fresh dependency closure, source CI, full installed suite or release qualification",
+    "providers": {
+      "argdigest": {
+        "origin": "retained qualified base environment",
+        "version": "0.15.0+5.g3d1ec53"
+      },
+      "depdigest": {
+        "origin": "retained qualified base environment",
+        "version": "0.15.2"
+      },
+      "molsysmt": {
+        "origin": "retained qualified base environment",
+        "version": "0.23.0+368.g00abb958f"
+      },
+      "pyunitwizard": {
+        "origin": "retained qualified base environment",
+        "version": "0.29.0"
+      },
+      "smonitor": {
+        "origin": "retained qualified base environment",
+        "version": "0.22.1"
+      }
+    },
+    "pytest_exit_code": 0,
+    "pytest_receptor": "1.2.2",
+    "python": "3.12.16",
+    "report_sha256": {
+      "native_docking": "6b30ab7c2c9ea219f114fbab794b0d5107914daa7a1d7fa3533ecff4979f8617",
+      "standalone_scored_pose": "c3ef8215c6283c15bc9db2fb763cad7aa6fc30036082823afb23aadee8cbe7ec"
+    },
+    "runtime_import_roots": [
+      "dockingmt",
+      "molsysviewer_dockingmt"
+    ],
+    "sdk": {
+      "modules": {
+        "installed_imports.py": "ff23458015bb7ce83bc3eea36571c4294bed09fff948e8eb6d9bcb3a0615fa3c",
+        "installed_noarch.py": "3f34a46cab45f6987fc33da3a3d7f82178f395ea0980ac5b46b1d9b64ebffe57",
+        "installed_test_dependencies.py": "4383b94ae7638d945e913b1f34055bd28214513feb5925ff6060d23aa94c76d8",
+        "installed_test_support.py": "11ae22606546b62f28536a7a4126e2bc25d676d55bc3b92d74b56e7094e0cf87"
+      },
+      "origin": "retained qualified source export",
+      "source": "95f693be10c9205ab9b912cb53453710a207bf45"
+    },
+    "source": "d4aac964732bf6bdb1637f5297ccf95f3d3a272d",
+    "source_bound_payload_files": 62,
+    "test_support": "not consumed by this narrowed two-module selection; full-suite inventory unchanged",
+    "version": "0.0.0+unknown",
+    "wheel": {
+      "filename": "dockingmt-0.0.0+unknown-py3-none-any.whl",
+      "sha256": "6f61287017cc0c545e1b80c2997ef3b89361201fde92dbc2eed4005770dc41f3"
+    }
+  },
+  "resources": {
+    "automatic_heavy_restart": false,
+    "heavy_local_suite": false,
+    "installed_ram_reserve_monitored": true,
+    "installed_resource_interruption": false,
+    "logical_cpus": 1,
+    "native_library_threads": 1,
+    "priority": "low",
+    "review": "2026-11-12",
+    "serial": true
+  },
+  "result": {
+    "collection_status": "incomplete",
+    "evaluation_values_checked": 16,
+    "inconsistent_checks": 0,
+    "original_inputs_preserved": true,
+    "rank_by_context_policy": "unchanged; mismatched contexts still refused",
+    "unchanged_canonical_report_sha256": {
+      "native_docking": "6b30ab7c2c9ea219f114fbab794b0d5107914daa7a1d7fa3533ecff4979f8617",
+      "standalone_scored_pose": "c3ef8215c6283c15bc9db2fb763cad7aa6fc30036082823afb23aadee8cbe7ec"
+    }
+  },
+  "runtime_payload_sha256": {
+    "dockingmt/__init__.py": "07f71ed5cf3914d2e4cfbf35c43a7ea8b69497effd4dc8aa6336ae30e61a2359",
+    "dockingmt/_argdigest.py": "e76d59bca5d24f3df78b4c3b361375a82236d95ac102218a615a48bb3555b6a7",
+    "dockingmt/_depdigest.py": "e774b79e24acae58bf8b94a6cfb34a5157f20fbda88913e8801856297ff09966",
+    "dockingmt/_private/__init__.py": "4f23e529394a0c60adaca014f6852e07e108e6e826973d256b254e9e9e2f5cc0",
+    "dockingmt/_private/argdigest/__init__.py": "550f136bb66a889c4bdd34997d2925aee7aa2e95b359554e98f936927f39fea4",
+    "dockingmt/_private/argdigest/registry.py": "1202a4bb38449152881819985ed3387a0886ef5e3b8952da13f490b3228c2098",
+    "dockingmt/_private/artifacts.py": "750981bba46eccf57f085a099305574f4b19afa891892259709cbc1f49bebd2e",
+    "dockingmt/_private/serialization.py": "f138c1f5dcdc5ff67ce5ac15df7c762ffefc6286a627e6859b9980e39ffc0680",
+    "dockingmt/_private/smonitor/__init__.py": "b77e840a2b20526b1ca1d518b5f23f6901ada423eeae9afc7c85f0bd358223b4",
+    "dockingmt/_private/smonitor/catalog.py": "fb665b78c1550791ef6fc4dd0fb2bbe3bc238901598fc6a8e1d4fff19bc1b5b2",
+    "dockingmt/_private/smonitor/emitter.py": "83af0b66e89522f9732bc97c53bd73de551646cafcb758637d2c2e545b877a56",
+    "dockingmt/_private/smonitor/meta.py": "7a1d95d8be1b37238dff60af83e87649331037366512e2e7b4fa218c6c61cafb",
+    "dockingmt/_private/smonitor/warnings.py": "696832be93760c6683d39b14cddc8d389a5a8beca57362fe75efe41f32857d6a",
+    "dockingmt/_private/symmetry.py": "5f71b56597fec77a497c1c63a3cb48418e1dbc5af436db0684b994407974f4da",
+    "dockingmt/_private/vina_records.py": "ec13749e8410ca16bd3ad25ef6cb5e39ea8dc9af80fb6d2f3b3749c5d16fdc59",
+    "dockingmt/_pyunitwizard.py": "ced289b4e5423e80df232daac8916263995aafdbf20d06e73690599249d9e96b",
+    "dockingmt/_smonitor.py": "830e3d288fe35a84ea283d0888799b72707ee0825b7f673162d79a791703a9d2",
+    "dockingmt/_version.py": "838e01ebfa0feaa4595b10122f5bc23e3bbc23898e13abeabf77b06d587996b1",
+    "dockingmt/aggregation.py": "5b8cc96ead17445f6316b07fb6ef52203d8d7dd2f355f6069f10ce67e56b55f5",
+    "dockingmt/batch.py": "01d7cfb44320c8d6ba2ad04c847093d0e7105458bab975edbc606d24d4cd37f2",
+    "dockingmt/core/__init__.py": "6a6218f01c453e7973578f8aec19da42d02147fc603c401c3908ee00d0e1b8fa",
+    "dockingmt/core/_scores.py": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136",
+    "dockingmt/core/audit.py": "29f03d07a7e0b90219ae7b5696964fa883f39f92f143d37df4656dd677bf9249",
+    "dockingmt/core/outcome.py": "2dc43cfa0cad7a5577ec6ce572415c3beedf97e360d9ecfb8ae7e1f1a2f033df",
+    "dockingmt/core/pose_audit.py": "3229e931ee6da47a7f7f2d80b75769f6ba3d55de4c4a2a52c237243e289362d0",
+    "dockingmt/core/problem.py": "17ef8943ee74f377cc0b62c310bd92aef80c2e595a9d10dd0397b97c6a618838",
+    "dockingmt/core/protocol.py": "ff2a50994f97ebdc432b706693a241b2a001dcf5b8cab608e8683e541b862e15",
+    "dockingmt/core/results.py": "25bf89b023021230b5bac8fd72426acdb5c820e00bab1608574f4d2985e28ad4",
+    "dockingmt/core/search_domain.py": "6a31cc8476f722b0b3b9aee540aa09a24d488122e0098529476dc90d8ee56313",
+    "dockingmt/dock.py": "25ffc2190e5410e187e1165b912fcf2b6c4274d7e975c00e918283c96b52f256",
+    "dockingmt/engines/__init__.py": "07108a1391a34a122f4a9c9991db911a1b8f0fde9a42a828c9418a1a7ebcadf9",
+    "dockingmt/engines/_vina_scoring.py": "ca7d0edbcd53e78291ca200047eed9ee7292e58a868001e2413a09ce9b45deae",
+    "dockingmt/engines/base.py": "127fc3393b37f2d173d768eb926295b911c8160038ed524da5896b35d89f83cc",
+    "dockingmt/engines/vina.py": "1aac0af9ba381b6ba4034b5652147e806b23b49784ff553f92e982a19aefb0aa",
+    "dockingmt/evaluation.py": "09484c50038b862a44f4f007acff3e7e2892dc9a0a19e0e1cd4ccb9930118a4e",
+    "dockingmt/preparation/__init__.py": "ad1708354f51a1283fc98667c6abdea944ed8a7d26f79ee0ce03347b4509850f",
+    "dockingmt/preparation/_export.py": "1dfd502efb4d61738fe272e4dbff4d79100e014ba417db1024a18d41da93da3f",
+    "dockingmt/preparation/_molsys.py": "71dca1b83da4577a57fef02695c384fedce79b8137e2bd3215496822a0216e63",
+    "dockingmt/preparation/_stages.py": "84fe2ad25b001e89f4f2f1f3165573d6bde33a626075d98a3f9fd62daafb5243",
+    "dockingmt/preparation/_temporary_torsions.py": "83a2f262e5e56d926a6db4f0887ffc019398f41a68fbe7c20832278b1e87d613",
+    "dockingmt/preparation/_typing.py": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2",
+    "dockingmt/preparation/assessment.py": "6af13747f9b21d1aca3aa492d3bf6d16efe59509725267771ffe5f9a12495836",
+    "dockingmt/preparation/charges.py": "b23815cf64791c42bc5e7577f540b56deaeddb6ee6e12ad288824b7c8a4773b8",
+    "dockingmt/preparation/ligand.py": "818fa0cb42124baf8ac3e13e352e051c076add04ba5c36f22de872a06162298f",
+    "dockingmt/preparation/receptor.py": "992ab5eb1e07069174d06194e06dfab172488b9f64bdf113505a41c7c5c7afba",
+    "dockingmt/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "dockingmt/score.py": "6b05e5d92f03732e2280a4ca160d5b6e8bcf28b2b940f779ea84bd08dc00d670",
+    "dockingmt/view.py": "1bab50f2d6d6a0e9aac1e3944c3fb61be8045a77ab0e5d95372064de5171781e",
+    "dockingmt/viewer/__init__.py": "926524953c4cf37039415eaa5d36646e00580cffb7acb1e24deb0b9c7fd6d601",
+    "molsysviewer_dockingmt/__init__.py": "ed9bd42c68be5d3b8f62804e295e8b8e9b4386f096fc134ee131d985738953e9",
+    "molsysviewer_dockingmt/_presentation.py": "61a60550627e7606784cf9545fcc9b7c88c7e28f37c3cbdcd68404d0047455b1",
+    "molsysviewer_dockingmt/_scene.py": "78ee1c2ec4dad0046b5b59c3b27ec4c152849349b1e0dc28dbc987152e238e28",
+    "molsysviewer_dockingmt/adapters/__init__.py": "f4e1db369ab18e4c7200edd4cf953df916ba5154de4c8417fb9bc299f9c80e1c",
+    "molsysviewer_dockingmt/adapters/complex.py": "9ab3fa6bb66a1a8a015d645245e2dfd0845751eefaff3423ba6582fb95ca4373",
+    "molsysviewer_dockingmt/adapters/shapes.py": "e53057ccb8973cd2ad6bfbcbaac9d834b5b9df593f6ebb7bbf26e2e1c4f596a8",
+    "molsysviewer_dockingmt/addon.py": "1e9a92d3435c2ad6d1e7c9a15ee3f5731d4168106008bab72cbfd64a5c921134",
+    "molsysviewer_dockingmt/export.py": "e53b3c74c216a44f34dcb4fda68b53841d68eeac12a82533903c6fb9ba25031f",
+    "molsysviewer_dockingmt/panels/__init__.py": "1f160141101212933339fc55478c02d43f922129ad633ec2d5bbe25db3990565",
+    "molsysviewer_dockingmt/panels/_base.py": "e5f18b2e56afdb54b9873f7dce14d5b1c852c1e619a3314a15720d3c40754fcb",
+    "molsysviewer_dockingmt/panels/domain.py": "de8c1b984041ed4b51fe56ada74b7ca3a66f68a3b35cc55ed73f4fca6fffdbfa",
+    "molsysviewer_dockingmt/panels/explorer.py": "d027a085ab99ab7c8eb74e60d080e8530040deb469351b714b52784dd92f4383",
+    "molsysviewer_dockingmt/runtime.py": "eded7afcc9083cc9f313d28925f3c5e9a20c5d6ffd679347b69b12c5ad7ed26a",
+    "molsysviewer_dockingmt/workbench.py": "ea988065b7f64ba71dfa5e8809f82ba39e5b36c1d808b327c989f7343f2d004a"
+  },
+  "schema": "dockingmt.scored-result-audit-receiving@1",
+  "source_checks": {
+    "by_module": {
+      "test_pose_audit": 47,
+      "test_result_audit": 64,
+      "test_scored_result_audit": 19
+    },
+    "counts": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 130
+    },
+    "deselected": 1,
+    "junit_sha256": "790fc602f6ba520ddfd9d3f3aa3c9e1b9e5db43e50554bb963cf6e55f8a51605",
+    "pytest_exit_code": 0,
+    "python": "3.14",
+    "scope": "Record-only tests; native execution case excluded. Standalone test fixture imports Vina during module collection, so this source run does not establish optional-provider import absence.",
+    "selection": "tests/test_scored_result_audit.py tests/test_result_audit.py tests/test_pose_audit.py -k not fresh_native_scoring_and_rescoring"
+  }
+}

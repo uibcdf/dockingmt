@@ -61,6 +61,29 @@ decision. No shared environment or pre-existing resource is removed. The
 actual outcomes. This local checkpoint does not perform the deferred central
 handoff.
 
+### Later collection-audit checkpoint — 2026-11-05
+
+[#76](../archive/audit_result_scoring_stages.md) adds a separate small custody
+context for record-only tests and a private borrowing-wheel receiving. An
+initial full source export reached local disk quota before build/environment
+creation; only its owned partial archive was retired. The replacement materializes
+only the committed runtime package, two test modules and two saved JSON fixtures.
+No original record, qualified receiver, shared environment or cache is purged.
+Source and installed controls run serially on one logical CPU at low priority;
+the installed run monitors RAM reserve and finishes without interruption.
+
+The new runtime wheel, source/input hashes, test/receiving receipts, warning and
+resource diagnostic stay available through review on 2026-11-12. Its owned
+minimal build/source, harness, borrowing environment and test scratch are retired
+after receiving. The original 0.1.0 base consumer retains all 63 runtime files,
+version and archive metadata. Final committed-source governance uses a fresh
+tracked file tree sharing verified committed file bytes to avoid another large
+copy; only read-only checks execute there, with before/after Git-blob verification.
+This bounded resource adaptation is neither independent copied-byte reproduction
+nor a replacement installed/scientific gate. No local test/controller/watcher
+remains active after handoff, and no heavy restart is scheduled. Central reporting
+and unrelated resource dispositions remain deferred/unchanged.
+
 ### Original operation review
 
 Review actual allocation, output, subprocess and cleanup paths in the Vina
