@@ -1,10 +1,10 @@
 ---
 summary: Qualify same-state multi-pose rescoring with explicit reference and comparison evidence.
 issue: uibcdf/dockingmt#78
-status: active
+status: partial
 opened: 2026-11-06
 closed:
-verification: inspected
+verification: measured
 area: [scoring, provenance, scientific-validation]
 guard: tests/test_scoring_reference.py
 normative:
@@ -80,3 +80,29 @@ map completeness, chemical field/tree preservation and precision/metadata losses
 Existing [#447](https://github.com/uibcdf/molsysmt/issues/447) receives the same-state
 identity/equivalence use case; #521 remains the partial/reference reading owner.
 These are provider requests, not new-source/runtime acceptance.
+
+## Reference-evidence implementation slice — 2026-11-06
+
+Implementation `49a7729` adds explicit native reference declarations and shared
+record crosschecks under DMT-047, preserving public signatures/native numbers,
+frozen observations, canonical legacy reports and strict ranking. The
+[contract/receiving](../validation/scoring_reference.md) records 155 selected
+source tests with the published receptor, one native case deselected, and 106
+private installed record tests. Source substituted-engine controls retain the
+existing MolSysMT geometry reads; installed guards make zero external-operation/
+optional-import attempts. Exact source/wheel/inputs, original base preservation,
+warning and initial guard/development-tool diagnostics are retained separately.
+
+This completes one record-semantics slice, not the E1 workflow. Provider
+projection/identity, comparison admission and representative native/installed
+execution remain required; no molecular implementation is introduced here.
+
+The separate prescribed installed native control executes two fixed-score calls
+on the unchanged overlapping software inputs, preserving 16 values/two histories,
+original byte identities and unassessed preparation. Its new producer remains
+`49a7729`; this is not the representative multi-pose E1 study. Refinement
+`36c526c` then rejects nonscalar reference declarations, passes 157 source/108
+installed tests and receives the prior native producer with unchanged audit
+reports and no new native calls. Both artifacts/receipts and all initial
+outcomes remain separate in the linked contract. The routine workspace pip
+check retains unrelated known closure gaps; private receiving passes closure.

@@ -86,6 +86,13 @@ sibling work and inspect immutable remote/provider sources separately from
 qualified runtime pins. No molecular fallback or guessed chemistry can satisfy
 a missing provider requirement.
 
+The remaining general molecular bridges tracked by #49 must be received from
+their provider for the accepted input profiles. Do not obtain completion by
+silently dropping an accepted prepared/partial-input workflow or treating an
+unknown molecular state as verified. Numerical admission of DockingMT's own
+serialized records and backend-specific score interpretation remain consumer
+responsibilities; reusable molecular work does not move here.
+
 Completion requires a requirement-by-requirement evidence audit, with the actual
 candidate/artifact, dependency closure, native/software/scientific/installed and
 visible scope matched to each claim. Pending evidence remains pending. Scope

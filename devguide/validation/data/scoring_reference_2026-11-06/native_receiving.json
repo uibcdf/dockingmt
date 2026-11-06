@@ -1,0 +1,104 @@
+{
+  "actual_public_score_calls": 2,
+  "all_16_scores_retained": true,
+  "calls": [
+    {
+      "input_sha256": {
+        "partner": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+        "receptor": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b"
+      },
+      "method": "vina",
+      "native_components": 8,
+      "preparation": {
+        "partner": "unassessed",
+        "receptor": "unassessed"
+      },
+      "reference": {
+        "policy": "native_current_conformation",
+        "schema_version": "1.0",
+        "score_name": "vina.lig_intra_best_pose",
+        "unit": "kcal/mol",
+        "value": 0.0
+      },
+      "score_name": "vina"
+    },
+    {
+      "input_sha256": {
+        "partner": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+        "receptor": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b"
+      },
+      "method": "vinardo",
+      "native_components": 8,
+      "preparation": {
+        "partner": "unassessed",
+        "receptor": "unassessed"
+      },
+      "reference": {
+        "policy": "native_current_conformation",
+        "schema_version": "1.0",
+        "score_name": "vinardo.lig_intra_best_pose",
+        "unit": "kcal/mol",
+        "value": 0.0
+      },
+      "score_name": "vinardo"
+    }
+  ],
+  "canonical_roundtrip": true,
+  "collection_audit_status": "incomplete",
+  "compiled_extensions_within_retained_base": true,
+  "input_sha256": "970f516aadc19d6e5df8b5f7e930a7c8b7c239ab603f4e9f6d74769beb095723",
+  "input_source": "devguide/validation/data/audit/minimal_scored_pose.json",
+  "installed_vina_file_sha256": {
+    "vina/__init__.py": "ef6442ceea399f5a8eeac374fbf254fcf70d16cc04a0a321818c1cbe7f70b0d9",
+    "vina/utils.py": "bf139342195d7ac596e919f080ca6345f619b00ee47f66fef1eda2bf768e0c9f",
+    "vina/vina.py": "918ac5251d7db1c17cb4d69a09f52b9450d6e0d11f7f5e87a92affdd2fb01c0a",
+    "vina/vina_wrapper.py": "6b29945d8a2bc7f00bf76f154fc9274078b6b209a0de7cfa75c7a8aaa097f824"
+  },
+  "native_extensions": {
+    "vina._vina_wrapper": {
+      "filename": "_vina_wrapper.cpython-312-x86_64-linux-gnu.so",
+      "sha256": "514b5f2aa4c5843a585e1df59801cf1d517756bb0c8210907c8344209127276c"
+    }
+  },
+  "original_base_consumer_payloads_preserved": 63,
+  "payload_files_after": 63,
+  "payload_files_before": 63,
+  "post_native_pip_check_exit_code": 0,
+  "prescription": "https://github.com/uibcdf/dockingmt/issues/78#issuecomment-6679255611",
+  "python": "3.12.16",
+  "reader_version": "0.0.0+unknown",
+  "resource_policy": {
+    "automatic_heavy_restart": false,
+    "logical_cpus": 1,
+    "native_library_threads": 1,
+    "priority": "low",
+    "ram_reserve_monitored": true,
+    "resource_interruption": false
+  },
+  "result_sha256": "ab508b4a932a6e06f30721fd459dce418c13a7c3120dbc8576a3f3fdb97f9dde",
+  "scope": "Two installed fixed-pose native software integration calls on the retained overlapping control. Existing MolSysMT reads are permitted; no new independent molecular case, search, preparation, repair, optimization, ranking, viewer or affinity/identity claim.",
+  "source": "49a7729866d0ac59f6801e68188a570ab1a1afa0",
+  "source_input_preserved": true,
+  "standalone_audit_status": "consistent",
+  "two_evaluations_retained": true,
+  "versions": {
+    "argdigest": "0.15.0+5.g3d1ec53",
+    "depdigest": "0.15.2",
+    "molsysmt": "0.23.0+368.g00abb958f",
+    "pyunitwizard": "0.29.0",
+    "smonitor": "0.22.1",
+    "vina": "1.2.7"
+  },
+  "vina_conda_artifact": {
+    "build": "py312h1289d80_0",
+    "name": "vina",
+    "sha256": "a5895683c1084b2e9b816673191bd5c9b4e692cf421f2f61722f29367d8fc5f9",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/vina-1.2.7-py312h1289d80_0.conda",
+    "version": "1.2.7"
+  },
+  "warnings_by_category": {},
+  "wheel": {
+    "filename": "dockingmt-0.0.0+unknown-py3-none-any.whl",
+    "sha256": "8bc74aa122a41eb4b9514f901a3c747c32a6d685ce428139c7ad8cb07b3c4908"
+  }
+}

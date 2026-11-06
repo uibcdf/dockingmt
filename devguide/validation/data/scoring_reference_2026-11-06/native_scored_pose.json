@@ -1,0 +1,1735 @@
+{
+  "coordinates": {
+    "unit": "nanometer",
+    "value": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.15,
+        0.0,
+        0.0
+      ]
+    ]
+  },
+  "metadata": {
+    "pose_atom_order": "pdbqt_record_order",
+    "score_definitions": {
+      "vina": {
+        "component": "total",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vina.flex_inter": {
+        "component": "flex_inter",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vina.flex_intra": {
+        "component": "flex_intra",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vina.lig_inter": {
+        "component": "lig_inter",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vina.lig_intra": {
+        "component": "lig_intra",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vina.lig_intra_best_pose": {
+        "component": "lig_intra_best_pose",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vina.other_inter": {
+        "component": "other_inter",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vina.torsions": {
+        "component": "torsions",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.035579,
+            -0.005156,
+            0.840245,
+            -0.035069,
+            -0.587439,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vinardo": {
+        "component": "total",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.045,
+            0.8,
+            -0.035,
+            -0.6,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "preferred_direction": "lower",
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vinardo.flex_inter": {
+        "component": "flex_inter",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.045,
+            0.8,
+            -0.035,
+            -0.6,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vinardo.flex_intra": {
+        "component": "flex_intra",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.045,
+            0.8,
+            -0.035,
+            -0.6,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vinardo.lig_inter": {
+        "component": "lig_inter",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.045,
+            0.8,
+            -0.035,
+            -0.6,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vinardo.lig_intra": {
+        "component": "lig_intra",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.045,
+            0.8,
+            -0.035,
+            -0.6,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vinardo.lig_intra_best_pose": {
+        "component": "lig_intra_best_pose",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.045,
+            0.8,
+            -0.035,
+            -0.6,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vinardo.other_inter": {
+        "component": "other_inter",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.045,
+            0.8,
+            -0.035,
+            -0.6,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      },
+      "vinardo.torsions": {
+        "component": "torsions",
+        "context": {
+          "backend_box": {
+            "center": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "size": [
+              10.0,
+              10.0,
+              10.0
+            ],
+            "unit": "angstrom"
+          },
+          "grid_spacing": {
+            "unit": "angstrom",
+            "value": 0.375
+          },
+          "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+          "preparation_assessment": {
+            "partner": "unassessed",
+            "receptor": "unassessed"
+          },
+          "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+          "reference_energy_policy": "native_current_conformation",
+          "stage": "scoring",
+          "weights": [
+            -0.045,
+            0.8,
+            -0.035,
+            -0.6,
+            50.0,
+            0.05846
+          ]
+        },
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "preferred_direction": null,
+        "schema_version": "1.0",
+        "unit": "kilocalorie / mole"
+      }
+    },
+    "scoring_history": [
+      {
+        "applied_parameters": {
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "scoring": "vina",
+          "seed": 17
+        },
+        "backend": "vina",
+        "backend_artifacts": {
+          "partner": {
+            "content_base64": "Uk9PVApBVE9NICAgICAgMSAgQzEgIExJRyBBICAgMSAgICAgICAwLjAwMCAgIDAuMDAwICAgMC4wMDAgIDEuMDAgIDAuMDAgICAgIDAuMDAwIEMKQVRPTSAgICAgIDIgIEMyICBMSUcgQSAgIDEgICAgICAgMS41MDAgICAwLjAwMCAgIDAuMDAwICAxLjAwICAwLjAwICAgICAwLjAwMCBDCkVORFJPT1QKVE9SU0RPRiAwCg==",
+            "format": "pdbqt",
+            "sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884"
+          },
+          "receptor": {
+            "content_base64": "QVRPTSAgICAgIDEgIE4gICBBTEEgQSAgIDEgICAgICAgMC4wMDAgICAwLjAwMCAgIDAuMDAwICAxLjAwICAwLjAwICAgICAwLjAwMCBOCkFUT00gICAgICAyICBDQSAgQUxBIEEgICAxICAgICAgIDEuNDU4ICAgMC4wMDAgICAwLjAwMCAgMS4wMCAgMC4wMCAgICAgMC4wMDAgQwpBVE9NICAgICAgMyAgQyAgIEFMQSBBICAgMSAgICAgICAyLjAwOSAgIDEuNDI4ICAgMC4wMDAgIDEuMDAgIDAuMDAgICAgIDAuMDAwIEMKQVRPTSAgICAgIDQgIE8gICBBTEEgQSAgIDEgICAgICAgMS4yNDYgICAyLjM5MiAgIDAuMDAwICAxLjAwICAwLjAwICAgICAwLjAwMCBPQQo=",
+            "format": "pdbqt",
+            "sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b"
+          }
+        },
+        "backend_box": {
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "size": [
+            10.0,
+            10.0,
+            10.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "dockingmt_version": "0.0.0+unknown",
+        "geometry_check": {
+          "atom_order": "pdbqt_record_order",
+          "coordinate_tolerance": {
+            "unit": "angstrom",
+            "value": 0.000500001
+          },
+          "identity_check": "positional_only",
+          "state_checks": {
+            "partner": "matched",
+            "receptor": "matched"
+          }
+        },
+        "molsysmt_version": "0.23.0+368.g00abb958f",
+        "operation": "score",
+        "preparation": {
+          "partner": {
+            "assessment_report": {
+              "assessment": "unassessed",
+              "evidence": {
+                "atom_type_source": null,
+                "charge_source": null
+              },
+              "provisional_reason_codes": [],
+              "provisional_reasons": [],
+              "schema_version": "1.0",
+              "scope": "declared_preparation_metadata"
+            },
+            "metadata": null,
+            "mode": "provided",
+            "state_id": "ligand-control"
+          },
+          "receptor": {
+            "assessment_report": {
+              "assessment": "unassessed",
+              "evidence": {
+                "atom_type_source": null,
+                "charge_source": null
+              },
+              "provisional_reason_codes": [],
+              "provisional_reasons": [],
+              "schema_version": "1.0",
+              "scope": "declared_preparation_metadata"
+            },
+            "metadata": null,
+            "mode": "provided",
+            "state_id": "receptor-control"
+          }
+        },
+        "protocol": {
+          "parameters": {
+            "active_torsion_bonds": [],
+            "allow_provisional_preparation": false,
+            "capture_backend_inputs": true,
+            "collect_timings": false,
+            "cpu": 1,
+            "energy_range": {
+              "unit": "kilocalorie / mole",
+              "value": 3.0
+            },
+            "exhaustiveness": 8,
+            "n_poses": 9,
+            "scoring": "vina",
+            "seed": 17
+          },
+          "protocol_type": "VinaProtocol",
+          "schema_version": "1.0"
+        },
+        "reference_energy": {
+          "policy": "native_current_conformation",
+          "schema_version": "1.0",
+          "score_name": "vina.lig_intra_best_pose",
+          "unit": "kcal/mol",
+          "value": 0.0
+        },
+        "schema_version": "1.0",
+        "score_definitions": {
+          "vina": {
+            "component": "total",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vina.flex_inter": {
+            "component": "flex_inter",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vina.flex_intra": {
+            "component": "flex_intra",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vina.lig_inter": {
+            "component": "lig_inter",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vina.lig_intra": {
+            "component": "lig_intra",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vina.lig_intra_best_pose": {
+            "component": "lig_intra_best_pose",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vina.other_inter": {
+            "component": "other_inter",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vina.torsions": {
+            "component": "torsions",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.035579,
+                -0.005156,
+                0.840245,
+                -0.035069,
+                -0.587439,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vina",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          }
+        },
+        "score_name": "vina",
+        "scores": {
+          "vina": 38.197,
+          "vina.flex_inter": 0.0,
+          "vina.flex_intra": 0.0,
+          "vina.lig_inter": 38.197,
+          "vina.lig_intra": 0.0,
+          "vina.lig_intra_best_pose": 0.0,
+          "vina.other_inter": 0.0,
+          "vina.torsions": 0.0
+        },
+        "seed_role": "engine initialization only; no stochastic search",
+        "unused_search_parameters": [
+          "exhaustiveness",
+          "n_poses",
+          "energy_range"
+        ]
+      },
+      {
+        "applied_parameters": {
+          "allow_provisional_preparation": false,
+          "capture_backend_inputs": true,
+          "collect_timings": false,
+          "cpu": 1,
+          "scoring": "vinardo",
+          "seed": 17
+        },
+        "backend": "vina",
+        "backend_artifacts": {
+          "partner": {
+            "content_base64": "Uk9PVApBVE9NICAgICAgMSAgQzEgIExJRyBBICAgMSAgICAgICAwLjAwMCAgIDAuMDAwICAgMC4wMDAgIDEuMDAgIDAuMDAgICAgIDAuMDAwIEMKQVRPTSAgICAgIDIgIEMyICBMSUcgQSAgIDEgICAgICAgMS41MDAgICAwLjAwMCAgIDAuMDAwICAxLjAwICAwLjAwICAgICAwLjAwMCBDCkVORFJPT1QKVE9SU0RPRiAwCg==",
+            "format": "pdbqt",
+            "sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884"
+          },
+          "receptor": {
+            "content_base64": "QVRPTSAgICAgIDEgIE4gICBBTEEgQSAgIDEgICAgICAgMC4wMDAgICAwLjAwMCAgIDAuMDAwICAxLjAwICAwLjAwICAgICAwLjAwMCBOCkFUT00gICAgICAyICBDQSAgQUxBIEEgICAxICAgICAgIDEuNDU4ICAgMC4wMDAgICAwLjAwMCAgMS4wMCAgMC4wMCAgICAgMC4wMDAgQwpBVE9NICAgICAgMyAgQyAgIEFMQSBBICAgMSAgICAgICAyLjAwOSAgIDEuNDI4ICAgMC4wMDAgIDEuMDAgIDAuMDAgICAgIDAuMDAwIEMKQVRPTSAgICAgIDQgIE8gICBBTEEgQSAgIDEgICAgICAgMS4yNDYgICAyLjM5MiAgIDAuMDAwICAxLjAwICAwLjAwICAgICAwLjAwMCBPQQo=",
+            "format": "pdbqt",
+            "sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b"
+          }
+        },
+        "backend_box": {
+          "center": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "size": [
+            10.0,
+            10.0,
+            10.0
+          ],
+          "unit": "angstrom"
+        },
+        "backend_version": "1.2.7",
+        "dockingmt_version": "0.0.0+unknown",
+        "geometry_check": {
+          "atom_order": "pdbqt_record_order",
+          "coordinate_tolerance": {
+            "unit": "angstrom",
+            "value": 0.000500001
+          },
+          "identity_check": "positional_only",
+          "state_checks": {
+            "partner": "matched",
+            "receptor": "matched"
+          }
+        },
+        "molsysmt_version": "0.23.0+368.g00abb958f",
+        "operation": "score",
+        "preparation": {
+          "partner": {
+            "assessment_report": {
+              "assessment": "unassessed",
+              "evidence": {
+                "atom_type_source": null,
+                "charge_source": null
+              },
+              "provisional_reason_codes": [],
+              "provisional_reasons": [],
+              "schema_version": "1.0",
+              "scope": "declared_preparation_metadata"
+            },
+            "metadata": null,
+            "mode": "provided",
+            "state_id": "ligand-control"
+          },
+          "receptor": {
+            "assessment_report": {
+              "assessment": "unassessed",
+              "evidence": {
+                "atom_type_source": null,
+                "charge_source": null
+              },
+              "provisional_reason_codes": [],
+              "provisional_reasons": [],
+              "schema_version": "1.0",
+              "scope": "declared_preparation_metadata"
+            },
+            "metadata": null,
+            "mode": "provided",
+            "state_id": "receptor-control"
+          }
+        },
+        "protocol": {
+          "parameters": {
+            "active_torsion_bonds": [],
+            "allow_provisional_preparation": false,
+            "capture_backend_inputs": true,
+            "collect_timings": false,
+            "cpu": 1,
+            "energy_range": {
+              "unit": "kilocalorie / mole",
+              "value": 3.0
+            },
+            "exhaustiveness": 8,
+            "n_poses": 9,
+            "scoring": "vinardo",
+            "seed": 17
+          },
+          "protocol_type": "VinaProtocol",
+          "schema_version": "1.0"
+        },
+        "reference_energy": {
+          "policy": "native_current_conformation",
+          "schema_version": "1.0",
+          "score_name": "vinardo.lig_intra_best_pose",
+          "unit": "kcal/mol",
+          "value": 0.0
+        },
+        "schema_version": "1.0",
+        "score_definitions": {
+          "vinardo": {
+            "component": "total",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.045,
+                0.8,
+                -0.035,
+                -0.6,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vinardo",
+            "method_version": "1.2.7",
+            "preferred_direction": "lower",
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vinardo.flex_inter": {
+            "component": "flex_inter",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.045,
+                0.8,
+                -0.035,
+                -0.6,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vinardo",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vinardo.flex_intra": {
+            "component": "flex_intra",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.045,
+                0.8,
+                -0.035,
+                -0.6,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vinardo",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vinardo.lig_inter": {
+            "component": "lig_inter",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.045,
+                0.8,
+                -0.035,
+                -0.6,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vinardo",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vinardo.lig_intra": {
+            "component": "lig_intra",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.045,
+                0.8,
+                -0.035,
+                -0.6,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vinardo",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vinardo.lig_intra_best_pose": {
+            "component": "lig_intra_best_pose",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.045,
+                0.8,
+                -0.035,
+                -0.6,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vinardo",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vinardo.other_inter": {
+            "component": "other_inter",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.045,
+                0.8,
+                -0.035,
+                -0.6,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vinardo",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          },
+          "vinardo.torsions": {
+            "component": "torsions",
+            "context": {
+              "backend_box": {
+                "center": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "size": [
+                  10.0,
+                  10.0,
+                  10.0
+                ],
+                "unit": "angstrom"
+              },
+              "grid_spacing": {
+                "unit": "angstrom",
+                "value": 0.375
+              },
+              "partner_sha256": "e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884",
+              "preparation_assessment": {
+                "partner": "unassessed",
+                "receptor": "unassessed"
+              },
+              "receptor_sha256": "fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b",
+              "reference_energy_policy": "native_current_conformation",
+              "stage": "scoring",
+              "weights": [
+                -0.045,
+                0.8,
+                -0.035,
+                -0.6,
+                50.0,
+                0.05846
+              ]
+            },
+            "kind": "empirical",
+            "method": "AutoDock Vina/vinardo",
+            "method_version": "1.2.7",
+            "preferred_direction": null,
+            "schema_version": "1.0",
+            "unit": "kilocalorie / mole"
+          }
+        },
+        "score_name": "vinardo",
+        "scores": {
+          "vinardo": 39.483,
+          "vinardo.flex_inter": 0.0,
+          "vinardo.flex_intra": 0.0,
+          "vinardo.lig_inter": 39.483,
+          "vinardo.lig_intra": 0.0,
+          "vinardo.lig_intra_best_pose": 0.0,
+          "vinardo.other_inter": 0.0,
+          "vinardo.torsions": 0.0
+        },
+        "seed_role": "engine initialization only; no stochastic search",
+        "unused_search_parameters": [
+          "exhaustiveness",
+          "n_poses",
+          "energy_range"
+        ]
+      }
+    ]
+  },
+  "partner_state_id": "ligand-control",
+  "pose_id": null,
+  "rank": null,
+  "receptor_state_id": "receptor-control",
+  "schema_version": "1.0",
+  "scores": {
+    "vina": 38.197,
+    "vina.flex_inter": 0.0,
+    "vina.flex_intra": 0.0,
+    "vina.lig_inter": 38.197,
+    "vina.lig_intra": 0.0,
+    "vina.lig_intra_best_pose": 0.0,
+    "vina.other_inter": 0.0,
+    "vina.torsions": 0.0,
+    "vinardo": 39.483,
+    "vinardo.flex_inter": 0.0,
+    "vinardo.flex_intra": 0.0,
+    "vinardo.lig_inter": 39.483,
+    "vinardo.lig_intra": 0.0,
+    "vinardo.lig_intra_best_pose": 0.0,
+    "vinardo.other_inter": 0.0,
+    "vinardo.torsions": 0.0
+  }
+}

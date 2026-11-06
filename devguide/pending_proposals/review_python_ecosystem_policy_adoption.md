@@ -14,6 +14,23 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Scoped reference-evidence receiving — 2026-11-06
+
+The [reference contract](../validation/scoring_reference.md) records the actual
+routine development providers separately from the qualified private/CI pins.
+For this selection, unchanged published Pytest Receptor 1.2.2 files verified
+against the retained Conda record replace the development tool only in a
+task-local import target. The refined source selection passes 157 cases; the
+separate installed record selection passes 108 with the published reporter.
+One installed SMonitor assertion-rewrite warning remains recorded. PyUnitWizard
+owns reference quantity conversion and preserves the caller's application policy.
+
+Post-selection routine pip check retains unrelated missing pdb2pqr and NumPy/
+Biopython conflicts within the existing MolSysSuite #82 workspace scope. Source
+results are scoped behavior evidence, not a clean shared closure. Both private
+receivers pass pip check and preserve the borrowed base. No shared environment
+repair or central handoff is performed; wider #19 adoption remains partial.
+
 ## Remaining concrete core-helper review — 2026-11-05
 
 The [six-helper review](../validation/support_library_review_2026-11-04.md#remaining-core-helper-applicability-review--2026-11-05)

@@ -14,6 +14,22 @@ supersedes: []
 
 # Consolidate versioned milestones
 
+## Active complete objective — 2026-11-06
+
+The maintainer requests the full previously described Core-plus-Extended outcome
+in an appropriate 0.x.0 release before stabilization. The existing ladder places
+functional delivery at prospective **0.5.0**; 0.9.0 stabilization and 1.0.0 follow.
+[DMT-046](../DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization)
+and the [complete requirement/evidence plan](../PRE_STABILIZATION_PLAN.md) preserve
+all capabilities, scientific/reproducibility/public delivery and resource limits.
+No selected candidate, tag, package or gate acceptance follows from this plan.
+
+#78 owns same-state rescoring. Its reference-evidence slice is implemented with
+separate source/private receiving; MolSysMT #599/#447 own general prepared-
+conformation projection and identity evidence. The maintainer explicitly
+reaffirmed molecular ownership and the provider issue route. The complete
+functional goal remains active; neither this slice nor #75–#77 closes it.
+
 ## What
 
 The maintainer requests intermediate tags on the way to 1.0.0, even when a public

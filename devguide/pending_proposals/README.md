@@ -4,11 +4,7 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
-### Active (1)
-
-- [`qualify_same_state_rescoring.md`](qualify_same_state_rescoring.md) — [#78](https://github.com/uibcdf/dockingmt/issues/78) — Qualify same-state multi-pose rescoring with explicit reference and comparison evidence. *(active, inspected)*
-
-### Partial (15)
+### Partial (16)
 
 - [`adopt_python_distribution_controls.md`](adopt_python_distribution_controls.md) — [#47](https://github.com/uibcdf/dockingmt/issues/47) — Adopt distribution controls and the agreed first noarch Conda route. *(partial, measured)*
 - [`adopt_required_python_314.md`](adopt_required_python_314.md) — [#30](https://github.com/uibcdf/dockingmt/issues/30) — Adopt the mandatory four-minor contract and qualify normal installed delivery *(partial, inspected)*
@@ -16,6 +12,7 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 - [`define_ligand_torsion_policy_across_rdkit_and_vina_references.md`](define_ligand_torsion_policy_across_rdkit_and_vina_references.md) — [#17](https://github.com/uibcdf/dockingmt/issues/17) — Define ligand torsion policy across RDKit and Vina reference differences *(partial, measured)*
 - [`prepare_source_0_1_0.md`](prepare_source_0_1_0.md) — [#74](https://github.com/uibcdf/dockingmt/issues/74) — Prepare the fixed 0.1.0 source milestone with truthful version, payload and gate evidence. *(partial, measured)*
 - [`qualify_3ptb_scene.md`](qualify_3ptb_scene.md) — [#52](https://github.com/uibcdf/dockingmt/issues/52) — Qualify the saved 3PTB human scene through MolSysViewer. *(partial, measured)*
+- [`qualify_same_state_rescoring.md`](qualify_same_state_rescoring.md) — [#78](https://github.com/uibcdf/dockingmt/issues/78) — Qualify same-state multi-pose rescoring with explicit reference and comparison evidence. *(partial, measured)*
 - [`qualify_saved_result_addon.md`](qualify_saved_result_addon.md) — [#60](https://github.com/uibcdf/dockingmt/issues/60) — Complete and qualify the existing MolSysViewer saved-result explorer. *(partial, measured)*
 - [`receive_chemical_domain_separation.md`](receive_chemical_domain_separation.md) — [#56](https://github.com/uibcdf/dockingmt/issues/56) — Receive independent ChemicalStates storage and graph tools from MolSysMT. *(partial, measured)*
 - [`retire_general_molecular_operations.md`](retire_general_molecular_operations.md) — [#49](https://github.com/uibcdf/dockingmt/issues/49) — Retire remaining consumer implementations of general molecular operations *(partial, measured)*

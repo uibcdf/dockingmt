@@ -104,6 +104,33 @@ This is a resource adaptation, not independent copied-byte reproduction or a
 full installed gate. No test/controller/watcher or heavy retry remains active
 at handoff. The wider central handoff and existing historical holds stay deferred.
 
+### Pre-stabilization reference-evidence context — 2026-11-06
+
+#73/#78 own a new bounded context for the initial 155 source/106 installed
+checks and the refined 157 source/108 installed checks. A minimal package/test/data
+export and small borrowing venv avoid duplicating a whole scientific corpus or
+dependency solve. Source
+work uses the routine 3.14 interpreter; a task-local copy of unchanged published
+Receptor 1.2.2 files, verified against the retained Conda record, supplies the
+required test tool without changing the development environment. Initial guard
+failure and exploratory development-tool evidence remain separate diagnostics.
+
+Local runs use one logical CPU, low priority, one native/build worker and a
+monitored RAM reserve. The pytest adapter controls substitute the engine; existing
+MolSysMT geometry reads stay provider-owned. A separately prescribed installed
+control performs exactly two fixed-score calls on the original overlapping
+inputs, without search/optimization/new preparation/repair/ranking/viewer work.
+The later type refinement receives that producer unchanged, without additional
+native calls. There is no independent campaign, heavy restart or resource
+interruption. The original base consumer and prior artifacts remain intact.
+
+Retire owned package/build/harness/venv/test and committed-tree scratch after
+handoff. Keep both exact new wheels, source/input/tool hashes, launchers and unique
+diagnostics through review on 2026-11-13. Final committed-source governance uses
+the verified shared-byte tracked-tree materialization, then retires it. No global
+cache, source worktree or qualified shared resource is purged. Other historical
+holds and the broader central handoff retain their own state.
+
 ### Original operation review
 
 Review actual allocation, output, subprocess and cleanup paths in the Vina

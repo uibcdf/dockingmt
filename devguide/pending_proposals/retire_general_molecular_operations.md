@@ -14,6 +14,23 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## Pre-stabilization E1 needs — 2026-11-06
+
+The maintainer reaffirms this ownership boundary for the complete functional
+0.5.0 objective. DockingMT #78 requests prepared conformation projection in
+[MolSysMT #599](https://github.com/uibcdf/molsysmt/issues/599), and adds the
+same-state identity/equivalence use case to existing
+[#447](https://github.com/uibcdf/molsysmt/issues/447). Public basic/chemical-state/
+PDBQT tools and existing issues were inspected at fetched main `ed09f645`,
+separate from the preserved local clone and qualified runtime source `00abb958f`.
+Provider-supported compositions may satisfy these requests; no downstream
+coordinate rewriter, molecular matcher/fingerprint or chemistry repair is added.
+
+The independent DMT-047 code slice records backend-specific energy-reference
+meaning and audits DockingMT records. It does not inspect/edit molecular systems.
+Existing molecular bridges/input profiles retain their explicit #49 receiving
+obligations; missing tools are not replaced by local fallbacks or dropped scope.
+
 ## Native terminal-map receiving gap — 2026-11-04
 
 The [terminal-completion diagnostic](../validation/scientific_panel_terminal_probe_2026-11-04.md)
