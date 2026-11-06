@@ -2,16 +2,15 @@
 
 Owner: [DockingMT #80](https://github.com/uibcdf/dockingmt/issues/80).
 The [six-cell notebook](installed_3ptb_interactions.ipynb) composes existing public
-MolSysMT tools for one retained docking pose. **Receiving has not passed.** The
-first attempt lacks notebook tooling; the corrected-tooling attempt is stopped
-by the RAM-reserve guard. The first hosted attempt completes preparation but
-refuses XYZ coordinate extraction before detectors. No completed interaction analysis, scientific result
-or E4 acceptance is reported.
+MolSysMT tools for one retained docking pose. **Bounded hosted receiving passes**
+for source `5952053`, normal/pm-fs profiles and independent saved readers. This
+does not accept whole E4, biological validity, public delivery or visible use.
+The earlier tooling, RAM-reserve and XYZ extraction failures remain preserved.
 
 A separate [hosted receiving registration](installed_3ptb_interactions_hosted_registration.md)
 defines exact-source Linux/Python 3.14 normal/pm-fs execution and independent
-saved readers. Its first failure and later unexecuted explicit-atom amendment
-remain separate; the local computational hold stays active.
+saved readers. Its first failure and successful explicit-atom amendment remain
+separate; the local computational hold stays active.
 
 ## Inputs and executed work
 
@@ -138,18 +137,65 @@ normalization. The amended notebook explicitly requests `element='atom'` in
 that same public call. It adds no coordinate getter, reshaper or molecular
 adapter here. Its SHA-256 is
 `6c43428ea9053dde56039828e16cfb14884a65fc91d9b76eb1e8455000336c01`.
-This amendment is unexecuted; register its exact published source and budget
-before a new run. Preserve the failed run and do not rerun it automatically.
+It is registered at exact source `5952053` before a separate run; the original
+failed producer is preserved without an automatic rerun.
+
+## Completed bounded hosted receiving
+
+[Run 42206087852](https://github.com/uibcdf/dockingmt/actions/runs/42206087852)
+passes at `5952053328aac6f737e22906e984c0f9eb938dd7`, with the same qualified
+provider pins and Python 3.14.10. The [success record](data/interaction_hosted_success_2026-11-06.json)
+retains exact input/source/wheel identities, all four completed operations,
+original associations, environment observations and byte-exact exports.
+
+| Observed population | Normal | pm/fs |
+| --- | --- | --- |
+| First original pose: Baker-Hubbard / nitrogen-oxygen observations | 3 | 3 |
+| First original pose: typed hydrophobic atom-pair proximity | 2 | 2 |
+| Translated ligand: either interfacial family | 0 | 0 |
+| Analytic positive/adverse water geometry: hydrogen bonds | 1 / 0 | 1 / 0 |
+| Attempted/completed detector calls | 6 / 6 | 6 / 6 |
+| Fresh reader detector or forbidden calls | 0 | 0 |
+
+These are named molecular observations for **one selected pose of one structural
+case**, repeated under two unit policies, not independent biological cases or
+binding energies. All thirteen original pose atoms/coordinates and scores remain;
+five nonpolar H are materialized by MolSysMT's local fixed-state placement.
+The analytic reader verifies H-A 0.18 nm and DHA pi radians through declared units.
+Provider typed/H5MSM roundtrips, evaluated coverage and filtering pass. The two
+fresh processes read saved models without preparation, H generation, detection,
+search, scoring or visualization.
+
+Normal/profile-reader operations take 20.697/4.024 seconds; pm/fs takes
+20.084/4.022 seconds. No resource stop occurs. Each uses the registered serial
+one-CPU/native-worker profile; these elapsed observations are not a throughput
+benchmark. All four processes preserve the caller policy, exact same-run consumer
+and source-provider payload sets, original inputs and passing pip closure.
+The twelve measured detector calls plus the separate old local unknown six-call
+reserve respect the conservative eighteen-call bound.
+
+The 8,919,435-byte original ZIP, 63 entries, independently matches GitHub digest
+`67af4078fd942b6c7cef1aadd61f5c2318f2ba4cef4c9439b2e9c9447959c690`.
+Selected original receipts, journals, diagnostics, associations, Conda inventories
+and all eight provider H5MSM files are preserved compressed in Git. Both original
+and compressed identities are in the success record. Compression is byte transport,
+not a molecular codec. Decompress to the original names and use public MolSysMT
+readers with the recorded compatible installation; do not parse the molecular
+payload here. Full pip inspection, preparation bulk outputs and the private wheel
+stay in the retained original ZIP for the custody review. No molecular work was
+repeated locally to inspect these receipts.
 
 ## Remaining acceptance
 
-Receive the actual molecular route, named criteria, original-pose association,
-complete typed/H5MSM roundtrips, independent analytic controls, nondefault units
-and detached fresh readers. Then qualify the actual current consumer/provider
-candidate and applicable supported/public profiles. Neither source availability,
-an installed old candidate nor this interrupted attempt substitutes for those
-gates. Preparation suitability remains `unassessed`; affinity, independent
-scientific-panel and live-canvas acceptance retain their own owners.
+The bounded installed route now receives assembly, named criteria, original-pose
+association, typed/H5MSM persistence, analytic controls, nondefault units and fresh
+readers. Next receive a usable structured consumer/addon admission path without
+hidden molecular recalculation; #80's remaining interface and #52/#60's actual
+canvas acceptance stay separate. Other accepted prepared/partial molecular
+profiles retain #49/provider ownership. Applicable candidate/minor/public and
+whole-workflow qualification remain required. Preparation suitability stays
+`unassessed`; affinity and independent scientific-panel claims need their own
+evidence. Do not accept all E4 or the complete functional release from this case.
 
 Custody is #80/#50, review **2026-11-13**. Preserve original inputs, qualified
 bases, exact notebook variants, isolated tools and unique diagnostics. Retire

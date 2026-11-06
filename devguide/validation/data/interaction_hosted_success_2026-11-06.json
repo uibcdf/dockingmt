@@ -1,0 +1,1647 @@
+{
+  "schema": "dockingmt.hosted_interaction_receiving@1",
+  "owner": "uibcdf/dockingmt#80",
+  "date": "2026-11-06",
+  "classification": "passing bounded installed notebook and fresh-reader receiving; complete E4 unproven",
+  "source": "5952053328aac6f737e22906e984c0f9eb938dd7",
+  "registration_comment": 6683154180,
+  "prior_failure_record": "devguide/validation/data/interaction_hosted_receiving_2026-11-06.json",
+  "provider_composition_issue": "uibcdf/molsysmt#610",
+  "run": {
+    "id": 42206087852,
+    "attempt": 1,
+    "job_id": 127852970909,
+    "status": "completed",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "id": 13497100945,
+    "name": "dockingmt-e4-42206087852-1",
+    "zip_bytes": 8919435,
+    "zip_sha256": "67af4078fd942b6c7cef1aadd61f5c2318f2ba4cef4c9439b2e9c9447959c690",
+    "independent_download_hash_verified": true,
+    "members": 63,
+    "uncompressed_bytes": 53761494,
+    "expires": "2026-11-20",
+    "custody_review": "2026-11-13"
+  },
+  "inputs": {
+    "notebook": {
+      "repository_path": "devguide/validation/installed_3ptb_interactions.ipynb",
+      "sha256": "6c43428ea9053dde56039828e16cfb14884a65fc91d9b76eb1e8455000336c01",
+      "filename": "installed_3ptb_interactions.ipynb"
+    },
+    "preparation": {
+      "repository_path": "devguide/validation/installed_3ptb_preparation.ipynb",
+      "sha256": "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9",
+      "filename": "installed_3ptb_preparation.ipynb"
+    },
+    "source": {
+      "repository_path": "devguide/validation/data/3ptb_prospective/3PTB.pdb.gz",
+      "sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+      "filename": "3PTB.pdb.gz"
+    },
+    "declarations": {
+      "repository_path": "devguide/validation/data/human_3ptb/admission_2026-10-20.json.gz",
+      "sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53",
+      "filename": "admission_2026-10-20.json.gz"
+    },
+    "result": {
+      "repository_path": "devguide/validation/data/human_3ptb/native_result_2026-10-20.json.gz",
+      "sha256": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249",
+      "filename": "native_result_2026-10-20.json.gz"
+    }
+  },
+  "installed_consumer": {
+    "version": "0.0.0+293.g5952053",
+    "sha256": "d5038470712a4c1203088b28f973be5466e95aca2781a4288bc02606c84ab88b",
+    "filename": "dockingmt-0.0.0+293.g5952053-py3-none-any.whl",
+    "source": "5952053328aac6f737e22906e984c0f9eb938dd7"
+  },
+  "consumer_runtime_payloads": 63,
+  "all_four_processes_share_identical_before_after_consumer_and_source_provider_payloads": true,
+  "observed_installed_versions_from_original_pip_inspection": [
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "installer": "conda"
+    },
+    {
+      "name": "rpds-py",
+      "version": "2026.9.1",
+      "installer": "conda"
+    },
+    {
+      "name": "msgpack",
+      "version": "1.2.4",
+      "installer": "conda"
+    },
+    {
+      "name": "molsysviewer",
+      "version": "0.24.0+260.g78ede79e",
+      "installer": "pip"
+    },
+    {
+      "name": "Pint",
+      "version": "0.26.2",
+      "installer": "conda"
+    },
+    {
+      "name": "PySide6",
+      "version": "6.11.3",
+      "installer": null
+    },
+    {
+      "name": "charset-normalizer",
+      "version": "3.5.2",
+      "installer": "conda"
+    },
+    {
+      "name": "propcache",
+      "version": "0.5.4",
+      "installer": "conda"
+    },
+    {
+      "name": "aiosignal",
+      "version": "1.4.0",
+      "installer": "conda"
+    },
+    {
+      "name": "scipy",
+      "version": "1.18.1",
+      "installer": "conda"
+    },
+    {
+      "name": "Pygments",
+      "version": "2.21.0",
+      "installer": "conda"
+    },
+    {
+      "name": "reportlab",
+      "version": "5.1.0",
+      "installer": "conda"
+    },
+    {
+      "name": "executing",
+      "version": "2.3.0",
+      "installer": "conda"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "installer": "conda"
+    },
+    {
+      "name": "freetype-py",
+      "version": "2.3.0",
+      "installer": "conda"
+    },
+    {
+      "name": "iniconfig",
+      "version": "2.3.1",
+      "installer": "conda"
+    },
+    {
+      "name": "wcwidth",
+      "version": "0.9.4",
+      "installer": "conda"
+    },
+    {
+      "name": "molsysmt",
+      "version": "0.23.0+368.g00abb958f",
+      "installer": "pip"
+    },
+    {
+      "name": "pytest-cov",
+      "version": "7.1.0",
+      "installer": "conda"
+    },
+    {
+      "name": "munkres",
+      "version": "1.1.4",
+      "installer": null
+    },
+    {
+      "name": "pytest",
+      "version": "9.2.0",
+      "installer": "conda"
+    },
+    {
+      "name": "OpenMM",
+      "version": "8.6.1",
+      "installer": null
+    },
+    {
+      "name": "attrs",
+      "version": "26.1.0",
+      "installer": "conda"
+    },
+    {
+      "name": "tomli",
+      "version": "2.5.0",
+      "installer": "conda"
+    },
+    {
+      "name": "networkx",
+      "version": "3.7",
+      "installer": "conda"
+    },
+    {
+      "name": "aiohappyeyeballs",
+      "version": "2.7.1",
+      "installer": "conda"
+    },
+    {
+      "name": "flexparser",
+      "version": "0.4",
+      "installer": "conda"
+    },
+    {
+      "name": "referencing",
+      "version": "0.37.0",
+      "installer": "conda"
+    },
+    {
+      "name": "jupyterlab_widgets",
+      "version": "3.0.17",
+      "installer": "conda"
+    },
+    {
+      "name": "platformdirs",
+      "version": "4.14.5",
+      "installer": "conda"
+    },
+    {
+      "name": "yarl",
+      "version": "1.25.1",
+      "installer": "conda"
+    },
+    {
+      "name": "dockingmt",
+      "version": "0.0.0+293.g5952053",
+      "installer": "pip"
+    },
+    {
+      "name": "parso",
+      "version": "0.8.7",
+      "installer": "conda"
+    },
+    {
+      "name": "flexcache",
+      "version": "0.3",
+      "installer": "conda"
+    },
+    {
+      "name": "ipython",
+      "version": "9.17.1",
+      "installer": "conda"
+    },
+    {
+      "name": "PySocks",
+      "version": "1.7.1",
+      "installer": "conda"
+    },
+    {
+      "name": "h5py",
+      "version": "3.16.0",
+      "installer": "conda"
+    },
+    {
+      "name": "rdkit",
+      "version": "2026.3.1",
+      "installer": "conda"
+    },
+    {
+      "name": "pandas",
+      "version": "3.1.1",
+      "installer": "conda"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "4.0.0",
+      "installer": "conda"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "installer": "conda"
+    },
+    {
+      "name": "idna",
+      "version": "3.20",
+      "installer": "conda"
+    },
+    {
+      "name": "SQLAlchemy",
+      "version": "2.1.8",
+      "installer": "conda"
+    },
+    {
+      "name": "aiohttp",
+      "version": "3.14.5",
+      "installer": "conda"
+    },
+    {
+      "name": "certifi",
+      "version": "2026.10.23",
+      "installer": "conda"
+    },
+    {
+      "name": "nbformat",
+      "version": "5.11.1",
+      "installer": "conda"
+    },
+    {
+      "name": "pluggy",
+      "version": "1.7.0",
+      "installer": "conda"
+    },
+    {
+      "name": "anywidget",
+      "version": "0.11.0",
+      "installer": "conda"
+    },
+    {
+      "name": "psygnal",
+      "version": "0.16.1",
+      "installer": "conda"
+    },
+    {
+      "name": "coverage",
+      "version": "7.17.2",
+      "installer": "conda"
+    },
+    {
+      "name": "typing_extensions",
+      "version": "4.16.0",
+      "installer": "conda"
+    },
+    {
+      "name": "setuptools",
+      "version": "84.2.1",
+      "installer": null
+    },
+    {
+      "name": "hpack",
+      "version": "4.2.0",
+      "installer": "conda"
+    },
+    {
+      "name": "pyunitwizard",
+      "version": "0.29.0",
+      "installer": "conda"
+    },
+    {
+      "name": "depdigest",
+      "version": "0.15.2",
+      "installer": "conda"
+    },
+    {
+      "name": "vina",
+      "version": "1.2.7",
+      "installer": null
+    },
+    {
+      "name": "argdigest",
+      "version": "0.15.0+5.g3d1ec53",
+      "installer": "pip"
+    },
+    {
+      "name": "shiboken6",
+      "version": "6.11.3",
+      "installer": null
+    },
+    {
+      "name": "requests",
+      "version": "2.34.2",
+      "installer": "conda"
+    },
+    {
+      "name": "pytest-receptor",
+      "version": "1.2.2",
+      "installer": "conda"
+    },
+    {
+      "name": "ipywidgets",
+      "version": "8.1.9",
+      "installer": "conda"
+    },
+    {
+      "name": "prompt_toolkit",
+      "version": "3.0.53",
+      "installer": "conda"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "installer": "conda"
+    },
+    {
+      "name": "traitlets",
+      "version": "5.16.1",
+      "installer": "conda"
+    },
+    {
+      "name": "comm",
+      "version": "0.2.3",
+      "installer": "conda"
+    },
+    {
+      "name": "mpmath",
+      "version": "1.4.1",
+      "installer": "conda"
+    },
+    {
+      "name": "fastjsonschema",
+      "version": "2.22.3",
+      "installer": "conda"
+    },
+    {
+      "name": "rlPyCairo",
+      "version": "0.4.0",
+      "installer": "conda"
+    },
+    {
+      "name": "widgetsnbextension",
+      "version": "4.0.16",
+      "installer": "conda"
+    },
+    {
+      "name": "cached-property",
+      "version": "2.0.1",
+      "installer": "conda"
+    },
+    {
+      "name": "asttokens",
+      "version": "3.0.2",
+      "installer": "conda"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.68.0",
+      "installer": "conda"
+    },
+    {
+      "name": "urllib3",
+      "version": "2.8.0",
+      "installer": "conda"
+    },
+    {
+      "name": "biopython",
+      "version": "1.88",
+      "installer": "conda"
+    },
+    {
+      "name": "colorama",
+      "version": "0.4.6",
+      "installer": "conda"
+    },
+    {
+      "name": "matplotlib-inline",
+      "version": "0.2.2",
+      "installer": "conda"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.11.2",
+      "installer": "conda"
+    },
+    {
+      "name": "jupyter_core",
+      "version": "5.9.1",
+      "installer": "conda"
+    },
+    {
+      "name": "pure_eval",
+      "version": "0.2.4",
+      "installer": "conda"
+    },
+    {
+      "name": "jedi",
+      "version": "0.20.1",
+      "installer": "conda"
+    },
+    {
+      "name": "wheel",
+      "version": "0.48.0",
+      "installer": null
+    },
+    {
+      "name": "frozenlist",
+      "version": "1.8.0",
+      "installer": "conda"
+    },
+    {
+      "name": "multidict",
+      "version": "7.2.1",
+      "installer": "conda"
+    },
+    {
+      "name": "tqdm",
+      "version": "4.70.1",
+      "installer": "conda"
+    },
+    {
+      "name": "hyperframe",
+      "version": "6.1.0",
+      "installer": "conda"
+    },
+    {
+      "name": "pip",
+      "version": "26.2.2",
+      "installer": "conda"
+    },
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "installer": "conda"
+    },
+    {
+      "name": "psutil",
+      "version": "7.2.2",
+      "installer": "conda"
+    },
+    {
+      "name": "stack_data",
+      "version": "0.6.3",
+      "installer": "conda"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.4.0",
+      "installer": "conda"
+    },
+    {
+      "name": "tornado",
+      "version": "6.6",
+      "installer": "conda"
+    },
+    {
+      "name": "numpy",
+      "version": "2.5.4",
+      "installer": "conda"
+    },
+    {
+      "name": "ipython_pygments_lexers",
+      "version": "1.1.1",
+      "installer": "conda"
+    },
+    {
+      "name": "exceptiongroup",
+      "version": "1.3.1",
+      "installer": "conda"
+    },
+    {
+      "name": "Brotli",
+      "version": "1.2.1",
+      "installer": "conda"
+    },
+    {
+      "name": "pexpect",
+      "version": "4.9.0",
+      "installer": "conda"
+    },
+    {
+      "name": "sympy",
+      "version": "1.14.0",
+      "installer": "conda"
+    },
+    {
+      "name": "gmpy2",
+      "version": "2.3.2",
+      "installer": "conda"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1",
+      "installer": "conda"
+    },
+    {
+      "name": "mmcif",
+      "version": "1.1.1",
+      "installer": "conda"
+    },
+    {
+      "name": "h2",
+      "version": "4.4.1",
+      "installer": "conda"
+    },
+    {
+      "name": "wrapt",
+      "version": "2.5.2",
+      "installer": "conda"
+    },
+    {
+      "name": "unyt",
+      "version": "3.2.0",
+      "installer": "conda"
+    },
+    {
+      "name": "ptyprocess",
+      "version": "0.7.0",
+      "installer": "conda"
+    },
+    {
+      "name": "jsonschema",
+      "version": "4.26.0",
+      "installer": "conda"
+    },
+    {
+      "name": "pycairo",
+      "version": "1.29.2",
+      "installer": null
+    },
+    {
+      "name": "smonitor",
+      "version": "0.22.1",
+      "installer": "conda"
+    },
+    {
+      "name": "jsonschema-specifications",
+      "version": "2025.9.1",
+      "installer": "conda"
+    }
+  ],
+  "operations": [
+    {
+      "profile": "normal",
+      "operation": "profile",
+      "status": "completed",
+      "returncode": 0,
+      "seconds": 20.696765745999983,
+      "resource_stop": null
+    },
+    {
+      "profile": "normal",
+      "operation": "read",
+      "status": "completed",
+      "returncode": 0,
+      "seconds": 4.0237704460000145,
+      "resource_stop": null
+    },
+    {
+      "profile": "pm_fs",
+      "operation": "profile",
+      "status": "completed",
+      "returncode": 0,
+      "seconds": 20.083918760000017,
+      "resource_stop": null
+    },
+    {
+      "profile": "pm_fs",
+      "operation": "read",
+      "status": "completed",
+      "returncode": 0,
+      "seconds": 4.02208484199997,
+      "resource_stop": null
+    }
+  ],
+  "pip_check_after": 0,
+  "completed_bounded_gate": true,
+  "actual_hosted_detector_calls": 12,
+  "fresh_reader_detector_or_forbidden_calls": 0,
+  "prior_local_interrupted_counts": "unknown; reserve all six separately",
+  "conservative_cumulative_call_bound": 18,
+  "original_local_resource_hold_preserved": true,
+  "profiles": {
+    "normal": {
+      "association": {
+        "schema": "dockingmt.3ptb_interaction_association@1",
+        "scope": "one retained pose, separate translated geometry and analytic controls",
+        "inputs": {
+          "preparation": "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9",
+          "result": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249"
+        },
+        "original_decoded_result_sha256": "ed0eeb3ade25e54f8a5829729578fcbec9f0d73d6c0ceb03d146b0c3492d7fac",
+        "original_producer": {
+          "dockingmt_version": "0.0.0+180.g1decee5",
+          "molsysmt_version": "0.23.0+78.gc35252d89",
+          "backend": "vina",
+          "backend_version": "1.2.7"
+        },
+        "original_pose_count": 5,
+        "selected_original_position": 1,
+        "pose_id": "pose_1",
+        "partner_state_id": "3PTB-benzamidinium-plus1",
+        "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+        "original_scores": {
+          "vina": -6.422,
+          "inter": -6.422,
+          "intra": 0.0,
+          "torsion": 0.0
+        },
+        "pose_coordinates_sha256": "071d394fc306e9a8aaaa29d2c1e0215e4ed3e538a13d9f5787bc75519b2fdea2",
+        "pose_atom_keys": [
+          {
+            "atom_id": "1632",
+            "atom_name": "C1",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1633",
+            "atom_name": "C2",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1634",
+            "atom_name": "C3",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1635",
+            "atom_name": "C4",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1636",
+            "atom_name": "C5",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1637",
+            "atom_name": "C6",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1638",
+            "atom_name": "C",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1639",
+            "atom_name": "N1",
+            "element": "N",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1640",
+            "atom_name": "N2",
+            "element": "N",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "14",
+            "atom_name": "H15",
+            "element": "H",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "15",
+            "atom_name": "H16",
+            "element": "H",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "16",
+            "atom_name": "H17",
+            "element": "H",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "17",
+            "atom_name": "H18",
+            "element": "H",
+            "group_id": "1",
+            "group_name": "BEN"
+          }
+        ],
+        "existing_ligand_atom_correspondence": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ]
+        ],
+        "merged_ligand_atom_indices": {
+          "retained_pose": [
+            3220,
+            3221,
+            3222,
+            3223,
+            3224,
+            3225,
+            3226,
+            3227,
+            3228,
+            3229,
+            3230,
+            3231,
+            3232,
+            3233,
+            3234,
+            3235,
+            3236,
+            3237
+          ],
+          "translated_geometry_control": [
+            3220,
+            3221,
+            3222,
+            3223,
+            3224,
+            3225,
+            3226,
+            3227,
+            3228,
+            3229,
+            3230,
+            3231,
+            3232,
+            3233,
+            3234,
+            3235,
+            3236,
+            3237
+          ]
+        },
+        "actual_pose_atoms_preserved": 13,
+        "materialized_nonpolar_H": 5,
+        "H_coordinates": "MolSysMT fixed-state local placement; not environment refinement",
+        "preparation_receipt": {
+          "schema": "dockingmt.installed_3ptb_preparation@1",
+          "scope": "preparation_and_protocol_admission_only",
+          "source_file_sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+          "declaration_file_sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53",
+          "reader_versions": {
+            "dockingmt": "0.0.0+293.g5952053",
+            "molsysmt": "0.23.0+368.g00abb958f",
+            "pyunitwizard": "0.29.0",
+            "rdkit": "2026.3.1"
+          },
+          "python": "3.14.10",
+          "source_counts": {
+            "n_atoms": 1701,
+            "n_groups": 287,
+            "n_structures": 1,
+            "n_bonds": 21
+          },
+          "prepared_atoms": {
+            "receptor": 2011,
+            "partner": 13
+          },
+          "projected_charge_unit": "elementary_charge",
+          "projected_charges": {
+            "receptor": 5.999999999999994,
+            "partner": 1.0000000000000004
+          },
+          "coordinate_tolerance_angstrom": 1e-12,
+          "source_and_prepared_values_verified": true,
+          "invalid_map_refusal": {
+            "code": "MSM-ERR-ARG-001",
+            "argument": "atom_correspondence"
+          },
+          "artifacts": {
+            "provider_reports.json": {
+              "bytes": 6191437,
+              "sha256": "9a2d8e257604ae2bbd2cfb8f2cd60a2c8997de8260431e32cbdf37537e158329"
+            },
+            "prepared_declarations.json": {
+              "bytes": 2395069,
+              "sha256": "c0a544e047d3b9c4a1750f3ed5f56658554f9b1065d94a043a8a3965ab782c36"
+            },
+            "execution_plan.json": {
+              "bytes": 6005652,
+              "sha256": "df63a5feae25b23533a0fb77c125ce248a84884c1a41d73128aee21615f83ea6"
+            },
+            "receptor.pdbqt": {
+              "bytes": 161490,
+              "sha256": "719fd7d1cd4ac2e7d1ac3aec4cbc1b63c9faaead0578252e17a677e935febf58"
+            },
+            "partner.pdbqt": {
+              "bytes": 2934,
+              "sha256": "497d9824990dc3685531899c32bcd38f0222147acf94e028b48cd0df09816ca8"
+            }
+          },
+          "planned_cases": [
+            "native",
+            "displaced"
+          ],
+          "execution_status": "not_executed",
+          "molecular_snapshot_created": false,
+          "chemical_model_suitability": "unassessed",
+          "C6_accepted": false
+        },
+        "analyses": {
+          "retained_pose": {
+            "hbonds": 3,
+            "hydrophobic": 2
+          },
+          "translated_geometry_control": {
+            "hbonds": 0,
+            "hydrophobic": 0
+          }
+        },
+        "analytic_controls": {
+          "analytic_positive": 1,
+          "analytic_adverse": 0
+        },
+        "files": {
+          "retained_pose.h5msm": {
+            "bytes": 3169391,
+            "sha256": "02f463d0e1f65794250ac39069d219fbeb12de13744e3661251b984fb6c417fe"
+          },
+          "translated_geometry_control.h5msm": {
+            "bytes": 3119084,
+            "sha256": "9c63fe93fb01087241a2288ee18dd8b61b49ee7fbe8f5cd5bf954aa159b5a1e3"
+          },
+          "analytic_positive.h5msm": {
+            "bytes": 500315,
+            "sha256": "5d9942c23631bb2327faf684fdb9e1da3757e86c9757274908d3105c302b0657"
+          },
+          "analytic_adverse.h5msm": {
+            "bytes": 470971,
+            "sha256": "501f3b9afa04435a213e5a9415643be633fab25a537db3220c2f399de478b171"
+          }
+        },
+        "reader_versions": {
+          "dockingmt": "0.0.0+293.g5952053",
+          "molsysmt": "0.23.0+368.g00abb958f",
+          "pyunitwizard": "0.29.0",
+          "rdkit": "2026.3.1"
+        },
+        "progress_log": "progress.jsonl",
+        "interaction_detector_calls": 6,
+        "new_searches_or_energy_calls": 0,
+        "original_record_preserved": true,
+        "caller_unit_policy_preserved": true,
+        "chemical_model_suitability": "unassessed",
+        "public_package_or_scientific_panel_or_live_visual_acceptance": false
+      },
+      "observer": {
+        "profile": "normal",
+        "python": "3.14.10",
+        "calls": {
+          "hbonds": {
+            "attempted": 4,
+            "completed": 4
+          },
+          "hydrophobic": {
+            "attempted": 2,
+            "completed": 2
+          }
+        },
+        "forbidden_calls": {
+          "dockingmt.dock": 0,
+          "dockingmt.score": 0,
+          "dockingmt.evaluate_redocking": 0,
+          "dockingmt.view": 0,
+          "dockingmt.show": 0,
+          "Vina.__init__": 0,
+          "Vina.compute_vina_maps": 0,
+          "Vina.dock": 0,
+          "Vina.score": 0,
+          "Vina.optimize": 0,
+          "Vina.write_poses": 0,
+          "molsysmt.view": 0
+        },
+        "completed_gate": true,
+        "runtime_payloads_preserved": true,
+        "unit_policy_preserved": true
+      },
+      "reader": {
+        "profile": "normal",
+        "python": "3.14.10",
+        "calls": {},
+        "forbidden_calls": {
+          "dockingmt.dock": 0,
+          "dockingmt.score": 0,
+          "dockingmt.evaluate_redocking": 0,
+          "dockingmt.view": 0,
+          "dockingmt.show": 0,
+          "Vina.__init__": 0,
+          "Vina.compute_vina_maps": 0,
+          "Vina.dock": 0,
+          "Vina.score": 0,
+          "Vina.optimize": 0,
+          "Vina.write_poses": 0,
+          "molsysmt.view": 0,
+          "dockingmt.prepare_receptor": 0,
+          "dockingmt.prepare_ligand": 0,
+          "fixed_state_H": 0,
+          "hbonds": 0,
+          "hydrophobic": 0
+        },
+        "completed_gate": true,
+        "runtime_payloads_preserved": true,
+        "unit_policy_preserved": true
+      }
+    },
+    "pm_fs": {
+      "association": {
+        "schema": "dockingmt.3ptb_interaction_association@1",
+        "scope": "one retained pose, separate translated geometry and analytic controls",
+        "inputs": {
+          "preparation": "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9",
+          "result": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249"
+        },
+        "original_decoded_result_sha256": "ed0eeb3ade25e54f8a5829729578fcbec9f0d73d6c0ceb03d146b0c3492d7fac",
+        "original_producer": {
+          "dockingmt_version": "0.0.0+180.g1decee5",
+          "molsysmt_version": "0.23.0+78.gc35252d89",
+          "backend": "vina",
+          "backend_version": "1.2.7"
+        },
+        "original_pose_count": 5,
+        "selected_original_position": 1,
+        "pose_id": "pose_1",
+        "partner_state_id": "3PTB-benzamidinium-plus1",
+        "receptor_state_id": "3PTB-HID57-HIE40-HIE91-CYX-ammonium-carboxylate-dry",
+        "original_scores": {
+          "vina": -6.422,
+          "inter": -6.422,
+          "intra": 0.0,
+          "torsion": 0.0
+        },
+        "pose_coordinates_sha256": "071d394fc306e9a8aaaa29d2c1e0215e4ed3e538a13d9f5787bc75519b2fdea2",
+        "pose_atom_keys": [
+          {
+            "atom_id": "1632",
+            "atom_name": "C1",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1633",
+            "atom_name": "C2",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1634",
+            "atom_name": "C3",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1635",
+            "atom_name": "C4",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1636",
+            "atom_name": "C5",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1637",
+            "atom_name": "C6",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1638",
+            "atom_name": "C",
+            "element": "C",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1639",
+            "atom_name": "N1",
+            "element": "N",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "1640",
+            "atom_name": "N2",
+            "element": "N",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "14",
+            "atom_name": "H15",
+            "element": "H",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "15",
+            "atom_name": "H16",
+            "element": "H",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "16",
+            "atom_name": "H17",
+            "element": "H",
+            "group_id": "1",
+            "group_name": "BEN"
+          },
+          {
+            "atom_id": "17",
+            "atom_name": "H18",
+            "element": "H",
+            "group_id": "1",
+            "group_name": "BEN"
+          }
+        ],
+        "existing_ligand_atom_correspondence": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            5,
+            5
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            9,
+            9
+          ],
+          [
+            10,
+            10
+          ],
+          [
+            11,
+            11
+          ],
+          [
+            12,
+            12
+          ]
+        ],
+        "merged_ligand_atom_indices": {
+          "retained_pose": [
+            3220,
+            3221,
+            3222,
+            3223,
+            3224,
+            3225,
+            3226,
+            3227,
+            3228,
+            3229,
+            3230,
+            3231,
+            3232,
+            3233,
+            3234,
+            3235,
+            3236,
+            3237
+          ],
+          "translated_geometry_control": [
+            3220,
+            3221,
+            3222,
+            3223,
+            3224,
+            3225,
+            3226,
+            3227,
+            3228,
+            3229,
+            3230,
+            3231,
+            3232,
+            3233,
+            3234,
+            3235,
+            3236,
+            3237
+          ]
+        },
+        "actual_pose_atoms_preserved": 13,
+        "materialized_nonpolar_H": 5,
+        "H_coordinates": "MolSysMT fixed-state local placement; not environment refinement",
+        "preparation_receipt": {
+          "schema": "dockingmt.installed_3ptb_preparation@1",
+          "scope": "preparation_and_protocol_admission_only",
+          "source_file_sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be",
+          "declaration_file_sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53",
+          "reader_versions": {
+            "dockingmt": "0.0.0+293.g5952053",
+            "molsysmt": "0.23.0+368.g00abb958f",
+            "pyunitwizard": "0.29.0",
+            "rdkit": "2026.3.1"
+          },
+          "python": "3.14.10",
+          "source_counts": {
+            "n_atoms": 1701,
+            "n_groups": 287,
+            "n_structures": 1,
+            "n_bonds": 21
+          },
+          "prepared_atoms": {
+            "receptor": 2011,
+            "partner": 13
+          },
+          "projected_charge_unit": "elementary_charge",
+          "projected_charges": {
+            "receptor": 5.999999999999994,
+            "partner": 1.0000000000000004
+          },
+          "coordinate_tolerance_angstrom": 1e-12,
+          "source_and_prepared_values_verified": true,
+          "invalid_map_refusal": {
+            "code": "MSM-ERR-ARG-001",
+            "argument": "atom_correspondence"
+          },
+          "artifacts": {
+            "provider_reports.json": {
+              "bytes": 6181062,
+              "sha256": "fb478b5e3d5c9b5783640a6c5330e72ab34a74fb17f77f321cbb50a2a1b227d4"
+            },
+            "prepared_declarations.json": {
+              "bytes": 2395069,
+              "sha256": "c0a544e047d3b9c4a1750f3ed5f56658554f9b1065d94a043a8a3965ab782c36"
+            },
+            "execution_plan.json": {
+              "bytes": 6005627,
+              "sha256": "24f5c4943677f0c4362b934e03c4f67e20b745e8c52082bcd326e0950670a51d"
+            },
+            "receptor.pdbqt": {
+              "bytes": 161490,
+              "sha256": "719fd7d1cd4ac2e7d1ac3aec4cbc1b63c9faaead0578252e17a677e935febf58"
+            },
+            "partner.pdbqt": {
+              "bytes": 2934,
+              "sha256": "497d9824990dc3685531899c32bcd38f0222147acf94e028b48cd0df09816ca8"
+            }
+          },
+          "planned_cases": [
+            "native",
+            "displaced"
+          ],
+          "execution_status": "not_executed",
+          "molecular_snapshot_created": false,
+          "chemical_model_suitability": "unassessed",
+          "C6_accepted": false
+        },
+        "analyses": {
+          "retained_pose": {
+            "hbonds": 3,
+            "hydrophobic": 2
+          },
+          "translated_geometry_control": {
+            "hbonds": 0,
+            "hydrophobic": 0
+          }
+        },
+        "analytic_controls": {
+          "analytic_positive": 1,
+          "analytic_adverse": 0
+        },
+        "files": {
+          "retained_pose.h5msm": {
+            "bytes": 3169395,
+            "sha256": "51c9e2f12927dddd93abc145519ddee821c2ee0911dd2e495f903d822705675d"
+          },
+          "translated_geometry_control.h5msm": {
+            "bytes": 3119087,
+            "sha256": "03d585a76acca700e91206f3e5f70ce90c485064e5165d871c088091dc5247a4"
+          },
+          "analytic_positive.h5msm": {
+            "bytes": 500315,
+            "sha256": "5d9942c23631bb2327faf684fdb9e1da3757e86c9757274908d3105c302b0657"
+          },
+          "analytic_adverse.h5msm": {
+            "bytes": 470971,
+            "sha256": "6e7cd99f2cd4672a90935489f7f021d3fdc46fd84a06ca2465cd7861be994e4a"
+          }
+        },
+        "reader_versions": {
+          "dockingmt": "0.0.0+293.g5952053",
+          "molsysmt": "0.23.0+368.g00abb958f",
+          "pyunitwizard": "0.29.0",
+          "rdkit": "2026.3.1"
+        },
+        "progress_log": "progress.jsonl",
+        "interaction_detector_calls": 6,
+        "new_searches_or_energy_calls": 0,
+        "original_record_preserved": true,
+        "caller_unit_policy_preserved": true,
+        "chemical_model_suitability": "unassessed",
+        "public_package_or_scientific_panel_or_live_visual_acceptance": false
+      },
+      "observer": {
+        "profile": "pm_fs",
+        "python": "3.14.10",
+        "calls": {
+          "hbonds": {
+            "attempted": 4,
+            "completed": 4
+          },
+          "hydrophobic": {
+            "attempted": 2,
+            "completed": 2
+          }
+        },
+        "forbidden_calls": {
+          "dockingmt.dock": 0,
+          "dockingmt.score": 0,
+          "dockingmt.evaluate_redocking": 0,
+          "dockingmt.view": 0,
+          "dockingmt.show": 0,
+          "Vina.__init__": 0,
+          "Vina.compute_vina_maps": 0,
+          "Vina.dock": 0,
+          "Vina.score": 0,
+          "Vina.optimize": 0,
+          "Vina.write_poses": 0,
+          "molsysmt.view": 0
+        },
+        "completed_gate": true,
+        "runtime_payloads_preserved": true,
+        "unit_policy_preserved": true
+      },
+      "reader": {
+        "profile": "pm_fs",
+        "python": "3.14.10",
+        "calls": {},
+        "forbidden_calls": {
+          "dockingmt.dock": 0,
+          "dockingmt.score": 0,
+          "dockingmt.evaluate_redocking": 0,
+          "dockingmt.view": 0,
+          "dockingmt.show": 0,
+          "Vina.__init__": 0,
+          "Vina.compute_vina_maps": 0,
+          "Vina.dock": 0,
+          "Vina.score": 0,
+          "Vina.optimize": 0,
+          "Vina.write_poses": 0,
+          "molsysmt.view": 0,
+          "dockingmt.prepare_receptor": 0,
+          "dockingmt.prepare_ligand": 0,
+          "fixed_state_H": 0,
+          "hbonds": 0,
+          "hydrophobic": 0
+        },
+        "completed_gate": true,
+        "runtime_payloads_preserved": true,
+        "unit_policy_preserved": true
+      }
+    }
+  },
+  "selected_original_exports": {
+    "registration.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/registration.json.gz",
+      "compressed_bytes": 820,
+      "compressed_sha256": "a5c77366d64c7775ea264b76ee066a4929fbb0174791e447135c550683a05c6d",
+      "original_bytes": 1894,
+      "original_sha256": "994f589c321d2b8715e05da4285998503063b9ec732130c8a794bb7b97033adb"
+    },
+    "build.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/build.json.gz",
+      "compressed_bytes": 3198,
+      "compressed_sha256": "f0f81df1901cdef4f1fbd48b5a832d3c4994a66c4b802b77f80f4324cd0861a8",
+      "original_bytes": 6983,
+      "original_sha256": "4ae9959e2924d40dd0d4019ae07a58819b77dc1964ffc591c831f2a4956bc061"
+    },
+    "receiving.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/receiving.json.gz",
+      "compressed_bytes": 315,
+      "compressed_sha256": "154d658ac6cbce6131dc9e4c9dec05b08f5b3bc715cbf7e69e07d376aef647b7",
+      "original_bytes": 940,
+      "original_sha256": "566651b97ea5029b54af66ef3062c4c6781bea7d2a88fab8e417a8823bae9b3c"
+    },
+    "outcomes.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/outcomes.json.gz",
+      "compressed_bytes": 198,
+      "compressed_sha256": "d1ff2f2dae498a6134ae076b61721b71807fcd0e735cb4a71ba289097ee0854f",
+      "original_bytes": 677,
+      "original_sha256": "da31461cabd60f4845bf57c8c056004fd6c7e3c5939157497f4f703054c5beeb"
+    },
+    "conda-list.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/conda-list.json.gz",
+      "compressed_bytes": 26431,
+      "compressed_sha256": "8c0019250d68375fce816010bb232af7b366ccb036f78f7ae73fc44b3c4370d2",
+      "original_bytes": 162716,
+      "original_sha256": "d6b18511163e59929d66d56583088e21d913b852ebcb641f4e502b7e102d06b0"
+    },
+    "conda-explicit.txt": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/conda-explicit.txt.gz",
+      "compressed_bytes": 9744,
+      "compressed_sha256": "825516e2a9828b9a109a452c6e57b2b4faf16204cce1b5e3eae205a08c010d40",
+      "original_bytes": 30917,
+      "original_sha256": "ba5964ae49d5f1ea95946e19293904a878f0df0f0985064aa819db583937085c"
+    },
+    "normal/observer.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/observer.json.gz",
+      "compressed_bytes": 377266,
+      "compressed_sha256": "ed7768e377bda128a1b3a822eea1ae1a04c7e0e566794cdb664412b72edcf1b0",
+      "original_bytes": 1264518,
+      "original_sha256": "604e3a09d86d95ec3ac5386546e4d24b0af998ec58d7822f9a2c24ac36f0d9d1"
+    },
+    "normal/reader.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/reader.json.gz",
+      "compressed_bytes": 377264,
+      "compressed_sha256": "c018641ff87116eaa702d4d6b79221e466129650902975dfab5a81ea30f30747",
+      "original_bytes": 1264513,
+      "original_sha256": "88daf8c14a3eb8cea5b1916dcb84429a5c895ba2eb7b4d405582e9e92a39bb7e"
+    },
+    "normal/profile.log": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/profile.log.gz",
+      "compressed_bytes": 2173,
+      "compressed_sha256": "87859e2a06f336f28968bbd59a7ce2496ecfc3e9ae290f7e7fb3d83f0fb98173",
+      "original_bytes": 5223,
+      "original_sha256": "f6a99f67a3aadefa8a30e2c40af26489257a334b1cc724b74f23d2248363ffea"
+    },
+    "normal/read.log": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/read.log.gz",
+      "compressed_bytes": 20,
+      "compressed_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "normal/preparation/receipt.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/preparation/receipt.json.gz",
+      "compressed_bytes": 964,
+      "compressed_sha256": "8106b90e4a48e83f6fcd0f36912b56b3e5fa1f52a907bbf09913b2e5773f2513",
+      "original_bytes": 1930,
+      "original_sha256": "31a15183e7363f1d33f1084273fab3619286f413dfc38b7d9982e7abcd0926bb"
+    },
+    "normal/interactions/association.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/interactions/association.json.gz",
+      "compressed_bytes": 2339,
+      "compressed_sha256": "087b297b1e48406e1e7ba56dd5769bf8255c18e9b29e98db7cc28d541f49928f",
+      "original_bytes": 7352,
+      "original_sha256": "e4555cde1d78fc799033e08e049f50c3558494103cd7f1ca034a604284f787ab"
+    },
+    "normal/interactions/registration.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/interactions/registration.json.gz",
+      "compressed_bytes": 395,
+      "compressed_sha256": "c262c48e2cbebfd85a4f9835b7a74ece0ebb7782970a581206c042405ab70bc3",
+      "original_bytes": 601,
+      "original_sha256": "1e032399e241e1e6f3e439e24cd9b6784b7d82449c0ae0ae06d4ac21b516bfa5"
+    },
+    "normal/interactions/progress.jsonl": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/interactions/progress.jsonl.gz",
+      "compressed_bytes": 324,
+      "compressed_sha256": "268cdf7dd4776695909d23439a26188504cc846d2e18aef7ffe0e3ceff761b6f",
+      "original_bytes": 2070,
+      "original_sha256": "a4dab298123d4921d69d14cd13410a635dab4d8fe86635a927b7d870f08d75bb"
+    },
+    "normal/interactions/retained_pose.h5msm": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/interactions/retained_pose.h5msm.gz",
+      "compressed_bytes": 501186,
+      "compressed_sha256": "0ce19594e2463a128c3dd3cedbd5e9f2ef149a3bf9064ee919b64248ce0b5523",
+      "original_bytes": 3169391,
+      "original_sha256": "02f463d0e1f65794250ac39069d219fbeb12de13744e3661251b984fb6c417fe"
+    },
+    "normal/interactions/translated_geometry_control.h5msm": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/interactions/translated_geometry_control.h5msm.gz",
+      "compressed_bytes": 499703,
+      "compressed_sha256": "411ec201e3ae1fe99cbdce645cdb7163a1ccf27aa7ff5efe9b28dc6f74f429ca",
+      "original_bytes": 3119084,
+      "original_sha256": "9c63fe93fb01087241a2288ee18dd8b61b49ee7fbe8f5cd5bf954aa159b5a1e3"
+    },
+    "normal/interactions/analytic_positive.h5msm": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/interactions/analytic_positive.h5msm.gz",
+      "compressed_bytes": 25464,
+      "compressed_sha256": "d2ddf7b6ea9848946e72bca2ff33ff5d728d32140d6778301c983df695c22e27",
+      "original_bytes": 500315,
+      "original_sha256": "5d9942c23631bb2327faf684fdb9e1da3757e86c9757274908d3105c302b0657"
+    },
+    "normal/interactions/analytic_adverse.h5msm": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/normal/interactions/analytic_adverse.h5msm.gz",
+      "compressed_bytes": 24866,
+      "compressed_sha256": "9ac84aa95897bbd85ad62805a14248b02f60d34ca34510439c252a555c6e4d38",
+      "original_bytes": 470971,
+      "original_sha256": "501f3b9afa04435a213e5a9415643be633fab25a537db3220c2f399de478b171"
+    },
+    "pm_fs/observer.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/observer.json.gz",
+      "compressed_bytes": 377264,
+      "compressed_sha256": "7a86967a6ef6d95d18645cbfc2414cbb61029544a142138963c2aa955bafecc3",
+      "original_bytes": 1264517,
+      "original_sha256": "06c597948c3774d5d07be991ff6b0a5e0c3c824e2b0405bf751578ba0e611629"
+    },
+    "pm_fs/reader.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/reader.json.gz",
+      "compressed_bytes": 377262,
+      "compressed_sha256": "588a31ec971892d278e005645f629bbb73398f8f636962a803f110f87f78cfb7",
+      "original_bytes": 1264512,
+      "original_sha256": "ed8a7488f3a7161d1a05d85262398a3e59ce431d54bb5c57302e56754f6608e5"
+    },
+    "pm_fs/profile.log": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/profile.log.gz",
+      "compressed_bytes": 2171,
+      "compressed_sha256": "f1daf593ecbaaad1f0f2b159dd4a7faf8ab668190ab5d65bc4422068d94c0af1",
+      "original_bytes": 5223,
+      "original_sha256": "deb261b7184c0616950bbd5534e010e66646b27fb19eea4b67cb51afc51dca1f"
+    },
+    "pm_fs/read.log": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/read.log.gz",
+      "compressed_bytes": 20,
+      "compressed_sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "pm_fs/preparation/receipt.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/preparation/receipt.json.gz",
+      "compressed_bytes": 962,
+      "compressed_sha256": "38233ad77839a969e5f1a916f053217b8ab629de48898921f674757da774705d",
+      "original_bytes": 1930,
+      "original_sha256": "19a3c400e75b22c6ef462e421ddcdc723e5426f151836d39d498b65ce2642004"
+    },
+    "pm_fs/interactions/association.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/interactions/association.json.gz",
+      "compressed_bytes": 2342,
+      "compressed_sha256": "e90e449eee1931250a1d3d796b5f6496a1b72f8566428114891e231519c243e5",
+      "original_bytes": 7352,
+      "original_sha256": "e4fbc6a422f151caa5035034dfb12c54c7b35599d7cc834d2a9662e85a7e756b"
+    },
+    "pm_fs/interactions/registration.json": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/interactions/registration.json.gz",
+      "compressed_bytes": 395,
+      "compressed_sha256": "c262c48e2cbebfd85a4f9835b7a74ece0ebb7782970a581206c042405ab70bc3",
+      "original_bytes": 601,
+      "original_sha256": "1e032399e241e1e6f3e439e24cd9b6784b7d82449c0ae0ae06d4ac21b516bfa5"
+    },
+    "pm_fs/interactions/progress.jsonl": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/interactions/progress.jsonl.gz",
+      "compressed_bytes": 324,
+      "compressed_sha256": "268cdf7dd4776695909d23439a26188504cc846d2e18aef7ffe0e3ceff761b6f",
+      "original_bytes": 2070,
+      "original_sha256": "a4dab298123d4921d69d14cd13410a635dab4d8fe86635a927b7d870f08d75bb"
+    },
+    "pm_fs/interactions/retained_pose.h5msm": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/interactions/retained_pose.h5msm.gz",
+      "compressed_bytes": 501191,
+      "compressed_sha256": "f5dea624b7c1d8820c17198480ff54c6c4be92172afed03ed7c2f4da4c258838",
+      "original_bytes": 3169395,
+      "original_sha256": "51c9e2f12927dddd93abc145519ddee821c2ee0911dd2e495f903d822705675d"
+    },
+    "pm_fs/interactions/translated_geometry_control.h5msm": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/interactions/translated_geometry_control.h5msm.gz",
+      "compressed_bytes": 499704,
+      "compressed_sha256": "dec5e4095597c5d8908fcce9240e73305a83d44eb59ff3176408bed4646f1b68",
+      "original_bytes": 3119087,
+      "original_sha256": "03d585a76acca700e91206f3e5f70ce90c485064e5165d871c088091dc5247a4"
+    },
+    "pm_fs/interactions/analytic_positive.h5msm": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/interactions/analytic_positive.h5msm.gz",
+      "compressed_bytes": 25464,
+      "compressed_sha256": "d2ddf7b6ea9848946e72bca2ff33ff5d728d32140d6778301c983df695c22e27",
+      "original_bytes": 500315,
+      "original_sha256": "5d9942c23631bb2327faf684fdb9e1da3757e86c9757274908d3105c302b0657"
+    },
+    "pm_fs/interactions/analytic_adverse.h5msm": {
+      "repository_path": "devguide/validation/data/3ptb_interactions_hosted_5952053/pm_fs/interactions/analytic_adverse.h5msm.gz",
+      "compressed_bytes": 24868,
+      "compressed_sha256": "cd93bbeba9e38c369c62dde6532f4a993fda54560e2d298b6d748aaefb1c24c3",
+      "original_bytes": 470971,
+      "original_sha256": "6e7cd99f2cd4672a90935489f7f021d3fdc46fd84a06ca2465cd7861be994e4a"
+    }
+  },
+  "full_original_zip_custody": "Verified retained original; review 2026-11-13 before remote expiry. Selected exact records, Conda inventories and eight provider H5MSM files are independently preserved in Git. Original full pip inspection, preparation bulk outputs and the private wheel remain in the retained ZIP.",
+  "claim_boundary": {
+    "selected_poses": 1,
+    "normal_and_pm_fs_are_repeated_unit_policy_receiving": true,
+    "chemical_model_suitability": "unassessed",
+    "interaction_counts": "named molecular definitions, not energies/affinity/independent biological observations",
+    "remaining": "structured consumer/addon admission; whole E4, independent scientific panel, public platform/minor package and live-canvas/functional-release gates remain required",
+    "molecular_operations": "public MolSysMT only; no local molecular replay during artifact inspection",
+    "structural_cases": 1,
+    "independent_biological_validation": false
+  }
+}

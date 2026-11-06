@@ -70,8 +70,8 @@ docking records and supplies docking-specific interpretation/filtering policy.
 
 The [six-cell installed notebook](../validation/installed_3ptb_interactions.ipynb)
 and [finite prescription](../validation/installed_3ptb_interactions_registration.md)
-are implemented. [Receiving](../validation/installed_3ptb_interactions.md) has not
-passed: the initial process lacks notebook tooling before cells; the corrected
+are implemented. Early local [receiving](../validation/installed_3ptb_interactions.md)
+does not pass: the initial process lacks notebook tooling before cells; the corrected
 tooling attempt is stopped by the RAM-reserve guard. Its final counters and
 association are absent/unverified; pm/fs is not attempted. No automatic heavy
 restart occurs. These are nonpassing observations, not empty interactions.
@@ -87,8 +87,16 @@ extraction; final detector counts are zero, payloads remain unchanged and pip
 closure passes. Fresh readers and pm/fs are not reached. The separate
 [hosted receipt](../validation/data/interaction_hosted_receiving_2026-11-06.json)
 preserves the failed population. MolSysMT #610 receives the public composition
-question. The new explicit-atom public getter amendment is source-inspected,
-not executed; register its exact new published source/budget before a new run.
+question. The explicit-atom public getter amendment is separately registered at
+`5952053`; run `42206087852` then passes normal/pm-fs and both independent readers.
+Its [success record](../validation/data/interaction_hosted_success_2026-11-06.json)
+retains all twelve detector calls, 3/2 named retained-pose observations, evaluated-
+empty translation controls and 1/0 analytic H-bond controls under both policies.
+Original pose atoms/coordinates/scores, caller policy, provider typed/H5MSM
+roundtrips, filtering and installed bytes remain. Eight provider files and
+selected original receipts/diagnostics are preserved byte-exact compressed.
+The bounded workflow passes; usable structured consumer/addon admission and
+whole E4/functional/public/visual qualification remain unproven.
 
 All 63 fixed private consumer payloads and the applicable active provider file
 records remain identical before/after; pip check passes. Four preliminary
@@ -96,8 +104,9 @@ file-authority audit stops remain separate. Seven isolated Conda notebook tools
 supply 208 verified files without modifying the scientific prefix. The later
 progress-journal refinement preserves started/failed/completed phases; an isolated
 standard-library SIGTERM control retains its valid started event. Its molecular
-cells remain unexecuted. Review the resource disposition and register a new
-attempt before further computation; the full E4 contract remains unproven.
+cells are unexecuted at that checkpoint. Later hosted variants retain their
+separate producers and observations above. Review/register any further
+computation separately; the full E4 contract remains unproven.
 
 The route reuses the prepared native
 source's retained virtual H counts and MolSysMT's delivered fixed-state H tool;

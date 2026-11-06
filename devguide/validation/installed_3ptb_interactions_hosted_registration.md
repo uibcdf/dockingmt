@@ -129,9 +129,20 @@ pin, model, scientific population, molecular operation or six-call denominator
 changes. New notebook SHA-256:
 `6c43428ea9053dde56039828e16cfb14884a65fc91d9b76eb1e8455000336c01`.
 
-This is an unexecuted amendment. Publish/register the new full source on #80
-before dispatching one new attempt; do not rerun the old producer. The twelve-call
+At amendment registration this is unexecuted. Publish/register the new full source
+on #80 before dispatching one new attempt; do not rerun the old producer. The twelve-call
 new hosted maximum plus the original unknown six-call local reserve remains
 eighteen: the first hosted attempt has a verified zero and releases its unused
 detector budget. All other scientific/resource/retention/failure conditions above
 remain. A proposed composition and successful preparation do not accept E4.
+
+## Amended receiving disposition
+
+Producer `5952053328aac6f737e22906e984c0f9eb938dd7` is
+[registered before execution](https://github.com/uibcdf/dockingmt/issues/80#issuecomment-6683154180).
+[Run 42206087852](https://github.com/uibcdf/dockingmt/actions/runs/42206087852)
+completes both six-call profiles and both independent readers. The
+[durable success record](data/interaction_hosted_success_2026-11-06.json) and
+[maintained interpretation](installed_3ptb_interactions.md) retain observations,
+all original outcomes, eight provider files and claim limits. The old failures
+and local unknown counters stay separate; no further run is scheduled here.
