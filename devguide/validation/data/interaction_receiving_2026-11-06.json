@@ -1,0 +1,371 @@
+{
+  "schema": "dockingmt.interaction_receiving_attempts@1",
+  "owner": "uibcdf/dockingmt#80",
+  "date": "2026-11-06",
+  "classification": "nonpassing receiving; preserved diagnostics and resource stop",
+  "registered_producer": {
+    "source": "45b15e885b3f0a1cfc7e314bf0ad439860819290",
+    "notebook_sha256": "b6a0d8269403acae5b242ced9cc7d65ce42430b002ddbd263407554d309f1b07",
+    "registration_comment": 6681363545,
+    "tooling_amendment_comment": 6681518737
+  },
+  "attempt_inputs": {
+    "notebook": {
+      "repository_path": "devguide/validation/installed_3ptb_interactions.ipynb",
+      "sha256": "b6a0d8269403acae5b242ced9cc7d65ce42430b002ddbd263407554d309f1b07"
+    },
+    "preparation": {
+      "repository_path": "devguide/validation/installed_3ptb_preparation.ipynb",
+      "sha256": "c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9"
+    },
+    "source": {
+      "repository_path": "devguide/validation/data/3ptb_prospective/3PTB.pdb.gz",
+      "sha256": "75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be"
+    },
+    "declarations": {
+      "repository_path": "devguide/validation/data/human_3ptb/admission_2026-10-20.json.gz",
+      "sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53"
+    },
+    "result": {
+      "repository_path": "devguide/validation/data/human_3ptb/native_result_2026-10-20.json.gz",
+      "sha256": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249"
+    }
+  },
+  "fixed_private_consumer": {
+    "version": "0.1.0",
+    "source": "905abc9698cf9d4add78a52d57dab707859a148d",
+    "wheel_sha256": "fbe3591068d9633ae0066ab3dcd593508f7fc31d86eefad01975fd4e4bb71752",
+    "runtime_payloads": 63,
+    "before_after_exact_wheel_match": true,
+    "fixed_candidate_advanced": false
+  },
+  "scientific_profile": {
+    "python": "3.12.16",
+    "molsysmt_source": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+    "providers": {
+      "dockingmt": {
+        "version": "0.1.0",
+        "installer": "pip",
+        "verified_file_records": 71,
+        "unhashed_record_entries": 1,
+        "generated_conda_files": [],
+        "retained_source_archive": {
+          "filename": "dockingmt-0.1.0-py3-none-any.whl",
+          "sha256": "fbe3591068d9633ae0066ab3dcd593508f7fc31d86eefad01975fd4e4bb71752"
+        }
+      },
+      "molsysmt": {
+        "version": "0.23.0+368.g00abb958f",
+        "installer": "pip",
+        "verified_file_records": 3423,
+        "unhashed_record_entries": 1,
+        "generated_conda_files": [],
+        "retained_source_archive": {
+          "filename": "molsysmt-0.23.0+368.g00abb958f-cp311-abi3-linux_x86_64.whl",
+          "sha256": "6a3cb05c7cbe81f198496361639cfa3019afc33918be8f1a55ec4d40378481fb"
+        }
+      },
+      "pyunitwizard": {
+        "version": "0.29.0",
+        "installer": "conda",
+        "verified_file_records": 103,
+        "unhashed_record_entries": 0,
+        "generated_conda_files": [],
+        "retained_source_archive": null
+      },
+      "argdigest": {
+        "version": "0.15.0+5.g3d1ec53",
+        "installer": "pip",
+        "verified_file_records": 47,
+        "unhashed_record_entries": 1,
+        "generated_conda_files": [],
+        "retained_source_archive": {
+          "filename": "argdigest-0.15.0+5.g3d1ec53-py3-none-any.whl",
+          "sha256": "d9bc53cc8d98f69d47c0243bc27f17cc4c7a3b0570f90fa814a2fae9e2fb377b"
+        }
+      },
+      "depdigest": {
+        "version": "0.15.2",
+        "installer": "conda",
+        "verified_file_records": 26,
+        "unhashed_record_entries": 0,
+        "generated_conda_files": [
+          {
+            "path": "../../../bin/depdigest",
+            "path_type": "unix_python_entry_point",
+            "observed_sha256": "781fee6aca7dc010936f427f00e51d917e74c18ee39c67effdb61e02f4552ad5",
+            "archive_hash_validation": false
+          }
+        ],
+        "retained_source_archive": null
+      },
+      "smonitor": {
+        "version": "0.22.1",
+        "installer": "conda",
+        "verified_file_records": 51,
+        "unhashed_record_entries": 0,
+        "generated_conda_files": [
+          {
+            "path": "../../../bin/smonitor",
+            "path_type": "unix_python_entry_point",
+            "observed_sha256": "236a0957c4c2fda7ed354f62a68e264c4b46a81f8936308005ce54dbdbaf1048",
+            "archive_hash_validation": false
+          }
+        ],
+        "retained_source_archive": null
+      },
+      "rdkit": {
+        "version": "2026.3.1",
+        "installer": "conda",
+        "verified_file_records": 685,
+        "unhashed_record_entries": 0,
+        "generated_conda_files": [],
+        "retained_source_archive": null
+      }
+    },
+    "before_after_verified_records_identical": true,
+    "pip_check_before": 0,
+    "pip_check_after": 0,
+    "shared_scientific_prefix_modified": false
+  },
+  "preliminary_file_audit_diagnostics": [
+    "wheel RECORD incorrectly treated as authority for Conda INSTALLER metadata",
+    "relocated Conda CLI initially treated as wheel-sealed bytes",
+    "stale Conda ownership initially applied to a pip source overlay",
+    "generated Conda entry point initially expected to have an archive hash"
+  ],
+  "notebook_tooling": {
+    "location": "isolated target outside scientific prefix; no namespace overlap",
+    "source": "retained Conda cache file records",
+    "packages": [
+      {
+        "name": "nbformat",
+        "version": "5.11.1",
+        "build": "pyhcf101f3_0",
+        "url": "https://conda.anaconda.org/conda-forge/noarch/nbformat-5.11.1-pyhcf101f3_0.conda",
+        "archive_sha256": "d85d76827ff732e1639f50f45e4d7d3387a27abd857b194dcbb5bb4166c2a7c2",
+        "retained_archive_verified": false,
+        "copied_verified_files": 57,
+        "depends": [
+          "python",
+          "python >=3.10",
+          "jupyter_core >=4.12,!=5.0.*",
+          "traitlets >=5.1",
+          "jsonschema >=2.6",
+          "python-fastjsonschema >=2.15"
+        ]
+      },
+      {
+        "name": "python-fastjsonschema",
+        "version": "2.22.2",
+        "build": "pyhcf101f3_0",
+        "url": "https://conda.anaconda.org/conda-forge/noarch/python-fastjsonschema-2.22.2-pyhcf101f3_0.conda",
+        "archive_sha256": "fc4a704822df22defce49d0fb811fdc036a1fd3b579aeaa601228e9cfd198b3d",
+        "retained_archive_verified": false,
+        "copied_verified_files": 20,
+        "depends": [
+          "python",
+          "python >=3.10"
+        ]
+      },
+      {
+        "name": "jsonschema",
+        "version": "4.26.0",
+        "build": "pyhcf101f3_1",
+        "url": "https://conda.anaconda.org/conda-forge/noarch/jsonschema-4.26.0-pyhcf101f3_1.conda",
+        "archive_sha256": "328756a4555941d57af4a5f553e5d8598e9f3b37db028f557e30f9f0b3086db6",
+        "retained_archive_verified": false,
+        "copied_verified_files": 46,
+        "depends": [
+          "python",
+          "python >=3.10",
+          "attrs >=22.2.0",
+          "referencing >=0.28.4",
+          "jsonschema-specifications >=2023.3.6",
+          "rpds-py >=0.25.0"
+        ]
+      },
+      {
+        "name": "jsonschema-specifications",
+        "version": "2025.9.1",
+        "build": "pyhcf101f3_0",
+        "url": "https://conda.anaconda.org/conda-forge/noarch/jsonschema-specifications-2025.9.1-pyhcf101f3_0.conda",
+        "archive_sha256": "0a4f3b132f0faca10c89fdf3b60e15abb62ded6fa80aebfc007d05965192aa04",
+        "retained_archive_verified": false,
+        "copied_verified_files": 31,
+        "depends": [
+          "python >=3.10",
+          "referencing >=0.31.0",
+          "python"
+        ]
+      },
+      {
+        "name": "referencing",
+        "version": "0.37.0",
+        "build": "pyhcf101f3_0",
+        "url": "https://conda.anaconda.org/conda-forge/noarch/referencing-0.37.0-pyhcf101f3_0.conda",
+        "archive_sha256": "0577eedfb347ff94d0f2fa6c052c502989b028216996b45c7f21236f25864414",
+        "retained_archive_verified": false,
+        "copied_verified_files": 22,
+        "depends": [
+          "attrs >=22.2.0",
+          "python >=3.10",
+          "rpds-py >=0.7.0",
+          "typing_extensions >=4.4.0",
+          "python"
+        ]
+      },
+      {
+        "name": "jupyter_core",
+        "version": "5.9.1",
+        "build": "pyhc90fa1f_0",
+        "url": "https://conda.anaconda.org/conda-forge/noarch/jupyter_core-5.9.1-pyhc90fa1f_0.conda",
+        "archive_sha256": "1d34b80e5bfcd5323f104dbf99a2aafc0e5d823019d626d0dce5d3d356a2a52a",
+        "retained_archive_verified": false,
+        "copied_verified_files": 19,
+        "depends": [
+          "__unix",
+          "python",
+          "platformdirs >=2.5",
+          "python >=3.10",
+          "traitlets >=5.3"
+        ]
+      },
+      {
+        "name": "rpds-py",
+        "version": "2026.6.3",
+        "build": "py312hc767a74_1",
+        "url": "https://conda.anaconda.org/conda-forge/linux-64/rpds-py-2026.6.3-py312hc767a74_1.conda",
+        "archive_sha256": "a47c5947ed7168ff6e9aa8fc09aad93aa74ca42fe04695cd755d9468c433e73e",
+        "retained_archive_verified": true,
+        "copied_verified_files": 13,
+        "depends": [
+          "python",
+          "__glibc >=2.17,<3.0.a0",
+          "libgcc >=15",
+          "python_abi 3.12.* *_cp312"
+        ]
+      }
+    ],
+    "verified_files": 208,
+    "before_after_identical": true,
+    "dependency_and_notebook_preflight_passed": true
+  },
+  "attempts": [
+    {
+      "profile": "normal",
+      "status": "failed_before_notebook_cells",
+      "exception": "ModuleNotFoundError: nbformat",
+      "calls": {
+        "hbonds": {
+          "attempted": 0,
+          "completed": 0,
+          "failed": 0
+        },
+        "hydrophobic": {
+          "attempted": 0,
+          "completed": 0,
+          "failed": 0
+        },
+        "fixed_state_H": {
+          "attempted": 0,
+          "completed": 0,
+          "failed": 0
+        },
+        "merge": {
+          "attempted": 0,
+          "completed": 0,
+          "failed": 0
+        },
+        "set": {
+          "attempted": 0,
+          "completed": 0,
+          "failed": 0
+        },
+        "translate": {
+          "attempted": 0,
+          "completed": 0,
+          "failed": 0
+        }
+      },
+      "guards": {
+        "dockingmt.dock": 0,
+        "dockingmt.score": 0,
+        "dockingmt.evaluate_redocking": 0,
+        "dockingmt.view": 0,
+        "dockingmt.show": 0,
+        "Vina.__init__": 0,
+        "Vina.compute_vina_maps": 0,
+        "Vina.dock": 0,
+        "Vina.score": 0,
+        "Vina.optimize": 0,
+        "Vina.write_poses": 0,
+        "molsysmt.view": 0
+      },
+      "resource_stop": null,
+      "process_terminal": true
+    },
+    {
+      "profile": "normal_with_tooling",
+      "status": "resource_stop",
+      "reason": "RAM reserve threatened",
+      "seconds": 5.270048327045515,
+      "process_terminal": true,
+      "initial_notebook_output_directory_present": true,
+      "preparation_output_present": false,
+      "provider_analysis_files_present": 0,
+      "final_association_present": false,
+      "final_observer_receipt_present": false,
+      "final_molecular_call_counts": null,
+      "count_disposition": "unverified; do not convert missing counters to zero"
+    },
+    {
+      "profile": "pm_fs",
+      "status": "not_attempted_after_resource_stop"
+    }
+  ],
+  "refinement": {
+    "notebook_sha256": "5f76b09978db597a8b784d699bd5a50cce1b19433e888b66d850121cafeb87b7",
+    "molecular_cells_executed": false,
+    "changes": "registration and flushed append-only phase/detector journal; no molecular operation/denominator change",
+    "software_journal_control": {
+      "scope": "isolated actual notebook journal helper; no molecular notebook cells",
+      "source_notebook_sha256": "5f76b09978db597a8b784d699bd5a50cce1b19433e888b66d850121cafeb87b7",
+      "helper_source_sha256": "58904419d66e3207fe8e2430f61beef6eea2286a518edc92fe511dc2d1224b59",
+      "control_returncode": -15,
+      "complete_json_lines_retained": 1,
+      "last_status": "started; completion unknown",
+      "control_passed": true,
+      "molecular_execution": false
+    }
+  },
+  "resource_controls": {
+    "logical_cpus": 1,
+    "priority": "nice15",
+    "native_workers": 1,
+    "RAM_reserve_monitored": true,
+    "owned_process_only_stop": true,
+    "resource_interruption_occurred": true,
+    "automatic_heavy_restart": false,
+    "host_specific_details": "retained privately"
+  },
+  "claims": {
+    "E4_receiving_passed": false,
+    "interaction_observations_accepted": false,
+    "scientific_panel_qualified": false,
+    "current_source_full_matrix_qualified": false,
+    "public_package_or_release_published": false,
+    "live_visual_accepted": false,
+    "full_functional_goal_complete": false
+  },
+  "custody": {
+    "owners": [
+      "dockingmt#80",
+      "dockingmt#50"
+    ],
+    "review": "2026-11-13",
+    "original_inputs_and_prefixes_preserved": true,
+    "exact_notebook_variants_tools_launchers_and_diagnostics_retained": true,
+    "no_automatic_resource_cleanup": true
+  }
+}

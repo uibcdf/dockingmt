@@ -4,12 +4,11 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
-### Active (2)
+### Active (1)
 
 - [`qualify_pose_comparison_and_clustering.md`](qualify_pose_comparison_and_clustering.md) — [#79](https://github.com/uibcdf/dockingmt/issues/79) — Qualify provider-backed positional pose comparison and declared geometric clustering for E3. *(active, inspected)*
-- [`receive_docking_interaction_analysis.md`](receive_docking_interaction_analysis.md) — [#80](https://github.com/uibcdf/dockingmt/issues/80) — Receive MolSysMT structured interactions and associate them with existing docking poses for E4. *(active, inspected)*
 
-### Partial (16)
+### Partial (17)
 
 - [`adopt_python_distribution_controls.md`](adopt_python_distribution_controls.md) — [#47](https://github.com/uibcdf/dockingmt/issues/47) — Adopt distribution controls and the agreed first noarch Conda route. *(partial, measured)*
 - [`adopt_required_python_314.md`](adopt_required_python_314.md) — [#30](https://github.com/uibcdf/dockingmt/issues/30) — Adopt the mandatory four-minor contract and qualify normal installed delivery *(partial, inspected)*
@@ -20,6 +19,7 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 - [`qualify_same_state_rescoring.md`](qualify_same_state_rescoring.md) — [#78](https://github.com/uibcdf/dockingmt/issues/78) — Qualify same-state multi-pose rescoring with explicit reference and comparison evidence. *(partial, measured)*
 - [`qualify_saved_result_addon.md`](qualify_saved_result_addon.md) — [#60](https://github.com/uibcdf/dockingmt/issues/60) — Complete and qualify the existing MolSysViewer saved-result explorer. *(partial, measured)*
 - [`receive_chemical_domain_separation.md`](receive_chemical_domain_separation.md) — [#56](https://github.com/uibcdf/dockingmt/issues/56) — Receive independent ChemicalStates storage and graph tools from MolSysMT. *(partial, measured)*
+- [`receive_docking_interaction_analysis.md`](receive_docking_interaction_analysis.md) — [#80](https://github.com/uibcdf/dockingmt/issues/80) — Receive MolSysMT structured interactions and associate them with existing docking poses for E4. *(partial, measured)*
 - [`retire_general_molecular_operations.md`](retire_general_molecular_operations.md) — [#49](https://github.com/uibcdf/dockingmt/issues/49) — Retire remaining consumer implementations of general molecular operations *(partial, measured)*
 - [`review_extensibility_and_performance.md`](review_extensibility_and_performance.md) — [#28](https://github.com/uibcdf/dockingmt/issues/28) — Review extension boundaries and establish an architecture performance baseline *(partial, measured)*
 - [`review_python_ecosystem_policy_adoption.md`](review_python_ecosystem_policy_adoption.md) — [#19](https://github.com/uibcdf/dockingmt/issues/19) — Review Python support-library and developer-tool adoption *(partial, measured)*

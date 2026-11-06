@@ -207,6 +207,14 @@ analysis, persistence and consumer-association evidence. Neither workflow is
 accepted by this scoping. Existing metrics/detectors stay in MolSysMT; no local
 geometry, matcher, chemical rules or molecular codec is introduced.
 
+The [E4 notebook/attempt record](validation/installed_3ptb_interactions.md) is now
+implemented but nonpassing: missing notebook tooling stops the first attempt;
+the corrected-tooling process is terminated by its RAM-reserve guard. Final
+counters/association are absent and pm/fs is not attempted. Preserve the original
+producer and the later unexecuted progress-journal refinement; do not restart
+the molecular work automatically. Review the resource hold before registering
+another execution. No E4, scientific, public or visible acceptance follows.
+
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |
 | 1 | Current Core evidence and source CI (#28/#60) | The updated criterion map is delivered. Inspect the exact source/head's remaining hosted lanes and append their outcome to the owning issues; previous successes do not qualify another composition. |

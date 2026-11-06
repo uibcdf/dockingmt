@@ -1,7 +1,7 @@
 # Registered 3PTB interaction receiving — 2026-11-06
 
 Owner: [DockingMT #80](https://github.com/uibcdf/dockingmt/issues/80), under
-#73's complete functional objective. Status: **prospective; not executed**.
+#73's complete functional objective. Status at registration: **prospective**.
 The [clean notebook](installed_3ptb_interactions.ipynb) contains six code cells.
 Its code and the unchanged preparation companion are committed and their exact
 identities registered on #80 before computational execution. New outcomes,
@@ -103,3 +103,15 @@ experimental affinity, chemical validity, scientific-panel qualification or
 visible acceptance. Current-source/full supported-minor/public receiving and
 the complete E4/functional-release audit retain their own requirements. No
 0.1.0 advancement, 0.5.0 selection, tag, Release, package or notice follows.
+
+## Dated receiving disposition
+
+The original producer is `45b15e885b3f0a1cfc7e314bf0ad439860819290`.
+[Registration before execution](https://github.com/uibcdf/dockingmt/issues/80#issuecomment-6681363545)
+and the [isolated-tooling amendment](https://github.com/uibcdf/dockingmt/issues/80#issuecomment-6681518737)
+retain their original chronology. The normal attempt stops before notebook cells
+for missing nbformat. The amended attempt is terminated by the RAM-reserve guard
+without a final observer/association; pm/fs is not attempted. Final counters
+remain unverified, rather than being manufactured as zero. There is no automatic
+heavy retry. The [maintained guide and attempt record](installed_3ptb_interactions.md)
+document these outcomes and the later unexecuted progress-journal refinement.

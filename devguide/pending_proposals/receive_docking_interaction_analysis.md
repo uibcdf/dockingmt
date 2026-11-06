@@ -1,10 +1,10 @@
 ---
 summary: Receive MolSysMT structured interactions and associate them with existing docking poses for E4.
 issue: uibcdf/dockingmt#80
-status: active
+status: partial
 opened: 2026-11-06
 closed:
-verification: inspected
+verification: measured
 area: [analysis, provenance, visualization, scientific-validation]
 guard:
 normative: devguide/MVP.md
@@ -68,13 +68,27 @@ docking records and supplies docking-specific interpretation/filtering policy.
 
 ## Current disposition
 
-The concrete scope and existing tools are inspected. The
-[six-cell installed notebook](../validation/installed_3ptb_interactions.ipynb) and
-[finite prescription](../validation/installed_3ptb_interactions_registration.md)
-are implemented but not yet executed. The route reuses the prepared native
+The [six-cell installed notebook](../validation/installed_3ptb_interactions.ipynb)
+and [finite prescription](../validation/installed_3ptb_interactions_registration.md)
+are implemented. [Receiving](../validation/installed_3ptb_interactions.md) has not
+passed: the initial process lacks notebook tooling before cells; the corrected
+tooling attempt is stopped by the RAM-reserve guard. Its final counters and
+association are absent/unverified; pm/fs is not attempted. No automatic heavy
+restart occurs. These are nonpassing observations, not empty interactions.
+
+All 63 fixed private consumer payloads and the applicable active provider file
+records remain identical before/after; pip check passes. Four preliminary
+file-authority audit stops remain separate. Seven isolated Conda notebook tools
+supply 208 verified files without modifying the scientific prefix. The later
+progress-journal refinement preserves started/failed/completed phases; an isolated
+standard-library SIGTERM control retains its valid started event. Its molecular
+cells remain unexecuted. Review the resource disposition and register a new
+attempt before further computation; the full E4 contract remains unproven.
+
+The route reuses the prepared native
 source's retained virtual H counts and MolSysMT's delivered fixed-state H tool;
 it does not infer missing chemistry or introduce a molecular reconstruction
-algorithm in DockingMT. Actual receiving remains unproven.
+algorithm in DockingMT. Existing #49 obligations remain.
 
 Selected detector signatures exist at the
 qualified pin, but current main has internal coordinate-delivery changes.
