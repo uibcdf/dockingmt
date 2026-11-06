@@ -4,9 +4,10 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
-### Active (1)
+### Active (2)
 
 - [`qualify_pose_comparison_and_clustering.md`](qualify_pose_comparison_and_clustering.md) — [#79](https://github.com/uibcdf/dockingmt/issues/79) — Qualify provider-backed positional pose comparison and declared geometric clustering for E3. *(active, inspected)*
+- [`qualify_small_ligand_collection.md`](qualify_small_ligand_collection.md) — [#81](https://github.com/uibcdf/dockingmt/issues/81) — Qualify a bounded multi-ligand study with isolated outcomes and explicit comparison policy. *(active, inspected)*
 
 ### Partial (17)
 
