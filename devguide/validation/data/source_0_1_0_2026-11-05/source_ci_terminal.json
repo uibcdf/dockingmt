@@ -1,0 +1,121 @@
+{
+  "schema": "dockingmt.source-ci-terminal-observation@1",
+  "observation_date_local": "2026-11-05",
+  "owner": [
+    "uibcdf/dockingmt#28",
+    "uibcdf/dockingmt#74"
+  ],
+  "source": "905abc9698cf9d4add78a52d57dab707859a148d",
+  "run": {
+    "id": 42124901045,
+    "html_url": "https://github.com/uibcdf/dockingmt/actions/runs/42124901045",
+    "run_attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-05T22:50:50Z",
+    "updated_at": "2026-11-06T01:44:19Z"
+  },
+  "jobs": [
+    {
+      "id": 127586455662,
+      "name": "Test on ubuntu-latest, Python 3.12",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127586455977,
+      "name": "Test on ubuntu-latest, Python 3.14",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127586455987,
+      "name": "Test on ubuntu-latest, Python 3.13",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127586456139,
+      "name": "Test on ubuntu-latest, Python 3.11",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127586456141,
+      "name": "Quality on ubuntu-latest",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127586456161,
+      "name": "Distribution governance on Linux Python 3.14",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "id": 127622888910,
+      "name": "Publish default-branch Python coverage",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "coverage_publication": {
+    "job_id": 127622888910,
+    "steps": [
+      {
+        "name": "Bind the measured Python report",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Download the measured Python report",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Upload the measured report to Codecov",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "binding": {
+      "run_id": 42124901045,
+      "source_sha": "905abc9698cf9d4add78a52d57dab707859a148d",
+      "producer_attempt": 1,
+      "publisher_attempt": 1,
+      "artifact_id": 13463849370,
+      "retention_started_at": "2026-11-06T00:06:12Z",
+      "retention_completed_at": "2026-11-06T00:06:13Z"
+    },
+    "upload_queued_for_processing_complete": true,
+    "codecov_url": "https://app.codecov.io/github/uibcdf/dockingmt/commit/905abc9698cf9d4add78a52d57dab707859a148d",
+    "limit": "Successful upload is observed; no additional downstream Codecov processing claim."
+  },
+  "source_test_lanes": {
+    "python_minors": [
+      "3.11",
+      "3.12",
+      "3.13",
+      "3.14"
+    ],
+    "passed_per_lane": 1761,
+    "skipped_per_lane": 0,
+    "warnings_per_lane": 348,
+    "actual_consumer_version": "0.0.0",
+    "detailed_observation": "source_ci_observation.json",
+    "detailed_observation_sha256": "e6e9261e7cde920c5fc8b525462099baf5f941b520433965baa9f9da69670764"
+  },
+  "raw_capture_sha256": {
+    "run.json": "424c69842036ae79d775cf0a0a55174e50e812181c1f70ebd2a1a42a30c87344",
+    "jobs.json": "d9baae4410aba98e7edf6304057d5164a02673275a769bed955caf9de0241c61",
+    "artifacts.json": "a0b2487d8ec7e86d0f88c6682572683aea33a97e361ef71fca586f36cf1e88b8",
+    "logs.zip": "632e3c7b8e018a988226504a3d18e93c26f59aa44204df916ef9e0d005871366",
+    "manifest.json": "18cd97c1ec2f7dac9083082205fa0e3b0ca84617ab4b98e5ac4720d831edd8ab"
+  },
+  "qualification_limits": [
+    "Earlier partial observation remains unchanged; this separate receipt records terminal completion.",
+    "Source fallback version 0.0.0 is not intended-version 0.1.0 installed qualification.",
+    "Complete hosted transitive closure is not retained; this is not a reproducible dependency lock.",
+    "No tag, release or public package event is performed."
+  ]
+}

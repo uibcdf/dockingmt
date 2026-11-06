@@ -39,6 +39,30 @@ failure evidence and executed checks retain their own source identity.
 
 ## How
 
+### Later source-milestone execution checkpoint — 2026-11-05
+
+The new #74 lower-minor contexts have a separate bounded custody ledger; they
+are not added retroactively to the frozen inventory below. After the maintainer
+requested shared-workstation headroom, the owned parallel 3.11/3.13 tests were
+stopped and 3.12 completed with one logical CPU and low priority. A guarded
+serial 3.11 retry then reached its RAM reserve and was stopped; 3.13 was not
+restarted. No test, controller or watcher remains active, and no heavy restart
+is automatic. Interrupted progress does not qualify a passing gate.
+
+Local heavy work now uses serial cells, one logical CPU, low priority, limited
+native/build workers and monitored RAM headroom, as recorded in root
+[AGENTS.md](../../AGENTS.md#local-gates). The inactive 3.11/3.13 preparations are
+held for complete runs only when stable capacity exists. The completed 3.12
+prefix is held for low-priority retirement after receipt handoff, with review
+on 2026-11-12; avoiding cleanup I/O under current shared load is deliberate.
+Exact wheels and interrupted/completed diagnostics remain through the first-tag
+decision. No shared environment or pre-existing resource is removed. The
+[source dossier](../releases/0.1.0.md) and separate minor receipt preserve the
+actual outcomes. This local checkpoint does not perform the deferred central
+handoff.
+
+### Original operation review
+
 Review actual allocation, output, subprocess and cleanup paths in the Vina
 adapter, addon, developer helpers, frontend tests and publication wrappers.
 Compare the existing #50 custody history with explicit current task locations,

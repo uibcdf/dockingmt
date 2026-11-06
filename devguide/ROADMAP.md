@@ -86,17 +86,24 @@ with exact declared provider sources, the same `0.1.0` consumer wheel and a
 separately recorded fresh closure. Its initial host-linker leakage is corrected
 before collection; qualified/rejected artifacts and launcher diagnostics remain
 separate. The [gate/reuse decision](releases/0.1.0.md#gate-reuse-and-replacement-decision)
-retains earlier populations and leaves intended-version 3.11–3.13 cells, actual
-source-CI completion and source-event/notice decisions pending. Keep the target
-fixed while publishing later evidence documents.
+retains earlier populations. The [new archive-installed population](validation/data/source_0_1_0_2026-11-05/source_minor_matrix.json)
+also passes 1,761 tests on Python 3.12.16 with its own fresh closure and unchanged
+wheel bytes. Intended-version 3.11 and 3.13 remain pending after resource
+interruptions; resume their complete selections only with stable capacity.
+Local heavy work is now serial, one logical CPU, low priority, with native/build
+workers limited and a monitored RAM reserve. No heavy restart is automatic and
+no local test/controller/watcher remains active. Source-event/notice decisions
+are still pending. Keep the target fixed while publishing evidence documents.
 
 The last runtime-change head `837de4b` now has successful seven-job CI, including
 the actual coverage publisher, plus separate DOM/policy/publication-governance.
 That terminal evidence is source-specific and does not replace the fixed
 candidate's own gate set. Its [four source lanes](validation/data/source_0_1_0_2026-11-05/source_ci_observation.json)
 each pass 1,761 tests at actual fallback version `0.0.0`; quality/distribution pass,
-while coverage publication still prevents terminal overall success. Do not
-relate those source results to `0.1.0` as though they tested that version.
+and the separate [terminal receipt](validation/data/source_0_1_0_2026-11-05/source_ci_terminal.json)
+now confirms all seven jobs succeed, including actual coverage binding/download
+and upload. Do not relate those source results to `0.1.0` as though they tested
+that version, or infer a complete retained hosted transitive lock.
 
 The [fresh main-index/API check](validation/data/public_readiness/registry_refresh_2026-11-05.json)
 finds the same already reviewed MolSysMT `0.23.0` and Viewer `0.24.0` build-1
@@ -111,7 +118,8 @@ artifact/receiver dependencies, elapsed and future reviews, and protected
 attribution/worktree holds. No pre-existing resource is removed. The remaining
 central handoff is deferred with other-repository issue work, so #50 stays
 partial; do not schedule another broad inventory or purge as missing work.
-Next receive exact-head hosted CI under #28. Public receiving #30/#47 and live
+Receive later checkpoint CI under #28 without replacing the fixed-candidate
+evidence above. Public receiving #30/#47 and live
 observation #52/#60 retain their existing delivery/maintainer boundaries.
 
 Start with the maintained [Core acceptance map](CORE_MVP_STATUS.md), which

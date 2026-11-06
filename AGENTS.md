@@ -53,6 +53,17 @@ is tracked by `uibcdf/molsyssuite#31`.
 
 ## Local gates
 
+Keep agent-run local qualification light on the shared workstation. Run scientific
+cells serially, with one logical CPU and low process priority. Limit native
+libraries and build tools to one worker. Apply the CPU limit to heavy descendants
+as well. Check available RAM before launching a cell, record a task-local reserve
+and monitor it during execution; stop only owned work if that reserve is threatened.
+Preserve interrupted attempts as resource interruptions and rerun the complete
+selection when capacity permits. Do not automatically restart heavy work after a
+headroom interruption. Do not infer permission to use the whole
+machine from its available processor count. Hosted CI matrices keep their own
+declared execution policy.
+
 Scientific test helpers live in the unshipped `dmt_test_support` namespace;
 `devtools` keeps compatible source entry points. Keep installed-test helper
 imports in that namespace and update the exact helper/data SHA-256 declaration
