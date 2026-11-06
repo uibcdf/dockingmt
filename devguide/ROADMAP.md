@@ -168,6 +168,17 @@ This new runtime source is separate from fixed candidate `905abc9`; #74's old
 receipts do not qualify this correction or move the proposed tag automatically.
 Broader new-head regression remains #28; E1 workflow acceptance remains #73.
 
+The [#77 installed collection example](validation/installed_scoring_inspection.md#explicit-collection-mode--2026-11-06)
+adds explicit `--record-kind result` to the existing saved-scoring reader. Its
+13 receiving invocations include unchanged default-pose output, native/scored/
+empty collections, missing evidence and expected contradiction/identity/type/
+source-overlay refusals. Stored order/ranking and original producers remain
+separate; no ranking or molecular/native work runs. The unchanged #76 private
+reader wheel supplies this bounded example evidence, not a new package/source
+matrix or whole-E1 acceptance. Next receive current hosted regression in #28;
+a multi-pose rescoring/ranking study still needs a separately declared scientific
+comparison/preparation contract and MolSysMT-owned molecular tools.
+
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |
 | 1 | Current Core evidence and source CI (#28/#60) | The updated criterion map is delivered. Inspect the exact source/head's remaining hosted lanes and append their outcome to the owning issues; previous successes do not qualify another composition. |

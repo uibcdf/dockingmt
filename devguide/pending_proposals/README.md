@@ -4,10 +4,6 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
-### Active (1)
-
-- [`inspect_saved_scoring_collections.md`](inspect_saved_scoring_collections.md) — [#77](https://github.com/uibcdf/dockingmt/issues/77) — Inspect saved scoring collections through an explicit ordinary-installed example mode. *(active, asserted)*
-
 ### Partial (15)
 
 - [`adopt_python_distribution_controls.md`](adopt_python_distribution_controls.md) — [#47](https://github.com/uibcdf/dockingmt/issues/47) — Adopt distribution controls and the agreed first noarch Conda route. *(partial, measured)*

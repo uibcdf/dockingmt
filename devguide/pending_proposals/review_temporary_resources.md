@@ -84,6 +84,26 @@ nor a replacement installed/scientific gate. No local test/controller/watcher
 remains active after handoff, and no heavy restart is scheduled. Central reporting
 and unrelated resource dispositions remain deferred/unchanged.
 
+### Installed collection-example checkpoint — 2026-11-06
+
+[#77](../archive/inspect_saved_scoring_collections.md) reuses the exact #76 wheel
+in a new small borrowing installation of the retained Python 3.12 dependency
+base. Thirteen standalone-example invocations, including the old-example
+comparator and a separate intentional source-overlay child, finish serially on
+one logical CPU at low priority with native threads limited and RAM reserve
+monitored. No molecular/native/ranking/viewer operation or heavy suite runs.
+Metadata/pip checks pass, and original base consumer bytes/metadata remain intact.
+
+Owned venv and disposable example/input/runtime copies are retired after receipt
+handoff; unique outputs, input hashes/derivations, launcher and resource diagnostic
+are held through review on 2026-11-12. The reused wheel, original scientific
+fixtures and qualified base retain their prior custody. Final committed-source
+governance again uses a fresh tracked tree with shared verified committed bytes,
+read-only checks and before/after blob verification, then retires that tree.
+This is a resource adaptation, not independent copied-byte reproduction or a
+full installed gate. No test/controller/watcher or heavy retry remains active
+at handoff. The wider central handoff and existing historical holds stay deferred.
+
 ### Original operation review
 
 Review actual allocation, output, subprocess and cleanup paths in the Vina

@@ -1,0 +1,740 @@
+{
+  "date": "2026-11-06",
+  "derivations": {
+    "changed_score.json": "Deepcopy scored_collection; increase poses[0].scores.vina by 1; recorded evaluation unchanged.",
+    "empty_collection.json": "dmt.DockingResult(poses=[]).to_dict().",
+    "encoding": "Derived records: json.dumps(record, indent=2, allow_nan=False) plus newline; Python 3.12.16, reader/wheel above.",
+    "future_history.json": "Deepcopy scored_collection; set poses[0].metadata.scoring_history[0].schema_version to string 99.",
+    "missing_capture.json": "Deepcopy scored_collection; remove poses[0].metadata.scoring_history[0].backend_artifacts.partner.content_base64.",
+    "original_docking_result.json": "Unchanged bytes of devguide/validation/data/audit/minimal_vina_result.json.",
+    "original_pose.json": "Unchanged bytes of devguide/validation/data/audit/minimal_scored_pose.json.",
+    "scored_collection.json": "dmt.DockingResult(poses=[dmt.DockingPose.from_dict(original_pose)]).to_dict().",
+    "unknown_meaning.json": "Deepcopy original_docking_result; remove metadata.score_definitions from each pose."
+  },
+  "example": "examples/inspect_saved_scoring.py",
+  "example_sha256": "ea9dee4fee31ebfe7f6b343d6a8f19fbba6b6e3982146fe2b57f10a898be0ae9",
+  "example_source": "b87eb0885c180f30a2df8c6b9a40a1ff3c5c87bd",
+  "execution_profile": "Sequential in-process runs of exact standalone example outside source; separate fresh child for intentional source overlay. Required molecular provider bootstrap permitted, operations forbidden.",
+  "expected_refusals": 6,
+  "guards": {
+    "optional_providers_loaded": false,
+    "positive": {
+      "external_operation_attempts": 0,
+      "optional_import_attempts": 0
+    },
+    "ranking_executed": false,
+    "source_overlay_child": {
+      "external_operation_attempts": 0,
+      "optional_import_attempts": 0
+    }
+  },
+  "input_sha256": {
+    "changed_score.json": "d92170af12b91b3bc56b384183e5b28698421be308014c31662b6268aaa643cc",
+    "empty_collection.json": "8c9a85fbd0733b4078c9afaff65c1867352c442ab2f22fc0180aba8c7254fbaa",
+    "future_history.json": "8491db830506f197577b5c7d912339117f1435b6dececea5cce4965b909174e2",
+    "missing_capture.json": "101deb3218c91c40fe69016e999e33f5e20b333082fae7d93bc1e3ce58610dcb",
+    "original_docking_result.json": "4d66f4e3d00f5e5e6014ce00bd0ec11370890997f570f6272dc1f5205f1c0a88",
+    "original_pose.json": "970f516aadc19d6e5df8b5f7e930a7c8b7c239ab603f4e9f6d74769beb095723",
+    "scored_collection.json": "a666821f579ef080ebc2649653120a218ceef02cf7c7a09cb80b2eaae77a695b",
+    "unknown_meaning.json": "f6d5afe382af890063669ddec3a24bcd7fd37548d5253646434a579d36236c1e"
+  },
+  "integrity": {
+    "all_input_files_preserved": true,
+    "original_repository_fixtures_preserved": true,
+    "raw_receipt_sha256": "2ea1211afff8a8067b5ed677292a8d93c0ad39a64f24af50bf6ccd2c0d36feaf",
+    "receiving_launcher_sha256": "162ee7199d9e379e01c48986353aea05826ab34e52985e95da937ac0374774df"
+  },
+  "limits": [
+    "Thirteen example invocations include a previous-example comparator, not a pytest suite or independent molecular cases.",
+    "No scoring, docking, preparation, reconstruction, geometry, ranking or viewer operation; optional native/viewer providers unloaded.",
+    "Historical producer labels do not authenticate original software bytes.",
+    "Input integrity/internal agreement establish neither chemical validity, coordinate correspondence, score correctness nor comparability.",
+    "Private Linux Python 3.12 receiving is not public Conda, full-suite, supported-minor/platform qualification or whole E1 acceptance.",
+    "Fixed 0.1.0 candidate 905abc9 and prior #75/#76 receipts remain; no release/package/other-repository publication.",
+    "Broader exact-head hosted regression remains #28."
+  ],
+  "observations": {
+    "empty-collection": {
+      "audit": {
+        "checks_by_status": {
+          "consistent": 1,
+          "incomplete": 5
+        },
+        "incomplete_checks": [
+          {
+            "path": "/poses",
+            "reason": "poses_missing"
+          },
+          {
+            "path": "/provenance/backend_artifacts/receptor",
+            "reason": "The receptor PDBQT artifact is missing."
+          },
+          {
+            "path": "/provenance/backend_artifacts/partner",
+            "reason": "The partner PDBQT artifact is missing."
+          },
+          {
+            "path": "/protocol_info",
+            "reason": "comparison_evidence_missing"
+          },
+          {
+            "path": "/provenance/ranking_history",
+            "reason": "ranking_observations_missing"
+          }
+        ],
+        "scope": "saved_result_internal_consistency",
+        "status": "incomplete"
+      },
+      "canonical_roundtrip": true,
+      "collection": {
+        "original_docking_producer": {
+          "backend": null,
+          "backend_version": null,
+          "captured_bytes": null,
+          "captured_inputs": "unavailable",
+          "producer_dockingmt_version": null,
+          "producer_molsysmt_version": null
+        },
+        "pose_count": 0,
+        "ranking_history": [],
+        "ranking_policy": null,
+        "stored_pose_order": []
+      },
+      "decoded_input_unchanged": true,
+      "evaluation_producers": [],
+      "evaluations_per_pose": [],
+      "pose_count": 0,
+      "scope": "saved_scoring_collection_inspection",
+      "scores_per_pose": [],
+      "states_ranks": []
+    },
+    "missing-capture": {
+      "audit": {
+        "checks_by_status": {
+          "consistent": 378,
+          "incomplete": 5
+        },
+        "incomplete_checks": [
+          {
+            "path": "/provenance/backend_artifacts/receptor",
+            "reason": "The receptor PDBQT artifact is missing."
+          },
+          {
+            "path": "/provenance/backend_artifacts/partner",
+            "reason": "The partner PDBQT artifact is missing."
+          },
+          {
+            "path": "/protocol_info",
+            "reason": "comparison_evidence_missing"
+          },
+          {
+            "path": "/poses/0/metadata/scoring_history/0/backend_artifacts/partner",
+            "reason": "The partner PDBQT input bytes were not captured."
+          },
+          {
+            "path": "/provenance/ranking_history",
+            "reason": "ranking_observations_missing"
+          }
+        ],
+        "scope": "saved_result_internal_consistency",
+        "status": "incomplete"
+      },
+      "canonical_roundtrip": true,
+      "collection": {
+        "original_docking_producer": {
+          "backend": null,
+          "backend_version": null,
+          "captured_bytes": null,
+          "captured_inputs": "unavailable",
+          "producer_dockingmt_version": null,
+          "producer_molsysmt_version": null
+        },
+        "pose_count": 1,
+        "ranking_history": [],
+        "ranking_policy": null,
+        "stored_pose_order": [
+          null
+        ]
+      },
+      "decoded_input_unchanged": true,
+      "evaluation_producers": [
+        [
+          {
+            "backend": "vina",
+            "backend_version": "1.2.7",
+            "captured_inputs": "unavailable",
+            "producer_dockingmt_version": "0.0.0+101.gbe39d74.dirty",
+            "producer_molsysmt_version": "0.22.4+24.g42b487869",
+            "recorded_preparation_assessment": {
+              "partner": "unassessed",
+              "receptor": "unassessed"
+            },
+            "score_name": "vina"
+          },
+          {
+            "backend": "vina",
+            "backend_version": "1.2.7",
+            "captured_inputs": "verified",
+            "producer_dockingmt_version": "0.0.0+101.gbe39d74.dirty",
+            "producer_molsysmt_version": "0.22.4+24.g42b487869",
+            "recorded_preparation_assessment": {
+              "partner": "unassessed",
+              "receptor": "unassessed"
+            },
+            "score_name": "vinardo"
+          }
+        ]
+      ],
+      "evaluations_per_pose": [
+        2
+      ],
+      "pose_count": 1,
+      "scope": "saved_scoring_collection_inspection",
+      "scores_per_pose": [
+        16
+      ],
+      "states_ranks": [
+        {
+          "partner_state_id": "ligand-control",
+          "pose_id": null,
+          "rank": null,
+          "receptor_state_id": "receptor-control"
+        }
+      ]
+    },
+    "native-result": {
+      "audit": {
+        "checks_by_status": {
+          "consistent": 164
+        },
+        "incomplete_checks": [],
+        "scope": "saved_result_internal_consistency",
+        "status": "consistent"
+      },
+      "canonical_roundtrip": true,
+      "collection": {
+        "original_docking_producer": {
+          "backend": "vina",
+          "backend_version": "1.2.7",
+          "captured_bytes": {
+            "partner": 181,
+            "receptor": 317
+          },
+          "captured_inputs": "verified",
+          "producer_dockingmt_version": "0.0.0+14.g25b6e0b.dirty",
+          "producer_molsysmt_version": "0.22.4+118.g03b318549.dirty"
+        },
+        "pose_count": 2,
+        "ranking_history": [
+          {
+            "ascending": true,
+            "evidence": "recorded",
+            "origin": "backend",
+            "output_order": [
+              0,
+              1
+            ],
+            "score_name": "vina"
+          }
+        ],
+        "ranking_policy": {
+          "ascending": true,
+          "score_name": "vina"
+        },
+        "stored_pose_order": [
+          "pose_1",
+          "pose_2"
+        ]
+      },
+      "decoded_input_unchanged": true,
+      "evaluation_producers": [
+        [],
+        []
+      ],
+      "evaluations_per_pose": [
+        0,
+        0
+      ],
+      "pose_count": 2,
+      "scope": "saved_scoring_collection_inspection",
+      "scores_per_pose": [
+        4,
+        4
+      ],
+      "states_ranks": [
+        {
+          "partner_state_id": "minimal-partner",
+          "pose_id": "pose_1",
+          "rank": 1,
+          "receptor_state_id": "minimal-receptor"
+        },
+        {
+          "partner_state_id": "minimal-partner",
+          "pose_id": "pose_2",
+          "rank": 2,
+          "receptor_state_id": "minimal-receptor"
+        }
+      ]
+    },
+    "pose-default": {
+      "audit": {
+        "checks_by_status": {
+          "consistent": 378
+        },
+        "scope": "saved_pose_internal_consistency",
+        "status": "consistent"
+      },
+      "canonical_roundtrip": true,
+      "decoded_input_unchanged": true,
+      "evaluation_producers": [
+        [
+          {
+            "backend": "vina",
+            "backend_version": "1.2.7",
+            "captured_inputs": "verified",
+            "producer_dockingmt_version": "0.0.0+101.gbe39d74.dirty",
+            "producer_molsysmt_version": "0.22.4+24.g42b487869",
+            "recorded_preparation_assessment": {
+              "partner": "unassessed",
+              "receptor": "unassessed"
+            },
+            "score_name": "vina"
+          },
+          {
+            "backend": "vina",
+            "backend_version": "1.2.7",
+            "captured_inputs": "verified",
+            "producer_dockingmt_version": "0.0.0+101.gbe39d74.dirty",
+            "producer_molsysmt_version": "0.22.4+24.g42b487869",
+            "recorded_preparation_assessment": {
+              "partner": "unassessed",
+              "receptor": "unassessed"
+            },
+            "score_name": "vinardo"
+          }
+        ]
+      ],
+      "evaluations_per_pose": [
+        2
+      ],
+      "pose_count": 1,
+      "scope": "saved_scoring_record_inspection",
+      "scores_per_pose": [
+        16
+      ],
+      "states_ranks": [
+        {
+          "partner_state_id": "ligand-control",
+          "pose_id": null,
+          "rank": null,
+          "receptor_state_id": "receptor-control"
+        }
+      ]
+    },
+    "previous-pose-default": {
+      "audit": {
+        "checks_by_status": {
+          "consistent": 378
+        },
+        "scope": "saved_pose_internal_consistency",
+        "status": "consistent"
+      },
+      "canonical_roundtrip": true,
+      "decoded_input_unchanged": true,
+      "evaluation_producers": [
+        [
+          {
+            "backend": "vina",
+            "backend_version": "1.2.7",
+            "captured_inputs": "verified",
+            "producer_dockingmt_version": "0.0.0+101.gbe39d74.dirty",
+            "producer_molsysmt_version": "0.22.4+24.g42b487869",
+            "recorded_preparation_assessment": {
+              "partner": "unassessed",
+              "receptor": "unassessed"
+            },
+            "score_name": "vina"
+          },
+          {
+            "backend": "vina",
+            "backend_version": "1.2.7",
+            "captured_inputs": "verified",
+            "producer_dockingmt_version": "0.0.0+101.gbe39d74.dirty",
+            "producer_molsysmt_version": "0.22.4+24.g42b487869",
+            "recorded_preparation_assessment": {
+              "partner": "unassessed",
+              "receptor": "unassessed"
+            },
+            "score_name": "vinardo"
+          }
+        ]
+      ],
+      "evaluations_per_pose": [
+        2
+      ],
+      "pose_count": 1,
+      "scope": "saved_scoring_record_inspection",
+      "scores_per_pose": [
+        16
+      ],
+      "states_ranks": [
+        {
+          "partner_state_id": "ligand-control",
+          "pose_id": null,
+          "rank": null,
+          "receptor_state_id": "receptor-control"
+        }
+      ]
+    },
+    "scored-collection": {
+      "audit": {
+        "checks_by_status": {
+          "consistent": 379,
+          "incomplete": 4
+        },
+        "incomplete_checks": [
+          {
+            "path": "/provenance/backend_artifacts/receptor",
+            "reason": "The receptor PDBQT artifact is missing."
+          },
+          {
+            "path": "/provenance/backend_artifacts/partner",
+            "reason": "The partner PDBQT artifact is missing."
+          },
+          {
+            "path": "/protocol_info",
+            "reason": "comparison_evidence_missing"
+          },
+          {
+            "path": "/provenance/ranking_history",
+            "reason": "ranking_observations_missing"
+          }
+        ],
+        "scope": "saved_result_internal_consistency",
+        "status": "incomplete"
+      },
+      "canonical_roundtrip": true,
+      "collection": {
+        "original_docking_producer": {
+          "backend": null,
+          "backend_version": null,
+          "captured_bytes": null,
+          "captured_inputs": "unavailable",
+          "producer_dockingmt_version": null,
+          "producer_molsysmt_version": null
+        },
+        "pose_count": 1,
+        "ranking_history": [],
+        "ranking_policy": null,
+        "stored_pose_order": [
+          null
+        ]
+      },
+      "decoded_input_unchanged": true,
+      "evaluation_producers": [
+        [
+          {
+            "backend": "vina",
+            "backend_version": "1.2.7",
+            "captured_inputs": "verified",
+            "producer_dockingmt_version": "0.0.0+101.gbe39d74.dirty",
+            "producer_molsysmt_version": "0.22.4+24.g42b487869",
+            "recorded_preparation_assessment": {
+              "partner": "unassessed",
+              "receptor": "unassessed"
+            },
+            "score_name": "vina"
+          },
+          {
+            "backend": "vina",
+            "backend_version": "1.2.7",
+            "captured_inputs": "verified",
+            "producer_dockingmt_version": "0.0.0+101.gbe39d74.dirty",
+            "producer_molsysmt_version": "0.22.4+24.g42b487869",
+            "recorded_preparation_assessment": {
+              "partner": "unassessed",
+              "receptor": "unassessed"
+            },
+            "score_name": "vinardo"
+          }
+        ]
+      ],
+      "evaluations_per_pose": [
+        2
+      ],
+      "pose_count": 1,
+      "scope": "saved_scoring_collection_inspection",
+      "scores_per_pose": [
+        16
+      ],
+      "states_ranks": [
+        {
+          "partner_state_id": "ligand-control",
+          "pose_id": null,
+          "rank": null,
+          "receptor_state_id": "receptor-control"
+        }
+      ]
+    },
+    "unknown-meaning": {
+      "audit": {
+        "checks_by_status": {
+          "consistent": 26,
+          "incomplete": 4
+        },
+        "incomplete_checks": [
+          {
+            "path": "/poses/0",
+            "reason": "score_meaning_missing"
+          },
+          {
+            "path": "/poses/1",
+            "reason": "score_meaning_missing"
+          },
+          {
+            "path": "/poses/0",
+            "reason": "comparison_evidence_missing"
+          },
+          {
+            "path": "/poses/1",
+            "reason": "comparison_evidence_missing"
+          }
+        ],
+        "scope": "saved_result_internal_consistency",
+        "status": "incomplete"
+      },
+      "canonical_roundtrip": true,
+      "collection": {
+        "original_docking_producer": {
+          "backend": "vina",
+          "backend_version": "1.2.7",
+          "captured_bytes": {
+            "partner": 181,
+            "receptor": 317
+          },
+          "captured_inputs": "verified",
+          "producer_dockingmt_version": "0.0.0+14.g25b6e0b.dirty",
+          "producer_molsysmt_version": "0.22.4+118.g03b318549.dirty"
+        },
+        "pose_count": 2,
+        "ranking_history": [
+          {
+            "ascending": true,
+            "evidence": "recorded",
+            "origin": "backend",
+            "output_order": [
+              0,
+              1
+            ],
+            "score_name": "vina"
+          }
+        ],
+        "ranking_policy": {
+          "ascending": true,
+          "score_name": "vina"
+        },
+        "stored_pose_order": [
+          "pose_1",
+          "pose_2"
+        ]
+      },
+      "decoded_input_unchanged": true,
+      "evaluation_producers": [
+        [],
+        []
+      ],
+      "evaluations_per_pose": [
+        0,
+        0
+      ],
+      "pose_count": 2,
+      "scope": "saved_scoring_collection_inspection",
+      "scores_per_pose": [
+        4,
+        4
+      ],
+      "states_ranks": [
+        {
+          "partner_state_id": "minimal-partner",
+          "pose_id": "pose_1",
+          "rank": 1,
+          "receptor_state_id": "minimal-receptor"
+        },
+        {
+          "partner_state_id": "minimal-partner",
+          "pose_id": "pose_2",
+          "rank": 2,
+          "receptor_state_id": "minimal-receptor"
+        }
+      ]
+    }
+  },
+  "owner": "uibcdf/dockingmt#77",
+  "previous_example": {
+    "same_reader_default_output_equal": true,
+    "sha256": "2ba7fd3db05dda1191593a8f41ce7320a19f81831baf58d3eac579c52fbce42e",
+    "source": "cb7530c1cdaf67b8dd1d6d73b999fd20694d235a"
+  },
+  "profile_count": 13,
+  "profiles": [
+    {
+      "exit_code": 0,
+      "input": "original_pose.json",
+      "input_sha256": "970f516aadc19d6e5df8b5f7e930a7c8b7c239ab603f4e9f6d74769beb095723",
+      "name": "previous-pose-default",
+      "output_sha256": "9fa8074d40398f3066047292ff7de073871f95887d66598d67426417b544ca25",
+      "record_kind": "pose",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "input": "original_pose.json",
+      "input_sha256": "970f516aadc19d6e5df8b5f7e930a7c8b7c239ab603f4e9f6d74769beb095723",
+      "name": "pose-default",
+      "output_sha256": "9fa8074d40398f3066047292ff7de073871f95887d66598d67426417b544ca25",
+      "record_kind": "pose",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "input": "original_docking_result.json",
+      "input_sha256": "4d66f4e3d00f5e5e6014ce00bd0ec11370890997f570f6272dc1f5205f1c0a88",
+      "name": "native-result",
+      "output_sha256": "3f7c5ef0f75a6644e921a8249f72a00e23555ebc7f2cc524b5d91f956d759012",
+      "record_kind": "result",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "input": "scored_collection.json",
+      "input_sha256": "a666821f579ef080ebc2649653120a218ceef02cf7c7a09cb80b2eaae77a695b",
+      "name": "scored-collection",
+      "output_sha256": "d12f10a586fd78069654f855462f620cf4986da8601d08c01287d2a7081587ec",
+      "record_kind": "result",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "input": "missing_capture.json",
+      "input_sha256": "101deb3218c91c40fe69016e999e33f5e20b333082fae7d93bc1e3ce58610dcb",
+      "name": "missing-capture",
+      "output_sha256": "c09c353ff35813a26d06ef66ab3afe3506a8fc70fb4ec1c031a6e62d64e52ff3",
+      "record_kind": "result",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "input": "unknown_meaning.json",
+      "input_sha256": "f6d5afe382af890063669ddec3a24bcd7fd37548d5253646434a579d36236c1e",
+      "name": "unknown-meaning",
+      "output_sha256": "51201f79515c92eee7e9439b8a73736b6f09c5f88cd14306ad0bbc4f2b9d6029",
+      "record_kind": "result",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 0,
+      "input": "empty_collection.json",
+      "input_sha256": "8c9a85fbd0733b4078c9afaff65c1867352c442ab2f22fc0180aba8c7254fbaa",
+      "name": "empty-collection",
+      "output_sha256": "d6c66715bdceaa2ea11aad4acf931942f68004f04bf1867f3afcbb3ffe8db5de",
+      "record_kind": "result",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "input": "changed_score.json",
+      "input_sha256": "d92170af12b91b3bc56b384183e5b28698421be308014c31662b6268aaa643cc",
+      "name": "changed-score",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_kind": "result",
+      "stderr_sha256": "3a21ec3f9348cd9f17de8420124c89f87530f25976757110e18d7b15bc0070fb"
+    },
+    {
+      "exit_code": 1,
+      "input": "future_history.json",
+      "input_sha256": "8491db830506f197577b5c7d912339117f1435b6dececea5cce4965b909174e2",
+      "name": "future-history",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_kind": "result",
+      "stderr_sha256": "3c6db77812a4bff2ba87a15437d17cabe302a88aba45383d01773ae0428284f6"
+    },
+    {
+      "exit_code": 1,
+      "input": "scored_collection.json",
+      "input_sha256": "a666821f579ef080ebc2649653120a218ceef02cf7c7a09cb80b2eaae77a695b",
+      "name": "wrong-hash",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_kind": "result",
+      "stderr_sha256": "e8196cb3efb7dff9461661f79ea0e61b608be7eb771c44ae83fff0bb920e918a"
+    },
+    {
+      "exit_code": 1,
+      "input": "original_pose.json",
+      "input_sha256": "970f516aadc19d6e5df8b5f7e930a7c8b7c239ab603f4e9f6d74769beb095723",
+      "name": "wrong-kind-result",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_kind": "result",
+      "stderr_sha256": "1626b18dabe85cc8872a9159cb9b63902414d3eb1c7a8d09147d1ced7f51daaa"
+    },
+    {
+      "exit_code": 1,
+      "input": "original_docking_result.json",
+      "input_sha256": "4d66f4e3d00f5e5e6014ce00bd0ec11370890997f570f6272dc1f5205f1c0a88",
+      "name": "wrong-kind-pose",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_kind": "pose",
+      "stderr_sha256": "824f33c50333db2f73838e01005c2c0c07fb71eea32dccb32354f6cc4de0e839"
+    },
+    {
+      "exit_code": 1,
+      "input": "original_pose.json",
+      "input_sha256": "970f516aadc19d6e5df8b5f7e930a7c8b7c239ab603f4e9f6d74769beb095723",
+      "name": "source-overlay",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "record_kind": "pose",
+      "stderr_sha256": "97ceb0a207c797ed622654bd4236f43cb0ccc2b53c6f80d02ebe08b3d2682c7e"
+    }
+  ],
+  "reader": {
+    "base_consumer_preserved": {
+      "archive_metadata_preserved": true,
+      "runtime_payloads_preserved": 63,
+      "version": "0.1.0",
+      "wheel_sha256": "fbe3591068d9633ae0066ab3dcd593508f7fc31d86eefad01975fd4e4bb71752"
+    },
+    "payload_files_after": 63,
+    "payload_files_before": 63,
+    "pip_check_exit_code": 0,
+    "prior_receipt": "../scored_result_audit_2026-11-05/receiving.json",
+    "prior_receipt_sha256": "584556cc846c7b7751444552a63fc0f70d0d2199bfd3db3e68d124066f2088d0",
+    "profile": "New tiny venv borrowing retained qualified dependencies, unchanged #76 wheel installed without dependencies; no rebuild or fresh/public solve.",
+    "provider_metadata_versions": {
+      "argdigest": "0.15.0+5.g3d1ec53",
+      "depdigest": "0.15.2",
+      "molsysmt": "0.23.0+368.g00abb958f",
+      "pyunitwizard": "0.29.0",
+      "smonitor": "0.22.1"
+    },
+    "python": "3.12.16",
+    "source": "d4aac964732bf6bdb1637f5297ccf95f3d3a272d",
+    "version": "0.0.0+unknown",
+    "wheel": {
+      "filename": "dockingmt-0.0.0+unknown-py3-none-any.whl",
+      "sha256": "6f61287017cc0c545e1b80c2997ef3b89361201fde92dbc2eed4005770dc41f3"
+    }
+  },
+  "receiving_started": "2026-11-05",
+  "resources": {
+    "automatic_heavy_restart": false,
+    "logical_cpus": 1,
+    "native_library_threads": 1,
+    "priority": "low",
+    "ram_reserve_monitored": true,
+    "resource_interruption": false,
+    "retirement": "Retire owned borrowing venv and disposable copies after handoff; preserve reused wheel/base and unique receipts/launcher/diagnostic.",
+    "review": "2026-11-12",
+    "serial": true
+  },
+  "schema": "dockingmt.installed-scoring-collection-inspection@1",
+  "successful_reads": 7
+}

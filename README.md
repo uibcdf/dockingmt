@@ -34,7 +34,7 @@ These examples do not establish general predictive accuracy or binding affinity.
 | Task | Current guide | What the example does |
 | --- | --- | --- |
 | Inspect a saved result | [Result inspection](devguide/validation/installed_result_inspection.md) | Reads caller-supplied records and checks available evidence; no new docking. |
-| Inspect saved scoring evaluations | [Saved-scoring inspection](devguide/validation/installed_scoring_inspection.md) | Audits existing named scores and evaluation history without recomputing them. |
+| Inspect saved scoring evaluations | [Saved-scoring inspection](devguide/validation/installed_scoring_inspection.md) | Reads poses or explicit result collections, retaining scores, evaluation producers and missing evidence. |
 | Prepare the declared 3PTB case | [Preparation and admission](devguide/validation/installed_3ptb_preparation.md) | Applies the explicit molecular recipe and checks inputs; no search. |
 | Execute that case | [Two-search workflow](devguide/validation/installed_3ptb_execution.md) | Performs two new Vina searches and saves their results. |
 | Evaluate saved poses | [Nine-heavy-atom evaluation](devguide/validation/installed_3ptb_evaluation.md) | Measures the declared positional RMSD without new searches. |

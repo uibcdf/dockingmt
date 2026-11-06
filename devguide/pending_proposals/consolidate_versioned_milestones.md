@@ -100,3 +100,14 @@ This later runtime implementation is separate from fixed 0.1.0 candidate `905abc
 Its new private development wheel and focused receipt do not extend #74's existing
 minor qualification, move a tag or establish whole E1 acceptance. Broad new-head
 regression remains #28; no new scientific or molecular work is introduced.
+
+
+### Installed E1 collection inspection — 2026-11-06
+
+[#77](../archive/inspect_saved_scoring_collections.md) extends the existing saved-
+scoring example with explicit result mode. Thirteen receiving invocations retain
+its default pose output and inspect stored scores, ordering, original producers
+and missing evidence without ranking or molecular/native work. The exact #76
+private reader wheel is reused; no new runtime package is built and fixed 0.1.0
+candidate `905abc9` is not advanced. Broad current-head regression remains #28;
+whole E1 still needs the declared representative rescoring/comparison workflow.

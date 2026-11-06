@@ -302,8 +302,9 @@ The [fixed-pose scoring contract](validation/fixed_pose_scoring.md) and
 prepared-input operation and independent score attachment without pose search.
 
 The [installed saved-scoring example](validation/installed_scoring_inspection.md)
-reads caller-owned pose JSON outside the clone, retaining all named scores and
-historical producers. Missing and contradictory evidence, external identity and
+reads caller-owned pose JSON or explicit result collections outside the clone,
+retaining named scores, stored ordering, historical producers and unknown evidence.
+Missing and contradictory evidence, external identity and
 source overlays have explicit receiving controls. This is record inspection,
 separate from executing a new rescoring study or accepting whole Extended E1.
 
