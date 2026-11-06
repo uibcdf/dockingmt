@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (51)
+### Resolved (52)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
@@ -17,6 +17,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`correct_suite_dependency_installation_routes.md`](correct_suite_dependency_installation_routes.md) — [#64](https://github.com/uibcdf/dockingmt/issues/64) — Advertise the actual MolSysMT and MolSysViewer installation routes. *(resolved, measured)*
 - [`decide_validation_and_benchmark_publication.md`](decide_validation_and_benchmark_publication.md) — [#29](https://github.com/uibcdf/dockingmt/issues/29) — Decide how to collect and publish validation strategies and benchmarks *(resolved, inspected)*
 - [`declare_unyt_test_dependency.md`](declare_unyt_test_dependency.md) — [#66](https://github.com/uibcdf/dockingmt/issues/66) — Declare the alternate unit backend required by box-export tests *(resolved, measured)*
+- [`deliver_installed_scoring_inspection.md`](deliver_installed_scoring_inspection.md) — [#75](https://github.com/uibcdf/dockingmt/issues/75) — Inspect saved named-scoring evidence through an ordinary-installed public API example. *(resolved, measured)*
 - [`describe_saved_search_variability.md`](describe_saved_search_variability.md) — [#67](https://github.com/uibcdf/dockingmt/issues/67) — Describe seed and effort variability in frozen search results *(resolved, measured)*
 - [`describe_scores_and_preserve_ranking_history.md`](describe_scores_and_preserve_ranking_history.md) — [#31](https://github.com/uibcdf/dockingmt/issues/31) — Describe score semantics and preserve ranking history *(resolved, measured)*
 - [`diagnose_p59_score_preference.md`](diagnose_p59_score_preference.md) — [#69](https://github.com/uibcdf/dockingmt/issues/69) — Diagnose saved P59 total-score preference versus positional recovery. *(resolved, measured)*

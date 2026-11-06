@@ -88,18 +88,23 @@ before collection; qualified/rejected artifacts and launcher diagnostics remain
 separate. The [gate/reuse decision](releases/0.1.0.md#gate-reuse-and-replacement-decision)
 retains earlier populations. The [new archive-installed population](validation/data/source_0_1_0_2026-11-05/source_minor_matrix.json)
 also passes 1,761 tests on Python 3.12.16 with its own fresh closure and unchanged
-wheel bytes. Intended-version 3.11 and 3.13 remain pending after resource
-interruptions; resume their complete selections only with stable capacity.
+wheel bytes. The [completed hosted continuation](validation/data/source_0_1_0_2026-11-05/hosted_receiving.json)
+now adds full 1,761-pass installed gates on Python 3.11.18 and 3.13.18, zero
+failures/errors/skips, with a separate new private archive and observed closures.
+Intended-version Linux 3.11–3.14 is complete across two archive populations;
+this is not a single-file/public matrix. Original local resource interruptions
+remain history and need no local retry.
 Local heavy work is now serial, one logical CPU, low priority, with native/build
 workers limited and a monitored RAM reserve. No heavy restart is automatic and
 no local test/controller/watcher remains active. Source-event/notice decisions
 are still pending. Keep the target fixed while publishing evidence documents.
 The [manual hosted continuation](releases/0.1.0.md#hosted-continuation-for-python-311-and-313)
-now prepares the two missing cells outside this workstation. It builds a new
+executes the two missing cells outside this workstation. It builds a new
 private wheel from the same candidate and checks its bytes against the frozen
 payload; both remote receivers consume that new archive. Their actual hosted
-results remain pending. This does not restart interrupted local tests or move
-the candidate, publish a tag/package, or substitute old results for new bytes.
+results now pass in run 42162010170 (three jobs). This does not restart local
+tests or move the candidate, publish a tag/package, or substitute old results
+for new bytes.
 
 The last runtime-change head `837de4b` now has successful seven-job CI, including
 the actual coverage publisher, plus separate DOM/policy/publication-governance.
@@ -144,6 +149,13 @@ and demonstrate an independent representative-workflow reproducibility audit
 for E5. Their detailed implementation and experiments still require concrete
 accepted workflows. This target does not resume deferred provider issue work or
 live visual observation automatically.
+
+The [installed saved-scoring inspection](validation/installed_scoring_inspection.md)
+under #75 is delivered as a lightweight E1 follow-up: exact caller-file identity,
+16 saved scores/two original evaluations, missing/contradictory evidence and
+source-overlay refusal pass five bounded receiving profiles. No new scores or
+molecular operations are computed; this is not whole-E1 acceptance or permission
+to relax cross-pose comparison contexts.
 
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |

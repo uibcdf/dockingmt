@@ -143,7 +143,14 @@ No new artifact download, environment, install, molecular/native operation,
 build, tag, release or upload is performed.
 
 The immediate progression is: retain the accepted Core-plus-Extended target,
-finish exact-head receiving under #28, prepare the `0.1.0` source-candidate decision, and resume
+receive later checkpoint CI under #28, complete the `0.1.0` source-event decision, and resume
 actual public compatibility under #30/#47 only when covering provider bytes are
 available. Molecular capabilities remain MolSysMT-owned; visual acceptance stays
 deferred until the maintainer resumes it.
+
+The [completed #74 private receiving](validation/data/source_0_1_0_2026-11-05/hosted_receiving.json)
+now supplies all intended-version Linux minors 3.11–3.14 across two archive
+populations, with the original resource interruptions retained. Candidate
+`905abc9` remains fixed; a single-file/public/platform matrix, canonical tag and
+required central notice are not inferred. The source event remains pending
+under the existing other-repository deferral.

@@ -1,0 +1,362 @@
+{
+  "schema": "dockingmt.installed-scoring-inspection@1",
+  "date": "2026-11-05",
+  "owner": "uibcdf/dockingmt#75",
+  "example": "examples/inspect_saved_scoring.py",
+  "example_sha256": "2ba7fd3db05dda1191593a8f41ce7320a19f81831baf58d3eac579c52fbce42e",
+  "input": "devguide/validation/data/audit/minimal_scored_pose.json",
+  "input_sha256": "970f516aadc19d6e5df8b5f7e930a7c8b7c239ab603f4e9f6d74769beb095723",
+  "derived_control_sha256": {
+    "missing-capture.json": "4c6796d608d94389b86a6d8c2aa3e7a4ecb39b73e9ed31c59a25c307657a08a3",
+    "changed-score.json": "3f3e99ce9576f6d4b2816659807985ae21f7986104fb1722980d5f9fffee0bed"
+  },
+  "reader": {
+    "version": "0.1.0",
+    "python": "3.12.16",
+    "wheel_sha256": "fbe3591068d9633ae0066ab3dcd593508f7fc31d86eefad01975fd4e4bb71752",
+    "profile": "retained qualified private installed prefix; unchanged, no install or upgrade",
+    "prior_receipt": "../source_0_1_0_2026-11-05/source_minor_matrix.json",
+    "prior_receipt_sha256": "de1cb4629050d1ece58647e59209f7829397837dc0d0d1ff5aff22f14bd893f1"
+  },
+  "original_report": {
+    "audit": {
+      "checks_by_status": {
+        "consistent": 378
+      },
+      "scope": "saved_pose_internal_consistency",
+      "status": "consistent"
+    },
+    "canonical_roundtrip": true,
+    "decoded_input_unchanged": true,
+    "evaluations": [
+      {
+        "backend": "vina",
+        "backend_version": "1.2.7",
+        "captured_bytes": {
+          "partner": 181,
+          "receptor": 317
+        },
+        "captured_inputs": "verified",
+        "producer_dockingmt_version": "0.0.0+101.gbe39d74.dirty",
+        "producer_molsysmt_version": "0.22.4+24.g42b487869",
+        "recorded_preparation_assessment": {
+          "partner": "unassessed",
+          "receptor": "unassessed"
+        },
+        "score_name": "vina"
+      },
+      {
+        "backend": "vina",
+        "backend_version": "1.2.7",
+        "captured_bytes": {
+          "partner": 181,
+          "receptor": 317
+        },
+        "captured_inputs": "verified",
+        "producer_dockingmt_version": "0.0.0+101.gbe39d74.dirty",
+        "producer_molsysmt_version": "0.22.4+24.g42b487869",
+        "recorded_preparation_assessment": {
+          "partner": "unassessed",
+          "receptor": "unassessed"
+        },
+        "score_name": "vinardo"
+      }
+    ],
+    "input_sha256": "970f516aadc19d6e5df8b5f7e930a7c8b7c239ab603f4e9f6d74769beb095723",
+    "not_established": [
+      "historical software-byte authentication",
+      "coordinate correspondence with captured molecular inputs",
+      "chemical validity or preparation qualification",
+      "score correctness, comparability or binding affinity"
+    ],
+    "pose": {
+      "partner_state_id": "ligand-control",
+      "pose_id": null,
+      "rank": null,
+      "receptor_state_id": "receptor-control"
+    },
+    "reader": {
+      "dockingmt_version": "0.1.0",
+      "ordinary_installed": true
+    },
+    "scope": "saved_scoring_record_inspection",
+    "scores": [
+      {
+        "component": "total",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "name": "vina",
+        "preferred_direction": "lower",
+        "unit": "kilocalorie / mole",
+        "value": 38.197
+      },
+      {
+        "component": "lig_inter",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "name": "vina.lig_inter",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 38.197
+      },
+      {
+        "component": "flex_inter",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "name": "vina.flex_inter",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      },
+      {
+        "component": "other_inter",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "name": "vina.other_inter",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      },
+      {
+        "component": "flex_intra",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "name": "vina.flex_intra",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      },
+      {
+        "component": "lig_intra",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "name": "vina.lig_intra",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      },
+      {
+        "component": "torsions",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "name": "vina.torsions",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      },
+      {
+        "component": "lig_intra_best_pose",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vina",
+        "method_version": "1.2.7",
+        "name": "vina.lig_intra_best_pose",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      },
+      {
+        "component": "total",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "name": "vinardo",
+        "preferred_direction": "lower",
+        "unit": "kilocalorie / mole",
+        "value": 39.483
+      },
+      {
+        "component": "lig_inter",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "name": "vinardo.lig_inter",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 39.483
+      },
+      {
+        "component": "flex_inter",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "name": "vinardo.flex_inter",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      },
+      {
+        "component": "other_inter",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "name": "vinardo.other_inter",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      },
+      {
+        "component": "flex_intra",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "name": "vinardo.flex_intra",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      },
+      {
+        "component": "lig_intra",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "name": "vinardo.lig_intra",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      },
+      {
+        "component": "torsions",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "name": "vinardo.torsions",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      },
+      {
+        "component": "lig_intra_best_pose",
+        "kind": "empirical",
+        "method": "AutoDock Vina/vinardo",
+        "method_version": "1.2.7",
+        "name": "vinardo.lig_intra_best_pose",
+        "preferred_direction": null,
+        "unit": "kilocalorie / mole",
+        "value": 0.0
+      }
+    ]
+  },
+  "missing_capture_audit": {
+    "checks_by_status": {
+      "consistent": 377,
+      "incomplete": 1
+    },
+    "scope": "saved_pose_internal_consistency",
+    "status": "incomplete"
+  },
+  "profiles": [
+    {
+      "profile": "original",
+      "exit": 0,
+      "unexpected": null,
+      "attempts": [],
+      "payload_files_before_after": 63,
+      "input_unchanged": true,
+      "python": "3.12.16",
+      "reader_version": "0.1.0",
+      "origins_inside_qualified_prefix": true,
+      "deliberate_source_overlay": false,
+      "stdout_sha256": "0d435f1275783b162f73d67628b7786a7ef298290dea214e9ea5680166f01815",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "launcher_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "profile": "missing",
+      "exit": 0,
+      "unexpected": null,
+      "attempts": [],
+      "payload_files_before_after": 63,
+      "input_unchanged": true,
+      "python": "3.12.16",
+      "reader_version": "0.1.0",
+      "origins_inside_qualified_prefix": true,
+      "deliberate_source_overlay": false,
+      "stdout_sha256": "c67a4eaab898a3dfb057a5e21a198d8a3a8b18668a8ec475faf4e999e60dced6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "launcher_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "profile": "changed",
+      "exit": 1,
+      "unexpected": null,
+      "attempts": [],
+      "payload_files_before_after": 63,
+      "input_unchanged": true,
+      "python": "3.12.16",
+      "reader_version": "0.1.0",
+      "origins_inside_qualified_prefix": true,
+      "deliberate_source_overlay": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "c19c3a39d70d98ba3bcc56af350d27052d5512d65d0d4dc03fb9e0a4eec422e0",
+      "launcher_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "profile": "wrong-hash",
+      "exit": 1,
+      "unexpected": null,
+      "attempts": [],
+      "payload_files_before_after": 63,
+      "input_unchanged": true,
+      "python": "3.12.16",
+      "reader_version": "0.1.0",
+      "origins_inside_qualified_prefix": true,
+      "deliberate_source_overlay": false,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e8196cb3efb7dff9461661f79ea0e61b608be7eb771c44ae83fff0bb920e918a",
+      "launcher_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "profile": "overlay",
+      "exit": 1,
+      "unexpected": null,
+      "attempts": [],
+      "payload_files_before_after": 63,
+      "input_unchanged": true,
+      "python": "3.12.16",
+      "reader_version": "0.0.0+264.gd1435ff",
+      "origins_inside_qualified_prefix": false,
+      "deliberate_source_overlay": true,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "97ceb0a207c797ed622654bd4236f43cb0ccc2b53c6f80d02ebe08b3d2682c7e",
+      "launcher_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "file_and_input_postchecks": {
+    "all_copied_inputs_unchanged_after_controller": true,
+    "original_repository_fixture_unchanged": true,
+    "all_16_score_values_and_names_preserved": true,
+    "pose_ids_states_rank_and_two_producer_labels_preserved": true,
+    "source_free_ordinary_positive_profiles": true,
+    "source_overlay_is_an_explicit_negative_control": true
+  },
+  "execution": {
+    "serial": true,
+    "logical_cpu_limit": 1,
+    "low_priority": true,
+    "native_library_threads": 1,
+    "ram_headroom_guard": true,
+    "resource_interruption": false,
+    "new_environment_or_package_install": false,
+    "molecular_native_or_viewer_calls": 0,
+    "optional_provider_loads": 0
+  },
+  "initial_launcher_diagnostic": {
+    "classification": "invalidated_private_launcher_output_collision",
+    "description": "An initial receipt path overwrote only its own input copy after the within-example checks. A later launch stopped before a child because that copy had been archived. The original repository fixture and qualified prefix stayed intact. Distinct receipt filenames and independent controller postchecks correct this; the five final profiles above use the exact final example bytes.",
+    "not_a_product_failure": true,
+    "earlier_attempts_not_counted_as_independent_evidence": true
+  },
+  "qualification_limits": [
+    "Read-only tutorial and saved-record consistency evidence, not new scoring or independent molecular cases.",
+    "The overlapping software control retains historical dirty producer identity and unassessed preparation.",
+    "No historical software-byte authentication, chemical validity, molecular coordinate correspondence, score calibration or comparability claim.",
+    "This does not accept whole E1, public Conda delivery, other platforms or live visualization."
+  ]
+}

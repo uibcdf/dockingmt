@@ -100,8 +100,9 @@ distributions, matching payloads/imports and retired shared support. It does not
 claim the prior directory-install provenance. The initial 3.11/3.13 runs were
 stopped to preserve shared-machine headroom; a guarded serial 3.11 retry also
 reached its RAM reserve. Partial progress is not a passing gate or a demonstrated
-product failure. No 3.13 serial retry began. Both complete selections remain
-deferred until stable capacity. Local heavy work is serial, one logical CPU,
+product failure. No 3.13 serial retry began. Those local attempts stay interrupted
+history; completed hosted receiving below covers the two minors without a local
+retry. Local heavy work is serial, one logical CPU,
 low priority, native/build workers limited, with monitored RAM headroom and no
 automatic restart. No local test, controller or watcher remains running.
 
@@ -112,9 +113,21 @@ matches the frozen receipt, and both hosted cells must consume the same new
 archive hash. Existing source/context/installed SDK operations retain ownership.
 New administrative controls cover rejected payload/metadata/license/platform,
 local heavy-execution refusal, fixed producer and read-only same-run workflow
-bindings. This validates the caller, not the unexecuted hosted scientific gates.
+bindings. These controls validate the caller separately from the hosted gates.
 Retire this release-specific route after the first-tag decision or received
 common replacement; public publication and original local artifacts stay separate.
+
+Hosted run **42162010170**, attempt 1, now succeeds in all three jobs at
+qualification source `1837eecb32ba87e5e78697ac667f9d5a7de9c3ae`, still consuming
+fixed candidate `905abc9`. Python **3.11.18** and **3.13.18** each pass all
+**1,761 tests**, zero failures/errors/skips, with 349 warnings and verified
+post-payload/metadata/pip checks, source/installed context and support retirement.
+The new wheel is `179474…`, distinct from `fbe359…`; both hosted cells consume
+the same new bytes. Their base Conda/effective Python counts are respectively
+260/103 and 259/102. The terminal receipt retains complete source, inventory,
+artifact and run binding, including the compressed installed-file digests.
+Intended-version Linux 3.11–3.14 is complete across separately observed archive
+populations and closures, not a single-file/public/other-platform matrix.
 
 The four exact-candidate source lanes each pass 1,761 tests at actual version
 `0.0.0`, with 348 warnings; the separate terminal receipt now records all seven
@@ -122,8 +135,8 @@ jobs succeeding, including report binding/download and actual coverage upload.
 The dossier records concrete reuse/replacement decisions. Local Ruff/index/link
 and final committed-export resource/publication controls must pass before handoff.
 
-The issue remains partial: preserve closure limits and execute intended-version
-consuming cells for Python 3.11 and 3.13 only when stable capacity permits, before
-claiming that qualification. Complete the source-event decision before releasing.
+The issue remains partial for the actual source-event decision and required
+notice. The intended-version Linux minor gates are complete; preserve their
+per-artifact/closure limits before any publication decision.
 The central source-release notice is drafted but currently deferred with
 other-repository issue work; it must not be omitted after an actual event.
