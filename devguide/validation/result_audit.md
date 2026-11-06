@@ -117,7 +117,7 @@ during the supported operations. Replay regression tests exercise the shared
 integrity rule. Issue [#32](https://github.com/uibcdf/dockingmt/issues/32) owns this
 bounded Core C5 follow-up; validation publication remains the separate #29 decision.
 
-The separate [#76 correction](../pending_bugs/audit_result_scoring_stages.md)
+The separate [#76 correction](../archive/audit_result_scoring_stages.md)
 and `tests/test_scored_result_audit.py` cover scored collections, malformed and
 missing histories, duplicate/conflicting producers and original-docking
 protection. Its appended-stage control is explicitly synthetic record evidence,

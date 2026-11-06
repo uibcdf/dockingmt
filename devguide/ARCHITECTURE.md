@@ -1,8 +1,44 @@
 # Architecture
 
+This document distinguishes the existing implementation from the richer
+scientific design. Use [development setup](DEVELOPMENT.md) to work in the code
+and [the full requirement/evidence plan](PRE_STABILIZATION_PLAN.md) to assess
+acceptance. A source module or conceptual diagram does not establish a completed
+Core/Extended gate.
+
+## Current source map
+
+The following paths are implemented entry points, reviewed for the
+[2026-11-06 handoff](MACHINE_HANDOFF.md). Public exports in
+[`dockingmt/__init__.py`](../dockingmt/__init__.py) and the actual source remain
+authoritative when this navigation map changes.
+
+| Area | Current source | Responsibility |
+| --- | --- | --- |
+| Scientific declarations and records | [`core/problem.py`](../dockingmt/core/problem.py), [`protocol.py`](../dockingmt/core/protocol.py), [`search_domain.py`](../dockingmt/core/search_domain.py), [`results.py`](../dockingmt/core/results.py), [`outcome.py`](../dockingmt/core/outcome.py) | Problems, resolved Vina protocol, physical search domains, poses/results and per-item batch outcomes. |
+| Record admission and provenance | [`core/audit.py`](../dockingmt/core/audit.py), [`pose_audit.py`](../dockingmt/core/pose_audit.py), [`_scores.py`](../dockingmt/core/_scores.py), [`_private/artifacts.py`](../dockingmt/_private/artifacts.py) | Internal consistency, named score/ranking evidence and captured backend-input identity. These do not certify chemistry or reconstruct missing molecular sources. |
+| Public orchestration | [`dock.py`](../dockingmt/dock.py), [`score.py`](../dockingmt/score.py), [`batch.py`](../dockingmt/batch.py), [`evaluation.py`](../dockingmt/evaluation.py), [`aggregation.py`](../dockingmt/aggregation.py) | Docking/fixed scoring, serial prepared-problem execution and explicitly delimited reference-recovery evaluation/aggregation. |
+| Docking preparation | [`preparation/`](../dockingmt/preparation/) | Docking intent, named preparation choices, assessments, provider orchestration and source/prepared/backend maps. General molecular operations belong to MolSysMT; remaining migration boundaries stay in #49. |
+| Backend adapter | [`engines/base.py`](../dockingmt/engines/base.py), [`vina.py`](../dockingmt/engines/vina.py), [`_vina_scoring.py`](../dockingmt/engines/_vina_scoring.py) | Capability negotiation, native Vina execution and interpretation of backend outputs. |
+| Viewer entry and addon | [`view.py`](../dockingmt/view.py), [`molsysviewer_dockingmt/`](../molsysviewer_dockingmt/), [`viewer/__init__.py`](../dockingmt/viewer/__init__.py) | Public view entry, DockingMT-owned runtime/panels/adapters and compatibility exports. MolSysViewer owns generic host/rendering behavior. |
+| Shared support integration | [`_argdigest.py`](../dockingmt/_argdigest.py), [`_depdigest.py`](../dockingmt/_depdigest.py), [`_smonitor.py`](../dockingmt/_smonitor.py), [`_pyunitwizard.py`](../dockingmt/_pyunitwizard.py), [`_private/`](../dockingmt/_private/) | Owned argument contracts, dependency declarations, structured diagnostics and quantity policy. Follow the synchronized root tool guides. |
+| User-facing example | [`examples/inspect_saved_scoring.py`](../examples/inspect_saved_scoring.py) | Explicit saved-pose/result inspection; it is not a molecular recovery tool or a new scoring study. |
+| Tests and qualification tools | [`tests/`](../tests/), [`devtools/`](../devtools/), [`dmt_test_support/`](../dmt_test_support/) | Software guards, administrative controls and unshipped scientific helpers. The exact installed helper/data selection is declared in `devtools/conda-build/resources.toml`. |
+| Engineering and scientific evidence | [`.github/workflows/`](../.github/workflows/), [`devguide/`](README.md) | Source/installed/administrative gates, accepted design, owning work records and original scientific receipts. |
+
+There are no standalone public `DockingRun`, `DockingCampaign`, general executor
+or stage-plugin implementations implied by this map. Current run information is
+recorded through problem/protocol/result provenance and `DockingOutcome`.
+`dock_many` is incremental serial execution, not a campaign framework. Existing
+score/evaluation APIs and the bounded provider-backed interaction notebook are
+pieces of Extended workflows, not whole-E1–E5 acceptance.
+
 ## Architectural objective
 
-Create a backend-independent scientific core surrounded by adapters.
+The original design objective is a backend-independent scientific core surrounded
+by adapters. The following diagrams describe that scientific model, including
+concepts that remain `DESIGNED FOR` or `HORIZON`; they are not the current class
+or import graph.
 
 ```text
                     DockingProblem
@@ -43,21 +79,23 @@ DockingCampaign
       +-- aggregate analysis
 ```
 
-## Proposed package boundaries
+## Original proposed package boundaries
 
-The exact Python layout is not frozen:
+This original conceptual layout is retained to explain separation of concerns.
+It differs from the implemented tree above; it does not authorize creating the
+absent packages:
 
 ```text
 dockingmt/
 ├── core/          # scientific concepts and stable data model
 ├── protocols/     # canonical/composed workflows
-├── preparation/   # scientific preparation contracts/implementations
+├── preparation/   # docking intent/orchestration over provider tools
 ├── regions/       # search-domain representations/conversions
 ├── guidance/      # future search-guidance abstractions
 ├── constraints/   # future constraint abstractions
 ├── scoring/       # scoring/rescoring abstractions
 ├── engines/       # docking-engine/backend adapters
-├── analysis/      # pose comparison, clustering, interactions
+├── analysis/      # docking associations/interpretation of provider analyses
 ├── campaigns/     # higher-level execution/aggregation when needed
 ├── integrations/  # optional MolSysSuite bridges
 └── io/            # serialization/interchange
@@ -67,7 +105,9 @@ Do not create empty architecture for speculative completeness. Add modules when 
 
 ## Protocol composition
 
-A protocol must not require one monolithic engine. It may resolve stages to different providers:
+A protocol must not require one monolithic engine in the scientific model.
+The following multi-provider composition is a design direction; the current
+Vina protocol/adapter does not implement a generic stage-resolution framework:
 
 ```text
 Preparation provider
@@ -85,7 +125,11 @@ The MVP may use Vina for several stages, but the public model must not encode th
 
 ## Capability-driven backends
 
-Backends should advertise supported capabilities, for example:
+The current `DockingBackend`/`VinaBackend` contracts advertise and validate actual
+adapter capabilities. Inspect their `capabilities` and the protocol's
+`required_capabilities` rather than assuming every upstream Vina feature is
+exposed. The following vocabulary is illustrative design space, not the
+current adapter's capability set:
 
 ```text
 small_molecule
@@ -150,9 +194,18 @@ backend input
 
 This permits future alternative preparation methods without redefining docking.
 
+General molecular inspection, chemical-state/identity work, repair, hydrogen
+handling, coordinate transformations and molecular format serialization must
+use MolSysMT's supported operations. Missing reusable capabilities are requested
+in MolSysMT, not filled by a DockingMT molecular helper. Other specialized
+capabilities retain TopoMT, PharmacophoreMT and ElastNetMT ownership. DockingMT
+owns the docking-specific policy, association and interpretation around them.
+
 ## Provenance
 
-A `DockingRun` should eventually capture at least:
+The conceptual `DockingRun` should eventually capture at least the fields below.
+Today inspect the actual problem/protocol/result declarations and provenance;
+do not infer that a standalone run object or every listed field is implemented:
 
 - DockingMT version;
 - backend(s) and versions;
@@ -262,3 +315,10 @@ the canonical persistent representation of a `DockingResult`.
 
 Stable scientific objects should use versioned schemas so saved results can be read,
 inspected and migrated independently of the backend process that produced them.
+
+DockingMT's own record admission and backend-artifact hashes remain separate from
+molecular persistence and authentication. MolSysMT owns molecular codecs and
+typed interaction persistence. A detached `DockingResult` or captured PDBQT file
+does not by itself restore a complete molecular state. Preserve source/index
+maps and explicit missing evidence rather than inventing a local codec or
+reconstruction route.

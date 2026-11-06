@@ -163,18 +163,22 @@ not qualify a new ordinary-installed DockingMT artifact. Ruff lint/format,
 both panel ESM syntax checks, whitespace and generated indexes pass. Exact-head
 hosted results remain separately recorded on #60.
 
-### Provider and distribution follow-up
+### Original provider and distribution follow-up — historical
 
-The executed ordinary-installed Viewer probe at qualified `ca7ebea6` loads two
+The original ordinary-installed Viewer probe at qualified `ca7ebea6` loads two
 frames and registers a public callback. After Python `go_to_structure(1)`, the
 index is 1 and the callback list remains empty. Current Viewer main `d72f93f7`
 retains that implementation by inspection. The request for consistent public
 Python-navigation notifications is
 [MolSysViewer #291](https://github.com/uibcdf/molsysviewer/issues/291).
-Own actions, delivered frame callbacks and explicit readback can be qualified
-now; immediate notification after unrelated Python player calls awaits the
-provider. There is no polling, player replacement or private-field observer.
-Unrelated direct visibility edits are also read on mount/Refresh.
+At that checkpoint, immediate notification after unrelated Python player calls
+awaits the provider. The later
+[notification receiving](../validation/player_notifications_receiving.md) at
+`78ede79e` delivers and qualifies that behavior, including the real-kernel
+companion and private installed suite. Preserve the original failed probe as
+historical evidence; #291 is not a remaining implementation prerequisite.
+There is no polling, player replacement or private-field observer. Unrelated
+direct visibility edits are still read on mount/Refresh.
 
 The first implementation head `1c96052` has a failing distribution job in
 [CI 41689015547](https://github.com/uibcdf/dockingmt/actions/runs/41689015547/job/126102325478):
@@ -230,10 +234,11 @@ the original execution. The kernel is shut down after capture; no browser is
 connected. Actual frontend observation and the maintainer review remain deferred.
 
 Data fidelity, addon-origin synchronization, explicit readback and ownership
-guards are implemented. Keep this proposal partial until:
+guards are implemented. Immediate Python player notifications from MolSysViewer
+#291 are also received at the qualified `78ede79e` source; that source/private
+artifact evidence does not qualify a different public package. Keep this proposal
+partial until:
 
-- Receive and qualify the missing immediate Python player notification under
-  MolSysViewer #291, preserving its requested-state/rendered-frame distinction.
 - A live Jupyter workflow exercises table/navigation/reference/domain controls
   and observes the corresponding 3D scene using explicit molecular inputs and
   the retained public five-pose 3PTB case, in its original coordinate frame.

@@ -1,434 +1,82 @@
 # DockingMT Development Guide
 
-## Purpose
-
-This directory is the scientific and architectural seed of **DockingMT**, the docking layer of MolSysSuite.
-
-DockingMT should begin by reproducing canonical, well-established molecular docking workflows through a clean, inspectable and reproducible MolSysSuite API. Its first implementation is deliberately modest in algorithmic ambition, but its scientific model and architecture must not be constrained by the capabilities of the first docking engine.
-
-The initial reference backend is **AutoDock Vina**. DockingMT is not a Vina wrapper.
-
-## Foundational thesis
-
-> **DockingMT concepts must be richer than the capabilities of its first engine.**
-
-A second long-term thesis is:
-
-> **From box-based docking to molecular-landscape-aware docking.**
-
-DockingMT should eventually be able to combine spatial/topographic, chemical, flexibility and conformational information into guided exploration of binding pose landscapes.
-
-## Status vocabulary
-
-Every proposed capability should be classified as:
-
-- **NOW** — required for the current scientific MVP or its immediate foundation.
-- **DESIGNED FOR** — not necessarily implemented now, but the architecture must admit it naturally.
-- **HORIZON** — a scientifically interesting future direction that should remain visible without over-engineering the present implementation.
-
-## Reading order
-
-The current source summary adds `any_returned` recovery independently of requested
-top-N under #61. It preserves exact compatibility and failure denominators; the
-[public contract](validation/redocking_summary.md) distinguishes this output from
-historical summaries and from new molecular/scientific qualification.
-
-The [exact-input Vina fidelity control](validation/vina_adapter_fidelity_2026-11-04.md)
-answers audit Q1 for one captured profile. It retains the original observer's
-failed gate and a separate offline correction, with two searches total and no
-new molecular/physical qualification. The saved assessment can be reproduced
-without loading a molecular provider or scientific engine.
-
-The [pose-coordinate contract](validation/pose_coordinate_contract.md) records
-#63's finite-real admission/export fix, source checks and the separate quantity-
-form probe. PyUnitWizard #137 owns the observed Astropy energy-unit limitation;
-no downstream unit workaround or molecular operation is introduced.
-
-The [support-library comparison](validation/support_library_review_2026-11-04.md)
-records actual ArgDigest/DepDigest/SMonitor use, remaining #19 work and our
-MolSysMT/TopoMT/ElastNetMT reference patterns. #64 fixes misleading member
-installation hints; the source scanner's relative-import false positive is
-owned by DepDigest #47. These checks do not close full ecosystem adoption.
-
-The [scientific evidence overview](validation/scientific_evidence_overview_2026-11-04.md)
-provides a compact reproducible table of existing outcomes and E1–E11 limits.
-It preserves failed reporting stages and separate populations; no new molecular
-calculation or pooled success probability is introduced.
-The [local evidence publication policy](validation/evidence_publication_policy.md)
-and DMT-044 select repository-first publication with one authoritative evidence
-source, defined readers/lifecycle and concrete triggers for later documentation
-or storage changes. This resolves #29's decision, separately from scientific gates.
-
-The [technical and scientific audit of 2026-11-04](library_audit_2026-11-04.md)
-assesses correctness, scientific evidence, molecular ownership and usability at
-its stated source head. It records improvement proposals and two documentation
-inconsistencies, a claim/evidence matrix, prioritized risks, test-independence and
-experimental-design limits, and scientific questions with decision rules. It is
-a bounded assessment; it does not accept new claims or replace the active roadmap.
-Its first dated follow-up corrects the current README/protocol instructions and
-clarifies scientific choices, with 104 existing source contract tests passing;
-the original audit findings remain anchored to their reviewed source.
-
-The [small scientific-panel design](validation/scientific_panel_design_2026-11-04.md)
-now proposes two additional public candidates and a maximum 24-search matrix,
-separating admission, sampling and ranking. It is not execution-ready: source
-identities, assemblies and chemical prescriptions must first be admitted and
-registered. The [molecular plausibility inventory](validation/molecular_plausibility_inventory_2026-11-04.md)
-distinguishes existing provider measurements from missing assessment rules;
-MolSysMT #555 owns that proposal, with no downstream molecular substitute.
-The [first source-admission observations](validation/scientific_panel_admission_2026-11-04.md)
-now preserve both input representations and provider-built assemblies. Chemistry,
-environment and truncation decisions remain pending; zero cases are admitted.
-CIF occupancy loss is reported in MolSysMT #556.
-The [environment/template checkpoint](validation/scientific_panel_environment_2026-11-04.md)
-records nearby waters, other ligand copies, observed protein boundaries and the
-missing OXT prerequisite. Reusable CCD-to-template support is requested in
-MolSysMT #557; chemical/environment choices still precede preparation and search.
-The [terminal-completion diagnostic](validation/scientific_panel_terminal_probe_2026-11-04.md)
-now records one 1HSG reconstruction on an unadmitted copy: OXT is generated,
-but an exact completion map/history is requested in MolSysMT #558 before adoption.
-
-Start with the [current Core acceptance map](CORE_MVP_STATUS.md) and
-[operational roadmap](ROADMAP.md#current-operational-plan). They reconcile
-the 35 C0–C6 criteria and current priorities without rewriting historical
-evidence. The [installed saved-result guide](validation/installed_result_inspection.md)
-and [notebook](validation/installed_result_inspection.ipynb) now deliver the #4
-slice through existing public APIs: eight cells complete in both original and
-missing-capture profiles, with explicit trust and molecular-recovery limits.
-The [preparation guide](validation/installed_3ptb_preparation.md) and
-[notebook](validation/installed_3ptb_preparation.ipynb) also deliver nine cells in
-normal and pm/fs kernels: explicit molecular prescription, provider preparation
-and two-problem protocol admission, with zero engine/evaluation/viewer attempts.
-The [execution guide/notebook](validation/installed_3ptb_execution.md) completes
-the separately registered two-search follow-up: 5+4 full poses, actual inputs/
-boxes/calls and detached saved-record inspection, with no RMSD or viewer action.
-The [evaluation guide/notebook](validation/installed_3ptb_evaluation.md) now
-delivers that explicit public nine-heavy-atom comparison under normal and pm/fs
-policies, preserving full original poses with no new searches or molecular tool.
-The [public readiness review](validation/public_candidate_readiness.md) records
-actual indexed provider files, the concrete MolSysMT delivery gap and the
-reviewed publisher/DOM candidate controls. The [workflow review](human_workflow_review.md)
-keeps actual public combination/minima/installed gates separate. Visual acceptance remains deferred;
-finite positional recovery does not establish affinity, general model quality,
-whole-Core or release acceptance.
-
-Start with [public player notification receiving](validation/player_notifications_receiving.md)
-for the current #60 checkpoint. MolSysViewer #291 has delivered synchronous
-Python navigation notifications. The new guards and real-kernel 3PTB companion
-verify immediate panel state without Refresh against the unchanged molecular
-providers. The complete private installed suite passes 1,449 tests without skips;
-exact-head hosted evidence is recorded separately on #60/#47.
-Live browser controls/comm/pixels and C6 remain pending.
-
-The separate [public Viewer artifact receiving](validation/public_viewer_receiving.md)
-now rejects 0.24.0 build 1 for this addon profile: installed bytes and closure
-verify, but scene-handle readback and synchronous navigation behavior are absent.
-MolSysViewer #294 owns an additive public-artifact disposition and initialization
-triage. Keep the successful private composition; repeat installed receiving
-against a covering file before the saved-case notebook. No molecular fallback,
-new minimum, release or visual acceptance follows.
-
-[Complete helper receiving](validation/installed_support_receiving.md) now
-qualifies shared isolated support with 1,450 private installed tests. Scientific
-helpers use unshipped `dmt_test_support`; source entry points and original
-scientific data remain. The benchmark's discovered Git assumption is corrected
-with explicit unknown attribution for separate installed/helper contexts. The
-installed caller adopts reviewed `95f693be`; staged/public/platform gates remain
-pending. The preceding [validator receiving](validation/installed_validator_receiving.md)
-retains its 162-test/four-refusal scope. Source/dependency SDK/scientific pins and
-all previous receipts remain unchanged.
-
-Start with [license metadata and private archive qualification](validation/license_metadata.md)
-for the latest #47 slice. The SPDX migration and aligned build floor pass actual
-minimum/development-backend builds, archive checks and installed metadata discovery.
-Original qualified artifacts are preserved. Public delivery and visual review
-retain their separate pending gates.
-
-Start with [addon JavaScript DOM testing](validation/addon_dom.md) for the latest
-#60 implementation slice: 21 JavaScript cases and 78 selected Python cases pass without changing
-runtime code. The actual panel modules execute in isolated test DOMs, with
-backend/module drift guards. Live comm/pixels/C6 remain pending; maintainer
-interaction is not required now.
-
-Then read [private installed-wheel addon receiving](validation/addon_installed_receiving.md)
-for the preceding #47/#60 checkpoint. It binds the new private wheel, independent
-receiver, complete installed test result and real-kernel 3PTB companion to exact
-identities. Browser review and public delivery remain pending; no maintainer
-interaction is required now. The earlier source notebook and receipts stay frozen.
-
-The [new real-kernel addon workflow](validation/addon_3ptb_workflow.md) executes
-the saved five-pose 3PTB case and real Python widgets without requiring a current
-maintainer interaction. Its notebook and path-free receipts distinguish explicit
-input recreation from record recovery, and Python success from pending browser
-observation. It retains the preceding source-profile #60 handoff.
-
-For current interactive work, start with the
-[saved-result addon explorer](pending_proposals/qualify_saved_result_addon.md)
-under #60. Its first slice separates pose identity/position/rank and displays
-named scores with declared units, without implicit RMSD computation. Its second
-slice synchronizes addon actions, public frame callbacks and mounted widgets,
-with explicit readback and owned visual cleanup. The current receiving above
-adds immediate notification for direct Python player calls from MolSysViewer #291;
-manual Refresh remains supported. Next comes live browser observation of the
-Jupyter workflow. The deferred historical
-scene observation remains #52; Python tests do not accept C6.
-
-Start with [ChemicalStates receiving](chemical_domain_receiving.md) under #56 /
-[adopted PR #59](https://github.com/uibcdf/dockingmt/pull/59). MolSysMT has delivered development source for owner receiving; current
-controlled inputs select MolSysMT main `00abb958f` with Viewer `78ede79e`.
-The earlier ChemicalStates checkpoint retains its original Viewer identity.
-The four graph callers
-and scalar connectivity consumers are adapted. The unchanged implementation retains its source/installed proofs. Complete
-installed receiving and exact-main CI results are recorded on #56; the original
-harness failure and corrected selection retain their own evidence.
-Public package/platform admission remains #30/#47.
-Molecular operations remain MolSysMT-owned and dated scientific evidence is frozen.
-
-Then read [offline saved-case recovery](validation/saved_human_case_recovery.md).
-The #58 developer operation verifies the existing 3PTB bundle and returns its
-five-pose result without preparing or searching again. It preserves the original
-producer and leaves the result detached from a molecular problem. Broader #4
-persistence remains partial; molecular persistence stays MolSysMT-owned.
-
-Then read [prepared-input recovery checks](validation/prepared_recovery.md),
-the #57 follow-up under #4. Supplied object declarations and available submitted
-PDBQT hashes must match before a recovered problem is attached; molecular export
-remains delegated to MolSysMT. Legacy missing evidence retains explicit limits.
-The broader source-bundle/persistence scope remains #4.
-
-See the [declared preparation/provenance profile](validation/preparation_profile.md).
-It records the supported one-state rigid-protein/small-molecule workflow, the
-executed current-composition admission without searches, and the linked case
-bundle required for original-source provenance. Placeholder preparation mechanisms
-are resolved under #5; scientific model/input-profile acceptance stays #33, and
-general prepared-source/replay persistence stays #4. Molecular operations remain
-MolSysMT-owned. Visible C4/C6 and public delivery retain their separate gates.
-
-The preceding [selection-domain provenance](validation/domain_derivation.md)
-implements the nonvisual #55 follow-up. Optional recipes preserve original source/
-selection/frame context through serialization without changing box geometry or
-inventing native identity. Stale geometry rejects; legacy records stay readable.
-Visible C4/C6 remain deferred. The [nonvisual Core MVP audit](validation/core_mvp_audit_2026-10-28.md)
-maps all 32 C0–C5 criteria to evidence, scope and owners. Its construction-record
-finding is addressed by the follow-up above. The audit separates the preserved human producer from current
-runtime qualification and reconciles #4/#5/#33 without premature closure.
-
-[Production pose reading](validation/prepared_pose_reading.md) records the preceding
-molecular migration.
-Complete single-state sources now use public MolSysMT reading against the actual
-prepared export view/map/bytes. Written result axes and source keys are retained;
-external/partial profiles have an explicit remaining route and removal condition.
-[Prepared writer consumption](validation/prepared_writer_consumption.md) records
-the preceding serializer retirement and its compatibility limits. The earlier [presentation receiving](validation/pdbqt_presentation_receiving.md)
-retains the provider-adoption checkpoint. The
-[2026-10-26 handoff](validation/pause_handoff_2026-10-26.md) retains the earlier
-qualified CI checkpoint, original artifacts and historical pause decisions.
-
-For the preceding nonvisual checkpoints, consult the
-[native receptor receiving](validation/native_receptor_export_receiving.md): real
-protein export/map composition passes. Its provider-presentation gap and covered writer adoption are now resolved by
-the later consumption records above; this receipt keeps its historical producer. The
-[preparation correspondence migration](validation/preparation_atom_maps.md)
-delegates H-addition/projection lineage to `msm.compose_atom_maps` while retaining
-legacy selected-input/PDBQT order fields and detached native correspondence. The
-[receptor projection migration](validation/receptor_projection.md) completes
-public H reduction/charge-transfer consumption in both preparation roles while
-preserving original/derived attribution and strict inventory refusal. The
-[flexible reconstruction migration](validation/flexible_reconstruction.md)
-consumes public native permutation and removes local PDB reconstruction.
-Its exact provider source and canonical reader namespaces are qualified separately
-from public delivery. The
-[prepared-native writer receiving](validation/native_ligand_export_receiving.md)
-qualifies actual reduced values and maps and records the presentation/final-byte
-composition requested in MolSysMT #214 before production writer retirement. The
-[production ligand projection](validation/ligand_projection.md) removes the
-local H-parent/charge-transfer loop and records the actual reduced molecular
-state and the stricter explicit-inventory boundary. The
-[known-source pose receiving](validation/known_source_poses.md) qualifies
-MolSysMT's delivered projection/export/reader chain and identifies the prepared
-producer migration needed before replacing the production parser. The
-[retained-connectivity migration](validation/retained_connectivity.md) removes
-the local molecular graph traversal in flexible preparation. The
-[2026-10-23 provider receiving record](validation/provider_receiving_2026-10-23.md)
-qualifies independent molecular variants and template-stereo transfer through
-MolSysMT; public delivery remains separate. The maintainer deferred HTML review.
-The [2026-10-23 scene record](validation/3ptb_scene.md) and executed
-[scene notebook](validation/human_3ptb_scene_2026-10-23.ipynb) retain the minimal
-scene, its installed Python checks and HTML export. Browser inspection
-and C6 acceptance remain pending under #52. The
-[operational roadmap](ROADMAP.md#current-operational-plan) gives the next action.
-The [2026-10-20 pause checkpoint](validation/pause_handoff_2026-10-20.md) retains
-the completed pre-visualization workflow, original producers and recovery details.
-The [2026-10-13 pause handoff](validation/pause_handoff_2026-10-13.md)
-retains the earlier source and ordinary-wheel producers and their limits.
-
-1. `VISION.md`
-2. `DESIGN_PRINCIPLES.md`
-3. `SCIENTIFIC_SCOPE.md`
-4. `MOLSYSSUITE_CONTRACT.md`
-5. `GLOSSARY.md`
-6. `SCIENTIFIC_MODEL.md`
-7. `ARCHITECTURE.md`
-8. `ENGINES.md`
-9. `MVP.md`
-10. `VALIDATION_STRATEGY.md`
-11. `MOLSYSSUITE_INTEGRATION.md`
-12. `MOLSYSVIEWER_INTEGRATION.md`
-13. `IMPLEMENTATION_STRATEGY.md`
-14. `SCIENTIFIC_HORIZONS.md`
-15. `ROADMAP.md`
-16. `DECISIONS.md`
-
-For a one-page index of responsibilities, see `DOCUMENT_MAP.md`.
-
-## Reproducible performance evidence
-
-The [workflow profiling record](validation/workflow_profiling.md) defines the
-measurement boundaries, environment and limits of the current 181L baseline.
-Its [Jupyter notebook](validation/workflow_profiling.ipynb) explores the
-[versioned raw reports](validation/data/workflow_profiling/) with tables and plots,
-and can explicitly invoke the existing command to collect new samples.
-The [result export comparison](validation/result_export.md) and its
-[executed notebook](validation/result_export.ipynb) retain before/after measurements
-for the optimized independent dictionary snapshots.
-
-The [score/ranking contract](validation/score_semantics.md) and its
-[executed offline example](validation/ranking_history.ipynb) document declared
-score meaning and successive ranking evidence. The saved example is synthetic
-software data, not a scientific validation or runtime benchmark.
-
-The [fixed-pose scoring contract](validation/fixed_pose_scoring.md) and
-[executed notebook](validation/fixed_pose_scoring.ipynb) demonstrate the public
-prepared-input operation and independent score attachment without pose search.
-
-The [installed saved-scoring example](validation/installed_scoring_inspection.md)
-reads caller-owned pose JSON or explicit result collections outside the clone,
-retaining named scores, stored ordering, historical producers and unknown evidence.
-Missing and contradictory evidence, external identity and
-source overlays have explicit receiving controls. This is record inspection,
-separate from executing a new rescoring study or accepting whole Extended E1.
-
-## Development rule
-
-The [pre-stabilization plan](PRE_STABILIZATION_PLAN.md) maps the active complete
-Core-plus-Extended objective to evidence and owners, targeting functional 0.5.0
-before stabilization and 1.0.0. [Same-state rescoring](pending_proposals/qualify_same_state_rescoring.md)
-starts the next implementation block; reusable molecular tools remain in MolSysMT.
-
-The [explicit torsion policy](validation/explicit_torsion_policy.md) and
-[executed qualification](validation/explicit_torsion_policy_2026-10-06.ipynb)
-consume native MolSysMT criteria, record explicit docking exceptions and preserve
-source/written correspondence. The default remains rigid.
-
-The [named AutoDock type contract](validation/named_autodock_types.md) and
-[executed qualification](validation/named_autodock_types_2026-10-06.ipynb) consume
-explicit MolSysMT assignments with parent/source/written maps. The named/charged
-route passes default Vina admission while scientific readiness stays unassessed.
-
-The [explicit 181L receptor workflow](validation/181l_receptor_workflow.md) and
-[executed evidence notebook](validation/181l_receptor_workflow_2026-10-06.ipynb)
-compose public peptide-template, terminal-repair, H, charge and typing tools.
-Six real BNZ searches retain choices, maps and submitted bytes; preparation and
-biological performance remain unassessed beyond the declared bounded controls.
-
-The [public preparation assessment contract](validation/preparation_assessment.md)
-and [executed notebook](validation/preparation_assessment.ipynb) expose declared
-provisional chemistry before engine execution and retain the same report in
-Vina result provenance.
-
-Do not begin by designing classes around Vina command-line arguments. Begin from the scientific concepts defined here, then map those concepts to backend capabilities through adapters.
-
-Do not infer that every concept documented here must immediately become a Python class, module, dependency or plugin framework. The scientific model is intentionally richer than the first implementation.
-
-## Governance
-
-These documents are a living design constitution, not immutable specifications. Changes are welcome when implementation experience, validation results or scientific evidence justify them. Foundational changes should be explicit and recorded in `DECISIONS.md`.
-
-When implementation pressure conflicts with a foundational principle, do not silently simplify the model. Record the trade-off and decide consciously.
-
-## MolSysSuite inheritance
-
-DockingMT inherits suite-wide contracts rather than redefining them locally. In particular,
-physical quantities, public-boundary digestion, optional dependency management and
-structured diagnostics should follow the current MolSysSuite contracts implemented through
-PyUnitWizard, ArgDigest, DepDigest and SMonitor. See `MOLSYSSUITE_CONTRACT.md`.
-
-## Freeze status
-
-This seed is frozen as `DockingMT devguide v0.1`. See `FROZEN_SEED.md`.
-
-The [offline result audit](validation/result_audit.md) and its
-[executed notebook](validation/result_audit.ipynb) retain bounded consistency
-checks for captured bytes, score provenance, units and ranking decisions.
-
-The [offline pose audit](validation/pose_audit.md) and its
-[executed notebook](validation/pose_audit.ipynb) check saved standalone scoring
-and rescoring histories against current pose scores and declarations.
-
-The [incremental prepared-docking contract](validation/incremental_docking.md)
-and [executed notebook](validation/incremental_docking.ipynb) demonstrate lazy
-serial execution, explicit item failures and independent outcome records.
-
-The [pose/reference viewer contract](validation/viewer_reference.md) and
-[executed notebook](validation/viewer_reference.ipynb) demonstrate frame
-correspondence, repeated loading and observable integration failures.
-
-The [redocking evaluation contract](validation/redocking_evaluation.md) and
-[executed notebook](validation/redocking_evaluation.ipynb) retain explicit
-RMSD criteria, per-pose evidence and first-N recovery for bounded controls.
-
-The [redocking collection contract](validation/redocking_summary.md) and its
-[executed offline notebook](validation/redocking_summary.ipynb) document compatible
-case aggregation, separate failures and explicit observation denominators.
-
-The [native MolSysMT format profile](validation/native_molsysmt_formats.md) records
-prepared-input consumption, current SDF gaps and staged removal conditions. Its
-[executed notebook](validation/native_molsysmt_formats.ipynb) runs the real 1IEP path.
-
-The [rigid-fragment migration](validation/rigid_fragment_consumption.md) and its
-[executed notebook](validation/rigid_fragment_consumption.ipynb) retain four-ligand
-before/after equivalence and source-to-retained atom maps for the MolSysMT partition.
-
-The [chemical-readiness consumer record](validation/chemical_readiness_consumption.md)
-and [executed notebook](validation/chemical_readiness_consumption.ipynb) distinguish
-stored-field coverage from docking validity and retain preparation-cost samples.
-
-The [receptor residue-coverage record](validation/receptor_coverage_consumption.md)
-and [executed notebook](validation/receptor_coverage_consumption.ipynb) qualify
-exact MolSysMT template consumption with original 181L/1IEP sources, controlled
-modified/incomplete residues and paired preparation-cost measurements.
-
-The [PDB connectivity-policy diagnosis](validation/pdb_bond_inference.md) and
-[executed notebook](validation/pdb_bond_inference.ipynb) reproduce the optional
-OpenMM difference and retain native candidate comparisons for MolSysMT #304.
-
-The [explicit chemical-template consumer record](validation/chemical_template_consumption.md)
-and [executed notebook](validation/chemical_template_consumption.ipynb) qualify
-MolSysMT transfer on original 181L BNZ and controlled 5X72 inputs, retaining
-explicit maps, conflicts, pose preservation and the provisional Vina safeguard.
-
-The [legacy/named typing comparison](validation/legacy_named_typing_comparison.md)
-retains paired unchanged-input observations and prerequisites for retiring consumer
-classification under #5/#49. It leaves preparation defaults unchanged.
-
-The [executed 3PTB molecular admission](validation/3ptb_admission.md) and
-[human notebook](validation/3ptb_admission_2026-10-10.ipynb) retain the registered
-chemical/torsion/domain inputs before the fixed 24-row search population. That
-original admission used plain input. MolSysMT subsequently delivered compressed-PDB
-support, consumed in the [2026-10-20 workflow](validation/symmetry_redocking.md#executed-installed-workflow--2026-10-20)
-without introducing a molecular reader downstream.
-
-The [executed 3PTB search record](validation/3ptb_search.md) and
-[human notebook](validation/3ptb_search_2026-10-10.ipynb) retain all 24 registered
-attempts and 167 poses. Separate receiving evidence preserves the original
-reporting failures and applies the unchanged nine-heavy-atom RMSD criterion.
-Both native-box arms have rank-1 near-reference recovery in six of six rows;
-the displaced-box arms have none among their returned poses. All containment,
-source/runtime identity and limited interpretation remain explicit.
-
-
-The [2026-10-13 provider compatibility checkpoint](validation/provider_compatibility_2026-10-13.md)
-records the current normally installed MolSysMT/ArgDigest/Viewer composition,
-source/native identity, executed consumer controls and immutable 3PTB receiving
-comparison. The final hosted checkpoint and bounded ordinary-wheel receiving are
-complete; public installed-distribution admission remains a separate boundary.
+Start here when joining the project or continuing on another machine. DockingMT
+is the docking component of MolSysSuite: it owns docking problems, protocols,
+engine integration, result meaning and docking-specific exploration. AutoDock
+Vina is the first backend; its command-line vocabulary is not our scientific model.
+
+## First reading route
+
+| Order | Read | What you should know afterwards |
+| --- | --- | --- |
+| 1 | [Contributor instructions](../AGENTS.md), [MolSysSuite guide](../MOLSYSSUITE_GUIDE.md), [local instructions](AGENTS.md) | Ownership, controls and how decisions/issues are recorded. |
+| 2 | [Development and onboarding](DEVELOPMENT.md) | Scientific purpose, concepts, setup, source navigation and contribution workflow. |
+| 3 | [New-machine handoff](MACHINE_HANDOFF.md) | Verified checkpoint, unfinished work, custody and what a fresh clone does not contain. |
+| 4 | [Complete functional plan](PRE_STABILIZATION_PLAN.md), [Core acceptance map](CORE_MVP_STATUS.md) | Implementation, evidence and remaining acceptance. |
+| 5 | [Scientific model](SCIENTIFIC_MODEL.md), [architecture](ARCHITECTURE.md), [decisions](DECISIONS.md) | Why the code is organized this way and which choices must not be reopened accidentally. |
+| 6 | [Operational roadmap](ROADMAP.md#current-operational-plan), [proposals](pending_proposals/README.md), [bugs](pending_bugs/README.md) | Next contributions and ownership of missing capabilities. |
+
+Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historical
+records when relevant; incorporation does not require reading every notebook or
+replaying every experiment.
+
+## Accepted destination and present limits
+
+The accepted product scope is **Core C0–C6 plus Extended E1–E5**, bounded scientific
+qualification, independent reproducibility and public installation. Prospective
+**0.5.0** is functional completion, followed by **0.9.0** stabilization; **1.0.0**
+remains a later decision. These are gates, not published versions. The separate
+fixed private 0.1.0 candidate has [its own dossier](releases/0.1.0.md).
+
+The starting profile is a declared single-state small molecule and rigid protein,
+explicit preparation, a physical search box and Vina. Software/private installed
+evidence does not certify general chemical validity, affinity, public dependency
+closure or live canvas use. The complete objective is not achieved. See the
+[current checkpoint](MACHINE_HANDOFF.md#verified-development-checkpoint).
+
+The previous autonomous implementation goal was paused and cleared before this
+handoff task. Moving machines does not restart that goal or any calculation.
+The accepted product roadmap remains the basis for choosing subsequent work.
+
+## Ownership that shapes every change
+
+Molecular inspection, characterization, state/identity, manipulation, geometry,
+matching and molecular interchange belong to **MolSysMT**. Reuse its public tools;
+request uncovered reusable needs in its repository. DockingMT must not fill those
+gaps with a local parser, matcher, chemistry rule or geometric algorithm.
+
+MolSysViewer owns generic rendering/communication; DockingMT owns its addon and
+docking interpretation. TopoMT, PharmacophoreMT and ElastNetMT retain their
+specialized domains. ArgDigest, DepDigest, SMonitor and PyUnitWizard own their
+shared boundary contracts. See the [suite contract](MOLSYSSUITE_CONTRACT.md) and
+[contribution workflow](DEVELOPMENT.md#making-a-change).
+
+## Evidence and history
+
+| Need | Entry |
+| --- | --- |
+| Scientific assumptions/limits | [Scope](SCIENTIFIC_SCOPE.md), [validation strategy](VALIDATION_STRATEGY.md), [2026-11-04 audit](library_audit_2026-11-04.md). |
+| Existing recovery/ranking observations | [Scientific overview](validation/scientific_evidence_overview_2026-11-04.md); its sources/populations remain frozen. |
+| Installed walkthroughs | [Inspection](validation/installed_result_inspection.md), [preparation](validation/installed_3ptb_preparation.md), [execution](validation/installed_3ptb_execution.md), [evaluation](validation/installed_3ptb_evaluation.md). Check which steps execute science. |
+| Extended work | [E1](pending_proposals/qualify_same_state_rescoring.md), [E2](pending_proposals/qualify_small_ligand_collection.md), [E3](pending_proposals/qualify_pose_comparison_and_clustering.md), [E4](pending_proposals/receive_docking_interaction_analysis.md). |
+| Measured interaction workflow | [E4 receiving](validation/installed_3ptb_interactions.md): one case, normal/pm-fs and fresh readers; whole E4 remains partial. |
+| Public delivery | [Release ladder](RELEASE_MILESTONES.md), [public readiness](validation/public_candidate_readiness.md), [Conda controls](../devtools/conda-build/README.md). Distribution is Conda `uibcdf`. |
+| Rationale/history | [Decisions](DECISIONS.md), [roadmap history](ROADMAP.md), [archive](archive/README.md), [original seed](FROZEN_SEED.md). |
+
+The former chronological entry page is preserved at
+[the pre-handoff source](https://github.com/uibcdf/dockingmt/blob/8e65091a0002023527ed7d3d6754a50695d2e1bd/devguide/README.md).
+Its linked technical records retain their stated producers. Current navigation
+does not become a new producer for old observations.
+
+## Maintaining this directory
+
+`NOW`, `DESIGNED FOR` and `HORIZON` distinguish requirements from protected future
+possibilities. A concept's presence does not authorize a class, package or
+dependency. The [original seed](FROZEN_SEED.md) preserves intent; maintained plans
+and explicit decisions record subsequent experience.
+
+Use the [reporting protocol](reporting_protocol.md): open an owning issue before
+a durable report, retain failures, regenerate indexes, and archive resolved work.
+Scientific evidence follows the [publication policy](validation/evidence_publication_policy.md).
+Keep implementation, source qualification, installed artifacts, scientific
+inference and visible acceptance distinct. A green check proves only its scope.

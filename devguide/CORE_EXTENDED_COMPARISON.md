@@ -54,7 +54,7 @@ pose interpretation, while preserving identities, error handling and provenance.
 | E1 — Explicit scoring/rescoring | Evaluate an existing pose with a named method; keep multiple named scores; choose a ranking explicitly without assuming one universal score. | `score`, `DockingPose.with_scores` and `DockingResult.rank_by` exist, including bounded fixed-pose Vina/Vinardo evaluation and score/ranking histories. This is not unrestricted engine support or calibrated affinity/cross-ligand comparability. |
 | E2 — Small virtual screening | Dock a modest ligand collection; isolate individual failures; retain ligand/state identity; aggregate/rank within a declared study; keep campaign/run/result boundaries clear. | `dock_many` is an existing serial, incremental prepared-problem executor with explicit failure outcomes. `summarize_redocking` aggregates compatible reference-evaluation records. These do not yet establish an accepted multi-ligand screening/enrichment workflow, generic cross-ligand ranking or a campaign scheduler. |
 | E3 — Pose comparison and clustering | Compare against references and between poses; group meaningfully similar poses when scientifically appropriate. | Provider-backed RMSD/reference and explicit symmetry-aware evaluation paths exist. General pose clustering has no accepted delivered workflow/API in the reviewed public surface. Reusable geometry/comparison/clustering operations belong to MolSysMT. |
-| E4 — Basic interaction analysis | A minimal structured representation of ligand–receptor interactions useful for interpretation, filtering and visualization. | No accepted general interaction-analysis API/workflow is delivered in the reviewed surface. Existing distance observations are not a general contact or interaction definition. General detection/characterization belongs to MolSysMT; specialized pharmacophore/topography work remains with its providers. DockingMT owns docking-specific interpretation and presentation. |
+| E4 — Basic interaction analysis | A minimal structured representation of ligand–receptor interactions useful for interpretation, filtering and visualization. | One bounded provider-only 3PTB installed workflow now passes at `5952053`, including persistence/filtering and two fresh readers. Structured consumer/addon admission and whole E4 remain unaccepted. Existing distance observations are not a general contact definition. General detection/characterization belongs to MolSysMT; specialized pharmacophore/topography work remains with its providers. DockingMT owns docking-specific interpretation and presentation. |
 | E5 — Reproducibility audit | Independently reconstruct a stored representative workflow to the degree supported by its backend and environment, with observable missing information and limitations. | Captured bytes/options, input/result audits, linked-case recovery and bounded replay/installed records provide substantial pieces. Full arbitrary molecular/physical reconstruction and universal deterministic replay are not delivered guarantees. |
 
 Existing Extended pieces must be reused, not implemented again. Their existence
@@ -67,7 +67,10 @@ Concrete E3/E4 receiving is now scoped under
 [#80](pending_proposals/receive_docking_interaction_analysis.md).
 The [dated provider inspection](validation/extended_provider_scope_2026-11-06.md)
 requests supported clustering in MolSysMT #604 and identifies existing typed
-interaction tools to receive. This is workflow scoping, not gate acceptance.
+interaction tools to receive. That inspection is workflow scoping, not gate
+acceptance. The later [E4 receiving](validation/installed_3ptb_interactions.md)
+qualifies only its declared one-case population; the [machine handoff](MACHINE_HANDOFF.md)
+records the remaining atom/frame admission investigation.
 
 ## What changes in the 1.0 choice
 

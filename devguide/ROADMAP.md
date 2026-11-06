@@ -2,6 +2,55 @@
 
 The roadmap defines direction and gates, not dates.
 
+## Current operational plan
+
+The accepted target is complete **Core C0–C6 plus Extended E1–E5**, bounded
+scientific qualification, independent reproduction and public installation at
+prospective **0.5.0**. Stabilization at 0.9.0 and the later 1.0.0 decision follow.
+The [full evidence map](PRE_STABILIZATION_PLAN.md),
+[Core acceptance map](CORE_MVP_STATUS.md) and
+[release ladder](RELEASE_MILESTONES.md) define completion; an API, notebook or
+passing subset does not accept a whole gate. Keep the separate fixed 0.1.0
+candidate `905abc9698cf9d4add78a52d57dab707859a148d` and its
+[dossier](releases/0.1.0.md) unchanged pending its own source-event decision.
+
+For the move to another machine, start with
+[developer setup](DEVELOPMENT.md) and the [machine handoff](MACHINE_HANDOFF.md).
+The same GitHub repository, issues, original producers and scientific scope
+remain authoritative. Moving machines does not resume a held calculation or
+qualify a private artifact as a public package.
+
+| Work | Established boundary | Next action / owner |
+| --- | --- | --- |
+| E4 interactions | One installed 3PTB workflow at `5952053` passes normal/pm-fs, twelve provider detector calls, persistence/filtering and two fresh readers. Original failures remain; whole E4 is partial. | [#80](pending_proposals/receive_docking_interaction_analysis.md): admit the saved provider analyses in the result/addon layer without hidden recalculation. The analysis includes five added H; do not assume its atom/frame axes equal the existing docking scene. Use provider-supported correspondence/composition and qualify it. |
+| E1 rescoring/ranking | Native reference semantics and record checks are delivered; the representative same-state multi-pose workflow remains unproven. | [#78](pending_proposals/qualify_same_state_rescoring.md): receive supported projection/identity under MolSysMT #599/#447, define comparison and a finite execution before calculation. State labels alone do not establish chemical equivalence. |
+| E2 ligand collections | Serial prepared execution and detached outcomes exist; they do not establish a multi-ligand study or cross-ligand ranking. | [#81](pending_proposals/qualify_small_ligand_collection.md): admit actual distinct ligands/states and a study-level comparison policy. Preserve original scores, failure denominators and strict `rank_by`. |
+| E3 comparison/clustering | Existing metrics are reusable; the bounded pairwise/clustering workflow is not qualified. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md): receive MolSysMT #604's supported composition or tools; no downstream molecular algorithm. |
+| Remaining Core, scientific panel and E5 | Declared 3PTB preparation/execution/inspection/evaluation and bounded controls exist; they do not establish general chemistry, a qualified independent panel or a whole independent-workflow audit. | #4/#28/#33/#49 and the full evidence map retain the remaining criteria. Receive provider-owned template/reconstruction/partial-input needs and register new scientific populations before execution. |
+| Public delivery | Private source/installed qualification is distinct from a compatible public dependency closure and actual Conda artifact. | #30/#47: refresh actual covering provider files before receiving; then qualify the exact staged candidate and required platform/minor matrix. Distribution uses Conda `uibcdf`; no PyPI route or release follows from private evidence. |
+| Visible acceptance | Python/DOM/kernel evidence and MolSysViewer #291 notification receiving are delivered; real comm/canvas acceptance is unproven. | #52/#60: keep the maintainer's scheduling decision. Do not resume live observation merely because another machine is available. |
+
+General molecular inspection, construction, identity, editing, geometry,
+detection and serialization remain in **MolSysMT**. Request uncovered tools
+there and receive existing supported compositions first. MolSysViewer owns
+generic scene/rendering/transport; DockingMT owns docking interpretation and its
+addon. Specialized domains retain their own providers. Do not schedule delivered
+#55 domain provenance, #5's placeholder correction or #291 notifications again
+as missing implementation.
+
+Before continuing implementation, reconcile the exact source CI handle and
+current issue state through #28 and the machine handoff. Administrative checks
+clear only their own boundary. Keep the shared-machine resource rules and local
+E4 hold; no automatic heavy restart or broad resource purge is part of this queue.
+
+## Source-specific checkpoint details — through 2026-11-06
+
+The following records explain how the current state was reached. Their test
+counts, artifacts, provider versions, availability observations and historical
+"Next" statements belong to their stated source/date. They do not replace the
+current queue above or authorize new calculations. Follow their maintained
+contract/receipt links when investigating a particular boundary.
+
 The [#66 test-profile correction](archive/declare_unyt_test_dependency.md) is
 qualified at d1435ff: CI 42079300841 passes all seven jobs, including the four
 Python 3.11–3.14 dependency/test lanes. Original failures remain recorded.
@@ -54,15 +103,13 @@ handoff remains open. Sibling issue work and live visual observation remain
 deferred by the maintainer; neither molecular substitutes nor a new scientific
 experiment is needed for these fixes.
 
-## Current operational plan
-
 The accepted [pre-stabilization objective](PRE_STABILIZATION_PLAN.md), recorded
 2026-11-06 under #73/DMT-046, is complete Core-plus-Extended functional delivery
 in prospective **0.5.0**, with bounded scientific qualification, independent
 reproduction and public installation. Stabilization and 1.0.0 follow later.
-The goal remains active; no requirement is accepted by planning alone. The
-maintainer reaffirmed MolSysMT ownership and authorized capability requests
-there. #78 owns the next E1 workflow, with provider projection #599 and identity
+The accepted development target remains unproven; no requirement is accepted
+by planning alone. The maintainer reaffirmed MolSysMT ownership and authorized
+capability requests there. #78 owns the next E1 workflow, with provider projection #599 and identity
 #447; unrelated and visual scheduling deferrals retain their scope.
 
 The [version ladder toward 1.0.0](RELEASE_MILESTONES.md), requested on 2026-11-05
@@ -115,7 +162,7 @@ results now pass in run 42162010170 (three jobs). This does not restart local
 tests or move the candidate, publish a tag/package, or substitute old results
 for new bytes.
 
-The last runtime-change head `837de4b` now has successful seven-job CI, including
+The earlier runtime-change head `837de4b` has successful seven-job CI, including
 the actual coverage publisher, plus separate DOM/policy/publication-governance.
 That terminal evidence is source-specific and does not replace the fixed
 candidate's own gate set. Its [four source lanes](validation/data/source_0_1_0_2026-11-05/source_ci_observation.json)
@@ -147,9 +194,10 @@ reviews all 35 C0–C6 criteria against the recorded scientific/installed baseli
 `8f17116`, with later source changes qualified separately. It distinguishes current
 implementation, original scientific evidence, private installed qualification
 and pending acceptance. The [human workflow review](human_workflow_review.md)
-tracks the delivered preparation, two-search execution, saved-record inspection and nine-atom evaluation. This section is the active queue;
-dated checkpoint entries below retain their original state and historical
-"Next" instructions.
+tracks the delivered preparation, two-search execution, saved-record inspection
+and nine-atom evaluation. These detailed notes retain source-specific evidence;
+the current operational plan above owns the resumption queue. Dated checkpoints
+below preserve their historical "Next" instructions.
 
 After Core acceptance, complete and qualify the Extended workflows before 1.0:
 reuse named scoring/ranking and serial prepared-problem execution for E1/E2;
@@ -207,13 +255,31 @@ analysis, persistence and consumer-association evidence. Neither workflow is
 accepted by this scoping. Existing metrics/detectors stay in MolSysMT; no local
 geometry, matcher, chemical rules or molecular codec is introduced.
 
-The [E4 notebook/attempt record](validation/installed_3ptb_interactions.md) is now
-implemented but nonpassing: missing notebook tooling stops the first attempt;
-the corrected-tooling process is terminated by its RAM-reserve guard. Final
-counters/association are absent and pm/fs is not attempted. Preserve the original
-producer and the later unexecuted progress-journal refinement; do not restart
-the molecular work automatically. Review the resource hold before registering
-another execution. No E4, scientific, public or visible acceptance follows.
+The [E4 notebook/attempt record](validation/installed_3ptb_interactions.md)
+preserves the early nonpassing local attempts: missing notebook tooling stops
+the first process; the amended process is terminated by its RAM-reserve guard.
+Those final counters remain unknown and that local pm/fs profile is unattempted.
+The first hosted population at `988d8a1` then refuses XYZ extraction before any
+detector call; MolSysMT #610 receives the public-composition question.
+
+The separately registered explicit-atom public getter composition at
+`5952053328aac6f737e22906e984c0f9eb938dd7` subsequently passes hosted run
+`42206087852`: normal and pm/fs profiles, twelve detector calls, typed/H5MSM
+persistence and two independent saved readers. The
+[success receipt](validation/data/interaction_hosted_success_2026-11-06.json)
+preserves all eight provider files, original pose atoms/coordinates/scores and
+separate controls. These are repeated unit-policy observations for one pose of
+one structural case, not independent biological cases or whole E4 acceptance.
+Structured consumer/addon admission remains #80; the original local hold and
+all earlier producers/failures remain intact. No further run is scheduled here.
+
+[E2's owned plan](pending_proposals/qualify_small_ligand_collection.md), #81,
+requires an actual distinct-ligand collection and explicit study comparison.
+It reuses serial `dock_many`/outcomes and preserves strict within-result ranking;
+scoping alone accepts neither screening effectiveness nor E2.
+
+The following priority table records the preceding checkpoint's detailed
+boundaries. Use the current operational plan above for the next action.
 
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |

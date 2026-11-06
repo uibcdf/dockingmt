@@ -38,7 +38,7 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | C4 selection-derived domain | Provider-owned selection/geometry, stored derivation/projection and observed domain/reference/pose correspondence. | Construction/record evidence exists; visible acceptance remains #52/#60. |
 | C5 results/provenance | Saved scores/rankings/evaluations, actual input identities/maps, traceable preparation/protocol and explicit recoverable/missing information. | #75–#77 deliver bounded reading/audits. General source restoration and partial/reference coverage remain #4/#49 and MolSysMT #521. |
 | C6 visualization | Real addon controls, communication and canvas display correctly paired receptor/domain/poses/reference, with actual interaction evidence. | Python/DOM/export/private evidence exists; live acceptance is still unproven. Respect the maintainer's scheduling decision. |
-| E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ranked and audited reproducibly. | #78 owns native reference semantics, provider identity/projection, explicit comparison admission and the representative execution. Strict current ranking remains. |
+| E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ranked and audited reproducibly. | #78 has delivered native reference semantics. Provider identity/projection, explicit comparison admission and representative execution remain; strict current ranking stays. |
 | E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | #81 scopes actual distinct-ligand admission and study comparison, reusing serial `dock_many` and outcomes. Preserve strict within-result ranking and provider-owned chemistry; collection execution/qualification remains unproven. |
 | E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | #79 scopes the concrete positional workflow. MolSysMT #604 requests supported bounded pairwise/clustering tools or an existing composition; no local molecular algorithm. |
 | E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 receives one bounded installed 3PTB workflow at `5952053`: normal/pm-fs, twelve detector calls, typed/H5MSM persistence, original-pose association and two fresh readers pass. Preserve prior failures and the local hold. Structured consumer/addon admission and whole E4 remain unproven; molecular operations stay in MolSysMT (#610 documents explicit XYZ atom extraction). |
@@ -50,10 +50,13 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 
 ## Immediate sequence
 
-1. Receive exact-source CI under #28, preserving nonterminal/failure states.
-2. Advance [same-state E1](pending_proposals/qualify_same_state_rescoring.md):
-   record the actual native energy-reference convention, retain old records,
-   and define comparison conditions without changing molecular identities.
+1. Check exact-source CI under #28, preserving nonterminal/failure states. The
+   [machine handoff](MACHINE_HANDOFF.md) identifies the passing pre-handoff head;
+   a later head needs its own applicable evidence.
+2. Advance [same-state E1](pending_proposals/qualify_same_state_rescoring.md)
+   using the delivered [native energy-reference convention](validation/scoring_reference.md).
+   Retain old records and define comparison conditions without changing molecular
+   identities; do not repeat delivered semantics work.
 3. Receive provider-owned prepared-conformation projection
    [MolSysMT #599](https://github.com/uibcdf/molsysmt/issues/599) and the relevant
    identity evidence in [#447](https://github.com/uibcdf/molsysmt/issues/447).
@@ -89,8 +92,8 @@ Specialized capabilities retain their own component owners; MolSysViewer owns
 generic rendering/communication, while DockingMT owns its addon semantics.
 
 The maintainer explicitly reaffirmed this boundary and the MolSysMT issue route
-on 2026-11-06. It remains a requirement throughout the active goal. Preserve local
-sibling work and inspect immutable remote/provider sources separately from
+on 2026-11-06. It remains a requirement throughout the accepted development
+scope. Preserve local sibling work and inspect immutable remote/provider sources separately from
 qualified runtime pins. No molecular fallback or guessed chemistry can satisfy
 a missing provider requirement.
 
@@ -105,5 +108,8 @@ Completion requires a requirement-by-requirement evidence audit, with the actual
 candidate/artifact, dependency closure, native/software/scientific/installed and
 visible scope matched to each claim. Pending evidence remains pending. Scope
 selection, tests of a helper, source equality or a private installation cannot
-substitute for another acceptance category. The goal stays active until the
-complete functional objective and appropriate 0.x.0 consolidation are verified.
+substitute for another acceptance category. The accepted product objective stays
+incomplete until the full functional outcome and appropriate 0.x.0 consolidation
+are verified. Session/automation status is separate: the previous autonomous goal
+was paused and cleared before the [new-machine handoff](MACHINE_HANDOFF.md).
+This product plan does not restart execution.

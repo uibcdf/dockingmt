@@ -112,6 +112,8 @@ MolSysSuite #87 delivers immutable shared source
 `95f693be10c9205ab9b912cb53453710a207bf45`, using Conda provider v2.3.0. Review
 compares each operation with the prior `2d320484...` publication profile:
 
+### Original 2026-11-03 decision (historical)
+
 | Local scope | Selected shared source / decision |
 | --- | --- |
 | Build and exact upload | Adopt `95f693be...`; separate build-without-upload, archive inspection, exact-byte upload and independent public verification are preserved. |

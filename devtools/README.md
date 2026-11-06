@@ -12,6 +12,24 @@ Use `.molsyssuite/sdk` or explicitly set `DOCKINGMT_SUITE_ROOT` to that clean
 immutable clone. Parser tools are administrative dependencies; the science jobs
 put them in `.molsyssuite-tools`, which is used only in the preflight process.
 
+On a fresh DockingMT clone, run the following from the repository root to obtain
+the missing SDK. This creates a separate checkout; it does not move a working
+MolSysSuite branch. If the destination already exists, inspect its ownership,
+commit and local changes instead of replacing or resetting it. The chained
+checkout runs only after a new clone succeeds.
+
+```bash
+mkdir -p .molsyssuite
+git clone --no-checkout https://github.com/uibcdf/molsyssuite.git .molsyssuite/sdk &&
+  git -C .molsyssuite/sdk checkout --detach 738fe8dd731abb99dac421b0bb2acc8564110180
+```
+
+The default location needs no environment variable. To use another clean checkout
+at that same commit, export `DOCKINGMT_SUITE_ROOT` with its absolute path. An
+unpacked source export is not a substitute: this adapter checks Git identity and
+cleanliness. Publication/installed controls use their separately reviewed SDK
+revision; do not replace the dependency SDK pin globally.
+
 ```bash
 python devtools/check_dependency_routes.py --declared-only
 python devtools/check_dependency_routes.py --context ci-3.14 \
@@ -20,7 +38,7 @@ python devtools/check_dependency_routes.py --context ci-3.14 \
   --source-root viewer-py314=.molsyssuite/molsysviewer
 ```
 
-The first command reviews nine declarations and makes no installed claim.
+The first command reviews the declared inventory and makes no installed claim.
 The second runs in the actual resolved Python 3.14 interpreter after installing
 the original normal directory sources. For older supported minors use their
 `ci-3.MINOR` context and `viewer-base` binding. Exactly the three selected source
@@ -29,13 +47,24 @@ normal PEP610 directory origin and actual required versions. Editable origins,
 wrong/dirty clones and missing/extra bindings fail. Source provenance does not
 prove public dependency closure or scientific compatibility.
 
-`dependency_routes.toml` owns one new recipe, the unchanged test environment,
-seven workflows, four original source records and four Python contexts. ArgDigest
-and MolSysMT supply omitted runtime requirements; Viewer is an optional integration
-provider, with its original lane-specific pins. Existing source installs, test
-commands, matrix, schedules and skipped-commit recovery remain unchanged. Current
-metadata owns public requirements; compatible bootstrap floors are not invented
-as new scientific API minima.
+[`dependency_routes.toml`](dependency_routes.toml) is the authority for recipes,
+environments, reviewed workflows, exact provider sources and selected Python
+contexts. It includes the ordinary CI contexts and the separate bounded E4
+Python 3.14 context. Read the actual records rather than relying on a manually
+copied count. ArgDigest and MolSysMT supply omitted runtime requirements; Viewer
+remains an optional integration provider. Current package metadata owns public
+requirements; compatible test bootstrap floors are not new scientific API minima.
+
+Routine development and exact-source qualification are different profiles. Use
+the suite's Python 3.14 environment with editable participating checkouts for
+ordinary work, as described in [the development guide](../devguide/DEVELOPMENT.md).
+The `--context` operation above instead verifies the declared **normal directory
+installations** and exact clean source commits; its rejection of editable or
+different provider origins is intentional. It is not an instruction to reset
+working sibling repositories. Use separate owned qualification checkouts and an
+isolated compatible environment when that evidence is actually needed. The
+[machine handoff](../devguide/MACHINE_HANDOFF.md) separates portable Git content
+from retained local artifacts and historical receivers.
 
 When a route changes, review its actual inputs/commands/conditions and update its
 inventory hash deliberately. The provider does not interpret arbitrary shell;
