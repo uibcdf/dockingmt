@@ -17,6 +17,12 @@ the [release milestones](RELEASE_MILESTONES.md). Intermediate releases may
 consolidate earlier subsets without claiming whole-1.0 acceptance. The gate
 definitions below are unchanged.
 
+The 2026-11-06 execution objective places complete functional delivery at
+prospective **0.5.0 before stabilization**, with 1.0.0 reserved for the later
+stable-release decision. [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization)
+and the [requirement/evidence plan](PRE_STABILIZATION_PLAN.md) preserve all gate
+definitions and scientific/public/reproducibility obligations.
+
 # Part I — Core MVP
 
 ## Gate C0 — Foundations

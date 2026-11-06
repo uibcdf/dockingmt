@@ -1,5 +1,7 @@
 """Owned column meanings of Vina docking and fixed-pose scoring records."""
 
+FIXED_REFERENCE_POLICY = 'native_current_conformation'
+
 SCORING_COMPONENTS = (
     'total',
     'lig_inter',

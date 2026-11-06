@@ -11,6 +11,12 @@ for 1.0.0** on 2026-11-05; see
 [DMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100).
 The definitions and evidence distinctions below remain unchanged.
 
+On 2026-11-06 the maintainer requests the complete functional objective in an
+appropriate 0.x.0 release, leaving 1.0.0 until after stabilization. The current
+ladder targets **0.5.0** for that delivery; the
+[pre-stabilization plan](PRE_STABILIZATION_PLAN.md) maps all requirements to
+evidence and owners. This changes delivery order, not the capability definitions.
+
 ## Core: a complete, traceable docking workflow
 
 The Core MVP takes a receptor and small-molecule ligand through explicit

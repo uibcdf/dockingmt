@@ -2,11 +2,16 @@
 
 import json
 from collections.abc import Mapping
+from math import isclose
 
+import pyunitwizard as puw
 from argdigest import arg_digest
 
 from dockingmt._private.artifacts import inspect_artifact
-from dockingmt._private.vina_records import fixed_score_components
+from dockingmt._private.vina_records import (
+    FIXED_REFERENCE_POLICY,
+    fixed_score_components,
+)
 from dockingmt.core._scores import normalize_definitions
 from dockingmt.core.audit import (
     _audit_pose_payload,
@@ -230,6 +235,96 @@ def _geometry(report, pose, entry, path):
             )
 
 
+def _reference_energy(report, entry, scores, definitions, components, path):
+    """Check explicitly recorded native reference semantics, leaving legacy unknown."""
+    declared = any(
+        'reference_energy_policy' in definition['context']
+        for definition in definitions.values()
+    )
+    if 'reference_energy' not in entry and not declared:
+        return  # Legacy evidence is not reinterpreted as a new producer claim.
+    reference_path = path + '/reference_energy'
+    reference = _mapping(report, entry, 'reference_energy', reference_path)
+    if not reference:
+        if isinstance(entry.get('reference_energy'), Mapping):
+            report.add(
+                'reference_energy',
+                reference_path,
+                'incomplete',
+                'reference_energy_missing',
+            )
+        return
+    if not _schema(report, reference, reference_path, 'ScoringReferenceEnergy'):
+        return
+    report.compare(
+        'reference_energy_policy',
+        reference_path,
+        reference.get('policy'),
+        FIXED_REFERENCE_POLICY,
+    )
+    expected_name = (
+        next(
+            name
+            for name, component in components.items()
+            if component == 'lig_intra_best_pose'
+        )
+        if components is not None
+        else None
+    )
+    report.compare(
+        'reference_energy_component',
+        reference_path,
+        reference.get('score_name'),
+        expected_name,
+    )
+    for name, definition in definitions.items():
+        report.compare(
+            'score_reference_policy',
+            path + '/scores/' + name,
+            definition['context'].get('reference_energy_policy'),
+            reference.get('policy'),
+        )
+    if 'value' not in reference or 'unit' not in reference:
+        report.add(
+            'reference_energy',
+            reference_path,
+            'incomplete',
+            'reference_quantity_missing',
+        )
+        return
+
+    def reference_value():
+        value = _normalize_scores({'reference': reference['value']})['reference']
+        if not isinstance(reference['unit'], str) or not reference['unit'].strip():
+            raise ValueError('explicit_energy_unit_required')
+        try:
+            converted = puw.get_value(
+                puw.quantity(value, reference['unit']),
+                to_unit='kcal/mol',
+                value_type=float,
+            )
+        except Exception as exc:
+            raise ValueError('invalid_reference_energy_unit') from exc
+        return _normalize_scores({'reference': converted})['reference']
+
+    valid, value = report.validate(
+        'reference_energy_quantity', reference_path, reference_value
+    )
+    if valid:
+        expected = scores.get(expected_name)
+        if expected is None:
+            report.compare('reference_energy_value', reference_path, value, None)
+        else:
+            # Conversion roundoff only; no physical-energy tolerance is inferred.
+            agree = isclose(value, expected, rel_tol=1e-12, abs_tol=1e-12)
+            report.add(
+                'reference_energy_value',
+                reference_path,
+                'consistent' if agree else 'inconsistent',
+                'claims_agree' if agree else 'claims_disagree',
+            )
+
+
 def _evaluation(report, pose, entry, path, current_scores, current_definitions, owners):
     report.compare('scoring_operation', path, entry.get('operation'), 'score')
     protocol = _protocol(report, entry, path + '/protocol')
@@ -272,6 +367,7 @@ def _evaluation(report, pose, entry, path, current_scores, current_definitions, 
         )
     if not scores or set(scores) != set(definitions):
         report.add('evaluation_meaning', path, 'incomplete', 'score_meaning_missing')
+    _reference_energy(report, entry, scores, definitions, components, path)
     for name, value in scores.items():
         score_path = path + '/scores/' + name
         if name in owners:

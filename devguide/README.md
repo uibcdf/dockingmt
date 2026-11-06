@@ -310,6 +310,11 @@ separate from executing a new rescoring study or accepting whole Extended E1.
 
 ## Development rule
 
+The [pre-stabilization plan](PRE_STABILIZATION_PLAN.md) maps the active complete
+Core-plus-Extended objective to evidence and owners, targeting functional 0.5.0
+before stabilization and 1.0.0. [Same-state rescoring](pending_proposals/qualify_same_state_rescoring.md)
+starts the next implementation block; reusable molecular tools remain in MolSysMT.
+
 The [explicit torsion policy](validation/explicit_torsion_policy.md) and
 [executed qualification](validation/explicit_torsion_policy_2026-10-06.ipynb)
 consume native MolSysMT criteria, record explicit docking exceptions and preserve

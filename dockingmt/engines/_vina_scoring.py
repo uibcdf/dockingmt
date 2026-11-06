@@ -8,7 +8,10 @@ import pyunitwizard as puw
 
 from dockingmt._private.serialization import validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
-from dockingmt._private.vina_records import fixed_score_components
+from dockingmt._private.vina_records import (
+    FIXED_REFERENCE_POLICY,
+    fixed_score_components,
+)
 from dockingmt._version import __version__
 from dockingmt.core._scores import normalize_definitions
 from dockingmt.core.problem import _is_pdbqt_input
@@ -258,6 +261,7 @@ def score_prepared(backend, problem, protocol, pose, score_name):
         info = engine.info()
         version = getattr(vina, '__version__', 'unknown')
         context = {
+            'reference_energy_policy': FIXED_REFERENCE_POLICY,
             'stage': 'scoring',
             'receptor_sha256': staged['artifacts']['receptor']['sha256'],
             'partner_sha256': staged['artifacts']['partner']['sha256'],
@@ -287,6 +291,13 @@ def score_prepared(backend, problem, protocol, pose, score_name):
             'schema_version': '1.0',
             'operation': 'score',
             'score_name': score_name,
+            'reference_energy': {
+                'schema_version': '1.0',
+                'policy': FIXED_REFERENCE_POLICY,
+                'score_name': f'{score_name}.lig_intra_best_pose',
+                'value': scores[f'{score_name}.lig_intra_best_pose'],
+                'unit': 'kcal/mol',
+            },
             'backend_box': deepcopy(context['backend_box']),
             'backend': backend.name,
             'backend_version': version,

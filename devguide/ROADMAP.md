@@ -56,6 +56,15 @@ experiment is needed for these fixes.
 
 ## Current operational plan
 
+The accepted [pre-stabilization objective](PRE_STABILIZATION_PLAN.md), recorded
+2026-11-06 under #73/DMT-046, is complete Core-plus-Extended functional delivery
+in prospective **0.5.0**, with bounded scientific qualification, independent
+reproduction and public installation. Stabilization and 1.0.0 follow later.
+The goal remains active; no requirement is accepted by planning alone. The
+maintainer reaffirmed MolSysMT ownership and authorized capability requests
+there. #78 owns the next E1 workflow, with provider projection #599 and identity
+#447; unrelated and visual scheduling deferrals retain their scope.
+
 The [version ladder toward 1.0.0](RELEASE_MILESTONES.md), requested on 2026-11-05
 under [#73](https://github.com/uibcdf/dockingmt/issues/73), proposes meaningful
 `0.1.0` source, `0.2.0` public Conda, `0.3.0` accepted-Core, `0.4.0` bounded
@@ -178,6 +187,15 @@ reader wheel supplies this bounded example evidence, not a new package/source
 matrix or whole-E1 acceptance. Next receive current hosted regression in #28;
 a multi-pose rescoring/ranking study still needs a separately declared scientific
 comparison/preparation contract and MolSysMT-owned molecular tools.
+
+[#78](pending_proposals/qualify_same_state_rescoring.md) now supplies that owned
+workflow. Its first [reference-evidence slice](validation/scoring_reference.md)
+records the executed fixed-score convention and crosschecks its native component,
+preserving legacy reports and strict comparison refusal. Projection/identity
+requests are in MolSysMT #599/#447, with remote source inspected separately from
+the qualified consumer pin. Receive provider contracts and define the actual
+comparison/execution population before a multi-pose native study; this metadata
+slice alone does not accept E1.
 
 | Order | Work and owner | Concrete completion / boundary |
 | --- | --- | --- |

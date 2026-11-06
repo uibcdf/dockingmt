@@ -753,3 +753,56 @@ provider-issue and visual-observation deferrals remain in force.
 decision. Until then, no Extended gate is silently moved beyond 1.0. Advanced
 engines, receptor flexibility, broad ensembles and later peer-guided protocols
 retain their separate horizons.
+
+---
+
+## DMT-046 — Deliver the complete functional objective before stabilization
+
+**Status:** Accepted by the maintainer, 2026-11-06; tracked in
+[DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
+
+**Decision:** Deliver the complete Core C0–C6 and Extended E1–E5 objective,
+bounded scientific qualification, independent reproducibility and public
+installation in the appropriate pre-1.0 functional release. The existing
+ladder's prospective **0.5.0** is that target; 0.9.0 stabilization and the
+subsequent 1.0.0 stable-release decision retain separate acceptance. This refines
+delivery order without reducing DMT-045's scope or asserting any completed gate.
+
+**Implementation:** The [maintained requirement/evidence plan](PRE_STABILIZATION_PLAN.md)
+maps the entire objective to acceptance and owners. #78 starts concrete
+same-state rescoring; molecular projection/identity remain provider contracts.
+The maintainer explicitly reaffirmed molecular ownership and the MolSysMT issue
+route. Existing source candidate `905abc9`, original producers and release
+artifacts remain distinct. No tag, Release or package is created by this decision.
+
+**Completion:** Verify each requirement against its actual executed evidence and
+qualify the exact functional candidate/file/closure before consolidation. Keep
+the goal active while a requirement is incomplete or unverified. Stabilize the
+delivered surface afterwards; do not label functional delivery as 1.0.0.
+
+---
+
+## DMT-047 — Record the executed fixed-score reference convention
+
+**Status:** Accepted implementation scope under the maintainer's E1 objective,
+2026-11-06; tracked in [#78](https://github.com/uibcdf/dockingmt/issues/78).
+
+**Decision:** Newly emitted Vina/Vinardo fixed-pose evaluations explicitly record
+`native_current_conformation` as their reference policy and bind its quantity to
+the returned `lig_intra_best_pose` component. Contexts carry the policy; the
+evaluation carries schema, policy, component score name and a value/unit pair.
+Native calls, numbers, public signatures and strict ranking admission remain.
+
+**Evidence and compatibility:** The
+[reference contract](validation/scoring_reference.md) identifies the upstream
+source and separate recording/audit controls. The auditor crosschecks a declared
+reference, including explicit unit conversion; missing new evidence is incomplete
+and contradictory claims are inconsistent. With neither new declaration present,
+legacy reports remain unchanged and no policy is inferred from a historical
+producer label. Frozen records retain their original producer and bytes.
+
+**Boundary:** This records backend result meaning. It computes no new molecular
+property, reconstructs no molecule and establishes no cross-pose comparison
+permission. Molecular projection/identity remain MolSysMT-owned. A future common
+or supplied reference policy needs a separate justified execution/API contract;
+the current slice does not add one or complete E1.

@@ -4,6 +4,10 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
+### Active (1)
+
+- [`qualify_same_state_rescoring.md`](qualify_same_state_rescoring.md) — [#78](https://github.com/uibcdf/dockingmt/issues/78) — Qualify same-state multi-pose rescoring with explicit reference and comparison evidence. *(active, inspected)*
+
 ### Partial (15)
 
 - [`adopt_python_distribution_controls.md`](adopt_python_distribution_controls.md) — [#47](https://github.com/uibcdf/dockingmt/issues/47) — Adopt distribution controls and the agreed first noarch Conda route. *(partial, measured)*

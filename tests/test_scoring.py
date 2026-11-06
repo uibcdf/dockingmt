@@ -333,8 +333,9 @@ def test_absent_vina_reports_local_dependency_error(problem, monkeypatch):
         dmt.score(problem)
 
 
+@pytest.mark.parametrize('scoring', ['vina', 'vinardo'])
 def test_score_component_mapping_never_calls_search_and_snapshots_files(
-    problem, monkeypatch, tmp_path
+    problem, monkeypatch, tmp_path, scoring
 ):
     import vina
 
@@ -368,7 +369,10 @@ def test_score_component_mapping_never_calls_search_and_snapshots_files(
         # No dock(), optimize(), randomize(), poses() or energies().
 
     monkeypatch.setattr(vina, 'Vina', FixedEngine)
-    result = dmt.score(problem, dmt.VinaProtocol(cpu=1, capture_backend_inputs=True))
+    result = dmt.score(
+        problem,
+        dmt.VinaProtocol(cpu=1, capture_backend_inputs=True, scoring=scoring),
+    )
     assert list(result.scores.values()) == [i + 0.5 for i in range(8)]
     assert list(
         result.score_definitions[name]['component'] for name in result.scores
@@ -382,7 +386,20 @@ def test_score_component_mapping_never_calls_search_and_snapshots_files(
         'torsions',
         'lig_intra_best_pose',
     ]
-    artifacts = result.metadata['scoring_history'][0]['backend_artifacts']
+    evaluation = result.metadata['scoring_history'][0]
+    assert evaluation['reference_energy'] == {
+        'schema_version': '1.0',
+        'policy': 'native_current_conformation',
+        'score_name': 'score.lig_intra_best_pose',
+        'value': 7.5,
+        'unit': 'kcal/mol',
+    }
+    assert all(
+        definition['context']['reference_energy_policy']
+        == 'native_current_conformation'
+        for definition in result.score_definitions.values()
+    )
+    artifacts = evaluation['backend_artifacts']
     assert (
         base64.b64decode(artifacts['partner']['content_base64'])
         == MINIMAL_LIG_PDBQT.encode()

@@ -11,6 +11,12 @@ The maintainer has accepted **Core plus Extended MVP for 1.0.0** under
 That target scope is settled; intermediate numeric identities and actual release
 candidates remain prospective.
 
+The maintainer's 2026-11-06 objective is complete functional delivery in
+**0.5.0 before stabilization**, reserving 1.0.0 for afterwards.
+[DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization)
+and the [requirement/evidence plan](PRE_STABILIZATION_PLAN.md) preserve every
+Core, Extended, scientific, reproducibility and public-delivery obligation.
+
 ## Why consolidate intermediate versions
 
 DockingMT has meaningful software, workflow and scientific checkpoints worth
@@ -38,7 +44,7 @@ changes get a reviewed minor milestone and migration notes.
 | `0.2.0` | First independently installable public Conda delivery. | Covering real public providers, measured compatible minima/closure, the staged candidate's fifteen required native jobs and eight installed cells, exact-file archive/resource checks and same-byte promotion/public receiving. Matching release identity and availability notice. #30/#47. A partial/private solve cannot satisfy this milestone. |
 | `0.3.0` | Core MVP accepted for its declared scientific profile. | All 35 C0–C6 criteria have explicit acceptance, including actual visible domain/reference/pose observation and a scientifically credible complete redocking workflow. Preserve refusals, preparation assumptions, score meaning and source/state/selection provenance. #4/#33/#49/#52/#60 and the Core map. |
 | `0.4.0` | Bounded scientific qualification beyond the original worked example. | Admit a small transparent independent set before execution, with provider-owned source/chemistry/plausibility tools, explicit preparation hypotheses, informative search-versus-ranking controls and all adverse/unassessed outcomes. Prespecify scope, denominators, budgets and decision rules. Existing 5X72/3PTB repetitions are not new independent complexes. #33/#49 and the audit Q2–Q4 plan. |
-| `0.5.0` | Extended MVP workflows accepted within their declared scientific scope. | Explicit scoring/rescoring E1, modest collection screening E2, pose comparison/clustering E3, structured interaction analysis E4 and an independent reproducibility audit E5 all have concrete executed acceptance evidence. Reuse existing APIs, scope missing provider contracts and preserve all failures/provenance. #73/#28/#33/#49; individual implementation/receiving work gets its concrete workflow and owner before execution. |
+| `0.5.0` | Complete Core-plus-Extended functional objective, before stabilization. | C0–C6 and E1–E5 have executed acceptance, bounded scientific qualification, independent reproducibility and actual public delivery/support evidence. Reuse existing APIs, receive provider-owned molecular tools and preserve failures/provenance. `PRE_STABILIZATION_PLAN.md` maps the whole objective; #73 owns the goal and #78 starts E1. |
 | `0.9.0` | Stabilization of the accepted Core-plus-Extended 1.0 contract. | Verify C0–C6 and E1–E5 acceptance, public API/schema and compatibility promises, supported dependency/platform combination, reproducibility instructions, examples and remaining critical findings. Freeze intended scope; close or explicitly defer work outside it. No Extended gate is deferred beyond 1.0 by default. This numeric release is not an `rc`/prerelease tag. #73/#28/#30/#47. |
 | `1.0.0` | Stable release of Core plus Extended MVP. | Accepted C0–C6 and E1–E5, bounded scientific qualification, reproducible public installation and workflows, relevant platform/minor qualification, stable documented API/schema/migration policy, complete exact-candidate delivery gates and published limitations. No unresolved critical defect may contradict that scope. Final release authority and evidence decide readiness, not this table. |
 

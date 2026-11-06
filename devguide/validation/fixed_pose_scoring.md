@@ -73,6 +73,12 @@ grid spacing, weights and preparation assessment. Exact ligand-input hashes
 deliberately make comparison admission conservative: equal units or names do
 not establish comparability across poses or states.
 
+New evaluations explicitly retain the
+[native reference convention and quantity](scoring_reference.md), independently
+of the current reader or original docking producer. The no-argument native call
+and its eight values remain unchanged. This adds no cross-pose ranking permission
+and infers no new policy for legacy saved observations.
+
 ## Independent attachment and provenance
 
 `pose.with_scores(scores, score_definitions=None)` is a public engine-independent
