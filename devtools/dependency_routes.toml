@@ -96,8 +96,8 @@ reason = "DockingMT #60 addon-specific Node/jsdom DOM tests; standard-library AS
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "980e946dcd31e5cf0e57e7e8629be49ddfa08eccbc3f7c06d8e953f95841ecb6"
-reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22. Administrative selection now includes the five existing isolated export resource guards under dockingmt#72; acquisition routes are unchanged."
+sha256 = "2ea417be1f6ca24c51d211aea58a273a35bae9f948c9e505a6641f1c1e8143ce"
+reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22. Administrative selection includes the five isolated export resource guards (#72) and fixed-candidate hosted qualification controls (#74); acquisition routes are unchanged."
 
 [[workflows]]
 path = ".github/workflows/conda_publication_governance.yaml"
@@ -123,3 +123,8 @@ reason = "Read-only qualification before exact-file promotion; no member source 
 path = ".github/workflows/test_installed_conda_package.yaml"
 sha256 = "c22ef8fedc6c7355b03ff32f0db3f21c1ddd825740f385eeb6f2828f0b835eac"
 reason = "Manual exact-file public dependency solve/installed scientific gate; no pinned source fallback permitted."
+
+[[workflows]]
+path = ".github/workflows/qualify-source-0.1.0.yml"
+sha256 = "b73ed034236138ef8776ad39f3a8a84f13e97bc0292f3b1ecb963aacffb60286"
+reason = "DockingMT #74 manual hosted-only private 0.1.0 receiving for remaining 3.11/3.13 cells; exact candidate bootstrap and existing immutable directory provider contexts, shared installed runner/support. New private build population, no public Conda admission or publisher. Retire this bounded caller after the first-tag decision or replacement by a received common source-candidate route; suite #31 owns common dependency-route replacement."

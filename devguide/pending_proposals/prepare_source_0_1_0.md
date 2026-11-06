@@ -6,7 +6,7 @@ opened: 2026-11-05
 closed:
 verification: measured
 area: [releases, distribution, provenance]
-guard:
+guard: devtools/tests/test_source_0_1_0_qualification.py
 normative: https://github.com/uibcdf/molsyssuite/blob/main/devguide/release_version_policy.md
 blocked_by: []
 supersedes: []
@@ -104,6 +104,17 @@ product failure. No 3.13 serial retry began. Both complete selections remain
 deferred until stable capacity. Local heavy work is serial, one logical CPU,
 low priority, native/build workers limited, with monitored RAM headroom and no
 automatic restart. No local test, controller or watcher remains running.
+
+The manual hosted continuation now supplies a bounded route for those two
+missing cells without shared-workstation load. A new private wheel is built
+once from the fixed candidate with only a runner-local tag; its exact runtime
+matches the frozen receipt, and both hosted cells must consume the same new
+archive hash. Existing source/context/installed SDK operations retain ownership.
+New administrative controls cover rejected payload/metadata/license/platform,
+local heavy-execution refusal, fixed producer and read-only same-run workflow
+bindings. This validates the caller, not the unexecuted hosted scientific gates.
+Retire this release-specific route after the first-tag decision or received
+common replacement; public publication and original local artifacts stay separate.
 
 The four exact-candidate source lanes each pass 1,761 tests at actual version
 `0.0.0`, with 348 warnings; the separate terminal receipt now records all seven

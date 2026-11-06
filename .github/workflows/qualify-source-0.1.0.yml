@@ -1,0 +1,185 @@
+name: Qualify private source 0.1.0
+run-name: Private 0.1.0 at 905abc9, Python 3.11 and 3.13
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: private-source-0.1.0
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build the private fixed-candidate wheel
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      wheel_sha256: ${{ steps.build.outputs.wheel_sha256 }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          ref: "905abc9698cf9d4add78a52d57dab707859a148d"
+          path: .molsyssuite/source-0.1.0-hosted/candidate
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+      - name: Install the recorded private build tools
+        run: >-
+          python -m pip install build==1.6.1 setuptools==84.0.0
+          wheel==0.48.0 versioningit==3.3.0
+      - name: Build and verify the new private archive
+        id: build
+        run: python devtools/qualify_source_0_1_0.py build
+      - name: Retain the private wheel and build receipt
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-source-0.1.0-wheel-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .molsyssuite/source-0.1.0-hosted/wheels/
+            .molsyssuite/source-0.1.0-hosted/evidence/
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 14
+
+  installed:
+    name: Private 0.1.0 installed, Python ${{ matrix.python }}
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        python: ["3.11", "3.13"]
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      RAYON_NUM_THREADS: "1"
+      CARGO_BUILD_JOBS: "1"
+      CMAKE_BUILD_PARALLEL_LEVEL: "1"
+      OPENMM_CPU_THREADS: "1"
+      CC: /usr/bin/gcc
+      CXX: /usr/bin/g++
+      CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER: /usr/bin/gcc
+      EXPECTED_WHEEL_SHA256: ${{ needs.build.outputs.wheel_sha256 }}
+      EXPECTED_PYTHON: ${{ matrix.python }}
+      DOCKINGMT_SUITE_ROOT: ${{ github.workspace }}/.molsyssuite/source-0.1.0-hosted/dependency-sdk
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          ref: "905abc9698cf9d4add78a52d57dab707859a148d"
+          path: .molsyssuite/source-0.1.0-hosted/candidate
+          fetch-depth: 0
+          persist-credentials: false
+      # Same measured sibling-source exception as ordinary CI; owner #74/#49.
+      # Public Conda admission is separate. Common route replacement: suite #31.
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/argdigest
+          ref: "3d1ec53c374098016452abab74706e9d80df5462"
+          path: .molsyssuite/source-0.1.0-hosted/argdigest
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsysmt
+          ref: "00abb958fb93649131d5ce5fe5e12e90cf4900e9"
+          path: .molsyssuite/source-0.1.0-hosted/molsysmt
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsysviewer
+          ref: "78ede79e2e345593db5bfe80d246d3f6c70bd005"
+          path: .molsyssuite/source-0.1.0-hosted/molsysviewer
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsyssuite
+          ref: "738fe8dd731abb99dac421b0bb2acc8564110180"
+          path: .molsyssuite/source-0.1.0-hosted/dependency-sdk
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsyssuite
+          ref: "95f693be10c9205ab9b912cb53453710a207bf45"
+          path: .molsyssuite/source-0.1.0-hosted/installed-sdk
+          persist-credentials: false
+      - uses: actions/download-artifact@v4
+        with:
+          name: private-source-0.1.0-wheel-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .molsyssuite/source-0.1.0-hosted
+      - name: Setup micromamba
+        id: environment
+        uses: mamba-org/setup-micromamba@v3.2.1
+        with:
+          environment-file: .molsyssuite/source-0.1.0-hosted/candidate/devtools/conda-envs/test_env.yaml
+          environment-name: source-010
+          condarc: |
+            channels:
+              - uibcdf
+              - conda-forge
+            channel_priority: strict
+          create-args: >-
+            python=${{ matrix.python }}
+      - name: Install the exact sibling sources and private consumer
+        shell: bash -l {0}
+        run: |
+          task_root="$GITHUB_WORKSPACE/.molsyssuite/source-0.1.0-hosted"
+          python -m pip install --no-deps --no-clean \
+            "$task_root/argdigest" "$task_root/molsysmt" "$task_root/molsysviewer"
+          python -m pip install --no-index --no-deps --no-compile \
+            "$task_root/wheels/dockingmt-0.1.0-py3-none-any.whl"
+          python -m pip install --target "$task_root/candidate/.molsyssuite-tools" \
+            "PyYAML==6.0.3" "Jinja2>=3,<4" "packaging>=24"
+      - name: Verify the declared source context and actual dependency bounds
+        shell: bash -l {0}
+        run: |
+          task_root="$GITHUB_WORKSPACE/.molsyssuite/source-0.1.0-hosted"
+          python "$task_root/candidate/devtools/check_dependency_routes.py" \
+            --context ci-${{ matrix.python }} \
+            --source-root "argdigest-source=$task_root/argdigest" \
+            --source-root "molsysmt-source=$task_root/molsysmt" \
+            --source-root "viewer-base=$task_root/molsysviewer"
+          python -I devtools/qualify_source_0_1_0.py bounds
+          python -m pip check
+      - name: Run the complete declared installed selection
+        shell: bash -l {0}
+        run: |
+          mkdir -p "$RUNNER_TEMP/dmt-source-010-runtime"
+          cd "$RUNNER_TEMP/dmt-source-010-runtime"
+          python -I -B "$GITHUB_WORKSPACE/devtools/qualify_source_0_1_0.py" receive
+      - name: Retain the observed environment
+        if: ${{ always() && steps.environment.outcome == 'success' }}
+        shell: bash -l {0}
+        run: |
+          evidence="$GITHUB_WORKSPACE/.molsyssuite/source-0.1.0-hosted/evidence"
+          mkdir -p "$evidence"
+          python -m pip inspect > "$evidence/pip-inspect.json"
+          micromamba list --name source-010 --json > "$evidence/conda-list.json"
+          micromamba env export --name source-010 --explicit > "$evidence/conda-explicit.txt"
+      - name: Retain installed evidence, including failed attempts
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: private-source-0.1.0-py${{ matrix.python }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .molsyssuite/source-0.1.0-hosted/evidence/
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 14

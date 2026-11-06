@@ -94,6 +94,12 @@ Local heavy work is now serial, one logical CPU, low priority, with native/build
 workers limited and a monitored RAM reserve. No heavy restart is automatic and
 no local test/controller/watcher remains active. Source-event/notice decisions
 are still pending. Keep the target fixed while publishing evidence documents.
+The [manual hosted continuation](releases/0.1.0.md#hosted-continuation-for-python-311-and-313)
+now prepares the two missing cells outside this workstation. It builds a new
+private wheel from the same candidate and checks its bytes against the frozen
+payload; both remote receivers consume that new archive. Their actual hosted
+results remain pending. This does not restart interrupted local tests or move
+the candidate, publish a tag/package, or substitute old results for new bytes.
 
 The last runtime-change head `837de4b` now has successful seven-job CI, including
 the actual coverage publisher, plus separate DOM/policy/publication-governance.
