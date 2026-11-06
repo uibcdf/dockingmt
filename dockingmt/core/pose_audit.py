@@ -256,6 +256,16 @@ def _reference_energy(report, entry, scores, definitions, components, path):
         return
     if not _schema(report, reference, reference_path, 'ScoringReferenceEnergy'):
         return
+    for field in ('policy', 'score_name'):
+        value = reference.get(field)
+        if value is not None and (not isinstance(value, str) or not value.strip()):
+            report.add(
+                'reference_energy_declaration',
+                reference_path + '/' + field,
+                'inconsistent',
+                'invalid_reference_declaration',
+            )
+            return
     report.compare(
         'reference_energy_policy',
         reference_path,

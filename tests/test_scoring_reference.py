@@ -6,6 +6,7 @@ import json
 from copy import deepcopy
 from pathlib import Path
 
+import numpy as np
 import pytest
 import pyunitwizard as puw
 
@@ -105,6 +106,18 @@ def test_reference_contradictions_are_not_silently_accepted(record, change):
 def test_reference_quantity_requires_finite_real_wire_value(record, value):
     record['metadata']['scoring_history'][0]['reference_energy']['value'] = value
     assert dmt.audit_pose(record)['status'] == 'inconsistent'
+
+
+@pytest.mark.parametrize('field', ['policy', 'score_name'])
+def test_reference_declaration_rejects_non_scalar_mapping_fields(record, field):
+    record['metadata']['scoring_history'][0]['reference_energy'][field] = np.array(
+        ['first', 'second']
+    )
+    report = dmt.audit_pose(record)
+    assert report['status'] == 'inconsistent'
+    assert any(
+        check['reason'] == 'invalid_reference_declaration' for check in report['checks']
+    )
 
 
 @pytest.mark.parametrize(
