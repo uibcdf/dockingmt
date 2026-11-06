@@ -7,6 +7,10 @@ first attempt lacks notebook tooling; the corrected-tooling attempt is stopped
 by the RAM-reserve guard. No completed interaction analysis, scientific result
 or E4 acceptance is reported.
 
+A separate [hosted receiving registration](installed_3ptb_interactions_hosted_registration.md)
+now defines exact-source Linux/Python 3.14 normal/pm-fs execution and independent
+saved readers. It is prospective; the local computational hold stays active.
+
 ## Inputs and executed work
 
 Use the five explicit inputs of the
@@ -88,6 +92,14 @@ denominator. Before another attempt, review the resource disposition and
 register a fresh execution identity/budget; the missing final counter of the
 interrupted attempt must not be turned into zero calls. No automatic retry is
 scheduled by this guide.
+
+The hosted variant adds explicit provider H correspondence and merged ligand
+axes to the docking association, retaining the same six molecular cells and
+progress evidence. Its source/notebook identities and new finite budget are
+registered separately before dispatch. Source-provider persistence stores the
+resolved site definition; the reader verifies `site_definition` rather than
+assuming the caller's `profile` label is a persisted field. This is a client
+contract correction, without a provider or molecular algorithm change.
 
 ## Remaining acceptance
 

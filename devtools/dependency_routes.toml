@@ -16,6 +16,14 @@ channel_priority = "strict"
 narrowing_reason = "Compatible test bootstrap floors, reviewed Pytest Receptor 1.2.2, DockingMT PEP 639 build tooling and Vina-declared setuptools/wheel requirements; exact runtime replacements remain contextual source evidence."
 reason = "Original scientific bootstrap and optional backend/integration tools; strict priority is enforced by both source workflows."
 
+[[environments]]
+path = "devtools/conda-envs/e4_env.yaml"
+kind = "runtime"
+purpose = "test"
+channel_priority = "strict"
+narrowing_reason = "Bounded E4 receiving selects qualified support versions, RDKit 2026.03.1 and Conda notebook tooling. This internal scientific test context does not change public runtime floors."
+reason = "DockingMT #80 normal/pm-fs hosted receiving after the local resource stop; same immutable sibling routes as ordinary CI, serial Python 3.14 only."
+
 [[source_routes]]
 id = "argdigest-source"
 name = "argdigest"
@@ -84,6 +92,14 @@ sources = ["argdigest-source", "molsysmt-source", "viewer-py314"]
 overlays = []
 reason = "Current Python 3.14 source selection under dockingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
 
+[[contexts]]
+name = "e4-3.14"
+environment = "devtools/conda-envs/e4_env.yaml"
+python_minor = "3.14"
+sources = ["argdigest-source", "molsysmt-source", "viewer-py314"]
+overlays = []
+reason = "DockingMT #80 finite normal/pm-fs receiving; fresh same-run installed consumer, no local restart, public package or other-platform/minor admission."
+
 [[workflows]]
 path = ".github/workflows/build_and_upload_conda_packages.yaml"
 sha256 = "3a21d8ec4cfc5e2a5e5899968594e6ebf719e2c420bc018a9206704741e3ab14"
@@ -96,8 +112,8 @@ reason = "DockingMT #60 addon-specific Node/jsdom DOM tests; standard-library AS
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "2ea417be1f6ca24c51d211aea58a273a35bae9f948c9e505a6641f1c1e8143ce"
-reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22. Administrative selection includes the five isolated export resource guards (#72) and fixed-candidate hosted qualification controls (#74); acquisition routes are unchanged."
+sha256 = "6cb3b6f1293222d35d4a22b62dba572bc8b0296158193cd4183d56041659df05"
+reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22. Administrative selection includes the five isolated export resource guards (#72) and fixed-candidate hosted qualification controls (#74) and E4 hosted/source/association controls (#80); acquisition routes are unchanged."
 
 [[workflows]]
 path = ".github/workflows/conda_publication_governance.yaml"
@@ -128,3 +144,8 @@ reason = "Manual exact-file public dependency solve/installed scientific gate; n
 path = ".github/workflows/qualify-source-0.1.0.yml"
 sha256 = "b73ed034236138ef8776ad39f3a8a84f13e97bc0292f3b1ecb963aacffb60286"
 reason = "DockingMT #74 manual hosted-only private 0.1.0 receiving for remaining 3.11/3.13 cells; exact candidate bootstrap and existing immutable directory provider contexts, shared installed runner/support. New private build population, no public Conda admission or publisher. Retire this bounded caller after the first-tag decision or replacement by a received common source-candidate route; suite #31 owns common dependency-route replacement."
+
+[[workflows]]
+path = ".github/workflows/qualify-3ptb-interactions.yml"
+sha256 = "25a7d224e027eced129d16b0e2b8f1ad71d55a910aa6edb89220381706dede05"
+reason = "DockingMT #80 manual hosted-only finite notebook receiving after a measured local RAM stop. Uses existing micromamba/read-only/failed-outcome retention patterns and immutable sibling routes. Normal and pm-fs are serial, each followed by a fresh saved reader; no publisher or full-suite claim. Retire after #80 receiving or replacement by an accepted common scientific receiver; suite #31 owns source-acquisition replacement."

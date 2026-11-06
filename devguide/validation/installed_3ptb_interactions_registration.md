@@ -115,3 +115,9 @@ without a final observer/association; pm/fs is not attempted. Final counters
 remain unverified, rather than being manufactured as zero. There is no automatic
 heavy retry. The [maintained guide and attempt record](installed_3ptb_interactions.md)
 document these outcomes and the later unexecuted progress-journal refinement.
+
+The later [hosted registration](installed_3ptb_interactions_hosted_registration.md)
+is a separate exact-source/Python 3.14 population with its own ordinary installed
+archive and finite budget. It preserves this original local prescription and
+computational hold; it does not relabel the private 0.1.0 attempt or erase its
+unknown final counters.

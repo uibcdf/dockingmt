@@ -1,0 +1,40 @@
+channels:
+  - uibcdf
+  - conda-forge
+dependencies:
+  - python >=3.11,<3.15
+  - pip
+  # DockingMT's PEP 639 build floor; also required by Vina Python metadata.
+  - setuptools >=77.0.3
+  - wheel
+  - pytest
+  - pytest-cov
+  - pytest-receptor ==1.2.2
+  - smonitor ==0.22.1
+  - depdigest ==0.15.2
+  - pyunitwizard ==0.29.0
+  # Explicit alternate unit backend exercised by the public box-export tests.
+  - unyt
+  - numpy
+  - scipy
+  - vina
+  # Complete molecular graphs for flexible-ligand preparation tests.
+  - rdkit ==2026.03.1
+  # Runtime dependencies for the fixed scientific sibling sources below.
+  - biopython
+  # The current reference PDB profile uses MolSysMT's optional OpenMM bond inference.
+  # Native, explicitly selected inference is tracked by uibcdf/molsysmt#304.
+  - openmm
+  - h5py
+  - pandas
+  - networkx
+  - tqdm
+  - matplotlib
+  - py-mmcif >=1.1.1
+  - aiohttp
+  - anywidget
+  - packaging
+  - traitlets
+  # E4 notebook execution tools; no new public runtime dependency.
+  - ipython ==9.17.1
+  - nbformat ==5.11.1

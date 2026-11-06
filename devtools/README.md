@@ -64,6 +64,13 @@ See [the Conda route](conda-build/README.md) for release preparation. Temporary
 fixture directories use managed cleanup; retain evidence while needed and remove
 obsolete owner resources, preserving active/dirty work.
 
+The manual [E4 receiver](qualify_3ptb_interactions.py) is a bounded operator for
+the [registered 3PTB notebook](../devguide/validation/installed_3ptb_interactions_hosted_registration.md),
+not a molecular tool or generic campaign runner. Computational entries refuse
+local execution. #80 owns its finite hosted receiving and retirement; the shared
+workstation's interrupted attempt stays on hold. Its administrative controls
+are in `devtools/tests/test_3ptb_interaction_hosted.py` and the distribution CI job.
+
 ## Annotated source identity correction — 2026-10-07
 
 First CI 37595722752 correctly rejects the ArgDigest input as the expected HEAD:

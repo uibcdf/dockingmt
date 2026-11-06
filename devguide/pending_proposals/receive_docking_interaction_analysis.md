@@ -76,6 +76,14 @@ tooling attempt is stopped by the RAM-reserve guard. Its final counters and
 association are absent/unverified; pm/fs is not attempted. No automatic heavy
 restart occurs. These are nonpassing observations, not empty interactions.
 
+A separate [hosted registration](../validation/installed_3ptb_interactions_hosted_registration.md)
+now defines current-source installed Linux/Python 3.14 receiving, normal then
+pm/fs, with a fresh saved reader per profile. The manual caller preserves the
+local hold, registers at most twelve new detector calls and reserves the old
+unknown six-call budget separately. Its record/source/archive admission controls
+have focused administrative guards; no molecular cells have executed through
+this route. Register the full published source on #80 before dispatch.
+
 All 63 fixed private consumer payloads and the applicable active provider file
 records remain identical before/after; pip check passes. Four preliminary
 file-authority audit stops remain separate. Seven isolated Conda notebook tools

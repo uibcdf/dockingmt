@@ -1,0 +1,128 @@
+name: Qualify installed 3PTB interactions
+run-name: E4 normal and pm-fs at ${{ inputs.expected_source_sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_source_sha:
+        description: Full registered main commit; fail before computation if it differs
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dockingmt-e4-interactions
+  cancel-in-progress: false
+
+jobs:
+  receive:
+    if: github.repository == 'uibcdf/dockingmt' && github.ref == 'refs/heads/main'
+    name: Installed E4 on Linux Python 3.14
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      EXPECTED_SOURCE_SHA: ${{ inputs.expected_source_sha }}
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      MKL_NUM_THREADS: "1"
+      NUMEXPR_NUM_THREADS: "1"
+      RAYON_NUM_THREADS: "1"
+      CARGO_BUILD_JOBS: "1"
+      CMAKE_BUILD_PARALLEL_LEVEL: "1"
+      OPENMM_CPU_THREADS: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+      CC: /usr/bin/gcc
+      CXX: /usr/bin/g++
+      CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER: /usr/bin/gcc
+      DOCKINGMT_SUITE_ROOT: ${{ github.workspace }}/.molsyssuite/e4-hosted/sdk
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Bind exact source and stage only the registered notebook inputs
+        run: python3 -I -B devtools/qualify_3ptb_interactions.py stage
+      # Reuse the measured ordinary-CI source exception; suite #31 owns its
+      # common replacement. This manual scientific receiver is needed because
+      # the local #80 attempt was stopped by its shared-machine RAM reserve.
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/argdigest
+          ref: "3d1ec53c374098016452abab74706e9d80df5462"
+          path: .molsyssuite/e4-hosted/argdigest
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsysmt
+          ref: "00abb958fb93649131d5ce5fe5e12e90cf4900e9"
+          path: .molsyssuite/e4-hosted/molsysmt
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsysviewer
+          ref: "78ede79e2e345593db5bfe80d246d3f6c70bd005"
+          path: .molsyssuite/e4-hosted/molsysviewer
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsyssuite
+          ref: "738fe8dd731abb99dac421b0bb2acc8564110180"
+          path: .molsyssuite/e4-hosted/sdk
+          persist-credentials: false
+      - name: Setup micromamba
+        id: environment
+        uses: mamba-org/setup-micromamba@v3.2.1
+        with:
+          environment-file: devtools/conda-envs/e4_env.yaml
+          environment-name: e4
+          condarc: |
+            channels:
+              - uibcdf
+              - conda-forge
+            channel_priority: strict
+          create-args: python=3.14
+      - name: Install exact sibling sources and ordinary same-run consumer archive
+        shell: bash -l {0}
+        run: |
+          python -m pip install --no-deps \
+            .molsyssuite/e4-hosted/argdigest \
+            .molsyssuite/e4-hosted/molsysmt \
+            .molsyssuite/e4-hosted/molsysviewer
+          python -I -B devtools/qualify_3ptb_interactions.py build
+          python -m pip install --target .molsyssuite-tools \
+            "PyYAML==6.0.3" "Jinja2>=3,<4" "packaging>=24"
+      - name: Verify existing source routes and installed bounds before computation
+        shell: bash -l {0}
+        run: |
+          python devtools/check_dependency_routes.py --context e4-3.14 \
+            --source-root argdigest-source=.molsyssuite/e4-hosted/argdigest \
+            --source-root molsysmt-source=.molsyssuite/e4-hosted/molsysmt \
+            --source-root viewer-py314=.molsyssuite/e4-hosted/molsysviewer
+          python -m pip check
+      - name: Run both finite notebook profiles and fresh saved readers
+        shell: bash -l {0}
+        run: |
+          cd "$RUNNER_TEMP/dockingmt-e4"
+          python -I -B "$GITHUB_WORKSPACE/devtools/qualify_3ptb_interactions.py" receive
+      - name: Retain observed installed environment
+        if: ${{ always() && steps.environment.outcome == 'success' }}
+        shell: bash -l {0}
+        run: |
+          python -m pip inspect > "$RUNNER_TEMP/dockingmt-e4/pip-inspect.json"
+          micromamba list --name e4 --json > "$RUNNER_TEMP/dockingmt-e4/conda-list.json"
+          micromamba env export --name e4 --explicit > "$RUNNER_TEMP/dockingmt-e4/conda-explicit.txt"
+      - name: Retain original outcomes including nonpassing attempts
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dockingmt-e4-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/dockingmt-e4/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
