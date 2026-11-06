@@ -68,8 +68,15 @@ docking records and supplies docking-specific interpretation/filtering policy.
 
 ## Current disposition
 
-The concrete scope and existing tools are inspected; no analysis or consumer
-implementation is claimed delivered. Selected detector signatures exist at the
+The concrete scope and existing tools are inspected. The
+[six-cell installed notebook](../validation/installed_3ptb_interactions.ipynb) and
+[finite prescription](../validation/installed_3ptb_interactions_registration.md)
+are implemented but not yet executed. The route reuses the prepared native
+source's retained virtual H counts and MolSysMT's delivered fixed-state H tool;
+it does not infer missing chemistry or introduce a molecular reconstruction
+algorithm in DockingMT. Actual receiving remains unproven.
+
+Selected detector signatures exist at the
 qualified pin, but current main has internal coordinate-delivery changes.
 Unchanged signatures do not prove behavioral equivalence. Receive the actual
 selected profile before changing a provider pin or making E4 acceptance claims.
