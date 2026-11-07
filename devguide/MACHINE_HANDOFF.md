@@ -23,6 +23,46 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Panel provider receiving checkpoint — 2026-11-07
+
+[The bounded installed receiving](validation/scientific_panel_provider_receiving_2026-11-07.md)
+passes original 1HSG/MK1 and 1STP/BTN PDB/CIF primary occupancy, coordinate-free
+neutral CCD references, explicit label maps and compatible read-only assessments
+normal and pm/fs/coulomb. Each preserves source coordinates/readiness, exact
+input bytes, prefixes and caller unit authority. 1STP has 1,001 observations,
+930 ones / 71 nonunit, minimum 0.42 in each format. Eight typed refusals pass;
+no preparation, terminal generation, energy/search, RMSD or docking case occurs.
+
+Private provider wheel is exact faab727c Python plus unchanged qualified 9e1f1b1
+native bytes, after whole Rust/build-contract equality. Standard whole-wheel
+assembly and corrected subprocess-pip admission pass; initial in-process-pip
+admission stays failed. Native SHA is `2a79b9a8`, whole wheel `c603fbde`,
+candidate manifest `c7061d40`. It is no public provider release or #642 receiving;
+that source has changed Rust inputs and its build hold persists. Consumer wheel
+remains `2ef82d2` / `6db76835`; no runtime/helper/dependency declaration changes.
+
+The [126-member primary manifest](validation/data/panel_provider_receiving_2026-11-07/manifest.json)
+is `0c5c9e8fe95f115f4ab37b627afc96a5e28706cfba9b5285ac31f6a8998663d1`;
+[20-member reader companion](validation/data/panel_provider_reader_2026-11-07/manifest.json)
+is `607af29018ecbd408f89ebbcd044294474fef4d99d95dbe4a3de143f49380b85`.
+Fresh stdlib reading receives original linked inputs, exact archived bytes and
+both whole cells without molecular imports. Normal/pm-fs cells take 7.781/7.672 s,
+peak group RSS below 334 MB; CPU 0/nice 10/worker 1, 8 GiB reserve, RSS 1 GiB,
+AS 2 GiB, CPU 45/wall 60. Every group is terminal, no interruption. The campaign
+rejects further molecular calls. No speed or user-interface improvement is measured.
+
+**Next:** record evidence-backed original candidate state/environment/terminal/
+truncation and full-assembly decisions; receive MolSysMT #558 public generation
+maps/history before preparing receptor atoms. Do not substitute easy candidates,
+invent chemistry/maps or bypass #558 with caller-supplied coordinates. #33/#49
+remain partial, complete #73 stays active. Original 24-search design remains
+unregistered; E5 below stays resolved. E3 #604, #642 construction and canvas
+holds remain; no automatic build or manual CI. #28 hosted and #30/#47 public/
+minor/platform evidence remains missing. Task
+`.molsyssuite/panel-receiving-20261107` retains complete source worktree,
+223.6 MB private wheel, native files, prefixes, every attempt and caches under
+#50 review 2026-11-14. Preserve the routine environment and original migration.
+
 ### E5 complete installed reconstruction checkpoint — 2026-11-07
 
 [The registered timed selection](validation/e5_timed_replay_2026-11-07.md) completes
@@ -57,9 +97,10 @@ existing case and zero additional independent complexes; external preparation,
 universal replay, independent scientific-panel accuracy and public/minor/platform
 claims remain unproven. Full #73 remains active.
 
-**Next:** refresh #33's preserved panel source/terminal admission against provider
-#556/#557/#558 before admitting any new molecular call or experiment. Reuse
-provider tools/maps; no local fallback. E3 #604 is still open on refreshed GitHub;
+The panel checkpoint above now receives the bounded #556/#557 consumer use.
+**Next:** retain the original panel and decide states/environment/termini,
+receiving #558 maps/history before any preparation. Reuse provider tools/maps;
+no local fallback. E3 #604 is still open on refreshed GitHub;
 #642 has no new artifact response and native construction stays held after its
 memory stop. Actual browser/comm/canvas stays under the maintainer's hold.
 Task `.molsyssuite/e5-timed-replay-20261107`, earlier interrupted attempts and

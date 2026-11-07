@@ -4,6 +4,14 @@ Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`. The latest
+[panel provider receiving](validation/scientific_panel_provider_receiving_2026-11-07.md)
+passes read-only occupancy/neutral CCD reference/maps/assessments for both
+original PDB/CIF candidates normal/pm-fs, with eight typed refusals and
+independent sealed-record reading. This uses a complete private faab Python
+wheel with unchanged qualified native/build inputs; no compilation, runtime
+change, template application or docking case admission occurs. #556/#557 are
+received only for that bounded consumer use; #558 and case-specific chemical/
+environment/terminal decisions remain. The previous
 [E5 complete reconstruction checkpoint](MACHINE_HANDOFF.md#e5-complete-installed-reconstruction-checkpoint--2026-11-07)
 receives both complete stored 1IEP workflows in independent normal/pm-fs
 installations with zero observed numerical drift, all adverse/version controls,
@@ -12,8 +20,8 @@ independent sealed-record reading and a six-criterion missing-information audit.
 for that original representative scope. Earlier interrupted attempts remain
 failed; six new native entries/ten cumulative, one existing molecular case and
 zero new independent complexes. No more searches follow this completed campaign.
-Next refresh #33 panel source/terminal admission against provider #556/#557/#558
-before admitting new molecular work. Full Core/Extended/scientific/public/
+Next decide #33's original case states/environment/termini and receive provider
+#558 maps/history before any preparation; the 24-search proposal is unregistered. Full Core/Extended/scientific/public/
 stabilization acceptance remains unproven. E3 #604, #642 construction and actual
 canvas holds stay in force; no automatic rebuild or remote CI.
 
@@ -117,9 +125,10 @@ implemented API or record-only test is not acceptance of a scientific workflow.
    preserves strict pose ranking and molecular ownership; it does not accept all
    E2 profiles or the complete #73 objective. Keep E4/live-visual holds unchanged.
 6. Preserve completed [E5 #83](archive/qualify_independent_installed_reproduction.md)
-   and advance #33's scientific-panel source/terminal admission. Refresh provider
-   #556/#557/#558 and the preserved panel recipe, without new molecular work until
-   exact supported artifacts/maps and a finite selection are admitted. Keep all
+   and advance #33's scientific-panel admission. Preserve the completed bounded
+   [#556/#557 receiving](validation/scientific_panel_provider_receiving_2026-11-07.md);
+   record original case state/environment/terminus decisions and receive #558
+   before registering any next application/preparation/search selection. Keep all
    Core/E3/E4/scientific/public/visual requirements; no fallback, repeated E5
    campaign or automatic #642 construction follows from E5 resolution.
 

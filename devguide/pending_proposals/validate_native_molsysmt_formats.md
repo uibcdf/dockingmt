@@ -14,6 +14,28 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Panel occupancy and CCD reference receiving — 2026-11-07
+
+[The exact private installed receiving](../validation/scientific_panel_provider_receiving_2026-11-07.md)
+passes normal and pm/fs/coulomb for both original 1HSG/MK1 and 1STP/BTN sources.
+CIF primary occupancy now preserves the 71 nonunit 1STP observations; public
+coordinate-free neutral CCD construction, strict explicit-label maps and all
+four PDB/CIF assessments per policy pass, with eight typed negative controls.
+No source coordinates/readiness or original file bytes change. Source-resolved
+MolSysMT #556/#557 are received within this bounded use; #558 completion
+map/history remains open. No template is applied, terminal atom generated,
+energy/search run or docking case admitted. The original panel and 24-search
+proposal retain all their scientific prerequisites.
+
+The complete private provider wheel has exact faab727c Python and the preserved
+9e1f1b1 native binary with identical Rust/build inputs; no compiler is run.
+This is Linux/Python 3.14 receiving, not a public provider release or #642
+adoption. The initial in-process-pip admission remains failed; corrected fresh
+subprocess admission and both complete molecular cells pass. The 126-member
+primary and 20-member reader companion preserve exact provenance and failures.
+Next decide original case states/environment/termini and receive #558 before
+registering any preparation. #33 remains partial; no local molecular fallback.
+
 ## Native terminal reconstruction diagnostic — 2026-11-04
 
 The [one-call 1HSG control](../validation/scientific_panel_terminal_probe_2026-11-04.md)

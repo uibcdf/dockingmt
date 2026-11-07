@@ -14,6 +14,22 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## Panel references received through public provider tools — 2026-11-07
+
+[The bounded installed normal/pm-fs receiving](../validation/scientific_panel_provider_receiving_2026-11-07.md)
+consumes public MolSysMT occupancy, neutral CCD construction, strict name maps
+and read-only template assessments for original MK1/BTN PDB/CIF observations.
+No parser, chemistry curator, matcher, geometry or coordinate codec is added
+in DockingMT. #556/#557 are received for this finite use; #558 still owns
+terminal-generation correspondence/history. No preparation/search or new
+independent docking case occurs. #33/#49 stay partial.
+
+The whole private wheel preserves exact faab Python source and qualified 9e
+native bytes only after complete Rust/build-input equivalence; no individual
+module overlay or native rebuild is used. This temporary Linux/Python 3.14 route
+is under #50 review 2026-11-14 and retires after a covering owner-built artifact
+is received. It does not apply to #642's changed Rust tree or relax that hold.
+
 ## Pre-stabilization E1 needs — 2026-11-06
 
 The maintainer reaffirms this ownership boundary for the complete functional
