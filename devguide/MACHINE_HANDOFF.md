@@ -23,7 +23,63 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### E5 installed-attribution checkpoint — 2026-11-07
+
+[The prospective recipe and completed first phase](validation/e5_installed_replay_2026-11-07.md)
+fix the 1IEP helper's unconditional adjacent-checkout/Git assumption. Attribution
+now reuses the already received imported-core/redocking-helper fingerprint and
+includes both actual 1IEP helper bytes. Git/dirty fields are unknown outside a
+shared checkout; the imported-code digest stays explicit. Strict source/protocol/
+software/input/map/result comparisons are unchanged. This changes unshipped
+qualification support, not runtime/core/addon behavior or a molecular operation.
+
+Two new parameterized guards prove no Git access, stable identity across moved
+runtime/support roots and changed identity for either 1IEP helper. The complete
+three-module source selection passes 24 cases, no skips, native pytest/JUnit/
+events/exit consistent:3.168 s/143,175,680 sampled group-RSS bytes, Python 3.14.10,
+actual local Pytest Receptor1.2.0. Real molecular operations/Vina imports are
+forbidden. Only the changed helper SHA in resources.toml changes; all 30 helper/
+564 historical data targets remain declared and outside the runtime wheel.
+
+Actual isolated installed attribution passes in 8.391 s/230,125,568 bytes. SDK
+95f693be stages all 594 exact declared inputs twice in distinct managed directories.
+The real imported consumer 2ef82d2/wheel 6db76835 and qualified 9e1f1b1 provider
+prefixes are reused unchanged. Four actual attribution calls agree on code SHA
+`2612b3e060b95a2e4a8f98ea2ddaad0eeac01057c10c34580f90b5a525e0bf46`,
+with unknown Git/dirty, no Git calls, no editable/source fallback, no molecular
+calls and no Vina import. Support resources/imports retire after both contexts;
+all old prefix/routine metadata bytes stay unchanged. This receives installed
+attribution, not the full scientific replay. All groups are terminal without
+resource interruption; the six-search prospective budget is unspent.
+
+The [133-member primary archive](validation/data/e5_installed_attribution_2026-11-07/manifest.json)
+is `fda44ed80f2ff0a3316981ee8b55c24175b7274876753ccc8bbab03ecd3cd60c`; the
+[19-member independent-reader companion](validation/data/e5_installed_attribution_reader_2026-11-07/manifest.json)
+is `55c154fa4206c799c55281d1a480d323ec867e08166185f1ddca6d8874b7619e`.
+Detached standard-library byte/pytest/support-witness checks pass without
+scientific imports/replay. The [bounded admission inventory](validation/data/e5_replay_admission_2026-11-07.json)
+is `a7b4e2c06a8cb12978ab95b131ca655d9b9f71315e5d7a21e375b8633c36ad15`.
+It verifies the three original pinned input files and distinguishes the 58 tracked
+1IEP paths/four later audits/migration index from the unlocated September pair.
+Do not manufacture those old manifests from the narrative or substitute another
+scientific population. Current complete manifests must first be newly produced
+and sealed with their actual identity, leaving every old observation unchanged.
+
+**Status/next:** partial; the whole scientific reconstruction is unexecuted.
+Admit the exact artifact/support/native bytes and freeze the complete worker/
+adverse matrix, then execute the separately identified current two-search
+producer, two-search normal receiver and two-search pm/fs receiver in fresh
+source-free processes/installations. Preserve the original strict tolerances and
+all six criteria in the [owning report](pending_proposals/qualify_independent_installed_reproduction.md). No additional native work is implied by a source pass.
+#642 construction remains held after memory interruption; no build restart.
+#50 custody review 2026-11-14; migration untouched. No manual CI; #28 exact-head
+hosted evidence remains missing. Whole #73/Core/Extended/public/scientific/visual
+and independent molecular-panel acceptance remain unproven.
+
 ### Provider fix and independent continuation checkpoint — 2026-11-07
+
+This preceding construction hold stays in force. The E5 source/installed
+attribution above supersedes only its historical independent next action.
 
 [MolSysMT #642](https://github.com/uibcdf/molsysmt/issues/642) is now source-resolved
 at `4d8af6c34cb6b3f9e22833771b246d8767ef85e9`. The owner receives complete

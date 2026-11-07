@@ -1,0 +1,121 @@
+{
+  "schema": "dockingmt.e5_replay_admission@1",
+  "owner": "uibcdf/dockingmt#83",
+  "qualification_base": "eb499001b6f673962694b94b94f57bf7534cf8d6",
+  "scope": "Bounded current input/record/code inspection; no molecular imports or native computation; not a universal search or reconstruction of missing September manifests",
+  "inputs": {
+    "receptor": {
+      "path": "tests/data/vina_torsions/1iep_receptor.pdbqt",
+      "sha256": "f13cf3b36f61d87c3b58983e0b8ecf1c3456a685eb86dfe9ccfb139c7bdc2586",
+      "bytes": 216160
+    },
+    "partner": {
+      "path": "tests/data/vina_torsions/1iep_ligand.pdbqt",
+      "sha256": "15fb35648d8c18c70317842f3a0631b73a19429c710a037ab07310084d579bb8",
+      "bytes": 3841
+    },
+    "source_ligand": {
+      "path": "tests/data/vina_torsions/1iep_ligand.sdf",
+      "sha256": "051b8742c32adc05c07fb486a4e7c9327f84e131cee33ac4e6a568d07553eb38",
+      "bytes": 6621
+    }
+  },
+  "upstream_commit": "3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645",
+  "inspected_tracked_1iep_paths": [
+    "devguide/archive/add_displaced_search_domain_control_to_1iep_validation.md",
+    "devguide/archive/link_1iep_external_pdbqt_to_source_ligand.md",
+    "devguide/archive/replay_1iep_reference_and_control_from_saved_manifests.md",
+    "devguide/validation/1iep_conformer_workflow.md",
+    "devguide/validation/1iep_conformer_workflow_2026-10-08.ipynb",
+    "devguide/validation/1iep_external_pdbqt.md",
+    "devguide/validation/1iep_flexibility_workflow.md",
+    "devguide/validation/1iep_flexibility_workflow_2026-10-07.ipynb",
+    "devguide/validation/1iep_preparation_audit.md",
+    "devguide/validation/1iep_representation_workflow.md",
+    "devguide/validation/1iep_representation_workflow_2026-10-07.ipynb",
+    "devguide/validation/1iep_root_order_workflow.md",
+    "devguide/validation/1iep_root_order_workflow_2026-10-07.ipynb",
+    "devguide/validation/data/1iep_conformers/audit_2026-10-08.json.gz",
+    "devguide/validation/data/1iep_conformers/checkpoint_2026-10-08.json",
+    "devguide/validation/data/1iep_flexibility/audit_2026-10-07.json.gz",
+    "devguide/validation/data/1iep_flexibility/checkpoint_2026-10-07.json",
+    "devguide/validation/data/1iep_representation/audit_2026-10-07.json.gz",
+    "devguide/validation/data/1iep_representation/checkpoint_2026-10-07.json",
+    "devguide/validation/data/1iep_root_order/audit_2026-10-07.json.gz",
+    "devguide/validation/data/1iep_root_order/checkpoint_2026-10-07.json",
+    "devguide/validation/data/provider_receiving_2026-10-23/1iep-sdf-export.json",
+    "devtools/audit_1iep_preparation.py",
+    "devtools/qualify_1iep_conformers.py",
+    "devtools/qualify_1iep_flexibility.py",
+    "devtools/qualify_1iep_representation.py",
+    "devtools/qualify_1iep_root_order.py",
+    "devtools/replay_1iep_pdbqt.py",
+    "devtools/validate_1iep_pdbqt.py",
+    "dmt_test_support/audit_1iep_preparation.py",
+    "dmt_test_support/qualify_1iep_conformers.py",
+    "dmt_test_support/qualify_1iep_flexibility.py",
+    "dmt_test_support/qualify_1iep_representation.py",
+    "dmt_test_support/qualify_1iep_root_order.py",
+    "dmt_test_support/replay_1iep_pdbqt.py",
+    "dmt_test_support/validate_1iep_pdbqt.py",
+    "tests/data/installed_support/b74b4ad/1iep_conformer_workflow.md.txt",
+    "tests/data/installed_support/b74b4ad/1iep_conformer_workflow_2026-10-08.ipynb.txt",
+    "tests/data/installed_support/b74b4ad/1iep_external_pdbqt.md.txt",
+    "tests/data/installed_support/b74b4ad/1iep_flexibility_workflow.md.txt",
+    "tests/data/installed_support/b74b4ad/1iep_flexibility_workflow_2026-10-07.ipynb.txt",
+    "tests/data/installed_support/b74b4ad/1iep_preparation_audit.md.txt",
+    "tests/data/installed_support/b74b4ad/1iep_representation_workflow.md.txt",
+    "tests/data/installed_support/b74b4ad/1iep_representation_workflow_2026-10-07.ipynb.txt",
+    "tests/data/installed_support/b74b4ad/1iep_root_order_workflow.md.txt",
+    "tests/data/installed_support/b74b4ad/1iep_root_order_workflow_2026-10-07.ipynb.txt",
+    "tests/data/vina_torsions/1iep_ligand.pdbqt",
+    "tests/data/vina_torsions/1iep_ligand.sdf",
+    "tests/data/vina_torsions/1iep_receptor.pdbqt",
+    "tests/data/vina_torsions/1iep_receptorH.pdb",
+    "tests/test_1iep_conformer_workflow.py",
+    "tests/test_1iep_flexibility_workflow.py",
+    "tests/test_1iep_preparation_audit.py",
+    "tests/test_1iep_reference_map.py",
+    "tests/test_1iep_replay.py",
+    "tests/test_1iep_representation_workflow.py",
+    "tests/test_1iep_root_order_workflow.py",
+    "tests/test_1iep_search_control.py"
+  ],
+  "inspected_later_archives": [
+    {
+      "path": "devguide/validation/data/1iep_conformers/audit_2026-10-08.json.gz",
+      "stored_sha256": "52ccfc30cd0feb98e169b6625290664aa32ee58d9cee278d6313f3de55774e8f",
+      "decoded_sha256": "005bca5d9617f862977f09f4496b5350cad68f0b76f9d8aa5469ba01006c14b3",
+      "original_replay_field_paths": []
+    },
+    {
+      "path": "devguide/validation/data/1iep_flexibility/audit_2026-10-07.json.gz",
+      "stored_sha256": "a8e7891094593223e5b8518d6a0695cce673022182cde2eaa076fba397755eca",
+      "decoded_sha256": "d581f86bf8682a0b045dbcc73e0c8e1979161a17a16d8f109e20da1c991df9b2",
+      "original_replay_field_paths": []
+    },
+    {
+      "path": "devguide/validation/data/1iep_representation/audit_2026-10-07.json.gz",
+      "stored_sha256": "a7ba98a15191b7345e55c2de01533efe22a917d1c948bccd735970bf5d868436",
+      "decoded_sha256": "1dccf14aa550a58a4d0a82b8ddf2b0fd77f9c206524bc99c1151e0eeab6d5113",
+      "original_replay_field_paths": []
+    },
+    {
+      "path": "devguide/validation/data/1iep_root_order/audit_2026-10-07.json.gz",
+      "stored_sha256": "cfea8e331a9d3b53fe8adf6ca766bfaf68a8483f0d8984aae28949e6084b5eba",
+      "decoded_sha256": "587f7f89a8fe111faaa7135108e11dee151cc6f3a49707ebb2e52839b4fd4db0",
+      "original_replay_field_paths": []
+    }
+  ],
+  "migration_manifest_sha256": "331f0f42b9ea9ebd3ed6ed7957767d204e1178b6eb4dea598c2874befe11e314",
+  "migration_manifest_1iep_mentions": 0,
+  "migration_modified": false,
+  "old_attribution_sha256": "043a131358526eb4642e89810ebc65ff52ea2243646b8a91e1f8cda3368be627",
+  "new_attribution_sha256": "f94d01106ebc9df99a0c6032d4092577b2139271a8614823f2faeeddd41ff1a7",
+  "historical_replay_manifests_located_in_this_scope": false,
+  "new_baseline_required_before_current_replay": true,
+  "old_producer_or_observations_changed": false,
+  "prospective_native_search_budget": 6,
+  "native_searches_started": 0,
+  "whole_e5_received": false
+}

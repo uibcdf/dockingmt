@@ -224,7 +224,7 @@ sha256 = "40b1274a1e2fbd4ad46f61a01eccb659d1843ae7cf01621814c0feb703f6b920"
 [[installed_tests.support.files]]
 source = "dmt_test_support/validate_1iep_pdbqt.py"
 target = "dmt_test_support/validate_1iep_pdbqt.py"
-sha256 = "043a131358526eb4642e89810ebc65ff52ea2243646b8a91e1f8cda3368be627"
+sha256 = "f94d01106ebc9df99a0c6032d4092577b2139271a8614823f2faeeddd41ff1a7"
 
 [[installed_tests.support.files]]
 source = "tests/data/installed_support/b74b4ad/181l_receptor_workflow.md.txt"

@@ -59,6 +59,26 @@ score drift is 0.05 kcal/mol; the allowed pose-coordinate RMSD and
 source-reference RMSD drift are each 0.25 Å. A failed comparison exits nonzero
 and leaves a JSON report. See [issue #16](https://github.com/uibcdf/dockingmt/issues/16).
 
+## Installed attribution — 2026-11-07
+
+[#83 receiving](e5_installed_replay_2026-11-07.md) fixes the unshipped case helper's
+assumption that its parent contains the imported runtime and a Git checkout.
+The helper now reuses imported-core attribution and includes both actual 1IEP
+helper files. Git/dirty fields are null without a shared checkout; exact code
+identity remains explicit. Relocating identical installed/runtime/helper bytes
+preserves identity, and changing either helper changes it. The replayer retains
+strict source/software/protocol/input/map/result comparisons; no old producer is
+relabelled to match a receiving version.
+
+Twenty-four source cases and two actual SDK-managed support contexts pass this
+attribution boundary only, with no molecular/Vina operation. The historical
+September pair has not been located in the bounded current record/migration
+inventory. The old result narrative below remains unchanged; a new separately
+identified current producer must retain its complete manifests before current
+independent installed replay. The six-search producer/normal/pm-fs recipe is
+prospective and unexecuted. No fixed atom inventory, control, scientific
+tolerance or preparation assessment is changed by the attribution repair.
+
 ## Measured result, 2026-09-26
 
 Vina 1.2.7, scoring `vina`, seed 42, one CPU, exhaustiveness 1, five requested

@@ -1,6 +1,7 @@
 """Protect 1IEP replay input authentication and measured comparisons."""
 
 import base64
+from types import SimpleNamespace
 
 import numpy as np
 import pytest
@@ -9,6 +10,54 @@ import pyunitwizard as puw
 from dmt_test_support.replay_1iep_pdbqt import _compare_run, _decode_source
 from dmt_test_support.validate_1iep_pdbqt import INPUT_SHA256, UPSTREAM_COMMIT
 from dockingmt import DockingPose, DockingResult
+
+
+@pytest.mark.parametrize(
+    'changed_helper', ['validate_1iep_pdbqt.py', 'replay_1iep_pdbqt.py']
+)
+def test_installed_1iep_attribution_tracks_actual_helpers_without_git(
+    monkeypatch, tmp_path, changed_helper
+):
+    from dmt_test_support import redocking_181l, validate_1iep_pdbqt
+
+    def forbidden(*args, **kwargs):
+        raise AssertionError('Installed source attribution must not query Git.')
+
+    monkeypatch.setattr(redocking_181l.subprocess, 'run', forbidden)
+    identities = []
+    for name in ('producer', 'receiver'):
+        package = tmp_path / name / 'runtime' / 'dockingmt'
+        helpers = tmp_path / name / 'support' / 'dmt_test_support'
+        package.mkdir(parents=True)
+        helpers.mkdir(parents=True)
+        (package / '__init__.py').write_text('# imported runtime\n')
+        for helper in (
+            'redocking_181l.py',
+            'validate_1iep_pdbqt.py',
+            'replay_1iep_pdbqt.py',
+        ):
+            (helpers / helper).write_text('# retained ' + helper + '\n')
+        monkeypatch.setattr(
+            redocking_181l,
+            'dockingmt',
+            SimpleNamespace(__file__=str(package / '__init__.py')),
+        )
+        monkeypatch.setattr(
+            redocking_181l, '__file__', str(helpers / 'redocking_181l.py')
+        )
+        monkeypatch.setattr(
+            validate_1iep_pdbqt, '__file__', str(helpers / 'validate_1iep_pdbqt.py')
+        )
+        identities.append(validate_1iep_pdbqt._source_revision())
+    first, second = identities
+    assert first == second
+    assert first['git_head'] is None and first['worktree_dirty'] is None
+    assert first['shared_checkout'] is False
+    assert first['code_scope'] == 'imported_dockingmt_core_redocking_and_1iep_helpers'
+
+    (helpers / changed_helper).write_text('# changed receiving helper\n')
+    changed = validate_1iep_pdbqt._source_revision()
+    assert changed['code_sha256'] != first['code_sha256']
 
 
 def _result(*, score=-7.0, x=0.0, protocol=None, pose=True):

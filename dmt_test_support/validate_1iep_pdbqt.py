@@ -11,7 +11,6 @@ import argparse
 import base64
 import hashlib
 import json
-import subprocess
 from pathlib import Path
 from typing import Any
 
@@ -41,39 +40,19 @@ def _write_json(path: Path, data: dict[str, Any]) -> None:
 
 
 def _source_revision() -> dict[str, Any]:
-    """Identify the exact DockingMT and case-auditor source used by a run."""
-    root = Path(__file__).resolve().parents[1]
-    code_files = sorted(
-        [
-            *root.joinpath('dockingmt').rglob('*.py'),
-            Path(__file__),
-            Path(__file__).with_name('replay_1iep_pdbqt.py'),
-        ]
-    )
+    """Identify imported core and case helpers without requiring a checkout."""
+    from dmt_test_support.redocking_181l import _source_revision as core_revision
+
+    revision = core_revision()
     digest = hashlib.sha256()
-    for path in code_files:
-        digest.update(path.relative_to(root).as_posix().encode())
+    digest.update(revision['code_sha256'].encode())
+    for path in (Path(__file__), Path(__file__).with_name('replay_1iep_pdbqt.py')):
+        digest.update(('dmt_test_support/' + path.name).encode())
         digest.update(path.read_bytes())
-    head = subprocess.run(
-        ['git', 'rev-parse', 'HEAD'],
-        cwd=root,
-        capture_output=True,
-        text=True,
-        check=True,
-    ).stdout.strip()
-    dirty = bool(
-        subprocess.run(
-            ['git', 'status', '--porcelain'],
-            cwd=root,
-            capture_output=True,
-            text=True,
-            check=True,
-        ).stdout.strip()
-    )
     return {
-        'git_head': head,
-        'worktree_dirty': dirty,
+        **revision,
         'code_sha256': digest.hexdigest(),
+        'code_scope': 'imported_dockingmt_core_redocking_and_1iep_helpers',
     }
 
 
