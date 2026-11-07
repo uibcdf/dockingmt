@@ -1,0 +1,106 @@
+"""Inspect frozen E3 sources and owned records without scientific imports.
+
+Usage: python inspect_sources.py.txt REPOSITORY NEW_OUTPUT_JSON
+Requires the preserved sibling MolSysMT clone with the inspected commits fetched.
+"""
+import ast
+import gzip
+import hashlib
+import json
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+root = Path(sys.argv[1]).resolve()
+provider = root.parent / 'molsysmt'
+consumer_sha = '9bb313e15487a107d8d9cc95b9ae440c1d114b5a'
+local = '9e1f1b1ad8bf09446374ab6f04ca7208e2717936'
+remote = '82bfa1c82f1d48035679fa4630e81a2506b67bd6'
+controlled = '00abb958fb93649131d5ce5fe5e12e90cf4900e9'
+
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def git(directory, *args):
+    return subprocess.check_output(['git', *args], cwd=directory)
+
+
+def status(directory):
+    ahead, behind = map(int, git(directory, 'rev-list', '--left-right', '--count', 'HEAD...origin/main').decode().split())
+    return {'head': git(directory, 'rev-parse', 'HEAD').decode().strip(), 'upstream': git(directory, 'rev-parse', 'origin/main').decode().strip(), 'ahead': ahead, 'behind': behind, 'worktree': git(directory, 'status', '--porcelain').decode().splitlines()}
+
+
+before = {'consumer': status(root), 'provider': status(provider)}
+assert before['consumer']['head'] == consumer_sha
+assert before['provider']['head'] == local and before['provider']['upstream'] == remote
+assert before['provider']['worktree'] == [] and before['provider']['behind'] == 52
+archive = root / 'devguide/validation/data/e2_native_collection_2026-11-07'
+manifest_bytes = (archive / 'manifest.json').read_bytes()
+assert sha(manifest_bytes) == '4535ecab26c9fbe4d80bf50fabb48ec3a74ae067979f4e970f5523f703c98e46'
+manifest = json.loads(manifest_bytes)
+assert len(manifest['files']) == 193
+members = {}
+for row in manifest['files']:
+    data = (archive / row['path']).read_bytes()
+    assert len(data) == row['bytes'] and sha(data) == row['sha256']
+    decoded = gzip.decompress(data) if row['path'].endswith('.gz') else data
+    assert len(decoded) == row['decoded_bytes'] and sha(decoded) == row['decoded_sha256']
+    members[row['path']] = (row, decoded)
+populations = []
+for run, count, role in [('p59-main', 3, 'candidate single-state population; E3 not admitted'), ('p69-main', 2, 'different state; excluded from P59 clustering population')]:
+    member = f'attempts/native-01/output/items/{run}/original_result.json.gz'
+    row, decoded = members[member]
+    result = json.loads(decoded)
+    assert len(result['poses']) == count
+    poses = []
+    for index, pose in enumerate(result['poses']):
+        assert len(pose['coordinates']['value']) == 25 and pose['coordinates']['unit'] == 'nanometer'
+        assert len(pose['metadata']['source_atom_keys']) == 25
+        poses.append({'original_index': index, 'pose_id': pose['pose_id'], 'scientific_rank': pose['rank'], 'partner_state_id': pose['partner_state_id'], 'receptor_state_id': pose['receptor_state_id'], 'coordinate_atoms': 25, 'coordinate_unit': pose['coordinates']['unit'], 'source_atom_keys': pose['metadata']['source_atom_keys'], 'source_atom_indices': pose['metadata']['source_atom_indices']})
+    assert len({p['pose_id'] for p in poses}) == count
+    assert len({p['partner_state_id'] for p in poses}) == len({p['receptor_state_id'] for p in poses}) == 1
+    populations.append({'run_id': run, 'role': role, 'archive_member': member, 'compressed_sha256': row['sha256'], 'original_sha256': row['decoded_sha256'], 'consumer_source_commit': manifest['consumer_source_commit'], 'qualification_source_commit': manifest['qualification_source_commit'], 'recorded_producer': {key: result['provenance'][key] for key in ['backend', 'backend_version', 'dockingmt_version', 'molsysmt_version']}, 'poses': poses})
+assert populations[0]['poses'][0]['partner_state_id'] != populations[1]['poses'][0]['partner_state_id']
+paths = ['molsysmt/structure/__init__.py', 'molsysmt/structure/get_rmsd.py', 'molsysmt/structure/get_symmetry_corrected_rmsd.py', 'molsysmt/chemical_states/get_atom_correspondences.py', 'tests/structure/get_rmsd/test_get_rmsd_extended.py', 'tests/structure/test_get_symmetry_corrected_rmsd.py']
+blobs = []
+for path in paths:
+    revisions = {}
+    for revision in [controlled, local, remote]:
+        data = git(provider, 'show', revision + ':' + path)
+        signatures = {node.name: ast.unparse(node.args) for node in ast.parse(data).body if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and not node.name.startswith('_')}
+        revisions[revision] = {'git_blob': git(provider, 'rev-parse', revision + ':' + path).decode().strip(), 'bytes': len(data), 'sha256': sha(data), 'public_function_signatures': signatures}
+    blobs.append({'path': path, 'revisions': revisions})
+tree = git(provider, 'ls-tree', '-r', '--name-only', remote, 'molsysmt').decode().splitlines()
+terms = ['cluster', 'pairwise', 'distance_matrix']
+hits = [path for path in tree if any(term in path.lower() for term in terms)]
+assert hits == [], hits
+reference = 'tests/data/vina_torsions/5x72_ligand_p59.sdf'
+reference_bytes = (root / reference).read_bytes()
+assert reference_bytes == git(root, 'show', consumer_sha + ':' + reference)
+assert status(provider) == before['provider']
+assert git(root, 'rev-parse', 'HEAD').decode().strip() == consumer_sha
+report = {
+    'schema': 'dockingmt.e3_provider_admission@1', 'owner': 'uibcdf/dockingmt#79', 'provider_owner': 'uibcdf/molsysmt#604',
+    'checked_at_utc': datetime.now(timezone.utc).isoformat(),
+    'classification': 'bounded static source and saved-record inspection; no E3 runtime/scientific acceptance',
+    'previous_goal_turn': {'classification': 'progress', 'authoritative_change': 'Published 9bb313e bounded E2 acceptance; report archived and #81 completed; full #73 remains open.'},
+    'producer': {'source_path': 'devguide/validation/data/e3_provider_admission_2026-11-07/inspect_sources.py.txt', 'sha256': sha(Path(__file__).read_bytes()), 'python': sys.version.split()[0]},
+    'workspace': before,
+    'workspace_disposition': {'consumer': 'Original untracked migration snapshot preserved; new admission documents are task-owned.', 'provider': 'Preserved clean 52-commit-behind checkout; immutable blobs only, no checkout/install/pin changes.', 'refresh': 'Bounded canonical suite_status.py dockingmt/molsysmt fetch before inspection; exit1 reports preserved attention states, not failed fetch.'},
+    'original_archive': {'path': str(archive.relative_to(root)), 'sha256': sha(manifest_bytes), 'members_verified': 193},
+    'candidate_populations': populations,
+    'candidate_reference': {'path': reference, 'bytes': len(reference_bytes), 'sha256': sha(reference_bytes), 'declared_source': 'Existing 5X72 P59 ModelServer SDF retained in repository', 'source_header_observation': '24 atoms/27 bonds; source text is not a new provider chemistry observation', 'role': 'Candidate experimental reference; graph/H/common-frame/correspondence admission unperformed', 'admitted': False},
+    'provider_blobs': blobs,
+    'bounded_filename_search': {'command': 'git ls-tree -r --name-only ' + remote + ' molsysmt', 'source_paths': len(tree), 'terms': terms, 'matches': hits, 'limit': 'Does not prove absence of every supported composition; #604 requests the provider decision.'},
+    'provider_contract_observations': ['get_rmsd is positional/no fitting; get_symmetry_corrected_rmsd retains chemical search scope without alignment.', 'The symmetry contract requires the same indexed-H representation even when H is excluded from the RMSD population.', 'Reference24 and received rigid25 do not authorize order-based matching or implicit H normalization.', 'No accepted pairwise RMSD matrix/clustering composition received from #604; all original #79 criteria remain.'],
+    'execution': {'scientific_imports': 0, 'molecular_operations': 0, 'rmsd_measurements': 0, 'pairwise_matrices': 0, 'clustering_runs': 0, 'native_searches': 0, 'environment_installations': 0, 'source_or_pin_changes': 0},
+    'next_action': 'Receive #604 supported composition/tools; admit reference/state/H/correspondence in a separately registered bounded selection before E3 calculation. Independently prepare E4 saved-analysis projection admission while preserving local hold.',
+    'whole_e3_received': False, 'full_objective_received': False,
+}
+with Path(sys.argv[2]).open('x') as stream:
+    json.dump(report, stream, indent=2, allow_nan=False)
+    stream.write('\n')
+print(json.dumps({'outcome': 'PASS for static inspection', 'members': 193, 'candidate_P59_poses': 3, 'provider': remote, 'whole_e3_received': False}))

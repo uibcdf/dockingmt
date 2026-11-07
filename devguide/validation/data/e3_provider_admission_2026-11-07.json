@@ -1,0 +1,1318 @@
+{
+  "schema": "dockingmt.e3_provider_admission@1",
+  "owner": "uibcdf/dockingmt#79",
+  "provider_owner": "uibcdf/molsysmt#604",
+  "checked_at_utc": "2026-11-07T05:39:10.757469+00:00",
+  "classification": "bounded static source and saved-record inspection; no E3 runtime/scientific acceptance",
+  "previous_goal_turn": {
+    "classification": "progress",
+    "authoritative_change": "Published 9bb313e bounded E2 acceptance; report archived and #81 completed; full #73 remains open."
+  },
+  "producer": {
+    "source_path": "devguide/validation/data/e3_provider_admission_2026-11-07/inspect_sources.py.txt",
+    "sha256": "176980cba84e1eee1368f506b76d7350c22ddd16b5314c92e28b8c0389c9937a",
+    "python": "3.14.10"
+  },
+  "workspace": {
+    "consumer": {
+      "head": "9bb313e15487a107d8d9cc95b9ae440c1d114b5a",
+      "upstream": "9bb313e15487a107d8d9cc95b9ae440c1d114b5a",
+      "ahead": 0,
+      "behind": 0,
+      "worktree": [
+        " M devguide/MACHINE_HANDOFF.md",
+        " M devguide/PRE_STABILIZATION_PLAN.md",
+        " M devguide/ROADMAP.md",
+        "?? devguide/validation/data/e3_provider_admission_2026-11-07/",
+        "?? dockingmt-migration-2026-11-06/"
+      ]
+    },
+    "provider": {
+      "head": "9e1f1b1ad8bf09446374ab6f04ca7208e2717936",
+      "upstream": "82bfa1c82f1d48035679fa4630e81a2506b67bd6",
+      "ahead": 0,
+      "behind": 52,
+      "worktree": []
+    }
+  },
+  "workspace_disposition": {
+    "consumer": "Original untracked migration snapshot preserved; new admission documents are task-owned.",
+    "provider": "Preserved clean 52-commit-behind checkout; immutable blobs only, no checkout/install/pin changes.",
+    "refresh": "Bounded canonical suite_status.py dockingmt/molsysmt fetch before inspection; exit1 reports preserved attention states, not failed fetch."
+  },
+  "original_archive": {
+    "path": "devguide/validation/data/e2_native_collection_2026-11-07",
+    "sha256": "4535ecab26c9fbe4d80bf50fabb48ec3a74ae067979f4e970f5523f703c98e46",
+    "members_verified": 193
+  },
+  "candidate_populations": [
+    {
+      "run_id": "p59-main",
+      "role": "candidate single-state population; E3 not admitted",
+      "archive_member": "attempts/native-01/output/items/p59-main/original_result.json.gz",
+      "compressed_sha256": "3bffb05d98ccf97ea2f7375148308d9175ef76b78344efacfdbe19bbd0078aec",
+      "original_sha256": "c71b4789274f008130ecf512095246e310a18d3856344986f25d174abcde8a0e",
+      "consumer_source_commit": "a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe",
+      "qualification_source_commit": "78b0664a3863591235585c561200d40d140fb7f4",
+      "recorded_producer": {
+        "backend": "vina",
+        "backend_version": "1.2.7",
+        "dockingmt_version": "0.0.0+298.ga7422df",
+        "molsysmt_version": "0.23.0+513.g9e1f1b1ad"
+      },
+      "poses": [
+        {
+          "original_index": 0,
+          "pose_id": "pose_1",
+          "scientific_rank": 1,
+          "partner_state_id": "e2-5x72-p59",
+          "receptor_state_id": "e2-5x72-protein-only-provided",
+          "coordinate_atoms": 25,
+          "coordinate_unit": "nanometer",
+          "source_atom_keys": [
+            {
+              "atom_id": "1",
+              "atom_name": "F1",
+              "element": "F",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "2",
+              "atom_name": "C2",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "3",
+              "atom_name": "C3",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "4",
+              "atom_name": "C4",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "5",
+              "atom_name": "C5",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "6",
+              "atom_name": "C6",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "7",
+              "atom_name": "C7",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "8",
+              "atom_name": "C8",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "9",
+              "atom_name": "N9",
+              "element": "N",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "10",
+              "atom_name": "C10",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "11",
+              "atom_name": "C11",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "12",
+              "atom_name": "C12",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "13",
+              "atom_name": "C13",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "14",
+              "atom_name": "C14",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "15",
+              "atom_name": "C15",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "16",
+              "atom_name": "C16",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "17",
+              "atom_name": "O17",
+              "element": "O",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "18",
+              "atom_name": "N18",
+              "element": "N",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "19",
+              "atom_name": "C19",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "20",
+              "atom_name": "C20",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "21",
+              "atom_name": "C21",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "22",
+              "atom_name": "C22",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "23",
+              "atom_name": "C23",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "24",
+              "atom_name": "C24",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "30",
+              "atom_name": "H30",
+              "element": "H",
+              "group_id": null,
+              "group_name": null
+            }
+          ],
+          "source_atom_indices": null
+        },
+        {
+          "original_index": 1,
+          "pose_id": "pose_2",
+          "scientific_rank": 2,
+          "partner_state_id": "e2-5x72-p59",
+          "receptor_state_id": "e2-5x72-protein-only-provided",
+          "coordinate_atoms": 25,
+          "coordinate_unit": "nanometer",
+          "source_atom_keys": [
+            {
+              "atom_id": "1",
+              "atom_name": "F1",
+              "element": "F",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "2",
+              "atom_name": "C2",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "3",
+              "atom_name": "C3",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "4",
+              "atom_name": "C4",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "5",
+              "atom_name": "C5",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "6",
+              "atom_name": "C6",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "7",
+              "atom_name": "C7",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "8",
+              "atom_name": "C8",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "9",
+              "atom_name": "N9",
+              "element": "N",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "10",
+              "atom_name": "C10",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "11",
+              "atom_name": "C11",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "12",
+              "atom_name": "C12",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "13",
+              "atom_name": "C13",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "14",
+              "atom_name": "C14",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "15",
+              "atom_name": "C15",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "16",
+              "atom_name": "C16",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "17",
+              "atom_name": "O17",
+              "element": "O",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "18",
+              "atom_name": "N18",
+              "element": "N",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "19",
+              "atom_name": "C19",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "20",
+              "atom_name": "C20",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "21",
+              "atom_name": "C21",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "22",
+              "atom_name": "C22",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "23",
+              "atom_name": "C23",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "24",
+              "atom_name": "C24",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "30",
+              "atom_name": "H30",
+              "element": "H",
+              "group_id": null,
+              "group_name": null
+            }
+          ],
+          "source_atom_indices": null
+        },
+        {
+          "original_index": 2,
+          "pose_id": "pose_3",
+          "scientific_rank": 3,
+          "partner_state_id": "e2-5x72-p59",
+          "receptor_state_id": "e2-5x72-protein-only-provided",
+          "coordinate_atoms": 25,
+          "coordinate_unit": "nanometer",
+          "source_atom_keys": [
+            {
+              "atom_id": "1",
+              "atom_name": "F1",
+              "element": "F",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "2",
+              "atom_name": "C2",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "3",
+              "atom_name": "C3",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "4",
+              "atom_name": "C4",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "5",
+              "atom_name": "C5",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "6",
+              "atom_name": "C6",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "7",
+              "atom_name": "C7",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "8",
+              "atom_name": "C8",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "9",
+              "atom_name": "N9",
+              "element": "N",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "10",
+              "atom_name": "C10",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "11",
+              "atom_name": "C11",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "12",
+              "atom_name": "C12",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "13",
+              "atom_name": "C13",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "14",
+              "atom_name": "C14",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "15",
+              "atom_name": "C15",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "16",
+              "atom_name": "C16",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "17",
+              "atom_name": "O17",
+              "element": "O",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "18",
+              "atom_name": "N18",
+              "element": "N",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "19",
+              "atom_name": "C19",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "20",
+              "atom_name": "C20",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "21",
+              "atom_name": "C21",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "22",
+              "atom_name": "C22",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "23",
+              "atom_name": "C23",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "24",
+              "atom_name": "C24",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "30",
+              "atom_name": "H30",
+              "element": "H",
+              "group_id": null,
+              "group_name": null
+            }
+          ],
+          "source_atom_indices": null
+        }
+      ]
+    },
+    {
+      "run_id": "p69-main",
+      "role": "different state; excluded from P59 clustering population",
+      "archive_member": "attempts/native-01/output/items/p69-main/original_result.json.gz",
+      "compressed_sha256": "85fb0aa9c973a6018ffb5d2c5d1e379fff6b1f164c5e99f61779fa56fe50ab91",
+      "original_sha256": "9cdbb66fc60517abd73533d2b4094191057b3b292ebe38396df7d7cc5eb7f8f3",
+      "consumer_source_commit": "a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe",
+      "qualification_source_commit": "78b0664a3863591235585c561200d40d140fb7f4",
+      "recorded_producer": {
+        "backend": "vina",
+        "backend_version": "1.2.7",
+        "dockingmt_version": "0.0.0+298.ga7422df",
+        "molsysmt_version": "0.23.0+513.g9e1f1b1ad"
+      },
+      "poses": [
+        {
+          "original_index": 0,
+          "pose_id": "pose_1",
+          "scientific_rank": 1,
+          "partner_state_id": "e2-5x72-p69",
+          "receptor_state_id": "e2-5x72-protein-only-provided",
+          "coordinate_atoms": 25,
+          "coordinate_unit": "nanometer",
+          "source_atom_keys": [
+            {
+              "atom_id": "1",
+              "atom_name": "F1",
+              "element": "F",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "2",
+              "atom_name": "C2",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "3",
+              "atom_name": "C3",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "4",
+              "atom_name": "C4",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "5",
+              "atom_name": "C5",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "6",
+              "atom_name": "C6",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "7",
+              "atom_name": "C7",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "8",
+              "atom_name": "C8",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "9",
+              "atom_name": "N9",
+              "element": "N",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "10",
+              "atom_name": "C10",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "11",
+              "atom_name": "C11",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "12",
+              "atom_name": "C12",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "13",
+              "atom_name": "C13",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "14",
+              "atom_name": "C14",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "15",
+              "atom_name": "C15",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "16",
+              "atom_name": "C16",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "17",
+              "atom_name": "O17",
+              "element": "O",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "18",
+              "atom_name": "N18",
+              "element": "N",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "19",
+              "atom_name": "C19",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "20",
+              "atom_name": "C20",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "21",
+              "atom_name": "C21",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "22",
+              "atom_name": "C22",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "23",
+              "atom_name": "C23",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "24",
+              "atom_name": "C24",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "30",
+              "atom_name": "H30",
+              "element": "H",
+              "group_id": null,
+              "group_name": null
+            }
+          ],
+          "source_atom_indices": null
+        },
+        {
+          "original_index": 1,
+          "pose_id": "pose_2",
+          "scientific_rank": 2,
+          "partner_state_id": "e2-5x72-p69",
+          "receptor_state_id": "e2-5x72-protein-only-provided",
+          "coordinate_atoms": 25,
+          "coordinate_unit": "nanometer",
+          "source_atom_keys": [
+            {
+              "atom_id": "1",
+              "atom_name": "F1",
+              "element": "F",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "2",
+              "atom_name": "C2",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "3",
+              "atom_name": "C3",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "4",
+              "atom_name": "C4",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "5",
+              "atom_name": "C5",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "6",
+              "atom_name": "C6",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "7",
+              "atom_name": "C7",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "8",
+              "atom_name": "C8",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "9",
+              "atom_name": "N9",
+              "element": "N",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "10",
+              "atom_name": "C10",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "11",
+              "atom_name": "C11",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "12",
+              "atom_name": "C12",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "13",
+              "atom_name": "C13",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "14",
+              "atom_name": "C14",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "15",
+              "atom_name": "C15",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "16",
+              "atom_name": "C16",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "17",
+              "atom_name": "O17",
+              "element": "O",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "18",
+              "atom_name": "N18",
+              "element": "N",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "19",
+              "atom_name": "C19",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "20",
+              "atom_name": "C20",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "21",
+              "atom_name": "C21",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "22",
+              "atom_name": "C22",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "23",
+              "atom_name": "C23",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "24",
+              "atom_name": "C24",
+              "element": "C",
+              "group_id": null,
+              "group_name": null
+            },
+            {
+              "atom_id": "30",
+              "atom_name": "H30",
+              "element": "H",
+              "group_id": null,
+              "group_name": null
+            }
+          ],
+          "source_atom_indices": null
+        }
+      ]
+    }
+  ],
+  "candidate_reference": {
+    "path": "tests/data/vina_torsions/5x72_ligand_p59.sdf",
+    "bytes": 2990,
+    "sha256": "a476b0d62652664596801fc88024fbd756294e9e2faf9234c8d90c2288aaa373",
+    "declared_source": "Existing 5X72 P59 ModelServer SDF retained in repository",
+    "source_header_observation": "24 atoms/27 bonds; source text is not a new provider chemistry observation",
+    "role": "Candidate experimental reference; graph/H/common-frame/correspondence admission unperformed",
+    "admitted": false
+  },
+  "provider_blobs": [
+    {
+      "path": "molsysmt/structure/__init__.py",
+      "revisions": {
+        "00abb958fb93649131d5ce5fe5e12e90cf4900e9": {
+          "git_blob": "7dcb7732932c5631f789e174cf98af2ff806beec",
+          "bytes": 1336,
+          "sha256": "93ceafed474a26a6f93076c65bc0c327bd5724e9e7ed37a0b3db42820cce712f",
+          "public_function_signatures": {}
+        },
+        "9e1f1b1ad8bf09446374ab6f04ca7208e2717936": {
+          "git_blob": "7dcb7732932c5631f789e174cf98af2ff806beec",
+          "bytes": 1336,
+          "sha256": "93ceafed474a26a6f93076c65bc0c327bd5724e9e7ed37a0b3db42820cce712f",
+          "public_function_signatures": {}
+        },
+        "82bfa1c82f1d48035679fa4630e81a2506b67bd6": {
+          "git_blob": "7dcb7732932c5631f789e174cf98af2ff806beec",
+          "bytes": 1336,
+          "sha256": "93ceafed474a26a6f93076c65bc0c327bd5724e9e7ed37a0b3db42820cce712f",
+          "public_function_signatures": {}
+        }
+      }
+    },
+    {
+      "path": "molsysmt/structure/get_rmsd.py",
+      "revisions": {
+        "00abb958fb93649131d5ce5fe5e12e90cf4900e9": {
+          "git_blob": "aa39514bbc2dc640a74dbaa66639dacf312390c8",
+          "bytes": 10436,
+          "sha256": "b8f6cae8afbefc5ebe19147b208a540f235d630857c30bed85cdf2f66af4beca",
+          "public_function_signatures": {
+            "get_rmsd": "molecular_system, selection='atom_type!=\"H\"', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_index=0, syntax='MolSysMT', engine='MolSysMT', heavy_mode='auto', use_gpu=None, parallel=None, num_threads=None"
+          }
+        },
+        "9e1f1b1ad8bf09446374ab6f04ca7208e2717936": {
+          "git_blob": "aa39514bbc2dc640a74dbaa66639dacf312390c8",
+          "bytes": 10436,
+          "sha256": "b8f6cae8afbefc5ebe19147b208a540f235d630857c30bed85cdf2f66af4beca",
+          "public_function_signatures": {
+            "get_rmsd": "molecular_system, selection='atom_type!=\"H\"', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_index=0, syntax='MolSysMT', engine='MolSysMT', heavy_mode='auto', use_gpu=None, parallel=None, num_threads=None"
+          }
+        },
+        "82bfa1c82f1d48035679fa4630e81a2506b67bd6": {
+          "git_blob": "aa39514bbc2dc640a74dbaa66639dacf312390c8",
+          "bytes": 10436,
+          "sha256": "b8f6cae8afbefc5ebe19147b208a540f235d630857c30bed85cdf2f66af4beca",
+          "public_function_signatures": {
+            "get_rmsd": "molecular_system, selection='atom_type!=\"H\"', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_index=0, syntax='MolSysMT', engine='MolSysMT', heavy_mode='auto', use_gpu=None, parallel=None, num_threads=None"
+          }
+        }
+      }
+    },
+    {
+      "path": "molsysmt/structure/get_symmetry_corrected_rmsd.py",
+      "revisions": {
+        "00abb958fb93649131d5ce5fe5e12e90cf4900e9": {
+          "git_blob": "c3a2c5ed3d0dea5b8a619a33f2b963b9cff918c0",
+          "bytes": 15823,
+          "sha256": "971ef6854a2bfb35eb31c54b6988606c768eb3a1ee1a8816132c6144c67697fe",
+          "public_function_signatures": {
+            "get_symmetry_corrected_rmsd": "molecular_system, selection='atom_type!=\"H\"', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_index=0, chemical_state='reference', reference_chemical_state='reference', correspondences=None, baseline_atom_correspondence=None, method='declared_graph_isomorphism', max_matches=100000, tie_tolerance='1e-12 nm', syntax='MolSysMT', heavy_mode='auto', parallel=None, num_threads=None, skip_digestion=False, *, fixed_atom_correspondence=None, candidate_atom_correspondences=None"
+          }
+        },
+        "9e1f1b1ad8bf09446374ab6f04ca7208e2717936": {
+          "git_blob": "c3a2c5ed3d0dea5b8a619a33f2b963b9cff918c0",
+          "bytes": 15823,
+          "sha256": "971ef6854a2bfb35eb31c54b6988606c768eb3a1ee1a8816132c6144c67697fe",
+          "public_function_signatures": {
+            "get_symmetry_corrected_rmsd": "molecular_system, selection='atom_type!=\"H\"', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_index=0, chemical_state='reference', reference_chemical_state='reference', correspondences=None, baseline_atom_correspondence=None, method='declared_graph_isomorphism', max_matches=100000, tie_tolerance='1e-12 nm', syntax='MolSysMT', heavy_mode='auto', parallel=None, num_threads=None, skip_digestion=False, *, fixed_atom_correspondence=None, candidate_atom_correspondences=None"
+          }
+        },
+        "82bfa1c82f1d48035679fa4630e81a2506b67bd6": {
+          "git_blob": "c3a2c5ed3d0dea5b8a619a33f2b963b9cff918c0",
+          "bytes": 15823,
+          "sha256": "971ef6854a2bfb35eb31c54b6988606c768eb3a1ee1a8816132c6144c67697fe",
+          "public_function_signatures": {
+            "get_symmetry_corrected_rmsd": "molecular_system, selection='atom_type!=\"H\"', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_index=0, chemical_state='reference', reference_chemical_state='reference', correspondences=None, baseline_atom_correspondence=None, method='declared_graph_isomorphism', max_matches=100000, tie_tolerance='1e-12 nm', syntax='MolSysMT', heavy_mode='auto', parallel=None, num_threads=None, skip_digestion=False, *, fixed_atom_correspondence=None, candidate_atom_correspondences=None"
+          }
+        }
+      }
+    },
+    {
+      "path": "molsysmt/chemical_states/get_atom_correspondences.py",
+      "revisions": {
+        "00abb958fb93649131d5ce5fe5e12e90cf4900e9": {
+          "git_blob": "d5a105dca0601098cf24194a227efbd282dded7c",
+          "bytes": 12395,
+          "sha256": "1fd9c0202e352ba9e02ea212547f797d6d79cbb95217b4dacc07bffb56926762",
+          "public_function_signatures": {
+            "get_atom_correspondences": "molecular_system, selection='all', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_indices='all', chemical_state='reference', reference_chemical_state='reference', method='declared_graph_isomorphism', max_matches=100000, syntax='MolSysMT', skip_digestion=False, *, fixed_atom_correspondence=None, candidate_atom_correspondences=None"
+          }
+        },
+        "9e1f1b1ad8bf09446374ab6f04ca7208e2717936": {
+          "git_blob": "d5a105dca0601098cf24194a227efbd282dded7c",
+          "bytes": 12395,
+          "sha256": "1fd9c0202e352ba9e02ea212547f797d6d79cbb95217b4dacc07bffb56926762",
+          "public_function_signatures": {
+            "get_atom_correspondences": "molecular_system, selection='all', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_indices='all', chemical_state='reference', reference_chemical_state='reference', method='declared_graph_isomorphism', max_matches=100000, syntax='MolSysMT', skip_digestion=False, *, fixed_atom_correspondence=None, candidate_atom_correspondences=None"
+          }
+        },
+        "82bfa1c82f1d48035679fa4630e81a2506b67bd6": {
+          "git_blob": "d5a105dca0601098cf24194a227efbd282dded7c",
+          "bytes": 12395,
+          "sha256": "1fd9c0202e352ba9e02ea212547f797d6d79cbb95217b4dacc07bffb56926762",
+          "public_function_signatures": {
+            "get_atom_correspondences": "molecular_system, selection='all', structure_indices='all', reference_molecular_system=None, reference_selection=None, reference_structure_indices='all', chemical_state='reference', reference_chemical_state='reference', method='declared_graph_isomorphism', max_matches=100000, syntax='MolSysMT', skip_digestion=False, *, fixed_atom_correspondence=None, candidate_atom_correspondences=None"
+          }
+        }
+      }
+    },
+    {
+      "path": "tests/structure/get_rmsd/test_get_rmsd_extended.py",
+      "revisions": {
+        "00abb958fb93649131d5ce5fe5e12e90cf4900e9": {
+          "git_blob": "b70a298f0493288e4bae19805f969c12c5ad8915",
+          "bytes": 5585,
+          "sha256": "fe380745684f25f82799f499b8883b894390bb1cfb387d92f414bca1d7bce99e",
+          "public_function_signatures": {
+            "pentalanine": "",
+            "test_get_rmsd_unsupported_engine": "pentalanine",
+            "test_get_rmsd_atom_count_mismatch": "pentalanine",
+            "test_get_rmsd_explicit_reference_system": "pentalanine",
+            "test_get_rmsd_multi_frame_reference": "pentalanine",
+            "test_get_rmsd_self_comparison_is_zero": "pentalanine",
+            "test_get_rmsd_shape_single_structure": "pentalanine",
+            "test_get_rmsd_shape_all_structures": "pentalanine",
+            "test_get_rmsd_nonnegative": "pentalanine"
+          }
+        },
+        "9e1f1b1ad8bf09446374ab6f04ca7208e2717936": {
+          "git_blob": "b70a298f0493288e4bae19805f969c12c5ad8915",
+          "bytes": 5585,
+          "sha256": "fe380745684f25f82799f499b8883b894390bb1cfb387d92f414bca1d7bce99e",
+          "public_function_signatures": {
+            "pentalanine": "",
+            "test_get_rmsd_unsupported_engine": "pentalanine",
+            "test_get_rmsd_atom_count_mismatch": "pentalanine",
+            "test_get_rmsd_explicit_reference_system": "pentalanine",
+            "test_get_rmsd_multi_frame_reference": "pentalanine",
+            "test_get_rmsd_self_comparison_is_zero": "pentalanine",
+            "test_get_rmsd_shape_single_structure": "pentalanine",
+            "test_get_rmsd_shape_all_structures": "pentalanine",
+            "test_get_rmsd_nonnegative": "pentalanine"
+          }
+        },
+        "82bfa1c82f1d48035679fa4630e81a2506b67bd6": {
+          "git_blob": "b70a298f0493288e4bae19805f969c12c5ad8915",
+          "bytes": 5585,
+          "sha256": "fe380745684f25f82799f499b8883b894390bb1cfb387d92f414bca1d7bce99e",
+          "public_function_signatures": {
+            "pentalanine": "",
+            "test_get_rmsd_unsupported_engine": "pentalanine",
+            "test_get_rmsd_atom_count_mismatch": "pentalanine",
+            "test_get_rmsd_explicit_reference_system": "pentalanine",
+            "test_get_rmsd_multi_frame_reference": "pentalanine",
+            "test_get_rmsd_self_comparison_is_zero": "pentalanine",
+            "test_get_rmsd_shape_single_structure": "pentalanine",
+            "test_get_rmsd_shape_all_structures": "pentalanine",
+            "test_get_rmsd_nonnegative": "pentalanine"
+          }
+        }
+      }
+    },
+    {
+      "path": "tests/structure/test_get_symmetry_corrected_rmsd.py",
+      "revisions": {
+        "00abb958fb93649131d5ce5fe5e12e90cf4900e9": {
+          "git_blob": "90a99a5dc7e3195aaa8049a5892c121815036ed7",
+          "bytes": 18658,
+          "sha256": "3c1da7816fc38e2540ca1bbbf47afc4e18e420aee630e1e3ff1c759a60440216",
+          "public_function_signatures": {
+            "system": "smiles='c1ccccc1', n_structures=4",
+            "identity": "count",
+            "test_anchored_and_supplied_minima_are_not_the_unrestricted_minimum": "",
+            "test_multiple_proposed_maps_choose_the_analytic_pose_mapping": "",
+            "test_valid_baseline_excluded_by_constraints_can_be_smaller_than_corrected": "",
+            "test_constrained_cache_reuses_search_and_rejects_mutated_constraints": "monkeypatch",
+            "test_constrained_empty_structures_and_no_compatible_anchor": "",
+            "test_prior_unconstrained_schema_one_cache_retains_unrestricted_meaning": "",
+            "test_proposed_geometry_matches_independent_rdkit_explicit_map": "",
+            "test_constrained_h5msm_streaming_matches_eager_and_uses_active_units": "tmp_path",
+            "test_corrected_raw_rmsd_and_maps_preserve_nonconsecutive_repeated_structures": "",
+            "test_translation_and_rotation_of_asymmetric_ligand_are_not_removed": "",
+            "test_benzamidinium_nitrogen_coordinate_swap_is_not_a_chemical_symmetry": "",
+            "test_rdkit_structure_positions_do_not_use_conformer_ids": "",
+            "test_reference_reordering_uses_paired_indices_without_selection_sorting": "",
+            "test_cached_maps_reuse_graph_search_and_reject_changed_chemistry": "monkeypatch",
+            "test_modified_cache_and_wrong_baseline_are_refused": "",
+            "test_units_follow_user_policy_and_coordinate_input_units": "",
+            "test_eager_chunked_h5msm_parity_and_empty_structures": "tmp_path, monkeypatch",
+            "test_rdkit_in_place_oracle_with_explicit_qualified_maps": "",
+            "test_exact_ties_are_lexical_and_near_ties_do_not_replace_minimum": "",
+            "test_invalid_public_geometry_arguments_fail": "options",
+            "test_unknown_cached_rule_version_is_refused": ""
+          }
+        },
+        "9e1f1b1ad8bf09446374ab6f04ca7208e2717936": {
+          "git_blob": "90a99a5dc7e3195aaa8049a5892c121815036ed7",
+          "bytes": 18658,
+          "sha256": "3c1da7816fc38e2540ca1bbbf47afc4e18e420aee630e1e3ff1c759a60440216",
+          "public_function_signatures": {
+            "system": "smiles='c1ccccc1', n_structures=4",
+            "identity": "count",
+            "test_anchored_and_supplied_minima_are_not_the_unrestricted_minimum": "",
+            "test_multiple_proposed_maps_choose_the_analytic_pose_mapping": "",
+            "test_valid_baseline_excluded_by_constraints_can_be_smaller_than_corrected": "",
+            "test_constrained_cache_reuses_search_and_rejects_mutated_constraints": "monkeypatch",
+            "test_constrained_empty_structures_and_no_compatible_anchor": "",
+            "test_prior_unconstrained_schema_one_cache_retains_unrestricted_meaning": "",
+            "test_proposed_geometry_matches_independent_rdkit_explicit_map": "",
+            "test_constrained_h5msm_streaming_matches_eager_and_uses_active_units": "tmp_path",
+            "test_corrected_raw_rmsd_and_maps_preserve_nonconsecutive_repeated_structures": "",
+            "test_translation_and_rotation_of_asymmetric_ligand_are_not_removed": "",
+            "test_benzamidinium_nitrogen_coordinate_swap_is_not_a_chemical_symmetry": "",
+            "test_rdkit_structure_positions_do_not_use_conformer_ids": "",
+            "test_reference_reordering_uses_paired_indices_without_selection_sorting": "",
+            "test_cached_maps_reuse_graph_search_and_reject_changed_chemistry": "monkeypatch",
+            "test_modified_cache_and_wrong_baseline_are_refused": "",
+            "test_units_follow_user_policy_and_coordinate_input_units": "",
+            "test_eager_chunked_h5msm_parity_and_empty_structures": "tmp_path, monkeypatch",
+            "test_rdkit_in_place_oracle_with_explicit_qualified_maps": "",
+            "test_exact_ties_are_lexical_and_near_ties_do_not_replace_minimum": "",
+            "test_invalid_public_geometry_arguments_fail": "options",
+            "test_unknown_cached_rule_version_is_refused": ""
+          }
+        },
+        "82bfa1c82f1d48035679fa4630e81a2506b67bd6": {
+          "git_blob": "90a99a5dc7e3195aaa8049a5892c121815036ed7",
+          "bytes": 18658,
+          "sha256": "3c1da7816fc38e2540ca1bbbf47afc4e18e420aee630e1e3ff1c759a60440216",
+          "public_function_signatures": {
+            "system": "smiles='c1ccccc1', n_structures=4",
+            "identity": "count",
+            "test_anchored_and_supplied_minima_are_not_the_unrestricted_minimum": "",
+            "test_multiple_proposed_maps_choose_the_analytic_pose_mapping": "",
+            "test_valid_baseline_excluded_by_constraints_can_be_smaller_than_corrected": "",
+            "test_constrained_cache_reuses_search_and_rejects_mutated_constraints": "monkeypatch",
+            "test_constrained_empty_structures_and_no_compatible_anchor": "",
+            "test_prior_unconstrained_schema_one_cache_retains_unrestricted_meaning": "",
+            "test_proposed_geometry_matches_independent_rdkit_explicit_map": "",
+            "test_constrained_h5msm_streaming_matches_eager_and_uses_active_units": "tmp_path",
+            "test_corrected_raw_rmsd_and_maps_preserve_nonconsecutive_repeated_structures": "",
+            "test_translation_and_rotation_of_asymmetric_ligand_are_not_removed": "",
+            "test_benzamidinium_nitrogen_coordinate_swap_is_not_a_chemical_symmetry": "",
+            "test_rdkit_structure_positions_do_not_use_conformer_ids": "",
+            "test_reference_reordering_uses_paired_indices_without_selection_sorting": "",
+            "test_cached_maps_reuse_graph_search_and_reject_changed_chemistry": "monkeypatch",
+            "test_modified_cache_and_wrong_baseline_are_refused": "",
+            "test_units_follow_user_policy_and_coordinate_input_units": "",
+            "test_eager_chunked_h5msm_parity_and_empty_structures": "tmp_path, monkeypatch",
+            "test_rdkit_in_place_oracle_with_explicit_qualified_maps": "",
+            "test_exact_ties_are_lexical_and_near_ties_do_not_replace_minimum": "",
+            "test_invalid_public_geometry_arguments_fail": "options",
+            "test_unknown_cached_rule_version_is_refused": ""
+          }
+        }
+      }
+    }
+  ],
+  "bounded_filename_search": {
+    "command": "git ls-tree -r --name-only 82bfa1c82f1d48035679fa4630e81a2506b67bd6 molsysmt",
+    "source_paths": 3455,
+    "terms": [
+      "cluster",
+      "pairwise",
+      "distance_matrix"
+    ],
+    "matches": [],
+    "limit": "Does not prove absence of every supported composition; #604 requests the provider decision."
+  },
+  "provider_contract_observations": [
+    "get_rmsd is positional/no fitting; get_symmetry_corrected_rmsd retains chemical search scope without alignment.",
+    "The symmetry contract requires the same indexed-H representation even when H is excluded from the RMSD population.",
+    "Reference24 and received rigid25 do not authorize order-based matching or implicit H normalization.",
+    "No accepted pairwise RMSD matrix/clustering composition received from #604; all original #79 criteria remain."
+  ],
+  "execution": {
+    "scientific_imports": 0,
+    "molecular_operations": 0,
+    "rmsd_measurements": 0,
+    "pairwise_matrices": 0,
+    "clustering_runs": 0,
+    "native_searches": 0,
+    "environment_installations": 0,
+    "source_or_pin_changes": 0
+  },
+  "next_action": "Receive #604 supported composition/tools; admit reference/state/H/correspondence in a separately registered bounded selection before E3 calculation. Independently prepare E4 saved-analysis projection admission while preserving local hold.",
+  "whole_e3_received": false,
+  "full_objective_received": false
+}

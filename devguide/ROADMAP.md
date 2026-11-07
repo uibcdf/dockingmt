@@ -24,10 +24,10 @@ qualify a private artifact as a public package.
 
 | Work | Established boundary | Next action / owner |
 | --- | --- | --- |
-| E4 interactions | One installed 3PTB workflow at `5952053` passes normal/pm-fs, twelve provider detector calls, persistence/filtering and two fresh readers. Original failures remain; whole E4 is partial. | [#80](pending_proposals/receive_docking_interaction_analysis.md): admit the saved provider analyses in the result/addon layer without hidden recalculation. The analysis includes five added H; do not assume its atom/frame axes equal the existing docking scene. Use provider-supported correspondence/composition and qualify it. |
-| E1 rescoring/ranking | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07): the complete two-pose rigid public route receives original-result reconstruction, preparation, additive Vina/Vinardo evaluations, separate interaction comparisons and independent persistence. Original records and all informative controls survive. | Preserve that bounded contract and the failed original generator qualification. E2's bounded study is also received under [#81](archive/qualify_small_ligand_collection.md); advance independent E3 work. Broad E1, total/reference ordering, scientific validity and public delivery keep separate gates. |
-| E2 ligand collections | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for P59(R)/P69(S), rigid25 preparations and the common joint domain: native success/refusal/success, 3+2 original poses, two searches and two original-rank-1 representatives. Five native columns, own references, all original histories and independent saved receiving pass. | Preserve the exact [native receiving](validation/e2_native_collection_2026-11-07.md), source/preparation gates and caller-owned empirical study policy. This accepts the bounded profile, not all E2 profiles, #73, screening effectiveness or public delivery. Next independent workflow: [#79](pending_proposals/qualify_pose_comparison_and_clustering.md)/MolSysMT #604. |
-| E3 comparison/clustering | Existing metrics are reusable; the bounded pairwise/clustering workflow is not qualified. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md): receive MolSysMT #604's supported composition or tools; no downstream molecular algorithm. |
+| E4 interactions | One installed 3PTB workflow at `5952053` passes normal/pm-fs, twelve provider detector calls, persistence/filtering and two fresh readers. Original failures remain; whole E4 is partial. | [#80](pending_proposals/receive_docking_interaction_analysis.md): follow the [source-reviewed saved-analysis admission route](validation/e4_saved_analysis_admission_2026-11-07.md), admitting projection and atom/frame axes before a consumer API. The analysis has five added H; preserve the local hold and do not infer scene correspondence or rerun detectors. |
+| E1 rescoring/ranking | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07): the complete two-pose rigid public route receives original-result reconstruction, preparation, additive Vina/Vinardo evaluations, separate interaction comparisons and independent persistence. Original records and all informative controls survive. | Preserve that bounded contract and the failed original generator qualification. E2's bounded study is also received under [#81](archive/qualify_small_ligand_collection.md). E3 is provider-blocked; advance independent E4 saved-analysis admission. Broad E1, total/reference ordering, scientific validity and public delivery keep separate gates. |
+| E2 ligand collections | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for P59(R)/P69(S), rigid25 preparations and the common joint domain: native success/refusal/success, 3+2 original poses, two searches and two original-rank-1 representatives. Five native columns, own references, all original histories and independent saved receiving pass. | Preserve the exact [native receiving](validation/e2_native_collection_2026-11-07.md), source/preparation gates and caller-owned empirical study policy. This accepts the bounded profile, not all E2 profiles, #73, screening effectiveness or public delivery. E3 [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) awaits MolSysMT #604; independent E4 axis admission can progress within its hold. |
+| E3 comparison/clustering | [Static provider admission](validation/e3_provider_admission_2026-11-07.md) leaves [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) blocked by MolSysMT #604: per-reference RMSD exists, but no N×N/clustering composition is admitted. No new RMSD or analysis runs. | Receive the provider-supported composition/tools and preserve every #79 control and reference requirement. Three existing P59 poses are a population candidate; their crystalline heavy reference is not yet admitted against rigid25. No downstream matrix, clustering or molecular fallback. |
 | Remaining Core, scientific panel and E5 | Declared 3PTB preparation/execution/inspection/evaluation and bounded controls exist; they do not establish general chemistry, a qualified independent panel or a whole independent-workflow audit. | #4/#28/#33/#49 and the full evidence map retain the remaining criteria. Receive provider-owned template/reconstruction/partial-input needs and register new scientific populations before execution. |
 | Public delivery | Private source/installed qualification is distinct from a compatible public dependency closure and actual Conda artifact. | #30/#47: refresh actual covering provider files before receiving; then qualify the exact staged candidate and required platform/minor matrix. Distribution uses Conda `uibcdf`; no PyPI route or release follows from private evidence. |
 | Visible acceptance | Python/DOM/kernel evidence and MolSysViewer #291 notification receiving are delivered; real comm/canvas acceptance is unproven. | #52/#60: keep the maintainer's scheduling decision. Do not resume live observation merely because another machine is available. |
@@ -75,9 +75,32 @@ is sealed at
 Eleven software guards pass. The initial test collection failure from a missing
 Vina path remains preserved; the correction adds no search or preparation.
 
-Advance #79/MolSysMT #604's provider-backed E3 composition. This bounded E2
-acceptance does not complete all E2 profiles or #73. Keep #28's hosted evidence
+Preserve this bounded E2 acceptance; it does not complete all E2 profiles or
+#73. E3 awaits provider admission under #79/MolSysMT #604. Keep #28's hosted evidence
 missing under `[skip ci]`; #30/#47 and the E4/live-visual holds remain.
+
+### E3 static provider checkpoint — 2026-11-07
+
+The [source/API review](validation/e3_provider_admission_2026-11-07.md) and
+[inspection inventory](validation/data/e3_provider_admission_2026-11-07.json)
+record DockingMT `9bb313e` with task-owned documentation changes and the
+preserved untracked migration snapshot.
+MolSysMT local `9e1f1b1ad8bf` is clean and 52 commits behind fetched
+`82bfa1c82f1d48035679fa4630e81a2506b67bd6`; no checkout or provider pin changes.
+MolSysMT #604 is open with zero comments at this inspection. Existing RMSD
+operations do not establish an admitted N×N matrix/clustering composition.
+[#79](pending_proposals/qualify_pose_comparison_and_clustering.md) is blocked by
+that provider boundary, with its complete controls and acceptance contract intact.
+
+The three original P59 poses from E2 supply a candidate same-state population.
+The crystalline 24-heavy-atom reference remains a candidate: correspondence,
+frame and H representation against rigid25 are not admitted. P69 stays separate.
+No new calculation, RMSD, clustering or E3 acceptance follows from this inventory.
+The next independent work is E4's
+[source-reviewed saved-analysis admission](validation/e4_saved_analysis_admission_2026-11-07.md):
+receive projection and atom/frame axes before selecting a consumer API. The local
+E4/live-visual holds, full active objective, public gates and `[skip ci]` route
+remain unchanged; no manual CI is dispatched.
 
 ## Source-specific checkpoint details — through 2026-11-06
 

@@ -118,3 +118,27 @@ qualified pin, but current main has internal coordinate-delivery changes.
 Unchanged signatures do not prove behavioral equivalence. Receive the actual
 selected profile before changing a provider pin or making E4 acceptance claims.
 
+## Saved-analysis consumer admission — 2026-11-07
+
+The [new source-reviewed recipe](../validation/e4_saved_analysis_admission_2026-11-07.md)
+identifies supported complete-carrier/layer reads, extraction/remap and Viewer
+attachment at the original qualified pins. It adds no API or molecular run.
+The original association's ligand indices `3220..3237` distinguish the analysed
+3238-atom carrier (receptor_h3220 plus ligand18) from the prepared receptor2011.
+That corrects the former handoff's carrier arithmetic without altering its
+original evidence. The current destination scene's axes are unreceived.
+
+First receive the same saved complete carrier as a baseline; projection to a
+different docking scene additionally needs admitted receptor/ligand/frame maps,
+lost-participant/coverage controls and physically checked retained coordinates.
+`assume_aligned=True` declares a relationship; it does not authenticate it.
+Do not repeat a saved analysis to label the other four poses as evaluated or
+reconstruct full persistence from a query/page.
+
+The recipe is not ready for execution: select exact destination/maps and controls,
+seal finite artifacts/resources/call caps, and resolve the original local hold's
+execution venue before running. No local replay or automatic manual CI follows.
+Existing molecular receiving remains passing in its own bounded scope; this
+consumer/addon admission and whole E4 remain partial. E3's provider-blocked
+workflow does not waive any of these requirements.
+

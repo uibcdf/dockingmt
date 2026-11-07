@@ -80,10 +80,27 @@ resuming; earlier dated "next" statements below retain their historical scope.
   exact-head hosted evidence stays missing under #28 and `[skip ci]`, with no
   manual CI dispatch. #30/#47, scientific-panel admission and E4/live-visual
   holds remain unchanged.
-- **Next:** advance independent E3 [#79](pending_proposals/qualify_pose_comparison_and_clustering.md)/
-  MolSysMT [#604](https://github.com/uibcdf/molsysmt/issues/604), receiving the
-  actual supported composition/tools before implementation or molecular work.
-  Existing bounded E1/E2 acceptance does not complete the full plan.
+- **E3 static provider boundary:** [Admission review](validation/e3_provider_admission_2026-11-07.md)
+  and [inventory](validation/data/e3_provider_admission_2026-11-07.json) inspect
+  DockingMT `9bb313e`, with task-owned documentation changes and the original
+  untracked migration snapshot preserved.
+  MolSysMT local `9e1f1b1ad8bf` stays clean, 52 commits behind fetched
+  `82bfa1c82f1d48035679fa4630e81a2506b67bd6`; no checkout/pin change occurs.
+  MolSysMT #604 is open with zero comments at inspection. Existing per-reference
+  RMSD does not supply an admitted N×N/clustering composition, so
+  [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) is blocked by
+  the provider. Its complete reference, degeneracy, symmetry, threshold/unit,
+  frame/map/budget and nonmutation contract stays intact; E3 is unaccepted.
+  Three original P59 poses are a same-state population candidate. Their
+  crystalline 24-heavy-atom reference is not admitted against rigid25 or its H
+  representation; P69 remains separate. No RMSD or new calculation occurs.
+- **Next independent work:** use E4's
+  [source-reviewed public saved-analysis recipe](validation/e4_saved_analysis_admission_2026-11-07.md)
+  to admit projection and atom/frame axes before selecting a consumer API.
+  Saved analysis has five additional H; scene/source correspondence is not
+  implied by shared labels. This static route does not resume the local E4 or
+  live-visual holds, authorize new detector calculations or dispatch manual CI. The full
+  objective remains active; bounded E1/E2 acceptance does not complete it.
 - **Custody:** `.molsyssuite/e1-acceptance-20261107`,
   `.molsyssuite/e2-source-admission-20261107`,
   `.molsyssuite/e2-preparation-20261107` and
@@ -225,10 +242,10 @@ records. Whole E1, public delivery, hosted gates and the E4 hold stay separate.
 
 | Work | Next meaningful action | Owner / limits |
 | --- | --- | --- |
-| E4 structured consumer/addon admission | Bind saved provider analyses to the actual original pose/result and declared axes; preserve coverage, methods, units and provenance without recalculation. | [#80](pending_proposals/receive_docking_interaction_analysis.md). Whole E4 stays partial. |
-| E1 representative rescoring | Preserve the resolved bounded same-state contract and its original successful/failed evidence; the next independent workflow is E3 comparison/clustering. | [#78 archived](archive/qualify_same_state_rescoring.md). Whole E1, provider-wide #599/#447 and public delivery remain separate; preserve strict ranking and original producers. |
+| E4 structured consumer/addon admission | Next independent admission: follow the [source-reviewed public recipe](validation/e4_saved_analysis_admission_2026-11-07.md) to receive projection/atom/frame axes before a consumer API; preserve original coverage, methods, units and provenance. | [#80](pending_proposals/receive_docking_interaction_analysis.md). No hidden recalculation or automatic restart of the local hold; saved-analysis consumer receiving and whole E4 remain partial. |
+| E1 representative rescoring | Preserve the resolved bounded same-state contract and its original successful/failed evidence; E3 remains provider-blocked while E4 saved-analysis admission can progress independently. | [#78 archived](archive/qualify_same_state_rescoring.md). Whole E1, provider-wide #599/#447 and public delivery remain separate; preserve strict ranking and original producers. |
 | E2 distinct-ligand study | Preserve the accepted P59/P69 rigid25 joint-domain source/preparation/native/persistence records: success/refusal/success, 3+2 poses, five native columns, own references and the separate empirical decision. No repeat search or new runtime framework is needed. | [#81 resolved](archive/qualify_small_ligand_collection.md). Other E2 profiles, screening effectiveness, public delivery and #73 remain separate; strict same-state ranking is unchanged. |
-| E3 comparison/clustering | Receive the supported provider composition/tools before implementation. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md), MolSysMT [#604](https://github.com/uibcdf/molsysmt/issues/604). No local molecular clustering/matching. |
+| E3 comparison/clustering | Blocked: receive the supported provider N×N/clustering composition/tools without reducing the complete #79 contract. P59 population/reference candidates are not new analysis evidence. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md), MolSysMT [#604](https://github.com/uibcdf/molsysmt/issues/604); [static admission review](validation/e3_provider_admission_2026-11-07.md). No local matrix, clustering or matching. |
 | Scientific panel | Resolve source/state/environment/template/reconstruction admission before searches. | [Panel admission](validation/scientific_panel_admission_2026-11-04.md) and [environment](validation/scientific_panel_environment_2026-11-04.md) retain #33/#49 and MolSysMT #555–#558. Proposed candidates are not admitted complexes. |
 | E5 reproduction | Qualify a whole independent representative workflow to its documented degree. | Full plan #73; existing readers/captures are pieces, not whole E5. |
 | Public/platform delivery | Refresh artifacts, qualify the actual compatible public combination and exact staged Conda file/cells. | #30/#47. No source fallback or private-wheel proof substitutes. |
@@ -240,11 +257,25 @@ cross-component work and live observation do not resume automatically.
 
 ### Last unfinished E4 investigation
 
-The saved interaction model materializes five additional nonpolar H. For this
-profile it has 2,029 atoms, whereas the prepared thirteen-atom pose scene has 2,024
-with the same 2,011-atom receptor. Its analysis covers one structure; the original
-docking result has five poses. Counts, labels or `assume_aligned=True` cannot
-authenticate or fix those axes.
+**Correction — 2026-11-07:** the earlier 2,029-atom analysis / 2,024-atom scene
+statement conflated the prepared PDBQT receptor with the analyzed carrier.
+The original [normal association](validation/data/3ptb_interactions_hosted_5952053/normal/interactions/association.json.gz)
+and [pm/fs association](validation/data/3ptb_interactions_hosted_5952053/pm_fs/interactions/association.json.gz)
+record ligand indices 3220 through 3237 for both retained/translated analyses.
+The [original notebook](validation/installed_3ptb_interactions.ipynb) selects
+`preparation['receptor_h']` and merges that receptor with the complete ligand;
+its protein/BEN selections are disjoint and exhaustive. The carrier has 3,238
+atoms: the 3,220-atom hydrogenated receptor plus 18 ligand atoms. Its ligand
+retains thirteen original pose atoms and adds five nonpolar H. The preparation receipt's 2,011-atom receptor is the prepared/PDBQT
+representation, not this analysis carrier. The earlier 2,029/2,024 inference is
+withdrawn; no atom count or mapping for a current docking/viewer scene is admitted
+here. Original associations and provider files remain unchanged.
+
+The saved analysis covers one structure; the original docking result has five
+poses. Counts, labels or `assume_aligned=True` cannot authenticate or repair the
+source/scene atom and frame axes. Admit the actual projection and coverage
+through the [source-reviewed recipe](validation/e4_saved_analysis_admission_2026-11-07.md)
+before consumer integration; that review does not execute or accept the mapping.
 
 At the qualified Viewer source, public independent interaction loading
 extracts/reorders source axes but does **not** embed a subsystem into a larger

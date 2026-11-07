@@ -1,7 +1,7 @@
 ---
 summary: Qualify provider-backed positional pose comparison and declared geometric clustering for E3.
 issue: uibcdf/dockingmt#79
-status: active
+status: blocked
 opened: 2026-11-06
 closed:
 verification: inspected
@@ -66,4 +66,27 @@ Provider request and consumer acceptance contract are delivered. Runtime
 composition and representative execution are unimplemented/unqualified; E3 is
 not accepted. This request does not expand MolSysMT's frozen initial 1.0 gates
 or require a new docking campaign, generic scheduler or visualization engine.
+
+## Provider and population admission checkpoint — 2026-11-07
+
+The [fresh source/record inspection](../validation/e3_provider_admission_2026-11-07.md)
+verifies all 193 E2 archive members and identifies the three original P59 poses
+without changing their producer, scores or state. P69 remains a different-state
+control candidate. The experimental-reference SDF is identified by exact bytes;
+graph/H representation, chemical correspondence and common-frame admission
+against rigid25 remain unperformed. Excluding H from RMSD does not normalize
+the provider's required indexed-H representation.
+
+At MolSysMT fetched `82bfa1c82f1d48035679fa4630e81a2506b67bd6`, six inspected
+metric/correspondence/export/test files remain identical to preserved local
+`9e1f1b1`. Inspection and still-open #604 with zero comments provide no accepted
+N×N/clustering composition. This theme is blocked on that provider contract,
+not resolved or reduced to RMSD alone. Preserve every original criterion above;
+no local algorithm, scientific import, RMSD, search, installation, sibling
+checkout or pin change occurs.
+
+The next E3 calculation needs #604's supported route and separately registered
+reference/state/H/correspondence admission. Meanwhile,
+[E4's independent saved-analysis admission](../validation/e4_saved_analysis_admission_2026-11-07.md)
+can be prepared without hidden recalculation; its local/visual holds remain.
 
