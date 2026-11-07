@@ -1,0 +1,400 @@
+{
+  "schema": "dockingmt.e2_native_study_policy@1",
+  "owner": "uibcdf/dockingmt#81",
+  "status": "accepted for this finite prospective receiving; not executed by this declaration",
+  "study_id": "e2-5x72-rigid-20261107",
+  "policy_id": "e2-5x72-rigid-native-vina-total-20261107",
+  "qualification_starting_source": "78b0664a3863591235585c561200d40d140fb7f4",
+  "scope": "Caller-owned serial collection and empirical native docking-score presentation for two stereochemical entities from one complex; no affinity or stereoselectivity inference",
+  "input_manifests": {
+    "candidate_inventory": {
+      "path": "devguide/validation/data/e2_ligand_collection_candidate_2026-11-07.json",
+      "sha256": "898b26fa60561bb99f823d2dd0c27216cc5771ac7dceacdb103760fed2e22284"
+    },
+    "admitted_source_archive": {
+      "path": "devguide/validation/data/e2_source_admission_2026-11-07/manifest.json",
+      "sha256": "a5a60b65715b466bd04dc5e2bdb41a73489fdf9a13254552870628d387221b8d"
+    },
+    "received_preparation_archive": {
+      "path": "devguide/validation/data/e2_preparation_receiving_2026-11-07/manifest.json",
+      "sha256": "bd4f34c7c696efa1c864c9ea410630398b5ec164726eeaaf6462ea9d9b78d326"
+    }
+  },
+  "ligands": [
+    {
+      "ligand_id": "p59",
+      "declared_state_id": "e2-5x72-p59",
+      "declared_stereochemistry": "R",
+      "source_path": "tests/data/vina_torsions/5x72_ligand_p59H.sdf",
+      "source_sha256": "ef26c05a198a16972efcf8baae644f6b38fd953561f130ee230626088766b08a",
+      "prepared_archive_member": "attempts/prep-01/output/p59/prepared.pdbqt",
+      "prepared_pdbqt_sha256": "ae0e9d3beb4d14363ea6edb1bff591c56d53b02295082bae8c281d9284d84b9e"
+    },
+    {
+      "ligand_id": "p69",
+      "declared_state_id": "e2-5x72-p69",
+      "declared_stereochemistry": "S",
+      "source_path": "tests/data/vina_torsions/5x72_ligand_p69H.sdf",
+      "source_sha256": "637a992134b2038a0ea3cff0c1f8355ea232720c9eae5347100b7186170fcdf1",
+      "prepared_archive_member": "attempts/prep-01/output/p69/prepared.pdbqt",
+      "prepared_pdbqt_sha256": "1cbe49d31e1859e34b7cc71af1a8514fef9314401401b2b76b6a7e07dfc7ebaa"
+    }
+  ],
+  "common_receptor": {
+    "path": "tests/data/vina_torsions/5x72_receptor.pdbqt",
+    "sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+    "declared_state_id": "e2-5x72-protein-only-provided",
+    "preparation_assessment": "external/unassessed",
+    "scope": "Same protein-only rigid receptor for both ligands; historical fixed-companion receptors excluded"
+  },
+  "common_domain": {
+    "path": "tests/data/vina_torsions/5x72_receptor.box.txt",
+    "sha256": "e1e87f640b1976109f7358e871e8e63b6f965ad7e76a54b9e848c10518ac3354",
+    "center": [
+      -15.0,
+      15.0,
+      129.0
+    ],
+    "size": [
+      30.0,
+      24.0,
+      24.0
+    ],
+    "unit": "angstrom",
+    "scope": "Joint domain covering different experimental sites, not a common-site affinity experiment"
+  },
+  "preparation_profile": {
+    "source_recipe": "Public native SDF stereo_engine=rdkit/discard_properties=True, then explicit native/RDKit/native interpretation",
+    "charge_method": "gasteiger_marsili",
+    "expected_total_charge": {
+      "value": 0.0,
+      "unit": "elementary_charge"
+    },
+    "typing_scheme": "autodock4",
+    "typing_method": "chemical_environment",
+    "active_torsion_bonds": [],
+    "torsion_dof": 0,
+    "source_atoms_per_ligand": 39,
+    "prepared_atoms_per_ligand": 25,
+    "represented_hydrogens_per_ligand": 15,
+    "indexed_prepared_hydrogens_per_ligand": 1,
+    "virtual_explicit_prepared_hydrogens_per_ligand": 14,
+    "pre_native_gate": "Reproduce and compare both admitted source authorities and preparation fields, then require BOTH exact prepared PDBQT hashes before the first native call",
+    "inspection_json_is_restoration_input": false,
+    "on_reproduction_difference": "STOP before native work; preserve actual evidence without repair, substitution or historical relabeling"
+  },
+  "protocol": {
+    "backend": "vina",
+    "backend_version": "1.2.7",
+    "scoring": "vina",
+    "cpu": 1,
+    "seed": 42,
+    "exhaustiveness": 1,
+    "n_poses": 3,
+    "energy_range": {
+      "value": 3.0,
+      "unit": "kcal/mol"
+    },
+    "capture_backend_inputs": true,
+    "collect_timings": true,
+    "seed_policy": "Exactly 42 for both scientific runs; no index-derived seed or reseeding",
+    "weights_policy": "Pinned inspected Vina 1.2.7 defaults below; no set_weights call; retain and compare the actual reported weights",
+    "grid_policy": "Pinned inspected wrapper defaults below; preserve and compare actual resolved grid spacing, voxel/domain settings and native calls",
+    "allow_provisional_preparation": false
+  },
+  "run_sequence": [
+    {
+      "input_position": 0,
+      "run_id": "p59-main",
+      "ligand_id": "p59",
+      "role": "scientific_candidate",
+      "constraints": [],
+      "search_guidance": [],
+      "expected_api_status": "success",
+      "native_factory_cap": 1
+    },
+    {
+      "input_position": 1,
+      "run_id": "p59-unsupported-intent-control",
+      "ligand_id": "p59",
+      "role": "expected_capability_refusal; same P59 state/preparation, not a third ligand",
+      "constraints": [
+        {
+          "kind": "e2_unsupported_intent_control"
+        }
+      ],
+      "search_guidance": [],
+      "expected_api_status": "failure",
+      "expected_error_type": "CapabilityMismatchError",
+      "expected_error_code": "DMT-E003",
+      "expected_failed_capability": "constraints",
+      "native_factory_cap": 0
+    },
+    {
+      "input_position": 2,
+      "run_id": "p69-main",
+      "ligand_id": "p69",
+      "role": "scientific_candidate",
+      "constraints": [],
+      "search_guidance": [],
+      "expected_api_status": "success",
+      "native_factory_cap": 1
+    }
+  ],
+  "execution_and_custody": {
+    "public_composition": "dock_many(prepared_problems, protocol=declared_protocol, backend='vina', on_error='record')",
+    "serial": true,
+    "persist_each_outcome_before_qualification": true,
+    "compare_only_after_all_three_outcomes_persisted": true,
+    "preserve_all_returned_poses": true,
+    "max_returned_poses_per_scientific_item": 3,
+    "minimum_nonempty_poses_for_one_representative": 1,
+    "source_fields_mutated": false,
+    "preserve_original_scores_ranks_order_histories_and_producers": true,
+    "pose_identity": "Caller run_id plus original result-local pose_id; retain original pose index and rank",
+    "unexpected_ordinary_item_error": "Persist and continue serial consumption; diagnose qualification after available outcomes are retained",
+    "propagating_errors": [
+      "MemoryError",
+      "process-control/BaseException",
+      "source-iterator errors"
+    ],
+    "interruption": "Preserve partial outcomes and not-attempted/unknown stages; stop only owned work",
+    "retries": 0,
+    "automatic_replacement_or_population_expansion": false
+  },
+  "native_score_record": {
+    "format": "vina_python_docking@1",
+    "columns": [
+      "total",
+      "inter",
+      "intra",
+      "torsions",
+      "intra_best_pose"
+    ],
+    "unit": "kcal/mol",
+    "public_score_to_column": {
+      "vina": 0,
+      "inter": 1,
+      "intra": 2,
+      "torsion": 3
+    },
+    "required_row_binding": "One original finite five-column energy row per returned pose; all four public scores agree with their own row",
+    "reference_column_index": 4,
+    "reference_policy": "Retain the actual reported best-pose intramolecular reference for EACH native search; no common reference across different ligands asserted",
+    "reference_equality_required_between_runs": false,
+    "subtract_or_recombine_components": false,
+    "equal_rounded_references_prove_shared_internal_reference": false,
+    "fixed_score_current_conformation_policy_applied": false
+  },
+  "study_comparison": {
+    "representative": "Unique original backend rank-1 pose of each nonempty successful scientific result, linked to backend-origin ranking history",
+    "fallback_to_first_pose_or_posthoc_minimum": false,
+    "score_name": "vina",
+    "score_component": "native total docking score",
+    "direction": "ascending; lower reported value first",
+    "comparison_unit": "kcal/mol",
+    "ties": "Exact equality of reported native canonical totals; retain tied groups, input position only for stable presentation",
+    "tie_epsilon": 0.0,
+    "display_units": "Explicit public physical conversion for presentation; display rounding never changes selection, ties or order",
+    "required_shared_context": [
+      "backend/method and actual version",
+      "actual weights and resolved native grid settings",
+      "fixed receptor bytes and external receptor state",
+      "fixed physical joint domain and actual backend projection",
+      "declared preparation/H/charge/type/rigid policy",
+      "declared search protocol and native docking-score semantics"
+    ],
+    "required_per_run_binding": "Each result matches its own registered source/state/prepared hash, captured native input and original records",
+    "intentional_differences": [
+      "ligand/state identities",
+      "source/prepared hashes",
+      "stereochemical graph",
+      "ligand parameters",
+      "native per-search reference values"
+    ],
+    "missing_or_incompatible": "Retain explicit reason and no numeric order/imputation; never force two comparable rows",
+    "unranked_reasons": [
+      "expected_capability_refusal",
+      "unexpected_item_failure",
+      "not_attempted_or_missing_outcome",
+      "successful_empty_result",
+      "missing_or_ambiguous_original_rank_1",
+      "missing_nonfinite_or_unknown_score_definition",
+      "missing_or_inconsistent_five_column_native_evidence",
+      "source_state_input_or_capture_binding_mismatch",
+      "incompatible_method_weights_protocol_receptor_domain_grid_or_preparation_context"
+    ],
+    "zero_or_infinite_imputation": false,
+    "two_ligand_order_complete_only_if": "Both scientific outcomes have eligible original-rank-1 representatives and admitted study context",
+    "control_in_scientific_order": false,
+    "uses_cross_ligand_compare_scores_or_rank_by": false,
+    "mutates_original_result_or_ranking_history": false,
+    "interpretation": "Case-specific empirical model preference, not affinity, stereoselectivity, enrichment, calibrated uncertainty or screening effectiveness"
+  },
+  "denominators": {
+    "declared_items": 3,
+    "distinct_ligands": 2,
+    "distinct_declared_stereochemical_entities": 2,
+    "experimental_complexes": 1,
+    "expected_outcomes_if_fully_consumed": 3,
+    "expected_capability_refusals": 1,
+    "max_returned_poses_total": 6,
+    "max_selected_representatives": 2,
+    "record_separately": [
+      "items_retrieved",
+      "attempted_items",
+      "native_invocations",
+      "terminal_outcomes",
+      "successful_results",
+      "expected_refusals",
+      "unexpected_failures",
+      "not_attempted_or_missing",
+      "successful_empty_results",
+      "returned_poses",
+      "eligible_representatives",
+      "incomparable_representatives"
+    ]
+  },
+  "direct_operation_caps": {
+    "source_reproduction_conversions": {
+      "total": 6,
+      "sdf_to_native": 2,
+      "native_to_rdkit": 2,
+      "rdkit_to_native": 2
+    },
+    "named_charge_assignments": 2,
+    "named_type_assignments": 2,
+    "rigid_preparations": 2,
+    "input_gate_pdbqt_exports": 2,
+    "native_factory": 2,
+    "native_set_receptor": 2,
+    "native_set_ligand_from_string": 2,
+    "native_compute_vina_maps": 2,
+    "native_dock": 2,
+    "native_energies": 2,
+    "native_poses_coordinates_only": 2,
+    "native_poses_text": 2,
+    "native_score": 0,
+    "native_optimize": 0,
+    "hydrogen_generation": 0,
+    "new_source_readiness_cip_or_self_witness_requests": 0,
+    "native_info": 4,
+    "native_randomize": 0,
+    "native_set_ligand_from_file": 0,
+    "native_set_weights": 0,
+    "public_outcome_restores": 3
+  },
+  "count_scope": "Registered direct requests/native Python API calls. Observe internal provider calls, backend staging exports and search-internal calculations separately. Input-gate exports do not count backend-internal staging exports. Two nonempty successful runs reach positive native caps; empty/failing results remain retained and incomplete without retry.",
+  "resources": {
+    "cpu_affinity": [
+      0
+    ],
+    "nice": 10,
+    "native_and_build_workers_including_descendants": 1,
+    "cpu_seconds": 60,
+    "wall_seconds": 90,
+    "owned_group_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "available_ram_reserve_bytes": 8589934592,
+    "check_before_launch_and_monitor_during_execution": true,
+    "automatic_restart": false
+  },
+  "delivery_boundary": {
+    "runtime_api_extension": false,
+    "generic_study_framework": false,
+    "whole_e2_received": false,
+    "next_gate": "Freeze policy with exact notebook/worker/guard/artifact identities and register before execution; receive immutable outcomes and an independent standard-library reader afterwards"
+  },
+  "study_report_contract": {
+    "schema": "dockingmt.e2_native_study_report@1",
+    "producer": "Case-specific pure caller notebook function over saved outcome/result dictionaries; no runtime API",
+    "inputs": "Policy plus the three already persisted outcome dictionaries and their recorded byte/capture bindings",
+    "required_top_level_fields": [
+      "schema",
+      "study_id",
+      "policy_id",
+      "policy_sha256",
+      "outcome_records",
+      "items",
+      "order_groups",
+      "counts",
+      "complete_two_ligand_order",
+      "limitations"
+    ],
+    "outcome_records": "Three ordered references with run_id, input_position, outcome artifact path and exact SHA-256; retain all original outcomes unchanged",
+    "item_fields": [
+      "run_id",
+      "input_position",
+      "ligand_id",
+      "declared_state_id",
+      "api_status",
+      "study_disposition",
+      "reasons",
+      "selected_original_pose_id",
+      "selected_original_pose_index",
+      "selected_original_rank",
+      "native_energy_row_index",
+      "native_energy_row",
+      "native_energy_columns",
+      "native_energy_unit",
+      "selected_native_total",
+      "reported_reference_component",
+      "observed_context_and_input_bindings"
+    ],
+    "missing_fields": "Use null where evidence is absent; retain explicit reasons rather than inventing values",
+    "order_groups": "Ascending eligible native totals; each equal-value group retains source-position presentation order and original run/pose attribution",
+    "counts": "Keep submitted/attempted/outcome/failure/refusal/empty/pose/selected/eligible/incomparable populations explicit without inflating the two-ligand denominator",
+    "complete_two_ligand_order": "True only when both scientific representatives and shared-context policy are admitted from actual records; never accepted as a caller-trust input",
+    "purity": "No engines, molecular operations, file mutation, rescoring, reranking of source results, or use of same-state comparison APIs",
+    "source_immutability": "Retain exact original file identities and compare caller input dictionaries before/after report construction"
+  },
+  "observed_native_defaults": {
+    "scope": "Inspected defaults of the pinned Vina 1.2.7 Python wrapper, to be captured from actual calls; no extra calls or new DockingMT protocol options",
+    "weights": [
+      -0.035579,
+      -0.005156,
+      0.840245,
+      -0.035069,
+      -0.587439,
+      50,
+      0.05846
+    ],
+    "factory": {
+      "no_refine": false
+    },
+    "compute_vina_maps": {
+      "spacing": {
+        "value": 0.375,
+        "unit": "angstrom"
+      },
+      "force_even_voxels": false
+    },
+    "dock": {
+      "min_rmsd": {
+        "value": 1.0,
+        "unit": "angstrom"
+      },
+      "max_evals": 0
+    }
+  },
+  "public_outcome_roundtrip": {
+    "operation": "dmt.DockingOutcome.from_dict",
+    "population": "All three original outcome dictionaries, only after all three outcomes are persisted",
+    "calls": 3,
+    "record_actual_public_returns": true,
+    "preserve": [
+      "input position and caller run/state associations",
+      "success/failure payload and original error summary",
+      "original result/pose IDs, ranks, all scores, metadata and histories",
+      "physical coordinates and original input dictionary nonmutation"
+    ],
+    "coordinate_comparison_unit": "angstrom",
+    "coordinate_tolerance": 1e-12,
+    "representation_policy": "Compare all non-coordinate scientific fields without weakening their meaning; compare coordinates physically through explicit public units, retaining original and restored wire records",
+    "molecular_operations": 0,
+    "engine_operations": 0,
+    "new_scores": 0,
+    "reranking": 0,
+    "scope": "Actual public record restoration of this new population; separate from the later independent standard-library reader"
+  }
+}

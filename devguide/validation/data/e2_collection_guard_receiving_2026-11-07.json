@@ -1,0 +1,112 @@
+{
+  "schema": "dockingmt.e2_collection_guard_receiving@1",
+  "owner": "uibcdf/dockingmt#81",
+  "outcome": "PASS with original collection failure preserved",
+  "source_commit": "78b0664a3863591235585c561200d40d140fb7f4",
+  "selectors": [
+    "tests/test_batch.py::test_recorded_failure_preserves_prior_results_and_next_item",
+    "tests/test_backend_contracts.py::test_vina_rejects_unsupported_intent_before_hooks_or_execution"
+  ],
+  "tests_passed": 11,
+  "native_searches_added": 0,
+  "tests_source_sha256": {
+    "tests/test_batch.py": "ba6ae34d953e6601f46cfc3b884233bc9738195a7b6fc17ca4f43e29aed8d000",
+    "tests/test_backend_contracts.py": "3c9a2b3af4ee2719884f62bd3b4a7b1d69fdc0761b0928be7ed666cf9b4e2930"
+  },
+  "attempts": [
+    {
+      "attempt": "software-guards-01",
+      "qualification_source": "78b0664a3863591235585c561200d40d140fb7f4",
+      "command": [
+        "/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "--receptor=llm",
+        "tests/test_batch.py::test_recorded_failure_preserves_prior_results_and_next_item",
+        "tests/test_backend_contracts.py::test_vina_rejects_unsupported_intent_before_hooks_or_execution"
+      ],
+      "resource_outcome": {
+        "outcome": "FAIL",
+        "exit_code": 4,
+        "resource_interruption": null,
+        "termination_signal": null,
+        "elapsed_seconds": 3.870079652988352,
+        "minimum_available_bytes": 48435376128,
+        "sampled_peak_group_rss_bytes": 137678848,
+        "samples": 38,
+        "policy": {
+          "cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_reserve_bytes": 8589934592,
+          "group_rss_limit_bytes": 1073741824,
+          "address_space_bytes": 2147483648,
+          "cpu_seconds": 60,
+          "wall_seconds": 90
+        }
+      },
+      "logs": {
+        "stdout.log": {
+          "bytes": 984,
+          "sha256": "c0dc7a5b08c352c8549b06a9207c8825336e6d7ffea7f1a87b71c40ffef7531e",
+          "text": "USAGE_ERROR exit=4 | 1 failed | 2.15s | 1 root cause\n\n[1] ImportError | 1 test | collect\n    tests/test_batch.py\n    ImportError while importing test module '/fast_data/home/liliana/repos@uibcdf/dockingmt/tests/test_batch.py'.\n    Hint: make sure your test modules/packages have valid Python names.\n    Traceback:\n    ../../miniconda3/envs/molsyssuite@uibcdf_3.14/lib/python3.14/importlib/__init__.py:88: in import_module\n        return _bootstrap._gcd_import(name[level:], package, level)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    tests/test_batch.py:12: in <module>\n        from test_engines import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT\n    tests/test_engines.py:8: in <module>\n        from dmt_test_support.qualify_named_types import TYPING, explicit_source\n    dmt_test_support/qualify_named_types.py:19: in <module>\n        from vina import Vina\n    E   ModuleNotFoundError: No module named 'vina'\n    rerun: python -m pytest tests/test_batch.py -q\n\n"
+        },
+        "stderr.log": {
+          "bytes": 160,
+          "sha256": "8ecf77b08e8898fa0b1e76d9f15656413ad7e2b2d2a1c2ed6a7844ef660ff59d",
+          "text": "ERROR: found no collectors for /fast_data/home/liliana/repos@uibcdf/dockingmt/tests/test_batch.py::test_recorded_failure_preserves_prior_results_and_next_item\n\n"
+        }
+      },
+      "interpretation": "Original collection route missing optional Vina module; no selected test executed"
+    },
+    {
+      "attempt": "software-guards-02",
+      "qualification_source": "78b0664a3863591235585c561200d40d140fb7f4",
+      "command": [
+        "env",
+        "PYTHONPATH=/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-native-rescoring-20261106/backend-overlay/lib/python3.14/site-packages",
+        "/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "--receptor=llm",
+        "tests/test_batch.py::test_recorded_failure_preserves_prior_results_and_next_item",
+        "tests/test_backend_contracts.py::test_vina_rejects_unsupported_intent_before_hooks_or_execution"
+      ],
+      "resource_outcome": {
+        "outcome": "PASS",
+        "exit_code": 0,
+        "resource_interruption": null,
+        "termination_signal": null,
+        "elapsed_seconds": 3.6416441180044785,
+        "minimum_available_bytes": 48719654912,
+        "sampled_peak_group_rss_bytes": 145379328,
+        "samples": 36,
+        "policy": {
+          "cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_reserve_bytes": 8589934592,
+          "group_rss_limit_bytes": 1073741824,
+          "address_space_bytes": 2147483648,
+          "cpu_seconds": 60,
+          "wall_seconds": 90
+        }
+      },
+      "logs": {
+        "stdout.log": {
+          "bytes": 33,
+          "sha256": "9ee33bfa0a5cf3f629b18d27e0c1083f3a3cd92915f6e73f870b67cc8f3b30cc",
+          "text": "PASS exit=0 | 11 passed | 2.06s\n\n"
+        },
+        "stderr.log": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "text": ""
+        }
+      },
+      "interpretation": "Complete two-selector guard selection: 11 passed; existing overlay on Python path, no new install or search"
+    }
+  ]
+}

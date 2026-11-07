@@ -239,3 +239,13 @@ retain their applicable scope without relabelling them as new observations.
 Exact-head hosted CI remains missing under #28 and `[skip ci]`; no manual
 remote execution is dispatched. The final committed-source checks retain their
 own source identity and do not rerun the molecular selection.
+
+## Subsequent native collection — 2026-11-07
+
+The later [registered native receiving](e2_native_collection_2026-11-07.md)
+reproduces these exact prepared bytes and receives the real three-item
+success/refusal/success collection, five poses, the separate empirical study
+decision and a fresh standard-library reader. These original preparation
+records/producers remain unchanged. [#81's bounded acceptance](../archive/qualify_small_ligand_collection.md)
+is resolved; current work advances independent pose comparison/clustering and
+the other full-plan requirements without another search for this acceptance.

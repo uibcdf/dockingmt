@@ -25,53 +25,72 @@ resuming; earlier dated "next" statements below retain their historical scope.
   retains the complete pre-stable functional objective and permits the 0.x.0
   increments actually needed for stabilization. Neither 0.9.0 nor illustrative
   0.23.0 is a required or selected last pre-1.0 release. Fixed 0.1.0 stays fixed.
-- **E2 sources and preparation:** [Source admission](validation/e2_source_admission_2026-11-07.md)
-  retains both P59(R)/P69(S) authorities, 39 atoms/42 bonds/15 indexed H each,
-  their raw SD data and the initial native representations' partial fields.
+- **E2 source/preparation evidence:** [Source admission](validation/e2_source_admission_2026-11-07.md)
+  retains P59(R)/P69(S), 39 atoms/42 bonds/15 indexed H each, raw SD properties
+  and the initial native representations' partial fields.
   [Rigid preparation receiving](validation/e2_preparation_receiving_2026-11-07.md)
-  now passes for both: 25 atoms/28 bonds, one indexed plus fourteen virtual H,
-  total fifteen, preserved R/S and zero torsions. Two fresh charge assignments,
-  two type assignments and two preparations, four explicit CIP/four inventory
-  calls, public maps/export/readback, MM lineage, live nonmutation and
-  pm/fs/coulomb presentation pass. No new H, energy, search or Vina import.
-- **E2 next input gate:** #81 registers reproduction from exact source SDFs with
-  fresh named assignments and rigid preparation. Require exact PDBQT SHA-256
+  retains both 25-atom/28-bond outputs, one indexed plus fourteen virtual H,
+  total fifteen, R/S and zero torsions. Named Q/types, public maps/export/readback,
+  derived MM lineage, four explicit CIP/four inventory calls and independent
+  saved receiving pass. That source/preparation phase generated no H or energy.
+- **E2 bounded resolution:** [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07)
+  receives the rigid25 joint-domain study through its original five criteria.
+  The [native selection](validation/e2_native_collection_2026-11-07.md) reproduces
+  both sources with two new charge assignments, two type assignments and two
+  rigid preparations, requiring PDBQT SHA-256
   `ae0e9d3beb4d14363ea6edb1bff591c56d53b02295082bae8c281d9284d84b9e`
   for P59 and
   `1cbe49d31e1859e34b7cc71af1a8514fef9314401401b2b76b6a7e07dfc7ebaa`
-  for P69 before executing a separately registered three-item native control
-  with intended success/refusal/success outcomes. Preserve failed/empty outcomes,
-  five native docking energy columns and all outcome/ligand denominators for
-  the explicit study comparison. Inspection records do not
-  restore MM; source/preparation receiving is not native or whole-E2 acceptance.
-- **Evidence:** previous published native/record checkpoint is `d44cfa2`;
-  consumer wheel remains `a7422df`, SHA-256
+  for P69 before Vina import. One public iterator returns success/refusal/success,
+  with 3+2 original poses, two native searches and two original-rank-1 representatives.
+  DMT-E003 leaves native/writer counters unchanged. Native totals are
+  -11.462/-10.787 kcal/mol under the frozen caller-owned empirical policy.
+  All five native columns, each run's own reference and original four scores,
+  ranks and histories survive; equal fifth-column zeros do not establish a
+  shared unbound reference or affinity. Three public outcome reconstructions
+  and fresh independent saved receiving pass. No new H, retry or fixed score.
+  This accepts the bounded profile, not all E2 profiles, screening effectiveness,
+  public delivery or the full #73 objective.
+- **Evidence:** the original E1 checkpoint retains `d44cfa2`; consumer wheel
+  remains `a7422df`, SHA-256
   `93d76f898575fb64b39520f33ceded25708270c8042c2a53c9a451acd834bcdd`.
-  The E1 closeout adds no molecular/native calculation or runtime change.
-  E2 source receiving has its own notebook/registration on base `250db02`.
-  The preparation qualification base is
-  `782fe9e5a3f3e2702d08e12b688acdcfcc817885`; notebook SHA-256 is
-  `76df8d7656c8e3ca37564f8c4a44d614f63a5629ffb2052db3d76b5dc2b8b26e`.
-  The [120-member preparation archive](validation/data/e2_preparation_receiving_2026-11-07/manifest.json)
+  E2 source receiving is based on `250db02`; preparation qualification is
+  `782fe9e5a3f3e2702d08e12b688acdcfcc817885`, with its
+  [120-member archive](validation/data/e2_preparation_receiving_2026-11-07/manifest.json)
+  sealed at `bd4f34c7c696efa1c864c9ea410630398b5ec164726eeaaf6462ea9d9b78d326`.
+  Native qualification base is `78b0664a3863591235585c561200d40d140fb7f4`;
+  notebook SHA-256 is
+  `e34d6c12ce6d80679ad054d93bb9a1caeb491e5e885e0bdf256e91b31108d9be`.
+  The [193-member native archive](validation/data/e2_native_collection_2026-11-07/manifest.json)
   is sealed at
-  `bd4f34c7c696efa1c864c9ea410630398b5ec164726eeaaf6462ea9d9b78d326`;
-  1,054,243 stored / 5,045,298 decoded bytes retain the actual producers.
-- **Checks and limits:** the E1 closeout at `250db02` passes 55 comparison/lifecycle
-  software guards. E2 source and preparation receivers and their independent
-  readers pass complete selections. `prep-01` retains 96 sealed members,
-  22.133 s/336.04 MiB sampled peak group RSS; `reader-01` retains 17 members,
-  0.816 s/36.58 MiB. Private payload, support and routine-environment checks
-  pass. Thirteen applicable local index/link/archive/resource/publication,
-  source and export checks pass for the documentation/evidence. Fresh
-  committed-source resource/index/publication checks retain their own receipt.
-  Exact-head hosted evidence remains deferred under #28 and `[skip ci]`;
-  no manual CI is dispatched. #30/#47 public delivery, scientific-panel
-  admission and the E4/live-visual holds remain separate.
-- **Custody:** `.molsyssuite/e1-acceptance-20261107` holds the closeout work;
-  `.molsyssuite/e2-source-admission-20261107` and
-  `.molsyssuite/e2-preparation-20261107` retain the source/preparation and reader
-  receipts. Prior private targets/archives and the original untracked migration
-  snapshot are preserved. #50 resource review is due 2026-11-14.
+  `4535ecab26c9fbe4d80bf50fabb48ec3a74ae067979f4e970f5523f703c98e46`,
+  with 1,684,688 stored / 9,028,905 decoded bytes. Source/preparation/native
+  producers and raw inputs remain distinct and unchanged; inspection JSON is
+  comparison evidence, never MM restoration.
+- **Checks and limits:** native receiving passes in 28.21 s/652.48 MiB sampled
+  peak group RSS. The fresh standard-library reader passes in 3.804 s/51.78 MiB,
+  receiving all 166 native plus 80 source/120 preparation members with zero
+  molecular/native calls. Nondefault pm/fs/coulomb presentation/restoration,
+  live source/prepared/problem/protocol/policy nonmutation, private payload,
+  103-path Vina/Boost overlay, support, routine metadata and temporary cleanup
+  pass. Eleven software guards pass after the original missing-Vina-path test
+  collection failure; the corrected overlay path adds no preparation or search.
+  Earlier source/preparation and E1 checks keep their original receipts.
+  Applicable final documentation/source/export checks have their own evidence;
+  exact-head hosted evidence stays missing under #28 and `[skip ci]`, with no
+  manual CI dispatch. #30/#47, scientific-panel admission and E4/live-visual
+  holds remain unchanged.
+- **Next:** advance independent E3 [#79](pending_proposals/qualify_pose_comparison_and_clustering.md)/
+  MolSysMT [#604](https://github.com/uibcdf/molsysmt/issues/604), receiving the
+  actual supported composition/tools before implementation or molecular work.
+  Existing bounded E1/E2 acceptance does not complete the full plan.
+- **Custody:** `.molsyssuite/e1-acceptance-20261107`,
+  `.molsyssuite/e2-source-admission-20261107`,
+  `.molsyssuite/e2-preparation-20261107` and
+  `.molsyssuite/e2-native-collection-20261107` retain their original attempts,
+  readers and software-guard receipts. Prior private targets/archives and the
+  original untracked migration snapshot are preserved. #50 resource review
+  is due 2026-11-14.
 
 ## Verified development checkpoint
 
@@ -207,8 +226,8 @@ records. Whole E1, public delivery, hosted gates and the E4 hold stay separate.
 | Work | Next meaningful action | Owner / limits |
 | --- | --- | --- |
 | E4 structured consumer/addon admission | Bind saved provider analyses to the actual original pose/result and declared axes; preserve coverage, methods, units and provenance without recalculation. | [#80](pending_proposals/receive_docking_interaction_analysis.md). Whole E4 stays partial. |
-| E1 representative rescoring | Preserve the resolved bounded same-state contract and its original successful/failed evidence; the next independent study is E2 admission. | [#78 archived](archive/qualify_same_state_rescoring.md). Whole E1, provider-wide #599/#447 and public delivery remain separate; preserve strict ranking and original producers. |
-| E2 distinct-ligand study | Both source interpretations and named rigid preparations pass. Register their reproduction and exact received PDBQT-byte gate before the three-item native success/refusal/success control and explicit study comparison, preserving all five native docking energy columns. | [#81](pending_proposals/qualify_small_ligand_collection.md). Reuse serial `dock_many`; no generic campaign framework or same-state comparison across distinct ligands. Whole E2 remains pending. |
+| E1 representative rescoring | Preserve the resolved bounded same-state contract and its original successful/failed evidence; the next independent workflow is E3 comparison/clustering. | [#78 archived](archive/qualify_same_state_rescoring.md). Whole E1, provider-wide #599/#447 and public delivery remain separate; preserve strict ranking and original producers. |
+| E2 distinct-ligand study | Preserve the accepted P59/P69 rigid25 joint-domain source/preparation/native/persistence records: success/refusal/success, 3+2 poses, five native columns, own references and the separate empirical decision. No repeat search or new runtime framework is needed. | [#81 resolved](archive/qualify_small_ligand_collection.md). Other E2 profiles, screening effectiveness, public delivery and #73 remain separate; strict same-state ranking is unchanged. |
 | E3 comparison/clustering | Receive the supported provider composition/tools before implementation. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md), MolSysMT [#604](https://github.com/uibcdf/molsysmt/issues/604). No local molecular clustering/matching. |
 | Scientific panel | Resolve source/state/environment/template/reconstruction admission before searches. | [Panel admission](validation/scientific_panel_admission_2026-11-04.md) and [environment](validation/scientific_panel_environment_2026-11-04.md) retain #33/#49 and MolSysMT #555–#558. Proposed candidates are not admitted complexes. |
 | E5 reproduction | Qualify a whole independent representative workflow to its documented degree. | Full plan #73; existing readers/captures are pieces, not whole E5. |

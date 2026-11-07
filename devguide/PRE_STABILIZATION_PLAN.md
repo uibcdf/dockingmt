@@ -41,7 +41,7 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | C5 results/provenance | Saved scores/rankings/evaluations, actual input identities/maps, traceable preparation/protocol and explicit recoverable/missing information. | #75–#77 deliver bounded reading/audits. General source restoration and partial/reference coverage remain #4/#49 and MolSysMT #521. |
 | C6 visualization | Real addon controls, communication and canvas display correctly paired receptor/domain/poses/reference, with actual interaction evidence. | Python/DOM/export/private evidence exists; live acceptance is still unproven. Respect the maintainer's scheduling decision. |
 | E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ordered and audited reproducibly. | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07) for the full-source rigid prepared13 profile: both actual original poses complete public reconstruction/preparation/additive Vina/Vinardo 1.2.7 scoring and separate method-local interaction comparison. Eight old values/ranks/history survive with 32 new values; native receiving and independent persistence pass. The original generator qualification remains failed with unreached original live checks. Broader E1, total/reference comparisons, independent science and public delivery retain their owners. |
-| E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | [Source admission](validation/e2_source_admission_2026-11-07.md) and [named rigid preparation](validation/e2_preparation_receiving_2026-11-07.md) pass for both 5X72 P59(R)/P69(S) authorities. Each 39-atom source becomes 25 atoms/28 bonds, retaining one indexed plus fourteen virtual H, total fifteen and zero torsions. Two fresh charge assignments, two type assignments and two preparations, public maps/export/readback, MM lineage/nonmutation, nondefault units and independent saved receiving pass without H generation, energy, search or Vina import. #81 still owns native collection/control registration, study comparison and whole E2; the receptor/joint domain remains externally prepared/unassessed. |
+| E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for the P59(R)/P69(S) rigid25 joint-domain profile. Source/preparation reproduction and exact PDBQT gates precede native success/refusal/success, 3+2 poses and two original-rank-1 representatives. Five native columns, own per-run references, original scores/histories, three public outcome reconstructions and fresh independent receiving pass. The receptor remains externally prepared/unassessed; other E2 profiles, screening effectiveness, #73 and public delivery remain unaccepted. |
 | E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | #79 scopes the concrete positional workflow. MolSysMT #604 requests supported bounded pairwise/clustering tools or an existing composition; no local molecular algorithm. |
 | E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 receives one bounded installed 3PTB workflow at `5952053`: normal/pm-fs, twelve detector calls, typed/H5MSM persistence, original-pose association and two fresh readers pass. Preserve prior failures and the local hold. Structured consumer/addon admission and whole E4 remain unproven; molecular operations stay in MolSysMT (#610 documents explicit XYZ atom extraction). |
 | E5 independent reproduction | A separate receiving installation reconstructs a representative stored workflow from documented inputs, with observed agreement/tolerances, failures and missing information. | Captures/replay/recovery supply pieces; a whole independent workflow audit remains unproven. |
@@ -52,40 +52,41 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 
 ## Immediate sequence
 
-1. Check exact-source CI under #28, preserving nonterminal/failure states. The
-   [machine handoff](MACHINE_HANDOFF.md) identifies the passing pre-handoff head;
-   a later head needs its own applicable evidence.
+1. Keep exact-source hosted evidence missing under #28 while the incremental
+   `[skip ci]` route applies; run applicable local checks without manual CI
+   dispatch. The [machine handoff](MACHINE_HANDOFF.md) identifies the passing
+   pre-handoff head; a later head needs its own applicable evidence.
 2. Preserve the [bounded resolved E1 profile](archive/qualify_same_state_rescoring.md)
    and its original reference/provider/native/persistence records. No repeat
    search or relaxed ranking is needed for its acceptance. The old generator
    remains failed; the complete fresh receiving passes its own controls.
-3. Preserve the [received E2 rigid preparations](validation/e2_preparation_receiving_2026-11-07.md)
-   under [#81](pending_proposals/qualify_small_ligand_collection.md). Register
-   reproduction from the admitted SDF recipe with fresh named charges/types
-   and rigid preparation, comparing actual source fields and requiring the
-   exact received P59/P69 PDBQT bytes before native work. Inspection JSON is
-   comparison evidence, not an MM restoration codec. Prescribe the three-item
-   serial success/unsupported-intent refusal/success selection and explicit
-   study-comparison policy, retaining all five native docking energy columns
-   and submitted/failed/empty/completed identities and denominators.
-   Same-state `compare_scores` is not cross-ligand prioritization. Reuse serial
-   `dock_many`; do not expand the runtime before a demonstrated need.
+3. Preserve the [bounded resolved E2 workflow](archive/qualify_small_ligand_collection.md)
+   and its [native/persistence evidence](validation/e2_native_collection_2026-11-07.md).
+   Two source/named-preparation reproductions match the admitted exact bytes;
+   the three-item public serial selection receives two searches, the intervening
+   DMT-E003 refusal, five original poses and two representatives under the frozen
+   caller-owned policy. Native totals -11.462/-10.787 kcal/mol retain five columns
+   and separate per-run references; no common unbound reference or affinity is
+   inferred. All three public outcome roundtrips and the fresh saved reader pass.
+   No repeat search, runtime expansion or relaxed same-state ranking is needed.
+   Next advance independent E3 under #79/MolSysMT #604 by receiving its actual
+   supported composition/tools before implementation or new molecular work.
 4. Keep complete-source public MolSysMT compositions as the received route.
    [MolSysMT #599](https://github.com/uibcdf/molsysmt/issues/599),
    [#447](https://github.com/uibcdf/molsysmt/issues/447) and #521 retain broader
    provider/partial-input scope. Request demonstrated gaps there; no local
    molecular fallback or guessed historical chemistry follows.
-5. Scope and qualify E2–E5 with their owners and receive the remaining Core,
-   scientific, visual and public-delivery evidence. Independent requirements may
-   progress while another provider or hosted run is pending. E3's
-   [provider-backed contract](pending_proposals/qualify_pose_comparison_and_clustering.md)
+5. Scope and qualify the remaining E3–E5 workflows with their owners and receive
+   outstanding Core, broader E1/E2, scientific, visual and public-delivery evidence.
+   Independent requirements may progress while a provider or hosted run is pending.
+   E3's [provider-backed contract](pending_proposals/qualify_pose_comparison_and_clustering.md)
    is #79/MolSysMT #604; E4's
    [existing-tool receiving](pending_proposals/receive_docking_interaction_analysis.md)
    is #80. Their [dated inspection](validation/extended_provider_scope_2026-11-06.md)
    is not runtime/scientific acceptance. E2's
-   [bounded collection plan](pending_proposals/qualify_small_ligand_collection.md)
-   is #81; its study-level prioritization must not weaken strict pose ranking or
-   move molecular work into DockingMT.
+   [bounded resolution](archive/qualify_small_ligand_collection.md)
+   preserves strict pose ranking and molecular ownership; it does not accept all
+   E2 profiles or the complete #73 objective. Keep E4/live-visual holds unchanged.
 6. Select/qualify the actual functional release candidate only when every row's
    evidence supports the complete declared scope; perform the version-specific
    release/package/notice route. Enter stabilization afterwards.

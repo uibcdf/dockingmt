@@ -1,7 +1,7 @@
 # Prospective E2 ligand-collection admission — 2026-11-07
 
 Owner: [DockingMT #81](https://github.com/uibcdf/dockingmt/issues/81), under
-the [small-collection contract](../pending_proposals/qualify_small_ligand_collection.md)
+the [small-collection contract](../archive/qualify_small_ligand_collection.md)
 and E2 in the [functional plan](../PRE_STABILIZATION_PLAN.md).
 
 **Initial status: source-reviewed candidate draft.** The later
@@ -283,3 +283,14 @@ molecular capability to MolSysMT with its actual evidence. Preserve the E4
 computational hold and all shared-workstation limits. The next increment
 registers a separate source-admission prescription and exact receiving
 artifacts before molecular work; this draft itself starts no computation.
+
+## Subsequent bounded receiving — 2026-11-07
+
+This original candidate declaration retains its prospective dispositions.
+[Source admission](e2_source_admission_2026-11-07.md),
+[named preparation](e2_preparation_receiving_2026-11-07.md) and the later
+[native collection/independent receiving](e2_native_collection_2026-11-07.md)
+now pass their own complete selections. [#81's archived acceptance](../archive/qualify_small_ligand_collection.md)
+resolves this finite two-ligand joint-domain workflow; original raw files,
+candidate inventory, populations and producers are not relabelled. Follow the
+maintained operational checkpoint for the next independent work.
