@@ -30,6 +30,9 @@ class DockingMTAddonRuntime:
     domain_layer: Any = field(default=None, repr=False)
     domain_layers: list[Any] = field(default_factory=list, repr=False)
     reference_region: Any = field(default=None, repr=False)
+    interaction_binding: Any = field(default=None, repr=False)
+    interaction_carrier: Any = field(default=None, repr=False)
+    interaction_layers: list[Any] = field(default_factory=list, repr=False)
     _panels: WeakSet = field(default_factory=WeakSet, repr=False)
 
     @property

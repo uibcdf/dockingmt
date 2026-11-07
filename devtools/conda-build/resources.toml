@@ -56,6 +56,7 @@ required_paths = [
   "site-packages/molsysviewer_dockingmt/_scene.py",
   "site-packages/molsysviewer_dockingmt/adapters/__init__.py",
   "site-packages/molsysviewer_dockingmt/adapters/complex.py",
+  "site-packages/molsysviewer_dockingmt/adapters/interactions.py",
   "site-packages/molsysviewer_dockingmt/adapters/shapes.py",
   "site-packages/molsysviewer_dockingmt/addon.py",
   "site-packages/molsysviewer_dockingmt/export.py",

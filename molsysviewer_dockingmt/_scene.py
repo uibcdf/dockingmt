@@ -12,6 +12,15 @@ class ScenePrerequisiteError(ViewerStateError):
     """A docking-owned visual is absent; provider failures remain distinct."""
 
 
+def _interaction_carrier_available(view: Any) -> bool:
+    runtime = ensure_runtime(view)
+    return (
+        runtime.interaction_binding is not None
+        and runtime.interaction_carrier is not None
+        and getattr(view, 'molsys', None) is runtime.interaction_carrier
+    )
+
+
 def domain_layer(view: Any, tag: str | None = None) -> Any:
     runtime = ensure_runtime(view)
     shapes = getattr(view, 'shapes', None)
@@ -38,7 +47,7 @@ def reference_region(view: Any) -> Any:
     return region
 
 
-def sync_scene_state(view: Any) -> Any:
+def sync_scene_state(view: Any, *, include_interactions: bool = True) -> Any:
     """Read current public handles; do not compute or change the molecular scene."""
     runtime = ensure_runtime(view)
     index = getattr(getattr(view, 'player', None), 'index', None)
@@ -47,7 +56,10 @@ def sync_scene_state(view: Any) -> Any:
         and isinstance(index, Integral)
         and not isinstance(index, bool)
     ):
-        runtime.active_pose_rank = int(index) + 1
+        if runtime.interaction_binding is None:
+            runtime.active_pose_rank = int(index) + 1
+        elif _interaction_carrier_available(view) and index == 0:
+            runtime.active_pose_rank = runtime.interaction_binding.pose_index + 1
     controls = {}
     try:
         layer = domain_layer(view)
@@ -65,4 +77,32 @@ def sync_scene_state(view: Any) -> Any:
     else:
         runtime.reference_visible = region.visible
         controls.update(reference_available=True, reference_reason=None)
+    if runtime.interaction_binding is not None:
+        available = (
+            _interaction_carrier_available(view)
+            and isinstance(index, Integral)
+            and not isinstance(index, bool)
+            and index == 0
+        )
+        controls.update(
+            interaction_geometry_available=available,
+            interaction_geometry_reason=None
+            if available
+            else 'The loaded system no longer matches this pose interaction view.',
+            interaction_analyses=[],
+        )
+        if available and include_interactions:
+            rows = {row['name']: row for row in view.interactions.analyses()}
+            controls['interaction_analyses'] = [
+                {
+                    'name': name,
+                    'method': rows[name]['method'],
+                    'n_occurrences': rows[name]['n_occurrences'],
+                    'available': True,
+                    'evaluated': rows[name]['n_evaluated_structures'] == 1,
+                }
+                if name in rows
+                else {'name': name, 'available': False, 'evaluated': None}
+                for name in runtime.interaction_binding.analysis_names
+            ]
     return controls

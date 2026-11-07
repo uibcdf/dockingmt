@@ -12,6 +12,7 @@ from dockingmt._private.smonitor import ArgumentError, ViewerPosePositionError
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.results import DockingResult
 from dockingmt.core.search_domain import SearchDomain
+from dockingmt.interactions import PoseInteractions
 
 
 @arg_digest(config='dockingmt._argdigest', native_view='dockingmt.view.view')
@@ -21,6 +22,19 @@ def _resolve_view_inputs(item, result, problem, search_domain, pose_rank):
     In particular, MolSysViewer's forwarded skip_digestion cannot bypass this
     boundary. Molecular inputs and widget options retain provider ownership.
     """
+    if isinstance(item, PoseInteractions):
+        for argument, value in (('result', result), ('problem', problem)):
+            if value is not None:
+                raise ArgumentError(
+                    arg_name=argument,
+                    reason='The interaction binding already retains its complete result.',
+                )
+        if pose_rank != 1:
+            raise ArgumentError(
+                arg_name='pose_rank',
+                reason='The interaction binding already selects its pose.',
+            )
+        return None, None, search_domain, pose_rank
     if item is not None:
         if isinstance(item, DockingResult) or hasattr(item, 'poses'):
             if result is not None and result is not item:
@@ -75,7 +89,12 @@ def view(
     Parameters
     ----------
     item : Any, optional
-        A DockingResult, DockingProblem, or SearchDomain passed positionally.
+        A DockingResult, PoseInteractions, DockingProblem, or SearchDomain.
+        An interaction binding displays its admitted one-frame carrier and all
+        original result records. Only its selected pose has loaded geometry;
+        no analysis is projected onto other poses. Use the binding's original
+        pose selection; additional receptor/partner/reference inputs and a
+        nondefault pose_rank are refused.
     result : DockingResult | None, optional
         The docking result containing candidate poses and scores.
     problem : DockingProblem | None, optional
@@ -105,6 +124,17 @@ def view(
     result, problem, search_domain, pose_rank = _resolve_view_inputs(
         item, result, problem, search_domain, pose_rank
     )
+    if isinstance(item, PoseInteractions):
+        for argument, value in (
+            ('receptor', receptor),
+            ('partner', partner),
+            ('reference', reference),
+        ):
+            if value is not None:
+                raise ArgumentError(
+                    arg_name=argument,
+                    reason='The interaction binding supplies its complete carrier.',
+                )
 
     import molsysviewer as msv
 
@@ -130,6 +160,13 @@ def view(
 
     # Enable DockingMT addon
     on_enable(view)
+
+    if isinstance(item, PoseInteractions):
+        from molsysviewer_dockingmt.adapters.interactions import (
+            _render_pose_interactions,
+        )
+
+        return _render_pose_interactions(view, item, search_domain=search_domain)
 
     # Case 1: Render docking result
     if result is not None:

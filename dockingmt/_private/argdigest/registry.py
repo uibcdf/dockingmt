@@ -559,15 +559,18 @@ def digest_view_item(item, caller=None):
     from dockingmt.core.problem import DockingProblem
     from dockingmt.core.results import DockingResult
     from dockingmt.core.search_domain import SearchDomain
+    from dockingmt.interactions import PoseInteractions
 
-    if item is None or isinstance(item, (DockingResult, DockingProblem, SearchDomain)):
+    if item is None or isinstance(
+        item, (DockingResult, DockingProblem, SearchDomain, PoseInteractions)
+    ):
         return item
     if any(hasattr(item, name) for name in ('poses', 'search_domain', 'bounds')):
         return item
     raise _invalid(
         'item',
         'dockingmt.view.view',
-        'Use a docking result, problem, search domain, or None.',
+        'Use a docking result, interaction binding, problem, search domain, or None.',
     )
 
 

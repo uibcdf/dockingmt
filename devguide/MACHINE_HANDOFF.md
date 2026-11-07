@@ -12,15 +12,68 @@ requirements; this file explains how to resume without recovering chat history.
 ## Current development checkpoint — 2026-11-07
 
 Work is **active after the maintainer's resumption** of the complete objective.
-Completion remains unproven. The installed binding checkpoint below was published
-as `daa6da9` before the pause. Its source/evidence remains unchanged. The current
-[native unevaluated-family receiving](validation/e4_native_unevaluated_2026-11-07.md)
-records separate passing, failed and interrupted populations below.
+Completion remains unproven. The installed binding checkpoint was published
+as `daa6da9` before the pause, followed by native coverage receiving at `d71fd6b`.
+Their source/evidence remains unchanged. The current
+[interaction-view route](validation/pose_interaction_view.md) has passing source/
+DOM qualification and still requires its own actual installed candidate.
 Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Interaction-view source checkpoint — 2026-11-07
+
+`dmt.view(binding)` now opens an admitted `PoseInteractions` carrier through
+public MolSysViewer loading/visual APIs. The addon keeps the complete detached
+original result and maps local frame 0 only to `binding.pose_index`, even for a
+nonfirst member. Explorer rows remain complete, with disabled navigation and a
+reason for unavailable geometry. Live metadata distinguishes unevaluated,
+evaluated-empty and unavailable analyses. Public loaded-system handle identity
+invalidates the association after replacement; matching counts are insufficient.
+Frame callbacks, Python/context/panel actions, summary and export share this
+mapping. No molecular operation, codec or detector is implemented downstream.
+
+Owned visual cleanup preserves foreign handles/scientific data, retains handles
+on failures and releases the special mapping when normal result rendering
+resumes. Interaction metadata failures disable its controls without breaking
+unrelated Search Domain inspection. Conflicting source/result/pose options fail
+before view creation/mutation. Provider failures propagate; scene loading is
+not transactional. The existing multi-pose result renderer retains its route.
+
+The [source/DOM contract and evidence](validation/pose_interaction_view.md) pass
+186 Python cases (28 new view controls, seven frontend contracts, 151 other
+regressions) and 23 exact shipped-ESM DOM cases. The initial accidental native
+case selection remains failed; that real-provider test is explicitly excluded
+from this source-only selection and remains a required receiving control.
+Final source run: 4.299 s/201,863,168 sampled group-RSS bytes. DOM run:
+2.689 s/314,146,816 bytes. All groups are terminal with no resource interruption.
+No actual View loading, scientific calculation, browser, comm or canvas is run.
+
+The [receipt](validation/data/pose_interaction_view_source_2026-11-07.json) is
+SHA-256 `9c69f2468b35da2e26a83004809a6f47139d8d62f9ed12d3240b59f5550c217f`;
+the [178-member immutable source archive](validation/data/e4_pose_interaction_view_source_2026-11-07/manifest.json)
+is `9fbdb4081342dc80e117ff731837acc7be8a91edf690c157325a4e5173c4a04a`.
+Tested worktree bytes are retained by hashes and bound to the publishing commit;
+`d71fd6b` is their implementation base, not the new runtime producer. The resource
+inventory adds one runtime adapter path; 30 helpers/564 historical inputs and
+all old scientific producers stay unchanged. Task-isolated verified Node
+26.3.1/npm11.16.0/jsdom30.1.3 supplies the declared DOM engine; Conda's Node24
+and the scientific environment are unchanged. Private task/tool/dependency/raw
+records stay under `.molsyssuite/e4-addon-binding-20261107`, #50 review 2026-11-14.
+The original migration stays untouched/untracked; no manual CI is dispatched.
+
+**Next:** build and identify the exact new consumer artifact, then receive the
+actual route normal/pm-fs on original carriers and full results, including real
+provider visuals/metadata, the declared frame map and excluded native regression.
+The old `cfff386` wheel lacks this route. MolSysMT #642 has owner triage but no
+delivered fix; receive it separately. #80/#60, #28 exact-head hosted evidence,
+whole E4/#73, E3 #604, canvas #52/#60, independent science/reproduction and public/
+minor/platform delivery remain open. The goal remains active.
+
 ### Native unevaluated-family checkpoint — 2026-11-07
+
+This preceding receiving retains its population and historical next action; the
+source view implementation and next installed qualification above supersede it.
 
 The [new information-state receiving](validation/e4_native_unevaluated_2026-11-07.md)
 passes its focused empty-source population normal/pm-fs and independent record

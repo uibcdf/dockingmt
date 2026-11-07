@@ -1,0 +1,588 @@
+{
+  "schema": "dockingmt.pose_interaction_view_source_qualification@1",
+  "owner": "uibcdf/dockingmt#80 and #60",
+  "implementation_base": "d71fd6b114392a95fcbbf65c78a19608d92ee79f",
+  "outcome": "PASS",
+  "passed_cases": 186,
+  "new_view_cases": 28,
+  "frontend_protocol_cases": 7,
+  "other_regression_cases": 151,
+  "dom_passed_cases": 23,
+  "passing_source_attempt": "source-tests-05",
+  "source_sha256": {
+    "dockingmt/__init__.py": "c96a5de11f19d19beab13763f960a6fe3a6614de132e73b15ddb86d2814acded",
+    "dockingmt/_argdigest.py": "e76d59bca5d24f3df78b4c3b361375a82236d95ac102218a615a48bb3555b6a7",
+    "dockingmt/_depdigest.py": "e774b79e24acae58bf8b94a6cfb34a5157f20fbda88913e8801856297ff09966",
+    "dockingmt/_private/__init__.py": "4f23e529394a0c60adaca014f6852e07e108e6e826973d256b254e9e9e2f5cc0",
+    "dockingmt/_private/argdigest/__init__.py": "550f136bb66a889c4bdd34997d2925aee7aa2e95b359554e98f936927f39fea4",
+    "dockingmt/_private/argdigest/registry.py": "3b775dddf4ad175ef510e68510d8a9cb609ab5c3ee6a1744058ff61dbec645c7",
+    "dockingmt/_private/artifacts.py": "750981bba46eccf57f085a099305574f4b19afa891892259709cbc1f49bebd2e",
+    "dockingmt/_private/serialization.py": "f138c1f5dcdc5ff67ce5ac15df7c762ffefc6286a627e6859b9980e39ffc0680",
+    "dockingmt/_private/smonitor/__init__.py": "b77e840a2b20526b1ca1d518b5f23f6901ada423eeae9afc7c85f0bd358223b4",
+    "dockingmt/_private/smonitor/catalog.py": "fb665b78c1550791ef6fc4dd0fb2bbe3bc238901598fc6a8e1d4fff19bc1b5b2",
+    "dockingmt/_private/smonitor/emitter.py": "83af0b66e89522f9732bc97c53bd73de551646cafcb758637d2c2e545b877a56",
+    "dockingmt/_private/smonitor/meta.py": "7a1d95d8be1b37238dff60af83e87649331037366512e2e7b4fa218c6c61cafb",
+    "dockingmt/_private/smonitor/warnings.py": "696832be93760c6683d39b14cddc8d389a5a8beca57362fe75efe41f32857d6a",
+    "dockingmt/_private/symmetry.py": "5f71b56597fec77a497c1c63a3cb48418e1dbc5af436db0684b994407974f4da",
+    "dockingmt/_private/vina_records.py": "c3e218790029fcf0548cb329a49408984d156feaf98fbf5af9c3c2df2b36a15e",
+    "dockingmt/_pyunitwizard.py": "ced289b4e5423e80df232daac8916263995aafdbf20d06e73690599249d9e96b",
+    "dockingmt/_smonitor.py": "830e3d288fe35a84ea283d0888799b72707ee0825b7f673162d79a791703a9d2",
+    "dockingmt/_version.py": "383da6104b7677ac0fdcd09c52c91349105203a7217931230ea8e2b644084d57",
+    "dockingmt/aggregation.py": "5b8cc96ead17445f6316b07fb6ef52203d8d7dd2f355f6069f10ce67e56b55f5",
+    "dockingmt/batch.py": "01d7cfb44320c8d6ba2ad04c847093d0e7105458bab975edbc606d24d4cd37f2",
+    "dockingmt/comparison.py": "3eb988287110809a09b128f5629553acd282523d21c7aafc212a2912ad59db69",
+    "dockingmt/core/__init__.py": "6a6218f01c453e7973578f8aec19da42d02147fc603c401c3908ee00d0e1b8fa",
+    "dockingmt/core/_scores.py": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136",
+    "dockingmt/core/audit.py": "29f03d07a7e0b90219ae7b5696964fa883f39f92f143d37df4656dd677bf9249",
+    "dockingmt/core/outcome.py": "2dc43cfa0cad7a5577ec6ce572415c3beedf97e360d9ecfb8ae7e1f1a2f033df",
+    "dockingmt/core/pose_audit.py": "f3a4207b924bd05fd8c511a715a1a6af3f4272690a1d06907c67283cabc01114",
+    "dockingmt/core/problem.py": "17ef8943ee74f377cc0b62c310bd92aef80c2e595a9d10dd0397b97c6a618838",
+    "dockingmt/core/protocol.py": "ff2a50994f97ebdc432b706693a241b2a001dcf5b8cab608e8683e541b862e15",
+    "dockingmt/core/results.py": "b0059849d281ba12f14591ece48316bc2ce90f1f2e13a493cb95d946a1018a6c",
+    "dockingmt/core/search_domain.py": "6a31cc8476f722b0b3b9aee540aa09a24d488122e0098529476dc90d8ee56313",
+    "dockingmt/dock.py": "25ffc2190e5410e187e1165b912fcf2b6c4274d7e975c00e918283c96b52f256",
+    "dockingmt/engines/__init__.py": "07108a1391a34a122f4a9c9991db911a1b8f0fde9a42a828c9418a1a7ebcadf9",
+    "dockingmt/engines/_vina_scoring.py": "8ceb5360f10b068c46c393ca8bf7a092601d6cd4c6e2c4533cf7c707c44b8679",
+    "dockingmt/engines/base.py": "127fc3393b37f2d173d768eb926295b911c8160038ed524da5896b35d89f83cc",
+    "dockingmt/engines/vina.py": "1aac0af9ba381b6ba4034b5652147e806b23b49784ff553f92e982a19aefb0aa",
+    "dockingmt/evaluation.py": "09484c50038b862a44f4f007acff3e7e2892dc9a0a19e0e1cd4ccb9930118a4e",
+    "dockingmt/interactions.py": "495926980c79086bbad84ff13fd3407d1cc176feebcc8c3f30eb9c9cb1b045c8",
+    "dockingmt/preparation/__init__.py": "ad1708354f51a1283fc98667c6abdea944ed8a7d26f79ee0ce03347b4509850f",
+    "dockingmt/preparation/_export.py": "1dfd502efb4d61738fe272e4dbff4d79100e014ba417db1024a18d41da93da3f",
+    "dockingmt/preparation/_molsys.py": "71dca1b83da4577a57fef02695c384fedce79b8137e2bd3215496822a0216e63",
+    "dockingmt/preparation/_stages.py": "84fe2ad25b001e89f4f2f1f3165573d6bde33a626075d98a3f9fd62daafb5243",
+    "dockingmt/preparation/_temporary_torsions.py": "83a2f262e5e56d926a6db4f0887ffc019398f41a68fbe7c20832278b1e87d613",
+    "dockingmt/preparation/_typing.py": "abbbf96cbf02a9ebffceac214b44f1b7f6338d9e4442fc4d9b02fd14189a42e2",
+    "dockingmt/preparation/assessment.py": "6af13747f9b21d1aca3aa492d3bf6d16efe59509725267771ffe5f9a12495836",
+    "dockingmt/preparation/charges.py": "b23815cf64791c42bc5e7577f540b56deaeddb6ee6e12ad288824b7c8a4773b8",
+    "dockingmt/preparation/ligand.py": "818fa0cb42124baf8ac3e13e352e051c076add04ba5c36f22de872a06162298f",
+    "dockingmt/preparation/receptor.py": "992ab5eb1e07069174d06194e06dfab172488b9f64bdf113505a41c7c5c7afba",
+    "dockingmt/score.py": "6b05e5d92f03732e2280a4ca160d5b6e8bcf28b2b940f779ea84bd08dc00d670",
+    "dockingmt/view.py": "8d4b13a3cfcd3742be61429c0e577470fd07a05fe036cafe808421b7c79806d3",
+    "dockingmt/viewer/__init__.py": "926524953c4cf37039415eaa5d36646e00580cffb7acb1e24deb0b9c7fd6d601",
+    "molsysviewer_dockingmt/__init__.py": "ed9bd42c68be5d3b8f62804e295e8b8e9b4386f096fc134ee131d985738953e9",
+    "molsysviewer_dockingmt/_presentation.py": "61a60550627e7606784cf9545fcc9b7c88c7e28f37c3cbdcd68404d0047455b1",
+    "molsysviewer_dockingmt/_scene.py": "a896a2c58acfa92ce4ba54667a7a60521afb25211124d7b402dd2e85a62986b6",
+    "molsysviewer_dockingmt/adapters/__init__.py": "f4e1db369ab18e4c7200edd4cf953df916ba5154de4c8417fb9bc299f9c80e1c",
+    "molsysviewer_dockingmt/adapters/complex.py": "ce372788efd835776ebb3462ec522ffead68a6c3c5515f193ad2d02a7d7e15c6",
+    "molsysviewer_dockingmt/adapters/interactions.py": "f801c95d4b4d9f9fc72bcff1f6cbaee3a6f52982835eaea4c38766ee849246f6",
+    "molsysviewer_dockingmt/adapters/shapes.py": "e53057ccb8973cd2ad6bfbcbaac9d834b5b9df593f6ebb7bbf26e2e1c4f596a8",
+    "molsysviewer_dockingmt/addon.py": "1e9a92d3435c2ad6d1e7c9a15ee3f5731d4168106008bab72cbfd64a5c921134",
+    "molsysviewer_dockingmt/export.py": "42ec0b008bce4dc59d49789e0ca5f9b19d125b3a4b30c089f55f933fe6a207a3",
+    "molsysviewer_dockingmt/panels/__init__.py": "1f160141101212933339fc55478c02d43f922129ad633ec2d5bbe25db3990565",
+    "molsysviewer_dockingmt/panels/_base.py": "182bffeb117c20352d7e43f47632ba813f2fc85b1e7947ca8bdca8c7bb04f6c6",
+    "molsysviewer_dockingmt/panels/domain.py": "d11b92e2d34d4f714c993414f79e8aa78dd96b89f36d85157d5a6fdb766883e2",
+    "molsysviewer_dockingmt/panels/explorer.py": "0824308cf3039cd0508ae8f7a99b93efc4abbefb74ef5888225260dff9da537a",
+    "molsysviewer_dockingmt/runtime.py": "a8564e066ac2ae304377aef9f3cbf18405103cc605aca629ebf95a460d053710",
+    "molsysviewer_dockingmt/workbench.py": "c1222c6aca0929c72206333d791c842985cb95da0200b4fcec43ba31d048b7eb",
+    "tests/test_viewer_interactions.py": "691d57af68a8847538b4002df01f18420584738da6759603901779ada95ca8e4",
+    "tests/test_viewer_state.py": "7ef11e6690153d9b61771af08b2a4d252642fc93dfabc500f3c2d3e42280ce84",
+    "tests/test_viewer_presentation.py": "1d82995094aa5f101fa204c9e3d42643e0818f1c3df95aa6573cbf51f7c93881",
+    "tests/test_viewer_frontend_contract.py": "583d63b345ba7f6f7e901f1ad075b615f65dc4bf2c08b0af0fb55c6ba6afa5f0",
+    "tests/test_prepared_view_argument_contracts.py": "05d62f9f69f5a847733d69317e486ee5b5fefc8c0fe72366098dd4a55ee1d440",
+    "tests/test_interaction_binding.py": "ff9acd889e4f0dc9fbc4a67cd6a3ef4c95980650b5a141260a2573540e5fcaa7",
+    "devguide/validation/pose_interaction_view.md": "6a8c451936e326cf18603c03508d3a36bca70e732cba41802820be945eced002",
+    "devtools/frontend/panel_states.json": "e426f4d633a44baf995acb001c4ec082545bf989254bea17ac33456eb8e9d319",
+    "devtools/frontend/panels.test.mjs": "4a92257a1aefe6ba4c7598edc1e8f1040db8a857e6b18eec1c221d475a8994eb",
+    ".molsyssuite/e4-addon-binding-20261107/run_source_tests.py": "7780b6f6c86a36b3520d73c0ff0a25c3f77fb577a7723e7b66aca249eb381ec2",
+    ".molsyssuite/e4-addon-binding-20261107/source_test_worker.py": "a1c56c6c6b7b5a5b71ef80592c0677137806bc8fbab91cf0c4052466c55748d6"
+  },
+  "frontend_source_sha256": {
+    "devtools/frontend/package.json": "327ba8958d74d86b68ca405afa36867dea57b2b7a5c70e2f80bca80319c93376",
+    "devtools/frontend/package-lock.json": "f4931d34984dddd3a7f07f2e136ef62574a4280c0ee85192bf0eeb241db7c28e",
+    "devtools/frontend/panels.test.mjs": "4a92257a1aefe6ba4c7598edc1e8f1040db8a857e6b18eec1c221d475a8994eb",
+    "devtools/frontend/panel_states.json": "e426f4d633a44baf995acb001c4ec082545bf989254bea17ac33456eb8e9d319",
+    "devtools/frontend/extract_panels.py": "83a73304abd1a1d01f4f974e1d9173cf4e2e9fa7a655669872dc6c0a25571b47",
+    "molsysviewer_dockingmt/panels/explorer.py": "0824308cf3039cd0508ae8f7a99b93efc4abbefb74ef5888225260dff9da537a",
+    "molsysviewer_dockingmt/panels/domain.py": "d11b92e2d34d4f714c993414f79e8aa78dd96b89f36d85157d5a6fdb766883e2"
+  },
+  "archive": "devguide/validation/data/e4_pose_interaction_view_source_2026-11-07/manifest.json",
+  "archive_manifest_sha256": "9fbdb4081342dc80e117ff731837acc7be8a91edf690c157325a4e5173c4a04a",
+  "archive_members": 178,
+  "source_attempts": [
+    {
+      "attempt": "source-tests-01",
+      "worker": {
+        "outcome": "FAIL",
+        "complete": false,
+        "pytest_exit_code": 1,
+        "selected_files": [
+          "tests/test_viewer_interactions.py",
+          "tests/test_viewer_state.py",
+          "tests/test_viewer_presentation.py",
+          "tests/test_viewer_frontend_contract.py",
+          "tests/test_prepared_view_argument_contracts.py",
+          "tests/test_interaction_binding.py"
+        ],
+        "collected": 182,
+        "completed_passed": 181,
+        "source_origin": "/fast_data/home/liliana/repos@uibcdf/dockingmt/dockingmt/__init__.py",
+        "provider_import_origin": "/fast_data/home/liliana/repos@uibcdf/molsysmt/molsysmt/__init__.py",
+        "pytest_receptor_version": "1.2.0",
+        "forbidden_real_provider_calls": [
+          "real MolSysMT molecular operation"
+        ],
+        "vina_imported": false,
+        "scope": "Consumer protocol doubles and existing fail-fast/record contracts; no actual new Viewer/provider/artifact or canvas qualification"
+      },
+      "resource": {
+        "process_started": true,
+        "exit_code": 1,
+        "resource_interruption": null,
+        "termination_signal": null,
+        "elapsed_seconds": 4.7056382359987765,
+        "minimum_available_bytes": 61630562304,
+        "sampled_peak_group_rss_bytes": 202485760,
+        "samples": 46,
+        "policy": {
+          "cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_reserve_bytes": 8589934592,
+          "group_rss_limit_bytes": 1073741824,
+          "address_space_bytes": 2147483648,
+          "cpu_seconds": 45,
+          "wall_seconds": 60
+        },
+        "remaining_live_owned_pids": [],
+        "group_terminal": true,
+        "resource_outcome": "FAIL",
+        "qualification_diagnostic": "AssertionError: ",
+        "qualification_outcome": "FAIL",
+        "outcome": "FAIL"
+      },
+      "selected_file_case_counts": {
+        "tests/test_viewer_interactions.py": 23,
+        "tests/test_viewer_state.py": 20,
+        "tests/test_viewer_presentation.py": 28,
+        "tests/test_viewer_frontend_contract.py": 7,
+        "tests/test_prepared_view_argument_contracts.py": 60,
+        "tests/test_interaction_binding.py": 44
+      },
+      "registration_sha256": "c2abb8460ade34948bcc6a2dd72986ed59a894bd6bb1f496b5d4f5359c178d17"
+    },
+    {
+      "attempt": "source-tests-02",
+      "worker": {
+        "outcome": "PASS",
+        "complete": true,
+        "pytest_exit_code": 0,
+        "selected_files": [
+          "tests/test_viewer_interactions.py",
+          "tests/test_viewer_state.py",
+          "tests/test_viewer_presentation.py",
+          "tests/test_viewer_frontend_contract.py",
+          "tests/test_prepared_view_argument_contracts.py",
+          "tests/test_interaction_binding.py"
+        ],
+        "explicit_native_case_deselection": [
+          "tests/test_viewer_state.py::test_public_resolved_widgets_keep_separate_reactive_state_and_owned_cleanup"
+        ],
+        "collected": 181,
+        "completed_passed": 181,
+        "source_origin": "/fast_data/home/liliana/repos@uibcdf/dockingmt/dockingmt/__init__.py",
+        "provider_import_origin": "/fast_data/home/liliana/repos@uibcdf/molsysmt/molsysmt/__init__.py",
+        "pytest_receptor_version": "1.2.0",
+        "forbidden_real_provider_calls": [],
+        "vina_imported": false,
+        "scope": "Consumer protocol doubles and existing fail-fast/record contracts; no actual new Viewer/provider/artifact or canvas qualification"
+      },
+      "resource": {
+        "process_started": true,
+        "exit_code": 0,
+        "resource_interruption": null,
+        "termination_signal": null,
+        "elapsed_seconds": 4.393228106000606,
+        "minimum_available_bytes": 62201511936,
+        "sampled_peak_group_rss_bytes": 201957376,
+        "samples": 43,
+        "policy": {
+          "cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_reserve_bytes": 8589934592,
+          "group_rss_limit_bytes": 1073741824,
+          "address_space_bytes": 2147483648,
+          "cpu_seconds": 45,
+          "wall_seconds": 60
+        },
+        "remaining_live_owned_pids": [],
+        "group_terminal": true,
+        "resource_outcome": "PASS",
+        "qualification_outcome": "PASS",
+        "outcome": "PASS"
+      },
+      "selected_file_case_counts": {
+        "tests/test_viewer_interactions.py": 23,
+        "tests/test_viewer_state.py": 19,
+        "tests/test_viewer_presentation.py": 28,
+        "tests/test_viewer_frontend_contract.py": 7,
+        "tests/test_prepared_view_argument_contracts.py": 60,
+        "tests/test_interaction_binding.py": 44
+      },
+      "registration_sha256": "185c29ecb11b7ff993beeb9a9a1def7885e5fc49792fb7e1a1b460c66994d1f1"
+    },
+    {
+      "attempt": "source-tests-03",
+      "worker": {
+        "outcome": "PASS",
+        "complete": true,
+        "pytest_exit_code": 0,
+        "selected_files": [
+          "tests/test_viewer_interactions.py",
+          "tests/test_viewer_state.py",
+          "tests/test_viewer_presentation.py",
+          "tests/test_viewer_frontend_contract.py",
+          "tests/test_prepared_view_argument_contracts.py",
+          "tests/test_interaction_binding.py"
+        ],
+        "explicit_native_case_deselection": [
+          "tests/test_viewer_state.py::test_public_resolved_widgets_keep_separate_reactive_state_and_owned_cleanup"
+        ],
+        "collected": 184,
+        "completed_passed": 184,
+        "source_origin": "/fast_data/home/liliana/repos@uibcdf/dockingmt/dockingmt/__init__.py",
+        "provider_import_origin": "/fast_data/home/liliana/repos@uibcdf/molsysmt/molsysmt/__init__.py",
+        "pytest_receptor_version": "1.2.0",
+        "forbidden_real_provider_calls": [],
+        "vina_imported": false,
+        "scope": "Consumer protocol doubles and existing fail-fast/record contracts; no actual new Viewer/provider/artifact or canvas qualification"
+      },
+      "resource": {
+        "process_started": true,
+        "exit_code": 0,
+        "resource_interruption": null,
+        "termination_signal": null,
+        "elapsed_seconds": 4.294894032002048,
+        "minimum_available_bytes": 62198173696,
+        "sampled_peak_group_rss_bytes": 202096640,
+        "samples": 42,
+        "policy": {
+          "cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_reserve_bytes": 8589934592,
+          "group_rss_limit_bytes": 1073741824,
+          "address_space_bytes": 2147483648,
+          "cpu_seconds": 45,
+          "wall_seconds": 60
+        },
+        "remaining_live_owned_pids": [],
+        "group_terminal": true,
+        "resource_outcome": "PASS",
+        "qualification_outcome": "PASS",
+        "outcome": "PASS"
+      },
+      "selected_file_case_counts": {
+        "tests/test_viewer_interactions.py": 26,
+        "tests/test_viewer_state.py": 19,
+        "tests/test_viewer_presentation.py": 28,
+        "tests/test_viewer_frontend_contract.py": 7,
+        "tests/test_prepared_view_argument_contracts.py": 60,
+        "tests/test_interaction_binding.py": 44
+      },
+      "registration_sha256": "aa92a63d40cd7ed46ef6e7e4a25fe784a7ecbdb007fe1e3c08c37a6cdec8f03c"
+    },
+    {
+      "attempt": "source-tests-04",
+      "worker": {
+        "outcome": "PASS",
+        "complete": true,
+        "pytest_exit_code": 0,
+        "selected_files": [
+          "tests/test_viewer_interactions.py",
+          "tests/test_viewer_state.py",
+          "tests/test_viewer_presentation.py",
+          "tests/test_viewer_frontend_contract.py",
+          "tests/test_prepared_view_argument_contracts.py",
+          "tests/test_interaction_binding.py"
+        ],
+        "explicit_native_case_deselection": [
+          "tests/test_viewer_state.py::test_public_resolved_widgets_keep_separate_reactive_state_and_owned_cleanup"
+        ],
+        "collected": 186,
+        "completed_passed": 186,
+        "source_origin": "/fast_data/home/liliana/repos@uibcdf/dockingmt/dockingmt/__init__.py",
+        "provider_import_origin": "/fast_data/home/liliana/repos@uibcdf/molsysmt/molsysmt/__init__.py",
+        "pytest_receptor_version": "1.2.0",
+        "forbidden_real_provider_calls": [],
+        "vina_imported": false,
+        "scope": "Consumer protocol doubles and existing fail-fast/record contracts; no actual new Viewer/provider/artifact or canvas qualification"
+      },
+      "resource": {
+        "process_started": true,
+        "exit_code": 0,
+        "resource_interruption": null,
+        "termination_signal": null,
+        "elapsed_seconds": 4.295671232001041,
+        "minimum_available_bytes": 61830045696,
+        "sampled_peak_group_rss_bytes": 202145792,
+        "samples": 42,
+        "policy": {
+          "cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_reserve_bytes": 8589934592,
+          "group_rss_limit_bytes": 1073741824,
+          "address_space_bytes": 2147483648,
+          "cpu_seconds": 45,
+          "wall_seconds": 60
+        },
+        "remaining_live_owned_pids": [],
+        "group_terminal": true,
+        "resource_outcome": "PASS",
+        "qualification_outcome": "PASS",
+        "outcome": "PASS"
+      },
+      "selected_file_case_counts": {
+        "tests/test_viewer_interactions.py": 28,
+        "tests/test_viewer_state.py": 19,
+        "tests/test_viewer_presentation.py": 28,
+        "tests/test_viewer_frontend_contract.py": 7,
+        "tests/test_prepared_view_argument_contracts.py": 60,
+        "tests/test_interaction_binding.py": 44
+      },
+      "registration_sha256": "ee7ef70a1530e4a34af8ccc2aed3cbfdd4862662017525e902f93ac13fd338f9"
+    },
+    {
+      "attempt": "source-tests-05",
+      "worker": {
+        "outcome": "PASS",
+        "complete": true,
+        "pytest_exit_code": 0,
+        "selected_files": [
+          "tests/test_viewer_interactions.py",
+          "tests/test_viewer_state.py",
+          "tests/test_viewer_presentation.py",
+          "tests/test_viewer_frontend_contract.py",
+          "tests/test_prepared_view_argument_contracts.py",
+          "tests/test_interaction_binding.py"
+        ],
+        "explicit_native_case_deselection": [
+          "tests/test_viewer_state.py::test_public_resolved_widgets_keep_separate_reactive_state_and_owned_cleanup"
+        ],
+        "collected": 186,
+        "completed_passed": 186,
+        "source_origin": "/fast_data/home/liliana/repos@uibcdf/dockingmt/dockingmt/__init__.py",
+        "provider_import_origin": "/fast_data/home/liliana/repos@uibcdf/molsysmt/molsysmt/__init__.py",
+        "pytest_receptor_version": "1.2.0",
+        "forbidden_real_provider_calls": [],
+        "vina_imported": false,
+        "scope": "Consumer protocol doubles and existing fail-fast/record contracts; no actual new Viewer/provider/artifact or canvas qualification"
+      },
+      "resource": {
+        "process_started": true,
+        "exit_code": 0,
+        "resource_interruption": null,
+        "termination_signal": null,
+        "elapsed_seconds": 4.298541206000664,
+        "minimum_available_bytes": 61937819648,
+        "sampled_peak_group_rss_bytes": 201863168,
+        "samples": 42,
+        "policy": {
+          "cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_reserve_bytes": 8589934592,
+          "group_rss_limit_bytes": 1073741824,
+          "address_space_bytes": 2147483648,
+          "cpu_seconds": 45,
+          "wall_seconds": 60
+        },
+        "remaining_live_owned_pids": [],
+        "group_terminal": true,
+        "resource_outcome": "PASS",
+        "qualification_outcome": "PASS",
+        "outcome": "PASS"
+      },
+      "selected_file_case_counts": {
+        "tests/test_viewer_interactions.py": 28,
+        "tests/test_viewer_state.py": 19,
+        "tests/test_viewer_presentation.py": 28,
+        "tests/test_viewer_frontend_contract.py": 7,
+        "tests/test_prepared_view_argument_contracts.py": 60,
+        "tests/test_interaction_binding.py": 44
+      },
+      "registration_sha256": "ce526dba00bb389154c9ea4482a4d1eee389f588e2e7d04dc3396b10aa83c2a9"
+    }
+  ],
+  "frontend_attempts": [
+    {
+      "attempt": "node-01",
+      "worker": {
+        "stage": "node",
+        "outcome": "PASS",
+        "complete": true,
+        "node": {
+          "outcome": "PASS",
+          "version": "v26.3.1",
+          "npm_version": "11.16.0",
+          "node_path": "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e4-addon-binding-20261107/node-v26.3.1-linux-x64/bin/node",
+          "node_sha256": "0b52710a27133a3baf45f0d1f10689ab874f50e5821d8e611486d17e20bcacdd",
+          "archive_url": "https://nodejs.org/dist/v26.3.1/node-v26.3.1-linux-x64.tar.xz",
+          "archive_sha256": "55647180e4ae58ffeaa3294e89aa4abda7c371dfbd64b44cbdb022980177aae0",
+          "shasums_sha256": "e0476a820b94cd0d80a4ab1e0d8451afe04eb40d88c479e454cffd4e7d8f29d9",
+          "shared_environment_modified": false
+        },
+        "source_sha256": {
+          "devtools/frontend/package.json": "327ba8958d74d86b68ca405afa36867dea57b2b7a5c70e2f80bca80319c93376",
+          "devtools/frontend/package-lock.json": "f4931d34984dddd3a7f07f2e136ef62574a4280c0ee85192bf0eeb241db7c28e",
+          "devtools/frontend/panels.test.mjs": "4a92257a1aefe6ba4c7598edc1e8f1040db8a857e6b18eec1c221d475a8994eb",
+          "devtools/frontend/panel_states.json": "e426f4d633a44baf995acb001c4ec082545bf989254bea17ac33456eb8e9d319",
+          "devtools/frontend/extract_panels.py": "83a73304abd1a1d01f4f974e1d9173cf4e2e9fa7a655669872dc6c0a25571b47",
+          "molsysviewer_dockingmt/panels/explorer.py": "0824308cf3039cd0508ae8f7a99b93efc4abbefb74ef5888225260dff9da537a",
+          "molsysviewer_dockingmt/panels/domain.py": "de8c1b984041ed4b51fe56ada74b7ca3a66f68a3b35cc55ed73f4fca6fffdbfa"
+        },
+        "shared_environment_modified": false,
+        "scope": "Task-isolated exact Node/bootstrap or locked dependency/ESM DOM testing; no molecular operations, real browser, comm, canvas or public-delivery acceptance"
+      },
+      "resource": {
+        "process_started": true,
+        "exit_code": 0,
+        "resource_interruption": null,
+        "termination_signal": null,
+        "elapsed_seconds": 7.8902865199997905,
+        "minimum_available_bytes": 62260699136,
+        "sampled_peak_group_rss_bytes": 180252672,
+        "samples": 55,
+        "policy": {
+          "cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_reserve_bytes": 8589934592,
+          "group_rss_limit_bytes": 536870912,
+          "address_space_bytes": 17179869184,
+          "cpu_seconds": 45,
+          "wall_seconds": 90
+        },
+        "remaining_live_owned_pids": [],
+        "group_terminal": true,
+        "qualification_outcome": "PASS",
+        "outcome": "PASS"
+      }
+    },
+    {
+      "attempt": "npm-install-01",
+      "worker": {
+        "stage": "install",
+        "outcome": "PASS",
+        "complete": true,
+        "node": {
+          "outcome": "PASS",
+          "version": "v26.3.1",
+          "npm_version": "11.16.0",
+          "node_path": "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e4-addon-binding-20261107/node-v26.3.1-linux-x64/bin/node",
+          "node_sha256": "0b52710a27133a3baf45f0d1f10689ab874f50e5821d8e611486d17e20bcacdd",
+          "archive_url": "https://nodejs.org/dist/v26.3.1/node-v26.3.1-linux-x64.tar.xz",
+          "archive_sha256": "55647180e4ae58ffeaa3294e89aa4abda7c371dfbd64b44cbdb022980177aae0",
+          "shasums_sha256": "e0476a820b94cd0d80a4ab1e0d8451afe04eb40d88c479e454cffd4e7d8f29d9",
+          "shared_environment_modified": false
+        },
+        "source_sha256": {
+          "devtools/frontend/package.json": "327ba8958d74d86b68ca405afa36867dea57b2b7a5c70e2f80bca80319c93376",
+          "devtools/frontend/package-lock.json": "f4931d34984dddd3a7f07f2e136ef62574a4280c0ee85192bf0eeb241db7c28e",
+          "devtools/frontend/panels.test.mjs": "4a92257a1aefe6ba4c7598edc1e8f1040db8a857e6b18eec1c221d475a8994eb",
+          "devtools/frontend/panel_states.json": "e426f4d633a44baf995acb001c4ec082545bf989254bea17ac33456eb8e9d319",
+          "devtools/frontend/extract_panels.py": "83a73304abd1a1d01f4f974e1d9173cf4e2e9fa7a655669872dc6c0a25571b47",
+          "molsysviewer_dockingmt/panels/explorer.py": "0824308cf3039cd0508ae8f7a99b93efc4abbefb74ef5888225260dff9da537a",
+          "molsysviewer_dockingmt/panels/domain.py": "de8c1b984041ed4b51fe56ada74b7ca3a66f68a3b35cc55ed73f4fca6fffdbfa"
+        },
+        "shared_environment_modified": false,
+        "scope": "Task-isolated exact Node/bootstrap or locked dependency/ESM DOM testing; no molecular operations, real browser, comm, canvas or public-delivery acceptance"
+      },
+      "resource": {
+        "process_started": true,
+        "exit_code": 0,
+        "resource_interruption": null,
+        "termination_signal": null,
+        "elapsed_seconds": 2.9704797420017712,
+        "minimum_available_bytes": 61997486080,
+        "sampled_peak_group_rss_bytes": 173629440,
+        "samples": 21,
+        "policy": {
+          "cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_reserve_bytes": 8589934592,
+          "group_rss_limit_bytes": 536870912,
+          "address_space_bytes": 17179869184,
+          "cpu_seconds": 45,
+          "wall_seconds": 90
+        },
+        "remaining_live_owned_pids": [],
+        "group_terminal": true,
+        "qualification_outcome": "PASS",
+        "outcome": "PASS"
+      }
+    },
+    {
+      "attempt": "dom-tests-01",
+      "worker": {
+        "stage": "test",
+        "outcome": "PASS",
+        "complete": true,
+        "node": {
+          "outcome": "PASS",
+          "version": "v26.3.1",
+          "npm_version": "11.16.0",
+          "node_path": "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e4-addon-binding-20261107/node-v26.3.1-linux-x64/bin/node",
+          "node_sha256": "0b52710a27133a3baf45f0d1f10689ab874f50e5821d8e611486d17e20bcacdd",
+          "archive_url": "https://nodejs.org/dist/v26.3.1/node-v26.3.1-linux-x64.tar.xz",
+          "archive_sha256": "55647180e4ae58ffeaa3294e89aa4abda7c371dfbd64b44cbdb022980177aae0",
+          "shasums_sha256": "e0476a820b94cd0d80a4ab1e0d8451afe04eb40d88c479e454cffd4e7d8f29d9",
+          "shared_environment_modified": false
+        },
+        "source_sha256": {
+          "devtools/frontend/package.json": "327ba8958d74d86b68ca405afa36867dea57b2b7a5c70e2f80bca80319c93376",
+          "devtools/frontend/package-lock.json": "f4931d34984dddd3a7f07f2e136ef62574a4280c0ee85192bf0eeb241db7c28e",
+          "devtools/frontend/panels.test.mjs": "4a92257a1aefe6ba4c7598edc1e8f1040db8a857e6b18eec1c221d475a8994eb",
+          "devtools/frontend/panel_states.json": "e426f4d633a44baf995acb001c4ec082545bf989254bea17ac33456eb8e9d319",
+          "devtools/frontend/extract_panels.py": "83a73304abd1a1d01f4f974e1d9173cf4e2e9fa7a655669872dc6c0a25571b47",
+          "molsysviewer_dockingmt/panels/explorer.py": "0824308cf3039cd0508ae8f7a99b93efc4abbefb74ef5888225260dff9da537a",
+          "molsysviewer_dockingmt/panels/domain.py": "d11b92e2d34d4f714c993414f79e8aa78dd96b89f36d85157d5a6fdb766883e2"
+        },
+        "shared_environment_modified": false,
+        "scope": "Task-isolated exact Node/bootstrap or locked dependency/ESM DOM testing; no molecular operations, real browser, comm, canvas or public-delivery acceptance",
+        "native_test_summary": {
+          "tests": 23,
+          "pass": 23,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      "resource": {
+        "process_started": true,
+        "exit_code": 0,
+        "resource_interruption": null,
+        "termination_signal": null,
+        "elapsed_seconds": 2.6893191230010416,
+        "minimum_available_bytes": 62199427072,
+        "sampled_peak_group_rss_bytes": 314146816,
+        "samples": 19,
+        "policy": {
+          "cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_reserve_bytes": 8589934592,
+          "group_rss_limit_bytes": 536870912,
+          "address_space_bytes": 17179869184,
+          "cpu_seconds": 45,
+          "wall_seconds": 90
+        },
+        "remaining_live_owned_pids": [],
+        "group_terminal": true,
+        "qualification_outcome": "PASS",
+        "outcome": "PASS"
+      }
+    }
+  ],
+  "actual_installed_view_route_received": false,
+  "canvas_received": false,
+  "public_delivery_received": false,
+  "whole_e4_received": false,
+  "private_custody": ".molsyssuite/e4-addon-binding-20261107",
+  "custody_review": "2026-11-14",
+  "scope": "Consumer source/protocol and exact ESM DOM qualification; no molecular operations or actual new installed Viewer route, comm, canvas, independent molecular reproduction or public package qualification"
+}

@@ -64,6 +64,24 @@ def example_states():
         domain._refresh(view=view)
         states['explorer_poses'] = explorer._last_state
         states['domain_supplied'] = domain._last_state
+        runtime.interaction_binding = SimpleNamespace(
+            pose_index=2, analysis_names=('hbonds', 'hydrophobic')
+        )
+        view.molsys = object()
+        runtime.interaction_carrier = view.molsys
+        view.interactions = SimpleNamespace(
+            analyses=lambda: [
+                {
+                    'name': name,
+                    'method': 'declared-method',
+                    'n_occurrences': 0,
+                    'n_evaluated_structures': coverage,
+                }
+                for name, coverage in [('hbonds', 0), ('hydrophobic', 1)]
+            ]
+        )
+        explorer._refresh(view=view)
+        states['explorer_interactions'] = explorer._last_state
         return states
     finally:
         explorer.close()
@@ -71,7 +89,14 @@ def example_states():
 
 
 @pytest.mark.parametrize(
-    'name', ['explorer_empty', 'explorer_poses', 'domain_empty', 'domain_supplied']
+    'name',
+    [
+        'explorer_empty',
+        'explorer_poses',
+        'domain_empty',
+        'domain_supplied',
+        'explorer_interactions',
+    ],
 )
 def test_dom_examples_match_python_panel_states(name):
     path = Path(__file__).resolve().parents[1] / 'devtools/frontend/panel_states.json'

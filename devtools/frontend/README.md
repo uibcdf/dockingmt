@@ -47,3 +47,11 @@ jsdom implements DOM behavior without layout or rendering; these tests establish
 no pixels, camera/clipping behavior, real frontend/backend round trip, maintainer
 review or C6. See [jsdom's documented limits](https://github.com/jsdom/jsdom#unimplemented-parts-of-the-web-platform)
 and [Node's native test runner](https://nodejs.org/api/test.html).
+
+
+The interaction-view extension also checks the full original pose table with
+only the bound geometry enabled, nonfirst bound positions, evaluated-empty versus
+unevaluated coverage, live availability and clearing back to ordinary results.
+The fifth protocol example is produced by the Python panel contract test. This
+remains DOM evidence; use the distinct actual installed-provider and canvas gates
+in `devguide/validation/pose_interaction_view.md` before broader claims.

@@ -202,7 +202,7 @@ class SearchDomainPanel(_DockingPanel):
             )
 
     def _build_state(self, runtime: Any, view: Any) -> dict[str, Any]:
-        controls = sync_scene_state(view)
+        controls = sync_scene_state(view, include_interactions=False)
         domain = runtime.search_domain
         if domain is None:
             return {

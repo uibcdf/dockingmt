@@ -68,6 +68,8 @@ export function render({ model, el }) {
       </div>
 
       <div id="dmt-comparison-note"></div>
+      <div id="dmt-interaction-note"></div>
+      <div id="dmt-interaction-analyses"></div>
       <div class="dmt-status" id="dmt-status"></div>
     </div>
   `;
@@ -82,6 +84,8 @@ export function render({ model, el }) {
   const statusEl = el.querySelector("#dmt-status");
   const refreshBtn = el.querySelector("#dmt-refresh");
   const comparisonEl = el.querySelector("#dmt-comparison-note");
+  const interactionNote = el.querySelector("#dmt-interaction-note");
+  const interactionAnalyses = el.querySelector("#dmt-interaction-analyses");
 
   function applyState(s) {
     state = { ...state, ...s };
@@ -89,15 +93,34 @@ export function render({ model, el }) {
     countEl.textContent = `${state.n_poses} pose${state.n_poses === 1 ? '' : 's'}`;
     poseInput.value = state.active_index === null ? '' : state.active_index + 1;
     poseInput.max = state.n_poses || 1;
-    poseInput.disabled = !state.n_poses;
+    const poses = state.poses ?? [];
+    const limitedGeometry = poses.some(p => p.geometry_available !== undefined);
+    const availablePoses = poses.filter(p => p.geometry_available !== false);
+    poseInput.disabled = !state.n_poses || (limitedGeometry && availablePoses.length <= 1);
 
-    prevBtn.disabled = state.active_index === null || state.active_index <= 0;
-    nextBtn.disabled = state.active_index === null || state.active_index >= state.n_poses - 1;
+    prevBtn.disabled = state.active_index === null || !availablePoses.some(p => p.index < state.active_index);
+    nextBtn.disabled = state.active_index === null || !availablePoses.some(p => p.index > state.active_index);
     toggleRefBtn.disabled = !state.reference_available;
     toggleRefBtn.title = state.reference_reason ?? '';
     toggleBoxBtn.disabled = !state.domain_available;
     toggleBoxBtn.title = state.domain_reason ?? '';
     comparisonEl.textContent = state.comparison_note;
+    interactionNote.textContent = limitedGeometry
+      ? (state.interaction_geometry_available
+        ? `Geometry is loaded for position ${state.active_index + 1}. Other poses remain listed.`
+        : state.interaction_geometry_reason)
+      : '';
+    interactionAnalyses.replaceChildren();
+    if (limitedGeometry) {
+      (state.interaction_analyses ?? []).forEach(analysis => {
+        const line = document.createElement('div');
+        const coverage = !analysis.available ? 'unavailable'
+          : (!analysis.evaluated ? 'not evaluated'
+          : `evaluated, ${analysis.n_occurrences} observations`);
+        line.textContent = `${analysis.name}: ${coverage}`;
+        interactionAnalyses.appendChild(line);
+      });
+    }
 
     toggleBoxBtn.textContent = state.domain_visible ? "Hide Search Box" : "Show Search Box";
     toggleRefBtn.textContent = state.reference_visible ? "Hide Reference" : "Show Reference";
@@ -110,6 +133,12 @@ export function render({ model, el }) {
         const row = document.createElement('tr');
         row.className = p.index === state.active_index ? 'dmt-row dmt-row--active' : 'dmt-row';
         row.dataset.index = p.index;
+        const geometryAvailable = p.geometry_available !== false;
+        row.setAttribute('aria-disabled', String(!geometryAvailable));
+        if (!geometryAvailable) {
+          row.classList.add('dmt-row--unavailable');
+          row.title = p.geometry_reason;
+        }
         [p.position, p.pose_id ?? 'Unavailable', p.rank ?? 'Unassigned'].forEach(value => {
           const cell = document.createElement('td');
           cell.textContent = String(value);
@@ -125,9 +154,11 @@ export function render({ model, el }) {
           scores.appendChild(line);
         });
         row.appendChild(scores);
-        row.addEventListener('click', () => {
-          model.send({ type: "action", id: "set_pose", payload: { index: p.index } });
-        });
+        if (geometryAvailable) {
+          row.addEventListener('click', () => {
+            model.send({ type: "action", id: "set_pose", payload: { index: p.index } });
+          });
+        }
         tbodyEl.appendChild(row);
       });
     }
@@ -152,6 +183,7 @@ export function render({ model, el }) {
   poseInput.addEventListener("change", () => {
     const val = Number(poseInput.value);
     if (Number.isInteger(val) && val >= 1 && val <= state.n_poses) {
+      if (state.poses?.[val - 1]?.geometry_available === false) return;
       model.send({ type: "action", id: "set_pose", payload: { index: val - 1 } });
     }
   });
@@ -264,6 +296,10 @@ _CSS = """
 .dmt-row {
   cursor: pointer;
 }
+.dmt-row--unavailable {
+  opacity: 0.6;
+  cursor: default;
+}
 .dmt-row:hover {
   background: rgba(51, 136, 255, 0.1);
 }
@@ -356,11 +392,24 @@ class DockingExplorerPanel(_DockingPanel):
         poses = result.poses if result is not None else []
         index = runtime.active_pose_index
 
+        records = [pose_record(pose, idx) for idx, pose in enumerate(poses)]
+        if runtime.interaction_binding is not None:
+            for record in records:
+                available = (
+                    controls['interaction_geometry_available']
+                    and record['index'] == runtime.interaction_binding.pose_index
+                )
+                record.update(
+                    geometry_available=available,
+                    geometry_reason=None
+                    if available
+                    else 'This view has no loaded geometry for this pose.',
+                )
         return {
             'n_poses': len(poses),
             'active_rank': runtime.active_pose_rank,
             'active_index': index if 0 <= index < len(poses) else None,
-            'poses': [pose_record(pose, idx) for idx, pose in enumerate(poses)],
+            'poses': records,
             'domain_visible': runtime.domain_visible,
             'reference_visible': runtime.reference_visible,
             'has_reference': runtime.reference is not None,

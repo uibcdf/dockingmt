@@ -12,10 +12,10 @@ from .runtime import ensure_runtime
 def build_docking_export_payload(view: Any) -> dict[str, Any]:
     """Build a serialized dictionary payload of the active docking session for export."""
     runtime = ensure_runtime(view)
-    sync_scene_state(view)
+    controls = sync_scene_state(view)
     result = runtime.result
 
-    return {
+    payload = {
         'title': 'DockingMT Result Export',
         'active_pose_rank': runtime.active_pose_rank,
         'selected_pose': selected_pose_record(runtime),
@@ -26,3 +26,10 @@ def build_docking_export_payload(view: Any) -> dict[str, Any]:
         if runtime.search_domain is not None
         else None,
     }
+    if runtime.interaction_binding is not None:
+        payload.update(
+            interaction_association=runtime.interaction_binding.association,
+            interaction_geometry_available=controls['interaction_geometry_available'],
+            interaction_analyses=controls['interaction_analyses'],
+        )
+    return payload

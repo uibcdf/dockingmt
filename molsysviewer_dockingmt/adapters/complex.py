@@ -18,6 +18,7 @@ from dockingmt._private.smonitor import (
 
 from .._scene import reference_region
 from ..runtime import ensure_runtime, record_event
+from .interactions import _clear_interaction_layers
 from .shapes import _clear_domain_layers, render_search_domain
 
 
@@ -220,6 +221,7 @@ def render_docking_result(
     )
 
     # Build and load docking complex
+    _clear_interaction_layers(view)
     if receptor is not None and result.poses:
         complex_sys = build_docking_complex_system(
             receptor=receptor,
@@ -245,6 +247,8 @@ def render_docking_result(
     # Publish completed state only after all required provider calls succeed.
     runtime = ensure_runtime(view)
     runtime.result = result
+    runtime.interaction_binding = None
+    runtime.interaction_carrier = None
     runtime.reference = reference
     regions = getattr(view, 'regions', None)
     runtime.reference_region = (
@@ -265,7 +269,8 @@ def set_active_pose(view: Any, rank: int) -> None:
     """Activate a pose by one-based collection position.
 
     The legacy argument name ``rank`` is preserved for compatibility. It is
-    not the scientific ``DockingPose.rank``; position k maps to frame k - 1.
+    not the scientific ``DockingPose.rank``. Ordinary results map position k to
+    frame k - 1; interaction views admit only their bound position at frame 0.
     """
     runtime = ensure_runtime(view)
     if runtime.result is None or not runtime.result.poses:
@@ -285,10 +290,22 @@ def set_active_pose(view: Any, rank: int) -> None:
 
     rank = int(rank)
 
+    frame = rank - 1
+    if runtime.interaction_binding is not None:
+        from .._scene import _interaction_carrier_available
+
+        if rank - 1 != runtime.interaction_binding.pose_index or not (
+            _interaction_carrier_available(view)
+        ):
+            raise ViewerStateError(
+                resource=f'loaded geometry for pose position {rank}',
+                operation='set_active_pose',
+            )
+        frame = 0
     player = getattr(view, 'player', None)
     if player is None or not callable(getattr(player, 'go_to_structure', None)):
         raise ViewerCapabilityError(capability='player', operation='set_active_pose')
-    player.go_to_structure(rank - 1)
+    player.go_to_structure(frame)
 
     runtime.active_pose_rank = rank
     pose = runtime.result.poses[rank - 1]
@@ -317,17 +334,20 @@ def set_reference_visibility(view: Any, visible: bool) -> None:
 
 @signal(tags=['addon', 'viewer'])
 def clear_docking(view: Any) -> None:
-    """Delete only owned domain shapes and release the docking binding.
+    """Delete owned domain/interaction visuals and release the docking binding.
 
     Molecular scene data remains in the Viewer. A deletion failure propagates
     with the remaining handles intact so the caller can retry cleanup.
     """
     runtime = ensure_runtime(view)
+    _clear_interaction_layers(view)
     _clear_domain_layers(view)
     runtime.result = None
     runtime.search_domain = None
     runtime.reference = None
     runtime.reference_region = None
+    runtime.interaction_binding = None
+    runtime.interaction_carrier = None
     runtime.domain_visible = False
     runtime.reference_visible = False
     runtime.active_pose_rank = 1

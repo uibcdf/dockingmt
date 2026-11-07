@@ -63,6 +63,47 @@ const action = (id, payload = {}) => ({ type: 'action', id, payload });
 const rows = panel => [...panel.el.querySelectorAll('#dmt-tbody tr')];
 const stateFor = name => wireCopy(examples[name]);
 
+test('interaction view retains the whole table and permits only the bound geometry', async t => {
+  const p = await mount(t, 'explorer', examples.explorer_interactions);
+  assert.equal(rows(p).length, 3);
+  assert.equal(p.q('#dmt-pose-input').value, '3');
+  for (const id of ['dmt-prev', 'dmt-next', 'dmt-pose-input']) {
+    assert.equal(p.q(`#${id}`).disabled, true, id);
+  }
+  assert.equal(rows(p)[0].getAttribute('aria-disabled'), 'true');
+  assert.match(rows(p)[0].title, /no loaded geometry/);
+  rows(p)[0].click();
+  rows(p)[1].click();
+  p.q('#dmt-next').click();
+  assert.equal(p.model.sent.length, 1);
+  rows(p)[2].click();
+  assert.deepEqual(p.model.sent.at(-1), action('set_pose', { index: 2 }));
+  assert.match(p.q('#dmt-interaction-note').textContent, /position 3/);
+  assert.match(p.q('#dmt-interaction-analyses').textContent, /hbonds: not evaluated/);
+  assert.match(p.q('#dmt-interaction-analyses').textContent, /hydrophobic: evaluated, 0 observations/);
+});
+
+test('interaction availability and literal metadata refresh and clear with the scene', async t => {
+  const state = stateFor('explorer_interactions');
+  state.interaction_analyses[0].name = '<img src=x onerror=alert(1)>';
+  const p = await mount(t, 'explorer', state);
+  assert.equal(p.q('#dmt-interaction-analyses').querySelector('img'), null);
+  assert.match(p.q('#dmt-interaction-analyses').textContent, /<img src=x/);
+  state.interaction_geometry_available = false;
+  state.interaction_geometry_reason = 'The loaded system no longer matches this pose interaction view.';
+  state.poses.forEach(pose => { pose.geometry_available = false; });
+  state.interaction_analyses = [];
+  p.model.update('explorer', state);
+  assert.match(p.q('#dmt-interaction-note').textContent, /no longer matches/);
+  assert.equal(p.q('#dmt-interaction-analyses').textContent, '');
+  rows(p)[2].click();
+  assert.equal(p.model.sent.length, 1);
+  p.model.update('explorer', examples.explorer_poses);
+  assert.equal(p.q('#dmt-interaction-note').textContent, '');
+  assert.equal(p.q('#dmt-interaction-analyses').textContent, '');
+  assert.equal(p.q('#dmt-pose-input').disabled, false);
+});
+
 test('empty explorer requests context and disables unavailable navigation/visuals', async t => {
   const p = await mount(t, 'explorer');
   assert.deepEqual(p.model.sent, [{ type: 'query', id: 'viewer.context' }]);

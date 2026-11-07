@@ -15,6 +15,34 @@ supersedes: []
 
 # Saved-result addon explorer
 
+## Interaction view source increment — 2026-11-07
+
+[#80's explicit binding route](../validation/pose_interaction_view.md) extends
+`dmt.view` to an admitted `PoseInteractions` without truncating the original
+result or mapping frame 0 to the wrong collection member. It displays provider
+interaction visuals, live evaluated/unevaluated/unavailable metadata and explicit
+geometry availability. Callback/Python/context/panel navigation, summary/export,
+foreign visual ownership and cleanup/retry boundaries have source controls.
+Normal result rendering releases the restricted map; no analysis is broadcast.
+
+The final complete selection passes 186 source/protocol Python cases, including
+28 new view controls and seven frontend contracts. The locked exact served ESM
+passes 23 DOM cases (two new). Original DOM examples remain unchanged; a fifth
+binding example is tied to fresh production panel output. The initial accidental
+native test selection remains failed; its guard prevents molecular execution.
+That native test is explicitly excluded from the repeated source selection and
+retains its actual provider gate. No existing installed/provider result is
+relabelled as this new route's receiving, and no browser/comm/canvas runs.
+
+The [receipt](../validation/data/pose_interaction_view_source_2026-11-07.json) and
+[178-member archive](../validation/data/e4_pose_interaction_view_source_2026-11-07/manifest.json)
+preserve exact source/tool identities and raw failures/completion. Runtime
+resources add the new adapter only; task-isolated Node26 leaves Conda unchanged.
+Next build/receive the new exact candidate normal/pm-fs on original carriers,
+including real visuals, frame/pose mapping, lifecycle and the excluded native
+regression. Public minima/artifacts, actual visual C6, #52/#60, broader E4/#80,
+MolSysMT #642 and #28 hosted evidence retain separate ownership. Keep partial.
+
 ## Public artifact boundary — 2026-11-04
 
 [Public Viewer 0.24.0 build-1 receiving](../validation/public_viewer_receiving.md)

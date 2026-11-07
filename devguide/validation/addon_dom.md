@@ -6,6 +6,12 @@ without requiring maintainer interaction. It adds test coverage and a test-only
 CI job; production core/addon code is byte-identical to baseline `9f8b787`.
 The preceding private wheel and frozen notebook/receipts are unchanged.
 
+The subsequent [interaction-view source increment](pose_interaction_view.md)
+now passes 23 exact-ESM DOM cases, including two interaction-view additions and
+seven current backend/frontend contract cases. It changes product code and has
+its own receipt/source hashes; it does not rewrite the original 21-case
+checkpoint below or qualify installed provider/comm/canvas behavior.
+
 ## Executed scope — 2026-11-03
 
 **21 JavaScript tests pass**, zero failures/skips, using Node 26.3.1, npm 11.16.0

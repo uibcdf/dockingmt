@@ -52,7 +52,7 @@ class _DockingPanel(AddonPanelWidget):
             return
         if isinstance(index, Integral):
             runtime = ensure_runtime(self._bound_view)
-            if runtime.result is not None:
+            if runtime.result is not None and runtime.interaction_binding is None:
                 runtime.active_pose_rank = int(index) + 1
             self._refresh()
 
@@ -92,6 +92,21 @@ class _DockingPanel(AddonPanelWidget):
         except Exception as exc:
             state = dict(getattr(self, '_last_state', {}))
             state.update(domain_available=False, reference_available=False)
+            if ensure_runtime(view).interaction_binding is not None:
+                state.update(
+                    interaction_geometry_available=False,
+                    interaction_geometry_reason=str(exc),
+                    interaction_analyses=[],
+                )
+                if 'poses' in state:
+                    state['poses'] = [
+                        {
+                            **row,
+                            'geometry_available': False,
+                            'geometry_reason': str(exc),
+                        }
+                        for row in state['poses']
+                    ]
             error = exc if error is None else error
         state['error_code'] = None
         if error is not None:

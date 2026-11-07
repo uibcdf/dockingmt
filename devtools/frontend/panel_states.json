@@ -135,5 +135,100 @@
     "reference_available": false,
     "reference_reason": "Supply the explicit reference before using this docking control.",
     "error_code": null
+  },
+  "explorer_interactions": {
+    "n_poses": 3,
+    "active_rank": 3,
+    "active_index": 2,
+    "poses": [
+      {
+        "index": 0,
+        "position": 1,
+        "pose_id": "seventh",
+        "rank": 7,
+        "scores": [
+          {
+            "name": "custom",
+            "value": 12.0,
+            "unit": null,
+            "definition": null
+          }
+        ],
+        "geometry_available": false,
+        "geometry_reason": "This view has no loaded geometry for this pose."
+      },
+      {
+        "index": 1,
+        "position": 2,
+        "pose_id": null,
+        "rank": null,
+        "scores": [],
+        "geometry_available": false,
+        "geometry_reason": "This view has no loaded geometry for this pose."
+      },
+      {
+        "index": 2,
+        "position": 3,
+        "pose_id": "first",
+        "rank": 1,
+        "scores": [
+          {
+            "name": "control",
+            "value": -2.0,
+            "unit": "kilojoule / mole",
+            "definition": {
+              "schema_version": "1.0",
+              "method": "explicit-method",
+              "method_version": "1",
+              "component": "reported-score",
+              "kind": "empirical",
+              "unit": "kilojoule / mole",
+              "preferred_direction": "lower",
+              "context": {
+                "input": "declared-state"
+              }
+            }
+          },
+          {
+            "name": "vina",
+            "value": 0.0,
+            "unit": null,
+            "definition": null
+          }
+        ],
+        "geometry_available": true,
+        "geometry_reason": null
+      }
+    ],
+    "domain_visible": false,
+    "reference_visible": false,
+    "has_reference": false,
+    "has_domain": true,
+    "comparison_note": "RMSD unavailable: no recorded comparison is bound.",
+    "status": "idle",
+    "error": null,
+    "domain_available": false,
+    "domain_reason": "Supply the search domain before using this docking control.",
+    "reference_available": false,
+    "reference_reason": "Supply the explicit reference before using this docking control.",
+    "error_code": null,
+    "interaction_geometry_available": true,
+    "interaction_geometry_reason": null,
+    "interaction_analyses": [
+      {
+        "name": "hbonds",
+        "method": "declared-method",
+        "n_occurrences": 0,
+        "available": true,
+        "evaluated": false
+      },
+      {
+        "name": "hydrophobic",
+        "method": "declared-method",
+        "n_occurrences": 0,
+        "available": true,
+        "evaluated": true
+      }
+    ]
   }
 }

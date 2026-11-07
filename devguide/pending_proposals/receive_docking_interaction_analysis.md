@@ -277,3 +277,44 @@ The existing renderer builds one structure per pose and is not that route.
 #642 still owns positive-invalidation persistence; whole E4/#73, other-carrier
 correspondence, E3 #604, canvas #52/#60, independent science/reproduction and
 public/minor/platform delivery remain unproven. Keep this report partial.
+
+
+## Interaction view implemented and source-qualified — 2026-11-07
+
+[The explicit `dmt.view(binding)` route](../validation/pose_interaction_view.md)
+loads the complete admitted one-frame carrier through public Viewer APIs and
+creates provider-owned visuals for stored analyses. The addon retains every
+original result record and maps frame 0 only to the actual bound collection
+position, including nonfirst poses. Explorer metadata/live coverage, Python/
+context/panel actions, callbacks and summary/export use that mapping; unavailable
+geometries remain listed with reasons and disabled controls. Matching dimensions
+cannot admit a replacement scene. No matcher, codec, detector or geometry
+projection is added here.
+
+The final source selection passes 186 cases (28 new view controls, seven frontend
+contracts, 151 other regressions), zero skips. The initial accidental real-provider
+case is blocked by the molecular-operation guard and retained as failed; that
+case is explicitly excluded from the repeated source-only selection and remains
+required for actual receiving. Source failures are not erased. Final selection:
+4.299 s/201,863,168 sampled group-RSS bytes. The exact served ESM passes 23 locked
+Node26/jsdom DOM cases, 2.689 s/314,146,816 bytes. No molecular operation, actual
+View loading, browser, comm or canvas is executed. All groups are terminal with
+no resource interruption. Conda and provider pins remain unchanged; isolated
+verified Node supplies the declared engine.
+
+The [receipt](../validation/data/pose_interaction_view_source_2026-11-07.json) and
+[178-member immutable archive](../validation/data/e4_pose_interaction_view_source_2026-11-07/manifest.json)
+retain all raw attempts, exact source objects, collected/native/JUnit reports,
+DOM logs and guard/tool identities. Manifest SHA-256 is
+`9fbdb4081342dc80e117ff731837acc7be8a91edf690c157325a4e5173c4a04a`.
+The resource inventory adds the new runtime adapter path; historical helper/data
+hash declarations remain exact. #50 task custody review is 2026-11-14.
+
+**Next:** build and identify a new consumer artifact and receive this actual
+route normal/pm-fs on original carriers/results, including provider visuals/live
+metadata, nonmutation, frame/pose axes and the excluded native regression. The
+old `cfff386` wheel cannot count for this new route. MolSysMT #642 has provider
+triage but no delivered correction; receive that separately. #80/#60 stay
+partial; #28 skipped hosted evidence, full E4/#73, canvas, other-carrier projection,
+E3 #604, independent science/reproduction and public/minor/platform keep their
+separate gates. No manual CI is dispatched.
