@@ -62,7 +62,7 @@ zip-safe = false
 include-package-data = false
 
 [tool.setuptools.packages.find]
-include = ["dockingmt*", "molsysviewer_dockingmt*"]
+include = ["dockingmt", "dockingmt.*", "molsysviewer_dockingmt", "molsysviewer_dockingmt.*"]
 namespaces = true
 where = ["."]
 

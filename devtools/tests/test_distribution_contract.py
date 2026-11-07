@@ -171,9 +171,21 @@ class TestDistributionContract(unittest.TestCase):
 
     def test_namespace_discovery_excludes_sdk_and_tests(self):
         (self.root / '.molsyssuite/sdk/devtools').mkdir(parents=True)
+        for name in (
+            'dockingmt-migration-2026-11-06/historical_snapshots/build/lib/dockingmt',
+            'dockingmt_backup/old',
+            'molsysviewer_dockingmt_backup/old',
+        ):
+            package = self.root / name
+            package.mkdir(parents=True)
+            (package / '__init__.py').write_text('# unshipped historical snapshot\n')
+        discovery = tomllib.loads((self.root / 'pyproject.toml').read_text())[
+            'tool'
+        ]['setuptools']['packages']['find']
         packages = find_namespace_packages(
-            where=str(self.root), include=['dockingmt*', 'molsysviewer_dockingmt*']
+            where=str(self.root), include=discovery['include']
         )
+        self.assertIn('dockingmt.core', packages)
         self.assertIn('molsysviewer_dockingmt', packages)
         self.assertTrue(
             all(

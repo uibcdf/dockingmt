@@ -209,3 +209,24 @@ recovery semantics are preserved; no public package is published here.
 Local conformance and changed-workflow Actionlint checks pass. Hosted
 policy and applicable routine checks are dispatched separately from skipped
 direct pushes; their exact commits and outcomes remain to be measured.
+
+## Migration-prefix payload correction — 2026-11-07
+
+During #78 private comparison receiving, the wheel from `3b1853a` passed its
+64 required-runtime checks but failed a full payload-ownership inspection:
+Setuptools discovery patterns `dockingmt*`/`molsysviewer_dockingmt*` also selected
+the untracked migration snapshot tree. The rejected wheel SHA-256 is
+`eaa5b04adc6e60e8b21f96b3f67056f69af18bbcd1ade3826e8234210f1cf263`;
+62 historical Python paths were included outside the two runtime namespaces.
+The artifact and attempted installation remain preserved. No public upload or
+scientific receiving used that artifact, and the original migration tree is
+unchanged and untracked.
+
+Discovery now names the two exact roots and their dot-delimited subpackages.
+The existing distribution regression reads the actual project configuration and
+creates realistic migration/backup lookalikes, checking that valid core/addon
+subpackages survive while those neighboring trees stay out. All 19 distribution
+controls pass. A fresh source build and complete wheel inventory are required
+before resuming #78; a clean export avoids treating retained build-cache contents
+as candidate source. This local correction does not qualify public dependency
+closure, installed platforms or the broader #30 gate.
