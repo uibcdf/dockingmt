@@ -577,3 +577,27 @@ through explicit named preparation and exercise the actual public comparison.
 Full multi-pose reconstruction/additive continuity, whole E1, public delivery and
 the separate E4 hold remain unchanged. Remote checkpoint evidence is still
 deferred under the maintainer's `[skip ci]` instruction.
+
+## Public comparison receiving — 2026-11-07
+
+The [registered private receiving](../validation/e1_public_comparison_2026-11-07.md)
+now passes for public `compare_scores`: five freshly reproduced complete
+preparations exactly bind to old captured inputs, and four calls return the two
+method-local interaction orders under two unit policies. All eight informative
+refusals, twenty correspondence/assignment-validation checks, charge/geometry
+checks, nonmutation and JSON controls pass within the resource budget. A fresh
+standard-library reader recovers the four reports with identical bytes and
+decisions. Zero new energies, searches or H-generation operations occur.
+
+The first private wheel exposes a migration-prefix discovery defect and is
+rejected before science; #30 records its correction and nineteen distribution
+controls. The separately received wheel from `a7422df` has exactly 64 runtime
+paths and borrows the identified support/provider composition. Rejected/failed
+preflights and the earlier incomplete two-pose population remain preserved.
+
+The bounded public comparison is received. Criterion 4 and whole E1 remain
+partial: complete multi-pose original docking result → reconstruction → explicit
+preparation → additive evaluation continuity is still required. This comparison
+does not restore historical prepared H or supply missing original docking
+history. Broader profiles, public #30/#47 delivery and the E4 hold retain their
+separate owners.

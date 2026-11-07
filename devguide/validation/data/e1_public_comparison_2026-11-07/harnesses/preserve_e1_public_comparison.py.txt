@@ -1,0 +1,33 @@
+import gzip,hashlib,json,shutil,zipfile
+from pathlib import Path
+root=Path('/fast_data/home/liliana/repos@uibcdf/dockingmt');task=root/'.molsyssuite/e1-score-comparison-20261107';out=root/'devguide/validation/data/e1_public_comparison_2026-11-07';out.mkdir(exist_ok=False)
+def sha(data):return hashlib.sha256(data).hexdigest()
+assert json.loads((task/'receiving-01/resource-outcome.json').read_text())['outcome']=='PASS'
+assert json.loads((task/'json-reader-01/output/receipt.json').read_text())['outcome']=='PASS'
+installation=json.loads((task/'installation-02.json').read_text());target=task/'site-packages-02'
+assert {str(p.relative_to(target)):sha(p.read_bytes()) for p in target.rglob('*') if p.is_file()}==installation['targethashes']
+wheel=Path(installation['wheel']['path']);assert sha(wheel.read_bytes())==installation['wheel']['sha256']
+with zipfile.ZipFile(wheel) as z:
+ entries=[dict(path=n,bytes=len(z.read(n)),sha256=sha(z.read(n))) for n in sorted(z.namelist())]
+ assert {x['path'] for x in entries if not x['path'].split('/')[0].endswith('.dist-info')}==set(installation['consumer_payload_sha256'])
+inspection=dict(owner='uibcdf/dockingmt#30',source_commit=installation['consumer_source_commit'],wheel_sha256=sha(wheel.read_bytes()),runtime_paths=64,unexpected_paths=[],files=entries,scope='Complete wheel payload inspection; does not establish dependency/platform/public qualification.')
+with (task/'wheel-inspection-02.json').open('x') as stream:json.dump(inspection,stream,indent=2);stream.write('\n')
+files=[]
+def keep(source,relative):
+ data=source.read_bytes();name=relative
+ if source.suffix=='.py':name += '.txt'
+ if source.suffix=='.ipynb':name += '.txt'
+ if source.suffix in ('.json','.ipynb','.h5msm','.log') or len(data)>50000:
+  name += '.gz';stored=gzip.compress(data,mtime=0)
+ else:stored=data
+ destination=out/name;destination.parent.mkdir(parents=True,exist_ok=True)
+ with destination.open('xb') as stream:stream.write(stored)
+ row=dict(path=name,original_path=relative,bytes=len(stored),sha256=sha(stored),decoded_bytes=len(data),decoded_sha256=sha(data));files.append(row)
+for label in ['interpreter-origins','score-boundary-regression-01','score-boundary-regression-02','comparison-software-01','final-software-01','distribution-regression-01','wheel-build-01','wheel-build-02','wheel-build-03','private-install-01','private-install-02','receiving-01','json-reader-01']:
+ for p in sorted((task/label).rglob('*')):
+  if p.is_file() and 'cache' not in p.relative_to(task/label).parts:keep(p,'attempts/'+str(p.relative_to(task)))
+for name in ['installation.json','installation-02.json','artifact-rejection-01.json','wheel-inspection-02.json','reader-link.json']:keep(task/name,'assembly/'+name)
+for name in ['e1_comparison_guard.py','e1_comparison_receiving_guard.py','e1_score_comparison_worker.py','e1_score_comparison_json_reader.py','prepare_e1_comparison_install.py','prepare_e1_comparison_install_02.py','preserve_e1_public_comparison.py']:keep(Path('/tmp')/name,'harnesses/'+name)
+manifest=dict(owner='uibcdf/dockingmt#78',schema='dockingmt.e1_public_comparison_archive@1',consumer_source_commit=installation['consumer_source_commit'],wheel_sha256=installation['wheel']['sha256'],scientific_population='One existing five-pose scoring population; four comparison reports across two reader unit policies, five new matching preparations, zero new energies/searches/H.',notebook_sha256=sha((root/'devguide/validation/e1_public_comparison_receiving.ipynb').read_bytes()),files=files,scope='Frozen records preserve original inputs, failures and distinct source/artifact/receiving producers. Private wheel/support/provider snapshots are retained separately; no public package qualification.')
+with (out/'manifest.json').open('x') as stream:json.dump(manifest,stream,indent=2);stream.write('\n')
+print(json.dumps(dict(files=len(files),stored_bytes=sum(x['bytes'] for x in files),decoded_bytes=sum(x['decoded_bytes'] for x in files),manifest_sha256=sha((out/'manifest.json').read_bytes()))))

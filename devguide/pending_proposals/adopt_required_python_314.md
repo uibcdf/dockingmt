@@ -230,3 +230,11 @@ controls pass. A fresh source build and complete wheel inventory are required
 before resuming #78; a clean export avoids treating retained build-cache contents
 as candidate source. This local correction does not qualify public dependency
 closure, installed platforms or the broader #30 gate.
+
+Replacement outcome: the clean-source wheel from `a7422df`, SHA-256
+`93d76f898575fb64b39520f33ceded25708270c8042c2a53c9a451acd834bcdd`,
+passes complete payload ownership: exactly 64 runtime paths plus its metadata.
+It passes the bounded privately installed #78 comparison with borrowed
+providers. The [case report](../validation/e1_public_comparison_2026-11-07.md)
+preserves rejected artifacts and build/setup attempts. No public dependency
+closure or full platform/minor acceptance follows.

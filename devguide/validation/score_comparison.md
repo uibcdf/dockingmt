@@ -95,3 +95,13 @@ preparation, experimental validity, affinity, a common native total-score
 reference or a shared Vina/Vinardo scale. `lig_inter` uses the separately
 received component semantics; the reference record remains required documentary
 evidence, without being asserted as a physical input to that component.
+
+## Received execution and remaining scope
+
+The [registered private installed receiving](e1_public_comparison_2026-11-07.md)
+passes for five existing poses with four positive method/policy reports, eight
+refusals and independent saved JSON receiving. The new consumer wheel has all
+64 runtime files; provider/support dependencies remain borrowed and identified.
+Twenty provider witnesses and five fresh preparations add no new energies or
+H. This receives the comparison profile, separately from full multi-pose
+reconstruction/additive continuity and public dependency/platform delivery.

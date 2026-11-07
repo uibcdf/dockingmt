@@ -179,9 +179,9 @@ class TestDistributionContract(unittest.TestCase):
             package = self.root / name
             package.mkdir(parents=True)
             (package / '__init__.py').write_text('# unshipped historical snapshot\n')
-        discovery = tomllib.loads((self.root / 'pyproject.toml').read_text())[
-            'tool'
-        ]['setuptools']['packages']['find']
+        discovery = tomllib.loads((self.root / 'pyproject.toml').read_text())['tool'][
+            'setuptools'
+        ]['packages']['find']
         packages = find_namespace_packages(
             where=str(self.root), include=discovery['include']
         )

@@ -35,7 +35,7 @@ These examples do not establish general predictive accuracy or binding affinity.
 | --- | --- | --- |
 | Inspect a saved result | [Result inspection](devguide/validation/installed_result_inspection.md) | Reads caller-supplied records and checks available evidence; no new docking. |
 | Inspect saved scoring evaluations | [Saved-scoring inspection](devguide/validation/installed_scoring_inspection.md) | Reads poses or explicit result collections, retaining scores, evaluation producers and missing evidence. |
-| Add named evaluations to a prepared pose | [Rescoring with the public API](devguide/validation/same_state_rescoring_workflow.md) | Keeps earlier scores and adds Vina/Vinardo evaluations; links a received single-pose reconstruction example and the remaining multi-pose/comparison boundary. |
+| Add named evaluations to a prepared pose | [Rescoring with the public API](devguide/validation/same_state_rescoring_workflow.md) | Keeps earlier scores and adds Vina/Vinardo evaluations; links a received single-pose reconstruction example and the remaining complete multi-pose continuity boundary. |
 | Compare fixed interaction components | [Score comparison](devguide/validation/score_comparison.md) | Checks matching complete preparations through MolSysMT and produces an independent comparison report for the bounded Vina/Vinardo profile. |
 | Prepare the declared 3PTB case | [Preparation and admission](devguide/validation/installed_3ptb_preparation.md) | Applies the explicit molecular recipe and checks inputs; no search. |
 | Execute that case | [Two-search workflow](devguide/validation/installed_3ptb_execution.md) | Performs two new Vina searches and saves their results. |

@@ -1,0 +1,36 @@
+import hashlib,json,shutil,subprocess,tomllib,zipfile
+from pathlib import Path
+root=Path('/fast_data/home/liliana/repos@uibcdf/dockingmt');task=root/'.molsyssuite/e1-score-comparison-20261107'
+old=root/'.molsyssuite/e1-public-composition-20261106/site-packages';target=task/'site-packages-02'
+receipt=root/'.molsyssuite/e1-public-composition-20261106/preparation-correction.json'
+python='/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python'
+def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+def inventory(directory):return {str(p.relative_to(directory)):sha(p) for p in sorted(directory.rglob('*')) if p.is_file()}
+before=json.loads(receipt.read_text());assert inventory(old)==before['targethashes']
+for row in before['source_snapshot']:assert sha(Path(row['source_path']))==row['sha256']
+assert not target.exists();shutil.copytree(old,target)
+for name in ['dockingmt','molsysviewer_dockingmt']:shutil.rmtree(target/name)
+previous=list(target.glob('dockingmt-*.dist-info'));assert len(previous)==1
+for directory in previous:shutil.rmtree(directory)
+wheel,=list((task/'wheels-03').glob('dockingmt-*.whl'))
+assert sha(wheel)=='93d76f898575fb64b39520f33ceded25708270c8042c2a53c9a451acd834bcdd'
+subprocess.run([python,'-B','-m','pip','install','--no-index','--no-deps','--no-compile','--target',str(target),str(wheel)],check=True)
+resources=tomllib.loads((root/'devtools/conda-build/resources.toml').read_text())
+required=[p.removeprefix('site-packages/') for p in resources['required_paths']];assert len(required)==64
+payload={};commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
+assert commit=='a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe'
+with zipfile.ZipFile(wheel) as archive:
+ actual={n for n in archive.namelist() if not n.split('/')[0].endswith('.dist-info')}
+ assert actual==set(required),sorted(actual-set(required))
+ for name in required:
+  data=archive.read(name);assert data==(target/name).read_bytes()
+  if name!='dockingmt/_version.py':assert data==subprocess.check_output(['git','show',commit+':'+name],cwd=root)
+  payload[name]=hashlib.sha256(data).hexdigest()
+assert inventory(old)==before['targethashes']
+source_modules={}
+for package in ['argdigest','depdigest','smonitor','pyunitwizard','molsysmt','ackredit']:
+ directory=Path('/fast_data/home/liliana/repos@uibcdf')/package
+ source_modules[package]={'git_head':subprocess.check_output(['git','-C',str(directory),'rev-parse','HEAD'],text=True).strip(),'tracked_status':subprocess.check_output(['git','-C',str(directory),'status','--porcelain','--untracked-files=no'],text=True)}
+r=dict(owner='uibcdf/dockingmt#78',scope='New privately installed consumer wheel; prior private support wheels and exact borrowed MolSysMT snapshot retained. No public/whole-environment closure.',consumer_source_commit=commit,wheel={'path':str(wheel),'sha256':sha(wheel)},previous_preparation_sha256=sha(receipt),targethashes=inventory(target),consumer_payload_sha256=payload,source_modules=source_modules,prior_target_unchanged=True)
+with (task/'installation-02.json').open('x') as stream:json.dump(r,stream,indent=2);stream.write('\n')
+print(json.dumps({'consumer_runtime_paths':len(payload),'private_files':len(r['targethashes']),'prior_target_unchanged':True,'wheel_sha256':sha(wheel)}))

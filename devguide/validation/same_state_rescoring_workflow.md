@@ -167,3 +167,9 @@ This guide combines source-reviewed public calls with the separately received
 single-pose notebook. It is not an executed multi-pose user workflow. Its snippets require the explicit input
 objects above and are not a new preparation recipe or scientific population.
 The linked controls and original producers retain their own qualification scope.
+
+The [public component comparison receiving](e1_public_comparison_2026-11-07.md)
+now exercises `compare_scores` on five existing poses with actual matching
+preparations and a privately installed consumer. Its two method-local decisions
+and saved readers are received; complete multi-pose original docking-result
+reconstruction and additive rescoring remain a separate unfinished boundary.

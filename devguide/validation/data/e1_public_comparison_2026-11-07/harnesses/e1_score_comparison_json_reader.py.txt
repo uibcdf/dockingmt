@@ -1,0 +1,58 @@
+"""Receive sealed saved comparison decisions using only the standard library."""
+import base64,hashlib,json,math,os,sys
+from pathlib import Path
+root=Path(os.environ['DOCKINGMT_COMPARISON_ROOT']);task=root/'.molsyssuite/e1-score-comparison-20261107'
+source=task/'receiving-01/output';output=Path(os.environ['DOCKINGMT_COMPARISON_OUTPUT']);output.mkdir(exist_ok=False)
+def sha(data):return hashlib.sha256(data).hexdigest()
+def digest(record):return sha(json.dumps(record,sort_keys=True,separators=(',',':'),allow_nan=False).encode())
+def write(name,record):
+ with (output/name).open('x') as stream:json.dump(record,stream,indent=2,allow_nan=False);stream.write('\n')
+class NoScientificImports:
+ def find_spec(self,fullname,path=None,target=None):
+  if fullname.split('.')[0] in ('dockingmt','molsysmt','vina','rdkit','pyunitwizard','molsysviewer'):raise AssertionError('Unexpected scientific import: '+fullname)
+  return None
+sys.meta_path.insert(0,NoScientificImports())
+link=json.loads((task/'reader-link.json').read_text());raw=(source/'manifest.json').read_bytes();assert sha(raw)==link['generation_manifest_sha256']
+manifest=json.loads(raw)
+for row in manifest['files']:
+ data=(source/row['path']).read_bytes();assert len(data)==row['bytes'] and sha(data)==row['sha256']
+assert sha((task/'receiving-01/registration.json').read_bytes())==link['generation_registration_sha256']
+resource=json.loads((task/'receiving-01/resource-outcome.json').read_text());assert resource['outcome']=='PASS' and resource['resource_interruption'] is None
+source_record=json.loads((source/'original_collection.json').read_text());assert len(source_record['poses'])==5
+orders={'vina':[1,2,3,4,5],'vinardo':[1,2,4,3,5]};received={}
+for policy in ('normal','pm_fs'):
+ for method in ('vina','vinardo'):
+  path=source/policy/(method+'_comparison.json');data=path.read_bytes();record=json.loads(data)
+  assert record['schema_version']=='1.0' and record['profile']=='vina_1.2.7_same_axis@1'
+  assert record['policy']['ascending'] is True and record['source_result_record_sha256']==digest(source_record)
+  assert len(record['rows'])==5 and record['display_order']==orders[method]
+  expected_order=sorted(range(1,6),key=lambda p:source_record['poses'][p-1]['scores'][method+'.lig_inter'])
+  assert record['display_order']==expected_order
+  for position,(row,pose) in enumerate(zip(record['rows'],source_record['poses']),1):
+   name=method+'.lig_inter';entry=next(h for h in pose['metadata']['scoring_history'] if h['score_name']==method)
+   assert row['position']==position and row['pose_id']==pose['pose_id'] and row['original_rank']==pose['rank']
+   assert type(row['value']) in (float,int) and math.isfinite(row['value']) and row['value']==pose['scores'][name]
+   assert row['definition']==pose['metadata']['score_definitions'][name]
+   assert row['source_pose_record_sha256']==digest(pose) and row['scoring_evaluation_record_sha256']==digest(entry)
+   assert row['reference_energy']==entry['reference_energy'] and row['evaluation_audit']['status']=='consistent'
+   evidence=row['prepared_evidence'];export=evidence['export'];context=row['definition']['context']
+   assert export['payload_sha256']==context['partner_sha256']==sha(base64.b64decode(entry['backend_artifacts']['partner']['content_base64'],validate=True))
+   witness=evidence['chemical_correspondence'];assert witness['search_complete'] is True and witness['n_atoms']==witness['reference_n_atoms']==13
+   assert witness['source_graph_digest']==witness['reference_graph_digest']
+   assert evidence['original_exported_assignments']['charges']['status']=='derived'
+   assert evidence['validated_charge_assignment']['status']=='projected' and evidence['validated_type_assignment']['status']=='projected'
+  assert record['groups']==[{'value':record['rows'][p-1]['value'],'positions':[p]} for p in expected_order]
+  assert json.loads(json.dumps(record,allow_nan=False))==record
+  name=policy+'_'+method+'.json';write(name,record);assert (output/name).read_bytes()==data
+  received[(policy,method)]=record
+for method in orders:
+ left,right=received[('normal',method)],received[('pm_fs',method)]
+ assert left['groups']==right['groups'] and left['display_order']==right['display_order']
+ assert [r['definition'] for r in left['rows']]==[r['definition'] for r in right['rows']]
+receipt=json.loads((source/'receipt.json').read_text());refusals=json.loads((source/'refusals.json').read_text())
+assert receipt['comparison_scope'] and receipt['new_energies']==receipt['new_searches']==receipt['new_hydrogens']==0
+assert receipt['counts']['comparison_attempts']==12 and receipt['counts']['comparison_returns']==4 and len(refusals)==8
+assert receipt['all_original_records_preserved'] is True and receipt['full_e1_accepted'] is False
+assert not any(name.split('.')[0] in ('dockingmt','molsysmt','vina','rdkit','pyunitwizard','molsysviewer') for name in sys.modules)
+write('receipt.json',{'owner':'uibcdf/dockingmt#78','outcome':'PASS','report_roundtrips':4,'rows_received':20,'normal_orders':orders,'saved_bytes_identical':True,'refusals_received':8,'new_molecular_calls':0,'new_energies':0,'source_manifest_sha256':link['generation_manifest_sha256'],'scope':'Fresh standard-library receiving of sealed records and decisions; no new scientific admission or producer authentication.'})
+print(json.dumps({'outcome':'PASS','reports':4,'rows':20,'new_molecular_calls':0,'new_energies':0}))

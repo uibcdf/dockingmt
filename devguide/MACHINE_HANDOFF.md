@@ -76,7 +76,7 @@ dependency solve do not prove the required behavior is available.
 
 The continuation now has separate [E1 receiving](validation/e1_installed_receiving_2026-11-06.md)
 and [public-workflow records](validation/e1_public_composition_2026-11-06.md).
-Actual runtime source remains DockingMT `2fda6238e6b1cb3742f5d30b8ed3af699f9ed748`
+Earlier receiving runtime source is DockingMT `2fda6238e6b1cb3742f5d30b8ed3af699f9ed748`
 with the separately identified development MolSysMT; private snapshots/wheels
 and Vina/Boost retain their exact identities and missing public-closure limits.
 Original qualified pins and scientific producers above remain unchanged.
@@ -98,12 +98,31 @@ missing under #28/#30 rather than passing. See the current root `AGENTS.md`.
 The original local E4 computational hold and the cleared autonomous goal remain
 unaffected by this individually authorized continuation.
 
+## Public comparison checkpoint — 2026-11-07
+
+The [bounded comparison receiving](validation/e1_public_comparison_2026-11-07.md)
+now passes for consumer source `a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe`.
+A new clean 64-path private wheel receives five existing poses through public
+`compare_scores`, four reports/two methods/two unit policies, eight informative
+refusals and a fresh JSON reader. Five current named preparations reproduce the
+old captured inputs exactly; zero new scores, searches or H-generation calls
+occur. Provider/support runtime remains explicitly borrowed and identified.
+
+The initial wheel contains migration-prefix snapshots and is rejected before
+science. The package-discovery correction and nineteen distribution controls
+are recorded under #30; keep the rejected artifact and administrative attempts.
+The original untracked migration bundle and previous targets remain unchanged.
+Source software checks pass 193 tests. This does not establish public package
+closure, the supported platform matrix or new hosted CI evidence. Incremental
+commits retain `[skip ci]`; E1 stays partial for complete multi-pose original
+result reconstruction/additive continuity, and the separate E4 hold persists.
+
 ## Next work, by owner
 
 | Work | Next meaningful action | Owner / limits |
 | --- | --- | --- |
 | E4 structured consumer/addon admission | Bind saved provider analyses to the actual original pose/result and declared axes; preserve coverage, methods, units and provenance without recalculation. | [#80](pending_proposals/receive_docking_interaction_analysis.md). Whole E4 stays partial. |
-| E1 representative rescoring | Extend received singleton public continuity to an admitted multi-pose population and positive user comparison/decision consumption. | [#78](pending_proposals/qualify_same_state_rescoring.md). Provider-wide #599/#447 remain separate; no blanket wait or relaxed strict ranking/PDBQT rewrite. |
+| E1 representative rescoring | Extend received singleton continuity to a complete admitted multi-pose original-result reconstruction/preparation/additive-scoring workflow; the bounded five-pose public component comparison is received separately. | [#78](pending_proposals/qualify_same_state_rescoring.md). Provider-wide #599/#447 remain separate; no blanket wait or relaxed strict ranking/PDBQT rewrite. |
 | E2 distinct-ligand study | Admit actual sources/states and study comparison conditions before API expansion/calculation. | [#81](pending_proposals/qualify_small_ligand_collection.md). Reuse serial `dock_many`; no generic campaign framework. |
 | E3 comparison/clustering | Receive the supported provider composition/tools before implementation. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md), MolSysMT [#604](https://github.com/uibcdf/molsysmt/issues/604). No local molecular clustering/matching. |
 | Scientific panel | Resolve source/state/environment/template/reconstruction admission before searches. | [Panel admission](validation/scientific_panel_admission_2026-11-04.md) and [environment](validation/scientific_panel_environment_2026-11-04.md) retain #33/#49 and MolSysMT #555–#558. Proposed candidates are not admitted complexes. |
