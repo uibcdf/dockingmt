@@ -11,12 +11,69 @@ requirements; this file explains how to resume without recovering chat history.
 
 ## Current development checkpoint — 2026-11-07
 
-Work is **active after the maintainer's resumption** of the complete objective.
-Completion remains unproven. Keep `devguide/` updated with every increment.
+Work is **paused at the maintainer's request** after the bounded installed
+interaction-binding qualification below. Completion remains unproven. No new
+scientific cell or addon work starts during this pause. Keep `devguide/` updated
+with every increment after resumption.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Installed interaction binding checkpoint — 2026-11-07
+
+[Actual new-candidate receiving](validation/e4_pose_binding_installed_2026-11-07.md)
+passes normal/pm-fs and separate standard-library record reading. Consumer source
+is `cfff3866d511e7f1d202e3e03dd8c54a38963dc2`, private wheel
+`0.0.0+307.gcfff386`, SHA-256
+`bc6da61abcb51a6950b2c5ed388616a70dd7cd393056c2b98d3665f9a40d1c51`.
+Its 74 installed files and 3794 transported provider files exclude the old
+consumer. Borrowed MolSysMT `9e1f1b1`, Viewer import overlay `78ede79e` and original
+scientific producer `5952053` retain their actual separate identities. No provider
+checkout/pin or shared-prefix change occurs; the fresh exact source worktree and
+candidate installation are task-owned, with no dependency solve/public release.
+
+Each profile accepts two bindings: original retained zero-based index 0 and a
+separate derived evaluated-empty control. The historical wire position 1 is
+one-based and its atom correspondence has two columns; the corrected client
+converts those declared axes explicitly, verifying IDs/state/keys before reads.
+All five original result records survive exactly; the control never becomes a
+sixth original pose, and four original poses remain unevaluated. Fourteen refusals,
+native copies/filtering and two complete H5MSM 0.5 carrier roundtrips pass per
+profile. The original mechanical fields stay absent. No new H, preparation,
+typing/charge, detector, metric, energy, search or View is executed.
+
+`normal-03` completes in 29.635 s/638,640,128 bytes sampled group RSS; fresh
+`pm-fs-01` in 29.703 s/637,353,984 bytes. The independent `reader-03` completes in
+18.526 s/272,764,928 bytes, imports no scientific package and performs no molecular
+parsing/restoration. These are instrumented qualification observations, not API
+throughput. Every owned group is terminal, CPU0/nice10/one-worker and the
+registered RAM/time bounds hold, with no reserve interruption.
+
+The [119-member primary archive](validation/data/e4_pose_binding_installed_2026-11-07/manifest.json)
+is SHA-256 `0dc17c3dd7c6e2db8f03ca0756603a016694537195394dc758c6909b34592c45`;
+the [34-member reader companion](validation/data/e4_pose_binding_installed_reader_2026-11-07/manifest.json)
+is `ee54ee5e6d42e5e1e0b25584cc40544f07d57e79d80ae4a3a436fd7c2706685f`.
+Two early client parameter stops and two overstrict reader comparisons remain
+failed. Complete per-profile analysis payloads equal their own older immutable
+witnesses; cross-profile roundoff and distinct derived source identities remain
+preserved with explicit unit-bearing agreement checks. Full original-result JSON
+equality and all stored/decoded hashes pass. No producer authentication is claimed.
+
+Task source/receipts/private wheel/worktree/prefixes remain under
+`.molsyssuite/e4-pose-binding-installed-20261107`, #50 custody review 2026-11-14.
+The source/API tests at `cfff386` retain their 190-case scope; exact-head hosted
+evidence remains missing under #28 and `[skip ci]`, without manual CI dispatch.
+**Next:** register/receive a native named family with zero evaluated frames;
+the False-coverage source double is not that native case. Then admit the
+single-frame binding in the actual addon through supported scene axes, preserving
+the complete result and refusing broadcasts to other poses/carriers. #80 stays
+partial. E3 #604 is still open with no response at refresh; the current provider
+clone remains clean/preserved behind fetched main. Canvas #52/#60, independent
+science/reproduction, public/minor/platform and full #73 requirements remain.
+
 ### Pose interaction binding checkpoint — 2026-11-07
+
+This preceding source qualification retains its source-specific scope; installed
+receiving and the current next action are recorded above.
 
 `bind_interactions` and `PoseInteractions` are implemented in
 [`dockingmt/interactions.py`](../dockingmt/interactions.py). The

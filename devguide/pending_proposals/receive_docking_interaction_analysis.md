@@ -199,3 +199,41 @@ The initial collection report also reproduces known Pytest Receptor #46
 nonpassing; exact component event/JUnit receipts govern counts. Consumer evidence
 is handed to that existing owner rather than opening a duplicate issue or
 changing shared-tool code here.
+
+## Bounded actual installed binding received — 2026-11-07
+
+[The new candidate receiving](../validation/e4_pose_binding_installed_2026-11-07.md)
+passes normal/pm-fs and independent standard-library record reading. The actual
+consumer is source `cfff386`, wheel `0.0.0+307.gcfff386`, SHA-256
+`bc6da61abcb51a6950b2c5ed388616a70dd7cd393056c2b98d3665f9a40d1c51`.
+Its 74-file private prefix plus 3794 exact transported provider files excludes
+the old consumer; borrowed MolSysMT `9e1f1b1` and original producer `5952053`
+retain distinct identities. No provider checkout/pin or shared environment changes.
+
+Both profiles accept the original retained pose and a separately derived
+evaluated-empty control, receive all named models/filtering/accessor detachment,
+and pass fourteen refusals. Two complete H5MSM 0.5 carrier roundtrips preserve
+present topology/chemistry/geometry/structure links, analyses and mechanical
+absence. The complete five-pose original JSON remains exact; no original pose
+is replaced by the derived control or unmeasured pose labelled analysed.
+All finite caps and unit-authority/restoration gates pass; no new scientific
+preparation/detection/metric/native-energy/search work occurs.
+
+The [119-member archive](../validation/data/e4_pose_binding_installed_2026-11-07/manifest.json)
+is SHA-256 `0dc17c3dd7c6e2db8f03ca0756603a016694537195394dc758c6909b34592c45`;
+the [34-member reader companion](../validation/data/e4_pose_binding_installed_reader_2026-11-07/manifest.json)
+is `ee54ee5e6d42e5e1e0b25584cc40544f07d57e79d80ae4a3a436fd7c2706685f`.
+Both early client parameter stops and two overstrict reader comparisons remain
+failed and preserved. Each complete analysis equals its own frozen original;
+the pre-existing cross-profile roundoff and distinct control source hashes are
+preserved, with explicit physical-unit agreement checks. The reader imports no
+molecular/scientific package or restores molecular models.
+
+This accepts the bounded installed consumer composition, not whole E4. A native
+named family with zero evaluated frames is still unreceived; the False-coverage
+source-double guard cannot replace that case. Register/receive it through
+supported MolSysMT operations, then admit the single-frame binding in the actual
+addon without guessing other scene mappings or broadcasting observations.
+The original four other poses, canvas, independent science/public/platform/minor
+and full #73 gates keep their scope. This issue remains partial; hosted exact-head
+evidence stays missing under #28 and `[skip ci]`, without manual CI dispatch.

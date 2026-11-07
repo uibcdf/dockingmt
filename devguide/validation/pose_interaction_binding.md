@@ -7,6 +7,12 @@ docking-specific public association. Qualification of the new API on an actual
 installed artifact remains separate from that earlier receiving and the source
 boundary tests below. Whole E4, addon/canvas and public delivery remain open.
 
+Subsequent [installed candidate receiving](e4_pose_binding_installed_2026-11-07.md)
+now passes normal/pm-fs on the original retained and separately derived
+evaluated-empty carriers, plus independent record reading. Its actual source,
+artifact, domains, refusals and limits remain separate from source tests below.
+A native family with no evaluated frames and addon/scene admission remain next.
+
 ## Public operation and ownership
 
 ```python

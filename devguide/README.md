@@ -37,8 +37,9 @@ closure or live canvas use. The complete objective is not achieved. See the
 [current checkpoint](MACHINE_HANDOFF.md#current-development-checkpoint--2026-11-07).
 
 The earlier autonomous goal was paused and cleared before the machine handoff.
-The maintainer has now resumed the accepted product plan and requires each
-increment to leave an accurate developer-guide checkpoint. Follow the
+The accepted product plan remains incomplete. Work is now paused at the
+maintainer's request after installed interaction-binding qualification; each
+increment must leave an accurate developer-guide checkpoint. Follow the
 [current handoff](MACHINE_HANDOFF.md#current-development-checkpoint--2026-11-07)
 and operational queue; independent E4/live-observation holds and resource limits
 retain their scope.
@@ -71,7 +72,7 @@ shared boundary contracts. See the [suite contract](MOLSYSSUITE_CONTRACT.md) and
 | E3 provider admission | [Current source/population inspection](validation/e3_provider_admission_2026-11-07.md) identifies three P59 poses and an experimental-reference candidate. #79 is blocked on MolSysMT #604; reference/H/correspondence admission and all E3 controls remain required. No molecular calculation occurs. |
 | E4 next receiving route | [Saved-analysis admission recipe](validation/e4_saved_analysis_admission_2026-11-07.md) reviews the provider projection/scene boundary before a new API. The separate same-carrier receiving below now passes; the original heavy selection and live visual review remain deferred. |
 | E4 saved-carrier receiving | [Normal/pm-fs and independent reader](validation/e4_saved_carrier_receiving_2026-11-07.md) pass for the same complete saved carriers: real Python Viewers, explicit pose association, filtering/attachment/persistence and eleven refusals per profile. Initial receiver failure is preserved. The separate consumer API below now has source controls; whole E4, other scene projections and canvas/public delivery remain open. |
-| Selected-pose interaction API | [`bind_interactions`/`PoseInteractions`](validation/pose_interaction_binding.md) preserve a complete result and detached carrier/analysis access, validate explicit mapped coordinates/identities and retain evaluated/unevaluated distinctions. 190 source cases pass using protocol doubles and existing regressions. Next qualify the actual new candidate API normal/pm-fs on the original carriers, then its addon/scene association. |
+| Selected-pose interaction API | [`bind_interactions`/`PoseInteractions`](validation/pose_interaction_binding.md) preserve a complete result and detached carrier/analysis access. 190 source cases and [actual installed normal/pm-fs receiving](validation/e4_pose_binding_installed_2026-11-07.md) now pass, with fourteen refusals/profile, two complete carrier roundtrips and independent original-record verification. Next receive native unevaluated-family coverage, then the addon/scene association. |
 | Public delivery | [Release ladder](RELEASE_MILESTONES.md), [public readiness](validation/public_candidate_readiness.md), [Conda controls](../devtools/conda-build/README.md). Distribution is Conda `uibcdf`. |
 | Rationale/history | [Decisions](DECISIONS.md), [roadmap history](ROADMAP.md), [archive](archive/README.md), [original seed](FROZEN_SEED.md). |
 
