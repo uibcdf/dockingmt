@@ -1,0 +1,6 @@
+{"phase": "started", "cell_id": "e2-source-1"}
+{"phase": "completed", "cell_id": "e2-source-1", "counts": {"sdf_native": 0, "native_to_rdkit": 0, "rdkit_to_native": 0, "readiness": 0, "explicit_cip": 0, "self_witness": 0}}
+{"phase": "started", "cell_id": "e2-source-2"}
+{"phase": "completed", "cell_id": "e2-source-2", "counts": {"sdf_native": 0, "native_to_rdkit": 0, "rdkit_to_native": 0, "readiness": 0, "explicit_cip": 0, "self_witness": 0}}
+{"phase": "started", "cell_id": "e2-source-3"}
+{"phase": "completed", "cell_id": "e2-source-3", "counts": {"sdf_native": 2, "native_to_rdkit": 2, "rdkit_to_native": 2, "readiness": 4, "explicit_cip": 2, "self_witness": 2}}

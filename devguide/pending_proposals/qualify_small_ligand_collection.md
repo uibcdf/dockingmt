@@ -1,10 +1,10 @@
 ---
 summary: Qualify a bounded multi-ligand study with isolated outcomes and explicit comparison policy.
 issue: uibcdf/dockingmt#81
-status: active
+status: partial
 opened: 2026-11-06
 closed:
-verification: inspected
+verification: measured
 area: [screening, provenance, scientific-validation]
 guard:
 normative: devguide/MVP.md
@@ -113,3 +113,33 @@ separate. Preserve fixed private 0.1.0 and all original producers.
 - Required software/scientific evidence matches the claimed workflow. Planning,
   one helper or a substituted backend alone does not accept E2 or screening
   effectiveness. Any uncovered molecular need has an owning MolSysMT issue.
+
+
+## Current two-source admission — 2026-11-07
+
+The [candidate declaration](../validation/e2_ligand_collection_admission_2026-11-07.md)
+selects existing licensed 5X72 P59/P69 inputs, a common protein-only receptor and
+joint two-site domain, for functional collection receiving. P59/P69 are distinct
+stereochemical entities, one complex and no activity labels. Historical fixed-
+companion receptors and reference geometries remain separate populations.
+
+The [registered source-only receiving](../validation/e2_source_admission_2026-11-07.md)
+now passes for both exact SDFs through explicit public native/RDKit/native
+interpretation: R/S, 39 atoms, 42 bonds, 15 indexed H, preserved axes/coordinates,
+source nonmutation, four readiness reports and two complete new-authority self-
+witnesses. Missing H/aromatic declarations become explicit; integer bond-order
+coverage becomes partial under the recorded aromatic representation. Preserve
+that transformation, non-exhaustive conversion reports, raw SD properties and
+all unassessed science. A fresh standard-library reader receives the sealed
+records without molecular work. No new H, charges, types, preparation, energies,
+searches, H5/MM restoration or Vina import occurs.
+
+This is partial source admission, not E2 execution or chemical/biological
+validation. The next increment must register exact source reproduction and named
+charge/type/preparation receiving before any native collection call. It then
+needs the three-item success/refusal/success composition, actual native protocol/
+resource prescription, explicit study comparison and independent saved receiving.
+Keep the proposed total-score display separate from E1 same-state comparison,
+preserve all five native energy columns and the four public scores, and retain
+failure/empty/unknown denominators. No API expansion is justified by this source
+receiving alone.

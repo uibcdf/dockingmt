@@ -64,6 +64,7 @@ shared boundary contracts. See the [suite contract](MOLSYSSUITE_CONTRACT.md) and
 | Existing recovery/ranking observations | [Scientific overview](validation/scientific_evidence_overview_2026-11-04.md); its sources/populations remain frozen. |
 | Installed walkthroughs | [Inspection](validation/installed_result_inspection.md), [preparation](validation/installed_3ptb_preparation.md), [execution](validation/installed_3ptb_execution.md), [evaluation](validation/installed_3ptb_evaluation.md). Check which steps execute science. |
 | Extended work | [E1 bounded acceptance](archive/qualify_same_state_rescoring.md), [E2](pending_proposals/qualify_small_ligand_collection.md), [E3](pending_proposals/qualify_pose_comparison_and_clustering.md), [E4](pending_proposals/receive_docking_interaction_analysis.md). |
+| E2 source receiving | [P59/P69 current source interpretations](validation/e2_source_admission_2026-11-07.md): source/axis/geometry/readiness/CIP evidence and independent saved reading pass; preparation/native collection remain pending. |
 | Measured interaction workflow | [E4 receiving](validation/installed_3ptb_interactions.md): one case, normal/pm-fs and fresh readers; whole E4 remains partial. |
 | Public delivery | [Release ladder](RELEASE_MILESTONES.md), [public readiness](validation/public_candidate_readiness.md), [Conda controls](../devtools/conda-build/README.md). Distribution is Conda `uibcdf`. |
 | Rationale/history | [Decisions](DECISIONS.md), [roadmap history](ROADMAP.md), [archive](archive/README.md), [original seed](FROZEN_SEED.md). |

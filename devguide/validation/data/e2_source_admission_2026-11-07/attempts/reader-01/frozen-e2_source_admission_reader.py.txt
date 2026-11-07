@@ -1,0 +1,225 @@
+"""Independent standard-library receiving of E2 source-admission records."""
+
+OWNER='uibcdf/dockingmt#81'
+
+import base64
+
+import gzip
+
+import hashlib
+
+import json
+
+import math
+
+import os
+
+import sys
+
+from pathlib import Path, PurePosixPath
+
+def require(condition, reason):
+    if not condition:
+        raise ValueError(reason)
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+def canonical(value):
+    return json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False)
+
+def same(left, right, reason):
+    require(canonical(left) == canonical(right), reason)
+
+def no_constant(value):
+    raise ValueError('Nonfinite JSON constant: ' + value)
+
+def unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        require(key not in result, 'Duplicate JSON object key: ' + key)
+        result[key] = value
+    return result
+
+def finite(value):
+    if isinstance(value, float):
+        require(math.isfinite(value), 'Nonfinite JSON number')
+    elif isinstance(value, list):
+        for item in value:
+            finite(item)
+    elif isinstance(value, dict):
+        for item in value.values():
+            finite(item)
+
+def parse(data):
+    record = json.loads(
+        data, parse_constant=no_constant, object_pairs_hook=unique_object
+    )
+    finite(record)
+    same(record, json.loads(canonical(record)), 'Finite JSON roundtrip differs')
+    return record
+
+def relative_name(value):
+    require(isinstance(value, str), 'Manifest member name must be a string')
+    name = PurePosixPath(value)
+    require(
+        bool(name.parts)
+        and not name.is_absolute()
+        and '..' not in name.parts
+        and str(name) == value,
+        'Unsafe/noncanonical manifest member: ' + value,
+    )
+    return value
+
+class SealedRecords:
+    def __init__(self, directory, expected):
+        self.directory = directory.resolve()
+        self.manifest_path = self.directory / 'manifest.json'
+        raw = self.manifest_path.read_bytes()
+        require(sha(raw) == expected, 'External manifest identity differs')
+        self.expected = expected
+        self.manifest = parse(raw)
+        require(self.manifest['owner'] == OWNER, 'Unexpected manifest owner')
+        self.members = {}
+        self.originals = {self.manifest_path: expected}
+        physical = set()
+        for entry in self.manifest['files']:
+            name = relative_name(entry['path'])
+            logical = relative_name(entry.get('original_path', name))
+            path = (self.directory / name).resolve()
+            require(
+                path.is_relative_to(self.directory), 'Manifest symlink escapes its root'
+            )
+            require(
+                path not in physical and logical not in self.members,
+                'Duplicate manifest member or logical name',
+            )
+            physical.add(path)
+            raw = path.read_bytes()
+            require(
+                len(raw) == entry['bytes'] and sha(raw) == entry['sha256'],
+                'Stored manifest bytes differ: ' + name,
+            )
+            self.originals[path] = entry['sha256']
+            if name.endswith('.gz'):
+                decoded = gzip.decompress(raw)
+                require(
+                    len(decoded) == entry['decoded_bytes']
+                    and sha(decoded) == entry['decoded_sha256'],
+                    'Decoded transport identity differs: ' + name,
+                )
+            else:
+                decoded = raw
+            self.members[logical] = (entry, decoded)
+            if logical.endswith(('.json', '.ipynb')):
+                parse(decoded)
+            elif logical.endswith('.jsonl'):
+                for line in decoded.splitlines():
+                    if line.strip():
+                        parse(line)
+
+    def raw(self, name):
+        require(name in self.members, 'Missing sealed member: ' + name)
+        return self.members[name][1]
+
+    def read(self, name):
+        return parse(self.raw(name))
+
+    def copy(self, name, destination):
+        with destination.open('xb') as stream:
+            stream.write(self.raw(name))
+
+    def unchanged(self):
+        for path, expected in self.originals.items():
+            require(
+                sha(path.read_bytes()) == expected, 'Input changed during receiving'
+            )
+
+
+source = Path(os.environ['DOCKINGMT_E2_SOURCE']).resolve()
+output = Path(os.environ['DOCKINGMT_E2_OUTPUT']).resolve()
+expected = os.environ['DOCKINGMT_E2_SOURCE_SHA256']
+assert sys.flags.isolated and sys.flags.no_site
+assert not output.is_relative_to(source) and not source.is_relative_to(output)
+output.mkdir(parents=True, exist_ok=False)
+
+
+def save(name, value):
+    with (output / name).open('x') as stream:
+        json.dump(value, stream, indent=2, allow_nan=False)
+        stream.write('\n')
+
+
+try:
+    received = SealedRecords(source, expected)
+    r = received.read('receipt.json')
+    c = received.read('candidate_manifest.json')
+    assert sha(received.raw('candidate_manifest.json')) == r['candidate_manifest_sha256'] == '898b26fa60561bb99f823d2dd0c27216cc5771ac7dceacdb103760fed2e22284'
+    assert r['outcome'] == 'PASS' and r['admitted'] == r['attempted'] == r['candidate_denominator'] == 2
+    counts = dict(sdf_native=2, native_to_rdkit=2, rdkit_to_native=2, readiness=4, explicit_cip=2, self_witness=2)
+    same(r['direct_operation_counts'], counts, 'Direct counts differ')
+    same(r['direct_operation_budgets'], counts, 'Budgets differ')
+    assert r['caller_policy_restored'] and not r['forbidden_attempts']
+    assert r['installed_integrity_checks'] == dict(before=True, after=True)
+    for key in ('new_preparations', 'new_charge_assignments', 'new_type_assignments', 'new_hydrogens', 'new_energies', 'new_searches', 'h5_persistence_calls', 'retries'):
+        same(r[key], 0, 'Unexpected operation: ' + key)
+    for key in ('vina_imported', 'inspection_json_is_restoration_input', 'initial_native_to_authority_full_graph_equivalence_claimed', 'whole_e2_received', 'retry_permitted'):
+        same(r[key], False, 'Unexpected scope: ' + key)
+    ledger = received.read('ledger.json')
+    assert [row['ligand_id'] for row in ledger] == ['p59', 'p69'] and all(row['status'] == 'admitted' for row in ledger)
+    same(ledger, r['ledger'], 'Ledgers differ')
+    admitted = received.read('admitted_sources.json')
+    assert admitted['distinct_declared_stereochemical_entities'] == 2 and admitted['experimental_complexes'] == 1
+    assert len(admitted['candidates']) == 2 and admitted['whole_e2_received'] is False
+    for row in c['files']:
+        raw = received.raw('inputs/' + Path(row['path']).name)
+        assert len(raw) == row['bytes'] and sha(raw) == row['sha256']
+    transitions = {}
+    for candidate, aggregate in zip(c['candidates'], admitted['candidates']):
+        name = candidate['ligand_id']
+        a = received.read(name + '/admission.json')
+        same(a, aggregate, 'Admissions differ')
+        assert a['current_authority_admission'] == 'ADMITTED'
+        assert a['source_sha256'] == candidate['sha256'] and a['candidate_state_id'] == candidate['state_id']
+        assert a['actual_cip'] == candidate['expected_cip']
+        assert a['full_graph_equivalence_to_initial_native_claimed'] is False
+        n = received.read(name + '/source_native_inspection.json')
+        for suffix in ('authority_native_inspection.json', 'rdkit_intermediate_inspection.json'):
+            view = received.read(name + '/' + suffix)
+            assert view['n_atoms'] == n['n_atoms'] == 39 and view['n_bonds'] == n['n_bonds'] == 42
+            assert view['coordinate_unit'] == n['coordinate_unit'] == 'angstrom'
+            assert len(view['coordinates_angstrom']) == len(n['coordinates_angstrom']) == 1
+            assert len(view['coordinates_angstrom'][0]) == len(n['coordinates_angstrom'][0]) == 39
+            for left, right in zip(n['coordinates_angstrom'][0], view['coordinates_angstrom'][0]):
+                assert len(left) == len(right) == 3 and all(abs(x-y) <= 1e-12 for x, y in zip(left, right))
+        authority = received.read(name + '/authority_native_inspection.json')
+        same(n['ids'], authority['ids'], 'IDs changed')
+        same(n['elements'], authority['elements'], 'Elements changed')
+        assert n['elements'].count('H') == 15
+        cip = received.read(name + '/authority_cip.json')
+        assert cip['method'] == 'hanson_2018' and cip['engine'] == 'rdkit' and cip['evidence'] == 'declared_stereochemistry'
+        assert cip['atom_stereochemistry'][candidate['source_stereo_atom_index']] == candidate['expected_cip']
+        graph = received.read(name + '/authority_self_witness.json')
+        assert graph['search_complete'] is True and graph['search_scope'] == 'supplied_atom_correspondences'
+        assert graph['evidence']['kind'] == 'declared_complete_covalent_graph'
+        assert graph['source_graph_digest'] == graph['reference_graph_digest'] == a['authority_graph_digest']
+        same(graph['atom_correspondences'], [[[i, i] for i in range(39)]], 'Self-witness differs')
+        before = received.read(name + '/source_readiness.json')
+        after = received.read(name + '/authority_readiness.json')
+        for field, change in a['coverage'].items():
+            same(change, dict(before=before['fields'][field]['status'], after=after['fields'][field]['status']), 'Coverage differs')
+        same(a['unassessed_checks'], after['unassessed_checks'], 'Unassessed fields differ')
+        transitions[name] = {key: value for key, value in a['coverage'].items() if value['before'] != value['after']}
+        save(name + '_admission.json', a)
+    worker = received.read('worker-receipt.json')
+    assert worker['outcome'] == 'PASS' and worker['private_payload_unchanged'] and worker['routine_metadata_unchanged'] and worker['vina_not_imported']
+    same(received.read('routine-metadata-before.json'), received.read('routine-metadata-after.json'), 'Routine metadata changed')
+    resource = received.read('resource-outcome.json')
+    assert resource['outcome'] == 'PASS' and resource['resource_interruption'] is None
+    received.unchanged()
+    assert not any(name.split('.')[0] in {'dockingmt', 'molsysmt', 'vina', 'rdkit', 'numpy', 'pyunitwizard'} for name in sys.modules)
+    save('receipt.json', dict(schema='dockingmt.e2_source_admission_reader@1', owner=OWNER, outcome='PASS', source_manifest_sha256=expected, verified_members=len(received.manifest['files']), admitted_sources=2, actual_cip=['R', 'S'], coverage_transitions=transitions, original_hashes_units_and_coordinates_preserved=True, new_molecular_operations=0, new_energies=0, new_searches=0, whole_e2_received=False, scope='Record-only receiving; no fresh chemical validation or producer authentication'))
+    print((output / 'receipt.json').read_text())
+except BaseException as error:
+    save('failure.json', dict(outcome='FAIL', error_type=type(error).__name__, reason=str(error)))
+    raise

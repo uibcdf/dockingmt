@@ -21,6 +21,7 @@ making a bounded contribution.
 | [releases/0.1.0.md](releases/0.1.0.md) | What is the fixed private source candidate, its received evidence and its still-unpublished disposition? |
 | [archive/qualify_same_state_rescoring.md](archive/qualify_same_state_rescoring.md) | Which bounded E1/#78 profile is accepted, with which original evidence, failures and remaining broader limits? |
 | [pending_proposals/qualify_small_ligand_collection.md](pending_proposals/qualify_small_ligand_collection.md) | What must be admitted for E2/#81's distinct-ligand collection and study-level comparison? |
+| [validation/e2_source_admission_2026-11-07.md](validation/e2_source_admission_2026-11-07.md) | Which two current ligand sources/interpretations are received, what changed during conversion, and what is the next preparation/native gate? |
 | [pending_proposals/qualify_pose_comparison_and_clustering.md](pending_proposals/qualify_pose_comparison_and_clustering.md) | What does E3/#79 need from provider-owned comparison/clustering? |
 | [pending_proposals/receive_docking_interaction_analysis.md](pending_proposals/receive_docking_interaction_analysis.md) | Which E4/#80 interaction receiving passes, and what remains for structured consumer/addon admission? |
 | [reporting_protocol.md](reporting_protocol.md) | How are owning issues, active reports, indexes and archived resolutions maintained? |

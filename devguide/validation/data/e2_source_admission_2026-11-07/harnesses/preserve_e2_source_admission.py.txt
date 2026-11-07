@@ -1,0 +1,57 @@
+"""Curate exact bounded continuity records; never relabel the failed search qualification."""
+import gzip
+import hashlib
+import json
+from pathlib import Path
+
+root = Path('/fast_data/home/liliana/repos@uibcdf/dockingmt')
+task = root / '.molsyssuite/e2-source-admission-20261107'
+out = root / 'devguide/validation/data/e2_source_admission_2026-11-07'
+for label in ('source-01', 'reader-01'):
+    assert json.loads((task / label / 'resource-outcome.json').read_text())['outcome'] == 'PASS'
+    assert json.loads((task / label / 'output/receipt.json').read_text())['outcome'] == 'PASS'
+out.mkdir(exist_ok=False)
+files = []
+
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def keep(source, relative):
+    raw = source.read_bytes()
+    name = relative + ('.txt' if source.suffix in ('.py', '.ipynb') else '')
+    compress = source.suffix in ('.json', '.ipynb', '.h5msm', '.log') or len(raw) > 50000
+    if compress:
+        name += '.gz'
+    stored = gzip.compress(raw, mtime=0) if compress else raw
+    destination = out / name
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with destination.open('xb') as stream:
+        stream.write(stored)
+    files.append(dict(path=name, original_path=relative, bytes=len(stored), sha256=sha(stored),
+                      decoded_bytes=len(raw), decoded_sha256=sha(raw)))
+
+
+for label in ('source-01', 'reader-01'):
+    for path in sorted((task / label).rglob('*')):
+        if path.is_file() and 'cache' not in path.relative_to(task / label).parts:
+            keep(path, 'attempts/' + str(path.relative_to(task)))
+for name in ('e2_source_admission_guard.py', 'e2_source_admission_worker.py', 'e2_source_admission_reader.py', 'seal_e2_source_admission.py', 'preserve_e2_source_admission.py'):
+    keep(Path('/tmp') / name, 'harnesses/' + name)
+manifest = dict(schema='dockingmt.e2_source_admission_archive@1', owner='uibcdf/dockingmt#81',
+                consumer_source_commit='a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe',
+                qualification_source_commit='250db027c3cd3950d6864477aaccedcd20afa0ee',
+                wheel_sha256='93d76f898575fb64b39520f33ceded25708270c8042c2a53c9a451acd834bcdd',
+                candidate_manifest_sha256='898b26fa60561bb99f823d2dd0c27216cc5771ac7dceacdb103760fed2e22284',
+                notebook_sha256=sha((root/'devguide/validation/e2_ligand_source_receiving.ipynb').read_bytes()),
+                molecular_receiving_outcome='PASS', persistence_outcome='PASS',
+                actual_source_population=2, new_hydrogen_calls=0, new_charge_assignments=0,
+                new_type_assignments=0, new_preparations=0, new_energies=0, new_searches=0,
+                files=files, scope='Current declared source interpretations, original input custody and independent saved receiving. Initial partial chemistry remains partial; no retrospective full equivalence, preparation/native execution, screening, public artifact or whole E2 claim.')
+with (out / 'manifest.json').open('x') as stream:
+    json.dump(manifest, stream, indent=2, allow_nan=False)
+    stream.write('\n')
+print(json.dumps(dict(files=len(files), stored_bytes=sum(x['bytes'] for x in files),
+                     decoded_bytes=sum(x['decoded_bytes'] for x in files),
+                     manifest_sha256=sha((out / 'manifest.json').read_bytes()))))

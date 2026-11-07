@@ -41,7 +41,7 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | C5 results/provenance | Saved scores/rankings/evaluations, actual input identities/maps, traceable preparation/protocol and explicit recoverable/missing information. | #75–#77 deliver bounded reading/audits. General source restoration and partial/reference coverage remain #4/#49 and MolSysMT #521. |
 | C6 visualization | Real addon controls, communication and canvas display correctly paired receptor/domain/poses/reference, with actual interaction evidence. | Python/DOM/export/private evidence exists; live acceptance is still unproven. Respect the maintainer's scheduling decision. |
 | E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ordered and audited reproducibly. | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07) for the full-source rigid prepared13 profile: both actual original poses complete public reconstruction/preparation/additive Vina/Vinardo 1.2.7 scoring and separate method-local interaction comparison. Eight old values/ranks/history survive with 32 new values; native receiving and independent persistence pass. The original generator qualification remains failed with unreached original live checks. Broader E1, total/reference comparisons, independent science and public delivery retain their owners. |
-| E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | #81 scopes actual distinct-ligand admission and study comparison, reusing serial `dock_many` and outcomes. Preserve strict within-result ranking and provider-owned chemistry; collection execution/qualification remains unproven. |
+| E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | [#81 source admission](validation/e2_source_admission_2026-11-07.md) passes for two distinct 5X72 interpreted stereochemical entities with actual source/geometry/provider evidence and independent saved receiving. The common receptor/joint domain and proposed study policy are declared. Named preparation, actual native collection/control, study comparison and full E2 remain pending. |
 | E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | #79 scopes the concrete positional workflow. MolSysMT #604 requests supported bounded pairwise/clustering tools or an existing composition; no local molecular algorithm. |
 | E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 receives one bounded installed 3PTB workflow at `5952053`: normal/pm-fs, twelve detector calls, typed/H5MSM persistence, original-pose association and two fresh readers pass. Preserve prior failures and the local hold. Structured consumer/addon admission and whole E4 remain unproven; molecular operations stay in MolSysMT (#610 documents explicit XYZ atom extraction). |
 | E5 independent reproduction | A separate receiving installation reconstructs a representative stored workflow from documented inputs, with observed agreement/tolerances, failures and missing information. | Captures/replay/recovery supply pieces; a whole independent workflow audit remains unproven. |
@@ -59,12 +59,15 @@ implemented API or record-only test is not acceptance of a scientific workflow.
    and its original reference/provider/native/persistence records. No repeat
    search or relaxed ranking is needed for its acceptance. The old generator
    remains failed; the complete fresh receiving passes its own controls.
-3. Advance [E2 distinct-ligand admission](pending_proposals/qualify_small_ligand_collection.md)
-   with actual licensed sources and explicit states/preparation, fixed receptor/
-   domain and a study-level comparison policy. Retain all submitted/failed/empty/
-   completed identities and denominators. Same-state `compare_scores` is not
-   cross-ligand prioritization. Register the finite scientific population and
-   resources before new native work; reuse `dock_many` and provider tools.
+3. Advance [E2 named preparation](pending_proposals/qualify_small_ligand_collection.md)
+   from the [two received source interpretations](validation/e2_source_admission_2026-11-07.md).
+   Reproduce their exact source recipe and compare the admitted fields before
+   fresh named charges/types and rigid preparation. Preserve both raw and
+   interpreted roles, maps/H accounting, actual bytes and uncertainty. Then
+   register the finite native collection/control and study-comparison policy,
+   retaining all submitted/failed/empty/completed identities and denominators.
+   Same-state `compare_scores` is not cross-ligand prioritization. Reuse serial
+   `dock_many`; do not expand the runtime before a demonstrated need.
 4. Keep complete-source public MolSysMT compositions as the received route.
    [MolSysMT #599](https://github.com/uibcdf/molsysmt/issues/599),
    [#447](https://github.com/uibcdf/molsysmt/issues/447) and #521 retain broader

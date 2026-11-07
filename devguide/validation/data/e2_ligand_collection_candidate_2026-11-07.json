@@ -1,0 +1,184 @@
+{
+  "schema": "dockingmt.e2_ligand_source_candidates@1",
+  "owner": "uibcdf/dockingmt#81",
+  "status": "candidate; current molecular admission not yet received",
+  "inventory_source_commit": "250db027c3cd3950d6864477aaccedcd20afa0ee",
+  "study_id": "e2-5x72-collection-20261107",
+  "purpose": "Functional distinct-ligand collection and explicit outcome/study policy; no affinity, stereoselectivity, enrichment or screening-effectiveness claim",
+  "source_license": {
+    "repository": "ccsb-scripps/AutoDock-Vina",
+    "commit": "3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645",
+    "path": "example/mulitple_ligands_docking/solution",
+    "spdx": "Apache-2.0",
+    "inventory": "tests/data/vina_torsions/README.md"
+  },
+  "files": [
+    {
+      "role": "Candidate P59 input",
+      "path": "tests/data/vina_torsions/5x72_ligand_p59H.sdf",
+      "sha256": "ef26c05a198a16972efcf8baae644f6b38fd953561f130ee230626088766b08a",
+      "bytes": 4207
+    },
+    {
+      "role": "Candidate P69 input",
+      "path": "tests/data/vina_torsions/5x72_ligand_p69H.sdf",
+      "sha256": "637a992134b2038a0ea3cff0c1f8355ea232720c9eae5347100b7186170fcdf1",
+      "bytes": 4207
+    },
+    {
+      "role": "Common external receptor",
+      "path": "tests/data/vina_torsions/5x72_receptor.pdbqt",
+      "sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+      "bytes": 118480
+    },
+    {
+      "role": "Common domain authority",
+      "path": "tests/data/vina_torsions/5x72_receptor.box.txt",
+      "sha256": "e1e87f640b1976109f7358e871e8e63b6f965ad7e76a54b9e848c10518ac3354",
+      "bytes": 103
+    },
+    {
+      "role": "Experimental context",
+      "path": "tests/data/vina_torsions/5x72.pdb",
+      "sha256": "3694cbd211e444f0a56150be2fe8ca7f7ed584a7ca448c40d45699ac80490e77",
+      "bytes": 248832
+    },
+    {
+      "role": "P59 heavy-coordinate context",
+      "path": "tests/data/vina_torsions/5x72_ligand_p59.sdf",
+      "sha256": "a476b0d62652664596801fc88024fbd756294e9e2faf9234c8d90c2288aaa373",
+      "bytes": 2990
+    },
+    {
+      "role": "P69 heavy-coordinate context",
+      "path": "tests/data/vina_torsions/5x72_ligand_p69.sdf",
+      "sha256": "e8c2df94d37439aa558f47eee8f20504d01d11b2d974bbb3cf3d9675a88b1ea1",
+      "bytes": 2990
+    }
+  ],
+  "candidates": [
+    {
+      "ligand_id": "p59",
+      "state_id": "e2-5x72-p59",
+      "path": "tests/data/vina_torsions/5x72_ligand_p59H.sdf",
+      "sha256": "ef26c05a198a16972efcf8baae644f6b38fd953561f130ee230626088766b08a",
+      "expected_cip": "R",
+      "source_stereo_atom_index": 7,
+      "historical_expectation": {
+        "n_atoms": 39,
+        "n_bonds": 42,
+        "explicit_hydrogen_atoms": 15
+      },
+      "current_chemical_admission": "pending"
+    },
+    {
+      "ligand_id": "p69",
+      "state_id": "e2-5x72-p69",
+      "path": "tests/data/vina_torsions/5x72_ligand_p69H.sdf",
+      "sha256": "637a992134b2038a0ea3cff0c1f8355ea232720c9eae5347100b7186170fcdf1",
+      "expected_cip": "S",
+      "source_stereo_atom_index": 7,
+      "historical_expectation": {
+        "n_atoms": 39,
+        "n_bonds": 42,
+        "explicit_hydrogen_atoms": 15
+      },
+      "current_chemical_admission": "pending"
+    }
+  ],
+  "receptor": {
+    "source": {
+      "role": "Common external receptor",
+      "path": "tests/data/vina_torsions/5x72_receptor.pdbqt",
+      "sha256": "25d4e9b5f3932bc2953152dffc2d9dadf13726ae029e5e88712a0dc9525361e6",
+      "bytes": 118480
+    },
+    "state_id": "e2-5x72-protein-only-provided",
+    "preparation_assessment": "external/unassessed"
+  },
+  "domain": {
+    "source": {
+      "role": "Common domain authority",
+      "path": "tests/data/vina_torsions/5x72_receptor.box.txt",
+      "sha256": "e1e87f640b1976109f7358e871e8e63b6f965ad7e76a54b9e848c10518ac3354",
+      "bytes": 103
+    },
+    "center": {
+      "value": [
+        -15.0,
+        15.0,
+        129.0
+      ],
+      "unit": "angstrom"
+    },
+    "size": {
+      "value": [
+        30.0,
+        24.0,
+        24.0
+      ],
+      "unit": "angstrom"
+    },
+    "scope": "Joint domain covers both experimental sites; not a common-site binding claim"
+  },
+  "source_interpretation": {
+    "route": "public native SDF -> rdkit.Mol -> native MolSys",
+    "stereo_engine": "rdkit",
+    "discard_properties": true,
+    "raw_source_properties": "preserved in exact original bytes",
+    "additional_coordinate_based_stereo_inference": false,
+    "hydrogens": "retain indexed source atoms; no generation",
+    "original_to_interpreted": "retain coverage/transformation/axes/coordinates; no retrospective full graph equivalence claim",
+    "mechanics": "no restoration from inspection JSON"
+  },
+  "proposed_preparation": {
+    "active_torsion_bonds": [],
+    "charge_method": "gasteiger_marsili",
+    "typing_scheme": "autodock4",
+    "typing_method": "chemical_environment",
+    "status": "not executed; requires separate registration"
+  },
+  "proposed_run_sequence": [
+    {
+      "position": 0,
+      "run_id": "p59-main",
+      "ligand_id": "p59",
+      "role": "scientific_candidate"
+    },
+    {
+      "position": 1,
+      "run_id": "p59-unsupported-intent-control",
+      "ligand_id": "p59",
+      "role": "expected unsupported constraints refusal; not a third ligand"
+    },
+    {
+      "position": 2,
+      "run_id": "p69-main",
+      "ligand_id": "p69",
+      "role": "scientific_candidate"
+    }
+  ],
+  "proposed_comparison": {
+    "status": "proposal; no native protocol selected",
+    "representative": "original backend-ranked first pose from each nonempty successful result",
+    "score_name": "vina",
+    "direction": "ascending",
+    "native_output": "retain all five Vina.energies columns, including intra_best_pose, and four public scores",
+    "reference": "actual native docking semantics; no common unbound reference inferred across ligands",
+    "ties": "equal recorded values; source order for presentation only",
+    "missing": "unranked; retain failure/refusal/empty/missing distinctions and denominators",
+    "same_state_api": "E1 compare_scores and strict rank_by unchanged"
+  },
+  "scientific_execution_registered": false,
+  "native_protocol": null,
+  "native_budget": null,
+  "counts": {
+    "candidate_ligands": 2,
+    "complexes": 1,
+    "planned_items": 3,
+    "currently_admitted_ligands": 0,
+    "executed_items": 0,
+    "new_energies": 0,
+    "new_searches": 0
+  }
+}

@@ -1,3 +1,6 @@
 tests/data/vina_torsions/*.sdf whitespace=-blank-at-eol
 tests/data/vina_torsions/*.pdbqt whitespace=-blank-at-eol
 tests/data/vina_torsions/*.pdb whitespace=-blank-at-eol
+
+# Frozen #81 source copies preserve upstream SD-property whitespace and digests.
+devguide/validation/data/e2_source_admission_2026-11-07/attempts/source-01/output/inputs/*.sdf whitespace=-blank-at-eol
