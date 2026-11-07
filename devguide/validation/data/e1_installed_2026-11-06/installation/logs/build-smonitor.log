@@ -1,0 +1,188 @@
+* Getting build dependencies for wheel...
+running egg_info
+creating smonitor.egg-info
+writing smonitor.egg-info/PKG-INFO
+writing dependency_links to smonitor.egg-info/dependency_links.txt
+writing entry points to smonitor.egg-info/entry_points.txt
+writing requirements to smonitor.egg-info/requires.txt
+writing top-level names to smonitor.egg-info/top_level.txt
+writing manifest file 'smonitor.egg-info/SOURCES.txt'
+reading manifest file 'smonitor.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'smonitor.egg-info/SOURCES.txt'
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build/lib/smonitor
+copying smonitor/_version.py -> build/lib/smonitor
+copying smonitor/validation.py -> build/lib/smonitor
+copying smonitor/pytest_policy.py -> build/lib/smonitor
+copying smonitor/pytest_plugin.py -> build/lib/smonitor
+copying smonitor/profiling.py -> build/lib/smonitor
+copying smonitor/docs_utils.py -> build/lib/smonitor
+copying smonitor/cli.py -> build/lib/smonitor
+copying smonitor/catalog.py -> build/lib/smonitor
+copying smonitor/bundle.py -> build/lib/smonitor
+copying smonitor/_diagnostics.py -> build/lib/smonitor
+copying smonitor/__init__.py -> build/lib/smonitor
+creating build/lib/smonitor/core
+copying smonitor/core/runtime.py -> build/lib/smonitor/core
+copying smonitor/core/manager.py -> build/lib/smonitor/core
+copying smonitor/core/identifiers.py -> build/lib/smonitor/core
+copying smonitor/core/human_summary.py -> build/lib/smonitor/core
+copying smonitor/core/fingerprint.py -> build/lib/smonitor/core
+copying smonitor/core/decorator.py -> build/lib/smonitor/core
+copying smonitor/core/context.py -> build/lib/smonitor/core
+copying smonitor/core/capture.py -> build/lib/smonitor/core
+copying smonitor/core/__init__.py -> build/lib/smonitor/core
+creating build/lib/smonitor/emitters
+copying smonitor/emitters/warnings.py -> build/lib/smonitor/emitters
+copying smonitor/emitters/logging.py -> build/lib/smonitor/emitters
+copying smonitor/emitters/exceptions.py -> build/lib/smonitor/emitters
+copying smonitor/emitters/__init__.py -> build/lib/smonitor/emitters
+creating build/lib/smonitor/handlers
+copying smonitor/handlers/memory.py -> build/lib/smonitor/handlers
+copying smonitor/handlers/json.py -> build/lib/smonitor/handlers
+copying smonitor/handlers/file.py -> build/lib/smonitor/handlers
+copying smonitor/handlers/console.py -> build/lib/smonitor/handlers
+copying smonitor/handlers/__init__.py -> build/lib/smonitor/handlers
+creating build/lib/smonitor/config
+copying smonitor/config/discovery.py -> build/lib/smonitor/config
+copying smonitor/config/__init__.py -> build/lib/smonitor/config
+creating build/lib/smonitor/policy
+copying smonitor/policy/engine.py -> build/lib/smonitor/policy
+copying smonitor/policy/__init__.py -> build/lib/smonitor/policy
+creating build/lib/smonitor/integrations
+copying smonitor/integrations/provider.py -> build/lib/smonitor/integrations
+copying smonitor/integrations/molsysmt.py -> build/lib/smonitor/integrations
+copying smonitor/integrations/diagnostic.py -> build/lib/smonitor/integrations
+copying smonitor/integrations/depdigest.py -> build/lib/smonitor/integrations
+copying smonitor/integrations/core.py -> build/lib/smonitor/integrations
+copying smonitor/integrations/argdigest.py -> build/lib/smonitor/integrations
+copying smonitor/integrations/__init__.py -> build/lib/smonitor/integrations
+creating build/lib/smonitor/templates
+copying smonitor/templates/_smonitor.py -> build/lib/smonitor/templates
+running egg_info
+writing smonitor.egg-info/PKG-INFO
+writing dependency_links to smonitor.egg-info/dependency_links.txt
+writing entry points to smonitor.egg-info/entry_points.txt
+writing requirements to smonitor.egg-info/requires.txt
+writing top-level names to smonitor.egg-info/top_level.txt
+reading manifest file 'smonitor.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'smonitor.egg-info/SOURCES.txt'
+copying smonitor/templates/README.md -> build/lib/smonitor/templates
+warning: build_py: byte-compiling is disabled, skipping.
+
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/smonitor
+creating build/bdist.linux-x86_64/wheel/smonitor/templates
+copying build/lib/smonitor/templates/README.md -> build/bdist.linux-x86_64/wheel/./smonitor/templates
+copying build/lib/smonitor/templates/_smonitor.py -> build/bdist.linux-x86_64/wheel/./smonitor/templates
+creating build/bdist.linux-x86_64/wheel/smonitor/integrations
+copying build/lib/smonitor/integrations/__init__.py -> build/bdist.linux-x86_64/wheel/./smonitor/integrations
+copying build/lib/smonitor/integrations/argdigest.py -> build/bdist.linux-x86_64/wheel/./smonitor/integrations
+copying build/lib/smonitor/integrations/core.py -> build/bdist.linux-x86_64/wheel/./smonitor/integrations
+copying build/lib/smonitor/integrations/depdigest.py -> build/bdist.linux-x86_64/wheel/./smonitor/integrations
+copying build/lib/smonitor/integrations/diagnostic.py -> build/bdist.linux-x86_64/wheel/./smonitor/integrations
+copying build/lib/smonitor/integrations/molsysmt.py -> build/bdist.linux-x86_64/wheel/./smonitor/integrations
+copying build/lib/smonitor/integrations/provider.py -> build/bdist.linux-x86_64/wheel/./smonitor/integrations
+creating build/bdist.linux-x86_64/wheel/smonitor/policy
+copying build/lib/smonitor/policy/__init__.py -> build/bdist.linux-x86_64/wheel/./smonitor/policy
+copying build/lib/smonitor/policy/engine.py -> build/bdist.linux-x86_64/wheel/./smonitor/policy
+creating build/bdist.linux-x86_64/wheel/smonitor/config
+copying build/lib/smonitor/config/__init__.py -> build/bdist.linux-x86_64/wheel/./smonitor/config
+copying build/lib/smonitor/config/discovery.py -> build/bdist.linux-x86_64/wheel/./smonitor/config
+creating build/bdist.linux-x86_64/wheel/smonitor/handlers
+copying build/lib/smonitor/handlers/__init__.py -> build/bdist.linux-x86_64/wheel/./smonitor/handlers
+copying build/lib/smonitor/handlers/console.py -> build/bdist.linux-x86_64/wheel/./smonitor/handlers
+copying build/lib/smonitor/handlers/file.py -> build/bdist.linux-x86_64/wheel/./smonitor/handlers
+copying build/lib/smonitor/handlers/json.py -> build/bdist.linux-x86_64/wheel/./smonitor/handlers
+copying build/lib/smonitor/handlers/memory.py -> build/bdist.linux-x86_64/wheel/./smonitor/handlers
+creating build/bdist.linux-x86_64/wheel/smonitor/emitters
+copying build/lib/smonitor/emitters/__init__.py -> build/bdist.linux-x86_64/wheel/./smonitor/emitters
+copying build/lib/smonitor/emitters/exceptions.py -> build/bdist.linux-x86_64/wheel/./smonitor/emitters
+copying build/lib/smonitor/emitters/logging.py -> build/bdist.linux-x86_64/wheel/./smonitor/emitters
+copying build/lib/smonitor/emitters/warnings.py -> build/bdist.linux-x86_64/wheel/./smonitor/emitters
+creating build/bdist.linux-x86_64/wheel/smonitor/core
+copying build/lib/smonitor/core/__init__.py -> build/bdist.linux-x86_64/wheel/./smonitor/core
+copying build/lib/smonitor/core/capture.py -> build/bdist.linux-x86_64/wheel/./smonitor/core
+copying build/lib/smonitor/core/context.py -> build/bdist.linux-x86_64/wheel/./smonitor/core
+copying build/lib/smonitor/core/decorator.py -> build/bdist.linux-x86_64/wheel/./smonitor/core
+copying build/lib/smonitor/core/fingerprint.py -> build/bdist.linux-x86_64/wheel/./smonitor/core
+copying build/lib/smonitor/core/human_summary.py -> build/bdist.linux-x86_64/wheel/./smonitor/core
+copying build/lib/smonitor/core/identifiers.py -> build/bdist.linux-x86_64/wheel/./smonitor/core
+copying build/lib/smonitor/core/manager.py -> build/bdist.linux-x86_64/wheel/./smonitor/core
+copying build/lib/smonitor/core/runtime.py -> build/bdist.linux-x86_64/wheel/./smonitor/core
+copying build/lib/smonitor/__init__.py -> build/bdist.linux-x86_64/wheel/./smonitor
+copying build/lib/smonitor/_diagnostics.py -> build/bdist.linux-x86_64/wheel/./smonitor
+copying build/lib/smonitor/bundle.py -> build/bdist.linux-x86_64/wheel/./smonitor
+copying build/lib/smonitor/catalog.py -> build/bdist.linux-x86_64/wheel/./smonitor
+copying build/lib/smonitor/cli.py -> build/bdist.linux-x86_64/wheel/./smonitor
+copying build/lib/smonitor/docs_utils.py -> build/bdist.linux-x86_64/wheel/./smonitor
+copying build/lib/smonitor/profiling.py -> build/bdist.linux-x86_64/wheel/./smonitor
+copying build/lib/smonitor/pytest_plugin.py -> build/bdist.linux-x86_64/wheel/./smonitor
+copying build/lib/smonitor/pytest_policy.py -> build/bdist.linux-x86_64/wheel/./smonitor
+copying build/lib/smonitor/validation.py -> build/bdist.linux-x86_64/wheel/./smonitor
+copying build/lib/smonitor/_version.py -> build/bdist.linux-x86_64/wheel/./smonitor
+warning: install_lib: byte-compiling is disabled, skipping.
+
+running install_egg_info
+Copying smonitor.egg-info to build/bdist.linux-x86_64/wheel/./smonitor-0.22.1+1.gc1b6ce2-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/smonitor-0.22.1+1.gc1b6ce2.dist-info/WHEEL
+creating '/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/wheels/smonitor/.tmp-nqcuakzr/smonitor-0.22.1+1.gc1b6ce2-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'smonitor/__init__.py'
+adding 'smonitor/_diagnostics.py'
+adding 'smonitor/_version.py'
+adding 'smonitor/bundle.py'
+adding 'smonitor/catalog.py'
+adding 'smonitor/cli.py'
+adding 'smonitor/docs_utils.py'
+adding 'smonitor/profiling.py'
+adding 'smonitor/pytest_plugin.py'
+adding 'smonitor/pytest_policy.py'
+adding 'smonitor/validation.py'
+adding 'smonitor/config/__init__.py'
+adding 'smonitor/config/discovery.py'
+adding 'smonitor/core/__init__.py'
+adding 'smonitor/core/capture.py'
+adding 'smonitor/core/context.py'
+adding 'smonitor/core/decorator.py'
+adding 'smonitor/core/fingerprint.py'
+adding 'smonitor/core/human_summary.py'
+adding 'smonitor/core/identifiers.py'
+adding 'smonitor/core/manager.py'
+adding 'smonitor/core/runtime.py'
+adding 'smonitor/emitters/__init__.py'
+adding 'smonitor/emitters/exceptions.py'
+adding 'smonitor/emitters/logging.py'
+adding 'smonitor/emitters/warnings.py'
+adding 'smonitor/handlers/__init__.py'
+adding 'smonitor/handlers/console.py'
+adding 'smonitor/handlers/file.py'
+adding 'smonitor/handlers/json.py'
+adding 'smonitor/handlers/memory.py'
+adding 'smonitor/integrations/__init__.py'
+adding 'smonitor/integrations/argdigest.py'
+adding 'smonitor/integrations/core.py'
+adding 'smonitor/integrations/depdigest.py'
+adding 'smonitor/integrations/diagnostic.py'
+adding 'smonitor/integrations/molsysmt.py'
+adding 'smonitor/integrations/provider.py'
+adding 'smonitor/policy/__init__.py'
+adding 'smonitor/policy/engine.py'
+adding 'smonitor/templates/README.md'
+adding 'smonitor/templates/_smonitor.py'
+adding 'smonitor-0.22.1+1.gc1b6ce2.dist-info/licenses/LICENSE'
+adding 'smonitor-0.22.1+1.gc1b6ce2.dist-info/METADATA'
+adding 'smonitor-0.22.1+1.gc1b6ce2.dist-info/WHEEL'
+adding 'smonitor-0.22.1+1.gc1b6ce2.dist-info/entry_points.txt'
+adding 'smonitor-0.22.1+1.gc1b6ce2.dist-info/top_level.txt'
+adding 'smonitor-0.22.1+1.gc1b6ce2.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built smonitor-0.22.1+1.gc1b6ce2-py3-none-any.whl

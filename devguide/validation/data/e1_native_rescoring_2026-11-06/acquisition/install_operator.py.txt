@@ -1,0 +1,43 @@
+from datetime import datetime,timezone
+import hashlib,json,os,resource,signal,subprocess,time
+from pathlib import Path
+root=Path('/fast_data/home/liliana/repos@uibcdf/dockingmt')
+task=root/'.molsyssuite/e1-native-rescoring-20261106'
+shared=Path('/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14')
+prefix=task/'backend-overlay';assert not prefix.exists()
+base=task/'acquisition';selected=json.loads((base/'selected_artifacts.json').read_text())
+for row in selected:assert hashlib.sha256((base/row['filename']).read_bytes()).hexdigest()==row['sha256']
+def meta():return {p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (shared/'conda-meta').glob('*.json')}
+def available():return int(next(x.split()[1] for x in Path('/proc/meminfo').read_text().splitlines() if x.startswith('MemAvailable:')))*1024
+reserve,rsslimit,aslimit=8*1024**3,1024**3,2*1024**3
+assert available()>reserve+rsslimit
+before=meta();env=os.environ.copy()
+for k in ['OMP_NUM_THREADS','OMP_THREAD_LIMIT','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS','BLIS_NUM_THREADS','RAYON_NUM_THREADS','CARGO_BUILD_JOBS','MAX_JOBS']:env[k]='1'
+env.update(CONDA_PKGS_DIRS=str(task/'package-cache'),CONDA_ENVS_PATH=str(task/'environments'),CONDA_REGISTER_ENVS='false',CONDA_NO_PLUGINS='true',PYTHONDONTWRITEBYTECODE='1')
+command=['/fast_data/home/liliana/miniconda3/bin/conda','--no-plugins','create','--prefix',str(prefix),'--offline','--copy','--no-deps','--yes','--json','--solver','classic']+[str(base/r['filename']) for r in selected]
+registration=dict(owner='uibcdf/dockingmt#78',scope='Task-local Vina/Boost artifact overlay borrowing routine Python/runtime dependencies; not a complete standalone Conda environment.',at_utc=datetime.now(timezone.utc).isoformat(),command=command,artifacts=selected,operator_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),shared_conda_meta_before=before,resource_policy=dict(cpu=0,nice=10,workers=1,reserve_bytes=reserve,rss_bytes=rsslimit,address_space_bytes=aslimit,wall_seconds=90,cpu_seconds=60,available_before=available(),automatic_retry=False))
+(base/'install-registration.json').write_text(json.dumps(registration,indent=2)+'\n')
+def limits():resource.setrlimit(resource.RLIMIT_AS,(aslimit,aslimit));resource.setrlimit(resource.RLIMIT_CPU,(60,60))
+start=time.monotonic();peak=0;minimum=available();interruption=None
+with (base/'install-stdout.json').open('xb') as out,(base/'install-stderr.log').open('xb') as err:
+ p=subprocess.Popen(command,stdout=out,stderr=err,env=env,cwd=root,preexec_fn=limits,start_new_session=True)
+ while p.poll() is None:
+  free=available();minimum=min(free,minimum)
+  try:rss=int(next(x.split()[1] for x in Path(f'/proc/{p.pid}/status').read_text().splitlines() if x.startswith('VmRSS:')))*1024
+  except (FileNotFoundError,StopIteration):rss=0
+  peak=max(rss,peak)
+  if free<reserve:interruption='available_RAM_reserve'
+  elif rss>rsslimit:interruption='RSS_limit'
+  elif time.monotonic()-start>90:interruption='wall_limit'
+  if interruption:
+   os.killpg(p.pid,signal.SIGTERM)
+   try:p.wait(timeout=2)
+   except subprocess.TimeoutExpired:os.killpg(p.pid,signal.SIGKILL);p.wait()
+   break
+  time.sleep(.1)
+code=p.wait();after=meta();assert after==before
+outcome=dict(exit_code=code,resource_interruption=interruption,elapsed_seconds=time.monotonic()-start,peak_rss_bytes=peak,minimum_available_bytes=minimum,shared_conda_metadata_unchanged=True,shared_vina_still_absent=not any((shared/'lib/python3.14/site-packages').glob('vina*')))
+(base/'install-outcome.json').write_text(json.dumps(outcome,indent=2)+'\n')
+print(json.dumps(outcome));print((base/'install-stderr.log').read_text()[-2000:])
+if code:print((base/'install-stdout.json').read_text()[-2000:])
+raise SystemExit(code if code else (1 if interruption else 0))

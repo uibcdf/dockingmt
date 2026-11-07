@@ -1,0 +1,8 @@
+{"phase": "started", "cell_id": "e1-composition-reader-1", "at_utc": "2026-11-07T00:30:14.570293+00:00"}
+{"phase": "completed", "cell_id": "e1-composition-reader-1", "counts": null, "at_utc": "2026-11-07T00:30:14.634684+00:00"}
+{"phase": "started", "cell_id": "e1-composition-reader-2", "at_utc": "2026-11-07T00:30:14.634881+00:00"}
+{"phase": "completed", "cell_id": "e1-composition-reader-2", "counts": {"reader_policies": 0, "from_dict": 0, "audit_result": 0, "audit_pose": 0, "result_roundtrips": 0, "detachment_controls": 0}, "at_utc": "2026-11-07T00:30:16.741708+00:00"}
+{"phase": "started", "cell_id": "e1-composition-reader-3", "at_utc": "2026-11-07T00:30:16.741861+00:00"}
+{"phase": "completed", "cell_id": "e1-composition-reader-3", "counts": {"reader_policies": 2, "from_dict": 8, "audit_result": 4, "audit_pose": 4, "result_roundtrips": 4, "detachment_controls": 4}, "at_utc": "2026-11-07T00:30:17.226560+00:00"}
+{"phase": "started", "cell_id": "e1-composition-reader-4", "at_utc": "2026-11-07T00:30:17.226683+00:00"}
+{"phase": "completed", "cell_id": "e1-composition-reader-4", "counts": {"reader_policies": 2, "from_dict": 8, "audit_result": 4, "audit_pose": 4, "result_roundtrips": 4, "detachment_controls": 4}, "at_utc": "2026-11-07T00:30:18.704782+00:00"}

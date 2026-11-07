@@ -1,0 +1,6 @@
+{"phase": "prepare_started", "at_utc": "2026-11-07T00:09:41.959070+00:00", "attempt": 1}
+{"phase": "prepare_returned", "at_utc": "2026-11-07T00:09:42.426851+00:00", "attempt": 1}
+{"phase": "prepare_started", "at_utc": "2026-11-07T00:09:42.491578+00:00", "attempt": 2}
+{"phase": "prepare_returned", "at_utc": "2026-11-07T00:09:42.743064+00:00", "attempt": 2}
+{"phase": "dock_started", "at_utc": "2026-11-07T00:09:43.146253+00:00", "attempt": 1}
+{"phase": "dock_returned", "at_utc": "2026-11-07T00:09:44.833461+00:00", "poses": 1}

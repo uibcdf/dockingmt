@@ -1,0 +1,2044 @@
+{
+  "schema": "dockingmt.e1_complete_pose_evidence@1",
+  "owner": "uibcdf/dockingmt#78",
+  "notebook_sha256": "b1ef3b1549f0e860356ba2bba6ebde701eed313916c9e6c87ee7d0f6ab99e665",
+  "files": [
+    {
+      "path": "attempts/attempt-01/failure.json",
+      "bytes": 485,
+      "sha256": "070eb26aac519b55734d2abc843f77a9fd6abda1d7f88d759f133a8372c2da14"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/association.json",
+      "bytes": 1567,
+      "sha256": "b64265d00376f20caf3ae649630c968a0cbcb8abe39eceb64024c9f48f62021d"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "03fa080cbf2454850f0b74062d97dcabe9e5d0c61f2034db43cf73a4aa35eaa4"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/export_map.json",
+      "bytes": 3607,
+      "sha256": "20fe5ef6d9feca588228b839b368292b5dd66505fc7a580900ba0bd157b08104"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/full18_chemical_only.h5msm.gz",
+      "bytes": 17513,
+      "sha256": "bc81efd6a6d6de00141fb03473970a28f356c54bf95eefdf769fd972229bc468",
+      "original_path": "attempts/attempt-01/normal/pose_1/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "efdaab5cdc185ef9f5b68ca018a092729455ca833172ca48b5afd40f95b024f3",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "attempts/attempt-01/normal/pose_1/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "03b3cef0ef23a2abeef7d8c96310708d23d26c25b23567f58c975c5fcfb94c9b"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "attempts/attempt-01/normal/pose_1/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17199,
+      "sha256": "3522aeaf5e7ea169f58434fc33dcb40317bc2b9d8ef8cc671614438d38224b50",
+      "original_path": "attempts/attempt-01/normal/pose_1/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "ad5df00722877e02b0a1601bbd4af92d49fe3520bd96d0a9c37c065077163131",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/prepared_values.json",
+      "bytes": 2770,
+      "sha256": "da09bcc938edd68a9cb9d3b7388841d91b73747fc224eb1e849fddf0b20cbcd9"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "b6f5e51287f5df0f384644bae0149afb331612e0035035627d9f6f682b088aa7"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "ea0123e5a1e67ec03ee93648a90e2dd77b21f475312ccacf57763481f006bfb1"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_1/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/association.json",
+      "bytes": 1566,
+      "sha256": "c8c6f244f89aae7c3b59e99b8f445af3e73b493878c67f08e75862c6ed8748d3"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "1d9668bbeb7b58bbaf90744f3307c002f7cad9e639d5c60cc19ee08ccb8696ae"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/export_map.json",
+      "bytes": 3607,
+      "sha256": "341e7482e4cd8971fd2efa167c892fd185e0843a2d1e40a9f6978458bb5175af"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/full18_chemical_only.h5msm.gz",
+      "bytes": 17511,
+      "sha256": "d0a86c2c3ca5b287fe106fd96048ab8d2fd066a8c560cbbd2264163bebed6b08",
+      "original_path": "attempts/attempt-01/normal/pose_2/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "376e27eca1e72287d53ab76a2156300767bac5c635d42edbecf289f2bc2b9018",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "attempts/attempt-01/normal/pose_2/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "a96f63bf40bb1b4539682b1a7239c5d157cb859abad1dbb4a00e741f356c35c7"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "attempts/attempt-01/normal/pose_2/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17191,
+      "sha256": "ef380ae65e6bcaeeff4f961529e6ee134084efd681cfad3e94afac96eb55c336",
+      "original_path": "attempts/attempt-01/normal/pose_2/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "b65f4f30dccd15f537af4a40652923dd1e062138dc9d6a7fcb4789e0042da96f",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/prepared_values.json",
+      "bytes": 2766,
+      "sha256": "37f70aa93891c17c67038d87656dcba97f0a676abec160f41b38993c82105b06"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "3bf0307ec9c69b2ec64ff207e024d66f773b304cd9b0ae1110fa5c1e577f25f0"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "04723d247e5dd9c3661fc1cef79b2c7105194a4a29b1d858667c1d7f5f8ff21d"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_2/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/association.json",
+      "bytes": 1483,
+      "sha256": "6435bb5a7aa2db7b7661382eb96f656c36b3399fd5f431d914a026d1fe08c0aa"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "96884d7b5391d90f6a7ff28401d750982242f8bd30f7664bba5c15b5b398764c"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/export_map.json",
+      "bytes": 3607,
+      "sha256": "91f8fea8129b20ccd00062646d1bbb5169df864c1b17c0c54b1784f73cf69656"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/full18_chemical_only.h5msm.gz",
+      "bytes": 17505,
+      "sha256": "225ca7d4c1688610fe5e999f2b786d62cce59a981105a8247153c634787bf2a0",
+      "original_path": "attempts/attempt-01/normal/pose_3/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "7f06bb930a85d9a8e6c7ccbc3eac836f01e4441f9066278174cf7f35a0def6dd",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "attempts/attempt-01/normal/pose_3/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "a4b73b453e92ae995b2993e182cacb750953b4ee397744bf2bc15d0a9efb9c85"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "attempts/attempt-01/normal/pose_3/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17201,
+      "sha256": "724b17785bdcb5618948b846ef63254365af51264feb0ab77bff1944bd55dbcb",
+      "original_path": "attempts/attempt-01/normal/pose_3/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "27c011a9a37d377a49c489bb102846e2300a9dcabf8a7627f694907b244c2426",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/prepared_values.json",
+      "bytes": 2676,
+      "sha256": "e5747fed38871133a34b7b55ed580da6a8b9c9fd9e54cc872fd7ca54a869c2b6"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "93523d2414af159c8c701b5eb4ad0084d2b47e3f10185ec2693f50759caecaf2"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "653ed6dbbb341483f50547b5ae002ad083fb023c0a1c8a9c65169169e4a62f7d"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_3/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/association.json",
+      "bytes": 1521,
+      "sha256": "9792d471935451717b341aad9eff9c224bf3c85080ffa9bf3437b9b27179f9f9"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "9af6e029d827af2b216b7fd3c270bf0078d4e3e6392e78479e079cdb170868d9"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/export_map.json",
+      "bytes": 3607,
+      "sha256": "da820b875f68c07ba64e18169573ee453f70bc75a1b959e6a72fcf9281e060f1"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/full18_chemical_only.h5msm.gz",
+      "bytes": 17503,
+      "sha256": "b0f4b240de16483cf1595c440b89af46f6d9118bcd07bba3404c0a36881e40dc",
+      "original_path": "attempts/attempt-01/normal/pose_4/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "50dbb1314fc3b22f921cf5459ff7224432fe4242e0d92b7f27b4aa56bc69f3b7",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "attempts/attempt-01/normal/pose_4/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "cb899f7e145092687e31ec4c26ee22fb4cd996d0d69c428678a65749b2b9e67e"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "attempts/attempt-01/normal/pose_4/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17177,
+      "sha256": "b4b9e7d48d8d4eddb99b64b4a05f096b5c9cf93350b2dc6b0304cd037d89797b",
+      "original_path": "attempts/attempt-01/normal/pose_4/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "5557ece5aef137e9937d0f1c4bd9a016d5dfcc92b2d8f23efe5d9c6807394317",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/prepared_values.json",
+      "bytes": 2711,
+      "sha256": "53f90c22741a8d5910754515eeeb24427cd9beb1561451c0bff9619adf683cf0"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "77f07970d4c17ffaedea9f2f58b0c63b940e97ccd489eae1ba8bf9fd673a332b"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "16812265235cc8998cf4c653503cc3e9f7e09fc0785d46daccb1b35b52311bfa"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_4/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "e650e80ff6971a68c9b45f85a120e42bf77473544b6a90e3bc87c251699d76e6"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/export_map.json",
+      "bytes": 3607,
+      "sha256": "7421521f771e50193673d46b1de7db7d03b4620557e5c75c44bfa888c70451c6"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/full18_chemical_only.h5msm.gz",
+      "bytes": 17511,
+      "sha256": "bb316adac2e06d53fb6fe6f80a09f6234b508c0df8edef14b2785f21b516ea29",
+      "original_path": "attempts/attempt-01/normal/pose_5/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "a51f02cda0a5b861c2b58fe8e8ef551d78c186fd7101e3a99e38e09a556cbc1c",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "attempts/attempt-01/normal/pose_5/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "186a5394170f61fa69697d3073957d8df2e358372e3a185424e979b4261713d4"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "attempts/attempt-01/normal/pose_5/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17195,
+      "sha256": "339ad90309ed4d8f5e84897d867a446ab6d6378afea20f7efbc889371dd72288",
+      "original_path": "attempts/attempt-01/normal/pose_5/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "63f6243d47d9f73fde485f48cae5f0bda40c42a31482e9c5df173a37b94711f7",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/prepared_values.json",
+      "bytes": 2687,
+      "sha256": "ea99be69140582a5bb1dd864fb9ff84feb12d0e585f9c9c2354087490435686f"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "69fb81d2bd92b9effd3d1fefbbdee7b77853e4442e788de9fc76ce100ccfbcf0"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "attempts/attempt-01/normal/pose_5/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "attempts/attempt-01/progress.jsonl",
+      "bytes": 1280,
+      "sha256": "906b8e0c399fd7ef91e52c311fc152c2cbf020737b5196d3f29d20a7b1677a20"
+    },
+    {
+      "path": "attempts/attempt-01/provided_receptor.pdbqt.gz",
+      "bytes": 37807,
+      "sha256": "ea2df0a0d24f2744fbf1513dc69b813ce4e4e1a00913e6b83da1de4a29d7b093",
+      "original_path": "attempts/attempt-01/provided_receptor.pdbqt",
+      "decoded_bytes": 161531,
+      "decoded_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/registered_notebook.ipynb.gz",
+      "bytes": 6839,
+      "sha256": "d8a9e669ebfd95f55379c36b67afecfee3fcc6a94ead79139d55ea64dc3a03be",
+      "original_path": "attempts/attempt-01/registered_notebook.ipynb",
+      "decoded_bytes": 31396,
+      "decoded_sha256": "8310b33ea8d2033e477fd7bb517e3f8a45ef9a168caf1307c184ab4a280fd400",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "attempts/attempt-01/registered_prescription.md",
+      "bytes": 9299,
+      "sha256": "d93bb7aebd6b158061dc8b7aa40f6a8b7857fe7bdba8a226d191513b312b6d2c"
+    },
+    {
+      "path": "attempts/attempt-01/registration.json",
+      "bytes": 3756,
+      "sha256": "d57c5ba22f63c240e83a10b2f651e17794b4f04e244b85464735abe353b724fc"
+    },
+    {
+      "path": "attempts/attempt-01/resource-outcome.json",
+      "bytes": 813,
+      "sha256": "2ee5eef6c8da1149a3856d533d4f13536644f5b55ac88a24f72d638a3b8b169a"
+    },
+    {
+      "path": "attempts/attempt-01/stderr.log",
+      "bytes": 460,
+      "sha256": "5dab065d14b7111d45e1b7d73081c6bf3d736533b1ccb7a6bc3baaa7725da99e"
+    },
+    {
+      "path": "attempts/attempt-01/stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/attempt-01/supervisor.py.txt",
+      "bytes": 7769,
+      "sha256": "743b18edb2c9f87c296feb30877c9cf4f0c24414cf5eaeec79f51a0eaa7b6af6"
+    },
+    {
+      "path": "attempts/attempt-01/worker-sha256.json",
+      "bytes": 83,
+      "sha256": "bb39298444de5012f0c5722653cb7d6d2931e9c2073929dadc81babd91d62252"
+    },
+    {
+      "path": "attempts/attempt-01/worker.py.txt",
+      "bytes": 1449,
+      "sha256": "0bcf6995d5d9537514d6464faa136067be638cfae1183b6174d239733b8bd05e"
+    },
+    {
+      "path": "attempts.json",
+      "bytes": 2095,
+      "sha256": "3d1a6a36eb98b78722816afeebabce77ae0fd8ee4c81a89a6237ecd8312aa465"
+    },
+    {
+      "path": "normal/observations.json",
+      "bytes": 9752,
+      "sha256": "627c44be9f7c276c8e684fa289659d0f4d97fd290ebdf8eaf1200632c6c6f19a"
+    },
+    {
+      "path": "normal/pose_1/association.json",
+      "bytes": 1664,
+      "sha256": "9bb056096c5ae6a52c3241a5bfe9751063ad64f98f7263f4ef240a0bf84d6fb7"
+    },
+    {
+      "path": "normal/pose_1/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "normal/pose_1/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "normal/pose_1/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "03fa080cbf2454850f0b74062d97dcabe9e5d0c61f2034db43cf73a4aa35eaa4"
+    },
+    {
+      "path": "normal/pose_1/export_map.json",
+      "bytes": 3607,
+      "sha256": "20fe5ef6d9feca588228b839b368292b5dd66505fc7a580900ba0bd157b08104"
+    },
+    {
+      "path": "normal/pose_1/full18_chemical_only.h5msm.gz",
+      "bytes": 17513,
+      "sha256": "bc81efd6a6d6de00141fb03473970a28f356c54bf95eefdf769fd972229bc468",
+      "original_path": "normal/pose_1/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "efdaab5cdc185ef9f5b68ca018a092729455ca833172ca48b5afd40f95b024f3",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_1/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "normal/pose_1/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "normal/pose_1/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "normal/pose_1/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_1/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "normal/pose_1/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "normal/pose_1/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "03b3cef0ef23a2abeef7d8c96310708d23d26c25b23567f58c975c5fcfb94c9b"
+    },
+    {
+      "path": "normal/pose_1/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "normal/pose_1/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_1/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17199,
+      "sha256": "3522aeaf5e7ea169f58434fc33dcb40317bc2b9d8ef8cc671614438d38224b50",
+      "original_path": "normal/pose_1/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "ad5df00722877e02b0a1601bbd4af92d49fe3520bd96d0a9c37c065077163131",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_1/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "normal/pose_1/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "normal/pose_1/prepared_values.json",
+      "bytes": 2770,
+      "sha256": "da09bcc938edd68a9cb9d3b7388841d91b73747fc224eb1e849fddf0b20cbcd9"
+    },
+    {
+      "path": "normal/pose_1/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "normal/pose_1/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "b6f5e51287f5df0f384644bae0149afb331612e0035035627d9f6f682b088aa7"
+    },
+    {
+      "path": "normal/pose_1/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "ea0123e5a1e67ec03ee93648a90e2dd77b21f475312ccacf57763481f006bfb1"
+    },
+    {
+      "path": "normal/pose_1/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "normal/pose_1/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "normal/pose_2/association.json",
+      "bytes": 1663,
+      "sha256": "da54723fa0255c4eb4ee734bd3f95defab72410707b71340c0bca5aa4da2a410"
+    },
+    {
+      "path": "normal/pose_2/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "normal/pose_2/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "normal/pose_2/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "1d9668bbeb7b58bbaf90744f3307c002f7cad9e639d5c60cc19ee08ccb8696ae"
+    },
+    {
+      "path": "normal/pose_2/export_map.json",
+      "bytes": 3607,
+      "sha256": "341e7482e4cd8971fd2efa167c892fd185e0843a2d1e40a9f6978458bb5175af"
+    },
+    {
+      "path": "normal/pose_2/full18_chemical_only.h5msm.gz",
+      "bytes": 17511,
+      "sha256": "d0a86c2c3ca5b287fe106fd96048ab8d2fd066a8c560cbbd2264163bebed6b08",
+      "original_path": "normal/pose_2/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "376e27eca1e72287d53ab76a2156300767bac5c635d42edbecf289f2bc2b9018",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_2/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "normal/pose_2/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "normal/pose_2/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "normal/pose_2/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_2/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "normal/pose_2/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "normal/pose_2/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "a96f63bf40bb1b4539682b1a7239c5d157cb859abad1dbb4a00e741f356c35c7"
+    },
+    {
+      "path": "normal/pose_2/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "normal/pose_2/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_2/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17191,
+      "sha256": "ef380ae65e6bcaeeff4f961529e6ee134084efd681cfad3e94afac96eb55c336",
+      "original_path": "normal/pose_2/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "b65f4f30dccd15f537af4a40652923dd1e062138dc9d6a7fcb4789e0042da96f",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_2/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "normal/pose_2/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "normal/pose_2/prepared_values.json",
+      "bytes": 2766,
+      "sha256": "37f70aa93891c17c67038d87656dcba97f0a676abec160f41b38993c82105b06"
+    },
+    {
+      "path": "normal/pose_2/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "normal/pose_2/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "3bf0307ec9c69b2ec64ff207e024d66f773b304cd9b0ae1110fa5c1e577f25f0"
+    },
+    {
+      "path": "normal/pose_2/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "04723d247e5dd9c3661fc1cef79b2c7105194a4a29b1d858667c1d7f5f8ff21d"
+    },
+    {
+      "path": "normal/pose_2/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "normal/pose_2/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "normal/pose_3/association.json",
+      "bytes": 1581,
+      "sha256": "519ee7e3e31e840e3b5fac79dd9ac503841d78d196090a3516d9e0e6227ca05c"
+    },
+    {
+      "path": "normal/pose_3/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "normal/pose_3/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "normal/pose_3/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "96884d7b5391d90f6a7ff28401d750982242f8bd30f7664bba5c15b5b398764c"
+    },
+    {
+      "path": "normal/pose_3/export_map.json",
+      "bytes": 3607,
+      "sha256": "91f8fea8129b20ccd00062646d1bbb5169df864c1b17c0c54b1784f73cf69656"
+    },
+    {
+      "path": "normal/pose_3/full18_chemical_only.h5msm.gz",
+      "bytes": 17505,
+      "sha256": "225ca7d4c1688610fe5e999f2b786d62cce59a981105a8247153c634787bf2a0",
+      "original_path": "normal/pose_3/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "7f06bb930a85d9a8e6c7ccbc3eac836f01e4441f9066278174cf7f35a0def6dd",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_3/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "normal/pose_3/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "normal/pose_3/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "normal/pose_3/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_3/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "normal/pose_3/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "normal/pose_3/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "a4b73b453e92ae995b2993e182cacb750953b4ee397744bf2bc15d0a9efb9c85"
+    },
+    {
+      "path": "normal/pose_3/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "normal/pose_3/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_3/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17201,
+      "sha256": "724b17785bdcb5618948b846ef63254365af51264feb0ab77bff1944bd55dbcb",
+      "original_path": "normal/pose_3/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "27c011a9a37d377a49c489bb102846e2300a9dcabf8a7627f694907b244c2426",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_3/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "normal/pose_3/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "normal/pose_3/prepared_values.json",
+      "bytes": 2676,
+      "sha256": "e5747fed38871133a34b7b55ed580da6a8b9c9fd9e54cc872fd7ca54a869c2b6"
+    },
+    {
+      "path": "normal/pose_3/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "normal/pose_3/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "93523d2414af159c8c701b5eb4ad0084d2b47e3f10185ec2693f50759caecaf2"
+    },
+    {
+      "path": "normal/pose_3/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "653ed6dbbb341483f50547b5ae002ad083fb023c0a1c8a9c65169169e4a62f7d"
+    },
+    {
+      "path": "normal/pose_3/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "normal/pose_3/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "normal/pose_4/association.json",
+      "bytes": 1619,
+      "sha256": "5f6eecbe2512e9fd8f7a148e3e41d43030e985958f47f8f34c0f7329ad1e69ff"
+    },
+    {
+      "path": "normal/pose_4/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "normal/pose_4/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "normal/pose_4/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "9af6e029d827af2b216b7fd3c270bf0078d4e3e6392e78479e079cdb170868d9"
+    },
+    {
+      "path": "normal/pose_4/export_map.json",
+      "bytes": 3607,
+      "sha256": "da820b875f68c07ba64e18169573ee453f70bc75a1b959e6a72fcf9281e060f1"
+    },
+    {
+      "path": "normal/pose_4/full18_chemical_only.h5msm.gz",
+      "bytes": 17503,
+      "sha256": "b0f4b240de16483cf1595c440b89af46f6d9118bcd07bba3404c0a36881e40dc",
+      "original_path": "normal/pose_4/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "50dbb1314fc3b22f921cf5459ff7224432fe4242e0d92b7f27b4aa56bc69f3b7",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_4/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "normal/pose_4/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "normal/pose_4/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "normal/pose_4/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_4/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "normal/pose_4/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "normal/pose_4/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "cb899f7e145092687e31ec4c26ee22fb4cd996d0d69c428678a65749b2b9e67e"
+    },
+    {
+      "path": "normal/pose_4/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "normal/pose_4/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_4/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17177,
+      "sha256": "b4b9e7d48d8d4eddb99b64b4a05f096b5c9cf93350b2dc6b0304cd037d89797b",
+      "original_path": "normal/pose_4/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "5557ece5aef137e9937d0f1c4bd9a016d5dfcc92b2d8f23efe5d9c6807394317",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_4/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "normal/pose_4/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "normal/pose_4/prepared_values.json",
+      "bytes": 2711,
+      "sha256": "53f90c22741a8d5910754515eeeb24427cd9beb1561451c0bff9619adf683cf0"
+    },
+    {
+      "path": "normal/pose_4/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "normal/pose_4/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "77f07970d4c17ffaedea9f2f58b0c63b940e97ccd489eae1ba8bf9fd673a332b"
+    },
+    {
+      "path": "normal/pose_4/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "16812265235cc8998cf4c653503cc3e9f7e09fc0785d46daccb1b35b52311bfa"
+    },
+    {
+      "path": "normal/pose_4/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "normal/pose_4/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "normal/pose_5/association.json",
+      "bytes": 1594,
+      "sha256": "957f948c2291c549bc949685b8a44ed393472d1f1a7d9b01353ef59c9fa77bdd"
+    },
+    {
+      "path": "normal/pose_5/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "normal/pose_5/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "normal/pose_5/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "e650e80ff6971a68c9b45f85a120e42bf77473544b6a90e3bc87c251699d76e6"
+    },
+    {
+      "path": "normal/pose_5/export_map.json",
+      "bytes": 3607,
+      "sha256": "7421521f771e50193673d46b1de7db7d03b4620557e5c75c44bfa888c70451c6"
+    },
+    {
+      "path": "normal/pose_5/full18_chemical_only.h5msm.gz",
+      "bytes": 17511,
+      "sha256": "bb316adac2e06d53fb6fe6f80a09f6234b508c0df8edef14b2785f21b516ea29",
+      "original_path": "normal/pose_5/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "a51f02cda0a5b861c2b58fe8e8ef551d78c186fd7101e3a99e38e09a556cbc1c",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_5/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "normal/pose_5/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "normal/pose_5/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "normal/pose_5/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_5/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "normal/pose_5/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "normal/pose_5/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "186a5394170f61fa69697d3073957d8df2e358372e3a185424e979b4261713d4"
+    },
+    {
+      "path": "normal/pose_5/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "normal/pose_5/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_5/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17195,
+      "sha256": "339ad90309ed4d8f5e84897d867a446ab6d6378afea20f7efbc889371dd72288",
+      "original_path": "normal/pose_5/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "63f6243d47d9f73fde485f48cae5f0bda40c42a31482e9c5df173a37b94711f7",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "normal/pose_5/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "normal/pose_5/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "normal/pose_5/prepared_values.json",
+      "bytes": 2687,
+      "sha256": "ea99be69140582a5bb1dd864fb9ff84feb12d0e585f9c9c2354087490435686f"
+    },
+    {
+      "path": "normal/pose_5/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "normal/pose_5/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "3b84236b1b3e61f9a1ce208372956e7c5e144d8db3fa038c607f59fdffaf9056"
+    },
+    {
+      "path": "normal/pose_5/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "69fb81d2bd92b9effd3d1fefbbdee7b77853e4442e788de9fc76ce100ccfbcf0"
+    },
+    {
+      "path": "normal/pose_5/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "normal/pose_5/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "pm_fs/observations.json",
+      "bytes": 9750,
+      "sha256": "c5ba9a2d49e011f74bb0115bf60cf5ce16f736b761c64d2d482f73916677247d"
+    },
+    {
+      "path": "pm_fs/pose_1/association.json",
+      "bytes": 1664,
+      "sha256": "42e617c69d49400746c46b84e82ccbdb519036d50fa89c321329051e4a479f67"
+    },
+    {
+      "path": "pm_fs/pose_1/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "pm_fs/pose_1/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "pm_fs/pose_1/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "03fa080cbf2454850f0b74062d97dcabe9e5d0c61f2034db43cf73a4aa35eaa4"
+    },
+    {
+      "path": "pm_fs/pose_1/export_map.json",
+      "bytes": 3607,
+      "sha256": "20fe5ef6d9feca588228b839b368292b5dd66505fc7a580900ba0bd157b08104"
+    },
+    {
+      "path": "pm_fs/pose_1/full18_chemical_only.h5msm.gz",
+      "bytes": 17513,
+      "sha256": "bc81efd6a6d6de00141fb03473970a28f356c54bf95eefdf769fd972229bc468",
+      "original_path": "pm_fs/pose_1/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "efdaab5cdc185ef9f5b68ca018a092729455ca833172ca48b5afd40f95b024f3",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_1/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "pm_fs/pose_1/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "pm_fs/pose_1/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "pm_fs/pose_1/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_1/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "pm_fs/pose_1/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "pm_fs/pose_1/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "03b3cef0ef23a2abeef7d8c96310708d23d26c25b23567f58c975c5fcfb94c9b"
+    },
+    {
+      "path": "pm_fs/pose_1/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "pm_fs/pose_1/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_1/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17192,
+      "sha256": "86fc6cc18114ba00d1214badfe909d4977cf202752f979b322e460f3c77b594c",
+      "original_path": "pm_fs/pose_1/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "9f57be6e82a30e377d3c5a1fb126fe377e7360254e1b0730f7cb77b7e726a0ed",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_1/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "pm_fs/pose_1/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "pm_fs/pose_1/prepared_values.json",
+      "bytes": 2656,
+      "sha256": "eb431e60e0e739d81eb28b420a3e68d7b37a00b500ec5a5c2e30af3ced699ea2"
+    },
+    {
+      "path": "pm_fs/pose_1/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "pm_fs/pose_1/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "b6f5e51287f5df0f384644bae0149afb331612e0035035627d9f6f682b088aa7"
+    },
+    {
+      "path": "pm_fs/pose_1/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "ea0123e5a1e67ec03ee93648a90e2dd77b21f475312ccacf57763481f006bfb1"
+    },
+    {
+      "path": "pm_fs/pose_1/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "pm_fs/pose_1/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "pm_fs/pose_2/association.json",
+      "bytes": 1662,
+      "sha256": "48eb2bf2c1f78c3d76bc4417ed227f1dde3d797da2152ec68cf01137d4d71c7d"
+    },
+    {
+      "path": "pm_fs/pose_2/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "pm_fs/pose_2/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "pm_fs/pose_2/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "1d9668bbeb7b58bbaf90744f3307c002f7cad9e639d5c60cc19ee08ccb8696ae"
+    },
+    {
+      "path": "pm_fs/pose_2/export_map.json",
+      "bytes": 3607,
+      "sha256": "341e7482e4cd8971fd2efa167c892fd185e0843a2d1e40a9f6978458bb5175af"
+    },
+    {
+      "path": "pm_fs/pose_2/full18_chemical_only.h5msm.gz",
+      "bytes": 17511,
+      "sha256": "d0a86c2c3ca5b287fe106fd96048ab8d2fd066a8c560cbbd2264163bebed6b08",
+      "original_path": "pm_fs/pose_2/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "376e27eca1e72287d53ab76a2156300767bac5c635d42edbecf289f2bc2b9018",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_2/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "pm_fs/pose_2/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "pm_fs/pose_2/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "pm_fs/pose_2/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_2/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "pm_fs/pose_2/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "pm_fs/pose_2/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "a96f63bf40bb1b4539682b1a7239c5d157cb859abad1dbb4a00e741f356c35c7"
+    },
+    {
+      "path": "pm_fs/pose_2/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "pm_fs/pose_2/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_2/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17191,
+      "sha256": "6c295a5852512c42044bb7c871deff280000b03c1e09af5b325f0b20243555b9",
+      "original_path": "pm_fs/pose_2/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "73b908b7be82bbb57e7950e85e1c14e7b88c858efff7f6c5d24841859e889832",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_2/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "pm_fs/pose_2/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "pm_fs/pose_2/prepared_values.json",
+      "bytes": 2701,
+      "sha256": "ceb1733c8cb80f25b7529ecf5f32f2ef9ea3ffb25d0b2558510029d732c1f6d5"
+    },
+    {
+      "path": "pm_fs/pose_2/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "pm_fs/pose_2/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "3bf0307ec9c69b2ec64ff207e024d66f773b304cd9b0ae1110fa5c1e577f25f0"
+    },
+    {
+      "path": "pm_fs/pose_2/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "04723d247e5dd9c3661fc1cef79b2c7105194a4a29b1d858667c1d7f5f8ff21d"
+    },
+    {
+      "path": "pm_fs/pose_2/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "pm_fs/pose_2/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "pm_fs/pose_3/association.json",
+      "bytes": 1581,
+      "sha256": "e901dac7a0829389d2aaf9eabf4691b3a6182fe1b8e89f6926734db496276375"
+    },
+    {
+      "path": "pm_fs/pose_3/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "pm_fs/pose_3/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "pm_fs/pose_3/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "96884d7b5391d90f6a7ff28401d750982242f8bd30f7664bba5c15b5b398764c"
+    },
+    {
+      "path": "pm_fs/pose_3/export_map.json",
+      "bytes": 3607,
+      "sha256": "91f8fea8129b20ccd00062646d1bbb5169df864c1b17c0c54b1784f73cf69656"
+    },
+    {
+      "path": "pm_fs/pose_3/full18_chemical_only.h5msm.gz",
+      "bytes": 17505,
+      "sha256": "225ca7d4c1688610fe5e999f2b786d62cce59a981105a8247153c634787bf2a0",
+      "original_path": "pm_fs/pose_3/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "7f06bb930a85d9a8e6c7ccbc3eac836f01e4441f9066278174cf7f35a0def6dd",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_3/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "pm_fs/pose_3/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "pm_fs/pose_3/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "pm_fs/pose_3/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_3/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "pm_fs/pose_3/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "pm_fs/pose_3/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "a4b73b453e92ae995b2993e182cacb750953b4ee397744bf2bc15d0a9efb9c85"
+    },
+    {
+      "path": "pm_fs/pose_3/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "pm_fs/pose_3/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_3/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17197,
+      "sha256": "1fe44e236076f22b7dd40752589e803a3c2a6343fed8d4db70d707e1ad9605d9",
+      "original_path": "pm_fs/pose_3/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "10879271c4ff86c01b0a3c229e13ea0356294f702054ae5c63e44bcb7ea837bd",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_3/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "pm_fs/pose_3/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "pm_fs/pose_3/prepared_values.json",
+      "bytes": 2691,
+      "sha256": "31bded15d61ff670c559c230086178b990249006c5b4dbcfacd1177460ae1785"
+    },
+    {
+      "path": "pm_fs/pose_3/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "pm_fs/pose_3/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "93523d2414af159c8c701b5eb4ad0084d2b47e3f10185ec2693f50759caecaf2"
+    },
+    {
+      "path": "pm_fs/pose_3/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "653ed6dbbb341483f50547b5ae002ad083fb023c0a1c8a9c65169169e4a62f7d"
+    },
+    {
+      "path": "pm_fs/pose_3/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "pm_fs/pose_3/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "pm_fs/pose_4/association.json",
+      "bytes": 1619,
+      "sha256": "5f6eecbe2512e9fd8f7a148e3e41d43030e985958f47f8f34c0f7329ad1e69ff"
+    },
+    {
+      "path": "pm_fs/pose_4/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "pm_fs/pose_4/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "pm_fs/pose_4/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "9af6e029d827af2b216b7fd3c270bf0078d4e3e6392e78479e079cdb170868d9"
+    },
+    {
+      "path": "pm_fs/pose_4/export_map.json",
+      "bytes": 3607,
+      "sha256": "da820b875f68c07ba64e18169573ee453f70bc75a1b959e6a72fcf9281e060f1"
+    },
+    {
+      "path": "pm_fs/pose_4/full18_chemical_only.h5msm.gz",
+      "bytes": 17503,
+      "sha256": "b0f4b240de16483cf1595c440b89af46f6d9118bcd07bba3404c0a36881e40dc",
+      "original_path": "pm_fs/pose_4/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "50dbb1314fc3b22f921cf5459ff7224432fe4242e0d92b7f27b4aa56bc69f3b7",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_4/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "pm_fs/pose_4/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "pm_fs/pose_4/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "pm_fs/pose_4/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_4/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "pm_fs/pose_4/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "pm_fs/pose_4/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "cb899f7e145092687e31ec4c26ee22fb4cd996d0d69c428678a65749b2b9e67e"
+    },
+    {
+      "path": "pm_fs/pose_4/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "pm_fs/pose_4/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_4/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17196,
+      "sha256": "81a4e6502184365d548ec96bacfc5e54e61eb7414df708fe16068c24d02d653e",
+      "original_path": "pm_fs/pose_4/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "49178870f597d93a09d6d3efb6aa2267399080b7aae2ed9b8df75977885ae64c",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_4/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "pm_fs/pose_4/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "pm_fs/pose_4/prepared_values.json",
+      "bytes": 2673,
+      "sha256": "aa6eb42704bc7a745cb2ab899f228c2d5ae4071ee6084b0e667644ab6084ca68"
+    },
+    {
+      "path": "pm_fs/pose_4/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "pm_fs/pose_4/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "77f07970d4c17ffaedea9f2f58b0c63b940e97ccd489eae1ba8bf9fd673a332b"
+    },
+    {
+      "path": "pm_fs/pose_4/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "16812265235cc8998cf4c653503cc3e9f7e09fc0785d46daccb1b35b52311bfa"
+    },
+    {
+      "path": "pm_fs/pose_4/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "pm_fs/pose_4/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "pm_fs/pose_5/association.json",
+      "bytes": 1594,
+      "sha256": "936069e741d8654281dae9bf96b879b559b2a0a1908c8f5acad67b5c44604133"
+    },
+    {
+      "path": "pm_fs/pose_5/charge_assignment.json",
+      "bytes": 2955,
+      "sha256": "a41fefc6e2d9fcabcdb4b9babfa78c16fe626b63859a82a11f0d5c6fb5dedb44"
+    },
+    {
+      "path": "pm_fs/pose_5/charge_audit.json",
+      "bytes": 6200,
+      "sha256": "151de135d26b420e26727504e76f54e88db680406dd5bf8b42b70be7585b92d2"
+    },
+    {
+      "path": "pm_fs/pose_5/dockingmt.pdbqt",
+      "bytes": 2960,
+      "sha256": "e650e80ff6971a68c9b45f85a120e42bf77473544b6a90e3bc87c251699d76e6"
+    },
+    {
+      "path": "pm_fs/pose_5/export_map.json",
+      "bytes": 3607,
+      "sha256": "7421521f771e50193673d46b1de7db7d03b4620557e5c75c44bfa888c70451c6"
+    },
+    {
+      "path": "pm_fs/pose_5/full18_chemical_only.h5msm.gz",
+      "bytes": 17511,
+      "sha256": "bb316adac2e06d53fb6fe6f80a09f6234b508c0df8edef14b2785f21b516ea29",
+      "original_path": "pm_fs/pose_5/full18_chemical_only.h5msm",
+      "decoded_bytes": 339622,
+      "decoded_sha256": "a51f02cda0a5b861c2b58fe8e8ef551d78c186fd7101e3a99e38e09a556cbc1c",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_5/full18_mechanics_inspection.json",
+      "bytes": 10283,
+      "sha256": "f9be035f6fe73af68a01e71bad432dafee6f8548eeb14692654a5892ee27c8ae"
+    },
+    {
+      "path": "pm_fs/pose_5/full18_witness.json",
+      "bytes": 6841,
+      "sha256": "97a22abe7bcbd08ac1267347e53a207e76a06c967d025be4feb830a409cf7d66"
+    },
+    {
+      "path": "pm_fs/pose_5/hydrogen_addition.json.gz",
+      "bytes": 2440,
+      "sha256": "e6309e0eb133b9b45cd92a004117bf5bb5d12c71149fe777e4154701728df263",
+      "original_path": "pm_fs/pose_5/hydrogen_addition.json",
+      "decoded_bytes": 22237,
+      "decoded_sha256": "483ab4fa7829e8da9c6cadc39353a18a85135a7818044e698d8735671928791b",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_5/inventory13.json",
+      "bytes": 1157,
+      "sha256": "87706833486e1b0a3baee68b88f91e2bc6ac41cac00aef3382ece9360483bd32"
+    },
+    {
+      "path": "pm_fs/pose_5/inventory18.json",
+      "bytes": 1497,
+      "sha256": "7db90fdcab49798504485899c4f47eee90698a45782cbdcea448ce8ac14a8a97"
+    },
+    {
+      "path": "pm_fs/pose_5/native.pdbqt",
+      "bytes": 2313,
+      "sha256": "186a5394170f61fa69697d3073957d8df2e358372e3a185424e979b4261713d4"
+    },
+    {
+      "path": "pm_fs/pose_5/prepared.json.gz",
+      "bytes": 5861,
+      "sha256": "40406790c92a27aa9699f189f54d04b687580b93ff5dc34f1990524d201415a9",
+      "original_path": "pm_fs/pose_5/prepared.json",
+      "decoded_bytes": 52828,
+      "decoded_sha256": "68993de8e2e2d23c5d7260d2ac7dcb15897f6a0b3803e75b69aa93cc647c4119",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_5/prepared13_chemical_only.h5msm.gz",
+      "bytes": 17198,
+      "sha256": "17d75789f255b12e2ecf4e7c00379cd44f28b13373a1ab8165782ee131df961f",
+      "original_path": "pm_fs/pose_5/prepared13_chemical_only.h5msm",
+      "decoded_bytes": 339107,
+      "decoded_sha256": "31c1901c0317fe4b1cf1fa6d39aa8c5f8c1c11161f4000fe4d4592481bf4fce4",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "pm_fs/pose_5/prepared13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "pm_fs/pose_5/prepared_mechanics_inspection.json",
+      "bytes": 18681,
+      "sha256": "58a9e8e31e883e1761a46499c7ba2fe29583c0f523d746bdd629815c1a366097"
+    },
+    {
+      "path": "pm_fs/pose_5/prepared_values.json",
+      "bytes": 2670,
+      "sha256": "7677f52a4e3cdaee3e5aab6d5e8586db8760d6f8e690296ab6875d856cb85030"
+    },
+    {
+      "path": "pm_fs/pose_5/read13_witness.json",
+      "bytes": 6161,
+      "sha256": "2c257932a5476230c3260900e22ef23f8c17432bbac7518098fd0db9469da3f1"
+    },
+    {
+      "path": "pm_fs/pose_5/read_poses_report.json",
+      "bytes": 6925,
+      "sha256": "3b84236b1b3e61f9a1ce208372956e7c5e144d8db3fa038c607f59fdffaf9056"
+    },
+    {
+      "path": "pm_fs/pose_5/source9_to_written_map.json",
+      "bytes": 13144,
+      "sha256": "69fb81d2bd92b9effd3d1fefbbdee7b77853e4442e788de9fc76ce100ccfbcf0"
+    },
+    {
+      "path": "pm_fs/pose_5/typing_assignment.json",
+      "bytes": 4382,
+      "sha256": "24037b9cba0f8e0c195bf4900697fc59a89fcf345179c5b6dc1884c383f4ebaf"
+    },
+    {
+      "path": "pm_fs/pose_5/written_tree.json",
+      "bytes": 585,
+      "sha256": "3cff0860e25afd80f6d39cdf8498bb230e627d5bd911c84e68c99c2f322c1725"
+    },
+    {
+      "path": "progress.jsonl",
+      "bytes": 1762,
+      "sha256": "e4706fcf0d120161aa1a3e4863d14db6398eb2f6739dc8046a0485ac0db15912"
+    },
+    {
+      "path": "prospective_scoring_contract.json",
+      "bytes": 11045,
+      "sha256": "a5682a68e1054292373cdbd3996d9581acb00c4121458755baf87a9873e064b6"
+    },
+    {
+      "path": "provided_receptor.pdbqt.gz",
+      "bytes": 37807,
+      "sha256": "ea2df0a0d24f2744fbf1513dc69b813ce4e4e1a00913e6b83da1de4a29d7b093",
+      "original_path": "provided_receptor.pdbqt",
+      "decoded_bytes": 161531,
+      "decoded_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "receipt.json.gz",
+      "bytes": 3035,
+      "sha256": "bcd444f1965546d4b1c38ee0be13628afbc13d9d4682cc1d2a2fa1b68464ed04",
+      "original_path": "receipt.json",
+      "decoded_bytes": 25179,
+      "decoded_sha256": "47590b3b08dda6de2677a75d024fa4228de9360fe16bcd513f220b148868b007",
+      "transport": "gzip only; exact original receiving bytes retained"
+    },
+    {
+      "path": "registered_prescription.md",
+      "bytes": 11415,
+      "sha256": "0cfa55489cc672965aadbafa92e010ab17f083d1e7d17ef6a7689f5bdf09939e"
+    },
+    {
+      "path": "registration.json",
+      "bytes": 3914,
+      "sha256": "387bf2828141dc66cd61fbd9f8296724eb0737859d64248a2a49551c7d2d3200"
+    },
+    {
+      "path": "resource-outcome.json",
+      "bytes": 814,
+      "sha256": "c7cd5a16a5992813f8d487d7e90bad8cd1d401290773029848be055cea65a922"
+    },
+    {
+      "path": "source_inspection.json",
+      "bytes": 1997,
+      "sha256": "fff376a8239a05d7760f3e22cef167809e14c81681522dca547d3dd07883e87c"
+    },
+    {
+      "path": "source_inspection_grid.json",
+      "bytes": 1166,
+      "sha256": "d980ef4a9114518b2092995a9d1751db3379201cb3c89261ab98d3717e78d071"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 97,
+      "sha256": "861d4137987e7db5f861ba02eb508b0e5b382c57f14c4b30fffaf5205471d0de"
+    },
+    {
+      "path": "supervisor.py.txt",
+      "bytes": 7920,
+      "sha256": "a81d0a713b1fa84fc8995094013a2f4957b408a668beecfc171956bbe559fcbd"
+    },
+    {
+      "path": "worker-sha256.json",
+      "bytes": 83,
+      "sha256": "bb39298444de5012f0c5722653cb7d6d2931e9c2073929dadc81babd91d62252"
+    },
+    {
+      "path": "worker.py.txt",
+      "bytes": 1449,
+      "sha256": "0bcf6995d5d9537514d6464faa136067be638cfae1183b6174d239733b8bd05e"
+    }
+  ],
+  "claim": "New five-pose local-H construction and comparison prescription, with preserved domain refusal; no Vina energies, historical H identity, complete MM replay or E1 acceptance."
+}

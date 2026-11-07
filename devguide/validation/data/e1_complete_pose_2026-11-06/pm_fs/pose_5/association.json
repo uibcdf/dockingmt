@@ -1,0 +1,75 @@
+{
+  "original_position": 5,
+  "historical_pose_id": "pose_5",
+  "historical_scores": {
+    "vina": -3.507,
+    "inter": -3.507,
+    "intra": 0.0,
+    "torsion": 0.0
+  },
+  "new_pose_id": "e1-new-local-H-5",
+  "new_partner_state_id": "e1-new-declared-benzamidinium-20261106",
+  "native_export_sha256": "186a5394170f61fa69697d3073957d8df2e358372e3a185424e979b4261713d4",
+  "dockingmt_export_sha256": "e650e80ff6971a68c9b45f85a120e42bf77473544b6a90e3bc87c251699d76e6",
+  "source_heavy_coordinates": {
+    "value": [
+      [
+        [
+          0.6017999999999999,
+          2.1702,
+          1.3474
+        ],
+        [
+          0.6086,
+          2.0934999999999997,
+          1.4606
+        ],
+        [
+          0.4910999999999999,
+          2.044,
+          1.5186
+        ],
+        [
+          0.36629999999999996,
+          2.0722,
+          1.4607999999999999
+        ],
+        [
+          0.36099999999999993,
+          2.1498999999999997,
+          1.3448
+        ],
+        [
+          0.47929999999999995,
+          2.198,
+          1.2892
+        ],
+        [
+          0.7183999999999999,
+          2.2201,
+          1.2904
+        ],
+        [
+          0.8365999999999999,
+          2.1986,
+          1.3455
+        ],
+        [
+          0.7147,
+          2.2757,
+          1.1704999999999999
+        ]
+      ]
+    ],
+    "unit": "nm"
+  },
+  "historical_H_identity_admitted": false,
+  "minimum_backend_box_margin": {
+    "value": 1.0161559903577793,
+    "unit": "angstrom"
+  },
+  "original_requested_box_margin": {
+    "value": -0.9838440096422207,
+    "unit": "angstrom"
+  }
+}

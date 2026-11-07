@@ -1,0 +1,36 @@
+{
+  "owner": "uibcdf/dockingmt#78",
+  "schema": "dockingmt.e1_existing_record_receiving@1",
+  "outcome": "PASS",
+  "record_receiving": {
+    "phase": "records",
+    "exit_code": 0,
+    "resource_interruption": null,
+    "termination_signal": null,
+    "elapsed_seconds": 7.28220790400519,
+    "sampled_peak_group_rss_bytes": 86831104,
+    "minimum_available_bytes": 50704990208,
+    "samples": 72,
+    "maximum_observed_owned_processes": 1,
+    "policy": {
+      "allowed_cpu": 0,
+      "nice": 10,
+      "workers": 1,
+      "available_reserve_bytes": 8589934592,
+      "task_group_rss_limit_bytes": 1073741824,
+      "address_space_limit_bytes": 2147483648,
+      "cpu_seconds_limit": 60,
+      "wall_seconds_limit": 90
+    }
+  },
+  "generation_outcome_preserved": "attempt-03 qualification failed after successful portable completion",
+  "public_single_pose_composition_received": true,
+  "multi_pose_composition_received": false,
+  "positive_user_comparison_received": false,
+  "missing_native_state_refusal": true,
+  "standalone_incomplete_original_scores": 4,
+  "private_byte_hashes_verified_after": true,
+  "native_final_mappings": "unavailable_after_failed_native_qualification",
+  "full_e1_accepted": false,
+  "new_empirical_values": 0
+}

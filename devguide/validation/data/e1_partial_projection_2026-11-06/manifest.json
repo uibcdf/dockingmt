@@ -1,0 +1,107 @@
+{
+  "schema": "dockingmt.e1_partial_projection_evidence@1",
+  "owner": "uibcdf/dockingmt#78",
+  "notebook_sha256": "ba8fa82e83d0b0dda00d77820e840243d7595e55241ebbba7e204bc379c68c4c",
+  "files": [
+    {
+      "path": "receipt.json",
+      "bytes": 21022,
+      "sha256": "d324d28363b26509e5d71c5bac8884c04d1dd5aa8dee4b84a356aef87577463f"
+    },
+    {
+      "path": "normal/pose_1.pdbqt",
+      "bytes": 1054,
+      "sha256": "4aff254a88931bd1ec8f36644120fca0a1fa9402ce7515c1f4d692fee370cea0"
+    },
+    {
+      "path": "normal/pose_2.pdbqt",
+      "bytes": 1054,
+      "sha256": "1a26e644c75a079787120a20a0ac0c29f7c0a23ad23599aa49756ccf9a17bab3"
+    },
+    {
+      "path": "normal/pose_3.pdbqt",
+      "bytes": 1054,
+      "sha256": "f81f5518056dcfccdf68525119645763a2a18f2e81d88c79ac024f6118b21f62"
+    },
+    {
+      "path": "normal/pose_4.pdbqt",
+      "bytes": 1054,
+      "sha256": "68dc85f124063173d44e68029fde6d9a56060364cfc9b4e384090886a75b5707"
+    },
+    {
+      "path": "normal/pose_5.pdbqt",
+      "bytes": 1054,
+      "sha256": "aee56eb14ae2744cf4b352d8a306f7e5787bdd414ca61a217d8dca8036fa9d97"
+    },
+    {
+      "path": "pm_fs/pose_1.pdbqt",
+      "bytes": 1054,
+      "sha256": "4aff254a88931bd1ec8f36644120fca0a1fa9402ce7515c1f4d692fee370cea0"
+    },
+    {
+      "path": "pm_fs/pose_2.pdbqt",
+      "bytes": 1054,
+      "sha256": "1a26e644c75a079787120a20a0ac0c29f7c0a23ad23599aa49756ccf9a17bab3"
+    },
+    {
+      "path": "pm_fs/pose_3.pdbqt",
+      "bytes": 1054,
+      "sha256": "f81f5518056dcfccdf68525119645763a2a18f2e81d88c79ac024f6118b21f62"
+    },
+    {
+      "path": "pm_fs/pose_4.pdbqt",
+      "bytes": 1054,
+      "sha256": "68dc85f124063173d44e68029fde6d9a56060364cfc9b4e384090886a75b5707"
+    },
+    {
+      "path": "pm_fs/pose_5.pdbqt",
+      "bytes": 1054,
+      "sha256": "aee56eb14ae2744cf4b352d8a306f7e5787bdd414ca61a217d8dca8036fa9d97"
+    },
+    {
+      "path": "resource-outcome.json",
+      "bytes": 265,
+      "sha256": "a8f71e38c499957ab84b2016eb406c5ac99f7bc58683e12467797c09181bd6bc"
+    },
+    {
+      "path": "progress.jsonl",
+      "bytes": 1128,
+      "sha256": "dd94992ca58353aa0275eb509b22ed84b91fff5b68d57f0c2285dd67285ca92b"
+    },
+    {
+      "path": "diagnostics.log.gz",
+      "bytes": 415,
+      "sha256": "a2cc3ceb24b6b6550f1415b624dd71861ec1ba13d26cc11e30f062681fb53795",
+      "decoded_sha256": "29c0f462d3f095dd7f7052f2dc528151e6b7091a62db5e2bd3c7360e85c54fb7"
+    },
+    {
+      "path": "registered_prescription.md",
+      "bytes": 6556,
+      "sha256": "b6eb2e8cc61ab898d5843f8df7e82854b4c46b280a5f6bd90806732240d2b0c2"
+    },
+    {
+      "path": "worker.py.txt",
+      "bytes": 1444,
+      "sha256": "1da32564fd16d4318229dba180654c961e20f593faadb23d20cd4b5ae16ab7c6"
+    },
+    {
+      "path": "runtime-context.json",
+      "bytes": 434,
+      "sha256": "c67901183e8fc7f3ab67ffb6d212688d9fb3984128a16dcc98b33291d1af9536"
+    },
+    {
+      "path": "registration.json",
+      "bytes": 2890,
+      "sha256": "73ce1a1b2a1db74e56b2be5870e2d27336bb51366d253b81e0371d4a700d23dd"
+    }
+  ],
+  "observed_editable_native_binaries": [
+    {
+      "provider_relative_path": "molsysmt/_rust.abi3.so",
+      "bytes": 101188064,
+      "sha256": "2a79b9a83b0fe0b00a54c9b80f04bf6c9ace2b3473c53269edbfe29904f8930b",
+      "claim": "Observed present editable native binary; build/source correspondence and loaded-module identity were not verified by this trial."
+    }
+  ],
+  "context": "Actual source/editable receiving only; no artifact-origin, public closure or full-source qualification claim."
+}

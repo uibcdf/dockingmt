@@ -1,0 +1,460 @@
+{
+  "schema": "dockingmt.e1_provider_contract_review@1",
+  "owner": "uibcdf/dockingmt#78",
+  "observed_at_utc": "2026-11-06T18:21:34.290059+00:00",
+  "scope": "Static public-source/contract inspection; no molecular or native receiving.",
+  "consumer_source": "2fda6238e6b1cb3742f5d30b8ed3af699f9ed748",
+  "provider_repository": "https://github.com/uibcdf/molsysmt",
+  "provider_sources": {
+    "qualified_pin": "00abb958fb93649131d5ce5fe5e12e90cf4900e9",
+    "installed_checkout": "9e1f1b1ad8bf09446374ab6f04ca7208e2717936",
+    "fetched_main": "34b8c09e267683037045004d1897951da8761d80"
+  },
+  "installed_provider_checkout_clean": true,
+  "installed_provider_behind_fetched_main": 5,
+  "provider_source_files": [
+    {
+      "path": "molsysmt/basic/copy.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "2e71b07e30140f5f1f24f27246fc0f32ecd99e48",
+          "sha256": "5eab436be9729f6cffd6a2676aaee51431e8fda6d78f1a93acd1b08a73fe4f55"
+        },
+        "installed_checkout": {
+          "git_blob": "857d001d3f93dd4db554c8b3233fba50c86b6284",
+          "sha256": "caadcb6ba831605feee2565eee4b24466f3e96c2af90928cd05d1e3ec68d3c63"
+        },
+        "fetched_main": {
+          "git_blob": "857d001d3f93dd4db554c8b3233fba50c86b6284",
+          "sha256": "caadcb6ba831605feee2565eee4b24466f3e96c2af90928cd05d1e3ec68d3c63"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": false
+    },
+    {
+      "path": "molsysmt/basic/get.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "5590ab8692fc8803943285274df268234c5d10f9",
+          "sha256": "7d9d6080fd268df848d788c5e5554fa24201a991e3a7638e3098d9b40a1f33f3"
+        },
+        "installed_checkout": {
+          "git_blob": "9e3eea0ecc2e743a211e6f2eea10a0805ab1c7bf",
+          "sha256": "b69ae197aee127afeb38c5d99df0ada1b65f35b6a37f99dd0fb5e4abea1c677c"
+        },
+        "fetched_main": {
+          "git_blob": "9e3eea0ecc2e743a211e6f2eea10a0805ab1c7bf",
+          "sha256": "b69ae197aee127afeb38c5d99df0ada1b65f35b6a37f99dd0fb5e4abea1c677c"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": false
+    },
+    {
+      "path": "molsysmt/basic/convert.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "9324966084dc9ce248618b6c3f9c10e5d52ce8fb",
+          "sha256": "856bce1c51cc76346d2c5a3e8cd6be727689a38e6d31965a732923a5ab3a5940"
+        },
+        "installed_checkout": {
+          "git_blob": "cb00c3bc25dcb0073fa235506481c5d9d31af1b1",
+          "sha256": "c4a714764b120ad5721a8120394b7ab35cd2c5d7e56137b73b1c27706f43ef09"
+        },
+        "fetched_main": {
+          "git_blob": "cb00c3bc25dcb0073fa235506481c5d9d31af1b1",
+          "sha256": "c4a714764b120ad5721a8120394b7ab35cd2c5d7e56137b73b1c27706f43ef09"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": false
+    },
+    {
+      "path": "molsysmt/native/molsys.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "91239648fe1ffd376bc0b908ff29a35d8dd7e3de",
+          "sha256": "d48254b7292bf2c2516c2e49ef8cfa49af91c1b1a1a6e4158e28da267afbc4a6"
+        },
+        "installed_checkout": {
+          "git_blob": "91239648fe1ffd376bc0b908ff29a35d8dd7e3de",
+          "sha256": "d48254b7292bf2c2516c2e49ef8cfa49af91c1b1a1a6e4158e28da267afbc4a6"
+        },
+        "fetched_main": {
+          "git_blob": "91239648fe1ffd376bc0b908ff29a35d8dd7e3de",
+          "sha256": "d48254b7292bf2c2516c2e49ef8cfa49af91c1b1a1a6e4158e28da267afbc4a6"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "molsysmt/form/molsysmt_MolSys/set.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "a8746cd4c9c616172749f7cf3f8d3ed09b867e93",
+          "sha256": "8a7f7413d50ad5c1a83075607300e516042bbef8f429ffa4eda484f267072e4b"
+        },
+        "installed_checkout": {
+          "git_blob": "a8746cd4c9c616172749f7cf3f8d3ed09b867e93",
+          "sha256": "8a7f7413d50ad5c1a83075607300e516042bbef8f429ffa4eda484f267072e4b"
+        },
+        "fetched_main": {
+          "git_blob": "a8746cd4c9c616172749f7cf3f8d3ed09b867e93",
+          "sha256": "8a7f7413d50ad5c1a83075607300e516042bbef8f429ffa4eda484f267072e4b"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "molsysmt/form/molsysmt_MolSys/to_string_pdbqt_text.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "caa3d5c4063e6c66e78b4f75e354eea294d0c1da",
+          "sha256": "6a1a2a1bddffa54c4d50fffe7031f1cdc449a99c63b97cbc0ea228b99c643772"
+        },
+        "installed_checkout": {
+          "git_blob": "caa3d5c4063e6c66e78b4f75e354eea294d0c1da",
+          "sha256": "6a1a2a1bddffa54c4d50fffe7031f1cdc449a99c63b97cbc0ea228b99c643772"
+        },
+        "fetched_main": {
+          "git_blob": "caa3d5c4063e6c66e78b4f75e354eea294d0c1da",
+          "sha256": "6a1a2a1bddffa54c4d50fffe7031f1cdc449a99c63b97cbc0ea228b99c643772"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "molsysmt/form/molsysmt_MolSys/to_file_pdbqt.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "3b663025230b317f1a4cf8c0bd7519c92b28aa5f",
+          "sha256": "30463b4f9d02584bb412f4cc3cf08b762f24b6d70f3d8bb910215f9c246199a1"
+        },
+        "installed_checkout": {
+          "git_blob": "3b663025230b317f1a4cf8c0bd7519c92b28aa5f",
+          "sha256": "30463b4f9d02584bb412f4cc3cf08b762f24b6d70f3d8bb910215f9c246199a1"
+        },
+        "fetched_main": {
+          "git_blob": "3b663025230b317f1a4cf8c0bd7519c92b28aa5f",
+          "sha256": "30463b4f9d02584bb412f4cc3cf08b762f24b6d70f3d8bb910215f9c246199a1"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "molsysmt/form/file_pdbqt/get_torsion_tree.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "80e45eacd3c684ee2fbebe61990cd8703ba4491f",
+          "sha256": "c6fac4c8c0c804bfaf37b61f50a0c3024b79b776c19e8ab1e25f0463528abf74"
+        },
+        "installed_checkout": {
+          "git_blob": "80e45eacd3c684ee2fbebe61990cd8703ba4491f",
+          "sha256": "c6fac4c8c0c804bfaf37b61f50a0c3024b79b776c19e8ab1e25f0463528abf74"
+        },
+        "fetched_main": {
+          "git_blob": "80e45eacd3c684ee2fbebe61990cd8703ba4491f",
+          "sha256": "c6fac4c8c0c804bfaf37b61f50a0c3024b79b776c19e8ab1e25f0463528abf74"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "molsysmt/form/file_pdbqt/to_molsysmt_MolSys.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "b9d2e7fc74feed43fe3e15805035b2b38c3f87d8",
+          "sha256": "01917a2c915cc4e623f8f3fe71a32e9a124709a914e5af27a95a982f1c14f760"
+        },
+        "installed_checkout": {
+          "git_blob": "b9d2e7fc74feed43fe3e15805035b2b38c3f87d8",
+          "sha256": "01917a2c915cc4e623f8f3fe71a32e9a124709a914e5af27a95a982f1c14f760"
+        },
+        "fetched_main": {
+          "git_blob": "b9d2e7fc74feed43fe3e15805035b2b38c3f87d8",
+          "sha256": "01917a2c915cc4e623f8f3fe71a32e9a124709a914e5af27a95a982f1c14f760"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "molsysmt/form/file_pdbqt/read_poses.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "0e83eb6e4628923e1f702594cd7fc4b296eae0a1",
+          "sha256": "401539600718ee4c93622f7c83a29fdaeebed92c114acf484e5da30420569364"
+        },
+        "installed_checkout": {
+          "git_blob": "0e83eb6e4628923e1f702594cd7fc4b296eae0a1",
+          "sha256": "401539600718ee4c93622f7c83a29fdaeebed92c114acf484e5da30420569364"
+        },
+        "fetched_main": {
+          "git_blob": "0e83eb6e4628923e1f702594cd7fc4b296eae0a1",
+          "sha256": "401539600718ee4c93622f7c83a29fdaeebed92c114acf484e5da30420569364"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "molsysmt/_private/pdbqt_writer.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "887f6789954f84af3aa807496905ea70f639a924",
+          "sha256": "218fff1dcd13418d3e69589b89cba7d542fbd5798d9b740484597a0dcfd3d8c7"
+        },
+        "installed_checkout": {
+          "git_blob": "887f6789954f84af3aa807496905ea70f639a924",
+          "sha256": "218fff1dcd13418d3e69589b89cba7d542fbd5798d9b740484597a0dcfd3d8c7"
+        },
+        "fetched_main": {
+          "git_blob": "887f6789954f84af3aa807496905ea70f639a924",
+          "sha256": "218fff1dcd13418d3e69589b89cba7d542fbd5798d9b740484597a0dcfd3d8c7"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "molsysmt/_private/pdbqt_poses.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "14e2df61b404b5f31a54a0b333b08efad8e4918e",
+          "sha256": "25ee66d2edbf9f2da345a7ba1af7f99bc9a46abc6055dcec3ad00749c46d6ef4"
+        },
+        "installed_checkout": {
+          "git_blob": "027342595ee47810e7a462fa7d125ff34f4051ed",
+          "sha256": "9cf7717fbf0ace7f9dc16089f620940cc40475055dc68dc8fa2e9710ac0e09ee"
+        },
+        "fetched_main": {
+          "git_blob": "027342595ee47810e7a462fa7d125ff34f4051ed",
+          "sha256": "9cf7717fbf0ace7f9dc16089f620940cc40475055dc68dc8fa2e9710ac0e09ee"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": false
+    },
+    {
+      "path": "molsysmt/chemical_states/get_atom_correspondences.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "d5a105dca0601098cf24194a227efbd282dded7c",
+          "sha256": "1fd9c0202e352ba9e02ea212547f797d6d79cbb95217b4dacc07bffb56926762"
+        },
+        "installed_checkout": {
+          "git_blob": "d5a105dca0601098cf24194a227efbd282dded7c",
+          "sha256": "1fd9c0202e352ba9e02ea212547f797d6d79cbb95217b4dacc07bffb56926762"
+        },
+        "fetched_main": {
+          "git_blob": "d5a105dca0601098cf24194a227efbd282dded7c",
+          "sha256": "1fd9c0202e352ba9e02ea212547f797d6d79cbb95217b4dacc07bffb56926762"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "molsysmt/chemical_states/_atom_correspondences.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "6d13c2b132333891fd6df0f6628a06e55db5a578",
+          "sha256": "1f47fabf6ec8137e8700fa8d1a7c8056f94ff0c20c5e634d29d48a11c7cc5671"
+        },
+        "installed_checkout": {
+          "git_blob": "6d13c2b132333891fd6df0f6628a06e55db5a578",
+          "sha256": "1f47fabf6ec8137e8700fa8d1a7c8056f94ff0c20c5e634d29d48a11c7cc5671"
+        },
+        "fetched_main": {
+          "git_blob": "6d13c2b132333891fd6df0f6628a06e55db5a578",
+          "sha256": "1f47fabf6ec8137e8700fa8d1a7c8056f94ff0c20c5e634d29d48a11c7cc5671"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "molsysmt/chemical_states/_chemical_graph.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "80c4bedf71fdaf3d927b9a1f33a36ac6bdd93c42",
+          "sha256": "4742277fede77fde5e63108f3fcae2b5ea9ef411b093720237cee67322e08091"
+        },
+        "installed_checkout": {
+          "git_blob": "49e45122a491b672f6d7c4da6d925c38bf5b1781",
+          "sha256": "4430f40e7af0b8ce9bcd831f08b9cd415a95254e75646b9def3ef3dcb2ef9e80"
+        },
+        "fetched_main": {
+          "git_blob": "49e45122a491b672f6d7c4da6d925c38bf5b1781",
+          "sha256": "4430f40e7af0b8ce9bcd831f08b9cd415a95254e75646b9def3ef3dcb2ef9e80"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": false
+    },
+    {
+      "path": "molsysmt/basic/compare.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "2116f4cbf8ea6ecb2778386198d7eb2bc37da224",
+          "sha256": "fb2cc6dcaf9c5c83709603534e850ac918b9e39284f28f27758fbcadbf295940"
+        },
+        "installed_checkout": {
+          "git_blob": "2116f4cbf8ea6ecb2778386198d7eb2bc37da224",
+          "sha256": "fb2cc6dcaf9c5c83709603534e850ac918b9e39284f28f27758fbcadbf295940"
+        },
+        "fetched_main": {
+          "git_blob": "2116f4cbf8ea6ecb2778386198d7eb2bc37da224",
+          "sha256": "fb2cc6dcaf9c5c83709603534e850ac918b9e39284f28f27758fbcadbf295940"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "tests/topology/test_get_atom_correspondences.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "80cd2710f28ed1fcbc71f4084594b258c24656ff",
+          "sha256": "9739e35a0b859dda43ce263cc616584c6df2bb6e194a4973f66d7cb342d04f10"
+        },
+        "installed_checkout": {
+          "git_blob": "80cd2710f28ed1fcbc71f4084594b258c24656ff",
+          "sha256": "9739e35a0b859dda43ce263cc616584c6df2bb6e194a4973f66d7cb342d04f10"
+        },
+        "fetched_main": {
+          "git_blob": "80cd2710f28ed1fcbc71f4084594b258c24656ff",
+          "sha256": "9739e35a0b859dda43ce263cc616584c6df2bb6e194a4973f66d7cb342d04f10"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "tests/form/file_pdbqt/test_native_contract.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "a4df8b19ed58bcdba4709d41e1c90b3f533863fe",
+          "sha256": "595641880eeec238e3c6bf3423af8e0afb266c2e34ef2a4f5ee54afdbb6d09e6"
+        },
+        "installed_checkout": {
+          "git_blob": "a4df8b19ed58bcdba4709d41e1c90b3f533863fe",
+          "sha256": "595641880eeec238e3c6bf3423af8e0afb266c2e34ef2a4f5ee54afdbb6d09e6"
+        },
+        "fetched_main": {
+          "git_blob": "a4df8b19ed58bcdba4709d41e1c90b3f533863fe",
+          "sha256": "595641880eeec238e3c6bf3423af8e0afb266c2e34ef2a4f5ee54afdbb6d09e6"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "tests/form/file_pdbqt/test_real_vina_examples.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "06097e64c4de820a52c3918cf3d8282ae9dcf455",
+          "sha256": "e48eb9de99ac545050ba67c68cdd94afb5e92101a1a68896f5e94ca527dd68b3"
+        },
+        "installed_checkout": {
+          "git_blob": "06097e64c4de820a52c3918cf3d8282ae9dcf455",
+          "sha256": "e48eb9de99ac545050ba67c68cdd94afb5e92101a1a68896f5e94ca527dd68b3"
+        },
+        "fetched_main": {
+          "git_blob": "06097e64c4de820a52c3918cf3d8282ae9dcf455",
+          "sha256": "e48eb9de99ac545050ba67c68cdd94afb5e92101a1a68896f5e94ca527dd68b3"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    },
+    {
+      "path": "tests/form/file_pdbqt/test_output_presentation.py",
+      "identities": {
+        "qualified_pin": {
+          "git_blob": "033a832f82fe230c7f85d3a361072c7e31e30a86",
+          "sha256": "566d84e8b93ed107207a25fe99d18395448f09da0405f72190a09ff22cc3a12d"
+        },
+        "installed_checkout": {
+          "git_blob": "033a832f82fe230c7f85d3a361072c7e31e30a86",
+          "sha256": "566d84e8b93ed107207a25fe99d18395448f09da0405f72190a09ff22cc3a12d"
+        },
+        "fetched_main": {
+          "git_blob": "033a832f82fe230c7f85d3a361072c7e31e30a86",
+          "sha256": "566d84e8b93ed107207a25fe99d18395448f09da0405f72190a09ff22cc3a12d"
+        }
+      },
+      "installed_equals_fetched": true,
+      "qualified_equals_fetched": true
+    }
+  ],
+  "consumer_source_files": [
+    {
+      "path": "dockingmt/preparation/_export.py",
+      "sha256": "1dfd502efb4d61738fe272e4dbff4d79100e014ba417db1024a18d41da93da3f"
+    },
+    {
+      "path": "dockingmt/preparation/ligand.py",
+      "sha256": "818fa0cb42124baf8ac3e13e352e051c076add04ba5c36f22de872a06162298f"
+    },
+    {
+      "path": "dockingmt/core/results.py",
+      "sha256": "25bf89b023021230b5bac8fd72426acdb5c820e00bab1608574f4d2985e28ad4"
+    },
+    {
+      "path": "dockingmt/engines/_vina_scoring.py",
+      "sha256": "8ceb5360f10b068c46c393ca8bf7a092601d6cd4c6e2c4533cf7c707c44b8679"
+    },
+    {
+      "path": "dockingmt/core/_scores.py",
+      "sha256": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136"
+    },
+    {
+      "path": "tests/test_scoring_reference.py",
+      "sha256": "1da9f747f52b04fab178d27399beb74025d806580cdb96a55bdf1de8361f92fd"
+    },
+    {
+      "path": "devguide/validation/scoring_reference.md",
+      "sha256": "d833f2a125e2b9733b31cce033d0810d5919519deda40458edef02020ae2a545"
+    }
+  ],
+  "issue_states_observed": [
+    {
+      "issue": "uibcdf/molsysmt#599",
+      "state": "open",
+      "updated_at": "2026-11-06T09:49:44Z"
+    },
+    {
+      "issue": "uibcdf/molsysmt#447",
+      "state": "open",
+      "updated_at": "2026-11-06T07:43:15Z"
+    },
+    {
+      "issue": "uibcdf/molsysmt#521",
+      "state": "open",
+      "updated_at": "2026-10-28T20:38:57Z"
+    },
+    {
+      "issue": "uibcdf/dockingmt#78",
+      "state": "open",
+      "updated_at": "2026-11-06T08:20:17Z"
+    }
+  ],
+  "disposition": {
+    "projection": "Existing public copy/set/convert and explicit tree/map composition is a static candidate; exact workflow receiving remains pending.",
+    "identity": "Existing declared-graph correspondence may cover a complete single-component profile; partial PDBQT is not sufficient chemical authority.",
+    "comparison": "Separate study admission remains to be specified; exact-context rank_by and original per-pose input hashes remain unchanged.",
+    "provider_pin_changed": false,
+    "provider_checkout_changed": false,
+    "scientific_operations": 0,
+    "runtime_imports": 0,
+    "e1_accepted": false,
+    "scope_limit": "Blob equality is source evidence only; dispatcher and graph-context changes prevent claiming complete runtime equivalence."
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "counts": {
+    "audit_pose": 4,
+    "audit_result": 4,
+    "detachment_controls": 4,
+    "from_dict": 8,
+    "reader_policies": 2,
+    "result_roundtrips": 4
+  },
+  "distinct_native_populations": 1,
+  "excluded_operation_basis": "Inspected record-only public result admission, audits and quantity serialization; no molecular/native counter hooks.",
+  "full_e1_accepted": false,
+  "geometry_swap_receiving": false,
+  "installed_origin_hook_used": true,
+  "multi_pose_receiving": false,
+  "native_registration_owner": "uibcdf/dockingmt#78",
+  "new_empirical_values": 0,
+  "new_molecular_operations": 0,
+  "new_vina_calls": 0,
+  "optional_engine_or_viewer_modules_present": false,
+  "original_docking_ranking_preserved": true,
+  "owner": "uibcdf/dockingmt#78",
+  "positive_comparison_policy_received": false,
+  "preserved_poses": [
+    {
+      "fixed_score_histories": 2,
+      "original_fields_preserved": true,
+      "original_scores": 4,
+      "pose_id": "pose_1",
+      "rank": 1,
+      "retained_new_scores": 16,
+      "source_position": 1
+    }
+  ],
+  "profiles": [
+    {
+      "audits": {
+        "source": {
+          "checks": 86,
+          "status": "consistent"
+        },
+        "updated": {
+          "checks": 486,
+          "status": "consistent"
+        }
+      },
+      "canonical_roundtrips": true,
+      "detached_snapshots": true,
+      "fixed_histories_per_pose": 2,
+      "input_records_unchanged": true,
+      "original_scores_per_pose": 4,
+      "poses": 1,
+      "preserved_backend_ranking_history": true,
+      "profile": "normal",
+      "updated_scores_per_pose": 20
+    },
+    {
+      "audits": {
+        "source": {
+          "checks": 86,
+          "status": "consistent"
+        },
+        "updated": {
+          "checks": 486,
+          "status": "consistent"
+        }
+      },
+      "canonical_roundtrips": true,
+      "detached_snapshots": true,
+      "fixed_histories_per_pose": 2,
+      "input_records_unchanged": true,
+      "original_scores_per_pose": 4,
+      "poses": 1,
+      "preserved_backend_ranking_history": true,
+      "profile": "pm_fs",
+      "updated_scores_per_pose": 20
+    }
+  ],
+  "python": "3.14.10",
+  "reader_policy_repetitions": 2,
+  "schema": "dockingmt.e1_single_pose_record_adjudication@1",
+  "scope": "Fresh JSON receiving of preserved docking observations and additive fixed-score histories; no molecular restoration, new computation, ordering or full E1 acceptance.",
+  "source_files_unchanged": true,
+  "source_generation_qualification": "failed_after_portable_completion_on_wrong_standalone_expectation",
+  "source_manifest_sha256": "1819e5f0f8f60193a548c9e99c87c82a25c5edafdbec66adbea9d2c607d6d79a",
+  "source_registration_sha256": "8f65151a766928eafe62e16ebeacef282b37dbe7f8eb9102a0f27a5074a0e76c",
+  "standalone_old_docking_origins": "incomplete_only_for_original_four_scores",
+  "state_negative_receiving": false,
+  "verified_stored_files": 28,
+  "versions": {
+    "dockingmt": "0.0.0+295.g2fda623",
+    "molsysmt": "0.23.0+513.g9e1f1b1ad",
+    "pyunitwizard": "0.29.1+6.gf82b618"
+  }
+}

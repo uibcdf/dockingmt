@@ -1,0 +1,340 @@
+"""Build private wheels from unchanged local HEADs; never import product code."""
+
+from __future__ import annotations
+
+import email.parser
+import hashlib
+import importlib.metadata
+import json
+import os
+from pathlib import Path, PurePosixPath
+import resource
+import shutil
+import signal
+import subprocess
+import sys
+import tempfile
+import time
+import traceback
+import zipfile
+
+
+ROOT = Path('/fast_data/home/liliana/repos@uibcdf/dockingmt')
+REPOS = ROOT.parent
+ROUTINE = Path('/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14')
+PYTHON = ROUTINE / 'bin/python'
+SITE = ROUTINE / 'lib/python3.14/site-packages'
+TASK = ROOT / '.molsyssuite/e1-installed-20261106'
+TARGET = TASK / 'site-packages'
+NAMES = ['dockingmt', 'argdigest', 'pyunitwizard', 'depdigest', 'smonitor', 'ackredit', 'molsysmt']
+RESERVE = 8 * 1024**3
+RSS_LIMIT = 1024**3
+AS_LIMIT = 2 * 1024**3
+
+
+def sha_bytes(value):
+    return hashlib.sha256(value).hexdigest()
+
+
+def sha_file(path):
+    with path.open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def write(path, value):
+    temp = path.with_suffix(path.suffix + '.tmp')
+    temp.write_text(json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + '\n')
+    temp.replace(path)
+
+
+def available():
+    return int(next(line.split()[1] for line in Path('/proc/meminfo').read_text().splitlines()
+                    if line.startswith('MemAvailable:'))) * 1024
+
+
+def git(path, *arguments):
+    return subprocess.check_output(['git', '-C', str(path), *arguments], text=True).strip()
+
+
+def runtime_status(path, name):
+    tracked = git(path, 'status', '--porcelain', '--untracked-files=no')
+    if name != 'dockingmt':
+        if tracked:
+            raise RuntimeError('Provider has tracked modifications: ' + name)
+    else:
+        changed = git(path, 'diff', '--name-only', 'HEAD').splitlines()
+        if any(not item.startswith('devguide/') for item in changed):
+            raise RuntimeError('DockingMT has changes outside development documentation')
+    return tracked
+
+
+def package_version(name):
+    matches = [dist for dist in importlib.metadata.distributions(path=[str(SITE)])
+               if dist.metadata['Name'].replace('_', '-').lower() == name]
+    if len(matches) != 1:
+        raise RuntimeError('Ambiguous routine metadata for ' + name)
+    return matches[0].version
+
+
+def group_rss(group):
+    total = 0
+    owned = 0
+    for directory in Path('/proc').iterdir():
+        if not directory.name.isdigit():
+            continue
+        try:
+            tail = (directory / 'stat').read_text().rsplit(') ', 1)[1].split()
+            if int(tail[2]) != group:
+                continue
+            owned += 1
+            fields = (directory / 'status').read_text().splitlines()
+            entry = next((line for line in fields if line.startswith('VmRSS:')), None)
+            if entry is not None:
+                total += int(entry.split()[1]) * 1024
+        except (FileNotFoundError, ProcessLookupError, PermissionError):
+            continue
+    return total, owned
+
+
+def child_limits():
+    os.sched_setaffinity(0, {0})
+    current = os.getpriority(os.PRIO_PROCESS, 0)
+    if current < 10:
+        os.nice(10 - current)
+    resource.setrlimit(resource.RLIMIT_AS, (AS_LIMIT, AS_LIMIT))
+
+
+def run(label, arguments, cwd, env, wall=180):
+    before = available()
+    if before < RESERVE + RSS_LIMIT:
+        raise RuntimeError('Insufficient RAM headroom before ' + label)
+    log = TASK / 'logs' / (label + '.log')
+    started = time.monotonic()
+    peak = 0
+    maximum_processes = 0
+    minimum = before
+    interruption = None
+    with log.open('xb') as stream:
+        process = subprocess.Popen(arguments, cwd=cwd, env=env, stdout=stream,
+                                   stderr=subprocess.STDOUT, start_new_session=True,
+                                   preexec_fn=child_limits)
+        while process.poll() is None:
+            memory = available()
+            minimum = min(minimum, memory)
+            resident, processes = group_rss(process.pid)
+            peak = max(peak, resident)
+            maximum_processes = max(maximum_processes, processes)
+            if memory < RESERVE:
+                interruption = 'available_RAM_reserve_threatened'
+            elif resident > RSS_LIMIT:
+                interruption = 'owned_process_group_RSS_limit'
+            elif time.monotonic() - started > wall:
+                interruption = 'wall_limit'
+            if interruption:
+                os.killpg(process.pid, signal.SIGTERM)
+                try:
+                    process.wait(timeout=2)
+                except subprocess.TimeoutExpired:
+                    os.killpg(process.pid, signal.SIGKILL)
+                    process.wait()
+                break
+            time.sleep(0.1)
+    code = process.wait()
+    result = dict(label=label, arguments=[str(value) for value in arguments],
+                  cwd=str(cwd), exit_code=code,
+                  termination_signal=-code if code < 0 else None,
+                  elapsed_seconds=time.monotonic() - started,
+                  resource_interruption=interruption,
+                  sampled_peak_group_rss_bytes=peak,
+                  minimum_available_bytes=minimum,
+                  maximum_observed_owned_processes=maximum_processes,
+                  log=str(log.relative_to(TASK)))
+    report['operations'].append(result)
+    flush()
+    print(json.dumps(dict(label=label, exit_code=code,
+                          elapsed_seconds=result['elapsed_seconds'],
+                          resource_interruption=interruption)), flush=True)
+    if interruption:
+        raise RuntimeError('Resource interruption; no automatic retry: ' + interruption)
+    return result
+
+
+def source_inventory(clone):
+    records = {}
+    content = subprocess.check_output(['git', '-C', str(clone), 'ls-tree', '-rz', '--full-tree', 'HEAD'])
+    for entry in content.split(b'\0'):
+        if not entry:
+            continue
+        header, name = entry.split(b'\t', 1)
+        mode, kind, blob = header.decode().split()
+        name = os.fsdecode(name)
+        path = clone / name
+        if kind != 'blob':
+            raise RuntimeError('Submodule requires separate receiving: ' + name)
+        data = os.fsencode(os.readlink(path)) if mode == '120000' else path.read_bytes()
+        git_digest = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+        if git_digest != blob:
+            raise RuntimeError('Git blob mismatch: ' + name)
+        records[name] = dict(git_blob_sha1=blob, sha256=sha_bytes(data), bytes=len(data), mode=mode)
+    return records
+
+
+def wheel_record(path, source):
+    with zipfile.ZipFile(path) as stream:
+        files = [name for name in stream.namelist() if not name.endswith('/')]
+        if len(files) != len(set(files)):
+            raise RuntimeError('Duplicate wheel member')
+        for name in files:
+            parts = PurePosixPath(name)
+            if parts.is_absolute() or '..' in parts.parts:
+                raise RuntimeError('Unsafe wheel member')
+        metadata_names = [name for name in files if name.endswith('.dist-info/METADATA')]
+        if len(metadata_names) != 1:
+            raise RuntimeError('Ambiguous wheel metadata')
+        metadata = email.parser.Parser().parsestr(stream.read(metadata_names[0]).decode())
+        if metadata['Name'] != source['name'] or metadata['Version'] != source['expected_version']:
+            raise RuntimeError('Built version/name differ from unchanged routine source metadata')
+        hashes = {name: sha_bytes(stream.read(name)) for name in files}
+        payload = {name: digest for name, digest in hashes.items() if '.dist-info/' not in name}
+        if any(name.startswith(('dmt_test_support/', 'devtools/')) for name in payload):
+            raise RuntimeError('Unshipped support leaked into runtime wheel')
+        record = dict(name=metadata['Name'], version=metadata['Version'], filename=path.name,
+                      path=str(path), sha256=sha_file(path), bytes=path.stat().st_size,
+                      source_commit=source['commit'], source_tree=source['tree'],
+                      payload=payload, wheel_members=hashes,
+                      requires_python=metadata['Requires-Python'],
+                      requires_dist=metadata.get_all('Requires-Dist', []))
+        return record
+
+
+def flush():
+    write(TASK / 'preparation.json', report)
+
+
+if TASK.exists():
+    raise SystemExit('Refusing to overwrite an existing task directory: ' + str(TASK))
+TASK.mkdir(parents=True)
+(TASK / 'logs').mkdir()
+(TASK / 'sources').mkdir()
+(TASK / 'wheels').mkdir()
+shutil.copyfile(__file__, TASK / 'prepare_installed.py')
+scratch = Path(tempfile.mkdtemp(prefix='dockingmt-e1-installed-build-', dir='/tmp'))
+report = dict(schema='dockingmt.e1_private_installed_preparation@1', owner='uibcdf/dockingmt#78',
+              task_directory=str(TASK), private_target=str(TARGET), build_scratch=str(scratch),
+              status='preparing', ready_for_scientific_worker=False,
+              no_scientific_imports_or_evaluations_requested=True,
+              sources=[], wheels=[], operations=[], targethashes={},
+              resource_policy=dict(allowed_cpu=0, nice=10, workers=1,
+                                   available_reserve_bytes=RESERVE,
+                                   owned_process_group_rss_limit_bytes=RSS_LIMIT,
+                                   per_process_address_space_limit_bytes=AS_LIMIT,
+                                   monitor_interval_seconds=0.1, automatic_retry=False),
+              scope='Private ordinary wheels from exact local HEADs; no release, public closure, molecular import or scientific execution')
+flush()
+environment = os.environ.copy()
+for variable in ['OMP_NUM_THREADS', 'OMP_THREAD_LIMIT', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS',
+                 'NUMEXPR_NUM_THREADS', 'BLIS_NUM_THREADS', 'RAYON_NUM_THREADS',
+                 'CARGO_BUILD_JOBS', 'MAX_JOBS']:
+    environment[variable] = '1'
+environment.update(PATH=str(ROUTINE / 'bin') + os.pathsep + environment.get('PATH', ''),
+                   PYTHONDONTWRITEBYTECODE='1', PIP_DISABLE_PIP_VERSION_CHECK='1',
+                   PIP_NO_INDEX='1', PIP_CACHE_DIR=str(TASK / 'pip-cache'),
+                   CARGO_NET_OFFLINE='true', CARGO_HOME=str(TASK / 'cargo-home'),
+                   CARGO_TARGET_DIR=str(TASK / 'rust-target'), TMPDIR=str(scratch),
+                   XDG_CACHE_HOME=str(TASK / 'cache'),
+                   CC='/usr/bin/gcc', CXX='/usr/bin/g++',
+                   CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER='/usr/bin/gcc')
+
+try:
+    if 0 not in os.sched_getaffinity(0):
+        raise RuntimeError('CPU 0 is not allowed')
+    for name in NAMES:
+        original = REPOS / name
+        source = dict(name=name, original_checkout=str(original),
+                      commit=git(original, 'rev-parse', 'HEAD'),
+                      tree=git(original, 'rev-parse', 'HEAD^{tree}'),
+                      tracked_status_before=runtime_status(original, name),
+                      expected_version=package_version(name))
+        report['sources'].append(source)
+        flush()
+        clone = scratch / name
+        result = run('clone-' + name,
+                     ['git', '-c', 'gc.auto=0', 'clone', '--shared', '--no-hardlinks',
+                      '--no-checkout', str(original), str(clone)], scratch, environment)
+        if result['exit_code']:
+            raise RuntimeError('Local clone failed: ' + name)
+        result = run('checkout-' + name,
+                     ['git', '-C', str(clone), 'checkout', '--detach', source['commit']],
+                     scratch, environment)
+        if result['exit_code'] or git(clone, 'status', '--porcelain'):
+            raise RuntimeError('Detached clone is not clean: ' + name)
+        files = source_inventory(clone)
+        inventory_path = TASK / 'sources' / (name + '.json')
+        write(inventory_path, dict(commit=source['commit'], tree=source['tree'], files=files))
+        source['source_file_inventory'] = str(inventory_path.relative_to(TASK))
+        source['source_file_inventory_sha256'] = sha_file(inventory_path)
+        source['tracked_file_count'] = len(files)
+        wheel_dir = TASK / 'wheels' / name
+        wheel_dir.mkdir()
+        result = run('build-' + name,
+                     [str(PYTHON), '-I', '-B', '-m', 'build', '--wheel', '--no-isolation',
+                      '--outdir', str(wheel_dir), str(clone)], scratch, environment,
+                     wall=600 if name == 'molsysmt' else 180)
+        source['build_exit_code'] = result['exit_code']
+        if result['exit_code']:
+            source['build_failure_preserved'] = True
+            report['status'] = 'partial_build_failure'
+            if name != 'molsysmt':
+                raise RuntimeError('Pure Python build failed: ' + name)
+            break
+        produced = list(wheel_dir.glob('*.whl'))
+        if len(produced) != 1:
+            raise RuntimeError('Expected one wheel: ' + name)
+        report['wheels'].append(wheel_record(produced[0], source))
+        flush()
+    if report['wheels']:
+        result = run('install-private-wheels',
+                     [str(PYTHON), '-I', '-B', '-m', 'pip', 'install', '--no-deps',
+                      '--no-index', '--no-compile', '--target', str(TARGET),
+                      '--report', str(TASK / 'pip-install-report.json'),
+                      *[item['path'] for item in report['wheels']]], scratch, environment)
+        if result['exit_code']:
+            raise RuntimeError('Private target installation failed')
+        hashes = {}
+        for path in sorted(TARGET.rglob('*')):
+            if path.is_file():
+                if path.is_symlink():
+                    raise RuntimeError('Unexpected symlink in target')
+                hashes[str(path.relative_to(TARGET))] = sha_file(path)
+        for item in report['wheels']:
+            for name, digest in item['payload'].items():
+                if hashes.get(name) != digest:
+                    raise RuntimeError('Installed wheel payload mismatch: ' + name)
+        report['targethashes'] = hashes
+        report['installed_wheel_payloads_verified'] = True
+    for source in report['sources']:
+        source['tracked_status_after'] = runtime_status(Path(source['original_checkout']), source['name'])
+        source['original_commit_after'] = git(Path(source['original_checkout']), 'rev-parse', 'HEAD')
+        if source['original_commit_after'] != source['commit']:
+            raise RuntimeError('Original checkout HEAD changed during preparation')
+    if len(report['wheels']) == len(NAMES):
+        report['status'] = 'ready'
+        report['ready_for_scientific_worker'] = True
+        shutil.rmtree(scratch)
+        report['build_clones_retired'] = True
+    else:
+        report['build_clones_retired'] = False
+        report['next_step'] = 'Review native build failure; no retry, old-binary wheel or provider fallback is authorized by this script'
+    flush()
+except BaseException as error:
+    report['status'] = 'interrupted' if any(item.get('resource_interruption') for item in report['operations']) else 'failed'
+    report['exception'] = dict(type=type(error).__name__, message=str(error))
+    report['build_clones_retired'] = False
+    flush()
+    traceback.print_exc()
+    raise SystemExit(1)
+
+print(json.dumps(dict(status=report['status'], target=str(TARGET), wheels=len(report['wheels']),
+                      manifest=str(TASK / 'preparation.json'),
+                      ready_for_scientific_worker=report['ready_for_scientific_worker'])), flush=True)
+raise SystemExit(0 if report['ready_for_scientific_worker'] else 2)

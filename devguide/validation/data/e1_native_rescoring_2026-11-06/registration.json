@@ -1,0 +1,104 @@
+{
+  "schema": "dockingmt.e1_native_rescoring_registration@1",
+  "owner": "uibcdf/dockingmt#78",
+  "registered_at_utc": "2026-11-06T22:07:20.313542+00:00",
+  "status_at_registration": "prospective",
+  "consumer_runtime_source": "2fda6238e6b1cb3742f5d30b8ed3af699f9ed748",
+  "provider_runtime_source": "9e1f1b1ad8bf09446374ab6f04ca7208e2717936",
+  "provider_checkout_clean": true,
+  "selected_engine_artifacts": [
+    {
+      "filename": "vina-1.2.7-py314ha160325_0.conda",
+      "sha256": "9a337ada583bf92635f34211c7c3dc47249b0bd85b912432a53b46f4e795d824",
+      "url": "https://conda.anaconda.org/conda-forge/linux-64/vina-1.2.7-py314ha160325_0.conda"
+    },
+    {
+      "filename": "libboost-1.86.0-hd24cca6_5.conda",
+      "sha256": "a17ae9fd2af96eac7c29072b3e345ec3c2af42f18e33102633ab4440c1168ef7",
+      "url": "https://conda.anaconda.org/conda-forge/linux-64/libboost-1.86.0-hd24cca6_5.conda"
+    }
+  ],
+  "installed_conda_record_sha256": {
+    "conda-meta/libboost-1.86.0-hd24cca6_5.json": "6be3733d3f11b595946b9f41f76ae2cc287859eaccaacda7e7a22e0e756cebf8",
+    "conda-meta/vina-1.2.7-py314ha160325_0.json": "942fa7b8c0817cd7a41a4c8348ea8b15234f6abb45100d5c6b3b86951ff66dc4"
+  },
+  "engine_overlay": ".molsyssuite/e1-native-rescoring-20261106/backend-overlay",
+  "monitored_direct_consumer_budgets": {
+    "qualification_constructors": 2,
+    "score_attempts": 10,
+    "score_returned": 10,
+    "score_checked": 10,
+    "convert": 5,
+    "get": 5,
+    "audit_pose": 10,
+    "pose_roundtrip": 10,
+    "audit_result": 1,
+    "ranking_refusals": 2
+  },
+  "source_context": "Selected routine source runtime borrowing a verified task-local Vina/Boost overlay; native fixed scoring, not ordinary-installed/public qualification.",
+  "notebook": {
+    "path": "devguide/validation/e1_native_rescoring.ipynb",
+    "sha256": "7b8e335de453b0f4ad11ca88305fbab99c3da804f87657f0c849375bca5ba626",
+    "code_cells": [
+      {
+        "id": "e1-native-01",
+        "sha256": "e6bb0dcc6e29cd0558648415aefb6a58692f1fae127e6ec5af5aee713466db45"
+      },
+      {
+        "id": "e1-native-02",
+        "sha256": "e68b9f73f08853b614bacdb3f8f9a18e6515617404827430263296a88b7a34e9"
+      },
+      {
+        "id": "e1-native-03",
+        "sha256": "2adf3edc7001bc66189285130d731fb2237b81b266e6999e3008514b632b0412"
+      },
+      {
+        "id": "e1-native-04",
+        "sha256": "f31aa00949c14e557b4bb728788a36d56b7d0c21b89478e92cfabbd416259eb9"
+      }
+    ]
+  },
+  "prescription": {
+    "path": "devguide/validation/e1_native_rescoring_2026-11-06.md",
+    "sha256_at_registration": "dfb850f0fc617f68521faabd782f95bd9e482bf8b7f053d84de58b7169bc49c2"
+  },
+  "inputs": [
+    {
+      "path": "devguide/validation/data/e1_complete_pose_2026-11-06/manifest.json",
+      "bytes": 79776,
+      "sha256": "45b3665ba09b6979aa1bcdf1bea0ac3e8102f081fefbfc51348c55bc71405df3"
+    },
+    {
+      "path": "devguide/validation/data/e1_complete_pose_2026-11-06/prospective_scoring_contract.json",
+      "bytes": 11045,
+      "sha256": "a5682a68e1054292373cdbd3996d9581acb00c4121458755baf87a9873e064b6"
+    }
+  ],
+  "population": {
+    "poses": 5,
+    "methods": [
+      "vina",
+      "vinardo"
+    ],
+    "qualification_constructors": 2,
+    "score_attempts": 10,
+    "expected_new_values": 80,
+    "unit_policy": "One nondefault pm/fs/coulomb/kJ-per-mol native population"
+  },
+  "resource_policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_before_bytes": 51611156480,
+    "available_reserve_bytes": 8589934592,
+    "task_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90,
+    "reserve_poll_seconds": 0.1,
+    "automatic_retry": false
+  },
+  "failure_policy": "Stop unexpected outcomes, preserve all attempts; no automatic resource retry, molecular repair or history codec.",
+  "claim_limit": "Ten fixed-score evaluations on exact already-prepared inputs; borrowed development composition, no historical energy equivalence, scientific ranking, independent accuracy or full E1.",
+  "local_e4_hold_preserved": true
+}

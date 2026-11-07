@@ -1,0 +1,187 @@
+{
+  "schema": "dockingmt.e1_declared_authority_evidence@1",
+  "owner": "uibcdf/dockingmt#78",
+  "notebook_sha256": "b75d9576dad9aebb58f3149482fcc041e959fc33a8e1ee2180b886a32932ba31",
+  "files": [
+    {
+      "path": "normal/declared_authority9.h5msm.gz",
+      "bytes": 6088,
+      "sha256": "b518b813738fe5e9e5d72817858359d0320e321ce425fcf04af0354a10d16575",
+      "original_path": "normal/declared_authority9.h5msm",
+      "decoded_bytes": 135048,
+      "decoded_sha256": "fd01a684d624e8abaa19ee6d16d62ab0b84927c3abd74d5bbd5dcc3881c712b7",
+      "transport": "gzip only; original producer bytes retained"
+    },
+    {
+      "path": "normal/declared_axis_map.json",
+      "bytes": 993,
+      "sha256": "dc700f1bfa80f2a98d802a231a35ebca0b695855ace08f6042096227735835ff"
+    },
+    {
+      "path": "normal/nonidentity_axis_report.json",
+      "bytes": 993,
+      "sha256": "dc42b174140043001511be0b18cf925dbed8278584472ae48e86fe7c9cb3906b"
+    },
+    {
+      "path": "normal/nonidentity_map_witness.json",
+      "bytes": 5623,
+      "sha256": "4f518800f4899c12ab5626aa1a6d4826e067258412467d78df088fe9ffea40b7"
+    },
+    {
+      "path": "normal/observations.json",
+      "bytes": 11704,
+      "sha256": "315098fc980575feb2d87d56d4701b98772294321de3f01e839db8a82f843018"
+    },
+    {
+      "path": "normal/pose_1_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "normal/pose_2_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "normal/pose_3_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "normal/pose_4_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "normal/pose_5_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "normal/roundtrip_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "normal/source_readiness.json",
+      "bytes": 15001,
+      "sha256": "9eeacb77925038c49160e7ebe47120ca3cce872c1b8c1c100bbe29d03835f6f2"
+    },
+    {
+      "path": "pm_fs/declared_authority9.h5msm.gz",
+      "bytes": 6088,
+      "sha256": "44d27c0caa1a68563efd3c05cd1d09cd77f1d955069aa59f846da173284f0a32",
+      "original_path": "pm_fs/declared_authority9.h5msm",
+      "decoded_bytes": 135048,
+      "decoded_sha256": "e741a764de1bd2e5efc94312069471059bea35214f00e1a6effcc5a14d6090ec",
+      "transport": "gzip only; original producer bytes retained"
+    },
+    {
+      "path": "pm_fs/declared_axis_map.json",
+      "bytes": 993,
+      "sha256": "dc700f1bfa80f2a98d802a231a35ebca0b695855ace08f6042096227735835ff"
+    },
+    {
+      "path": "pm_fs/nonidentity_axis_report.json",
+      "bytes": 993,
+      "sha256": "dc42b174140043001511be0b18cf925dbed8278584472ae48e86fe7c9cb3906b"
+    },
+    {
+      "path": "pm_fs/nonidentity_map_witness.json",
+      "bytes": 5623,
+      "sha256": "4f518800f4899c12ab5626aa1a6d4826e067258412467d78df088fe9ffea40b7"
+    },
+    {
+      "path": "pm_fs/observations.json",
+      "bytes": 12387,
+      "sha256": "803ec01282a61addfa82f91fc5fccadb705b0459788ca62d6822f17d316efc9a"
+    },
+    {
+      "path": "pm_fs/pose_1_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "pm_fs/pose_2_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "pm_fs/pose_3_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "pm_fs/pose_4_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "pm_fs/pose_5_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "pm_fs/roundtrip_witness.json",
+      "bytes": 5623,
+      "sha256": "63a377a57f892e0da2a63d0aa3db4655809d0e5f2a6d5a6a5772e2a1f4de98de"
+    },
+    {
+      "path": "pm_fs/source_readiness.json",
+      "bytes": 15001,
+      "sha256": "9eeacb77925038c49160e7ebe47120ca3cce872c1b8c1c100bbe29d03835f6f2"
+    },
+    {
+      "path": "receipt.json",
+      "bytes": 30878,
+      "sha256": "5650233f802b87b3b822189545220e3b076562e35e8161ff21b9fe445872a5c8"
+    },
+    {
+      "path": "source_selection.json.gz",
+      "bytes": 10909,
+      "sha256": "9d3404210748f3e647026dab9a3fa5dc549a8afb8b5ac0f790d8f0c484b2b01f",
+      "original_path": "source_selection.json",
+      "decoded_bytes": 274817,
+      "decoded_sha256": "7bbd9ce5d171f2736d1cbd6511ed55db8f5e89c895211ee370d263dc9e3d43ea",
+      "transport": "gzip only; original producer bytes retained"
+    },
+    {
+      "path": "registration.json",
+      "bytes": 4480,
+      "sha256": "c1a0a57322311e76580761f9c5aabc7da982568fb5add1a3ee5742d2ac613436"
+    },
+    {
+      "path": "registered_prescription.md",
+      "bytes": 7323,
+      "sha256": "1caa921408deb313141e35b6f2ba84b2d2067afa6bcabede3f6166b161ebc2bb"
+    },
+    {
+      "path": "worker.py.txt",
+      "bytes": 1444,
+      "sha256": "520b65739d532df968993a35fcfd85c364a3f2bcb35fd4211391df30c4405c15"
+    },
+    {
+      "path": "resource-outcome.json",
+      "bytes": 264,
+      "sha256": "7626be09b52b8f5bb3f5dd41de26dea3176db99efcc04049796dab056bccf761"
+    },
+    {
+      "path": "progress.jsonl",
+      "bytes": 1261,
+      "sha256": "bbaadfcb707217dea7b95ff96be9d334f79b7731771ef503068ca1f404c231c2"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 149,
+      "sha256": "471a5ed165568af4c618d5fd6fc2fb4adb78c337d6d19b072bd073c7c8c60c87"
+    },
+    {
+      "path": "diagnostics.log.gz",
+      "bytes": 279,
+      "sha256": "af389a00c7d6dc488145be574a6df747ae46a3a426c6d8b58288ef73f0a8814e",
+      "decoded_bytes": 1124,
+      "decoded_sha256": "8bc30a81da7000c7ec1164ab04ad7935ecdf74aace23d7e2fbbb8ca2575b14b6"
+    }
+  ],
+  "claim": "Original selected receiving outputs; compressed H5MSM/selection/diagnostics are transport only. The source is newly declared, not a legacy or prepared13 restoration."
+}

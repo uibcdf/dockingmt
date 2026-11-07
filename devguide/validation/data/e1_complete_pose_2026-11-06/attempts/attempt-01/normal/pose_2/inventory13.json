@@ -1,0 +1,101 @@
+{
+  "schema": "molsysmt.hydrogen_inventory@1",
+  "method": "stored_hydrogen_inventory",
+  "atom_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "chemical_state_index": 0,
+  "structure_index": 0,
+  "status": "available",
+  "indexed_hydrogen_counts": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0
+  ],
+  "missing_hydrogen_counts": [
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "total_hydrogen_counts": [
+    0,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0,
+    0
+  ],
+  "parent_hydrogen_pairs": [
+    [
+      7,
+      9
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      8,
+      11
+    ],
+    [
+      8,
+      12
+    ]
+  ],
+  "explicit_hydrogen_atom_indices": [
+    9,
+    10,
+    11,
+    12
+  ],
+  "issues": [],
+  "count_convention": "Stored implicit/explicit counts exclude indexed H neighbors; -1 is unknown.",
+  "unassessed_checks": [
+    "valence",
+    "protonation",
+    "coordinate_quality"
+  ],
+  "software": {
+    "molsysmt": "0.23.0+513.g9e1f1b1ad"
+  }
+}

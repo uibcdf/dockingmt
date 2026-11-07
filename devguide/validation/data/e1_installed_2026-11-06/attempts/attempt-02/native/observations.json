@@ -1,0 +1,255 @@
+{
+  "scope": "New empirical fixed-score observations, in original pose/method loop order; no numerical ranking or historical-energy equivalence.",
+  "values": [
+    {
+      "position": 1,
+      "pose_id": "e1-new-local-H-1",
+      "method": "vina",
+      "unit": "kcal/mol",
+      "scores": {
+        "vina": -6.067,
+        "vina.lig_inter": -6.422,
+        "vina.flex_inter": 0.0,
+        "vina.other_inter": 0.0,
+        "vina.flex_intra": 0.0,
+        "vina.lig_intra": -0.043,
+        "vina.torsions": 0.355,
+        "vina.lig_intra_best_pose": -0.043
+      },
+      "reference": {
+        "schema_version": "1.0",
+        "policy": "native_current_conformation",
+        "score_name": "vina.lig_intra_best_pose",
+        "value": -0.043,
+        "unit": "kcal/mol"
+      },
+      "partner_sha256": "03fa080cbf2454850f0b74062d97dcabe9e5d0c61f2034db43cf73a4aa35eaa4",
+      "receptor_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970"
+    },
+    {
+      "position": 1,
+      "pose_id": "e1-new-local-H-1",
+      "method": "vinardo",
+      "unit": "kcal/mol",
+      "scores": {
+        "vinardo": -5.613,
+        "vinardo.lig_inter": -5.941,
+        "vinardo.flex_inter": 0.0,
+        "vinardo.other_inter": 0.0,
+        "vinardo.flex_intra": 0.0,
+        "vinardo.lig_intra": -0.088,
+        "vinardo.torsions": 0.328,
+        "vinardo.lig_intra_best_pose": -0.088
+      },
+      "reference": {
+        "schema_version": "1.0",
+        "policy": "native_current_conformation",
+        "score_name": "vinardo.lig_intra_best_pose",
+        "value": -0.088,
+        "unit": "kcal/mol"
+      },
+      "partner_sha256": "03fa080cbf2454850f0b74062d97dcabe9e5d0c61f2034db43cf73a4aa35eaa4",
+      "receptor_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970"
+    },
+    {
+      "position": 2,
+      "pose_id": "e1-new-local-H-2",
+      "method": "vina",
+      "unit": "kcal/mol",
+      "scores": {
+        "vina": -5.912,
+        "vina.lig_inter": -6.258,
+        "vina.flex_inter": 0.0,
+        "vina.other_inter": 0.0,
+        "vina.flex_intra": 0.0,
+        "vina.lig_intra": -0.043,
+        "vina.torsions": 0.346,
+        "vina.lig_intra_best_pose": -0.043
+      },
+      "reference": {
+        "schema_version": "1.0",
+        "policy": "native_current_conformation",
+        "score_name": "vina.lig_intra_best_pose",
+        "value": -0.043,
+        "unit": "kcal/mol"
+      },
+      "partner_sha256": "1d9668bbeb7b58bbaf90744f3307c002f7cad9e639d5c60cc19ee08ccb8696ae",
+      "receptor_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970"
+    },
+    {
+      "position": 2,
+      "pose_id": "e1-new-local-H-2",
+      "method": "vinardo",
+      "unit": "kcal/mol",
+      "scores": {
+        "vinardo": -5.363,
+        "vinardo.lig_inter": -5.676,
+        "vinardo.flex_inter": 0.0,
+        "vinardo.other_inter": 0.0,
+        "vinardo.flex_intra": 0.0,
+        "vinardo.lig_intra": -0.088,
+        "vinardo.torsions": 0.314,
+        "vinardo.lig_intra_best_pose": -0.088
+      },
+      "reference": {
+        "schema_version": "1.0",
+        "policy": "native_current_conformation",
+        "score_name": "vinardo.lig_intra_best_pose",
+        "value": -0.088,
+        "unit": "kcal/mol"
+      },
+      "partner_sha256": "1d9668bbeb7b58bbaf90744f3307c002f7cad9e639d5c60cc19ee08ccb8696ae",
+      "receptor_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970"
+    },
+    {
+      "position": 3,
+      "pose_id": "e1-new-local-H-3",
+      "method": "vina",
+      "unit": "kcal/mol",
+      "scores": {
+        "vina": -3.878,
+        "vina.lig_inter": -4.105,
+        "vina.flex_inter": 0.0,
+        "vina.other_inter": 0.0,
+        "vina.flex_intra": 0.0,
+        "vina.lig_intra": -0.043,
+        "vina.torsions": 0.227,
+        "vina.lig_intra_best_pose": -0.043
+      },
+      "reference": {
+        "schema_version": "1.0",
+        "policy": "native_current_conformation",
+        "score_name": "vina.lig_intra_best_pose",
+        "value": -0.043,
+        "unit": "kcal/mol"
+      },
+      "partner_sha256": "96884d7b5391d90f6a7ff28401d750982242f8bd30f7664bba5c15b5b398764c",
+      "receptor_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970"
+    },
+    {
+      "position": 3,
+      "pose_id": "e1-new-local-H-3",
+      "method": "vinardo",
+      "unit": "kcal/mol",
+      "scores": {
+        "vinardo": -3.036,
+        "vinardo.lig_inter": -3.214,
+        "vinardo.flex_inter": 0.0,
+        "vinardo.other_inter": 0.0,
+        "vinardo.flex_intra": 0.0,
+        "vinardo.lig_intra": -0.088,
+        "vinardo.torsions": 0.177,
+        "vinardo.lig_intra_best_pose": -0.088
+      },
+      "reference": {
+        "schema_version": "1.0",
+        "policy": "native_current_conformation",
+        "score_name": "vinardo.lig_intra_best_pose",
+        "value": -0.088,
+        "unit": "kcal/mol"
+      },
+      "partner_sha256": "96884d7b5391d90f6a7ff28401d750982242f8bd30f7664bba5c15b5b398764c",
+      "receptor_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970"
+    },
+    {
+      "position": 4,
+      "pose_id": "e1-new-local-H-4",
+      "method": "vina",
+      "unit": "kcal/mol",
+      "scores": {
+        "vina": -3.786,
+        "vina.lig_inter": -4.007,
+        "vina.flex_inter": 0.0,
+        "vina.other_inter": 0.0,
+        "vina.flex_intra": 0.0,
+        "vina.lig_intra": -0.043,
+        "vina.torsions": 0.221,
+        "vina.lig_intra_best_pose": -0.043
+      },
+      "reference": {
+        "schema_version": "1.0",
+        "policy": "native_current_conformation",
+        "score_name": "vina.lig_intra_best_pose",
+        "value": -0.043,
+        "unit": "kcal/mol"
+      },
+      "partner_sha256": "9af6e029d827af2b216b7fd3c270bf0078d4e3e6392e78479e079cdb170868d9",
+      "receptor_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970"
+    },
+    {
+      "position": 4,
+      "pose_id": "e1-new-local-H-4",
+      "method": "vinardo",
+      "unit": "kcal/mol",
+      "scores": {
+        "vinardo": -3.171,
+        "vinardo.lig_inter": -3.357,
+        "vinardo.flex_inter": 0.0,
+        "vinardo.other_inter": 0.0,
+        "vinardo.flex_intra": 0.0,
+        "vinardo.lig_intra": -0.088,
+        "vinardo.torsions": 0.185,
+        "vinardo.lig_intra_best_pose": -0.088
+      },
+      "reference": {
+        "schema_version": "1.0",
+        "policy": "native_current_conformation",
+        "score_name": "vinardo.lig_intra_best_pose",
+        "value": -0.088,
+        "unit": "kcal/mol"
+      },
+      "partner_sha256": "9af6e029d827af2b216b7fd3c270bf0078d4e3e6392e78479e079cdb170868d9",
+      "receptor_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970"
+    },
+    {
+      "position": 5,
+      "pose_id": "e1-new-local-H-5",
+      "method": "vina",
+      "unit": "kcal/mol",
+      "scores": {
+        "vina": -3.313,
+        "vina.lig_inter": -3.507,
+        "vina.flex_inter": 0.0,
+        "vina.other_inter": 0.0,
+        "vina.flex_intra": 0.0,
+        "vina.lig_intra": -0.043,
+        "vina.torsions": 0.194,
+        "vina.lig_intra_best_pose": -0.043
+      },
+      "reference": {
+        "schema_version": "1.0",
+        "policy": "native_current_conformation",
+        "score_name": "vina.lig_intra_best_pose",
+        "value": -0.043,
+        "unit": "kcal/mol"
+      },
+      "partner_sha256": "e650e80ff6971a68c9b45f85a120e42bf77473544b6a90e3bc87c251699d76e6",
+      "receptor_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970"
+    },
+    {
+      "position": 5,
+      "pose_id": "e1-new-local-H-5",
+      "method": "vinardo",
+      "unit": "kcal/mol",
+      "scores": {
+        "vinardo": -2.811,
+        "vinardo.lig_inter": -2.975,
+        "vinardo.flex_inter": 0.0,
+        "vinardo.other_inter": 0.0,
+        "vinardo.flex_intra": 0.0,
+        "vinardo.lig_intra": -0.088,
+        "vinardo.torsions": 0.164,
+        "vinardo.lig_intra_best_pose": -0.088
+      },
+      "reference": {
+        "schema_version": "1.0",
+        "policy": "native_current_conformation",
+        "score_name": "vinardo.lig_intra_best_pose",
+        "value": -0.088,
+        "unit": "kcal/mol"
+      },
+      "partner_sha256": "e650e80ff6971a68c9b45f85a120e42bf77473544b6a90e3bc87c251699d76e6",
+      "receptor_sha256": "edeff77e6222c5c5ab1aa6be2354efc323c0ffe8a7884366069ee0addbf7b970"
+    }
+  ]
+}

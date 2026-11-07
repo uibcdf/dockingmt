@@ -1,0 +1,28 @@
+{
+  "owner": "uibcdf/dockingmt#78",
+  "scope": "Source inspection after requested-box domain refusal; no Vina execution",
+  "sources": [
+    {
+      "path": "src/lib/cache.cpp",
+      "tag": "v1.2.7",
+      "git_blob_sha1": "ba9f3ee37e6fa653703b4ac18c07d09168392fbb",
+      "sha256": "76f11686e8f444b192b4868594af4ae8e424f7939a04b0f70b90f4c6b49d9e4e",
+      "bytes": 12995,
+      "url": "https://github.com/forlilab/AutoDock-Vina/blob/v1.2.7/src/lib/cache.cpp"
+    },
+    {
+      "path": "src/lib/cache.h",
+      "tag": "v1.2.7",
+      "git_blob_sha1": "c4eb019cd2b6024a58f0f343abed433f1bb8b541",
+      "sha256": "c063d3ac1691b39d395e679f4c42edf81b566f10877da9e4880e4d93ce77eddb",
+      "bytes": 2515,
+      "url": "https://github.com/forlilab/AutoDock-Vina/blob/v1.2.7/src/lib/cache.h"
+    }
+  ],
+  "findings": [
+    "cache::is_in_grid skips hydrogen and uses native grid bounds",
+    "cache::is_in_grid default margin is 0.0001 angstrom",
+    "compute_vina_maps rounds voxel counts upward; requested box differs from actual grid span",
+    "New population retains stricter all-ligand-atom requested-domain check and adopts common 24 angstrom requested size"
+  ]
+}

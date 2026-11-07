@@ -1,0 +1,24 @@
+{
+  "phase": "native",
+  "exit_code": 1,
+  "resource_interruption": null,
+  "termination_signal": null,
+  "elapsed_seconds": 3.4371785870025633,
+  "sampled_peak_group_rss_bytes": 73981952,
+  "minimum_available_bytes": 45194530816,
+  "samples": 34,
+  "maximum_observed_owned_processes": 1,
+  "policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_before_bytes": 45221376000,
+    "available_reserve_bytes": 8589934592,
+    "task_group_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90,
+    "reserve_poll_seconds": 0.1,
+    "automatic_retry": false
+  }
+}

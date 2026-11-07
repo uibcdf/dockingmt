@@ -35,11 +35,14 @@ These examples do not establish general predictive accuracy or binding affinity.
 | --- | --- | --- |
 | Inspect a saved result | [Result inspection](devguide/validation/installed_result_inspection.md) | Reads caller-supplied records and checks available evidence; no new docking. |
 | Inspect saved scoring evaluations | [Saved-scoring inspection](devguide/validation/installed_scoring_inspection.md) | Reads poses or explicit result collections, retaining scores, evaluation producers and missing evidence. |
+| Add named evaluations to a prepared pose | [Rescoring with the public API](devguide/validation/same_state_rescoring_workflow.md) | Keeps earlier scores and adds Vina/Vinardo evaluations; links a received single-pose reconstruction example and the remaining multi-pose/comparison boundary. |
 | Prepare the declared 3PTB case | [Preparation and admission](devguide/validation/installed_3ptb_preparation.md) | Applies the explicit molecular recipe and checks inputs; no search. |
 | Execute that case | [Two-search workflow](devguide/validation/installed_3ptb_execution.md) | Performs two new Vina searches and saves their results. |
 | Evaluate saved poses | [Nine-heavy-atom evaluation](devguide/validation/installed_3ptb_evaluation.md) | Measures the declared positional RMSD without new searches. |
 
 Each guide specifies its inputs, qualified composition and limitations. The
+rescoring API guide describes current calls and identifies the per-pose
+preparation and comparison steps still awaiting a complete user workflow. The
 preparation walkthrough declares a dry protein, one ligand state and zero active
 ligand torsions; these are case-specific choices. For another system, explicitly
 choose states, waters/cofactors and active ligand bonds before execution.

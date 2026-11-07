@@ -1,0 +1,72 @@
+{
+  "schema": "dockingmt.e1_complete_pose_attempts@1",
+  "owner": "uibcdf/dockingmt#78",
+  "attempts": [
+    {
+      "attempt": "attempt-01",
+      "disposition": "requested_domain_assertion_failure",
+      "completed_profiles": 0,
+      "completed_associations": 4,
+      "prepared_models": 5,
+      "positive_witnesses": 14,
+      "direct_calls": {
+        "convert": 73,
+        "get": 385,
+        "copy": 5,
+        "set": 15,
+        "permute_atoms": 0,
+        "add_missing_hydrogens": 5,
+        "assign_partial_charges": 5,
+        "assign_autodock_atom_types": 5,
+        "prepare_ligand": 5,
+        "get_hydrogen_inventory": 11,
+        "get_atom_correspondences": 14,
+        "compose_atom_maps": 5,
+        "read_poses": 4,
+        "get_torsion_tree": 10
+      }
+    },
+    {
+      "attempt": "attempt-02",
+      "disposition": "complete",
+      "completed_profiles": 2,
+      "completed_associations": 10,
+      "prepared_models": 10,
+      "positive_witnesses": 30,
+      "direct_calls": {
+        "convert": 156,
+        "get": 830,
+        "copy": 10,
+        "set": 30,
+        "permute_atoms": 0,
+        "add_missing_hydrogens": 10,
+        "assign_partial_charges": 10,
+        "assign_autodock_atom_types": 10,
+        "prepare_ligand": 10,
+        "get_hydrogen_inventory": 22,
+        "get_atom_correspondences": 30,
+        "compose_atom_maps": 10,
+        "read_poses": 10,
+        "get_torsion_tree": 20
+      }
+    }
+  ],
+  "cumulative_monitored_direct_calls": {
+    "convert": 229,
+    "get": 1215,
+    "copy": 15,
+    "set": 45,
+    "permute_atoms": 0,
+    "add_missing_hydrogens": 15,
+    "assign_partial_charges": 15,
+    "assign_autodock_atom_types": 15,
+    "prepare_ligand": 15,
+    "get_hydrogen_inventory": 33,
+    "get_atom_correspondences": 44,
+    "compose_atom_maps": 15,
+    "read_poses": 14,
+    "get_torsion_tree": 30
+  },
+  "note": "Failed and complete attempts remain separate; no pooled scientific success or independent-complex count.",
+  "unchanged_source_h5_decoded_sha256": "fd01a684d624e8abaa19ee6d16d62ab0b84927c3abd74d5bbd5dcc3881c712b7"
+}

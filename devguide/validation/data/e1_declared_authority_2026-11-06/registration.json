@@ -1,0 +1,126 @@
+{
+  "schema": "dockingmt.e1_declared_authority_registration@1",
+  "owner": "uibcdf/dockingmt#78",
+  "registered_at_utc": "2026-11-06T20:49:35.114593+00:00",
+  "status_at_registration": "prospective",
+  "consumer_runtime_source": "2fda6238e6b1cb3742f5d30b8ed3af699f9ed748",
+  "provider_runtime_source": "9e1f1b1ad8bf09446374ab6f04ca7208e2717936",
+  "provider_checkout_clean": true,
+  "source_context": "Working-tree notebook over the selected editable runtime; new declared source, not a historical restoration or installed-artifact qualification.",
+  "notebook": {
+    "path": "devguide/validation/e1_declared_authority.ipynb",
+    "sha256": "b75d9576dad9aebb58f3149482fcc041e959fc33a8e1ee2180b886a32932ba31",
+    "code_cells": [
+      {
+        "id": "e1-authority-01",
+        "sha256": "750fa1c05d6184b477b371eb4e66000ed73347fac73d570aa6ae919fb42bdcf0"
+      },
+      {
+        "id": "e1-authority-02",
+        "sha256": "dbfafdcc6ef63ad96767c2143358121d642544bd7a6d75089ff076cf3c04909f"
+      },
+      {
+        "id": "e1-authority-03",
+        "sha256": "882cb3f96d30d8271a2cad68e0daab96628cdf20e0a693563d4fef742527b1b8"
+      },
+      {
+        "id": "e1-authority-04",
+        "sha256": "fc898f72464f6ffbf3d2e684a0141e3d1faeb0541c6a5029b070e7f803e7e1e7"
+      }
+    ]
+  },
+  "prescription": {
+    "path": "devguide/validation/e1_declared_authority_2026-11-06.md",
+    "sha256_at_registration": "1caa921408deb313141e35b6f2ba84b2d2067afa6bcabede3f6166b161ebc2bb"
+  },
+  "inputs": [
+    {
+      "path": "devguide/validation/data/human_3ptb/admission_2026-10-20.json.gz",
+      "bytes": 2093573,
+      "sha256": "79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53"
+    },
+    {
+      "path": "devguide/validation/data/e1_partial_projection_2026-11-06/receipt.json",
+      "bytes": 21022,
+      "sha256": "d324d28363b26509e5d71c5bac8884c04d1dd5aa8dee4b84a356aef87577463f"
+    },
+    {
+      "path": "devguide/validation/data/e1_partial_projection_2026-11-06/normal/pose_1.pdbqt",
+      "bytes": 1054,
+      "sha256": "4aff254a88931bd1ec8f36644120fca0a1fa9402ce7515c1f4d692fee370cea0"
+    },
+    {
+      "path": "devguide/validation/data/e1_partial_projection_2026-11-06/normal/pose_2.pdbqt",
+      "bytes": 1054,
+      "sha256": "1a26e644c75a079787120a20a0ac0c29f7c0a23ad23599aa49756ccf9a17bab3"
+    },
+    {
+      "path": "devguide/validation/data/e1_partial_projection_2026-11-06/normal/pose_3.pdbqt",
+      "bytes": 1054,
+      "sha256": "f81f5518056dcfccdf68525119645763a2a18f2e81d88c79ac024f6118b21f62"
+    },
+    {
+      "path": "devguide/validation/data/e1_partial_projection_2026-11-06/normal/pose_4.pdbqt",
+      "bytes": 1054,
+      "sha256": "68dc85f124063173d44e68029fde6d9a56060364cfc9b4e384090886a75b5707"
+    },
+    {
+      "path": "devguide/validation/data/e1_partial_projection_2026-11-06/normal/pose_5.pdbqt",
+      "bytes": 1054,
+      "sha256": "aee56eb14ae2744cf4b352d8a306f7e5787bdd414ca61a217d8dca8036fa9d97"
+    }
+  ],
+  "population": {
+    "profiles": [
+      "normal",
+      "pm_fs"
+    ],
+    "new_declared_states": 1,
+    "authority_atoms": 9,
+    "historical_coordinate_sets": 5,
+    "coordinate_positive_witnesses": 10,
+    "nonidentity_positive_witnesses": 2,
+    "H5_source_positive_witnesses": 2,
+    "isotope_refusals": 2,
+    "legacy_transport_refusals": 4,
+    "identity_api_attempts": 16
+  },
+  "source_uri": "smiles:NC(=[NH2+])c1ccccc1",
+  "authority_new_to_old_order": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    1,
+    2,
+    0
+  ],
+  "monitored_direct_consumer_budgets": {
+    "convert": 80,
+    "get": 300,
+    "copy": 30,
+    "set": 30,
+    "extract": 12,
+    "permute_atoms": 6,
+    "get_atom_correspondences": 16,
+    "get_chemical_readiness": 6
+  },
+  "resource_policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_before_bytes": 56451284992,
+    "available_reserve_bytes": 8589934592,
+    "task_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90,
+    "reserve_poll_seconds": 0.1,
+    "automatic_retry": false
+  },
+  "failure_policy": "Retain attempts, cell events, partial outputs and direct counters; stop on unexpected failure. No automatic resource retry or metadata repair.",
+  "claim_limit": "Identity of one new declared nine-atom source and its variants only; no legacy restoration, historical prepared13 identity, mechanics, energy comparison or whole E1.",
+  "local_e4_hold_preserved": true
+}

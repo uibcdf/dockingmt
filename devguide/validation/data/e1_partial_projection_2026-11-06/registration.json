@@ -1,0 +1,73 @@
+{
+  "schema": "dockingmt.e1_partial_projection_registration@1",
+  "owner": "uibcdf/dockingmt#78",
+  "registered_at_utc": "2026-11-06T18:41:17.751687+00:00",
+  "status_at_registration": "prospective",
+  "consumer_runtime_source": "2fda6238e6b1cb3742f5d30b8ed3af699f9ed748",
+  "provider_runtime_source": "9e1f1b1ad8bf09446374ab6f04ca7208e2717936",
+  "source_context": "New working-tree notebook over the installed editable runtime; no clean-source or ordinary-installed qualification is claimed.",
+  "notebook": {
+    "path": "devguide/validation/e1_partial_projection.ipynb",
+    "sha256": "ba8fa82e83d0b0dda00d77820e840243d7595e55241ebbba7e204bc379c68c4c",
+    "code_cells": [
+      {
+        "id": "e1-partial-01",
+        "sha256": "c6dfdaf21159b60b98a4f0a3a1b21b5048f81b7dc1d8e2540bed5ac11c1eecb5"
+      },
+      {
+        "id": "e1-partial-02",
+        "sha256": "bb8ca61be2bad49a7b10b087afd9a5508a5c9021824614c1ea63640b0b50359a"
+      },
+      {
+        "id": "e1-partial-03",
+        "sha256": "fa066419f24d9648c4661bc36c4817e944ece96759dd88ce76e1c7af0eccf13b"
+      },
+      {
+        "id": "e1-partial-04",
+        "sha256": "08e2d052b441b20837da9f37fa456d640416df7eeb242bd9d747eb6b5924f480"
+      }
+    ]
+  },
+  "prescription": {
+    "path": "devguide/validation/e1_partial_projection_2026-11-06.md",
+    "sha256_at_registration": "b6eb2e8cc61ab898d5843f8df7e82854b4c46b280a5f6bd90806732240d2b0c2"
+  },
+  "input": {
+    "path": "devguide/validation/data/human_3ptb/native_result_2026-10-20.json.gz",
+    "compressed_sha256": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249",
+    "decoded_sha256": "ed0eeb3ade25e54f8a5829729578fcbec9f0d73d6c0ceb03d146b0c3492d7fac",
+    "captured_partner_sha256": "a36bd740cc47045c2f2f6756bd8c11b41cbcc960a76ce42c2f2114b3c4b7be46",
+    "distinct_poses": 5,
+    "atoms_per_pose": 13,
+    "profiles": [
+      "normal",
+      "pm_fs"
+    ],
+    "max_positive_projections": 10,
+    "expected_refusals": 6
+  },
+  "direct_consumer_entry_point_budgets": {
+    "convert": 60,
+    "get": 400,
+    "copy": 40,
+    "set": 20,
+    "permute_atoms": 4,
+    "get_atom_correspondences": 2
+  },
+  "resource_policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_before_bytes": 60104876032,
+    "available_reserve_bytes": 8589934592,
+    "task_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 45,
+    "wall_seconds_limit": 60,
+    "reserve_poll_seconds": 0.1,
+    "automatic_retry": false
+  },
+  "failure_policy": "Retain started/failed cells, diagnostics, counters and partial files. Stop before the next profile on failure; no automatic resource retry.",
+  "claim_limit": "Supplied-field projection and expected partial-identity refusal only; no complete source recovery, chemical equivalence, score/ranking admission or whole E1.",
+  "local_e4_hold_preserved": true
+}

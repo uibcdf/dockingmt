@@ -1,0 +1,524 @@
+{
+  "profile": "pm_fs",
+  "authority": "new_declared_SMILES_source9",
+  "source_labels": {
+    "ids": [
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "1",
+      "2",
+      "0"
+    ],
+    "names": [
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C1",
+      "N2",
+      "N0"
+    ],
+    "elements": [
+      "C",
+      "C",
+      "C",
+      "C",
+      "C",
+      "C",
+      "C",
+      "N",
+      "N"
+    ]
+  },
+  "source_atoms": 9,
+  "source_graph_payload_unchanged": true,
+  "source_checked_inventory_and_coordinates_unchanged": true,
+  "unit_policy_preserved": true,
+  "pose_variants": [
+    {
+      "original_position": 1,
+      "pose_id": "pose_1",
+      "coordinate_source_sha256": "4aff254a88931bd1ec8f36644120fca0a1fa9402ce7515c1f4d692fee370cea0",
+      "original_scores": {
+        "vina": -6.422,
+        "inter": -6.422,
+        "intra": 0.0,
+        "torsion": 0.0
+      },
+      "new_authority_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "historical_prepared_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "coordinates": {
+        "value": [
+          [
+            [
+              -0.17539999999999997,
+              1.4394999999999998,
+              1.6805999999999999
+            ],
+            [
+              -0.10589999999999994,
+              1.3771999999999993,
+              1.7808999999999993
+            ],
+            [
+              -0.07199999999999995,
+              1.4480999999999997,
+              1.8967999999999992
+            ],
+            [
+              -0.10929999999999998,
+              1.5826999999999998,
+              1.9109999999999991
+            ],
+            [
+              -0.18089999999999998,
+              1.6445999999999998,
+              1.8081999999999991
+            ],
+            [
+              -0.21319999999999992,
+              1.5719999999999992,
+              1.6938999999999993
+            ],
+            [
+              -0.20819999999999989,
+              1.3692999999999997,
+              1.565099999999999
+            ],
+            [
+              -0.17029999999999998,
+              1.2438999999999993,
+              1.5476999999999992
+            ],
+            [
+              -0.2926999999999998,
+              1.421599999999999,
+              1.4779999999999998
+            ]
+          ]
+        ],
+        "unit": "nm"
+      },
+      "coordinate_projection_checked": true,
+      "witness_file": "pose_1_witness.json",
+      "identity_scope": "New declared authority and its coordinate variant only",
+      "historical_prepared_identity_admitted": false
+    },
+    {
+      "original_position": 2,
+      "pose_id": "pose_2",
+      "coordinate_source_sha256": "1a26e644c75a079787120a20a0ac0c29f7c0a23ad23599aa49756ccf9a17bab3",
+      "original_scores": {
+        "vina": -6.258,
+        "inter": -6.258,
+        "intra": 0.0,
+        "torsion": 0.0
+      },
+      "new_authority_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "historical_prepared_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "coordinates": {
+        "value": [
+          [
+            [
+              -0.17319999999999997,
+              1.435699999999999,
+              1.6826999999999994
+            ],
+            [
+              -0.1948999999999999,
+              1.5707999999999998,
+              1.6874999999999998
+            ],
+            [
+              -0.15809999999999996,
+              1.6433999999999993,
+              1.8015999999999996
+            ],
+            [
+              -0.09849999999999995,
+              1.5782999999999991,
+              1.9107999999999992
+            ],
+            [
+              -0.07629999999999995,
+              1.4405999999999999,
+              1.9039999999999997
+            ],
+            [
+              -0.11399999999999993,
+              1.3706999999999998,
+              1.7895999999999999
+            ],
+            [
+              -0.21069999999999992,
+              1.3635999999999997,
+              1.5697999999999992
+            ],
+            [
+              -0.2708999999999999,
+              1.421899999999999,
+              1.4676999999999998
+            ],
+            [
+              -0.17119999999999996,
+              1.2381999999999993,
+              1.5555999999999996
+            ]
+          ]
+        ],
+        "unit": "nm"
+      },
+      "coordinate_projection_checked": true,
+      "witness_file": "pose_2_witness.json",
+      "identity_scope": "New declared authority and its coordinate variant only",
+      "historical_prepared_identity_admitted": false
+    },
+    {
+      "original_position": 3,
+      "pose_id": "pose_3",
+      "coordinate_source_sha256": "f81f5518056dcfccdf68525119645763a2a18f2e81d88c79ac024f6118b21f62",
+      "original_scores": {
+        "vina": -4.104,
+        "inter": -4.104,
+        "intra": 0.0,
+        "torsion": 0.0
+      },
+      "new_authority_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "historical_prepared_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "coordinates": {
+        "value": [
+          [
+            [
+              0.4437,
+              2.1084999999999985,
+              1.4006999999999998
+            ],
+            [
+              0.5057999999999996,
+              2.1375999999999995,
+              1.2821999999999996
+            ],
+            [
+              0.6378999999999996,
+              2.0960999999999985,
+              1.2605999999999997
+            ],
+            [
+              0.7065999999999999,
+              2.0241999999999996,
+              1.3596999999999992
+            ],
+            [
+              0.6416,
+              1.9944999999999997,
+              1.4796999999999998
+            ],
+            [
+              0.5104,
+              2.0371999999999986,
+              1.4986999999999993
+            ],
+            [
+              0.3128999999999998,
+              2.1505999999999985,
+              1.4223999999999999
+            ],
+            [
+              0.2477999999999999,
+              2.2220999999999984,
+              1.3323999999999994
+            ],
+            [
+              0.24549999999999988,
+              2.1050999999999984,
+              1.526599999999999
+            ]
+          ]
+        ],
+        "unit": "nm"
+      },
+      "coordinate_projection_checked": true,
+      "witness_file": "pose_3_witness.json",
+      "identity_scope": "New declared authority and its coordinate variant only",
+      "historical_prepared_identity_admitted": false
+    },
+    {
+      "original_position": 4,
+      "pose_id": "pose_4",
+      "coordinate_source_sha256": "68dc85f124063173d44e68029fde6d9a56060364cfc9b4e384090886a75b5707",
+      "original_scores": {
+        "vina": -4.006,
+        "inter": -4.006,
+        "intra": 0.0,
+        "torsion": 0.0
+      },
+      "new_authority_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "historical_prepared_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "coordinates": {
+        "value": [
+          [
+            [
+              0.49809999999999977,
+              2.0925999999999996,
+              1.4084999999999992
+            ],
+            [
+              0.41849999999999987,
+              2.1249999999999996,
+              1.3017999999999994
+            ],
+            [
+              0.2790999999999998,
+              2.1193999999999997,
+              1.3145999999999993
+            ],
+            [
+              0.22059999999999996,
+              2.081299999999999,
+              1.4364
+            ],
+            [
+              0.3031,
+              2.0494,
+              1.5444999999999998
+            ],
+            [
+              0.4413999999999999,
+              2.0554999999999986,
+              1.5291999999999992
+            ],
+            [
+              0.6364999999999996,
+              2.0972,
+              1.3953999999999993
+            ],
+            [
+              0.6937999999999999,
+              2.1283999999999996,
+              1.2805999999999997
+            ],
+            [
+              0.7130999999999996,
+              2.0869999999999997,
+              1.502699999999999
+            ]
+          ]
+        ],
+        "unit": "nm"
+      },
+      "coordinate_projection_checked": true,
+      "witness_file": "pose_4_witness.json",
+      "identity_scope": "New declared authority and its coordinate variant only",
+      "historical_prepared_identity_admitted": false
+    },
+    {
+      "original_position": 5,
+      "pose_id": "pose_5",
+      "coordinate_source_sha256": "aee56eb14ae2744cf4b352d8a306f7e5787bdd414ca61a217d8dca8036fa9d97",
+      "original_scores": {
+        "vina": -3.507,
+        "inter": -3.507,
+        "intra": 0.0,
+        "torsion": 0.0
+      },
+      "new_authority_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "historical_prepared_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "coordinates": {
+        "value": [
+          [
+            [
+              0.6017999999999999,
+              2.1702,
+              1.3474
+            ],
+            [
+              0.6085999999999999,
+              2.0934999999999997,
+              1.4605999999999997
+            ],
+            [
+              0.49109999999999976,
+              2.044,
+              1.518599999999999
+            ],
+            [
+              0.3662999999999999,
+              2.0722,
+              1.4607999999999992
+            ],
+            [
+              0.36099999999999993,
+              2.1498999999999997,
+              1.3447999999999998
+            ],
+            [
+              0.4792999999999998,
+              2.1979999999999986,
+              1.2892
+            ],
+            [
+              0.7183999999999996,
+              2.2200999999999995,
+              1.2903999999999993
+            ],
+            [
+              0.8365999999999998,
+              2.1985999999999994,
+              1.3454999999999993
+            ],
+            [
+              0.7146999999999997,
+              2.2756999999999987,
+              1.1704999999999999
+            ]
+          ]
+        ],
+        "unit": "nm"
+      },
+      "coordinate_projection_checked": true,
+      "witness_file": "pose_5_witness.json",
+      "identity_scope": "New declared authority and its coordinate variant only",
+      "historical_prepared_identity_admitted": false
+    }
+  ],
+  "legacy_transport_controls": [
+    {
+      "control": "observed_snapshot_JSON_history_transport",
+      "disposition": "refused",
+      "exception_type": "ValueError",
+      "code": null,
+      "message": "Preparation-history array dtype, shape or reference is inconsistent."
+    },
+    {
+      "control": "charged_snapshot_JSON_history_transport",
+      "disposition": "refused",
+      "exception_type": "ValueError",
+      "code": null,
+      "message": "Preparation-history array dtype, shape or reference is inconsistent."
+    }
+  ],
+  "isotope_control": {
+    "control": "incompatible_carbon13_supplied_map",
+    "disposition": "refused",
+    "exception_type": "StructuralInconsistencyError",
+    "code": "MSM-ERR-STRUCT-003",
+    "message": "Structural inconsistency detected: A supplied map has no chemically admitted complete-context extension respecting the anchors.. Ensure that the atoms, residues, or frames match between the systems being compared or merged. Docs: https://www.uibcdf.org/MolSysMT"
+  },
+  "nonidentity_witness_file": "nonidentity_map_witness.json",
+  "roundtrip_witness_file": "roundtrip_witness.json",
+  "native_source_file": "declared_authority9.h5msm",
+  "roundtrip_checked_fields": [
+    "coordinates",
+    "atom_ids",
+    "atom_names",
+    "elements",
+    "structure_state_association",
+    "chemical_graph_witness"
+  ]
+}

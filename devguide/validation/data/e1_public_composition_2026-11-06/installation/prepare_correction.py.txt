@@ -1,0 +1,151 @@
+"""Copy an isolated complete runtime-package snapshot using only the stdlib."""
+
+import hashlib
+import json
+import os
+import resource
+import shutil
+import subprocess
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path('/fast_data/home/liliana/repos@uibcdf/dockingmt')
+OLD_TASK = ROOT / '.molsyssuite/e1-installed-20261106'
+TASK = ROOT / '.molsyssuite/e1-public-composition-20261106'
+PROVIDER = ROOT.parent / 'molsysmt'
+TARGET = TASK / 'site-packages'
+RECEIPT = TASK / 'preparation-correction.json'
+RESERVE, RSS_LIMIT = 8 * 1024**3, 1024**3
+CACHES = {'__pycache__', '.pytest_cache', '.mypy_cache', '.ruff_cache', '.git'}
+started = time.monotonic()
+minimum_available = None
+
+
+def guard():
+    global minimum_available
+    available = int(next(line.split()[1] for line in Path('/proc/meminfo').read_text().splitlines() if line.startswith('MemAvailable:'))) * 1024
+    minimum_available = available if minimum_available is None else min(minimum_available, available)
+    assert available >= RESERVE, 'Available RAM reserve threatened; stop without retry'
+    assert resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024 <= RSS_LIMIT, 'Owned RSS limit exceeded'
+
+
+def digest(path):
+    guard()
+    with path.open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def git(*args):
+    return subprocess.check_output(['git', '-C', str(PROVIDER), *args], text=True).strip()
+
+
+def inventory(base):
+    return {str(path.relative_to(base)): digest(path) for path in sorted(base.rglob('*')) if path.is_file()}
+
+
+def copy_new(source, target, expected):
+    assert digest(source) == expected, str(source)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with source.open('rb') as incoming, target.open('xb') as outgoing:
+        while block := incoming.read(1024 * 1024):
+            guard()
+            outgoing.write(block)
+    assert digest(source) == digest(target) == expected, str(target)
+
+
+def runtime_files(base):
+    base = base.resolve()
+
+    def walk(directory, ancestors):
+        resolved = directory.resolve(strict=True)
+        assert resolved.is_relative_to(base), 'Directory symlink escapes runtime root'
+        assert resolved not in ancestors, 'Directory symlink cycle'
+        for path in sorted(directory.iterdir()):
+            if path.name in CACHES:
+                continue
+            target = path.resolve(strict=True)
+            assert target.is_relative_to(base), 'File symlink escapes runtime root'
+            if path.is_dir():
+                yield from walk(path, ancestors | {resolved})
+            elif path.is_file() and path.suffix not in {'.pyc', '.pyo'}:
+                yield path
+            elif not path.is_file():
+                raise AssertionError('Unsupported runtime entry: ' + str(path))
+
+    yield from walk(base, set())
+
+
+def main():
+    assert os.sched_getaffinity(0) == {0}
+    assert os.getpriority(os.PRIO_PROCESS, 0) >= 10
+    guard()
+    assert not TARGET.exists() and not RECEIPT.exists(), 'Preserve existing attempts; do not overwrite'
+    preparation_path = OLD_TASK / 'preparation.json'
+    amendment_path = OLD_TASK / 'preparation-amendment.json'
+    preparation_sha = digest(preparation_path)
+    amendment_sha = digest(amendment_path)
+    assert preparation_sha == '34160ee941b8280c9c7d7518aa3594b889ef27fef8f3688407a5b9184e6773ca'
+    assert amendment_sha == '03d39a77b0327e21c790a3470cb0c50e3cc8f76ff4c8a60bb85b43c761dd4af1'
+    amendment = json.loads(amendment_path.read_text())
+    old_target = Path(amendment['private_target'])
+    assert inventory(old_target) == amendment['targethashes']
+    assert len(amendment['targethashes']) == 3824
+    assert git('rev-parse', 'HEAD') == amendment['source_commit']
+    assert git('status', '--porcelain') == ''
+    source_tree = git('rev-parse', 'HEAD^{tree}')
+    roots = []
+    for name in ('molsysmt', 'molsysviewer_molsysmt'):
+        package = PROVIDER / name
+        if package.is_dir():
+            roots.append((package, name, 'borrowed_runtime_package'))
+    metadata_roots = {}
+    for row in amendment['source_snapshot']:
+        assert digest(Path(row['source_path'])) == row['sha256'], row['source_path']
+        if row['role'] == 'original_editable_distribution_metadata':
+            relative = Path(row['relative_path'])
+            parent = Path(row['source_path']).parents[len(relative.parts) - 1]
+            metadata_roots[relative.parts[0]] = parent / relative.parts[0]
+    roots.extend((path, name, 'original_editable_distribution_metadata') for name, path in sorted(metadata_roots.items()))
+    sources = []
+    for base, prefix, role in roots:
+        for path in runtime_files(base):
+            relative = str(Path(prefix) / path.relative_to(base))
+            assert path.suffix != '.pth' and not path.name.startswith('__editable__'), 'Startup hook is not a runtime snapshot input'
+            sources.append(dict(relative_path=relative, source_path=str(path), source_resolved=str(path.resolve()), source_was_symlink=path.is_symlink(), target_path=str(TARGET / relative), bytes=path.stat().st_size, sha256=digest(path), role=role))
+    assert len({row['relative_path'] for row in sources}) == len(sources)
+    for row in sources:
+        if row['relative_path'] in amendment['targethashes']:
+            assert row['sha256'] == amendment['targethashes'][row['relative_path']], 'Original runtime differs from prior snapshot: ' + row['relative_path']
+    TARGET.mkdir(parents=True, exist_ok=False)
+    for relative, expected in sorted(amendment['targethashes'].items()):
+        copy_new(old_target / relative, TARGET / relative, expected)
+    added = []
+    for row in sources:
+        destination = Path(row['target_path'])
+        if destination.exists():
+            assert digest(destination) == row['sha256'], row['relative_path']
+        else:
+            copy_new(Path(row['source_path']), destination, row['sha256'])
+            added.append(row['relative_path'])
+    targethashes = inventory(TARGET)
+    assert len(targethashes) == 3824 + len(added)
+    for row in sources:
+        assert digest(Path(row['source_path'])) == targethashes[row['relative_path']] == row['sha256']
+    assert inventory(old_target) == amendment['targethashes']
+    assert digest(preparation_path) == preparation_sha and digest(amendment_path) == amendment_sha
+    assert git('rev-parse', 'HEAD') == amendment['source_commit'] and git('status', '--porcelain') == ''
+    native = next(row for row in sources if row['relative_path'] == 'molsysmt/_rust.abi3.so')
+    assert native['sha256'] == amendment['native_extension']['sha256']
+    for wheel in amendment['wheels']:
+        assert digest(Path(wheel['path'])) == wheel['sha256']
+        assert all(targethashes[path] == expected for path, expected in wheel['payload'].items())
+    receipt = dict(schema='dockingmt.e1_private_runtime_snapshot_correction@1', owner='uibcdf/dockingmt#78', recorded_at_utc=datetime.now(timezone.utc).isoformat(), status='ready_with_corrected_borrowed_provider_snapshot', ready_for_scientific_worker=True, ready_scope=amendment['ready_scope'], private_target=str(TARGET), preparation_sha256=preparation_sha, preparation_amendment_sha256=amendment_sha, prior_preparation_path=str(preparation_path), prior_preparation_amendment_path=str(amendment_path), previous_private_target=str(old_target), previous_private_files=3824, targethashes=targethashes, source_snapshot=sources, source_commit=amendment['source_commit'], source_tree=source_tree, source_checkout_clean=True, source_snapshot_kind='borrowed_provider_snapshot_not_built_artifact', source_payload_sha256=hashlib.sha256(json.dumps({row['relative_path']: row['sha256'] for row in sources}, sort_keys=True, separators=(',', ':')).encode()).hexdigest(), source_payload_digest_scope='Canonical JSON of complete included provider runtime/metadata paths and SHA-256; file inventory only', native_extension=native, native_source_build_correspondence=amendment['native_source_build_correspondence'], wheels=amendment['wheels'], added_runtime_files=added, correction='The previous recursive exclusion of build removed the legitimate molsysmt.build package. This separate target includes complete provider runtime package trees; only recognized caches, .pyc/.pyo and .git are excluded.', exclusion_directory_names=sorted(CACHES), exclusion_suffixes=['.pyc', '.pyo'], old_target_and_receipts_unchanged=True, original_source_files_unchanged=True, copied_startup_pth_or_finders=False, no_scientific_imports_or_evaluations_executed=True, no_build_or_install_executed=True, preparer=dict(path=str(TASK / 'prepare_correction.py'), sha256=digest(TASK / 'prepare_correction.py')), resource_policy=dict(allowed_cpu=0, nice=10, workers=1, available_reserve_bytes=RESERVE, owned_rss_limit_bytes=RSS_LIMIT), minimum_available_bytes=minimum_available, sampled_peak_self_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024, elapsed_seconds=time.monotonic() - started)
+    with RECEIPT.open('x') as stream:
+        json.dump(receipt, stream, indent=2, sort_keys=True, allow_nan=False)
+        stream.write('\n')
+    print(json.dumps(dict(receipt=str(RECEIPT), receipt_sha256=digest(RECEIPT), ready_for_scientific_worker=True, private_target=str(TARGET), target_files=len(targethashes), source_snapshot_files=len(sources), added_runtime_files=len(added), native_extension_sha256=native['sha256'], elapsed_seconds=receipt['elapsed_seconds'], peak_self_rss_bytes=receipt['sampled_peak_self_rss_bytes']), sort_keys=True), flush=True)
+
+
+if __name__ == '__main__':
+    main()

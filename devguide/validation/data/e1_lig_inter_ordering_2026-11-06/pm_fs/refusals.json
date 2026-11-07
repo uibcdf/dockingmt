@@ -1,0 +1,233 @@
+[
+  {
+    "code": "capture_integrity_failed",
+    "control": "altered_capture",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "partner_input_not_received",
+    "control": "unreceived_partner_input",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "chemical_evidence_missing",
+    "control": "missing_graph_witness",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "chemical_witness_not_received",
+    "control": "changed_graph_witness",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "charge_values_disagree",
+    "control": "altered_charge",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "atom_types_disagree",
+    "control": "altered_type",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "written_tree_not_received",
+    "control": "altered_tree",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "export_axis_not_received",
+    "control": "altered_export_axis",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "receptor_not_received",
+    "control": "changed_receptor",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "state_not_received",
+    "control": "changed_partner_state",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "state_not_received",
+    "control": "changed_receptor_state",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "weights_not_received",
+    "control": "changed_weights",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "box_not_received",
+    "control": "changed_box",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "spacing_not_received",
+    "control": "changed_spacing",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "unit_representation_outside_profile",
+    "control": "wrong_unit_dimension",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "unit_representation_outside_profile",
+    "control": "outside_energy_representation",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "duplicate_pose_id",
+    "control": "duplicate_pose_id",
+    "ordered_subset_returned": false,
+    "position": null,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "invalid_reported_value",
+    "control": "nonfinite_score",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "invalid_reported_value",
+    "control": "boolean_score",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "reported_precision_outside_profile",
+    "control": "excess_precision",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "reference_documentary_incomplete",
+    "control": "missing_reference",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "reference_record_inconsistent",
+    "control": "contradictory_reference",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "component_outside_profile",
+    "control": "total_component",
+    "ordered_subset_returned": false,
+    "position": null,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "method_pool_outside_profile",
+    "control": "mixed_methods",
+    "ordered_subset_returned": false,
+    "position": null,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "context_fields_outside_profile",
+    "control": "unknown_context_field",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "method_not_received",
+    "control": "changed_backend_version",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "named_assignment_not_received",
+    "control": "changed_type_method",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "mechanical_projection_not_received",
+    "control": "missing_assignment_projection",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "native_export_binding_mismatch",
+    "control": "wrong_export_hash_axis",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "candidate_record_not_received",
+    "control": "coherently_changed_score",
+    "ordered_subset_returned": false,
+    "position": 1,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "custody_root_not_received",
+    "control": "changed_custody_root",
+    "ordered_subset_returned": false,
+    "position": null,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "construction_scoring_link_mismatch",
+    "control": "changed_receiving_link",
+    "ordered_subset_returned": false,
+    "position": null,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  },
+  {
+    "code": "population_not_closed",
+    "control": "incomplete_population",
+    "ordered_subset_returned": false,
+    "position": null,
+    "scope": "Documentary mutation of a copy; no new molecular/native observation"
+  }
+]

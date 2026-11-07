@@ -38,7 +38,7 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | C4 selection-derived domain | Provider-owned selection/geometry, stored derivation/projection and observed domain/reference/pose correspondence. | Construction/record evidence exists; visible acceptance remains #52/#60. |
 | C5 results/provenance | Saved scores/rankings/evaluations, actual input identities/maps, traceable preparation/protocol and explicit recoverable/missing information. | #75–#77 deliver bounded reading/audits. General source restoration and partial/reference coverage remain #4/#49 and MolSysMT #521. |
 | C6 visualization | Real addon controls, communication and canvas display correctly paired receptor/domain/poses/reference, with actual interaction evidence. | Python/DOM/export/private evidence exists; live acceptance is still unproven. Respect the maintainer's scheduling decision. |
-| E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ranked and audited reproducibly. | #78 has delivered native reference semantics. Provider identity/projection, explicit comparison admission and representative execution remain; strict current ranking stays. |
+| E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ranked and audited reproducibly. | #78 has received bounded provider identity/projection and preparation, five complete new poses, [ten source/native evaluations](validation/e1_native_rescoring_2026-11-06.md) and [two method-local exploratory `lig_inter` orders](validation/e1_lig_inter_ordering_2026-11-06.md). The [bounded private installed workflow](validation/e1_installed_receiving_2026-11-06.md) now passes with borrowed provider/native dependencies. The [public-workflow review](validation/e1_public_workflow_review_2026-11-06.md) leaves criterion 4 partial. The [public composition](validation/e1_public_composition_2026-11-06.md) now preserves the original four scores/rank/history for one returned pose; multi-pose continuity and positive comparison/decision evidence remain. Strict ranking and public-delivery ownership remain separate. |
 | E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | #81 scopes actual distinct-ligand admission and study comparison, reusing serial `dock_many` and outcomes. Preserve strict within-result ranking and provider-owned chemistry; collection execution/qualification remains unproven. |
 | E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | #79 scopes the concrete positional workflow. MolSysMT #604 requests supported bounded pairwise/clustering tools or an existing composition; no local molecular algorithm. |
 | E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 receives one bounded installed 3PTB workflow at `5952053`: normal/pm-fs, twelve detector calls, typed/H5MSM persistence, original-pose association and two fresh readers pass. Preserve prior failures and the local hold. Structured consumer/addon admission and whole E4 remain unproven; molecular operations stay in MolSysMT (#610 documents explicit XYZ atom extraction). |
@@ -54,18 +54,29 @@ implemented API or record-only test is not acceptance of a scientific workflow.
    [machine handoff](MACHINE_HANDOFF.md) identifies the passing pre-handoff head;
    a later head needs its own applicable evidence.
 2. Advance [same-state E1](pending_proposals/qualify_same_state_rescoring.md)
-   using the delivered [native energy-reference convention](validation/scoring_reference.md).
-   Retain old records and define comparison conditions without changing molecular
-   identities; do not repeat delivered semantics work.
-3. Receive provider-owned prepared-conformation projection
-   [MolSysMT #599](https://github.com/uibcdf/molsysmt/issues/599) and the relevant
-   identity evidence in [#447](https://github.com/uibcdf/molsysmt/issues/447).
-   A supported existing public composition can satisfy a request. Keep #521's
-   partial/reference reader boundary explicit.
-4. Register the small representative E1 execution after those contracts are
-   received. Preserve original docking scores, named new evaluations and ranking
-   history. Define reference policy, comparison population, controls, units,
-   resources and failure rules before computation.
+   from its received [native reference convention](validation/scoring_reference.md),
+   [complete-pose construction](validation/e1_comparison_admission_2026-11-06.md),
+   [finite source/native evaluations](validation/e1_native_rescoring_2026-11-06.md)
+   and [case-specific component orders](validation/e1_lig_inter_ordering_2026-11-06.md).
+   Five new locally completed conformations retain their historical associations;
+   the exploratory per-method orders do not establish historical H identity,
+   affinity, total/shared-reference or cross-method ordering. Preserve all
+   descriptors, actual input hashes and strict public ranking refusals.
+3. Reuse the received public MolSysMT compositions for the bounded complete
+   single-state profile. [MolSysMT #599](https://github.com/uibcdf/molsysmt/issues/599)
+   and [#447](https://github.com/uibcdf/molsysmt/issues/447) retain their broader
+   provider scope; their issue status alone does not block this received route.
+   Keep #521's partial/reference reader boundary and the other accepted input
+   profiles explicit; no local molecular fallback or identity algorithm follows.
+4. Extend the [received public continuity example](validation/e1_public_composition_2026-11-06.md)
+   to an admitted multi-pose population and a positive public comparison/decision
+   route. The actual two-pose request returned one; preserve that incompleteness
+   and avoid repeating searches to obtain a desired count. The one returned pose
+   does preserve its four original scores/rank/history with sixteen added values;
+   its complete collection audit and fresh readers agree. Standalone old docking
+   origins remain correctly incomplete. Test existing public compositions and
+   define only a demonstrated missing operation, preserving strict `rank_by` and
+   provider ownership. #30/#47 delivery and independent validation remain separate.
 5. Scope and qualify E2–E5 with their owners and receive the remaining Core,
    scientific, visual and public-delivery evidence. Independent requirements may
    progress while another provider or hosted run is pending. E3's

@@ -1,0 +1,523 @@
+{
+  "schema_version": "1.0",
+  "scope": "saved_result_internal_consistency",
+  "status": "consistent",
+  "checks": [
+    {
+      "check": "schema",
+      "path": "/",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "captured_input",
+      "path": "/provenance/backend_artifacts/receptor",
+      "status": "consistent",
+      "reason": "sha256_matches_captured_bytes"
+    },
+    {
+      "check": "captured_input",
+      "path": "/provenance/backend_artifacts/partner",
+      "status": "consistent",
+      "reason": "sha256_matches_captured_bytes"
+    },
+    {
+      "check": "protocol_snapshot",
+      "path": "/protocol_info",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "schema",
+      "path": "/poses/0",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "coordinate_units",
+      "path": "/poses/0",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "scores",
+      "path": "/poses/0",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_definitions",
+      "path": "/poses/0",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_backend",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_method",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_method_version",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_component",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_kind",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_native_unit",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_native_scale",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preference",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_stage",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_grid_units",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_weights",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_input_hash",
+      "path": "/poses/0/scores/vina/receptor",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preparation",
+      "path": "/poses/0/scores/vina/receptor",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_input_hash",
+      "path": "/poses/0/scores/vina/partner",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preparation",
+      "path": "/poses/0/scores/vina/partner",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_box_units",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_box",
+      "path": "/poses/0/scores/vina",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_backend",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_method",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_method_version",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_component",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_kind",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_native_unit",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_native_scale",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preference",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_stage",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_grid_units",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_weights",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_input_hash",
+      "path": "/poses/0/scores/inter/receptor",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preparation",
+      "path": "/poses/0/scores/inter/receptor",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_input_hash",
+      "path": "/poses/0/scores/inter/partner",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preparation",
+      "path": "/poses/0/scores/inter/partner",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_box_units",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_box",
+      "path": "/poses/0/scores/inter",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_backend",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_method",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_method_version",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_component",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_kind",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_native_unit",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_native_scale",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preference",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_stage",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_grid_units",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_weights",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_input_hash",
+      "path": "/poses/0/scores/intra/receptor",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preparation",
+      "path": "/poses/0/scores/intra/receptor",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_input_hash",
+      "path": "/poses/0/scores/intra/partner",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preparation",
+      "path": "/poses/0/scores/intra/partner",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_box_units",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_box",
+      "path": "/poses/0/scores/intra",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_backend",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_method",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_method_version",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_component",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_kind",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_native_unit",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_native_scale",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preference",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_stage",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_grid_units",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_weights",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_input_hash",
+      "path": "/poses/0/scores/torsion/receptor",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preparation",
+      "path": "/poses/0/scores/torsion/receptor",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_input_hash",
+      "path": "/poses/0/scores/torsion/partner",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_preparation",
+      "path": "/poses/0/scores/torsion/partner",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "score_box_units",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "score_box",
+      "path": "/poses/0/scores/torsion",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "ranking_history",
+      "path": "/provenance/ranking_history",
+      "status": "consistent",
+      "reason": "valid_recorded_value"
+    },
+    {
+      "check": "ranking_order",
+      "path": "/provenance/ranking_history/0",
+      "status": "consistent",
+      "reason": "order_matches_policy"
+    },
+    {
+      "check": "ranking_policy",
+      "path": "/provenance/ranking_policy",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "ranking_membership",
+      "path": "/poses",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "ranking_identity",
+      "path": "/poses/0/pose_id",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "ranking_identity",
+      "path": "/poses/0/partner_state_id",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "ranking_identity",
+      "path": "/poses/0/receptor_state_id",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "ranking_value",
+      "path": "/poses/0",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "ranking_rank",
+      "path": "/poses/0",
+      "status": "consistent",
+      "reason": "claims_agree"
+    },
+    {
+      "check": "ranking_semantics",
+      "path": "/poses/0",
+      "status": "consistent",
+      "reason": "claims_agree"
+    }
+  ]
+}

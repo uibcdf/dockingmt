@@ -1,0 +1,372 @@
+{
+  "schema_version": "1.0",
+  "scope": "prepared_charge_consumption",
+  "charge_unit": "elementary_charge",
+  "assessment": "consistent",
+  "n_atoms": 13,
+  "total_charge": 1.0000000000000004,
+  "matches_preparation_values": true,
+  "selected_total_charge_difference": 0.0,
+  "partial_charge_assignment": {
+    "schema": "molsysmt.partial_charge_assignment@1",
+    "method": "nonpolar_hydrogen_charge_aggregation",
+    "engine": "MolSysMT",
+    "chemical_state_index": 0,
+    "chemical_state_id": null,
+    "n_atoms": 13,
+    "atom_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "evaluated_atom_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "coverage": "complete",
+    "charge_unit": "elementary_charge",
+    "total_charge": 1.0000000000000004,
+    "software": {
+      "molsysmt": "0.23.0+513.g9e1f1b1ad"
+    },
+    "references": [
+      {
+        "id": "meeko-terminal-charge-aggregation-reference",
+        "type": "software",
+        "title": "Meeko terminal-atom charge aggregation",
+        "version": "0.8.0",
+        "revision": "1eac18bd6d1111f35f9f1abaa8af502c2668d054",
+        "url": "https://github.com/forlilab/Meeko/blob/1eac18bd6d1111f35f9f1abaa8af502c2668d054/meeko/molsetup.py",
+        "roles": [
+          "reference_implementation"
+        ]
+      }
+    ],
+    "attribution": {
+      "schema": "molsysmt.scientific_attribution@1",
+      "target": "molsysmt.build.merge_nonpolar_hydrogens",
+      "items": [
+        {
+          "id": "meeko-terminal-charge-aggregation-reference",
+          "type": "software",
+          "title": "Meeko terminal-atom charge aggregation",
+          "version": "0.8.0",
+          "revision": "1eac18bd6d1111f35f9f1abaa8af502c2668d054",
+          "url": "https://github.com/forlilab/Meeko/blob/1eac18bd6d1111f35f9f1abaa8af502c2668d054/meeko/molsetup.py",
+          "roles": [
+            "reference_implementation"
+          ]
+        }
+      ]
+    },
+    "source_assignment": {
+      "schema": "molsysmt.partial_charge_assignment@1",
+      "method": "gasteiger_marsili",
+      "engine": "RDKit",
+      "chemical_state_index": 0,
+      "chemical_state_id": null,
+      "n_atoms": 18,
+      "atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "coverage": "complete",
+      "evaluated_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "evidence": "calculated_from_declared_graph",
+      "parameters": {
+        "iterations": 12,
+        "throw_on_parameter_failure": true,
+        "chemical_perception": "rdkit_sanitization",
+        "hydrogen_policy": "indexed_atoms_only"
+      },
+      "software": {
+        "molsysmt": "0.23.0+513.g9e1f1b1ad",
+        "rdkit": "2026.09.2"
+      },
+      "references": [
+        {
+          "id": "doi:10.1016/0040-4020(80)80168-2",
+          "type": "article",
+          "doi": "10.1016/0040-4020(80)80168-2",
+          "title": "Iterative partial equalization of orbital electronegativity\u2014a rapid access to atomic charges",
+          "authors": [
+            "Gasteiger, Johann",
+            "Marsili, Mario"
+          ],
+          "year": 1980,
+          "journal": "Tetrahedron",
+          "volume": "36",
+          "pages": "3219-3228"
+        }
+      ],
+      "charge_unit": "elementary_charge",
+      "expected_total_charge": 1.0,
+      "total_charge_source": "formal_charge_inventory",
+      "total_charge": 1.0000000000000007,
+      "total_charge_tolerance": 1e-06,
+      "attribution": {
+        "schema": "molsysmt.scientific_attribution@1",
+        "target": "molsysmt.physchem.get_partial_charges",
+        "items": [
+          {
+            "id": "doi:10.1016/0040-4020(80)80168-2",
+            "type": "article",
+            "doi": "10.1016/0040-4020(80)80168-2",
+            "title": "Iterative partial equalization of orbital electronegativity\u2014a rapid access to atomic charges",
+            "authors": [
+              "Gasteiger, Johann",
+              "Marsili, Mario"
+            ],
+            "year": 1980,
+            "journal": "Tetrahedron",
+            "volume": "36",
+            "pages": "3219-3228",
+            "roles": [
+              "scientific_criterion"
+            ]
+          },
+          {
+            "id": "software:molsysmt:0.23.0+513.g9e1f1b1ad",
+            "type": "software",
+            "title": "MolSysMT",
+            "authors": [
+              "Prada-Gracia, Diego",
+              "Moreno-Vargas, Liliana M."
+            ],
+            "doi": "10.5281/zenodo.1298752",
+            "url": "https://github.com/uibcdf/molsysmt",
+            "version": "0.23.0+513.g9e1f1b1ad",
+            "roles": [
+              "executed_software"
+            ]
+          },
+          {
+            "id": "software:rdkit:2026.09.2",
+            "type": "software",
+            "title": "RDKit: Open-source cheminformatics",
+            "url": "https://www.rdkit.org",
+            "how_to_cite": "https://www.rdkit.org/docs/Overview.html#citing-the-rdkit",
+            "version": "2026.09.2",
+            "roles": [
+              "executed_software"
+            ]
+          }
+        ]
+      },
+      "status": "assigned",
+      "atom_source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "chemical_digest": "8275067599c0314a5f9682500edce5a76c33f17c9db3c80277b9934ac253bcc0",
+      "values_digest": "9331c577728d22a896cdce950ec13a5d14921fa8b8d385e2f6c73916d54c1cec"
+    },
+    "parameters": {
+      "typing_scheme": "autodock4",
+      "merged_label": "H",
+      "retained_hydrogen_label": "HD",
+      "source_calculation": {
+        "method": "gasteiger_marsili",
+        "engine": "RDKit",
+        "software": {
+          "molsysmt": "0.23.0+513.g9e1f1b1ad",
+          "rdkit": "2026.09.2"
+        },
+        "parameters": {
+          "iterations": 12,
+          "throw_on_parameter_failure": true,
+          "chemical_perception": "rdkit_sanitization",
+          "hydrogen_policy": "indexed_atoms_only"
+        }
+      }
+    },
+    "status": "projected",
+    "atom_source_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      14,
+      15,
+      16,
+      17
+    ],
+    "chemical_digest": "92b5125fb8cc15796457e02d8f2a95f9940ecc2bcb5ef4731bc4d1a39d697b65",
+    "values_digest": "6a3222a0e83a7094bf7a90171a482185328b47eb9122e1a9e5cfcc8d85a0430b",
+    "retained_total_charge": 1.0000000000000004
+  },
+  "charge_projection": {
+    "schema_version": "1.0",
+    "charge_unit": "elementary_charge",
+    "policy": "retain_polar_merge_nonpolar",
+    "selected_source_atom_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      14,
+      15,
+      16,
+      17
+    ],
+    "retained_source_atom_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      14,
+      15,
+      16,
+      17
+    ],
+    "selected_total_charge": 1.0000000000000004,
+    "retained_before_merge_total_charge": 1.0000000000000004,
+    "transfers": [],
+    "prepared_total_charge": 1.0000000000000004,
+    "prepared_values_sha256": "6a3222a0e83a7094bf7a90171a482185328b47eb9122e1a9e5cfcc8d85a0430b",
+    "total_charge_tolerance": 1e-06
+  },
+  "pdbqt": {
+    "decimal_places": 3,
+    "prepared_atom_indices": [
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "source_atom_indices": [
+      6,
+      7,
+      8,
+      14,
+      15,
+      16,
+      17,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "charges": [
+      0.27,
+      -0.287,
+      -0.287,
+      0.302,
+      0.302,
+      0.302,
+      0.302,
+      0.063,
+      0.016,
+      0.001,
+      0.0,
+      0.001,
+      0.016
+    ],
+    "total_charge": 1.0010000000000001,
+    "rounding_difference": 0.0009999999999996678,
+    "total_rounding_bound": 0.006500000000000001
+  }
+}

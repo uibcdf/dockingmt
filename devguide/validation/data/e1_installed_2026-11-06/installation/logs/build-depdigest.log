@@ -1,0 +1,106 @@
+* Getting build dependencies for wheel...
+running egg_info
+creating depdigest.egg-info
+writing depdigest.egg-info/PKG-INFO
+writing dependency_links to depdigest.egg-info/dependency_links.txt
+writing entry points to depdigest.egg-info/entry_points.txt
+writing requirements to depdigest.egg-info/requires.txt
+writing top-level names to depdigest.egg-info/top_level.txt
+writing manifest file 'depdigest.egg-info/SOURCES.txt'
+reading manifest file 'depdigest.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'depdigest.egg-info/SOURCES.txt'
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build/lib/depdigest
+copying depdigest/_version.py -> build/lib/depdigest
+copying depdigest/cli.py -> build/lib/depdigest
+copying depdigest/_smonitor.py -> build/lib/depdigest
+copying depdigest/__main__.py -> build/lib/depdigest
+copying depdigest/__init__.py -> build/lib/depdigest
+creating build/lib/depdigest/utils
+copying depdigest/utils/ast_tools.py -> build/lib/depdigest/utils
+copying depdigest/utils/__init__.py -> build/lib/depdigest/utils
+creating build/lib/depdigest/core
+copying depdigest/core/registry.py -> build/lib/depdigest/core
+copying depdigest/core/loader.py -> build/lib/depdigest/core
+copying depdigest/core/decorator.py -> build/lib/depdigest/core
+copying depdigest/core/config.py -> build/lib/depdigest/core
+copying depdigest/core/checker.py -> build/lib/depdigest/core
+copying depdigest/core/__init__.py -> build/lib/depdigest/core
+creating build/lib/depdigest/_private/smonitor
+copying depdigest/_private/smonitor/meta.py -> build/lib/depdigest/_private/smonitor
+copying depdigest/_private/smonitor/emitter.py -> build/lib/depdigest/_private/smonitor
+copying depdigest/_private/smonitor/catalog.py -> build/lib/depdigest/_private/smonitor
+copying depdigest/_private/smonitor/__init__.py -> build/lib/depdigest/_private/smonitor
+running egg_info
+writing depdigest.egg-info/PKG-INFO
+writing dependency_links to depdigest.egg-info/dependency_links.txt
+writing entry points to depdigest.egg-info/entry_points.txt
+writing requirements to depdigest.egg-info/requires.txt
+writing top-level names to depdigest.egg-info/top_level.txt
+reading manifest file 'depdigest.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'depdigest.egg-info/SOURCES.txt'
+warning: build_py: byte-compiling is disabled, skipping.
+
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/depdigest
+creating build/bdist.linux-x86_64/wheel/depdigest/_private
+creating build/bdist.linux-x86_64/wheel/depdigest/_private/smonitor
+copying build/lib/depdigest/_private/smonitor/__init__.py -> build/bdist.linux-x86_64/wheel/./depdigest/_private/smonitor
+copying build/lib/depdigest/_private/smonitor/catalog.py -> build/bdist.linux-x86_64/wheel/./depdigest/_private/smonitor
+copying build/lib/depdigest/_private/smonitor/emitter.py -> build/bdist.linux-x86_64/wheel/./depdigest/_private/smonitor
+copying build/lib/depdigest/_private/smonitor/meta.py -> build/bdist.linux-x86_64/wheel/./depdigest/_private/smonitor
+creating build/bdist.linux-x86_64/wheel/depdigest/core
+copying build/lib/depdigest/core/__init__.py -> build/bdist.linux-x86_64/wheel/./depdigest/core
+copying build/lib/depdigest/core/checker.py -> build/bdist.linux-x86_64/wheel/./depdigest/core
+copying build/lib/depdigest/core/config.py -> build/bdist.linux-x86_64/wheel/./depdigest/core
+copying build/lib/depdigest/core/decorator.py -> build/bdist.linux-x86_64/wheel/./depdigest/core
+copying build/lib/depdigest/core/loader.py -> build/bdist.linux-x86_64/wheel/./depdigest/core
+copying build/lib/depdigest/core/registry.py -> build/bdist.linux-x86_64/wheel/./depdigest/core
+creating build/bdist.linux-x86_64/wheel/depdigest/utils
+copying build/lib/depdigest/utils/__init__.py -> build/bdist.linux-x86_64/wheel/./depdigest/utils
+copying build/lib/depdigest/utils/ast_tools.py -> build/bdist.linux-x86_64/wheel/./depdigest/utils
+copying build/lib/depdigest/__init__.py -> build/bdist.linux-x86_64/wheel/./depdigest
+copying build/lib/depdigest/__main__.py -> build/bdist.linux-x86_64/wheel/./depdigest
+copying build/lib/depdigest/_smonitor.py -> build/bdist.linux-x86_64/wheel/./depdigest
+copying build/lib/depdigest/cli.py -> build/bdist.linux-x86_64/wheel/./depdigest
+copying build/lib/depdigest/_version.py -> build/bdist.linux-x86_64/wheel/./depdigest
+warning: install_lib: byte-compiling is disabled, skipping.
+
+running install_egg_info
+Copying depdigest.egg-info to build/bdist.linux-x86_64/wheel/./depdigest-0.15.2+2.g032d345-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/depdigest-0.15.2+2.g032d345.dist-info/WHEEL
+creating '/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/wheels/depdigest/.tmp-4enm28k6/depdigest-0.15.2+2.g032d345-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'depdigest/__init__.py'
+adding 'depdigest/__main__.py'
+adding 'depdigest/_smonitor.py'
+adding 'depdigest/_version.py'
+adding 'depdigest/cli.py'
+adding 'depdigest/_private/smonitor/__init__.py'
+adding 'depdigest/_private/smonitor/catalog.py'
+adding 'depdigest/_private/smonitor/emitter.py'
+adding 'depdigest/_private/smonitor/meta.py'
+adding 'depdigest/core/__init__.py'
+adding 'depdigest/core/checker.py'
+adding 'depdigest/core/config.py'
+adding 'depdigest/core/decorator.py'
+adding 'depdigest/core/loader.py'
+adding 'depdigest/core/registry.py'
+adding 'depdigest/utils/__init__.py'
+adding 'depdigest/utils/ast_tools.py'
+adding 'depdigest-0.15.2+2.g032d345.dist-info/licenses/LICENSE'
+adding 'depdigest-0.15.2+2.g032d345.dist-info/METADATA'
+adding 'depdigest-0.15.2+2.g032d345.dist-info/WHEEL'
+adding 'depdigest-0.15.2+2.g032d345.dist-info/entry_points.txt'
+adding 'depdigest-0.15.2+2.g032d345.dist-info/top_level.txt'
+adding 'depdigest-0.15.2+2.g032d345.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built depdigest-0.15.2+2.g032d345-py3-none-any.whl

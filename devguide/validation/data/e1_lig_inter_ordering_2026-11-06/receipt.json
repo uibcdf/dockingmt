@@ -1,0 +1,86 @@
+{
+  "all_source_files_unchanged": true,
+  "counts": {
+    "admission_attempts": 70,
+    "admitted_studies": 4,
+    "audit_pose": 22,
+    "detachment_controls": 2,
+    "expected_refusals": 66,
+    "quantity_decodes": 36,
+    "rank_refusals": 4,
+    "tie_controls": 2
+  },
+  "distinct_component_studies": 2,
+  "excluded_operation_basis": "Inspected record-only public routes; no molecular or native counter hooks were installed.",
+  "full_e1_accepted": false,
+  "input_collection_unchanged": true,
+  "installed_acceptance": false,
+  "new_empirical_values": 0,
+  "new_molecular_operations": 0,
+  "new_vina_calls": 0,
+  "owner": "uibcdf/dockingmt#78",
+  "profiles": [
+    {
+      "admitted_methods": 2,
+      "display_orders": {
+        "vina": [
+          "e1-new-local-H-1",
+          "e1-new-local-H-2",
+          "e1-new-local-H-3",
+          "e1-new-local-H-4",
+          "e1-new-local-H-5"
+        ],
+        "vinardo": [
+          "e1-new-local-H-1",
+          "e1-new-local-H-2",
+          "e1-new-local-H-4",
+          "e1-new-local-H-3",
+          "e1-new-local-H-5"
+        ]
+      },
+      "profile": "normal",
+      "refused_controls": 33,
+      "source_unchanged": true,
+      "strict_rank_refusals": 2
+    },
+    {
+      "admitted_methods": 2,
+      "display_orders": {
+        "vina": [
+          "e1-new-local-H-1",
+          "e1-new-local-H-2",
+          "e1-new-local-H-3",
+          "e1-new-local-H-4",
+          "e1-new-local-H-5"
+        ],
+        "vinardo": [
+          "e1-new-local-H-1",
+          "e1-new-local-H-2",
+          "e1-new-local-H-4",
+          "e1-new-local-H-3",
+          "e1-new-local-H-5"
+        ]
+      },
+      "profile": "pm_fs",
+      "refused_controls": 33,
+      "source_unchanged": true,
+      "strict_rank_refusals": 2
+    }
+  ],
+  "python": "3.14.10",
+  "reader_policy_repetitions": 2,
+  "roots": {
+    "construction": "45b3665ba09b6979aa1bcdf1bea0ac3e8102f081fefbfc51348c55bc71405df3",
+    "scoring": "bf214aa7e48f15a95051411ed3bd54969f78c811503050c6969d6f5aa2898e93"
+  },
+  "schema": "dockingmt.e1_lig_inter_ordering_receiving@1",
+  "scope": "Finite case-specific lower-reported-lig_inter ordering, separate per method; no public API or source descriptor/rank modification, affinity or total/shared-reference comparison.",
+  "versions": {
+    "argdigest": "0.17.1+3.g0712641",
+    "depdigest": "0.15.2+2.g032d345",
+    "dockingmt": "0.0.0+295.g2fda623",
+    "molsysmt": "0.23.0+513.g9e1f1b1ad",
+    "pyunitwizard": "0.29.1+6.gf82b618",
+    "smonitor": "0.22.1+1.gc1b6ce2"
+  }
+}

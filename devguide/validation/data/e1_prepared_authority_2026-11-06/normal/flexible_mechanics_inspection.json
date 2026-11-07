@@ -1,0 +1,753 @@
+{
+  "scope": "Inspection only; no complete MM persistence/replay contract",
+  "native_values": {
+    "formal_charge": null,
+    "partial_charge": [
+      0.06272829297613325,
+      0.016435346854838127,
+      0.000928777283735728,
+      5.342843100820255e-05,
+      0.000928777283735728,
+      0.016435346854838127,
+      0.2701711739157781,
+      -0.28704027223636625,
+      -0.28704027223636625,
+      0.30159985021816643,
+      0.30159985021816643,
+      0.30159985021816643,
+      0.30159985021816643
+    ],
+    "atom_ff_type": [
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "A",
+      "C",
+      "N",
+      "N",
+      "HD",
+      "HD",
+      "HD",
+      "HD"
+    ],
+    "forcefield": null,
+    "non_bonded_method": null,
+    "cutoff_distance": null,
+    "switch_distance": null,
+    "dispersion_correction": null,
+    "ewald_error_tolerance": null,
+    "hydrogen_mass": null,
+    "constraints": null,
+    "flexible_constraints": null,
+    "water_model": null,
+    "rigid_water": null,
+    "implicit_solvent": null,
+    "solute_dielectric": null,
+    "solvent_dielectric": null,
+    "salt_concentration": null,
+    "kappa": null
+  },
+  "native_partial_charge_unit": "elementary_charge",
+  "partial_charge_assignment": {
+    "schema": "molsysmt.partial_charge_assignment@1",
+    "method": "nonpolar_hydrogen_charge_aggregation",
+    "engine": "MolSysMT",
+    "chemical_state_index": 0,
+    "chemical_state_id": null,
+    "n_atoms": 13,
+    "atom_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "evaluated_atom_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "coverage": "complete",
+    "charge_unit": "elementary_charge",
+    "total_charge": 1.0000000000000004,
+    "software": {
+      "molsysmt": "0.23.0+513.g9e1f1b1ad"
+    },
+    "references": [
+      {
+        "id": "meeko-terminal-charge-aggregation-reference",
+        "type": "software",
+        "title": "Meeko terminal-atom charge aggregation",
+        "version": "0.8.0",
+        "revision": "1eac18bd6d1111f35f9f1abaa8af502c2668d054",
+        "url": "https://github.com/forlilab/Meeko/blob/1eac18bd6d1111f35f9f1abaa8af502c2668d054/meeko/molsetup.py",
+        "roles": [
+          "reference_implementation"
+        ]
+      }
+    ],
+    "attribution": {
+      "schema": "molsysmt.scientific_attribution@1",
+      "target": "molsysmt.build.merge_nonpolar_hydrogens",
+      "items": [
+        {
+          "id": "meeko-terminal-charge-aggregation-reference",
+          "type": "software",
+          "title": "Meeko terminal-atom charge aggregation",
+          "version": "0.8.0",
+          "revision": "1eac18bd6d1111f35f9f1abaa8af502c2668d054",
+          "url": "https://github.com/forlilab/Meeko/blob/1eac18bd6d1111f35f9f1abaa8af502c2668d054/meeko/molsetup.py",
+          "roles": [
+            "reference_implementation"
+          ]
+        }
+      ]
+    },
+    "source_assignment": {
+      "schema": "molsysmt.partial_charge_assignment@1",
+      "method": "gasteiger_marsili",
+      "engine": "RDKit",
+      "chemical_state_index": 0,
+      "chemical_state_id": null,
+      "n_atoms": 18,
+      "atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "coverage": "complete",
+      "evaluated_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "evidence": "calculated_from_declared_graph",
+      "parameters": {
+        "iterations": 12,
+        "throw_on_parameter_failure": true,
+        "chemical_perception": "rdkit_sanitization",
+        "hydrogen_policy": "indexed_atoms_only"
+      },
+      "software": {
+        "molsysmt": "0.23.0+513.g9e1f1b1ad",
+        "rdkit": "2026.09.2"
+      },
+      "references": [
+        {
+          "id": "doi:10.1016/0040-4020(80)80168-2",
+          "type": "article",
+          "doi": "10.1016/0040-4020(80)80168-2",
+          "title": "Iterative partial equalization of orbital electronegativity\u2014a rapid access to atomic charges",
+          "authors": [
+            "Gasteiger, Johann",
+            "Marsili, Mario"
+          ],
+          "year": 1980,
+          "journal": "Tetrahedron",
+          "volume": "36",
+          "pages": "3219-3228"
+        }
+      ],
+      "charge_unit": "elementary_charge",
+      "expected_total_charge": 1.0,
+      "total_charge_source": "formal_charge_inventory",
+      "total_charge": 1.0000000000000007,
+      "total_charge_tolerance": 1e-06,
+      "attribution": {
+        "schema": "molsysmt.scientific_attribution@1",
+        "target": "molsysmt.physchem.get_partial_charges",
+        "items": [
+          {
+            "id": "doi:10.1016/0040-4020(80)80168-2",
+            "type": "article",
+            "doi": "10.1016/0040-4020(80)80168-2",
+            "title": "Iterative partial equalization of orbital electronegativity\u2014a rapid access to atomic charges",
+            "authors": [
+              "Gasteiger, Johann",
+              "Marsili, Mario"
+            ],
+            "year": 1980,
+            "journal": "Tetrahedron",
+            "volume": "36",
+            "pages": "3219-3228",
+            "roles": [
+              "scientific_criterion"
+            ]
+          },
+          {
+            "id": "software:molsysmt:0.23.0+513.g9e1f1b1ad",
+            "type": "software",
+            "title": "MolSysMT",
+            "authors": [
+              "Prada-Gracia, Diego",
+              "Moreno-Vargas, Liliana M."
+            ],
+            "doi": "10.5281/zenodo.1298752",
+            "url": "https://github.com/uibcdf/molsysmt",
+            "version": "0.23.0+513.g9e1f1b1ad",
+            "roles": [
+              "executed_software"
+            ]
+          },
+          {
+            "id": "software:rdkit:2026.09.2",
+            "type": "software",
+            "title": "RDKit: Open-source cheminformatics",
+            "url": "https://www.rdkit.org",
+            "how_to_cite": "https://www.rdkit.org/docs/Overview.html#citing-the-rdkit",
+            "version": "2026.09.2",
+            "roles": [
+              "executed_software"
+            ]
+          }
+        ]
+      },
+      "status": "projected",
+      "atom_source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "chemical_digest": "8275067599c0314a5f9682500edce5a76c33f17c9db3c80277b9934ac253bcc0",
+      "values_digest": "9331c577728d22a896cdce950ec13a5d14921fa8b8d385e2f6c73916d54c1cec",
+      "retained_total_charge": 1.0000000000000007
+    },
+    "parameters": {
+      "typing_scheme": "autodock4",
+      "merged_label": "H",
+      "retained_hydrogen_label": "HD",
+      "source_calculation": {
+        "method": "gasteiger_marsili",
+        "engine": "RDKit",
+        "software": {
+          "molsysmt": "0.23.0+513.g9e1f1b1ad",
+          "rdkit": "2026.09.2"
+        },
+        "parameters": {
+          "iterations": 12,
+          "throw_on_parameter_failure": true,
+          "chemical_perception": "rdkit_sanitization",
+          "hydrogen_policy": "indexed_atoms_only"
+        }
+      }
+    },
+    "status": "derived",
+    "atom_source_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      14,
+      15,
+      16,
+      17
+    ],
+    "chemical_digest": "92b5125fb8cc15796457e02d8f2a95f9940ecc2bcb5ef4731bc4d1a39d697b65",
+    "values_digest": "6a3222a0e83a7094bf7a90171a482185328b47eb9122e1a9e5cfcc8d85a0430b"
+  },
+  "atom_type_assignment": {
+    "schema": "molsysmt.atom_type_assignment@1",
+    "typing_scheme": "autodock4",
+    "method": "chemical_environment",
+    "rule_version": "chemical_environment@1",
+    "rule_order": [
+      "element_default",
+      "aromatic_carbon",
+      "trivalent_nitrogen_adjacent_to_aromatic_atom",
+      "trivalent_nitrogen_adjacent_to_sp2_carbon_or_triazene",
+      "positive_nitrogen",
+      "nonaromatic_two_connected_sulfur",
+      "hydrogen_bonded_to_nitrogen_oxygen_fluorine_phosphorus_sulfur"
+    ],
+    "rule_indices": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      0,
+      4,
+      3,
+      6,
+      6,
+      6,
+      6
+    ],
+    "n_matching_rules": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      1,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "atom_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "n_atoms": 18,
+    "evaluated_atom_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "coverage": "complete",
+    "chemical_state_index": 0,
+    "chemical_state_id": null,
+    "polar_hydrogen_indices": [
+      9,
+      10,
+      11,
+      12
+    ],
+    "nonpolar_hydrogen_indices": [],
+    "hydrogen_policy": "nonpolar_H_merged_after_original_typing",
+    "parameters": {
+      "aromaticity_method": "fused_ring_electron_count",
+      "aromaticity_implementation": "rdkit.AROMATICITY_RDKIT"
+    },
+    "evidence": "declared_graph_with_explicit_aromaticity_perception",
+    "software": {
+      "molsysmt": "0.23.0+513.g9e1f1b1ad",
+      "rdkit": "2026.09.2"
+    },
+    "references": [
+      {
+        "id": "autodock4-atom-type-vocabulary",
+        "type": "webpage",
+        "title": "AutoDock 4.2.6 User Guide: atom types",
+        "url": "https://autodock.scripps.edu/wp-content/uploads/sites/56/2021/10/AutoDock4.2.6_UserGuide.pdf",
+        "roles": [
+          "parameter_scheme"
+        ]
+      },
+      {
+        "id": "meeko-ad4-typing-reference",
+        "type": "software",
+        "title": "Meeko chemical-context atom typing",
+        "version": "0.8.0",
+        "revision": "1eac18bd6d1111f35f9f1abaa8af502c2668d054",
+        "url": "https://github.com/forlilab/Meeko/blob/1eac18bd6d1111f35f9f1abaa8af502c2668d054/meeko/atomtyper.py",
+        "roles": [
+          "reference_implementation"
+        ]
+      }
+    ],
+    "attribution": {
+      "schema": "molsysmt.scientific_attribution@1",
+      "target": "molsysmt.physchem.get_autodock_atom_types",
+      "items": [
+        {
+          "id": "rdkit-aromaticity-model",
+          "type": "webpage",
+          "title": "The RDKit Book: The RDKit Aromaticity Model",
+          "url": "https://www.rdkit.org/docs/RDKit_Book.html#aromaticity",
+          "roles": [
+            "scientific_criterion"
+          ]
+        },
+        {
+          "id": "software:molsysmt:0.23.0+513.g9e1f1b1ad",
+          "type": "software",
+          "title": "MolSysMT",
+          "authors": [
+            "Prada-Gracia, Diego",
+            "Moreno-Vargas, Liliana M."
+          ],
+          "doi": "10.5281/zenodo.1298752",
+          "url": "https://github.com/uibcdf/molsysmt",
+          "version": "0.23.0+513.g9e1f1b1ad",
+          "roles": [
+            "executed_software"
+          ]
+        },
+        {
+          "id": "software:rdkit:2026.09.2",
+          "type": "software",
+          "title": "RDKit: Open-source cheminformatics",
+          "url": "https://www.rdkit.org",
+          "how_to_cite": "https://www.rdkit.org/docs/Overview.html#citing-the-rdkit",
+          "version": "2026.09.2",
+          "roles": [
+            "executed_software"
+          ]
+        },
+        {
+          "id": "autodock4-atom-type-vocabulary",
+          "type": "webpage",
+          "title": "AutoDock 4.2.6 User Guide: atom types",
+          "url": "https://autodock.scripps.edu/wp-content/uploads/sites/56/2021/10/AutoDock4.2.6_UserGuide.pdf",
+          "roles": [
+            "parameter_scheme"
+          ]
+        },
+        {
+          "id": "meeko-ad4-typing-reference",
+          "type": "software",
+          "title": "Meeko chemical-context atom typing",
+          "version": "0.8.0",
+          "revision": "1eac18bd6d1111f35f9f1abaa8af502c2668d054",
+          "url": "https://github.com/forlilab/Meeko/blob/1eac18bd6d1111f35f9f1abaa8af502c2668d054/meeko/atomtyper.py",
+          "roles": [
+            "reference_implementation"
+          ]
+        }
+      ]
+    },
+    "status": "derived",
+    "atom_source_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      14,
+      15,
+      16,
+      17
+    ],
+    "chemical_digest": "92b5125fb8cc15796457e02d8f2a95f9940ecc2bcb5ef4731bc4d1a39d697b65",
+    "values_digest": "94c36033d22301208a463b8991ea2ec2a45adff17e284cc7d82830be096104fe",
+    "source_assignment": {
+      "schema": "molsysmt.atom_type_assignment@1",
+      "typing_scheme": "autodock4",
+      "method": "chemical_environment",
+      "rule_version": "chemical_environment@1",
+      "rule_order": [
+        "element_default",
+        "aromatic_carbon",
+        "trivalent_nitrogen_adjacent_to_aromatic_atom",
+        "trivalent_nitrogen_adjacent_to_sp2_carbon_or_triazene",
+        "positive_nitrogen",
+        "nonaromatic_two_connected_sulfur",
+        "hydrogen_bonded_to_nitrogen_oxygen_fluorine_phosphorus_sulfur"
+      ],
+      "rule_indices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        4,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        6,
+        6,
+        6,
+        6
+      ],
+      "n_matching_rules": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "n_atoms": 18,
+      "evaluated_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "coverage": "complete",
+      "chemical_state_index": 0,
+      "chemical_state_id": null,
+      "polar_hydrogen_indices": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "nonpolar_hydrogen_indices": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "hydrogen_policy": "indexed_atoms_only_no_merging",
+      "parameters": {
+        "aromaticity_method": "fused_ring_electron_count",
+        "aromaticity_implementation": "rdkit.AROMATICITY_RDKIT"
+      },
+      "evidence": "declared_graph_with_explicit_aromaticity_perception",
+      "software": {
+        "molsysmt": "0.23.0+513.g9e1f1b1ad",
+        "rdkit": "2026.09.2"
+      },
+      "references": [
+        {
+          "id": "autodock4-atom-type-vocabulary",
+          "type": "webpage",
+          "title": "AutoDock 4.2.6 User Guide: atom types",
+          "url": "https://autodock.scripps.edu/wp-content/uploads/sites/56/2021/10/AutoDock4.2.6_UserGuide.pdf",
+          "roles": [
+            "parameter_scheme"
+          ]
+        },
+        {
+          "id": "meeko-ad4-typing-reference",
+          "type": "software",
+          "title": "Meeko chemical-context atom typing",
+          "version": "0.8.0",
+          "revision": "1eac18bd6d1111f35f9f1abaa8af502c2668d054",
+          "url": "https://github.com/forlilab/Meeko/blob/1eac18bd6d1111f35f9f1abaa8af502c2668d054/meeko/atomtyper.py",
+          "roles": [
+            "reference_implementation"
+          ]
+        }
+      ],
+      "attribution": {
+        "schema": "molsysmt.scientific_attribution@1",
+        "target": "molsysmt.physchem.get_autodock_atom_types",
+        "items": [
+          {
+            "id": "rdkit-aromaticity-model",
+            "type": "webpage",
+            "title": "The RDKit Book: The RDKit Aromaticity Model",
+            "url": "https://www.rdkit.org/docs/RDKit_Book.html#aromaticity",
+            "roles": [
+              "scientific_criterion"
+            ]
+          },
+          {
+            "id": "software:molsysmt:0.23.0+513.g9e1f1b1ad",
+            "type": "software",
+            "title": "MolSysMT",
+            "authors": [
+              "Prada-Gracia, Diego",
+              "Moreno-Vargas, Liliana M."
+            ],
+            "doi": "10.5281/zenodo.1298752",
+            "url": "https://github.com/uibcdf/molsysmt",
+            "version": "0.23.0+513.g9e1f1b1ad",
+            "roles": [
+              "executed_software"
+            ]
+          },
+          {
+            "id": "software:rdkit:2026.09.2",
+            "type": "software",
+            "title": "RDKit: Open-source cheminformatics",
+            "url": "https://www.rdkit.org",
+            "how_to_cite": "https://www.rdkit.org/docs/Overview.html#citing-the-rdkit",
+            "version": "2026.09.2",
+            "roles": [
+              "executed_software"
+            ]
+          },
+          {
+            "id": "autodock4-atom-type-vocabulary",
+            "type": "webpage",
+            "title": "AutoDock 4.2.6 User Guide: atom types",
+            "url": "https://autodock.scripps.edu/wp-content/uploads/sites/56/2021/10/AutoDock4.2.6_UserGuide.pdf",
+            "roles": [
+              "parameter_scheme"
+            ]
+          },
+          {
+            "id": "meeko-ad4-typing-reference",
+            "type": "software",
+            "title": "Meeko chemical-context atom typing",
+            "version": "0.8.0",
+            "revision": "1eac18bd6d1111f35f9f1abaa8af502c2668d054",
+            "url": "https://github.com/forlilab/Meeko/blob/1eac18bd6d1111f35f9f1abaa8af502c2668d054/meeko/atomtyper.py",
+            "roles": [
+              "reference_implementation"
+            ]
+          }
+        ]
+      },
+      "status": "projected",
+      "atom_source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "chemical_digest": "8275067599c0314a5f9682500edce5a76c33f17c9db3c80277b9934ac253bcc0",
+      "values_digest": "e394692744bf32b5ac8c97f6f8d6a80c55bc075891afc3f4e963b23fdcc353ab"
+    }
+  }
+}

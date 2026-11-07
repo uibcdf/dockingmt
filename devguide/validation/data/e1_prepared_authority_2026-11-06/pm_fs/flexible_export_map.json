@@ -1,0 +1,256 @@
+{
+  "schema": "molsysmt.atom_export@1",
+  "software": {
+    "molsysmt": "0.23.0+513.g9e1f1b1ad"
+  },
+  "target_form": "file:pdbqt",
+  "typing_scheme": "autodock4",
+  "n_source_atoms": 13,
+  "n_output_atoms": 13,
+  "source_to_output_atom_indices": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "output_to_source_atom_indices": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "source_atom_ids": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "1",
+    "2",
+    "0",
+    "14",
+    "15",
+    "16",
+    "17"
+  ],
+  "output_atom_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "source_atom_names": [
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8",
+    "C1",
+    "N2",
+    "N0",
+    "H15",
+    "H16",
+    "H17",
+    "H18"
+  ],
+  "source_atom_types": [
+    "C",
+    "C",
+    "C",
+    "C",
+    "C",
+    "C",
+    "C",
+    "N",
+    "N",
+    "H",
+    "H",
+    "H",
+    "H"
+  ],
+  "output_atom_names": [
+    "C1",
+    "N2",
+    "N0",
+    "H15",
+    "H16",
+    "H17",
+    "H18",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8"
+  ],
+  "output_atom_ff_types": [
+    "C",
+    "N",
+    "N",
+    "HD",
+    "HD",
+    "HD",
+    "HD",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A",
+    "A"
+  ],
+  "source_atom_status": [
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained"
+  ],
+  "charge_unit": "elementary_charge",
+  "partial_charge_before_rounding": [
+    0.2701711739157781,
+    -0.28704027223636625,
+    -0.28704027223636625,
+    0.30159985021816643,
+    0.30159985021816643,
+    0.30159985021816643,
+    0.30159985021816643,
+    0.06272829297613325,
+    0.016435346854838127,
+    0.000928777283735728,
+    5.342843100820255e-05,
+    0.000928777283735728,
+    0.016435346854838127
+  ],
+  "written_partial_charge": [
+    0.27,
+    -0.287,
+    -0.287,
+    0.302,
+    0.302,
+    0.302,
+    0.302,
+    0.063,
+    0.016,
+    0.001,
+    0.0,
+    0.001,
+    0.016
+  ],
+  "total_charge_before_rounding": 1.0000000000000004,
+  "written_total_charge": 1.0010000000000001,
+  "charge_rounding_error_bound": 0.006500000000000001,
+  "charge_decimal_places": 3,
+  "torsion_tree": {
+    "schema_version": "molsysmt.pdbqt-torsion-tree@1",
+    "atom_ids": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13"
+    ],
+    "fragment_atom_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "fragment_offsets": [
+      0,
+      7,
+      13
+    ],
+    "branch_atom_pairs": [
+      [
+        0,
+        7
+      ]
+    ],
+    "branch_fragment_pairs": [
+      [
+        0,
+        1
+      ]
+    ],
+    "root_fragment_index": 0,
+    "torsdof": 1,
+    "evidence": "declared_pdbqt_torsion_tree"
+  },
+  "ordered_root_source_atom_indices": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "first_root_source_atom_index": 6,
+  "branch_source_atom_pairs": [
+    [
+      6,
+      0
+    ]
+  ],
+  "payload_sha256": "ca7f1317c5de4f901e638ef4154eed7a25e212133e87509516b7b7df8688c500",
+  "chemical_state_index": 0,
+  "chemical_state_id": null,
+  "source_chemical_digest": "92b5125fb8cc15796457e02d8f2a95f9940ecc2bcb5ef4731bc4d1a39d697b65",
+  "source_structure_indices": [
+    0
+  ]
+}

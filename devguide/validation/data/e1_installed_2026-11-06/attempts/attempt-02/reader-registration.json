@@ -1,0 +1,40 @@
+{
+  "schema": "dockingmt.e1_installed_reader_registration@1",
+  "registered_at_utc": "2026-11-06T23:18:40.600460+00:00",
+  "workflow_registration_sha256": "cea584f422b8d05f4aa4830400e46f0bc5532fe0045fcb624bd34c433c26f0c9",
+  "native_output_manifest_sha256": "e0b4c6457440f1819fdfe81beb76792483fbcde461517e0695ec99343241ddd3",
+  "native_resource_outcome_sha256": "045b3466096e433fea77b913301b252216cf3b2453a14a3a66cec5c9cf37079c",
+  "notebook": {
+    "path": "devguide/validation/e1_installed_ordering.ipynb",
+    "sha256": "246f3ceefeeac0a28d5cdaeab9757adb1c3634b213024d752b4a9cb081a78f6e",
+    "code_cells": [
+      {
+        "id": "e1-installed-1",
+        "sha256": "d810de8fa1925dc367b754b5329edaf6660b10624abe97a8718c020695fd78ce"
+      },
+      {
+        "id": "e1-installed-2",
+        "sha256": "161e63cac61fa3c47df8ce358c804d4bca87e106b9f5595b21b070d7647a7367"
+      },
+      {
+        "id": "e1-installed-3",
+        "sha256": "28f677f7ecf1906b5b5d20569a6248977ba2e4bf5bbe8f091f5a32b5a3b35cbf"
+      },
+      {
+        "id": "e1-installed-4",
+        "sha256": "80eb54cd745aab965d08a30b284734706ffc11268fad8a0fbc981ca53fa5a14f"
+      }
+    ],
+    "monitored_direct_budgets": {
+      "admission_attempts": 70,
+      "admitted_studies": 4,
+      "expected_refusals": 66,
+      "audit_pose": 24,
+      "quantity_decodes": 100,
+      "rank_refusals": 4,
+      "tie_controls": 2,
+      "detachment_controls": 2
+    }
+  },
+  "linked_before_reader_execution": true
+}

@@ -1,0 +1,686 @@
+{
+  "schema": "molsysmt.atom_map@1",
+  "n_source_atoms": 9,
+  "n_output_atoms": 13,
+  "source_to_output_atom_indices": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    0,
+    1,
+    2
+  ],
+  "output_to_source_atom_indices": [
+    6,
+    7,
+    8,
+    -1,
+    -1,
+    -1,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "source_to_representative_atom_indices": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    0,
+    1,
+    2
+  ],
+  "source_atom_status": [
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained",
+    "retained"
+  ],
+  "generated_output_atom_indices": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "stages": [
+    {
+      "schema": "molsysmt.atom_map@1",
+      "origin_schema": "molsysmt.hydrogen_addition@1",
+      "n_source_atoms": 9,
+      "n_output_atoms": 18,
+      "source_to_output_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "output_to_source_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "source_to_representative_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "method": "local_hydrogen_placement",
+      "engine": "RDKit",
+      "parameters": {
+        "addCoords": true,
+        "pH": null,
+        "optimize": false
+      },
+      "coordinate_evidence": "generated_local_geometry",
+      "coordinate_unit": "nm",
+      "software": {
+        "molsysmt": "0.23.0+513.g9e1f1b1ad",
+        "rdkit": "2026.09.2"
+      },
+      "references": [
+        {
+          "id": "doi:10.1021/acs.jcim.8b00324",
+          "type": "article",
+          "url": "https://doi.org/10.1021/acs.jcim.8b00324",
+          "doi": "10.1021/acs.jcim.8b00324",
+          "title": "Algorithmic Analysis of Cahn-Ingold-Prelog Rules of Stereochemistry: Proposals for Revised Rules and a Guide for Machine Implementation",
+          "authors": [
+            "Hanson, Robert M.",
+            "Musacchio, Sophia",
+            "Mayfield, John W.",
+            "Vainio, Mikko J.",
+            "Yerin, Andrey",
+            "Redkin, Dmitry"
+          ],
+          "year": 2018,
+          "journal": "Journal of Chemical Information and Modeling",
+          "volume": "58",
+          "pages": "1755-1765"
+        }
+      ],
+      "attribution": {
+        "schema": "molsysmt.scientific_attribution@1",
+        "target": "molsysmt.build.add_missing_hydrogens",
+        "items": [
+          {
+            "id": "doi:10.1021/acs.jcim.8b00324",
+            "type": "article",
+            "url": "https://doi.org/10.1021/acs.jcim.8b00324",
+            "doi": "10.1021/acs.jcim.8b00324",
+            "title": "Algorithmic Analysis of Cahn-Ingold-Prelog Rules of Stereochemistry: Proposals for Revised Rules and a Guide for Machine Implementation",
+            "authors": [
+              "Hanson, Robert M.",
+              "Musacchio, Sophia",
+              "Mayfield, John W.",
+              "Vainio, Mikko J.",
+              "Yerin, Andrey",
+              "Redkin, Dmitry"
+            ],
+            "year": 2018,
+            "journal": "Journal of Chemical Information and Modeling",
+            "volume": "58",
+            "pages": "1755-1765",
+            "roles": [
+              "scientific_criterion"
+            ]
+          },
+          {
+            "id": "software:molsysmt:0.23.0+513.g9e1f1b1ad",
+            "type": "software",
+            "title": "MolSysMT",
+            "authors": [
+              "Prada-Gracia, Diego",
+              "Moreno-Vargas, Liliana M."
+            ],
+            "doi": "10.5281/zenodo.1298752",
+            "url": "https://github.com/uibcdf/molsysmt",
+            "version": "0.23.0+513.g9e1f1b1ad",
+            "roles": [
+              "executed_software"
+            ]
+          },
+          {
+            "id": "software:rdkit:2026.09.2",
+            "type": "software",
+            "title": "RDKit: Open-source cheminformatics",
+            "url": "https://www.rdkit.org",
+            "how_to_cite": "https://www.rdkit.org/docs/Overview.html#citing-the-rdkit",
+            "version": "2026.09.2",
+            "roles": [
+              "executed_software"
+            ]
+          }
+        ]
+      },
+      "chemical_state_index": 0,
+      "chemical_state_id": null,
+      "structure_indices": [
+        0
+      ],
+      "parent_atom_pairs": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          12
+        ],
+        [
+          5,
+          13
+        ],
+        [
+          7,
+          14
+        ],
+        [
+          7,
+          15
+        ],
+        [
+          8,
+          16
+        ],
+        [
+          8,
+          17
+        ]
+      ],
+      "generated_atom_ids": [
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17"
+      ]
+    },
+    {
+      "schema": "molsysmt.atom_map@1",
+      "origin_schema": "molsysmt.atom_projection@1",
+      "n_source_atoms": 18,
+      "n_output_atoms": 13,
+      "source_to_output_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        9,
+        10,
+        11,
+        12
+      ],
+      "output_to_source_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        14,
+        15,
+        16,
+        17
+      ],
+      "source_to_representative_atom_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        1,
+        2,
+        3,
+        4,
+        5,
+        9,
+        10,
+        11,
+        12
+      ],
+      "source_atom_ids": [
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "1",
+        "2",
+        "0",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17"
+      ],
+      "source_atom_names": [
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C1",
+        "N2",
+        "N0",
+        "H10",
+        "H11",
+        "H12",
+        "H13",
+        "H14",
+        "H15",
+        "H16",
+        "H17",
+        "H18"
+      ],
+      "output_atom_ids": [
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "1",
+        "2",
+        "0",
+        "14",
+        "15",
+        "16",
+        "17"
+      ],
+      "output_atom_names": [
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C1",
+        "N2",
+        "N0",
+        "H15",
+        "H16",
+        "H17",
+        "H18"
+      ],
+      "operation": "merge_nonpolar_hydrogens",
+      "software": {
+        "molsysmt": "0.23.0+513.g9e1f1b1ad"
+      },
+      "references": [
+        {
+          "id": "meeko-terminal-charge-aggregation-reference",
+          "type": "software",
+          "title": "Meeko terminal-atom charge aggregation",
+          "version": "0.8.0",
+          "revision": "1eac18bd6d1111f35f9f1abaa8af502c2668d054",
+          "url": "https://github.com/forlilab/Meeko/blob/1eac18bd6d1111f35f9f1abaa8af502c2668d054/meeko/molsetup.py",
+          "roles": [
+            "reference_implementation"
+          ]
+        }
+      ],
+      "attribution": {
+        "schema": "molsysmt.scientific_attribution@1",
+        "target": "molsysmt.build.merge_nonpolar_hydrogens",
+        "items": [
+          {
+            "id": "meeko-terminal-charge-aggregation-reference",
+            "type": "software",
+            "title": "Meeko terminal-atom charge aggregation",
+            "version": "0.8.0",
+            "revision": "1eac18bd6d1111f35f9f1abaa8af502c2668d054",
+            "url": "https://github.com/forlilab/Meeko/blob/1eac18bd6d1111f35f9f1abaa8af502c2668d054/meeko/molsetup.py",
+            "roles": [
+              "reference_implementation"
+            ]
+          }
+        ]
+      },
+      "typing_scheme": "autodock4",
+      "chemical_state_index": 0,
+      "chemical_state_id": null,
+      "source_chemical_digest": "8275067599c0314a5f9682500edce5a76c33f17c9db3c80277b9934ac253bcc0",
+      "source_structure_indices": [
+        0
+      ],
+      "charge_unit": "elementary_charge",
+      "source_total_charge": 1.0000000000000007,
+      "selected_total_charge": 1.0000000000000007,
+      "output_total_charge": 1.0000000000000004,
+      "charge_conservation_tolerance": 1e-12,
+      "merged_source_atom_pairs": [
+        [
+          9,
+          1
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          11,
+          3
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          13,
+          5
+        ]
+      ],
+      "charge_transfers": [
+        0.06321348641168506,
+        0.062295265238419155,
+        0.0622693418584293,
+        0.062295265238419155,
+        0.06321348641168506
+      ]
+    },
+    {
+      "schema": "molsysmt.atom_map@1",
+      "origin_schema": "molsysmt.atom_export@1",
+      "n_source_atoms": 13,
+      "n_output_atoms": 13,
+      "source_to_output_atom_indices": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "output_to_source_atom_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "source_to_representative_atom_indices": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "source_atom_ids": [
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "1",
+        "2",
+        "0",
+        "14",
+        "15",
+        "16",
+        "17"
+      ],
+      "source_atom_names": [
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C1",
+        "N2",
+        "N0",
+        "H15",
+        "H16",
+        "H17",
+        "H18"
+      ],
+      "output_atom_ids": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13"
+      ],
+      "output_atom_names": [
+        "C1",
+        "N2",
+        "N0",
+        "H15",
+        "H16",
+        "H17",
+        "H18",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8"
+      ],
+      "software": {
+        "molsysmt": "0.23.0+513.g9e1f1b1ad"
+      },
+      "typing_scheme": "autodock4",
+      "chemical_state_index": 0,
+      "chemical_state_id": null,
+      "source_chemical_digest": "92b5125fb8cc15796457e02d8f2a95f9940ecc2bcb5ef4731bc4d1a39d697b65",
+      "torsion_tree": {
+        "schema_version": "molsysmt.pdbqt-torsion-tree@1",
+        "atom_ids": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13"
+        ],
+        "fragment_atom_indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "fragment_offsets": [
+          0,
+          7,
+          13
+        ],
+        "branch_atom_pairs": [
+          [
+            0,
+            7
+          ]
+        ],
+        "branch_fragment_pairs": [
+          [
+            0,
+            1
+          ]
+        ],
+        "root_fragment_index": 0,
+        "torsdof": 1,
+        "evidence": "declared_pdbqt_torsion_tree"
+      },
+      "ordered_root_source_atom_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "first_root_source_atom_index": 6,
+      "branch_source_atom_pairs": [
+        [
+          6,
+          0
+        ]
+      ],
+      "source_structure_indices": [
+        0
+      ],
+      "charge_unit": "elementary_charge",
+      "total_charge_before_rounding": 1.0000000000000004,
+      "written_total_charge": 1.0010000000000001,
+      "charge_rounding_error_bound": 0.006500000000000001,
+      "charge_decimal_places": 3,
+      "output_payload_sha256": "a96f63bf40bb1b4539682b1a7239c5d157cb859abad1dbb4a00e741f356c35c7"
+    }
+  ],
+  "output_atom_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "output_atom_names": [
+    "C1",
+    "N2",
+    "N0",
+    "H15",
+    "H16",
+    "H17",
+    "H18",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "C7",
+    "C8"
+  ],
+  "software": {
+    "molsysmt": "0.23.0+513.g9e1f1b1ad"
+  }
+}

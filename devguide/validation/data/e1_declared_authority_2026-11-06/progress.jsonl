@@ -1,0 +1,8 @@
+{"phase": "started", "cell_index": 1, "at_utc": "2026-11-06T20:50:19.611435+00:00"}
+{"phase": "completed", "cell_index": 1, "at_utc": "2026-11-06T20:50:20.940055+00:00", "counts": null, "completed_profiles": 0}
+{"phase": "started", "cell_index": 2, "at_utc": "2026-11-06T20:50:20.940180+00:00"}
+{"phase": "completed", "cell_index": 2, "at_utc": "2026-11-06T20:50:22.641648+00:00", "counts": {"convert": 0, "get": 0, "copy": 0, "set": 0, "extract": 0, "permute_atoms": 0, "get_atom_correspondences": 0, "get_chemical_readiness": 0}, "completed_profiles": 0}
+{"phase": "started", "cell_index": 3, "at_utc": "2026-11-06T20:50:22.641818+00:00"}
+{"phase": "completed", "cell_index": 3, "at_utc": "2026-11-06T20:50:26.808446+00:00", "counts": {"convert": 28, "get": 80, "copy": 12, "set": 14, "extract": 10, "permute_atoms": 4, "get_atom_correspondences": 16, "get_chemical_readiness": 2}, "completed_profiles": 2}
+{"phase": "started", "cell_index": 4, "at_utc": "2026-11-06T20:50:26.808605+00:00"}
+{"phase": "completed", "cell_index": 4, "at_utc": "2026-11-06T20:50:27.201620+00:00", "counts": {"convert": 28, "get": 80, "copy": 12, "set": 14, "extract": 10, "permute_atoms": 4, "get_atom_correspondences": 16, "get_chemical_readiness": 2}, "completed_profiles": 2}

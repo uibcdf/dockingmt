@@ -1,0 +1,14 @@
+[
+  {
+    "code": "DMT-E002",
+    "message": "Invalid argument 'score_definitions': Ranking requires identical declared definitions and contexts, or an entirely undescribed legacy collection.",
+    "method": "vina",
+    "score_name": "vina.lig_inter"
+  },
+  {
+    "code": "DMT-E002",
+    "message": "Invalid argument 'score_definitions': Ranking requires identical declared definitions and contexts, or an entirely undescribed legacy collection.",
+    "method": "vinardo",
+    "score_name": "vinardo.lig_inter"
+  }
+]

@@ -1,0 +1,119 @@
+{
+  "schema": "dockingmt.e1_prepared_authority_attempts@1",
+  "owner": "uibcdf/dockingmt#78",
+  "attempts": [
+    {
+      "attempt": "attempt-01",
+      "disposition": "assertion_failure",
+      "completed_profiles": 1,
+      "direct_calls": {
+        "convert": 47,
+        "get": 213,
+        "copy": 3,
+        "set": 7,
+        "permute_atoms": 1,
+        "add_missing_hydrogens": 2,
+        "assign_partial_charges": 2,
+        "assign_autodock_atom_types": 2,
+        "prepare_ligand": 3,
+        "get_hydrogen_inventory": 6,
+        "get_atom_correspondences": 5,
+        "compose_atom_maps": 2,
+        "read_poses": 2,
+        "get_torsion_tree": 4
+      },
+      "resources": {
+        "schema": "dockingmt.task_resource_outcome@1",
+        "owner": "uibcdf/dockingmt#78",
+        "attempt": "attempt-01",
+        "ended_at_utc": "2026-11-06T21:22:30.063078+00:00",
+        "elapsed_seconds": 12.747475486001349,
+        "exit_code": 1,
+        "resource_interruption": null,
+        "sampled_peak_rss_bytes": 225316864,
+        "minimum_available_bytes": 52205694976,
+        "samples": 122,
+        "policy": {
+          "allowed_cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_before_bytes": 52224704512,
+          "available_reserve_bytes": 8589934592,
+          "task_rss_limit_bytes": 1073741824,
+          "address_space_limit_bytes": 2147483648,
+          "cpu_seconds_limit": 60,
+          "wall_seconds_limit": 90,
+          "reserve_poll_seconds": 0.1,
+          "automatic_retry": false
+        },
+        "notebook_sha256": "ec709fd82e05d45922f2929cf3410d38142cfe52325582270ad8cd140063e1cb"
+      }
+    },
+    {
+      "attempt": "attempt-02",
+      "disposition": "complete",
+      "completed_profiles": 2,
+      "direct_calls": {
+        "convert": 72,
+        "get": 314,
+        "copy": 6,
+        "set": 12,
+        "permute_atoms": 2,
+        "add_missing_hydrogens": 2,
+        "assign_partial_charges": 2,
+        "assign_autodock_atom_types": 2,
+        "prepare_ligand": 4,
+        "get_hydrogen_inventory": 8,
+        "get_atom_correspondences": 10,
+        "compose_atom_maps": 4,
+        "read_poses": 4,
+        "get_torsion_tree": 8
+      },
+      "resources": {
+        "schema": "dockingmt.task_resource_outcome@1",
+        "owner": "uibcdf/dockingmt#78",
+        "attempt": "attempt-02",
+        "ended_at_utc": "2026-11-06T21:23:18.675104+00:00",
+        "elapsed_seconds": 9.550847837002948,
+        "exit_code": 0,
+        "resource_interruption": null,
+        "sampled_peak_rss_bytes": 326770688,
+        "minimum_available_bytes": 51977621504,
+        "samples": 95,
+        "policy": {
+          "allowed_cpu": 0,
+          "nice": 10,
+          "workers": 1,
+          "available_before_bytes": 52210458624,
+          "available_reserve_bytes": 8589934592,
+          "task_rss_limit_bytes": 1073741824,
+          "address_space_limit_bytes": 2147483648,
+          "cpu_seconds_limit": 60,
+          "wall_seconds_limit": 90,
+          "reserve_poll_seconds": 0.1,
+          "automatic_retry": false
+        },
+        "notebook_sha256": "31993b57ad1377ba7605dd17d5e769686289ea7c183be8d57a8350294c1d5972"
+      }
+    }
+  ],
+  "cumulative_monitored_direct_calls": {
+    "convert": 119,
+    "get": 527,
+    "copy": 9,
+    "set": 19,
+    "permute_atoms": 3,
+    "add_missing_hydrogens": 4,
+    "assign_partial_charges": 4,
+    "assign_autodock_atom_types": 4,
+    "prepare_ligand": 7,
+    "get_hydrogen_inventory": 14,
+    "get_atom_correspondences": 15,
+    "compose_atom_maps": 6,
+    "read_poses": 6,
+    "get_torsion_tree": 12
+  },
+  "population_note": "Do not pool failed-attempt receiving with the separately registered complete attempt; repetitions are not independent molecular cases.",
+  "unchanged_source_h5_decoded_sha256": "fd01a684d624e8abaa19ee6d16d62ab0b84927c3abd74d5bbd5dcc3881c712b7",
+  "source_h5_custody": "Original frozen declared-authority evidence; decompressed task copies remain private, identical source bytes not republished."
+}

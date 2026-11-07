@@ -1,0 +1,3 @@
+WARNING conda.core.path_actions:verify(1024): Unable to create environments file. Path not writable.
+  environment location: /fast_data/home/liliana/.conda/environments.txt
+

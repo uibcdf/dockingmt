@@ -1,0 +1,88 @@
+{
+  "schema": "dockingmt.e1_prepared_authority_registration@1",
+  "owner": "uibcdf/dockingmt#78",
+  "registered_at_utc": "2026-11-06T21:23:09.116551+00:00",
+  "status_at_registration": "prospective",
+  "consumer_runtime_source": "2fda6238e6b1cb3742f5d30b8ed3af699f9ed748",
+  "provider_runtime_source": "9e1f1b1ad8bf09446374ab6f04ca7208e2717936",
+  "provider_checkout_clean": true,
+  "monitored_direct_consumer_budgets": {
+    "convert": 80,
+    "get": 340,
+    "copy": 12,
+    "set": 16,
+    "permute_atoms": 2,
+    "add_missing_hydrogens": 2,
+    "assign_partial_charges": 2,
+    "assign_autodock_atom_types": 2,
+    "prepare_ligand": 4,
+    "get_hydrogen_inventory": 8,
+    "get_atom_correspondences": 10,
+    "compose_atom_maps": 4,
+    "read_poses": 4,
+    "get_torsion_tree": 8
+  },
+  "source_context": "Working notebook over selected editable runtime; new preparation, not historical restoration or installed artifact qualification.",
+  "notebook": {
+    "path": "devguide/validation/e1_prepared_authority.ipynb",
+    "sha256": "31993b57ad1377ba7605dd17d5e769686289ea7c183be8d57a8350294c1d5972",
+    "code_cells": [
+      {
+        "id": "e1-prepared-01",
+        "sha256": "360999883702ff006b2449185eff3f4507eb88f8a4df8b7343861645aeccfbf2"
+      },
+      {
+        "id": "e1-prepared-helpers",
+        "sha256": "ae36ad68a68b78e33ddb1308ff6b2200bd739662c5ca0fc10d9792809fbbd759"
+      },
+      {
+        "id": "e1-prepared-02",
+        "sha256": "f5c68ffd17ed588fe53d7a41340a4bf74bf7783651f8c1176ccf02cb0a9d5590"
+      },
+      {
+        "id": "e1-prepared-03",
+        "sha256": "c2bf3725c13a7cf8150d9015a15ee8c5e02c53eb12400f1f87a2d5dfe5a7d6a7"
+      }
+    ]
+  },
+  "prescription": {
+    "path": "devguide/validation/e1_prepared_authority_2026-11-06.md",
+    "sha256_at_registration": "c6eeb189cc55ea4401054bdd32d8e176ce2c2ac081d486392405d3022fdbcb8e"
+  },
+  "inputs": [
+    {
+      "path": "devguide/validation/data/e1_declared_authority_2026-11-06/normal/declared_authority9.h5msm.gz",
+      "bytes": 6088,
+      "sha256": "b518b813738fe5e9e5d72817858359d0320e321ce425fcf04af0354a10d16575"
+    }
+  ],
+  "population": {
+    "new_declared_states": 1,
+    "unit_policy_repetitions": 2,
+    "H_expansions": 2,
+    "charge_assignments": 2,
+    "type_assignments": 2,
+    "prepared_arms": 4,
+    "positive_witnesses": 10,
+    "export_refusals": 8,
+    "inconsistent_charge_controls": 2
+  },
+  "resource_policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_before_bytes": 52210458624,
+    "available_reserve_bytes": 8589934592,
+    "task_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90,
+    "reserve_poll_seconds": 0.1,
+    "automatic_retry": false
+  },
+  "failure_policy": "Stop unexpected outcomes, preserve all attempts; no automatic resource retry, molecular repair or history codec.",
+  "claim_limit": "New-source preparation receiving only; no historical H correspondence, complete MM persistence, energy comparison, Vina or complete E1.",
+  "supersedes_attempt": "attempt-01",
+  "amendment": "Numerical coordinate conservation tolerance 1e-12 nm; rerun full population.",
+  "local_e4_hold_preserved": true
+}

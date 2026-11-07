@@ -1,0 +1,27 @@
+{
+  "owner": "uibcdf/dockingmt#78",
+  "schema": "dockingmt.e1_preserved_generation_outcome@1",
+  "generation_exit_code": 1,
+  "generation_resource_interruption": null,
+  "portable_example_completed": true,
+  "generation_qualification": "failed_on_overstrict_standalone_consistency_expectation",
+  "counts": {
+    "prepare": 2,
+    "reconstruct": 1,
+    "dock_attempts": 0,
+    "dock_returns": 0,
+    "score_attempts": 2,
+    "score_returns": 2,
+    "graph_witness": 4,
+    "charge_audit": 2,
+    "expected_score_refusals": 0,
+    "rank_refusals": 0
+  },
+  "new_native_searches": 0,
+  "new_fixed_score_values": 16,
+  "original_scores": 4,
+  "state_refusal_received": false,
+  "multi_pose_received": false,
+  "positive_user_comparison_received": false,
+  "source_generation_registration_sha256": "8f65151a766928eafe62e16ebeacef282b37dbe7f8eb9102a0f27a5074a0e76c"
+}

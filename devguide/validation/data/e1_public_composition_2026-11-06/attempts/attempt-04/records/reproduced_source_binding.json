@@ -1,0 +1,6 @@
+{
+  "existing_result_sha256": "cd0e7e20a64034a5b1462f2c42810a83a0b247a4d1af56c237ceca13719fe55c",
+  "reproduced_prepared_pdbqt_sha256": "dc4e89dc86bd02012b6e14ed1432fc470c1366ba2f66345fe27dc818ce2b873b",
+  "scientific_fields_match": true,
+  "scope": "Source reproduced through documented public preparation; inspection sidecars compared only, never restored."
+}

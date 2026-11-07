@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-public-composition-20261106/attempt-02/worker.py", line 145, in <module>
+    exec(compile(body, 'e1_installed_' + phase + '.' + cell['id'], 'exec'), namespace)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e1_installed_native.e1-composition-2", line 101, in <module>
+AssertionError: Insufficient returned population for this two-pose receiving; no automatic retry
+Traceback (most recent call last):
+  File "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-public-composition-20261106/attempt-02/worker.py", line 145, in <module>
+    exec(compile(body, 'e1_installed_' + phase + '.' + cell['id'], 'exec'), namespace)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e1_installed_native.e1-composition-2", line 101, in <module>
+AssertionError: Insufficient returned population for this two-pose receiving; no automatic retry

@@ -1,0 +1,257 @@
+* Getting build dependencies for wheel...
+running egg_info
+creating dockingmt.egg-info
+writing dockingmt.egg-info/PKG-INFO
+writing dependency_links to dockingmt.egg-info/dependency_links.txt
+writing entry points to dockingmt.egg-info/entry_points.txt
+writing requirements to dockingmt.egg-info/requires.txt
+writing top-level names to dockingmt.egg-info/top_level.txt
+writing manifest file 'dockingmt.egg-info/SOURCES.txt'
+reading manifest file 'dockingmt.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'dockingmt.egg-info/SOURCES.txt'
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build/lib/molsysviewer_dockingmt
+copying molsysviewer_dockingmt/workbench.py -> build/lib/molsysviewer_dockingmt
+copying molsysviewer_dockingmt/runtime.py -> build/lib/molsysviewer_dockingmt
+copying molsysviewer_dockingmt/export.py -> build/lib/molsysviewer_dockingmt
+copying molsysviewer_dockingmt/addon.py -> build/lib/molsysviewer_dockingmt
+copying molsysviewer_dockingmt/_scene.py -> build/lib/molsysviewer_dockingmt
+copying molsysviewer_dockingmt/_presentation.py -> build/lib/molsysviewer_dockingmt
+copying molsysviewer_dockingmt/__init__.py -> build/lib/molsysviewer_dockingmt
+creating build/lib/dockingmt
+copying dockingmt/_version.py -> build/lib/dockingmt
+copying dockingmt/view.py -> build/lib/dockingmt
+copying dockingmt/score.py -> build/lib/dockingmt
+copying dockingmt/evaluation.py -> build/lib/dockingmt
+copying dockingmt/dock.py -> build/lib/dockingmt
+copying dockingmt/batch.py -> build/lib/dockingmt
+copying dockingmt/aggregation.py -> build/lib/dockingmt
+copying dockingmt/_smonitor.py -> build/lib/dockingmt
+copying dockingmt/_pyunitwizard.py -> build/lib/dockingmt
+copying dockingmt/_depdigest.py -> build/lib/dockingmt
+copying dockingmt/_argdigest.py -> build/lib/dockingmt
+copying dockingmt/__init__.py -> build/lib/dockingmt
+creating build/lib/molsysviewer_dockingmt/panels
+copying molsysviewer_dockingmt/panels/explorer.py -> build/lib/molsysviewer_dockingmt/panels
+copying molsysviewer_dockingmt/panels/domain.py -> build/lib/molsysviewer_dockingmt/panels
+copying molsysviewer_dockingmt/panels/_base.py -> build/lib/molsysviewer_dockingmt/panels
+copying molsysviewer_dockingmt/panels/__init__.py -> build/lib/molsysviewer_dockingmt/panels
+creating build/lib/molsysviewer_dockingmt/adapters
+copying molsysviewer_dockingmt/adapters/shapes.py -> build/lib/molsysviewer_dockingmt/adapters
+copying molsysviewer_dockingmt/adapters/complex.py -> build/lib/molsysviewer_dockingmt/adapters
+copying molsysviewer_dockingmt/adapters/__init__.py -> build/lib/molsysviewer_dockingmt/adapters
+creating build/lib/dockingmt/viewer
+copying dockingmt/viewer/__init__.py -> build/lib/dockingmt/viewer
+creating build/lib/dockingmt/preparation
+copying dockingmt/preparation/receptor.py -> build/lib/dockingmt/preparation
+copying dockingmt/preparation/ligand.py -> build/lib/dockingmt/preparation
+copying dockingmt/preparation/charges.py -> build/lib/dockingmt/preparation
+copying dockingmt/preparation/assessment.py -> build/lib/dockingmt/preparation
+copying dockingmt/preparation/_typing.py -> build/lib/dockingmt/preparation
+copying dockingmt/preparation/_temporary_torsions.py -> build/lib/dockingmt/preparation
+copying dockingmt/preparation/_stages.py -> build/lib/dockingmt/preparation
+copying dockingmt/preparation/_molsys.py -> build/lib/dockingmt/preparation
+copying dockingmt/preparation/_export.py -> build/lib/dockingmt/preparation
+copying dockingmt/preparation/__init__.py -> build/lib/dockingmt/preparation
+creating build/lib/dockingmt/engines
+copying dockingmt/engines/vina.py -> build/lib/dockingmt/engines
+copying dockingmt/engines/base.py -> build/lib/dockingmt/engines
+copying dockingmt/engines/_vina_scoring.py -> build/lib/dockingmt/engines
+copying dockingmt/engines/__init__.py -> build/lib/dockingmt/engines
+creating build/lib/dockingmt/core
+copying dockingmt/core/search_domain.py -> build/lib/dockingmt/core
+copying dockingmt/core/results.py -> build/lib/dockingmt/core
+copying dockingmt/core/protocol.py -> build/lib/dockingmt/core
+copying dockingmt/core/problem.py -> build/lib/dockingmt/core
+copying dockingmt/core/pose_audit.py -> build/lib/dockingmt/core
+copying dockingmt/core/outcome.py -> build/lib/dockingmt/core
+copying dockingmt/core/audit.py -> build/lib/dockingmt/core
+copying dockingmt/core/_scores.py -> build/lib/dockingmt/core
+copying dockingmt/core/__init__.py -> build/lib/dockingmt/core
+creating build/lib/dockingmt/_private
+copying dockingmt/_private/vina_records.py -> build/lib/dockingmt/_private
+copying dockingmt/_private/symmetry.py -> build/lib/dockingmt/_private
+copying dockingmt/_private/serialization.py -> build/lib/dockingmt/_private
+copying dockingmt/_private/artifacts.py -> build/lib/dockingmt/_private
+copying dockingmt/_private/__init__.py -> build/lib/dockingmt/_private
+creating build/lib/dockingmt/_private/smonitor
+copying dockingmt/_private/smonitor/warnings.py -> build/lib/dockingmt/_private/smonitor
+copying dockingmt/_private/smonitor/meta.py -> build/lib/dockingmt/_private/smonitor
+copying dockingmt/_private/smonitor/emitter.py -> build/lib/dockingmt/_private/smonitor
+copying dockingmt/_private/smonitor/catalog.py -> build/lib/dockingmt/_private/smonitor
+copying dockingmt/_private/smonitor/__init__.py -> build/lib/dockingmt/_private/smonitor
+creating build/lib/dockingmt/_private/argdigest
+copying dockingmt/_private/argdigest/registry.py -> build/lib/dockingmt/_private/argdigest
+copying dockingmt/_private/argdigest/__init__.py -> build/lib/dockingmt/_private/argdigest
+copying dockingmt/py.typed -> build/lib/dockingmt
+warning: build_py: byte-compiling is disabled, skipping.
+
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/dockingmt
+copying build/lib/dockingmt/py.typed -> build/bdist.linux-x86_64/wheel/./dockingmt
+creating build/bdist.linux-x86_64/wheel/dockingmt/_private
+creating build/bdist.linux-x86_64/wheel/dockingmt/_private/argdigest
+copying build/lib/dockingmt/_private/argdigest/__init__.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private/argdigest
+copying build/lib/dockingmt/_private/argdigest/registry.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private/argdigest
+creating build/bdist.linux-x86_64/wheel/dockingmt/_private/smonitor
+copying build/lib/dockingmt/_private/smonitor/__init__.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private/smonitor
+copying build/lib/dockingmt/_private/smonitor/catalog.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private/smonitor
+copying build/lib/dockingmt/_private/smonitor/emitter.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private/smonitor
+copying build/lib/dockingmt/_private/smonitor/meta.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private/smonitor
+copying build/lib/dockingmt/_private/smonitor/warnings.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private/smonitor
+copying build/lib/dockingmt/_private/__init__.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private
+copying build/lib/dockingmt/_private/artifacts.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private
+copying build/lib/dockingmt/_private/serialization.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private
+copying build/lib/dockingmt/_private/symmetry.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private
+copying build/lib/dockingmt/_private/vina_records.py -> build/bdist.linux-x86_64/wheel/./dockingmt/_private
+creating build/bdist.linux-x86_64/wheel/dockingmt/core
+copying build/lib/dockingmt/core/__init__.py -> build/bdist.linux-x86_64/wheel/./dockingmt/core
+copying build/lib/dockingmt/core/_scores.py -> build/bdist.linux-x86_64/wheel/./dockingmt/core
+copying build/lib/dockingmt/core/audit.py -> build/bdist.linux-x86_64/wheel/./dockingmt/core
+copying build/lib/dockingmt/core/outcome.py -> build/bdist.linux-x86_64/wheel/./dockingmt/core
+copying build/lib/dockingmt/core/pose_audit.py -> build/bdist.linux-x86_64/wheel/./dockingmt/core
+copying build/lib/dockingmt/core/problem.py -> build/bdist.linux-x86_64/wheel/./dockingmt/core
+copying build/lib/dockingmt/core/protocol.py -> build/bdist.linux-x86_64/wheel/./dockingmt/core
+copying build/lib/dockingmt/core/results.py -> build/bdist.linux-x86_64/wheel/./dockingmt/core
+copying build/lib/dockingmt/core/search_domain.py -> build/bdist.linux-x86_64/wheel/./dockingmt/core
+creating build/bdist.linux-x86_64/wheel/dockingmt/engines
+copying build/lib/dockingmt/engines/__init__.py -> build/bdist.linux-x86_64/wheel/./dockingmt/engines
+copying build/lib/dockingmt/engines/_vina_scoring.py -> build/bdist.linux-x86_64/wheel/./dockingmt/engines
+copying build/lib/dockingmt/engines/base.py -> build/bdist.linux-x86_64/wheel/./dockingmt/engines
+copying build/lib/dockingmt/engines/vina.py -> build/bdist.linux-x86_64/wheel/./dockingmt/engines
+creating build/bdist.linux-x86_64/wheel/dockingmt/preparation
+copying build/lib/dockingmt/preparation/__init__.py -> build/bdist.linux-x86_64/wheel/./dockingmt/preparation
+copying build/lib/dockingmt/preparation/_export.py -> build/bdist.linux-x86_64/wheel/./dockingmt/preparation
+copying build/lib/dockingmt/preparation/_molsys.py -> build/bdist.linux-x86_64/wheel/./dockingmt/preparation
+copying build/lib/dockingmt/preparation/_stages.py -> build/bdist.linux-x86_64/wheel/./dockingmt/preparation
+copying build/lib/dockingmt/preparation/_temporary_torsions.py -> build/bdist.linux-x86_64/wheel/./dockingmt/preparation
+copying build/lib/dockingmt/preparation/_typing.py -> build/bdist.linux-x86_64/wheel/./dockingmt/preparation
+copying build/lib/dockingmt/preparation/assessment.py -> build/bdist.linux-x86_64/wheel/./dockingmt/preparation
+copying build/lib/dockingmt/preparation/charges.py -> build/bdist.linux-x86_64/wheel/./dockingmt/preparation
+copying build/lib/dockingmt/preparation/ligand.py -> build/bdist.linux-x86_64/wheel/./dockingmt/preparation
+copying build/lib/dockingmt/preparation/receptor.py -> build/bdist.linux-x86_64/wheel/./dockingmt/preparation
+creating build/bdist.linux-x86_64/wheel/dockingmt/viewer
+copying build/lib/dockingmt/viewer/__init__.py -> build/bdist.linux-x86_64/wheel/./dockingmt/viewer
+copying build/lib/dockingmt/__init__.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+copying build/lib/dockingmt/_argdigest.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+copying build/lib/dockingmt/_depdigest.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+copying build/lib/dockingmt/_pyunitwizard.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+copying build/lib/dockingmt/_smonitor.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+copying build/lib/dockingmt/aggregation.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+copying build/lib/dockingmt/batch.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+copying build/lib/dockingmt/dock.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+copying build/lib/dockingmt/evaluation.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+copying build/lib/dockingmt/score.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+copying build/lib/dockingmt/view.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+copying build/lib/dockingmt/_version.py -> build/bdist.linux-x86_64/wheel/./dockingmt
+creating build/bdist.linux-x86_64/wheel/molsysviewer_dockingmt
+creating build/bdist.linux-x86_64/wheel/molsysviewer_dockingmt/adapters
+copying build/lib/molsysviewer_dockingmt/adapters/__init__.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt/adapters
+copying build/lib/molsysviewer_dockingmt/adapters/complex.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt/adapters
+copying build/lib/molsysviewer_dockingmt/adapters/shapes.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt/adapters
+creating build/bdist.linux-x86_64/wheel/molsysviewer_dockingmt/panels
+copying build/lib/molsysviewer_dockingmt/panels/__init__.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt/panels
+copying build/lib/molsysviewer_dockingmt/panels/_base.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt/panels
+copying build/lib/molsysviewer_dockingmt/panels/domain.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt/panels
+copying build/lib/molsysviewer_dockingmt/panels/explorer.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt/panels
+copying build/lib/molsysviewer_dockingmt/__init__.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt
+copying build/lib/molsysviewer_dockingmt/_presentation.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt
+copying build/lib/molsysviewer_dockingmt/_scene.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt
+copying build/lib/molsysviewer_dockingmt/addon.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt
+copying build/lib/molsysviewer_dockingmt/export.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt
+copying build/lib/molsysviewer_dockingmt/runtime.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt
+copying build/lib/molsysviewer_dockingmt/workbench.py -> build/bdist.linux-x86_64/wheel/./molsysviewer_dockingmt
+warning: install_lib: byte-compiling is disabled, skipping.
+
+running install_egg_info
+running egg_info
+writing dockingmt.egg-info/PKG-INFO
+writing dependency_links to dockingmt.egg-info/dependency_links.txt
+writing entry points to dockingmt.egg-info/entry_points.txt
+writing requirements to dockingmt.egg-info/requires.txt
+writing top-level names to dockingmt.egg-info/top_level.txt
+reading manifest file 'dockingmt.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'dockingmt.egg-info/SOURCES.txt'
+Copying dockingmt.egg-info to build/bdist.linux-x86_64/wheel/./dockingmt-0.0.0+295.g2fda623-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/dockingmt-0.0.0+295.g2fda623.dist-info/WHEEL
+creating '/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/wheels/dockingmt/.tmp-oc3ksmix/dockingmt-0.0.0+295.g2fda623-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'dockingmt/__init__.py'
+adding 'dockingmt/_argdigest.py'
+adding 'dockingmt/_depdigest.py'
+adding 'dockingmt/_pyunitwizard.py'
+adding 'dockingmt/_smonitor.py'
+adding 'dockingmt/_version.py'
+adding 'dockingmt/aggregation.py'
+adding 'dockingmt/batch.py'
+adding 'dockingmt/dock.py'
+adding 'dockingmt/evaluation.py'
+adding 'dockingmt/py.typed'
+adding 'dockingmt/score.py'
+adding 'dockingmt/view.py'
+adding 'dockingmt/_private/__init__.py'
+adding 'dockingmt/_private/artifacts.py'
+adding 'dockingmt/_private/serialization.py'
+adding 'dockingmt/_private/symmetry.py'
+adding 'dockingmt/_private/vina_records.py'
+adding 'dockingmt/_private/argdigest/__init__.py'
+adding 'dockingmt/_private/argdigest/registry.py'
+adding 'dockingmt/_private/smonitor/__init__.py'
+adding 'dockingmt/_private/smonitor/catalog.py'
+adding 'dockingmt/_private/smonitor/emitter.py'
+adding 'dockingmt/_private/smonitor/meta.py'
+adding 'dockingmt/_private/smonitor/warnings.py'
+adding 'dockingmt/core/__init__.py'
+adding 'dockingmt/core/_scores.py'
+adding 'dockingmt/core/audit.py'
+adding 'dockingmt/core/outcome.py'
+adding 'dockingmt/core/pose_audit.py'
+adding 'dockingmt/core/problem.py'
+adding 'dockingmt/core/protocol.py'
+adding 'dockingmt/core/results.py'
+adding 'dockingmt/core/search_domain.py'
+adding 'dockingmt/engines/__init__.py'
+adding 'dockingmt/engines/_vina_scoring.py'
+adding 'dockingmt/engines/base.py'
+adding 'dockingmt/engines/vina.py'
+adding 'dockingmt/preparation/__init__.py'
+adding 'dockingmt/preparation/_export.py'
+adding 'dockingmt/preparation/_molsys.py'
+adding 'dockingmt/preparation/_stages.py'
+adding 'dockingmt/preparation/_temporary_torsions.py'
+adding 'dockingmt/preparation/_typing.py'
+adding 'dockingmt/preparation/assessment.py'
+adding 'dockingmt/preparation/charges.py'
+adding 'dockingmt/preparation/ligand.py'
+adding 'dockingmt/preparation/receptor.py'
+adding 'dockingmt/viewer/__init__.py'
+adding 'dockingmt-0.0.0+295.g2fda623.dist-info/licenses/LICENSE'
+adding 'molsysviewer_dockingmt/__init__.py'
+adding 'molsysviewer_dockingmt/_presentation.py'
+adding 'molsysviewer_dockingmt/_scene.py'
+adding 'molsysviewer_dockingmt/addon.py'
+adding 'molsysviewer_dockingmt/export.py'
+adding 'molsysviewer_dockingmt/runtime.py'
+adding 'molsysviewer_dockingmt/workbench.py'
+adding 'molsysviewer_dockingmt/adapters/__init__.py'
+adding 'molsysviewer_dockingmt/adapters/complex.py'
+adding 'molsysviewer_dockingmt/adapters/shapes.py'
+adding 'molsysviewer_dockingmt/panels/__init__.py'
+adding 'molsysviewer_dockingmt/panels/_base.py'
+adding 'molsysviewer_dockingmt/panels/domain.py'
+adding 'molsysviewer_dockingmt/panels/explorer.py'
+adding 'dockingmt-0.0.0+295.g2fda623.dist-info/METADATA'
+adding 'dockingmt-0.0.0+295.g2fda623.dist-info/WHEEL'
+adding 'dockingmt-0.0.0+295.g2fda623.dist-info/entry_points.txt'
+adding 'dockingmt-0.0.0+295.g2fda623.dist-info/top_level.txt'
+adding 'dockingmt-0.0.0+295.g2fda623.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+Successfully built dockingmt-0.0.0+295.g2fda623-py3-none-any.whl

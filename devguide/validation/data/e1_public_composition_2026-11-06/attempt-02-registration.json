@@ -1,0 +1,130 @@
+{
+  "schema": "dockingmt.e1_public_composition_registration@1",
+  "owner": "uibcdf/dockingmt#78",
+  "registered_at_utc": "2026-11-07T00:09:35.898053+00:00",
+  "status_at_registration": "prospective",
+  "runtime_source": "2fda6238e6b1cb3742f5d30b8ed3af699f9ed748",
+  "preparation_sha256": "34160ee941b8280c9c7d7518aa3594b889ef27fef8f3688407a5b9184e6773ca",
+  "preparation_amendment_sha256": "96b164638d132327e4e514b7160fd7e92bd5b4e4fe322026ae47dffdb77db364",
+  "notebooks": {
+    "native": {
+      "path": "devguide/validation/e1_public_composition_receiving.ipynb",
+      "sha256": "097972d294ed32138d2e349a0fe61e524727d28f2d788be2a77a0fb9557c4fa7",
+      "code_cells": [
+        {
+          "id": "e1-composition-1",
+          "sha256": "daed65793acd795f29bc11ac1c01df638025e739ad4e990ea3924e7f2d7c6788"
+        },
+        {
+          "id": "e1-composition-2",
+          "sha256": "c29a4bb456540939a4fbc9c8d425d059aa68d887440b99db2f8188f773182894"
+        },
+        {
+          "id": "e1-composition-3",
+          "sha256": "43790bc4e00ffdb4345c8589e867fb504454c7d84f5353cb8fb90f8840f52036"
+        }
+      ],
+      "monitored_direct_budgets": {
+        "prepare": 4,
+        "reconstruct": 2,
+        "dock_attempts": 1,
+        "dock_returns": 1,
+        "score_attempts": 6,
+        "score_returns": 4,
+        "graph_witness": 6,
+        "charge_audit": 4,
+        "expected_score_refusals": 2,
+        "rank_refusals": 2
+      }
+    },
+    "reader": {
+      "path": "devguide/validation/e1_public_composition_reader.ipynb",
+      "sha256": "fb0663701627014b3b022c0ba5c2453ab6e700be9dac77eada584fe58a5fc988",
+      "code_cells": [
+        {
+          "id": "e1-composition-reader-1",
+          "sha256": "41b08c7d573f9394b1b6323645a11cf6879b9d78bdae75f0768e65ebe1b95a67"
+        },
+        {
+          "id": "e1-composition-reader-2",
+          "sha256": "d104ce2d295ae7f00d84f324deb27e327be38c115e31bf38dea27134628a8075"
+        },
+        {
+          "id": "e1-composition-reader-3",
+          "sha256": "7d4dc74f0c296fffd44402a7d1ba4e8696bdc5262b5d484423feb6fc495992ce"
+        },
+        {
+          "id": "e1-composition-reader-4",
+          "sha256": "1c3bec4b5bc1895d2b90c02f648c0201e1ea0ccba9cc13533ce2241ed902a4c3"
+        }
+      ],
+      "monitored_direct_budgets": {
+        "reader_policies": 2,
+        "from_dict": 8,
+        "audit_result": 4,
+        "result_roundtrips": 4,
+        "detachment_controls": 4
+      }
+    }
+  },
+  "user_notebook": {
+    "path": "examples/rescore_existing_poses.ipynb",
+    "sha256": "41536ca9382e89ec83dca5e3c7a34a8e98be6fab7dd282b85af34b6139184b50",
+    "code_cells": [
+      {
+        "id": "acae54e37e7d407bbb7b55eff062a284",
+        "sha256": "59289676a248f3f60f296c8c302afd69b036b91a935fca51643593c6923f67da"
+      },
+      {
+        "id": "9a63283cbaf04dbcab1f6479b197f3a8",
+        "sha256": "5af511988496c87e6df3889ad3427727ed4da48f071af43f9184d5cf5f6b2c33"
+      },
+      {
+        "id": "8dd0d8092fe74a7c96281538738b07e2",
+        "sha256": "1efd8824dfacbef1efad68118311447818520074bc69b0fb72d18a6bdb62bfd3"
+      }
+    ],
+    "monitored_direct_budgets": null
+  },
+  "prescription": {
+    "path": "devguide/validation/e1_public_composition_2026-11-06.md",
+    "sha256": "99df1b5c556c7cb616e0185e1ea712336106cf8a13cc14b5de7fd2f1c7031ec6"
+  },
+  "worker_sha256": "a3e8ea3e75bf9504cfa6424d054de21de14aa00c32aa062ab34b08d919b9ce84",
+  "supervisor_sha256": "75bb9125b81cb9f6c0f7403b3fe432650291dc175b8e9c49f5a4b260071392e1",
+  "input_sha256": {
+    "manifest": "45b3665ba09b6979aa1bcdf1bea0ac3e8102f081fefbfc51348c55bc71405df3",
+    "contract": "a5682a68e1054292373cdbd3996d9581acb00c4121458755baf87a9873e064b6"
+  },
+  "population": {
+    "source_full_atoms": 18,
+    "prepared_atoms": 13,
+    "docking_attempts": 1,
+    "requested_poses": 2,
+    "minimum_received_poses": 2,
+    "fixed_score_attempts": 6,
+    "expected_fixed_returns": 4,
+    "expected_state_geometry_refusals": 2,
+    "added_fixed_values": 32,
+    "fresh_json_reader_processes": 1
+  },
+  "resource_policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_before_bytes": 51956719616,
+    "available_reserve_bytes": 8589934592,
+    "task_group_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90,
+    "reserve_poll_seconds": 0.1,
+    "automatic_retry": false
+  },
+  "scope": "Private installed DockingMT and five support wheels, borrowed MolSysMT snapshot and routine binary dependencies; no standalone/public provider closure or independent accuracy.",
+  "failure_policy": "Stop unexpected outcomes; preserve attempts and complete denominators; no automatic heavy restart or splicing.",
+  "source_construction_manifest_sha256": "45b3665ba09b6979aa1bcdf1bea0ac3e8102f081fefbfc51348c55bc71405df3",
+  "shared_installed_checker_source": "95f693be10c9205ab9b912cb53453710a207bf45",
+  "local_e4_hold_preserved": true,
+  "full_e1_accepted": false
+}

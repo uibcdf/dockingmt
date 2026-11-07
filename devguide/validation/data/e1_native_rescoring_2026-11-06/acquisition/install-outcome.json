@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "resource_interruption": null,
+  "elapsed_seconds": 1.4354443549964344,
+  "peak_rss_bytes": 70107136,
+  "minimum_available_bytes": 53137436672,
+  "shared_conda_metadata_unchanged": true,
+  "shared_vina_still_absent": true
+}

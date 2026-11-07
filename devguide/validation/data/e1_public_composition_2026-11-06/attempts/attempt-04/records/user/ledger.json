@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "scope": "public_fixed_pose_rescoring",
+  "cases": [
+    {
+      "position": 1,
+      "pose_id": "pose_1",
+      "steps": {
+        "preparation": "completed",
+        "vina_fixed": "completed",
+        "vinardo_fixed": "completed",
+        "vina_fixed_preservation": "completed",
+        "vinardo_fixed_preservation": "completed"
+      },
+      "events": [
+        {
+          "stage": "preparation",
+          "status": "started"
+        },
+        {
+          "stage": "preparation",
+          "status": "completed"
+        },
+        {
+          "stage": "vina_fixed",
+          "status": "started"
+        },
+        {
+          "stage": "vina_fixed",
+          "status": "completed",
+          "record": "pose_1/vina_fixed.json"
+        },
+        {
+          "stage": "vina_fixed_preservation",
+          "status": "started"
+        },
+        {
+          "stage": "vina_fixed_preservation",
+          "status": "completed"
+        },
+        {
+          "stage": "vinardo_fixed",
+          "status": "started"
+        },
+        {
+          "stage": "vinardo_fixed",
+          "status": "completed",
+          "record": "pose_1/vinardo_fixed.json"
+        },
+        {
+          "stage": "vinardo_fixed_preservation",
+          "status": "started"
+        },
+        {
+          "stage": "vinardo_fixed_preservation",
+          "status": "completed"
+        }
+      ]
+    }
+  ]
+}

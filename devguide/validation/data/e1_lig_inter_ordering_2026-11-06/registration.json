@@ -1,0 +1,87 @@
+{
+  "schema": "dockingmt.e1_lig_inter_ordering_registration@1",
+  "owner": "uibcdf/dockingmt#78",
+  "registered_at_utc": "2026-11-06T22:43:11.327043+00:00",
+  "status_at_registration": "prospective",
+  "consumer_runtime_source": "2fda6238e6b1cb3742f5d30b8ed3af699f9ed748",
+  "provider_runtime_source": "9e1f1b1ad8bf09446374ab6f04ca7208e2717936",
+  "provider_checkout_clean": true,
+  "monitored_direct_consumer_budgets": {
+    "admission_attempts": 70,
+    "admitted_studies": 4,
+    "expected_refusals": 66,
+    "audit_pose": 24,
+    "quantity_decodes": 100,
+    "rank_refusals": 4,
+    "tie_controls": 2,
+    "detachment_controls": 2
+  },
+  "source_context": "Record-only study over two immutable received manifest roots, current routine source reader; no native overlay or optional engine/viewer import.",
+  "notebook": {
+    "path": "devguide/validation/e1_lig_inter_ordering.ipynb",
+    "sha256": "389412ed8f9005ec4b73b60e87d523cf0377cf1ce034fb348c8eb174f4260eea",
+    "code_cells": [
+      {
+        "id": "e1-ordering-01",
+        "sha256": "ff80a0e99e671a7afaaaff494443d0a4bd2ef433293d084d13c59a95b66758f7"
+      },
+      {
+        "id": "e1-ordering-02",
+        "sha256": "5807f33ff80580d78bdda67ca1558c2038864ec0b91730b44aa203c95c830d27"
+      },
+      {
+        "id": "e1-ordering-03",
+        "sha256": "28f677f7ecf1906b5b5d20569a6248977ba2e4bf5bbe8f091f5a32b5a3b35cbf"
+      },
+      {
+        "id": "e1-ordering-04",
+        "sha256": "ec40145833f3374453172afc98b0240cd837de54a25d2eec0d6696d3cd440bfb"
+      }
+    ]
+  },
+  "prescription": {
+    "path": "devguide/validation/e1_lig_inter_ordering_2026-11-06.md",
+    "sha256_at_registration": "6eed8b2a3822381488302290bf27526ac82c0bc24b49fba84414fb59b710bdea"
+  },
+  "inputs": [
+    {
+      "path": "devguide/validation/data/e1_complete_pose_2026-11-06/manifest.json",
+      "bytes": 79776,
+      "sha256": "45b3665ba09b6979aa1bcdf1bea0ac3e8102f081fefbfc51348c55bc71405df3"
+    },
+    {
+      "path": "devguide/validation/data/e1_native_rescoring_2026-11-06/manifest.json",
+      "bytes": 12949,
+      "sha256": "bf214aa7e48f15a95051411ed3bd54969f78c811503050c6969d6f5aa2898e93"
+    }
+  ],
+  "population": {
+    "source_poses": 5,
+    "distinct_component_studies": 2,
+    "reader_policy_repetitions": 2,
+    "positive_admissions": 4,
+    "documentary_refusals": 66,
+    "admission_attempts": 70,
+    "synthetic_tie_controls": 2,
+    "detachment_controls": 2,
+    "strict_rank_by_refusals": 4,
+    "new_vina_calls": 0,
+    "new_molecular_operations": 0
+  },
+  "resource_policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_before_bytes": 46087884800,
+    "available_reserve_bytes": 8589934592,
+    "task_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90,
+    "reserve_poll_seconds": 0.1,
+    "automatic_retry": false
+  },
+  "failure_policy": "Stop unexpected outcomes, preserve all attempts; no automatic resource retry, molecular repair or history codec.",
+  "claim_limit": "Two separate finite reported-lig_inter study orders over exact previously received source data, with conservative evidence refusals; no new empirical values, molecule operations, public comparison API or full E1.",
+  "local_e4_hold_preserved": true
+}

@@ -1,0 +1,304 @@
+* Getting build dependencies for wheel...
+running egg_info
+creating ackredit.egg-info
+writing ackredit.egg-info/PKG-INFO
+writing dependency_links to ackredit.egg-info/dependency_links.txt
+writing entry points to ackredit.egg-info/entry_points.txt
+writing requirements to ackredit.egg-info/requires.txt
+writing top-level names to ackredit.egg-info/top_level.txt
+writing manifest file 'ackredit.egg-info/SOURCES.txt'
+reading manifest file 'ackredit.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'ackredit.egg-info/SOURCES.txt'
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build/lib/ackredit
+copying ackredit/_version.py -> build/lib/ackredit
+copying ackredit/cli.py -> build/lib/ackredit
+copying ackredit/_smonitor.py -> build/lib/ackredit
+copying ackredit/_depdigest.py -> build/lib/ackredit
+copying ackredit/_argdigest.py -> build/lib/ackredit
+copying ackredit/__init__.py -> build/lib/ackredit
+creating build/lib/ackredit/formats
+copying ackredit/formats/workflow.py -> build/lib/ackredit/formats
+copying ackredit/formats/text.py -> build/lib/ackredit/formats
+copying ackredit/formats/provenance.py -> build/lib/ackredit/formats
+copying ackredit/formats/markdown.py -> build/lib/ackredit/formats
+copying ackredit/formats/latex.py -> build/lib/ackredit/formats
+copying ackredit/formats/jsonfmt.py -> build/lib/ackredit/formats
+copying ackredit/formats/explanation.py -> build/lib/ackredit/formats
+copying ackredit/formats/csl_json.py -> build/lib/ackredit/formats
+copying ackredit/formats/bibtex.py -> build/lib/ackredit/formats
+copying ackredit/formats/_names.py -> build/lib/ackredit/formats
+copying ackredit/formats/_markdown.py -> build/lib/ackredit/formats
+copying ackredit/formats/_links.py -> build/lib/ackredit/formats
+copying ackredit/formats/_latex.py -> build/lib/ackredit/formats
+copying ackredit/formats/_html.py -> build/lib/ackredit/formats
+copying ackredit/formats/__init__.py -> build/lib/ackredit/formats
+creating build/lib/ackredit/core
+copying ackredit/core/standard_injections.py -> build/lib/ackredit/core
+copying ackredit/core/session.py -> build/lib/ackredit/core
+copying ackredit/core/report.py -> build/lib/ackredit/core
+copying ackredit/core/registry.py -> build/lib/ackredit/core
+copying ackredit/core/providers.py -> build/lib/ackredit/core
+copying ackredit/core/inspection.py -> build/lib/ackredit/core
+copying ackredit/core/injections.py -> build/lib/ackredit/core
+copying ackredit/core/hooks.py -> build/lib/ackredit/core
+copying ackredit/core/explanation.py -> build/lib/ackredit/core
+copying ackredit/core/evidence.py -> build/lib/ackredit/core
+copying ackredit/core/decorators.py -> build/lib/ackredit/core
+copying ackredit/core/context.py -> build/lib/ackredit/core
+copying ackredit/core/composition.py -> build/lib/ackredit/core
+copying ackredit/core/collector.py -> build/lib/ackredit/core
+copying ackredit/core/cff.py -> build/lib/ackredit/core
+copying ackredit/core/attribution.py -> build/lib/ackredit/core
+copying ackredit/core/__init__.py -> build/lib/ackredit/core
+creating build/lib/ackredit/contrib
+copying ackredit/contrib/jupyter.py -> build/lib/ackredit/contrib
+copying ackredit/contrib/duecredit_compat.py -> build/lib/ackredit/contrib
+copying ackredit/contrib/__init__.py -> build/lib/ackredit/contrib
+creating build/lib/ackredit/_private
+copying ackredit/_private/dates.py -> build/lib/ackredit/_private
+copying ackredit/_private/__init__.py -> build/lib/ackredit/_private
+creating build/lib/ackredit/_private/smonitor
+copying ackredit/_private/smonitor/warnings.py -> build/lib/ackredit/_private/smonitor
+copying ackredit/_private/smonitor/meta.py -> build/lib/ackredit/_private/smonitor
+copying ackredit/_private/smonitor/exceptions.py -> build/lib/ackredit/_private/smonitor
+copying ackredit/_private/smonitor/emitter.py -> build/lib/ackredit/_private/smonitor
+copying ackredit/_private/smonitor/catalog.py -> build/lib/ackredit/_private/smonitor
+copying ackredit/_private/smonitor/__init__.py -> build/lib/ackredit/_private/smonitor
+creating build/lib/ackredit/_private/argdigest
+copying ackredit/_private/argdigest/digest.py -> build/lib/ackredit/_private/argdigest
+copying ackredit/_private/argdigest/__init__.py -> build/lib/ackredit/_private/argdigest
+creating build/lib/ackredit/_private/argdigest/normalization
+copying ackredit/_private/argdigest/normalization/__init__.py -> build/lib/ackredit/_private/argdigest/normalization
+creating build/lib/ackredit/_private/argdigest/function
+copying ackredit/_private/argdigest/function/report.py -> build/lib/ackredit/_private/argdigest/function
+copying ackredit/_private/argdigest/function/register_item.py -> build/lib/ackredit/_private/argdigest/function
+copying ackredit/_private/argdigest/function/__init__.py -> build/lib/ackredit/_private/argdigest/function
+creating build/lib/ackredit/_private/argdigest/domain
+copying ackredit/_private/argdigest/domain/format_options.py -> build/lib/ackredit/_private/argdigest/domain
+copying ackredit/_private/argdigest/domain/citation_field.py -> build/lib/ackredit/_private/argdigest/domain
+copying ackredit/_private/argdigest/domain/__init__.py -> build/lib/ackredit/_private/argdigest/domain
+creating build/lib/ackredit/_private/argdigest/argument
+copying ackredit/_private/argdigest/argument/target_module.py -> build/lib/ackredit/_private/argdigest/argument
+copying ackredit/_private/argdigest/argument/target.py -> build/lib/ackredit/_private/argdigest/argument
+copying ackredit/_private/argdigest/argument/paths.py -> build/lib/ackredit/_private/argdigest/argument
+copying ackredit/_private/argdigest/argument/path.py -> build/lib/ackredit/_private/argdigest/argument
+copying ackredit/_private/argdigest/argument/items.py -> build/lib/ackredit/_private/argdigest/argument
+copying ackredit/_private/argdigest/argument/formats.py -> build/lib/ackredit/_private/argdigest/argument
+copying ackredit/_private/argdigest/argument/format.py -> build/lib/ackredit/_private/argdigest/argument
+copying ackredit/_private/argdigest/argument/file_path.py -> build/lib/ackredit/_private/argdigest/argument
+copying ackredit/_private/argdigest/argument/directory.py -> build/lib/ackredit/_private/argdigest/argument
+copying ackredit/_private/argdigest/argument/build_pdf.py -> build/lib/ackredit/_private/argdigest/argument
+copying ackredit/_private/argdigest/argument/__init__.py -> build/lib/ackredit/_private/argdigest/argument
+running egg_info
+writing ackredit.egg-info/PKG-INFO
+writing dependency_links to ackredit.egg-info/dependency_links.txt
+writing entry points to ackredit.egg-info/entry_points.txt
+writing requirements to ackredit.egg-info/requires.txt
+writing top-level names to ackredit.egg-info/top_level.txt
+reading manifest file 'ackredit.egg-info/SOURCES.txt'
+adding license file 'LICENSE'
+writing manifest file 'ackredit.egg-info/SOURCES.txt'
+copying ackredit/CITATION.cff -> build/lib/ackredit
+warning: build_py: byte-compiling is disabled, skipping.
+
+installing to build/bdist.linux-x86_64/wheel
+running install
+running install_lib
+creating build/bdist.linux-x86_64/wheel
+creating build/bdist.linux-x86_64/wheel/ackredit
+copying build/lib/ackredit/CITATION.cff -> build/bdist.linux-x86_64/wheel/./ackredit
+creating build/bdist.linux-x86_64/wheel/ackredit/_private
+creating build/bdist.linux-x86_64/wheel/ackredit/_private/argdigest
+creating build/bdist.linux-x86_64/wheel/ackredit/_private/argdigest/argument
+copying build/lib/ackredit/_private/argdigest/argument/__init__.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/argument
+copying build/lib/ackredit/_private/argdigest/argument/build_pdf.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/argument
+copying build/lib/ackredit/_private/argdigest/argument/directory.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/argument
+copying build/lib/ackredit/_private/argdigest/argument/file_path.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/argument
+copying build/lib/ackredit/_private/argdigest/argument/format.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/argument
+copying build/lib/ackredit/_private/argdigest/argument/formats.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/argument
+copying build/lib/ackredit/_private/argdigest/argument/items.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/argument
+copying build/lib/ackredit/_private/argdigest/argument/path.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/argument
+copying build/lib/ackredit/_private/argdigest/argument/paths.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/argument
+copying build/lib/ackredit/_private/argdigest/argument/target.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/argument
+copying build/lib/ackredit/_private/argdigest/argument/target_module.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/argument
+creating build/bdist.linux-x86_64/wheel/ackredit/_private/argdigest/domain
+copying build/lib/ackredit/_private/argdigest/domain/__init__.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/domain
+copying build/lib/ackredit/_private/argdigest/domain/citation_field.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/domain
+copying build/lib/ackredit/_private/argdigest/domain/format_options.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/domain
+creating build/bdist.linux-x86_64/wheel/ackredit/_private/argdigest/function
+copying build/lib/ackredit/_private/argdigest/function/__init__.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/function
+copying build/lib/ackredit/_private/argdigest/function/register_item.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/function
+copying build/lib/ackredit/_private/argdigest/function/report.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/function
+creating build/bdist.linux-x86_64/wheel/ackredit/_private/argdigest/normalization
+copying build/lib/ackredit/_private/argdigest/normalization/__init__.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest/normalization
+copying build/lib/ackredit/_private/argdigest/__init__.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest
+copying build/lib/ackredit/_private/argdigest/digest.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/argdigest
+creating build/bdist.linux-x86_64/wheel/ackredit/_private/smonitor
+copying build/lib/ackredit/_private/smonitor/__init__.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/smonitor
+copying build/lib/ackredit/_private/smonitor/catalog.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/smonitor
+copying build/lib/ackredit/_private/smonitor/emitter.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/smonitor
+copying build/lib/ackredit/_private/smonitor/exceptions.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/smonitor
+copying build/lib/ackredit/_private/smonitor/meta.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/smonitor
+copying build/lib/ackredit/_private/smonitor/warnings.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private/smonitor
+copying build/lib/ackredit/_private/__init__.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private
+copying build/lib/ackredit/_private/dates.py -> build/bdist.linux-x86_64/wheel/./ackredit/_private
+creating build/bdist.linux-x86_64/wheel/ackredit/contrib
+copying build/lib/ackredit/contrib/__init__.py -> build/bdist.linux-x86_64/wheel/./ackredit/contrib
+copying build/lib/ackredit/contrib/duecredit_compat.py -> build/bdist.linux-x86_64/wheel/./ackredit/contrib
+copying build/lib/ackredit/contrib/jupyter.py -> build/bdist.linux-x86_64/wheel/./ackredit/contrib
+creating build/bdist.linux-x86_64/wheel/ackredit/core
+copying build/lib/ackredit/core/__init__.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/attribution.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/cff.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/collector.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/composition.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/context.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/decorators.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/evidence.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/explanation.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/hooks.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/injections.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/inspection.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/providers.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/registry.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/report.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/session.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+copying build/lib/ackredit/core/standard_injections.py -> build/bdist.linux-x86_64/wheel/./ackredit/core
+creating build/bdist.linux-x86_64/wheel/ackredit/formats
+copying build/lib/ackredit/formats/__init__.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/_html.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/_latex.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/_links.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/_markdown.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/_names.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/bibtex.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/csl_json.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/explanation.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/jsonfmt.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/latex.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/markdown.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/provenance.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/text.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/formats/workflow.py -> build/bdist.linux-x86_64/wheel/./ackredit/formats
+copying build/lib/ackredit/__init__.py -> build/bdist.linux-x86_64/wheel/./ackredit
+copying build/lib/ackredit/_argdigest.py -> build/bdist.linux-x86_64/wheel/./ackredit
+copying build/lib/ackredit/_depdigest.py -> build/bdist.linux-x86_64/wheel/./ackredit
+copying build/lib/ackredit/_smonitor.py -> build/bdist.linux-x86_64/wheel/./ackredit
+copying build/lib/ackredit/cli.py -> build/bdist.linux-x86_64/wheel/./ackredit
+copying build/lib/ackredit/_version.py -> build/bdist.linux-x86_64/wheel/./ackredit
+warning: install_lib: byte-compiling is disabled, skipping.
+
+running install_egg_info
+Copying ackredit.egg-info to build/bdist.linux-x86_64/wheel/./ackredit-0.12.1+10.g4beb850-py3.14.egg-info
+running install_scripts
+creating build/bdist.linux-x86_64/wheel/ackredit-0.12.1+10.g4beb850.dist-info/WHEEL
+creating '/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/wheels/ackredit/.tmp-giy3vq_a/ackredit-0.12.1+10.g4beb850-py3-none-any.whl' and adding 'build/bdist.linux-x86_64/wheel' to it
+adding 'ackredit/CITATION.cff'
+adding 'ackredit/__init__.py'
+adding 'ackredit/_argdigest.py'
+adding 'ackredit/_depdigest.py'
+adding 'ackredit/_smonitor.py'
+adding 'ackredit/_version.py'
+adding 'ackredit/cli.py'
+adding 'ackredit/_private/__init__.py'
+adding 'ackredit/_private/dates.py'
+adding 'ackredit/_private/argdigest/__init__.py'
+adding 'ackredit/_private/argdigest/digest.py'
+adding 'ackredit/_private/argdigest/argument/__init__.py'
+adding 'ackredit/_private/argdigest/argument/build_pdf.py'
+adding 'ackredit/_private/argdigest/argument/directory.py'
+adding 'ackredit/_private/argdigest/argument/file_path.py'
+adding 'ackredit/_private/argdigest/argument/format.py'
+adding 'ackredit/_private/argdigest/argument/formats.py'
+adding 'ackredit/_private/argdigest/argument/items.py'
+adding 'ackredit/_private/argdigest/argument/path.py'
+adding 'ackredit/_private/argdigest/argument/paths.py'
+adding 'ackredit/_private/argdigest/argument/target.py'
+adding 'ackredit/_private/argdigest/argument/target_module.py'
+adding 'ackredit/_private/argdigest/domain/__init__.py'
+adding 'ackredit/_private/argdigest/domain/citation_field.py'
+adding 'ackredit/_private/argdigest/domain/format_options.py'
+adding 'ackredit/_private/argdigest/function/__init__.py'
+adding 'ackredit/_private/argdigest/function/register_item.py'
+adding 'ackredit/_private/argdigest/function/report.py'
+adding 'ackredit/_private/argdigest/normalization/__init__.py'
+adding 'ackredit/_private/smonitor/__init__.py'
+adding 'ackredit/_private/smonitor/catalog.py'
+adding 'ackredit/_private/smonitor/emitter.py'
+adding 'ackredit/_private/smonitor/exceptions.py'
+adding 'ackredit/_private/smonitor/meta.py'
+adding 'ackredit/_private/smonitor/warnings.py'
+adding 'ackredit/contrib/__init__.py'
+adding 'ackredit/contrib/duecredit_compat.py'
+adding 'ackredit/contrib/jupyter.py'
+adding 'ackredit/core/__init__.py'
+adding 'ackredit/core/attribution.py'
+adding 'ackredit/core/cff.py'
+adding 'ackredit/core/collector.py'
+adding 'ackredit/core/composition.py'
+adding 'ackredit/core/context.py'
+adding 'ackredit/core/decorators.py'
+adding 'ackredit/core/evidence.py'
+adding 'ackredit/core/explanation.py'
+adding 'ackredit/core/hooks.py'
+adding 'ackredit/core/injections.py'
+adding 'ackredit/core/inspection.py'
+adding 'ackredit/core/providers.py'
+adding 'ackredit/core/registry.py'
+adding 'ackredit/core/report.py'
+adding 'ackredit/core/session.py'
+adding 'ackredit/core/standard_injections.py'
+adding 'ackredit/formats/__init__.py'
+adding 'ackredit/formats/_html.py'
+adding 'ackredit/formats/_latex.py'
+adding 'ackredit/formats/_links.py'
+adding 'ackredit/formats/_markdown.py'
+adding 'ackredit/formats/_names.py'
+adding 'ackredit/formats/bibtex.py'
+adding 'ackredit/formats/csl_json.py'
+adding 'ackredit/formats/explanation.py'
+adding 'ackredit/formats/jsonfmt.py'
+adding 'ackredit/formats/latex.py'
+adding 'ackredit/formats/markdown.py'
+adding 'ackredit/formats/provenance.py'
+adding 'ackredit/formats/text.py'
+adding 'ackredit/formats/workflow.py'
+adding 'ackredit-0.12.1+10.g4beb850.dist-info/licenses/LICENSE'
+adding 'ackredit-0.12.1+10.g4beb850.dist-info/METADATA'
+adding 'ackredit-0.12.1+10.g4beb850.dist-info/WHEEL'
+adding 'ackredit-0.12.1+10.g4beb850.dist-info/entry_points.txt'
+adding 'ackredit-0.12.1+10.g4beb850.dist-info/top_level.txt'
+adding 'ackredit-0.12.1+10.g4beb850.dist-info/RECORD'
+removing build/bdist.linux-x86_64/wheel
+WARNING `project.license` as a TOML table is deprecated
+!!
+
+        ********************************************************************************
+        Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+        By 2027-Feb-18, you need to update your project and remove deprecated calls
+        or your builds will no longer be supported.
+
+        See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+        ********************************************************************************
+
+!!
+Successfully built ackredit-0.12.1+10.g4beb850-py3-none-any.whl

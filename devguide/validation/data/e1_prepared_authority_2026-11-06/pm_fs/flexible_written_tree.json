@@ -1,0 +1,53 @@
+{
+  "schema_version": "molsysmt.pdbqt-torsion-tree@1",
+  "atom_ids": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "fragment_atom_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "fragment_offsets": [
+    0,
+    7,
+    13
+  ],
+  "branch_atom_pairs": [
+    [
+      0,
+      7
+    ]
+  ],
+  "branch_fragment_pairs": [
+    [
+      0,
+      1
+    ]
+  ],
+  "root_fragment_index": 0,
+  "torsdof": 1,
+  "evidence": "declared_pdbqt_torsion_tree"
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "dockingmt.e1_installed_source_regression@1",
+  "source_native_manifest_sha256": "bf214aa7e48f15a95051411ed3bd54969f78c811503050c6969d6f5aa2898e93",
+  "poses": [
+    {
+      "source_position": 1,
+      "published_components": 16,
+      "equal_except_history_timings": true,
+      "historical_associations_preserved": true
+    },
+    {
+      "source_position": 2,
+      "published_components": 16,
+      "equal_except_history_timings": true,
+      "historical_associations_preserved": true
+    },
+    {
+      "source_position": 3,
+      "published_components": 16,
+      "equal_except_history_timings": true,
+      "historical_associations_preserved": true
+    },
+    {
+      "source_position": 4,
+      "published_components": 16,
+      "equal_except_history_timings": true,
+      "historical_associations_preserved": true
+    },
+    {
+      "source_position": 5,
+      "published_components": 16,
+      "equal_except_history_timings": true,
+      "historical_associations_preserved": true
+    }
+  ],
+  "compared_values": 80,
+  "criterion": "Exact published floats, input captures, descriptors, references and record fields; only each history timings object differs.",
+  "scope": "Same-case installed/source integration regression, not independent molecular/energy validation."
+}

@@ -1,0 +1,21 @@
+from pathlib import Path
+import hashlib,json,sys,traceback
+from datetime import datetime,timezone
+attempt=Path(sys.argv[1]); reg=json.loads((attempt/'registration.json').read_text())
+nb=attempt/'registered_notebook.ipynb'
+assert hashlib.sha256(nb.read_bytes()).hexdigest()==reg['notebook']['sha256']
+namespace={'__name__':'__main__'}
+def event(phase,index,**extra):
+    row={'phase':phase,'cell_index':index,'at_utc':datetime.now(timezone.utc).isoformat(),**extra}
+    with (attempt/'progress.jsonl').open('a') as stream:
+        stream.write(json.dumps(row)+'\n');stream.flush()
+for index,cell in enumerate(json.loads(nb.read_text())['cells']):
+    if cell['cell_type']!='code':continue
+    event('started',index)
+    try:
+        exec(compile(''.join(cell['source']),f'e1_native_rescoring.cell_{index}','exec'),namespace)
+    except BaseException as error:
+        event('failed',index,exception_type=type(error).__name__,message=str(error),counts=namespace.get('counts'),completed_profiles=len(namespace.get('observations',[])))
+        (attempt/'failure.json').write_text(json.dumps({'cell_index':index,'exception_type':type(error).__name__,'message':str(error),'counts':namespace.get('counts'),'completed_profiles':len(namespace.get('observations',[]))},indent=2)+'\n')
+        traceback.print_exc();raise SystemExit(1)
+    event('completed',index,counts=namespace.get('counts'),completed_profiles=len(namespace.get('observations',[])))

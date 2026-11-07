@@ -1,0 +1,10 @@
+{"phase": "started", "cell_id": "e1-installed-1", "at_utc": "2026-11-06T23:18:18.644687+00:00"}
+{"phase": "completed", "cell_id": "e1-installed-1", "counts": null, "at_utc": "2026-11-06T23:18:18.957636+00:00"}
+{"phase": "started", "cell_id": "e1-installed-2", "at_utc": "2026-11-06T23:18:18.957827+00:00"}
+{"phase": "completed", "cell_id": "e1-installed-2", "counts": {"qualification_constructors": 2, "score_attempts": 0, "score_returned": 0, "score_checked": 0, "convert": 0, "get": 0, "audit_pose": 0, "pose_roundtrip": 0, "audit_result": 0, "ranking_refusals": 0}, "at_utc": "2026-11-06T23:18:21.727661+00:00"}
+{"phase": "started", "cell_id": "e1-installed-3", "at_utc": "2026-11-06T23:18:21.727834+00:00"}
+{"phase": "completed", "cell_id": "e1-installed-3", "counts": {"qualification_constructors": 2, "score_attempts": 10, "score_returned": 10, "score_checked": 10, "convert": 5, "get": 5, "audit_pose": 10, "pose_roundtrip": 10, "audit_result": 0, "ranking_refusals": 0}, "at_utc": "2026-11-06T23:18:33.383564+00:00"}
+{"phase": "started", "cell_id": "e1-installed-4", "at_utc": "2026-11-06T23:18:33.383681+00:00"}
+{"phase": "completed", "cell_id": "e1-installed-4", "counts": {"qualification_constructors": 2, "score_attempts": 10, "score_returned": 10, "score_checked": 10, "convert": 5, "get": 5, "audit_pose": 10, "pose_roundtrip": 10, "audit_result": 1, "ranking_refusals": 2}, "at_utc": "2026-11-06T23:18:34.782262+00:00"}
+{"phase": "started", "cell_id": "e1-installed-5", "at_utc": "2026-11-06T23:18:34.782376+00:00"}
+{"phase": "completed", "cell_id": "e1-installed-5", "counts": {"qualification_constructors": 2, "score_attempts": 10, "score_returned": 10, "score_checked": 10, "convert": 5, "get": 5, "audit_pose": 10, "pose_roundtrip": 10, "audit_result": 1, "ranking_refusals": 2}, "at_utc": "2026-11-06T23:18:37.371666+00:00"}

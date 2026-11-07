@@ -1,0 +1,21 @@
+{
+  "phase": "records",
+  "exit_code": 0,
+  "resource_interruption": null,
+  "termination_signal": null,
+  "elapsed_seconds": 7.28220790400519,
+  "sampled_peak_group_rss_bytes": 86831104,
+  "minimum_available_bytes": 50704990208,
+  "samples": 72,
+  "maximum_observed_owned_processes": 1,
+  "policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_reserve_bytes": 8589934592,
+    "task_group_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90
+  }
+}

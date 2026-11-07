@@ -1,0 +1,170 @@
+"""Copy the explicitly authorized borrowed MolSysMT runtime, without imports."""
+
+import email.parser
+import hashlib
+import json
+import os
+from pathlib import Path
+import resource
+import shutil
+import subprocess
+
+
+ROOT = Path('/fast_data/home/liliana/repos@uibcdf/dockingmt')
+SOURCE = ROOT.parent / 'molsysmt'
+TASK = ROOT / '.molsyssuite/e1-installed-20261106'
+TARGET = TASK / 'site-packages'
+SITE = Path('/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14/lib/python3.14/site-packages')
+RECEIPT = TASK / 'preparation-amendment.json'
+EXPECTED_NATIVE = '2a79b9a83b0fe0b00a54c9b80f04bf6c9ace2b3473c53269edbfe29904f8930b'
+EXCLUDE = {'__pycache__', '.git', '.pytest_cache', 'build', 'dist', 'target', 'docs', 'devguide'}
+
+
+def sha(path):
+    with path.open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def git(*args):
+    return subprocess.check_output(['git', '-C', str(SOURCE), *args], text=True).strip()
+
+
+def available():
+    return int(next(line.split()[1] for line in Path('/proc/meminfo').read_text().splitlines()
+                    if line.startswith('MemAvailable:'))) * 1024
+
+
+def headroom():
+    if available() < 8 * 1024**3:
+        raise RuntimeError('Available-RAM reserve threatened; no automatic retry')
+    if resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024 > 1024**3:
+        raise RuntimeError('Task RSS limit exceeded; no automatic retry')
+
+
+def copy_tree(origin, relative, role):
+    allowed = origin.resolve()
+    for path in sorted(origin.rglob('*')):
+        rel = path.relative_to(origin)
+        if any(part in EXCLUDE for part in rel.parts) or path.suffix in {'.pyc', '.pyo'}:
+            continue
+        if path.is_symlink() and path.is_dir():
+            raise RuntimeError('Directory symlink requires explicit review: ' + str(path))
+        if path.is_dir():
+            continue
+        resolved = path.resolve()
+        if not resolved.is_relative_to(allowed) or not resolved.is_file():
+            raise RuntimeError('Source file escapes its declared runtime root: ' + str(path))
+        headroom()
+        destination = TARGET / relative / rel
+        if destination.exists():
+            raise RuntimeError('Refusing to overwrite a target file: ' + str(destination))
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        digest = sha(resolved)
+        shutil.copy2(resolved, destination)
+        if sha(destination) != digest or sha(resolved) != digest:
+            raise RuntimeError('Copy/source changed during snapshot: ' + str(path))
+        records.append(dict(role=role, relative_path=str(destination.relative_to(TARGET)),
+                            source_path=str(path), source_resolved=str(resolved),
+                            target_path=str(destination), sha256=digest,
+                            bytes=destination.stat().st_size,
+                            source_was_symlink=path.is_symlink()))
+
+
+if RECEIPT.exists():
+    raise SystemExit('Refusing to replace an existing amendment')
+os.sched_setaffinity(0, {0})
+priority = os.getpriority(os.PRIO_PROCESS, 0)
+if priority < 10:
+    os.nice(10 - priority)
+if available() < 9 * 1024**3:
+    raise SystemExit('Insufficient initial RAM headroom')
+before_receipt_sha = sha(TASK / 'preparation.json')
+original = json.loads((TASK / 'preparation.json').read_text())
+assert original['status'] == 'partial_build_failure'
+assert git('status', '--porcelain', '--untracked-files=no') == ''
+commit = git('rev-parse', 'HEAD')
+tree = git('rev-parse', 'HEAD^{tree}')
+assert commit == '9e1f1b1ad8bf09446374ab6f04ca7208e2717936'
+assert not (TARGET / 'molsysmt').exists()
+assert not (TARGET / 'molsysviewer_molsysmt').exists()
+metadata_candidates = []
+for candidate in SITE.glob('*.dist-info/METADATA'):
+    info = email.parser.Parser().parsestr(candidate.read_text())
+    if info['Name'].lower() == 'molsysmt':
+        metadata_candidates.append((candidate.parent, info))
+assert len(metadata_candidates) == 1
+metadata_root, metadata = metadata_candidates[0]
+assert metadata['Version'] == '0.23.0+513.g9e1f1b1ad'
+records = []
+shutil.copyfile(__file__, TASK / 'snapshot_borrowed_provider.py')
+for name in ['molsysmt', 'molsysviewer_molsysmt']:
+    package = SOURCE / name
+    if package.exists():
+        copy_tree(package, Path(name), 'borrowed_runtime_package')
+copy_tree(metadata_root, Path(metadata_root.name), 'original_editable_distribution_metadata')
+extensions = [item for item in records if item['relative_path'].endswith('.so')]
+assert len(extensions) == 1
+assert extensions[0]['relative_path'] == 'molsysmt/_rust.abi3.so'
+assert extensions[0]['sha256'] == EXPECTED_NATIVE
+for item in records:
+    assert sha(Path(item['source_resolved'])) == item['sha256']
+assert git('status', '--porcelain', '--untracked-files=no') == ''
+assert git('rev-parse', 'HEAD') == commit
+assert sha(TASK / 'preparation.json') == before_receipt_sha
+hashes = {}
+for path in sorted(TARGET.rglob('*')):
+    if path.is_file():
+        assert not path.is_symlink()
+        assert path.suffix not in {'.pyc', '.pyo', '.pth', '.egg-link'}
+        assert not path.name.startswith('__editable__')
+        hashes[str(path.relative_to(TARGET))] = sha(path)
+for name, digest in original['targethashes'].items():
+    assert hashes[name] == digest
+for wheel in original['wheels']:
+    for name, digest in wheel['payload'].items():
+        assert hashes[name] == digest
+payload = {item['relative_path']: item['sha256'] for item in records
+           if item['role'] == 'borrowed_runtime_package'}
+payload_digest = hashlib.sha256(json.dumps(payload, sort_keys=True,
+                                           separators=(',', ':')).encode()).hexdigest()
+retired = []
+scratch = Path(original['build_scratch'])
+assert scratch.parent == Path('/tmp') and scratch.name.startswith('dockingmt-e1-installed-build-')
+for wheel in original['wheels']:
+    clone = scratch / wheel['name']
+    assert clone.is_dir() and not clone.is_symlink()
+    shutil.rmtree(clone)
+    retired.append(wheel['name'])
+receipt = dict(schema='dockingmt.e1_private_installed_preparation_amendment@1',
+               owner='uibcdf/dockingmt#78',
+               status='ready_consumer_installed_with_explicit_borrowed_provider_snapshot',
+               ready_for_scientific_worker=True,
+               ready_scope='DockingMT ordinary-installed-only; MolSysMT is an explicitly borrowed runtime snapshot, not a built/installed provider artifact or complete dependency closure',
+               private_target=str(TARGET),
+               preparation_sha256=before_receipt_sha,
+               original_partial_preparation_preserved=True,
+               wheels=original['wheels'],
+               source_snapshot_kind='borrowed_provider_snapshot_not_built_artifact',
+               source_commit=commit, source_tree=tree, source_checkout_clean=True,
+               source_snapshot=records, source_payload_sha256=payload_digest,
+               source_payload_digest_scope='Canonical JSON of relative runtime file paths and SHA-256 values; file inventory only, not a molecular fingerprint',
+               native_extension=extensions[0],
+               native_source_build_correspondence='unassessed; identical already-existing received extension was copied without rebuilding',
+               metadata_version=metadata['Version'],
+               original_editable_metadata_preserved=True,
+               copied_startup_pth_or_finders=False,
+               targethashes=hashes,
+               successful_build_clones_retired=retired,
+               failed_build_clone_retained=str(scratch / 'molsysmt'),
+               no_scientific_imports_or_evaluations_executed=True,
+               preparer=dict(path=str(TASK / 'snapshot_borrowed_provider.py'),
+                             sha256=sha(TASK / 'snapshot_borrowed_provider.py')),
+               available_reserve_bytes=8 * 1024**3,
+               sampled_peak_self_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024)
+temp = RECEIPT.with_suffix('.json.tmp')
+temp.write_text(json.dumps(receipt, indent=2, sort_keys=True, allow_nan=False) + '\n')
+temp.replace(RECEIPT)
+print(json.dumps(dict(status=receipt['status'], private_target=str(TARGET),
+                      manifest=str(RECEIPT), target_files=len(hashes),
+                      copied_provider_files=len(records),
+                      native_extension_sha256=extensions[0]['sha256'])))

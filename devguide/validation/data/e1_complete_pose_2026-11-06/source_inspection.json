@@ -1,0 +1,51 @@
+{
+  "owner": "uibcdf/dockingmt#78",
+  "scope": "Source inspection only, no backend execution",
+  "upstream": [
+    {
+      "path": "src/lib/vina.cpp",
+      "tag": "v1.2.7",
+      "git_blob_sha1": "150f47fb272ce4ab8dba4058116ebd7b33145e54",
+      "sha256": "b4cab7558a50766339aece80e5522ff91ecadc376847517d748f9dcdfb3aabf0",
+      "bytes": 36670,
+      "url": "https://github.com/forlilab/AutoDock-Vina/blob/v1.2.7/src/lib/vina.cpp"
+    },
+    {
+      "path": "src/lib/model.cpp",
+      "tag": "v1.2.7",
+      "git_blob_sha1": "642164582584d2d4b79ff1768ca32a7785815114",
+      "sha256": "9f356a53be56047f6a8a9b5ebc443ea6cb69db73e69f8d2bbd4bab4afdfb05cc",
+      "bytes": 35551,
+      "url": "https://github.com/forlilab/AutoDock-Vina/blob/v1.2.7/src/lib/model.cpp"
+    },
+    {
+      "path": "build/python/vina/vina.py",
+      "tag": "v1.2.7",
+      "git_blob_sha1": "5bb1ce1c4e3658463e2285c81a1653ee012f1727",
+      "sha256": "918ac5251d7db1c17cb4d69a09f52b9450d6e0d11f7f5e87a92affdd2fb01c0a",
+      "bytes": 19305,
+      "url": "https://github.com/forlilab/AutoDock-Vina/blob/v1.2.7/build/python/vina/vina.py"
+    }
+  ],
+  "consumer": [
+    {
+      "path": "dockingmt/engines/_vina_scoring.py",
+      "sha256": "8ceb5360f10b068c46c393ca8bf7a092601d6cd4c6e2c4533cf7c707c44b8679"
+    },
+    {
+      "path": "dockingmt/core/_scores.py",
+      "sha256": "60ce1399c48d489bbc55dc96aed09e05559e06d50ea8d88e5e5663d3bdcab136"
+    },
+    {
+      "path": "dockingmt/_private/vina_records.py",
+      "sha256": "c3e218790029fcf0548cb329a49408984d156feaf98fbf5af9c3c2df2b36a15e"
+    }
+  ],
+  "findings": [
+    "Python rounds native score outputs to three decimals",
+    "No supplied unbound value calls current-conformation native score",
+    "lig_inter is returned before reference subtraction",
+    "DockingMT emits actual per-input hashes in context and requires exact described contexts for rank_by",
+    "Factory weights/refinement/grid expectations are prospective until actual artifact execution"
+  ]
+}

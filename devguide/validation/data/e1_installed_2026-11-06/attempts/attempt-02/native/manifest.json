@@ -1,0 +1,143 @@
+{
+  "schema": "dockingmt.e1_registered_installed_native_output@1",
+  "owner": "uibcdf/dockingmt#78",
+  "registration_sha256": "cea584f422b8d05f4aa4830400e46f0bc5532fe0045fcb624bd34c433c26f0c9",
+  "files": [
+    {
+      "path": "backend_qualification.json",
+      "bytes": 24814,
+      "sha256": "11badc9a11e0738872cd1ab19368f00cb66b2f6c6ce70b350a326e7210bb20cc"
+    },
+    {
+      "path": "collection_audit.json",
+      "bytes": 379888,
+      "sha256": "4ad975194f13a733ff3de0da42865f6aaf30c0e4ea2026e1b72fc136b5f38f68"
+    },
+    {
+      "path": "observations.json",
+      "bytes": 8416,
+      "sha256": "6cf0f86f1c86fc72484399436f4f419cf717b380a8150b94b43df8e7f7278f26"
+    },
+    {
+      "path": "pose_1/vina_audit.json",
+      "bytes": 36422,
+      "sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244"
+    },
+    {
+      "path": "pose_1/vina_scored_pose.json",
+      "bytes": 250185,
+      "sha256": "9798dd6b488d935eac46be9ea49467816e18c483ff0b93f343bc25a5997f0608"
+    },
+    {
+      "path": "pose_1/vinardo_audit.json",
+      "bytes": 72679,
+      "sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3"
+    },
+    {
+      "path": "pose_1/vinardo_scored_pose.json",
+      "bytes": 496043,
+      "sha256": "5a23b13913b7f90c59fac537847473ac67ccc486c36377e766774acf73bd7600"
+    },
+    {
+      "path": "pose_2/vina_audit.json",
+      "bytes": 36422,
+      "sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244"
+    },
+    {
+      "path": "pose_2/vina_scored_pose.json",
+      "bytes": 250197,
+      "sha256": "7991b72b17b47bfe8de4b71d3a9fd4654ab37e63a84f57d29261d0479e596d7f"
+    },
+    {
+      "path": "pose_2/vinardo_audit.json",
+      "bytes": 72679,
+      "sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3"
+    },
+    {
+      "path": "pose_2/vinardo_scored_pose.json",
+      "bytes": 496054,
+      "sha256": "a70693f1c160c790baa1068ddb6385def7cc2b1e636d52aca5955e9aee6fd2e8"
+    },
+    {
+      "path": "pose_3/vina_audit.json",
+      "bytes": 36422,
+      "sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244"
+    },
+    {
+      "path": "pose_3/vina_scored_pose.json",
+      "bytes": 250027,
+      "sha256": "c5776b1e076677cda31380184cfb43071f64e9fbe0ef75ba7006e4de9ed2502d"
+    },
+    {
+      "path": "pose_3/vinardo_audit.json",
+      "bytes": 72679,
+      "sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3"
+    },
+    {
+      "path": "pose_3/vinardo_scored_pose.json",
+      "bytes": 495884,
+      "sha256": "7ec6e071b112232a31ae5f2ade5ea5872118eada066c438eb9004d6ae4f51eca"
+    },
+    {
+      "path": "pose_4/vina_audit.json",
+      "bytes": 36422,
+      "sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244"
+    },
+    {
+      "path": "pose_4/vina_scored_pose.json",
+      "bytes": 250068,
+      "sha256": "45267d8ca74f77c53fbb18787d25c3db9d5e807336c7a97c0f26c38319751477"
+    },
+    {
+      "path": "pose_4/vinardo_audit.json",
+      "bytes": 72679,
+      "sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3"
+    },
+    {
+      "path": "pose_4/vinardo_scored_pose.json",
+      "bytes": 495925,
+      "sha256": "5053f6cd4bd1ce39897471c7d271e9b7f90faa30028598f9d0f6e2e198a91620"
+    },
+    {
+      "path": "pose_5/vina_audit.json",
+      "bytes": 36422,
+      "sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244"
+    },
+    {
+      "path": "pose_5/vina_scored_pose.json",
+      "bytes": 250031,
+      "sha256": "8b710be92eaa64bc308feb49b976ae82b817c5b54618d28d815396325b93b9ba"
+    },
+    {
+      "path": "pose_5/vinardo_audit.json",
+      "bytes": 72679,
+      "sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3"
+    },
+    {
+      "path": "pose_5/vinardo_scored_pose.json",
+      "bytes": 495887,
+      "sha256": "f66648730a118f9e023d586ef5112a922ce0881e3f7ef270a55a12ea45671e18"
+    },
+    {
+      "path": "ranking_refusals.json",
+      "bytes": 520,
+      "sha256": "2add3da057e6e2d452127794c65d99ca74a1bd1dc4d59a2125c2d5a572396dab"
+    },
+    {
+      "path": "receipt.json",
+      "bytes": 35168,
+      "sha256": "eeecaac69f4ba4aa7dd7efa481d18b1307260d13f453b55f549345e21b33287f"
+    },
+    {
+      "path": "scored_collection.json",
+      "bytes": 2517830,
+      "sha256": "29c8b0a2414f1cc2af50eae2df506b952206e79140fccb730a9b8bb0f2f57e5a"
+    },
+    {
+      "path": "source_regression.json",
+      "bytes": 1294,
+      "sha256": "2a97cfb5d38f5892a661bcc9f4a1eaccff8fc889909c966663f7fc1484f4c501"
+    }
+  ],
+  "claim": "This completed installed native producer only; original construction root remains separate."
+}

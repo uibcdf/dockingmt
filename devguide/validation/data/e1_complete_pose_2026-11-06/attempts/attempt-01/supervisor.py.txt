@@ -1,0 +1,131 @@
+from datetime import datetime, timezone
+import ast
+import hashlib
+import json
+import os
+from pathlib import Path
+import resource
+import shutil
+import signal
+import subprocess
+import time
+
+root = Path('/fast_data/home/liliana/repos@uibcdf/dockingmt')
+interpreter = Path('/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python')
+notebook = root / 'devguide/validation/e1_complete_pose_receiving.ipynb'
+prescription = root / 'devguide/validation/e1_comparison_admission_2026-11-06.md'
+evidence = root / 'devguide/validation/data/e1_complete_pose_2026-11-06'
+attempt = root / '.molsyssuite/e1-complete-pose-20261106/attempt-01'
+reserve, rss_limit, address_limit = 8 * 1024**3, 1024**3, 2 * 1024**3
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+def available():
+    return int(next(line.split()[1] for line in Path('/proc/meminfo').read_text().splitlines()
+                    if line.startswith('MemAvailable:'))) * 1024
+def write(path, value):
+    with path.open('x') as stream:
+        json.dump(value, stream, indent=2, allow_nan=False)
+        stream.write('\n')
+def git(path, *args):
+    return subprocess.check_output(['git','-C',str(path),*args],text=True).strip()
+
+assert os.sched_getaffinity(0) == {0}
+assert os.getpriority(os.PRIO_PROCESS, 0) >= 10
+assert available() >= reserve + rss_limit
+nb = json.loads(notebook.read_text())
+code_cells = []
+direct_budgets = None
+for cell in nb['cells']:
+    if cell['cell_type'] == 'code':
+        body = ''.join(cell['source']); tree = ast.parse(body)
+        for node in tree.body:
+            if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == 'budgets' for t in node.targets):
+                direct_budgets = {kw.arg: ast.literal_eval(kw.value) for kw in node.value.keywords}
+        assert cell['execution_count'] is None and cell['outputs'] == []
+        code_cells.append(dict(id=cell['id'], sha256=hashlib.sha256(body.encode()).hexdigest()))
+input_paths = {
+ 'source':root/'devguide/validation/data/e1_declared_authority_2026-11-06/normal/declared_authority9.h5msm.gz',
+ 'variants':root/'devguide/validation/data/e1_declared_authority_2026-11-06/normal/observations.json',
+ 'legacy':root/'devguide/validation/data/human_3ptb/native_result_2026-10-20.json.gz',
+ 'helper':root/'devguide/validation/e1_prepared_authority.ipynb'}
+inputs = list(input_paths.values())
+helper_nb = json.loads(input_paths['helper'].read_text())
+helper_cell = next(c for c in helper_nb['cells'] if c['id']=='e1-prepared-helpers')
+helper_sha = hashlib.sha256(''.join(helper_cell['source']).encode()).hexdigest()
+provider = root.parent / 'molsysmt'
+assert git(provider, 'status', '--porcelain') == ''
+registration = dict(schema='dockingmt.e1_complete_pose_registration@1', owner='uibcdf/dockingmt#78',
+    registered_at_utc=datetime.now(timezone.utc).isoformat(),status_at_registration='prospective',
+    consumer_runtime_source=git(root,'rev-parse','HEAD'),provider_runtime_source=git(provider,'rev-parse','HEAD'),
+    provider_checkout_clean=True,
+    reused_helper_cell_sha256=helper_sha,
+    monitored_direct_consumer_budgets=direct_budgets,
+    source_context='Working notebook over selected editable runtime; new preparation, not historical restoration or installed artifact qualification.',
+    notebook=dict(path=str(notebook.relative_to(root)),sha256=sha(notebook),code_cells=code_cells),
+    prescription=dict(path=str(prescription.relative_to(root)),sha256_at_registration=sha(prescription)),
+    inputs=[dict(path=str(p.relative_to(root)),bytes=p.stat().st_size,sha256=sha(p)) for p in inputs],
+    population=dict(new_declared_states=1,distinct_heavy_coordinate_sets=5,unit_policy_repetitions=2,H_expansions=10,charge_assignments=10,type_assignments=10,prepared_arms=10,positive_witnesses=30),
+    resource_policy=dict(allowed_cpu=0,nice=10,workers=1,available_before_bytes=available(),
+        available_reserve_bytes=reserve,task_rss_limit_bytes=rss_limit,address_space_limit_bytes=address_limit,
+        cpu_seconds_limit=60,wall_seconds_limit=90,reserve_poll_seconds=0.1,automatic_retry=False),
+    failure_policy='Stop unexpected outcomes, preserve all attempts; no automatic resource retry, molecular repair or history codec.',
+    claim_limit='New five-pose local-H construction and prospective comparison only; no native energy or complete E1.',
+    local_e4_hold_preserved=True)
+attempt.mkdir(parents=True,exist_ok=False)
+assert evidence.is_dir()
+for destination in [attempt,evidence]:
+    write(destination/'registration.json',registration)
+    shutil.copyfile(prescription,destination/'registered_prescription.md')
+shutil.copyfile(notebook,attempt/'registered_notebook.ipynb')
+shutil.copyfile(Path(__file__),attempt/'supervisor.py')
+worker = (root/'.molsyssuite/e1-declared-authority-20261106/attempt-01/worker.py').read_text()
+worker = worker.replace('e1_declared_authority.cell_', 'e1_complete_pose_receiving.cell_')
+(attempt/'worker.py').write_text(worker)
+write(attempt/'worker-sha256.json',dict(sha256=sha(attempt/'worker.py')))
+env = os.environ.copy()
+for variable in ['OMP_NUM_THREADS','OMP_THREAD_LIMIT','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS',
+                 'NUMEXPR_NUM_THREADS','BLIS_NUM_THREADS','RAYON_NUM_THREADS','CARGO_BUILD_JOBS','MAX_JOBS']:
+    env[variable]='1'
+env.update(PYTHONDONTWRITEBYTECODE='1',XDG_CACHE_HOME=str(attempt/'cache'),
+           DOCKINGMT_E1_ROOT=str(root),DOCKINGMT_E1_COMPLETE_OUTPUT=str(attempt/'output'),
+           DOCKINGMT_E1_INPUT_SHA256=json.dumps({name:sha(p) for name,p in input_paths.items()}),
+           DOCKINGMT_E1_HELPER_SHA256=helper_sha)
+def limits():
+    resource.setrlimit(resource.RLIMIT_AS,(address_limit,address_limit))
+    resource.setrlimit(resource.RLIMIT_CPU,(60,60))
+started = time.monotonic()
+samples, peak, minimum, interruption = 0,0,available(),None
+with (attempt/'stdout.log').open('xb') as stdout, (attempt/'stderr.log').open('xb') as stderr:
+    process = subprocess.Popen([str(interpreter),'-B','-I',str(attempt/'worker.py'),str(attempt)],
+        cwd=attempt,env=env,stdout=stdout,stderr=stderr,preexec_fn=limits,start_new_session=True)
+    while process.poll() is None:
+        current = available(); minimum = min(minimum,current)
+        try:
+            lines = Path(f'/proc/{process.pid}/status').read_text().splitlines()
+            resident = int(next(line.split()[1] for line in lines if line.startswith('VmRSS:'))) * 1024
+            peak = max(peak,resident)
+        except (FileNotFoundError,StopIteration):
+            resident = 0
+        samples += 1
+        if current < reserve: interruption='available_RAM_reserve_threatened'
+        elif resident > rss_limit: interruption='task_RSS_limit'
+        elif time.monotonic()-started > 90: interruption='wall_limit'
+        if interruption:
+            os.killpg(process.pid,signal.SIGTERM)
+            try: process.wait(timeout=2)
+            except subprocess.TimeoutExpired:
+                os.killpg(process.pid,signal.SIGKILL); process.wait()
+            break
+        time.sleep(0.1)
+returncode = process.wait()
+outcome=dict(schema='dockingmt.task_resource_outcome@1',owner='uibcdf/dockingmt#78',attempt='attempt-01',
+    ended_at_utc=datetime.now(timezone.utc).isoformat(),elapsed_seconds=time.monotonic()-started,
+    exit_code=returncode,resource_interruption=interruption,sampled_peak_rss_bytes=peak,
+    minimum_available_bytes=minimum,samples=samples,policy=registration['resource_policy'],
+    notebook_sha256=registration['notebook']['sha256'])
+write(attempt/'resource-outcome.json',outcome)
+print(json.dumps(outcome))
+print((attempt/'stdout.log').read_text()[-2500:])
+print((attempt/'stderr.log').read_text()[-4500:])
+raise SystemExit(0 if returncode == 0 and interruption is None else 1)

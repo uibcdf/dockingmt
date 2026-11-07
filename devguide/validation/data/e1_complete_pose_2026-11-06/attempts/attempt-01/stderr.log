@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-complete-pose-20261106/attempt-01/worker.py", line 16, in <module>
+    exec(compile(''.join(cell['source']),f'e1_complete_pose_receiving.cell_{index}','exec'),namespace)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e1_complete_pose_receiving.cell_3", line 284, in <module>
+AssertionError

@@ -1,0 +1,8 @@
+{"phase": "started", "cell_index": 1, "at_utc": "2026-11-06T18:42:01.798030+00:00"}
+{"phase": "completed", "cell_index": 1, "at_utc": "2026-11-06T18:42:03.334731+00:00", "counts": null, "completed_profiles": 0}
+{"phase": "started", "cell_index": 2, "at_utc": "2026-11-06T18:42:03.334843+00:00"}
+{"phase": "completed", "cell_index": 2, "at_utc": "2026-11-06T18:42:06.767057+00:00", "counts": {"convert": 0, "get": 5, "copy": 0, "set": 0, "permute_atoms": 0, "get_atom_correspondences": 0}, "completed_profiles": 0}
+{"phase": "started", "cell_index": 3, "at_utc": "2026-11-06T18:42:06.767187+00:00"}
+{"phase": "completed", "cell_index": 3, "at_utc": "2026-11-06T18:42:15.825170+00:00", "counts": {"convert": 16, "get": 83, "copy": 12, "set": 12, "permute_atoms": 2, "get_atom_correspondences": 2}, "completed_profiles": 2}
+{"phase": "started", "cell_index": 4, "at_utc": "2026-11-06T18:42:15.825328+00:00"}
+{"phase": "completed", "cell_index": 4, "at_utc": "2026-11-06T18:42:15.851897+00:00", "counts": {"convert": 16, "get": 83, "copy": 12, "set": 12, "permute_atoms": 2, "get_atom_correspondences": 2}, "completed_profiles": 2}

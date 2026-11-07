@@ -1,0 +1,16 @@
+{
+  "exception_type": "AssertionError",
+  "message": "Insufficient returned population for this two-pose receiving; no automatic retry",
+  "counts": {
+    "prepare": 2,
+    "reconstruct": 0,
+    "dock_attempts": 1,
+    "dock_returns": 1,
+    "score_attempts": 0,
+    "score_returns": 0,
+    "graph_witness": 2,
+    "charge_audit": 2,
+    "expected_score_refusals": 0,
+    "rank_refusals": 0
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "dockingmt.e1_complete_pose_registration@1",
+  "owner": "uibcdf/dockingmt#78",
+  "registered_at_utc": "2026-11-06T21:46:04.705836+00:00",
+  "status_at_registration": "prospective",
+  "consumer_runtime_source": "2fda6238e6b1cb3742f5d30b8ed3af699f9ed748",
+  "provider_runtime_source": "9e1f1b1ad8bf09446374ab6f04ca7208e2717936",
+  "provider_checkout_clean": true,
+  "reused_helper_cell_sha256": "ae36ad68a68b78e33ddb1308ff6b2200bd739662c5ca0fc10d9792809fbbd759",
+  "monitored_direct_consumer_budgets": {
+    "convert": 180,
+    "get": 850,
+    "copy": 20,
+    "set": 40,
+    "permute_atoms": 0,
+    "add_missing_hydrogens": 10,
+    "assign_partial_charges": 10,
+    "assign_autodock_atom_types": 10,
+    "prepare_ligand": 10,
+    "get_hydrogen_inventory": 24,
+    "get_atom_correspondences": 30,
+    "compose_atom_maps": 10,
+    "read_poses": 10,
+    "get_torsion_tree": 20
+  },
+  "source_context": "Working notebook over selected editable runtime; new preparation, not historical restoration or installed artifact qualification.",
+  "notebook": {
+    "path": "devguide/validation/e1_complete_pose_receiving.ipynb",
+    "sha256": "b1ef3b1549f0e860356ba2bba6ebde701eed313916c9e6c87ee7d0f6ab99e665",
+    "code_cells": [
+      {
+        "id": "e1-complete-01",
+        "sha256": "49d91597f583827718ebcd8838dda5c313dabc7f6d6dbe8721da834a46513c32"
+      },
+      {
+        "id": "e1-complete-02",
+        "sha256": "8341a5a5a87dc14c60b6f03cce5d739ba19ce07c0aefc575d097bf63ef6974ee"
+      },
+      {
+        "id": "e1-complete-03",
+        "sha256": "54075e3da7d3894b2aa41f5977a14954422a6e9bb3ec6d4cea48588b6f2d7dcb"
+      },
+      {
+        "id": "e1-complete-04",
+        "sha256": "336c5fc53698442d395ef380c8e920962af3992708083373026ec3e0ee3cb0c4"
+      }
+    ]
+  },
+  "prescription": {
+    "path": "devguide/validation/e1_comparison_admission_2026-11-06.md",
+    "sha256_at_registration": "0cfa55489cc672965aadbafa92e010ab17f083d1e7d17ef6a7689f5bdf09939e"
+  },
+  "inputs": [
+    {
+      "path": "devguide/validation/data/e1_declared_authority_2026-11-06/normal/declared_authority9.h5msm.gz",
+      "bytes": 6088,
+      "sha256": "b518b813738fe5e9e5d72817858359d0320e321ce425fcf04af0354a10d16575"
+    },
+    {
+      "path": "devguide/validation/data/e1_declared_authority_2026-11-06/normal/observations.json",
+      "bytes": 11704,
+      "sha256": "315098fc980575feb2d87d56d4701b98772294321de3f01e839db8a82f843018"
+    },
+    {
+      "path": "devguide/validation/data/human_3ptb/native_result_2026-10-20.json.gz",
+      "bytes": 353939,
+      "sha256": "4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249"
+    },
+    {
+      "path": "devguide/validation/e1_prepared_authority.ipynb",
+      "bytes": 35134,
+      "sha256": "31993b57ad1377ba7605dd17d5e769686289ea7c183be8d57a8350294c1d5972"
+    }
+  ],
+  "population": {
+    "new_declared_states": 1,
+    "distinct_heavy_coordinate_sets": 5,
+    "unit_policy_repetitions": 2,
+    "H_expansions": 10,
+    "charge_assignments": 10,
+    "type_assignments": 10,
+    "prepared_arms": 10,
+    "positive_witnesses": 30
+  },
+  "resource_policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_before_bytes": 50860969984,
+    "available_reserve_bytes": 8589934592,
+    "task_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90,
+    "reserve_poll_seconds": 0.1,
+    "automatic_retry": false
+  },
+  "failure_policy": "Stop unexpected outcomes, preserve all attempts; no automatic resource retry, molecular repair or history codec.",
+  "claim_limit": "New five-pose local-H construction and prospective comparison only; no native energy or complete E1.",
+  "supersedes_attempt": "attempt-01",
+  "amendment": "Common requested box 24 angstrom; repeat full population with unchanged all-ligand-atom domain guard.",
+  "local_e4_hold_preserved": true
+}

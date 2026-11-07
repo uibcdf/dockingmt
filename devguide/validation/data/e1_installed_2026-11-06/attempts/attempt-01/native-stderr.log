@@ -1,0 +1,38 @@
+Traceback (most recent call last):
+  File "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/publication-sdk/devtools/scripts/installed_imports.py", line 95, in check_installed_imports
+    raise TypeError("loaded module has no file or package origin")
+TypeError: loaded module has no file or package origin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/attempt-01/worker.py", line 126, in <module>
+    exec(compile(body, 'e1_installed_' + phase + '.' + cell['id'], 'exec'), namespace)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e1_installed_native.e1-installed-2", line 22, in <module>
+  File "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/attempt-01/worker.py", line 66, in installed_check
+    imported = check_installed_imports(roots, target, root / 'dockingmt')
+  File "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/publication-sdk/devtools/scripts/installed_imports.py", line 98, in check_installed_imports
+    raise ContractError(
+        f"loaded runtime import has no valid origin: {name}"
+    ) from error
+conda_release_contract.ContractError: loaded runtime import has no valid origin: pyunitwizard.main
+Traceback (most recent call last):
+  File "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/publication-sdk/devtools/scripts/installed_imports.py", line 95, in check_installed_imports
+    raise TypeError("loaded module has no file or package origin")
+TypeError: loaded module has no file or package origin
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/attempt-01/worker.py", line 126, in <module>
+    exec(compile(body, 'e1_installed_' + phase + '.' + cell['id'], 'exec'), namespace)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "e1_installed_native.e1-installed-2", line 22, in <module>
+  File "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/attempt-01/worker.py", line 66, in installed_check
+    imported = check_installed_imports(roots, target, root / 'dockingmt')
+  File "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/publication-sdk/devtools/scripts/installed_imports.py", line 98, in check_installed_imports
+    raise ContractError(
+        f"loaded runtime import has no valid origin: {name}"
+    ) from error
+conda_release_contract.ContractError: loaded runtime import has no valid origin: pyunitwizard.main

@@ -1,0 +1,216 @@
+"""Register and supervise the finite private installed E1 workflow."""
+import ast
+import hashlib
+import json
+import os
+import resource
+import shutil
+import signal
+import subprocess
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+root = Path('/fast_data/home/liliana/repos@uibcdf/dockingmt')
+task = root / '.molsyssuite/e1-installed-20261106'
+attempt = task / 'attempt-02'
+public = root / 'devguide/validation/data/e1_installed_2026-11-06'
+routine = Path('/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14')
+python = routine / 'bin/python'
+prescription = root / 'devguide/validation/e1_installed_receiving_2026-11-06.md'
+overlay = root / '.molsyssuite/e1-native-rescoring-20261106/backend-overlay'
+reserve, rss_limit, address_limit = 8 * 1024**3, 1024**3, 2 * 1024**3
+
+
+def sha(path):
+    with path.open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def write(path, value):
+    with path.open('x') as stream:
+        json.dump(value, stream, indent=2, allow_nan=False)
+        stream.write('\n')
+
+
+def available():
+    return int(next(line.split()[1] for line in Path('/proc/meminfo').read_text().splitlines()
+                    if line.startswith('MemAvailable:'))) * 1024
+
+
+def git(path, *args):
+    return subprocess.check_output(['git', '-C', str(path), *args], text=True).strip()
+
+
+def notebook_info(path):
+    nb = json.loads(path.read_text())
+    rows = []
+    budgets = None
+    for cell in nb['cells']:
+        if cell['cell_type'] != 'code':
+            continue
+        body = ''.join(cell['source'])
+        tree = ast.parse(body)
+        assert cell['execution_count'] is None and cell['outputs'] == []
+        for node in tree.body:
+            if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == 'budgets' for t in node.targets):
+                budgets = {kw.arg: ast.literal_eval(kw.value) for kw in node.value.keywords}
+        rows.append(dict(id=cell['id'], sha256=hashlib.sha256(body.encode()).hexdigest()))
+    return dict(path=str(path.relative_to(root)), sha256=sha(path), code_cells=rows,
+                monitored_direct_budgets=budgets)
+
+
+assert os.sched_getaffinity(0) == {0}
+assert os.getpriority(os.PRIO_PROCESS, 0) >= 10
+assert available() >= reserve + rss_limit
+amendment = json.loads((task / 'preparation-amendment.json').read_text())
+assert amendment['ready_for_scientific_worker'] is True
+notebooks = dict(native=notebook_info(root / 'devguide/validation/e1_installed_rescoring.ipynb'),
+                 ordering=notebook_info(root / 'devguide/validation/e1_installed_ordering.ipynb'))
+inputs = dict(manifest=root / 'devguide/validation/data/e1_complete_pose_2026-11-06/manifest.json',
+              contract=root / 'devguide/validation/data/e1_complete_pose_2026-11-06/prospective_scoring_contract.json')
+assert sha(inputs['manifest']) == '45b3665ba09b6979aa1bcdf1bea0ac3e8102f081fefbfc51348c55bc71405df3'
+registration = dict(schema='dockingmt.e1_private_installed_registration@1', owner='uibcdf/dockingmt#78',
+    registered_at_utc=datetime.now(timezone.utc).isoformat(), status_at_registration='prospective',
+    runtime_source=git(root, 'rev-parse', 'HEAD'),
+    preparation_sha256=sha(task / 'preparation.json'),
+    preparation_amendment_sha256=sha(task / 'preparation-amendment.json'),
+    notebooks=notebooks, prescription=dict(path=str(prescription.relative_to(root)), sha256=sha(prescription)),
+    worker_sha256=sha(Path('/tmp/e1_installed_worker.py')), supervisor_sha256=sha(Path(__file__)),
+    input_sha256={name: sha(path) for name, path in inputs.items()},
+    population=dict(poses=5, methods=['vina', 'vinardo'], native_attempts=10,
+                    new_published_values=80, fresh_json_reader_processes=1,
+                    positive_admissions=4, documentary_refusals=66),
+    resource_policy=dict(allowed_cpu=0, nice=10, workers=1, available_before_bytes=available(),
+        available_reserve_bytes=reserve, task_group_rss_limit_bytes=rss_limit,
+        address_space_limit_bytes=address_limit, cpu_seconds_limit=60,
+        wall_seconds_limit=90, reserve_poll_seconds=0.1, automatic_retry=False),
+    scope='Private installed DockingMT and five support wheels, borrowed MolSysMT snapshot and routine binary dependencies; no standalone/public provider closure or independent accuracy.',
+    failure_policy='Stop unexpected outcomes; preserve attempts and complete denominators; no automatic heavy restart or splicing.',
+    source_reference_manifest_sha256='bf214aa7e48f15a95051411ed3bd54969f78c811503050c6969d6f5aa2898e93',
+    shared_installed_checker_source=git(root / '.molsyssuite/publication-sdk', 'rev-parse', 'HEAD'),
+    local_e4_hold_preserved=True, full_e1_accepted=False)
+assert registration['shared_installed_checker_source'] == '95f693be10c9205ab9b912cb53453710a207bf45'
+attempt.mkdir(exist_ok=False)
+public.mkdir(exist_ok=True)
+write(attempt / 'registration.json', registration)
+write(public / (attempt.name + '-registration.json'), registration)
+shutil.copyfile(prescription, attempt / 'registered_prescription.md')
+shutil.copyfile(prescription, public / (attempt.name + '-registered_prescription.md'))
+shutil.copyfile('/tmp/e1_installed_worker.py', attempt / 'worker.py')
+shutil.copyfile(Path(__file__), attempt / 'supervisor.py')
+for phase, info in notebooks.items():
+    shutil.copyfile(root / info['path'], attempt / (phase + '_registered_notebook.ipynb'))
+
+
+def group_rss(group):
+    total, owned = 0, 0
+    for directory in Path('/proc').iterdir():
+        if not directory.name.isdigit():
+            continue
+        try:
+            tail = (directory / 'stat').read_text().rsplit(') ', 1)[1].split()
+            if int(tail[2]) != group:
+                continue
+            owned += 1
+            fields = (directory / 'status').read_text().splitlines()
+            entry = next((line for line in fields if line.startswith('VmRSS:')), None)
+            if entry is not None:
+                total += int(entry.split()[1]) * 1024
+        except (FileNotFoundError, ProcessLookupError, PermissionError):
+            continue
+    return total, owned
+
+
+def limits():
+    resource.setrlimit(resource.RLIMIT_AS, (address_limit, address_limit))
+    resource.setrlimit(resource.RLIMIT_CPU, (60, 60))
+
+
+def run(phase, extra):
+    assert available() >= reserve + rss_limit
+    env = os.environ.copy()
+    for key in ['OMP_NUM_THREADS', 'OMP_THREAD_LIMIT', 'OPENBLAS_NUM_THREADS',
+                'MKL_NUM_THREADS', 'NUMEXPR_NUM_THREADS', 'BLIS_NUM_THREADS',
+                'RAYON_NUM_THREADS', 'CARGO_BUILD_JOBS', 'MAX_JOBS']:
+        env[key] = '1'
+    env.update(PYTHONDONTWRITEBYTECODE='1', XDG_CACHE_HOME=str(attempt / (phase + '-cache')),
+               DOCKINGMT_E1_ROOT=str(root), DOCKINGMT_E1_INSTALLED_TARGET=str(task / 'site-packages'),
+               LD_LIBRARY_PATH=str(routine / 'lib'))
+    env.update(extra)
+    started = time.monotonic()
+    peak, minimum, samples, max_owned, interruption = 0, available(), 0, 0, None
+    with (attempt / (phase + '-stdout.log')).open('xb') as stdout, (attempt / (phase + '-stderr.log')).open('xb') as stderr:
+        process = subprocess.Popen([str(python), '-B', '-I', '-S', str(attempt / 'worker.py'), str(attempt), phase],
+                                   cwd=attempt, env=env, stdout=stdout, stderr=stderr,
+                                   preexec_fn=limits, start_new_session=True)
+        while process.poll() is None:
+            current = available()
+            minimum = min(minimum, current)
+            resident, owned = group_rss(process.pid)
+            peak, max_owned = max(peak, resident), max(max_owned, owned)
+            samples += 1
+            if current < reserve:
+                interruption = 'available_RAM_reserve_threatened'
+            elif resident > rss_limit:
+                interruption = 'owned_process_group_RSS_limit'
+            elif time.monotonic() - started > 90:
+                interruption = 'wall_limit'
+            if interruption:
+                os.killpg(process.pid, signal.SIGTERM)
+                try:
+                    process.wait(timeout=2)
+                except subprocess.TimeoutExpired:
+                    os.killpg(process.pid, signal.SIGKILL)
+                    process.wait()
+                break
+            time.sleep(0.1)
+    code = process.wait()
+    result = dict(phase=phase, exit_code=code, resource_interruption=interruption,
+                  termination_signal=-code if code < 0 else None,
+                  elapsed_seconds=time.monotonic() - started, sampled_peak_group_rss_bytes=peak,
+                  minimum_available_bytes=minimum, samples=samples,
+                  maximum_observed_owned_processes=max_owned, policy=registration['resource_policy'])
+    write(attempt / (phase + '-resource-outcome.json'), result)
+    print(json.dumps(result), flush=True)
+    print((attempt / (phase + '-stdout.log')).read_text()[-1200:], flush=True)
+    print((attempt / (phase + '-stderr.log')).read_text()[-2500:], flush=True)
+    if code != 0 or interruption:
+        raise SystemExit(1)
+    return result
+
+
+native = run('native', dict(DOCKINGMT_E1_NATIVE_OUTPUT=str(attempt / 'native'),
+    DOCKINGMT_E1_INPUT_SHA256=json.dumps(registration['input_sha256']),
+    DOCKINGMT_E1_VINA_OVERLAY=str(overlay),
+    LD_LIBRARY_PATH=str(overlay / 'lib') + ':' + str(routine / 'lib')))
+native_files = []
+for path in sorted((attempt / 'native').rglob('*.json')):
+    native_files.append(dict(path=str(path.relative_to(attempt / 'native')),
+                             bytes=path.stat().st_size, sha256=sha(path)))
+write(attempt / 'native/manifest.json', dict(schema='dockingmt.e1_registered_installed_native_output@1',
+      owner='uibcdf/dockingmt#78', registration_sha256=sha(attempt / 'registration.json'),
+      files=native_files, claim='This completed installed native producer only; original construction root remains separate.'))
+reader_link = dict(schema='dockingmt.e1_installed_reader_registration@1',
+      registered_at_utc=datetime.now(timezone.utc).isoformat(),
+      workflow_registration_sha256=sha(attempt / 'registration.json'),
+      native_output_manifest_sha256=sha(attempt / 'native/manifest.json'),
+      native_resource_outcome_sha256=sha(attempt / 'native-resource-outcome.json'),
+      notebook=notebooks['ordering'], linked_before_reader_execution=True)
+write(attempt / 'reader-registration.json', reader_link)
+reader = run('ordering', dict(DOCKINGMT_E1_ORDERING_OUTPUT=str(attempt / 'ordering'),
+      DOCKINGMT_E1_READER_REGISTRATION_SHA256=sha(attempt / 'reader-registration.json'),
+      DOCKINGMT_E1_SCORING_ROOT_SHA256=reader_link['native_output_manifest_sha256'],
+      DOCKINGMT_E1_NEW_SCORING=str(attempt / 'native')))
+for row in amendment['source_snapshot']:
+    assert sha(Path(row['source_path'])) == row['sha256'], row['relative_path']
+assert git(root.parent / 'molsysmt', 'status', '--porcelain') == ''
+assert git(root, 'diff', '--name-only', 'HEAD', '--', 'dockingmt', 'molsysviewer_dockingmt') == ''
+write(attempt / 'workflow-receipt.json', dict(schema='dockingmt.e1_private_installed_workflow_receiving@1',
+      owner='uibcdf/dockingmt#78', outcome='PASS', registration_sha256=sha(attempt / 'registration.json'),
+      reader_registration_sha256=sha(attempt / 'reader-registration.json'),
+      native=native, fresh_reader=reader,
+      scope=registration['scope'], original_provider_snapshot_files_unchanged=True,
+      runtime_source_unchanged=True, whole_environment_closure=False,
+      full_e1_accepted=False, local_e4_hold_preserved=True))
+print('PASS: registered private installed native workflow and fresh JSON receiving.', flush=True)

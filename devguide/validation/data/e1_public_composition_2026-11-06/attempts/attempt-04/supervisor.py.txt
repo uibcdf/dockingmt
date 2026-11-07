@@ -1,0 +1,174 @@
+"""Receive existing public workflow records; no molecular or native execution."""
+import ast,hashlib,json,os,resource,shutil,signal,subprocess,time
+from datetime import datetime,timezone
+from pathlib import Path
+root=Path('/fast_data/home/liliana/repos@uibcdf/dockingmt')
+task=root/'.molsyssuite/e1-public-composition-20261106'
+installation=root/'.molsyssuite/e1-installed-20261106'
+attempt=task/'attempt-04'
+public=root/'devguide/validation/data/e1_public_composition_2026-11-06'
+routine=Path('/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14');python=routine/'bin/python'
+reserve,rss_limit,address_limit=8*1024**3,1024**3,2*1024**3
+
+
+def sha(path):
+    with path.open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def write(path, value):
+    with path.open('x') as stream:
+        json.dump(value, stream, indent=2, allow_nan=False)
+        stream.write('\n')
+
+
+def available():
+    return int(next(line.split()[1] for line in Path('/proc/meminfo').read_text().splitlines()
+                    if line.startswith('MemAvailable:'))) * 1024
+
+
+def git(path, *args):
+    return subprocess.check_output(['git', '-C', str(path), *args], text=True).strip()
+
+
+def notebook_info(path):
+    nb = json.loads(path.read_text())
+    rows = []
+    budgets = None
+    for cell in nb['cells']:
+        if cell['cell_type'] != 'code':
+            continue
+        body = ''.join(cell['source'])
+        tree = ast.parse(body)
+        assert cell['execution_count'] is None and cell['outputs'] == []
+        for node in tree.body:
+            if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == 'budgets' for t in node.targets):
+                budgets = {kw.arg: ast.literal_eval(kw.value) for kw in node.value.keywords}
+        rows.append(dict(id=cell['id'], sha256=hashlib.sha256(body.encode()).hexdigest()))
+    return dict(path=str(path.relative_to(root)), sha256=sha(path), code_cells=rows,
+                monitored_direct_budgets=budgets)
+
+
+def group_rss(group):
+    total, owned = 0, 0
+    for directory in Path('/proc').iterdir():
+        if not directory.name.isdigit():
+            continue
+        try:
+            tail = (directory / 'stat').read_text().rsplit(') ', 1)[1].split()
+            if int(tail[2]) != group:
+                continue
+            owned += 1
+            fields = (directory / 'status').read_text().splitlines()
+            entry = next((line for line in fields if line.startswith('VmRSS:')), None)
+            if entry is not None:
+                total += int(entry.split()[1]) * 1024
+        except (FileNotFoundError, ProcessLookupError, PermissionError):
+            continue
+    return total, owned
+
+
+def limits():
+    resource.setrlimit(resource.RLIMIT_AS, (address_limit, address_limit))
+    resource.setrlimit(resource.RLIMIT_CPU, (60, 60))
+
+
+def run(phase, extra):
+    assert available() >= reserve + rss_limit
+    env = os.environ.copy()
+    for key in ['OMP_NUM_THREADS', 'OMP_THREAD_LIMIT', 'OPENBLAS_NUM_THREADS',
+                'MKL_NUM_THREADS', 'NUMEXPR_NUM_THREADS', 'BLIS_NUM_THREADS',
+                'RAYON_NUM_THREADS', 'CARGO_BUILD_JOBS', 'MAX_JOBS']:
+        env[key] = '1'
+    env.update(PYTHONDONTWRITEBYTECODE='1', XDG_CACHE_HOME=str(attempt / (phase + '-cache')),
+               DOCKINGMT_E1_ROOT=str(root), DOCKINGMT_E1_INSTALLED_TARGET=str(task / 'site-packages'),
+               DOCKINGMT_E1_PREPARATION_AMENDMENT=str(task / 'preparation-correction.json'),
+               LD_LIBRARY_PATH=str(routine / 'lib'))
+    env.update(extra)
+    started = time.monotonic()
+    peak, minimum, samples, max_owned, interruption = 0, available(), 0, 0, None
+    with (attempt / (phase + '-stdout.log')).open('xb') as stdout, (attempt / (phase + '-stderr.log')).open('xb') as stderr:
+        process = subprocess.Popen([str(python), '-B', '-I', '-S', str(attempt / 'worker.py'), str(attempt), phase],
+                                   cwd=attempt, env=env, stdout=stdout, stderr=stderr,
+                                   preexec_fn=limits, start_new_session=True)
+        while process.poll() is None:
+            current = available()
+            minimum = min(minimum, current)
+            resident, owned = group_rss(process.pid)
+            peak, max_owned = max(peak, resident), max(max_owned, owned)
+            samples += 1
+            if current < reserve:
+                interruption = 'available_RAM_reserve_threatened'
+            elif resident > rss_limit:
+                interruption = 'owned_process_group_RSS_limit'
+            elif time.monotonic() - started > 90:
+                interruption = 'wall_limit'
+            if interruption:
+                os.killpg(process.pid, signal.SIGTERM)
+                try:
+                    process.wait(timeout=2)
+                except subprocess.TimeoutExpired:
+                    os.killpg(process.pid, signal.SIGKILL)
+                    process.wait()
+                break
+            time.sleep(0.1)
+    code = process.wait()
+    result = dict(phase=phase, exit_code=code, resource_interruption=interruption,
+                  termination_signal=-code if code < 0 else None,
+                  elapsed_seconds=time.monotonic() - started, sampled_peak_group_rss_bytes=peak,
+                  minimum_available_bytes=minimum, samples=samples,
+                  maximum_observed_owned_processes=max_owned, policy=registration['resource_policy'])
+    write(attempt / (phase + '-resource-outcome.json'), result)
+    print(json.dumps(result), flush=True)
+    print((attempt / (phase + '-stdout.log')).read_text()[-1200:], flush=True)
+    print((attempt / (phase + '-stderr.log')).read_text()[-2500:], flush=True)
+    if code != 0 or interruption:
+        raise SystemExit(1)
+    return result
+assert os.sched_getaffinity(0)=={0} and os.getpriority(os.PRIO_PROCESS,0)>=10
+assert available()>=reserve+rss_limit
+attempt.mkdir(exist_ok=False)
+records=attempt/'records';records.mkdir()
+source=task/'attempt-03'
+for path in sorted((source/'native').rglob('*')):
+ if path.is_file() and 'inputs' not in path.relative_to(source/'native').parts:
+  destination=records/path.relative_to(source/'native');destination.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(path,destination)
+shutil.copyfile(source/'registration.json',records/'registration.json')
+shutil.copyfile(source/'native-resource-outcome.json',records/'generation-resource-outcome.json')
+failure=json.loads((source/'native-failure.json').read_text());outcome=json.loads((source/'native-resource-outcome.json').read_text())
+ledger=json.loads((records/'user/ledger.json').read_text());assert all(value=='completed' for case in ledger['cases'] for value in case['steps'].values())
+assert json.loads((records/'user/updated_audit.json').read_text())['status']=='consistent'
+write(records/'generation_outcome.json',dict(owner='uibcdf/dockingmt#78',schema='dockingmt.e1_preserved_generation_outcome@1',
+ generation_exit_code=outcome['exit_code'],generation_resource_interruption=outcome['resource_interruption'],
+ portable_example_completed=True,generation_qualification='failed_on_overstrict_standalone_consistency_expectation',
+ counts=failure['counts'],new_native_searches=0,new_fixed_score_values=16,original_scores=4,
+ state_refusal_received=False,multi_pose_received=False,positive_user_comparison_received=False,
+ source_generation_registration_sha256=sha(source/'registration.json')))
+files=[dict(path=str(p.relative_to(records)),bytes=p.stat().st_size,sha256=sha(p)) for p in sorted(records.rglob('*')) if p.is_file()]
+write(records/'manifest.json',dict(owner='uibcdf/dockingmt#78',schema='dockingmt.e1_preserved_public_records@1',registration_sha256=sha(source/'registration.json'),files=files,
+ scope='Copies of completed public outputs from an explicitly failed qualification generator; no new computation or erased failure.'))
+notebook=notebook_info(root/'devguide/validation/e1_single_pose_record_receiving.ipynb')
+registration=dict(owner='uibcdf/dockingmt#78',schema='dockingmt.e1_record_adjudication_registration@1',
+ registered_at_utc=datetime.now(timezone.utc).isoformat(),status_at_registration='prospective_record_receiving',
+ preparation_sha256=sha(installation/'preparation.json'),preparation_amendment_sha256=sha(task/'preparation-correction.json'),
+ notebooks=dict(records=notebook),input_manifest_sha256=sha(records/'manifest.json'),
+ generator_registration_sha256=sha(source/'registration.json'),worker_sha256=sha(Path('/tmp/e1_composition_worker.py')),
+ prescription_sha256=sha(root/'devguide/validation/e1_public_composition_2026-11-06.md'),
+ resource_policy=dict(allowed_cpu=0,nice=10,workers=1,available_reserve_bytes=reserve,task_group_rss_limit_bytes=rss_limit,address_space_limit_bytes=address_limit,cpu_seconds_limit=60,wall_seconds_limit=90),
+ scope='Record-only adjudication; native attempt03 retains its failed qualification outcome; no new energies, molecules or source result changes.')
+write(attempt/'registration.json',registration)
+shutil.copyfile('/tmp/e1_composition_worker.py',attempt/'worker.py')
+shutil.copyfile(root/notebook['path'],attempt/'records_registered_notebook.ipynb')
+shutil.copyfile(Path(__file__),attempt/'supervisor.py')
+shutil.copyfile(root/'devguide/validation/e1_public_composition_2026-11-06.md',attempt/'registered_prescription.md')
+result=run('records',dict(DOCKINGMT_E1_COMPOSITION_OUTPUT=str(records),DOCKINGMT_E1_COMPOSITION_MANIFEST_SHA256=sha(records/'manifest.json'),DOCKINGMT_E1_COMPOSITION_READER_OUTPUT=str(attempt/'reader')))
+# Actual byte checks after receiving do not pretend to recover missing native-process mappings.
+correction=json.loads((task/'preparation-correction.json').read_text());target=task/'site-packages'
+assert {str(p.relative_to(target)):sha(p) for p in target.rglob('*') if p.is_file()}==correction['targethashes']
+for row in correction['source_snapshot']:assert sha(Path(row['source_path']))==row['sha256']
+write(attempt/'workflow-receipt.json',dict(owner='uibcdf/dockingmt#78',schema='dockingmt.e1_existing_record_receiving@1',outcome='PASS',
+ record_receiving=result,generation_outcome_preserved='attempt-03 qualification failed after successful portable completion',
+ public_single_pose_composition_received=True,multi_pose_composition_received=False,positive_user_comparison_received=False,
+ missing_native_state_refusal=True,standalone_incomplete_original_scores=4,private_byte_hashes_verified_after=True,
+ native_final_mappings='unavailable_after_failed_native_qualification',full_e1_accepted=False,new_empirical_values=0))
+print('PASS: completed singleton records received with correct standalone/collection evidence scopes.',flush=True)

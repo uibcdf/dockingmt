@@ -1,0 +1,10 @@
+{
+  "schema": "dockingmt.e1_partial_projection_runtime_context@1",
+  "python_version": "3.14.10",
+  "python_implementation": "CPython",
+  "os": "Linux",
+  "architecture": "x86_64",
+  "observed_after_trial": true,
+  "interpreter_sha256": "57621ac47c126fd0a32833dfe407739eab11ff13cb203476fd5225d8f04a3541",
+  "claim": "Same explicitly selected development interpreter; no full installed-artifact or dependency-closure qualification."
+}

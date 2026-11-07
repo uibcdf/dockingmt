@@ -1,0 +1,5 @@
+{"phase": "started", "cell_id": "e1-composition-1", "at_utc": "2026-11-07T00:20:55.283773+00:00"}
+{"phase": "completed", "cell_id": "e1-composition-1", "counts": {"prepare": 0, "reconstruct": 0, "dock_attempts": 0, "dock_returns": 0, "score_attempts": 0, "score_returns": 0, "graph_witness": 0, "charge_audit": 0, "expected_score_refusals": 0, "rank_refusals": 0}, "at_utc": "2026-11-07T00:21:15.512754+00:00"}
+{"phase": "started", "cell_id": "e1-composition-2", "at_utc": "2026-11-07T00:21:15.512933+00:00"}
+{"phase": "completed", "cell_id": "e1-composition-2", "counts": {"prepare": 2, "reconstruct": 1, "dock_attempts": 0, "dock_returns": 0, "score_attempts": 2, "score_returns": 2, "graph_witness": 2, "charge_audit": 1, "expected_score_refusals": 0, "rank_refusals": 0}, "at_utc": "2026-11-07T00:21:44.977407+00:00"}
+{"phase": "started", "cell_id": "e1-composition-3", "at_utc": "2026-11-07T00:21:44.978621+00:00"}

@@ -1,0 +1,27 @@
+{
+  "schema": "dockingmt.task_resource_outcome@1",
+  "owner": "uibcdf/dockingmt#78",
+  "attempt": "attempt-01",
+  "ended_at_utc": "2026-11-06T22:07:50.186546+00:00",
+  "elapsed_seconds": 29.857493803996476,
+  "exit_code": 0,
+  "resource_interruption": null,
+  "termination_signal": null,
+  "sampled_peak_rss_bytes": 542834688,
+  "minimum_available_bytes": 51074154496,
+  "samples": 296,
+  "policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_before_bytes": 51611156480,
+    "available_reserve_bytes": 8589934592,
+    "task_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90,
+    "reserve_poll_seconds": 0.1,
+    "automatic_retry": false
+  },
+  "notebook_sha256": "7b8e335de453b0f4ad11ca88305fbab99c3da804f87657f0c849375bca5ba626"
+}

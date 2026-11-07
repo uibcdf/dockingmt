@@ -1,0 +1,20 @@
+REMARK MOLSYSMT_PARTIAL_CHARGES {"charge_unit":"elementary_charge","chemical_state_index":0,"decimal_places":3,"engine":"MolSysMT","method":"nonpolar_hydrogen_charge_aggregation","n_source_atoms":13,"n_written_atoms":13,"parameters":{"merged_label":"H","retained_hydrogen_label":"HD","source_calculation":{"engine":"RDKit","method":"gasteiger_marsili","parameters":{"chemical_perception":"rdkit_sanitization","hydrogen_policy":"indexed_atoms_only","iterations":12,"throw_on_parameter_failure":true},"software":{"molsysmt":"0.23.0+513.g9e1f1b1ad","rdkit":"2026.09.2"}},"typing_scheme":"autodock4"},"software":{"molsysmt":"0.23.0+513.g9e1f1b1ad"},"source_coverage":"complete","status":"derived","total_charge_before_rounding":1.0000000000000004}
+REMARK MOLSYSMT_ATOM_TYPES {"chemical_state_index":0,"hydrogen_policy":"nonpolar_H_merged_after_original_typing","method":"chemical_environment","n_source_atoms":18,"n_written_atoms":13,"parameters":{"aromaticity_implementation":"rdkit.AROMATICITY_RDKIT","aromaticity_method":"fused_ring_electron_count"},"rule_version":"chemical_environment@1","software":{"molsysmt":"0.23.0+513.g9e1f1b1ad","rdkit":"2026.09.2"},"source_coverage":"complete","status":"derived","typing_scheme":"autodock4"}
+ROOT
+ATOM      1   C1 LIG A   1       3.129  21.506  14.224  1.00  0.00     0.270 C
+ATOM      2   N2 LIG A   1       2.478  22.221  13.324  1.00  0.00    -0.287 N
+ATOM      3   N0 LIG A   1       2.455  21.051  15.266  1.00  0.00    -0.287 N
+ATOM      4  H15 LIG A   1       2.976  22.589  12.501  1.00  0.00     0.302 HD
+ATOM      5  H16 LIG A   1       1.473  22.410  13.445  1.00  0.00     0.302 HD
+ATOM      6  H17 LIG A   1       2.935  20.490  15.985  1.00  0.00     0.302 HD
+ATOM      7  H18 LIG A   1       1.450  21.257  15.359  1.00  0.00     0.302 HD
+ENDROOT
+BRANCH 1 8
+ATOM      8   C3 LIG A   1       4.437  21.085  14.007  1.00  0.00     0.063 A
+ATOM      9   C4 LIG A   1       5.058  21.376  12.822  1.00  0.00     0.016 A
+ATOM     10   C5 LIG A   1       6.379  20.961  12.606  1.00  0.00     0.001 A
+ATOM     11   C6 LIG A   1       7.066  20.242  13.597  1.00  0.00     0.000 A
+ATOM     12   C7 LIG A   1       6.416  19.945  14.797  1.00  0.00     0.001 A
+ATOM     13   C8 LIG A   1       5.104  20.372  14.987  1.00  0.00     0.016 A
+ENDBRANCH 1 8
+TORSDOF 1

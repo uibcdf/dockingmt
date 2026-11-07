@@ -1,0 +1,132 @@
+{
+  "schema": "dockingmt.e1_public_composition_registration@1",
+  "owner": "uibcdf/dockingmt#78",
+  "registered_at_utc": "2026-11-07T00:20:47.937235+00:00",
+  "status_at_registration": "prospective",
+  "runtime_source": "2fda6238e6b1cb3742f5d30b8ed3af699f9ed748",
+  "preparation_sha256": "34160ee941b8280c9c7d7518aa3594b889ef27fef8f3688407a5b9184e6773ca",
+  "preparation_amendment_sha256": "96b164638d132327e4e514b7160fd7e92bd5b4e4fe322026ae47dffdb77db364",
+  "notebooks": {
+    "native": {
+      "path": "devguide/validation/e1_single_pose_receiving.ipynb",
+      "sha256": "82ff0f99778ab80952b81c464984540440738382fde22242ea85d16f5cb6c10c",
+      "code_cells": [
+        {
+          "id": "e1-composition-1",
+          "sha256": "7f4158d412ff54f8dcb6796050ea9d1fb74e839e98ee80ba1fe1b6f9adac6272"
+        },
+        {
+          "id": "e1-composition-2",
+          "sha256": "ca63dcb10940c07d389b898cebca3bf9759227c0672eb7e6049eabae972780b8"
+        },
+        {
+          "id": "e1-composition-3",
+          "sha256": "e47a996e57426e57c33d2cdb3d206b085f1bf1d9e47f283ceae93ff55d7bf8da"
+        }
+      ],
+      "monitored_direct_budgets": {
+        "prepare": 2,
+        "reconstruct": 1,
+        "dock_attempts": 0,
+        "dock_returns": 0,
+        "score_attempts": 3,
+        "score_returns": 2,
+        "graph_witness": 4,
+        "charge_audit": 2,
+        "expected_score_refusals": 1,
+        "rank_refusals": 0
+      }
+    },
+    "reader": {
+      "path": "devguide/validation/e1_single_pose_reader.ipynb",
+      "sha256": "1d21d9ff78dd6210f6813d2a7ba00aaf0fa8b8e6b13ca34a9496a81cc503617a",
+      "code_cells": [
+        {
+          "id": "e1-composition-reader-1",
+          "sha256": "41b08c7d573f9394b1b6323645a11cf6879b9d78bdae75f0768e65ebe1b95a67"
+        },
+        {
+          "id": "e1-composition-reader-2",
+          "sha256": "60daed0980a4c9901b3355d1256876f40db8f9c01231fad5e2c749feab6b84d9"
+        },
+        {
+          "id": "e1-composition-reader-3",
+          "sha256": "c5d42c065ece36afb6a16477b7127633d3e0dddca706690af6163dc199eabf58"
+        },
+        {
+          "id": "e1-composition-reader-4",
+          "sha256": "335f6081a7b511c9895b476f42fd937f841e4ef55bc7371006f5423befc14add"
+        }
+      ],
+      "monitored_direct_budgets": {
+        "reader_policies": 2,
+        "from_dict": 8,
+        "audit_result": 4,
+        "result_roundtrips": 4,
+        "detachment_controls": 4
+      }
+    }
+  },
+  "user_notebook": {
+    "path": "examples/rescore_existing_poses.ipynb",
+    "sha256": "41536ca9382e89ec83dca5e3c7a34a8e98be6fab7dd282b85af34b6139184b50",
+    "code_cells": [
+      {
+        "id": "acae54e37e7d407bbb7b55eff062a284",
+        "sha256": "59289676a248f3f60f296c8c302afd69b036b91a935fca51643593c6923f67da"
+      },
+      {
+        "id": "9a63283cbaf04dbcab1f6479b197f3a8",
+        "sha256": "5af511988496c87e6df3889ad3427727ed4da48f071af43f9184d5cf5f6b2c33"
+      },
+      {
+        "id": "8dd0d8092fe74a7c96281538738b07e2",
+        "sha256": "1efd8824dfacbef1efad68118311447818520074bc69b0fb72d18a6bdb62bfd3"
+      }
+    ],
+    "monitored_direct_budgets": null
+  },
+  "prescription": {
+    "path": "devguide/validation/e1_public_composition_2026-11-06.md",
+    "sha256": "7d5dcd6fb3afc28d266add53b02da7fd7cb79364852b94158798affd541a01a3"
+  },
+  "worker_sha256": "a3e8ea3e75bf9504cfa6424d054de21de14aa00c32aa062ab34b08d919b9ce84",
+  "supervisor_sha256": "ec0a0edfb7171414c34bc2d420fae66f34a2072c248d855b414eb5b261c0573f",
+  "input_sha256": {
+    "existing_result": "cd0e7e20a64034a5b1462f2c42810a83a0b247a4d1af56c237ceca13719fe55c",
+    "original_preparation": "091b54c51c5c7ec44b9f3f97602e923e27e72202089931343de55ab1a934789d",
+    "manifest": "45b3665ba09b6979aa1bcdf1bea0ac3e8102f081fefbfc51348c55bc71405df3",
+    "contract": "a5682a68e1054292373cdbd3996d9581acb00c4121458755baf87a9873e064b6"
+  },
+  "population": {
+    "source_full_atoms": 18,
+    "prepared_atoms": 13,
+    "docking_attempts": 0,
+    "original_requested_poses": 2,
+    "actual_existing_poses": 1,
+    "fixed_score_attempts": 3,
+    "expected_fixed_returns": 2,
+    "expected_state_refusals": 1,
+    "added_fixed_values": 16,
+    "fresh_json_reader_processes": 1
+  },
+  "resource_policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_before_bytes": 50767380480,
+    "available_reserve_bytes": 8589934592,
+    "task_group_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90,
+    "reserve_poll_seconds": 0.1,
+    "automatic_retry": false
+  },
+  "scope": "Private installed DockingMT and five support wheels, borrowed MolSysMT snapshot and routine binary dependencies; no standalone/public provider closure or independent accuracy.",
+  "failure_policy": "Stop unexpected outcomes; preserve attempts and complete denominators; no automatic heavy restart or splicing.",
+  "source_construction_manifest_sha256": "45b3665ba09b6979aa1bcdf1bea0ac3e8102f081fefbfc51348c55bc71405df3",
+  "shared_installed_checker_source": "95f693be10c9205ab9b912cb53453710a207bf45",
+  "local_e4_hold_preserved": true,
+  "full_e1_accepted": false
+}

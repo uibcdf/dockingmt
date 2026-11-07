@@ -1,0 +1,151 @@
+"""Registered case worker; run with CPython -I -S, never as a public launcher."""
+import hashlib
+import json
+import os
+import sys
+import traceback
+from datetime import datetime, timezone
+from pathlib import Path
+
+attempt = Path(sys.argv[1]).resolve()
+phase = sys.argv[2]
+root = Path(os.environ['DOCKINGMT_E1_ROOT']).resolve()
+task = root / '.molsyssuite/e1-installed-20261106'
+target = task / 'site-packages'
+shared = Path('/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14')
+sdk = root / '.molsyssuite/publication-sdk/devtools/scripts'
+overlay = root / '.molsyssuite/e1-native-rescoring-20261106/backend-overlay'
+registration = json.loads((attempt / 'registration.json').read_text())
+preparation = json.loads((task / 'preparation.json').read_text())
+amendment = json.loads((task / 'preparation-amendment.json').read_text())
+
+
+def sha(path):
+    with path.open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+assert sys.flags.isolated and sys.flags.no_site
+assert amendment['ready_for_scientific_worker'] is True
+assert sha(task / 'preparation.json') == registration['preparation_sha256']
+assert sha(task / 'preparation-amendment.json') == registration['preparation_amendment_sha256']
+if phase == 'ordering':
+    reader_path = attempt / 'reader-registration.json'
+    assert sha(reader_path) == os.environ['DOCKINGMT_E1_READER_REGISTRATION_SHA256']
+    reader_registration = json.loads(reader_path.read_text())
+    assert reader_registration['workflow_registration_sha256'] == sha(attempt / 'registration.json')
+    assert reader_registration['notebook'] == registration['notebooks']['ordering']
+    assert reader_registration['linked_before_reader_execution'] is True
+    assert reader_registration['native_output_manifest_sha256'] == os.environ['DOCKINGMT_E1_SCORING_ROOT_SHA256']
+    assert sha(attempt / 'native/manifest.json') == reader_registration['native_output_manifest_sha256']
+    assert sha(attempt / 'native-resource-outcome.json') == reader_registration['native_resource_outcome_sha256']
+    native_outcome = json.loads((attempt / 'native-resource-outcome.json').read_text())
+    assert native_outcome['exit_code'] == 0 and native_outcome['resource_interruption'] is None
+    assert json.loads((attempt / 'native/manifest.json').read_text())['registration_sha256'] == sha(attempt / 'registration.json')
+assert os.sched_getaffinity(0) == {0}
+assert os.getpriority(os.PRIO_PROCESS, 0) >= 10
+# Append explicit dependency locations without site.addsitedir/.pth execution.
+sys.path[:0] = [str(target), str(shared / 'lib/python3.14/site-packages'), str(sdk)]
+assert not any('__editable__' in type(finder).__module__ for finder in sys.meta_path)
+
+from installed_imports import check_installed_imports
+
+roots = ('dockingmt', 'molsysviewer_dockingmt', 'molsysmt',
+         'molsysviewer_molsysmt', 'argdigest', 'pyunitwizard', 'depdigest',
+         'smonitor', 'ackredit')
+original_checkouts = [Path(row['original_checkout']).resolve() for row in preparation['sources']]
+origins = []
+
+
+def installed_check(label):
+    files = {str(path.relative_to(target)): sha(path)
+             for path in target.rglob('*') if path.is_file()}
+    assert files == amendment['targethashes'], 'Private installed payload changed'
+    # The owned target is inside .molsyssuite, so name the actual source package;
+    # the complete cross-checkout prohibition below covers every loaded origin.
+    imported = check_installed_imports(('dockingmt', 'molsysviewer_dockingmt'), target, root / 'dockingmt')
+    rows = []
+    for name, module in tuple(sys.modules.items()):
+        locations = []
+        filename = getattr(module, '__file__', None)
+        if filename:
+            locations.append(filename)
+        locations.extend(getattr(module, '__path__', ()))
+        generated_by = None
+        if not locations and any(name == name_root or name.startswith(name_root + '.') for name_root in roots):
+            # PyUnitWizard explicitly constructs this documented compatibility
+            # module in its installed initializer; it is not a file module.
+            assert name == 'pyunitwizard.main', 'Unidentified generated provider module: ' + name
+            initializer = sys.modules['pyunitwizard']
+            expected_initializer = target / 'pyunitwizard/__init__.py'
+            assert Path(initializer.__file__).resolve() == expected_initializer
+            assert module.__getattr__.__globals__ is vars(initializer)
+            assert module.__dir__.__globals__ is vars(initializer)
+            assert Path(module.__getattr__.__code__.co_filename).resolve() == expected_initializer
+            assert Path(module.__dir__.__code__.co_filename).resolve() == expected_initializer
+            locations.append(str(expected_initializer))
+            generated_by = 'Documented pyunitwizard.main compatibility module, bound to installed initializer functions/globals'
+        observed = []
+        for location in dict.fromkeys(locations):
+            path = Path(location).resolve()
+            if any(name == name_root or name.startswith(name_root + '.') for name_root in roots):
+                assert path.is_relative_to(target), 'Provider resolved outside private target: ' + name
+            if path.is_relative_to(target):
+                relative = path.relative_to(target)
+                if relative.parts[0] in ('molsysmt', 'molsysviewer_molsysmt'):
+                    kind = 'borrowed_provider_snapshot'
+                else:
+                    kind = 'private_wheel'
+            elif path.is_relative_to(sdk.parent.parent):
+                kind = 'immutable_administrative_sdk'
+            elif path == Path(__file__).resolve():
+                kind = 'registered_case_worker'
+            elif phase == 'native' and path.is_relative_to(overlay):
+                kind = 'verified_native_overlay'
+            elif any(path.is_relative_to(source) for source in original_checkouts):
+                raise AssertionError('Loaded runtime from original checkout: ' + name)
+            elif path.is_relative_to(shared):
+                kind = 'borrowed_routine_prefix'
+            else:
+                raise AssertionError('Unregistered loaded origin: ' + name + ': ' + str(path))
+            observed.append(dict(path=str(path), category=kind,
+                                 sha256=sha(path) if path.is_file() else None))
+        rows.append(dict(module=name, locations=observed, generated_module_receiving=generated_by,
+                         spec_origin=getattr(getattr(module, '__spec__', None), 'origin', None)))
+    snapshot = dict(label=label, at_utc=datetime.now(timezone.utc).isoformat(),
+                    private_files=len(files), shared_checker=imported,
+                    python_path=list(sys.path), loaded_origins=rows,
+                    distinction='MolSysMT is an identified borrowed runtime snapshot; six other members come from retained wheels.')
+    origins.append(snapshot)
+    return snapshot
+
+
+def write(name, value):
+    with (attempt / name).open('x') as stream:
+        json.dump(value, stream, indent=2, allow_nan=False)
+        stream.write('\n')
+
+
+notebook = attempt / (phase + '_registered_notebook.ipynb')
+assert sha(notebook) == registration['notebooks'][phase]['sha256']
+namespace = {'__name__': '__main__', 'registered_installed_check': installed_check}
+installed_check('before-notebook')
+try:
+    for index, cell in enumerate(json.loads(notebook.read_text())['cells']):
+        if cell['cell_type'] != 'code':
+            continue
+        body = ''.join(cell['source'])
+        expected = next(row for row in registration['notebooks'][phase]['code_cells'] if row['id'] == cell['id'])
+        assert hashlib.sha256(body.encode()).hexdigest() == expected['sha256']
+        with (attempt / (phase + '-progress.jsonl')).open('a') as stream:
+            stream.write(json.dumps(dict(phase='started', cell_id=cell['id'], at_utc=datetime.now(timezone.utc).isoformat())) + '\n')
+        exec(compile(body, 'e1_installed_' + phase + '.' + cell['id'], 'exec'), namespace)
+        with (attempt / (phase + '-progress.jsonl')).open('a') as stream:
+            stream.write(json.dumps(dict(phase='completed', cell_id=cell['id'], counts=namespace.get('counts'), at_utc=datetime.now(timezone.utc).isoformat())) + '\n')
+    installed_check('after-notebook')
+except BaseException as error:
+    write(phase + '-failure.json', dict(exception_type=type(error).__name__, message=str(error), counts=namespace.get('counts')))
+    traceback.print_exc()
+    raise
+finally:
+    write(phase + '-installed-origins.json', origins)

@@ -92,6 +92,16 @@ Routine development uses the Conda environment `molsyssuite@uibcdf_3.14`
 Install this checkout in that environment with `python -m pip install --no-deps
 --editable .`, and run the local gates with its interpreter and tools.
 
+## Maintainer-directed development checkpoints
+
+The maintainer authorized direct commits and pushes for this development work;
+a pull request is not required for that authorized route. Routine incremental
+commits must include `[skip ci]`. Run the applicable local checks and batch
+remote validation at explicit checkpoints instead of dispatching CI for each
+small change. Do not automatically launch manual remote CI to bypass that
+instruction. Record missing remote evidence honestly; skipped CI is not a pass.
+Required admission, release and publication evidence keeps its separate scope.
+
 ## Current package routes
 
 Public installation guidance for our MolSysSuite packages currently uses the

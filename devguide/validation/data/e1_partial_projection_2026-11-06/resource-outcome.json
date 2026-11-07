@@ -1,0 +1,8 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 14.748624797997763,
+  "minimum_available_bytes": 60023005184,
+  "sampled_peak_rss_bytes": 214106112,
+  "resource_interruption": null,
+  "notebook_sha256": "ba8fa82e83d0b0dda00d77820e840243d7595e55241ebbba7e204bc379c68c4c"
+}

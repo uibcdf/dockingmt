@@ -1,0 +1,22 @@
+{
+  "cell_index": 3,
+  "exception_type": "AssertionError",
+  "message": "",
+  "counts": {
+    "convert": 73,
+    "get": 385,
+    "copy": 5,
+    "set": 15,
+    "permute_atoms": 0,
+    "add_missing_hydrogens": 5,
+    "assign_partial_charges": 5,
+    "assign_autodock_atom_types": 5,
+    "prepare_ligand": 5,
+    "get_hydrogen_inventory": 11,
+    "get_atom_correspondences": 14,
+    "compose_atom_maps": 5,
+    "read_poses": 4,
+    "get_torsion_tree": 10
+  },
+  "completed_profiles": 0
+}

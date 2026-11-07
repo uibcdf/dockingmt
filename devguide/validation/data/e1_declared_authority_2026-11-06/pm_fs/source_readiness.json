@@ -1,0 +1,969 @@
+{
+  "schema": "molsysmt.chemical_readiness@1",
+  "method": "stored_field_audit",
+  "rule_version": 1,
+  "source_forms": "molsysmt.MolSys",
+  "n_atoms": 9,
+  "atom_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "bond_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "bonded_atom_pairs": [
+    [
+      6,
+      8
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "structure_index": 0,
+  "chemical_state_index": 0,
+  "chemical_state_status": "resolved",
+  "state_provenance_index": null,
+  "fields": {
+    "atom_type": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "C",
+        "N",
+        "N"
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "atom_id": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "1",
+        "2",
+        "0"
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "isotope": {
+      "status": "missing",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "present_indices": [],
+      "missing_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "formal_charge": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ],
+      "unit": "elementary_charge"
+    },
+    "atom_is_aromatic": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        false,
+        false
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "n_unpaired_electrons": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "n_implicit_hydrogens": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        2
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "n_explicit_hydrogens": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "allows_implicit_hydrogens": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        false,
+        true
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "atom_stereochemistry": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        "unspecified",
+        "unspecified",
+        "unspecified",
+        "unspecified",
+        "unspecified",
+        "unspecified",
+        "unspecified",
+        "unspecified",
+        "unspecified"
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "bond_id": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "8",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "bond_type": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        "covalent",
+        "covalent",
+        "covalent",
+        "covalent",
+        "covalent",
+        "covalent",
+        "covalent",
+        "covalent",
+        "covalent"
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "explicit",
+        "explicit",
+        "explicit",
+        "explicit",
+        "explicit",
+        "explicit",
+        "explicit",
+        "explicit",
+        "explicit"
+      ]
+    },
+    "bond_order": {
+      "status": "partial",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        1,
+        2,
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "present_indices": [
+        0,
+        1,
+        2
+      ],
+      "missing_indices": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "bond_is_aromatic": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        false,
+        false,
+        false,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "bond_stereochemistry": {
+      "status": "missing",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "present_indices": [],
+      "missing_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "covalent_multiplicity": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        1,
+        2,
+        1,
+        "aromatic",
+        "aromatic",
+        "aromatic",
+        "aromatic",
+        "aromatic",
+        "aromatic"
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ]
+    },
+    "coordinates": {
+      "status": "present",
+      "indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "values": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "present_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "missing_indices": [],
+      "unsupported_indices": [],
+      "conflict_indices": [],
+      "origin": [
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed",
+        "unassessed"
+      ],
+      "unit": "nm"
+    }
+  },
+  "connectivity": {
+    "declared_completeness": "complete",
+    "examined_bond_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "invalid_bond_indices": [],
+    "crossing_bond_indices": [],
+    "evidence": [
+      "explicit",
+      "explicit",
+      "explicit",
+      "explicit",
+      "explicit",
+      "explicit",
+      "explicit",
+      "explicit",
+      "explicit"
+    ]
+  },
+  "explicit_hydrogen_atom_indices": [],
+  "unassessed_checks": [
+    "valence",
+    "protonation",
+    "missing_hydrogen_inventory",
+    "aromaticity_perception",
+    "stereogenicity",
+    "periodic_geometry",
+    "conformer_quality",
+    "charge_model",
+    "docking_readiness",
+    "property_origin"
+  ],
+  "software": {
+    "molsysmt": "0.23.0+513.g9e1f1b1ad"
+  }
+}

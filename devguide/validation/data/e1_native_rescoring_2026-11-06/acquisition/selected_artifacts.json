@@ -1,0 +1,12 @@
+[
+  {
+    "filename": "vina-1.2.7-py314ha160325_0.conda",
+    "sha256": "9a337ada583bf92635f34211c7c3dc47249b0bd85b912432a53b46f4e795d824",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/vina-1.2.7-py314ha160325_0.conda"
+  },
+  {
+    "filename": "libboost-1.86.0-hd24cca6_5.conda",
+    "sha256": "a17ae9fd2af96eac7c29072b3e345ec3c2af42f18e33102633ab4440c1168ef7",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libboost-1.86.0-hd24cca6_5.conda"
+  }
+]

@@ -72,12 +72,38 @@ receiving has uncovered gaps (#30/#47 and provider-owned dispositions); refresh
 actual artifacts before a new public claim. Old registry snapshots and a new
 dependency solve do not prove the required behavior is available.
 
+## New-machine continuation — 2026-11-06
+
+The continuation now has separate [E1 receiving](validation/e1_installed_receiving_2026-11-06.md)
+and [public-workflow records](validation/e1_public_composition_2026-11-06.md).
+Actual runtime source remains DockingMT `2fda6238e6b1cb3742f5d30b8ed3af699f9ed748`
+with the separately identified development MolSysMT; private snapshots/wheels
+and Vina/Boost retain their exact identities and missing public-closure limits.
+Original qualified pins and scientific producers above remain unchanged.
+
+Finite five-pose source/native and private installed rescoring, external
+interaction-component ordering and fresh saved readers have receiving evidence.
+The maintained public reconstruction/scoring example additionally completes
+continuity for one actual returned docking pose: four old scores/rank/history
+survive with sixteen added components. The requested two-pose population remains
+incomplete; later qualification failures and record-only adjudication remain
+separate. Multi-pose continuity and positive user comparison are still #78 work.
+Do not infer restoration of historical prepared H or whole E1/E5 acceptance.
+
+The maintainer authorizes direct commit/push with `[skip ci]` for incremental
+work, using focused local checks and separate explicit remote checkpoints.
+Do not dispatch manual CI to bypass that instruction. The pre-handoff CI runs
+above do not become evidence for a later head; skipped remote gates remain
+missing under #28/#30 rather than passing. See the current root `AGENTS.md`.
+The original local E4 computational hold and the cleared autonomous goal remain
+unaffected by this individually authorized continuation.
+
 ## Next work, by owner
 
 | Work | Next meaningful action | Owner / limits |
 | --- | --- | --- |
 | E4 structured consumer/addon admission | Bind saved provider analyses to the actual original pose/result and declared axes; preserve coverage, methods, units and provenance without recalculation. | [#80](pending_proposals/receive_docking_interaction_analysis.md). Whole E4 stays partial. |
-| E1 representative rescoring | Receive supported projection/identity, define comparison/reference conditions, then register the bounded study. | [#78](pending_proposals/qualify_same_state_rescoring.md), MolSysMT [#599](https://github.com/uibcdf/molsysmt/issues/599)/[#447](https://github.com/uibcdf/molsysmt/issues/447). Do not relax strict ranking or write PDBQT locally. |
+| E1 representative rescoring | Extend received singleton public continuity to an admitted multi-pose population and positive user comparison/decision consumption. | [#78](pending_proposals/qualify_same_state_rescoring.md). Provider-wide #599/#447 remain separate; no blanket wait or relaxed strict ranking/PDBQT rewrite. |
 | E2 distinct-ligand study | Admit actual sources/states and study comparison conditions before API expansion/calculation. | [#81](pending_proposals/qualify_small_ligand_collection.md). Reuse serial `dock_many`; no generic campaign framework. |
 | E3 comparison/clustering | Receive the supported provider composition/tools before implementation. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md), MolSysMT [#604](https://github.com/uibcdf/molsysmt/issues/604). No local molecular clustering/matching. |
 | Scientific panel | Resolve source/state/environment/template/reconstruction admission before searches. | [Panel admission](validation/scientific_panel_admission_2026-11-04.md) and [environment](validation/scientific_panel_environment_2026-11-04.md) retain #33/#49 and MolSysMT #555–#558. Proposed candidates are not admitted complexes. |

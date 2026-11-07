@@ -1,0 +1,403 @@
+{
+  "schema": "molsysmt.atom_correspondences@1",
+  "atom_correspondences": [
+    [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        7,
+        7
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        11,
+        11
+      ],
+      [
+        12,
+        12
+      ],
+      [
+        13,
+        13
+      ],
+      [
+        14,
+        14
+      ],
+      [
+        15,
+        15
+      ],
+      [
+        16,
+        16
+      ],
+      [
+        17,
+        17
+      ]
+    ]
+  ],
+  "context_atom_correspondences": [
+    [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        7,
+        7
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        11,
+        11
+      ],
+      [
+        12,
+        12
+      ],
+      [
+        13,
+        13
+      ],
+      [
+        14,
+        14
+      ],
+      [
+        15,
+        15
+      ],
+      [
+        16,
+        16
+      ],
+      [
+        17,
+        17
+      ]
+    ]
+  ],
+  "selection_atom_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "reference_selection_atom_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "n_atoms": 18,
+  "reference_n_atoms": 18,
+  "chemical_state_index": 0,
+  "reference_chemical_state_index": 0,
+  "chemical_state_id": null,
+  "reference_chemical_state_id": null,
+  "source_graph_digest": "6b335528e0ac232c3aace219b71eb4c4f40804c1e6c8d616f701f2940571e61f",
+  "reference_graph_digest": "6b335528e0ac232c3aace219b71eb4c4f40804c1e6c8d616f701f2940571e61f",
+  "method": "declared_graph_isomorphism",
+  "rule_version": "declared_graph_isomorphism@1",
+  "search_complete": true,
+  "search_scope": "supplied_atom_correspondences",
+  "fixed_atom_correspondence": [],
+  "candidate_atom_correspondences": [
+    [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        4,
+        4
+      ],
+      [
+        5,
+        5
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        7,
+        7
+      ],
+      [
+        8,
+        8
+      ],
+      [
+        9,
+        9
+      ],
+      [
+        10,
+        10
+      ],
+      [
+        11,
+        11
+      ],
+      [
+        12,
+        12
+      ],
+      [
+        13,
+        13
+      ],
+      [
+        14,
+        14
+      ],
+      [
+        15,
+        15
+      ],
+      [
+        16,
+        16
+      ],
+      [
+        17,
+        17
+      ]
+    ]
+  ],
+  "n_candidate_matches": 1,
+  "max_matches": 1,
+  "evidence": {
+    "kind": "declared_complete_covalent_graph",
+    "chemical_state_provenance_index": null,
+    "reference_chemical_state_provenance_index": null,
+    "cip_labeling": false
+  },
+  "software": {
+    "molsysmt": "0.23.0+513.g9e1f1b1ad",
+    "rdkit": "2026.09.2"
+  },
+  "correspondence_digest": "dba170646e8a30848893a4946d149229d764be0af4ba161ef4216489b0e02fc8",
+  "references": [
+    {
+      "id": "doi:10.1186/s13321-019-0362-7",
+      "type": "article",
+      "url": "https://doi.org/10.1186/s13321-019-0362-7",
+      "doi": "10.1186/s13321-019-0362-7",
+      "title": "DockRMSD: an open-source tool for atom mapping and RMSD calculation of symmetric molecules through graph isomorphism",
+      "authors": [
+        "Bell, Eric W.",
+        "Zhang, Yang"
+      ],
+      "year": 2019,
+      "journal": "Journal of Cheminformatics",
+      "volume": "11",
+      "pages": "40",
+      "roles": [
+        "methodological_inspiration"
+      ]
+    },
+    {
+      "id": "doi:10.1186/s13321-020-00455-2",
+      "type": "article",
+      "url": "https://doi.org/10.1186/s13321-020-00455-2",
+      "doi": "10.1186/s13321-020-00455-2",
+      "title": "spyrmsd: symmetry-corrected RMSD calculations in Python",
+      "authors": [
+        "Meli, Rocco",
+        "Biggin, Philip C."
+      ],
+      "year": 2020,
+      "journal": "Journal of Cheminformatics",
+      "volume": "12",
+      "pages": "49",
+      "roles": [
+        "methodological_inspiration"
+      ]
+    }
+  ],
+  "attribution": {
+    "schema": "molsysmt.scientific_attribution@1",
+    "target": "molsysmt.chemical_states.get_atom_correspondences",
+    "items": [
+      {
+        "id": "doi:10.1186/s13321-019-0362-7",
+        "type": "article",
+        "url": "https://doi.org/10.1186/s13321-019-0362-7",
+        "doi": "10.1186/s13321-019-0362-7",
+        "title": "DockRMSD: an open-source tool for atom mapping and RMSD calculation of symmetric molecules through graph isomorphism",
+        "authors": [
+          "Bell, Eric W.",
+          "Zhang, Yang"
+        ],
+        "year": 2019,
+        "journal": "Journal of Cheminformatics",
+        "volume": "11",
+        "pages": "40",
+        "roles": [
+          "methodological_inspiration"
+        ]
+      },
+      {
+        "id": "doi:10.1186/s13321-020-00455-2",
+        "type": "article",
+        "url": "https://doi.org/10.1186/s13321-020-00455-2",
+        "doi": "10.1186/s13321-020-00455-2",
+        "title": "spyrmsd: symmetry-corrected RMSD calculations in Python",
+        "authors": [
+          "Meli, Rocco",
+          "Biggin, Philip C."
+        ],
+        "year": 2020,
+        "journal": "Journal of Cheminformatics",
+        "volume": "12",
+        "pages": "49",
+        "roles": [
+          "methodological_inspiration"
+        ]
+      },
+      {
+        "id": "software:molsysmt:0.23.0+513.g9e1f1b1ad",
+        "type": "software",
+        "title": "MolSysMT",
+        "authors": [
+          "Prada-Gracia, Diego",
+          "Moreno-Vargas, Liliana M."
+        ],
+        "doi": "10.5281/zenodo.1298752",
+        "url": "https://github.com/uibcdf/molsysmt",
+        "version": "0.23.0+513.g9e1f1b1ad",
+        "roles": [
+          "executed_software"
+        ]
+      },
+      {
+        "id": "software:rdkit:2026.09.2",
+        "type": "software",
+        "title": "RDKit: Open-source cheminformatics",
+        "url": "https://www.rdkit.org",
+        "how_to_cite": "https://www.rdkit.org/docs/Overview.html#citing-the-rdkit",
+        "version": "2026.09.2",
+        "roles": [
+          "executed_software"
+        ]
+      }
+    ]
+  }
+}

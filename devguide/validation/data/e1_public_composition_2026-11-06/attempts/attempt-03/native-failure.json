@@ -1,0 +1,16 @@
+{
+  "exception_type": "AssertionError",
+  "message": "",
+  "counts": {
+    "prepare": 2,
+    "reconstruct": 1,
+    "dock_attempts": 0,
+    "dock_returns": 0,
+    "score_attempts": 2,
+    "score_returns": 2,
+    "graph_witness": 4,
+    "charge_audit": 2,
+    "expected_score_refusals": 0,
+    "rank_refusals": 0
+  }
+}

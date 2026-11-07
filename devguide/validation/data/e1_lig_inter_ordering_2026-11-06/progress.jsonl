@@ -1,0 +1,8 @@
+{"phase": "started", "cell_index": 1, "at_utc": "2026-11-06T22:43:11.392182+00:00"}
+{"phase": "completed", "cell_index": 1, "at_utc": "2026-11-06T22:43:11.623372+00:00", "counts": null, "completed_profiles": 0}
+{"phase": "started", "cell_index": 2, "at_utc": "2026-11-06T22:43:11.623504+00:00"}
+{"phase": "completed", "cell_index": 2, "at_utc": "2026-11-06T22:43:12.268661+00:00", "counts": {"admission_attempts": 0, "admitted_studies": 0, "expected_refusals": 0, "audit_pose": 0, "quantity_decodes": 0, "rank_refusals": 0, "tie_controls": 0, "detachment_controls": 0}, "completed_profiles": 0}
+{"phase": "started", "cell_index": 3, "at_utc": "2026-11-06T22:43:12.268773+00:00"}
+{"phase": "completed", "cell_index": 3, "at_utc": "2026-11-06T22:43:15.058661+00:00", "counts": {"admission_attempts": 70, "admitted_studies": 4, "expected_refusals": 66, "audit_pose": 22, "quantity_decodes": 36, "rank_refusals": 4, "tie_controls": 2, "detachment_controls": 2}, "completed_profiles": 2}
+{"phase": "started", "cell_index": 4, "at_utc": "2026-11-06T22:43:15.058767+00:00"}
+{"phase": "completed", "cell_index": 4, "at_utc": "2026-11-06T22:43:15.115061+00:00", "counts": {"admission_attempts": 70, "admitted_studies": 4, "expected_refusals": 66, "audit_pose": 22, "quantity_decodes": 36, "rank_refusals": 4, "tie_controls": 2, "detachment_controls": 2}, "completed_profiles": 2}

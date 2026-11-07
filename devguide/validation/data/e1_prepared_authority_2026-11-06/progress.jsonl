@@ -1,0 +1,8 @@
+{"phase": "started", "cell_index": 1, "at_utc": "2026-11-06T21:23:09.201804+00:00"}
+{"phase": "completed", "cell_index": 1, "at_utc": "2026-11-06T21:23:09.224083+00:00", "counts": null, "completed_profiles": 0}
+{"phase": "started", "cell_index": 2, "at_utc": "2026-11-06T21:23:09.224202+00:00"}
+{"phase": "completed", "cell_index": 2, "at_utc": "2026-11-06T21:23:10.746159+00:00", "counts": {"convert": 0, "get": 0, "copy": 0, "set": 0, "permute_atoms": 0, "add_missing_hydrogens": 0, "assign_partial_charges": 0, "assign_autodock_atom_types": 0, "prepare_ligand": 0, "get_hydrogen_inventory": 0, "get_atom_correspondences": 0, "compose_atom_maps": 0, "read_poses": 0, "get_torsion_tree": 0}, "completed_profiles": 0}
+{"phase": "started", "cell_index": 3, "at_utc": "2026-11-06T21:23:10.746269+00:00"}
+{"phase": "completed", "cell_index": 3, "at_utc": "2026-11-06T21:23:17.986457+00:00", "counts": {"convert": 72, "get": 314, "copy": 6, "set": 12, "permute_atoms": 2, "add_missing_hydrogens": 2, "assign_partial_charges": 2, "assign_autodock_atom_types": 2, "prepare_ligand": 4, "get_hydrogen_inventory": 8, "get_atom_correspondences": 10, "compose_atom_maps": 4, "read_poses": 4, "get_torsion_tree": 8}, "completed_profiles": 2}
+{"phase": "started", "cell_index": 4, "at_utc": "2026-11-06T21:23:17.986565+00:00"}
+{"phase": "completed", "cell_index": 4, "at_utc": "2026-11-06T21:23:18.341933+00:00", "counts": {"convert": 72, "get": 314, "copy": 6, "set": 12, "permute_atoms": 2, "add_missing_hydrogens": 2, "assign_partial_charges": 2, "assign_autodock_atom_types": 2, "prepare_ligand": 4, "get_hydrogen_inventory": 8, "get_atom_correspondences": 10, "compose_atom_maps": 4, "read_poses": 4, "get_torsion_tree": 8}, "completed_profiles": 2}

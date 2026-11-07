@@ -1,0 +1,8 @@
+{"phase": "prepare_started", "at_utc": "2026-11-07T00:21:24.975286+00:00", "attempt": 1}
+{"phase": "prepare_returned", "at_utc": "2026-11-07T00:21:29.522953+00:00", "attempt": 1}
+{"phase": "prepare_started", "at_utc": "2026-11-07T00:21:34.380269+00:00", "attempt": 2}
+{"phase": "prepare_returned", "at_utc": "2026-11-07T00:21:35.881033+00:00", "attempt": 2}
+{"phase": "score_started", "at_utc": "2026-11-07T00:21:36.062185+00:00", "attempt": 1, "name": "vina_fixed"}
+{"phase": "score_returned", "at_utc": "2026-11-07T00:21:40.549380+00:00", "attempt": 1, "name": "vina_fixed"}
+{"phase": "score_started", "at_utc": "2026-11-07T00:21:40.759758+00:00", "attempt": 2, "name": "vinardo_fixed"}
+{"phase": "score_returned", "at_utc": "2026-11-07T00:21:44.177564+00:00", "attempt": 2, "name": "vinardo_fixed"}

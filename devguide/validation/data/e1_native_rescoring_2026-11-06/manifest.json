@@ -1,0 +1,309 @@
+{
+  "schema": "dockingmt.e1_native_rescoring_evidence@1",
+  "owner": "uibcdf/dockingmt#78",
+  "notebook_sha256": "7b8e335de453b0f4ad11ca88305fbab99c3da804f87657f0c849375bca5ba626",
+  "files": [
+    {
+      "path": "acquisition/install-outcome.json",
+      "bytes": 246,
+      "sha256": "4b53f7794e6f807d6136f962d83cee9dcebd7f3ba100fea989c4e8ff0d943907"
+    },
+    {
+      "path": "acquisition/install-stderr.log",
+      "bytes": 174,
+      "sha256": "349c69ee5f0ba971cb09ba116e76a55f1b692c88a864a9f175eb065a928a6cd1"
+    },
+    {
+      "path": "acquisition/install_operator.py.txt",
+      "bytes": 3803,
+      "sha256": "f3563fd84f63d9ac68a42ebec9dace3c1c5a515a5d8f909e380d803d2e001a72"
+    },
+    {
+      "path": "acquisition/selected_artifacts.json",
+      "bytes": 477,
+      "sha256": "2381c0fdc6acfa8ef4572809b940231d511ffde77418b69b6f99a5209f569a69"
+    },
+    {
+      "path": "backend_qualification.json.gz",
+      "bytes": 6599,
+      "sha256": "dd413f45afdd10e77e14bff4a9c3e07cbdff0fb9b15050e1e3c2472917a9b1bd",
+      "original_path": "backend_qualification.json",
+      "decoded_bytes": 23582,
+      "decoded_sha256": "aef35b0dbbb2e85158dc4e5310204e17921d21ca48b39b7bf7874a1c4c24f60b",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "collection_audit.json.gz",
+      "bytes": 12181,
+      "sha256": "64680d5d5fb6f173481eeb8860fe67583b291633826a04daaca375d2b94de2ae",
+      "original_path": "collection_audit.json",
+      "decoded_bytes": 379888,
+      "decoded_sha256": "4ad975194f13a733ff3de0da42865f6aaf30c0e4ea2026e1b72fc136b5f38f68",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "evaluations.jsonl",
+      "bytes": 3561,
+      "sha256": "0b805976ac3f196aeb72ac6b499598ffdcf05def9fb30273a11de8af1cf40332"
+    },
+    {
+      "path": "input_catalog.json",
+      "bytes": 1306,
+      "sha256": "6d06235bf7e650d772416710a62d42c37e57e00197e0d8ddccc43172d5dafd5e"
+    },
+    {
+      "path": "observations.json",
+      "bytes": 8416,
+      "sha256": "6cf0f86f1c86fc72484399436f4f419cf717b380a8150b94b43df8e7f7278f26"
+    },
+    {
+      "path": "pose_1/vina_audit.json.gz",
+      "bytes": 1463,
+      "sha256": "b0ee3bd36b46a684ed0d623057141a135b3c2c5a6bd2a951387a1181dab2731c",
+      "original_path": "pose_1/vina_audit.json",
+      "decoded_bytes": 36422,
+      "decoded_sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_1/vina_scored_pose.json.gz",
+      "bytes": 55480,
+      "sha256": "be4f792662d286a29f29a1e2194e72fe1b422e50c001c57446dc6dc821373ceb",
+      "original_path": "pose_1/vina_scored_pose.json",
+      "decoded_bytes": 250184,
+      "decoded_sha256": "577cc6f85758d8ae9270cba2980be15315fdfc5712b3fb8f36bbf6857bedd2b8",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_1/vinardo_audit.json.gz",
+      "bytes": 2623,
+      "sha256": "e02e872432496ae6509f740b0a1d9eebe46253881d9e58490530337750247501",
+      "original_path": "pose_1/vinardo_audit.json",
+      "decoded_bytes": 72679,
+      "decoded_sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_1/vinardo_scored_pose.json.gz",
+      "bytes": 108572,
+      "sha256": "459c6b5e2aed2437e1a44eb7c878ffbd90dd28d69210a40d41c921d1c8c1a50d",
+      "original_path": "pose_1/vinardo_scored_pose.json",
+      "decoded_bytes": 496039,
+      "decoded_sha256": "b6e64d2d78fad74a8dc7c1a32fa9b53b0eb1ec08c6d6c39fc472c074215a41aa",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_2/vina_audit.json.gz",
+      "bytes": 1463,
+      "sha256": "b0ee3bd36b46a684ed0d623057141a135b3c2c5a6bd2a951387a1181dab2731c",
+      "original_path": "pose_2/vina_audit.json",
+      "decoded_bytes": 36422,
+      "decoded_sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_2/vina_scored_pose.json.gz",
+      "bytes": 55480,
+      "sha256": "4d845d861bbba8731fc237f53bdc057a51174d38b9c2395ab868d6c51c628b83",
+      "original_path": "pose_2/vina_scored_pose.json",
+      "decoded_bytes": 250198,
+      "decoded_sha256": "815c7ab26c478acbb835df09daca95db790c102c4d8f1d5635e1bbce21735c59",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_2/vinardo_audit.json.gz",
+      "bytes": 2623,
+      "sha256": "e02e872432496ae6509f740b0a1d9eebe46253881d9e58490530337750247501",
+      "original_path": "pose_2/vinardo_audit.json",
+      "decoded_bytes": 72679,
+      "decoded_sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_2/vinardo_scored_pose.json.gz",
+      "bytes": 108568,
+      "sha256": "f8e21fa23472ae1d22c9e96707820308f5034bd57c869e41149d6e179ef9096f",
+      "original_path": "pose_2/vinardo_scored_pose.json",
+      "decoded_bytes": 496055,
+      "decoded_sha256": "a55ca3dd3f349c6dc7c58c13e4eb3ba342ace0f94492e2dda54f985d568f4791",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_3/vina_audit.json.gz",
+      "bytes": 1463,
+      "sha256": "b0ee3bd36b46a684ed0d623057141a135b3c2c5a6bd2a951387a1181dab2731c",
+      "original_path": "pose_3/vina_audit.json",
+      "decoded_bytes": 36422,
+      "decoded_sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_3/vina_scored_pose.json.gz",
+      "bytes": 55483,
+      "sha256": "374a1cefb6c19dda27efafa3fc9aad434f96f7648cbd43052815bae41fbb369e",
+      "original_path": "pose_3/vina_scored_pose.json",
+      "decoded_bytes": 250026,
+      "decoded_sha256": "14ed8fb0548f36f93b00681eeca110d2323852221317c57995f915a0c4a0b144",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_3/vinardo_audit.json.gz",
+      "bytes": 2623,
+      "sha256": "e02e872432496ae6509f740b0a1d9eebe46253881d9e58490530337750247501",
+      "original_path": "pose_3/vinardo_audit.json",
+      "decoded_bytes": 72679,
+      "decoded_sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_3/vinardo_scored_pose.json.gz",
+      "bytes": 108601,
+      "sha256": "75af8cbab0fb33b6bb8332c942912ea29fcf4d20a714a6c071bf79a1b9c5a89b",
+      "original_path": "pose_3/vinardo_scored_pose.json",
+      "decoded_bytes": 495881,
+      "decoded_sha256": "522bf41fc5a0fa8e467fbd812df7a2b0a33dcb8fe51b3d4d35d497bff10d5a5b",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_4/vina_audit.json.gz",
+      "bytes": 1463,
+      "sha256": "b0ee3bd36b46a684ed0d623057141a135b3c2c5a6bd2a951387a1181dab2731c",
+      "original_path": "pose_4/vina_audit.json",
+      "decoded_bytes": 36422,
+      "decoded_sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_4/vina_scored_pose.json.gz",
+      "bytes": 55480,
+      "sha256": "af519c51060fc835a54bb01140d9451b9a7f7c62d2802f7eb8a8d3eee54e4f99",
+      "original_path": "pose_4/vina_scored_pose.json",
+      "decoded_bytes": 250067,
+      "decoded_sha256": "0f72197e53a3f3b5bc8e473270e41baf57e8ea0eb9801cb87fe4f7d46c2892b8",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_4/vinardo_audit.json.gz",
+      "bytes": 2623,
+      "sha256": "e02e872432496ae6509f740b0a1d9eebe46253881d9e58490530337750247501",
+      "original_path": "pose_4/vinardo_audit.json",
+      "decoded_bytes": 72679,
+      "decoded_sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_4/vinardo_scored_pose.json.gz",
+      "bytes": 108581,
+      "sha256": "bc9da4807844ca6c96fceb18f6e2bb3745b5cdc2789247a4d9ac2f1fcf2f11ea",
+      "original_path": "pose_4/vinardo_scored_pose.json",
+      "decoded_bytes": 495922,
+      "decoded_sha256": "6bae7891beafab26cb0a439d027ee6464f7d3d04361e2f02857b398a78b1bcef",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_5/vina_audit.json.gz",
+      "bytes": 1463,
+      "sha256": "b0ee3bd36b46a684ed0d623057141a135b3c2c5a6bd2a951387a1181dab2731c",
+      "original_path": "pose_5/vina_audit.json",
+      "decoded_bytes": 36422,
+      "decoded_sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_5/vina_scored_pose.json.gz",
+      "bytes": 55464,
+      "sha256": "5d2cf46f61651647bfe150cf8efbc1425d10b47bc1f1a673f022ac4430179996",
+      "original_path": "pose_5/vina_scored_pose.json",
+      "decoded_bytes": 250029,
+      "decoded_sha256": "0fb061f01c6c86a3dc6097165381953a6c15db8653678198cc432a9ff14863e3",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_5/vinardo_audit.json.gz",
+      "bytes": 2623,
+      "sha256": "e02e872432496ae6509f740b0a1d9eebe46253881d9e58490530337750247501",
+      "original_path": "pose_5/vinardo_audit.json",
+      "decoded_bytes": 72679,
+      "decoded_sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "pose_5/vinardo_scored_pose.json.gz",
+      "bytes": 108564,
+      "sha256": "4dfec44af100ddeb60ae7db5f9e10e5d681d819bf9f78ac76bfc33fd81fa6dfc",
+      "original_path": "pose_5/vinardo_scored_pose.json",
+      "decoded_bytes": 495887,
+      "decoded_sha256": "bb161d76e6afd7475138d3738542e63fe3ec8c634655cf15be3485735b82540e",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "progress.jsonl",
+      "bytes": 1441,
+      "sha256": "c76e147178e9218a3bdce19b732d951f342b0e99bb5e786998a958c517f25ad7"
+    },
+    {
+      "path": "ranking_refusals.json",
+      "bytes": 520,
+      "sha256": "2add3da057e6e2d452127794c65d99ca74a1bd1dc4d59a2125c2d5a572396dab"
+    },
+    {
+      "path": "receipt.json.gz",
+      "bytes": 8443,
+      "sha256": "8014cdb4e8f56820d4ac6e683e13d5e9524ab289e0d20da1bef4aa3573d8197c",
+      "original_path": "receipt.json",
+      "decoded_bytes": 33919,
+      "decoded_sha256": "47ded36065d3a6e9fb6a369e122f41dc7f70c3f4c238ff07295f76f31135de79",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "registered_prescription.md",
+      "bytes": 7811,
+      "sha256": "dfb850f0fc617f68521faabd782f95bd9e482bf8b7f053d84de58b7169bc49c2"
+    },
+    {
+      "path": "registration.json",
+      "bytes": 4098,
+      "sha256": "a287d5777d8c97d28b30696c041525df54cd64c5b18fd1e7062dc3c41baf1441"
+    },
+    {
+      "path": "resource-outcome.json",
+      "bytes": 844,
+      "sha256": "7830c806786ee0b5ef16ddf7b8944f952341065a31440e4eb0f699ee9f3dc220"
+    },
+    {
+      "path": "scored_collection.json.gz",
+      "bytes": 541094,
+      "sha256": "de3f8a5511f9489adc16b2be9344e76a5d1cd7e10f778897a6fe5dc272e33157",
+      "original_path": "scored_collection.json",
+      "decoded_bytes": 2517821,
+      "decoded_sha256": "06d5a9944dfaa5ad9962f7a89d729b7b725d2a3f4868789e1a856f4afae2bccb",
+      "transport": "gzip only; exact original produced bytes retained"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 79,
+      "sha256": "70607cea96834e02ebff7603bb1df1f3dcf4bed4f8abe06f1c77ab6bb8bea32f"
+    },
+    {
+      "path": "supervisor.py.txt",
+      "bytes": 8150,
+      "sha256": "a7125defb93250ddb664bf0ee5c65329944160bd8b2d6439bbdaaa74ce462dd7"
+    },
+    {
+      "path": "worker-sha256.json",
+      "bytes": 83,
+      "sha256": "a6138dbe114b95d075f86946b48f66649025c3972af8ce57fc7bb16cbfa30d14"
+    },
+    {
+      "path": "worker.py.txt",
+      "bytes": 1442,
+      "sha256": "75dee6c9da8328e56251f4eed1d6d42508e6df7085a8cd4d9e89299e8e41aa4b"
+    }
+  ],
+  "claim": "Ten source/native fixed-score evaluations, exact captures/parameters, eighty values and strict ranking refusals; no shared-reference ordering, historical prepared identity, independent accuracy, standalone/public closure or full E1."
+}

@@ -1,0 +1,16 @@
+{
+  "exception_type": "ModuleNotFoundError",
+  "message": "No module named 'molsysmt.build'",
+  "counts": {
+    "prepare": 1,
+    "reconstruct": 0,
+    "dock_attempts": 0,
+    "dock_returns": 0,
+    "score_attempts": 0,
+    "score_returns": 0,
+    "graph_witness": 1,
+    "charge_audit": 0,
+    "expected_score_refusals": 0,
+    "rank_refusals": 0
+  }
+}

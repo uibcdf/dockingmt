@@ -1,0 +1,61 @@
+{
+  "schema": "dockingmt.e1_private_installed_workflow_receiving@1",
+  "owner": "uibcdf/dockingmt#78",
+  "outcome": "PASS",
+  "registration_sha256": "cea584f422b8d05f4aa4830400e46f0bc5532fe0045fcb624bd34c433c26f0c9",
+  "reader_registration_sha256": "ae45e63334c517f0d8c26c6442a37cdde0ce88b2819ba0392ded578c6921679c",
+  "native": {
+    "phase": "native",
+    "exit_code": 0,
+    "resource_interruption": null,
+    "termination_signal": null,
+    "elapsed_seconds": 23.238143948998186,
+    "sampled_peak_group_rss_bytes": 559984640,
+    "minimum_available_bytes": 44367859712,
+    "samples": 230,
+    "maximum_observed_owned_processes": 1,
+    "policy": {
+      "allowed_cpu": 0,
+      "nice": 10,
+      "workers": 1,
+      "available_before_bytes": 45222445056,
+      "available_reserve_bytes": 8589934592,
+      "task_group_rss_limit_bytes": 1073741824,
+      "address_space_limit_bytes": 2147483648,
+      "cpu_seconds_limit": 60,
+      "wall_seconds_limit": 90,
+      "reserve_poll_seconds": 0.1,
+      "automatic_retry": false
+    }
+  },
+  "fresh_reader": {
+    "phase": "ordering",
+    "exit_code": 0,
+    "resource_interruption": null,
+    "termination_signal": null,
+    "elapsed_seconds": 9.599362729000859,
+    "sampled_peak_group_rss_bytes": 86593536,
+    "minimum_available_bytes": 44762783744,
+    "samples": 95,
+    "maximum_observed_owned_processes": 1,
+    "policy": {
+      "allowed_cpu": 0,
+      "nice": 10,
+      "workers": 1,
+      "available_before_bytes": 45222445056,
+      "available_reserve_bytes": 8589934592,
+      "task_group_rss_limit_bytes": 1073741824,
+      "address_space_limit_bytes": 2147483648,
+      "cpu_seconds_limit": 60,
+      "wall_seconds_limit": 90,
+      "reserve_poll_seconds": 0.1,
+      "automatic_retry": false
+    }
+  },
+  "scope": "Private installed DockingMT and five support wheels, borrowed MolSysMT snapshot and routine binary dependencies; no standalone/public provider closure or independent accuracy.",
+  "original_provider_snapshot_files_unchanged": true,
+  "runtime_source_unchanged": true,
+  "whole_environment_closure": false,
+  "full_e1_accepted": false,
+  "local_e4_hold_preserved": true
+}

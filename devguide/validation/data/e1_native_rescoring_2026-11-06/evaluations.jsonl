@@ -1,0 +1,30 @@
+{"phase": "started", "at_utc": "2026-11-06T22:07:26.757612+00:00", "position": 1, "method": "vina", "attempt": 1}
+{"phase": "returned", "at_utc": "2026-11-06T22:07:28.962676+00:00", "position": 1, "method": "vina", "record": "vina_scored_pose.json"}
+{"phase": "checked", "at_utc": "2026-11-06T22:07:29.017248+00:00", "position": 1, "method": "vina"}
+{"phase": "started", "at_utc": "2026-11-06T22:07:29.022827+00:00", "position": 1, "method": "vinardo", "attempt": 2}
+{"phase": "returned", "at_utc": "2026-11-06T22:07:30.875192+00:00", "position": 1, "method": "vinardo", "record": "vinardo_scored_pose.json"}
+{"phase": "checked", "at_utc": "2026-11-06T22:07:30.977559+00:00", "position": 1, "method": "vinardo"}
+{"phase": "started", "at_utc": "2026-11-06T22:07:31.099080+00:00", "position": 2, "method": "vina", "attempt": 3}
+{"phase": "returned", "at_utc": "2026-11-06T22:07:32.995332+00:00", "position": 2, "method": "vina", "record": "vina_scored_pose.json"}
+{"phase": "checked", "at_utc": "2026-11-06T22:07:33.054092+00:00", "position": 2, "method": "vina"}
+{"phase": "started", "at_utc": "2026-11-06T22:07:33.059836+00:00", "position": 2, "method": "vinardo", "attempt": 4}
+{"phase": "returned", "at_utc": "2026-11-06T22:07:34.911030+00:00", "position": 2, "method": "vinardo", "record": "vinardo_scored_pose.json"}
+{"phase": "checked", "at_utc": "2026-11-06T22:07:35.011754+00:00", "position": 2, "method": "vinardo"}
+{"phase": "started", "at_utc": "2026-11-06T22:07:35.137586+00:00", "position": 3, "method": "vina", "attempt": 5}
+{"phase": "returned", "at_utc": "2026-11-06T22:07:37.031799+00:00", "position": 3, "method": "vina", "record": "vina_scored_pose.json"}
+{"phase": "checked", "at_utc": "2026-11-06T22:07:37.086814+00:00", "position": 3, "method": "vina"}
+{"phase": "started", "at_utc": "2026-11-06T22:07:37.092627+00:00", "position": 3, "method": "vinardo", "attempt": 6}
+{"phase": "returned", "at_utc": "2026-11-06T22:07:38.943257+00:00", "position": 3, "method": "vinardo", "record": "vinardo_scored_pose.json"}
+{"phase": "checked", "at_utc": "2026-11-06T22:07:39.061590+00:00", "position": 3, "method": "vinardo"}
+{"phase": "started", "at_utc": "2026-11-06T22:07:39.198675+00:00", "position": 4, "method": "vina", "attempt": 7}
+{"phase": "returned", "at_utc": "2026-11-06T22:07:41.105449+00:00", "position": 4, "method": "vina", "record": "vina_scored_pose.json"}
+{"phase": "checked", "at_utc": "2026-11-06T22:07:41.159142+00:00", "position": 4, "method": "vina"}
+{"phase": "started", "at_utc": "2026-11-06T22:07:41.164782+00:00", "position": 4, "method": "vinardo", "attempt": 8}
+{"phase": "returned", "at_utc": "2026-11-06T22:07:42.944296+00:00", "position": 4, "method": "vinardo", "record": "vinardo_scored_pose.json"}
+{"phase": "checked", "at_utc": "2026-11-06T22:07:43.044028+00:00", "position": 4, "method": "vinardo"}
+{"phase": "started", "at_utc": "2026-11-06T22:07:43.164248+00:00", "position": 5, "method": "vina", "attempt": 9}
+{"phase": "returned", "at_utc": "2026-11-06T22:07:44.986172+00:00", "position": 5, "method": "vina", "record": "vina_scored_pose.json"}
+{"phase": "checked", "at_utc": "2026-11-06T22:07:45.039723+00:00", "position": 5, "method": "vina"}
+{"phase": "started", "at_utc": "2026-11-06T22:07:45.042423+00:00", "position": 5, "method": "vinardo", "attempt": 10}
+{"phase": "returned", "at_utc": "2026-11-06T22:07:46.826332+00:00", "position": 5, "method": "vinardo", "record": "vinardo_scored_pose.json"}
+{"phase": "checked", "at_utc": "2026-11-06T22:07:46.927110+00:00", "position": 5, "method": "vinardo"}

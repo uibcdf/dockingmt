@@ -1,0 +1,9 @@
+Processing /fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/wheels/dockingmt/dockingmt-0.0.0+295.g2fda623-py3-none-any.whl
+Processing /fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/wheels/argdigest/argdigest-0.17.1+3.g0712641-py3-none-any.whl
+Processing /fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/wheels/pyunitwizard/pyunitwizard-0.29.1+6.gf82b618-py3-none-any.whl
+Processing /fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/wheels/depdigest/depdigest-0.15.2+2.g032d345-py3-none-any.whl
+Processing /fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/wheels/smonitor/smonitor-0.22.1+1.gc1b6ce2-py3-none-any.whl
+Processing /fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-installed-20261106/wheels/ackredit/ackredit-0.12.1+10.g4beb850-py3-none-any.whl
+Installing collected packages: smonitor, pyunitwizard, dockingmt, depdigest, argdigest, ackredit
+
+Successfully installed ackredit-0.12.1+10.g4beb850 argdigest-0.17.1+3.g0712641 depdigest-0.15.2+2.g032d345 dockingmt-0.0.0+295.g2fda623 pyunitwizard-0.29.1+6.gf82b618 smonitor-0.22.1+1.gc1b6ce2

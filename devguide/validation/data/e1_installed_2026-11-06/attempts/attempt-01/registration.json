@@ -1,0 +1,122 @@
+{
+  "schema": "dockingmt.e1_private_installed_registration@1",
+  "owner": "uibcdf/dockingmt#78",
+  "registered_at_utc": "2026-11-06T23:15:52.723915+00:00",
+  "status_at_registration": "prospective",
+  "runtime_source": "2fda6238e6b1cb3742f5d30b8ed3af699f9ed748",
+  "preparation_sha256": "34160ee941b8280c9c7d7518aa3594b889ef27fef8f3688407a5b9184e6773ca",
+  "preparation_amendment_sha256": "03d39a77b0327e21c790a3470cb0c50e3cc8f76ff4c8a60bb85b43c761dd4af1",
+  "notebooks": {
+    "native": {
+      "path": "devguide/validation/e1_installed_rescoring.ipynb",
+      "sha256": "3dc6edd3becb2456480f464ff03791cde63269607e54f72d01cc16d0c2a2f0a2",
+      "code_cells": [
+        {
+          "id": "e1-installed-1",
+          "sha256": "89a58e6f6181e5282f4a79a54b0110d45416ae6e047e94fe8ac8187cb2f228f3"
+        },
+        {
+          "id": "e1-installed-2",
+          "sha256": "788131853c3753f6f399c1532d31285a6e3a961cc08e1ad93c8958d0d150e9a3"
+        },
+        {
+          "id": "e1-installed-3",
+          "sha256": "2adf3edc7001bc66189285130d731fb2237b81b266e6999e3008514b632b0412"
+        },
+        {
+          "id": "e1-installed-4",
+          "sha256": "4b8d1aad8ceb6ec36f2fd11611dd5338ce267c7b5bb2e0e80bab1def271fb511"
+        },
+        {
+          "id": "e1-installed-5",
+          "sha256": "8642ee247efbc1ffacd235953112967ee23a064ec9a66b3f557fb8a5fd30061f"
+        }
+      ],
+      "monitored_direct_budgets": {
+        "qualification_constructors": 2,
+        "score_attempts": 10,
+        "score_returned": 10,
+        "score_checked": 10,
+        "convert": 5,
+        "get": 5,
+        "audit_pose": 10,
+        "pose_roundtrip": 10,
+        "audit_result": 1,
+        "ranking_refusals": 2
+      }
+    },
+    "ordering": {
+      "path": "devguide/validation/e1_installed_ordering.ipynb",
+      "sha256": "246f3ceefeeac0a28d5cdaeab9757adb1c3634b213024d752b4a9cb081a78f6e",
+      "code_cells": [
+        {
+          "id": "e1-installed-1",
+          "sha256": "d810de8fa1925dc367b754b5329edaf6660b10624abe97a8718c020695fd78ce"
+        },
+        {
+          "id": "e1-installed-2",
+          "sha256": "161e63cac61fa3c47df8ce358c804d4bca87e106b9f5595b21b070d7647a7367"
+        },
+        {
+          "id": "e1-installed-3",
+          "sha256": "28f677f7ecf1906b5b5d20569a6248977ba2e4bf5bbe8f091f5a32b5a3b35cbf"
+        },
+        {
+          "id": "e1-installed-4",
+          "sha256": "80eb54cd745aab965d08a30b284734706ffc11268fad8a0fbc981ca53fa5a14f"
+        }
+      ],
+      "monitored_direct_budgets": {
+        "admission_attempts": 70,
+        "admitted_studies": 4,
+        "expected_refusals": 66,
+        "audit_pose": 24,
+        "quantity_decodes": 100,
+        "rank_refusals": 4,
+        "tie_controls": 2,
+        "detachment_controls": 2
+      }
+    }
+  },
+  "prescription": {
+    "path": "devguide/validation/e1_installed_receiving_2026-11-06.md",
+    "sha256": "b2e44aa799d7c04bb8ab348102e6a75d5ff3bd189b1b5709b5b186bffb8a5623"
+  },
+  "worker_sha256": "58a72928b26ec39d0c6de16451a89d57bcdfc8519b8dc281f226959b1cbb6c4d",
+  "supervisor_sha256": "e17b30dd8ac94814df90a9105f138846d9ae722583f5e39a6f620d12dd3856fa",
+  "input_sha256": {
+    "manifest": "45b3665ba09b6979aa1bcdf1bea0ac3e8102f081fefbfc51348c55bc71405df3",
+    "contract": "a5682a68e1054292373cdbd3996d9581acb00c4121458755baf87a9873e064b6"
+  },
+  "population": {
+    "poses": 5,
+    "methods": [
+      "vina",
+      "vinardo"
+    ],
+    "native_attempts": 10,
+    "new_published_values": 80,
+    "fresh_json_reader_processes": 1,
+    "positive_admissions": 4,
+    "documentary_refusals": 66
+  },
+  "resource_policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_before_bytes": 45221376000,
+    "available_reserve_bytes": 8589934592,
+    "task_group_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90,
+    "reserve_poll_seconds": 0.1,
+    "automatic_retry": false
+  },
+  "scope": "Private installed DockingMT and five support wheels, borrowed MolSysMT snapshot and routine binary dependencies; no standalone/public provider closure or independent accuracy.",
+  "failure_policy": "Stop unexpected outcomes; preserve attempts and complete denominators; no automatic heavy restart or splicing.",
+  "source_reference_manifest_sha256": "bf214aa7e48f15a95051411ed3bd54969f78c811503050c6969d6f5aa2898e93",
+  "shared_installed_checker_source": "95f693be10c9205ab9b912cb53453710a207bf45",
+  "local_e4_hold_preserved": true,
+  "full_e1_accepted": false
+}

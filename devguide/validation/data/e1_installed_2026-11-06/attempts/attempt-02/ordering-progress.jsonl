@@ -1,0 +1,8 @@
+{"phase": "started", "cell_id": "e1-installed-1", "at_utc": "2026-11-06T23:18:42.027233+00:00"}
+{"phase": "completed", "cell_id": "e1-installed-1", "counts": null, "at_utc": "2026-11-06T23:18:42.208265+00:00"}
+{"phase": "started", "cell_id": "e1-installed-2", "at_utc": "2026-11-06T23:18:42.208462+00:00"}
+{"phase": "completed", "cell_id": "e1-installed-2", "counts": {"admission_attempts": 0, "admitted_studies": 0, "expected_refusals": 0, "audit_pose": 0, "quantity_decodes": 0, "rank_refusals": 0, "tie_controls": 0, "detachment_controls": 0}, "at_utc": "2026-11-06T23:18:44.280510+00:00"}
+{"phase": "started", "cell_id": "e1-installed-3", "at_utc": "2026-11-06T23:18:44.280701+00:00"}
+{"phase": "completed", "cell_id": "e1-installed-3", "counts": {"admission_attempts": 70, "admitted_studies": 4, "expected_refusals": 66, "audit_pose": 22, "quantity_decodes": 36, "rank_refusals": 4, "tie_controls": 2, "detachment_controls": 2}, "at_utc": "2026-11-06T23:18:47.239303+00:00"}
+{"phase": "started", "cell_id": "e1-installed-4", "at_utc": "2026-11-06T23:18:47.239513+00:00"}
+{"phase": "completed", "cell_id": "e1-installed-4", "counts": {"admission_attempts": 70, "admitted_studies": 4, "expected_refusals": 66, "audit_pose": 22, "quantity_decodes": 36, "rank_refusals": 4, "tie_controls": 2, "detachment_controls": 2}, "at_utc": "2026-11-06T23:18:48.657020+00:00"}

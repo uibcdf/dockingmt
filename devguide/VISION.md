@@ -96,3 +96,19 @@ code among molecular preparation, backend conversion, docking, analysis and
 visualization.
 
 The suite owns the scientific continuity; providers supply individual capabilities.
+
+## User experience and public API
+
+Common workflows should be short, clear and dependable. A user should be able
+to prepare an admitted input, execute the intended operation and understand its
+result or refusal through a small set of coherent public operations. Scientific
+choices and limitations should appear where they affect the user's decision;
+qualification harnesses and implementation details belong in contributor tools.
+
+Advanced users should be able to inspect and control the same workflow through
+documented problems, protocols, preparations, maps, quantities, evaluations and
+decision evidence. Keep the ordinary and advanced routes connected through the
+same scientific objects and contracts. Develop capability, robustness and
+performance with measured evidence and explicit resource behavior. Functional
+acceptance includes a representative public workflow; internal checks alone do
+not demonstrate an intuitive or complete user experience.

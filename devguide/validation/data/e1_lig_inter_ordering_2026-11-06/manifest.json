@@ -1,0 +1,129 @@
+{
+  "schema": "dockingmt.e1_lig_inter_ordering_evidence@1",
+  "owner": "uibcdf/dockingmt#78",
+  "notebook_sha256": "389412ed8f9005ec4b73b60e87d523cf0377cf1ce034fb348c8eb174f4260eea",
+  "files": [
+    {
+      "path": "admissions.jsonl",
+      "bytes": 18128,
+      "sha256": "21e11a987519104ef4b7d9ac033597fb450de9ff26094fedbccd44311e7b22f3"
+    },
+    {
+      "path": "normal/refusals.json",
+      "bytes": 7546,
+      "sha256": "30a70e5d56082b34b115a2ec162825c81808bfcb6177c74e463d945f806379a5"
+    },
+    {
+      "path": "normal/strict_rank_by_refusals.json",
+      "bytes": 517,
+      "sha256": "a77168394d234364ac17d0b78db21f034388e2d6153264c3d76a2da62d8ba548"
+    },
+    {
+      "path": "normal/synthetic_ties.json",
+      "bytes": 795,
+      "sha256": "a7645e685b229bbe1e129c1c7ea23ceaf2bce30ff812cf78a73b483bd88233d9"
+    },
+    {
+      "path": "normal/vina_component_order.json.gz",
+      "bytes": 15044,
+      "sha256": "b6a218d813885f282d9e749575613ba20ee5b4739a3430eacaf57f9c2ad64d8d",
+      "original_path": "normal/vina_component_order.json",
+      "decoded_bytes": 179138,
+      "decoded_sha256": "d6cc10d729840275c612f50e4a3a79d2a53a009a5984c1f351a36ea3f0cd36ab",
+      "transport": "gzip only; exact original reader output retained"
+    },
+    {
+      "path": "normal/vinardo_component_order.json.gz",
+      "bytes": 14976,
+      "sha256": "f738b18a52b6716ae896e507f2b50f94b6f4c2ba48006030153b07aa97c2702f",
+      "original_path": "normal/vinardo_component_order.json",
+      "decoded_bytes": 178979,
+      "decoded_sha256": "386bf44808985531cadcf9932bb66bcceb5370e0abab6c496c5f21c9e7428236",
+      "transport": "gzip only; exact original reader output retained"
+    },
+    {
+      "path": "pm_fs/refusals.json",
+      "bytes": 7546,
+      "sha256": "30a70e5d56082b34b115a2ec162825c81808bfcb6177c74e463d945f806379a5"
+    },
+    {
+      "path": "pm_fs/strict_rank_by_refusals.json",
+      "bytes": 517,
+      "sha256": "a77168394d234364ac17d0b78db21f034388e2d6153264c3d76a2da62d8ba548"
+    },
+    {
+      "path": "pm_fs/synthetic_ties.json",
+      "bytes": 795,
+      "sha256": "a7645e685b229bbe1e129c1c7ea23ceaf2bce30ff812cf78a73b483bd88233d9"
+    },
+    {
+      "path": "pm_fs/vina_component_order.json.gz",
+      "bytes": 15044,
+      "sha256": "b6a218d813885f282d9e749575613ba20ee5b4739a3430eacaf57f9c2ad64d8d",
+      "original_path": "pm_fs/vina_component_order.json",
+      "decoded_bytes": 179138,
+      "decoded_sha256": "d6cc10d729840275c612f50e4a3a79d2a53a009a5984c1f351a36ea3f0cd36ab",
+      "transport": "gzip only; exact original reader output retained"
+    },
+    {
+      "path": "pm_fs/vinardo_component_order.json.gz",
+      "bytes": 14976,
+      "sha256": "f738b18a52b6716ae896e507f2b50f94b6f4c2ba48006030153b07aa97c2702f",
+      "original_path": "pm_fs/vinardo_component_order.json",
+      "decoded_bytes": 178979,
+      "decoded_sha256": "386bf44808985531cadcf9932bb66bcceb5370e0abab6c496c5f21c9e7428236",
+      "transport": "gzip only; exact original reader output retained"
+    },
+    {
+      "path": "progress.jsonl",
+      "bytes": 1371,
+      "sha256": "99e6f9c2a6e7f7e56e54d8c631d93b28908a358efbdc6694c4e294395b0bc457"
+    },
+    {
+      "path": "receipt.json",
+      "bytes": 2530,
+      "sha256": "3978e0f66ca2cbf9511878bc6b3e46319bc0413354c9c71e4180d7b63d5e49de"
+    },
+    {
+      "path": "registered_prescription.md",
+      "bytes": 8385,
+      "sha256": "6eed8b2a3822381488302290bf27526ac82c0bc24b49fba84414fb59b710bdea"
+    },
+    {
+      "path": "registration.json",
+      "bytes": 3301,
+      "sha256": "dc2db2cfb5dbe3a44769530be4408e05ba3336fc21bc42b586351b3f14748976"
+    },
+    {
+      "path": "resource-outcome.json",
+      "bytes": 842,
+      "sha256": "72417fe6f7b1748f1fe2624a779e19d8447013eb5981b9a33ffbb2da9395c587"
+    },
+    {
+      "path": "stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log",
+      "bytes": 129,
+      "sha256": "d32bb54fc003694770fa34f37bb8eed41f374fa7619e3cb7e8c3d729bc3b0b81"
+    },
+    {
+      "path": "supervisor.py.txt",
+      "bytes": 7426,
+      "sha256": "5c84ac539f8fe3a7ecdcc524b41a6597d01e0f890de9007546b87323339c7c5f"
+    },
+    {
+      "path": "worker-sha256.json",
+      "bytes": 83,
+      "sha256": "bdfb50670d2e30835ecd93095e66feab563ab5ef76bbb30d2f06429edaf87b9d"
+    },
+    {
+      "path": "worker.py.txt",
+      "bytes": 1444,
+      "sha256": "98561224c11bed90ba3566d1051ac5c5ba181c01ce63f2d10cd5740912bcfca2"
+    }
+  ],
+  "claim": "Two separate finite reported-lig_inter orders, frozen evidence admission and documentary controls; no new empirical values, public API/descriptor/rank change or physical/installed/E1 acceptance."
+}

@@ -1,0 +1,55 @@
+{
+  "owner": "uibcdf/dockingmt#78",
+  "schema": "dockingmt.e1_record_adjudication_registration@1",
+  "registered_at_utc": "2026-11-07T00:30:13.085216+00:00",
+  "status_at_registration": "prospective_record_receiving",
+  "preparation_sha256": "34160ee941b8280c9c7d7518aa3594b889ef27fef8f3688407a5b9184e6773ca",
+  "preparation_amendment_sha256": "96b164638d132327e4e514b7160fd7e92bd5b4e4fe322026ae47dffdb77db364",
+  "notebooks": {
+    "records": {
+      "path": "devguide/validation/e1_single_pose_record_receiving.ipynb",
+      "sha256": "b4fde19037ab8aee0063f558ffb62f09ed448edd7c1e2b0c1501c4b50c1f7c31",
+      "code_cells": [
+        {
+          "id": "e1-composition-reader-1",
+          "sha256": "2f73c801da358985c399738f557769a6829b6f85a9d6225f3efca92e6bc2e185"
+        },
+        {
+          "id": "e1-composition-reader-2",
+          "sha256": "8a06ba44ba761a1fb0551e38ec89d7acfc55fd9a374bd0727d80d50ce5786e61"
+        },
+        {
+          "id": "e1-composition-reader-3",
+          "sha256": "ae9acdc8e810770f17bf7b7f64fd62b2c4653620dff4859dae32f8ee24db0d90"
+        },
+        {
+          "id": "e1-composition-reader-4",
+          "sha256": "277c0c5df960839cb97192d9778dbbf19892e4cb06079aeebed3d1048e9fc4ce"
+        }
+      ],
+      "monitored_direct_budgets": {
+        "reader_policies": 2,
+        "from_dict": 8,
+        "audit_result": 4,
+        "audit_pose": 4,
+        "result_roundtrips": 4,
+        "detachment_controls": 4
+      }
+    }
+  },
+  "input_manifest_sha256": "1819e5f0f8f60193a548c9e99c87c82a25c5edafdbec66adbea9d2c607d6d79a",
+  "generator_registration_sha256": "8f65151a766928eafe62e16ebeacef282b37dbe7f8eb9102a0f27a5074a0e76c",
+  "worker_sha256": "a3e8ea3e75bf9504cfa6424d054de21de14aa00c32aa062ab34b08d919b9ce84",
+  "prescription_sha256": "1a3227bafe23334da7e7b0bfcb3994886a057f3e61509e21961e21874a0041c5",
+  "resource_policy": {
+    "allowed_cpu": 0,
+    "nice": 10,
+    "workers": 1,
+    "available_reserve_bytes": 8589934592,
+    "task_group_rss_limit_bytes": 1073741824,
+    "address_space_limit_bytes": 2147483648,
+    "cpu_seconds_limit": 60,
+    "wall_seconds_limit": 90
+  },
+  "scope": "Record-only adjudication; native attempt03 retains its failed qualification outcome; no new energies, molecules or source result changes."
+}

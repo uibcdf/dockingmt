@@ -1,0 +1,37 @@
+{
+  "result": {
+    "display_order": [
+      "synthetic-2",
+      "synthetic-3",
+      "synthetic-1"
+    ],
+    "groups": [
+      {
+        "members": [
+          {
+            "pose_id": "synthetic-2",
+            "source_position": 2
+          },
+          {
+            "pose_id": "synthetic-3",
+            "source_position": 3
+          }
+        ],
+        "reported_decimal": "1.0",
+        "unit": "kcal/mol"
+      },
+      {
+        "members": [
+          {
+            "pose_id": "synthetic-1",
+            "source_position": 1
+          }
+        ],
+        "reported_decimal": "2.0",
+        "unit": "kcal/mol"
+      }
+    ],
+    "ties": "Equal published value; source order within a tie is presentation only"
+  },
+  "scope": "Invented software values, not empirical observations"
+}

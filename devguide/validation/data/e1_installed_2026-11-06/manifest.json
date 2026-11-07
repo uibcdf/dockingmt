@@ -1,0 +1,744 @@
+{
+  "schema": "dockingmt.e1_private_installed_evidence@1",
+  "owner": "uibcdf/dockingmt#78",
+  "files": [
+    {
+      "path": "attempt-02-registered_prescription.md",
+      "bytes": 9599,
+      "sha256": "0b0f0bbcb6524fe164f846d3acd88f3d95a2fe37e195ff37bcb9d41cbe720c52"
+    },
+    {
+      "path": "attempt-02-registration.json",
+      "bytes": 4536,
+      "sha256": "cea584f422b8d05f4aa4830400e46f0bc5532fe0045fcb624bd34c433c26f0c9"
+    },
+    {
+      "path": "attempts/attempt-01/native-failure.json",
+      "bytes": 135,
+      "sha256": "f47ffae98fa805294514a2b95a56021da0ce7ef1fff31c654e6b502afb80df7d"
+    },
+    {
+      "path": "attempts/attempt-01/native-installed-origins.json.gz",
+      "bytes": 12985,
+      "sha256": "30724267b857f51fa23e9cceaa3891283b38a1f424012b4f70b59ee90aca3338",
+      "original_path": "attempts/attempt-01/native-installed-origins.json",
+      "decoded_bytes": 109735,
+      "decoded_sha256": "4045763dbb889f40c72ebdc6c49015e43bf9faafe32283cbb0f66620430018cd",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-01/native-progress.jsonl",
+      "bytes": 306,
+      "sha256": "edfb4ba5711f991511ca7c93c2ef2f8451c77247129d31b041e13b54839141a1"
+    },
+    {
+      "path": "attempts/attempt-01/native-resource-outcome.json",
+      "bytes": 663,
+      "sha256": "ebcb8163b1b4df7e383c5f115dab7f4b45110ccc6ed40fe6c145be69bc6a60de"
+    },
+    {
+      "path": "attempts/attempt-01/native-stderr.log",
+      "bytes": 2750,
+      "sha256": "874c5e823d37558e78b00c13d5862410db4bf2ef52ffcb52936837c2ebe63c36"
+    },
+    {
+      "path": "attempts/attempt-01/native-stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/attempt-01/native_registered_notebook.ipynb.txt.gz",
+      "bytes": 7120,
+      "sha256": "caa48583ff62081bdd506627a10d49b477f29ac8f4ef970885ac980c50604dd5",
+      "original_path": "attempts/attempt-01/native_registered_notebook.ipynb.txt",
+      "decoded_bytes": 30238,
+      "decoded_sha256": "3dc6edd3becb2456480f464ff03791cde63269607e54f72d01cc16d0c2a2f0a2",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-01/ordering_registered_notebook.ipynb.txt.gz",
+      "bytes": 9276,
+      "sha256": "228d3b56ad3f2a682a3f691507ea891bf4c9633fccfa7fdeea25e4a65a203587",
+      "original_path": "attempts/attempt-01/ordering_registered_notebook.ipynb.txt",
+      "decoded_bytes": 46245,
+      "decoded_sha256": "246f3ceefeeac0a28d5cdaeab9757adb1c3634b213024d752b4a9cb081a78f6e",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-01/registered_prescription.md",
+      "bytes": 8153,
+      "sha256": "b2e44aa799d7c04bb8ab348102e6a75d5ff3bd189b1b5709b5b186bffb8a5623"
+    },
+    {
+      "path": "attempts/attempt-01/registration.json",
+      "bytes": 4536,
+      "sha256": "f7931e393e06e05475c6be75a8d9e5b14c5b6d2dafb57fa47e75e546769ecdfe"
+    },
+    {
+      "path": "attempts/attempt-01/supervisor.py.txt",
+      "bytes": 11654,
+      "sha256": "e17b30dd8ac94814df90a9105f138846d9ae722583f5e39a6f620d12dd3856fa"
+    },
+    {
+      "path": "attempts/attempt-01/worker.py.txt",
+      "bytes": 7207,
+      "sha256": "58a72928b26ec39d0c6de16451a89d57bcdfc8519b8dc281f226959b1cbb6c4d"
+    },
+    {
+      "path": "attempts/attempt-02/native/backend_qualification.json.gz",
+      "bytes": 6908,
+      "sha256": "607a629d212d0da2538b27e14a89fe576e0b304c02f939f85d8ed5312bd82043",
+      "original_path": "attempts/attempt-02/native/backend_qualification.json",
+      "decoded_bytes": 24814,
+      "decoded_sha256": "11badc9a11e0738872cd1ab19368f00cb66b2f6c6ce70b350a326e7210bb20cc",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/collection_audit.json.gz",
+      "bytes": 12181,
+      "sha256": "64680d5d5fb6f173481eeb8860fe67583b291633826a04daaca375d2b94de2ae",
+      "original_path": "attempts/attempt-02/native/collection_audit.json",
+      "decoded_bytes": 379888,
+      "decoded_sha256": "4ad975194f13a733ff3de0da42865f6aaf30c0e4ea2026e1b72fc136b5f38f68",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/evaluations.jsonl",
+      "bytes": 3561,
+      "sha256": "7ada3dcfaf42f5cc7aa18d6d053dc64f9a8ed05c4eda05b1c4711ac89f53e092"
+    },
+    {
+      "path": "attempts/attempt-02/native/manifest.json",
+      "bytes": 4670,
+      "sha256": "e0b4c6457440f1819fdfe81beb76792483fbcde461517e0695ec99343241ddd3"
+    },
+    {
+      "path": "attempts/attempt-02/native/observations.json",
+      "bytes": 8416,
+      "sha256": "6cf0f86f1c86fc72484399436f4f419cf717b380a8150b94b43df8e7f7278f26"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_1/vina_audit.json.gz",
+      "bytes": 1463,
+      "sha256": "b0ee3bd36b46a684ed0d623057141a135b3c2c5a6bd2a951387a1181dab2731c",
+      "original_path": "attempts/attempt-02/native/pose_1/vina_audit.json",
+      "decoded_bytes": 36422,
+      "decoded_sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_1/vina_scored_pose.json.gz",
+      "bytes": 55475,
+      "sha256": "0f9a0f73162212a114c9ce4d353aabce168712791612e0b191141fd3e94806d2",
+      "original_path": "attempts/attempt-02/native/pose_1/vina_scored_pose.json",
+      "decoded_bytes": 250185,
+      "decoded_sha256": "9798dd6b488d935eac46be9ea49467816e18c483ff0b93f343bc25a5997f0608",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_1/vinardo_audit.json.gz",
+      "bytes": 2623,
+      "sha256": "e02e872432496ae6509f740b0a1d9eebe46253881d9e58490530337750247501",
+      "original_path": "attempts/attempt-02/native/pose_1/vinardo_audit.json",
+      "decoded_bytes": 72679,
+      "decoded_sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_1/vinardo_scored_pose.json.gz",
+      "bytes": 108566,
+      "sha256": "c9a6f94b24c99e461408d968074d96149e1ecaf732e0f0076eac9853d9895845",
+      "original_path": "attempts/attempt-02/native/pose_1/vinardo_scored_pose.json",
+      "decoded_bytes": 496043,
+      "decoded_sha256": "5a23b13913b7f90c59fac537847473ac67ccc486c36377e766774acf73bd7600",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_2/vina_audit.json.gz",
+      "bytes": 1463,
+      "sha256": "b0ee3bd36b46a684ed0d623057141a135b3c2c5a6bd2a951387a1181dab2731c",
+      "original_path": "attempts/attempt-02/native/pose_2/vina_audit.json",
+      "decoded_bytes": 36422,
+      "decoded_sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_2/vina_scored_pose.json.gz",
+      "bytes": 55470,
+      "sha256": "e022bc0ffb34c2a1aa1387de38684a3d31452f6130eeddf20dff5c1d69d06b49",
+      "original_path": "attempts/attempt-02/native/pose_2/vina_scored_pose.json",
+      "decoded_bytes": 250197,
+      "decoded_sha256": "7991b72b17b47bfe8de4b71d3a9fd4654ab37e63a84f57d29261d0479e596d7f",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_2/vinardo_audit.json.gz",
+      "bytes": 2623,
+      "sha256": "e02e872432496ae6509f740b0a1d9eebe46253881d9e58490530337750247501",
+      "original_path": "attempts/attempt-02/native/pose_2/vinardo_audit.json",
+      "decoded_bytes": 72679,
+      "decoded_sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_2/vinardo_scored_pose.json.gz",
+      "bytes": 108563,
+      "sha256": "801eecd9b5e6c6afbce3c727a6d1474915b8fa36d98c083cfb92ec35db76eccc",
+      "original_path": "attempts/attempt-02/native/pose_2/vinardo_scored_pose.json",
+      "decoded_bytes": 496054,
+      "decoded_sha256": "a70693f1c160c790baa1068ddb6385def7cc2b1e636d52aca5955e9aee6fd2e8",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_3/vina_audit.json.gz",
+      "bytes": 1463,
+      "sha256": "b0ee3bd36b46a684ed0d623057141a135b3c2c5a6bd2a951387a1181dab2731c",
+      "original_path": "attempts/attempt-02/native/pose_3/vina_audit.json",
+      "decoded_bytes": 36422,
+      "decoded_sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_3/vina_scored_pose.json.gz",
+      "bytes": 55482,
+      "sha256": "5e3ca24e90b2761d5f9fa9bd03777cac2810fb89cdf72d8292cb7cd19dff4a4d",
+      "original_path": "attempts/attempt-02/native/pose_3/vina_scored_pose.json",
+      "decoded_bytes": 250027,
+      "decoded_sha256": "c5776b1e076677cda31380184cfb43071f64e9fbe0ef75ba7006e4de9ed2502d",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_3/vinardo_audit.json.gz",
+      "bytes": 2623,
+      "sha256": "e02e872432496ae6509f740b0a1d9eebe46253881d9e58490530337750247501",
+      "original_path": "attempts/attempt-02/native/pose_3/vinardo_audit.json",
+      "decoded_bytes": 72679,
+      "decoded_sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_3/vinardo_scored_pose.json.gz",
+      "bytes": 108598,
+      "sha256": "105c6720f105e5229eb6020037f3dc79f826641b71c993ae673a4a4f48d36a79",
+      "original_path": "attempts/attempt-02/native/pose_3/vinardo_scored_pose.json",
+      "decoded_bytes": 495884,
+      "decoded_sha256": "7ec6e071b112232a31ae5f2ade5ea5872118eada066c438eb9004d6ae4f51eca",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_4/vina_audit.json.gz",
+      "bytes": 1463,
+      "sha256": "b0ee3bd36b46a684ed0d623057141a135b3c2c5a6bd2a951387a1181dab2731c",
+      "original_path": "attempts/attempt-02/native/pose_4/vina_audit.json",
+      "decoded_bytes": 36422,
+      "decoded_sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_4/vina_scored_pose.json.gz",
+      "bytes": 55477,
+      "sha256": "14a261b765c632e39e4bb95afffe01c11662b239ea8a02573a9f10c26d74146b",
+      "original_path": "attempts/attempt-02/native/pose_4/vina_scored_pose.json",
+      "decoded_bytes": 250068,
+      "decoded_sha256": "45267d8ca74f77c53fbb18787d25c3db9d5e807336c7a97c0f26c38319751477",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_4/vinardo_audit.json.gz",
+      "bytes": 2623,
+      "sha256": "e02e872432496ae6509f740b0a1d9eebe46253881d9e58490530337750247501",
+      "original_path": "attempts/attempt-02/native/pose_4/vinardo_audit.json",
+      "decoded_bytes": 72679,
+      "decoded_sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_4/vinardo_scored_pose.json.gz",
+      "bytes": 108576,
+      "sha256": "dd32fc40876df82e2dfa1eafe5456ee9bace4972c04105e8aaf2945bb6261c61",
+      "original_path": "attempts/attempt-02/native/pose_4/vinardo_scored_pose.json",
+      "decoded_bytes": 495925,
+      "decoded_sha256": "5053f6cd4bd1ce39897471c7d271e9b7f90faa30028598f9d0f6e2e198a91620",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_5/vina_audit.json.gz",
+      "bytes": 1463,
+      "sha256": "b0ee3bd36b46a684ed0d623057141a135b3c2c5a6bd2a951387a1181dab2731c",
+      "original_path": "attempts/attempt-02/native/pose_5/vina_audit.json",
+      "decoded_bytes": 36422,
+      "decoded_sha256": "b08f1e6d16354c75ea1d6515c8cdb879a595ccc58da4ed6ad03edc6014734244",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_5/vina_scored_pose.json.gz",
+      "bytes": 55464,
+      "sha256": "eafb995cda3d6a1f9b54addf69de741415ff67806dfced6643930e267c0f8892",
+      "original_path": "attempts/attempt-02/native/pose_5/vina_scored_pose.json",
+      "decoded_bytes": 250031,
+      "decoded_sha256": "8b710be92eaa64bc308feb49b976ae82b817c5b54618d28d815396325b93b9ba",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_5/vinardo_audit.json.gz",
+      "bytes": 2623,
+      "sha256": "e02e872432496ae6509f740b0a1d9eebe46253881d9e58490530337750247501",
+      "original_path": "attempts/attempt-02/native/pose_5/vinardo_audit.json",
+      "decoded_bytes": 72679,
+      "decoded_sha256": "9056681a2d96fde1a973ca88c621c9a109c8f43a952282b534cd868ca314c6f3",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/pose_5/vinardo_scored_pose.json.gz",
+      "bytes": 108563,
+      "sha256": "b2ec91c2f2d94794a83e111c074f9455f72aaf63d618a67b705aa96fbbaca20a",
+      "original_path": "attempts/attempt-02/native/pose_5/vinardo_scored_pose.json",
+      "decoded_bytes": 495887,
+      "decoded_sha256": "f66648730a118f9e023d586ef5112a922ce0881e3f7ef270a55a12ea45671e18",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/ranking_refusals.json",
+      "bytes": 520,
+      "sha256": "2add3da057e6e2d452127794c65d99ca74a1bd1dc4d59a2125c2d5a572396dab"
+    },
+    {
+      "path": "attempts/attempt-02/native/receipt.json.gz",
+      "bytes": 8774,
+      "sha256": "a1e8bf7efc02af1b4a47dfa67e2bba806a259489c1c0cafa054e121319e93ed7",
+      "original_path": "attempts/attempt-02/native/receipt.json",
+      "decoded_bytes": 35168,
+      "decoded_sha256": "eeecaac69f4ba4aa7dd7efa481d18b1307260d13f453b55f549345e21b33287f",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/scored_collection.json.gz",
+      "bytes": 541078,
+      "sha256": "cd01bcdf2855d7645cf142d4ed41b831cd48ec0bcfeb23f16d985ed63e988f68",
+      "original_path": "attempts/attempt-02/native/scored_collection.json",
+      "decoded_bytes": 2517830,
+      "decoded_sha256": "29c8b0a2414f1cc2af50eae2df506b952206e79140fccb730a9b8bb0f2f57e5a",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native/source_regression.json",
+      "bytes": 1294,
+      "sha256": "2a97cfb5d38f5892a661bcc9f4a1eaccff8fc889909c966663f7fc1484f4c501"
+    },
+    {
+      "path": "attempts/attempt-02/native-installed-origins.json.gz",
+      "bytes": 304648,
+      "sha256": "3b81d19a3233f4210d146b30d2bedff53970280fbd8b3b690a9bbf803124c287",
+      "original_path": "attempts/attempt-02/native-installed-origins.json",
+      "decoded_bytes": 3239195,
+      "decoded_sha256": "a03062c4ea41cecffb2e5d61ad0c1ea1480b7c3dfb17e79823cfe1fd65a6c32f",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/native-progress.jsonl",
+      "bytes": 1845,
+      "sha256": "2ff3f40678604bd7ee0bea64abb50ddba9956c1838fbc1152f958b45af099c7d"
+    },
+    {
+      "path": "attempts/attempt-02/native-resource-outcome.json",
+      "bytes": 665,
+      "sha256": "045b3466096e433fea77b913301b252216cf3b2453a14a3a66cec5c9cf37079c"
+    },
+    {
+      "path": "attempts/attempt-02/native-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/attempt-02/native-stdout.log",
+      "bytes": 79,
+      "sha256": "70607cea96834e02ebff7603bb1df1f3dcf4bed4f8abe06f1c77ab6bb8bea32f"
+    },
+    {
+      "path": "attempts/attempt-02/native_registered_notebook.ipynb.txt.gz",
+      "bytes": 7120,
+      "sha256": "caa48583ff62081bdd506627a10d49b477f29ac8f4ef970885ac980c50604dd5",
+      "original_path": "attempts/attempt-02/native_registered_notebook.ipynb.txt",
+      "decoded_bytes": 30238,
+      "decoded_sha256": "3dc6edd3becb2456480f464ff03791cde63269607e54f72d01cc16d0c2a2f0a2",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/admissions.jsonl",
+      "bytes": 18128,
+      "sha256": "104f54dd8ee165f77b5f1849474a7ea50c93b7f095c8eccd68e1f22924bead92"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/normal/refusals.json",
+      "bytes": 7546,
+      "sha256": "30a70e5d56082b34b115a2ec162825c81808bfcb6177c74e463d945f806379a5"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/normal/strict_rank_by_refusals.json",
+      "bytes": 517,
+      "sha256": "a77168394d234364ac17d0b78db21f034388e2d6153264c3d76a2da62d8ba548"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/normal/synthetic_ties.json",
+      "bytes": 795,
+      "sha256": "a7645e685b229bbe1e129c1c7ea23ceaf2bce30ff812cf78a73b483bd88233d9"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/normal/vina_component_order.json.gz",
+      "bytes": 15045,
+      "sha256": "b4953969114ffbd283bbcac4829a91a1c18c2c16fa42b3ab7240333292ba5110",
+      "original_path": "attempts/attempt-02/ordering/normal/vina_component_order.json",
+      "decoded_bytes": 179138,
+      "decoded_sha256": "faa61b7a8478faaa136a025aa673989c8fafc0c34a0bc2665581ff6c8602a2da",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/normal/vinardo_component_order.json.gz",
+      "bytes": 14975,
+      "sha256": "5cad130d5564ff3a7d7d03301bce84a5a47fb762765bf2432e4adeea070c77ed",
+      "original_path": "attempts/attempt-02/ordering/normal/vinardo_component_order.json",
+      "decoded_bytes": 178979,
+      "decoded_sha256": "f0f3ebfbf08b041839e89bca589240663eba198ccc327de1068a2140ceb5c178",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/pm_fs/refusals.json",
+      "bytes": 7546,
+      "sha256": "30a70e5d56082b34b115a2ec162825c81808bfcb6177c74e463d945f806379a5"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/pm_fs/strict_rank_by_refusals.json",
+      "bytes": 517,
+      "sha256": "a77168394d234364ac17d0b78db21f034388e2d6153264c3d76a2da62d8ba548"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/pm_fs/synthetic_ties.json",
+      "bytes": 795,
+      "sha256": "a7645e685b229bbe1e129c1c7ea23ceaf2bce30ff812cf78a73b483bd88233d9"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/pm_fs/vina_component_order.json.gz",
+      "bytes": 15045,
+      "sha256": "b4953969114ffbd283bbcac4829a91a1c18c2c16fa42b3ab7240333292ba5110",
+      "original_path": "attempts/attempt-02/ordering/pm_fs/vina_component_order.json",
+      "decoded_bytes": 179138,
+      "decoded_sha256": "faa61b7a8478faaa136a025aa673989c8fafc0c34a0bc2665581ff6c8602a2da",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/pm_fs/vinardo_component_order.json.gz",
+      "bytes": 14975,
+      "sha256": "5cad130d5564ff3a7d7d03301bce84a5a47fb762765bf2432e4adeea070c77ed",
+      "original_path": "attempts/attempt-02/ordering/pm_fs/vinardo_component_order.json",
+      "decoded_bytes": 178979,
+      "decoded_sha256": "f0f3ebfbf08b041839e89bca589240663eba198ccc327de1068a2140ceb5c178",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/ordering/receipt.json",
+      "bytes": 2530,
+      "sha256": "dc83d8fe7a08c385142a70d811130b6739673e0be44334bbc5a3dcd81a70a4f7"
+    },
+    {
+      "path": "attempts/attempt-02/ordering-installed-origins.json.gz",
+      "bytes": 124301,
+      "sha256": "307a81fc9f3edbc854824aca950794f82aad408d4a238d3fc1edef11fe946190",
+      "original_path": "attempts/attempt-02/ordering-installed-origins.json",
+      "decoded_bytes": 1239336,
+      "decoded_sha256": "32a250815164299f651f373c5c00a602d06fca1f46e6751e6b7552ca7625e9cc",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/ordering-progress.jsonl",
+      "bytes": 1367,
+      "sha256": "ab2b0870ebcf83313770da96aa0ee6705a3fbd7720ada498340f057dca208022"
+    },
+    {
+      "path": "attempts/attempt-02/ordering-resource-outcome.json",
+      "bytes": 664,
+      "sha256": "00fdbb8f5a961c92c4113f64da5ff739225187e77166e0132173e996f0a5fe32"
+    },
+    {
+      "path": "attempts/attempt-02/ordering-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/attempt-02/ordering-stdout.log",
+      "bytes": 129,
+      "sha256": "d32bb54fc003694770fa34f37bb8eed41f374fa7619e3cb7e8c3d729bc3b0b81"
+    },
+    {
+      "path": "attempts/attempt-02/ordering_registered_notebook.ipynb.txt.gz",
+      "bytes": 9276,
+      "sha256": "228d3b56ad3f2a682a3f691507ea891bf4c9633fccfa7fdeea25e4a65a203587",
+      "original_path": "attempts/attempt-02/ordering_registered_notebook.ipynb.txt",
+      "decoded_bytes": 46245,
+      "decoded_sha256": "246f3ceefeeac0a28d5cdaeab9757adb1c3634b213024d752b4a9cb081a78f6e",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "attempts/attempt-02/reader-registration.json",
+      "bytes": 1470,
+      "sha256": "ae45e63334c517f0d8c26c6442a37cdde0ce88b2819ba0392ded578c6921679c"
+    },
+    {
+      "path": "attempts/attempt-02/registered_prescription.md",
+      "bytes": 9599,
+      "sha256": "0b0f0bbcb6524fe164f846d3acd88f3d95a2fe37e195ff37bcb9d41cbe720c52"
+    },
+    {
+      "path": "attempts/attempt-02/registration.json",
+      "bytes": 4536,
+      "sha256": "cea584f422b8d05f4aa4830400e46f0bc5532fe0045fcb624bd34c433c26f0c9"
+    },
+    {
+      "path": "attempts/attempt-02/supervisor.py.txt",
+      "bytes": 11689,
+      "sha256": "2dbbb2201dd38fc6ab341313e1ed78a68dfc74ba2696e6c069d27ebb949fbb88"
+    },
+    {
+      "path": "attempts/attempt-02/worker.py.txt",
+      "bytes": 8599,
+      "sha256": "f29fcec54b756e103db980dc2382f559bbbab2a818325b92e0612f96e7b488c8"
+    },
+    {
+      "path": "attempts/attempt-02/workflow-receipt.json",
+      "bytes": 2153,
+      "sha256": "78ea0ec40a6346e5b9c076e49f96edfc245dde37b76eb160f13cb4caaa2c7581"
+    },
+    {
+      "path": "installation/logs/build-ackredit.log",
+      "bytes": 20798,
+      "sha256": "839dba13c51efd4b5a36fd8f5b670116a160ac4b1627756cc34bed8c98e61abf"
+    },
+    {
+      "path": "installation/logs/build-argdigest.log",
+      "bytes": 10799,
+      "sha256": "bf7cca71025aff292ed32a0c599a3b9761481ef1e7b6f7d76f3542dd02c1104b"
+    },
+    {
+      "path": "installation/logs/build-depdigest.log",
+      "bytes": 6079,
+      "sha256": "68c3f4ca8a2cfa95265a794d8c5b9ec2e039f2bf1cec0e4a17ef00a327918cc1"
+    },
+    {
+      "path": "installation/logs/build-dockingmt.log",
+      "bytes": 17135,
+      "sha256": "00a87f429b47c90c5236f413c92f4e1cf58fb635f837ebfee4c889b6ce0dc225"
+    },
+    {
+      "path": "installation/logs/build-molsysmt.log.gz",
+      "bytes": 24224,
+      "sha256": "cc090def05c6e7c5087e549cc0ceaadc4b9dbad27087e5bd741333aa3225ae2b",
+      "original_path": "installation/logs/build-molsysmt.log",
+      "decoded_bytes": 445760,
+      "decoded_sha256": "3128d74da521223c970326c61e28e4a8f6a12da38aa3500f5e9f3be7936092a4",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "installation/logs/build-pyunitwizard.log.gz",
+      "bytes": 2656,
+      "sha256": "b236e0a314cde6a1428b45a488c81601216f184f5b50c8e25bf3c755ec4ea883",
+      "original_path": "installation/logs/build-pyunitwizard.log",
+      "decoded_bytes": 28124,
+      "decoded_sha256": "9057953436ce830e4f60d43d7388b7d7671a3aff3d11ea3500054818af856df5",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "installation/logs/build-smonitor.log",
+      "bytes": 11209,
+      "sha256": "ce7ac80ef9773456312e327843aabdaa8681bde7b78297c5ae6d56bf4a49ac5c"
+    },
+    {
+      "path": "installation/logs/checkout-ackredit.log",
+      "bytes": 96,
+      "sha256": "12ac03d032c31cc6a352a98a814e5f13021d296125fb15ff676b4561706c3681"
+    },
+    {
+      "path": "installation/logs/checkout-argdigest.log",
+      "bytes": 67,
+      "sha256": "2c4eafb61bcde34c91f386d8a6bd1b49b9544bab690b2976d0b8bcbb5001f72c"
+    },
+    {
+      "path": "installation/logs/checkout-depdigest.log",
+      "bytes": 80,
+      "sha256": "34fa5512c30fa099c7526ce1897bfae50a33e38fbafd799d4d5e3c3aa243cabd"
+    },
+    {
+      "path": "installation/logs/checkout-dockingmt.log",
+      "bytes": 76,
+      "sha256": "9269ff6197ce01b08f522814907b0f68f040eb572f0572540942a65e30343516"
+    },
+    {
+      "path": "installation/logs/checkout-molsysmt.log",
+      "bytes": 74,
+      "sha256": "f57e665c93655fc76ae77dffd208879a845cdb2d793e78d2628360538f6ade9f"
+    },
+    {
+      "path": "installation/logs/checkout-pyunitwizard.log",
+      "bytes": 72,
+      "sha256": "9e86c9b9371bcb2ae5479680ac0a10b809f755156a6ba36a93176eec0a4a56bf"
+    },
+    {
+      "path": "installation/logs/checkout-smonitor.log",
+      "bytes": 93,
+      "sha256": "2f61cf3ed03eecd9f946db8c5d24eefb62789d1d583dc9f4dae816084494091d"
+    },
+    {
+      "path": "installation/logs/clone-ackredit.log",
+      "bytes": 76,
+      "sha256": "00e886090c6387bfa74b2c96db7a97030b2402a14f33b78406f065a79efbc4ed"
+    },
+    {
+      "path": "installation/logs/clone-argdigest.log",
+      "bytes": 77,
+      "sha256": "057f54a62d6bab8bfe56c0b8fd93e20d43640ac5715d96f6093a72a8d6156695"
+    },
+    {
+      "path": "installation/logs/clone-depdigest.log",
+      "bytes": 77,
+      "sha256": "022e8772f8d5c20bb6b3cbaf98d7fd20910c5cea9dbf8066d4c6b32a878917e1"
+    },
+    {
+      "path": "installation/logs/clone-dockingmt.log",
+      "bytes": 77,
+      "sha256": "1323698d1d84bd7493604e76aec8b11e4cdabd7672e6d8e0e3bebf6b0d85a790"
+    },
+    {
+      "path": "installation/logs/clone-molsysmt.log",
+      "bytes": 76,
+      "sha256": "a50d2253cbb60b4bdad8244df8fe7a670f31fd2feb4c832212435fac034ec3fb"
+    },
+    {
+      "path": "installation/logs/clone-pyunitwizard.log",
+      "bytes": 80,
+      "sha256": "88fef63716d35ee82f65de34b5b38230424ef9f6a9b9fca34ece2327da284c67"
+    },
+    {
+      "path": "installation/logs/clone-smonitor.log",
+      "bytes": 76,
+      "sha256": "5fa2456734c1ebf6669e8cf6b56cc2fd999042f6f24978043f203a7e73998321"
+    },
+    {
+      "path": "installation/logs/install-private-wheels.log",
+      "bytes": 1226,
+      "sha256": "f9d3eb865990ff2a6ec351f44aab5a149cc1744754bcb612c66e416186f43c11"
+    },
+    {
+      "path": "installation/pip-install-report.json.gz",
+      "bytes": 23280,
+      "sha256": "5b3b10a9d7a353340cad5c3850866c9ac878a215fa087f4a715e939dcc3bdc7f",
+      "original_path": "installation/pip-install-report.json",
+      "decoded_bytes": 77557,
+      "decoded_sha256": "ad4bad0b2e09e4e8e4f6f00c930a89916269c075c9e550cb95e5dc2bd5127464",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "installation/preparation-amendment.json.gz",
+      "bytes": 409172,
+      "sha256": "312508daa0280447c515681a68b9a1e5dc6ea7d6577ebd93528117d4d562fcda",
+      "original_path": "installation/preparation-amendment.json",
+      "decoded_bytes": 2863482,
+      "decoded_sha256": "03d39a77b0327e21c790a3470cb0c50e3cc8f76ff4c8a60bb85b43c761dd4af1",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "installation/preparation.json.gz",
+      "bytes": 36542,
+      "sha256": "0278e78dc23b665560c1819711b147b09d36ec1b1a25ad4096b34de3ceaf5072",
+      "original_path": "installation/preparation.json",
+      "decoded_bytes": 149714,
+      "decoded_sha256": "34160ee941b8280c9c7d7518aa3594b889ef27fef8f3688407a5b9184e6773ca",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "installation/prepare_installed.py.txt",
+      "bytes": 15696,
+      "sha256": "fb95e48c565b1acaf7940c790e1a27f141bce118a9914e49b453e481a31a3015"
+    },
+    {
+      "path": "installation/snapshot_borrowed_provider.py.txt",
+      "bytes": 8398,
+      "sha256": "0faff98126552ea2cb2f112742d84f10e08c41828c478d30f8a89194f6000110"
+    },
+    {
+      "path": "installation/sources/ackredit.json.gz",
+      "bytes": 40951,
+      "sha256": "26bda319d47f7185fac7cd5a5d15d78baa0705fec75d25c1e961e72837f4e80b",
+      "original_path": "installation/sources/ackredit.json",
+      "decoded_bytes": 124910,
+      "decoded_sha256": "76dd89827b7c2f5fd04bc0a401675b7ce9b4dd27c01dfcc282f86468c66e46dd",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "installation/sources/argdigest.json.gz",
+      "bytes": 32591,
+      "sha256": "410ed1e7f5a194b0260939a2984fcf92f6ce83a2665122e8bdce3adb3064e265",
+      "original_path": "installation/sources/argdigest.json",
+      "decoded_bytes": 101903,
+      "decoded_sha256": "584ad810afdd26a5d28ce2edafb85031d9c8f846cd4e477a521e9a042875f75c",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "installation/sources/depdigest.json.gz",
+      "bytes": 20728,
+      "sha256": "1b5846700670abd22b88670ade1e1b677d4380ebcfd23ac1520ce48c2c942545",
+      "original_path": "installation/sources/depdigest.json",
+      "decoded_bytes": 61748,
+      "decoded_sha256": "277a7876b05e720b3de0ea1a01eb8553bf4ecdcde3ef63c4aaccc622dc632ea9",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "installation/sources/dockingmt.json.gz",
+      "bytes": 97489,
+      "sha256": "7157ee02b11130630d55ef460936b0da8746efdb452d27a9efbe0cfda4edfc98",
+      "original_path": "installation/sources/dockingmt.json",
+      "decoded_bytes": 327623,
+      "decoded_sha256": "6a5d8169c9040a474b09ec6d777c7821c972b2c73cece403424266a311426cfa",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "installation/sources/molsysmt.json.gz",
+      "bytes": 640021,
+      "sha256": "3a64ac1ccfd1f2d73ee8c07bcc1d227ce3990c866f4a5a7662ff94008e48358d",
+      "original_path": "installation/sources/molsysmt.json",
+      "decoded_bytes": 2198509,
+      "decoded_sha256": "3b1442e5a57ed5a724f54391d75a61754816ea3fb14676a6dd360a82236030f5",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "installation/sources/pyunitwizard.json.gz",
+      "bytes": 48649,
+      "sha256": "36856a6553ef0175a1283f670a0ed01e75be216185435e02a9dda1bf941dfe35",
+      "original_path": "installation/sources/pyunitwizard.json",
+      "decoded_bytes": 149111,
+      "decoded_sha256": "c96dc10b4437ca23b42199ad56ca16c4e24419fd22478abf58c46b339d4f2921",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "installation/sources/smonitor.json.gz",
+      "bytes": 28037,
+      "sha256": "eb2f3c4202454c28eaba3a1571bca6b73c1fb4b05fe6f3b01392f6a813af1989",
+      "original_path": "installation/sources/smonitor.json",
+      "decoded_bytes": 83231,
+      "decoded_sha256": "1e6fee26aaebaec23d1e34a14fd9a0f57f8b52fef9cf6db8052eaf0b58801446",
+      "transport": "gzip only; exact original output retained"
+    },
+    {
+      "path": "registered_prescription.md",
+      "bytes": 8153,
+      "sha256": "b2e44aa799d7c04bb8ab348102e6a75d5ff3bd189b1b5709b5b186bffb8a5623"
+    },
+    {
+      "path": "registration.json",
+      "bytes": 4536,
+      "sha256": "f7931e393e06e05475c6be75a8d9e5b14c5b6d2dafb57fa47e75e546769ecdfe"
+    }
+  ],
+  "notebooks": {
+    "e1_installed_rescoring.ipynb": "3dc6edd3becb2456480f464ff03791cde63269607e54f72d01cc16d0c2a2f0a2",
+    "e1_installed_ordering.ipynb": "246f3ceefeeac0a28d5cdaeab9757adb1c3634b213024d752b4a9cb081a78f6e"
+  },
+  "claim": "Private installed DockingMT workflow with borrowed provider snapshot/native dependencies, finite regression and fresh JSON reader; no standalone/public closure or whole E1."
+}
