@@ -6,7 +6,9 @@ The roadmap defines direction and gates, not dates.
 
 The accepted target is complete **Core C0–C6 plus Extended E1–E5**, bounded
 scientific qualification, independent reproduction and public installation at
-prospective **0.5.0**. Stabilization at 0.9.0 and the later 1.0.0 decision follow.
+prospective **0.5.0**. Stabilization spans the ordinary 0.x.0 releases actually
+needed, followed by the 1.0.0 readiness decision; [DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+removes a mandatory 0.9.0 endpoint.
 The [full evidence map](PRE_STABILIZATION_PLAN.md),
 [Core acceptance map](CORE_MVP_STATUS.md) and
 [release ladder](RELEASE_MILESTONES.md) define completion; an API, notebook or
@@ -23,7 +25,7 @@ qualify a private artifact as a public package.
 | Work | Established boundary | Next action / owner |
 | --- | --- | --- |
 | E4 interactions | One installed 3PTB workflow at `5952053` passes normal/pm-fs, twelve provider detector calls, persistence/filtering and two fresh readers. Original failures remain; whole E4 is partial. | [#80](pending_proposals/receive_docking_interaction_analysis.md): admit the saved provider analyses in the result/addon layer without hidden recalculation. The analysis includes five added H; do not assume its atom/frame axes equal the existing docking scene. Use provider-supported correspondence/composition and qualify it. |
-| E1 rescoring/ranking | The [rigid two-pose receiving](validation/e1_rigid_continuity_2026-11-07.md) completes original-result reconstruction, preparation, additive Vina/Vinardo evaluations and public component comparisons using the unchanged user example. Eight old values/ranks/history survive with 32 added values; all original members and informative controls pass. | [#78](pending_proposals/qualify_same_state_rescoring.md): finish the bounded acceptance/disposition review. Preserve the failed generation qualification and unreached original live checks, previous incomplete populations and private dependency limits. No further search is needed for that review; whole E1 and public delivery retain separate gates. |
+| E1 rescoring/ranking | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07): the complete two-pose rigid public route receives original-result reconstruction, preparation, additive Vina/Vinardo evaluations, separate interaction comparisons and independent persistence. Original records and all informative controls survive. | Preserve that bounded contract and the failed original generator qualification. Advance [#81](pending_proposals/qualify_small_ligand_collection.md) distinct-ligand admission; broad E1, total/reference ordering, scientific validity and public delivery keep separate gates. |
 | E2 ligand collections | Serial prepared execution and detached outcomes exist; they do not establish a multi-ligand study or cross-ligand ranking. | [#81](pending_proposals/qualify_small_ligand_collection.md): admit actual distinct ligands/states and a study-level comparison policy. Preserve original scores, failure denominators and strict `rank_by`. |
 | E3 comparison/clustering | Existing metrics are reusable; the bounded pairwise/clustering workflow is not qualified. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md): receive MolSysMT #604's supported composition or tools; no downstream molecular algorithm. |
 | Remaining Core, scientific panel and E5 | Declared 3PTB preparation/execution/inspection/evaluation and bounded controls exist; they do not establish general chemistry, a qualified independent panel or a whole independent-workflow audit. | #4/#28/#33/#49 and the full evidence map retain the remaining criteria. Receive provider-owned template/reconstruction/partial-input needs and register new scientific populations before execution. |
@@ -236,7 +238,7 @@ matrix or whole-E1 acceptance. Next receive current hosted regression in #28;
 a multi-pose rescoring/ranking study still needs a separately declared scientific
 comparison/preparation contract and MolSysMT-owned molecular tools.
 
-[#78](pending_proposals/qualify_same_state_rescoring.md) now supplies that owned
+[#78](archive/qualify_same_state_rescoring.md) now supplies that owned
 workflow. Its first [reference-evidence slice](validation/scoring_reference.md)
 records the executed fixed-score convention and crosschecks its native component,
 preserving legacy reports and strict comparison refusal. Projection/identity

@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (55)
+### Resolved (56)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_result_scoring_stages.md`](audit_result_scoring_stages.md) — [#76](https://github.com/uibcdf/dockingmt/issues/76) — Attribute per-pose scoring histories correctly inside saved result audits. *(resolved, measured)*
@@ -37,6 +37,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`prepare_new_machine_handoff.md`](prepare_new_machine_handoff.md) — [#82](https://github.com/uibcdf/dockingmt/issues/82) — Make the developer guide a coherent onboarding and new-machine handoff. *(resolved, measured)*
 - [`qualify_exact_input_vina_fidelity.md`](qualify_exact_input_vina_fidelity.md) — [#62](https://github.com/uibcdf/dockingmt/issues/62) — Qualify exact-input adapter/direct Vina fidelity with a bounded control. *(resolved, measured)*
 - [`qualify_molecular_variant_copy.md`](qualify_molecular_variant_copy.md) — [#51](https://github.com/uibcdf/dockingmt/issues/51) — Qualify molecular variants against the delivered native copy contract. *(resolved, measured)*
+- [`qualify_same_state_rescoring.md`](qualify_same_state_rescoring.md) — [#78](https://github.com/uibcdf/dockingmt/issues/78) — Qualify same-state multi-pose rescoring with explicit reference and comparison evidence. *(resolved, measured)*
 - [`receptor_pdbqt_atom_name_overflow.md`](receptor_pdbqt_atom_name_overflow.md) — [#44](https://github.com/uibcdf/dockingmt/issues/44) — Reject receptor atom names that overflow fixed PDBQT columns *(resolved, measured)*
 - [`recover_saved_human_case.md`](recover_saved_human_case.md) — [#58](https://github.com/uibcdf/dockingmt/issues/58) — Recover the saved 3PTB human result from verified linked evidence *(resolved, measured)*
 - [`reject_changed_prepared_recovery.md`](reject_changed_prepared_recovery.md) — [#57](https://github.com/uibcdf/dockingmt/issues/57) — Reject changed prepared inputs during saved-result recovery *(resolved, measured)*

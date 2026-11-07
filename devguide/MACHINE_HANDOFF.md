@@ -9,6 +9,40 @@ Read [development/onboarding](DEVELOPMENT.md) for setup and code navigation.
 [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) owns the full product
 requirements; this file explains how to resume without recovering chat history.
 
+## Current development checkpoint — 2026-11-07
+
+The maintainer has resumed the complete plan and requires `devguide/` to be
+updated with every increment. The objective remains active and unproven.
+Read this checkpoint, the current operational roadmap and owning report before
+resuming; earlier dated "next" statements below retain their historical scope.
+
+- **E1:** [#78 bounded resolution](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07)
+  accepts complete-source rigid prepared13 original-result continuity and
+  Vina/Vinardo 1.2.7 method-local `lig_inter` reports. Both actual original poses,
+  eight old/32 new scalar values, native controls and fresh saved receiving pass.
+  Original `generation-01` stays failed; its later live checks stay unreceived.
+- **Versions:** [DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+  retains the complete pre-stable functional objective and permits the 0.x.0
+  increments actually needed for stabilization. Neither 0.9.0 nor illustrative
+  0.23.0 is a required or selected last pre-1.0 release. Fixed 0.1.0 stays fixed.
+- **Next:** [#81](pending_proposals/qualify_small_ligand_collection.md) owns actual
+  distinct-ligand source/state/preparation admission and study comparison.
+  Start with records and provider contracts; no E2 dataset/native budget is
+  admitted merely by this checkpoint. Use existing serial `dock_many`.
+- **Evidence:** previous published native/record checkpoint is `d44cfa2`;
+  consumer wheel remains `a7422df`, SHA-256
+  `93d76f898575fb64b39520f33ceded25708270c8042c2a53c9a451acd834bcdd`.
+  This closeout adds no molecular/native calculation or runtime change.
+- **Checks and limits:** 55 current comparison/lifecycle software guards pass. Final
+  index/link/archive/resource/publication checks apply to this increment,
+  including a fresh committed-source export.
+  Exact-head hosted evidence remains deferred under #28 and `[skip ci]`;
+  no manual CI is dispatched. #30/#47 public delivery, scientific-panel
+  admission and the E4/live-visual holds remain separate.
+- **Custody:** `.molsyssuite/e1-acceptance-20261107` holds the closeout work;
+  prior private targets/archives and the original untracked migration snapshot
+  are preserved. #50 resource review is due 2026-11-14.
+
 ## Verified development checkpoint
 
 | Boundary | Evidence / disposition |
@@ -143,7 +177,7 @@ records. Whole E1, public delivery, hosted gates and the E4 hold stay separate.
 | Work | Next meaningful action | Owner / limits |
 | --- | --- | --- |
 | E4 structured consumer/addon admission | Bind saved provider analyses to the actual original pose/result and declared axes; preserve coverage, methods, units and provenance without recalculation. | [#80](pending_proposals/receive_docking_interaction_analysis.md). Whole E4 stays partial. |
-| E1 representative rescoring | Review the now received rigid two-pose public continuity/comparison profile for bounded acceptance; preserve the failed original generation qualification and its unreached live checks. No new native calculation is required for that review. | [#78](pending_proposals/qualify_same_state_rescoring.md). Whole E1, provider-wide #599/#447 and public delivery remain separate; preserve strict ranking and original producers. |
+| E1 representative rescoring | Preserve the resolved bounded same-state contract and its original successful/failed evidence; the next independent study is E2 admission. | [#78 archived](archive/qualify_same_state_rescoring.md). Whole E1, provider-wide #599/#447 and public delivery remain separate; preserve strict ranking and original producers. |
 | E2 distinct-ligand study | Admit actual sources/states and study comparison conditions before API expansion/calculation. | [#81](pending_proposals/qualify_small_ligand_collection.md). Reuse serial `dock_many`; no generic campaign framework. |
 | E3 comparison/clustering | Receive the supported provider composition/tools before implementation. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md), MolSysMT [#604](https://github.com/uibcdf/molsysmt/issues/604). No local molecular clustering/matching. |
 | Scientific panel | Resolve source/state/environment/template/reconstruction admission before searches. | [Panel admission](validation/scientific_panel_admission_2026-11-04.md) and [environment](validation/scientific_panel_environment_2026-11-04.md) retain #33/#49 and MolSysMT #555–#558. Proposed candidates are not admitted complexes. |

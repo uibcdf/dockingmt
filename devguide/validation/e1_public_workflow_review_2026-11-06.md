@@ -8,7 +8,7 @@ It performs no new molecular operations, scores, searches or user study.
 
 ## Acceptance against the owning criteria
 
-The five criteria in the [owning record](../pending_proposals/qualify_same_state_rescoring.md#acceptance-criteria)
+The five criteria in the [owning record](../archive/qualify_same_state_rescoring.md#acceptance-criteria)
 retain their original meaning. Receipt of a technical slice does not silently
 reduce the intended functional workflow.
 

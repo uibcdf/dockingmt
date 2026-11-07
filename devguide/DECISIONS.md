@@ -806,3 +806,30 @@ property, reconstructs no molecule and establishes no cross-pose comparison
 permission. Molecular projection/identity remain MolSysMT-owned. A future common
 or supplied reference policy needs a separate justified execution/API contract;
 the current slice does not add one or complete E1.
+
+---
+
+## DMT-048 — Let pre-1.0 versions follow verified progress
+
+**Status:** Accepted by the maintainer, 2026-11-07; tracked in
+[#73](https://github.com/uibcdf/dockingmt/issues/73).
+
+**Decision:** Keep the complete Core C0–C6 plus Extended E1–E5 functional,
+scientific, independent-reproduction and public-delivery objective before the
+stable 1.0.0 decision. Stabilize through as many ordinary `0.x.0` releases as
+the actual work requires. There is no mandatory `0.9.0` final pre-1.0 release;
+`0.23.0` is an illustration, not a selected candidate. The prospective `0.5.0`
+functional milestone is planning context, not a deadline that can waive a gate.
+Reviewed increments and evidence determine concrete version identities.
+
+**Relationship:** This amends the numeric stabilization assumption in DMT-046
+and the original release ladder, preserving DMT-045's complete scope, actual
+candidate/publication gates, the fixed private `0.1.0` candidate `905abc9`, and
+all original producers. Later scientific horizons still need concrete accepted
+workflows and provider contracts before implementation.
+
+**Working checkpoint:** The maintainer also requires every increment to update
+the applicable developer-guide contracts, evidence, current state and next
+action. Root and local contributor instructions implement this durable action.
+The maintained plan and checkpoints are the resumption authority; a successful
+helper, a planning document or a skipped CI run cannot establish completion.

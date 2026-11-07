@@ -9,10 +9,14 @@ implementing its full ontology or scientific horizons. Start with
 [complete requirement/evidence plan](PRE_STABILIZATION_PLAN.md).
 
 The accepted target is Core C0–C6 plus Extended E1–E5 in the prospective 0.5.0
-functional milestone, followed by stabilization and the later 1.0.0 decision.
+functional milestone, followed by stabilization across the further 0.x.0
+milestones the actual work needs and the later 1.0.0 decision. Stabilization
+has no compulsory 0.9.0 release or predetermined final minor. For example,
+0.23.0 remains a possible illustration, not a selected version or release.
 [DMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100),
-[DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization)
-and the [release ladder](RELEASE_MILESTONES.md) own that scope. It remains
+[DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization),
+[DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+and the [maintained release ladder](RELEASE_MILESTONES.md) own that scope. It remains
 incomplete; an implemented API, a passing helper or one qualified workflow does
 not accept the complete objective. Moving development to another machine does
 not authorize a new calculation or release.
@@ -46,6 +50,15 @@ by themselves, authorize code, empty modules, abstract base classes or dependenc
 6. Select checks appropriate to the change. Register scientific populations,
    resources and failure rules before computation; the handoff's local resource
    hold and deferred visual review remain in force.
+
+After each completed increment, update the relevant maintained developer-guide
+plan, evidence disposition and handoff with what changed, the exact checks and
+outcomes, remaining limits and the next concrete step. These checkpoints must
+let another session resume from the repository. Preserve frozen inputs and
+historical producers; append corrections rather than rewriting their evidence.
+An internal development checkpoint does not itself create a release. Choose
+actual minor or patch identities from the reviewed increment and its applicable
+gates, preserving the fixed `0.1.0` candidate and earlier release records.
 
 ## Original bootstrap sequence — historical foundation
 

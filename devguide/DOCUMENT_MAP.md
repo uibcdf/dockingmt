@@ -17,9 +17,9 @@ making a bounded contribution.
 | [ROADMAP.md](ROADMAP.md#current-operational-plan) | What is the current work queue, distinct from checkpoint history? |
 | [CORE_MVP_STATUS.md](CORE_MVP_STATUS.md) | Which of the 35 Core criteria have evidence, with which limits and owners? |
 | [CORE_EXTENDED_COMPARISON.md](CORE_EXTENDED_COMPARISON.md) | What do Core C0–C6 and Extended E1–E5 include, and which pieces already exist? |
-| [RELEASE_MILESTONES.md](RELEASE_MILESTONES.md) | How do prospective functional 0.5.0, stabilization and eventual 1.0.0 differ from an actual release? |
+| [RELEASE_MILESTONES.md](RELEASE_MILESTONES.md) | How do evidence-based 0.x increments, functional delivery, stabilization and eventual 1.0.0 differ from an actual release? |
 | [releases/0.1.0.md](releases/0.1.0.md) | What is the fixed private source candidate, its received evidence and its still-unpublished disposition? |
-| [pending_proposals/qualify_same_state_rescoring.md](pending_proposals/qualify_same_state_rescoring.md) | What remains for E1/#78, including provider projection/identity and native score-reference meaning? |
+| [archive/qualify_same_state_rescoring.md](archive/qualify_same_state_rescoring.md) | Which bounded E1/#78 profile is accepted, with which original evidence, failures and remaining broader limits? |
 | [pending_proposals/qualify_small_ligand_collection.md](pending_proposals/qualify_small_ligand_collection.md) | What must be admitted for E2/#81's distinct-ligand collection and study-level comparison? |
 | [pending_proposals/qualify_pose_comparison_and_clustering.md](pending_proposals/qualify_pose_comparison_and_clustering.md) | What does E3/#79 need from provider-owned comparison/clustering? |
 | [pending_proposals/receive_docking_interaction_analysis.md](pending_proposals/receive_docking_interaction_analysis.md) | Which E4/#80 interaction receiving passes, and what remains for structured consumer/addon admission? |

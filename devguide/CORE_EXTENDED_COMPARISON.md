@@ -15,7 +15,13 @@ On 2026-11-06 the maintainer requests the complete functional objective in an
 appropriate 0.x.0 release, leaving 1.0.0 until after stabilization. The current
 ladder targets **0.5.0** for that delivery; the
 [pre-stabilization plan](PRE_STABILIZATION_PLAN.md) maps all requirements to
-evidence and owners. This changes delivery order, not the capability definitions.
+evidence and owners. Under
+[DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress),
+stabilization then spans the further reviewed **0.x.0** milestones needed by the
+actual increments; there is no mandatory `0.9.0` release or predetermined last
+minor. `0.23.0` is an illustration, not a selected DockingMT release. These
+prospective numbers change neither the capability definitions nor any
+acceptance, candidate or public-delivery gate.
 
 ## Core: a complete, traceable docking workflow
 
@@ -51,7 +57,7 @@ pose interpretation, while preserving identities, error handling and provenance.
 
 | Gate | Additional functionality | Present implementation and remaining acceptance |
 | --- | --- | --- |
-| E1 — Explicit scoring/rescoring | Evaluate an existing pose with a named method; keep multiple named scores; choose a ranking explicitly without assuming one universal score. | `score`, `DockingPose.with_scores` and `DockingResult.rank_by` exist, including bounded fixed-pose Vina/Vinardo evaluation and score/ranking histories. This is not unrestricted engine support or calibrated affinity/cross-ligand comparability. |
+| E1 — Explicit scoring/rescoring | Evaluate an existing pose with a named method; keep multiple named scores; choose a ranking explicitly without assuming one universal score. | `score`, `DockingPose.with_scores`, strict `DockingResult.rank_by` and `compare_scores` exist. The [complete rigid13 receiving](validation/e1_rigid_continuity_2026-11-07.md) preserves both original poses through public reconstruction, preparation and additive Vina/Vinardo evaluation, with separate method-local `lig_inter` decisions and saved histories. Its retained failures and limits remain explicit; this is not whole-E1 acceptance, unrestricted engine support or calibrated affinity/cross-ligand comparability. |
 | E2 — Small virtual screening | Dock a modest ligand collection; isolate individual failures; retain ligand/state identity; aggregate/rank within a declared study; keep campaign/run/result boundaries clear. | `dock_many` is an existing serial, incremental prepared-problem executor with explicit failure outcomes. `summarize_redocking` aggregates compatible reference-evaluation records. These do not yet establish an accepted multi-ligand screening/enrichment workflow, generic cross-ligand ranking or a campaign scheduler. |
 | E3 — Pose comparison and clustering | Compare against references and between poses; group meaningfully similar poses when scientifically appropriate. | Provider-backed RMSD/reference and explicit symmetry-aware evaluation paths exist. General pose clustering has no accepted delivered workflow/API in the reviewed public surface. Reusable geometry/comparison/clustering operations belong to MolSysMT. |
 | E4 — Basic interaction analysis | A minimal structured representation of ligand–receptor interactions useful for interpretation, filtering and visualization. | One bounded provider-only 3PTB installed workflow now passes at `5952053`, including persistence/filtering and two fresh readers. Structured consumer/addon admission and whole E4 remain unaccepted. Existing distance observations are not a general contact definition. General detection/characterization belongs to MolSysMT; specialized pharmacophore/topography work remains with its providers. DockingMT owns docking-specific interpretation and presentation. |

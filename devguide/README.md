@@ -24,8 +24,10 @@ replaying every experiment.
 
 The accepted product scope is **Core C0–C6 plus Extended E1–E5**, bounded scientific
 qualification, independent reproducibility and public installation. Prospective
-**0.5.0** is functional completion, followed by **0.9.0** stabilization; **1.0.0**
-remains a later decision. These are gates, not published versions. The separate
+**0.5.0** remains the functional planning milestone; stabilization uses as many
+ordinary **0.x.0** releases as verified progress requires, followed by the
+**1.0.0** stable-contract decision. [DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+records the open-ended version sequence. These are gates, not published versions. The separate
 fixed private 0.1.0 candidate has [its own dossier](releases/0.1.0.md).
 
 The starting profile is a declared single-state small molecule and rigid protein,
@@ -34,9 +36,12 @@ evidence does not certify general chemical validity, affinity, public dependency
 closure or live canvas use. The complete objective is not achieved. See the
 [current checkpoint](MACHINE_HANDOFF.md#verified-development-checkpoint).
 
-The previous autonomous implementation goal was paused and cleared before this
-handoff task. Moving machines does not restart that goal or any calculation.
-The accepted product roadmap remains the basis for choosing subsequent work.
+The earlier autonomous goal was paused and cleared before the machine handoff.
+The maintainer has now resumed the accepted product plan and requires each
+increment to leave an accurate developer-guide checkpoint. Follow the
+[current handoff](MACHINE_HANDOFF.md#current-development-checkpoint--2026-11-07)
+and operational queue; independent E4/live-observation holds and resource limits
+retain their scope.
 
 ## Ownership that shapes every change
 
@@ -58,7 +63,7 @@ shared boundary contracts. See the [suite contract](MOLSYSSUITE_CONTRACT.md) and
 | Scientific assumptions/limits | [Scope](SCIENTIFIC_SCOPE.md), [validation strategy](VALIDATION_STRATEGY.md), [2026-11-04 audit](library_audit_2026-11-04.md). |
 | Existing recovery/ranking observations | [Scientific overview](validation/scientific_evidence_overview_2026-11-04.md); its sources/populations remain frozen. |
 | Installed walkthroughs | [Inspection](validation/installed_result_inspection.md), [preparation](validation/installed_3ptb_preparation.md), [execution](validation/installed_3ptb_execution.md), [evaluation](validation/installed_3ptb_evaluation.md). Check which steps execute science. |
-| Extended work | [E1](pending_proposals/qualify_same_state_rescoring.md), [E2](pending_proposals/qualify_small_ligand_collection.md), [E3](pending_proposals/qualify_pose_comparison_and_clustering.md), [E4](pending_proposals/receive_docking_interaction_analysis.md). |
+| Extended work | [E1 bounded acceptance](archive/qualify_same_state_rescoring.md), [E2](pending_proposals/qualify_small_ligand_collection.md), [E3](pending_proposals/qualify_pose_comparison_and_clustering.md), [E4](pending_proposals/receive_docking_interaction_analysis.md). |
 | Measured interaction workflow | [E4 receiving](validation/installed_3ptb_interactions.md): one case, normal/pm-fs and fresh readers; whole E4 remains partial. |
 | Public delivery | [Release ladder](RELEASE_MILESTONES.md), [public readiness](validation/public_candidate_readiness.md), [Conda controls](../devtools/conda-build/README.md). Distribution is Conda `uibcdf`. |
 | Rationale/history | [Decisions](DECISIONS.md), [roadmap history](ROADMAP.md), [archive](archive/README.md), [original seed](FROZEN_SEED.md). |

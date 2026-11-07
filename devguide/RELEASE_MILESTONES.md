@@ -12,10 +12,15 @@ That target scope is settled; intermediate numeric identities and actual release
 candidates remain prospective.
 
 The maintainer's 2026-11-06 objective is complete functional delivery in
-**0.5.0 before stabilization**, reserving 1.0.0 for afterwards.
+the prospective **0.5.0 milestone before stabilization**, reserving 1.0.0 for
+afterwards. Stabilization can span as many further reviewed **0.x.0** milestones
+as the actual work requires. There is no mandatory `0.9.0` release or fixed
+upper minor before 1.0.0. A possible `0.23.0` illustrates that open sequence;
+it is not a selected DockingMT version, candidate or release.
 [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization)
-and the [requirement/evidence plan](PRE_STABILIZATION_PLAN.md) preserve every
-Core, Extended, scientific, reproducibility and public-delivery obligation.
+and [DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress),
+together with the [requirement/evidence plan](PRE_STABILIZATION_PLAN.md), preserve
+every Core, Extended, scientific, reproducibility and public-delivery obligation.
 
 ## Why consolidate intermediate versions
 
@@ -37,6 +42,10 @@ evidence arrives together. Do not advance a number solely because time or commit
 count has increased. Patch versions such as `0.1.1` describe reviewed corrections
 within a declared scope; new capabilities or intentional pre-1.0 compatibility
 changes get a reviewed minor milestone and migration notes.
+Stabilization follows the same rule: choose each actual version from the
+accepted increment and its evidence, rather than reserving a particular minor
+as a compulsory final stage. Completing the functional objective does not by
+itself establish stability or select the 1.0.0 candidate.
 
 | Prospective version | Meaning | Completion evidence / owner |
 | --- | --- | --- |
@@ -45,7 +54,7 @@ changes get a reviewed minor milestone and migration notes.
 | `0.3.0` | Core MVP accepted for its declared scientific profile. | All 35 C0–C6 criteria have explicit acceptance, including actual visible domain/reference/pose observation and a scientifically credible complete redocking workflow. Preserve refusals, preparation assumptions, score meaning and source/state/selection provenance. #4/#33/#49/#52/#60 and the Core map. |
 | `0.4.0` | Bounded scientific qualification beyond the original worked example. | Admit a small transparent independent set before execution, with provider-owned source/chemistry/plausibility tools, explicit preparation hypotheses, informative search-versus-ranking controls and all adverse/unassessed outcomes. Prespecify scope, denominators, budgets and decision rules. Existing 5X72/3PTB repetitions are not new independent complexes. #33/#49 and the audit Q2–Q4 plan. |
 | `0.5.0` | Complete Core-plus-Extended functional objective, before stabilization. | C0–C6 and E1–E5 have executed acceptance, bounded scientific qualification, independent reproducibility and actual public delivery/support evidence. Reuse existing APIs, receive provider-owned molecular tools and preserve failures/provenance. `PRE_STABILIZATION_PLAN.md` maps the whole objective; #73 owns the goal and #78 starts E1. |
-| `0.9.0` | Stabilization of the accepted Core-plus-Extended 1.0 contract. | Verify C0–C6 and E1–E5 acceptance, public API/schema and compatibility promises, supported dependency/platform combination, reproducibility instructions, examples and remaining critical findings. Freeze intended scope; close or explicitly defer work outside it. No Extended gate is deferred beyond 1.0 by default. This numeric release is not an `rc`/prerelease tag. #73/#28/#30/#47. |
+| Further reviewed `0.x.0` milestones | Stabilization of the delivered Core-plus-Extended contract across the increments actually needed. | Verify C0–C6 and E1–E5 acceptance, public API/schema and compatibility promises, supported dependency/platform combination, reproducibility instructions, examples and remaining critical findings. Record each increment's scope, checks, remaining limits and next step. Freeze intended scope; close or explicitly defer work outside it. No Extended gate is deferred beyond 1.0 by default. Select actual minor/patch identities through their release records; neither `0.9.0` nor the illustrative `0.23.0` is prescribed. #73/#28/#30/#47. |
 | `1.0.0` | Stable release of Core plus Extended MVP. | Accepted C0–C6 and E1–E5, bounded scientific qualification, reproducible public installation and workflows, relevant platform/minor qualification, stable documented API/schema/migration policy, complete exact-candidate delivery gates and published limitations. No unresolved critical defect may contradict that scope. Final release authority and evidence decide readiness, not this table. |
 
 ## Accepted boundary for 1.0.0 — 2026-11-05

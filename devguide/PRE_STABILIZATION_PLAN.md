@@ -9,8 +9,10 @@ Status: **active; completion unproven**. Inspected starting source: `530a4cf`.
 Deliver the complete Core C0–C6 and Extended E1–E5 workflows, bounded scientific
 qualification, independent reproducibility and public installation as the
 prospective **0.5.0** functional milestone in the existing
-[release ladder](RELEASE_MILESTONES.md). Then stabilize the accepted surface under
-0.9.0; reserve 1.0.0 for the subsequent stable-release decision. This identifies
+[release ladder](RELEASE_MILESTONES.md). Then stabilize the accepted surface across the
+ordinary 0.x.0 releases actually needed; reserve 1.0.0 for the subsequent
+stable-release decision. [DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+removes a mandatory 0.9.0 endpoint; 0.23.0 is illustrative, not selected. This identifies
 the development target, not a selected candidate, completed gate, tag or package.
 Earlier milestones may consolidate genuinely qualified subsets. The separate
 fixed 0.1.0 candidate `905abc9` is not advanced by this plan.
@@ -38,7 +40,7 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | C4 selection-derived domain | Provider-owned selection/geometry, stored derivation/projection and observed domain/reference/pose correspondence. | Construction/record evidence exists; visible acceptance remains #52/#60. |
 | C5 results/provenance | Saved scores/rankings/evaluations, actual input identities/maps, traceable preparation/protocol and explicit recoverable/missing information. | #75–#77 deliver bounded reading/audits. General source restoration and partial/reference coverage remain #4/#49 and MolSysMT #521. |
 | C6 visualization | Real addon controls, communication and canvas display correctly paired receptor/domain/poses/reference, with actual interaction evidence. | Python/DOM/export/private evidence exists; live acceptance is still unproven. Respect the maintainer's scheduling decision. |
-| E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ranked and audited reproducibly. | #78 has received bounded provider identity/projection and preparation, five complete new poses, [ten source/native evaluations](validation/e1_native_rescoring_2026-11-06.md) and [two method-local exploratory `lig_inter` orders](validation/e1_lig_inter_ordering_2026-11-06.md). The [bounded private installed workflow](validation/e1_installed_receiving_2026-11-06.md) now passes with borrowed provider/native dependencies. The [public-workflow review](validation/e1_public_workflow_review_2026-11-06.md) leaves criterion 4 partial. The [public composition](validation/e1_public_composition_2026-11-06.md) now preserves the original four scores/rank/history for one returned pose; the [public interaction-component comparison](validation/e1_public_comparison_2026-11-07.md) now receives five existing poses through a private installed consumer. The [new rigid two-pose receiving](validation/e1_rigid_continuity_2026-11-07.md) now completes the public original-result continuity and both method-local comparison reports, retaining all eight original values and adding 32. The original generator qualification remains failed; fresh receiving and its controls pass. Review bounded #78 acceptance without repeating science. Strict ranking, whole E1 and public-delivery ownership remain separate. |
+| E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ordered and audited reproducibly. | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07) for the full-source rigid prepared13 profile: both actual original poses complete public reconstruction/preparation/additive Vina/Vinardo 1.2.7 scoring and separate method-local interaction comparison. Eight old values/ranks/history survive with 32 new values; native receiving and independent persistence pass. The original generator qualification remains failed with unreached original live checks. Broader E1, total/reference comparisons, independent science and public delivery retain their owners. |
 | E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | #81 scopes actual distinct-ligand admission and study comparison, reusing serial `dock_many` and outcomes. Preserve strict within-result ranking and provider-owned chemistry; collection execution/qualification remains unproven. |
 | E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | #79 scopes the concrete positional workflow. MolSysMT #604 requests supported bounded pairwise/clustering tools or an existing composition; no local molecular algorithm. |
 | E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 receives one bounded installed 3PTB workflow at `5952053`: normal/pm-fs, twelve detector calls, typed/H5MSM persistence, original-pose association and two fresh readers pass. Preserve prior failures and the local hold. Structured consumer/addon admission and whole E4 remain unproven; molecular operations stay in MolSysMT (#610 documents explicit XYZ atom extraction). |
@@ -53,31 +55,21 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 1. Check exact-source CI under #28, preserving nonterminal/failure states. The
    [machine handoff](MACHINE_HANDOFF.md) identifies the passing pre-handoff head;
    a later head needs its own applicable evidence.
-2. Advance [same-state E1](pending_proposals/qualify_same_state_rescoring.md)
-   from its received [native reference convention](validation/scoring_reference.md),
-   [complete-pose construction](validation/e1_comparison_admission_2026-11-06.md),
-   [finite source/native evaluations](validation/e1_native_rescoring_2026-11-06.md)
-   and [case-specific component orders](validation/e1_lig_inter_ordering_2026-11-06.md).
-   Five new locally completed conformations retain their historical associations;
-   the exploratory per-method orders do not establish historical H identity,
-   affinity, total/shared-reference or cross-method ordering. Preserve all
-   descriptors, actual input hashes and strict public ranking refusals.
-3. Reuse the received public MolSysMT compositions for the bounded complete
-   single-state profile. [MolSysMT #599](https://github.com/uibcdf/molsysmt/issues/599)
-   and [#447](https://github.com/uibcdf/molsysmt/issues/447) retain their broader
-   provider scope; their issue status alone does not block this received route.
-   Keep #521's partial/reference reader boundary and the other accepted input
-   profiles explicit; no local molecular fallback or identity algorithm follows.
-4. Review the [received rigid multi-pose continuity](validation/e1_rigid_continuity_2026-11-07.md)
-   against #78's bounded acceptance criteria. The unchanged maintained example
-   completes both actual original poses through reconstruction, preparation,
-   additive scoring and two public comparison reports. Its fresh saved reader
-   verifies persistence without molecular work. Preserve the earlier incomplete
-   two-pose request and the new generator's post-return tuple/list harness failure;
-   neither becomes passing. The original generator's post-search live checks
-   remain unreceived. The fresh receiver establishes its own full live/payload
-   controls. No further native work is required merely to review these records;
-   do not widen #78 to all E1 or public delivery.
+2. Preserve the [bounded resolved E1 profile](archive/qualify_same_state_rescoring.md)
+   and its original reference/provider/native/persistence records. No repeat
+   search or relaxed ranking is needed for its acceptance. The old generator
+   remains failed; the complete fresh receiving passes its own controls.
+3. Advance [E2 distinct-ligand admission](pending_proposals/qualify_small_ligand_collection.md)
+   with actual licensed sources and explicit states/preparation, fixed receptor/
+   domain and a study-level comparison policy. Retain all submitted/failed/empty/
+   completed identities and denominators. Same-state `compare_scores` is not
+   cross-ligand prioritization. Register the finite scientific population and
+   resources before new native work; reuse `dock_many` and provider tools.
+4. Keep complete-source public MolSysMT compositions as the received route.
+   [MolSysMT #599](https://github.com/uibcdf/molsysmt/issues/599),
+   [#447](https://github.com/uibcdf/molsysmt/issues/447) and #521 retain broader
+   provider/partial-input scope. Request demonstrated gaps there; no local
+   molecular fallback or guessed historical chemistry follows.
 5. Scope and qualify E2–E5 with their owners and receive the remaining Core,
    scientific, visual and public-delivery evidence. Independent requirements may
    progress while another provider or hosted run is pending. E3's

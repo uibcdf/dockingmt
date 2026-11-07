@@ -1,12 +1,12 @@
 ---
 summary: Qualify same-state multi-pose rescoring with explicit reference and comparison evidence.
 issue: uibcdf/dockingmt#78
-status: partial
+status: resolved
 opened: 2026-11-06
-closed:
+closed: 2026-11-07
 verification: measured
 area: [scoring, provenance, scientific-validation]
-guard: tests/test_scoring_reference.py
+guard: tests/test_score_comparison.py
 normative:
 blocked_by: []
 supersedes: []
@@ -634,3 +634,65 @@ another scientific search or a larger API. Keep this report partial until that
 review is recorded; do not add whole-E1, broad provider identity or public
 package qualification as new conditions on this local profile. Those boundaries
 retain their existing owners.
+
+
+## Bounded acceptance and resolution — 2026-11-07
+
+Accept this proposal for the complete-source rigid prepared13 profile, one
+explicit ligand/receptor state, Vina/Vinardo 1.2.7, and separate per-method
+`lig_inter` comparison reports. The public example receives every actual original
+pose. Original ranks/backend decisions remain intact; comparison reports carry
+the new ordering decision separately. This completes the concrete #78 task.
+
+| Owning criterion | Received evidence | Acceptance boundary |
+| --- | --- | --- |
+| Executed reference semantics and preservation of legacy observations | [Reference contract](../validation/scoring_reference.md), original native/reference receiving and refined record auditors. | Current-conformation reference and eighth component are explicit; docking/shared-reference totals and cross-method affinity remain distinct. |
+| Provider projection/identity, chemistry, mechanics, maps, bytes and units | [Complete-source admission](../validation/e1_comparison_admission_2026-11-06.md), [public comparison](../validation/e1_public_comparison_2026-11-07.md), [rigid continuity](../validation/e1_rigid_continuity_2026-11-07.md). | Current complete18/prepared13 source authority and actual exported views are checked through supported MolSysMT operations; historical missing H/MM and partial inputs remain unknown. |
+| Conservative comparison with informative changed-condition controls | Public `compare_scores` and its [contract](../validation/score_comparison.md), 54 software controls, actual positive reports and state/geometry/method/context refusals. | Method-local fixed `lig_inter` observations on admitted inputs; distinct hashes remain, strict `rank_by` remains unchanged. |
+| Complete native/installed original-result continuity, original/new scores and detached persistence | Both actual rigid poses pass the unchanged public notebook: eight original values, 32 added values, four native evaluations, two comparison reports, nine graph witnesses and seven charge audits. A separate standard-library reader receives all originals/intermediates/finals and decisions. | All members of this registered two-pose population complete the route; no new energy/search is used for closeout. |
+| Gates match the actual claim and resource/ownership boundaries | Exact private consumer payload/origins, borrowed identified providers, native overlay and installed support checks pass for the receiver; monitored serial resources and independent persistence are retained. | Public dependency/platform delivery, independent scientific accuracy, live visualization and the complete product remain separately owned under #30/#47, #33/#49, #52/#60 and #73. |
+
+The [rigid archive](../validation/data/e1_rigid_continuity_2026-11-07/manifest.json)
+retains all 159 members and its exact root
+`ac270bddf7a95c4f219fec91771bea3f76fb258785b457f569ce3bf4178f32b2`.
+The independent [public-comparison archive](../validation/data/e1_public_comparison_2026-11-07/manifest.json)
+retains its five-pose/two-method/two-policy profile and eight informative
+refusals. Producers and populations are not pooled or relabelled.
+
+`generation-01` remains FAIL after saving two actual poses: its Python tuple/list
+transport equality assertion was excessive. Original post-search live-source
+and final origin checks were not reached and remain unreceived. The registered
+fresh receiver reproduces the exact source capture, checks its own complete
+live/payload invariants, and passes the rescoring/comparison task on those saved
+outputs. Closing this rescoring proposal does not retroactively qualify that
+generation attempt or erase the earlier incomplete/failed populations.
+
+The module guard `tests/test_score_comparison.py` collectively protects the
+public comparison contract: separate method-local orders, original ranks and
+records unchanged, complete selection, finite detached reports, conservative
+context/state/method refusals, and actual render/map/capture binding. Its
+molecular seams are explicitly synthetic; it cannot substitute for the retained
+native/provider receiving. Existing guards in `tests/test_scoring.py`,
+`tests/test_scored_result_audit.py` and `tests/test_scoring_reference.py` protect
+additive history, pre-native refusals, collection-origin preservation and
+reference/context semantics. No destructive mutation or new scientific run is
+needed to review these assertions.
+
+The next independent implementation work is #81's distinct-ligand study
+admission and explicit study comparison, preserving this same-state profile.
+Whole E1 and Core+Extended completion remain governed by #73. The maintainer's
+open-ended 0.x stabilization clarification is [DMT-048](../DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress).
+
+
+## Closeout local qualification — 2026-11-07
+
+The current module guard and lifecycle selection pass **55 tests** through
+Pytest Receptor on routine Python 3.14, one CPU/native worker, nice 10 and
+monitored 8 GiB RAM reserve. Elapsed time is 11.77 s with sampled group peak
+149.96 MiB; no resource interruption occurs. These are software/lifecycle
+controls, with no new scientific population, molecular calculation or energy.
+The original native and independent-reader observations remain their own
+producers. Final source/document/index/archive/resource/publication checks and
+fresh committed-source export validation accompany publication. Skipped remote
+CI remains missing evidence under #28, not a passing check or a closure blocker
+silently moved into this bounded workflow.

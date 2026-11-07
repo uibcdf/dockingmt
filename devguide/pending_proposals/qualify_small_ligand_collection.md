@@ -45,7 +45,7 @@ scope, units, native score-reference meaning, selected named score, missing
 values, ties and per-ligand representative selection. Preserve original scores,
 pose ordering and provenance. Different ligands are intentionally different
 states: cross-ligand prioritization is a separate scientific policy, not evidence
-of same-state identity. E1 [#78](qualify_same_state_rescoring.md) owns related
+of same-state identity. E1 [#78](../archive/qualify_same_state_rescoring.md) owns related
 native reference evidence. Any needed extension remains docking-specific.
 
 Then register exact inputs/artifacts/producer, finite serial resources/calls,

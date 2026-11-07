@@ -102,6 +102,11 @@ small change. Do not automatically launch manual remote CI to bypass that
 instruction. Record missing remote evidence honestly; skipped CI is not a pass.
 Required admission, release and publication evidence keeps its separate scope.
 
+Update `devguide/` with every implementation or qualification increment so it
+remains a usable development checkpoint. Record the delivered behavior, exact
+evidence and limits, current owner/status, and the next actionable step. Follow
+`devguide/AGENTS.md` for the maintained checkpoint locations.
+
 ## Current package routes
 
 Public installation guidance for our MolSysSuite packages currently uses the
