@@ -1,0 +1,276 @@
+{
+  "schema": "dockingmt.e5_bounded_installed_acceptance@1",
+  "owner": "uibcdf/dockingmt#83",
+  "source_checkpoint": "51ed3dd39e169f0b59d48797788cddd37ec9f14d",
+  "helper_source": "08324fe2f72ee8afb5be3874700fc789c374aee8",
+  "consumer_source": "2ef82d25e34266d1b504464dc238e8863a9dade0",
+  "consumer_wheel_sha256": "6db76835f4f3f9c41d06a163cb3a4fbc9e780597bfd89d2fc6a75d29cff31133",
+  "provider_source": "9e1f1b1ad8bf09446374ab6f04ca7208e2717936",
+  "engine_version": "1.2.7",
+  "status": "PASS",
+  "bounded_e5_requirement_received": true,
+  "whole_product_received": false,
+  "primary_manifest_sha256": "0b3bc2b5d0380dab064c49bb2e359a54c889017532076718e21b6844ca3286c0",
+  "reader_manifest_sha256": "6d53d4afc8941a66c92719804ffe218872d0703066cf478a3c4e6a6f7944c74b",
+  "prior_interrupted_manifest_sha256": "7475a20f79d0372dfa59182a3808dcfcd39eda319587351c20e745d67ccd5d37",
+  "sealing_state_note": "Frozen run/archive whole_e5_received=False means not accepted before independent reading and this separate six-criterion audit, not failure of a received workflow; archived new_molecular_cases=1 counts this one-case run population, not an additional independent molecular complex",
+  "criteria": [
+    {
+      "criterion": 1,
+      "requirement": "Authenticate retained records, support inputs and available versus missing information",
+      "outcome": "PASS",
+      "evidence": [
+        "admission-01/receipt.json",
+        "candidate-scientific.json",
+        "producer-01/output/reference.json",
+        "producer-01/output/control.json"
+      ],
+      "scope": "Three original pinned bytes/maps and594 declared source inputs; newly identified producer; old September manifests remain unlocated, not manufactured"
+    },
+    {
+      "criterion": 2,
+      "requirement": "Separate exact source-free installed receiver with original/new producer identities",
+      "outcome": "PASS",
+      "evidence": [
+        "admission-01/frozen-worker.py.txt",
+        "normal-01/installed-origins.json",
+        "pm_fs-01/installed-origins.json"
+      ],
+      "scope": "Three distinct copied prefixes/inodes, fresh isolated processes, actual relocated native libraries, no original source/runtime fallback"
+    },
+    {
+      "criterion": 3,
+      "requirement": "Reconstruct both complete workflows with unchanged physical and identity comparisons",
+      "outcome": "PASS",
+      "evidence": [
+        "producer-01/manifest-custody.json",
+        "normal-01/output/replay-report.json",
+        "pm_fs-01/output/replay-report.json"
+      ],
+      "scope": "Both one-reference/three-control populations agree exactly on scores/coordinates/source RMSD, source/map, protocol, versions, native columns and ranking metadata"
+    },
+    {
+      "criterion": 4,
+      "requirement": "Receive adverse/missing information, nonmutation, caller units and detached output behavior",
+      "outcome": "PASS",
+      "evidence": [
+        "adverse-01/output/refusals.json",
+        "normal-01/output/version-drift-controls.json",
+        "pm_fs-01/output/version-drift-controls.json",
+        "normal-01/support-sidecar.json",
+        "pm_fs-01/support-sidecar.json"
+      ],
+      "scope": "Twelve pre-native refusals, six post-run version refusals/profile, input/prefix/caller nonmutation/restoration, retired support and original paths"
+    },
+    {
+      "criterion": 5,
+      "requirement": "Prospective finite work/resource registration and preserved interruptions",
+      "outcome": "PASS",
+      "evidence": [
+        "campaign-registration.json",
+        "native-selection-complete.json",
+        "all executed registration/resource-outcome files",
+        "previous interrupted archive7475a20f"
+      ],
+      "scope": "Six new native entries, ten cumulative including four failed prior entries; serial CPU0/nice10/RAM limits; no CI/build or automatic memory restart"
+    },
+    {
+      "criterion": 6,
+      "requirement": "Seal complete evidence and independently read before bounded closure",
+      "outcome": "PASS",
+      "evidence": [
+        "primary manifest0b3bc2b5",
+        "reader companion6d53d4af",
+        "reader-01/receipt.json"
+      ],
+      "scope": "175 primary+21 reader members; no scientific reader imports or molecular replay; bounded representative workflow only"
+    }
+  ],
+  "missing_information_audit": [
+    {
+      "information": "Exact receptor/ligand PDBQT and source SDF",
+      "state": "captured-and-authenticated",
+      "limit": "Exact byte identity only; external chemical correctness remains unassessed"
+    },
+    {
+      "information": "Atom correspondence and source graph",
+      "state": "verified-for-pinned-case",
+      "limit": "69 atoms/73 bonds,40 retained/37 heavy; no general molecular matcher or arbitrary reconstruction codec"
+    },
+    {
+      "information": "Protocol, domain, native method/weights/columns and seeds",
+      "state": "captured-and-verified",
+      "limit": "One Vina1.2.7/cpu1/seed42/exhaustiveness1 recipe, five requested poses; one/three actually returned"
+    },
+    {
+      "information": "Pose populations, scores, identities, ranking and reading provenance",
+      "state": "complete-records-preserved-and-compared",
+      "limit": "Source-referenced positional RMSD without alignment/symmetry; cutoff2.5A"
+    },
+    {
+      "information": "External preparation/protonation/charge/type choices",
+      "state": "unassessed",
+      "limit": "Captured prepared PDBQT is replayed; no missing chemistry or producer method is invented"
+    },
+    {
+      "information": "Environment/artifact/native composition",
+      "state": "actual-private-composition-observed",
+      "limit": "Linux x86_64/Python3.14.10, copied exact old provider composition and current routine libraries; no public dependency solve or other platform/minor qualification"
+    },
+    {
+      "information": "Original September pair",
+      "state": "not-located-in-bounded-inventory",
+      "limit": "Historical#16/narrative unchanged; this is a separate newly identified current producer"
+    },
+    {
+      "information": "Universal replay and independent molecular accuracy",
+      "state": "unproven",
+      "limit": "One pinned case and within-case software replay do not establish independent-panel predictive validity or affinity"
+    }
+  ],
+  "native_record_comparisons": [
+    {
+      "profile": "normal-01",
+      "run": "reference",
+      "all_pose_and_score_metadata_exact": true,
+      "native_output_columns_energies_calls_and_reading_exact": true,
+      "native_engine_options_weights_seed_and_box_exact": true,
+      "preparation_and_ranking_provenance_exact": true,
+      "legitimate_differences": "Measured elapsed_seconds and exact-input-authenticated temporary receptor/ligand filenames only",
+      "temporary_native_paths": {
+        "rigid_receptor": {
+          "producer": "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/producer-01/tmp/tmp3vj4ccqv.pdbqt",
+          "receiver": "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/normal-01/tmp/tmpoc02jx1l.pdbqt"
+        },
+        "ligands": {
+          "producer": [
+            "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/producer-01/tmp/tmpyenqb9xm.pdbqt"
+          ],
+          "receiver": [
+            "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/normal-01/tmp/tmpe0wm8gha.pdbqt"
+          ]
+        }
+      }
+    },
+    {
+      "profile": "normal-01",
+      "run": "displaced_box_control",
+      "all_pose_and_score_metadata_exact": true,
+      "native_output_columns_energies_calls_and_reading_exact": true,
+      "native_engine_options_weights_seed_and_box_exact": true,
+      "preparation_and_ranking_provenance_exact": true,
+      "legitimate_differences": "Measured elapsed_seconds and exact-input-authenticated temporary receptor/ligand filenames only",
+      "temporary_native_paths": {
+        "rigid_receptor": {
+          "producer": "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/producer-01/tmp/tmpzph9plyy.pdbqt",
+          "receiver": "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/normal-01/tmp/tmpbc9c4q_g.pdbqt"
+        },
+        "ligands": {
+          "producer": [
+            "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/producer-01/tmp/tmp20tr6xmn.pdbqt"
+          ],
+          "receiver": [
+            "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/normal-01/tmp/tmp4_kr3_x6.pdbqt"
+          ]
+        }
+      }
+    },
+    {
+      "profile": "pm_fs-01",
+      "run": "reference",
+      "all_pose_and_score_metadata_exact": true,
+      "native_output_columns_energies_calls_and_reading_exact": true,
+      "native_engine_options_weights_seed_and_box_exact": true,
+      "preparation_and_ranking_provenance_exact": true,
+      "legitimate_differences": "Measured elapsed_seconds and exact-input-authenticated temporary receptor/ligand filenames only",
+      "temporary_native_paths": {
+        "rigid_receptor": {
+          "producer": "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/producer-01/tmp/tmp3vj4ccqv.pdbqt",
+          "receiver": "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/pm_fs-01/tmp/tmpuvfibu6c.pdbqt"
+        },
+        "ligands": {
+          "producer": [
+            "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/producer-01/tmp/tmpyenqb9xm.pdbqt"
+          ],
+          "receiver": [
+            "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/pm_fs-01/tmp/tmpzqszqwx6.pdbqt"
+          ]
+        }
+      }
+    },
+    {
+      "profile": "pm_fs-01",
+      "run": "displaced_box_control",
+      "all_pose_and_score_metadata_exact": true,
+      "native_output_columns_energies_calls_and_reading_exact": true,
+      "native_engine_options_weights_seed_and_box_exact": true,
+      "preparation_and_ranking_provenance_exact": true,
+      "legitimate_differences": "Measured elapsed_seconds and exact-input-authenticated temporary receptor/ligand filenames only",
+      "temporary_native_paths": {
+        "rigid_receptor": {
+          "producer": "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/producer-01/tmp/tmpzph9plyy.pdbqt",
+          "receiver": "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/pm_fs-01/tmp/tmpf165nis3.pdbqt"
+        },
+        "ligands": {
+          "producer": [
+            "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/producer-01/tmp/tmp20tr6xmn.pdbqt"
+          ],
+          "receiver": [
+            "/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e5-timed-replay-20261107/pm_fs-01/tmp/tmpvwj5n7ho.pdbqt"
+          ]
+        }
+      }
+    }
+  ],
+  "resource_receipts": {
+    "admission-01": {
+      "elapsed_seconds": 9.107341672002804,
+      "peak_group_rss_bytes": 142139392,
+      "cpu_seconds_limit": 45,
+      "wall_seconds_limit": 60
+    },
+    "diagnostic-01": {
+      "elapsed_seconds": 9.929634339001495,
+      "peak_group_rss_bytes": 324743168,
+      "cpu_seconds_limit": 45,
+      "wall_seconds_limit": 60
+    },
+    "producer-01": {
+      "elapsed_seconds": 122.0084517030009,
+      "peak_group_rss_bytes": 869978112,
+      "cpu_seconds_limit": 90,
+      "wall_seconds_limit": 360
+    },
+    "adverse-01": {
+      "elapsed_seconds": 13.194296661000408,
+      "peak_group_rss_bytes": 408080384,
+      "cpu_seconds_limit": 45,
+      "wall_seconds_limit": 60
+    },
+    "normal-01": {
+      "elapsed_seconds": 54.751229718000104,
+      "peak_group_rss_bytes": 873566208,
+      "cpu_seconds_limit": 90,
+      "wall_seconds_limit": 360
+    },
+    "pm_fs-01": {
+      "elapsed_seconds": 52.95676785199976,
+      "peak_group_rss_bytes": 873680896,
+      "cpu_seconds_limit": 90,
+      "wall_seconds_limit": 360
+    }
+  },
+  "current_native_entries": 6,
+  "prior_interrupted_entries": 4,
+  "cumulative_native_entries": 10,
+  "current_complete_native_returns": 6,
+  "prior_observed_complete_returns": 3,
+  "molecular_case_count": 1,
+  "new_independent_molecular_cases": 0,
+  "scientific_imports": [],
+  "molecular_operations": 0,
+  "new_native_searches": 0,
+  "producer_script_sha256": "0d8718723710cea00f7629e36bf9bfa803802bdcc6a6a83f7839ccee4d006040",
+  "guard": "tests/test_1iep_replay.py",
+  "scope": "Bounded independent reconstruction of this stored representative externally prepared workflow in actual isolated installed compositions; full Core/Extended/science/public/stabilization remains unaccepted"
+}

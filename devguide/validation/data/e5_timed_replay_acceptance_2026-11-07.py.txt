@@ -1,0 +1,88 @@
+"""Audit the six original E5 criteria from immutable records, without science imports."""
+import base64
+from copy import deepcopy
+import gzip
+import hashlib
+import json
+import os
+from pathlib import Path
+import sys
+
+root=Path(os.environ['DMT_E5_ROOT']);attempt=Path(os.environ['DMT_E5_ATTEMPT'])
+def sha(b):return hashlib.sha256(b).hexdigest()
+def archive(name,expected):
+ folder=root/'devguide/validation/data'/name;blob=(folder/'manifest.json').read_bytes();assert sha(blob)==expected
+ manifest=json.loads(blob);records={}
+ for row in manifest['files']:
+  p=Path(row['path']);assert not p.is_absolute() and '..' not in p.parts and not (folder/p).is_symlink()
+  stored=(folder/p).read_bytes();assert sha(stored)==row['sha256'] and len(stored)==row['bytes']
+  raw=gzip.decompress(stored);assert sha(raw)==row['decoded_sha256'] and len(raw)==row['decoded_bytes'];records[row['path']]=raw
+ return manifest,records
+primary,records=archive('e5_timed_replay_2026-11-07','0b3bc2b5d0380dab064c49bb2e359a54c889017532076718e21b6844ca3286c0')
+companion,reader_records=archive('e5_timed_replay_reader_2026-11-07','6d53d4afc8941a66c92719804ffe218872d0703066cf478a3c4e6a6f7944c74b')
+previous,previous_records=archive('e5_native_replay_interrupted_2026-11-07','7475a20f79d0372dfa59182a3808dcfcd39eda319587351c20e745d67ccd5d37')
+def rec(path):return json.loads(records[path+'.gz'])
+def at(name,path):return rec('attempts/'+name+'/'+path)
+reader=json.loads(reader_records['reader-01/receipt.json.gz']);assert reader['outcome']=='PASS' and reader['members_verified']==175 and reader['scientific_imports']==[] and reader['molecular_operations']==0
+assert companion['resource']['outcome']=='PASS' and companion['received_manifest_sha256']=='0b3bc2b5d0380dab064c49bb2e359a54c889017532076718e21b6844ca3286c0'
+candidate=rec('candidate-scientific.json');assert candidate['qualified_code_identity']==primary['code_identity'] and len(candidate['support_declaration']['files'])==594
+source=at('producer-01','source-identity.json');assert source['git_head'] is None and source['worktree_dirty'] is None and not source['shared_checkout']
+originals=[at('producer-01','output/'+label+'.json') for label in ['reference','control']]
+producer=at('producer-01','output/producer-report.json');assert [len(r['poses']) for r in originals]==primary['producer_pose_counts']==[1,3]
+assert producer['n_source_atoms']==69 and producer['n_source_bonds']==73 and producer['n_heavy_partner_atoms']==37
+input_digests=producer['input_sha256'];assert len(input_digests)==3
+for original in originals:
+ assert sha(base64.b64decode(original['benchmark_source']['content_base64'],validate=True))==input_digests['source_ligand']
+ for role in ['receptor','partner']:
+  a=original['provenance']['backend_artifacts'][role];assert sha(base64.b64decode(a['content_base64'],validate=True))==a['sha256']==input_digests[role]
+ assert original['benchmark_source_revision']==source
+native_fields=[]
+for name in ['normal-01','pm_fs-01']:
+ report=at(name,'output/replay-report.json');assert report['within_tolerance']
+ for i,label in enumerate(['reference','displaced_box_control']):
+  a=originals[i];b=at(name,'output/dock-result-'+str(i)+'.json')
+  left=deepcopy(a['provenance']);right=deepcopy(b['provenance']);left.pop('elapsed_seconds');right.pop('elapsed_seconds')
+  variable_paths={}
+  for key in ['rigid_receptor','ligands']:
+   variable_paths[key]={'producer':left['backend_output']['engine_info'].pop(key),'receiver':right['backend_output']['engine_info'].pop(key)}
+  assert left==right
+  assert a['poses']==b['poses'] and a['protocol_info']==b['protocol_info']
+  sem=lambda p:{k:v for k,v in p.items() if k not in ('receptor','partner')}
+  assert sem(a['problem_info'])==sem(b['problem_info'])
+  c=report['runs'][label];assert c['within_tolerance'] and c['near_native_count_match']
+  assert c['max_score_delta_kcal_per_mol']==c['max_pose_coordinate_rmsd_angstrom']==c['max_reference_rmsd_delta_angstrom']==0
+  native_fields.append({'profile':name,'run':label,'all_pose_and_score_metadata_exact':True,'native_output_columns_energies_calls_and_reading_exact':True,'native_engine_options_weights_seed_and_box_exact':True,'preparation_and_ranking_provenance_exact':True,'legitimate_differences':'Measured elapsed_seconds and exact-input-authenticated temporary receptor/ligand filenames only','temporary_native_paths':variable_paths})
+ for field in ['caller_policy_preserved','caller_policy_restored','source_and_prefix_nonmutation','support_retired']:assert at(name,'receipt.json')[field]
+ controls=at(name,'output/version-drift-controls.json');assert len(controls)==6 and all(not c['comparison']['within_tolerance'] and not c['comparison']['versions_match'] for c in controls)
+ events=[json.loads(x) for x in records['attempts/'+name+'/progress.jsonl.gz'].splitlines()]
+ actual_inputs=[e for e in events if e['event']=='native-input'];assert len(actual_inputs)==4
+ assert all(e['sha256']==input_digests['receptor' if e['method']=='set_receptor' else 'partner'] for e in actual_inputs)
+refusals=at('adverse-01','output/refusals.json');assert len(refusals)==12 and all(x['native_searches']==0 for x in refusals)
+selection=rec('native-selection-complete.json');assert selection['current_native_entries']==6 and selection['previous_interrupted_entries']==4
+assert previous['native_searches_entered']==4 and previous['complete_native_returns']==3 and previous['accepted_whole_scientific_cells']==0
+resources={}
+for name in primary['successful_attempts']:
+ r=at(name,'resource-outcome.json');assert r['outcome']=='PASS' and r['group_terminal'] and not r['remaining_live_owned_pids'] and r['resource_interruption'] is None
+ assert r['policy']['cpu']==0 and r['policy']['nice']==10 and r['policy']['workers']==1 and r['minimum_available_bytes']>=8*1024**3 and r['sampled_peak_group_rss_bytes']<=1024**3
+ resources[name]={'elapsed_seconds':r['elapsed_seconds'],'peak_group_rss_bytes':r['sampled_peak_group_rss_bytes'],'cpu_seconds_limit':r['policy']['cpu_seconds'],'wall_seconds_limit':r['policy']['wall_seconds']}
+criteria=[
+ {'criterion':1,'requirement':'Authenticate retained records, support inputs and available versus missing information','outcome':'PASS','evidence':['admission-01/receipt.json','candidate-scientific.json','producer-01/output/reference.json','producer-01/output/control.json'],'scope':'Three original pinned bytes/maps and594 declared source inputs; newly identified producer; old September manifests remain unlocated, not manufactured'},
+ {'criterion':2,'requirement':'Separate exact source-free installed receiver with original/new producer identities','outcome':'PASS','evidence':['admission-01/frozen-worker.py.txt','normal-01/installed-origins.json','pm_fs-01/installed-origins.json'],'scope':'Three distinct copied prefixes/inodes, fresh isolated processes, actual relocated native libraries, no original source/runtime fallback'},
+ {'criterion':3,'requirement':'Reconstruct both complete workflows with unchanged physical and identity comparisons','outcome':'PASS','evidence':['producer-01/manifest-custody.json','normal-01/output/replay-report.json','pm_fs-01/output/replay-report.json'],'scope':'Both one-reference/three-control populations agree exactly on scores/coordinates/source RMSD, source/map, protocol, versions, native columns and ranking metadata'},
+ {'criterion':4,'requirement':'Receive adverse/missing information, nonmutation, caller units and detached output behavior','outcome':'PASS','evidence':['adverse-01/output/refusals.json','normal-01/output/version-drift-controls.json','pm_fs-01/output/version-drift-controls.json','normal-01/support-sidecar.json','pm_fs-01/support-sidecar.json'],'scope':'Twelve pre-native refusals, six post-run version refusals/profile, input/prefix/caller nonmutation/restoration, retired support and original paths'},
+ {'criterion':5,'requirement':'Prospective finite work/resource registration and preserved interruptions','outcome':'PASS','evidence':['campaign-registration.json','native-selection-complete.json','all executed registration/resource-outcome files','previous interrupted archive7475a20f'],'scope':'Six new native entries, ten cumulative including four failed prior entries; serial CPU0/nice10/RAM limits; no CI/build or automatic memory restart'},
+ {'criterion':6,'requirement':'Seal complete evidence and independently read before bounded closure','outcome':'PASS','evidence':['primary manifest0b3bc2b5','reader companion6d53d4af','reader-01/receipt.json'],'scope':'175 primary+21 reader members; no scientific reader imports or molecular replay; bounded representative workflow only'}]
+assert [c['criterion'] for c in criteria]==list(range(1,7)) and all(c['outcome']=='PASS' for c in criteria)
+missing=[
+ {'information':'Exact receptor/ligand PDBQT and source SDF','state':'captured-and-authenticated','limit':'Exact byte identity only; external chemical correctness remains unassessed'},
+ {'information':'Atom correspondence and source graph','state':'verified-for-pinned-case','limit':'69 atoms/73 bonds,40 retained/37 heavy; no general molecular matcher or arbitrary reconstruction codec'},
+ {'information':'Protocol, domain, native method/weights/columns and seeds','state':'captured-and-verified','limit':'One Vina1.2.7/cpu1/seed42/exhaustiveness1 recipe, five requested poses; one/three actually returned'},
+ {'information':'Pose populations, scores, identities, ranking and reading provenance','state':'complete-records-preserved-and-compared','limit':'Source-referenced positional RMSD without alignment/symmetry; cutoff2.5A'},
+ {'information':'External preparation/protonation/charge/type choices','state':'unassessed','limit':'Captured prepared PDBQT is replayed; no missing chemistry or producer method is invented'},
+ {'information':'Environment/artifact/native composition','state':'actual-private-composition-observed','limit':'Linux x86_64/Python3.14.10, copied exact old provider composition and current routine libraries; no public dependency solve or other platform/minor qualification'},
+ {'information':'Original September pair','state':'not-located-in-bounded-inventory','limit':'Historical#16/narrative unchanged; this is a separate newly identified current producer'},
+ {'information':'Universal replay and independent molecular accuracy','state':'unproven','limit':'One pinned case and within-case software replay do not establish independent-panel predictive validity or affinity'}]
+scientific=[n for n in sys.modules if any(n==p or n.startswith(p+'.') for p in ['dockingmt','molsysmt','vina','rdkit','numpy','pyunitwizard','molsysviewer','dmt_test_support'])];assert scientific==[]
+audit={'schema':'dockingmt.e5_bounded_installed_acceptance@1','owner':'uibcdf/dockingmt#83','source_checkpoint':'51ed3dd39e169f0b59d48797788cddd37ec9f14d','helper_source':candidate['source_commit'],'consumer_source':candidate['consumer_source_commit'],'consumer_wheel_sha256':candidate['consumer_wheel_sha256'],'provider_source':candidate['provider_source'],'engine_version':'1.2.7','status':'PASS','bounded_e5_requirement_received':True,'whole_product_received':False,'primary_manifest_sha256':'0b3bc2b5d0380dab064c49bb2e359a54c889017532076718e21b6844ca3286c0','reader_manifest_sha256':'6d53d4afc8941a66c92719804ffe218872d0703066cf478a3c4e6a6f7944c74b','prior_interrupted_manifest_sha256':'7475a20f79d0372dfa59182a3808dcfcd39eda319587351c20e745d67ccd5d37','sealing_state_note':'Frozen run/archive whole_e5_received=False means not accepted before independent reading and this separate six-criterion audit, not failure of a received workflow; archived new_molecular_cases=1 counts this one-case run population, not an additional independent molecular complex','criteria':criteria,'missing_information_audit':missing,'native_record_comparisons':native_fields,'resource_receipts':resources,'current_native_entries':6,'prior_interrupted_entries':4,'cumulative_native_entries':10,'current_complete_native_returns':6,'prior_observed_complete_returns':3,'molecular_case_count':1,'new_independent_molecular_cases':0,'scientific_imports':scientific,'molecular_operations':0,'new_native_searches':0,'producer_script_sha256':sha(Path(__file__).read_bytes()),'guard':'tests/test_1iep_replay.py','scope':'Bounded independent reconstruction of this stored representative externally prepared workflow in actual isolated installed compositions; full Core/Extended/science/public/stabilization remains unaccepted'}
+output=root/'devguide/validation/data/e5_timed_replay_acceptance_2026-11-07.json';assert not output.exists();output.write_text(json.dumps(audit,indent=2)+'\n')
+(attempt/'receipt.json').write_text(json.dumps({'stage':'acceptance-audit','source_commit':candidate['source_commit'],'outcome':'PASS','qualification_complete':True,'criteria_passed':6,'bounded_e5_requirement_received':True,'whole_product_received':False,'scientific_imports':[],'molecular_operations':0,'new_native_searches':0,'acceptance_artifact_sha256':sha(output.read_bytes())},indent=2)+'\n')

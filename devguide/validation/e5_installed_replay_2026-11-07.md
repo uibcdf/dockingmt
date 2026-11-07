@@ -1,6 +1,6 @@
 # Source-free installed 1IEP replay — 2026-11-07
 
-Owner: [DockingMT #83](../pending_proposals/qualify_independent_installed_reproduction.md).
+Owner: [DockingMT #83](../archive/qualify_independent_installed_reproduction.md).
 Registered before execution. Initial outcome: **unexecuted**.
 
 ## Source admission and actual retained inputs

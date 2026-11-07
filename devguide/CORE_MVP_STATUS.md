@@ -28,7 +28,9 @@ descriptions, not new report statuses or blanket acceptance of a whole gate.
 Core MVP completion is not declared: visible C4/C6, bounded scientific/profile
 questions and the stated public-boundary review retain their owners.
 
-Broader molecular persistence, every input dialect and all future chemistry are
+The later E5 receiving U below adds actual source-free reconstruction of one
+stored representative workflow without accepting additional Core criteria or
+changing any original producer. Broader molecular persistence, every input dialect and all future chemistry are
 not prerequisites for demonstrating the declared workflow. A source-qualified
 private wheel is also distinct from a publicly admitted distribution.
 
@@ -49,6 +51,7 @@ private wheel is also distinct from a publicly admitted distribution.
 | V | [Player receiving](validation/player_notifications_receiving.md): exact Viewer `78ede79e`, real Python widgets, immediate navigation, full private installed gate and five-cell kernel replay. [DOM tests](validation/addon_dom.md) separately exercise shipped JavaScript with a model double. Browser comm/pixels remain unobserved. |
 | Q | [Public Viewer receiving](validation/public_viewer_receiving.md): exact 0.24.0 build 1 installs with verified payloads/closure but fails addon compatibility (119 passed, 7 failed, 36 errors). Provider #294 owns the public-file gap. No scientific kernel or preparation is started; V's private qualification remains separate. |
 | T | [Declared installed support](validation/installed_support_receiving.md): isolated shared helper staging and 1,450 passing full installed tests on Linux/Python 3.14.8, with original private consumer/providers preserved. The first benchmark attribution failure and correction remain explicit. Installed-caller source adoption does not qualify staged/public files, the eight installed cells or C4/C6. |
+| U | [Complete installed 1IEP reconstruction](validation/e5_timed_replay_2026-11-07.md), [#83 resolved](archive/qualify_independent_installed_reproduction.md): newly identified stored reference/control pair independently replays normal/pm-fs with zero numerical drift, adverse/version controls and a six-criterion/missing-information audit. One externally prepared existing case; no new independent panel or public solve. |
 
 The V receiving uses original DockingMT wheel producer
 `50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9` / version `0.0.0+225.g50d8e33`,
@@ -95,7 +98,7 @@ the evidence keys above identify executed results and their limits.
 | C2.2 Scores/ranks | Supported: named descriptors, ranking history and distinct position/rank; S/H/V. | No implicit rescoring, arbitrary score substitution or fabricated rank. |
 | C2.3 Reference RMSD | Supported: [evaluation API](../dockingmt/evaluation.py), original positional criterion and separate optional symmetry; S/H/G. | G verifies the public nine-atom route with preserved full poses; population/frame/correspondence remain explicit and no general recovery guarantee follows. |
 | C2.4 Molecular/receptor state | Supported: declared states and original frame retained; P/H/C/V. | State selection is not automatic chemical validation (#33). |
-| C2.5 Reconstructable run | Supported bounded record/byte/configuration recovery; H/P/R. | Supplied native objects or explicit recipe replay remain necessary; recovery is not re-execution (#4). |
+| C2.5 Reconstructable run | Supported bounded record/byte/configuration recovery H/P/R and actual captured-input native replay U. | General prepared-source restoration, external chemistry and other backend/environment profiles remain #4/#33; U is no universal molecular codec or deterministic replay guarantee. |
 | C3.1 Backend-independent box | Supported: [BoxRegion](../dockingmt/core/search_domain.py), explicit/derived domains and physical units; D/S. | Rich domains and guidance remain future scope. |
 | C3.2 Common result model | Supported: local docking/redocking share DockingResult; S/H/R. | Original scientific arms retain separate labels and denominators. |
 | C3.3 Inspectable conversion | Supported: physical geometry, numerical backend projection and resolved calls; D/S/H. | Conversion records do not certify a richer domain's approximation. |

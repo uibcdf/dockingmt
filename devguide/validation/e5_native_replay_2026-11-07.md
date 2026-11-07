@@ -1,6 +1,6 @@
 # Whole installed 1IEP producer/replay receiving — 2026-11-07
 
-Owner: [DockingMT #83](../pending_proposals/qualify_independent_installed_reproduction.md).
+Owner: [DockingMT #83](../archive/qualify_independent_installed_reproduction.md).
 Registered before execution. Initial outcome: **unexecuted**.
 Current outcome: **partial; exact admission passes, both scientific attempts are resource-interrupted**.
 The final checkpoint below supersedes prospective next actions; no receiver search has run.

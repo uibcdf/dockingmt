@@ -1,12 +1,12 @@
 ---
 summary: Receive the existing stored 1IEP workflow in a source-free installation for E5.
 issue: uibcdf/dockingmt#83
-status: partial
+status: resolved
 opened: 2026-11-07
-closed:
+closed: 2026-11-07
 verification: measured
 area: [validation, reproducibility]
-guard: tests/test_1iep_replay.py::test_installed_1iep_attribution_tracks_actual_helpers_without_git
+guard: tests/test_1iep_replay.py
 normative: devguide/MVP.md
 blocked_by: []
 supersedes: []
@@ -14,7 +14,61 @@ supersedes: []
 
 # Independent installed reconstruction of a stored workflow
 
-## Native admission and interrupted receiving checkpoint — 2026-11-07
+## Bounded acceptance and resolution — 2026-11-07
+
+Accept #83 for the complete stored representative **1IEP reference/control
+workflow** in the actual identified isolated installed composition. This is the
+original E5 requirement in MVP.md, to the degree supported by backend/environment;
+no criterion is removed. Historical #16/September records stay unchanged. The
+[registered timed selection](../validation/e5_timed_replay_2026-11-07.md) receives a
+new separately identified current producer, both strict receivers and every
+adverse control. The [six-criterion acceptance and missing-information audit](../validation/data/e5_timed_replay_acceptance_2026-11-07.json)
+passes all six criteria below, with no scientific import or new molecular replay.
+Its [inert producer](../validation/data/e5_timed_replay_acceptance_2026-11-07.py.txt)
+has its exact SHA in that audit. The complete original acceptance list is retained.
+
+| Original criterion | Actual receiving | Boundary |
+| --- | --- | --- |
+| 1. Authenticated records/support and missing information | Three pinned captured input hashes; 594 declared support inputs; complete source graph/map, original/new identities and explicit missing-information inventory. | No old manifest is manufactured; external preparation is unassessed. |
+| 2. Exact separate installation/source-free receiver | Three fresh distinct copied runtime/native prefixes and inodes, isolated processes, actual installed/native origins and relocated Boost; SDK `95f693be`. | Consumer `2ef82d2` / wheel `6db76835`, provider `9e1f1b1`, Viewer `78ede79e`, helper `08324fe`; private Linux/Python3.14.10 only. |
+| 3. Both complete reconstructed workflows and strict comparisons | New producer returns one reference/three control poses. Normal and pm/fs receivers reproduce both full populations with zero score/pose/reference-RMSD drift under unchanged 0.05 kcal/mol and 0.25 angstrom limits; cutoff 2.5 angstrom. Native columns/energies/options, scores/metadata and ranking history compare exactly. | Only elapsed time and authenticated temporary native filenames differ. No chemistry, kernel, source, version, protocol or tolerance changes. |
+| 4. Adverse information, units and nonmutation | Twelve pre-native refusals; six post-run version refusals/profile. Original record bytes, all prefix/routine metadata, caller policy and captured inputs remain exact; support resources/imports and original producer input paths retire. | The pm/fs policy enters before sibling imports, uses coulomb, and restores. Versions are checked post-run, not before search. |
+| 5. Finite registered resources and complete failures | Six new native entries/returns, three complete scientific cells; ten cumulative entries including four interrupted prior entries. CPU0/nice10/one worker, 8 GiB reserve/1 GiB RSS/2 GiB AS; CPU 90 / wall 360 registered only after passing zero-search diagnosis. | Every earlier interrupted output remains unaccepted. No automatic memory restart, native build, browser/kernel/server or remote CI. |
+| 6. Sealed evidence and independent reader | All 175 primary members and 21 reader members verify; detached stdlib reader checks byte/input/source/origin/numeric/support/resource witnesses. The separate six-criterion audit receives native/ranking fields and missing information. | One existing molecular case, zero additional independent complexes; no universal replay, affinity, scientific panel, public/minor/platform or whole-product acceptance. |
+
+The [175-member primary manifest](../validation/data/e5_timed_replay_2026-11-07/manifest.json)
+is `0b3bc2b5d0380dab064c49bb2e359a54c889017532076718e21b6844ca3286c0`;
+[21-member independent-reader manifest](../validation/data/e5_timed_replay_reader_2026-11-07/manifest.json)
+is `6d53d4afc8941a66c92719804ffe218872d0703066cf478a3c4e6a6f7944c74b`.
+The acceptance audit is `87bd3bad158a5dfaa4f6e1a84ef2156b645ff8ac4444314e321e24be91db362f`.
+Frozen per-cell/archive `whole_e5_received=False` records pre-audit state; this
+separate complete audit supplies the bounded acceptance. Its corrected metadata
+counts one existing case and zero new independent complexes; initial audit
+metadata/receipt remain private under custody without changing observations.
+
+The existing full `tests/test_1iep_replay.py` guard protects imported-code
+attribution without Git, relocated records, missing poses/captured source and
+score/coordinate/protocol drift. Its source is unchanged from the previously
+passing 24-case selection; no repeated source test or new runtime/helper code is
+claimed for this scientific qualification. This guard does not substitute for
+the actual native/installed/reader evidence above. Full #73 remains active.
+
+New producer/normal/pm-fs cells take 122.008/54.751/52.957 wall seconds; peak group
+RSS 869,978,112/873,566,208/873,680,896 bytes. Last phase clocks are
+121.098/49.904, 53.902/53.834, 52.306/52.247 elapsed/own-CPU seconds respectively.
+They explain why elapsed/CPU limits must be separated in this measured receiving;
+no universal native runtime, machine-contention cause or performance gain is
+claimed. Diagnostic/negative/reader/audit cells remain 45 CPU/60 wall seconds.
+Every group is terminal and all scientific stage restarts are gated off.
+Task `.molsyssuite/e5-timed-replay-20261107` and earlier failed attempts remain
+under #50, review 2026-11-14; migration untouched. No manual CI; #28 exact-head
+hosted evidence stays missing, not passing. Newer-provider construction, E3
+#604 and actual canvas holds are unchanged; #30/#47 and #33/#49 keep their scope.
+
+## Earlier native admission and interrupted receiving checkpoint — 2026-11-07
+
+This failed population keeps its measured outcome. Resolution above supersedes
+its historical next action without promoting either interrupted cell to PASS.
 
 [The registered native recipe and terminal record](../validation/e5_native_replay_2026-11-07.md)
 receive three independent exact installations: unchanged consumer `2ef82d2` / wheel
@@ -159,9 +213,11 @@ or discharge the whole current E5 audit. Preserve its producers and outcomes.
 
 ## Disposition and next action
 
-Exact artifact/support admission is received; both new scientific attempts are
-resource-interrupted and unaccepted. Follow the current native checkpoint above
-for the zero-search diagnostic and a prospective complete-campaign registration.
-Preserve the full six acceptance criteria, external-preparation limit, all old
-producers and interrupted records. Public/minor/platform delivery remains #30/#47;
-actual browser/comm/canvas #52/#60 and newer-provider construction stay held.
+This bounded E5 representative reconstruction task is resolved and archived.
+Preserve its exact original/new producers and every interrupted attempt. Do not
+start more searches from this completed campaign. Next refresh #33's preserved
+scientific-panel source/terminal admission against provider #556/#557/#558,
+without a new molecular operation until the exact supported composition,
+correspondence and finite selection are admitted. E3 #604, newer-provider #642
+artifact receiving and actual canvas holds remain separately owned. The full
+Core/Extended/scientific/public/stabilization objective stays active.

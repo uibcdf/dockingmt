@@ -5,21 +5,22 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**. The current
-[E5 native checkpoint](MACHINE_HANDOFF.md#e5-native-admission-and-interrupted-receiving-checkpoint--2026-11-07)
-receives exact independent artifact/support installation, then preserves two
-resource-interrupted native producer attempts. Four searches enter/three return;
-zero whole scientific cells pass. Adverse/normal/pm-fs receiving remains
-unexecuted. An 86-member archive and 21-member detached-reader companion preserve
-complete failed records; byte/counter verification does not accept the workflow.
+[E5 complete reconstruction checkpoint](MACHINE_HANDOFF.md#e5-complete-installed-reconstruction-checkpoint--2026-11-07)
+receives the newly stored 1IEP reference/control pair in independent normal and
+pm/fs installations with zero observed score/coordinate/reference-RMSD drift.
+Twelve pre-native refusals and twelve post-run version refusals pass; 175 primary
+members, 21 reader members and the six-criterion missing-information audit verify.
+[#83 is resolved](archive/qualify_independent_installed_reproduction.md) within
+that original representative-workflow scope. Earlier interrupted cells stay
+failed; six new entries/ten cumulative, one existing case, no new independent
+molecular complex. No more native work follows this completed campaign.
 
-Next measure native versus administrative wall/CPU time without search, then
-register a fresh complete campaign with measured limits/all previous entries.
-The remaining four registered entries cannot cover six fresh searches; do not
-restart from this roadmap or promote partial outputs. [E5 #83](pending_proposals/qualify_independent_installed_reproduction.md)
-stays partial. The earlier Git-independent helper fix/24 source cases/two real
-support contexts keep their own attribution. #642 construction, E3 #604 and
-actual canvas holds stay in force. Full #73, independent science, public/minor/
-platform delivery and completion remain unproven; no manual CI.
+Next refresh #33's preserved scientific-panel source/terminal admission against
+MolSysMT #556/#557/#558 before registering a supported molecular selection.
+Keep provider ownership and all original outcomes. E3 #604 remains open; #642
+artifact receiving has no new response and native construction stays held.
+Actual canvas, whole Core/Extended, independent science and public/minor/platform
+qualification remain unproven. No manual CI; skipped hosted evidence is not PASS.
 
 The accepted target is complete **Core C0–C6 plus Extended E1–E5**, bounded
 scientific qualification, independent reproduction and public installation at
@@ -45,8 +46,8 @@ qualify a private artifact as a public package.
 | E1 rescoring/ranking | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07): the complete two-pose rigid public route receives original-result reconstruction, preparation, additive Vina/Vinardo evaluations, separate interaction comparisons and independent persistence. Original records and all informative controls survive. | Preserve that bounded contract and the failed original generator qualification. E2's bounded study is also received under [#81](archive/qualify_small_ligand_collection.md). E3 is provider-blocked; advance independent E4 saved-analysis admission. Broad E1, total/reference ordering, scientific validity and public delivery keep separate gates. |
 | E2 ligand collections | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for P59(R)/P69(S), rigid25 preparations and the common joint domain: native success/refusal/success, 3+2 original poses, two searches and two original-rank-1 representatives. Five native columns, own references, all original histories and independent saved receiving pass. | Preserve the exact [native receiving](validation/e2_native_collection_2026-11-07.md), source/preparation gates and caller-owned empirical study policy. This accepts the bounded profile, not all E2 profiles, #73, screening effectiveness or public delivery. E3 [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) awaits MolSysMT #604; independent E4 axis admission can progress within its hold. |
 | E3 comparison/clustering | [Static provider admission](validation/e3_provider_admission_2026-11-07.md) leaves [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) blocked by MolSysMT #604: per-reference RMSD exists, but no N×N/clustering composition is admitted. No new RMSD or analysis runs. | Receive the provider-supported composition/tools and preserve every #79 control and reference requirement. Three existing P59 poses are a population candidate; their crystalline heavy reference is not yet admitted against rigid25. No downstream matrix, clustering or molecular fallback. |
-| E5 independent reconstruction | [#83](pending_proposals/qualify_independent_installed_reproduction.md) retains all six original acceptance criteria and unchanged strict helper comparisons. | [Exact installed admission and interrupted native record](validation/e5_native_replay_2026-11-07.md): four search entries/three returns, zero accepted whole scientific cells; receivers/adverse unexecuted. Next zero-search phase timing, then new prospective complete-campaign registration including previous work. |
-| Remaining Core and scientific panel | Declared 3PTB preparation/execution/inspection/evaluation and bounded controls exist; they do not establish general chemistry, a qualified independent panel or a whole independent-workflow audit. | #4/#28/#33/#49 and the full evidence map retain the remaining criteria. Receive provider-owned template/reconstruction/partial-input needs and register new scientific populations before execution. |
+| E5 independent reconstruction | [#83 resolved](archive/qualify_independent_installed_reproduction.md#bounded-acceptance-and-resolution--2026-11-07): all six original criteria pass for the stored representative 1IEP reference/control workflow in the exact installed composition. | Preserve the [complete receiving](validation/e5_timed_replay_2026-11-07.md), original strict tolerances and all failed populations. Normal/pm-fs replay is exact; missing chemistry/public delivery and independent-panel accuracy remain outside that bounded acceptance. No additional search. |
+| Remaining Core and scientific panel | Declared 3PTB preparation/execution/inspection/evaluation and bounded controls exist; representative E5 reconstruction is now received. They do not establish general chemistry or a qualified independent molecular panel. | #4/#28/#33/#49 and the full evidence map retain all remaining criteria. Next refresh #33 source/terminal admission against provider #556/#557/#558 and exact artifact support before any molecular rerun; no consumer fallback or invented correspondence. |
 | Public delivery | Private source/installed qualification is distinct from a compatible public dependency closure and actual Conda artifact. | #30/#47: refresh actual covering provider files before receiving; then qualify the exact staged candidate and required platform/minor matrix. Distribution uses Conda `uibcdf`; no PyPI route or release follows from private evidence. |
 | Visible acceptance | Python/DOM/kernel evidence and MolSysViewer #291 notification receiving are delivered; real comm/canvas acceptance is unproven. | #52/#60: keep the maintainer's scheduling decision. Do not resume live observation merely because another machine is available. |
 

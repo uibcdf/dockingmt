@@ -166,7 +166,7 @@ new inputs need fresh admission before any native client receiving. Provider
 not a reopened provider scientific defect. Public availability/closure and
 runtime/platform/minor acceptance remain separately unproven.
 
-**Independent next work:** [E5 #83](../pending_proposals/qualify_independent_installed_reproduction.md)
+**Independent next work:** [E5 #83](../archive/qualify_independent_installed_reproduction.md)
 owes a source-free installed reconstruction of the retained 1IEP representative
 workflow. Inspect existing records/support/replay first; register every native
 call before execution. Browser/comm/canvas stays held and the complete goal

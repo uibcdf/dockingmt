@@ -1,0 +1,182 @@
+{
+  "schema": "dockingmt.installed_1iep_native_reader_archive@1",
+  "owner": "uibcdf/dockingmt#83",
+  "source_commit": "08324fe2f72ee8afb5be3874700fc789c374aee8",
+  "outcome": "PASS",
+  "received_manifest_sha256": "0b3bc2b5d0380dab064c49bb2e359a54c889017532076718e21b6844ca3286c0",
+  "members_verified": 175,
+  "resource": {
+    "process_started": true,
+    "exit_code": 0,
+    "resource_interruption": null,
+    "termination_signal": null,
+    "elapsed_seconds": 2.4542937999976857,
+    "minimum_available_bytes": 61321822208,
+    "sampled_peak_group_rss_bytes": 56045568,
+    "samples": 24,
+    "policy": {
+      "cpu": 0,
+      "nice": 10,
+      "workers": 1,
+      "available_reserve_bytes": 8589934592,
+      "group_rss_limit_bytes": 1073741824,
+      "address_space_bytes": 2147483648,
+      "cpu_seconds": 45,
+      "wall_seconds": 60
+    },
+    "remaining_live_owned_pids": [],
+    "group_terminal": true,
+    "qualification_outcome": "PASS",
+    "outcome": "PASS"
+  },
+  "scope": "Detached byte/resource/support/result arithmetic witness audit only, no new molecular/reference measurement or native replay",
+  "files": [
+    {
+      "path": "seal-01/frozen-campaign-registration.json.gz",
+      "bytes": 1089,
+      "sha256": "8b2517a4c4764ff674956112922aed528e3647b20fdab2b4c4e8d31981a0fa8e",
+      "decoded_bytes": 2110,
+      "decoded_sha256": "4b2a40900c3782e7edb4a1867a0e35dcec23bbf04c91285b9bd4d172fe54b031"
+    },
+    {
+      "path": "seal-01/frozen-controller.py.txt.gz",
+      "bytes": 3280,
+      "sha256": "0e1759a1d122982eeffd671606d3b95ea62c1e697ad5a9b7255d1cbfb618153f",
+      "decoded_bytes": 9314,
+      "decoded_sha256": "5b33cd1bd07fefd246df8741fed7cd0bef56294e56bd261c2d45056380335d2c"
+    },
+    {
+      "path": "seal-01/frozen-prescription.md.gz",
+      "bytes": 3621,
+      "sha256": "6a62aff25a9cceb541db3b4d68b164afff7ee155edf892acf4c866f0295a5232",
+      "decoded_bytes": 7623,
+      "decoded_sha256": "0783108a5a87d31eb51e23bc760f4a032c6f50e1f36d53b64e2cb6213f50344d"
+    },
+    {
+      "path": "seal-01/frozen-resource-guard.py.txt.gz",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "seal-01/frozen-worker.py.txt.gz",
+      "bytes": 1800,
+      "sha256": "2b32cd6ce8f62b2c39683fffec56eb9e8d8210867421fb85bd07330363090fb7",
+      "decoded_bytes": 4464,
+      "decoded_sha256": "15b095c3641bf399a07398799ebe3985d9fad1bd26963bbe6fa2db753f9e0b6a"
+    },
+    {
+      "path": "seal-01/receipt.json.gz",
+      "bytes": 228,
+      "sha256": "93f3c46365de0bc006094376cef377b5414fa2967f952e55126e00de99933a9b",
+      "decoded_bytes": 303,
+      "decoded_sha256": "f61b4fa531ec80dc17f33f71eae6bcd9fb37b223b19aa8f232836d729e45ad6f"
+    },
+    {
+      "path": "seal-01/registration.json.gz",
+      "bytes": 530,
+      "sha256": "38eaa58fc1b3cc8e3cb8e0700ea4eee6fc795dcda12e66dd3a72df5fb9f3595d",
+      "decoded_bytes": 836,
+      "decoded_sha256": "b64a0fd75687da0dbffb0a522c4385f38bcd3da2ee5076ddfc30108f37b08903"
+    },
+    {
+      "path": "seal-01/resource-outcome.json.gz",
+      "bytes": 344,
+      "sha256": "1357269865696bf40d834a7b93a817c76a5ddd9da3ebf2946c6f8f83e35b7e73",
+      "decoded_bytes": 607,
+      "decoded_sha256": "01fc7a9ecefc8750d79d1f02b25051fbd4ce14e158061ffec7e0d298737c3fbc"
+    },
+    {
+      "path": "seal-01/stderr.log.gz",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "seal-01/stdout.log.gz",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reader-01/frozen-campaign-registration.json.gz",
+      "bytes": 1089,
+      "sha256": "8b2517a4c4764ff674956112922aed528e3647b20fdab2b4c4e8d31981a0fa8e",
+      "decoded_bytes": 2110,
+      "decoded_sha256": "4b2a40900c3782e7edb4a1867a0e35dcec23bbf04c91285b9bd4d172fe54b031"
+    },
+    {
+      "path": "reader-01/frozen-controller.py.txt.gz",
+      "bytes": 3280,
+      "sha256": "0e1759a1d122982eeffd671606d3b95ea62c1e697ad5a9b7255d1cbfb618153f",
+      "decoded_bytes": 9314,
+      "decoded_sha256": "5b33cd1bd07fefd246df8741fed7cd0bef56294e56bd261c2d45056380335d2c"
+    },
+    {
+      "path": "reader-01/frozen-prescription.md.gz",
+      "bytes": 3621,
+      "sha256": "6a62aff25a9cceb541db3b4d68b164afff7ee155edf892acf4c866f0295a5232",
+      "decoded_bytes": 7623,
+      "decoded_sha256": "0783108a5a87d31eb51e23bc760f4a032c6f50e1f36d53b64e2cb6213f50344d"
+    },
+    {
+      "path": "reader-01/frozen-reader-input.json.gz",
+      "bytes": 192,
+      "sha256": "e9956d6bf8922c84ac7ae26773df6fe5a4e2162e54bae59348ee5dfff3af5ba1",
+      "decoded_bytes": 222,
+      "decoded_sha256": "80a3962e7980a8ffbcba5593a59059cf36144d0272596fa59e3ecf99008b143b"
+    },
+    {
+      "path": "reader-01/frozen-resource-guard.py.txt.gz",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "reader-01/frozen-worker.py.txt.gz",
+      "bytes": 3575,
+      "sha256": "b3325fc21f3007b4e3c25eae9e8a79489c5e229dfc2c33c90d86c2f9a2f0a8cd",
+      "decoded_bytes": 10818,
+      "decoded_sha256": "543c9fb3b32085eb10ebe79eaf2b5a47b0b41561203cb9e5820010a52bddf98e"
+    },
+    {
+      "path": "reader-01/receipt.json.gz",
+      "bytes": 538,
+      "sha256": "6a7e2d6ec6689c2e064d8467da0d2f685c22a5207778100305c357825d3033e8",
+      "decoded_bytes": 1437,
+      "decoded_sha256": "071846a2844ac10d6caf24d2a8e15675941b77ca9fa857a7438eeaaa1fa18818"
+    },
+    {
+      "path": "reader-01/registration.json.gz",
+      "bytes": 655,
+      "sha256": "b00b90ca026b8b144cd188ff75cce3340dafc8b2aa4cf49543267afcf6ef5f5f",
+      "decoded_bytes": 1087,
+      "decoded_sha256": "90d58a297b186fef6e9d7014b64ff220e29c2cd5da280fd6563ec66e453f5774"
+    },
+    {
+      "path": "reader-01/resource-outcome.json.gz",
+      "bytes": 345,
+      "sha256": "60871dae2c7c4555d50a6bc50e5a0f17b5ffd650968da2cac97ab3c5dead8c3b",
+      "decoded_bytes": 608,
+      "decoded_sha256": "613a00b169d20fa3a1df9e48737d8c15b3eb856c7e5e6bb44abf41fc653993f3"
+    },
+    {
+      "path": "reader-01/stderr.log.gz",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reader-01/stdout.log.gz",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

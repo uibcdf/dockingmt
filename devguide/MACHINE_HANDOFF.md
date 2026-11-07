@@ -23,7 +23,53 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### E5 complete installed reconstruction checkpoint — 2026-11-07
+
+[The registered timed selection](validation/e5_timed_replay_2026-11-07.md) completes
+independent reconstruction of the stored 1IEP reference/control pair. Fresh
+producer/normal/pm-fs cells pass with one reference and three control poses in
+each; scores, coordinates and reference-RMSD deltas are zero under unchanged
+strict source/map/software/protocol/input checks and physical tolerances.
+Twelve pre-native refusals and six post-run version refusals per policy pass.
+Actual prefix/native origins, all 594 support resources, captured inputs and
+caller unit authority remain exact; owned support and producer paths retire.
+Consumer `2ef82d2` / wheel `6db76835`, provider `9e1f1b1`, Viewer `78ede79e`, Vina 1.2.7,
+helper `08324fe` and SDK `95f693be` keep their separate identities. The routine
+postflight composition includes the previously recorded plantuml entry.
+
+New cells take 122.008/54.751/52.957 wall seconds; peak group RSS stays below
+874 MB, 8 GiB available reserve intact and all groups terminal. Zero-search phase
+timing precedes CPU 90 / wall 360 registration; no whole-machine permission or
+performance gain is inferred. Six new native entries/returns, ten cumulative
+including four older interrupted entries. The failed prior cells remain failed.
+The campaign is terminal and its controller rejects additional scientific stages.
+
+The [175-member primary manifest](validation/data/e5_timed_replay_2026-11-07/manifest.json)
+is `0b3bc2b5d0380dab064c49bb2e359a54c889017532076718e21b6844ca3286c0`;
+[21-member reader companion](validation/data/e5_timed_replay_reader_2026-11-07/manifest.json)
+is `6d53d4afc8941a66c92719804ffe218872d0703066cf478a3c4e6a6f7944c74b`.
+Detached stdlib reading passes, without scientific imports/replay. The
+[six-criterion and missing-information audit](validation/data/e5_timed_replay_acceptance_2026-11-07.json)
+is `87bd3bad158a5dfaa4f6e1a84ef2156b645ff8ac4444314e321e24be91db362f`.
+It receives all six original criteria; [#83 is resolved/archived](archive/qualify_independent_installed_reproduction.md).
+Frozen per-cell nonacceptance flags precede this separate audit. This is one
+existing case and zero additional independent complexes; external preparation,
+universal replay, independent scientific-panel accuracy and public/minor/platform
+claims remain unproven. Full #73 remains active.
+
+**Next:** refresh #33's preserved panel source/terminal admission against provider
+#556/#557/#558 before admitting any new molecular call or experiment. Reuse
+provider tools/maps; no local fallback. E3 #604 is still open on refreshed GitHub;
+#642 has no new artifact response and native construction stays held after its
+memory stop. Actual browser/comm/canvas stays under the maintainer's hold.
+Task `.molsyssuite/e5-timed-replay-20261107`, earlier interrupted attempts and
+publication receipts remain under #50, review 2026-11-14; migration untouched.
+No manual CI; #28 exact-head hosted evidence stays missing, not passing.
+
 ### E5 native admission and interrupted receiving checkpoint — 2026-11-07
+
+This interrupted population keeps its original failure status; the complete
+checkpoint above supersedes only its historical next action.
 
 [The registered native recipe and terminal record](validation/e5_native_replay_2026-11-07.md)
 receive three independent exact installations: unchanged consumer `2ef82d2` / wheel
@@ -121,7 +167,7 @@ Admit the exact artifact/support/native bytes and freeze the complete worker/
 adverse matrix, then execute the separately identified current two-search
 producer, two-search normal receiver and two-search pm/fs receiver in fresh
 source-free processes/installations. Preserve the original strict tolerances and
-all six criteria in the [owning report](pending_proposals/qualify_independent_installed_reproduction.md). No additional native work is implied by a source pass.
+all six criteria in the [owning report](archive/qualify_independent_installed_reproduction.md). No additional native work is implied by a source pass.
 #642 construction remains held after memory interruption; no build restart.
 #50 custody review 2026-11-14; migration untouched. No manual CI; #28 exact-head
 hosted evidence remains missing. Whole #73/Core/Extended/public/scientific/visual
@@ -170,7 +216,7 @@ checks only, with no scientific imports/calculation or construction acceptance.
 Task `.molsyssuite/e4-evidence-fix-20261107` retains source/Cargo/build/output
 custody under #50, review 2026-11-14. No purge or remote CI is performed.
 
-**Next:** progress independent [E5 #83](pending_proposals/qualify_independent_installed_reproduction.md).
+**Next:** progress independent [E5 #83](archive/qualify_independent_installed_reproduction.md).
 First inspect the retained 1IEP reference/displaced-box records, existing #16
 replay, exact unshipped support inputs and original physical-unit tolerances;
 then register source-free installed whole-workflow receiving before any native
