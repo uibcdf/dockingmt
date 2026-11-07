@@ -1,0 +1,155 @@
+{
+  "schema": "dockingmt.installed_interaction_view_reader_archive@1",
+  "owner": "uibcdf/dockingmt#80",
+  "outcome": "PASS",
+  "source_commit": "2ef82d25e34266d1b504464dc238e8863a9dade0",
+  "received_manifest_sha256": "a6b92821b8c5af375fcadbb8e64f6e2cf01015283b95e33ea47af53a3e692606",
+  "members_verified": 342,
+  "passing_reader": "reader-01",
+  "resource": {
+    "process_started": true,
+    "exit_code": 0,
+    "resource_interruption": null,
+    "termination_signal": null,
+    "elapsed_seconds": 40.73912290299995,
+    "minimum_available_bytes": 59946586112,
+    "sampled_peak_group_rss_bytes": 496467968,
+    "samples": 398,
+    "policy": {
+      "cpu": 0,
+      "nice": 10,
+      "workers": 1,
+      "available_reserve_bytes": 8589934592,
+      "group_rss_limit_bytes": 1073741824,
+      "address_space_bytes": 2147483648,
+      "cpu_seconds": 45,
+      "wall_seconds": 60
+    },
+    "remaining_live_owned_pids": [],
+    "group_terminal": true,
+    "qualification_outcome": "PASS",
+    "outcome": "PASS"
+  },
+  "scope": "Standard-library identity, saved records and numeric witnesses only; no molecular restoration/calculation, producer authentication, browser/canvas or whole-workflow acceptance",
+  "files": [
+    {
+      "path": "seal-01/frozen-controller.py.txt.gz",
+      "bytes": 2312,
+      "sha256": "0699102d8b8e64b46a8d3e04ad94aee449b17e5809bf08c7f8161797ea5c1874",
+      "decoded_bytes": 5515,
+      "decoded_sha256": "d72dd8e7ec7e291c82f88bcb93b73f22f1191940e88b6bed8b669c6e96e4719b"
+    },
+    {
+      "path": "seal-01/frozen-resource-guard.py.txt.gz",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "seal-01/frozen-worker.py.txt.gz",
+      "bytes": 2277,
+      "sha256": "02151507218be0d6b2fb7ad29d9498ebd1bcdd9758caf48132f475fad8bdfbd4",
+      "decoded_bytes": 5362,
+      "decoded_sha256": "e35bd27cf903d121032bd2db0ccf84e416943545d690cfe6726b329d758ffac2"
+    },
+    {
+      "path": "seal-01/receipt.json.gz",
+      "bytes": 313,
+      "sha256": "c56444e6cbba02d4afaafd631072fe1ae4242033df771b3ff5447f05b1d66717",
+      "decoded_bytes": 439,
+      "decoded_sha256": "0ae7381d625f974b5ce211f779bd3dfdac4b8b61f95adb822ff07272f21e97b8"
+    },
+    {
+      "path": "seal-01/registration.json.gz",
+      "bytes": 430,
+      "sha256": "b0822bfedf09b2623e9f20e96a1915d26ac1258f5657b212594b792ae45ea08b",
+      "decoded_bytes": 670,
+      "decoded_sha256": "39bbb3e1644b532f67623ec59b326a19195ceb860d669c0f085dbe52fb1677f1"
+    },
+    {
+      "path": "seal-01/resource-outcome.json.gz",
+      "bytes": 347,
+      "sha256": "f973e1907c39e1d4cb775987d01df15322fb938f6ee6cd3b9513c631400f2fcb",
+      "decoded_bytes": 608,
+      "decoded_sha256": "564f5141a87235554bf4b18b2eb0978f62be953de344b4787b53a21389c05fb4"
+    },
+    {
+      "path": "seal-01/stderr.log.gz",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "seal-01/stdout.log.gz",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reader-01/frozen-controller.py.txt.gz",
+      "bytes": 2312,
+      "sha256": "0699102d8b8e64b46a8d3e04ad94aee449b17e5809bf08c7f8161797ea5c1874",
+      "decoded_bytes": 5515,
+      "decoded_sha256": "d72dd8e7ec7e291c82f88bcb93b73f22f1191940e88b6bed8b669c6e96e4719b"
+    },
+    {
+      "path": "reader-01/frozen-reader-input.json.gz",
+      "bytes": 297,
+      "sha256": "4aac9de39fd820006bcf116e500fd8ee13e3a43a6f9b4943c594c7f5fc89e641",
+      "decoded_bytes": 408,
+      "decoded_sha256": "db3fdec1542af68be1b9adcf4ab40a6ec11767b35f3e3368abe80b334134530a"
+    },
+    {
+      "path": "reader-01/frozen-resource-guard.py.txt.gz",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "reader-01/frozen-worker.py.txt.gz",
+      "bytes": 5227,
+      "sha256": "5f0e47ccdfcf534dfe1aadc501d3f833aa89fd8cf1d62dfa40e2c0451a91c3d7",
+      "decoded_bytes": 16430,
+      "decoded_sha256": "e33190333e3ef0c0def0a50c53984990bb75a10dd34c4ed32ca10dc57953965d"
+    },
+    {
+      "path": "reader-01/receipt.json.gz",
+      "bytes": 548,
+      "sha256": "910565ab1bdead4159fffc6d821eb03fec7afa258c42b108f78618f12a76ebab",
+      "decoded_bytes": 988,
+      "decoded_sha256": "74ec6b8b034ddaa58bef1ebd13be4d6125a2ed77553bfda5629291bd9c4fba66"
+    },
+    {
+      "path": "reader-01/registration.json.gz",
+      "bytes": 635,
+      "sha256": "3ab7582a4159be2176522ea34b2b51c5f2e8a6f05001e1fa8ec8bd0de79312a4",
+      "decoded_bytes": 1111,
+      "decoded_sha256": "27c8a34c9f1ab936985fc74b3620a73421f9523cfef925c3ae3a49d17d64902f"
+    },
+    {
+      "path": "reader-01/resource-outcome.json.gz",
+      "bytes": 346,
+      "sha256": "2401c32958ab3b50d84f5069e04963fee12018f81477d95fc71b03714fefc103",
+      "decoded_bytes": 609,
+      "decoded_sha256": "e3b0a436674f4d9710064bfccf34c8bf63d116ea8eb45d1c5acad3fff6a9da31"
+    },
+    {
+      "path": "reader-01/stderr.log.gz",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reader-01/stdout.log.gz",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

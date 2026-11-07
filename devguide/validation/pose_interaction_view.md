@@ -3,8 +3,9 @@
 Owner: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
 Registered source increment before execution, starting at `d71fd6b`.
 Implementation and qualification were unproven at registration. The route is
-now implemented with passing source/DOM qualification below; actual installed
-provider receiving, comm/canvas and whole E4 remain unproven.
+now implemented with passing source/DOM qualification below and separately
+[received on its exact installed candidate](e4_pose_interaction_view_installed_2026-11-07.md)
+normal/pm-fs. Actual comm/canvas, public delivery and whole E4 remain unproven.
 
 ## Public route
 
@@ -199,13 +200,16 @@ unchanged; the new qualification records are not installed-test inputs. No
 provider pin, original scientific input or existing immutable archive changes.
 All owned groups are terminal, with no resource interruption in this increment.
 
-**Next:** build and identify a new exact candidate containing this route, then
-receive it normal/pm-fs on the original full carriers and result, including
-real provider visuals/metadata, pose/frame mapping, source nonmutation and the
-explicitly excluded native regression. The earlier `cfff386` wheel lacks this
-view route and cannot qualify it. MolSysMT #642 is triaged by its owner as a
-typed data-integrity priority ([owner response](https://github.com/uibcdf/molsysmt/issues/642#issuecomment-6712251770));
-no fix/delivery is claimed. Receive its correction separately. #80/#60 stay
-partial; #28 exact-head hosted evidence is missing under `[skip ci]`, without
-manual CI. Public/minor/platform, broader E4, actual canvas, independent science/
-reproduction and full #73 remain open.
+**Installed follow-through:** source `2ef82d2` now has separately
+[passing exact-candidate receiving](e4_pose_interaction_view_installed_2026-11-07.md),
+eight real-provider cells normal/pm-fs and independent reading of 342 sealed
+members. The previously excluded native test passes in each policy. This does
+not rewrite the initial failed source attempt or convert the source-only receipt
+to native evidence. Runtime/test/ESM bytes and original producers remain unchanged.
+
+**Next:** review remaining #80/#60 acceptance criteria against this one-carrier
+route. Preserve the maintainer's actual canvas/comm scheduling hold. #642 has
+owner triage, no received correction; positive-source persistence remains failed.
+#28 exact-head hosted evidence is missing under `[skip ci]` without manual CI.
+Other-carrier projection, broader Core/E4/E5, independent scientific reproduction,
+public/minor/platform delivery and full #73 remain open.

@@ -16,12 +16,66 @@ Completion remains unproven. The installed binding checkpoint was published
 as `daa6da9` before the pause, followed by native coverage receiving at `d71fd6b`.
 Their source/evidence remains unchanged. The current
 [interaction-view route](validation/pose_interaction_view.md) has passing source/
-DOM qualification and still requires its own actual installed candidate.
+DOM qualification and [exact new-candidate receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md)
+normal/pm-fs, including the existing native widget regression. Actual canvas,
+public delivery and the complete objective remain unproven.
 Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Installed interaction-view checkpoint — 2026-11-07
+
+[The registered receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md)
+passes all eight cells: retained original, explicit nonfirst reordering,
+empty/unevaluated control and the one existing real-provider widget/callback
+regression, each normal then pm/fs. Exact consumer source is
+`2ef82d25e34266d1b504464dc238e8863a9dade0`; wheel `0.0.0+310.g2ef82d2`,
+SHA-256 `6db76835f4f3f9c41d06a163cb3a4fbc9e780597bfd89d2fc6a75d29cff31133`,
+154,750 bytes/75 installed consumer files. The earlier `cfff386` wheel is not
+used to qualify this route. Borrowed 3794-file providers/MolSysMT `9e1f1b1`,
+641-file Viewer `78ede79e` overlay, SDK `95f693be` and original scientific producer
+`5952053` keep separate identities. No runtime/helper/provider/shared-prefix change.
+
+Each View cell renders twice in one real View, receives two actual public
+widgets, provider visuals, live coverage and complete query/typed/export records,
+and checks four refusals plus owned cleanup/re-enable and scene replacement.
+Full original five-pose records remain exact; reordered retained pose is index3/
+position4, local frame0, original scientific rank/ID. The derived empty control
+is separately identified and is never a sixth original. Other original poses
+remain unevaluated. Native regression passes exactly one case per policy with
+setup/call/teardown/JUnit agreement. Its cached archive-verified published Pytest
+Receptor1.2.2 has a separate 15-file prefix; the routine Conda prefix is unchanged.
+
+Two receiver setup failures and a pre-process label rejection remain preserved.
+Normal elapsed times are 51.145/58.230/37.177/10.442 s; pm/fs are
+20.075/20.074/22.228/9.826 s. Peak scientific group RSS stays below 664 MB;
+all groups are terminal and the 8 GiB reserve is preserved, without resource
+interruption. These timings are machine resource accounting, not benchmarks.
+
+The [342-member primary archive](validation/data/e4_pose_interaction_view_installed_2026-11-07/manifest.json)
+is `a6b92821b8c5af375fcadbb8e64f6e2cf01015283b95e33ea47af53a3e692606`.
+Independent standard-library reading passes in 40.739 s/496,467,968 bytes, imports
+no scientific packages and performs no molecular replay. It verifies original
+inputs/results/analysis witnesses, declared numerical tolerances and UI/native
+completion. The [17-member reader companion](validation/data/e4_pose_interaction_view_installed_reader_2026-11-07/manifest.json)
+is `50a1acecae7b7ec418b17ed1bef439b49d6660d6c84edc36a75c1ed1c6a44f13`.
+Task `.molsyssuite/e4-view-installed-20261107` preserves candidate worktree,
+wheel/prefixes/frozen scripts/raw records under #50, review 2026-11-14. Original
+migration files remain untouched/untracked. No manual CI; #28 exact-head hosted
+evidence stays missing. Provider local checkouts were inspected and preserved,
+not pulled or installed; current public availability remains unqualified.
+
+**Next:** audit remaining #80/#60 criteria against this received one-carrier
+route. Preserve the maintainer's browser/comm/canvas #52/#60 hold; no live kernel,
+server or browser starts. Receive a #642 correction only in its separate
+positive-source persistence population. Other-carrier projection, E3 #604,
+broader Core/E5, independent scientific reproduction, public/minor/platform
+receiving and full #73 remain open. The goal remains active.
+
 ### Interaction-view source checkpoint — 2026-11-07
+
+This preceding source-only checkpoint retains its original observations; the
+installed receiving above supersedes its historical next action.
 
 `dmt.view(binding)` now opens an admitted `PoseInteractions` carrier through
 public MolSysViewer loading/visual APIs. The addon keeps the complete detached

@@ -14,6 +14,40 @@ supersedes: []
 
 # Structured interaction analysis for docking poses
 
+## Exact installed interaction-view receiving — 2026-11-07
+
+[The separately registered new-candidate receiving](../validation/e4_pose_interaction_view_installed_2026-11-07.md)
+passes all eight real-provider cells normal/pm-fs on source `2ef82d2`, wheel
+`0.0.0+310.g2ef82d2`, SHA-256
+`6db76835f4f3f9c41d06a163cb3a4fbc9e780597bfd89d2fc6a75d29cff31133`.
+Each profile covers the retained original, explicitly reorders its complete five
+records to select index3/frame0, distinguishes native unevaluated/evaluated-empty
+coverage and passes the one existing two-frame widget/callback regression.
+The first three cells each render twice through public `dmt.view`, create real
+provider visuals/widgets, receive live metadata/queries/summary/export, preserve
+four refusals, owned cleanup and system-replacement invalidation. Complete original
+results/native/typed data stay exact; no new science or runtime change occurs.
+
+Two receiver setup failures and one pre-process label rejection are preserved.
+The native retry uses archive-verified cached Conda Pytest Receptor1.2.2 in a
+separate 15-file prefix; no source fallback or shared-prefix mutation. Every group
+is terminal, within declared resource/call limits, without resource interruption.
+The [342-member primary archive](../validation/data/e4_pose_interaction_view_installed_2026-11-07/manifest.json)
+is `a6b92821b8c5af375fcadbb8e64f6e2cf01015283b95e33ea47af53a3e692606`;
+the [17-member reader companion](../validation/data/e4_pose_interaction_view_installed_reader_2026-11-07/manifest.json)
+is `50a1acecae7b7ec418b17ed1bef439b49d6660d6c84edc36a75c1ed1c6a44f13`.
+Independent standard-library reading passes in 40.739 s without scientific
+imports/replay. Source186/DOM23 retain their preceding exact-source scope.
+
+**Status:** partial. Audit remaining #80/#60 workflow criteria against this
+received one-carrier route. Actual browser/comm/canvas stays under the maintainer's
+#52/#60 scheduling hold. Positive-source persistence remains failed under
+MolSysMT #642, despite owner triage. Other-carrier projection, broader Core/E4/E5,
+E3 #604, independent scientific reproduction and public/minor/platform delivery
+remain open. No manual CI is dispatched; #28 exact-head hosted evidence stays
+missing. #50 task custody review is 2026-11-14; original migration files stay
+untouched/untracked. Full #73 and the active objective remain unproven.
+
 ## Concrete workflow
 
 E4 in the [complete functional plan](../PRE_STABILIZATION_PLAN.md) needs a minimal

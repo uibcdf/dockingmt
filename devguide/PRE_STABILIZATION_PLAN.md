@@ -3,14 +3,16 @@
 Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
-Inspected starting source: `530a4cf`. The [interaction-view source checkpoint](MACHINE_HANDOFF.md#interaction-view-source-checkpoint--2026-11-07)
+Inspected starting source: `530a4cf`. The [installed interaction-view checkpoint](MACHINE_HANDOFF.md#installed-interaction-view-checkpoint--2026-11-07)
 preserves the implemented API, source controls and actual installed receiving.
 Both earlier pause checkpoints remain historical. The complete scope below is
 unchanged. [The selected-pose binding](validation/pose_interaction_binding.md) is
-implemented and received on its actual private candidate normal/pm-fs. Next
-receive the new [single-frame interaction view](validation/pose_interaction_view.md)
-on an exact installed candidate. Source/DOM controls pass; they do not receive
-that artifact or canvas. Empty-source native coverage passes separately, while
+implemented and received on its actual private candidate normal/pm-fs. The new
+[single-frame interaction view](validation/pose_interaction_view.md) also passes
+[exact-candidate receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md),
+eight real-provider cells normal/pm-fs and independent saved-record verification.
+Next audit remaining #80/#60 workflow criteria; actual canvas keeps its hold.
+Empty-source native coverage passes separately, while
 positive-source invalidation persistence remains failed under MolSysMT #642.
 
 ## Outcome and version boundary
@@ -52,7 +54,7 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ordered and audited reproducibly. | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07) for the full-source rigid prepared13 profile: both actual original poses complete public reconstruction/preparation/additive Vina/Vinardo 1.2.7 scoring and separate method-local interaction comparison. Eight old values/ranks/history survive with 32 new values; native receiving and independent persistence pass. The original generator qualification remains failed with unreached original live checks. Broader E1, total/reference comparisons, independent science and public delivery retain their owners. |
 | E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for the P59(R)/P69(S) rigid25 joint-domain profile. Source/preparation reproduction and exact PDBQT gates precede native success/refusal/success, 3+2 poses and two original-rank-1 representatives. Five native columns, own per-run references, original scores/histories, three public outcome reconstructions and fresh independent receiving pass. The receptor remains externally prepared/unassessed; other E2 profiles, screening effectiveness, #73 and public delivery remain unaccepted. |
 | E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) is blocked by MolSysMT #604. The [static admission review](validation/e3_provider_admission_2026-11-07.md) at fetched `82bfa1c82f1d48035679fa4630e81a2506b67bd6` finds no admitted N×N/clustering composition; the clean local provider/pins remain unchanged. Three P59 poses and a crystalline heavy-reference candidate do not replace reference/H-representation admission or any control. No new RMSD or E3 acceptance. |
-| E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 retains the original `5952053` molecular receiving and its failures. [Same-carrier receiving](validation/e4_saved_carrier_receiving_2026-11-07.md) now passes normal/pm-fs Python Viewer load/filter/attachment/persistence, eleven refusals per profile and independent record reading. No new detection/preparation/native calculation. [The installed selected-pose binding](validation/e4_pose_binding_installed_2026-11-07.md) now passes normal/pm-fs actual candidate receiving, fourteen refusals/profile, full-carrier persistence and independent record reading, separately from 190 source cases. [Focused native unevaluated-family receiving](validation/e4_native_unevaluated_2026-11-07.md) passes for empty-source invalidation; positive-source persistence fails under MolSysMT #642. [The single-frame view route](validation/pose_interaction_view.md) now has 186 passing source cases and 23 exact-ESM DOM cases; actual new-candidate/provider receiving is next. Four other original poses stay unevaluated. Other-carrier correspondence, usable addon/canvas, whole E4 and public delivery remain open. |
+| E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 retains the original `5952053` molecular receiving and its failures. [Same-carrier receiving](validation/e4_saved_carrier_receiving_2026-11-07.md) now passes normal/pm-fs Python Viewer load/filter/attachment/persistence, eleven refusals per profile and independent record reading. No new detection/preparation/native calculation. [The installed selected-pose binding](validation/e4_pose_binding_installed_2026-11-07.md) now passes normal/pm-fs actual candidate receiving, fourteen refusals/profile, full-carrier persistence and independent record reading, separately from 190 source cases. [Focused native unevaluated-family receiving](validation/e4_native_unevaluated_2026-11-07.md) passes for empty-source invalidation; positive-source persistence fails under MolSysMT #642. [The single-frame view route](validation/pose_interaction_view.md) has 186 passing source cases and 23 exact-ESM DOM cases, plus [eight real-provider exact-candidate cells](validation/e4_pose_interaction_view_installed_2026-11-07.md) normal/pm-fs and independent record reading. Next audit the remaining one-carrier workflow criteria; actual canvas stays held. Four other original poses stay unevaluated. Other-carrier correspondence, usable addon/canvas, whole E4 and public delivery remain open. |
 | E5 independent reproduction | A separate receiving installation reconstructs a representative stored workflow from documented inputs, with observed agreement/tolerances, failures and missing information. | Captures/replay/recovery supply pieces; a whole independent workflow audit remains unproven. |
 | Bounded scientific qualification | An admitted transparent independent panel and informative positive/adverse controls, explicit preparation/search/ranking hypotheses, denominators, budgets and all outcomes. | Audit Q2–Q4 and #33/#49 own admission. Existing within-case repetitions do not become independent complexes. |
 | Public delivery and support | Actual compatible public dependencies, exact staged Conda artifact, required source/native gates and eight Linux/macOS arm64 × Python 3.11–3.14 installed cells, same-byte promotion and public receiving. | #30/#47 remain partial. Refresh artifact availability before acquiring/receiving; old private receipts do not certify a new public file. Distribution is Conda `uibcdf`. |
@@ -96,10 +98,11 @@ implemented API or record-only test is not acceptance of a scientific workflow.
    is #80. Use E4's now [received same-carrier route](validation/e4_saved_carrier_receiving_2026-11-07.md)
    with the [installed binding receiving](validation/e4_pose_binding_installed_2026-11-07.md)
    and [focused native coverage receiving](validation/e4_native_unevaluated_2026-11-07.md)
-   to receive the [implemented single-frame view route](validation/pose_interaction_view.md)
-   on its own new exact candidate, normal first then pm/fs, with real visuals/
-   metadata and the excluded native regression. Source/DOM controls do not
-   qualify the installed route or canvas. Positive-source
+   and [eight-cell installed interaction-view receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md)
+   to audit the remaining #80/#60 criteria against the one-carrier route. Real
+   visuals/metadata/widgets and the native regression pass normal/pm-fs on
+   source `2ef82d2`; actual browser/comm/canvas retains its scheduling hold.
+   Positive-source
    invalidation persistence still needs MolSysMT #642 receiving. The complete
    original result and unmeasured poses remain intact; source tests, actual private receiving and public/canvas
    acceptance keep separate scopes.
