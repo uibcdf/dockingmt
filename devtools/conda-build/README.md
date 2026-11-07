@@ -19,8 +19,8 @@ selected by the shared-caller adoption.
 The recipe declares `noarch: python`: both Python namespaces and py.typed carry
 no bundled native binaries. Third-party native Vina/OpenMM/RDKit stay separately
 distributed; Vina/Viewer are optional features, not new required runtime packages.
-`resources.toml` requires all 62 current tracked package paths plus the generated
-version file (63 paths). Bounded setuptools discovery excludes administration/tests.
+`resources.toml` requires all 63 current package paths plus the generated
+version file (64 paths). Bounded setuptools discovery excludes administration/tests.
 No actual Conda archive, public dependency closure or platform qualification is claimed.
 
 The local [PEP 639 checkpoint](../../devguide/validation/license_metadata.md)
@@ -86,7 +86,7 @@ The compatible explicit override stays in the descriptor. No global installer/
 pytest profile is altered.
 
 Scientific helpers use the unshipped `dmt_test_support` namespace. The optional
-shared #117 declaration selects 27 Python files and 543 explicit fixture/text
+shared #117 declaration selects 30 Python files and 564 explicit fixture/text
 files with exact SHA-256. Keep it synchronized when changing an input; new
 receiving reports are not recursively included. The shared operation validates,
 stages, checks and retires those files without exposing the owner/staging parent

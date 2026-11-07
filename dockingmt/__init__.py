@@ -36,6 +36,7 @@ from .batch import dock_many
 from .score import score
 from .evaluation import evaluate_redocking
 from .aggregation import summarize_redocking
+from .comparison import compare_scores
 from .engines import DockingBackend, VinaBackend
 from .preparation import (
     PreparedLigand,
@@ -48,6 +49,7 @@ from .preparation import (
 from .view import show, view
 
 __all__ = [
+    'compare_scores',
     'summarize_redocking',
     'evaluate_redocking',
     'dock_many',

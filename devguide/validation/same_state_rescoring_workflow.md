@@ -118,6 +118,14 @@ for the exact remaining acceptance work.
 
 ## Comparing the new values
 
+The public [prepared-input comparison](score_comparison.md) receives matching
+problems explicitly and checks their actual exports and molecular relationship
+through MolSysMT. `compare_scores(result, name, problems=prepared_problems,
+ascending=True)` returns a separate report for its bounded fixed `lig_inter`
+profile, preserving original ranks/history. The call performs molecular checks
+without calculating new scores. Its implementation/receiving and the remaining
+complete multi-pose reconstruction workflow retain their separate evidence.
+
 `DockingResult.rank_by(name)` requires identical described contexts and state
 declarations. Separately scored conformations normally have different actual
 ligand-input hashes, so this operation conservatively refuses them. This is an
@@ -130,10 +138,10 @@ orders reported `lig_inter` values separately per method, lower first, **only
 for its frozen, fully received case**. It retains distinct input hashes and
 complete evidence and produces an external study report. Its notebook is not
 a public comparison API for arbitrary caller data, and its report does not
-become `DockingResult.ranking_history`. A corresponding supported user-facing
-comparison composition remains #78 work. Until that boundary is received,
-inspect method-specific values and their contexts without claiming an admitted
-cross-pose order. Vina and Vinardo do not become a common affinity scale.
+become `DockingResult.ranking_history`. The new public operation consumes actual
+matching preparations rather than that notebook's frozen roots. Follow its
+own profile and receiving limits for a user comparison. Vina and Vinardo do
+not become a common affinity scale.
 
 ## Controls available through the public API
 

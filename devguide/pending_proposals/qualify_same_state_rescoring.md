@@ -547,3 +547,33 @@ Next choose an informative admitted population and receive comparison/decision
 consumption, retaining scientific selection and all original evidence. There is
 no need for a new batch/campaign framework established by this example. #78
 remains partial; public delivery/CI admission keep their separate owners.
+
+## Public comparison implementation — 2026-11-07
+
+The [new comparison contract](../validation/score_comparison.md) provides
+`compare_scores(result, score_name, problems=..., ascending=...)` for a bounded
+Vina/Vinardo 1.2.7 fixed `lig_inter` profile. It consumes the matching complete
+preparations, binds their actual provider exports/maps to captured scoring bytes,
+and delegates chemical correspondence and assignment validation to MolSysMT.
+The public caller supplies existing objects rather than constructing a trusted
+evidence packet. Different per-pose input hashes and the original scores, ranks
+and ranking history remain intact; a separate report records values and ties.
+
+The [software controls](../../tests/test_score_comparison.py) pass 54 tests with
+explicitly simulated molecular seams and unchanged real saved score records.
+The selected existing score/reference/collection-audit/model argument regressions
+pass 139 tests. An initial broader selection stops during collection because
+`test_pose_audit` imports the unavailable optional Vina package; it runs no
+scientific case. Its diagnosis is retained separately, and that selection is
+not represented as passing. No new energy or molecular receiving follows from
+these software controls.
+
+The exact five historical score inputs are declared for installed-test support
+with their original SHA-256 identities, outside the runtime payload. The new
+runtime module is included in the current package resource declaration. Neither
+source checks nor that declaration qualifies an installed/public artifact.
+A separately frozen, resource-bounded receiving will reproduce matching inputs
+through explicit named preparation and exercise the actual public comparison.
+Full multi-pose reconstruction/additive continuity, whole E1, public delivery and
+the separate E4 hold remain unchanged. Remote checkpoint evidence is still
+deferred under the maintainer's `[skip ci]` instruction.

@@ -21,6 +21,7 @@ required_paths = [
   "site-packages/dockingmt/_version.py",
   "site-packages/dockingmt/aggregation.py",
   "site-packages/dockingmt/batch.py",
+  "site-packages/dockingmt/comparison.py",
   "site-packages/dockingmt/core/__init__.py",
   "site-packages/dockingmt/core/_scores.py",
   "site-packages/dockingmt/core/audit.py",
@@ -3033,3 +3034,28 @@ sha256 = "64b2d10a6c2b1ac9913d7fdb528789c666c3ba8a6a180723687b28939389570c"
 source = "devguide/validation/data/5x72_synthesis_2026-11-05/tables.md"
 target = "devguide/validation/data/5x72_synthesis_2026-11-05/tables.md"
 sha256 = "3882136a53122e5b992ec064eb2c8b6860abd77dc18cb7798509942f85d22dcd"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_1/vinardo_scored_pose.json.gz"
+target = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_1/vinardo_scored_pose.json.gz"
+sha256 = "459c6b5e2aed2437e1a44eb7c878ffbd90dd28d69210a40d41c921d1c8c1a50d"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_2/vinardo_scored_pose.json.gz"
+target = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_2/vinardo_scored_pose.json.gz"
+sha256 = "f8e21fa23472ae1d22c9e96707820308f5034bd57c869e41149d6e179ef9096f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_3/vinardo_scored_pose.json.gz"
+target = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_3/vinardo_scored_pose.json.gz"
+sha256 = "75af8cbab0fb33b6bb8332c942912ea29fcf4d20a714a6c071bf79a1b9c5a89b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_4/vinardo_scored_pose.json.gz"
+target = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_4/vinardo_scored_pose.json.gz"
+sha256 = "bc9da4807844ca6c96fceb18f6e2bb3745b5cdc2789247a4d9ac2f1fcf2f11ea"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_5/vinardo_scored_pose.json.gz"
+target = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_5/vinardo_scored_pose.json.gz"
+sha256 = "4dfec44af100ddeb60ae7db5f9e10e5d681d819bf9f78ac76bfc33fd81fa6dfc"
