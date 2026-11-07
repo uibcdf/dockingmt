@@ -4,20 +4,24 @@ The roadmap defines direction and gates, not dates.
 
 ## Current operational plan
 
-Work is **active after the maintainer's resumption**. The
-[installed interaction-view checkpoint](MACHINE_HANDOFF.md#installed-interaction-view-checkpoint--2026-11-07)
-receives `dmt.view(binding)` on exact source `2ef82d2`/wheel `6db76835`, eight
-passing real-provider cells normal/pm-fs and an independent standard-library
-reader of 342 sealed members. The earlier 186 Python/23 exact-ESM DOM cases
-retain their source-only scope. The complete original result survives; local
-frame0 maps only to the admitted pose, including collection index3. Actual
-widgets, visuals, coverage, lifecycle and the existing native callback regression
-pass. No observation is broadcast onto four unevaluated original poses.
-Next audit remaining #80/#60 workflow criteria against this one-carrier route;
-actual canvas stays under the maintainer's scheduling hold. Positive-source
-invalidation persistence remains failed under MolSysMT #642. Other-carrier,
-broader Core/E5, E3 #604, independent scientific reproduction and public/minor/
-platform delivery remain open; full #73 and completion stay unproven.
+Work is **active after the maintainer's resumption**. The latest
+[provider-fix/continuation checkpoint](MACHINE_HANDOFF.md#provider-fix-and-independent-continuation-checkpoint--2026-11-07)
+receives new external evidence: MolSysMT #642 is source-fixed at 4d8af6c, while
+its installed-client receiving remains unexecuted. Three exact native-build
+attempts are preserved as resource interruptions; the last crosses the 1 GiB
+owned-group limit during Rust compilation. Construction is now held, with no
+live owned process and no automatic restart. Request an owner-built exact
+artifact before new candidate admission. No old binary/module is relabelled.
+
+The preceding [eight-cell installed View receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md)
+and 186 Python/23 DOM controls keep their exact consumer 2ef82d2/old-provider
+scope. They preserve complete original results, explicit pose/frame mapping,
+coverage, widgets/visuals and lifecycle. Full #80 remains partial for new-fix
+receiving; actual canvas stays held. Advance independent [E5 #83](pending_proposals/qualify_independent_installed_reproduction.md):
+inspect the existing 1IEP captured workflow/replay and installed support, then
+register a source-free whole-workflow receiving. No new native search is started
+by this scope. Full #73, scientific/public/minor/platform and completion remain
+unproven.
 
 The accepted target is complete **Core C0–C6 plus Extended E1–E5**, bounded
 scientific qualification, independent reproduction and public installation at
@@ -39,11 +43,12 @@ qualify a private artifact as a public package.
 
 | Work | Established boundary | Next action / owner |
 | --- | --- | --- |
-| E4 interactions | Original `5952053` molecular receiving retains twelve detector calls and its earlier failures. [New same-carrier receiving](validation/e4_saved_carrier_receiving_2026-11-07.md) passes normal/pm-fs, real Python Viewer load/attach/filter/persistence and independent reading of 238 sealed members. No new detectors, H, energy, search or RMSD. | [#80](pending_proposals/receive_docking_interaction_analysis.md): [the installed binding](validation/e4_pose_binding_installed_2026-11-07.md) and [focused native coverage receiving](validation/e4_native_unevaluated_2026-11-07.md) pass their bounded normal/pm-fs populations and independent readers. Positive-source invalidation persistence fails under MolSysMT #642. [The explicit single-frame view route](validation/pose_interaction_view.md) now passes [exact new-candidate normal/pm-fs receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md), eight real-provider cells and independent record reading. Next audit remaining #80/#60 workflow criteria; keep canvas under its scheduling hold. The ordinary result renderer retains one frame per pose. Preserve five original poses, four unevaluated outcomes, scores/producers and unknown scene mappings. Other-carrier projection and canvas/public/whole-E4 gates remain open. |
+| E4 interactions | Original `5952053` molecular receiving retains twelve detector calls and its earlier failures. [New same-carrier receiving](validation/e4_saved_carrier_receiving_2026-11-07.md) passes normal/pm-fs, real Python Viewer load/attach/filter/persistence and independent reading of 238 sealed members. No new detectors, H, energy, search or RMSD. | [#80](pending_proposals/receive_docking_interaction_analysis.md): [the installed binding](validation/e4_pose_binding_installed_2026-11-07.md) and [focused native coverage receiving](validation/e4_native_unevaluated_2026-11-07.md) pass their bounded normal/pm-fs populations and independent readers. Positive-source invalidation persistence fails on the old qualified provider. [MolSysMT #642 correction/build receiving](validation/e4_evidence_catalog_fix_2026-11-07.md) identifies the published fix, but its exact native build is held after an owned-memory stop; request an owner-built artifact. [The explicit single-frame view route](validation/pose_interaction_view.md) now passes [exact new-candidate normal/pm-fs receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md), eight real-provider cells and independent record reading. Next audit remaining #80/#60 workflow criteria; keep canvas under its scheduling hold. The ordinary result renderer retains one frame per pose. Preserve five original poses, four unevaluated outcomes, scores/producers and unknown scene mappings. Other-carrier projection and canvas/public/whole-E4 gates remain open. |
 | E1 rescoring/ranking | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07): the complete two-pose rigid public route receives original-result reconstruction, preparation, additive Vina/Vinardo evaluations, separate interaction comparisons and independent persistence. Original records and all informative controls survive. | Preserve that bounded contract and the failed original generator qualification. E2's bounded study is also received under [#81](archive/qualify_small_ligand_collection.md). E3 is provider-blocked; advance independent E4 saved-analysis admission. Broad E1, total/reference ordering, scientific validity and public delivery keep separate gates. |
 | E2 ligand collections | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for P59(R)/P69(S), rigid25 preparations and the common joint domain: native success/refusal/success, 3+2 original poses, two searches and two original-rank-1 representatives. Five native columns, own references, all original histories and independent saved receiving pass. | Preserve the exact [native receiving](validation/e2_native_collection_2026-11-07.md), source/preparation gates and caller-owned empirical study policy. This accepts the bounded profile, not all E2 profiles, #73, screening effectiveness or public delivery. E3 [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) awaits MolSysMT #604; independent E4 axis admission can progress within its hold. |
 | E3 comparison/clustering | [Static provider admission](validation/e3_provider_admission_2026-11-07.md) leaves [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) blocked by MolSysMT #604: per-reference RMSD exists, but no N×N/clustering composition is admitted. No new RMSD or analysis runs. | Receive the provider-supported composition/tools and preserve every #79 control and reference requirement. Three existing P59 poses are a population candidate; their crystalline heavy reference is not yet admitted against rigid25. No downstream matrix, clustering or molecular fallback. |
-| Remaining Core, scientific panel and E5 | Declared 3PTB preparation/execution/inspection/evaluation and bounded controls exist; they do not establish general chemistry, a qualified independent panel or a whole independent-workflow audit. | #4/#28/#33/#49 and the full evidence map retain the remaining criteria. Receive provider-owned template/reconstruction/partial-input needs and register new scientific populations before execution. |
+| E5 independent reconstruction | [#83](pending_proposals/qualify_independent_installed_reproduction.md) scopes source-free installed receiving of the existing #16 1IEP reference/control replay; the historical replay is delivered, whole current E5 remains unproven. | Audit exact records/replay/support/tolerances first; register full candidate/native/metric/adverse controls before execution. Reuse qualified composition independently of held newer-provider construction. |
+| Remaining Core and scientific panel | Declared 3PTB preparation/execution/inspection/evaluation and bounded controls exist; they do not establish general chemistry, a qualified independent panel or a whole independent-workflow audit. | #4/#28/#33/#49 and the full evidence map retain the remaining criteria. Receive provider-owned template/reconstruction/partial-input needs and register new scientific populations before execution. |
 | Public delivery | Private source/installed qualification is distinct from a compatible public dependency closure and actual Conda artifact. | #30/#47: refresh actual covering provider files before receiving; then qualify the exact staged candidate and required platform/minor matrix. Distribution uses Conda `uibcdf`; no PyPI route or release follows from private evidence. |
 | Visible acceptance | Python/DOM/kernel evidence and MolSysViewer #291 notification receiving are delivered; real comm/canvas acceptance is unproven. | #52/#60: keep the maintainer's scheduling decision. Do not resume live observation merely because another machine is available. |
 

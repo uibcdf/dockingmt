@@ -23,7 +23,60 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Provider fix and independent continuation checkpoint — 2026-11-07
+
+[MolSysMT #642](https://github.com/uibcdf/molsysmt/issues/642) is now source-resolved
+at `4d8af6c34cb6b3f9e22833771b246d8767ef85e9`. The owner receives complete
+catalog/code fidelity, including the original already-written failing carrier.
+This does not qualify DockingMT's installed client. The new
+[registered receiving/build record](validation/e4_evidence_catalog_fix_2026-11-07.md)
+keeps the earlier eight View cells and historical persistence failures unchanged.
+
+Actual full provider construction uses an exact sparse source checkout, private
+Cargo registry/target copies, offline dev-profile builds and one logical CPU.
+The new Rust source differs from the old extension: no borrowed binary/module
+patch can identify this candidate. First two attempts stop at their registered
+60 s wall bound (60.235/60.205 s, peak group RSS 533,749,760/794,234,880 bytes).
+Verbose logs show cache relocation requires recompilation. A separately
+registered construction-only budget 600 wall/300 CPU seconds preserves all
+RAM/CPU-affinity/worker limits; scientific cells remain 45/60 seconds.
+
+The third attempt stops while compiling `faer 0.24.4` when sampled group RSS
+crosses 1 GiB (1,075,798,016 bytes), elapsed 202.384 s. Every group is terminal;
+no owned descendant remains. **Construction is held after this memory stop;
+no automatic rebuild.** No complete wheel/provider prefix/candidate or scientific
+cell is accepted. Prepared receiving harnesses are unexecuted, not qualified.
+Request an exact owner-built artifact/native identity or supported acquisition
+route before fresh candidate admission. Provider #642 stays correctly closed;
+consumer #80 stays partial for its unreceived correction.
+
+All 75 consumer/3794 old-provider/641 Viewer files and routine Conda metadata
+match the preceding verified receipt. Exact copied provider source is unchanged
+and its sparse checkout clean. Main provider checkout remains 9e1f1b1, 111 behind
+fetched main; no pull/pin/shared-environment change. Original migration untouched.
+The [44-member construction archive](validation/data/e4_evidence_catalog_build_2026-11-07/manifest.json)
+is `f2af7ec1e07cde5883ebd64a973a0ad7367a5ed8c810686008ff17263ed81e25`;
+its [19-member reader companion](validation/data/e4_evidence_catalog_build_reader_2026-11-07/manifest.json)
+is `187dd4042d270f8471932e1fc93fab3532e2ef88c01c18a7acd049989ff67164`.
+The detached standard-library reader passes administrative byte/classification
+checks only, with no scientific imports/calculation or construction acceptance.
+Task `.molsyssuite/e4-evidence-fix-20261107` retains source/Cargo/build/output
+custody under #50, review 2026-11-14. No purge or remote CI is performed.
+
+**Next:** progress independent [E5 #83](pending_proposals/qualify_independent_installed_reproduction.md).
+First inspect the retained 1IEP reference/displaced-box records, existing #16
+replay, exact unshipped support inputs and original physical-unit tolerances;
+then register source-free installed whole-workflow receiving before any native
+search. Reuse the existing qualified composition separately from held 4d8af6c
+construction. Preserve the full E5 criteria, original producer/chemistry limits,
+Core/E1–E5 scope and public/minor/platform/independent-science gates. E3 #604 and
+actual browser/comm/canvas #52/#60 remain held under their separate ownership.
+The complete goal remains active and unproven; skipped hosted evidence is #28.
+
 ### Installed interaction-view checkpoint — 2026-11-07
+
+This preceding passing population keeps its exact old-provider scope. The
+provider-fix construction/independent next action above supersede its next step.
 
 [The registered receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md)
 passes all eight cells: retained original, explicit nonfirst reordering,

@@ -8,11 +8,47 @@ verification: measured
 area: [analysis, provenance, visualization, scientific-validation]
 guard:
 normative: devguide/MVP.md
-blocked_by: [uibcdf/molsysmt#642]
+blocked_by: []
 supersedes: []
 ---
 
 # Structured interaction analysis for docking poses
+
+## Acceptance audit and provider-fix construction hold — 2026-11-07
+
+| Original #80 requirement | Authoritative evidence and remaining scope |
+| --- | --- |
+| 1. Provider-backed molecular assembly/state/maps/H/frame | Original 5952053 hosted molecular receiving and [same-carrier receiving](../validation/e4_saved_carrier_receiving_2026-11-07.md) retain actual selected populations/maps/H/state witnesses. This receives the declared one-carrier profile, not unrestricted chemical equivalence or another scene. |
+| 2. Complete typed analysis, coverage, methods/units/producers | Original complete payloads plus [installed binding](../validation/e4_pose_binding_installed_2026-11-07.md), [native coverage](../validation/e4_native_unevaluated_2026-11-07.md) and [actual View metadata](../validation/e4_pose_interaction_view_installed_2026-11-07.md) receive positive/empty/unevaluated states and full scientific attribution. Positive-to-unevaluated persistence remains failed on the old provider. |
+| 3. Original result association and supported persistence | Public binding retains all five poses/scores/producers and explicit one-frame association; original/evaluated-empty full-carrier persistence passes. The new #642 source correction still needs an exact installed artifact and client receiving before the failed catalog case can pass. No local codec/binary substitution. |
+| 4. Registered finite representative controls/filtering/nondefault units/nonmutation | Original hosted analytic/adverse/empty controls, detached installed binding and eight View/native cells retain their separate complete native receipts and immutable archives. Their repetitions are not independent scientific complexes. |
+| 5. Usable addon through supported provider APIs | Actual Python View loading, public visuals/two mounted widgets, live coverage, frame/pose actions and lifecycle pass normal/pm-fs. Browser/comm/canvas remains unreceived under #52/#60; this requirement explicitly retains that separate acceptance. |
+
+**Disposition:** keep #80 partial; do not close it from passing source/DOM or
+old-provider subpopulations. [Provider #642](https://github.com/uibcdf/molsysmt/issues/642)
+is correctly source-resolved at 4d8af6c. Its [new exact-build registration](../validation/e4_evidence_catalog_fix_2026-11-07.md)
+retains three nonpassing construction interruptions: two wall limits and one
+owned-group 1 GiB RSS stop during `faer 0.24.4`. All groups are terminal; no wheel,
+provider prefix, candidate or scientific receiving cell is accepted. New-fix
+construction is held after the memory stop. Ask for an owner-built exact artifact
+and admit it before client testing; do not restart or patch/borrow old native code.
+
+The 44-member construction archive is SHA-256
+`f2af7ec1e07cde5883ebd64a973a0ad7367a5ed8c810686008ff17263ed81e25`; its 19-member
+independent administrative-reader companion is
+`187dd4042d270f8471932e1fc93fab3532e2ef88c01c18a7acd049989ff67164`.
+Stored/decoded byte/classification checks pass, with zero scientific imports or
+molecular operations; they accept no construction/scientific case. All old
+consumer/provider/Viewer bytes and routine metadata remain unchanged. #50
+custody review is 2026-11-14; original migration remains untouched/untracked.
+No manual CI; #28 exact-head hosted evidence remains missing.
+
+**Independent next action:** [E5 #83](qualify_independent_installed_reproduction.md)
+now owns current source-free receiving of the existing #16 1IEP representative
+workflow. Inspect records/replay/support/tolerances, then register the finite
+native work; no new search or reconstruction runs here. E3 #604, full E4/Core/
+Extended #73, independent scientific panel and public/minor/platform gates remain
+unproven. This retains every original acceptance requirement and the full goal.
 
 ## Exact installed interaction-view receiving — 2026-11-07
 

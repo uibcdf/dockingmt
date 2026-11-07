@@ -27,8 +27,9 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 - [`qualify_pose_comparison_and_clustering.md`](qualify_pose_comparison_and_clustering.md) — [#79](https://github.com/uibcdf/dockingmt/issues/79) — Qualify provider-backed positional pose comparison and declared geometric clustering for E3. *(blocked, inspected)*
 
-### Open (1)
+### Open (2)
 
+- [`qualify_independent_installed_reproduction.md`](qualify_independent_installed_reproduction.md) — [#83](https://github.com/uibcdf/dockingmt/issues/83) — Receive the existing stored 1IEP workflow in a source-free installation for E5. *(open, inspected)*
 - [`support_selected_flexible_receptor_residues_in_the_vina_adapter.md`](support_selected_flexible_receptor_residues_in_the_vina_adapter.md) — [#7](https://github.com/uibcdf/dockingmt/issues/7) — Support selected flexible receptor residues in the Vina adapter *(open, inspected)*
 
 <!-- /generated -->
