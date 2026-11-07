@@ -193,8 +193,10 @@ def _atom_key(record: dict[str, str | None]) -> tuple[str | None, ...]:
     )
 
 
-def _molecular_atom_keys(molsys: Any) -> list[dict[str, str | None]]:
-    """Read ordered MolSysMT atom identities for a DockingMT pose map."""
+def _molecular_atom_keys(
+    molsys: Any, *, atom_indices: Any = None
+) -> list[dict[str, str | None]]:
+    """Read identities on an explicit DockingMT pose axis, preserving its order."""
     import molsysmt as msm
 
     required = ('atom_id', 'atom_type')
@@ -233,10 +235,11 @@ def _molecular_atom_keys(molsys: Any) -> list[dict[str, str | None]]:
         raise ArgumentError(
             arg_name='partner', reason='Source atom identity arrays are incomplete.'
         )
+    indices = range(n_atoms) if atom_indices is None else atom_indices
     if any(
-        value is None or not str(value).strip()
+        column[index] is None or not str(column[index]).strip()
         for column in (atom_ids, elements)
-        for value in column
+        for index in indices
     ):
         raise ArgumentError(
             arg_name='partner',
@@ -250,9 +253,9 @@ def _molecular_atom_keys(molsys: Any) -> list[dict[str, str | None]]:
             'group_id': str(group_ids[i]) if group_ids[i] is not None else None,
             'group_name': str(group_names[i]) if group_names[i] is not None else None,
         }
-        for i in range(n_atoms)
+        for i in indices
     ]
-    if len({_atom_key(record) for record in records}) != n_atoms:
+    if len({_atom_key(record) for record in records}) != len(records):
         raise ArgumentError(
             arg_name='partner', reason='Source atom identities are not unique.'
         )

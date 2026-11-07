@@ -171,3 +171,31 @@ remain separate. The task-local launcher stays outside the runtime payload;
 [MolSysSuite #173](https://github.com/uibcdf/molsyssuite/issues/173) requests
 qualified reusable execution support for future receiving rather than a local
 general tool or mandatory new scientific gate.
+
+## Public binding implemented; installed receiving pending — 2026-11-07
+
+[`bind_interactions` and `PoseInteractions`](../validation/pose_interaction_binding.md)
+now implement the selected original-pose association. One explicitly admitted
+one-frame carrier and ordered integer map must match the selected pose's verified
+atom labels/elements, physical coordinates and declared known state/frame.
+The complete original result and provider analyses remain detached; source pose
+position is independent of rank/ID. Provider coverage distinguishes evaluated-
+empty and unevaluated analyses. No molecular matching, detection or frame
+replication is introduced; caller declarations do not authenticate chemistry,
+unmapped receptor geometry or producers.
+
+[Source qualification](../validation/data/pose_interaction_binding_source_2026-11-07.json)
+passes 44 new synthetic protocol-double controls and 146 existing regressions.
+All 190 complete, under registered CPU/RAM limits, with real provider operations
+forbidden and no Vina import. Two initial fixture failures are retained separately.
+These are consumer logic/contract tests, not actual native-system, artifact or
+whole-E4 acceptance. Next register the exact new candidate and original saved
+carriers for normal/pm-fs receiving, then the actual addon/scene association.
+The original `a7422df` consumer has no new binding API and cannot certify it.
+This issue remains partial; no public/provider pin or remote CI change follows.
+
+The initial collection report also reproduces known Pytest Receptor #46
+(miscounted collection errors as executed tests). Its exit/verdict is correctly
+nonpassing; exact component event/JUnit receipts govern counts. Consumer evidence
+is handed to that existing owner rather than opening a duplicate issue or
+changing shared-tool code here.

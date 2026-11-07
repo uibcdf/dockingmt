@@ -575,12 +575,63 @@ def digest_pose_rank(pose_rank, caller=None, native_view=None):
     return _integer('pose_rank', minimum=1)(pose_rank, native_view or caller)
 
 
+def digest_pose_atom_indices(pose_atom_indices, caller=None):
+    if isinstance(pose_atom_indices, (str, bytes, Mapping, Set)) or not isinstance(
+        pose_atom_indices, Iterable
+    ):
+        raise _invalid(
+            'pose_atom_indices', caller, 'Supply an ordered sequence of atom indices.'
+        )
+    indices = tuple(pose_atom_indices)
+    if not indices or any(
+        isinstance(index, bool) or not isinstance(index, Integral) or index < 0
+        for index in indices
+    ):
+        raise _invalid('pose_atom_indices', caller, 'Use non-negative integer indices.')
+    if len(set(indices)) != len(indices):
+        raise _invalid('pose_atom_indices', caller, 'Atom indices must be unique.')
+    return tuple(int(index) for index in indices)
+
+
+def digest_coordinate_tolerance(coordinate_tolerance, caller=None):
+    if coordinate_tolerance is None:
+        coordinate_tolerance = puw.quantity(1e-12, 'angstrom')
+    try:
+        quantity = puw.ensure_quantity(
+            coordinate_tolerance,
+            dimensionality=puw.get_dimensionality(puw.unit('angstrom')),
+            to_unit='angstrom',
+            standardized=False,
+            caller=caller,
+        )
+    except Exception as exc:
+        raise _invalid(
+            'coordinate_tolerance', caller, 'Supply a length with explicit units.'
+        ) from exc
+    value = np.asarray(puw.get_value(quantity))
+    if (
+        value.shape != ()
+        or not np.issubdtype(value.dtype, np.number)
+        or not np.isrealobj(value)
+        or not np.isfinite(value).all()
+        or value < 0
+    ):
+        raise _invalid(
+            'coordinate_tolerance', caller, 'Use a finite non-negative scalar length.'
+        )
+    return quantity
+
+
 ARGUMENT_DIGESTERS = {
     'unit': digest_backend_unit,
     'index': digest_outcome_index,
     'error': digest_outcome_error,
     'item': digest_view_item,
     'pose_rank': digest_pose_rank,
+    'pose_index': _integer('pose_index', minimum=0),
+    'pose_atom_indices': digest_pose_atom_indices,
+    'coordinate_tolerance': digest_coordinate_tolerance,
+    'assume_aligned': _boolean('assume_aligned'),
     'atom_names': _prepared_sequence('atom_names'),
     'atom_types': _prepared_sequence('atom_types'),
     'charges': _prepared_sequence('charges'),

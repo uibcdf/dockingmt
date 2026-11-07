@@ -37,6 +37,7 @@ from .score import score
 from .evaluation import evaluate_redocking
 from .aggregation import summarize_redocking
 from .comparison import compare_scores
+from .interactions import PoseInteractions, bind_interactions
 from .engines import DockingBackend, VinaBackend
 from .preparation import (
     PreparedLigand,
@@ -49,6 +50,8 @@ from .preparation import (
 from .view import show, view
 
 __all__ = [
+    'PoseInteractions',
+    'bind_interactions',
     'compare_scores',
     'summarize_redocking',
     'evaluate_redocking',

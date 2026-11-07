@@ -16,7 +16,48 @@ Completion remains unproven. Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Pose interaction binding checkpoint — 2026-11-07
+
+`bind_interactions` and `PoseInteractions` are implemented in
+[`dockingmt/interactions.py`](../dockingmt/interactions.py). The
+[public contract and source qualification](validation/pose_interaction_binding.md)
+describe explicit zero-based pose selection, ordered atom maps, known state/frame
+declarations, unit-bearing coordinate checks and detached complete result/carrier/
+analysis access. Provider coverage retains evaluated-empty versus unevaluated
+states; other poses are not labelled evaluated. Chemical equivalence, receptor
+geometry outside mapped atoms and producer authenticity are not inferred.
+
+The [source-test receipt](validation/data/pose_interaction_binding_source_2026-11-07.json)
+passes 190 cases: 44 new protocol-double controls and 146 existing contract
+regressions, with real molecular operations forbidden. Original collection and
+synthetic-translation fixture failures remain recorded. The complete passing
+selection takes 2.762 s/128,102,400 sampled group-RSS bytes under CPU0/nice10,
+one worker, registered 45 CPU/60 wall-second and 1 GiB RSS/2 GiB address-space
+limits. No reserve interruption or live owned descendant remains. These are
+source tests, not installed/provider scientific or performance qualification.
+
+Implementation base is `8c1e670`; the new publishing source retains its own
+identity. No dependency/pin, provider worktree, scientific input or installed-test
+helper/resource declaration changes. Raw attempts, exact source hashes, collected
+reports, JUnit and guard sources remain under
+`.molsyssuite/e4-pose-binding-20261107` with #50 custody, review 2026-11-14.
+MolSysSuite #173 owns shared execution support; original guard functions are
+reused by their frozen hash. No installation, new native/detector work or manual
+CI occurs in this source increment. Exact-head hosted evidence remains missing
+under #28 and the authorized `[skip ci]` route.
+
+**Next:** register an actual isolated candidate artifact/source and qualify the
+new API on the original carriers, normal first then pm/fs, including admitted
+mapped geometry, empty/unevaluated distinctions, all refusals, source nonmutation
+and real provider copies/persistence. The earlier `a7422df` consumer lacks the
+new API and cannot count as its receiving. Then admit the addon/scene association
+through supported provider axes; no analysis broadcasts to four other poses.
+#80 stays partial and full #73, E3 #604, canvas and public delivery remain open.
+
 ### Receiving publication checkpoint — 2026-11-07
+
+This preceding source-specific checkpoint retains its historical next action;
+the implementation and next receiving above supersede it.
 
 The 258 source files saved at the 06:50 pause match their recorded hashes on
 resumption. The seven task launchers are preserved outside volatile `/tmp`.

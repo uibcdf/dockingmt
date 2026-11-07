@@ -36,6 +36,7 @@ measured binding free energies.
 | `PreparedLigand` / `PreparedReceptor` | Provider-backed preparation, correspondence and submitted representation. |
 | `DockingPose` / `DockingResult` | Coordinates, named score definitions, identities and provenance; restored results may deliberately lack a molecular problem. |
 | `DockingOutcome` | One serial input's result or recorded failure; its index is a position, not a ligand/run identity. |
+| `PoseInteractions` / `bind_interactions` | Detached existing analyses associated with one explicitly selected pose and admitted carrier; see [contract and qualification](validation/pose_interaction_binding.md). |
 
 Position, scientific rank, pose identity, molecular-state identity and scene frame
 are different. Equal IDs/hashes do not prove chemical equivalence. Preserve
