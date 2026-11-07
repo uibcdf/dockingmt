@@ -143,3 +143,32 @@ Keep the proposed total-score display separate from E1 same-state comparison,
 preserve all five native energy columns and the four public scores, and retain
 failure/empty/unknown denominators. No API expansion is justified by this source
 receiving alone.
+
+## Named rigid preparation received — 2026-11-07
+
+The [separately registered preparation receiving](../validation/e2_preparation_receiving_2026-11-07.md)
+now passes for both reproduced admitted authorities. Two fresh named
+Gasteiger–Marsili/AutoDock4 calculations and rigid preparations retain R/S,
+source chemistry/coordinates, derived mechanical lineage and complete source/
+prepared/export mappings. Each output has 25 atoms and 28 bonds, with fifteen
+represented H: one indexed and fourteen virtual after provider nonpolar-H
+projection. Public charge audits, full-precision conservation, exact exports,
+rigid trees, public readback, retained-axis self-witnesses, nonmutation and the
+pm/fs/coulomb policy pass. Named parameters and an available stored H inventory
+do not clear chemical/experimental validity questions; partial bond-order
+coverage and readiness's unassessed checks remain explicit.
+
+Both the molecular selection and fresh standard-library reader pass without
+interruption. The [120-member archive](../validation/data/e2_preparation_receiving_2026-11-07/manifest.json)
+has root SHA-256 `bd4f34c7c696efa1c864c9ea410630398b5ec164726eeaaf6462ea9d9b78d326`.
+Qualification base is `782fe9e`, notebook is `76df8d7`, and the installed
+consumer remains `a7422df` with the same identified providers. Zero H generation,
+energies, searches, H5/MM restoration or Vina import occurs. Public delivery,
+hosted CI and complete E2 retain their separate gates.
+
+Next prescribe the three-item native collection and empirical study policy.
+Fresh source/assignment/preparation reproduction must match the received P59/
+P69 PDBQT hashes before any new native call. Keep the common receptor/joint
+domain, actual five-column native energies and all outcome denominators. Reuse
+serial `dock_many`; no generic framework, molecular codec or relaxed E1 ranking
+contract is justified by this receiving.

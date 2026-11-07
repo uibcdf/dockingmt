@@ -202,3 +202,15 @@ SDF property headings. Their original bytes/hashes are retained. The root
 only to this archive's SDF source copies; source-code whitespace checks remain
 in force. This is an archival attribute correction, not changed molecular data,
 a new scientific attempt or a repeated interpretation.
+
+## Subsequent preparation checkpoint — 2026-11-07
+
+The later [named rigid preparation receiving](e2_preparation_receiving_2026-11-07.md)
+reproduces these original source/authority observations before two fresh named
+charge/type assignments and preparations. Both preparations and their separate
+saved reader pass; original source records and this archive remain unchanged.
+The resulting 25-atom representations retain R/S and fifteen represented H
+through provider projection and exact export maps. The current next action is
+native collection/control and study-policy registration under #81. Earlier
+source-phase statements that preparation is unexecuted describe that original
+population; they are not the maintained work queue.

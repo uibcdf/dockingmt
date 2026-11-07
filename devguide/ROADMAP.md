@@ -26,7 +26,7 @@ qualify a private artifact as a public package.
 | --- | --- | --- |
 | E4 interactions | One installed 3PTB workflow at `5952053` passes normal/pm-fs, twelve provider detector calls, persistence/filtering and two fresh readers. Original failures remain; whole E4 is partial. | [#80](pending_proposals/receive_docking_interaction_analysis.md): admit the saved provider analyses in the result/addon layer without hidden recalculation. The analysis includes five added H; do not assume its atom/frame axes equal the existing docking scene. Use provider-supported correspondence/composition and qualify it. |
 | E1 rescoring/ranking | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07): the complete two-pose rigid public route receives original-result reconstruction, preparation, additive Vina/Vinardo evaluations, separate interaction comparisons and independent persistence. Original records and all informative controls survive. | Preserve that bounded contract and the failed original generator qualification. Advance [#81](pending_proposals/qualify_small_ligand_collection.md) distinct-ligand admission; broad E1, total/reference ordering, scientific validity and public delivery keep separate gates. |
-| E2 ligand collections | [Current source admission](validation/e2_source_admission_2026-11-07.md) receives licensed 5X72 P59(R)/P69(S) as two interpreted authorities: 39 atoms/42 bonds/15 indexed H each, preserved coordinates, provider readiness/CIP/self-witnesses and a fresh saved reader. No preparations or energies are executed. | [#81](pending_proposals/qualify_small_ligand_collection.md): reproduce the admitted source recipe and register named charge/type/rigid preparation receiving. Then prescribe the three-item native collection and explicit study comparison; E1 same-state comparison stays unchanged. |
+| E2 ligand collections | [Source admission](validation/e2_source_admission_2026-11-07.md) and [rigid preparation receiving](validation/e2_preparation_receiving_2026-11-07.md) pass for P59(R)/P69(S). Each complete 39-atom authority yields 25 prepared atoms/28 bonds, one indexed plus fourteen virtual H, conserved total H and zero active torsions. Fresh named Q/types, public maps/export/readback and independent saved receiving pass; no H generation, energies, searches or Vina import. | [#81](pending_proposals/qualify_small_ligand_collection.md): register source/assignment/preparation reproduction with exact received PDBQT bytes before the three-item native success/refusal/success selection and study comparison. Preserve five native docking energy columns and all outcomes; E1 same-state comparison and whole-E2 acceptance remain separate. |
 | E3 comparison/clustering | Existing metrics are reusable; the bounded pairwise/clustering workflow is not qualified. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md): receive MolSysMT #604's supported composition or tools; no downstream molecular algorithm. |
 | Remaining Core, scientific panel and E5 | Declared 3PTB preparation/execution/inspection/evaluation and bounded controls exist; they do not establish general chemistry, a qualified independent panel or a whole independent-workflow audit. | #4/#28/#33/#49 and the full evidence map retain the remaining criteria. Receive provider-owned template/reconstruction/partial-input needs and register new scientific populations before execution. |
 | Public delivery | Private source/installed qualification is distinct from a compatible public dependency closure and actual Conda artifact. | #30/#47: refresh actual covering provider files before receiving; then qualify the exact staged candidate and required platform/minor matrix. Distribution uses Conda `uibcdf`; no PyPI route or release follows from private evidence. |
@@ -44,6 +44,28 @@ Before continuing implementation, reconcile the exact source CI handle and
 current issue state through #28 and the machine handoff. Administrative checks
 clear only their own boundary. Keep the shared-machine resource rules and local
 E4 hold; no automatic heavy restart or broad resource purge is part of this queue.
+
+### E2 preparation checkpoint — 2026-11-07
+
+The [registered receiving](validation/e2_preparation_receiving_2026-11-07.md)
+passes for both complete-source rigid preparations: two fresh Gasteiger–Marsili
+assignments, two AutoDock4 chemical-environment assignments and two preparations,
+four explicit CIP and four H-inventory calls, actual projection/export/readback
+maps, MM lineage and live nonmutation under pm/fs/coulomb presentation. The
+private payload, support and routine-environment checks pass. No new H, energy,
+search or Vina import occurs. `prep-01` takes 22.133 s/336.04 MiB sampled peak
+group RSS; the independent `reader-01` takes 0.816 s/36.58 MiB. Their sealed
+inventories contain 96 and 17 members respectively.
+
+Qualification source is `782fe9e5a3f3e2702d08e12b688acdcfcc817885`; the consumer
+wheel remains `a7422df`. The [120-member evidence archive](validation/data/e2_preparation_receiving_2026-11-07/manifest.json)
+has SHA-256
+`bd4f34c7c696efa1c864c9ea410630398b5ec164726eeaaf6462ea9d9b78d326`.
+This receives preparation, not the native collection, study comparison or whole
+E2. Register the next source/named-preparation reproduction and require the
+exact PDBQT identities recorded in the [handoff](MACHINE_HANDOFF.md#current-development-checkpoint--2026-11-07)
+before any native selection. Keep #28's hosted evidence pending under the
+incremental `[skip ci]` route; #30/#47 and the E4/live-visual holds remain.
 
 ## Source-specific checkpoint details — through 2026-11-06
 
