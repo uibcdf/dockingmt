@@ -1,0 +1,61 @@
+"""Curate exact bounded continuity records; never relabel the failed search qualification."""
+import gzip
+import hashlib
+import json
+from pathlib import Path
+
+root = Path('/fast_data/home/liliana/repos@uibcdf/dockingmt')
+task = root / '.molsyssuite/e1-rigid-continuity-20261107'
+out = root / 'devguide/validation/data/e1_rigid_continuity_2026-11-07'
+assert json.loads((task / 'generation-01/resource-outcome.json').read_text())['outcome'] == 'FAIL'
+for label in ('receiving-01', 'persistence-01'):
+    assert json.loads((task / label / 'resource-outcome.json').read_text())['outcome'] == 'PASS'
+    assert json.loads((task / label / 'output/receipt.json').read_text())['outcome'] == 'PASS'
+out.mkdir(exist_ok=False)
+files = []
+
+
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def keep(source, relative):
+    raw = source.read_bytes()
+    name = relative + ('.txt' if source.suffix in ('.py', '.ipynb') else '')
+    compress = source.suffix in ('.json', '.ipynb', '.h5msm', '.log') or len(raw) > 50000
+    if compress:
+        name += '.gz'
+    stored = gzip.compress(raw, mtime=0) if compress else raw
+    destination = out / name
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with destination.open('xb') as stream:
+        stream.write(stored)
+    files.append(dict(path=name, original_path=relative, bytes=len(stored), sha256=sha(stored),
+                      decoded_bytes=len(raw), decoded_sha256=sha(raw)))
+
+
+for label in ('generation-01', 'receiving-01', 'persistence-01'):
+    for path in sorted((task / label).rglob('*')):
+        if path.is_file() and 'cache' not in path.relative_to(task / label).parts:
+            keep(path, 'attempts/' + str(path.relative_to(task)))
+for name in ('e1_rigid_continuity_guard.py', 'e1_rigid_continuity_worker.py',
+             'e1_rigid_continuity_persistence.py', 'seal_e1_rigid_continuity.py',
+             'preserve_e1_rigid_continuity.py'):
+    keep(Path('/tmp') / name, 'harnesses/' + name)
+notebooks = {phase: sha((root / f'devguide/validation/e1_rigid_continuity_{phase}.ipynb').read_bytes())
+             for phase in ('generation', 'receiving')}
+manifest = dict(schema='dockingmt.e1_rigid_continuity_archive@1', owner='uibcdf/dockingmt#78',
+                consumer_source_commit='a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe',
+                qualification_source_commit='4d714753c70b22ff2cbebc0175304a22b9d8eb08',
+                wheel_sha256='93d76f898575fb64b39520f33ceded25708270c8042c2a53c9a451acd834bcdd',
+                generation_outcome='FAIL: post-return Python tuple/list transport equality assertion',
+                native_receiving_outcome='PASS', persistence_outcome='PASS',
+                actual_source_population=2, actual_searches=1, actual_fixed_evaluations=4,
+                new_hydrogen_calls=0, notebooks=notebooks, files=files,
+                limits='Failed generation and unreached original post-search live checks remain unreceived. Fresh receiving establishes its own live nonmutation/payload checks. Private borrowed dependencies, no whole E1 or public delivery claim.')
+with (out / 'manifest.json').open('x') as stream:
+    json.dump(manifest, stream, indent=2, allow_nan=False)
+    stream.write('\n')
+print(json.dumps(dict(files=len(files), stored_bytes=sum(x['bytes'] for x in files),
+                     decoded_bytes=sum(x['decoded_bytes'] for x in files),
+                     manifest_sha256=sha((out / 'manifest.json').read_bytes()))))

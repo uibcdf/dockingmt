@@ -163,13 +163,13 @@ geometry tolerance and persistence details are in the
 [fixed-pose contract](fixed_pose_scoring.md) and
 [score/reference contract](scoring_reference.md).
 
-This guide combines source-reviewed public calls with the separately received
-single-pose notebook. It is not an executed multi-pose user workflow. Its snippets require the explicit input
-objects above and are not a new preparation recipe or scientific population.
-The linked controls and original producers retain their own qualification scope.
-
-The [public component comparison receiving](e1_public_comparison_2026-11-07.md)
-now exercises `compare_scores` on five existing poses with actual matching
-preparations and a privately installed consumer. Its two method-local decisions
-and saved readers are received; complete multi-pose original docking-result
-reconstruction and additive rescoring remain a separate unfinished boundary.
+The unchanged maintained notebook has now completed the
+[rigid two-pose public workflow](e1_rigid_continuity_2026-11-07.md): both actual
+original poses retain their scores, ranks and history while receiving new
+Vina/Vinardo evaluations and separate public component comparisons. The
+[earlier comparison receiving](e1_public_comparison_2026-11-07.md) separately
+covers five existing poses under two unit policies. These are bounded private
+installed profiles; broader input models and public delivery keep their own
+qualification. Follow the original records for failures and unknowns. The
+snippets require the explicit input objects above and do not define a new
+preparation recipe or authorize another scientific search.

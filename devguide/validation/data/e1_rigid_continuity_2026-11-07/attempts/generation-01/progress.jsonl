@@ -1,0 +1,5 @@
+{"phase": "started", "cell_id": "e1-rigid-generation-1"}
+{"phase": "completed", "cell_id": "e1-rigid-generation-1", "counts": null}
+{"phase": "started", "cell_id": "e1-rigid-generation-2"}
+{"phase": "completed", "cell_id": "e1-rigid-generation-2", "counts": {"partial_charge_assignment": 1, "atom_type_assignment": 1, "prepare_ligand": 2, "to_molecular_system": 1, "docking_attempts": 0, "docking_returns": 0, "graph_witnesses": 2, "charge_audits": 2, "writer_exports": 2, "forbidden_operations": 0}}
+{"phase": "started", "cell_id": "e1-rigid-generation-3"}

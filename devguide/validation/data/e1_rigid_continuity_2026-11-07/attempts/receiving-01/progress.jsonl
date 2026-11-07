@@ -1,0 +1,10 @@
+{"phase": "started", "cell_id": "trusted-inputs"}
+{"phase": "completed", "cell_id": "trusted-inputs", "counts": null}
+{"phase": "started", "cell_id": "instrumentation"}
+{"phase": "completed", "cell_id": "instrumentation", "counts": {"prepare": 0, "reconstruct": 0, "source_charge_assignment": 0, "source_type_assignment": 0, "score_attempts": 0, "score_returns": 0, "graph_witness": 0, "charge_audit": 0, "comparison_attempts": 0, "comparison_returns": 0, "expected_score_refusals": 0, "rank_refusals": 0, "native_initializations": 0, "native_maps": 0, "native_scores": 0}}
+{"phase": "started", "cell_id": "public-composition"}
+{"phase": "completed", "cell_id": "public-composition", "counts": {"prepare": 0, "reconstruct": 0, "source_charge_assignment": 0, "source_type_assignment": 0, "score_attempts": 0, "score_returns": 0, "graph_witness": 0, "charge_audit": 0, "comparison_attempts": 0, "comparison_returns": 0, "expected_score_refusals": 0, "rank_refusals": 0, "native_initializations": 0, "native_maps": 0, "native_scores": 0}}
+{"phase": "started", "cell_id": "evidence-and-refusals"}
+{"phase": "completed", "cell_id": "evidence-and-refusals", "counts": {"prepare": 0, "reconstruct": 0, "source_charge_assignment": 0, "source_type_assignment": 0, "score_attempts": 0, "score_returns": 0, "graph_witness": 0, "charge_audit": 0, "comparison_attempts": 0, "comparison_returns": 0, "expected_score_refusals": 0, "rank_refusals": 0, "native_initializations": 0, "native_maps": 0, "native_scores": 0}}
+{"phase": "started", "cell_id": "registered-driver"}
+{"phase": "completed", "cell_id": "registered-driver", "counts": {"prepare": 3, "reconstruct": 2, "source_charge_assignment": 1, "source_type_assignment": 1, "score_attempts": 6, "score_returns": 4, "graph_witness": 9, "charge_audit": 7, "comparison_attempts": 2, "comparison_returns": 2, "expected_score_refusals": 2, "rank_refusals": 2, "native_initializations": 4, "native_maps": 4, "native_scores": 4}}

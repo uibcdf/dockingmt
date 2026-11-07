@@ -117,12 +117,33 @@ closure, the supported platform matrix or new hosted CI evidence. Incremental
 commits retain `[skip ci]`; E1 stays partial for complete multi-pose original
 result reconstruction/additive continuity, and the separate E4 hold persists.
 
+## Rigid multi-pose continuity checkpoint — 2026-11-07
+
+The [registered rigid receiving](validation/e1_rigid_continuity_2026-11-07.md)
+uses the same private consumer wheel and borrowed providers above. One new
+rigid search requests at most three poses and returns two. Both saved original
+poses complete the unchanged public example, preserving eight scores and the
+original ranks/metadata/backend history while four fixed evaluations add 32
+values. Two public method-local component comparisons, two pre-native state/
+geometry refusals, two strict ranking refusals, nine graph witnesses, seven
+charge audits and receiving-source/payload nonmutation pass. A separate
+standard-library reader receives the sealed records without molecular work.
+
+Keep `generation-01` failed: an overstrict Python tuple/list equality assertion
+runs after the original result was saved. Its later original-live-source checks
+were not reached and cannot be supplied by sidecars. The registered fresh
+receiving passes its own complete controls; it is not a successful rerun of
+that producer. No search is repeated. New private resources are owned under
+`.molsyssuite/e1-rigid-continuity-20261107`, with #50 custody review 2026-11-14.
+The remaining #78 action is bounded acceptance/disposition review of these
+records. Whole E1, public delivery, hosted gates and the E4 hold stay separate.
+
 ## Next work, by owner
 
 | Work | Next meaningful action | Owner / limits |
 | --- | --- | --- |
 | E4 structured consumer/addon admission | Bind saved provider analyses to the actual original pose/result and declared axes; preserve coverage, methods, units and provenance without recalculation. | [#80](pending_proposals/receive_docking_interaction_analysis.md). Whole E4 stays partial. |
-| E1 representative rescoring | Extend received singleton continuity to a complete admitted multi-pose original-result reconstruction/preparation/additive-scoring workflow; the bounded five-pose public component comparison is received separately. | [#78](pending_proposals/qualify_same_state_rescoring.md). Provider-wide #599/#447 remain separate; no blanket wait or relaxed strict ranking/PDBQT rewrite. |
+| E1 representative rescoring | Review the now received rigid two-pose public continuity/comparison profile for bounded acceptance; preserve the failed original generation qualification and its unreached live checks. No new native calculation is required for that review. | [#78](pending_proposals/qualify_same_state_rescoring.md). Whole E1, provider-wide #599/#447 and public delivery remain separate; preserve strict ranking and original producers. |
 | E2 distinct-ligand study | Admit actual sources/states and study comparison conditions before API expansion/calculation. | [#81](pending_proposals/qualify_small_ligand_collection.md). Reuse serial `dock_many`; no generic campaign framework. |
 | E3 comparison/clustering | Receive the supported provider composition/tools before implementation. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md), MolSysMT [#604](https://github.com/uibcdf/molsysmt/issues/604). No local molecular clustering/matching. |
 | Scientific panel | Resolve source/state/environment/template/reconstruction admission before searches. | [Panel admission](validation/scientific_panel_admission_2026-11-04.md) and [environment](validation/scientific_panel_environment_2026-11-04.md) retain #33/#49 and MolSysMT #555–#558. Proposed candidates are not admitted complexes. |

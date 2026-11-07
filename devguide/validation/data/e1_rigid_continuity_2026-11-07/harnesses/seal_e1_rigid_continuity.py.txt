@@ -1,0 +1,30 @@
+"""Seal phase bytes; a failed producer remains failed."""
+import hashlib
+import json
+import sys
+from pathlib import Path
+
+task = Path('/fast_data/home/liliana/repos@uibcdf/dockingmt/.molsyssuite/e1-rigid-continuity-20261107')
+label = sys.argv[1]
+attempt = task / label
+assert attempt.parent == task and attempt.is_dir()
+assert not (attempt / 'manifest.json').exists()
+resource = json.loads((attempt / 'resource-outcome.json').read_text())
+assert resource['resource_interruption'] is None
+files = []
+for path in sorted(attempt.rglob('*')):
+    if not path.is_file() or 'cache' in path.relative_to(attempt).parts:
+        continue
+    assert not path.is_symlink()
+    raw = path.read_bytes()
+    name = str(path.relative_to(attempt))
+    files.append(dict(path=name, original_path=name.removeprefix('output/'),
+                      bytes=len(raw), sha256=hashlib.sha256(raw).hexdigest()))
+manifest = dict(schema='dockingmt.e1_rigid_continuity_phase@1', owner='uibcdf/dockingmt#78',
+                phase=label, producer_outcome=resource['outcome'], files=files,
+                scope='Exact original phase and qualification bytes; a failed producer remains failed.')
+with (attempt / 'manifest.json').open('x') as stream:
+    json.dump(manifest, stream, indent=2, allow_nan=False)
+    stream.write('\n')
+print(json.dumps(dict(phase=label, files=len(files), bytes=sum(x['bytes'] for x in files),
+                     manifest_sha256=hashlib.sha256((attempt / 'manifest.json').read_bytes()).hexdigest())))

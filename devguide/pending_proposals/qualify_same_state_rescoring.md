@@ -601,3 +601,36 @@ preparation → additive evaluation continuity is still required. This compariso
 does not restore historical prepared H or supply missing original docking
 history. Broader profiles, public #30/#47 delivery and the E4 hold retain their
 separate owners.
+
+## Complete rigid public continuity — 2026-11-07
+
+The [new registered rigid profile](../validation/e1_rigid_continuity_2026-11-07.md)
+receives the remaining concrete user task: both actual original docking poses
+complete the unchanged portable example through public reconstruction,
+preparation, additive Vina/Vinardo scoring and public method-local component
+comparison. Eight old scalar values, IDs/states, ranks, descriptors and backend
+history survive alongside 32 new values and two histories per pose. The whole
+collection audit is consistent. Nine provider witnesses, seven charge audits,
+source/payload nonmutation, two informative pre-native refusals and two strict
+ranking refusals pass. Fresh persistence receiving performs no molecular work.
+
+The original search is made once, with a preregistered rigid ordinary model and
+a request for at most three poses; it returns two. Its qualification remains
+**FAIL** after saving that return: a Python tuple from `Vina.info()['weights']`
+becomes a JSON list, so an excessively strict Python-container equality assert
+fails. A registered amendment receives the saved finite wire records in a new
+process without retrying the search. The original generator's later live-source
+and final origin checks were not reached and remain unreceived. Its failed
+receipt and earlier incomplete/failed populations remain unchanged; the fresh
+receiver passes its own full controls. No reconstructed MM inspection sidecar
+or invented historical H/state authority is introduced.
+
+The previous public review's criterion 4 is now received **for this bounded
+rigid profile**, including positive public comparison and all actual original
+members. Criteria 1–3 and 5 retain the earlier finite reference/provider/control
+receipts and their stated limits. The next action is the explicit bounded
+acceptance/disposition review and synchronized issue closeout, rather than
+another scientific search or a larger API. Keep this report partial until that
+review is recorded; do not add whole-E1, broad provider identity or public
+package qualification as new conditions on this local profile. Those boundaries
+retain their existing owners.

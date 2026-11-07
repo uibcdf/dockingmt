@@ -1,0 +1,1013 @@
+"""Receive sealed E1 records independently, using only the Python standard library.
+
+This checks saved declarations and byte relationships. It performs no molecular
+operation, authenticates no producer and recovers no missing live-process checks.
+"""
+
+import base64
+import gzip
+import hashlib
+import json
+import math
+import os
+import sys
+from pathlib import Path, PurePosixPath
+
+OWNER = 'uibcdf/dockingmt#78'
+OLD_NAMES = {'vina', 'inter', 'intra', 'torsion'}
+LABELS = ('vina_fixed', 'vinardo_fixed')
+METHODS = ('vina', 'vinardo')
+COMPONENTS = (
+    'total',
+    'lig_inter',
+    'flex_inter',
+    'other_inter',
+    'flex_intra',
+    'lig_intra',
+    'torsions',
+    'lig_intra_best_pose',
+)
+FORBIDDEN_MODULES = {
+    'dockingmt',
+    'molsysmt',
+    'pyunitwizard',
+    'numpy',
+    'vina',
+    'rdkit',
+    'molsysviewer',
+    'openmm',
+}
+
+
+def require(condition, reason):
+    if not condition:
+        raise ValueError(reason)
+
+
+def sha(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def canonical(value):
+    return json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False)
+
+
+def same(left, right, reason):
+    require(canonical(left) == canonical(right), reason)
+
+
+def record_digest(value):
+    return sha(canonical(value).encode())
+
+
+def no_constant(value):
+    raise ValueError('Nonfinite JSON constant: ' + value)
+
+
+def unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        require(key not in result, 'Duplicate JSON object key: ' + key)
+        result[key] = value
+    return result
+
+
+def finite(value):
+    if isinstance(value, float):
+        require(math.isfinite(value), 'Nonfinite JSON number')
+    elif isinstance(value, list):
+        for item in value:
+            finite(item)
+    elif isinstance(value, dict):
+        for item in value.values():
+            finite(item)
+
+
+def parse(data):
+    record = json.loads(
+        data, parse_constant=no_constant, object_pairs_hook=unique_object
+    )
+    finite(record)
+    same(record, json.loads(canonical(record)), 'Finite JSON roundtrip differs')
+    return record
+
+
+def relative_name(value):
+    require(isinstance(value, str), 'Manifest member name must be a string')
+    name = PurePosixPath(value)
+    require(
+        bool(name.parts)
+        and not name.is_absolute()
+        and '..' not in name.parts
+        and str(name) == value,
+        'Unsafe/noncanonical manifest member: ' + value,
+    )
+    return value
+
+
+class SealedRecords:
+    def __init__(self, directory, expected):
+        self.directory = directory.resolve()
+        self.manifest_path = self.directory / 'manifest.json'
+        raw = self.manifest_path.read_bytes()
+        require(sha(raw) == expected, 'External manifest identity differs')
+        self.expected = expected
+        self.manifest = parse(raw)
+        require(self.manifest['owner'] == OWNER, 'Unexpected manifest owner')
+        self.members = {}
+        self.originals = {self.manifest_path: expected}
+        physical = set()
+        for entry in self.manifest['files']:
+            name = relative_name(entry['path'])
+            logical = relative_name(entry.get('original_path', name))
+            path = (self.directory / name).resolve()
+            require(
+                path.is_relative_to(self.directory), 'Manifest symlink escapes its root'
+            )
+            require(
+                path not in physical and logical not in self.members,
+                'Duplicate manifest member or logical name',
+            )
+            physical.add(path)
+            raw = path.read_bytes()
+            require(
+                len(raw) == entry['bytes'] and sha(raw) == entry['sha256'],
+                'Stored manifest bytes differ: ' + name,
+            )
+            self.originals[path] = entry['sha256']
+            if name.endswith('.gz'):
+                decoded = gzip.decompress(raw)
+                require(
+                    len(decoded) == entry['decoded_bytes']
+                    and sha(decoded) == entry['decoded_sha256'],
+                    'Decoded transport identity differs: ' + name,
+                )
+            else:
+                decoded = raw
+            self.members[logical] = (entry, decoded)
+            if logical.endswith(('.json', '.ipynb')):
+                parse(decoded)
+            elif logical.endswith('.jsonl'):
+                for line in decoded.splitlines():
+                    if line.strip():
+                        parse(line)
+
+    def raw(self, name):
+        require(name in self.members, 'Missing sealed member: ' + name)
+        return self.members[name][1]
+
+    def read(self, name):
+        return parse(self.raw(name))
+
+    def copy(self, name, destination):
+        with destination.open('xb') as stream:
+            stream.write(self.raw(name))
+
+    def unchanged(self):
+        for path, expected in self.originals.items():
+            require(
+                sha(path.read_bytes()) == expected, 'Input changed during receiving'
+            )
+
+
+def captured(artifacts):
+    require(
+        set(artifacts) == {'partner', 'receptor'}, 'Incomplete captured input roles'
+    )
+    content = {}
+    for role, entry in artifacts.items():
+        require(entry['format'] == 'pdbqt', 'Unexpected captured format')
+        payload = base64.b64decode(entry['content_base64'], validate=True)
+        require(
+            sha(payload) == entry['sha256'], 'Captured payload digest differs: ' + role
+        )
+        content[role] = payload
+    return content
+
+
+def standalone(audit):
+    require(
+        audit['status'] == 'incomplete',
+        'Standalone old scores require collection origins',
+    )
+    checks = audit['checks']
+    require(
+        not any(row['status'] == 'inconsistent' for row in checks),
+        'Standalone record is inconsistent',
+    )
+    missing = [row for row in checks if row['status'] == 'incomplete']
+    require(
+        len(missing) == 4
+        and {row['path'] for row in missing}
+        == {'/scores/' + name for name in OLD_NAMES},
+        'Unexpected standalone incompleteness',
+    )
+    require(
+        all(
+            row['check'] == 'score_origin'
+            and row['reason'] == 'evaluation_evidence_missing'
+            for row in missing
+        ),
+        'Unexpected missing-origin reason',
+    )
+
+
+def graph_record(report):
+    candidate = [[i, i] for i in range(13)]
+    require(
+        report['schema'] == 'molsysmt.atom_correspondences@1'
+        and report['method'] == 'declared_graph_isomorphism'
+        and report['rule_version'] == 'declared_graph_isomorphism@1'
+        and report['search_scope'] == 'supplied_atom_correspondences'
+        and report['search_complete'] is True
+        and report['evidence']['kind'] == 'declared_complete_covalent_graph',
+        'Unexpected saved chemical-witness declaration',
+    )
+    same(
+        report['atom_correspondences'],
+        [candidate],
+        'Saved supplied-axis witness differs',
+    )
+
+
+def expected_budgets(n):
+    return dict(
+        prepare=n + 1,
+        reconstruct=n,
+        source_charge_assignment=1,
+        source_type_assignment=1,
+        score_attempts=2 * n + 2,
+        score_returns=2 * n,
+        graph_witness=4 * n + 1,
+        charge_audit=3 * n + 1,
+        comparison_attempts=2,
+        comparison_returns=2,
+        expected_score_refusals=2,
+        rank_refusals=2,
+        native_initializations=2 * n,
+        native_maps=2 * n,
+        native_scores=2 * n,
+    )
+
+
+def evaluation_names(label):
+    return [
+        label if component == 'total' else label + '.' + component
+        for component in COMPONENTS
+    ]
+
+
+def check_pose(record, original, labels, receptor):
+    same(
+        {k: v for k, v in record.items() if k not in ('scores', 'metadata')},
+        {k: v for k, v in original.items() if k not in ('scores', 'metadata')},
+        'Original pose coordinates/identity/rank changed',
+    )
+    old_metadata = original['metadata']
+    metadata = record['metadata']
+    same(
+        {
+            k: v
+            for k, v in metadata.items()
+            if k not in ('score_definitions', 'scoring_history')
+        },
+        {
+            k: v
+            for k, v in old_metadata.items()
+            if k not in ('score_definitions', 'scoring_history')
+        },
+        'Original molecular map or other metadata changed',
+    )
+    names = OLD_NAMES | {name for label in labels for name in evaluation_names(label)}
+    require(
+        set(record['scores']) == names and set(metadata['score_definitions']) == names,
+        'Unexpected named score/descriptor population',
+    )
+    for name in OLD_NAMES:
+        same(record['scores'][name], original['scores'][name], 'Original score changed')
+        same(
+            metadata['score_definitions'][name],
+            old_metadata['score_definitions'][name],
+            'Original descriptor changed',
+        )
+    require(
+        not old_metadata.get('scoring_history'),
+        'Unexpected original fixed-score history',
+    )
+    history = metadata.get('scoring_history', [])
+    require(
+        [entry['score_name'] for entry in history] == list(labels),
+        'Fixed-score histories missing, reordered or duplicated',
+    )
+    for label, entry in zip(labels, history):
+        method = METHODS[LABELS.index(label)]
+        expected = evaluation_names(label)
+        require(
+            entry['operation'] == 'score'
+            and entry['backend'] == 'vina'
+            and entry['backend_version'] == '1.2.7',
+            'Unexpected fixed-score producer',
+        )
+        require(
+            set(entry['scores']) == set(expected)
+            and set(entry['score_definitions']) == set(expected),
+            'A fixed evaluation must own exactly eight components',
+        )
+        require(
+            entry['applied_parameters']['scoring'] == method
+            and entry['applied_parameters']['cpu'] == 1
+            and entry['applied_parameters']['seed'] == 7,
+            'Fixed-score execution declaration differs',
+        )
+        actual_captures = captured(entry['backend_artifacts'])
+        require(
+            actual_captures['receptor'] == receptor, 'Fixed-score receptor bytes differ'
+        )
+        for name, component in zip(expected, COMPONENTS):
+            value = entry['scores'][name]
+            require(
+                isinstance(value, (int, float)) and not isinstance(value, bool),
+                'Score component is not a finite numeric observation',
+            )
+            same(record['scores'][name], value, 'Current score and evaluation disagree')
+            definition = entry['score_definitions'][name]
+            same(
+                definition,
+                metadata['score_definitions'][name],
+                'Current descriptor and evaluation disagree',
+            )
+            require(
+                definition['method'] == 'AutoDock Vina/' + method
+                and definition['method_version'] == '1.2.7'
+                and definition['component'] == component
+                and definition['unit'] == 'kilocalorie / mole',
+                'Unexpected component semantics or reported unit',
+            )
+            context = definition['context']
+            require(
+                context['stage'] == 'scoring'
+                and context['reference_energy_policy'] == 'native_current_conformation',
+                'Fixed-score/reference context differs',
+            )
+            for role in ('receptor', 'partner'):
+                require(
+                    context[role + '_sha256']
+                    == entry['backend_artifacts'][role]['sha256'],
+                    'Descriptor/capture digest binding differs',
+                )
+            same(
+                context['backend_box'],
+                entry['backend_box'],
+                'Scoring box declarations differ',
+            )
+            require(
+                entry['backend_box']['size'] == [24.0, 24.0, 24.0]
+                and entry['backend_box']['unit'] == 'angstrom',
+                'Unexpected fixed-score domain',
+            )
+        reference = entry['reference_energy']
+        require(
+            reference['policy'] == 'native_current_conformation'
+            and reference['score_name'] == label + '.lig_intra_best_pose'
+            and reference['unit'] == 'kcal/mol',
+            'Unexpected native reference declaration',
+        )
+        same(
+            reference['value'],
+            entry['scores'][reference['score_name']],
+            'Recorded reference and component disagree',
+        )
+    return history
+
+
+def check_comparison(report, updated, label, receiving, method_index):
+    n = len(updated['poses'])
+    require(
+        report['schema_version'] == '1.0'
+        and report['comparison_type'] == 'prepared_fixed_lig_inter'
+        and report['profile'] == 'vina_1.2.7_same_axis@1'
+        and report['score_name'] == label + '.lig_inter',
+        'Unexpected comparison report/profile',
+    )
+    same(
+        report['policy'],
+        dict(
+            ascending=True,
+            ties='equal_reported_values',
+            tie_presentation='source_order',
+            charge_tolerance=dict(value=1e-12, unit='elementary_charge'),
+        ),
+        'Unexpected saved comparison policy',
+    )
+    require(
+        report['source_result_record_sha256'] == record_digest(updated),
+        'Comparison does not bind the complete updated collection',
+    )
+    rows = report['rows']
+    require(
+        len(rows) == n and [row['position'] for row in rows] == list(range(1, n + 1)),
+        'Comparison omits/reorders original rows',
+    )
+    hashes = set()
+    for index, (row, pose) in enumerate(zip(rows, updated['poses']), 1):
+        for name in ('pose_id', 'partner_state_id', 'receptor_state_id'):
+            same(row[name], pose[name], 'Comparison pose identity differs')
+        same(row['original_rank'], pose['rank'], 'Comparison changed the original rank')
+        require(
+            row['source_pose_record_sha256'] == record_digest(pose),
+            'Comparison pose digest differs',
+        )
+        same(
+            row['value'], pose['scores'][label + '.lig_inter'], 'Compared value differs'
+        )
+        same(
+            row['definition'],
+            pose['metadata']['score_definitions'][label + '.lig_inter'],
+            'Compared descriptor differs',
+        )
+        entry = pose['metadata']['scoring_history'][method_index]
+        require(
+            row['scoring_evaluation_record_sha256'] == record_digest(entry),
+            'Selected evaluation digest differs',
+        )
+        same(
+            row['reference_energy'],
+            entry['reference_energy'],
+            'Comparison reference differs',
+        )
+        same(
+            row['evaluation_producer'],
+            {
+                key: entry.get(key)
+                for key in (
+                    'backend',
+                    'backend_version',
+                    'dockingmt_version',
+                    'molsysmt_version',
+                    'applied_parameters',
+                )
+            },
+            'Comparison producer declarations differ',
+        )
+        require(
+            row['evaluation_audit']['status'] == 'consistent',
+            'Selected evaluation was not received consistently',
+        )
+        evidence = row['prepared_evidence']
+        same(
+            evidence['prepared'],
+            receiving.read(f'preparation_{index + 1}_declaration.json'),
+            'Comparison does not retain the supplied preparation declaration',
+        )
+        require(
+            evidence['prepared']['state_id'] == pose['partner_state_id']
+            and evidence['prepared']['n_atoms'] == 13
+            and evidence['prepared']['torsion_dof'] == 0,
+            'Unexpected prepared population or torsion declaration',
+        )
+        exported = evidence['export']
+        require(
+            exported['schema'] == 'molsysmt.atom_export@1'
+            and exported['charge_unit'] == 'elementary_charge'
+            and exported['n_output_atoms'] == 13,
+            'Unexpected saved export-map profile',
+        )
+        same(
+            exported['output_to_source_atom_indices'],
+            list(range(13)),
+            'Rigid output/native axis differs',
+        )
+        same(
+            exported['partial_charge_before_rounding'],
+            evidence['prepared']['charges'],
+            'Saved written-axis unrounded charges differ',
+        )
+        actual = captured(entry['backend_artifacts'])
+        require(
+            exported['payload_sha256']
+            == sha(actual['partner'])
+            == row['definition']['context']['partner_sha256'],
+            'Comparison export and actual captured bytes differ',
+        )
+        hashes.add(exported['payload_sha256'])
+        graph_record(evidence['chemical_correspondence'])
+        same(
+            evidence['chemical_correspondence'],
+            receiving.read(
+                f'graph_witness_{2 * n + 1 + method_index * n + index}.json'
+            ),
+            'Saved comparison witness and operation return differ',
+        )
+        same(
+            evidence['charge_audit'],
+            receiving.read(f'charge_audit_{n + 1 + method_index * n + index}.json'),
+            'Saved comparison charge audit and operation return differ',
+        )
+        require(
+            evidence['charge_audit']['assessment'] == 'consistent',
+            'Saved comparison charge audit is not consistent',
+        )
+        native = receiving.read(f'preparation_{index + 1}_inspection.json')['native']
+        keys = pose['metadata']['source_atom_keys']
+        for field, key in (
+            ('ids', 'atom_id'),
+            ('names', 'atom_name'),
+            ('elements', 'element'),
+        ):
+            same(
+                native[field],
+                [item[key] for item in keys],
+                'Saved preparation and original verified atom keys differ',
+            )
+    require(
+        len(hashes) == n,
+        'Distinct original conformations lack distinct captured inputs',
+    )
+    ordered = sorted(rows, key=lambda row: row['value'])
+    same(
+        report['display_order'],
+        [row['position'] for row in ordered],
+        'Saved display order violates its explicit reported-value policy',
+    )
+    groups = []
+    for row in ordered:
+        if not groups or row['value'] != groups[-1]['value']:
+            groups.append(dict(value=row['value'], positions=[]))
+        groups[-1]['positions'].append(row['position'])
+    same(
+        report['groups'],
+        groups,
+        'Saved tied groups or stable source-order presentation differ',
+    )
+    require(
+        'authentication' in report['scope'] and 'not established' in report['scope'],
+        'Comparison scope declaration is missing',
+    )
+    return report['display_order']
+
+
+def write_json(path, record):
+    with path.open('x') as stream:
+        json.dump(record, stream, indent=2, allow_nan=False)
+        stream.write('\n')
+
+
+def receive(generation, receiving, output):
+    require(
+        generation.manifest['producer_outcome'] == 'FAIL'
+        and receiving.manifest['producer_outcome'] == 'PASS',
+        'Original generation failure or fresh receiving outcome was reclassified',
+    )
+    gen_resource = generation.read('resource-outcome.json')
+    require(
+        gen_resource['outcome'] == 'FAIL'
+        and gen_resource['exit_code'] != 0
+        and gen_resource['resource_interruption'] is None,
+        'Unexpected retained generation disposition',
+    )
+    gen_failure = generation.read('failure.json')
+    require(
+        gen_failure['exception_type'] == 'AssertionError'
+        and gen_failure['phase'] == 'single_frozen_docking',
+        'Unexpected original generation failure',
+    )
+    expected_generation = dict(
+        partial_charge_assignment=1,
+        atom_type_assignment=1,
+        prepare_ligand=2,
+        to_molecular_system=1,
+        docking_attempts=1,
+        docking_returns=1,
+        graph_witnesses=2,
+        charge_audits=2,
+        writer_exports=3,
+        forbidden_operations=0,
+    )
+    same(gen_failure['counts'], expected_generation, 'Generation failure counts differ')
+    require(
+        generation.read('idempotence_gate.json')['status'] == 'PASS',
+        'Source gate was not received before the original search',
+    )
+    population = generation.read('population.json')
+    original = generation.read('source_result.json')
+    n = len(original['poses'])
+    require(
+        2 <= n <= 3
+        and population['status'] == 'PASS'
+        and population['actual_returned'] == n
+        and population['requested_maximum'] == 3
+        and population['retry_permitted'] is False,
+        'The actual complete population differs from the finite admission',
+    )
+    require(
+        receiving.raw('source_result_wire.json')
+        == generation.raw('source_result.json'),
+        'Exact original wire bytes were not retained',
+    )
+    same(
+        receiving.read('source_result.json'),
+        original,
+        'Source record changed in receiving',
+    )
+    same(
+        receiving.read('user/source_result.json'),
+        original,
+        'Portable source record differs',
+    )
+    same(
+        receiving.read('generation_source_prepared_inspection.json'),
+        generation.read('source_prepared_inspection.json'),
+        'Generation inspection sidecar changed',
+    )
+    require(
+        receiving.raw('inputs/full18.h5msm')
+        == generation.raw('inputs/full18_chemical_only.h5msm'),
+        'Complete source transport bytes differ',
+    )
+    source_captures = captured(original['provenance']['backend_artifacts'])
+    require(
+        receiving.raw('inputs/receptor.pdbqt')
+        == source_captures['receptor']
+        == generation.raw('inputs/provided_receptor.pdbqt'),
+        'Original receptor/capture bytes differ',
+    )
+    require(
+        receiving.raw('reproduced_source_ligand.pdbqt')
+        == source_captures['partner']
+        == generation.raw('source_prepared.pdbqt'),
+        'Original and reproduced prepared-input bytes differ',
+    )
+    gate = receiving.read('source_reproduction_gate.json')
+    require(
+        gate['generation_manifest_sha256'] == generation.expected
+        and gate['source_result_wire_sha256']
+        == sha(generation.raw('source_result.json'))
+        and gate['source_population_size'] == n
+        and gate['reproduced_partner_sha256'] == sha(source_captures['partner'])
+        and gate['receptor_sha256'] == sha(source_captures['receptor'])
+        and gate['generated_inspection_compared_only'] is True
+        and gate['historical_preparation_restored'] is False,
+        'Source reproduction record is not bound to the retained generation',
+    )
+    require(
+        [p['rank'] for p in original['poses']] == list(range(1, n + 1)),
+        'Original ranks/population differ',
+    )
+    require(
+        len({p['pose_id'] for p in original['poses']}) == n,
+        'Original IDs are not unique',
+    )
+    require(
+        all(
+            p['partner_state_id'] == 'e1-rigid-continuity-benzamidinium-20261107'
+            and p['receptor_state_id'] == 'e1-captured-3PTB-receptor-20261020'
+            for p in original['poses']
+        ),
+        'Original state declarations differ',
+    )
+    ranking = original['provenance']['ranking_history']
+    require(
+        isinstance(ranking, list)
+        and ranking
+        and any(row.get('origin') == 'backend' for row in ranking),
+        'Original backend ranking history is missing',
+    )
+    for pose in original['poses']:
+        require(
+            set(pose['scores']) == OLD_NAMES, 'Original four-score inventory differs'
+        )
+        metadata = pose['metadata']
+        require(
+            metadata['pose_atom_order'] == 'verified_pdbqt_order'
+            and metadata['selected_partner_n_atoms'] == 13
+            and len(metadata['source_atom_keys']) == 13,
+            'Original verified molecular map is missing',
+        )
+        same(
+            metadata['selected_atom_indices'],
+            list(range(13)),
+            'Original selected map differs',
+        )
+        same(
+            metadata['prepared_atom_indices'],
+            list(range(13)),
+            'Original prepared map differs',
+        )
+    updated = receiving.read('updated_result.json')
+    require(len(updated['poses']) == n, 'Final collection omitted an original pose')
+    same(
+        {k: v for k, v in updated.items() if k != 'poses'},
+        {k: v for k, v in original.items() if k != 'poses'},
+        'Original problem/protocol/provenance/ranking history changed',
+    )
+    same(
+        receiving.read('user/updated_result.json'),
+        updated,
+        'Portable final collection differs',
+    )
+    for name in ('source_audit.json', 'combined_audit.json', 'user/updated_audit.json'):
+        require(
+            receiving.read(name)['status'] == 'consistent',
+            'Saved collection audit is not consistent: ' + name,
+        )
+    ledger = receiving.read('user/ledger.json')
+    require(len(ledger['cases']) == n, 'Portable ledger omitted intended members')
+    for position, (prior, current, case) in enumerate(
+        zip(original['poses'], updated['poses'], ledger['cases']), 1
+    ):
+        require(
+            case['position'] == position and case['pose_id'] == prior['pose_id'],
+            'Portable case identity/order differs',
+        )
+        require(
+            all(value == 'completed' for value in case['steps'].values()),
+            'Portable case has an incomplete stage',
+        )
+        check_pose(current, prior, LABELS, source_captures['receptor'])
+        standalone(receiving.read(f'pose_{position}_standalone_audit.json'))
+        for offset, label in enumerate(LABELS):
+            number = 2 * (position - 1) + offset + 1
+            intermediate = receiving.read(f'returned_score_{number}.json')
+            check_pose(
+                intermediate, prior, LABELS[: offset + 1], source_captures['receptor']
+            )
+            same(
+                intermediate,
+                receiving.read(f'user/pose_{position}/{label}.json'),
+                'Monitored return and portable saved intermediate differ',
+            )
+            standalone(receiving.read(f'returned_score_{number}_standalone_audit.json'))
+            entry = intermediate['metadata']['scoring_history'][-1]
+            same(
+                receiving.read(f'native_score_{number}.json'),
+                [entry['scores'][name] for name in evaluation_names(label)],
+                'Saved native vector and named scalar observations differ',
+            )
+            if offset == 1:
+                same(
+                    intermediate,
+                    current,
+                    'Final pose differs from its last actual return',
+                )
+            receiving.copy(
+                f'returned_score_{number}.json',
+                output / f'returned_score_{number}.json',
+            )
+    budgets = expected_budgets(n)
+    receipt = receiving.read('receipt.json')
+    require(
+        receipt['outcome'] == 'PASS'
+        and receipt['owner'] == OWNER
+        and receipt['actual_poses'] == n
+        and receipt['generation_manifest_sha256'] == generation.expected,
+        'Fresh receiving receipt does not bind the generation/population',
+    )
+    same(receipt['counts'], budgets, 'Receiving operation counts differ')
+    operation = receiving.read('operation_outcome.json')
+    same(operation['counts'], budgets, 'Final operation counts differ')
+    same(operation['budgets'], budgets, 'Final operation budgets differ')
+    require(
+        operation['scientific_steps_completed'] is True
+        and operation['forbidden_attempts'] == [],
+        'Receiving stopped or attempted forbidden work',
+    )
+    same(
+        receiving.read('registered_operation_budgets.json')['budgets'],
+        budgets,
+        'Registered direct-operation budgets differ',
+    )
+    resource = receiving.read('resource-outcome.json')
+    require(
+        resource['outcome'] == 'PASS'
+        and resource['exit_code'] == 0
+        and resource['resource_interruption'] is None
+        and resource['termination_signal'] is None,
+        'Fresh receiving resource gate failed',
+    )
+    worker = receiving.read('worker-receipt.json')
+    require(
+        worker['outcome'] == 'PASS'
+        and worker['private_payload_unchanged'] is True
+        and worker['engine_103_paths_unchanged'] is True
+        and worker['routine_metadata_unchanged'] is True,
+        'Fresh receiving private-byte guard did not pass',
+    )
+    same(worker['counts'], budgets, 'Worker and notebook counters differ')
+    registration = receiving.read('registration.json')
+    require(
+        registration['generation_manifest_sha256'] == generation.expected
+        and registration['actual_population'] == n
+        and registration['original_generation_qualification']['outcome'] == 'FAIL',
+        'Receiving registration changed the failed producer disposition',
+    )
+    same(
+        registration['original_generation_qualification']['counts'],
+        expected_generation,
+        'Registered original failure counts differ',
+    )
+    for sealed in (generation, receiving):
+        registered = sealed.read('registration.json')
+        for entry in registered['frozen'].values():
+            require(
+                sha(sealed.raw(entry['frozen_name'])) == entry['sha256'],
+                'Frozen executable/input and registration identities differ',
+            )
+    require(
+        sha(receiving.raw('frozen-rescore_existing_poses.ipynb'))
+        == receipt['user_notebook_sha256'],
+        'Portable notebook identity differs',
+    )
+    for key, expected in dict(
+        original_values_per_pose=4,
+        added_values_per_pose=16,
+        successful_fixed_score_calls=2 * n,
+        public_comparison_returns=2,
+        expected_pre_native_score_refusals=2,
+        strict_component_ranking_refusals=2,
+        new_source_charge_assignments=1,
+        new_source_type_assignments=1,
+        new_hydrogens=0,
+        new_searches=0,
+        original_incomplete_two_pose_population_reclassified=False,
+        historical_prepared13_identity_received=False,
+        full_e1_accepted=False,
+    ).items():
+        same(receipt[key], expected, 'Unexpected receiving scope/count: ' + key)
+    for index in range(1, 4 * n + 2):
+        graph_record(receiving.read(f'graph_witness_{index}.json'))
+    same(
+        receiving.read('reproduced_source13_witness.json'),
+        receiving.read('graph_witness_1.json'),
+        'Source self-witness and captured operation return differ',
+    )
+    for position in range(1, n + 1):
+        same(
+            receiving.read(f'pose_{position}_reconstructed_witness.json'),
+            receiving.read(f'graph_witness_{2 * position}.json'),
+            'Reconstruction witness and captured operation return differ',
+        )
+        same(
+            receiving.read(f'pose_{position}_prepared_witness.json'),
+            receiving.read(f'graph_witness_{2 * position + 1}.json'),
+            'Prepared witness and captured operation return differ',
+        )
+    for index in range(1, 3 * n + 2):
+        require(
+            receiving.read(f'charge_audit_{index}.json')['assessment'] == 'consistent',
+            'A saved charge audit is not consistent',
+        )
+    orders = {}
+    for method_index, label in enumerate(LABELS):
+        name = 'comparisons/' + label + '.json'
+        report = receiving.read(name)
+        same(
+            report,
+            receiving.read(f'returned_comparison_{method_index + 1}.json'),
+            'Saved comparison and immediate actual return differ',
+        )
+        orders[label] = check_comparison(
+            report, updated, label, receiving, method_index
+        )
+        receiving.copy(name, output / (label + '_comparison.json'))
+    controls = receiving.read('refusals.json')
+    expected_controls = [
+        'changed_state',
+        'wrong_prepared_geometry',
+        'strict_rank_vina_fixed',
+        'strict_rank_vinardo_fixed',
+    ]
+    require(
+        [row['control'] for row in controls] == expected_controls,
+        'Missing, duplicated or reordered refusal records',
+    )
+    for row in controls:
+        same(
+            row,
+            receiving.read(row['control'] + '_refusal.json'),
+            'Aggregate and individual refusal records differ',
+        )
+        require(row['code'] == 'DMT-E002', 'Unexpected refusal code')
+        if row['control'] in expected_controls[:2]:
+            expected_native = dict(
+                native_initializations=2 * n, native_maps=2 * n, native_scores=2 * n
+            )
+            same(
+                row['native_counts_before'],
+                expected_native,
+                'Pre-control native counts differ',
+            )
+            same(
+                row['native_counts_after'],
+                expected_native,
+                'Refused control entered the engine',
+            )
+            reason = (
+                'partner state does not match'
+                if row['control'] == 'changed_state'
+                else 'Pose coordinates must match'
+            )
+            require(reason in row['reason'], 'Unexpected pre-native refusal reason')
+        else:
+            require(
+                'identical declared definitions and contexts' in row['reason'],
+                'Unexpected strict-ranking refusal reason',
+            )
+    geometry = receiving.read('geometry_control_admission.json')
+    positions = geometry['original_positions']
+    require(
+        len(positions) == 2
+        and len(set(positions)) == 2
+        and all(isinstance(value, int) and 1 <= value <= n for value in positions)
+        and geometry['coordinates_differ_beyond_twice_tolerance'] is True
+        and geometry['all_population_members_retained'] is True,
+        'Informative geometry-control admission is missing',
+    )
+    same(
+        geometry['coordinate_tolerance'],
+        dict(value=0.000500001, unit='angstrom'),
+        'Geometry-control tolerance declaration differs',
+    )
+    require(
+        not any(
+            name.startswith(('failure', 'final_integrity_failure', 'unexpected_rank_'))
+            for name in receiving.members
+        ),
+        'Fresh receiving retained an unaccounted failure',
+    )
+    generation.copy('source_result.json', output / 'source_result.json')
+    receiving.copy('updated_result.json', output / 'updated_result.json')
+    generation.unchanged()
+    receiving.unchanged()
+    require(
+        not any(name.split('.')[0] in FORBIDDEN_MODULES for name in sys.modules),
+        'The independent reader imported a scientific package',
+    )
+    return dict(
+        schema='dockingmt.e1_rigid_continuity_persistence@1',
+        owner=OWNER,
+        outcome='PASS',
+        generation_manifest_sha256=generation.expected,
+        receiving_manifest_sha256=receiving.expected,
+        actual_poses=n,
+        original_values=4 * n,
+        added_values=16 * n,
+        actual_intermediate_returns=2 * n,
+        matching_portable_intermediate_copies=2 * n,
+        method_local_comparison_reports=2,
+        comparison_rows=2 * n,
+        orders=orders,
+        graph_witness_records=4 * n + 1,
+        charge_audit_records=3 * n + 1,
+        score_refusals=2,
+        strict_rank_refusals=2,
+        standalone_audits_received=3 * n,
+        original_incomplete_scores_per_standalone=4,
+        original_scores_ranks_states_maps_problem_protocol_provenance_history_preserved=True,
+        generation_qualification='FAIL',
+        generation_live_postsearch_checks_recovered=False,
+        fresh_native_receiving='PASS',
+        input_files_unchanged=True,
+        new_molecular_calls=0,
+        new_energies=0,
+        new_searches=0,
+        full_e1_accepted=False,
+        scope='Independent standard-library receiving of sealed records, captures and decisions; no fresh chemical validation, producer authentication, historical restoration or accuracy claim',
+    )
+
+
+def main():
+    generation_path = Path(os.environ['DOCKINGMT_CONTINUITY_GENERATION']).resolve()
+    receiving_path = Path(os.environ['DOCKINGMT_CONTINUITY_RECEIVING']).resolve()
+    output = Path(os.environ['DOCKINGMT_CONTINUITY_OUTPUT']).resolve()
+    for source in (generation_path, receiving_path):
+        require(
+            not output.is_relative_to(source) and not source.is_relative_to(output),
+            'Use an independent fresh output directory',
+        )
+    output.mkdir(parents=True, exist_ok=False)
+    try:
+        generation = SealedRecords(
+            generation_path, os.environ['DOCKINGMT_CONTINUITY_GENERATION_SHA256']
+        )
+        receiving = SealedRecords(
+            receiving_path, os.environ['DOCKINGMT_CONTINUITY_RECEIVING_SHA256']
+        )
+        report = receive(generation, receiving, output)
+        write_json(output / 'receipt.json', report)
+        print(json.dumps(report, allow_nan=False))
+    except BaseException as error:
+        write_json(
+            output / 'failure.json',
+            dict(
+                owner=OWNER,
+                outcome='FAIL',
+                error_type=type(error).__name__,
+                reason=str(error),
+                scope='Reader stops on inconsistent/missing evidence; no scientific rerun',
+            ),
+        )
+        raise
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,178 @@
+"""Register and run exactly one bounded continuity phase; no retry policy."""
+import ast
+import hashlib
+import json
+import os
+import resource
+import shutil
+import signal
+import subprocess
+import sys
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+root = Path('/fast_data/home/liliana/repos@uibcdf/dockingmt')
+task = root / '.molsyssuite/e1-rigid-continuity-20261107'
+routine = Path('/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14')
+overlay = root / '.molsyssuite/e1-native-rescoring-20261106/backend-overlay'
+phase, label = sys.argv[1:3]
+assert phase in ('generation', 'receiving', 'persistence')
+task.mkdir(exist_ok=True)
+attempt = task / label
+attempt.mkdir(exist_ok=False)
+reserve, rss_limit = 8 * 1024**3, 1024**3
+policy = dict(cpu=0, nice=10, workers=1, available_reserve_bytes=reserve,
+              group_rss_limit_bytes=rss_limit, address_space_bytes=2 * 1024**3,
+              cpu_seconds=60, wall_seconds=90, automatic_retry=False)
+
+
+def available():
+    return int(next(x.split()[1] for x in Path('/proc/meminfo').read_text().splitlines()
+                    if x.startswith('MemAvailable:'))) * 1024
+
+
+def sha(path):
+    with path.open('rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def write(path, value):
+    with path.open('x') as stream:
+        json.dump(value, stream, indent=2, allow_nan=False)
+        stream.write('\n')
+
+
+def memory(group):
+    total = 0
+    for directory in Path('/proc').iterdir():
+        if not directory.name.isdigit():
+            continue
+        try:
+            fields = (directory / 'stat').read_text().rsplit(') ', 1)[1].split()
+            if int(fields[2]) != group:
+                continue
+            for line in (directory / 'status').read_text().splitlines():
+                if line.startswith('VmRSS:'):
+                    total += int(line.split()[1]) * 1024
+        except (OSError, ProcessLookupError):
+            continue
+    return total
+
+
+def limits():
+    os.sched_setaffinity(0, {0})
+    os.setpriority(os.PRIO_PROCESS, 0, 10)
+    resource.setrlimit(resource.RLIMIT_AS, (2 * 1024**3, 2 * 1024**3))
+    resource.setrlimit(resource.RLIMIT_CPU, (60, 60))
+
+
+assert available() >= reserve + rss_limit
+head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip()
+paths = list((root / 'dockingmt').rglob('*.py'))
+paths += [root / p for p in (
+    'devguide/validation/e1_rigid_continuity_2026-11-07.md',
+    'examples/rescore_existing_poses.ipynb', 'devtools/conda-build/resources.toml')]
+frozen = {}
+freeze_paths = [Path(__file__), root / 'devguide/validation/e1_rigid_continuity_2026-11-07.md',
+                root / 'examples/rescore_existing_poses.ipynb',
+                root / '.molsyssuite/e1-score-comparison-20261107/installation-02.json']
+notebook = None
+if phase != 'persistence':
+    notebook_path = root / f'devguide/validation/e1_rigid_continuity_{phase}.ipynb'
+    paths.append(notebook_path)
+    notebook = json.loads(notebook_path.read_text())
+    freeze_paths += [notebook_path, Path('/tmp/e1_rigid_continuity_worker.py')]
+    command = [str(routine / 'bin/python'), '-B', '-I', '-S',
+               str(attempt / 'frozen-e1_rigid_continuity_worker.py'), phase]
+else:
+    freeze_paths.append(Path('/tmp/e1_rigid_continuity_persistence.py'))
+    command = [str(routine / 'bin/python'), '-B', '-I', '-S',
+               str(attempt / 'frozen-e1_rigid_continuity_persistence.py')]
+for path in freeze_paths:
+    destination = attempt / ('frozen-' + path.name)
+    shutil.copyfile(path, destination)
+    frozen[path.name] = {'sha256': sha(path), 'frozen_name': destination.name}
+cells = []
+if notebook is not None:
+    for cell in notebook['cells']:
+        if cell['cell_type'] != 'code':
+            continue
+        body = ''.join(cell['source'])
+        ast.parse(body)
+        assert cell['outputs'] == [] and cell['execution_count'] is None
+        cells.append({'id': cell['id'], 'sha256': hashlib.sha256(body.encode()).hexdigest()})
+registration = dict(registered_at_utc=datetime.now(timezone.utc).isoformat(),
+                    owner='uibcdf/dockingmt#78', phase=phase, command=command,
+                    git_head=head, source_sha256={str(p.relative_to(root)): sha(p) for p in sorted(paths)},
+                    policy=policy, frozen=frozen, code_cells=cells)
+env = os.environ.copy()
+env.update(PYTHONDONTWRITEBYTECODE='1', XDG_CACHE_HOME=str(attempt / 'cache'),
+           DOCKINGMT_CONTINUITY_ROOT=str(root), DOCKINGMT_CONTINUITY_OUTPUT=str(attempt / 'output'),
+           LD_LIBRARY_PATH=str(overlay / 'lib') + ':' + str(routine / 'lib'))
+for key in ('OMP_NUM_THREADS', 'OMP_THREAD_LIMIT', 'OPENBLAS_NUM_THREADS', 'MKL_NUM_THREADS',
+            'NUMEXPR_NUM_THREADS', 'BLIS_NUM_THREADS', 'RAYON_NUM_THREADS', 'CARGO_BUILD_JOBS', 'MAX_JOBS'):
+    env[key] = '1'
+if phase in ('receiving', 'persistence'):
+    generation = task / 'generation-01'
+    manifest_path = generation / 'manifest.json'
+    population = json.loads((generation / 'output/population.json').read_text())
+    assert population['status'] == 'PASS' and 2 <= population['actual_returned'] <= 3
+    gen_resource = json.loads((generation / 'resource-outcome.json').read_text())
+    assert gen_resource['outcome'] == 'FAIL' and gen_resource['resource_interruption'] is None
+    gen_failure = json.loads((generation / 'failure.json').read_text())
+    assert gen_failure['exception_type'] == 'AssertionError' and gen_failure['message'] == ''
+    assert gen_failure['phase'] == 'single_frozen_docking'
+    expected_counts = dict(partial_charge_assignment=1, atom_type_assignment=1, prepare_ligand=2, to_molecular_system=1, docking_attempts=1, docking_returns=1, graph_witnesses=2, charge_audits=2, writer_exports=3, forbidden_operations=0)
+    assert gen_failure['counts'] == expected_counts
+    assert json.loads((generation / 'output/idempotence_gate.json').read_text())['status'] == 'PASS'
+    source_record = json.loads((generation / 'output/source_result.json').read_text())
+    assert len(source_record['poses']) == population['actual_returned']
+    assert 'line 48, in <module>' in (generation / 'stderr.log').read_text()
+    registration['original_generation_qualification'] = dict(outcome='FAIL', disposition='Registered record-only receiving; no repeat search, no recovered live post-search checks', counts=expected_counts)
+    registration['generation_manifest_sha256'] = sha(manifest_path)
+    registration['actual_population'] = population['actual_returned']
+    env.update(DOCKINGMT_CONTINUITY_GENERATION=str(generation),
+               DOCKINGMT_CONTINUITY_GENERATION_SHA256=sha(manifest_path))
+if phase == 'persistence':
+    receiving = task / 'receiving-01'
+    assert json.loads((receiving / 'resource-outcome.json').read_text())['outcome'] == 'PASS'
+    registration['receiving_manifest_sha256'] = sha(receiving / 'manifest.json')
+    env.update(DOCKINGMT_CONTINUITY_RECEIVING=str(receiving),
+               DOCKINGMT_CONTINUITY_RECEIVING_SHA256=sha(receiving / 'manifest.json'))
+write(attempt / 'registration.json', registration)
+start = time.monotonic()
+minimum, peak, samples, interruption = available(), 0, 0, None
+with (attempt / 'stdout.log').open('xb') as out, (attempt / 'stderr.log').open('xb') as err:
+    process = subprocess.Popen(command, cwd=root, env=env, stdout=out, stderr=err,
+                               start_new_session=True, preexec_fn=limits)
+    while process.poll() is None:
+        minimum = min(minimum, available())
+        resident = memory(process.pid)
+        peak = max(peak, resident)
+        samples += 1
+        if minimum < reserve:
+            interruption = 'available_RAM_reserve_threatened'
+        elif resident > rss_limit:
+            interruption = 'owned_group_RSS_limit'
+        elif time.monotonic() - start > policy['wall_seconds']:
+            interruption = 'wall_limit'
+        if interruption:
+            os.killpg(process.pid, signal.SIGTERM)
+            try:
+                process.wait(timeout=2)
+            except subprocess.TimeoutExpired:
+                os.killpg(process.pid, signal.SIGKILL)
+                process.wait()
+            break
+        time.sleep(.1)
+code = process.wait()
+receipt = dict(outcome='PASS' if code == 0 and not interruption else 'FAIL', exit_code=code,
+               resource_interruption=interruption, termination_signal=-code if code < 0 else None,
+               elapsed_seconds=time.monotonic() - start, minimum_available_bytes=minimum,
+               sampled_peak_group_rss_bytes=peak, samples=samples, policy=policy)
+write(attempt / 'resource-outcome.json', receipt)
+print(json.dumps(receipt), flush=True)
+print((attempt / 'stdout.log').read_text()[-6000:], flush=True)
+print((attempt / 'stderr.log').read_text()[-6000:], flush=True)
+raise SystemExit(0 if code == 0 and not interruption else 1)

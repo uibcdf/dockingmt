@@ -1,0 +1,95 @@
+"""Frozen private installed consumer; run with CPython -I -S."""
+import hashlib,json,os,sys,tomllib,traceback
+from pathlib import Path
+phase=sys.argv[1];assert phase in ('generation','receiving')
+root=Path(os.environ['DOCKINGMT_CONTINUITY_ROOT']);output=Path(os.environ['DOCKINGMT_CONTINUITY_OUTPUT']);attempt=output.parent
+installation_path=root/'.molsyssuite/e1-score-comparison-20261107/installation-02.json'
+installation=json.loads(installation_path.read_text());target=installation_path.parent/'site-packages-02'
+routine=Path('/fast_data/home/liliana/miniconda3/envs/molsyssuite@uibcdf_3.14')
+sdk=root/'.molsyssuite/publication-sdk/devtools/scripts'
+registration=json.loads((attempt/'registration.json').read_text())
+def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
+def write(name,value):
+ with (attempt/name).open('x') as stream:json.dump(value,stream,indent=2,allow_nan=False);stream.write('\n')
+assert sys.flags.isolated and sys.flags.no_site
+assert sha(installation_path)==registration['frozen']['installation-02.json']['sha256']
+assert os.sched_getaffinity(0)=={0} and os.getpriority(os.PRIO_PROCESS,0)>=10
+overlay=root/'.molsyssuite/e1-native-rescoring-20261106/backend-overlay'
+sys.path[:0]=[str(overlay/'lib/python3.14/site-packages'),str(target),str(routine/'lib/python3.14/site-packages'),str(sdk)]
+assert not any('__editable__' in type(x).__module__ for x in sys.meta_path)
+from installed_imports import check_installed_imports
+from installed_test_support import staged_support
+roots=('dockingmt','molsysviewer_dockingmt','molsysmt','molsysviewer_molsysmt','argdigest','pyunitwizard','depdigest','smonitor','ackredit')
+import vina
+assert vina.__version__=='1.2.7' and Path(vina.__file__).resolve().is_relative_to(overlay)
+def engine_payload():
+ files={}
+ for path in (overlay/'conda-meta').glob('*.json'):
+  for row in json.loads(path.read_text())['paths_data']['paths']:
+   candidate=overlay/row['_path'];assert candidate.resolve().is_relative_to(overlay)
+   assert sha(candidate)==row['sha256'];files[row['_path']]=row['sha256']
+ assert len(files)==103
+ return files
+def libraries():
+ paths=set()
+ for line in Path('/proc/self/maps').read_text().splitlines():
+  parts=line.split(None,5)
+  if len(parts)==6 and parts[5].startswith('/') and '.so' in parts[5] and Path(parts[5]).is_file():paths.add(Path(parts[5]).resolve())
+ rows=[{'path':str(p),'sha256':sha(p)} for p in sorted(paths)]
+ for name in ('libboost_filesystem.so.1.86.0','libboost_thread.so.1.86.0'):
+  assert any(Path(row['path']).is_relative_to(overlay) and name in row['path'] for row in rows)
+ return rows
+engine_before=engine_payload();metadata_before={p.name:sha(p) for p in (routine/'conda-meta').glob('*.json')}
+origins=[]
+
+def check(label):
+ assert {str(p.relative_to(target)):sha(p) for p in target.rglob('*') if p.is_file()}==installation['targethashes']
+ shared=check_installed_imports(('dockingmt','molsysviewer_dockingmt'),target,root/'dockingmt')
+ rows=[]
+ for name,module in tuple(sys.modules.items()):
+  if not any(name==r or name.startswith(r+'.') for r in roots):continue
+  locations=[];filename=getattr(module,'__file__',None)
+  if filename:locations.append(filename)
+  locations.extend(getattr(module,'__path__',()))
+  if not locations:
+   assert name=='pyunitwizard.main',name
+   initializer=sys.modules['pyunitwizard'];expected=target/'pyunitwizard/__init__.py'
+   assert Path(initializer.__file__).resolve()==expected
+   for function in (module.__getattr__,module.__dir__):
+    assert function.__globals__ is vars(initializer) and Path(function.__code__.co_filename).resolve()==expected
+   locations=[str(expected)]
+  checked=[]
+  for value in set(locations):
+   path=Path(value).resolve();assert path.is_relative_to(target),(name,str(path))
+   checked.append({'path':str(path),'sha256':sha(path) if path.is_file() else None})
+  rows.append({'module':name,'locations':checked})
+ origins.append({'label':label,'shared_checker':shared,'private_files':len(installation['targethashes']),'runtime_origins':rows,'python_path':list(sys.path),'native_libraries':libraries()})
+nb_name='e1_rigid_continuity_'+phase+'.ipynb'
+nb_path=attempt/('frozen-'+nb_name)
+assert sha(nb_path)==registration['frozen'][nb_name]['sha256']
+notebook=json.loads(nb_path.read_text());namespace={'__name__':'__main__','registered_installed_check':check}
+if phase=='receiving':
+ os.environ['DOCKINGMT_CONTINUITY_USER_NOTEBOOK']=str(attempt/'frozen-rescore_existing_poses.ipynb')
+ os.environ['DOCKINGMT_CONTINUITY_USER_NOTEBOOK_SHA256']=registration['frozen']['rescore_existing_poses.ipynb']['sha256']
+declaration=tomllib.loads((root/'devtools/conda-build/resources.toml').read_text())['installed_tests']['support']
+context={'candidate_sha':registration['git_head'],'qualification_sha':registration['git_head'],'provider_sha':'95f693be10c9205ab9b912cb53453710a207bf45','sha256':installation['wheel']['sha256']}
+support=None
+try:
+ check('before-support-and-science')
+ with staged_support(root,declaration,('dockingmt','molsysviewer_dockingmt'),context=context) as support:
+  for cell in notebook['cells']:
+   if cell['cell_type']!='code':continue
+   body=''.join(cell['source']);row=next(x for x in registration['code_cells'] if x['id']==cell['id'])
+   assert hashlib.sha256(body.encode()).hexdigest()==row['sha256']
+   with (attempt/'progress.jsonl').open('a') as stream:stream.write(json.dumps({'phase':'started','cell_id':cell['id']})+'\n')
+   exec(compile(body,'e1_rigid_continuity_'+phase+'.'+cell['id'],'exec'),namespace)
+   with (attempt/'progress.jsonl').open('a') as stream:stream.write(json.dumps({'phase':'completed','cell_id':cell['id'],'counts':namespace.get('counts')})+'\n')
+  support.check();check('after-notebook')
+ assert engine_payload()==engine_before and {p.name:sha(p) for p in (routine/'conda-meta').glob('*.json')}==metadata_before
+ write('worker-receipt.json',{'outcome':'PASS','phase':phase,'counts':namespace.get('counts'),'private_payload_unchanged':True,'engine_103_paths_unchanged':True,'routine_metadata_unchanged':True,'consumer_source_commit':installation['consumer_source_commit'],'wheel_sha256':installation['wheel']['sha256']})
+except BaseException as error:
+ write('failure.json',{'exception_type':type(error).__name__,'message':str(error),'counts':namespace.get('counts'),'phase':namespace.get('phase')})
+ traceback.print_exc();raise
+finally:
+ write('installed-origins.json',origins)
+ if support is not None:write('support-receipt.json',support.receipt)
