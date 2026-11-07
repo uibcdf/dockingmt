@@ -2,7 +2,12 @@
 
 Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
-Status: **active; completion unproven**. Inspected starting source: `530a4cf`.
+Status: **active after maintainer resumption; completion unproven**.
+Inspected starting source: `530a4cf`. The [receiving publication checkpoint](MACHINE_HANDOFF.md#receiving-publication-checkpoint--2026-11-07)
+preserves the passing E4 receiving, source custody and separate publication checks.
+Both earlier pause checkpoints remain historical. The complete scope below is
+unchanged; next product work binds an explicitly selected pose to its admitted
+carrier through the provider-backed composition.
 
 ## Outcome and version boundary
 
@@ -43,7 +48,7 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ordered and audited reproducibly. | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07) for the full-source rigid prepared13 profile: both actual original poses complete public reconstruction/preparation/additive Vina/Vinardo 1.2.7 scoring and separate method-local interaction comparison. Eight old values/ranks/history survive with 32 new values; native receiving and independent persistence pass. The original generator qualification remains failed with unreached original live checks. Broader E1, total/reference comparisons, independent science and public delivery retain their owners. |
 | E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for the P59(R)/P69(S) rigid25 joint-domain profile. Source/preparation reproduction and exact PDBQT gates precede native success/refusal/success, 3+2 poses and two original-rank-1 representatives. Five native columns, own per-run references, original scores/histories, three public outcome reconstructions and fresh independent receiving pass. The receptor remains externally prepared/unassessed; other E2 profiles, screening effectiveness, #73 and public delivery remain unaccepted. |
 | E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) is blocked by MolSysMT #604. The [static admission review](validation/e3_provider_admission_2026-11-07.md) at fetched `82bfa1c82f1d48035679fa4630e81a2506b67bd6` finds no admitted N×N/clustering composition; the clean local provider/pins remain unchanged. Three P59 poses and a crystalline heavy-reference candidate do not replace reference/H-representation admission or any control. No new RMSD or E3 acceptance. |
-| E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 receives one bounded installed 3PTB workflow at `5952053`: normal/pm-fs, twelve detector calls, typed/H5MSM persistence, original-pose association and two fresh readers pass. Preserve prior failures and the local hold. [Saved-analysis admission](validation/e4_saved_analysis_admission_2026-11-07.md) is a source-reviewed public recipe; admit projection/atom/frame axes before a consumer API. Consumer association receiving and whole E4 remain unproven; molecular operations stay in MolSysMT (#610 documents explicit XYZ atom extraction). |
+| E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 retains the original `5952053` molecular receiving and its failures. [Same-carrier receiving](validation/e4_saved_carrier_receiving_2026-11-07.md) now passes normal/pm-fs Python Viewer load/filter/attachment/persistence, eleven refusals per profile and independent record reading. No new detection/preparation/native calculation. Next choose the docking-specific selected-pose binding; four other poses stay unevaluated. Other-carrier correspondence, usable addon/canvas, whole E4 and public delivery remain open. |
 | E5 independent reproduction | A separate receiving installation reconstructs a representative stored workflow from documented inputs, with observed agreement/tolerances, failures and missing information. | Captures/replay/recovery supply pieces; a whole independent workflow audit remains unproven. |
 | Bounded scientific qualification | An admitted transparent independent panel and informative positive/adverse controls, explicit preparation/search/ranking hypotheses, denominators, budgets and all outcomes. | Audit Q2–Q4 and #33/#49 own admission. Existing within-case repetitions do not become independent complexes. |
 | Public delivery and support | Actual compatible public dependencies, exact staged Conda artifact, required source/native gates and eight Linux/macOS arm64 × Python 3.11–3.14 installed cells, same-byte promotion and public receiving. | #30/#47 remain partial. Refresh artifact availability before acquiring/receiving; old private receipts do not certify a new public file. Distribution is Conda `uibcdf`. |
@@ -84,9 +89,9 @@ implemented API or record-only test is not acceptance of a scientific workflow.
    E3's [provider-backed contract](pending_proposals/qualify_pose_comparison_and_clustering.md)
    is #79/MolSysMT #604; E4's
    [existing-tool receiving](pending_proposals/receive_docking_interaction_analysis.md)
-   is #80. Next independently admit E4's saved analysis projection and atom/frame
-   axes through its [source-reviewed public recipe](validation/e4_saved_analysis_admission_2026-11-07.md),
-   before selecting a consumer API. That recipe and the
+   is #80. Use E4's now [received same-carrier route](validation/e4_saved_carrier_receiving_2026-11-07.md)
+   to select the smallest docking-specific binding for an explicitly selected
+   original pose, retaining the full result and unknown scene correspondences. That recipe and the
    [earlier inspection](validation/extended_provider_scope_2026-11-06.md) are not
    runtime/scientific acceptance or permission to resume held calculations. E2's
    [bounded resolution](archive/qualify_small_ligand_collection.md)

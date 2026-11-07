@@ -142,3 +142,32 @@ Existing molecular receiving remains passing in its own bounded scope; this
 consumer/addon admission and whole E4 remain partial. E3's provider-blocked
 workflow does not waive any of these requirements.
 
+## Same-carrier receiving passed — 2026-11-07
+
+The [separately registered saved-carrier selection](../validation/e4_saved_carrier_receiving_2026-11-07.md)
+passes normal/pm-fs and fresh independent saved-record reading. Original 3238-atom
+carriers load in real Python Viewers, retain full molecular/analysis state, support
+queries/pages and independent attachment/loading, and persist through complete
+provider layers. Each profile receives two carriers, closes two views, performs
+50 typed exports and passes eleven refusals with zero new detectors, H,
+preparation, energies, searches, alignment or RMSD. The retained thirteen-atom
+pose binds only to its actual geometry; the translated control is separate and
+the other four poses remain unevaluated.
+
+The [238-member archive](../validation/data/e4_saved_carrier_receiving_2026-11-07/manifest.json)
+is SHA-256 `73c8114368f0d7011d2e27d229662bf29be1f99bea27c0e0a24065f077e04b4d`;
+the [reader companion](../validation/data/e4_saved_carrier_reader_2026-11-07/manifest.json)
+receives exact records and numerical witnesses without molecular imports or
+restoration. Original diagnostic receiver failure, administrative sealing failure
+and process controls are retained. No resource stop occurs. This new light
+selection does not restart the suspended heavy attempt or launch manual CI.
+
+The next product increment can choose the smallest docking-specific binding of
+the admitted carrier to an explicitly selected original pose. Preserve the full
+result, original scores/producers and missing/general scene correspondence;
+do not broadcast one analysis over unmeasured poses. This issue remains partial
+for that API/addon admission and whole E4; actual canvas/public/scientific gates
+remain separate. The task-local launcher stays outside the runtime payload;
+[MolSysSuite #173](https://github.com/uibcdf/molsyssuite/issues/173) requests
+qualified reusable execution support for future receiving rather than a local
+general tool or mandatory new scientific gate.

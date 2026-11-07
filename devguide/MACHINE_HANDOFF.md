@@ -11,10 +11,126 @@ requirements; this file explains how to resume without recovering chat history.
 
 ## Current development checkpoint — 2026-11-07
 
-The maintainer has resumed the complete plan and requires `devguide/` to be
-updated with every increment. The objective remains active and unproven.
+Work is **active after the maintainer's resumption** of the complete objective.
+Completion remains unproven. Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
+
+### Receiving publication checkpoint — 2026-11-07
+
+The 258 source files saved at the 06:50 pause match their recorded hashes on
+resumption. The seven task launchers are preserved outside volatile `/tmp`.
+The previous goal turn made progress by recording that exact source/evidence
+custody and passing five light pause checks; it did not publish the increment.
+Complete source checks and committed-export qualification retain separate
+receipts under `.molsyssuite/e4-saved-carrier-20261107`. No scientific receiving
+rerun is required after documentation-only changes. Qualification repository
+base remains `f042244`; the publishing commit has its own source identity.
+
+Next implement the smallest docking-specific binding between an explicitly
+selected original pose and its admitted saved carrier. Retain the whole result,
+four unevaluated poses, original producers and explicit refusals for unknown or
+incompatible scene axes. #80 stays partial; MolSysSuite #173 owns reusable guard
+support. Full #73, E3 provider work, canvas and public-delivery gates remain open.
+
+### Pause checkpoint — 2026-11-07 06:50 UTC
+
+This historical pause was followed by the maintainer's resumption. At the pause,
+the saved-carrier receiving and independent reader had finished; their bounded
+passing evidence is described below. No owned qualification process or background
+agent remained running. No receiving rerun was needed merely to resume this work.
+
+Latest published source at that pause was `f04224449fe5d9a5bb7b8e61a1b4e5435ceb2103`
+(`[skip ci]`). The new notebook, two sealed archives, receiving report and seven
+maintained guide/report edits were **local and uncommitted**. The final complete
+documentation/resource/publication checks, exact staging, commit, fresh committed
+export checks and push had not run for this increment. Neither the passing
+receiving nor this pause certifies those outstanding checks. No CI was dispatched.
+
+On resumption, review the source snapshot and pending files preserved in
+`.molsyssuite/e4-saved-carrier-20261107/pause-0650/`, complete those final checks,
+publish the reviewed increment with `[skip ci]`, then synchronize #80 and
+MolSysSuite #173 with immutable source/evidence links. Keep #80 partial. Next
+product work is the selected-pose binding described below; no binding API or
+addon implementation has been added by this receiving. Preserve the original
+migration directory, all failed attempts and the deferred heavy/live-visual work.
+
+### Received E4 checkpoint after resumption — 2026-11-07
+
+The [separate saved-carrier receiving](validation/e4_saved_carrier_receiving_2026-11-07.md)
+passes normal/pm-fs and independent saved-record reading. Each profile loads two
+original 3238-atom/one-frame carriers in real Python Viewers, closes both views,
+receives full named analyses/filtering/attachment/persistence and eleven refusals.
+Fifty typed exports preserve original payloads; no new detection, H, preparation,
+metric, energy or search occurs. Original five-pose scores/producers remain and
+only the actual retained geometry binds to its thirteen original atoms at
+3220–3232. The translated control and four unevaluated poses stay distinct.
+
+The initial diagnostic receiver fails before carrier reads and is preserved.
+After correcting JSON diagnostic scalar handling, `normal-02` passes in
+31.344 s/552.52 MiB sampled group RSS; `pm-fs-01` passes in 31.562 s/554.73 MiB.
+The fresh standard-library reader passes in 2.856 s/206.85 MiB with no molecular
+imports/replay. No resource interruption or live owned process remains. These
+are receiving timings with instrumentation, not portable performance claims.
+
+The [238-member archive](validation/data/e4_saved_carrier_receiving_2026-11-07/manifest.json)
+is sealed at `73c8114368f0d7011d2e27d229662bf29be1f99bea27c0e0a24065f077e04b4d`;
+the [nine-member reader companion](validation/data/e4_saved_carrier_reader_2026-11-07/manifest.json)
+is `a3cf0e74acd65821a06aa57f859cf009d71f7851cd33f3fe95ee4b698f7fa3f3`.
+Passing notebook is `a6a8561e4aa7d9d2b5967fd43b9c2fdf8793ba13bbbb3c3a5d524e3d53e7d113`.
+Actual consumer remains `a7422df`/wheel `93d76f89`, borrowed MolSysMT `9e1f1b1`
+and original Viewer `78ede79e`/wheel `3d31a4d9`; the original scientific producer
+is `5952053`, while qualification repository base is `f042244`. Private payloads,
+import/native origins, unit authority, input bytes and SDK/routine metadata pass.
+No Conda/pip operation, provider pin or sibling worktree change occurs.
+
+Next select the smallest docking-specific consumer binding from this admitted
+same-carrier composition. Preserve the full result and refuse missing/incompatible
+scene axes rather than copying analysis over other poses. #80 remains partial;
+E3 #604, addon/canvas, public delivery and full #73 retain their missing gates.
+The original heavy interruption and deferred live review remain separate.
+[MolSysSuite #173](https://github.com/uibcdf/molsyssuite/issues/173) owns the
+reusable execution-guard request. Task sources, all attempts and raw controls
+remain under `.molsyssuite/e4-saved-carrier-20261107`; retain needed private
+artifacts under #50 custody, review 2026-11-14. Hosted exact-head evidence remains
+missing under #28/`[skip ci]`; no manual CI dispatch occurs.
+
+### Pause checkpoint — 2026-11-07 06:20 UTC
+
+This historical pause was followed by the maintainer's resumption. At the pause,
+latest published source was `f04224449fe5d9a5bb7b8e61a1b4e5435ceb2103`
+(`[skip ci]`). The following work is local and uncommitted:
+
+- [Saved-carrier notebook](validation/e4_saved_carrier_receiving.ipynb): four
+  code cells; static AST/lint/peer review passes. **No receiving cell has run.**
+- [Prospective registration](validation/e4_saved_carrier_receiving_2026-11-07.md)
+  and corrected [admission route](validation/e4_saved_analysis_admission_2026-11-07.md)
+  distinguish a new light receiving from the suspended heavy selection. The
+  resumed objective authorized that distinct selection; the recipe's additional
+  human-confirmation requirement was an overbroad agent interpretation.
+- `.molsyssuite/e4-saved-carrier-20261107` retains the verified 641-file Viewer
+  overlay and its receipt. No Conda/pip operation or shared-prefix change occurred.
+  `pause-checkpoint.json` and `pause-source/` preserve the current private
+  launcher/worker sources and hashes outside volatile `/tmp` paths.
+- Source review identified five launcher safeguards: qualify final receipts/cells
+  beyond exit status; retire the entire owned group; match normal/pm-fs code and
+  composition; freeze SDK helper identities; retain preflight/launch failures.
+  Corrections are drafted. Their dedicated standard-library process controls and
+  final review are **pending**, so do not launch receiving merely because the
+  notebook is statically reviewed.
+
+On resumption, review the saved final launchers, finish those guard controls and
+the exact operation ledger, then seal registration before the first normal
+attempt. Only a complete normal qualification permits pm/fs. Keep all original
+failures/unknown counts, the no-auto-retry rule and deferred canvas evidence.
+No new E4 molecular receiving, detection, docking, scoring or manual CI was
+launched before this pause. No background agent or qualification job is left
+running. The full plan and provider reporting obligations keep their scope.
+
+### Retained pre-receiving overview — source f042244
+
+This source-specific overview preserves prior evidence and limits. The received
+E4 checkpoint above supersedes its old next-action statements.
 
 - **E1:** [#78 bounded resolution](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07)
   accepts complete-source rigid prepared13 original-result continuity and

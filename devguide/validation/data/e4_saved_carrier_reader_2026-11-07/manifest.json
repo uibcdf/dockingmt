@@ -1,0 +1,106 @@
+{
+  "schema": "dockingmt.e4_saved_carrier_reader_archive@1",
+  "owner": "uibcdf/dockingmt#80",
+  "outcome": "PASS",
+  "received_manifest_sha256": "73c8114368f0d7011d2e27d229662bf29be1f99bea27c0e0a24065f077e04b4d",
+  "members_verified": 238,
+  "reader_sha256": "dbb70745f14e1b7b3426160ed0e7ae5a07ffa94c8ffd902b206bf3548a058ebe",
+  "resource": {
+    "process_started": true,
+    "exit_code": 0,
+    "resource_interruption": null,
+    "termination_signal": null,
+    "elapsed_seconds": 2.856455980014289,
+    "minimum_available_bytes": 51281248256,
+    "sampled_peak_group_rss_bytes": 216899584,
+    "samples": 28,
+    "policy": {
+      "cpu": 0,
+      "nice": 10,
+      "workers": 1,
+      "available_reserve_bytes": 8589934592,
+      "group_rss_limit_bytes": 1073741824,
+      "address_space_bytes": 2147483648,
+      "cpu_seconds": 45,
+      "wall_seconds": 60
+    },
+    "remaining_live_owned_pids": [],
+    "group_terminal": true,
+    "outcome": "PASS"
+  },
+  "scope": "Independent saved-record receiving and numerical witness agreement; no molecular parsing/reconstruction, chemistry, metric or native calculation; no producer authentication or whole E4/addon/canvas/public acceptance",
+  "files": [
+    {
+      "path": "frozen-controller.py.txt.gz",
+      "original_path": "frozen-controller.py",
+      "bytes": 1632,
+      "sha256": "4ce620483c23e5c391ef3d192a85c7a2f4f4fef68337c2e2077830327d18a0f5",
+      "decoded_bytes": 3908,
+      "decoded_sha256": "92c3d6e1ff1bed169a94d17010c8ebb898548cef275358ebda3620a9e9f19f23"
+    },
+    {
+      "path": "frozen-guard.py.txt.gz",
+      "original_path": "frozen-guard.py",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "frozen-reader.py.txt.gz",
+      "original_path": "frozen-reader.py",
+      "bytes": 3031,
+      "sha256": "a13c1223f079c2920c39a41b71c759844281cf9929af09441b7b30b1d9222b4a",
+      "decoded_bytes": 9804,
+      "decoded_sha256": "dbb70745f14e1b7b3426160ed0e7ae5a07ffa94c8ffd902b206bf3548a058ebe"
+    },
+    {
+      "path": "output/receipt.json.gz",
+      "original_path": "output/receipt.json",
+      "bytes": 766,
+      "sha256": "a7917a9d10c05aac9238a9aa25dc2086712380017cb7f0a48de5aee72bef1e75",
+      "decoded_bytes": 2352,
+      "decoded_sha256": "4587c5d39740d22fc06e06a511d7efa681f297f6b354b49eea15ea716724f6a0"
+    },
+    {
+      "path": "received-manifest.json.gz",
+      "original_path": "received-manifest.json",
+      "bytes": 19321,
+      "sha256": "8746d8c3e71a2509365a5ec7d02165be16ad09d53d2a770f0f4e793e4216607c",
+      "decoded_bytes": 99552,
+      "decoded_sha256": "73c8114368f0d7011d2e27d229662bf29be1f99bea27c0e0a24065f077e04b4d"
+    },
+    {
+      "path": "registration.json.gz",
+      "original_path": "registration.json",
+      "bytes": 558,
+      "sha256": "b9aa36a25bc5d10da50c60735566f1a6bd8cf3d6ad8358c14ef71f0f83e2485f",
+      "decoded_bytes": 927,
+      "decoded_sha256": "768bab2477d734d16dc52128f48425eaebff377bfe880fe810a65fd5a6bd0763"
+    },
+    {
+      "path": "resource-outcome.json.gz",
+      "original_path": "resource-outcome.json",
+      "bytes": 332,
+      "sha256": "881de7fee37259c2438106768a6276ea24f99386e23247fa8b31c764423b6400",
+      "decoded_bytes": 573,
+      "decoded_sha256": "3e399505995898f8293c4ac1fb4f8e59eacca487db11ac4e9d484677bcb3835a"
+    },
+    {
+      "path": "stderr.log.gz",
+      "original_path": "stderr.log",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "stdout.log.gz",
+      "original_path": "stdout.log",
+      "bytes": 96,
+      "sha256": "45ddb4166736a715418a1b5b9536385df4c880c7194f6d0227d36ba53bcba03a",
+      "decoded_bytes": 85,
+      "decoded_sha256": "b352ef16bdc8898607568a7f5338dd857c1d120529f9b9beab7c1995f61574f0"
+    }
+  ]
+}

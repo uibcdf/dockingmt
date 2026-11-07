@@ -1,10 +1,17 @@
 # Saved E4 analysis: prospective consumer admission
 
 Owner: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
-This is a **source-reviewed recipe and future admission prescription**, not an
-executed workflow or permission to run one. It adds no API. The local E4
-computational hold and deferred live-viewer acceptance remain active; do not
-replay preparation/detectors or dispatch manual CI automatically.
+Subsequent receiving: [the separate saved-carrier selection](e4_saved_carrier_receiving_2026-11-07.md)
+now passes normal/pm-fs and independent saved-record reading. The same-carrier
+baseline is received; general projection and the consumer/addon API remain open.
+
+This is a **source-reviewed recipe**, with a selected prospective saved-carrier
+receiving below, not an executed workflow. It adds no API. The original heavy
+local selection remains suspended and live-viewer acceptance remains deferred.
+The resumed development objective permits a distinct, lightweight receiving
+after its registration is sealed; no additional human confirmation is required
+by the resource rule. Do not replay preparation/detectors or dispatch manual CI
+automatically.
 
 ## Fixed evidence and provider sources
 
@@ -22,6 +29,17 @@ policies. Earlier failed/interrupted attempts remain unchanged; the
 
 These are read-only local Git observations without a new fetch or pin change.
 Signature inspection does not qualify a different artifact or the new composition.
+
+The prospective baseline uses the existing private consumer payload (3867 files,
+DockingMT source `a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe`, MolSysMT source
+`9e1f1b1ad8bf09446374ab6f04ca7208e2717936`) plus a new task-owned transport
+overlay of the existing private Viewer wheel from `78ede79e` (641 files, wheel
+SHA-256 `3d31a4d9edb7ed0e72fadcd81b3952196795218f55776478a7625b79e47e9e2a`).
+Its original wheel receipt is
+[preserved separately](data/addon_player/viewer_wheel_2026-11-03.json).
+This is a new private composition to receive, not the original hosted runtime
+or a public installation claim. No environment installation, provider checkout
+update, dependency solve or wheel rebuild belongs to this selection.
 
 Reuse the original [five-pose result](data/human_3ptb/native_result_2026-10-20.json.gz)
 and the normal/pm-fs `association.json.gz` and eight H5MSM files under
@@ -47,8 +65,8 @@ energies for the expanded carrier; model suitability remains `unassessed`.
 
 ## Public recipe reviewed at the qualified pins
 
-1. Verify inputs first and retain them read-only. In a separately authorised
-   future receiving, load the complete carrier with
+1. Verify inputs first and retain them read-only. In the separately registered
+   receiving, load the complete carrier with
    `msm.convert(filename, to_form='molsysmt.MolSys')`; its named analyses are
    `hbonds` and `hydrophobic`. An independent layer read is
    `msm.h5msm.read_layers(filename, layers=['interactions'],
@@ -88,9 +106,38 @@ Immutable source contracts inspected:
 [carrier extraction controls](https://github.com/uibcdf/molsysmt/blob/00abb958fb93649131d5ce5fe5e12e90cf4900e9/tests/native/test_molsys_interactions.py),
 and [Viewer attach/load](https://github.com/uibcdf/molsysviewer/blob/78ede79e2e345593db5bfe80d246d3f6c70bd005/molsysviewer/interactions.py).
 
-## Required receiving and stop conditions
+## Selected prospective baseline
 
-The future population is one original pose, its retained analysis, the saved
+The new [registration](e4_saved_carrier_receiving_2026-11-07.md) and
+[notebook](e4_saved_carrier_receiving.ipynb) will seal the exact sources, scripts,
+inputs, operation caps and guard/worker before calculation. Process **normal**,
+then **pm_fs**, serially. Each profile reads its two saved complete carriers:
+`retained_pose.h5msm` and `translated_geometry_control.h5msm`. Each destination
+is the **same saved 3238-atom, one-frame carrier** being received, without a new
+cross-carrier map. The original receipt's thirteen-atom correspondence remains
+input evidence, not a newly invented witness. No 2024-atom scene, alternative
+carrier, five-pose replication or addon API is admitted by this baseline.
+
+Each process has one logical CPU (CPU0 affinity as fixed by the receiving guard),
+`nice10`, one native worker, RSS at most 1 GiB, address space at most 2 GiB,
+CPU time at most 45 seconds and wall time at most 60 seconds. Monitor an 8 GiB
+task reserve; stop only owned work if a bound is threatened, retain partial
+records and do not retry automatically. Headless provider/Viewer loading,
+projection, persistence and queries **are molecular consumer operations** and
+must be counted. Preparation, H addition, charge/type assignment, detectors,
+native work, RMSD and alignment all have zero budgets. No manual CI, browser/
+canvas observation or environment installation is part of the receiving.
+
+This new selection does not restart the interrupted preparation/detector
+selection or consume its unverified six-call reserve. Its authority comes from
+the resumed objective and its concrete registered scope, not a new machine or
+available headroom. The common rule in [AGENTS.md](../../AGENTS.md) prohibits
+automatic **heavy** restarts and requires bounded, monitored local execution;
+it does not create a separate human approval gate for every new saved-file read.
+
+## General projection admission and stop conditions
+
+The selected population is one original pose, its retained analysis, the saved
 translated control, and normal/pm-fs repetitions. Analytic files remain original
 controls, not extra docking poses. Original 3/2 retained and 0/0 translated
 observations are **baseline** evidence, not promised projected counts. Preserve
@@ -121,20 +168,22 @@ scopes/coverage, assumptions and producer versions.
   count equality. No full persistence is reconstructed from inspection JSON.
 - Register **zero** preparation, H addition, charge/type assignment, detection,
   search, scoring, optimisation and alignment calls. Count provider reads,
-  extraction/remap/query, scene loads and attachments separately. Loading or
-  rendering needs its own resource/hold decision even without detectors. A fresh
+  extraction/remap/query, scene loads and attachments separately. The baseline's
+  resource profile is fixed above; broader rendering remains separate. A fresh
   independent reader verifies sealed records without molecular replay; numerical
   evidence and consumer-association evidence remain distinct.
 
-**Not ready for execution.** Before launch, #80 must fix the exact destination
-carrier and admissible atom/structure relationship, resolve the missing
-full-receptor-to-scene correspondence, select supported projection/attachment
-calls and expected loss/coverage controls, and seal the script/notebook, sources
-and artifact manifest. The registration must specify finite call caps, one
-CPU/native worker, wall/CPU/RSS/address-space limits, live RAM reserve,
-failure/custody paths and no automatic retry. The maintainer must review the
-local E4 hold explicitly and choose the execution venue; this prescription does
-not lift it or authorise CI. Headless association/persistence, usable addon
-admission and #52/#60 canvas acceptance remain separate outcomes. This proposed
-increment accepts neither whole E4 nor public delivery, affinity or biological
-validity.
+**The separately sealed baseline now passes receiving.** Its actual scope,
+ledger, sources/artifacts, failures and independent reader are linked above.
+This recipe retains the original source-reviewed route. Preserve the original
+heavy interruption, unknown counters and
+diagnostics without relabelling them as a passing saved-carrier receiving.
+
+**Projection to another carrier remains unready.** That later selection must
+fix its destination and admit the receptor/ligand/frame correspondence, supported
+projection/attachment calls and expected participant losses/coverage; the
+same-carrier baseline supplies none of those missing maps automatically. Register
+that distinct scope before running it. Headless association/persistence, usable
+addon admission and deferred #52/#60 canvas acceptance remain separate outcomes.
+Neither this recipe nor the prospective baseline accepts whole E4, public
+delivery, affinity or biological validity.

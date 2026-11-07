@@ -27,6 +27,7 @@ making a bounded contribution.
 | [pending_proposals/qualify_pose_comparison_and_clustering.md](pending_proposals/qualify_pose_comparison_and_clustering.md) | What is the next E3/#79 pose-comparison/clustering workflow, and which supported MolSysMT tools/composition must be received? |
 | [validation/e3_provider_admission_2026-11-07.md](validation/e3_provider_admission_2026-11-07.md) | Which exact provider sources and P59/reference candidates were inspected, and why is E3 blocked before calculation? |
 | [validation/e4_saved_analysis_admission_2026-11-07.md](validation/e4_saved_analysis_admission_2026-11-07.md) | What saved-analysis projection/scene recipe must be admitted before an E4 consumer/addon API? |
+| [validation/e4_saved_carrier_receiving_2026-11-07.md](validation/e4_saved_carrier_receiving_2026-11-07.md) | What normal/pm-fs saved-carrier, Python Viewer and independent-reader evidence passes, which failures remain, and what binding API is next? |
 | [pending_proposals/receive_docking_interaction_analysis.md](pending_proposals/receive_docking_interaction_analysis.md) | Which E4/#80 interaction receiving passes, and what remains for structured consumer/addon admission? |
 | [reporting_protocol.md](reporting_protocol.md) | How are owning issues, active reports, indexes and archived resolutions maintained? |
 | [pending_bugs/README.md](pending_bugs/README.md), [pending_proposals/README.md](pending_proposals/README.md), [archive/README.md](archive/README.md) | Where is the generated issue-backed inventory of open work and resolved history? |
