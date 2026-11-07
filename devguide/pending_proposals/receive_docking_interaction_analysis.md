@@ -8,7 +8,7 @@ verification: measured
 area: [analysis, provenance, visualization, scientific-validation]
 guard:
 normative: devguide/MVP.md
-blocked_by: []
+blocked_by: [uibcdf/molsysmt#642]
 supersedes: []
 ---
 
@@ -237,3 +237,43 @@ addon without guessing other scene mappings or broadcasting observations.
 The original four other poses, canvas, independent science/public/platform/minor
 and full #73 gates keep their scope. This issue remains partial; hosted exact-head
 evidence stays missing under #28 and `[skip ci]`, without manual CI dispatch.
+
+
+## Native unevaluated-family receiving — 2026-11-07
+
+The [registered native information-state receiving](../validation/e4_native_unevaluated_2026-11-07.md)
+now passes its separately declared focused empty-source population normal/pm-fs
+and independent record reading. Public MolSysMT invalidation on the translated
+control's already empty `hbonds` yields no evaluated frames; its `hydrophobic`
+remains evaluated-empty. The retained original carrier stays positive (3/2).
+Both bindings preserve complete original result/source/analysis state, detached
+copies, query coverage and two complete-carrier H5MSM 0.5 roundtrips/profile.
+No new measurement, runtime implementation or provider pin change occurs.
+
+Two positive-source invalidation attempts fail complete persistence because the
+provider reader discards the unused evidence-label catalog. Their exact one-field
+delta is reported in [MolSysMT #642](https://github.com/uibcdf/molsysmt/issues/642).
+That composition remains failed; the empty-source pass does not clear it. The
+first expanded empty-source attempt also remains interrupted at the 60 s wall
+limit. A fresh focused selection retains preservation/coverage and two relevant
+refusals while the earlier fourteen general refusals keep their unchanged
+installed evidence. No resource limit or equality assertion is weakened.
+
+Focused normal/pm-fs complete in 36.733/37.048 s with sampled group RSS
+723,906,560/725,893,120 bytes. The standard-library reader passes in 9.112 s/
+325,423,104 bytes, verifies all 210 primary stored/decoded records and imports
+no scientific package or restores molecular data. The primary manifest is
+`b4a676022aa26f0508fadd87bb5f1dee21d9e7650edf4ebe085599c4313793ef`;
+the 17-member reader companion is
+`3981244aeef9c31d8a08b8d4c00100718195bf8cdf449dbc19a3ddba635bffa0`.
+All failures/interruption and owned terminal resource receipts remain. The
+original producer `5952053`, actual consumer `cfff386`/wheel `bc6da61a` and
+borrowed provider `9e1f1b1` retain their separate identities. #50 custody review
+is 2026-11-14; #28 hosted evidence is missing under `[skip ci]`, no manual CI.
+
+**Next:** admit an actual single-frame addon/scene binding without replacing the
+full result by a one-pose collection or broadcasting analysis onto other poses.
+The existing renderer builds one structure per pose and is not that route.
+#642 still owns positive-invalidation persistence; whole E4/#73, other-carrier
+correspondence, E3 #604, canvas #52/#60, independent science/reproduction and
+public/minor/platform delivery remain unproven. Keep this report partial.

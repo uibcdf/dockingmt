@@ -11,14 +11,62 @@ requirements; this file explains how to resume without recovering chat history.
 
 ## Current development checkpoint — 2026-11-07
 
-Work is **paused at the maintainer's request** after the bounded installed
-interaction-binding qualification below. Completion remains unproven. No new
-scientific cell or addon work starts during this pause. Keep `devguide/` updated
-with every increment after resumption.
+Work is **active after the maintainer's resumption** of the complete objective.
+Completion remains unproven. The installed binding checkpoint below was published
+as `daa6da9` before the pause. Its source/evidence remains unchanged. The current
+[native unevaluated-family receiving](validation/e4_native_unevaluated_2026-11-07.md)
+records separate passing, failed and interrupted populations below.
+Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Native unevaluated-family checkpoint — 2026-11-07
+
+The [new information-state receiving](validation/e4_native_unevaluated_2026-11-07.md)
+passes its focused empty-source population normal/pm-fs and independent record
+reading on the same `cfff386` consumer/wheel `bc6da61a`, MolSysMT `9e1f1b1`
+and import-only Viewer `78ede79e`. No runtime, provider pin, shared environment,
+original input or installed-test helper changes. Original scientific producer
+`5952053` remains distinct. The full original five-pose result and original native/
+analysis sources remain exact. The unchanged retained carrier has 3/2 positive
+observations. Public invalidation on the translated control's already empty
+`hbonds` produces zero evaluated frames, distinct from its evaluated-empty
+`hydrophobic`. Both states survive copies, queries/pages and full H5MSM 0.5.
+
+The positive-source invalidation population **fails**: H5MSM readback drops its
+unused evidence-label catalog. Both failures and full diagnostic delta remain;
+[MolSysMT #642](https://github.com/uibcdf/molsysmt/issues/642) owns correction or
+an explicit normalization decision. No local codec patch or discarded labels.
+The first expanded empty-source attempt also remains interrupted at the 60 s
+wall limit; its partial completion is not accepted. A separately registered
+focused selection avoids repeating unchanged general refusals, retains complete
+preservation checks and passes in 36.733/37.048 s, sampled group RSS
+723,906,560/725,893,120 bytes, with two bindings, two complete roundtrips and two
+refusals per profile. The preceding fourteen-refusal installed qualification
+and 190 source cases keep their own scopes. All groups are terminal.
+
+The [210-member primary archive](validation/data/e4_native_unevaluated_2026-11-07/manifest.json)
+is SHA-256 `b4a676022aa26f0508fadd87bb5f1dee21d9e7650edf4ebe085599c4313793ef`;
+the [17-member reader companion](validation/data/e4_native_unevaluated_reader_2026-11-07/manifest.json)
+is `3981244aeef9c31d8a08b8d4c00100718195bf8cdf449dbc19a3ddba635bffa0`.
+The first reader passes in 9.112 s/325,423,104 bytes, verifies all primary
+stored/decoded records and declared unit-bearing comparisons, and imports no
+scientific package or restores molecular data. This does not authenticate producers.
+Task `.molsyssuite/e4-native-unevaluated-20261107` remains under #50 custody,
+review 2026-11-14; original migration files stay untouched/untracked. No manual
+CI occurs; hosted exact-head evidence remains missing under #28 and `[skip ci]`.
+
+**Next:** admit an actual addon/scene route for this one-frame binding, preserving
+the complete result and known pose/frame axes. The existing result renderer
+builds one frame per pose; do not substitute the one-frame carrier or broadcast
+analyses onto the four unevaluated poses. Positive-source invalidation persistence
+still needs #642 receiving. #80, whole E4/#73, E3 #604, canvas #52/#60,
+independent science/reproduction and public/minor/platform gates remain open.
+
 ### Installed interaction binding checkpoint — 2026-11-07
+
+This preceding population retains its historical next action; the native
+information-state receiving and current limits above supersede it.
 
 [Actual new-candidate receiving](validation/e4_pose_binding_installed_2026-11-07.md)
 passes normal/pm-fs and separate standard-library record reading. Consumer source

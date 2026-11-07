@@ -11,7 +11,11 @@ Subsequent [installed candidate receiving](e4_pose_binding_installed_2026-11-07.
 now passes normal/pm-fs on the original retained and separately derived
 evaluated-empty carriers, plus independent record reading. Its actual source,
 artifact, domains, refusals and limits remain separate from source tests below.
-A native family with no evaluated frames and addon/scene admission remain next.
+The separate [native information-state receiving](e4_native_unevaluated_2026-11-07.md)
+now passes empty-source invalidation with no evaluated frames. Positive-source
+invalidation persistence fails under MolSysMT #642; complete label preservation
+and actual addon/scene admission remain open. These bounded outcomes are not
+whole E4, public delivery or producer authentication.
 
 ## Public operation and ownership
 

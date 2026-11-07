@@ -4,15 +4,16 @@ The roadmap defines direction and gates, not dates.
 
 ## Current operational plan
 
-Work is **paused at the maintainer's request** after this bounded increment. The
-[installed binding checkpoint](MACHINE_HANDOFF.md#installed-interaction-binding-checkpoint--2026-11-07)
-preserves the implemented API, 190 source controls and actual private candidate
-receiving normal/pm-fs with independent record checks. Consumer `cfff386`, original
-scientific producer `5952053` and older saved-carrier evidence keep separate
-identities. [This bounded receiving](validation/e4_pose_binding_installed_2026-11-07.md)
-does not certify public delivery or whole E4. Next receive a native unevaluated
-family information-state control, then admit the actual addon/scene association.
-Both earlier pause checkpoints remain historical; completion stays unproven.
+Work is **active after the maintainer's resumption**. The
+[native information-state checkpoint](MACHINE_HANDOFF.md#native-unevaluated-family-checkpoint--2026-11-07)
+receives empty-source invalidation normal/pm-fs and independent record reading
+on the same installed consumer `cfff386`/wheel `bc6da61a`. Original scientific
+producer `5952053`, provider `9e1f1b1`, 190 source controls and the preceding
+fourteen-refusal installed selection keep separate identities/scopes. Positive-
+source invalidation persistence fails under MolSysMT #642; its two failures and
+one separate wall interruption remain recorded. Next admit the actual single-frame
+addon/scene binding, preserving the full result and refusing unknown axes or
+broadcasts. Whole E4/public delivery and completion stay unproven.
 
 The accepted target is complete **Core C0–C6 plus Extended E1–E5**, bounded
 scientific qualification, independent reproduction and public installation at
@@ -34,7 +35,7 @@ qualify a private artifact as a public package.
 
 | Work | Established boundary | Next action / owner |
 | --- | --- | --- |
-| E4 interactions | Original `5952053` molecular receiving retains twelve detector calls and its earlier failures. [New same-carrier receiving](validation/e4_saved_carrier_receiving_2026-11-07.md) passes normal/pm-fs, real Python Viewer load/attach/filter/persistence and independent reading of 238 sealed members. No new detectors, H, energy, search or RMSD. | [#80](pending_proposals/receive_docking_interaction_analysis.md): [the actual installed binding](validation/e4_pose_binding_installed_2026-11-07.md) now passes normal/pm-fs and independent record reading. Next receive native unevaluated-family coverage, then admit the actual addon/scene association. Preserve five original poses, four unevaluated outcomes, scores/producers and unknown scene mappings. Other-carrier projection and canvas/public/whole-E4 gates remain open. |
+| E4 interactions | Original `5952053` molecular receiving retains twelve detector calls and its earlier failures. [New same-carrier receiving](validation/e4_saved_carrier_receiving_2026-11-07.md) passes normal/pm-fs, real Python Viewer load/attach/filter/persistence and independent reading of 238 sealed members. No new detectors, H, energy, search or RMSD. | [#80](pending_proposals/receive_docking_interaction_analysis.md): [the installed binding](validation/e4_pose_binding_installed_2026-11-07.md) and [focused native coverage receiving](validation/e4_native_unevaluated_2026-11-07.md) pass their bounded normal/pm-fs populations and independent readers. Positive-source invalidation persistence fails under MolSysMT #642. Next admit the actual single-frame addon/scene association; the existing renderer has one frame per pose. Preserve five original poses, four unevaluated outcomes, scores/producers and unknown scene mappings. Other-carrier projection and canvas/public/whole-E4 gates remain open. |
 | E1 rescoring/ranking | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07): the complete two-pose rigid public route receives original-result reconstruction, preparation, additive Vina/Vinardo evaluations, separate interaction comparisons and independent persistence. Original records and all informative controls survive. | Preserve that bounded contract and the failed original generator qualification. E2's bounded study is also received under [#81](archive/qualify_small_ligand_collection.md). E3 is provider-blocked; advance independent E4 saved-analysis admission. Broad E1, total/reference ordering, scientific validity and public delivery keep separate gates. |
 | E2 ligand collections | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for P59(R)/P69(S), rigid25 preparations and the common joint domain: native success/refusal/success, 3+2 original poses, two searches and two original-rank-1 representatives. Five native columns, own references, all original histories and independent saved receiving pass. | Preserve the exact [native receiving](validation/e2_native_collection_2026-11-07.md), source/preparation gates and caller-owned empirical study policy. This accepts the bounded profile, not all E2 profiles, #73, screening effectiveness or public delivery. E3 [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) awaits MolSysMT #604; independent E4 axis admission can progress within its hold. |
 | E3 comparison/clustering | [Static provider admission](validation/e3_provider_admission_2026-11-07.md) leaves [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) blocked by MolSysMT #604: per-reference RMSD exists, but no N×N/clustering composition is admitted. No new RMSD or analysis runs. | Receive the provider-supported composition/tools and preserve every #79 control and reference requirement. Three existing P59 poses are a population candidate; their crystalline heavy reference is not yet admitted against rigid25. No downstream matrix, clustering or molecular fallback. |
