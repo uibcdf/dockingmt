@@ -14,7 +14,57 @@ supersedes: []
 
 # Independent installed reconstruction of a stored workflow
 
-## Source and actual installed attribution checkpoint — 2026-11-07
+## Native admission and interrupted receiving checkpoint — 2026-11-07
+
+[The registered native recipe and terminal record](../validation/e5_native_replay_2026-11-07.md)
+receive three independent exact installations: unchanged consumer `2ef82d2` / wheel
+`6db76835`, 3794 provider files/MolSysMT `9e1f1b1`, 641 Viewer `78ede79e` files, relocated
+103-path Vina 1.2.7/Boost overlay and 594 support inputs from committed `08324fe`. Source
+identity remains `2612b3e`; no editable/source fallback, Conda change or native build.
+Admission02 passes in 9.219 s/142,012,416 sampled group-RSS bytes. Admission01's
+symlink copy-order failure and producer01's wrong observer class fail before
+any molecular/native call and remain preserved as task errors.
+
+Producer02 completes two native returns (one reference/three control poses),
+then exits SIGKILL at 45.139 s under hard CPU 45: whole qualification **FAIL**.
+Its sidecar does verify 594 support files and retire resources/imports; final
+custody/caller restoration remain unreceived. After prospective CPU 90 / wall 120
+and total-eight-search registration, producer03 stops at wall 120.163 s: one
+reference result returns, second search enters without returning. Peak group
+RSS is 868,122,624/868,073,472 bytes; available reserve is preserved. All groups
+are terminal. Four total native entries/three returns, **zero whole scientific
+passes**. Neither partial pair is promoted. Adverse/normal/pm-fs selections and
+complete-workflow reader drafts remain unexecuted.
+
+The [86-member primary archive](../validation/data/e5_native_replay_interrupted_2026-11-07/manifest.json)
+is `7475a20f79d0372dfa59182a3808dcfcd39eda319587351c20e745d67ccd5d37`;
+[21-member reader companion](../validation/data/e5_native_replay_interrupted_reader_2026-11-07/manifest.json)
+is `7a7b423e7c1fdac135862a176e9f3dd23902a6011a23031844206b24052cc8ab`.
+Detached stdlib reading passes all byte/counter/input/custody classifications,
+with zero scientific imports/operations. This is not scientific acceptance.
+
+**Status/next:** #83 remains partial; full goal stays active. First diagnose
+native versus administrative wall/CPU time with zero-search instrumentation;
+then register a complete fresh campaign with measured limits and all four prior
+native entries counted. Current four remaining entries cannot cover six fresh
+producer/normal/pm-fs searches. No more native work follows this checkpoint.
+Keep original source/input/map/software/protocol/tolerance comparisons; do not
+manufacture September manifests or merge interrupted cells into a PASS.
+Task `.molsyssuite/e5-native-replay-20261107` retains every layout/attempt/draft
+under #50, review 2026-11-14; forced-stop temporary resources are preserved.
+Original migration untouched. #642 build, E3 #604 and actual canvas holds remain;
+no automatic rebuild, browser/kernel/server or remote CI. #28 hosted exact-head,
+#30/#47 public/minor/platform, independent science and whole Core/Extended/
+stabilization acceptance remain unproven.
+
+Later administrative checks separately record one added routine Conda metadata
+entry, `sphinxcontrib-plantuml-0.30-pyhd8ed1ab_0.json`, with all older entries
+unchanged. This task does not install/remove it. The [postflight inventory](../validation/data/e5_native_replay_postflight_2026-11-07.json)
+keeps the original scientific composition distinct; no new scientific acceptance.
+
+## Earlier source and actual installed attribution checkpoint — 2026-11-07
+
+The native checkpoint above supersedes only this phase's historical next action.
 
 [The prospective recipe and completed first phase](../validation/e5_installed_replay_2026-11-07.md)
 fix the 1IEP helper's unconditional adjacent-checkout/Git assumption. Attribution
@@ -109,13 +159,9 @@ or discharge the whole current E5 audit. Preserve its producers and outcomes.
 
 ## Disposition and next action
 
-Source/installed attribution is received above; native whole-workflow receiving
-remains unexecuted. The actual input/record inventory and original tolerances are
-identified; next admit/freeze the exact producer/receiver candidates, workers
-and complete adverse matrix before spending the registered six-search budget. Do not start native work from this
-proposal alone or invent a replay engine. An existing qualified composition
-can be received independently of [#80's held newer-provider build](../validation/e4_evidence_catalog_fix_2026-11-07.md);
-do not mix artifacts or advertise public compatibility. Missing reusable molecular
-routes belong in MolSysMT. Public/minor/platform delivery remains #30/#47;
-actual browser/comm/canvas #52/#60 stays under its scheduling hold. This work
-retains full Core C0–C6/Extended E1–E5, scientific and stabilization scope.
+Exact artifact/support admission is received; both new scientific attempts are
+resource-interrupted and unaccepted. Follow the current native checkpoint above
+for the zero-search diagnostic and a prospective complete-campaign registration.
+Preserve the full six acceptance criteria, external-preparation limit, all old
+producers and interrupted records. Public/minor/platform delivery remains #30/#47;
+actual browser/comm/canvas #52/#60 and newer-provider construction stay held.

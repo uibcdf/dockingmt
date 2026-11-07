@@ -4,17 +4,16 @@ Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`. The latest
-[E5 installed-attribution checkpoint](MACHINE_HANDOFF.md#e5-installed-attribution-checkpoint--2026-11-07)
-preserves the complete scope and fixes an installed-helper Git assumption.
-Twenty-four source cases and two real shared-support contexts/four metadata calls
-pass, without molecular operations/Vina/native search. The full scientific
-reconstruction remains unexecuted under #83. Next admit/freeze a separately
-identified current 1IEP reference/control producer and independent normal/pm-fs
-receivers, with all original tolerances/adverse checks and the prospective six
-searches. No historical manifest or scientific observation is reconstructed from
-a narrative. The #642 new-provider construction and actual browser/comm/canvas
-holds remain; no automatic build restart or remote CI follows. Whole Core/
-Extended/scientific/public/stabilization acceptance remains unproven.
+[E5 native checkpoint](MACHINE_HANDOFF.md#e5-native-admission-and-interrupted-receiving-checkpoint--2026-11-07)
+receives exact independent installed artifact/support admission. Both native
+producer attempts are resource-interrupted: four searches enter/three return,
+zero whole scientific passes; adverse/normal/pm-fs receiving is unexecuted.
+The sealed 86-member record and 21-member detached reader retain exact failures,
+not scientific acceptance. Next diagnose phase wall/CPU time without search,
+then prospectively register a complete fresh campaign with all previous entries
+counted. No more native work follows this checkpoint. Original strict comparison
+and scope remain. #642 construction, E3 #604 and live canvas holds stay in force;
+no automatic rebuild or manual CI. Whole acceptance remains unproven.
 
 ## Outcome and version boundary
 
@@ -56,7 +55,7 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for the P59(R)/P69(S) rigid25 joint-domain profile. Source/preparation reproduction and exact PDBQT gates precede native success/refusal/success, 3+2 poses and two original-rank-1 representatives. Five native columns, own per-run references, original scores/histories, three public outcome reconstructions and fresh independent receiving pass. The receptor remains externally prepared/unassessed; other E2 profiles, screening effectiveness, #73 and public delivery remain unaccepted. |
 | E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) is blocked by MolSysMT #604. The [static admission review](validation/e3_provider_admission_2026-11-07.md) at fetched `82bfa1c82f1d48035679fa4630e81a2506b67bd6` finds no admitted N×N/clustering composition; the clean local provider/pins remain unchanged. Three P59 poses and a crystalline heavy-reference candidate do not replace reference/H-representation admission or any control. No new RMSD or E3 acceptance. |
 | E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 retains the original `5952053` molecular receiving and its failures. [Same-carrier receiving](validation/e4_saved_carrier_receiving_2026-11-07.md) now passes normal/pm-fs Python Viewer load/filter/attachment/persistence, eleven refusals per profile and independent record reading. No new detection/preparation/native calculation. [The installed selected-pose binding](validation/e4_pose_binding_installed_2026-11-07.md) now passes normal/pm-fs actual candidate receiving, fourteen refusals/profile, full-carrier persistence and independent record reading, separately from 190 source cases. [Focused native unevaluated-family receiving](validation/e4_native_unevaluated_2026-11-07.md) passes for empty-source invalidation; [The published #642 fix](validation/e4_evidence_catalog_fix_2026-11-07.md) remains client-unreceived after exact native construction hits the owned-memory limit; historical old-provider persistence failures remain failed. [The single-frame view route](validation/pose_interaction_view.md) has 186 passing source cases and 23 exact-ESM DOM cases, plus [eight real-provider exact-candidate cells](validation/e4_pose_interaction_view_installed_2026-11-07.md) normal/pm-fs and independent record reading. Next audit the remaining one-carrier workflow criteria; actual canvas stays held. Four other original poses stay unevaluated. Other-carrier correspondence, usable addon/canvas, whole E4 and public delivery remain open. |
-| E5 independent reproduction | A separate receiving installation reconstructs a representative stored workflow from documented inputs, with observed agreement/tolerances, failures and missing information. | [#83](pending_proposals/qualify_independent_installed_reproduction.md) owns current source-free installed 1IEP reference/control reconstruction using delivered historical #16 replay. [Source/installed attribution](validation/e5_installed_replay_2026-11-07.md) passes 24 cases and two real SDK contexts with original inputs/tolerances identified. Next admit/freeze the current two-search producer and independent normal/pm-fs receivers plus adverse matrix. Whole E5 remains unproven; no native search has run. |
+| E5 independent reproduction | A separate receiving installation reconstructs a representative stored workflow from documented inputs, with observed agreement/tolerances, failures and missing information. | [#83](pending_proposals/qualify_independent_installed_reproduction.md): exact three-installation/support admission passes; [native attempts](validation/e5_native_replay_2026-11-07.md) are interrupted, four search entries/three returns, zero whole scientific passes. Adverse/normal/pm-fs unexecuted. Next zero-search timing diagnostic and fresh prospective full-campaign budget. Whole E5 remains partial. |
 | Bounded scientific qualification | An admitted transparent independent panel and informative positive/adverse controls, explicit preparation/search/ranking hypotheses, denominators, budgets and all outcomes. | Audit Q2–Q4 and #33/#49 own admission. Existing within-case repetitions do not become independent complexes. |
 | Public delivery and support | Actual compatible public dependencies, exact staged Conda artifact, required source/native gates and eight Linux/macOS arm64 × Python 3.11–3.14 installed cells, same-byte promotion and public receiving. | #30/#47 remain partial. Refresh artifact availability before acquiring/receiving; old private receipts do not certify a new public file. Distribution is Conda `uibcdf`. |
 | Usable API/records and documentation | Coherent documented public contracts, examples, schema/quantity/diagnostic behavior, migrations for intentional changes and explicit scientific limits. | Preserve existing contracts and receive changes with applicable guards. Functional delivery precedes the later stabilization/final-compatibility decision. |
@@ -116,14 +115,15 @@ implemented API or record-only test is not acceptance of a scientific workflow.
    preserves strict pose ranking and molecular ownership; it does not accept all
    E2 profiles or the complete #73 objective. Keep E4/live-visual holds unchanged.
 6. Advance independent [E5 #83](pending_proposals/qualify_independent_installed_reproduction.md):
-   source/installed attribution is now received without Git, with 24 passing
-   source cases and two actual shared-support contexts. Original pinned inputs
-   and tolerances remain exact; no old September pair is located in the bounded
-   inventory. Admit/freeze the separately identified current producer, complete
-   adverse matrix and independent normal/pm-fs receivers before spending six
-   registered native searches. Preserve externally prepared chemistry limits,
-   original producer identities and every prior/new outcome. A saved-record
-   reader or metadata pass alone does not receive the whole workflow.
+   exact three-installation/support admission passes, but both native producer
+   attempts are resource-interrupted and unaccepted. First diagnose phase wall/
+   CPU time with zero native search. Then register a fresh complete campaign with
+   measured limits and all four previous search entries counted; the remaining
+   four of eight entries cannot cover six fresh producer/normal/pm-fs searches.
+   Keep original input/source/software/protocol/map/tolerance checks and the
+   external-preparation limit. Adverse and receiver selections stay unexecuted;
+   detached record reading cannot qualify the whole workflow.
+
 7. Select/qualify the actual functional release candidate only when every row's
    evidence supports the complete declared scope; perform the version-specific
    release/package/notice route. Enter stabilization afterwards.
