@@ -410,7 +410,16 @@ class DockingPose:
         """Reconstruct a pose independently of its supplied dictionary record."""
         validate_schema_version(data, cls.__name__)
         data = deepcopy(data)
-        c_info = data['coordinates']
+        c_info = data.get('coordinates')
+        if (
+            not isinstance(c_info, Mapping)
+            or 'value' not in c_info
+            or 'unit' not in c_info
+        ):
+            raise ArgumentError(
+                arg_name='coordinates',
+                reason='Supply a coordinate record with both value and unit.',
+            )
         # Preserve wire scalar types until admission: NumPy/quantity factories
         # can otherwise turn mixed booleans or numeric strings into real values.
         try:
@@ -427,7 +436,22 @@ class DockingPose:
                 arg_name='coordinates',
                 reason='Coordinates must contain finite real numbers.',
             )
-        coords = puw.quantity(np.asarray(c_info['value']), c_info['unit'])
+        # The wire schema fixes xyz width; [] is the serializer's zero-row output.
+        numeric = (
+            np.empty((0, 3), dtype=float)
+            if values.shape == (0,)
+            else np.asarray(c_info['value'])
+        )
+        numeric = _coordinate_values(numeric)
+        try:
+            coords = puw.quantity(numeric, c_info['unit'])
+        except MemoryError:
+            raise
+        except Exception as exc:
+            raise ArgumentError(
+                arg_name='coordinates',
+                reason='Supply finite real xyz coordinates with explicit length units.',
+            ) from exc
         return cls(
             coordinates=coords,
             scores=data.get('scores'),

@@ -23,6 +23,36 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Pose coordinate record admission checkpoint — 2026-11-08
+
+[#86's archived record](archive/pose_coordinate_record_admission.md) owns the
+pose reader correction and exact source evidence. The serializer's empty list
+now restores its schema-defined zero-row xyz axis, including result/outcome
+roundtrips; other invalid shapes/scalars still refuse. Complete field/unit
+diagnostics preserve provider causes and resource failures. Valid/legacy data,
+scores/IDs/metadata, array detachment and caller policy remain. No atom or
+coordinate generation or zero-atom scientific/native admission occurs.
+
+Forty-six new cases expose 21 failures/25 passes on the old reader. The complete
+final source selection passes 302 cases per normal/pm-fs unit policy, no errors/
+skips, including earlier coordinate/protocol/box/schema guards. The six watched
+molecular entry points and optional engine imports are uncalled. Fifty-seven
+primary and seventeen independent-reader/publication members preserve original
+diagnosis/red/green, raw JUnit/policies and source/resource identities.
+
+Final selection 4.520 s, sampled group RSS 102,461,440 bytes, minimum available
+58,175,627,264 bytes; CPU 0/nice 10/worker 1, monitored 13 GiB reserve, all groups
+terminal without resource interruption. Per-profile pytest caches are task-owned.
+Keep `.molsyssuite/pose-record-admission-20261108` under #50/review 2026-11-14.
+
+Next receive the compatible whole provider artifact for original #33/#49/#79/
+#80 selections or continue #19's remaining independent review. Provider request,
+#645 source compatibility, #604 clustering, #558 generation/history, held #642
+construction, canvas and full Core/Extended/scientific/public/minor/platform
+gates remain. No build/install or remote CI occurs; #28 hosted exact-head
+evidence remains missing. Helper/data/provider pins and historical producers
+are unchanged; no installed or public artifact is relabelled by this source fix.
+
 ### Saved box vector admission checkpoint — 2026-11-08
 
 [#85's archived record](archive/box_record_coerces_invalid_vectors.md) owns the

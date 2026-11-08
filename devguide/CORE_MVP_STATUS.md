@@ -18,6 +18,11 @@ extends saved-domain admission: invalid vector scalars cannot silently become
 box geometry. Its 234-case qualification per caller unit policy supplements
 argument/schema evidence, preserving the older installed/scientific producers
 and every original Core criterion. Whole visible/public acceptance remains open.
+[The #86 source correction](archive/pose_coordinate_record_admission.md) adds
+canonical empty pose-record restoration and local coordinate field/unit
+diagnostics, with 302 source cases per caller unit policy. This restores a
+zero-row data axis without admitting a scientific pose or changing any original
+Core criterion or installed/scientific producer.
 This maintained map supersedes the *next-action list* of the
 [2026-10-28 audit](validation/core_mvp_audit_2026-10-28.md), preserving that
 audit, its findings at its original source and all scientific/artifact receipts.

@@ -5,6 +5,14 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Pose coordinate record admission #86](archive/pose_coordinate_record_admission.md)
+now restores the serializer's canonical zero-row xyz shape and nested result/
+outcome records, with local field/unit diagnostics and preserved provider/
+resource exceptions. The original 21 failures/25 passes remain; final source
+gates pass 302 cases per caller unit policy. No atom/coordinate generation or
+scientific/native admission follows. Provider artifacts/build/canvas and full
+scientific/public gates remain open; no build/install or remote CI occurs.
+
 [Saved box vector admission #85](archive/box_record_coerces_invalid_vectors.md)
 now rejects invalid/coercible center/length data before they become geometry.
 The original 38 failures/40 passes remain; complete final source qualification

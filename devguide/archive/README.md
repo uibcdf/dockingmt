@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (60)
+### Resolved (61)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_result_scoring_stages.md`](audit_result_scoring_stages.md) — [#76](https://github.com/uibcdf/dockingmt/issues/76) — Attribute per-pose scoring histories correctly inside saved result audits. *(resolved, measured)*
@@ -34,6 +34,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`maintain_python_coverage_reporting.md`](maintain_python_coverage_reporting.md) — [#22](https://github.com/uibcdf/dockingmt/issues/22) — Measure the existing Python suite and publish truthful exact-source coverage. *(resolved, measured)*
 - [`missing_installed_typing_marker.md`](missing_installed_typing_marker.md) — [#45](https://github.com/uibcdf/dockingmt/issues/45) — The declared py.typed resource is absent from source and installed wheels. *(resolved, measured)*
 - [`normalize_vina_box_numbers_after_unit_conversion.md`](normalize_vina_box_numbers_after_unit_conversion.md) — [#13](https://github.com/uibcdf/dockingmt/issues/13) — Normalize Vina box numbers after unit conversion *(resolved, measured)*
+- [`pose_coordinate_record_admission.md`](pose_coordinate_record_admission.md) — [#86](https://github.com/uibcdf/dockingmt/issues/86) — Pose records reject their empty output and leak coordinate field/unit errors. *(resolved, measured)*
 - [`pose_reference_loading.md`](pose_reference_loading.md) — [#37](https://github.com/uibcdf/dockingmt/issues/37) — Pair docking reference frames explicitly and expose viewer failures. *(resolved, measured)*
 - [`prepare_new_machine_handoff.md`](prepare_new_machine_handoff.md) — [#82](https://github.com/uibcdf/dockingmt/issues/82) — Make the developer guide a coherent onboarding and new-machine handoff. *(resolved, measured)*
 - [`protocol_energy_record_coerces_invalid_values.md`](protocol_energy_record_coerces_invalid_values.md) — [#84](https://github.com/uibcdf/dockingmt/issues/84) — Saved protocol energy magnitudes bypass scalar admission through float coercion. *(resolved, measured)*

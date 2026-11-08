@@ -14,6 +14,18 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Pose coordinate record admission — 2026-11-08
+
+[#86's archived correction](../archive/pose_coordinate_record_admission.md)
+restores the existing model's canonical empty xyz record and inherited result/
+outcome roundtrips, with complete field/unit diagnostics, provider causes and
+resource-error identity. No atoms or coordinates are generated. All 46 new
+cases reproduce 21 original failures; final affected source qualification passes
+302 cases per caller unit policy, including the previous coordinate/protocol/
+box guards. Valid/legacy records, IDs/scores/metadata and detachment remain.
+#19 stays partial for wider adoption/public compatibility; installed/scientific
+qualification and #28's exact-head hosted evidence remain separate.
+
 ## Saved box vector admission — 2026-11-08
 
 [#85's archived correction](../archive/box_record_coerces_invalid_vectors.md)

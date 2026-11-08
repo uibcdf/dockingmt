@@ -1,0 +1,145 @@
+{
+  "schema": "dockingmt.pose_record_admission_reader@1",
+  "owner": "uibcdf/dockingmt#86",
+  "source_commit": "c1be0466d1f0371461e9715759bd4dee84df3675",
+  "primary_manifest_sha256": "b9ef65d78d650b245be48756f8e09f49ec943d0274534cef4e09945fcd99e65a",
+  "scope": "Completed independent saved-pose empty/field/unit source/red/green/JUnit/resource record reader and publication producers; no molecular/public artifact qualification",
+  "files": [
+    {
+      "original_path": "seal-01/frozen-controller.py",
+      "path": "000-frozen-controller.py.gz",
+      "bytes": 1977,
+      "sha256": "c2308f3bc06961b0ca4c3f60b2afd86ab3fd121b258271bd44f3cfc44be90f63",
+      "decoded_bytes": 4170,
+      "decoded_sha256": "908b3cb6b28ec2697ac05bfac2d7961542b53cf388b724da18c9058c80eb22c6"
+    },
+    {
+      "original_path": "seal-01/frozen-resource-guard.py",
+      "path": "001-frozen-resource-guard.py.gz",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "original_path": "seal-01/frozen-worker.py",
+      "path": "002-frozen-worker.py.gz",
+      "bytes": 981,
+      "sha256": "7ad390c322dde50416cdea15e7f85abe24f4df4bb0726f061ceea627178c2e19",
+      "decoded_bytes": 1963,
+      "decoded_sha256": "abbbda6180c7c20037f08791dd37b41f4eab5faabdedb9fbb3ad43ef17af8896"
+    },
+    {
+      "original_path": "seal-01/receipt.json",
+      "path": "003-receipt.json.gz",
+      "bytes": 228,
+      "sha256": "dc8be98930085d790f3db4a4e54b8a4e0c13f8bb0ed882661a1621c31248b9eb",
+      "decoded_bytes": 300,
+      "decoded_sha256": "175b36be41946a5e21ea5d4f07ae4b1996c07e0b2699d3c41a96367771adf191"
+    },
+    {
+      "original_path": "seal-01/registration.json",
+      "path": "004-registration.json.gz",
+      "bytes": 449,
+      "sha256": "e233fc2df3aa25efc219bd3c7c321e7e42aaa1e3f6eb80961959e8101e4babeb",
+      "decoded_bytes": 741,
+      "decoded_sha256": "6cfe6eb24fe22b5c48b75c0967d1e95559a972ad4255f4b74224e61d0f02cdc6"
+    },
+    {
+      "original_path": "seal-01/resource-outcome.json",
+      "path": "005-resource-outcome.json.gz",
+      "bytes": 332,
+      "sha256": "05a12c172cc70549cb8f94b35debeff4896ec0e8956c374221435c4292be6944",
+      "decoded_bytes": 574,
+      "decoded_sha256": "db0b82c4152004d41f378b4a67d02d9c1927677841bd7fe3b5f5b059012c9437"
+    },
+    {
+      "original_path": "seal-01/stderr.log",
+      "path": "006-stderr.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "seal-01/stdout.log",
+      "path": "007-stdout.log.gz",
+      "bytes": 223,
+      "sha256": "df1d2119f7baeb17bd564f77eca6df1b1f2d64d64cb2b6275149ee082681d9c2",
+      "decoded_bytes": 282,
+      "decoded_sha256": "4abd37bafdee334be2d4061e91867edc118a353d38ae20370234820e738aca25"
+    },
+    {
+      "original_path": "reader-01/frozen-controller.py",
+      "path": "008-frozen-controller.py.gz",
+      "bytes": 1977,
+      "sha256": "c2308f3bc06961b0ca4c3f60b2afd86ab3fd121b258271bd44f3cfc44be90f63",
+      "decoded_bytes": 4170,
+      "decoded_sha256": "908b3cb6b28ec2697ac05bfac2d7961542b53cf388b724da18c9058c80eb22c6"
+    },
+    {
+      "original_path": "reader-01/frozen-resource-guard.py",
+      "path": "009-frozen-resource-guard.py.gz",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "original_path": "reader-01/frozen-worker.py",
+      "path": "010-frozen-worker.py.gz",
+      "bytes": 1801,
+      "sha256": "c32ac627acb724bf9199ab10ab59e3fa44d02d6d67dec978f3ded799b8bf2f7b",
+      "decoded_bytes": 4716,
+      "decoded_sha256": "081451a3beb8b5fd8b23090690483c995d2dd7297a8d2da0e4b31b6a31135bbe"
+    },
+    {
+      "original_path": "reader-01/receipt.json",
+      "path": "011-receipt.json.gz",
+      "bytes": 411,
+      "sha256": "9f2919b56a68f7e85099b896b390a5effcfabcb88772ce5f3ea38bfaafafb9b9",
+      "decoded_bytes": 636,
+      "decoded_sha256": "c99f2dca627ad566932ac9c9b53c840733ebb144fc6754fd92b08c57a80cb636"
+    },
+    {
+      "original_path": "reader-01/registration.json",
+      "path": "012-registration.json.gz",
+      "bytes": 451,
+      "sha256": "a6e93f1606c884c3b011faa2cafbf531fef73948fd4d7a2e32bd90ab549aa51f",
+      "decoded_bytes": 743,
+      "decoded_sha256": "f88bc1676df170f754f3014cde746cbdca81ca2a25294c7c3eb733bb760d3886"
+    },
+    {
+      "original_path": "reader-01/resource-outcome.json",
+      "path": "013-resource-outcome.json.gz",
+      "bytes": 330,
+      "sha256": "3ec536ca8f6e999c405608b47ab3e6d48865f74a29c49d3d98e47563c22d5beb",
+      "decoded_bytes": 572,
+      "decoded_sha256": "76c2347d238199f2b0aa175b906ca104409008c4314c1b5620b42ed3a55a0c77"
+    },
+    {
+      "original_path": "reader-01/stderr.log",
+      "path": "014-stderr.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "reader-01/stdout.log",
+      "path": "015-stdout.log.gz",
+      "bytes": 402,
+      "sha256": "eebe34e93d17d46a433befd03be5678a702bfc0d3c02af649ca247e4a74529c5",
+      "decoded_bytes": 598,
+      "decoded_sha256": "c60e7e007f74e77665c9478abd133b6a060b4706f803bffc8690e8480b8bb437"
+    },
+    {
+      "original_path": "reader-seal-01/frozen-worker.py",
+      "path": "016-frozen-worker.py.gz",
+      "bytes": 971,
+      "sha256": "afe8fbeca41dadb872b9b49b91a5d2029ad7e4243b66a5c0e5e6324e94d38182",
+      "decoded_bytes": 1969,
+      "decoded_sha256": "d5d7580c1ced640c13bd3213d11b39a8ea8f9cecb0777cec7fdbdbd9699b22a8"
+    }
+  ]
+}
