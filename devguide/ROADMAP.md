@@ -5,6 +5,16 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Complete interaction-catalog development receiving](validation/e4_evidence_catalog_editable_2026-11-08.md)
+now passes normal/pm-fs, including the immutable old failed carrier and fresh
+public binding/full-carrier persistence with complete native/typed/result
+equality. The zero-call task guard failure stays failed. Original data/producers
+and all scientific assertions remain; no new detector/search/View is run. The
+86-member primary/eight-member reader evidence clears the #642 hold for this
+editable one-carrier profile. #80 stays partial for remaining workflow/canvas
+scope; original reference receiving under #33/#49/#79 is next. Full scientific/
+installed/public/minor/platform acceptance remains separate.
+
 The maintainer's subsequent editable reinstall is now received: real imports and
 `pip check` pass on `2325038e8` with new native SHA-256 `5715bda2`; 115 focused
 provider guards and 383 consumer source cases pass without omissions. The former

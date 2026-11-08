@@ -5,6 +5,16 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[The original E4 catalog-persistence selection](validation/e4_evidence_catalog_editable_2026-11-08.md)
+now passes completely in both unit profiles on the actual refreshed editable
+composition, retaining the immutable old failing carrier, unchanged scientific
+assertions, complete native/typed state, five original result records and source
+nonmutation. A zero-call setup failure is preserved. The 86-member primary and
+eight-member independent-reader evidence accept this one-carrier development
+profile only; #80 retains its remaining workflow/canvas scope. Resume original
+reference selections under #33/#49/#79; full independent-science, installed,
+public/minor/platform and complete objective acceptance remain unproven.
+
 The maintainer's subsequent editable reinstall has passed actual import/origin
 and caller-policy checks, `pip check`, 115 selected provider regressions and 383
 consumer source cases, zero failures/errors/skips. The new native SHA-256 is

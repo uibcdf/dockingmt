@@ -4,6 +4,13 @@ Owner: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis
 Provider: [MolSysMT #642](https://github.com/uibcdf/molsysmt/issues/642).
 Registered before execution; outcome at registration: **unexecuted**.
 
+Current resumption correction — 2026-11-08: the maintainer refreshed and rebuilt
+the editable workspace. [Separate complete development receiving](e4_evidence_catalog_editable_2026-11-08.md)
+now passes normal/pm-fs on that exact composition, including the immutable old
+failed carrier. The construction records and failed private candidates below
+remain historical; their artifact-first next step does not block routine
+development. This does not relabel them or accept a new installed/public file.
+
 ## Exact source and artifact boundary
 
 The provider closed #642 with published correction

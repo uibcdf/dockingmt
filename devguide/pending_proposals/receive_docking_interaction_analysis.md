@@ -16,6 +16,26 @@ supersedes: []
 
 ## Current resumption route — 2026-11-08
 
+The [complete editable catalog receiving](../validation/e4_evidence_catalog_editable_2026-11-08.md)
+now passes normal and pm/fs, including the immutable old failing carrier and a
+new full-carrier binding/write/readback. All original payload/native/result
+equalities and caps remain. A zero-molecular-call task setup failure is retained
+separately. The 86-member primary/eight-member reader evidence authenticates the
+actual refreshed sources/native and original molecular producer. This clears
+the #642 persistence failure for the one-carrier development profile, without
+relabeling old installed candidates or receiving actual canvas/public delivery.
+#80 stays partial; next receive the original independent reference selections
+under #33/#49/#79. Do not repeat completed E5 or the interrupted native build.
+
+The maintainer-directed editable refresh and rebuild are now received through
+[actual imports and focused controls](../validation/provider_fix_artifact_admission_2026-11-08.md#rebuilt-editable-provider-receiving--2026-11-08).
+The historical artifact-first hold below does not block this development route.
+The [new complete catalog-receiving registration](../validation/e4_evidence_catalog_editable_2026-11-08.md)
+retains the original data/equalities/call budgets and switches import/custody to
+the actual editable composition. It is unexecuted at registration; #80 remains
+partial and previous failed observations stay unchanged. Run normal before pm/fs;
+no native build, new detector/search or actual canvas is authorized by this step.
+
 The E5 follow-up named in the dated audit below is now
 [resolved for the representative workflow](../archive/qualify_independent_installed_reproduction.md).
 Its archived record remains the stable route. #80 stays partial for the original

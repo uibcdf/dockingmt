@@ -1,7 +1,8 @@
 # New-machine development handoff
 
 Owner: [DockingMT #82](https://github.com/uibcdf/dockingmt/issues/82).
-Checkpoint date: **2026-11-06**. The destination is another **machine**, using the
+Checkpoint date: **2026-11-08**; original machine handoff: **2026-11-06**.
+The destination is another **machine**, using the
 same `uibcdf/dockingmt` repository, issue history and scientific producers.
 No repository rename, issue transfer or new release is part of this handoff.
 
@@ -9,7 +10,7 @@ Read [development/onboarding](DEVELOPMENT.md) for setup and code navigation.
 [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) owns the full product
 requirements; this file explains how to resume without recovering chat history.
 
-## Current development checkpoint — 2026-11-07
+## Current development checkpoint — 2026-11-08
 
 Work is **active after the maintainer's resumption** of the complete objective.
 Completion remains unproven. The installed binding checkpoint was published
@@ -22,6 +23,33 @@ public delivery and the complete objective remain unproven.
 Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
+
+### Complete editable interaction-catalog receiving — 2026-11-08
+
+[#80's registered original carrier selection](validation/e4_evidence_catalog_editable_2026-11-08.md)
+now passes completely under normal and pm/fs on consumer `542c5c5`, MolSysMT
+`2325038e8` and rebuilt native SHA-256 `5715bda2`. The old failing carrier and
+fresh invalidation/binding/full H5MSM roundtrip retain the complete original
+catalog, native state, five result records and source nonmutation. There are
+zero new detectors/searches/Views; four other original poses remain unevaluated.
+The first obsolete `View` constructor guard fails before every molecular call;
+normal-02 changes only that setup guard to the actual public `MolSysView` and
+preserves the original assertion block. The failed attempt remains failed.
+
+Both complete cells finish in approximately 24.2 s, peak sampled group RSS
+580,562,944 bytes, all owned groups terminal without resource interruption under
+CPU 0/nice 10/worker 1 and a monitored 13 GiB available reserve. The 86-member
+primary and eight-member independent-reader archives retain exact inputs,
+producers, outcomes and custody; the reader replays no molecular work.
+Retain `.molsyssuite/e4-evidence-editable-20261108` under #50/review 2026-11-14.
+
+The #642 consumer persistence hold is cleared for this editable one-carrier
+profile. Keep #80 partial for remaining workflow/canvas criteria, and retain old
+private installed artifact failures unchanged. Next receive the original
+reference selections under #33/#49 and #79 using the refreshed development
+composition. #604 clustering, #558 reconstruction evidence, independent panel,
+actual canvas and full installed/public/minor/platform gates remain separate.
+No build/install, runtime/helper/data/pin change or CI dispatch occurs here.
 
 ### Maintainer-directed editable provider refresh — 2026-11-08
 
