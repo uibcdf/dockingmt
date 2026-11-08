@@ -5,6 +5,15 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Result pose collection admission #87](archive/result_pose_collection_admission.md)
+now refuses malformed saved axes and unordered live inputs before interpretation,
+retaining nested schema priority, valid/legacy records, order and multiplicity.
+The original 31 failures/16 passes remain; complete source gates pass 383 cases
+per caller unit policy. A separately authorized registry read verifies the same
+107 advertised identities after an unavailable sandbox attempt; no compatible
+artifact is received. Full provider/scientific/public/visual gates remain open;
+no molecular/native-engine work, build/install or remote CI occurs.
+
 [Pose coordinate record admission #86](archive/pose_coordinate_record_admission.md)
 now restores the serializer's canonical zero-row xyz shape and nested result/
 outcome records, with local field/unit diagnostics and preserved provider/

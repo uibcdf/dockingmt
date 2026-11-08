@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (61)
+### Resolved (62)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_result_scoring_stages.md`](audit_result_scoring_stages.md) — [#76](https://github.com/uibcdf/dockingmt/issues/76) — Attribute per-pose scoring histories correctly inside saved result audits. *(resolved, measured)*
@@ -53,6 +53,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`resolve_coverage_producer_attempt.md`](resolve_coverage_producer_attempt.md) — [#68](https://github.com/uibcdf/dockingmt/issues/68) — Resolve coverage from its actual retention step after partial reruns. *(resolved, measured)*
 - [`restore_export_resource_guards.md`](restore_export_resource_guards.md) — [#72](https://github.com/uibcdf/dockingmt/issues/72) — Restore isolated tracing guards against the migrated export benchmark implementation. *(resolved, reproduced)*
 - [`result_export_tracing_ownership.md`](result_export_tracing_ownership.md) — [#48](https://github.com/uibcdf/dockingmt/issues/48) — Preserve caller tracing in the developer result-export benchmark. *(resolved, reproduced)*
+- [`result_pose_collection_admission.md`](result_pose_collection_admission.md) — [#87](https://github.com/uibcdf/dockingmt/issues/87) — Result pose collections admit malformed empty axes and unordered live inputs. *(resolved, measured)*
 - [`result_records_share_live_metadata.md`](result_records_share_live_metadata.md) — [#25](https://github.com/uibcdf/dockingmt/issues/25) — Isolate serialized docking results from live metadata and provenance *(resolved, measured)*
 - [`retain_selection_domain_provenance.md`](retain_selection_domain_provenance.md) — [#55](https://github.com/uibcdf/dockingmt/issues/55) — Retain derivation provenance for selection-based search domains *(resolved, measured)*
 - [`returned_vina_poses_lack_a_verified_map_to_source_ligand_atoms.md`](returned_vina_poses_lack_a_verified_map_to_source_ligand_atoms.md) — [#8](https://github.com/uibcdf/dockingmt/issues/8) — Returned Vina poses lack a verified map to source ligand atoms *(resolved, asserted)*

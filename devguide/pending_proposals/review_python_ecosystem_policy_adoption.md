@@ -14,6 +14,19 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Result pose collection admission — 2026-11-08
+
+[#87's archived correction](../archive/result_pose_collection_admission.md)
+prevents malformed saved axes from masquerading as empty results and excludes
+unordered live sets before iteration. Invalid members name their position;
+nested schema priority and valid/legacy ordered inputs remain. Forty-seven
+new cases expose 31 original failures; final affected source qualification
+passes 383 cases per unit policy, preserving order, multiplicity, detachment
+and resource-error identity. A separate successful public registry refresh
+retains the same 107 identities; the earlier sandbox DNS failure is preserved.
+#19 remains partial for wider adoption/public compatibility; source checks do
+not replace #28 hosted, installed/public or scientific evidence.
+
 ## Pose coordinate record admission — 2026-11-08
 
 [#86's archived correction](../archive/pose_coordinate_record_admission.md)

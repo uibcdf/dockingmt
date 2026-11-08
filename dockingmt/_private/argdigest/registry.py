@@ -353,11 +353,15 @@ def digest_coordinates(coordinates, caller=None, native_constructor=None):
 def digest_poses(poses, caller=None):
     from dockingmt.core.results import DockingPose
 
-    if isinstance(poses, (str, bytes, Mapping)) or not isinstance(poses, Iterable):
-        raise _invalid('poses', caller, 'Use an iterable of DockingPose instances.')
+    if isinstance(poses, (str, bytes, Mapping, Set)) or not isinstance(poses, Iterable):
+        raise _invalid(
+            'poses', caller, 'Use an ordered iterable of DockingPose instances.'
+        )
     values = list(poses)
     if any(not isinstance(pose, DockingPose) for pose in values):
-        raise _invalid('poses', caller, 'Use an iterable of DockingPose instances.')
+        raise _invalid(
+            'poses', caller, 'Use an ordered iterable of DockingPose instances.'
+        )
     return values
 
 

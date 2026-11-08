@@ -23,6 +23,37 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Result pose collection admission checkpoint — 2026-11-08
+
+[#87's archived record](archive/result_pose_collection_admission.md) owns the
+saved-result/live-axis correction and exact source evidence. Malformed saved
+pose fields cannot become empty results; unordered live sets reject before
+iteration. Invalid members name their position and nested schema admission
+retains before-copy priority. Valid/legacy records, actual empty lists/tuples,
+ordered live generators, pose order/multiplicity, detachment and resource-error
+identity remain. No source/semantic sorting or deduplication is introduced.
+
+Forty-seven new cases expose 31 failures/16 passes on the original reader.
+Complete final source gates pass 383 cases per normal/pm-fs policy, no errors/
+skips. The six watched molecular entry points and optional engine imports remain
+uncalled. Seventy-five primary and seventeen independent-reader/publication
+members retain diagnosis/red/green, registry attempts, raw JUnit, policies and
+source/resource identities. Final selection 4.923 s, sampled group RSS
+103,493,632 bytes, minimum available 56,338,014,208 bytes; CPU 0/nice 10/worker 1,
+monitored 13 GiB reserve, all owned groups terminal without interruption.
+Keep `.molsyssuite/result-collection-admission-20261108` under #50/review 2026-11-14.
+
+The sandbox registry read failed DNS; a separate bounded network-authorized
+read succeeds and independently verifies the same 107 advertised identities.
+No new public file or compatible binary is received; this does not prove absence
+of private artifacts or qualify package payloads. Next receive the whole
+compatible provider artifact for original #33/#49/#79/#80 selections or advance
+#19's remaining independent review. Preserve #645 source compatibility, #604
+clustering, #558 generation/history, held #642 build, canvas and complete Core/
+Extended/scientific/public/minor/platform scope. No build/install or remote CI;
+#28 exact-head hosted evidence stays missing. Helper/data/provider pins and
+historical producers remain unchanged; no installed artifact is relabelled.
+
 ### Pose coordinate record admission checkpoint — 2026-11-08
 
 [#86's archived record](archive/pose_coordinate_record_admission.md) owns the

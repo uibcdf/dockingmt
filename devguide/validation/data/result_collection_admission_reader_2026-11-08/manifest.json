@@ -1,0 +1,145 @@
+{
+  "schema": "dockingmt.result_collection_admission_reader@1",
+  "owner": "uibcdf/dockingmt#87",
+  "source_commit": "d5fe700b2bfe1eea9ee15f2de0f6fae0cb50b459",
+  "primary_manifest_sha256": "4dbd6ca79d1e50146b91af49e2a75c7ae4acbd26730e6afb57e644e0a5dc6662",
+  "scope": "Completed independent result collection order/record/source/red/green/JUnit/resource and registry identity record reader and publication producers; no molecular/public artifact qualification",
+  "files": [
+    {
+      "original_path": "seal-01/frozen-controller.py",
+      "path": "000-frozen-controller.py.gz",
+      "bytes": 1981,
+      "sha256": "217c60b4878bfda1ae94600f51416fcc90198a8ca259b37b46b507932ac6b095",
+      "decoded_bytes": 4213,
+      "decoded_sha256": "b89ab7216a0b756e0da64a6aada4766d9d05b24b5273e16d3963267d97df6f7a"
+    },
+    {
+      "original_path": "seal-01/frozen-resource-guard.py",
+      "path": "001-frozen-resource-guard.py.gz",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "original_path": "seal-01/frozen-worker.py",
+      "path": "002-frozen-worker.py.gz",
+      "bytes": 1001,
+      "sha256": "1fc8e12bd34631ed981387f0fc650450b537f0423907ac82d63e3d0a7249d0da",
+      "decoded_bytes": 2036,
+      "decoded_sha256": "5c0c2fdae85d3d06b727429d4768332b99efafb8a9c99a2bb1722b85d720d258"
+    },
+    {
+      "original_path": "seal-01/receipt.json",
+      "path": "003-receipt.json.gz",
+      "bytes": 226,
+      "sha256": "cab68e2e6fe628fe8f06f17f24ea0602e2dfb1fd069701efbd9dda056d688850",
+      "decoded_bytes": 301,
+      "decoded_sha256": "9baf13ed68b65b5b071e4671f8b94d941d29f70bbe37568fd3670e7cbacad9fd"
+    },
+    {
+      "original_path": "seal-01/registration.json",
+      "path": "004-registration.json.gz",
+      "bytes": 451,
+      "sha256": "bbafb8274ed01e7cf6bf9b706a6881ef529a9f0f2663279f78c9090938361f1d",
+      "decoded_bytes": 745,
+      "decoded_sha256": "eca233bb6e16d7f26cad89b6d6f54225dab356ea4d8ffb0dc10ae32650e0b136"
+    },
+    {
+      "original_path": "seal-01/resource-outcome.json",
+      "path": "005-resource-outcome.json.gz",
+      "bytes": 331,
+      "sha256": "d2618607e16e0c2e5392e8b5733c5718de91d345e522a334571542fc1845ecb9",
+      "decoded_bytes": 574,
+      "decoded_sha256": "803226c754736b74dd76699b394548b3b18150a66bcf8a5505d03f106d0e1155"
+    },
+    {
+      "original_path": "seal-01/stderr.log",
+      "path": "006-stderr.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "seal-01/stdout.log",
+      "path": "007-stdout.log.gz",
+      "bytes": 221,
+      "sha256": "7a62638c1e5dd5b2efef92db09500511616390e6bc8609607f8c1e14cc2cf3cb",
+      "decoded_bytes": 283,
+      "decoded_sha256": "68b03dc34442194cfcf62c26411f77e232f3fa9f9ac0ba0ac7d239d507712529"
+    },
+    {
+      "original_path": "reader-01/frozen-controller.py",
+      "path": "008-frozen-controller.py.gz",
+      "bytes": 1981,
+      "sha256": "217c60b4878bfda1ae94600f51416fcc90198a8ca259b37b46b507932ac6b095",
+      "decoded_bytes": 4213,
+      "decoded_sha256": "b89ab7216a0b756e0da64a6aada4766d9d05b24b5273e16d3963267d97df6f7a"
+    },
+    {
+      "original_path": "reader-01/frozen-resource-guard.py",
+      "path": "009-frozen-resource-guard.py.gz",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "original_path": "reader-01/frozen-worker.py",
+      "path": "010-frozen-worker.py.gz",
+      "bytes": 2056,
+      "sha256": "98cbcf39b0b948fa22a7d0faff5c250908aef8cb1c47a50bf67f2a853b4e79d8",
+      "decoded_bytes": 5665,
+      "decoded_sha256": "8533874a10f4bfcc4c7e8f6958ac53742b8f33f64515e9ab2ddfec3d6104464c"
+    },
+    {
+      "original_path": "reader-01/receipt.json",
+      "path": "011-receipt.json.gz",
+      "bytes": 408,
+      "sha256": "7f2056c30fe013079b29d6deb87ff64f94c3b8f46f6501ce40e71c9a0b27a4f1",
+      "decoded_bytes": 636,
+      "decoded_sha256": "bc5496d21c6922343093a0f43b4337505f5717019e6c75cd040eb29324ccb12d"
+    },
+    {
+      "original_path": "reader-01/registration.json",
+      "path": "012-registration.json.gz",
+      "bytes": 451,
+      "sha256": "69315b745696bf7238a66fb7147efef95bd0b13d4e37ce10eb26a9cdbdbbbaef",
+      "decoded_bytes": 747,
+      "decoded_sha256": "0f7555d910431b85e3dff3e1119410bca6b05edf9be98b3294d547235f646fbe"
+    },
+    {
+      "original_path": "reader-01/resource-outcome.json",
+      "path": "013-resource-outcome.json.gz",
+      "bytes": 331,
+      "sha256": "18e7eb48da646748333d195a5bf0627d5a21069bab78d8f380e483cc8c11aa46",
+      "decoded_bytes": 573,
+      "decoded_sha256": "b82de361d4f59260893067feacfb00b43064ca5cc4c52f9b12d8144a0ab9d808"
+    },
+    {
+      "original_path": "reader-01/stderr.log",
+      "path": "014-stderr.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "reader-01/stdout.log",
+      "path": "015-stdout.log.gz",
+      "bytes": 399,
+      "sha256": "e81fc7da6c7908eca096b56608378117ef386891c9b3d940dd894e25e4c623de",
+      "decoded_bytes": 598,
+      "decoded_sha256": "fd7a833b46a3aebcb0aa8ab2e8552935b8808c923deb8fcdb727bcb5674d98d8"
+    },
+    {
+      "original_path": "reader-seal-01/frozen-worker.py",
+      "path": "016-frozen-worker.py.gz",
+      "bytes": 978,
+      "sha256": "aacee4135c4bfc0d5a0f30c8a78fbb2b59aaa64583c06cb22d00a7e9ea2e2270",
+      "decoded_bytes": 2006,
+      "decoded_sha256": "047fb5a6eec3a43ba0d7fd803941ee46f6058051c6531665708efeb31493b302"
+    }
+  ]
+}

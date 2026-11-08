@@ -4,6 +4,13 @@ Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
+[#87's result-collection correction](archive/result_pose_collection_admission.md)
+delivers strict saved-axis/member admission and an ordered live pose boundary,
+preserving genuine empties, legacy defaults, generators and source semantics.
+Original 31-failure evidence remains; complete source gates pass 383 cases per
+unit policy. A fresh successful registry observation retains 107 unchanged file
+identities. Compatible artifact, installed/public/scientific and full objective
+acceptance remain missing in their separate scopes.
 [#86's pose-record correction](archive/pose_coordinate_record_admission.md)
 delivers canonical empty-data roundtrips and coordinate field/unit diagnostics,
 retaining strict scalar/shape/length admission and caller policy. Its original

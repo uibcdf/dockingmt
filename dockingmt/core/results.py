@@ -867,7 +867,18 @@ class DockingResult:
     def from_dict(cls, data: dict[str, Any]) -> DockingResult:
         """Reconstruct a result independently of its supplied dictionary record."""
         validate_schema_version(data, cls.__name__)
-        for pose_data in data.get('poses', []):
+        pose_records = data.get('poses', [])
+        if not isinstance(pose_records, (list, tuple)):
+            raise ArgumentError(
+                arg_name='poses', reason='Use a list or tuple of saved pose records.'
+            )
+        for position, pose_data in enumerate(pose_records):
+            if not isinstance(pose_data, Mapping):
+                raise ArgumentError(
+                    arg_name='poses',
+                    pose_index=position,
+                    reason='Every pose entry must be a saved-record mapping.',
+                )
             validate_schema_version(pose_data, 'DockingPose')
         data = deepcopy(data)
         poses = [DockingPose.from_dict(p) for p in data.get('poses', [])]

@@ -23,6 +23,11 @@ canonical empty pose-record restoration and local coordinate field/unit
 diagnostics, with 302 source cases per caller unit policy. This restores a
 zero-row data axis without admitting a scientific pose or changing any original
 Core criterion or installed/scientific producer.
+[The #87 result-axis correction](archive/result_pose_collection_admission.md)
+adds explicit stored collection/member admission and refuses unordered live
+sets, preserving valid/legacy input order and multiplicity. Its 383 source
+cases per unit policy extend argument/record evidence without accepting any
+new installed/scientific/public profile or changing an original Core criterion.
 This maintained map supersedes the *next-action list* of the
 [2026-10-28 audit](validation/core_mvp_audit_2026-10-28.md), preserving that
 audit, its findings at its original source and all scientific/artifact receipts.
