@@ -1,5 +1,13 @@
 # Timed installed 1IEP reconstruction — 2026-11-07
 
+**Current outcome:** complete producer/normal/pm-fs reconstruction of the
+stored representative 1IEP pair passes all six original criteria;
+[#83 is resolved within that scope](../archive/qualify_independent_installed_reproduction.md).
+Start with [completed receiving and limits](#completed-receiving-and-bounded-acceptance).
+Earlier interrupted attempts stay failed. The campaign is terminal; the initial
+unexecuted status and later prospective amendments below describe their original
+registration stages, not a pending instruction to launch more searches.
+
 Owner: [DockingMT #83](../archive/qualify_independent_installed_reproduction.md).
 Starting checkpoint: `51ed3dd39e169f0b59d48797788cddd37ec9f14d`.
 Registered before execution. Current selection: **admission and zero-search

@@ -3,7 +3,11 @@
 Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
-Inspected starting source: `530a4cf`. The latest
+Inspected starting source: `530a4cf`.
+[User/developer navigation](MACHINE_HANDOFF.md#workflow-guide-navigation-correction--2026-11-07)
+now routes directly to received E1/E2/E5 evidence, separating incomplete profiles
+and historical registrations. This documentation correction changes no public
+API/example, scientific observation, producer or acceptance scope. The latest
 [ligand-model/source checkpoint](validation/scientific_panel_ligand_models_2026-11-07.md)
 records concrete source/hypothesis decisions and a failed whole anionic-reference
 selection. A separate two-policy one-atom diagnostic reproduces the leaked unit-

@@ -35,15 +35,16 @@ These examples do not establish general predictive accuracy or binding affinity.
 | --- | --- | --- |
 | Inspect a saved result | [Result inspection](devguide/validation/installed_result_inspection.md) | Reads caller-supplied records and checks available evidence; no new docking. |
 | Inspect saved scoring evaluations | [Saved-scoring inspection](devguide/validation/installed_scoring_inspection.md) | Reads poses or explicit result collections, retaining scores, evaluation producers and missing evidence. |
-| Add named evaluations to a prepared pose | [Rescoring with the public API](devguide/validation/same_state_rescoring_workflow.md) | Keeps earlier scores and adds Vina/Vinardo evaluations; links a received single-pose reconstruction example and the remaining complete multi-pose continuity boundary. |
+| Add named evaluations to a prepared pose | [Rescoring with the public API](devguide/validation/same_state_rescoring_workflow.md) | Reconstructs and prepares matching inputs for the received rigid two-pose profile, preserves earlier scores and adds Vina/Vinardo evaluations. |
 | Compare fixed interaction components | [Score comparison](devguide/validation/score_comparison.md) | Checks matching complete preparations through MolSysMT and produces an independent comparison report for the bounded Vina/Vinardo profile. |
 | Prepare the declared 3PTB case | [Preparation and admission](devguide/validation/installed_3ptb_preparation.md) | Applies the explicit molecular recipe and checks inputs; no search. |
+| Run a prepared ligand collection | [Serial collection](devguide/validation/e2_native_collection_2026-11-07.md#short-reviewed-public-route) | Uses `dock_many(..., on_error='record')`, preserving individual outcomes; the received P59/P69 rigid profile has explicit preparation and comparison limits. |
 | Execute that case | [Two-search workflow](devguide/validation/installed_3ptb_execution.md) | Performs two new Vina searches and saves their results. |
 | Evaluate saved poses | [Nine-heavy-atom evaluation](devguide/validation/installed_3ptb_evaluation.md) | Measures the declared positional RMSD without new searches. |
 
 Each guide specifies its inputs, qualified composition and limitations. The
-rescoring API guide describes current calls and identifies the per-pose
-preparation and comparison steps still awaiting a complete user workflow. The
+rescoring API guide links the complete rigid two-pose workflow and distinguishes
+its matching preparations from the still-unreceived flexible/partial-source profiles. The
 preparation walkthrough declares a dry protein, one ligand state and zero active
 ligand torsions; these are case-specific choices. For another system, explicitly
 choose states, waters/cofactors and active ligand bonds before execution.
@@ -65,7 +66,11 @@ The [scientific evidence overview](devguide/validation/scientific_evidence_overv
 compares retained recovery/ranking observations, adverse controls and their limits.
 Its table is reproducible from frozen records; repeated poses/seeds are not
 independent complexes, and no pooled accuracy or affinity claim is made.
-Original protocols, producers and failures remain linked. The
+Original protocols, producers and failures remain linked. The separately received
+[independent 1IEP reconstruction](devguide/validation/e5_timed_replay_2026-11-07.md#completed-receiving-and-bounded-acceptance)
+reproduces one stored representative workflow; it is neither another independent
+molecular case nor a general recipe for reconstructing absent source chemistry.
+The
 [evidence publication policy](devguide/validation/evidence_publication_policy.md)
 explains the current repository presentation and when to reconsider it.
 

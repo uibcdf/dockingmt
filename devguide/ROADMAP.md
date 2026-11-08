@@ -4,7 +4,12 @@ The roadmap defines direction and gates, not dates.
 
 ## Current operational plan
 
-Work is **active after the maintainer's resumption**. The current
+Work is **active after the maintainer's resumption**.
+[Workflow-guide routing](MACHINE_HANDOFF.md#workflow-guide-navigation-correction--2026-11-07)
+now exposes received rigid E1, prepared E2 and representative E5 without stale
+whole-workflow pending claims or the broken #80-to-#83 archive link. These are
+status/navigation corrections, with no new calculation or broadened acceptance.
+The current
 [ligand-model/source checkpoint](validation/scientific_panel_ligand_models_2026-11-07.md)
 binds original source revisions and intended ligand hypotheses. Its complete
 anionic-reference receiving fails the fractional-charge control; a separate

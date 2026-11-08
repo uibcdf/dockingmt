@@ -3,8 +3,14 @@
 This guide uses the current public API for **already prepared, matching inputs**.
 It runs fixed-pose scoring, not docking or optimization. A complete compatible
 public installation is still tracked in [the distribution review](public_candidate_readiness.md).
-The [private five-pose receiving](e1_installed_receiving_2026-11-06.md) records
-the actual tested composition and its borrowed-provider limits.
+The [complete rigid two-pose receiving](e1_rigid_continuity_2026-11-07.md#native-receiving-outcome--2026-11-07)
+passes original-result reconstruction, matching repreparation, both named methods,
+separate component comparisons and independent saved-record reading. This is the
+bounded profile accepted under [#78](../archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07).
+Earlier [five-pose receiving](e1_installed_receiving_2026-11-06.md) and the
+flexible-source attempt below retain their own compositions and limits.
+Original scores/ranks/history remain intact; public installation and broader
+input models still require separate qualification.
 
 ## One prepared pose
 
@@ -72,12 +78,20 @@ both named methods. Supply its explicit input objects before running it; no
 qualification supervisor is a user dependency. It saves the original collection,
 each completed evaluation, the updated collection and its audit/ledger.
 
-The [executed receiving](e1_public_composition_2026-11-06.md) observes this route
-for **one actual returned docking pose**. Four original scores, rank and backend
-history survive alongside sixteen added components. The requested two-pose
-population remained incomplete; this does not establish multi-pose continuity
-or the comparison policy below. Full preparations still need their native
-source and explicit recipe; inspection JSON is not a complete MM codec.
+For the received **rigid** source/preparation profile, the unchanged notebook
+completes both actual original poses. Eight original scalar scores, their ranks
+and histories survive alongside 32 added scalar values and two evaluations per
+pose. Both public interaction-component comparisons retain all rows as separate
+reports. The [exact receiving](e1_rigid_continuity_2026-11-07.md#native-receiving-outcome--2026-11-07)
+records its artifacts, recipe, source/map checks, domains and refusals. The
+original generator's post-save qualification remains failed; the complete fresh
+saved-result receiving does not relabel that producer.
+
+The earlier [flexible-source attempt](e1_public_composition_2026-11-06.md)
+receives only one actual returned pose and leaves its intended two-pose
+population incomplete. It is a different profile from the complete rigid
+receiving. Full preparations still need their native source and explicit recipe;
+inspection JSON is not a complete MM codec.
 
 A standalone pose audit can correctly be incomplete for earlier docking scores
 whose provenance belongs to its collection. Keep that evidence with the result
@@ -107,14 +121,15 @@ parts of the workflow, not details supplied automatically by `score`:
 | Starting input | Current route and limit |
 | --- | --- |
 | One prepared input for each pose | Public `score(..., pose=...)` checks the prepared geometry and known declarations and preserves earlier observations. |
-| A complete molecular source and a verified pose/source map | `pose.to_molecular_system(source)` and `prepare_ligand(...)` provide a candidate public composition. Its reconstruction → repreparation → rescoring path is received for the single returned pose above; multi-pose continuity remains pending. Source axes, charges/types, assignments and declared torsions must be preserved explicitly. |
+| A complete molecular source and a verified pose/source map | `pose.to_molecular_system(source)` and `prepare_ligand(...)` provide a candidate public composition. Its reconstruction → repreparation → rescoring path is received for the complete rigid two-pose profile above. The earlier flexible profile remains incomplete. Source axes, charges/types, assignments and declared torsions must be preserved explicitly. |
 | External PDBQT or a positional pose without a verified map | Score the admitted prepared bytes directly. Molecular reconstruction cannot infer missing chemistry, a source map or historical hydrogens. |
 
-The private E1 study constructed new complete conformations and retained old
-docking observations as historical associations. It does not authenticate the
-original prepared hydrogen geometry or demonstrate that full collection
-reconstruction route. See the [public-workflow review](e1_public_workflow_review_2026-11-06.md)
-for the exact remaining acceptance work.
+The earlier private five-pose study constructed new complete conformations and
+retained old docking observations as historical associations; it does not
+authenticate historical missing H/MM. The later rigid receiving uses its own
+complete source authority and actual original two-pose collection. Preserve this
+distinction when reading the [earlier public-workflow review](e1_public_workflow_review_2026-11-06.md)
+and [bounded criterion-by-criterion resolution](../archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07).
 
 ## Comparing the new values
 
@@ -123,8 +138,9 @@ problems explicitly and checks their actual exports and molecular relationship
 through MolSysMT. `compare_scores(result, name, problems=prepared_problems,
 ascending=True)` returns a separate report for its bounded fixed `lig_inter`
 profile, preserving original ranks/history. The call performs molecular checks
-without calculating new scores. Its implementation/receiving and the remaining
-complete multi-pose reconstruction workflow retain their separate evidence.
+without calculating new scores. The complete rigid two-pose receiving passes
+both method-specific comparisons; the earlier five-pose comparison remains
+separately attributed. These do not qualify every reconstruction/input profile.
 
 `DockingResult.rank_by(name)` requires identical described contexts and state
 declarations. Separately scored conformations normally have different actual
@@ -163,13 +179,9 @@ geometry tolerance and persistence details are in the
 [fixed-pose contract](fixed_pose_scoring.md) and
 [score/reference contract](scoring_reference.md).
 
-The unchanged maintained notebook has now completed the
-[rigid two-pose public workflow](e1_rigid_continuity_2026-11-07.md): both actual
-original poses retain their scores, ranks and history while receiving new
-Vina/Vinardo evaluations and separate public component comparisons. The
-[earlier comparison receiving](e1_public_comparison_2026-11-07.md) separately
-covers five existing poses under two unit policies. These are bounded private
-installed profiles; broader input models and public delivery keep their own
-qualification. Follow the original records for failures and unknowns. The
-snippets require the explicit input objects above and do not define a new
-preparation recipe or authorize another scientific search.
+The [earlier five-pose comparison receiving](e1_public_comparison_2026-11-07.md)
+retains its separate two-unit-policy evidence. It is not the same population as
+the complete rigid two-pose reconstruction above. Both are bounded private
+installed profiles; broader inputs and public delivery keep separate gates.
+The snippets require the explicit input objects above and define no new
+preparation recipe or scientific search. Preserve original failures and unknowns.

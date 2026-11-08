@@ -23,6 +23,21 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Workflow-guide navigation correction — 2026-11-07
+
+The root [starting routes](../README.md#start-here) and
+[rescoring guide](validation/same_state_rescoring_workflow.md) now identify the
+received rigid two-pose workflow separately from its earlier incomplete flexible
+profile. Prepared-collection and independent-reconstruction evidence are visible
+from the README. Current outcome summaries precede the E1/E2/E5 historical
+registrations, preventing their original prospective status from being read as
+an instruction to repeat completed work. #80's E5 link now targets its archived
+record; the next receiving route retains #644/#558 and the original E4 holds.
+This changes navigation/status prose only; Python examples, notebooks, runtime,
+helpers, original archives/observations and producer identities are unchanged.
+No scientific/kernel/native work or acceptance expansion occurs. Full #73 stays
+active. The actual scientific resumption checkpoint remains immediately below.
+
 ### Ligand-model and failed receiving checkpoint — 2026-11-07
 
 [The source/model record](validation/scientific_panel_ligand_models_2026-11-07.md)

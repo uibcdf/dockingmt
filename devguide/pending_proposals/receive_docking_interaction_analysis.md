@@ -14,6 +14,17 @@ supersedes: []
 
 # Structured interaction analysis for docking poses
 
+## Current resumption route — 2026-11-07
+
+The E5 follow-up named in the dated audit below is now
+[resolved for the representative workflow](../archive/qualify_independent_installed_reproduction.md).
+Its archived record remains the stable route. #80 stays partial for the original
+#642 exact-artifact receiving and real canvas criteria; no interaction/source/
+producer evidence changes here. Resume the full objective through the
+[current handoff](../MACHINE_HANDOFF.md#ligand-model-and-failed-receiving-checkpoint--2026-11-07),
+including #644 and #558 scientific-panel prerequisites. The dated E5 next action
+below remains historical and must not trigger another completed campaign.
+
 ## Acceptance audit and provider-fix construction hold — 2026-11-07
 
 | Original #80 requirement | Authoritative evidence and remaining scope |
@@ -43,7 +54,7 @@ consumer/provider/Viewer bytes and routine metadata remain unchanged. #50
 custody review is 2026-11-14; original migration remains untouched/untracked.
 No manual CI; #28 exact-head hosted evidence remains missing.
 
-**Independent next action:** [E5 #83](qualify_independent_installed_reproduction.md)
+**Independent next action:** [E5 #83](../archive/qualify_independent_installed_reproduction.md)
 now owns current source-free receiving of the existing #16 1IEP representative
 workflow. Inspect records/replay/support/tolerances, then register the finite
 native work; no new search or reconstruction runs here. E3 #604, full E4/Core/

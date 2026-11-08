@@ -1,5 +1,14 @@
 # E2 serial native collection and study comparison — 2026-11-07
 
+**Current outcome:** the complete registered success/refusal/success study
+and independent saved receiving pass; [#81 is resolved for the declared rigid25
+joint-domain profile](../archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07).
+Start with the [short reviewed public route](#short-reviewed-public-route) or
+[original native outcome](#original-native-selection-received--2026-11-07).
+The prospective registration below is preserved as a historical prescription;
+its presence does not mean the study is still unexecuted. Reusing its notebook
+executes new work and needs a new resource/population declaration.
+
 Owner: [DockingMT #81](https://github.com/uibcdf/dockingmt/issues/81).
 Registration status: **prospective**. Qualification base: `78b0664`.
 Custody: `.molsyssuite/e2-native-collection-20261107`, reviewed under #50 on

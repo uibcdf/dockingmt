@@ -1,5 +1,13 @@
 # E1 rigid original-result continuity — 2026-11-07
 
+**Current outcome:** complete fresh two-pose receiving and independent
+persistence pass; [#78 is resolved for that bounded rigid profile](../archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07).
+The original generator's post-save qualification remains failed. Start with
+[the public API guide](same_state_rescoring_workflow.md) and the
+[observed outcome](#native-receiving-outcome--2026-11-07).
+The prospective registration and subsequent amendments below retain their
+original pre-execution meaning; this summary starts no new calculation.
+
 Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78), with
 resource/custody coordination in #50. Status at registration: **prospective**.
 Custody review: **2026-11-14**. This receives a complete bounded public route:
