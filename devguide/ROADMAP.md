@@ -5,6 +5,18 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+The maintainer reaffirmed the editable development route: clean `../molsysmt`
+has been fast-forwarded by 174 commits to `2325038e8`; the routine Python 3.14.10
+environment already resolves its existing editable installation to that checkout.
+Continue from these development sources rather than waiting for a distributed
+package. The unchanged native extension predates changed Rust inputs; inspect
+affected calls and the required bounded local rebuild before runtime acceptance.
+The earlier interrupted build is not automatically restarted. See the
+[current handoff](MACHINE_HANDOFF.md#maintainer-directed-editable-provider-refresh--2026-11-08)
+and [provider review correction](validation/provider_fix_artifact_admission_2026-11-08.md#maintainer-directed-editable-development-route--2026-11-08).
+Historical artifact-first next steps below retain their original inspection
+scope; public/installed qualification and original failures remain separate.
+
 [Result pose collection admission #87](archive/result_pose_collection_admission.md)
 now refuses malformed saved axes and unordered live inputs before interpretation,
 retaining nested schema priority, valid/legacy records, order and multiplicity.

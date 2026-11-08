@@ -4,6 +4,19 @@ Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
+
+Current routine route, reaffirmed by the maintainer on 2026-11-08: work with the
+editable sibling checkouts. `../molsysmt` is now clean at
+`2325038e8c68157f5c730693ffbb8535f0b45540` after a 174-commit fast-forward;
+the existing Python 3.14.10 editable installation resolves to it. Package
+publication is not a prerequisite for continuing development. Its pre-existing
+native extension has not been rebuilt despite changed Rust inputs, so inspect
+affected calls and determine the bounded local rebuild before runtime admission.
+[The current handoff](MACHINE_HANDOFF.md#maintainer-directed-editable-provider-refresh--2026-11-08)
+and [provider correction](validation/provider_fix_artifact_admission_2026-11-08.md#maintainer-directed-editable-development-route--2026-11-08)
+supersede historical artifact-first resumption instructions below. This source
+refresh changes no original scientific result or public/installed acceptance.
+
 [#87's result-collection correction](archive/result_pose_collection_admission.md)
 delivers strict saved-axis/member admission and an ordered live pose boundary,
 preserving genuine empties, legacy defaults, generators and source semantics.

@@ -23,6 +23,34 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Maintainer-directed editable provider refresh — 2026-11-08
+
+The maintainer confirmed that routine work uses the participating development
+checkouts. Waiting for a published or owner-built package is not a prerequisite
+for this route. `git pull --ff-only origin main` updated clean `../molsysmt`
+from `9e1f1b1ad8bf09446374ab6f04ca7208e2717936` to
+`2325038e8c68157f5c730693ffbb8535f0b45540` (174 commits); it is clean and aligned
+with the fetched upstream. Python 3.14.10 metadata confirms the existing editable
+installation, and module resolution points to that checkout. No reinstall or
+scientific execution was performed by this refresh.
+
+The existing `_rust.abi3.so` retains SHA-256
+`2a79b9a83b0fe0b00a54c9b80f04bf6c9ace2b3473c53269edbfe29904f8930b`.
+The source Rust tree changed from `32cfb07b9c26ae9ad3ed379c1b76fab85669cf67`
+to `fb25b2eac60b6e706c712e788119b3dad94329fe` (`mic.rs` and `pbc.rs`).
+Pulling Python source does not rebuild this extension or establish its
+compatibility with changed native calls. Next inspect those calls and determine
+the required local development rebuild before affected runtime controls; use
+the shared-resource limits and reassess the earlier #642 construction hold.
+Do not automatically repeat that interrupted build or wait for Conda publication.
+
+[The provider review correction](validation/provider_fix_artifact_admission_2026-11-08.md#maintainer-directed-editable-development-route--2026-11-08)
+supersedes older artifact-first resumption instructions for routine development.
+Original failed runs, private candidates and public-delivery requirements retain
+their exact identities and outcomes. #604 clustering and #558 reconstruction
+evidence remain separate provider needs. The migration directory is untouched;
+no remote CI is dispatched.
+
 ### Result pose collection admission checkpoint — 2026-11-08
 
 [#87's archived record](archive/result_pose_collection_admission.md) owns the

@@ -6,6 +6,39 @@ Owners: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md
 Starting source: `acce58e3dc0ff17673f091b42765fb65257b8977`.
 Status: **source/registry inspection completed; compatible artifact unreceived**.
 
+## Maintainer-directed editable development route — 2026-11-08
+
+The maintainer corrected the operational resumption route: the participating
+components are developed together from editable local checkouts. A separate
+owner-built or published package is not required to receive ordinary Python
+source updates. The earlier artifact request remains an optional acquisition
+route and a historical observation, rather than a prerequisite for routine work.
+
+`git pull --ff-only origin main` advanced clean `../molsysmt` from
+`9e1f1b1ad8bf09446374ab6f04ca7208e2717936` to
+`2325038e8c68157f5c730693ffbb8535f0b45540`, receiving 174 commits. The checkout
+is clean and matches fetched `origin/main`. Existing routine Python 3.14.10
+distribution metadata declares this checkout editable; module resolution selects
+`../molsysmt/molsysmt/__init__.py`. This is source/installation-origin inspection,
+not a successful import, affected runtime test or completed client workflow.
+
+The native extension is unchanged: `_rust.abi3.so`, 101,188,064 bytes, SHA-256
+`2a79b9a83b0fe0b00a54c9b80f04bf6c9ace2b3473c53269edbfe29904f8930b`.
+The new source retains Rust tree `fb25b2eac60b6e706c712e788119b3dad94329fe`,
+whereas the old context has `32cfb07b9c26ae9ad3ed379c1b76fab85669cf67`.
+`rust/src/mic.rs` and `rust/src/pbc.rs` changed. Editable Python updates do not
+recompile native code. Next inspect the affected native signatures and determine
+the required local development rebuild under conservative resource limits before
+affected receiving. The previous #642 interruption remains preserved; this pull
+does not automatically restart it or establish complete native compatibility.
+
+No dependency installation, source pin change, scientific calculation, public
+package receiving or CI dispatch occurs. Original failures and private artifacts
+below are unchanged. #604 clustering, #558 maps/history, caller-policy controls
+and full public/minor/platform delivery retain their separate scope. The
+untracked migration directory is preserved. Resume through the
+[updated development handoff](../MACHINE_HANDOFF.md#maintainer-directed-editable-provider-refresh--2026-11-08).
+
 ## One coherent source target for three receiving needs
 
 The previous [reference checkpoint](scientific_panel_receptor_models_2026-11-08.md)
