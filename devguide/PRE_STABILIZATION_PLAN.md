@@ -4,6 +4,14 @@ Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
+[The accepted routine dependency audit](validation/support_library_review_2026-11-04.md#accepted-depdigest-correction-in-the-routine-environment--2026-11-08)
+receives DepDigest #47 on `032d345`: seven original controls and 36 unchanged
+support/bootstrap cases pass. #19 remains partial for wider adoption/public
+closure; this changes no runtime, scientific input or required gate.
+MolSysMT #645 is now source-resolved at `4f7c7e4` with an explicit experimental
+indexed-H policy; compatible artifact and full original reference receiving
+remain unperformed. #604 separately blocks E3 clustering. Do not relabel the
+old failed selection or infer compatibility with the earlier ad67e0e request.
 [The source/artifact admission review](validation/provider_fix_artifact_admission_2026-11-08.md)
 now independently verifies published #644/#646 source fixes and one ad67e0e
 target containing #642 as well. Its complete Rust/build-source inputs match

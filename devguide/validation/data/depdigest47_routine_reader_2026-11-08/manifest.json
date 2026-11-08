@@ -1,0 +1,145 @@
+{
+  "schema": "dockingmt.depdigest47_routine_reader@1",
+  "owner": "uibcdf/dockingmt#19",
+  "source_commit": "75db240e9c0b3aefa64eae7258c1a513b664f9af",
+  "primary_manifest_sha256": "1d947cef01cd613f4833be1dc43e207aeabd3fed9676aad01841d2741fddc78a",
+  "scope": "Completed independent routine dependency audit/JUnit/resource record reader and publication producers; no molecular/public artifact qualification",
+  "files": [
+    {
+      "original_path": "seal-01/frozen-controller.py",
+      "path": "000-frozen-controller.py.gz",
+      "bytes": 1960,
+      "sha256": "16c541bc41b9e207998c6f56c2388205700d8fd08bcc4036201670435098170d",
+      "decoded_bytes": 4143,
+      "decoded_sha256": "7bc39493aab6a62ff8fa6c60303dd6859ad706cc1f7ee843ecc07195d3fa4c6a"
+    },
+    {
+      "original_path": "seal-01/frozen-resource-guard.py",
+      "path": "001-frozen-resource-guard.py.gz",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "original_path": "seal-01/frozen-worker.py",
+      "path": "002-frozen-worker.py.gz",
+      "bytes": 984,
+      "sha256": "fb5c7b7b383da09b89f9907e8d82203f567c195550691421ae4a2429cc88db34",
+      "decoded_bytes": 2002,
+      "decoded_sha256": "e285f9ccdd0e48fc8bc20239ed7931ff52af52869a7bfe09a6336e1c22b4d7d9"
+    },
+    {
+      "original_path": "seal-01/receipt.json",
+      "path": "003-receipt.json.gz",
+      "bytes": 228,
+      "sha256": "fb9e671626b99fbd5fbfc3755202e0f042ffb8f727b2df512cb88035fd19b2fd",
+      "decoded_bytes": 301,
+      "decoded_sha256": "4142cd809f6d3484188130caa989bf10ba76ef8ca0db847fdaa74c8e6a8d25db"
+    },
+    {
+      "original_path": "seal-01/registration.json",
+      "path": "004-registration.json.gz",
+      "bytes": 451,
+      "sha256": "0ded1f4886d2a75ca2e98234762aa93db093a1c27290490c16562f043a3c5b15",
+      "decoded_bytes": 736,
+      "decoded_sha256": "5442b9c85aa828ad706f8419bbe9fbe6dd7fa8cf6eddd8ea04cda0968d79942d"
+    },
+    {
+      "original_path": "seal-01/resource-outcome.json",
+      "path": "005-resource-outcome.json.gz",
+      "bytes": 331,
+      "sha256": "45bd4b8c264684956c31e52c17afc6b546bfbe2f6ec12286d7fdb8938851db67",
+      "decoded_bytes": 574,
+      "decoded_sha256": "2b50c6bc9f79200bc201725904265c67f94269485bab060c08dd69f15348296f"
+    },
+    {
+      "original_path": "seal-01/stderr.log",
+      "path": "006-stderr.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "seal-01/stdout.log",
+      "path": "007-stdout.log.gz",
+      "bytes": 223,
+      "sha256": "56b885776cdeaaa6ff8f8eb78df2603d327610000f9c82975818d85ba4dec035",
+      "decoded_bytes": 283,
+      "decoded_sha256": "ed1160326848ddff39920823ab69a2243a899523bdb912c51042522948174b80"
+    },
+    {
+      "original_path": "reader-01/frozen-controller.py",
+      "path": "008-frozen-controller.py.gz",
+      "bytes": 1960,
+      "sha256": "16c541bc41b9e207998c6f56c2388205700d8fd08bcc4036201670435098170d",
+      "decoded_bytes": 4143,
+      "decoded_sha256": "7bc39493aab6a62ff8fa6c60303dd6859ad706cc1f7ee843ecc07195d3fa4c6a"
+    },
+    {
+      "original_path": "reader-01/frozen-resource-guard.py",
+      "path": "009-frozen-resource-guard.py.gz",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "original_path": "reader-01/frozen-worker.py",
+      "path": "010-frozen-worker.py.gz",
+      "bytes": 1886,
+      "sha256": "eed90db92faf8d83fcd22588cbda86d603e48067a1374f5a673875f2431c0e18",
+      "decoded_bytes": 4810,
+      "decoded_sha256": "ab0532b9f16a25d03b15243724bc76723eaa406e0c1bb55dd07ec03b44e97c7e"
+    },
+    {
+      "original_path": "reader-01/receipt.json",
+      "path": "011-receipt.json.gz",
+      "bytes": 387,
+      "sha256": "d8b28e639030e1dea7aceef0d6326bb26c6428499f4f8d536e4d0b6550e0d35d",
+      "decoded_bytes": 606,
+      "decoded_sha256": "e14ad86a4023bdf0f757224b5025564d9209bb69b5345fa31f0d1e22fb617ad3"
+    },
+    {
+      "original_path": "reader-01/registration.json",
+      "path": "012-registration.json.gz",
+      "bytes": 450,
+      "sha256": "62cf40ccb45a37f54d3b558a67ffaf455b5dbfcff8f257b3f49282a35baf1b02",
+      "decoded_bytes": 738,
+      "decoded_sha256": "45e9a7acea525df668c22a39000632efaee1e1c81c544aa69852df77c64b2708"
+    },
+    {
+      "original_path": "reader-01/resource-outcome.json",
+      "path": "013-resource-outcome.json.gz",
+      "bytes": 330,
+      "sha256": "fb2601c12515b30bffd53948504b43745a416f53d9dbee0e35d113def053deaf",
+      "decoded_bytes": 573,
+      "decoded_sha256": "5107202b3a4bd9a341c67e3496bf95419850e22d09fd2b270772d924dffc1d07"
+    },
+    {
+      "original_path": "reader-01/stderr.log",
+      "path": "014-stderr.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "reader-01/stdout.log",
+      "path": "015-stdout.log.gz",
+      "bytes": 381,
+      "sha256": "895dc6b37332deccdf8b52f3429de8292855b85f2ff394f2b1f95cee7eaef002",
+      "decoded_bytes": 580,
+      "decoded_sha256": "ad44ef060f322cd3d63ffc829bf2c763ab4a87b9b2d363f64749ce15f582f6ac"
+    },
+    {
+      "original_path": "reader-seal-01/frozen-worker.py",
+      "path": "016-frozen-worker.py.gz",
+      "bytes": 955,
+      "sha256": "142fbf1ff097110eb6df48b655ec80cb8eacd53e440188fd0db997c14931f6a0",
+      "decoded_bytes": 1945,
+      "decoded_sha256": "d0414dd0148b9cf7cb79bd4c2d87eab8108fed3dab456de0ae2aa0db651eef2b"
+    }
+  ]
+}

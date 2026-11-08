@@ -14,6 +14,21 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Accepted DepDigest routine receiving — 2026-11-08
+
+The [new bounded receiving](../validation/support_library_review_2026-11-04.md#accepted-depdigest-correction-in-the-routine-environment--2026-11-08)
+verifies that owner-resolved DepDigest #47/#48 is included in the clean routine
+provider `032d345` / `0.15.2+2.g032d345`. The original unchanged seven audit
+controls pass, with the raw addon finding and exact widget-file exception
+preserved. All 36 existing support/bootstrap cases pass, no skips, including
+fresh blocked-engine saved-record reading and missing-dependency diagnostics.
+No runtime/test/pin or shared installation changes. The initial task-only
+metadata failure and complete passing retry remain separate; all owned groups
+are terminal. Source-based routine receiving closes that earlier pending
+subtask, while broader #19 adoption, central handoff and actual public-provider
+compatibility remain partial. Historical proposal/installed evidence stays at
+its original producer; no full scientific/public/CI gate is inferred.
+
 ## Scoped reference-evidence receiving — 2026-11-06
 
 The [reference contract](../validation/scoring_reference.md) records the actual

@@ -23,6 +23,40 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Routine dependency audit and E3 provider notice — 2026-11-08
+
+[Accepted DepDigest routine receiving](validation/support_library_review_2026-11-04.md#accepted-depdigest-correction-in-the-routine-environment--2026-11-08)
+uses clean/current provider `032d345becf8f8f574c24ede61ee62fcf0321de7`, version
+`0.15.2+2.g032d345`, which contains owner-accepted #47/#48. Both selected remotes
+are refreshed, preserving the original migration directory. The original seven
+audit controls and all 36 unchanged support/bootstrap cases pass without skips.
+Raw addon audit still reports the real widget-base import; only the existing
+exact-file exception passes, and a new leak still fails. Fresh blocked-engine
+processes restore saved results/outcomes. No source/runtime/test/pin or shared
+installation changes; hard MolSysMT import is allowed, no molecular operations.
+
+The first harness attempt fails before all controls because `-I -S` hides
+installed distribution metadata. Its complete retry reads metadata through a
+fresh routine `-I` child and passes in 8.012 s, sampled group RSS 158,871,552
+bytes, minimum available 55,911,809,024 bytes. CPU 0/nice 10/worker 1, monitored
+13 GiB reserve; all owned groups terminal, no resource interruption. Forty
+primary and seventeen independent-reader/publication members retain both
+attempts and exact identities/JUnit. Keep
+`.molsyssuite/depdigest47-routine-20261108` under #50/review 2026-11-14.
+#19 is still partial for wider adoption/central handoff and public-provider
+closure; #28 exact-head hosted evidence remains missing, no manual CI.
+
+Separately, [E3 #79](pending_proposals/qualify_pose_comparison_and_clustering.md)
+records owner-resolved MolSysMT #645 at `4f7c7e4c278a9995909c2f4d9bec917d03729a63`:
+an explicit experimental indexed-H policy with conservative admission and typed
+history. Its pinned public rules are inspected, not executed here. Next obtain
+a whole compatible artifact covering the required operation, refresh actual
+routine composition and register the complete original reference receiving.
+Do not infer ancestry/binary compatibility with ad67e0e, rewrite the old zero-map
+FAIL, loosen matching, restart the held #642 build or repeat completed searches.
+#604 remains open; canvas and full scientific/public/platform/minor gates retain
+their owners. The full Core/Extended/stabilization objective stays incomplete.
+
 ### Shared provider correction artifact checkpoint — 2026-11-08
 
 [The actual source/registry inspection](validation/provider_fix_artifact_admission_2026-11-08.md)

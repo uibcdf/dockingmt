@@ -12,8 +12,9 @@ The table records the starting review. The follow-ups below deliver core model/
 factory admission, preparation/addon diagnostics, the accepted SMonitor #59/#61
 source corrections, prepared-constructor admission and owned view arguments.
 The later dependency block reconciles the local inventory/routes and proposes
-the shared audit correction for owner review. Accepted scanner and public
-support-provider qualification remain incomplete. Development continues against
+the shared audit correction for owner review. The dated routine receiving below
+now verifies the accepted scanner correction; public support-provider closure
+and wider adoption remain incomplete. Development continues against
 the selected editable providers while their publishers prepare public files
 independently, currently through the uibcdf Conda channel.
 
@@ -29,6 +30,68 @@ layout is automatically a defect. The registry style is supported: ElastNetMT
 also uses it. MolSysMT's larger argument/function/domain hierarchy addresses its
 own form-agnostic and extensible-keyword contracts; copying that whole tree is
 not required for DockingMT's mostly closed signatures.
+
+## Accepted DepDigest correction in the routine environment — 2026-11-08
+
+Starting DockingMT source: `75db240e9c0b3aefa64eae7258c1a513b664f9af`.
+[DepDigest #47](https://github.com/uibcdf/depdigest/issues/47) is resolved after
+owner acceptance of #48 at `02339c2917588a91ba938575be44816d706b5e27`.
+The routine editable provider is now clean/current at
+`032d345becf8f8f574c24ede61ee62fcf0321de7`, version `0.15.2+2.g032d345`;
+local ancestry includes the accepted correction. The common workspace checker
+refreshes both participating remotes. Its nonzero status records only the
+preserved untracked DockingMT migration directory; no worktree is changed.
+
+The unchanged original [seven-control producer](data/depdigest47_receiving_2026-11-04/control.py),
+SHA-256 `e16b04e90932724ee9c937967211c8b885227a9a46f10c7879c50d6328af08fe`,
+passes **7/7** with this actual routine provider. Core and relative/lazy adapter
+controls have no findings. Raw addon audit still reports its real widget-base
+import; only the exact `panels/_base.py` exception passes. Absolute-engine and
+new-addon-leak controls retain one finding and exit 1. Managed fixtures are
+retired. This receives the provider correction rather than adding a consumer
+scanner, broad exemption or allow-violations mode.
+
+The unchanged `test_support_contracts.py` and `test_bootstrap.py` selections pass
+**36 cases**, no failures/errors/skips, with `--receptor=llm` and raw JUnit.
+They verify inventory/routes, missing optional dependency diagnostics and fresh
+blocked-engine imports with detached saved-result/outcome roundtrips. Runtime
+SMonitor, ArgDigest, PyUnitWizard and Pytest Receptor identities are recorded
+separately in the receipt. Hard MolSysMT import remains permitted; no molecular
+conversion/preparation/analysis, native execution, build or package install occurs.
+Provider/runtime/test bytes are equal before and after; shared Conda metadata
+has no observed change during this finite selection. This does not reserve or
+freeze that shared environment or qualify its complete dependency closure.
+
+The first task attempt fails before all seven controls and all tests: its
+stdlib-only `-I -S` producer cannot discover installed distribution metadata.
+It is retained as FAIL, not a DepDigest defect. A fresh `-I` metadata child fixes
+only the harness; the second complete selection preserves every criterion and
+passes in **8.012 s**, sampled peak group RSS **158,871,552 bytes**, minimum
+available **55,911,809,024 bytes**. CPU 0/nice 10/one worker, a monitored 13 GiB
+available reserve and 1 GiB group-RSS/2 GiB address-space/45 s CPU/60 s wall
+bounds apply to descendants. Every owned group is terminal without resource
+interruption; the old unrelated MolSysMT #642 build remains held.
+
+The [40-member primary manifest](data/depdigest47_routine_2026-11-08/manifest.json)
+has SHA-256 `1d947cef01cd613f4833be1dc43e207aeabd3fed9676aad01841d2741fddc78a`,
+102,731 stored bytes. It includes the failed harness, amendment, original
+producer, exact before/after identities, seven controls, raw JUnit and resource
+outcomes. Independent stdlib reading authenticates every stored/decoded member,
+the unchanged producer, 36 JUnit cases and the failed pre-control attempt.
+Its [17-member reader/publication companion](data/depdigest47_routine_reader_2026-11-08/manifest.json)
+has SHA-256 `80ea6e7d06d593bdab0e5baa9e990c2a721d4bf8ac350e6dac1cdc1597586c6b`,
+21,024 stored bytes. Task records remain under
+`.molsyssuite/depdigest47-routine-20261108`, #50/review 2026-11-14.
+
+Use the two existing scoped audit commands from the earlier dependency block
+with this accepted routine provider. Its historical proposal, 5/7 baseline and
+private installed-proposal results retain their original producers. No public
+artifact, runtime floor/pin, CI job or scientific input changes here. #19 remains
+partial for wider adoption/central handoff and actual public-provider closure;
+#28 exact-head hosted evidence remains missing under the authorized `[skip ci]`
+route. Publication uses applicable local document/resource/identity checks and
+a fresh committed-source resource/index/publication export, with exact receipts
+in the task directory; those checks do not add scientific evidence.
 
 ## Comparison with our sibling implementations
 

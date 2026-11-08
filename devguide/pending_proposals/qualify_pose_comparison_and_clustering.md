@@ -8,11 +8,30 @@ verification: inspected
 area: [analysis, scientific-validation, provenance]
 guard:
 normative: devguide/MVP.md
-blocked_by: [uibcdf/molsysmt#604, uibcdf/molsysmt#645]
+blocked_by: [uibcdf/molsysmt#604]
 supersedes: []
 ---
 
 # Provider-backed pose comparison and clustering
+
+## Indexed-H policy source delivered, client receiving pending — 2026-11-08
+
+[MolSysMT #645](https://github.com/uibcdf/molsysmt/issues/645) is now resolved
+at `4f7c7e4c278a9995909c2f4d9bec917d03729a63`. The owner publishes experimental
+`chemical_states.normalize_indexed_hydrogen_policy` with an explicit method,
+conservative admission, detached result and typed operation history. The exact
+[provider rules](https://github.com/uibcdf/molsysmt/blob/4f7c7e4c278a9995909c2f4d9bec917d03729a63/docs/content/user/tools/chemical_states/normalize_indexed_hydrogen_policy.md)
+are inspected and retained with the latest #19 checkpoint's owner notices.
+Reported provider tests do not receive this client's workflow or artifact.
+
+Obtain a compatible whole-provider artifact containing that operation before
+registering the original complete reference selection with explicit policy
+application and its adverse controls. This source is a separate exact context
+from the earlier ad67e0e artifact request; ancestry/whole-binary compatibility
+is not inferred. Preserve the original zero-map FAIL and every unreached
+profile, strict matcher and chemical/frame controls. No local normalizer,
+module overlay or new search follows. #604 remains open for N×N/clustering;
+E3 and full scientific/public acceptance stay unproven.
 
 ## Concrete workflow
 

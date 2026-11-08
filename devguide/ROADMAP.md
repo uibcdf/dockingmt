@@ -5,6 +5,15 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Accepted DepDigest routine receiving](validation/support_library_review_2026-11-04.md#accepted-depdigest-correction-in-the-routine-environment--2026-11-08)
+now passes the original seven audit controls and 36 unchanged support/bootstrap
+cases on clean provider `032d345`. #19's former provider-acceptance/routine
+scanner subtask is received; wider adoption/public closure stays partial.
+No runtime/test/pin/install or scientific change. Separately, #645's explicit
+indexed-H policy is source-delivered at `4f7c7e4`; its whole artifact/client
+receiving remains missing under [#79](pending_proposals/qualify_pose_comparison_and_clustering.md).
+#604 and the original zero-map failure remain; no E3 acceptance or build restart.
+
 [Shared correction artifact admission](validation/provider_fix_artifact_admission_2026-11-08.md)
 verifies that provider source ad67e0e contains #642/#644/#646 and shares #642's
 complete Rust tree and source-declared build sections. One compatible artifact
