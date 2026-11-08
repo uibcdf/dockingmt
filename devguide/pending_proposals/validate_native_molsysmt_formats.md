@@ -14,6 +14,25 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Protein-reference models and comparison receiving — 2026-11-08
+
+[The declared receptor-model checkpoint](../validation/scientific_panel_receptor_models_2026-11-08.md)
+specifies protein states/termini for both original panel cases without applying
+them or accepting a receptor. Three whole six-chain attempts stop on the first
+reference; their partial outputs and unattempted chains/full pm-fs profiles stay
+explicit. The native-artifact diagnostic identifies documented canonical text
+storage, with molecular values/null masks/history preserved. The fresh receiving
+then exposes a valid component-type comparison flag rejected during digestion.
+[MolSysMT #646](https://github.com/uibcdf/molsysmt/issues/646) owns that boundary;
+a separate two-policy synthetic diagnostic reproduces it with passing atom-count
+controls. No local comparator, table normalization or digestion bypass follows.
+
+Receive #646 before a new complete reference selection. #644 ligand-reference
+and #558 generation/map prerequisites remain; water/other-occupant disposition,
+full case/preparation, scientific/public/visual acceptance remain unreceived.
+The original panel and all historical outcomes stay intact. No source/helper
+implementation, package installation, native compilation or docking search.
+
 ## Declared ligand models and formal-charge receiving failure — 2026-11-07
 
 [The source/model checkpoint](../validation/scientific_panel_ligand_models_2026-11-07.md)

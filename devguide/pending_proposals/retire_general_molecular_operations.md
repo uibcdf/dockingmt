@@ -14,6 +14,19 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## Provider-owned protein references and comparison boundary — 2026-11-08
+
+[The coordinate-free reference selection](../validation/scientific_panel_receptor_models_2026-11-08.md)
+uses public provider conversion/assembly/group queries, peptide factory, native
+persistence and comparison. No molecular reader, state assigner, matcher or codec
+is implemented downstream. The owner's canonical text-storage contract is
+explicitly distinguished from exact molecular-value/history preservation.
+Whole reference acceptance remains FAIL when public compare rejects its valid
+component_type Boolean flag; [MolSysMT #646](https://github.com/uibcdf/molsysmt/issues/646)
+receives actual candidate evidence and a two-policy synthetic reproduction.
+Receive that public boundary before the next full selection; keep original
+failures, #558/#644/environment prerequisites and all broader scopes unchanged.
+
 ## Explicit ligand-state assignments expose a provider boundary — 2026-11-07
 
 [The case-specific reference attempt](../validation/scientific_panel_ligand_models_2026-11-07.md)

@@ -23,6 +23,65 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Protein reference/comparison checkpoint — 2026-11-08
+
+[The full record](validation/scientific_panel_receptor_models_2026-11-08.md)
+declares states/termini for the two original panel cases, preserving all source
+assemblies, water/other-occupant questions, original search/evaluation criteria
+and full Core/Extended objective. Three complete reference selections remain
+FAIL on the first chain; no remaining chain/full pm-fs profile is promoted or
+attempted. First the task wrongly expects numeric zero for an absent structural
+domain; next strict text-dtype identity conflicts with documented native storage;
+then valid public component-type comparison is rejected during digestion.
+
+Separate native reading under both policies preserves all molecular values,
+null masks/history, topology and absent structural domain, with exactly two
+documented text dtype changes. A separate final synthetic diagnostic reproduces
+the invalid flag rejection under both policies: two one-atom objects, six
+comparisons, passing atom-count controls and preserved caller policy. Its first
+namespace-only failure remains separate with zero calls. MolSysMT #646 owns
+the actual argument boundary; no ArgDigest defect or persistence data-loss bug
+is inferred, and no local comparator/table rewrite/digestion bypass is added.
+
+Next receive #646's exact correction/artifact and register a new complete
+six-chain/two-policy reference selection. Keep original strict failed outcomes,
+canonical storage contract, both negative-factory controls and remaining live
+checks. #644 anionic reference, #558 generation maps/history and environment
+choices still precede bound-source preparation. E3 #604/#645, held #642 native
+construction and actual canvas, and scientific/public/minor gates remain separate.
+
+All six molecular/diagnostic groups are terminal with no resource interruption:
+scientific reference attempts14.951/15.697/16.587s, maximum sampled group RSS
+214,679,552 bytes; completed persistence/minimal diagnostics15.260/5.009s.
+CPU0/nice10/worker1, monitored13GiB reserve; zero native search or admitted case.
+Retain task `.molsyssuite/panel-receptor-models-20261108` under #50/review2026-11-14.
+After its final successful diagnostic, routine metadata gains giflib/openjdk/libxt
+records; no old record changes/removals or private payload changes. The first
+seal fails that historical metadata check. Preserve it and the additions; fresh
+administrative validation records the current state without scientific receiving.
+No molecular execution follows this update. No installer/global cleanup is run.
+The [later observation](validation/data/panel_receptor_models_environment_2026-11-08.json)
+also records swig/tomlkit additions, with old metadata unchanged at observation.
+The first final-check attempt retains its failure against a stale global set.
+Administrative checks observe this shared prefix separately from task-owned
+source/artifact custody; they do not reserve it or receive a scientific closure.
+Refresh actual composition before the next molecular selection.
+
+Evidence/index/resource/publication checks cover the final files and a fresh
+actual committed export; exact source/public qualification keeps its own scope.
+Primary evidence has156 members/root8111abe7233e7b21920959c53a8e8407273cbd5f35a822c3875c7bb8faf0d847;
+the companion has24/root5c21f393735948bc4934962a39225b24753a01a3b4cf6068a91fc9a6620c3b0f.
+Independent stdlib reading verifies all original/decoded bytes and actual failed/
+unattempted versus diagnostic outcomes, without molecular calls. The earlier
+failed seal and concurrent metadata additions are preserved. Local gates cover
+indexes, Ruff lint/format, shared resources/publication, declared dependency
+routes, whitespace, exact records/custody and maintained links; the committed
+export repeats resources/index/publication. No pytest or stochastic rerun is
+needed for unchanged runtime/helper/scientific-input files. #33's published
+receipt carries the actual source commit and executed export result.
+Runtime/helpers and original scientific inputs remain unchanged. Hosted exact-
+head evidence stays missing under #28/[skip ci]; no manual CI is dispatched.
+
 ### E3 reference and stored-H policy checkpoint — 2026-11-08
 
 [The actual reference selection](validation/e3_experimental_reference_2026-11-08.md)

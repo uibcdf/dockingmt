@@ -1,0 +1,18 @@
+{
+  "observed_at_utc": "2026-11-08T05:16:52.181158+00:00",
+  "added": [
+    "giflib-6.1.3-hebe6cf0_2.json",
+    "openjdk-21.0.10-h1602c4f_22.json",
+    "swig-4.5.1-h78de971_1.json",
+    "tomlkit-0.15.2-pyh5ded981_0.json",
+    "xorg-libxt-1.3.1-h7cc23a3_1.json"
+  ],
+  "removed": [],
+  "modified": [],
+  "scientific_receiving": false,
+  "scope": "Later observation of shared environment, not a reservation or a stable-current-prefix claim",
+  "owner": "uibcdf/dockingmt#33",
+  "source_commit": "b014b2598a1194eaee51c139e105e00ee259758a",
+  "producer": "Task-local stdlib SHA-256 comparison of Conda metadata with the immutable historical candidate; package names/counts only, no package installation or scientific imports",
+  "historical_candidate_sha256": "c7061d409bf59f8598027588f7dd8589edea16c36a58812436fad0c2adb5e76a"
+}

@@ -4,6 +4,14 @@ Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
+[Protein-reference receiving](validation/scientific_panel_receptor_models_2026-11-08.md)
+now declares both original cases' states/termini, while all three whole selections
+remain FAIL and the remaining chains/full pm-fs profiles unattempted. The owner's
+canonical text-storage interpretation is established separately from a valid
+comparison flag rejected by digestion. MolSysMT #646 receives a minimal two-policy
+reproduction; receive that correction before fresh whole reference receiving.
+No receptor/case is admitted; #644/#558, environment and full scientific/public
+acceptance remain separate. The full objective and original criteria stay intact.
 [Experimental-reference receiving](validation/e3_experimental_reference_2026-11-08.md)
 adds a concrete E3 prerequisite result: public full39 correspondence reports two
 candidates and zero maps after fixed-state H generation. The indexed H implicit-
@@ -149,6 +157,10 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 6. Preserve completed [E5 #83](archive/qualify_independent_installed_reproduction.md)
    and advance #33's scientific-panel admission. Preserve the completed bounded
    [#556/#557 receiving](validation/scientific_panel_provider_receiving_2026-11-07.md);
+   retain the [protein states and failed reference receiving](validation/scientific_panel_receptor_models_2026-11-08.md),
+   receive #646's public comparison correction before a new full six-chain/two-policy
+   selection, and preserve the documented canonical-storage contract and all old
+   failures. A complete coordinate-free reference still does not admit a receptor.
    retain the new [ligand models and failed reference receiving](validation/scientific_panel_ligand_models_2026-11-07.md).
    Receive MolSysMT #644's exact source/artifact and complete a fresh reference
    selection with the unchanged negative controls; record remaining receptor/
