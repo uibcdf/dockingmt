@@ -1,0 +1,103 @@
+{
+  "schema": "dockingmt.editable_provider_receiving@1",
+  "source_commit": "edcf762a2ced33bb57cd35a5d26cb9c44aad0320",
+  "provider_commit": "2325038e8c68157f5c730693ffbb8535f0b45540",
+  "scope": "Actual editable import, dependency metadata and focused synthetic source guards; no new molecular dataset, search, build, install, remote CI or public/platform qualification",
+  "native_sha256": "5715bda28be19820e96c2b81e4734bf75e1a9f05dd660d9c7e2817bc6bcd79d3",
+  "native_bytes": 101190496,
+  "test_summaries": {
+    "provider": {
+      "tests": 115,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "junit_sha256": "5ef15ab5484bbe34773fe2caacdaf77f29013eb92915946f3d0720b2c653c374"
+    },
+    "consumer": {
+      "tests": 383,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "junit_sha256": "b8ba52d2f6baa44ba7115b31a2330574ee7e7f321e455eee3e42e3273fd0a271"
+    }
+  },
+  "files": [
+    {
+      "path": "registration.json.gz",
+      "bytes": 1595,
+      "sha256": "52faf0383a33bac24889305fb243c47098cecc6a6b12f8bd0411249a113c81df",
+      "decoded_bytes": 3616,
+      "decoded_sha256": "acfd773ce352116dae12a4418312235bdee56b3b697ad9dcd5f48bc2f53c8238"
+    },
+    {
+      "path": "checks.json.gz",
+      "bytes": 1532,
+      "sha256": "2dbfbd39a73c076dd9208aae547bb598d33da3d0f00d440ece4ae3bebccf4bcf",
+      "decoded_bytes": 6560,
+      "decoded_sha256": "d59047ff5036497196423b9f162beb7fa2b50d9e8536a1941464fa18f2568243"
+    },
+    {
+      "path": "receipt.json.gz",
+      "bytes": 2825,
+      "sha256": "230e749b3bcaae584e9987c1fb73453c435c6151a02b4b7cc75b1409fce10c60",
+      "decoded_bytes": 10928,
+      "decoded_sha256": "a6c95ebf4b0f5c0092d2261ef49edbdcb58bbcdee336cb92cb6b265f3f075024"
+    },
+    {
+      "path": "editable-import.log.gz",
+      "bytes": 267,
+      "sha256": "b1a37998382eeda7387c09a5bf0be3f88f84596c0258249114731f1fade6f3ad",
+      "decoded_bytes": 540,
+      "decoded_sha256": "af8b71e44fc492c8b96a72a47e4ea59fb9457e85b6a4c058ae677a6794ea9643"
+    },
+    {
+      "path": "pip-check.log.gz",
+      "bytes": 225,
+      "sha256": "73199ab5d52edc95bf135d7a28c073fdbe00c4bf9c56bfc59c0b5b0dc5d6b336",
+      "decoded_bytes": 306,
+      "decoded_sha256": "0f444e4131cda92a8900c1f6ef8164b0f7213ac95bfd5452fab02eb5ccd8b7ef"
+    },
+    {
+      "path": "provider.log.gz",
+      "bytes": 52,
+      "sha256": "bbda3df567b449d02b665b90e3f1b185879111bc82b5e5225882e315e58de227",
+      "decoded_bytes": 35,
+      "decoded_sha256": "f2dabcd5ad50389e380f75b0166049b71f6c959c5c582fdee2074535579823e4"
+    },
+    {
+      "path": "consumer.log.gz",
+      "bytes": 52,
+      "sha256": "91db56f51d12bc709428f6421c1207c8e707f7ec0f2fd556fae60ad299edb304",
+      "decoded_bytes": 34,
+      "decoded_sha256": "fcbf3cb03770bfe97297dd745e1204cea44f2cdab6a85adac5d26b28aa952ecd"
+    },
+    {
+      "path": "provider-junit.xml.gz",
+      "bytes": 1345,
+      "sha256": "132d4036405803aabc24ad14749d8cb7637c19577da41bc32d6dbd1cba39a82e",
+      "decoded_bytes": 20984,
+      "decoded_sha256": "5ef15ab5484bbe34773fe2caacdaf77f29013eb92915946f3d0720b2c653c374"
+    },
+    {
+      "path": "consumer-junit.xml.gz",
+      "bytes": 3601,
+      "sha256": "10d95348de158f25ea0f7d6cb6981c7b2a8408c4dffe8f96b6346e2ba0c0c7ee",
+      "decoded_bytes": 54557,
+      "decoded_sha256": "b8ba52d2f6baa44ba7115b31a2330574ee7e7f321e455eee3e42e3273fd0a271"
+    },
+    {
+      "path": "frozen-verify_installation.py.txt.gz",
+      "bytes": 2998,
+      "sha256": "57db1e6f0bb3cca0f5dbe0a3149da7525126ded3ec4d6ee36edf27dc86ced298",
+      "decoded_bytes": 7149,
+      "decoded_sha256": "bc574d7f517973b710f208d01e0925ff9fedc8cde67a6c9bc195cc6555176502"
+    },
+    {
+      "path": "frozen-resource-guard.py.txt.gz",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    }
+  ]
+}

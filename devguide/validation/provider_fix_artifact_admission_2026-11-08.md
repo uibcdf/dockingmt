@@ -4,7 +4,48 @@ Owners: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md
 [#49](../pending_proposals/retire_general_molecular_operations.md) and
 [#80](../pending_proposals/receive_docking_interaction_analysis.md).
 Starting source: `acce58e3dc0ff17673f091b42765fb65257b8977`.
-Status: **source/registry inspection completed; compatible artifact unreceived**.
+Status: **focused rebuilt-editable receiving passes; original whole workflows and public artifact qualification remain unreceived**.
+
+## Rebuilt editable provider receiving — 2026-11-08
+
+After the maintainer reported completing the editable reinstall, the routine
+environment actually imports MolSysMT `0.23.0+687.g2325038e8` from clean
+`../molsysmt` at `2325038e8c68157f5c730693ffbb8535f0b45540`, and DockingMT from
+this editable checkout. The loaded `_rust.abi3.so` is 101,190,496 bytes, SHA-256
+`5715bda28be19820e96c2b81e4734bf75e1a9f05dd660d9c7e2817bc6bcd79d3`;
+it differs from the earlier unchanged binary. Imports retain the application's
+pm/fs/coulomb policy. `python -m pip check` passes. This records observed runtime
+identities after the maintainer's build, not an independently audited build log
+or a public package qualification.
+
+The focused MolSysMT selection passes **115 cases**, zero failures/errors/skips:
+complete evidence-catalog persistence across four routes, invalid formal-charge
+diagnostics/nonmutation, explicit indexed-H normalization with typed history,
+component-type comparison flags, direct rotated-cell native kernels and changing-
+cell unwrap. The original provider guards include normal/nondefault unit
+profiles. Eight existing DockingMT modules pass **383 cases once**, zero
+failures/errors/skips, for result/pose/protocol/box/schema/argument boundaries.
+No assertion, selected guard or source module is modified. The
+[11-member archive](data/editable_provider_receiving_2026-11-08/manifest.json)
+retains exact selections/input hashes, producer and guard sources, actual import
+origins, dependency output, raw JUnit, receptor logs and terminal resource outcomes.
+
+All four checks run serially on CPU 0/nice 10/one worker with native/build workers
+limited to one, a monitored 13 GiB available reserve, 1 GiB group RSS, 2 GiB
+address space and CPU 45 s/wall 60 s per group. Import: 2.657 s/124,518,400 bytes;
+dependency check: 1.536 s/43,196,416 bytes; provider guards: 16.677 s/225,312,768
+bytes; consumer guards: 6.548 s/129,110,016 bytes sampled peak group RSS. Minimum
+available RAM across them is 56,385,351,680 bytes. Every owned group is terminal;
+no resource interruption occurs. The maintainer's compilation resources were
+not measured by these subsequent checks. No new build, install, molecular dataset,
+search or remote CI is launched here; keep the task under #50/review 2026-11-14.
+
+The refreshed development composition can now receive the original complete
+#33/#49/#79/#80 workflows. Preserve their historical failures until each complete
+selection succeeds; these synthetic regressions are not independent scientific
+cases or a replacement for those workflows. #604 clustering, #558 maps/history,
+actual canvas and full public/minor/platform acceptance remain separate. No
+separate owner-built artifact is required to continue routine development.
 
 ## Maintainer-directed editable development route — 2026-11-08
 

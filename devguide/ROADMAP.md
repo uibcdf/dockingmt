@@ -5,13 +5,22 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+The maintainer's subsequent editable reinstall is now received: real imports and
+`pip check` pass on `2325038e8` with new native SHA-256 `5715bda2`; 115 focused
+provider guards and 383 consumer source cases pass without omissions. The former
+native mismatch is historical. [Exact evidence and limits](validation/provider_fix_artifact_admission_2026-11-08.md#rebuilt-editable-provider-receiving--2026-11-08)
+retain original workflow failures separately. Next resume the original complete
+client selections on this development composition, without waiting for a package.
+
 The maintainer reaffirmed the editable development route: clean `../molsysmt`
 has been fast-forwarded by 174 commits to `2325038e8`; the routine Python 3.14.10
 environment already resolves its existing editable installation to that checkout.
 Continue from these development sources rather than waiting for a distributed
 package. The unchanged native extension predates changed Rust inputs; inspect
 affected calls and the required bounded local rebuild before runtime acceptance.
-The earlier interrupted build is not automatically restarted. See the
+That was the initial pull observation; the subsequent reinstall and receiving
+above now supersede that native hold. The earlier interrupted build is preserved.
+See the
 [current handoff](MACHINE_HANDOFF.md#maintainer-directed-editable-provider-refresh--2026-11-08)
 and [provider review correction](validation/provider_fix_artifact_admission_2026-11-08.md#maintainer-directed-editable-development-route--2026-11-08).
 Historical artifact-first next steps below retain their original inspection

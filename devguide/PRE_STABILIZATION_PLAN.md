@@ -5,13 +5,23 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+The maintainer's subsequent editable reinstall has passed actual import/origin
+and caller-policy checks, `pip check`, 115 selected provider regressions and 383
+consumer source cases, zero failures/errors/skips. The new native SHA-256 is
+`5715bda28be19820e96c2b81e4734bf75e1a9f05dd660d9c7e2817bc6bcd79d3`.
+[The receiving record](validation/provider_fix_artifact_admission_2026-11-08.md#rebuilt-editable-provider-receiving--2026-11-08)
+supersedes the earlier unrebuilt-native hold for this routine composition.
+Original whole workflow/scientific/installed/public/canvas gates are not cleared
+by these focused source controls. Resume their complete separate selections on
+the refreshed editable checkout; no external artifact wait is required.
+
 Current routine route, reaffirmed by the maintainer on 2026-11-08: work with the
 editable sibling checkouts. `../molsysmt` is now clean at
 `2325038e8c68157f5c730693ffbb8535f0b45540` after a 174-commit fast-forward;
 the existing Python 3.14.10 editable installation resolves to it. Package
-publication is not a prerequisite for continuing development. Its pre-existing
-native extension has not been rebuilt despite changed Rust inputs, so inspect
-affected calls and determine the bounded local rebuild before runtime admission.
+publication is not a prerequisite for continuing development. At the initial
+pull, its pre-existing native extension had not incorporated changed Rust inputs;
+the subsequent reinstall and focused receiving above supersede that initial hold.
 [The current handoff](MACHINE_HANDOFF.md#maintainer-directed-editable-provider-refresh--2026-11-08)
 and [provider correction](validation/provider_fix_artifact_admission_2026-11-08.md#maintainer-directed-editable-development-route--2026-11-08)
 supersede historical artifact-first resumption instructions below. This source

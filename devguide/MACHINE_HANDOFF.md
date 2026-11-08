@@ -25,6 +25,21 @@ resuming; earlier dated "next" statements below retain their historical scope.
 
 ### Maintainer-directed editable provider refresh — 2026-11-08
 
+**Reinstallation received:** after the maintainer's editable reinstall, actual
+imports select the refreshed provider and new native SHA-256 `5715bda2` (full
+identity in the [receiving record](validation/provider_fix_artifact_admission_2026-11-08.md#rebuilt-editable-provider-receiving--2026-11-08)).
+`pip check` passes; 115 focused provider guards and 383 DockingMT source cases
+pass without failures/errors/skips. These cover the four corrections and changed
+native wrapping/unwrap paths; provider controls include nondefault unit policies.
+The 383 consumer cases run once in this increment. Peak sampled group RSS is
+225,312,768 bytes, all groups terminal, no resource interruption. The earlier
+native mismatch below is now historical. Next register the original complete
+client selections against this exact editable composition; no package wait or
+automatic repetition of the old interrupted construction is needed. Full
+scientific/installed/public/canvas acceptance remains unproven.
+
+Initial pull observation, preserved separately from the subsequent reinstall:
+
 The maintainer confirmed that routine work uses the participating development
 checkouts. Waiting for a published or owner-built package is not a prerequisite
 for this route. `git pull --ff-only origin main` updated clean `../molsysmt`
