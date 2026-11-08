@@ -5,6 +5,15 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Shared correction artifact admission](validation/provider_fix_artifact_admission_2026-11-08.md)
+verifies that provider source ad67e0e contains #642/#644/#646 and shares #642's
+complete Rust tree and source-declared build sections. One compatible artifact
+could serve their separate receiving protocols. All 107 advertised Conda file
+identities remain unchanged; no covering artifact/prefix is received. Request
+the owner's complete artifact or supported matching-native composition; retain
+the old-native mismatch and #642 build hold, without module transplant/backport
+or automatic construction restart. Zero scientific/native-build/install calls.
+
 [Protein reference receiving](validation/scientific_panel_receptor_models_2026-11-08.md)
 now records explicit states/termini for both original panel cases, with three
 failed whole six-chain selections and all unattempted members preserved. A

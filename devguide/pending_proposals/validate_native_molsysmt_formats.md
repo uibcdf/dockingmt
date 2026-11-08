@@ -14,6 +14,18 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Published corrections and shared artifact boundary — 2026-11-08
+
+[The bounded admission review](../validation/provider_fix_artifact_admission_2026-11-08.md)
+verifies source ad67e0e contains the resolved #644/#646 corrections and #642.
+One whole compatible provider artifact could serve their separate receiving
+protocols. Source-declared native inputs match #642 but differ from the old
+qualified binary; no artifact/installation/scientific receiving is accepted.
+The advertised 107 Conda file identities remain unchanged. Obtain the owner's
+whole artifact or supported matching-native composition, refresh current routine
+composition and then preregister the unchanged complete reference selection.
+No downstream module transplant/backport or restart of held native construction.
+
 ## Protein-reference models and comparison receiving — 2026-11-08
 
 [The declared receptor-model checkpoint](../validation/scientific_panel_receptor_models_2026-11-08.md)

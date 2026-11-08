@@ -14,6 +14,16 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## Canonical corrections retain a whole-artifact boundary — 2026-11-08
+
+[Source/registry inspection](../validation/provider_fix_artifact_admission_2026-11-08.md)
+verifies the owner-published #644/#646 source and a common target covering #642.
+It does not import selected fixed modules into the old provider or manufacture
+a legacy-native composition. Request the owner's whole compatible artifact or
+explicitly supported matching-native route before client receiving. Complete
+Rust/build-source equality with #642 is recorded separately from the missing
+binary/build provenance. Full scientific/public and all original scopes remain.
+
 ## Provider-owned protein references and comparison boundary — 2026-11-08
 
 [The coordinate-free reference selection](../validation/scientific_panel_receptor_models_2026-11-08.md)

@@ -4,6 +4,13 @@ Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
+[The source/artifact admission review](validation/provider_fix_artifact_admission_2026-11-08.md)
+now independently verifies published #644/#646 source fixes and one ad67e0e
+target containing #642 as well. Its complete Rust/build-source inputs match
+#642, while the old qualified native is different. The 107 advertised Conda
+identities are unchanged; a whole covering artifact and client receiving remain
+missing. First obtain that exact artifact/supported composition, then register
+the original separate selections. No build restart or source/runtime pin change.
 [Protein-reference receiving](validation/scientific_panel_receptor_models_2026-11-08.md)
 now declares both original cases' states/termini, while all three whole selections
 remain FAIL and the remaining chains/full pm-fs profiles unattempted. The owner's

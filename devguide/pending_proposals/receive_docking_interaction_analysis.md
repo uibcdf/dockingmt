@@ -14,15 +14,20 @@ supersedes: []
 
 # Structured interaction analysis for docking poses
 
-## Current resumption route — 2026-11-07
+## Current resumption route — 2026-11-08
 
 The E5 follow-up named in the dated audit below is now
 [resolved for the representative workflow](../archive/qualify_independent_installed_reproduction.md).
 Its archived record remains the stable route. #80 stays partial for the original
 #642 exact-artifact receiving and real canvas criteria; no interaction/source/
 producer evidence changes here. Resume the full objective through the
-[current handoff](../MACHINE_HANDOFF.md#ligand-model-and-failed-receiving-checkpoint--2026-11-07),
-including #644 and #558 scientific-panel prerequisites. The dated E5 next action
+[current handoff](../MACHINE_HANDOFF.md#shared-provider-correction-artifact-checkpoint--2026-11-08).
+The [source/artifact inspection](../validation/provider_fix_artifact_admission_2026-11-08.md)
+verifies one provider target containing #642/#644/#646 with matching declared
+native inputs across those correction contexts, but no compatible artifact is
+received. The old native differs; construction stays held pending the owner's
+whole artifact or supported composition. #558 and scientific-panel environment
+prerequisites remain separate. The dated E5 next action
 below remains historical and must not trigger another completed campaign.
 
 ## Acceptance audit and provider-fix construction hold — 2026-11-07

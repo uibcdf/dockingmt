@@ -23,6 +23,48 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Shared provider correction artifact checkpoint — 2026-11-08
+
+[The actual source/registry inspection](validation/provider_fix_artifact_admission_2026-11-08.md)
+verifies that published #646 source ad67e0e contains #644 source 64f8c955 and
+#642 source 4d8af6c. All three retain Rust tree fb25b2eac60b6e706c712e788119b3dad94329fe
+and identical source-declared build-system/setuptools-rust/distutils sections.
+Old native 9e/Python faab has a different complete Rust tree 32cfb07b; do not borrow
+that binary for the full target. No compiler/binary/profile equivalence is inferred.
+
+The fresh Conda metadata observation returns 107 files/183,573 bytes, with every
+basename/version/SHA-256/size/upload-time tuple unchanged from the prior inventory.
+Summary latest_version is stale; no newly advertised file or covering artifact
+is received. No scientific import, native build, package install, module overlay,
+source backport or remote CI occurs. Source fixes remain resolved; the separate
+installed-client workflows remain unreceived, with all old failures preserved.
+
+Next obtain an owner-built complete artifact for ad67e0e, or an explicitly
+supported matching-native composition. A qualified #642-native artifact may be
+considered only with exact identity/provenance because the source-declared
+native inputs match. Refresh actual routine composition, admit the whole
+candidate, then preregister the original complete #33/#49/#80 selections.
+Do not restart held #642 compilation. #558/#645/#604, environment/canvas and
+complete scientific/public/minor acceptance remain open independently.
+
+Retain `.molsyssuite/provider-fix-artifacts-20261108` and its approximately 464 MiB
+bare object store, which shares preserved provider objects, under #50/review
+2026-11-14. One CPU 0/nice 10/worker 1, monitored 13 GiB reserve; 11.183 s/630,546,432
+sampled group-RSS bytes, no interruption and terminal group. Actual memory is
+larger than the initial 256 MiB estimate but below the 1 GiB cap. No package payload
+or scientific dependency closure is received by metadata/source inspection.
+
+The source/registry record is sealed as 19 members in the linked report,
+manifest SHA-256 `e3df5faaff6336e5b43f756c70ac0b2f8cbb92b7fac49afcfa6e0b1613dadc16`.
+Independent stdlib reading passes in 0.103 s; its 17-member publication companion
+has manifest SHA-256
+`9e08153e3f69a417ddbeed2bd12d54273ca8ff2feabff2d5f269a4a845561f02`.
+Publication checks authenticate these records and final documentation; actual
+committed-export checks cover resources/indexes/publication separately. Current
+routine metadata is only observed, not globally frozen or scientifically received.
+No runtime/helper/input change calls for a molecular rerun; exact-head hosted
+evidence remains missing under #28 and the authorized `[skip ci]` route.
+
 ### Protein reference/comparison checkpoint — 2026-11-08
 
 [The full record](validation/scientific_panel_receptor_models_2026-11-08.md)
@@ -53,7 +95,7 @@ construction and actual canvas, and scientific/public/minor gates remain separat
 All six molecular/diagnostic groups are terminal with no resource interruption:
 scientific reference attempts14.951/15.697/16.587s, maximum sampled group RSS
 214,679,552 bytes; completed persistence/minimal diagnostics15.260/5.009s.
-CPU0/nice10/worker1, monitored13GiB reserve; zero native search or admitted case.
+CPU 0/nice 10/worker 1, monitored 13 GiB reserve; zero native search or admitted case.
 Retain task `.molsyssuite/panel-receptor-models-20261108` under #50/review2026-11-14.
 After its final successful diagnostic, routine metadata gains giflib/openjdk/libxt
 records; no old record changes/removals or private payload changes. The first
@@ -111,7 +153,7 @@ The prospective plan remains complete Core/Extended, scientific/public delivery
 and later stabilization; #73 is active and unproven.
 
 Resource outcomes: first 2.453 s / 63,275,008 sampled group-RSS bytes; corrected
-16.907 s / 214,106,112 bytes. Both CPU0/nice10/worker1, monitored 13 GiB available
+16.907 s / 214,106,112 bytes. Both CPU 0/nice 10/worker 1, monitored 13 GiB available
 reserve, no resource interruption and terminal owned groups. The bounded Slurm
 query times out without an allocation/job; this finite low-memory receiving uses
 the direct conservative route. Preserved task `.molsyssuite/e3-reference-20261108`
