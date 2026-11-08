@@ -8,7 +8,7 @@ verification: inspected
 area: [analysis, scientific-validation, provenance]
 guard:
 normative: devguide/MVP.md
-blocked_by: [uibcdf/molsysmt#604]
+blocked_by: [uibcdf/molsysmt#604, uibcdf/molsysmt#645]
 supersedes: []
 ---
 
@@ -67,6 +67,23 @@ composition and representative execution are unimplemented/unqualified; E3 is
 not accepted. This request does not expand MolSysMT's frozen initial 1.0 gates
 or require a new docking campaign, generic scheduler or visualization engine.
 
+## Experimental-reference receiving checkpoint — 2026-11-08
+
+The [separately registered reference selection](../validation/e3_experimental_reference_2026-11-08.md)
+reaches public SDF interpretation and fixed-state H generation, preserving the
+experimental heavy coordinates within the original 1e-12 angstrom tolerance.
+Full39 correspondence reports two candidates but zero retained maps: the indexed
+H's stored implicit-H permission differs between the two public producers.
+Both saved axes retain R at atom7; this does not waive the strict policy check.
+The whole normal selection stays FAIL; pm/fs and rigid25/persistence are unreached.
+An earlier task Git-audit failure remains separately failed with zero molecules.
+
+[MolSysMT #645](https://github.com/uibcdf/molsysmt/issues/645) now owns the explicit
+H-policy normalization/composition question. First receive the provider's
+supported route and register a complete fresh reference selection. No local
+normalizer, guessed map, graph relaxation or repeated native search is added.
+#604 still owns matrix/clustering; every original E3 criterion above remains.
+
 ## Provider and population admission checkpoint — 2026-11-07
 
 The [fresh source/record inspection](../validation/e3_provider_admission_2026-11-07.md)
@@ -85,8 +102,10 @@ not resolved or reduced to RMSD alone. Preserve every original criterion above;
 no local algorithm, scientific import, RMSD, search, installation, sibling
 checkout or pin change occurs.
 
-The next E3 calculation needs #604's supported route and separately registered
-reference/state/H/correspondence admission. Meanwhile,
+The next E3 calculation needs the applicable supported provider route: #645 for
+reference/H-policy normalization, #604 for pairwise/clustering, with a separately
+registered whole selection. The original static admission below remains
+historical; the new failed reference attempt does not make E3 accepted. Meanwhile,
 [E4's independent saved-analysis admission](../validation/e4_saved_analysis_admission_2026-11-07.md)
 can be prepared without hidden recalculation; its local/visual holds remain.
 

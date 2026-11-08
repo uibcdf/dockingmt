@@ -23,6 +23,53 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### E3 reference and stored-H policy checkpoint — 2026-11-08
+
+[The actual reference selection](validation/e3_experimental_reference_2026-11-08.md)
+advances #79's experimental-reference prerequisite using the unchanged faab
+private whole provider and consumer 2ef82d2. It does not implement or accept E3.
+The original normal attempt stops in SDK binding because the task allowlist
+expects system Git while Conda Git is selected; all molecular counters are zero.
+A separately registered corrected whole selection reaches both native SDF
+interpretations, one fixed-state operation appending fifteen H, and the first
+full39 witness.
+Two candidate matches produce zero retained maps. Public snapshots show the
+same stored R at atom7 and matching heavy atom fields, but different
+allows_implicit_hydrogens on all fifteen indexed H. No relaxed graph/map follows.
+
+Both whole selections remain FAIL; both pm/fs profiles are unattempted. Charges,
+types, preparations, rigid25, H5, numerical RMSD/clustering and final live checks
+are unreached. Administrative file-custody checks separately preserve exact
+provider/consumer/Viewer payloads, original inputs and routine metadata. Original
+P59 poses/scores/producers and every original E3 control stay intact.
+
+MolSysMT [#645](https://github.com/uibcdf/molsysmt/issues/645) owns a supported
+explicit stored-H normalization/composition, including history, inventory and
+state/coordinate guarantees. Next receive that contract and preregister a fresh
+whole reference selection; #604 remains the separate pairwise/clustering hold.
+No local H-policy normalizer, matcher, native build/search or remote CI is added.
+The prospective plan remains complete Core/Extended, scientific/public delivery
+and later stabilization; #73 is active and unproven.
+
+Resource outcomes: first 2.453 s / 63,275,008 sampled group-RSS bytes; corrected
+16.907 s / 214,106,112 bytes. Both CPU0/nice10/worker1, monitored 13 GiB available
+reserve, no resource interruption and terminal owned groups. The bounded Slurm
+query times out without an allocation/job; this finite low-memory receiving uses
+the direct conservative route. Preserved task `.molsyssuite/e3-reference-20261108`
+is terminal for molecular work; do not continue/retry either frozen selection.
+The primary [59-member evidence](validation/data/e3_experimental_reference_2026-11-08/manifest.json)
+has root SHA-256 000117998b96f611fb001df6f7f01da5fb7643507fcb286fb6582e2d749cf3d2;
+the [companion evidence](validation/data/e3_experimental_reference_reader_2026-11-08/manifest.json)
+retains the independent stdlib reader and publication producers. Reader outcome
+PASS means all original/decoded bytes and failed/unattempted classifications
+verify, with zero molecular work; it does not accept the reference. Local gates
+cover indexes, Ruff lint/format, shared resources/publication, dependency routes,
+whitespace, exact evidence/custody and maintained relative links. The actual
+committed-export resource/index/publication receipt is cross-linked from #79
+after publication. Runtime/helpers/scientific inputs are unchanged, so no new
+pytest or stochastic campaign is required by this evidence increment. Hosted
+exact-head evidence stays missing under #28/skip-ci; no skipped gate becomes PASS.
+
 ### Workflow-guide navigation correction — 2026-11-07
 
 The root [starting routes](../README.md#start-here) and

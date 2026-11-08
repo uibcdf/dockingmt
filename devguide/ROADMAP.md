@@ -5,6 +5,16 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[E3 experimental-reference receiving](validation/e3_experimental_reference_2026-11-08.md)
+now reaches native SDF interpretation and fixed-state H generation. Complete39
+graph correspondence returns two candidates and zero retained maps; the public
+producers differ in the indexed H's stored implicit-H permission. The whole
+normal selection remains FAIL; pm/fs, rigid25 and persistence stay unreached.
+MolSysMT #645 owns the explicit normalization/composition question; receive that
+contract before a fresh complete reference selection. #604's clustering hold
+and every original E3 criterion remain. No runtime/helper changes or searches.
+All failed attempts and partial returns are retained; no local chemistry repair.
+
 [Workflow-guide routing](MACHINE_HANDOFF.md#workflow-guide-navigation-correction--2026-11-07)
 now exposes received rigid E1, prepared E2 and representative E5 without stale
 whole-workflow pending claims or the broken #80-to-#83 archive link. These are

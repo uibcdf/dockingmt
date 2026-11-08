@@ -7,6 +7,13 @@ Classification: **static source and saved-record inspection; E3 is blocked on
 the supported provider composition, not accepted**. This is not a registration
 for molecular calculations or permission to change a provider pin.
 
+Subsequent [experimental-reference receiving](e3_experimental_reference_2026-11-08.md)
+is separately registered and executed: full39 correspondence returns no map
+because the public producers retain different indexed-H implicit-permission
+policies. That whole selection remains FAIL; MolSysMT #645 owns normalization.
+The static inspection below and original producers remain unchanged; #604,
+common-frame, rigid25 and complete E3 acceptance stay open.
+
 ## Inspected state and preserved sources
 
 The bounded canonical `suite_status.py` refresh inspects DockingMT and MolSysMT.

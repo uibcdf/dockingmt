@@ -1,0 +1,145 @@
+{
+  "schema": "dockingmt.e3_reference_reader_evidence@1",
+  "owner": "uibcdf/dockingmt#79",
+  "source_commit": "dc060579b097643546cf38655aa262c596f4b68c",
+  "primary_manifest_sha256": "000117998b96f611fb001df6f7f01da5fb7643507fcb286fb6582e2d749cf3d2",
+  "scope": "Independent stdlib record reading and actual publication producers; no molecular receiving or reference acceptance",
+  "files": [
+    {
+      "original_path": "seal-01/frozen-controller.py",
+      "path": "000-frozen-controller.py.gz",
+      "bytes": 1936,
+      "sha256": "16bb1376c008e677b39c777ed5e875a162c85a2462abf469490893a9ce308193",
+      "decoded_bytes": 4020,
+      "decoded_sha256": "0b440d4d76d5c6a74ff132f90c41a7b9500536d31edd6cb55093b8cbbb4f194e"
+    },
+    {
+      "original_path": "seal-01/frozen-resource-guard.py",
+      "path": "001-frozen-resource-guard.py.gz",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "original_path": "seal-01/frozen-worker.py",
+      "path": "002-frozen-worker.py.gz",
+      "bytes": 2507,
+      "sha256": "f79e115b88ff235639b7d0695f5fccf65dd6fb7a230900f87f1e1f520be8c9f7",
+      "decoded_bytes": 6540,
+      "decoded_sha256": "24adaca9bf7f47ebc84b177fae2bf9ff85ff1cbccf05dbd754dd7bcacf5ed163"
+    },
+    {
+      "original_path": "seal-01/receipt.json",
+      "path": "003-receipt.json.gz",
+      "bytes": 244,
+      "sha256": "f9cb096849ffe67dc0a911e9164982adaa7f97d9d84cffe126875163144b7898",
+      "decoded_bytes": 332,
+      "decoded_sha256": "14b3de06eef37e5c1d6f7a1b9082fcfb6985c6b98f9ca5ae267e4d870baf922d"
+    },
+    {
+      "original_path": "seal-01/registration.json",
+      "path": "004-registration.json.gz",
+      "bytes": 456,
+      "sha256": "9664e4cc56df429bf18978c4188a9126192b021a53b5442eb04d75764dcd69ec",
+      "decoded_bytes": 743,
+      "decoded_sha256": "18120d06d623dffa23d896b745a2788abb5797da957cf6c1c77144a0fcff1951"
+    },
+    {
+      "original_path": "seal-01/resource-outcome.json",
+      "path": "005-resource-outcome.json.gz",
+      "bytes": 332,
+      "sha256": "cd593d0e1eb8bc70495e825b0992d7444ff716ff6a6cbdc1aff3156f307c5cc4",
+      "decoded_bytes": 574,
+      "decoded_sha256": "03eb91d5d454115dde085f8a1fc4da917ba15d8c7816d857a4ca1a009e2c23b5"
+    },
+    {
+      "original_path": "seal-01/stderr.log",
+      "path": "006-stderr.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "seal-01/stdout.log",
+      "path": "007-stdout.log.gz",
+      "bytes": 239,
+      "sha256": "4cb7a2c55bd33f6883d64633e1f1c24950c9d11ac9948ac20f5ae11a042328b5",
+      "decoded_bytes": 312,
+      "decoded_sha256": "ff4c22fda981ab7904c29c8164127e4afdf793701db089ba6e6d901fda4eced7"
+    },
+    {
+      "original_path": "reader-01/frozen-controller.py",
+      "path": "008-frozen-controller.py.gz",
+      "bytes": 1936,
+      "sha256": "16bb1376c008e677b39c777ed5e875a162c85a2462abf469490893a9ce308193",
+      "decoded_bytes": 4020,
+      "decoded_sha256": "0b440d4d76d5c6a74ff132f90c41a7b9500536d31edd6cb55093b8cbbb4f194e"
+    },
+    {
+      "original_path": "reader-01/frozen-resource-guard.py",
+      "path": "009-frozen-resource-guard.py.gz",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "original_path": "reader-01/frozen-worker.py",
+      "path": "010-frozen-worker.py.gz",
+      "bytes": 1813,
+      "sha256": "1765f098a0aa3371da60b08d1f19956e211e6d38a1d72ba40a4b9e867985a9c6",
+      "decoded_bytes": 4660,
+      "decoded_sha256": "808cac560bbb7e86cba4ba866af438594d7002c86a7e4ca0eeb2196e6181eec3"
+    },
+    {
+      "original_path": "reader-01/receipt.json",
+      "path": "011-receipt.json.gz",
+      "bytes": 355,
+      "sha256": "05426b8f7756fafe3b9e6d4e6bd9a9d8ce22dd3ba6a07594dc9ce8447b14dd57",
+      "decoded_bytes": 583,
+      "decoded_sha256": "87715c0a0f7272ea72bd16c30a77bf7f64833192c2baf8afb4644f037cfbfa84"
+    },
+    {
+      "original_path": "reader-01/registration.json",
+      "path": "012-registration.json.gz",
+      "bytes": 457,
+      "sha256": "de5c668606638ce089c5f51915a5c5f4b130eaa8015de2ac5dcd2aea733afb66",
+      "decoded_bytes": 745,
+      "decoded_sha256": "41183e867dbbadc98161fd5ef502fce67dc722653f0124c15bda4d912fd41631"
+    },
+    {
+      "original_path": "reader-01/resource-outcome.json",
+      "path": "013-resource-outcome.json.gz",
+      "bytes": 330,
+      "sha256": "335f10f5eca52c1468f330fe695c2d49b10ec60e3f1897d879b75534d0f9b1c7",
+      "decoded_bytes": 573,
+      "decoded_sha256": "80bd544ba0c3cbe5d62f57a62426743d4f77ae60d444ca927fc6f6a629b794f6"
+    },
+    {
+      "original_path": "reader-01/stderr.log",
+      "path": "014-stderr.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "reader-01/stdout.log",
+      "path": "015-stdout.log.gz",
+      "bytes": 349,
+      "sha256": "d675cfee7b483d9fea8ca9fd0c385f249d97e4a0ec251276c2a133a251d7f4a2",
+      "decoded_bytes": 551,
+      "decoded_sha256": "c5b96756a03da6c7cd8ae769b109d6c7c4ca28419a55625e6243a64ee8afa653"
+    },
+    {
+      "original_path": "reader-seal-01/frozen-worker.py",
+      "path": "016-frozen-worker.py.gz",
+      "bytes": 930,
+      "sha256": "7577de5c7beee60dc300c9394fa92eb8a492a486a3e97da18c5e82ca3e8f113a",
+      "decoded_bytes": 1877,
+      "decoded_sha256": "84168b0c4b6b11200e92f9f22a8a6b6138cef909f56b0e8090a8c096a4aeb627"
+    }
+  ]
+}
