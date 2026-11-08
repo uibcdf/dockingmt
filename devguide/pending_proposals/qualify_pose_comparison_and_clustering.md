@@ -8,11 +8,36 @@ verification: inspected
 area: [analysis, scientific-validation, provenance]
 guard:
 normative: devguide/MVP.md
-blocked_by: [uibcdf/molsysmt#604]
+blocked_by: [uibcdf/molsysmt#604, uibcdf/molsysmt#256]
 supersedes: []
 ---
 
 # Provider-backed pose comparison and clustering
+
+## Editable H-policy/reference receiving; persistence hold — 2026-11-08
+
+The [explicit #645 receiving selection](../validation/e3_indexed_h_policy_receiving_2026-11-08.md)
+now reaches two strict full39 maps after the supported two policy operations on
+editable MolSysMT `2325038e8` and rebuilt native SHA-256 `5715bda2`. Its normal
+selection remains FAIL at the historical PDBQT checksum. [DockingMT #88](../pending_bugs/e3_source_replay_artifact_identity.md)
+corrects that criterion prospectively with an independent same-current-producer
+unnormalized preparation, retaining the distinct authenticated historical input.
+
+The [new paired-control selection](../validation/e3_source_control_receiving_2026-11-08.md)
+passes complete source/control byte equality and two strict prepared25 maps,
+stereo and H/rigid controls. It then fails at the third H5 write: H5MSM 0.5
+explicitly rejects nonempty mechanics. Two reads and final live checks remain
+unreached; pm/fs is unattempted. Both whole scientific selections stay FAIL,
+plus one preserved zero-call setup failure. The 156-member primary/nine-member
+reader evidence is record qualification, not complete E3 acceptance.
+
+Ask [MolSysMT #256](https://github.com/uibcdf/molsysmt/issues/256) for an existing
+supported lossless composition, or retain that documented persistence hold.
+Do not remove mechanics or use private legacy adapters. This request does not
+expand the provider's 1.0 scope. #604 still owns N×N/clustering; common receptor
+frame, all original criteria and complete normal/pm-fs receiving remain required.
+Use the current editable cohort; no external package wait or rebuild is inferred.
+The following earlier artifact-first instructions retain their historical scope.
 
 ## Indexed-H policy source delivered, client receiving pending — 2026-11-08
 

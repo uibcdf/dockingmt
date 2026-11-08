@@ -6,6 +6,14 @@ Owners: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md
 Starting source: `acce58e3dc0ff17673f091b42765fb65257b8977`.
 Status: **editable composition and original catalog/protein/ligand receiving pass within their declared profiles; E3 and installed/public qualification remain separate**.
 
+The subsequent [E3 H-policy/current-control selection](e3_source_control_receiving_2026-11-08.md)
+reaches strict full39/prepared25 maps and exact current source/control bytes on
+this editable cohort. Whole normal receiving remains FAIL at the documented
+H5MSM 0.5 mechanics boundary; pm/fs and final live checks are unreached.
+MolSysMT #256 owns lossless storage and #604 comparison/clustering. Earlier
+historical PDBQT replay failure remains separately failed under DockingMT #88.
+This is not an installation/native-rebuild hold or public-package wait.
+
 Current client receiving — 2026-11-08: [the complete original catalog selection](e4_evidence_catalog_editable_2026-11-08.md)
 passes normal/pm-fs, and [the original protein/ligand selections](panel_references_editable_2026-11-08.md)
 pass all four complete development cells. Historical artifact-only acquisition

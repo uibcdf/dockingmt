@@ -24,6 +24,43 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### E3 H-policy and current-source control; storage hold — 2026-11-08
+
+The [latest registered E3 receiving](validation/e3_source_control_receiving_2026-11-08.md)
+uses consumer `dfff57a`, editable MolSysMT `2325038e8` and native SHA-256
+`5715bda2`. The first normal selection passes both public H-policy operations
+and two strict full39 maps, then fails its historical full-PDBQT checksum gate.
+#88 prospectively replaces that invalid cross-producer replay criterion with an
+independent unnormalized source preparation using the same current producer and
+policy. Treatment/control bytes match exactly; the old authenticated artifact
+remains different. Original saved engine inputs, poses and producers are intact.
+
+The new normal selection also passes two strict prepared25 maps, R at atom 7,
+H/heavy-coordinate and rigid/H-inventory controls. It then fails the third native
+write because H5MSM 0.5 explicitly rejects nonempty mechanics. Both native reads,
+final live nonmutation/support/caller checks and final custody are unreached;
+pm/fs is unattempted. Both campaigns remain whole FAIL. One initial no-site
+controller setup failure is retained with zero scientific calls; the unchanged
+controller/worker require site-enabled editable discovery.
+
+Two scientific cells finish in 16.992/27.747 s, peak sampled group RSS
+215,064,576/223,641,600 bytes, under CPU 0/nice 10/worker 1, monitored 13 GiB
+available reserve, 1 GiB group RSS, 2 GiB address space and 45 CPU/60 wall seconds.
+No resource interruption or live owned group remains. The 156-member primary
+and nine-member independent-reader archives preserve exact failures/producers;
+the reader verifies records without molecular replay or invented final checks.
+Retain `.molsyssuite/e3-reference-editable-20261108` and
+`.molsyssuite/e3-source-control-20261108` under #50/review 2026-11-14.
+
+Next ask MolSysMT #256 for an existing public lossless persistence composition,
+or retain its documented post-1.0 mechanics-storage hold. Do not remove mechanics,
+use private legacy codecs or reconstruct from diagnostic JSON. Register a fresh
+whole normal/pm-fs selection only after the supported route is established.
+#88 stays partial; #79 also retains #604, common-frame and complete E3 gates.
+The earlier #645 artifact-first wait is historical: ordinary development uses
+the refreshed editable cohort. No runtime/helper/pin change, build/install,
+RMSD/clustering/search, canvas or remote CI occurs in this increment.
+
 ### Complete original panel-reference receiving — 2026-11-08
 
 [#33/#49's original references](validation/panel_references_editable_2026-11-08.md)

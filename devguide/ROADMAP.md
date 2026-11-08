@@ -5,6 +5,18 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[E3's explicit H-policy and paired source control](validation/e3_source_control_receiving_2026-11-08.md)
+now reach strict full39/prepared25 maps and exact current-control PDBQT equality
+on the editable cohort. Both whole normal selections remain FAIL: first the
+historical-artifact checksum, then prepared-native persistence. #88 corrects the
+former criterion prospectively; H5MSM 0.5's documented mechanics refusal is
+owned by MolSysMT #256. pm/fs and final live checks are unreached. The 156-member
+primary/nine-member reader archives retain both failures and a zero-call setup
+failure. Next obtain a supported lossless persistence composition or retain
+that hold, then register fresh whole normal/pm-fs receiving. #79 also retains
+#604 and the common-frame/full comparison/clustering gates. No chemistry gate,
+native domain, historical producer or scientific tolerance is removed.
+
 [Original protein/ligand reference receiving](validation/panel_references_editable_2026-11-08.md)
 now passes all four complete development cells with unchanged scientific
 assertions: six-chain and ligand workflows, normal/pm-fs, full native/history/

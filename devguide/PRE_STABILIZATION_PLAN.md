@@ -5,6 +5,18 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[E3's new editable receiving](validation/e3_source_control_receiving_2026-11-08.md)
+passes the explicit H-policy/strict full39 prefix and, after #88's registered
+same-producer control amendment, exact source/control bytes, strict prepared25,
+stereo and H/rigid controls. Both whole normal selections remain FAIL; pm/fs and
+final live checks are unreached. The second failure is the provider's documented
+H5MSM 0.5 mechanics refusal. MolSysMT #256 owns the lossless storage question;
+#604 still owns N×N/clustering. The 156-member primary/nine-member reader records
+qualify evidence reading, zero complete scientific profiles. Next obtain a
+supported lossless composition or retain the hold, then register fresh complete
+normal/pm-fs receiving. Do not discard mechanics, alter old input/producers,
+relax chemical/coordinate gates or infer full E3/public acceptance.
+
 [The original panel-reference workflows](validation/panel_references_editable_2026-11-08.md)
 now pass all four complete editable selections: six protein chains and the
 explicit ligand reference, each normal/pm-fs, with original assertions and full

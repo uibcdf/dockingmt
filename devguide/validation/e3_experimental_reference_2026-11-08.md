@@ -3,6 +3,15 @@
 Owner: [DockingMT #79](https://github.com/uibcdf/dockingmt/issues/79).
 Consumer checkpoint: `dc060579b097643546cf38655aa262c596f4b68c`.
 Status: **executed; whole reference selection FAIL, E3 unaccepted**.
+
+Later receiving: the [explicit H-policy selection](e3_indexed_h_policy_receiving_2026-11-08.md)
+on the refreshed editable cohort reaches two strict full39 maps, then fails the
+historical PDBQT checksum. A [separate paired-control amendment](e3_source_control_receiving_2026-11-08.md)
+passes current source/control byte equality and strict prepared25 maps before
+the documented H5MSM mechanics refusal stops native persistence. Both newer
+whole normal selections remain FAIL; pm/fs and final live checks are unreached.
+MolSysMT #256/#604 retain the storage/comparison holds. This does not rewrite
+the original zero-map observation or admit the reference/common frame/full E3.
 The original prospective prescription below remains unchanged. The observed
 stored-H policy mismatch is owned by
 [MolSysMT #645](https://github.com/uibcdf/molsysmt/issues/645), independently of
