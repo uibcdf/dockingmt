@@ -5,6 +5,15 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Saved box vector admission #85](archive/box_record_coerces_invalid_vectors.md)
+now rejects invalid/coercible center/length data before they become geometry.
+The original 38 failures/40 passes remain; complete final source qualification
+passes 234 cases per caller unit policy, with valid/legacy records and local
+diagnostics preserved. Bounded existing-artifact discovery excludes two observed
+native-source candidates with the old Rust tree; no compatible binary is
+received. Provider artifacts/build/canvas and full scientific/public gates
+remain open; this increment performs no molecular/native work or remote CI.
+
 [Saved protocol energy admission #84](archive/protocol_energy_record_coerces_invalid_values.md)
 now rejects invalid/coercible stored magnitudes and invalid containers/units with
 local diagnostics, retaining valid records, legacy defaults, caller policy and

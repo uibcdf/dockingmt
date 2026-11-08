@@ -23,6 +23,35 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Saved box vector admission checkpoint — 2026-11-08
+
+[#85's archived record](archive/box_record_coerces_invalid_vectors.md) owns the
+BoxRegion reader correction and exact evidence. Stored center/length vectors
+are admitted before coercion, with local field/unit diagnostics and preserved
+resource failures. Valid/legacy records, detached arrays, units, caller policy
+and derivation refusal remain. The 78 new cases expose 38 failures/40 passes
+on the old reader; the complete final selection passes 234 cases per normal/
+pm-fs policy, no errors/skips. Molecular/optional-engine entry points watched
+by the harness are uncalled; live molecular-domain and installed/public/science
+qualification remain separate.
+
+Fifty-two primary and seventeen independent-reader/publication members retain
+original diagnosis, red/green producers, raw JUnit/policies/resources and bounded
+artifact metadata/source triage. Final selection 10.567 s, sampled group RSS
+101,928,960 bytes, minimum available 54,070,542,336 bytes; CPU 0/nice 10/worker 1,
+monitored 13 GiB reserve, all groups terminal, no resource interruption. Keep
+`.molsyssuite/box-record-admission-20261108` under #50/review 2026-11-14.
+
+The observed old Rust-wheel/public-ArgDigest build source contexts both have
+Rust tree 32cfb07b, mismatching the required fb25b2ea target. Three observed
+release headers have no assets; bounded run lists are not an exhaustive artifact
+inventory. No candidate download, native restart or workflow dispatch follows.
+Next receive the compatible whole provider artifact for original #33/#49/#79/
+#80 selections or continue the independently owned #19 review. Keep #645's
+source compatibility separate, #604/#558/canvas/build holds, #28's missing
+hosted evidence and all full Core/Extended/scientific/public requirements.
+Provider/helper/data pins and historical producers remain unchanged.
+
 ### Saved protocol energy admission checkpoint — 2026-11-08
 
 [#84's archived record](archive/protocol_energy_record_coerces_invalid_values.md)

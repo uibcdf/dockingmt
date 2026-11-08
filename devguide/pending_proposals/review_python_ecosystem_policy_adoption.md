@@ -14,6 +14,18 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Saved box vector admission — 2026-11-08
+
+[#85's archived correction](../archive/box_record_coerces_invalid_vectors.md)
+continues the stored-record review after #84. Box center/length vectors retain
+their scalar meaning through admission; invalid values, fields and units now
+receive the local field diagnostic, while resource errors propagate. Seventy-
+eight new guards expose 38 failures on the old reader; the final complete
+offline selection passes 234 cases in each caller unit policy. Valid/legacy
+records, array detachment, physical conversion and existing derivation refusal
+remain. This is source evidence, not complete installed/public/adoption scope.
+#19 stays partial; #28 retains missing exact-head hosted evidence.
+
 ## Saved protocol energy admission — 2026-11-08
 
 [#84's archived correction](../archive/protocol_energy_record_coerces_invalid_values.md)

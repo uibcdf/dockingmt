@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 from abc import ABC, abstractmethod
+from collections.abc import Mapping
 from copy import deepcopy
 from numbers import Real
 from typing import Any
@@ -267,6 +268,38 @@ class SearchDomain(ABC):
         polluting the richer source domain.
         """
         pass
+
+
+def _box_vector_from_record(record, name):
+    """Admit a saved box vector before its scalar types can be coerced."""
+    if not isinstance(record, Mapping) or 'value' not in record or 'unit' not in record:
+        raise ArgumentError(
+            arg_name=name, reason='Supply a saved vector with both value and unit.'
+        )
+    try:
+        values = np.asarray(record['value'], dtype=object)
+    except (TypeError, ValueError) as exc:
+        raise ArgumentError(
+            arg_name=name, reason='Supply a three-element real vector.'
+        ) from exc
+    if values.shape != (3,) or any(
+        isinstance(value, (bool, np.bool_)) or not isinstance(value, Real)
+        for value in values.flat
+    ):
+        raise ArgumentError(
+            arg_name=name, reason='Supply a three-element real numeric vector.'
+        )
+    try:
+        with np.errstate(over='raise', invalid='raise'):
+            numeric = np.asarray(values, dtype=float)
+        return puw.quantity(numeric, record['unit'])
+    except MemoryError:
+        raise
+    except Exception as exc:
+        raise ArgumentError(
+            arg_name=name,
+            reason='Supply a finite real vector with explicit length units.',
+        ) from exc
 
 
 class BoxRegion(SearchDomain):
@@ -631,10 +664,8 @@ class BoxRegion(SearchDomain):
     def from_dict(cls, data: dict[str, Any]) -> BoxRegion:
         """Reconstruct BoxRegion from a serialized dictionary."""
         validate_schema_version(data, cls.__name__)
-        c_data = data['center']
-        l_data = data['lengths']
-        center = puw.quantity(np.asarray(c_data['value'], dtype=float), c_data['unit'])
-        lengths = puw.quantity(np.asarray(l_data['value'], dtype=float), l_data['unit'])
+        center = _box_vector_from_record(data.get('center'), 'center')
+        lengths = _box_vector_from_record(data.get('lengths'), 'lengths')
         box = cls(center=center, lengths=lengths, name=data.get('name'))
         box._set_derivation(data.get('derivation'))
         return box

@@ -13,6 +13,11 @@ Its 156-case source qualification under each of two unit policies remains
 distinct from the historical installed/scientific producers and whole-Core
 acceptance. Valid/legacy protocol records and caller unit policy are preserved.
 New notebook evidence is identified separately below.
+[The subsequent #85 source correction](archive/box_record_coerces_invalid_vectors.md)
+extends saved-domain admission: invalid vector scalars cannot silently become
+box geometry. Its 234-case qualification per caller unit policy supplements
+argument/schema evidence, preserving the older installed/scientific producers
+and every original Core criterion. Whole visible/public acceptance remains open.
 This maintained map supersedes the *next-action list* of the
 [2026-10-28 audit](validation/core_mvp_audit_2026-10-28.md), preserving that
 audit, its findings at its original source and all scientific/artifact receipts.

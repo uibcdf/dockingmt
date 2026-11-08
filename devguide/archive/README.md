@@ -4,13 +4,14 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (59)
+### Resolved (60)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_result_scoring_stages.md`](audit_result_scoring_stages.md) — [#76](https://github.com/uibcdf/dockingmt/issues/76) — Attribute per-pose scoring histories correctly inside saved result audits. *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
 - [`audit_saved_scoring_poses.md`](audit_saved_scoring_poses.md) — [#35](https://github.com/uibcdf/dockingmt/issues/35) — Audit saved pose scores and evaluation history without a live backend. *(resolved, measured)*
 - [`backend_box_requires_explicit_unit.md`](backend_box_requires_explicit_unit.md) — [#65](https://github.com/uibcdf/dockingmt/issues/65) — Reject unlabelled numerical backend-box exports *(resolved, measured)*
+- [`box_record_coerces_invalid_vectors.md`](box_record_coerces_invalid_vectors.md) — [#85](https://github.com/uibcdf/dockingmt/issues/85) — Saved box vectors bypass scalar admission through float coercion. *(resolved, measured)*
 - [`complete_molsyssuite_governance_baseline.md`](complete_molsyssuite_governance_baseline.md) — [#1](https://github.com/uibcdf/dockingmt/issues/1) — Complete the MolSysSuite governance baseline omitted from the initial seed. *(resolved, measured)*
 - [`consume_fixed_state_hydrogens.md`](consume_fixed_state_hydrogens.md) — [#41](https://github.com/uibcdf/dockingmt/issues/41) — Consume explicit fixed-state ligand hydrogen and charge stages with provenance. *(resolved, measured)*
 - [`consume_named_autodock_types.md`](consume_named_autodock_types.md) — [#43](https://github.com/uibcdf/dockingmt/issues/43) — Consume named MolSysMT AutoDock types with explicit stages and parent-label projection. *(resolved, measured)*

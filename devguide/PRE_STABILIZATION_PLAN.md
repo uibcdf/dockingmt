@@ -4,6 +4,12 @@ Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
+[The #85 saved-box correction](archive/box_record_coerces_invalid_vectors.md)
+delivers strict vector/field admission, typed unit failures and preserved valid/
+legacy records. Its original 38-failure selection remains FAIL; final affected
+source gates pass 234 cases per unit policy. Bounded discovery identifies two
+older native-source contexts that cannot supply the required Rust inputs.
+No artifact, installed/public or scientific gate is accepted by that inspection.
 [The #84 protocol-reader correction](archive/protocol_energy_record_coerces_invalid_values.md)
 delivers strict saved-energy scalar/parameter admission and actionable unit
 diagnostics without changing valid/legacy records or caller policy. The old
