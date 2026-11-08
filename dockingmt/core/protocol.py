@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from collections.abc import Mapping
+from numbers import Real
 from typing import Any
 
 import pyunitwizard as puw
@@ -260,9 +262,33 @@ class VinaProtocol(DockingProtocol):
         """Reconstruct VinaProtocol from a serialized dictionary."""
         validate_schema_version(data, cls.__name__)
         params = data.get('parameters', {})
+        if not isinstance(params, Mapping):
+            raise ArgumentError(
+                arg_name='parameters',
+                reason='Use a mapping of saved protocol parameters.',
+            )
         e_info = params.get('energy_range')
-        if isinstance(e_info, dict) and 'value' in e_info and 'unit' in e_info:
-            energy_range = puw.quantity(float(e_info['value']), e_info['unit'])
+        if isinstance(e_info, Mapping):
+            if 'value' not in e_info or 'unit' not in e_info:
+                raise ArgumentError(
+                    arg_name='energy_range',
+                    reason='Supply both value and unit in the saved energy record.',
+                )
+            value = e_info['value']
+            if isinstance(value, bool) or not isinstance(value, Real):
+                raise ArgumentError(
+                    arg_name='energy_range',
+                    reason='Use a real numeric scalar in the saved energy record.',
+                )
+            try:
+                energy_range = puw.quantity(value, e_info['unit'])
+            except MemoryError:
+                raise
+            except Exception as exc:
+                raise ArgumentError(
+                    arg_name='energy_range',
+                    reason='Use an energy-per-mole quantity with explicit units.',
+                ) from exc
         else:
             energy_range = e_info
 

@@ -5,6 +5,14 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Saved protocol energy admission #84](archive/protocol_energy_record_coerces_invalid_values.md)
+now rejects invalid/coercible stored magnitudes and invalid containers/units with
+local diagnostics, retaining valid records, legacy defaults, caller policy and
+resource-error identity. The old selection has 18 failures; final source
+qualification passes 156 cases in each of two unit policies. Original failures
+and raw evidence remain. No molecular/backend work, dependency change, build,
+installation or CI dispatch; full installed/public/scientific scope remains.
+
 [Accepted DepDigest routine receiving](validation/support_library_review_2026-11-04.md#accepted-depdigest-correction-in-the-routine-environment--2026-11-08)
 now passes the original seven audit controls and 36 unchanged support/bootstrap
 cases on clean provider `032d345`. #19's former provider-acceptance/routine

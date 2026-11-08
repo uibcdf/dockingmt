@@ -7,6 +7,11 @@ Later source changes add #61 offline any-returned summary counts and #63 finite
 real pose-coordinate admission/export. Their source checks are separate from the
 original installed/scientific receipts. They change no molecular operation,
 original experiment or C0–C6 criterion.
+[The later #84 correction](archive/protocol_energy_record_coerces_invalid_values.md)
+adds strict saved-protocol energy admission and typed container/unit failures.
+Its 156-case source qualification under each of two unit policies remains
+distinct from the historical installed/scientific producers and whole-Core
+acceptance. Valid/legacy protocol records and caller unit policy are preserved.
 New notebook evidence is identified separately below.
 This maintained map supersedes the *next-action list* of the
 [2026-10-28 audit](validation/core_mvp_audit_2026-10-28.md), preserving that

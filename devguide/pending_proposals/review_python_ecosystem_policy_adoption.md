@@ -14,6 +14,19 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Saved protocol energy admission — 2026-11-08
+
+[#84's archived correction](../archive/protocol_energy_record_coerces_invalid_values.md)
+closes a concrete record-boundary gap discovered during the wider review.
+Saved Boolean/text/array/complex magnitudes and arbitrary numeric coercion no
+longer bypass scalar admission; unit construction has the local diagnostic and
+provider cause, while resource failures propagate. Valid units, legacy defaults,
+caller records and active unit policy survive. The old 33-case selection has
+18 failures; the final affected selection passes 156 cases under each of two
+caller policies, with molecular/optional-engine work blocked and no skips.
+This extends source argument/schema evidence; #19's wider adoption/public
+compatibility and #28's missing exact-head hosted evidence remain separate.
+
 ## Accepted DepDigest routine receiving — 2026-11-08
 
 The [new bounded receiving](../validation/support_library_review_2026-11-04.md#accepted-depdigest-correction-in-the-routine-environment--2026-11-08)

@@ -4,6 +4,12 @@ Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
+[The #84 protocol-reader correction](archive/protocol_energy_record_coerces_invalid_values.md)
+delivers strict saved-energy scalar/parameter admission and actionable unit
+diagnostics without changing valid/legacy records or caller policy. The old
+18-failure population stays failed; final affected source gates pass 156 cases
+per unit policy. Installed/public/scientific/hosted evidence is separate. The
+complete objective is not reduced to this local boundary correction.
 [The accepted routine dependency audit](validation/support_library_review_2026-11-04.md#accepted-depdigest-correction-in-the-routine-environment--2026-11-08)
 receives DepDigest #47 on `032d345`: seven original controls and 36 unchanged
 support/bootstrap cases pass. #19 remains partial for wider adoption/public

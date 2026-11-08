@@ -23,6 +23,34 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Saved protocol energy admission checkpoint — 2026-11-08
+
+[#84's archived record](archive/protocol_energy_record_coerces_invalid_values.md)
+owns the `VinaProtocol.from_dict` correction and exact red/green evidence.
+Invalid saved magnitude coercion and raw unit/container exceptions no longer
+change or obscure the recorded protocol. Valid scalar/unit conversion, legacy
+defaults, caller dictionaries and active unit policies remain; MemoryError
+propagates intact. The original 33-case selection retains 18 failures/15 passes.
+The complete final source selection passes 156 cases per normal/pm-fs policy,
+with no errors/skips or molecular/optional-engine attempts. No new wheel or
+installed/public/scientific qualification is claimed.
+
+Sixty-seven primary and seventeen independent-reader/publication members retain
+original diagnosis, all attempts, frozen runtime/test inputs and raw JUnit/policy/
+resource evidence. Final selection 3.798 s, sampled group RSS 101,306,368 bytes,
+minimum available 58,434,666,496 bytes; CPU 0/nice 10/worker 1, monitored 13 GiB
+reserve, all groups terminal without resource interruption. Preserve
+`.molsyssuite/protocol-record-energy-20261108` under #50/review 2026-11-14.
+
+Next receive the whole compatible MolSysMT artifact for original #33/#49/#79/#80
+workflows or advance the independently owned remainder of #19. The provider
+request, #604 clustering, #558 generation/history, canvas scheduling and held
+#642 construction remain; no automatic build/search/CI follows this source fix.
+Helper/data and provider pins are unchanged. #28 exact-head hosted evidence is
+missing; the full Core/Extended/scientific/public/stabilization objective stays
+incomplete under #73. Runtime/test/evidence and actual committed-export checks
+retain separate receipts; no old producer or failed population is relabelled.
+
 ### Routine dependency audit and E3 provider notice — 2026-11-08
 
 [Accepted DepDigest routine receiving](validation/support_library_review_2026-11-04.md#accepted-depdigest-correction-in-the-routine-environment--2026-11-08)

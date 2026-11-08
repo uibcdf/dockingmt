@@ -1,3 +1,6 @@
+from copy import deepcopy
+
+import numpy as np
 import pytest
 import pyunitwizard as puw
 
@@ -127,3 +130,97 @@ def test_vina_protocol_serialization():
 
     del d['parameters']['collect_timings']
     assert VinaProtocol.from_dict(d).collect_timings is False
+
+
+@pytest.mark.parametrize(
+    'value',
+    [True, False, '3', 'not-energy', [], [3], 3 + 0j, None, {}, np.nan, np.inf, -1],
+)
+def test_protocol_reader_rejects_invalid_saved_energy_without_coercion(value):
+    record = {'parameters': {'energy_range': {'value': value, 'unit': 'kcal/mol'}}}
+    with pytest.raises(ArgumentError) as caught:
+        VinaProtocol.from_dict(record)
+    assert caught.value.code == 'DMT-E002'
+    assert caught.value.extra['arg_name'] == 'energy_range'
+    assert record['parameters']['energy_range']['value'] is value
+
+
+def test_protocol_reader_does_not_invoke_arbitrary_numeric_coercion():
+    calls = []
+
+    class NumericText:
+        def __float__(self):
+            calls.append('float')
+            return 3.0
+
+    with pytest.raises(ArgumentError):
+        VinaProtocol.from_dict(
+            {
+                'parameters': {
+                    'energy_range': {'value': NumericText(), 'unit': 'kcal/mol'}
+                }
+            }
+        )
+    assert calls == []
+
+
+@pytest.mark.parametrize('parameters', [None, [], 'parameters', 1, True])
+def test_protocol_reader_requires_parameter_mapping(parameters):
+    with pytest.raises(ArgumentError) as caught:
+        VinaProtocol.from_dict({'parameters': parameters})
+    assert caught.value.extra['arg_name'] == 'parameters'
+
+
+@pytest.mark.parametrize('unit', ['not-a-unit', None, [], 'nm'])
+def test_protocol_reader_wraps_invalid_energy_units(unit):
+    record = {'parameters': {'energy_range': {'value': 3, 'unit': unit}}}
+    before = deepcopy(record)
+    with pytest.raises(ArgumentError) as caught:
+        VinaProtocol.from_dict(record)
+    assert caught.value.code == 'DMT-E002'
+    assert caught.value.extra['arg_name'] == 'energy_range'
+    assert caught.value.__cause__ is not None
+    assert record == before
+
+
+@pytest.mark.parametrize('value', [0, 3, 3.5, np.int64(3), np.float64(3.5)])
+@pytest.mark.parametrize('unit', ['kcal/mol', 'kJ/mol'])
+def test_protocol_reader_preserves_valid_energy_and_caller_record(value, unit):
+    record = {'parameters': {'energy_range': {'value': value, 'unit': unit}}}
+    before = deepcopy(record)
+    restored = VinaProtocol.from_dict(record)
+    assert puw.get_value(restored.energy_range, to_unit=unit) == pytest.approx(value)
+    assert record == before
+    assert VinaProtocol.from_dict(restored.to_dict()).to_dict() == restored.to_dict()
+
+
+def test_protocol_reader_retains_legacy_default_and_unit_bearing_string():
+    assert VinaProtocol.from_dict({}).to_dict() == VinaProtocol().to_dict()
+    assert (
+        VinaProtocol.from_dict({'parameters': {}}).to_dict() == VinaProtocol().to_dict()
+    )
+    restored = VinaProtocol.from_dict({'parameters': {'energy_range': '12.552 kJ/mol'}})
+    assert puw.get_value(restored.energy_range, to_unit='kcal/mol') == pytest.approx(3)
+
+
+@pytest.mark.parametrize('energy_record', [{}, {'value': 3}, {'unit': 'kcal/mol'}])
+def test_protocol_reader_requires_complete_saved_energy_record(energy_record):
+    before = deepcopy(energy_record)
+    with pytest.raises(ArgumentError) as caught:
+        VinaProtocol.from_dict({'parameters': {'energy_range': energy_record}})
+    assert caught.value.extra['arg_name'] == 'energy_range'
+    assert energy_record == before
+
+
+def test_protocol_reader_preserves_quantity_construction_resource_failure(monkeypatch):
+    error = MemoryError('quantity construction interrupted')
+
+    def interrupted(*args, **kwargs):
+        raise error
+
+    monkeypatch.setattr(puw, 'quantity', interrupted)
+    with pytest.raises(MemoryError) as caught:
+        VinaProtocol.from_dict(
+            {'parameters': {'energy_range': {'value': 3, 'unit': 'kcal/mol'}}}
+        )
+    assert caught.value is error

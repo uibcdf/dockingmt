@@ -1,0 +1,145 @@
+{
+  "schema": "dockingmt.protocol_energy_record_reader@1",
+  "owner": "uibcdf/dockingmt#84",
+  "source_commit": "a870142ef1d8ab936e4adbbfb04a59763307fe66",
+  "primary_manifest_sha256": "67ba1078d3a29bc531f0e57dce26095ae1f04f5511ee2fce06c77b53199775de",
+  "scope": "Completed independent saved-protocol source/red/green/JUnit/resource record reader and publication producers; no molecular/public artifact qualification",
+  "files": [
+    {
+      "original_path": "seal-01/frozen-controller.py",
+      "path": "000-frozen-controller.py.gz",
+      "bytes": 1970,
+      "sha256": "dc136b570afbc06960b2f543360b4c8ed46dcaf809b156625e0e1a739bbeafa3",
+      "decoded_bytes": 4163,
+      "decoded_sha256": "2b9e36f7caadb64e79c8984a9627d55c4604ccd4e1d874e3437c8aaf18ee2e88"
+    },
+    {
+      "original_path": "seal-01/frozen-resource-guard.py",
+      "path": "001-frozen-resource-guard.py.gz",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "original_path": "seal-01/frozen-worker.py",
+      "path": "002-frozen-worker.py.gz",
+      "bytes": 966,
+      "sha256": "442fde0ed5894f68142bc86147d462656f790a67c6bf7597c790b91af9745d04",
+      "decoded_bytes": 1947,
+      "decoded_sha256": "8e6d7d78dc421dc43cfd2fd9104e4881a3928c7d2d114101af371d263fa819d0"
+    },
+    {
+      "original_path": "seal-01/receipt.json",
+      "path": "003-receipt.json.gz",
+      "bytes": 228,
+      "sha256": "0a3deb5b99781110d7b7421e213dd61e1bb2893c6abc7baee916ef3c745b329d",
+      "decoded_bytes": 300,
+      "decoded_sha256": "ff505dcd86583734af8d4ddbf4da26c6251ecc4c1c3e5649dd46279bdec3ed76"
+    },
+    {
+      "original_path": "seal-01/registration.json",
+      "path": "004-registration.json.gz",
+      "bytes": 446,
+      "sha256": "785c3963a26ce013d66c7065254f7e159ea69bd91d6e8d5c55b583b73fe5127b",
+      "decoded_bytes": 734,
+      "decoded_sha256": "19e7309a671d45c768534e1b1d7dac788b96ab8e82ba0a15e66447a7bb4c6716"
+    },
+    {
+      "original_path": "seal-01/resource-outcome.json",
+      "path": "005-resource-outcome.json.gz",
+      "bytes": 329,
+      "sha256": "2301b5560646d942d0d299bbb36e843dfc7b3f68a0f1e55405040191093169da",
+      "decoded_bytes": 573,
+      "decoded_sha256": "27db88530d8a8cc95727537d7797c6c30225777468163be854eb35b264224f63"
+    },
+    {
+      "original_path": "seal-01/stderr.log",
+      "path": "006-stderr.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "seal-01/stdout.log",
+      "path": "007-stdout.log.gz",
+      "bytes": 221,
+      "sha256": "abc358faadd9423002f8f4570c671032646a7d5f6b44ced73fb61910c9f5db96",
+      "decoded_bytes": 282,
+      "decoded_sha256": "7c1ef20383eb7f1dba37546ac0376e7514eae4e0c1a986bcdbee3d3bc7dcddc8"
+    },
+    {
+      "original_path": "reader-01/frozen-controller.py",
+      "path": "008-frozen-controller.py.gz",
+      "bytes": 1970,
+      "sha256": "dc136b570afbc06960b2f543360b4c8ed46dcaf809b156625e0e1a739bbeafa3",
+      "decoded_bytes": 4163,
+      "decoded_sha256": "2b9e36f7caadb64e79c8984a9627d55c4604ccd4e1d874e3437c8aaf18ee2e88"
+    },
+    {
+      "original_path": "reader-01/frozen-resource-guard.py",
+      "path": "009-frozen-resource-guard.py.gz",
+      "bytes": 5229,
+      "sha256": "ec7cd6891e3fd5c292b353651e1402f126c58beb93848e03e6fa45f3b7eb2f71",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "original_path": "reader-01/frozen-worker.py",
+      "path": "010-frozen-worker.py.gz",
+      "bytes": 1762,
+      "sha256": "17695609453370e6947ce59c34d8a5d0becbb678d7260b502724ee6f1f7b37fc",
+      "decoded_bytes": 4617,
+      "decoded_sha256": "0ac3d156a45631058eb0bdd689ae9a3d719cb92b8c83ebd47ac5b4e7351b6849"
+    },
+    {
+      "original_path": "reader-01/receipt.json",
+      "path": "011-receipt.json.gz",
+      "bytes": 409,
+      "sha256": "7c986053a9796b6834d191baf9664cc904639e4186814f69c5d15a0a33f05ad3",
+      "decoded_bytes": 636,
+      "decoded_sha256": "0d5737aea252f6d523cd2610b03b86ef320f099afc7609ed160b9912939f9569"
+    },
+    {
+      "original_path": "reader-01/registration.json",
+      "path": "012-registration.json.gz",
+      "bytes": 447,
+      "sha256": "5c34312d4caa4b5717deabec92d6dc254dea01889a2b31da2f9580dba4e04b7e",
+      "decoded_bytes": 736,
+      "decoded_sha256": "d65a90c0acf2226cf94964352e83b75779ab8c565ef038bbddb7cb5a201c4c45"
+    },
+    {
+      "original_path": "reader-01/resource-outcome.json",
+      "path": "013-resource-outcome.json.gz",
+      "bytes": 331,
+      "sha256": "b0287379e96f540f18a47da086b2e800784aa3df5a8f630048f8aa43f3a412c6",
+      "decoded_bytes": 572,
+      "decoded_sha256": "8eaf03a2475fd2b93ea0c449a1850d73382db5536da02f91b59fb2f94a3bcbd3"
+    },
+    {
+      "original_path": "reader-01/stderr.log",
+      "path": "014-stderr.log.gz",
+      "bytes": 20,
+      "sha256": "9ceffb7310338057cfe71a4ae1e2c98d2c485d81cdef906532a801f457a38d64",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "original_path": "reader-01/stdout.log",
+      "path": "015-stdout.log.gz",
+      "bytes": 399,
+      "sha256": "1fcf400531ee1c353b4e0585e4df0f1a0693a9e06d38b9d79ecd578776e221f8",
+      "decoded_bytes": 598,
+      "decoded_sha256": "4d7d292f6df50f5a978c0954a3e17f90604ea11d9b35f988450fcb0a2a04e964"
+    },
+    {
+      "original_path": "reader-seal-01/frozen-worker.py",
+      "path": "016-frozen-worker.py.gz",
+      "bytes": 959,
+      "sha256": "8eeba7ec480ab3f492d9336e61758775d750eafa1627e21456243dc11bdfe95e",
+      "decoded_bytes": 1958,
+      "decoded_sha256": "9fe8789fae625c648fc8b3ffffe53b3ead9e0b23222856a239ce82a59b6e54a5"
+    }
+  ]
+}
