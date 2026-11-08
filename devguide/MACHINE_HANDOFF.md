@@ -24,6 +24,32 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Complete original panel-reference receiving — 2026-11-08
+
+[#33/#49's original references](validation/panel_references_editable_2026-11-08.md)
+now pass all four complete cells: six protein chains and the explicit ligand
+reference, each under normal and pm/fs/coulomb. Consumer `c238513`, MolSysMT
+`2325038e8`, rebuilt native SHA-256 `5715bda2`; actual sources/custody and original
+assertion blocks are retained. All native/history/storage comparisons, typed
+refusals and final observed source/caller checks pass. The 239-member primary
+and nine-member independent-reader archives preserve exact evidence and limits;
+the reader runs no molecular replay and does not manufacture missing protein-
+source after-snapshots. Earlier failed runs/private artifacts stay unchanged.
+
+All four cells finish in 6.8–21.2 s, maximum sampled group RSS 339,681,280 bytes,
+CPU 0/nice 10/worker 1, monitored 13 GiB reserve, all owned groups terminal
+without resource interruption. Preserve
+`.molsyssuite/panel-references-editable-20261108` under #50/review 2026-11-14.
+
+The #644/#646 reference holds are cleared for this editable profile. #33/#49
+stay partial: these are coordinate-free references, not prepared receptors or
+new independent docking cases. Next receive #79's original experimental
+reference through MolSysMT #645's explicit policy tool. Fresh #558/#604 remain
+open; source application/maps/history, environment/occupant decisions, original
+independent panel, actual canvas and installed/public/minor/platform delivery
+retain their separate scope. No build/install, runtime/helper/data/pin change,
+new search or remote CI occurs.
+
 ### Complete editable interaction-catalog receiving — 2026-11-08
 
 [#80's registered original carrier selection](validation/e4_evidence_catalog_editable_2026-11-08.md)

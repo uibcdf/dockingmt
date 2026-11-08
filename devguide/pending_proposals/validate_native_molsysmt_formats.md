@@ -14,6 +14,24 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Complete original references received in development — 2026-11-08
+
+[The refreshed editable receiving](../validation/panel_references_editable_2026-11-08.md)
+passes all four complete selections: six protein references and the explicit
+ligand reference, each under normal and pm/fs/coulomb policies. All original
+scientific assertions, cases/chains, native/history/storage checks and typed
+refusals remain byte-identical. The 239-member primary/nine-member reader
+evidence authenticates sources/native, actual outcomes and limits. This receives
+the #646/#644 client boundaries on the development workspace; a separate package
+is not a prerequisite. Historical failed/installed populations stay unchanged.
+
+#33 remains partial: no prepared receptor or independent docking case is admitted.
+MolSysMT #558 maps/history, environment/occupant choices and source application
+still precede preparation. Next receive #79's experimental reference through the
+explicit provider-owned #645 policy; #604 retains clustering. Public/installed/
+minor/platform and actual canvas gates remain separate. Older artifact-first
+resumption statements below retain their historical inspection scope.
+
 ## Published corrections and shared artifact boundary — 2026-11-08
 
 [The bounded admission review](../validation/provider_fix_artifact_admission_2026-11-08.md)

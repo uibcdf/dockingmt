@@ -14,6 +14,24 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## Complete provider-owned references received in development — 2026-11-08
+
+[Both original reference workflows](../validation/panel_references_editable_2026-11-08.md)
+now pass completely on the refreshed editable composition in both unit policies.
+Six-chain factories, explicit case assignment, comparisons/native persistence,
+history and all invalid-input controls remain provider-backed, with no consumer
+chemistry/parser/comparator/codec or molecular preparation implementation added.
+Unchanged declared support stays staged outside the runtime through the exact
+SDK. The 239-member primary/nine-member reader evidence retains exact assertions,
+native/source identities, outcomes and observed limits; no installed/public
+artifact is relabelled and no new helper/data/pin change is made.
+
+#49/#33 remain partial for their wider source-application/delegation/native-format
+scope. #558 maps/history and environment choices still precede preparation;
+next receive the original #79 reference through #645's explicit provider tool.
+The older artifact-first boundaries below are historical, not a package wait
+for ordinary development. Keep all prior failures and public/canvas gates.
+
 ## Canonical corrections retain a whole-artifact boundary — 2026-11-08
 
 [Source/registry inspection](../validation/provider_fix_artifact_admission_2026-11-08.md)

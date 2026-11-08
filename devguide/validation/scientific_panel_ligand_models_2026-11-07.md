@@ -7,6 +7,13 @@ The preceding goal turn made progress: exact private occupancy/neutral-reference
 receiving. The complete Core/Extended/scientific/public/stabilization goal stays
 active; this work does not replace the original two-case panel or its criteria.
 
+Current receiving update — 2026-11-08: [the original full ligand selection](panel_references_editable_2026-11-08.md)
+now passes normal/pm-fs on the refreshed editable composition, with both typed
+refusals, all snapshots/history/readiness/native persistence and observed source/
+caller checks. The hypothesis and full assertion block remain unchanged. The
+old failed selection and diagnostics below remain historical failures/reproduction
+evidence; this is no bound-source preparation or independent docking case.
+
 ## Source identity and literature boundaries
 
 The unchanged original CIF metadata declares entry revision 1.3, dated

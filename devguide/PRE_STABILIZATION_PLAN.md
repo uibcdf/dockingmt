@@ -5,6 +5,16 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[The original panel-reference workflows](validation/panel_references_editable_2026-11-08.md)
+now pass all four complete editable selections: six protein chains and the
+explicit ligand reference, each normal/pm-fs, with original assertions and full
+native/history/storage/refusal controls unchanged. Exact source/native identities
+and all records are authenticated by the 239-member primary/nine-member reader
+evidence. #33/#49 remain partial: this admits reference software profiles, no
+prepared receptor or independent docking case. Next receive #79 through the
+provider-owned #645 policy; #558/#604 and the original source/environment,
+scientific, canvas and installed/public/minor/platform requirements remain.
+
 [The original E4 catalog-persistence selection](validation/e4_evidence_catalog_editable_2026-11-08.md)
 now passes completely in both unit profiles on the actual refreshed editable
 composition, retaining the immutable old failing carrier, unchanged scientific

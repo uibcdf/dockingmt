@@ -4,7 +4,14 @@ Owners: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md
 [#49](../pending_proposals/retire_general_molecular_operations.md) and
 [#80](../pending_proposals/receive_docking_interaction_analysis.md).
 Starting source: `acce58e3dc0ff17673f091b42765fb65257b8977`.
-Status: **focused rebuilt-editable receiving passes; original whole workflows and public artifact qualification remain unreceived**.
+Status: **editable composition and original catalog/protein/ligand receiving pass within their declared profiles; E3 and installed/public qualification remain separate**.
+
+Current client receiving — 2026-11-08: [the complete original catalog selection](e4_evidence_catalog_editable_2026-11-08.md)
+passes normal/pm-fs, and [the original protein/ligand selections](panel_references_editable_2026-11-08.md)
+pass all four complete development cells. Historical artifact-only acquisition
+requests below do not block ordinary editable work; old failures/private files
+keep their identities. E3's reference, complete workflows/science, actual canvas
+and installed/public/minor/platform requirements retain their own scope.
 
 ## Rebuilt editable provider receiving — 2026-11-08
 

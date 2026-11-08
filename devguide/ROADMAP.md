@@ -5,6 +5,16 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Original protein/ligand reference receiving](validation/panel_references_editable_2026-11-08.md)
+now passes all four complete development cells with unchanged scientific
+assertions: six-chain and ligand workflows, normal/pm-fs, full native/history/
+storage and typed-refusal controls. The 239-member primary/nine-member reader
+evidence clears the #644/#646 client reference holds for this composition.
+#33/#49 remain partial; no receptor/case is prepared/admitted. Next receive #79's
+experimental reference through #645; freshly open #558/#604, environment/source
+application, independent panel, actual canvas and public/installed gates retain
+their scope. No runtime/helper/data/pin change, build/install/search or remote CI.
+
 [Complete interaction-catalog development receiving](validation/e4_evidence_catalog_editable_2026-11-08.md)
 now passes normal/pm-fs, including the immutable old failed carrier and fresh
 public binding/full-carrier persistence with complete native/typed/result

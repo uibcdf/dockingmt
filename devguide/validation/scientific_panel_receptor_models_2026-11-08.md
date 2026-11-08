@@ -3,10 +3,17 @@
 Owner: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md),
 with [#49](../pending_proposals/retire_general_molecular_operations.md).
 Starting consumer checkpoint: `b014b2598a1194eaee51c139e105e00ee259758a`.
-Status: **executed; three whole reference selections FAIL; no receptor or docking
+Original execution status: **three whole reference selections FAIL; no receptor or docking
 case admitted**. The original prescriptions and amendments below retain their
-chronology. Current provider comparison blocker:
+chronology. Provider comparison blocker in those original attempts:
 [MolSysMT #646](https://github.com/uibcdf/molsysmt/issues/646).
+
+Current receiving update — 2026-11-08: [separate complete editable receiving](panel_references_editable_2026-11-08.md)
+passes both original six-chain selections, every original assertion/control and
+final observed checks, and also receives the separate ligand reference. The
+old failures below retain their original composition/outcomes; no receptor or
+new docking case is admitted. Resume through the current handoff, without the
+historical artifact wait.
 
 ## Delivered decisions, observed outcome and continuation
 
