@@ -4,6 +4,14 @@ Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`. The latest
+[ligand-model/source checkpoint](validation/scientific_panel_ligand_models_2026-11-07.md)
+records concrete source/hypothesis decisions and a failed whole anionic-reference
+selection. A separate two-policy one-atom diagnostic reproduces the leaked unit-
+form error, reported in MolSysMT #644. No full reference or docking case is
+admitted; original controls and full scope remain intact. First receive that
+correction's source/artifact before a complete fresh reference selection; #558
+and receptor/environment/terminal decisions remain separate prerequisites.
+The previous
 [panel provider receiving](validation/scientific_panel_provider_receiving_2026-11-07.md)
 passes read-only occupancy/neutral CCD reference/maps/assessments for both
 original PDB/CIF candidates normal/pm-fs, with eight typed refusals and
@@ -127,8 +135,10 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 6. Preserve completed [E5 #83](archive/qualify_independent_installed_reproduction.md)
    and advance #33's scientific-panel admission. Preserve the completed bounded
    [#556/#557 receiving](validation/scientific_panel_provider_receiving_2026-11-07.md);
-   record original case state/environment/terminus decisions and receive #558
-   before registering any next application/preparation/search selection. Keep all
+   retain the new [ligand models and failed reference receiving](validation/scientific_panel_ligand_models_2026-11-07.md).
+   Receive MolSysMT #644's exact source/artifact and complete a fresh reference
+   selection with the unchanged negative controls; record remaining receptor/
+   environment/terminus decisions and receive #558 before application/preparation/search. Keep all
    Core/E3/E4/scientific/public/visual requirements; no fallback, repeated E5
    campaign or automatic #642 construction follows from E5 resolution.
 

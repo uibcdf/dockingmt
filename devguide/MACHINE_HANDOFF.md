@@ -23,6 +23,56 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Ligand-model and failed receiving checkpoint — 2026-11-07
+
+[The source/model record](validation/scientific_panel_ligand_models_2026-11-07.md)
+now binds original metadata revisions, documents the shared-citation identity
+boundary and selects nominal-pH ligand hypotheses plus the observed-core model.
+These documentary/model decisions are distinct from prepared scientific cases.
+All source bytes, assemblies, original panel/evaluation criteria remain intact.
+
+The normal complete anionic-BTN reference attempt fails at formal_charge=1.5:
+PyUnitWizard NotImplementedFormError leaks instead of public MolSysMT ArgumentError.
+Two valid public setter calls and in-memory assignment assertions are reached;
+native persistence, final in-process checks and the second policy are not.
+Original reference01 stays FAIL (4.297 s / 212,295,680 sampled group-RSS bytes).
+The first minimal diagnostic is a separate task audit failure during the stdlib
+uname query, before any setter/getter (2.456 s / 120,209,408 bytes). A prospectively
+corrected diagnostic02 allows only that read-only platform subprocess and
+reproduces the wrong error in two fresh one-atom states normal/pm-fs-coulomb,
+preserving [-1] e and caller units (3.888 s / 224,428,032 bytes). Its PASS means
+bug reproduction only. There is no complete/accepted anionic reference cell or
+native artifact and no docking case, preparation or search.
+
+[MolSysMT #644](https://github.com/uibcdf/molsysmt/issues/644) owns the boundary;
+no sibling patch, consumer catch, source-module overlay or relaxed control.
+Exact provider composition stays faab727c Python / preserved 9e native, wheel
+c603fbde; current upstream digester has the same Git blob 7c390df2, inspected
+separately from executed runtime. Prior neutral occupancy/reference receiving
+remains received for its original scope. Runtime/helpers/declarations unchanged.
+
+The [44-member primary manifest](validation/data/panel_ligand_models_2026-11-07/manifest.json)
+is f295848fe26015b31cd5a5bd9d61a53aa2dad6240370c6f2c127dfdd6dde7270;
+[26-member reader companion](validation/data/panel_ligand_models_reader_2026-11-07/manifest.json)
+is 6a1eb8911679c7e87cf26067a2f7b83e6fd24be08a605074e572a15712c250f2.
+Fresh stdlib reading authenticates bytes, linked original inputs/candidate,
+metadata witnesses, counters, current source blob and exact failure classes.
+Every owned group is terminal; no resource interruption. All cells retain CPU0/
+nice10/one worker, 8 GiB reserve, RSS1 GiB/AS2 GiB/CPU45/wall60 limits.
+Task .molsyssuite/panel-model-receiving-20261107 is terminal and rejects further
+reference/diagnostic work; preserve all attempts and caches under #50 review
+2026-11-14. Shared environment, earlier provider/source/wheel/prefixes and the
+original migration remain intact.
+
+**Next:** receive #644's exact source/artifact correction, then register complete
+fresh normal/pm-fs reference cells retaining fractional-charge and negative-H
+controls. Do not silently switch the failing scalar to another container type.
+Remaining receptor/state/environment/terminal decisions and provider #558 maps/
+history still precede bound-source preparation. #33/#49 remain partial; full
+#73 stays active. E3 #604, #642 changed-native construction and canvas holds
+remain. No automatic rebuild or remote CI; #28 hosted and #30/#47 public/minor/
+platform evidence remain unproven.
+
 ### Panel provider receiving checkpoint — 2026-11-07
 
 [The bounded installed receiving](validation/scientific_panel_provider_receiving_2026-11-07.md)

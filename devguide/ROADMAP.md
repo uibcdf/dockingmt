@@ -5,6 +5,18 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**. The current
+[ligand-model/source checkpoint](validation/scientific_panel_ligand_models_2026-11-07.md)
+binds original source revisions and intended ligand hypotheses. Its complete
+anionic-reference receiving fails the fractional-charge control; a separate
+two-policy minimal diagnostic reproduces the public error-type defect, now
+owned by MolSysMT #644. No reference artifact, full cell or case is accepted.
+All failures and 44 primary/26 companion members are independently read.
+Next receive #644's exact source/artifact correction before fresh complete
+normal/pm-fs reference cells with both original controls. #558 and receptor/
+environment/terminal decisions still precede preparation. No local catch or
+weakened control, native compilation/search or automatic restart follows.
+
+The previous
 [panel occupancy/CCD-reference receiving](validation/scientific_panel_provider_receiving_2026-11-07.md)
 passes both original PDB/CIF candidates in normal and pm/fs/coulomb policies,
 including 1STP's 71 nonunit occupancies, neutral MK1/BTN references, strict label

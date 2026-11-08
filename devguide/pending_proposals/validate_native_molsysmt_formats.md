@@ -14,6 +14,30 @@ supersedes: []
 
 # Native MolSysMT SDF/PDBQT consumer acceptance
 
+## Declared ligand models and formal-charge receiving failure — 2026-11-07
+
+[The source/model checkpoint](../validation/scientific_panel_ligand_models_2026-11-07.md)
+binds original entry revisions, separates the shared-citation identity boundary,
+and selects the intended neutral MK1 / anionic BTN ligand hypotheses at explicit
+nominal model pH 7.4. The observed-core tetramer is an intentional 1STP model
+choice; free terminal charges and full case readiness are not inferred.
+No original input, assembly requirement or search/evaluation criterion changes.
+
+Full anionic-reference receiving fails at an invalid fractional formal-charge
+control after two valid public assignments; native persistence, final custody
+and the second policy are unreached. A separate one-atom diagnostic reproduces
+PyUnitWizard NotImplementedFormError instead of public MolSysMT ArgumentError
+under both policies, preserving the source field and caller authority.
+[MolSysMT #644](https://github.com/uibcdf/molsysmt/issues/644) owns the defect.
+Initial diagnostic audit failure stays separate. Forty-four primary and 26
+reader members retain the complete attempts, and fresh stdlib reading passes.
+No full reference/case acceptance is claimed. #33 stays partial.
+
+Next receive #644's exact source/artifact correction before registering complete
+fresh normal/pm-fs reference cells with the original negative controls. No local
+catch, altered input-container control or silent fractional truncation. #558
+maps/history and receptor/environment decisions still precede preparation.
+
 ## Panel occupancy and CCD reference receiving — 2026-11-07
 
 [The exact private installed receiving](../validation/scientific_panel_provider_receiving_2026-11-07.md)

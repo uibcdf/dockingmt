@@ -14,6 +14,22 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## Explicit ligand-state assignments expose a provider boundary — 2026-11-07
+
+[The case-specific reference attempt](../validation/scientific_panel_ligand_models_2026-11-07.md)
+uses public MolSysMT copy/select/get/set for a declared BTN carboxylate hypothesis;
+no chemical parser, pH predictor or general curation tool is implemented in
+DockingMT. The whole receiving fails its fractional formal-charge error control.
+Separate normal/pm-fs synthetic diagnostics reproduce the component digester's
+leaked unit-form error; [MolSysMT #644](https://github.com/uibcdf/molsysmt/issues/644)
+receives exact evidence. No ArgDigest/PyUnitWizard implementation defect is
+established and no downstream exception workaround is introduced.
+
+Receive the owning correction before a full fresh reference selection; #558
+retains reconstruction provenance. Both #49/#33 remain partial, and the full
+functional objective stays active. Earlier neutral-reference receiving remains
+valid for its unchanged composition and scope.
+
 ## Panel references received through public provider tools — 2026-11-07
 
 [The bounded installed normal/pm-fs receiving](../validation/scientific_panel_provider_receiving_2026-11-07.md)
