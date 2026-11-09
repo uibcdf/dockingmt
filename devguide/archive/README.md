@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (65)
+### Resolved (66)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_coordinate_record_admission.md`](audit_coordinate_record_admission.md) — [#90](https://github.com/uibcdf/dockingmt/issues/90) — Offline coordinate audits disagree with the existing pose-record admission. *(resolved, reproduced)*
@@ -29,6 +29,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`fixed_pose_scoring.md`](fixed_pose_scoring.md) — [#34](https://github.com/uibcdf/dockingmt/issues/34) — Score prepared fixed conformations independently of docking and preserve prior evaluations. *(resolved, measured)*
 - [`flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md`](flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md) — [#12](https://github.com/uibcdf/dockingmt/issues/12) — Flexible-ligand Vina coordinate arrays differ in order from PDBQT pose records *(resolved, measured)*
 - [`incremental_prepared_docking.md`](incremental_prepared_docking.md) — [#36](https://github.com/uibcdf/dockingmt/issues/36) — Execute prepared docking problems one at a time with explicit failure handling. *(resolved, measured)*
+- [`input_normalization_masks_resource_failures.md`](input_normalization_masks_resource_failures.md) — [#92](https://github.com/uibcdf/dockingmt/issues/92) — Public input normalization masks native memory failures as invalid arguments. *(resolved, reproduced)*
 - [`inspect_saved_scoring_collections.md`](inspect_saved_scoring_collections.md) — [#77](https://github.com/uibcdf/dockingmt/issues/77) — Inspect saved scoring collections through an explicit ordinary-installed example mode. *(resolved, measured)*
 - [`interaction_binding_partial_carrier_diagnostic.md`](interaction_binding_partial_carrier_diagnostic.md) — [#89](https://github.com/uibcdf/dockingmt/issues/89) — Interaction binding leaks scalar/form errors for absent carrier domains. *(resolved, reproduced)*
 - [`invalid_scores_can_corrupt_pose_ranking.md`](invalid_scores_can_corrupt_pose_ranking.md) — [#24](https://github.com/uibcdf/dockingmt/issues/24) — Reject invalid named scores before ranking docking poses *(resolved, measured)*

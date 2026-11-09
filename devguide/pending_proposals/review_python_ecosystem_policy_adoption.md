@@ -14,6 +14,21 @@ supersedes: []
 
 # Review Python ecosystem policy adoption
 
+## Native resource propagation at public inputs — 2026-11-08
+
+[#92's source correction](../archive/input_normalization_masks_resource_failures.md)
+adds explicit MemoryError passthrough at seven molecular/physical-value admission
+handlers. 139 new public controls preserve resource/process-control identity,
+ordinary DMT-E002 fields/causes, valid selection/state/source behavior and failure
+frontiers. Complete old-runtime qualification retains 34 failures/515 passes;
+final affected selections pass 549 cases normal then pm/fs. A separately verified
+published unyt/SymPy/mpmath prefix receives four missing test-extra cases without
+changing shared Conda or molecular providers. All initial failures remain.
+Independent native Receptor/JUnit/source/AST receiving passes for 164 primary/
+nine reader records, with no replay or molecular operations. #19 stays partial
+for wider adoption and public-provider closure; #28 hosted evidence remains
+missing and #73's complete objective is not inferred from this source increment.
+
 ## Result pose collection admission — 2026-11-08
 
 [#87's archived correction](../archive/result_pose_collection_admission.md)

@@ -166,6 +166,8 @@ def _normalize_input(
             or not np.isfinite(puw.get_value(coordinates)).all()
         ):
             raise ValueError('the selected structure needs finite atom coordinates')
+    except MemoryError:
+        raise
     except Exception as exc:
         raise ArgumentError(
             arg_name=name,

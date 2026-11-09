@@ -66,6 +66,8 @@ def normalize_definitions(definitions, score_names):
                 unit = str(puw.get_unit(quantity))
             except ArgumentError:
                 raise
+            except MemoryError:
+                raise
             except Exception as exc:
                 raise _error(
                     'The empirical unit must be recognized by PyUnitWizard.', name

@@ -27,6 +27,40 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Public input resource failures #92 — 2026-11-08
+
+[Native resource propagation #92](archive/input_normalization_masks_resource_failures.md)
+now preserves the exact MemoryError object at seven public input/quantity
+boundaries. Ordinary field-local diagnostics and provider causes remain, as do
+process-control exceptions and valid axes/states. The complete old runtime keeps
+34 failures/515 passes; final complete affected source selections pass 549 cases
+normal then pm/fs, including 139 new controls. Missing unyt test support is
+received in a verified private prefix; the shared environment is unchanged.
+Independent 164-member primary/nine-member reader receiving passes without replay;
+only seven exception handlers change AST. This strengthens Core C0/C1; full #73,
+#19/public/installed/canvas/hosted scope and the #256/#558 holds remain separate.
+
+Execution base `b195cf3ba27032ead16dd52086ea7e3631e18890`; source delta is
+fourteen lines in molecular/box/argument/score admission, with no schema/default/
+scientific changes. All initial failures remain: three corrected public-property
+fixture mistakes, 34 resource defects and four missing-unyt cases. The full
+old-runtime baseline and final profiles use identical final tests/tool bytes.
+No parameter is skipped or deselected. Receptor 1.2.2 and unyt 3.2.0/SymPy 1.14.0/
+mpmath 1.3.0 are authenticated private test support, separate from shared runtime.
+
+Primary manifest SHA-256:
+`f706008a18f436c45a94a4e90b70bed309ef97826f872f175beb659cb5e22410`.
+Reader companion:
+`ce7005b7c9992bfc9df2e9580cfb8e24ca68d9b39949a87d679e862f9eb8aac6`.
+Final cells take 7.061/16.871 s with sampled group peaks below 193 MB RSS; all
+owned groups terminate without resource interruption, CPU 0/nice 10/one worker,
+monitored 13 GiB reserve. Retain private `.molsyssuite/problem-memory-20261108`
+under #92/#19/#50, review 2026-11-14. Preserve its published wheels/prefix and
+original records, migration directory, shared environment and historical build
+interruption. No dependency/helper/data pin, molecular operation or remote CI.
+Resume the remaining accepted plan while the original provider/visual/public gates
+remain. Do not repeat completed molecular selections or restart held construction.
+
 ### Result restoration allocation profile #28 — 2026-11-08
 
 [Result restoration profiling](validation/result_restore_2026-11-08.md) now

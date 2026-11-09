@@ -64,6 +64,8 @@ def digest_energy_range(energy_range, caller=None):
             standardized=False,
             caller=caller,
         )
+    except MemoryError:
+        raise
     except Exception as exc:
         # Unit forms and parsers have provider-specific exceptions. Preserve the
         # original cause while presenting the local public argument contract.
@@ -277,6 +279,8 @@ def digest_rmsd_cutoff(rmsd_cutoff, caller=None):
             standardized=False,
             caller=caller,
         )
+    except MemoryError:
+        raise
     except Exception as exc:
         raise _invalid(
             'rmsd_cutoff', caller, 'Use a scalar length with explicit units.'
@@ -444,6 +448,8 @@ def digest_backend_unit(unit, caller=None):
         raise _invalid('unit', caller, reason)
     try:
         valid = puw.is_unit(unit) and puw.check(unit, dimensionality={'[L]': 1})
+    except MemoryError:
+        raise
     except Exception as exc:
         raise _invalid('unit', caller, reason) from exc
     if not valid:
@@ -611,6 +617,8 @@ def digest_coordinate_tolerance(coordinate_tolerance, caller=None):
             standardized=False,
             caller=caller,
         )
+    except MemoryError:
+        raise
     except Exception as exc:
         raise _invalid(
             'coordinate_tolerance', caller, 'Supply a length with explicit units.'

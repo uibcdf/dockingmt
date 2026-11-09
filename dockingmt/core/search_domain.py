@@ -191,6 +191,8 @@ def _ensure_length_quantity(val: Any, name: str, caller: str | None = None) -> A
             standardized=False,
             caller=caller,
         )
+    except MemoryError:
+        raise
     except Exception as exc:
         raise ArgumentError(
             arg_name=name,

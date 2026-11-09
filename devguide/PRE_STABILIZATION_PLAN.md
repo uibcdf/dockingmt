@@ -5,6 +5,17 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Native resource propagation #92](archive/input_normalization_masks_resource_failures.md)
+now preserves the exact MemoryError object at seven public input/quantity
+boundaries. Ordinary field-local diagnostics and provider causes remain, as do
+process-control exceptions and valid axes/states. The complete old runtime keeps
+34 failures/515 passes; final complete affected source selections pass 549 cases
+normal then pm/fs, including 139 new controls. Missing unyt test support is
+received in a verified private prefix; the shared environment is unchanged.
+Independent 164-member primary/nine-member reader receiving passes without replay;
+only seven exception handlers change AST. This strengthens Core C0/C1; full #73,
+#19/public/installed/canvas/hosted scope and the #256/#558 holds remain separate.
+
 [Result restoration profiling](validation/result_restore_2026-11-08.md) now
 receives a bounded allocation improvement under #28: peak Python allocations
 fall about 44%/56% on two fixed mapped JSON fixtures. Final medians are
