@@ -6,6 +6,12 @@ cutoff equality**. Whole E3 remains unaccepted. Original prescriptions are
 retained in the frozen attempt records; the outcome below is an append-only
 interpretation of that executed population.
 
+Later [complete correction receiving](e3_geometry_fix_receiving_2026-11-08.md)
+passes both whole policies on editable `fab8cbccf` with this exact original worker
+and all assertions unchanged. #659's client geometry hold is cleared only for
+that new profile. The original pm/fs FAIL and separate diagnosis below remain
+unchanged; #256/reference/common-frame/full E3 and public acceptance remain.
+
 ## Executed outcome and diagnosis
 
 The complete normal selection passes all 18 pairwise, 23 clustering, four

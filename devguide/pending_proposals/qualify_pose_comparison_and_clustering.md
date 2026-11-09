@@ -8,11 +8,36 @@ verification: inspected
 area: [analysis, scientific-validation, provenance]
 guard:
 normative: devguide/MVP.md
-blocked_by: [uibcdf/molsysmt#659, uibcdf/molsysmt#256]
+blocked_by: [uibcdf/molsysmt#256]
 supersedes: []
 ---
 
 # Provider-backed pose comparison and clustering
+
+## Original geometry profile received in both policies — 2026-11-08
+
+[The complete fresh receiving](../validation/e3_geometry_fix_receiving_2026-11-08.md)
+passes normal and pm/fs on editable MolSysMT `fab8cbccf`, after the six-commit
+source refresh containing #659 fix `68350e0b` and #657's build-version resolver.
+Rust/native bytes are unchanged; no build/reinstall. The scientific worker is
+byte-identical to the old failing selection. Both policies execute every original
+control: 18 pairwise, 23 cluster, four correspondence, one conversion/append,
+22 typed refusals and all final live checks. Exact inclusive linkage now agrees.
+No old failed population or scientific assertion is changed.
+
+The 176-member primary/nine-member reader evidence authenticates both whole
+profiles and receives 76 physical fields, with four invalid handshakes refused,
+without molecular replay. #659's client analytic/adverse hold is cleared for this
+composition; #604 capability source is delivered. #657 labels a build, not the
+live source fingerprint, and remains separate from source/import/native identity.
+
+Keep #79 blocked on #256's lossless original reference persistence and retain
+the saved-pose/state/common-frame and full comparison/clustering requirements.
+The provider's new public-route inspection has not qualified complete mechanics
+transport; no private codec, discarded domain or synthetic reference substitutes
+for that gate. #88 remains partial. Full E3/science/canvas/installed/public
+acceptance is unproven. Earlier dated next actions and failures below retain
+their historical source/receiving scope.
 
 ## Pairwise/clustering source delivered; independent unit defect — 2026-11-08
 

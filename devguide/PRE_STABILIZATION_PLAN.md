@@ -5,6 +5,16 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[The complete original E3 geometry selection](validation/e3_geometry_fix_receiving_2026-11-08.md)
+now passes normal and pm/fs on editable MolSysMT `fab8cbccf`, with unchanged
+worker/fixtures/assertions, native/Rust bytes and no build/reinstall. Per policy
+all 18 pairwise/23 cluster calls, 22 typed refusals and final live checks pass.
+The 176-member primary/nine-member reader archives receive 76 physical fields
+without molecular replay. #659's client geometry hold is cleared; old failures
+remain unchanged. #256's original reference persistence, #88's partial source
+control, saved-pose/common-frame/full E3 and scientific/canvas/installed/public
+criteria remain. No synthetic fixture replaces the original reference.
+
 [Source admission #89](archive/interaction_binding_partial_carrier_diagnostic.md)
 now gives a local `molecular_system` diagnostic for absent carrier atom/frame
 counts or coordinates, preserving real provider errors and existing binding
@@ -207,7 +217,7 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | C6 visualization | Real addon controls, communication and canvas display correctly paired receptor/domain/poses/reference, with actual interaction evidence. | Python/DOM/export/private evidence exists; live acceptance is still unproven. Respect the maintainer's scheduling decision. |
 | E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ordered and audited reproducibly. | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07) for the full-source rigid prepared13 profile: both actual original poses complete public reconstruction/preparation/additive Vina/Vinardo 1.2.7 scoring and separate method-local interaction comparison. Eight old values/ranks/history survive with 32 new values; native receiving and independent persistence pass. The original generator qualification remains failed with unreached original live checks. Broader E1, total/reference comparisons, independent science and public delivery retain their owners. |
 | E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for the P59(R)/P69(S) rigid25 joint-domain profile. Source/preparation reproduction and exact PDBQT gates precede native success/refusal/success, 3+2 poses and two original-rank-1 representatives. Five native columns, own per-run references, original scores/histories, three public outcome reconstructions and fresh independent receiving pass. The receptor remains externally prepared/unassessed; other E2 profiles, screening effectiveness, #73 and public delivery remain unaccepted. |
-| E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md): #604 tools are source-delivered. [Independent geometry receiving](validation/e3_geometry_provider_receiving_2026-11-08.md) passes normal but fails pm/fs inclusive cutoff under MolSysMT #659. #256 still holds original reference persistence. Saved-population/common-frame admission, full controls, workflow and installed/public receiving remain required; no synthetic reference substitution. |
+| E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md): [complete original analytic/adverse receiving](validation/e3_geometry_fix_receiving_2026-11-08.md) passes normal/pm-fs, clearing #659’s client geometry hold. #604 tools are source-delivered. #256 still holds original reference persistence; saved-population/common-frame, full workflow and installed/public receiving remain required. No synthetic reference substitution. |
 | E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | [#80](pending_proposals/receive_docking_interaction_analysis.md) retains its original molecular population. [Complete catalog receiving](validation/e4_evidence_catalog_editable_2026-11-08.md) passes normal/pm-fs on editable `2325038e8`, clearing the historical #642 one-carrier persistence hold. Same-carrier, installed binding and interaction-view/DOM profiles retain their exact producers; actual browser/comm/canvas and remaining one-carrier/full E4 criteria stay unaccepted. Four original poses remain unevaluated; no detector/search repeats. |
 | E5 independent reproduction | A separate receiving installation reconstructs a representative stored workflow from documented inputs, with observed agreement/tolerances, failures and missing information. | [#83 resolved](archive/qualify_independent_installed_reproduction.md#bounded-acceptance-and-resolution--2026-11-07): complete stored 1IEP pair receives fresh normal/pm-fs installations, zero observed drift, twelve pre-native refusals, twelve version refusals, independent reader and all six original criteria. [Exact receiving](validation/e5_timed_replay_2026-11-07.md) keeps external chemistry, historical failures, public/platform and independent molecular accuracy separate. |
 | Bounded scientific qualification | An admitted transparent independent panel and informative positive/adverse controls, explicit preparation/search/ranking hypotheses, denominators, budgets and all outcomes. | Audit Q2–Q4 and #33/#49 own admission. Existing within-case repetitions do not become independent complexes. |
@@ -227,14 +237,15 @@ implemented API or record-only test is not acceptance of a scientific workflow.
    original data, producers, failures and exact receiving scope. No repeated
    search or relaxed ranking is needed. Receptor chemistry remains externally
    prepared/unassessed where declared; those cases are not independent samples.
-3. Receive MolSysMT #659's inclusive-cutoff correction with the unchanged whole
-   [analytic/adverse normal/pm-fs selection](validation/e3_geometry_provider_receiving_2026-11-08.md).
-   #604's public pairwise/clustering APIs now exist; retain experimental scope
-   and provider ownership. In parallel resolve the supported lossless native
-   storage question under #256 before a fresh original experimental-reference
-   selection. Keep #88 partial, all earlier failures, saved-pose state/maps,
-   common receptor frame and every full #79 criterion. A synthetic or self
-   reference does not replace the original reference; no local algorithm/codec.
+3. Preserve the [complete original geometry receiving](validation/e3_geometry_fix_receiving_2026-11-08.md)
+   under both unit policies, with unchanged worker and all original controls.
+   #659's client geometry hold is cleared; #604's public tools remain experimental.
+   Resolve the supported lossless original-reference route under #256 before a
+   fresh full reference selection. Its current owner inspection qualifies no
+   complete transport; native restoration remains a candidate for assessment.
+   Keep #88 partial, old failures, all domains, saved-pose/state/maps, common
+   receptor frame and every full #79 criterion. No private codec, fuzzy cutoff
+   or synthetic reference replaces those requirements.
 4. Audit remaining [E4/#80](pending_proposals/receive_docking_interaction_analysis.md)
    one-carrier criteria against its completed catalog/native/history/persistence,
    saved binding and interaction-view/DOM receiving. #642's earlier native-build

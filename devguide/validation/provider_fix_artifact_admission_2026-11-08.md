@@ -6,6 +6,13 @@ Owners: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md
 Starting source: `acce58e3dc0ff17673f091b42765fb65257b8977`.
 Status: **editable composition and original catalog/protein/ligand receiving pass within their declared profiles; E3 and installed/public qualification remain separate**.
 
+Latest [E3 geometry correction receiving](e3_geometry_fix_receiving_2026-11-08.md)
+passes the complete original normal/pm-fs controls on editable `fab8cbccf`,
+including #659 and #657 fixes, with unchanged Rust/native bytes and no rebuild.
+#659's client geometry hold is cleared; #256/original reference/common-frame/
+full E3 remains separate. Previous source-suite/workflow receipts retain their
+own exact provider scopes; no new public artifact is qualified by this refresh.
+
 Later pure-Python refresh: the clean provider checkout advances 16 commits to
 `8af8628e61ac28b519827802c39cf2e3eaa48b7e`, with unchanged Rust/native bytes and
 no rebuild/reinstall. [Independent new geometry controls](e3_geometry_provider_receiving_2026-11-08.md)

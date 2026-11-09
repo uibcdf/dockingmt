@@ -24,6 +24,43 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Complete original E3 geometry receiving — 2026-11-08
+
+[The new complete receiving](validation/e3_geometry_fix_receiving_2026-11-08.md)
+passes normal and pm/fs on consumer execution base `d594fb66`, clean editable
+MolSysMT `fab8cbccf570a60205a3863aad19dd4b7cfb8d3a` after six more commits.
+#659 fix `68350e0b` avoids the cutoff-only output-policy round trip; no tolerance
+or other cutoff consumer is changed. #657's bootstrap prefers the owning build
+stamp: observed `0.23.0+687.g2325038e8` labels that build, not the current mutable
+source. Exact source/loaded origins and inventories remain separate. Rust tree
+`fb25b2ea` / native SHA-256 `5715bda2` are unchanged; no build/reinstall needed.
+
+The original scientific worker SHA-256 remains
+`65627af215163a9c012da536f4450df2892f04db2816d8c8fea6791fc2c49c5c`.
+Both whole profiles pass 18 pairwise/23 cluster/four correspondence/one conversion/
+append calls, all 22 typed refusals and final live source/caller/configuration/
+custody assertions. All original fixtures, exact cutoff, scopes, tolerances and
+adverse controls stay intact. The earlier failed campaign and diagnosis are not
+rerun or relabeled; the new terminal PASS receives this profile only.
+
+The 176-member primary/nine-member reader evidence authenticates 76 physical
+fields through PyUnitWizard and refuses four bad receiver handshakes. Reading
+imports no molecular provider and recomputes no geometry/clustering. Both cells
+finish in 15.975/16.087 s, peak sampled group RSS 213,626,880/213,434,368 bytes,
+minimum available RAM 59,765,501,952/60,219,920,384 bytes. CPU 0/nice 10/worker 1,
+monitored 13 GiB reserve, all owned groups terminal without resource interruption.
+Retain `.molsyssuite/e3-geometry-fix-receiving-20261108` under #50/review 2026-11-14.
+
+#659's client hold is cleared for this original analytic/adverse profile. #79
+stays blocked on #256's original reference persistence and retains saved-pose/
+state/common-frame/full comparison/clustering criteria. #88 remains partial.
+The new #256 owner inspection verifies no complete supported transport yet;
+native restoration is a candidate for assessment, not a portable/H5MSM claim.
+Keep the original gate, domains and failed records intact. Independent E4/panel
+work may continue within its holds. Full E3/Core/Extended/science, actual canvas,
+installed/public/minor/platform and exact-head hosted evidence remain unproven.
+No runtime/helper/pin edit, search/detector, browser/kernel or remote CI occurs.
+
 ### Partial-carrier interaction admission #89 — 2026-11-08
 
 [The source correction](archive/interaction_binding_partial_carrier_diagnostic.md)

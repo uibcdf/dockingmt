@@ -5,6 +5,17 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[E3's complete geometry correction receiving](validation/e3_geometry_fix_receiving_2026-11-08.md)
+now passes normal and pm/fs on editable `fab8cbccf`, using the byte-identical
+original worker and every original assertion. All 18 pairwise/23 cluster calls,
+22 typed refusals and final live checks pass per profile. The 176-member primary/
+nine-member reader evidence receives 76 physical fields without molecular replay.
+#659's client geometry hold is cleared; #657's build label/source distinction
+is received in this cohort. No native rebuild or package wait. Next qualify the
+supported lossless original reference route under #256 and retain saved-pose/
+state/common-frame/full #79 criteria; independent E4/panel work may continue.
+Full E3/science/canvas/installed/public scope and old failures remain intact.
+
 [Interaction binding #89](archive/interaction_binding_partial_carrier_diagnostic.md)
 now refuses absent carrier counts/coordinates with a local structured argument
 diagnostic through both public routes. Six original source failures remain;
