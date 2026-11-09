@@ -14,6 +14,23 @@ supersedes: []
 
 # Required Python 3.14 adoption
 
+## Current private installed-record receiving — 2026-11-08
+
+[The new actual wheel checkpoint](../validation/record_wheel_editable_2026-11-08.md)
+passes 990 original record/input cases per normal/pm-fs policy on Linux/Python 3.14.10,
+with exact current editable siblings, real private venv/provenance, four shared
+import refusals and retirement of all 594 support inputs. #93 adds the omitted
+required interaction module; the same original `6310a97` wheel already contains
+all66 paths. Original failures remain, and producer/qualification identities are
+separate. Full distribution controls pass 19 tests/five subtests; independent
+193-member primary/nine-member reader receiving passes without replay.
+
+This is bounded private installed-record evidence. Keep this issue partial for
+actual public closure/Conda artifact/full installed scientific selection and all
+platform/minor gates. Workflow/scientific pins and release-tool profile remain;
+no shared installation, provider refresh/build, scientific work, package upload
+or remote CI. #256/#558/actual-canvas and #28 hosted scope stay separate.
+
 ## Public provider readiness reviewed — 2026-11-03
 
 [The #47 readiness review](../validation/public_candidate_readiness.md) separates

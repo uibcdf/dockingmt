@@ -27,6 +27,45 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Private installed record API and complete payload #93 — 2026-11-08
+
+[Current private installed-record receiving](validation/record_wheel_editable_2026-11-08.md)
+passes 990 cases normal then pm/fs, the fixed union of recent source selections,
+using the actual unchanged wheel from producer `6310a97` with editable siblings.
+A real private venv, exact payload/source/RECORD/PEP610, four shared-validator
+refusals and unchanged 594-input support retirement pass. #93 corrects one omitted
+required path (`interactions.py`): the wheel already shipped it; preserve the same
+original wheel, failed 65-path gate and producer/qualification distinction.
+Complete distribution controls pass 19 tests/five subtests. Independent 193-member
+primary/nine-member reader receiving passes without replay. #47/#30, full installed/
+scientific/public/platform/canvas and hosted acceptance remain partial. No provider
+refresh/build, shared install, new molecular work or remote CI; #256/#558 holds stay.
+
+Original private wheel `0.0.0+339.g6310a97`, producer
+`6310a97b7a900f31d37f84a476bc355a899282de`, SHA-256
+`13169bd91cc90a16bd3b8f60329856ee2cb1921a0dd69ebb598230f543e6fa92`.
+This checkpoint changes only its qualification descriptor (65→66 required paths)
+and documentation. It does not rebuild or relabel original bytes. All runtime/
+tests/support and actual MolSysMT `fab8cbccf`, Viewer `1187fc18`, native `5715bda2`
+source identities remain; stale version labels retain their separate attribution.
+The shared runner retires all 30 helpers/564 files in both profiles; no production
+namespace remains in the exported test harness and all loaded runtime imports
+belong to the real receiving venv. Both profiles have one unchanged real-native
+test explicitly outside the offline scope, zero errors/failures/skips otherwise.
+
+Primary manifest SHA-256:
+`5400909a2cc3d47b19dcd9d0e33c6128651dcfdd75e074f131697af08779409d`.
+Reader companion:
+`7be71a6034471f59de23d6a7b74edc813292c1c2e67d66208d282ed4c7351172`.
+Final cells take 52.982/46.420 s, sampled group peaks below 229 MB RSS, CPU 0/nice 10/
+one worker and monitored 13GiB reserve, no resource interruption/live descendants.
+Retain `.molsyssuite/record-wheel-20261108` under #47/#30/#93/#50, review 2026-11-14.
+Preserve its private original wheel/receiver/harness/tools, initial failures,
+migration, shared environment and historical interrupted native build. Resume the
+remaining public/full scientific/platform/canvas plan only through their own
+criteria; respect the #256 wait and #558 map/history requirement. No build restart,
+provider poll/pull, scientific repeat or automatic CI follows this checkpoint.
+
 ### Public input resource failures #92 — 2026-11-08
 
 [Native resource propagation #92](archive/input_normalization_masks_resource_failures.md)

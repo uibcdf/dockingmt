@@ -5,6 +5,18 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Current private installed-record receiving](validation/record_wheel_editable_2026-11-08.md)
+passes 990 cases normal then pm/fs, the fixed union of recent source selections,
+using the actual unchanged wheel from producer `6310a97` with editable siblings.
+A real private venv, exact payload/source/RECORD/PEP610, four shared-validator
+refusals and unchanged 594-input support retirement pass. #93 corrects one omitted
+required path (`interactions.py`): the wheel already shipped it; preserve the same
+original wheel, failed 65-path gate and producer/qualification distinction.
+Complete distribution controls pass 19 tests/five subtests. Independent 193-member
+primary/nine-member reader receiving passes without replay. #47/#30, full installed/
+scientific/public/platform/canvas and hosted acceptance remain partial. No provider
+refresh/build, shared install, new molecular work or remote CI; #256/#558 holds stay.
+
 [Native resource propagation #92](archive/input_normalization_masks_resource_failures.md)
 now preserves the exact MemoryError object at seven public input/quantity
 boundaries. Ordinary field-local diagnostics and provider causes remain, as do

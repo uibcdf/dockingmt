@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (66)
+### Resolved (67)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_coordinate_record_admission.md`](audit_coordinate_record_admission.md) — [#90](https://github.com/uibcdf/dockingmt/issues/90) — Offline coordinate audits disagree with the existing pose-record admission. *(resolved, reproduced)*
@@ -32,6 +32,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`input_normalization_masks_resource_failures.md`](input_normalization_masks_resource_failures.md) — [#92](https://github.com/uibcdf/dockingmt/issues/92) — Public input normalization masks native memory failures as invalid arguments. *(resolved, reproduced)*
 - [`inspect_saved_scoring_collections.md`](inspect_saved_scoring_collections.md) — [#77](https://github.com/uibcdf/dockingmt/issues/77) — Inspect saved scoring collections through an explicit ordinary-installed example mode. *(resolved, measured)*
 - [`interaction_binding_partial_carrier_diagnostic.md`](interaction_binding_partial_carrier_diagnostic.md) — [#89](https://github.com/uibcdf/dockingmt/issues/89) — Interaction binding leaks scalar/form errors for absent carrier domains. *(resolved, reproduced)*
+- [`interaction_module_missing_from_resource_inventory.md`](interaction_module_missing_from_resource_inventory.md) — [#93](https://github.com/uibcdf/dockingmt/issues/93) — The installed resource inventory omits the already-shipped interaction module. *(resolved, measured)*
 - [`invalid_scores_can_corrupt_pose_ranking.md`](invalid_scores_can_corrupt_pose_ranking.md) — [#24](https://github.com/uibcdf/dockingmt/issues/24) — Reject invalid named scores before ranking docking poses *(resolved, measured)*
 - [`ligand_pdbqt_writer_shifts_columns_for_four_character_atom_names.md`](ligand_pdbqt_writer_shifts_columns_for_four_character_atom_names.md) — [#18](https://github.com/uibcdf/dockingmt/issues/18) — Ligand PDBQT writer shifts columns for four-character atom names *(resolved, measured)*
 - [`link_1iep_external_pdbqt_to_source_ligand.md`](link_1iep_external_pdbqt_to_source_ligand.md) — [#14](https://github.com/uibcdf/dockingmt/issues/14) — Link the 1IEP external PDBQT check to its source ligand *(resolved, measured)*

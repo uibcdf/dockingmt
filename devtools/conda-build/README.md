@@ -19,8 +19,8 @@ selected by the shared-caller adoption.
 The recipe declares `noarch: python`: both Python namespaces and py.typed carry
 no bundled native binaries. Third-party native Vina/OpenMM/RDKit stay separately
 distributed; Vina/Viewer are optional features, not new required runtime packages.
-`resources.toml` requires all 63 current package paths plus the generated
-version file (64 paths). Bounded setuptools discovery excludes administration/tests.
+`resources.toml` requires all 66 current runtime paths, including the generated
+version file. Bounded setuptools discovery excludes administration/tests.
 No actual Conda archive, public dependency closure or platform qualification is claimed.
 
 The local [PEP 639 checkpoint](../../devguide/validation/license_metadata.md)

@@ -8,6 +8,17 @@ this review checks the separate public package boundary and prepares controls.
 **No release version, real release plan, environment, build, scientific run,
 upload, promotion or credential operation is selected by this work.**
 
+## Separate private record receiving — 2026-11-08
+
+[The current installed-record checkpoint](record_wheel_editable_2026-11-08.md)
+receives the recent offline APIs in an actual private wheel with exact editable
+siblings: 990 cases per caller policy, complete 66-path payload, provenance,
+shared import refusals and 594-input support retirement. #93 corrects an omitted
+required path without rebuilding the original `6310a97` wheel. This qualifies
+that bounded private consumer route only; no public registry refresh/solve,
+covering provider file, Conda artifact or platform/minor matrix is received.
+The dated public observations below and their original failures remain intact.
+
 ## Availability refresh — 2026-11-05
 
 The separate [current API/main-index receipt](data/public_readiness/registry_refresh_2026-11-05.json)
