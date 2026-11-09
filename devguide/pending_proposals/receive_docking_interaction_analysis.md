@@ -16,6 +16,16 @@ supersedes: []
 
 ## Current resumption route — 2026-11-08
 
+[The local partial-carrier diagnostic correction #89](../archive/interaction_binding_partial_carrier_diagnostic.md)
+now gives DMT-E002 naming `molecular_system` for absent atom/frame counts or
+coordinates through both public binding routes. The original six source failures
+remain FAIL; complete affected binding/view guards pass 78 cases per normal and
+pm/fs policy, including existing valid/negative/provider-error/detachment cases.
+The 60-member primary/nine-member reader archives verify native JUnit/Receptor
+and source/AST agreement without molecular replay. This improves the consumer
+admission boundary only; full #80/scientific/installed/canvas acceptance stays
+partial. E3's independent #659/#256 holds remain; no new detector/search or View.
+
 The [complete editable catalog receiving](../validation/e4_evidence_catalog_editable_2026-11-08.md)
 now passes normal and pm/fs, including the immutable old failing carrier and a
 new full-carrier binding/write/readback. All original payload/native/result

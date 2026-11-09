@@ -7,6 +7,15 @@ docking-specific public association. Qualification of the new API on an actual
 installed artifact remains separate from that earlier receiving and the source
 boundary tests below. Whole E4, addon/canvas and public delivery remain open.
 
+Later source correction: [DockingMT #89](../archive/interaction_binding_partial_carrier_diagnostic.md)
+now reports absent carrier atom/frame counts or coordinate quantities as DMT-E002
+for `molecular_system`, before scalar/unit extraction. Both public entry points
+pass the complete 78-case binding/view selection normal and pm/fs; the original
+six failures remain frozen. This is source admission through provider doubles,
+not a new real molecular, installed or canvas acceptance. The later
+[complete editable catalog receiving](e4_evidence_catalog_editable_2026-11-08.md)
+separately clears the historical #642 persistence hold for its original profile.
+
 Subsequent [installed candidate receiving](e4_pose_binding_installed_2026-11-07.md)
 now passes normal/pm-fs on the original retained and separately derived
 evaluated-empty carriers, plus independent record reading. Its actual source,
@@ -86,6 +95,12 @@ collection. No hydrogen generation, preparation, typing, charge assignment,
 detector, RMSD, alignment, scoring or native search is part of this operation.
 MolSysMT owns all molecular serialization; the association dictionary is an
 inspection snapshot, not a complete persistence codec or authenticated receipt.
+
+Absent atom/structure counts and absent coordinates are also rejected with the
+local `ArgumentError` for `molecular_system`, identifying the domain the caller
+must supply. A valid partial molecular representation is insufficient for this
+specific association. Errors actually raised by the provider propagate unchanged;
+the binding does not replace their exception type or generate missing data.
 
 ## Registered source qualification
 

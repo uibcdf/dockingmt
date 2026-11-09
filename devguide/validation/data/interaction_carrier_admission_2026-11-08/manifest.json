@@ -1,0 +1,488 @@
+{
+  "schema": "dockingmt.interaction_carrier_admission@1",
+  "source_commit": "1ffff2ea3066ceef98a2ebd530337709290cecd3",
+  "provider_commit": "8af8628e61ac28b519827802c39cf2e3eaa48b7e",
+  "owner": "uibcdf/dockingmt#89",
+  "files": [
+    {
+      "path": "producer/run.py.txt.gz",
+      "original_path": "producer/run.py.txt",
+      "bytes": 1920,
+      "sha256": "db9f3b0245243f420884c9a656f213252c0bb7adc9f72707c64d79964d8922e8",
+      "decoded_bytes": 3906,
+      "decoded_sha256": "3eb97b036f8ba5b5f5a687724bd17e612431b64f9cb75c5af66c930c435165d5"
+    },
+    {
+      "path": "producer/test_child.py.txt.gz",
+      "original_path": "producer/test_child.py.txt",
+      "bytes": 1381,
+      "sha256": "71ce83e36f4e8c17a9591f417e4fad10fc4f28fa1bdf65ab9f72243df538ac6d",
+      "decoded_bytes": 2991,
+      "decoded_sha256": "e99ab1b361f41deea1a458babd6dfacb63f4248b64d24537a4bd5c16aa80f2c8"
+    },
+    {
+      "path": "producer/formatting-observation.json.gz",
+      "original_path": "producer/formatting-observation.json",
+      "bytes": 130,
+      "sha256": "cc87e93d0c7f8d7b6bf2092d8bc310074cffec7d3d87ad3ab78389023907dc67",
+      "decoded_bytes": 134,
+      "decoded_sha256": "2b5d5e263fbd77c7b44ef66ecf402fcfc28c827c183ab266f549636abe4b8ede"
+    },
+    {
+      "path": "producer/quality-observation.json.gz",
+      "original_path": "producer/quality-observation.json",
+      "bytes": 314,
+      "sha256": "924316d0a63d50613d00787e14f592c5c99442b723dc2bd89973c8830d51d416",
+      "decoded_bytes": 561,
+      "decoded_sha256": "eb53e2bb31ec4353bf4979146dfb7e2394a37b32aa6ab122a9c14465a9966609"
+    },
+    {
+      "path": "attempts/red-normal/events.jsonl.gz",
+      "original_path": "attempts/red-normal/events.jsonl",
+      "bytes": 5231,
+      "sha256": "d58ad7b9c42d91b57d71c7ee8ee730dbe86f8f4fbfbb023e8a259496b95743dd",
+      "decoded_bytes": 51178,
+      "decoded_sha256": "2ab9df9eeb3ce7c362cf6123c2238cc5bbfc47e61626792ce114cf29942e775b"
+    },
+    {
+      "path": "attempts/red-normal/frozen-controller.py.gz",
+      "original_path": "attempts/red-normal/frozen-controller.py",
+      "bytes": 1889,
+      "sha256": "86ce2f20dd3025827839f32803b66416a7b8575318ba7feb914b1236d28d257a",
+      "decoded_bytes": 3849,
+      "decoded_sha256": "1850ddacc4df8654175d76628466972d66492e69036f68a24112477edbfca9d9"
+    },
+    {
+      "path": "attempts/red-normal/frozen-dockingmt__interactions.py.gz",
+      "original_path": "attempts/red-normal/frozen-dockingmt__interactions.py",
+      "bytes": 2690,
+      "sha256": "ca563e81e3fce572d231412739e6835cfd94471b6813343d8ba1c14f06e1ecdc",
+      "decoded_bytes": 8972,
+      "decoded_sha256": "495926980c79086bbad84ff13fd3407d1cc176feebcc8c3f30eb9c9cb1b045c8"
+    },
+    {
+      "path": "attempts/red-normal/frozen-guard.py.gz",
+      "original_path": "attempts/red-normal/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/red-normal/frozen-pyproject.toml.gz",
+      "original_path": "attempts/red-normal/frozen-pyproject.toml",
+      "bytes": 1210,
+      "sha256": "41d6cb9453223991324e3468b52ea2155ab8583e378b3e81a5223faa2882755a",
+      "decoded_bytes": 2810,
+      "decoded_sha256": "ec2ef40c3ed7c228b182477dc498f39f0a097045a37f766011376fa41b25337a"
+    },
+    {
+      "path": "attempts/red-normal/frozen-test_child.py.gz",
+      "original_path": "attempts/red-normal/frozen-test_child.py",
+      "bytes": 1381,
+      "sha256": "71ce83e36f4e8c17a9591f417e4fad10fc4f28fa1bdf65ab9f72243df538ac6d",
+      "decoded_bytes": 2991,
+      "decoded_sha256": "e99ab1b361f41deea1a458babd6dfacb63f4248b64d24537a4bd5c16aa80f2c8"
+    },
+    {
+      "path": "attempts/red-normal/frozen-tests__test_interaction_binding.py.gz",
+      "original_path": "attempts/red-normal/frozen-tests__test_interaction_binding.py",
+      "bytes": 3269,
+      "sha256": "230d1d13a035e58926c57503e681bf95676689500d338292b30a235691a34875",
+      "decoded_bytes": 12694,
+      "decoded_sha256": "39bcc52df5e7aacf2c164d61dc356f74f76f841a9e1ea6108a99309b724c3718"
+    },
+    {
+      "path": "attempts/red-normal/frozen-tests__test_viewer_interactions.py.gz",
+      "original_path": "attempts/red-normal/frozen-tests__test_viewer_interactions.py",
+      "bytes": 4006,
+      "sha256": "a30efb9a08b94ab0747ed3c15f2a382aff777735cabc136ddebaa83fd3965b51",
+      "decoded_bytes": 16808,
+      "decoded_sha256": "691d57af68a8847538b4002df01f18420584738da6759603901779ada95ca8e4"
+    },
+    {
+      "path": "attempts/red-normal/junit.xml.gz",
+      "original_path": "attempts/red-normal/junit.xml",
+      "bytes": 3205,
+      "sha256": "adc9979c37a3e335ec08f9980b4d863d0ce16572e2b9dec77b8c3403d81e2a90",
+      "decoded_bytes": 32512,
+      "decoded_sha256": "54f10d77367b80ddc6512dff5777ec977aad90a3adfe62fb60dc5c735bbdd39a"
+    },
+    {
+      "path": "attempts/red-normal/receipt.json.gz",
+      "original_path": "attempts/red-normal/receipt.json",
+      "bytes": 1044,
+      "sha256": "a585fc4680a4d9bc819a7c1594c92a5a5436f9fd92e8ca56aaa2e9f90de97a00",
+      "decoded_bytes": 2700,
+      "decoded_sha256": "04bb6099a8162b644669bcd3e5584c8c636f016f0f6fdcc170be2ae0cd3bddde"
+    },
+    {
+      "path": "attempts/red-normal/registration.json.gz",
+      "original_path": "attempts/red-normal/registration.json",
+      "bytes": 914,
+      "sha256": "6f9e161807250dc51173a3c0df70cfece54b84889b0d01d47fc1ee8e76285664",
+      "decoded_bytes": 1999,
+      "decoded_sha256": "9e7ed8e6ed88f7f9dddc251be45b6230744ac500b6e8d6f02417b9ca18059eee"
+    },
+    {
+      "path": "attempts/red-normal/resource-outcome.json.gz",
+      "original_path": "attempts/red-normal/resource-outcome.json",
+      "bytes": 334,
+      "sha256": "1372f6ac1d3859c7a5bdb887ee2c5e5a39a6ba17c4c9285e4e3d2ccd188d730e",
+      "decoded_bytes": 574,
+      "decoded_sha256": "f2b27090e7fb16cf67a4bf3507fb4ee617ba99a6d1991dba2fe3d25eae55eb51"
+    },
+    {
+      "path": "attempts/red-normal/stderr.log.gz",
+      "original_path": "attempts/red-normal/stderr.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/red-normal/stdout.log.gz",
+      "original_path": "attempts/red-normal/stdout.log",
+      "bytes": 653,
+      "sha256": "ef9de548038b6fc0440c3fe5250a85b20f56e71d069a39df37cca0aaef1c5b7a",
+      "decoded_bytes": 4063,
+      "decoded_sha256": "0bf822d1e6f40f873c8438b2073f6c9eed9c287245602b2e4e424f936f0d61c7"
+    },
+    {
+      "path": "attempts/green-normal/events.jsonl.gz",
+      "original_path": "attempts/green-normal/events.jsonl",
+      "bytes": 12566,
+      "sha256": "f88dfdcbc5a4e5ea9209b7ea47bcbfda76a25db92fc15fefc8aedb8fb8ce02b6",
+      "decoded_bytes": 170851,
+      "decoded_sha256": "c36e646ec5ba56e6adb6b716f4a710f3cfd5c832ed4b75ba73bdcc0eb2f1766d"
+    },
+    {
+      "path": "attempts/green-normal/frozen-controller.py.gz",
+      "original_path": "attempts/green-normal/frozen-controller.py",
+      "bytes": 1889,
+      "sha256": "86ce2f20dd3025827839f32803b66416a7b8575318ba7feb914b1236d28d257a",
+      "decoded_bytes": 3849,
+      "decoded_sha256": "1850ddacc4df8654175d76628466972d66492e69036f68a24112477edbfca9d9"
+    },
+    {
+      "path": "attempts/green-normal/frozen-dockingmt__interactions.py.gz",
+      "original_path": "attempts/green-normal/frozen-dockingmt__interactions.py",
+      "bytes": 2756,
+      "sha256": "12a32eeffc7627ff3e6f687229f4fae1d8a8744d6168746386b425729b303e7f",
+      "decoded_bytes": 9640,
+      "decoded_sha256": "46e797679c29265ca6de873b8f14d1c3c761035066958ff5e0646a1ee872a3bb"
+    },
+    {
+      "path": "attempts/green-normal/frozen-guard.py.gz",
+      "original_path": "attempts/green-normal/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/green-normal/frozen-pyproject.toml.gz",
+      "original_path": "attempts/green-normal/frozen-pyproject.toml",
+      "bytes": 1210,
+      "sha256": "41d6cb9453223991324e3468b52ea2155ab8583e378b3e81a5223faa2882755a",
+      "decoded_bytes": 2810,
+      "decoded_sha256": "ec2ef40c3ed7c228b182477dc498f39f0a097045a37f766011376fa41b25337a"
+    },
+    {
+      "path": "attempts/green-normal/frozen-test_child.py.gz",
+      "original_path": "attempts/green-normal/frozen-test_child.py",
+      "bytes": 1381,
+      "sha256": "71ce83e36f4e8c17a9591f417e4fad10fc4f28fa1bdf65ab9f72243df538ac6d",
+      "decoded_bytes": 2991,
+      "decoded_sha256": "e99ab1b361f41deea1a458babd6dfacb63f4248b64d24537a4bd5c16aa80f2c8"
+    },
+    {
+      "path": "attempts/green-normal/frozen-tests__test_interaction_binding.py.gz",
+      "original_path": "attempts/green-normal/frozen-tests__test_interaction_binding.py",
+      "bytes": 3269,
+      "sha256": "230d1d13a035e58926c57503e681bf95676689500d338292b30a235691a34875",
+      "decoded_bytes": 12694,
+      "decoded_sha256": "39bcc52df5e7aacf2c164d61dc356f74f76f841a9e1ea6108a99309b724c3718"
+    },
+    {
+      "path": "attempts/green-normal/frozen-tests__test_viewer_interactions.py.gz",
+      "original_path": "attempts/green-normal/frozen-tests__test_viewer_interactions.py",
+      "bytes": 4006,
+      "sha256": "a30efb9a08b94ab0747ed3c15f2a382aff777735cabc136ddebaa83fd3965b51",
+      "decoded_bytes": 16808,
+      "decoded_sha256": "691d57af68a8847538b4002df01f18420584738da6759603901779ada95ca8e4"
+    },
+    {
+      "path": "attempts/green-normal/junit.xml.gz",
+      "original_path": "attempts/green-normal/junit.xml",
+      "bytes": 1481,
+      "sha256": "a4cbf3be7723b12019d8546c79a7c819cd1dafa775a71670c01a25d2b5a302c5",
+      "decoded_bytes": 11253,
+      "decoded_sha256": "877fce02f36346cc0ee07a8df1436d186a037172df73c9b4ce4eff699fdbc686"
+    },
+    {
+      "path": "attempts/green-normal/receipt.json.gz",
+      "original_path": "attempts/green-normal/receipt.json",
+      "bytes": 1043,
+      "sha256": "90b9c1662c5bcc4c4329b6b9f1daf1bce3e5c188cd3b63e866aa0c7f0b753d8e",
+      "decoded_bytes": 2707,
+      "decoded_sha256": "7fa7da54944d8548b23123482fbdff5153348ab8b754d1dfd1c5f1834bd4d389"
+    },
+    {
+      "path": "attempts/green-normal/registration.json.gz",
+      "original_path": "attempts/green-normal/registration.json",
+      "bytes": 884,
+      "sha256": "be8a8220d59b3a6c4f28f6a86bb35d4169b68e44fe3526a57049b102b26163df",
+      "decoded_bytes": 1979,
+      "decoded_sha256": "65f6be0db7425f94e6741a8f31d4a13af8f067f35420b13caa5d7caab9c4d085"
+    },
+    {
+      "path": "attempts/green-normal/resource-outcome.json.gz",
+      "original_path": "attempts/green-normal/resource-outcome.json",
+      "bytes": 332,
+      "sha256": "8de789e58ffb2cddcd24b75b1041c336a6055f51f7417f465f7c1b5c85763bdd",
+      "decoded_bytes": 574,
+      "decoded_sha256": "5b4829b308236c06374dfbbfe24777fdbb25d4440b1f01a714400b65a1110bab"
+    },
+    {
+      "path": "attempts/green-normal/stderr.log.gz",
+      "original_path": "attempts/green-normal/stderr.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/green-normal/stdout.log.gz",
+      "original_path": "attempts/green-normal/stdout.log",
+      "bytes": 51,
+      "sha256": "5bac1f9fdaa5cffb0bde6edacdc5020ace7983a08da70f5832b89488a9934bb3",
+      "decoded_bytes": 33,
+      "decoded_sha256": "812c947c2f472b1277411661a22ae7e995eee3e2a4350b7027824434ccd91f93"
+    },
+    {
+      "path": "attempts/green-normal-02/events.jsonl.gz",
+      "original_path": "attempts/green-normal-02/events.jsonl",
+      "bytes": 12583,
+      "sha256": "057d57b9a297427b05af123a38dd83f56a2beacf0e59c320f78f2c8b7cc0e436",
+      "decoded_bytes": 170867,
+      "decoded_sha256": "c8deb7f793601092dab03742f974ca726cd98bdb1fa490f347e40656e77d4c00"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-controller.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-controller.py",
+      "bytes": 1920,
+      "sha256": "db9f3b0245243f420884c9a656f213252c0bb7adc9f72707c64d79964d8922e8",
+      "decoded_bytes": 3906,
+      "decoded_sha256": "3eb97b036f8ba5b5f5a687724bd17e612431b64f9cb75c5af66c930c435165d5"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-dockingmt__interactions.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-dockingmt__interactions.py",
+      "bytes": 2756,
+      "sha256": "12a32eeffc7627ff3e6f687229f4fae1d8a8744d6168746386b425729b303e7f",
+      "decoded_bytes": 9640,
+      "decoded_sha256": "46e797679c29265ca6de873b8f14d1c3c761035066958ff5e0646a1ee872a3bb"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-guard.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-pyproject.toml.gz",
+      "original_path": "attempts/green-normal-02/frozen-pyproject.toml",
+      "bytes": 1210,
+      "sha256": "41d6cb9453223991324e3468b52ea2155ab8583e378b3e81a5223faa2882755a",
+      "decoded_bytes": 2810,
+      "decoded_sha256": "ec2ef40c3ed7c228b182477dc498f39f0a097045a37f766011376fa41b25337a"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-test_child.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-test_child.py",
+      "bytes": 1381,
+      "sha256": "71ce83e36f4e8c17a9591f417e4fad10fc4f28fa1bdf65ab9f72243df538ac6d",
+      "decoded_bytes": 2991,
+      "decoded_sha256": "e99ab1b361f41deea1a458babd6dfacb63f4248b64d24537a4bd5c16aa80f2c8"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-tests__test_interaction_binding.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-tests__test_interaction_binding.py",
+      "bytes": 3278,
+      "sha256": "9ceb699a031ae44f9dca71ff435151fa20096075e9e6b7baa05fb584e1ccc799",
+      "decoded_bytes": 12714,
+      "decoded_sha256": "4fb7fdb3b0dd32621f0b14d7ca6363979a7c98aeaf02fe8315af3f88349ef49c"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-tests__test_viewer_interactions.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-tests__test_viewer_interactions.py",
+      "bytes": 4006,
+      "sha256": "a30efb9a08b94ab0747ed3c15f2a382aff777735cabc136ddebaa83fd3965b51",
+      "decoded_bytes": 16808,
+      "decoded_sha256": "691d57af68a8847538b4002df01f18420584738da6759603901779ada95ca8e4"
+    },
+    {
+      "path": "attempts/green-normal-02/junit.xml.gz",
+      "original_path": "attempts/green-normal-02/junit.xml",
+      "bytes": 1459,
+      "sha256": "9ae7f8df38b4adea4cebd8ccdfea6d743cbb379bacf13a78d460de637bc42833",
+      "decoded_bytes": 11253,
+      "decoded_sha256": "2ac6641cd8afbce88bf5db832d0cf3db8364dbb2cd195a1db1b605762ca7677e"
+    },
+    {
+      "path": "attempts/green-normal-02/receipt.json.gz",
+      "original_path": "attempts/green-normal-02/receipt.json",
+      "bytes": 1041,
+      "sha256": "3b3230a75096f80a7e98f2fa4990807065f8a9d8b6363c62ea83ede4e69fa793",
+      "decoded_bytes": 2707,
+      "decoded_sha256": "c7db69413fa30893550b35d65e1196c3454ece896c513be5a1b9c56a6afef43d"
+    },
+    {
+      "path": "attempts/green-normal-02/registration.json.gz",
+      "original_path": "attempts/green-normal-02/registration.json",
+      "bytes": 883,
+      "sha256": "54b98fc345fd1f081378872c1dd7f6d5c6d45d7093fd5cb206058be268a6e934",
+      "decoded_bytes": 1979,
+      "decoded_sha256": "db740cd5a4f6997acf0c4d6fc6bdcc0ec155fc15e316fa2119a8fc2cd7350d3b"
+    },
+    {
+      "path": "attempts/green-normal-02/resource-outcome.json.gz",
+      "original_path": "attempts/green-normal-02/resource-outcome.json",
+      "bytes": 331,
+      "sha256": "a7ba00cbddb5c8596063d7cbb224d0791c5c35ac0f39e29620c3c5bf73bfe964",
+      "decoded_bytes": 573,
+      "decoded_sha256": "4c3184bd63c74168bacbf6035c3d0ea4d87dcac163ddc998a268ba40930d6ad8"
+    },
+    {
+      "path": "attempts/green-normal-02/stderr.log.gz",
+      "original_path": "attempts/green-normal-02/stderr.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/green-normal-02/stdout.log.gz",
+      "original_path": "attempts/green-normal-02/stdout.log",
+      "bytes": 51,
+      "sha256": "f4b906b30933a8c7cd5d54cf26adae6aadbc71ab19e16fbf6446f63ff41425a3",
+      "decoded_bytes": 33,
+      "decoded_sha256": "bdac81c12e51381667bc1aa30caa4923a986f56e91b6cce2dc59cf95fa539cdf"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/events.jsonl.gz",
+      "original_path": "attempts/green-pm_fs-02/events.jsonl",
+      "bytes": 12567,
+      "sha256": "d5ae1d9ab21a2468dd690e05ff985e7c26762001cbb7e6524eda7f7f3d610cbf",
+      "decoded_bytes": 170859,
+      "decoded_sha256": "1391b881d35d093687f16efa44f6e2b1d892bfac4c09d615f88f58acf47f2a5d"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/frozen-controller.py.gz",
+      "original_path": "attempts/green-pm_fs-02/frozen-controller.py",
+      "bytes": 1920,
+      "sha256": "db9f3b0245243f420884c9a656f213252c0bb7adc9f72707c64d79964d8922e8",
+      "decoded_bytes": 3906,
+      "decoded_sha256": "3eb97b036f8ba5b5f5a687724bd17e612431b64f9cb75c5af66c930c435165d5"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/frozen-dockingmt__interactions.py.gz",
+      "original_path": "attempts/green-pm_fs-02/frozen-dockingmt__interactions.py",
+      "bytes": 2756,
+      "sha256": "12a32eeffc7627ff3e6f687229f4fae1d8a8744d6168746386b425729b303e7f",
+      "decoded_bytes": 9640,
+      "decoded_sha256": "46e797679c29265ca6de873b8f14d1c3c761035066958ff5e0646a1ee872a3bb"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/frozen-guard.py.gz",
+      "original_path": "attempts/green-pm_fs-02/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/frozen-pyproject.toml.gz",
+      "original_path": "attempts/green-pm_fs-02/frozen-pyproject.toml",
+      "bytes": 1210,
+      "sha256": "41d6cb9453223991324e3468b52ea2155ab8583e378b3e81a5223faa2882755a",
+      "decoded_bytes": 2810,
+      "decoded_sha256": "ec2ef40c3ed7c228b182477dc498f39f0a097045a37f766011376fa41b25337a"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/frozen-test_child.py.gz",
+      "original_path": "attempts/green-pm_fs-02/frozen-test_child.py",
+      "bytes": 1381,
+      "sha256": "71ce83e36f4e8c17a9591f417e4fad10fc4f28fa1bdf65ab9f72243df538ac6d",
+      "decoded_bytes": 2991,
+      "decoded_sha256": "e99ab1b361f41deea1a458babd6dfacb63f4248b64d24537a4bd5c16aa80f2c8"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/frozen-tests__test_interaction_binding.py.gz",
+      "original_path": "attempts/green-pm_fs-02/frozen-tests__test_interaction_binding.py",
+      "bytes": 3278,
+      "sha256": "9ceb699a031ae44f9dca71ff435151fa20096075e9e6b7baa05fb584e1ccc799",
+      "decoded_bytes": 12714,
+      "decoded_sha256": "4fb7fdb3b0dd32621f0b14d7ca6363979a7c98aeaf02fe8315af3f88349ef49c"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/frozen-tests__test_viewer_interactions.py.gz",
+      "original_path": "attempts/green-pm_fs-02/frozen-tests__test_viewer_interactions.py",
+      "bytes": 4006,
+      "sha256": "a30efb9a08b94ab0747ed3c15f2a382aff777735cabc136ddebaa83fd3965b51",
+      "decoded_bytes": 16808,
+      "decoded_sha256": "691d57af68a8847538b4002df01f18420584738da6759603901779ada95ca8e4"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/junit.xml.gz",
+      "original_path": "attempts/green-pm_fs-02/junit.xml",
+      "bytes": 1471,
+      "sha256": "7581153ae200056f02da37fb423e4d3aa6386a4fc1cdd08e6841bbfa348c510c",
+      "decoded_bytes": 11253,
+      "decoded_sha256": "9a21df00fa445c74376aad7da463f1944a5542a23b73f4a4a4cbbb8e7b60eb94"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/receipt.json.gz",
+      "original_path": "attempts/green-pm_fs-02/receipt.json",
+      "bytes": 1044,
+      "sha256": "a00d9835b28cd346f7997b2e1ee679951964d54a02b974d4a0bd3ceb680ab962",
+      "decoded_bytes": 2715,
+      "decoded_sha256": "d528a6a125516ec2637ba091750853c062057261ec42162e1c53ab1203d5b5f7"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/registration.json.gz",
+      "original_path": "attempts/green-pm_fs-02/registration.json",
+      "bytes": 883,
+      "sha256": "792b01901417f82315c6d01840f503b0bccea0fb27be45ea07858d084b61a5ee",
+      "decoded_bytes": 1978,
+      "decoded_sha256": "f8531d7410ba0309e725447945fc8c6d49c4846da2cbae074244f4d031cf9613"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/resource-outcome.json.gz",
+      "original_path": "attempts/green-pm_fs-02/resource-outcome.json",
+      "bytes": 331,
+      "sha256": "4dfe4671223a03f6b0793fd61083f61b84774e8e5bfec0bbc5c63b99d96fff77",
+      "decoded_bytes": 575,
+      "decoded_sha256": "47e99841a76a83efe6a5b23f73d7274e92eeb8477bac89d69ebfa7b322a498c0"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/stderr.log.gz",
+      "original_path": "attempts/green-pm_fs-02/stderr.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/green-pm_fs-02/stdout.log.gz",
+      "original_path": "attempts/green-pm_fs-02/stdout.log",
+      "bytes": 51,
+      "sha256": "f4e2f5d3862eea9ef95646b630f72b1ffe5472238d9da822d87489927e18a7dc",
+      "decoded_bytes": 33,
+      "decoded_sha256": "443945e7fe7bdb97c9c6aa9c9708b940d687baaba5cce86b806cf00fdf4128d5"
+    }
+  ]
+}

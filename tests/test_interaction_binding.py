@@ -258,6 +258,33 @@ def test_carrier_frames_are_not_repeated_or_projected(case, n_structures):
     assert case.carrier.n_structures == n_structures
 
 
+@pytest.mark.parametrize('factory', [dmt.bind_interactions, dmt.PoseInteractions])
+@pytest.mark.parametrize('missing', ['n_atoms', 'n_structures', 'coordinates'])
+def test_missing_carrier_domains_have_a_local_argument_diagnostic(
+    case, factory, missing
+):
+    original_get = case.provider.get
+    before_result = case.result.to_dict()
+    before_coordinates = puw.get_value(
+        case.carrier.coordinates, to_unit='angstrom'
+    ).copy()
+
+    def get(value, *, element, **options):
+        if options.get(missing) is True:
+            return None
+        return original_get(value, element=element, **options)
+
+    case.provider.get = get
+    with pytest.raises(ArgumentError) as caught:
+        factory(case.result, case.carrier, **case.options)
+    assert caught.value.code == 'DMT-E002'
+    assert caught.value.extra['arg_name'] == 'molecular_system'
+    assert case.result.to_dict() == before_result
+    np.testing.assert_array_equal(
+        puw.get_value(case.carrier.coordinates, to_unit='angstrom'), before_coordinates
+    )
+
+
 @pytest.mark.parametrize('indices', [[3, 4], [1, 3]])
 def test_outside_or_wrong_order_maps_do_not_bind(case, indices):
     with pytest.raises(ArgumentError) as caught:

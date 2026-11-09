@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (62)
+### Resolved (63)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_result_scoring_stages.md`](audit_result_scoring_stages.md) — [#76](https://github.com/uibcdf/dockingmt/issues/76) — Attribute per-pose scoring histories correctly inside saved result audits. *(resolved, measured)*
@@ -28,6 +28,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md`](flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md) — [#12](https://github.com/uibcdf/dockingmt/issues/12) — Flexible-ligand Vina coordinate arrays differ in order from PDBQT pose records *(resolved, measured)*
 - [`incremental_prepared_docking.md`](incremental_prepared_docking.md) — [#36](https://github.com/uibcdf/dockingmt/issues/36) — Execute prepared docking problems one at a time with explicit failure handling. *(resolved, measured)*
 - [`inspect_saved_scoring_collections.md`](inspect_saved_scoring_collections.md) — [#77](https://github.com/uibcdf/dockingmt/issues/77) — Inspect saved scoring collections through an explicit ordinary-installed example mode. *(resolved, measured)*
+- [`interaction_binding_partial_carrier_diagnostic.md`](interaction_binding_partial_carrier_diagnostic.md) — [#89](https://github.com/uibcdf/dockingmt/issues/89) — Interaction binding leaks scalar/form errors for absent carrier domains. *(resolved, reproduced)*
 - [`invalid_scores_can_corrupt_pose_ranking.md`](invalid_scores_can_corrupt_pose_ranking.md) — [#24](https://github.com/uibcdf/dockingmt/issues/24) — Reject invalid named scores before ranking docking poses *(resolved, measured)*
 - [`ligand_pdbqt_writer_shifts_columns_for_four_character_atom_names.md`](ligand_pdbqt_writer_shifts_columns_for_four_character_atom_names.md) — [#18](https://github.com/uibcdf/dockingmt/issues/18) — Ligand PDBQT writer shifts columns for four-character atom names *(resolved, measured)*
 - [`link_1iep_external_pdbqt_to_source_ligand.md`](link_1iep_external_pdbqt_to_source_ligand.md) — [#14](https://github.com/uibcdf/dockingmt/issues/14) — Link the 1IEP external PDBQT check to its source ligand *(resolved, measured)*

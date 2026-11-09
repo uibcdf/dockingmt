@@ -83,8 +83,20 @@ class PoseInteractions:
         import molsysmt as msm
 
         carrier = msm.copy(msm.convert(molecular_system, to_form='molsysmt.MolSys'))
-        n_atoms = int(msm.get(carrier, element='system', n_atoms=True))
-        n_structures = int(msm.get(carrier, element='system', n_structures=True))
+        n_atoms = msm.get(carrier, element='system', n_atoms=True)
+        if n_atoms is None:
+            raise ArgumentError(
+                arg_name='molecular_system',
+                reason='Supply a carrier with a known atom count.',
+            )
+        n_atoms = int(n_atoms)
+        n_structures = msm.get(carrier, element='system', n_structures=True)
+        if n_structures is None:
+            raise ArgumentError(
+                arg_name='molecular_system',
+                reason='Supply a carrier with a known coordinate structure count.',
+            )
+        n_structures = int(n_structures)
         if n_structures != 1:
             raise ArgumentError(
                 arg_name='molecular_system',
@@ -103,6 +115,11 @@ class PoseInteractions:
                 reason='Ordered carrier atom identities differ from the pose map.',
             )
         coordinates = msm.get(carrier, element='atom', coordinates=True)
+        if coordinates is None:
+            raise ArgumentError(
+                arg_name='molecular_system',
+                reason='Supply coordinates for the admitted one-structure carrier.',
+            )
         values = puw.get_value(coordinates, to_unit='angstrom')
         if np.shape(values) != (1, n_atoms, 3):
             raise ArgumentError(

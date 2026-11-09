@@ -5,6 +5,17 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Interaction binding #89](archive/interaction_binding_partial_carrier_diagnostic.md)
+now refuses absent carrier counts/coordinates with a local structured argument
+diagnostic through both public routes. Six original source failures remain;
+complete affected guards pass 78 cases per normal/pm-fs policy, with original
+valid/adverse/coverage/provider-error/detachment behavior retained. Independent
+Receptor/JUnit reading and 60 primary/nine companion records preserve evidence.
+This is source admission, not molecular/installed/canvas or full E4 acceptance.
+Next receive E3's provider fixes (#659/#256) or advance independent #80 criteria;
+keep the original scientific panel, actual canvas and public gates. No new
+algorithm, helper/data/pin change, install/build/search or remote CI occurs.
+
 [The new E3 geometry-provider receiving](validation/e3_geometry_provider_receiving_2026-11-08.md)
 receives delivered #604 APIs on editable MolSysMT `8af8628e6`, with unchanged
 Rust/native bytes and no rebuild. Complete normal controls pass; pm/fs fails an

@@ -5,6 +5,15 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Source admission #89](archive/interaction_binding_partial_carrier_diagnostic.md)
+now gives a local `molecular_system` diagnostic for absent carrier atom/frame
+counts or coordinates, preserving real provider errors and existing binding
+semantics. Original six failures remain; final affected binding/view guards pass
+78 cases per normal/pm-fs caller policy. The 60-member primary/nine-member reader
+evidence qualifies source records without molecular replay. #80 remains partial;
+E3's #659/#256, full independent science, actual canvas and public/installed gates
+remain. No new scientific operation or replacement workflow is accepted.
+
 [The delivered E3 geometry tools](validation/e3_geometry_provider_receiving_2026-11-08.md)
 are now independently exercised on clean editable MolSysMT `8af8628e6`, unchanged
 native/Rust bytes. Complete normal controls pass, including 22 typed refusals;

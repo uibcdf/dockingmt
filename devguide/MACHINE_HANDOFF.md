@@ -24,6 +24,38 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Partial-carrier interaction admission #89 — 2026-11-08
+
+[The source correction](archive/interaction_binding_partial_carrier_diagnostic.md)
+checks absent successful atom/frame-count and coordinate returns before scalar
+or unit extraction. Both public binding routes now raise DMT-E002 naming
+`molecular_system` with an actionable reason. Real provider failures propagate;
+no geometry, map, frame or analysis is inferred or repaired.
+
+The original six source cases fail (four TypeError, two low-level form errors).
+The final complete binding/view selection passes 78 cases per normal and pm/fs
+policy, zero failures/errors/skips/deselections, retaining all existing valid/
+negative/provider-error/coverage/detachment behavior. The preformat normal PASS
+and two initial quality-scope/format observations remain separate. Final code
+formatting changes no test AST/assertion. The untracked migration payload stays
+untouched and is explicitly excluded from Ruff; repository checks pass.
+
+The 60-member primary/nine-member reader archives authenticate original/final
+source, raw logs, complete Receptor streams/native JUnit, registrations and
+resource outcomes. The independent reader uses supported `read_artifact`; no
+tests or molecules are replayed. Final cells take 3.374/3.474 s, peak sampled
+group RSS 154,394,624/154,587,136 bytes, CPU 0/nice 10/one worker and monitored
+13 GiB reserve. All owned groups terminate without resource interruption.
+Retain `.molsyssuite/interaction-carrier-admission-20261108` under #50/review
+2026-11-14. Runtime change is limited to the binding admission checks; unchanged
+30-helper/564-data declaration, no install/build/search/browser or remote CI.
+
+#89 closes this local source defect. #80's real scientific/installed/canvas and
+complete workflow criteria stay partial. Resume #659's provider correction with
+unchanged whole E3 controls and separately retain #256/reference persistence;
+independent #80/panel work may continue within its current holds. Full Core/
+Extended/scientific/public/minor/platform acceptance remains unproven.
+
 ### E3 geometry tools delivered; independent cutoff defect — 2026-11-08
 
 Read [the complete geometry receiving record](validation/e3_geometry_provider_receiving_2026-11-08.md).
