@@ -16,6 +16,22 @@ supersedes: []
 
 ## Current resumption route — 2026-11-08
 
+[Complete current editable View receiving](../validation/e4_view_editable_2026-11-08.md)
+now passes all eight original normal/pm-fs cells on consumer `204f5f6c`, MolSysMT
+`fab8cbccf` and Viewer `1187fc18`, with exact unchanged molecular/action blocks.
+Actual Python visuals/widgets, collection index3/local frame0 navigation, full
+five-record result association/export, evaluated-empty/unevaluated coverage,
+four refusals, foreign ownership, replacement invalidation and cleanup pass;
+the unchanged two-frame native regression passes once per policy. Final live
+source/native/caller/provider-restoration gates pass. The 351-member primary/
+17-member reader archives preserve two zero-operation setup failures and the
+initial lazy-native reader failure separately; final reading passes without
+scientific imports/replay. The linked five-criterion audit keeps the original
+one-carrier evidence and actual browser/comm/canvas hold under #52/#60. Keep
+#80 partial; no extra carrier or detector campaign replaces visible acceptance.
+The maintainer reports #256 is being worked on; wait for its handoff while
+preserving E3's original lossless-reference and full-workflow requirements.
+
 [The local partial-carrier diagnostic correction #89](../archive/interaction_binding_partial_carrier_diagnostic.md)
 now gives DMT-E002 naming `molecular_system` for absent atom/frame counts or
 coordinates through both public binding routes. The original six source failures

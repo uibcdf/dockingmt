@@ -5,6 +5,19 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Current E4 Python integration](validation/e4_view_editable_2026-11-08.md)
+passes the complete original eight-cell matrix on actual editable sources
+`204f5f6c`/MolSysMT `fab8cbccf`/Viewer `1187fc18`, normal then pm/fs. Original
+scientific/action blocks, all five result records, coverage, actual widgets,
+navigation, refusals, native two-frame regression and cleanup remain intact.
+The 351-member primary/17-member reader evidence preserves two setup failures
+and one reader failure; final independent reading passes without molecular
+replay. The original five-criterion audit retains actual browser/comm/canvas
+under #52/#60 as unreceived; #80/#60 and the complete objective remain partial.
+MolSysMT #256 is currently being worked on according to the maintainer: wait for
+its owning handoff, preserve the lossless original-reference gate and continue
+independent accepted work without polling/building or a downstream substitute.
+
 [The complete original E3 geometry selection](validation/e3_geometry_fix_receiving_2026-11-08.md)
 now passes normal and pm/fs on editable MolSysMT `fab8cbccf`, with unchanged
 worker/fixtures/assertions, native/Rust bytes and no build/reinstall. Per policy
@@ -218,7 +231,7 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ordered and audited reproducibly. | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07) for the full-source rigid prepared13 profile: both actual original poses complete public reconstruction/preparation/additive Vina/Vinardo 1.2.7 scoring and separate method-local interaction comparison. Eight old values/ranks/history survive with 32 new values; native receiving and independent persistence pass. The original generator qualification remains failed with unreached original live checks. Broader E1, total/reference comparisons, independent science and public delivery retain their owners. |
 | E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for the P59(R)/P69(S) rigid25 joint-domain profile. Source/preparation reproduction and exact PDBQT gates precede native success/refusal/success, 3+2 poses and two original-rank-1 representatives. Five native columns, own per-run references, original scores/histories, three public outcome reconstructions and fresh independent receiving pass. The receptor remains externally prepared/unassessed; other E2 profiles, screening effectiveness, #73 and public delivery remain unaccepted. |
 | E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md): [complete original analytic/adverse receiving](validation/e3_geometry_fix_receiving_2026-11-08.md) passes normal/pm-fs, clearing #659’s client geometry hold. #604 tools are source-delivered. #256 still holds original reference persistence; saved-population/common-frame, full workflow and installed/public receiving remain required. No synthetic reference substitution. |
-| E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | [#80](pending_proposals/receive_docking_interaction_analysis.md) retains its original molecular population. [Complete catalog receiving](validation/e4_evidence_catalog_editable_2026-11-08.md) passes normal/pm-fs on editable `2325038e8`, clearing the historical #642 one-carrier persistence hold. Same-carrier, installed binding and interaction-view/DOM profiles retain their exact producers; actual browser/comm/canvas and remaining one-carrier/full E4 criteria stay unaccepted. Four original poses remain unevaluated; no detector/search repeats. |
+| E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | [#80](pending_proposals/receive_docking_interaction_analysis.md) retains its original molecular population. [Complete catalog receiving](validation/e4_evidence_catalog_editable_2026-11-08.md) passes normal/pm-fs on editable `2325038e8`, clearing the historical #642 one-carrier persistence hold. [Complete current editable Python View receiving](validation/e4_view_editable_2026-11-08.md) passes all eight original normal/pm-fs cells, with full original result/action/native controls and independent reading. Original same-carrier, installed binding and DOM producers remain distinct. The five-criterion audit keeps actual browser/comm/canvas and full E4 unaccepted. Four original poses remain unevaluated; no detector/search repeats. |
 | E5 independent reproduction | A separate receiving installation reconstructs a representative stored workflow from documented inputs, with observed agreement/tolerances, failures and missing information. | [#83 resolved](archive/qualify_independent_installed_reproduction.md#bounded-acceptance-and-resolution--2026-11-07): complete stored 1IEP pair receives fresh normal/pm-fs installations, zero observed drift, twelve pre-native refusals, twelve version refusals, independent reader and all six original criteria. [Exact receiving](validation/e5_timed_replay_2026-11-07.md) keeps external chemistry, historical failures, public/platform and independent molecular accuracy separate. |
 | Bounded scientific qualification | An admitted transparent independent panel and informative positive/adverse controls, explicit preparation/search/ranking hypotheses, denominators, budgets and all outcomes. | Audit Q2–Q4 and #33/#49 own admission. Existing within-case repetitions do not become independent complexes. |
 | Public delivery and support | Actual compatible public dependencies, exact staged Conda artifact, required source/native gates and eight Linux/macOS arm64 × Python 3.11–3.14 installed cells, same-byte promotion and public receiving. | #30/#47 remain partial. Refresh artifact availability before acquiring/receiving; old private receipts do not certify a new public file. Distribution is Conda `uibcdf`. |
@@ -246,9 +259,11 @@ implemented API or record-only test is not acceptance of a scientific workflow.
    Keep #88 partial, old failures, all domains, saved-pose/state/maps, common
    receptor frame and every full #79 criterion. No private codec, fuzzy cutoff
    or synthetic reference replaces those requirements.
-4. Audit remaining [E4/#80](pending_proposals/receive_docking_interaction_analysis.md)
-   one-carrier criteria against its completed catalog/native/history/persistence,
-   saved binding and interaction-view/DOM receiving. #642's earlier native-build
+4. Preserve [E4/#80's](pending_proposals/receive_docking_interaction_analysis.md)
+   completed five-criterion audit, catalog/native/history/persistence,
+   saved binding and eight-cell current editable Python View receiving.
+   Preserve original molecular/installed/DOM producers and the
+   separately retained failed setup/reader attempts. #642's earlier native-build
    memory interruption and artifact-first hold are historical; complete editable
    `2325038e8` receiving supersedes that one-carrier hold. Actual browser/comm/
    canvas stays under the maintainer's #52/#60 scheduling decision. Do not start
@@ -261,10 +276,11 @@ implemented API or record-only test is not acceptance of a scientific workflow.
    Keep the original full panel and all its positive/adverse controls. General
    restoration/partial-input limits under #599/#447/#521 retain provider owners.
 6. Keep routine work on participating editable source checkouts and verify
-   changed boundaries with exact source/native identities. The newer `8af8628e6`
-   Python cohort has the partial geometry receiving above, not a re-execution of
-   older `2325038e8` whole-workflow/115-provider/383-consumer guards. Record #657's
-   observed stale metadata separately from actual source; no package wait or
+   changed boundaries with exact source/native identities. Current `fab8cbccf`
+   receives complete geometry and eight-cell E4 Python selections; those do not
+   re-execute older `2325038e8` whole-workflow/115-provider/383-consumer guards.
+   Record #657's owning build stamp separately from mutable source and
+   distribution metadata; no package wait or
    native rebuild is inferred. Separately complete #30/#47 exact Conda artifact,
    public dependency closure and eight Linux/macOS arm64 × Python 3.11–3.14
    installed lanes, resource/launcher, scientific and same-byte delivery gates.

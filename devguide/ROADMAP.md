@@ -5,6 +5,20 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[The complete current editable E4 Python workflow](validation/e4_view_editable_2026-11-08.md)
+passes all eight original cells: retained/reordered/empty and native two-frame
+widgets, normal then pm/fs. Exact source/native/import custody, full original
+result/typed/native equality, actions, refusals and cleanup pass on consumer
+`204f5f6c`, MolSysMT `fab8cbccf` and Viewer `1187fc18`. The 351-member primary/
+17-member reader archives preserve two zero-operation setup failures and the
+failed initial reader separately. Independent final reading passes without
+scientific imports/replay. The five original #80 criteria retain their bounded
+one-carrier evidence; actual browser/comm/canvas under #52/#60 remains unreceived.
+#80/#60 stay partial. The maintainer reports #256 is being worked on: wait for
+its owning handoff, preserving E3's full lossless-reference gate. Advance only
+independent accepted work; no speculative transport, repeated detector/search,
+provider build/pull, shared-environment change or remote CI is needed.
+
 [E3's complete geometry correction receiving](validation/e3_geometry_fix_receiving_2026-11-08.md)
 now passes normal and pm/fs on editable `fab8cbccf`, using the byte-identical
 original worker and every original assertion. All 18 pairwise/23 cluster calls,

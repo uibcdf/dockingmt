@@ -34,13 +34,13 @@ The starting profile is a declared single-state small molecule and rigid protein
 explicit preparation, a physical search box and Vina. Software/private installed
 evidence does not certify general chemical validity, affinity, public dependency
 closure or live canvas use. The complete objective is not achieved. See the
-[current checkpoint](MACHINE_HANDOFF.md#current-development-checkpoint--2026-11-07).
+[current checkpoint](MACHINE_HANDOFF.md#current-development-checkpoint--2026-11-08).
 
 The earlier autonomous goal was paused and cleared before the machine handoff.
 The accepted product plan remains incomplete. The maintainer has resumed work
 after the installed interaction-binding checkpoint; each
 increment must leave an accurate developer-guide checkpoint. Follow the
-[current handoff](MACHINE_HANDOFF.md#current-development-checkpoint--2026-11-07)
+[current handoff](MACHINE_HANDOFF.md#current-development-checkpoint--2026-11-08)
 and operational queue; independent E4/live-observation holds and resource limits
 retain their scope.
 
@@ -73,6 +73,7 @@ shared boundary contracts. See the [suite contract](MOLSYSSUITE_CONTRACT.md) and
 | E3 geometry tools | [Complete correction receiving](validation/e3_geometry_fix_receiving_2026-11-08.md) passes the original analytic/adverse selection normal/pm-fs with byte-identical worker/assertions, clearing #659's client geometry hold. The old failed selection remains frozen; #256/reference/common-frame/full E3 remain separate. |
 | E4 next receiving route | [Saved-analysis admission recipe](validation/e4_saved_analysis_admission_2026-11-07.md) reviews the provider projection/scene boundary before a new API. The separate same-carrier receiving below now passes; the original heavy selection and live visual review remain deferred. |
 | E4 saved-carrier receiving | [Normal/pm-fs and independent reader](validation/e4_saved_carrier_receiving_2026-11-07.md) pass for the same complete saved carriers: real Python Viewers, explicit pose association, filtering/attachment/persistence and eleven refusals per profile. Initial receiver failure is preserved. The separate consumer API below now has source controls; whole E4, other scene projections and canvas/public delivery remain open. |
+| E4 current Python integration | [Complete editable receiving and original-criterion audit](validation/e4_view_editable_2026-11-08.md): all eight original View/widget/native cells pass normal/pm-fs, retaining full original results and exact source/native custody. Failed setup/reader attempts stay preserved; final independent reading passes. #80/#60 remain partial for actual browser/comm/canvas and separate public/scientific scope. |
 | Selected-pose interaction API | [`bind_interactions`/`PoseInteractions`](validation/pose_interaction_binding.md) preserve a complete result and detached carrier/analysis access. 190 source cases and [actual installed normal/pm-fs receiving](validation/e4_pose_binding_installed_2026-11-07.md) now pass, with fourteen refusals/profile, two complete carrier roundtrips and independent original-record verification. [Native unevaluated coverage](validation/e4_native_unevaluated_2026-11-07.md) now passes for empty-source invalidation. [The #642 source correction](validation/e4_evidence_catalog_fix_2026-11-07.md) is published; its exact native construction is held after a memory stop, so installed client acceptance remains pending. The explicit view route below retains separate qualification. |
 | Ligand-model/source checkpoint | [Source decisions and failed anionic-reference receiving](validation/scientific_panel_ligand_models_2026-11-07.md) preserve both intended candidates and all original criteria; a separate minimal diagnostic identifies MolSysMT #644. First receive the provider correction, then complete fresh reference cells. No case/preparation/search is accepted. |
 | Scientific-panel provider receiving | [Bounded normal/pm-fs occupancy and CCD reference receiving](validation/scientific_panel_provider_receiving_2026-11-07.md) passes original MK1/BTN PDB/CIF observations and eight refusals; no preparation, search or docking case is admitted. Next decide states/environment/termini and receive provider #558 public generation maps. |

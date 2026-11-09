@@ -15,6 +15,27 @@ supersedes: []
 
 # Saved-result addon explorer
 
+## Current editable interaction-view receiving — 2026-11-08
+
+[All eight original Python/native cells](../validation/e4_view_editable_2026-11-08.md)
+pass normal then pm/fs on consumer `204f5f6c`, actual editable MolSysMT `fab8cbccf`
+and Viewer `1187fc18`. Original molecular/action blocks and native widget test
+are byte-identical; full result/typed/native equality, pose/frame association,
+real widgets/visuals, navigation, export, refusals, source nonmutation and owned
+cleanup pass. Exact source/native/import custody and final caller/provider
+restoration pass. The 351-member primary/17-member reader archives preserve
+two setup failures and one reader failure separately; final independent reading
+passes without scientific imports or molecular replay. Published test-tool
+1.2.2 custody is distinct from the editable runtime and stale build labels.
+
+**Status remains partial:** actual browser/comm/canvas is unreceived under the
+maintainer's #52/#60 scheduling hold; this receives the complete Python route.
+The preceding editable catalog receiving clears #642 for the one-carrier
+development profile, superseding the historical persistence hold below.
+No package/installed/public/platform or full E4/Core/Extended acceptance follows.
+Wait for the ongoing #256 provider handoff; preserve E3's lossless-reference
+gate and continue only independent accepted work. No remote CI is dispatched.
+
 ## Exact installed interaction-view receiving — 2026-11-07
 
 [The separately registered new-candidate receiving](../validation/e4_pose_interaction_view_installed_2026-11-07.md)

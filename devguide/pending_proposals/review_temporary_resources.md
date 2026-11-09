@@ -14,6 +14,29 @@ supersedes: []
 
 # Temporary-resource review — 2026-11-05
 
+## Editable E4 integration custody increment — 2026-11-08
+
+Retain the three task contexts for
+[complete editable View receiving](../validation/e4_view_editable_2026-11-08.md),
+owned by #80/#60/#50, review 2026-11-14. Two zero-operation setup campaigns stay
+failed; the third completes all eight normal/pm-fs cells. Its first independent
+reader stays failed and the prospectively amended second reader passes. All
+owned groups are terminal without resource interruption. Original molecular
+inputs are authenticated by reference, with no duplicate search/detector run,
+native build or shared-environment modification.
+
+The 351-member primary archive is SHA-256
+`87bf805d6dd1ba2f6ed9075043c1e09f655d1d7d10be9e10e8b0a594905e57ca`;
+the 17-member reader companion is
+`3436ee960ffcc0fe6665c8ad52503b1306272b2aa5f0d105f4178cd91096e58e`.
+Keep the original task producers/failures, native/session/JUnit witnesses,
+source/data/import custody and exact published test-tool prefix until their
+independent archive/consumer dependencies and owner disposition are verified.
+Private task/cache removal needs that exact dependency check; none is removed
+here. Preserve the original untracked migration, older interrupted native build,
+shared/sibling work and existing central-handoff deferral. The maintainer reports
+MolSysMT #256 is being worked on; no polling/building or automatic restart occurs.
+
 ## What
 
 The local review requested in #50 is complete for the operation classes and

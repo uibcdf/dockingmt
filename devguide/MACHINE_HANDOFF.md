@@ -15,14 +15,59 @@ requirements; this file explains how to resume without recovering chat history.
 Work is **active after the maintainer's resumption** of the complete objective.
 Completion remains unproven. The installed binding checkpoint was published
 as `daa6da9` before the pause, followed by native coverage receiving at `d71fd6b`.
-Their source/evidence remains unchanged. The current
+Their source/evidence remains unchanged. The original
 [interaction-view route](validation/pose_interaction_view.md) has passing source/
 DOM qualification and [exact new-candidate receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md)
 normal/pm-fs, including the existing native widget regression. Actual canvas,
 public delivery and the complete objective remain unproven.
+The current editable route additionally passes the full original eight-cell
+selection, as the new checkpoint below records; old installed bytes retain
+their original scope.
 Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
+
+### Complete current editable E4 Python receiving — 2026-11-08
+
+[Complete registration/outcomes/audit](validation/e4_view_editable_2026-11-08.md)
+receives the original retained, five-record reordered, empty/unevaluated and
+native two-frame widget cases under normal then pm/fs. All eight cells pass on
+execution base `204f5f6c342368e1e2530bd663594b62018cb599`, clean editable
+MolSysMT `fab8cbccf570a60205a3863aad19dd4b7cfb8d3a`, MolSysViewer
+`1187fc187247aa2d20d01791856a541d50562bcb` and unchanged native SHA `5715bda2`.
+No new detector/search, build/install, provider pull or shared-environment edit.
+Actual runtime origins, full Python inventories and build labels are separate:
+DockingMT's imported local stamp `0.0.0+297.g3b1853a` and distribution metadata
+`0.0.0+295.g2fda623` do not identify mutable source `204f5f6c`.
+
+Every original molecular/action assertion and native test stays byte-identical.
+Real Python views/widgets, complete original result/typed/native witnesses,
+pose/frame navigation, queries/export, four refusals, foreign ownership,
+replacement invalidation and cleanup pass. Each native pytest cell collects/
+passes exactly one unchanged regression; the separate published 15-file Pytest
+Receptor 1.2.2 tool prefix remains authenticated. Original molecular producer
+`5952053`, all scores/state/source identities and four unevaluated poses remain.
+
+The 351-member primary archive is SHA-256
+`87bf805d6dd1ba2f6ed9075043c1e09f655d1d7d10be9e10e8b0a594905e57ca`;
+the 17-member reader companion is
+`3436ee960ffcc0fe6665c8ad52503b1306272b2aa5f0d105f4178cd91096e58e`.
+Two zero-operation setup failures and a first lazy-native reader assumption
+failure stay failed. The final standard-library reader verifies the same
+records in 13.908 s / 719,196,160 RSS bytes without scientific imports/replay.
+All owned groups terminate, CPU 0/nice 10/one worker, with monitored 13 GiB
+available reserve, 1 GiB group RSS and no resource interruption. Maximum measured
+cell RSS is 720,089,088 bytes; no limit or assertion is raised to obtain a pass.
+Retain all three private receiving tasks and reader/admin records under #50,
+review 2026-11-14; preserve the untouched untracked migration and shared cohort.
+
+The original five-criterion audit keeps #80/#60 partial: one-carrier Python
+receiving is complete, actual browser/comm/canvas remains under the maintainer's
+#52/#60 hold. The maintainer reports MolSysMT #256 is being worked on; wait for
+its supported handoff, preserving E3's lossless reference and full workflow.
+Do not poll, build, substitute a transport or repeat completed detectors/searches.
+Independent accepted work can continue. Scientific panel, installed/public/
+platform and #28 exact-head hosted evidence remain unreceived; no manual CI.
 
 ### Complete original E3 geometry receiving — 2026-11-08
 
