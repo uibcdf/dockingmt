@@ -14,6 +14,24 @@ supersedes: []
 
 # Temporary-resource review — 2026-11-05
 
+## Pose identity/rank audit custody increment — 2026-11-08
+
+Retain [#91's task and original/final source records](../archive/audit_pose_identity_admission.md),
+owners #91/#50, review 2026-11-14. Initial red 73-failure and corrected 70-failure
+populations stay failed; the first and final 562-pass normal candidates retain
+separate source identities, with complete final pm/fs and independent reading.
+All owned groups are terminal without interruption. Preserve full Receptor
+overflow reports, event/JUnit/source/AST evidence and the separate published
+15-file tool dependency before any verified owner cache-disposal decision.
+
+The 160-member primary manifest is SHA-256
+`6a268c8f910abd829d36a7c828d01b7bdf32af2b088cd8e5b803247e9ceca3f7`;
+the nine-member reader companion is
+`167350f87344f5b85bf6a83072ae688ca7e96918ccc36e1728df047b6e4180be`.
+Independent reading replays no test/molecular operation. Shared/sibling work,
+original migration, old build interruptions and central-handoff deferral remain
+unchanged. No provider polling/building or remote CI is started.
+
 ## Offline coordinate audit custody increment — 2026-11-08
 
 Retain [#90's source receiving](../archive/audit_coordinate_record_admission.md)

@@ -465,7 +465,7 @@ def audit_pose(record):
     """
     report = _Report()
     scope = 'saved_pose_internal_consistency'
-    admitted, scores, definitions = _audit_pose_payload(report, record, '/')
+    admitted, scores, definitions, _ = _audit_pose_payload(report, record, '/')
     if admitted is None:
         return report.export(scope)
     metadata = record.get('metadata', {})

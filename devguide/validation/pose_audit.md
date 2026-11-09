@@ -50,6 +50,14 @@ Absent evidence never acquires default values or inferred meaning.
 
 ## Supported checks
 
+[Identity/rank correction #91](../archive/audit_pose_identity_admission.md) applies
+the existing pose argument rules before relational checks: malformed ranks/IDs
+produce bounded field diagnostics rather than false agreement or array truth
+errors. Optional unknown values and NumPy integral ranks remain supported.
+Existing string-content and scoring-state semantics retain their own scope;
+this introduces no identity inference or new uniqueness rule. Valid reports,
+independent coordinate/score checks and native resource exceptions are preserved.
+
 - Pose schema, finite named scores, explicit coordinate length units and finite
   `(N, 3)` coordinate values reuse the existing saved-result validators.
   [Coordinate-record admission #90](../archive/audit_coordinate_record_admission.md)

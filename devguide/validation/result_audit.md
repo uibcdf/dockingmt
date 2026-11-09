@@ -81,6 +81,13 @@ unit, method, input, ranking observation or source identity.
   membership, identities, selected numeric values, assigned ranks and declared
   semantics must agree with the current poses. Earlier observed scores may differ
   after explicit rescoring. Legacy policy-only entries retain missing observations.
+  [#91's identity/rank admission](../archive/audit_pose_identity_admission.md)
+  reuses the pose argument contracts for current declarations and historical
+  observations. Ranks are optional positive integers, including NumPy integers;
+  Booleans/floats/arrays are invalid. IDs retain their existing optional string
+  contract. Invalid fields receive bounded paths and never enter unsafe equality;
+  independently valid checks continue. Unknown fields remain unknown and no
+  uniqueness or string-content policy is added. Valid report content is unchanged.
 - Reserved per-pose `scoring_history`: evaluation schema, current named values,
   descriptors, declared states, captured-input integrity, protocol/applied
   parameters and scoring-stage claims use the shared pose-audit crosschecks.

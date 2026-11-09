@@ -27,6 +27,39 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Offline pose identity/rank admission #91 — 2026-11-08
+
+[The source correction](archive/audit_pose_identity_admission.md) uses existing
+pose argument rules for current declarations and ranking observations before
+comparison. Invalid ranks/IDs receive bounded field diagnostics; valid typed
+declarations flow once into relational checks. Unknown values, NumPy integral
+ranks, original order/ties/multiplicity, valid reports and resource-error identity
+remain. No string-content rule, inferred identity or public schema is added.
+
+Execution base `d3fc5dc2db8c858a5ad8df38980c0a338184784e` plus frozen changes.
+The corrected red population remains FAIL: 70 failures/33 passes. Final normal
+then pm/fs selections pass 562 cases each, no failures/errors/skips, one native
+execution case explicitly deselected. All 103 new controls and original affected
+model/record/audit/ranking guards remain; independent source/AST receiving proves
+no assertion is removed. Initial red and pre-refinement PASS remain separate.
+
+The 160-member primary manifest is SHA-256
+`6a268c8f910abd829d36a7c828d01b7bdf32af2b088cd8e5b803247e9ceca3f7`.
+Independent published Receptor/JUnit record receiving passes without replay.
+Final cells take 11.152/10.741 s, each sampled peak 186,978,304 RSS bytes; every
+owned group is terminal without interruption, CPU 0/nice 10/one worker, monitored
+13 GiB reserve and unchanged limits. Retain the private identity-admission task
+under #50/review 2026-11-14; preserve the migration, shared environment and old
+build interruptions. No helper/data/pin change, molecular work or remote CI.
+
+The maintainer reaffirms waiting for #256. Its last owner source `5ae3e476`
+authorizes pre-1.0 persistence work and targets a qualified H5MSM 1.0 alongside
+MolSysMT 1.0; P1–P6 remain pending in that snapshot. The separately qualified
+trusted Python checkpoint does not satisfy E3's original H5MSM selection. No
+provider polling/pull/build or alternate transport is introduced here. #558
+maps/history, full scientific, actual canvas and public/installed/hosted gates
+remain independently required.
+
 ### Offline coordinate audit admission #90 — 2026-11-08
 
 [The source correction](archive/audit_coordinate_record_admission.md) shares

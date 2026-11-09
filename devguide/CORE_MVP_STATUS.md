@@ -33,6 +33,15 @@ This maintained map supersedes the *next-action list* of the
 audit, its findings at its original source and all scientific/artifact receipts.
 The criteria in [MVP.md](MVP.md) remain unchanged.
 
+The later [#90 coordinate audit](archive/audit_coordinate_record_admission.md)
+and [#91 identity/rank audit](archive/audit_pose_identity_admission.md) corrections
+strengthen Core C5 record admission. #91's complete affected source selection
+passes 562 cases per normal/pm-fs policy, including all 103 new guards and #90's
+existing cases, with one explicit native-test deselection. Original failed
+populations and independent Receptor/JUnit/source/AST evidence stay distinct.
+These source results preserve valid report digests and every Core criterion;
+they do not requalify historical installed/scientific artifacts or visible use.
+
 ## Scope and interpretation
 
 The supported starting profile is a declared single-state small molecule and

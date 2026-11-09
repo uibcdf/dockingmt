@@ -157,7 +157,7 @@ def ranking_history(provenance, *, detach=True):
 
 
 def _check_recorded_ranking(entry):
-    from dockingmt.core.results import _normalize_score
+    from dockingmt.core.results import _normalize_score, _pose_identity_record
 
     required = {
         'schema_version',
@@ -197,6 +197,7 @@ def _check_recorded_ranking(entry):
             raise ArgumentError(
                 arg_name='ranking_history', reason='Use structured pose observations.'
             )
+        _pose_identity_record(observation)
         _normalize_score(observation.get('value'), entry['score_name'])
     definition = entry.get('score_definition')
     if definition is not None:

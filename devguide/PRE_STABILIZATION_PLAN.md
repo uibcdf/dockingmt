@@ -5,6 +5,16 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Identity/rank audit #91](archive/audit_pose_identity_admission.md) closes another
+Core C5 source boundary: current declarations and ranking observations use the
+existing pose rules before comparison. Malformed scalars/arrays are inconsistent;
+unknown optional fields, NumPy integers, valid report digests, order and ties
+remain. Original red: 70 failures/33 passes; final affected gates pass 562 cases
+normal then pm/fs, including 103 new controls and one explicit native-test
+deselection. Independent receiving preserves every assertion and failed outcome.
+Source qualification remains distinct from scientific/public/installed/canvas
+acceptance. Continue waiting for #256's H5MSM delivery as the maintainer requests.
+
 [Coordinate-audit correction #90](archive/audit_coordinate_record_admission.md)
 closes a Core C5 source defect independently of the provider holds. Standalone,
 docking and scored-collection audits now use the reader's existing xyz schema
@@ -266,9 +276,11 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 3. Preserve the [complete original geometry receiving](validation/e3_geometry_fix_receiving_2026-11-08.md)
    under both unit policies, with unchanged worker and all original controls.
    #659's client geometry hold is cleared; #604's public tools remain experimental.
-   Resolve the supported lossless original-reference route under #256 before a
-   fresh full reference selection. Its current owner inspection qualifies no
-   complete transport; native restoration remains a candidate for assessment.
+   Resolve the supported lossless original-reference H5MSM route under #256
+   before a fresh full reference selection. Last owner review at `5ae3e476`
+   authorizes bounded pre-1.0 implementation and targets H5MSM 1.0 with MolSysMT
+   1.0, with P1–P6 still pending. A trusted same-stack Python checkpoint is
+   qualified separately; it does not replace this original complete H5MSM gate.
    Keep #88 partial, old failures, all domains, saved-pose/state/maps, common
    receptor frame and every full #79 criterion. No private codec, fuzzy cutoff
    or synthetic reference replaces those requirements.

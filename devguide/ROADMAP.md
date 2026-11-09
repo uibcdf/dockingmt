@@ -5,6 +5,18 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Offline identity/rank admission #91](archive/audit_pose_identity_admission.md)
+now reuses existing pose value rules before current/history comparisons. Invalid
+Boolean/floating/array ranks and non-string IDs are inconsistent; unknown values,
+NumPy integers, original order/ties and valid audit digests remain. The corrected
+red population stays FAIL with 70 failures/33 passes; complete final affected
+source gates pass 562 cases per normal/pm-fs policy, one native execution case
+explicitly outside this scope. Initial red and pre-refinement outcomes remain
+separate. Independent Receptor/JUnit/source receiving passes without replay.
+This strengthens Core C5 only; full scientific/public/visual acceptance remains.
+The maintainer requests continued waiting for #256. Preserve its original H5MSM
+gate and #558's panel maps/history requirement while advancing accepted work.
+
 [Offline coordinate audit #90](archive/audit_coordinate_record_admission.md)
 now shares the pose reader's existing wire admission: invalid Boolean/complex
 coordinates are inconsistent and canonical empty snapshots are valid with

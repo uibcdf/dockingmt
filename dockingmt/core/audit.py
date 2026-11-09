@@ -11,7 +11,11 @@ from dockingmt._private.serialization import validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt._private.vina_records import score_components
 from dockingmt.core._scores import normalize_definitions, ranking_history
-from dockingmt.core.results import _coordinate_record_values, _normalize_scores
+from dockingmt.core.results import (
+    _coordinate_record_values,
+    _normalize_scores,
+    _pose_identity_record,
+)
 
 
 @arg_digest()
@@ -259,7 +263,7 @@ def _audit_vina(
             )
 
 
-def _audit_ranking(report, poses, definitions, provenance):
+def _audit_ranking(report, poses, definitions, provenance, identities):
     path = '/provenance/ranking_history'
     if not provenance.get('ranking_history'):
         # An explicitly malformed container still needs the shared validator.
@@ -340,9 +344,12 @@ def _audit_ranking(report, poses, definitions, provenance):
         path = f'/poses/{index}'
         if not isinstance(pose, Mapping):
             continue
+        declared = identities[index]
         for key in ('pose_id', 'partner_state_id', 'receptor_state_id'):
+            if key not in declared:
+                continue
             report.compare(
-                'ranking_identity', f'{path}/{key}', pose.get(key), observation[key]
+                'ranking_identity', f'{path}/{key}', declared[key], observation[key]
             )
         scores = pose.get('scores', {})
         report.compare(
@@ -351,7 +358,8 @@ def _audit_ranking(report, poses, definitions, provenance):
             scores.get(latest['score_name']) if isinstance(scores, Mapping) else None,
             observation['value'],
         )
-        report.compare('ranking_rank', path, pose.get('rank'), index + 1)
+        if 'rank' in declared:
+            report.compare('ranking_rank', path, declared['rank'], index + 1)
         definition = definitions[index]
         if definition is not None:
             actual = definition.get(latest['score_name'])
@@ -373,7 +381,18 @@ def _audit_ranking(report, poses, definitions, provenance):
 
 def _audit_pose_payload(report, pose, path):
     if not _schema(report, pose, path, 'DockingPose'):
-        return None, None, None
+        return None, None, None, {}
+    identities = {}
+    for field in ('rank', 'pose_id', 'partner_state_id', 'receptor_state_id'):
+        try:
+            identities.update(_pose_identity_record(pose, fields=(field,)))
+        except ArgumentError:
+            report.add(
+                'pose_identity',
+                path.rstrip('/') + '/' + field,
+                'inconsistent',
+                'invalid_pose_declaration',
+            )
     coordinates = pose.get('coordinates')
     if (
         coordinates is None
@@ -395,24 +414,24 @@ def _audit_pose_payload(report, pose, path):
     scores = pose.get('scores')
     if scores is None:
         report.add('scores', path, 'incomplete', 'scores_missing')
-        return pose, None, None
+        return pose, None, None, identities
     valid, scores = report.validate('scores', path, lambda: _normalize_scores(scores))
     if not valid:
-        return pose, None, None
+        return pose, None, None, identities
     metadata = pose.get('metadata', {})
     if not isinstance(metadata, Mapping):
         report.add('score_definitions', path, 'inconsistent', 'invalid_metadata')
-        return pose, None, None
+        return pose, None, None, identities
     valid, described = report.validate(
         'score_definitions',
         path,
         lambda: normalize_definitions(metadata.get('score_definitions', {}), scores),
     )
     if not valid:
-        return pose, scores, None
+        return pose, scores, None, identities
     if not scores or set(scores) != set(described):
         report.add('score_meaning', path, 'incomplete', 'score_meaning_missing')
-    return pose, scores, described
+    return pose, scores, described, identities
 
 
 @arg_digest()
@@ -472,11 +491,13 @@ def audit_result(record):
     )
     definitions = []
     admitted_poses = []
+    identities = []
     for index, pose in enumerate(poses):
         path = f'/poses/{index}'
-        admitted, scores, described = _audit_pose_payload(report, pose, path)
+        admitted, scores, described, declared = _audit_pose_payload(report, pose, path)
         definitions.append(described)
         admitted_poses.append(admitted)
+        identities.append(declared)
         if described is None:
             continue
         scoring_stage = any(
@@ -511,5 +532,5 @@ def audit_result(record):
                     )
                     continue
             _audit_vina(report, definition, name, provenance, f'{path}/scores/{name}')
-    _audit_ranking(report, admitted_poses, definitions, provenance)
+    _audit_ranking(report, admitted_poses, definitions, provenance, identities)
     return report.export()

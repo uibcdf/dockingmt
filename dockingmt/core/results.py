@@ -211,6 +211,17 @@ def _ensure_coordinates_quantity(coords: Any) -> Any:
     return puw.quantity(_coordinate_values(normalized), 'nm')
 
 
+def _pose_identity_record(
+    record: Mapping,
+    *,
+    fields=('rank', 'pose_id', 'partner_state_id', 'receptor_state_id'),
+) -> dict[str, Any]:
+    """Validate recorded declarations with the public pose argument contracts."""
+    from dockingmt._private.argdigest.registry import ARGUMENT_DIGESTERS
+
+    return {name: ARGUMENT_DIGESTERS[name](record.get(name)) for name in fields}
+
+
 def _atom_key(record: dict[str, str | None]) -> tuple[str | None, ...]:
     return tuple(
         record.get(field)

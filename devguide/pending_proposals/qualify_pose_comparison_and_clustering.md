@@ -14,6 +14,19 @@ supersedes: []
 
 # Provider-backed pose comparison and clustering
 
+## Waiting for the portable provider handoff — 2026-11-08
+
+The maintainer reaffirms waiting for #256. Last verified owner source
+[`5ae3e476`](https://github.com/uibcdf/molsysmt/blob/5ae3e476b1133a604b50346289ca32529eef28fc/devguide/pending_proposals/h5msm_0_6_molecular_mechanics_persistence.md)
+supersedes the old post-1.0 calendar restriction: bounded persistence may be
+implemented before MolSysMT 1.0, targeting qualified H5MSM 1.0 alongside it.
+P1–P6 remain pending in that snapshot and no new portable mechanics codec is
+delivered. A trusted same-stack Python checkpoint is qualified separately; it
+does not replace this issue's original complete H5MSM gate. Keep #79 blocked,
+all old failures and every reference/common-frame/whole-workflow criterion.
+Independent source audit improvements under #90/#91 do not receive E3. No
+provider polling, pull/build or alternate transport occurs in that increment.
+
 ## Original geometry profile received in both policies — 2026-11-08
 
 [The complete fresh receiving](../validation/e3_geometry_fix_receiving_2026-11-08.md)
