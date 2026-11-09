@@ -27,6 +27,40 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Result restoration allocation profile #28 — 2026-11-08
+
+[Result restoration profiling](validation/result_restore_2026-11-08.md) now
+receives a bounded allocation improvement under #28: peak Python allocations
+fall about 44%/56% on two fixed mapped JSON fixtures. Final medians are
+20.151→24.188 / 212.414→205.881 ms; no general acceleration is claimed. Rich
+Python copy/alias behavior retains its original route. The faster initial
+candidate's one compatibility failure remains; final complete affected source
+gates pass 571 cases normal then pm/fs, with one explicit native execution
+deselection each. Independent receiving verifies 278 primary/nine reader members
+without replay. This is a Core C5 source increment; #28 stays partial, with full
+workflow/hosted/installed/scientific/public/canvas gates separate. The maintainer's
+wait for #256 and #558's maps/history requirement remain.
+
+Execution base `cadb16b146555faae0e0c87e1221e787797f2306` plus frozen reader
+changes and nine new controls. Source/helper/data/pin ownership is unchanged;
+only `DockingResult.from_dict` changes executable AST. Final reader restricts
+optimization to ordinary acyclic JSON trees with known root fields; rich/custom/
+aliased payloads retain the original whole-record route. Preserve the initial
+570-case outcomes and the rejected candidate's one-failure/eight-pass control.
+
+Primary manifest SHA-256:
+`50ce2d23523be94cc758a44b7e43171dbcbb84173b5087e49d5675e5993c8df3`.
+Reader companion:
+`611b5e54dc1873cc512520965a2e1014ae7020bdeda6f890bac55304e51ac61d`.
+Final source tests take 10.545/10.846 s, sampled peak RSS below 188 MB, serial
+CPU 0/nice 10/one worker with monitored 13 GiB reserve; every group terminates
+without interruption. Retain `.molsyssuite/result-restore-20261108` under #28/#50,
+review 2026-11-14. Do not alter the migration directory, shared environment,
+594 helper/data declarations or historical failed build. No remote CI,
+provider pull/build, scientific replay or substitute #256 gate is authorized
+by these performance observations. Resume from #28's explicit next-workload
+criterion or other independent accepted work while respecting the provider wait.
+
 ### Offline pose identity/rank admission #91 — 2026-11-08
 
 [The source correction](archive/audit_pose_identity_admission.md) uses existing

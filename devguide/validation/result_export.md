@@ -114,3 +114,11 @@ Final local validation passes all 368 tests in 45.74 seconds with the same 12
 provider warnings, Ruff lint/format, generated report indexes and diff checks.
 All five notebook code cells execute successfully; its schema and outputs validate,
 and the versioned raw files match the sampled originals byte for byte.
+
+
+## Separate reader profile — 2026-11-08
+
+[Result restoration](result_restore_2026-11-08.md) now has its own fixed-input
+source measurements and compatibility receiving. Its allocation improvement and
+timing tradeoff concern `from_dict`; the original export measurements, environment,
+notebook and producer identity above remain unchanged.

@@ -894,13 +894,57 @@ class DockingResult:
                     reason='Every pose entry must be a saved-record mapping.',
                 )
             validate_schema_version(pose_data, 'DockingPose')
-        data = deepcopy(data)
-        poses = [DockingPose.from_dict(p) for p in data.get('poses', [])]
+
+        def ordinary_tree(value):
+            pending = [value]
+            seen = set()
+            while pending:
+                item = pending.pop()
+                kind = type(item)
+                if kind is dict or kind is list:
+                    if id(item) in seen:
+                        return False
+                    seen.add(id(item))
+                    if kind is dict:
+                        if any(type(key) is not str for key in item):
+                            return False
+                        pending.extend(item.values())
+                    else:
+                        pending.extend(item)
+                elif kind not in (str, int, float, bool, type(None)):
+                    return False
+            return True
+
+        if (
+            type(data) is dict
+            and data.keys()
+            <= {
+                'schema_version',
+                'poses',
+                'problem_info',
+                'protocol_info',
+                'provenance',
+            }
+            and ordinary_tree(data)
+        ):
+            # Each pose reader owns its snapshot. Copy related context together
+            # without traversing every pose a second time.
+            context = deepcopy(
+                {
+                    name: data.get(name)
+                    for name in ('problem_info', 'protocol_info', 'provenance')
+                }
+            )
+        else:
+            # Preserve rich Python payloads, aliases and extension copy hooks.
+            context = deepcopy(data)
+            pose_records = context.get('poses', [])
+        poses = [DockingPose.from_dict(p) for p in pose_records]
         return cls(
             poses=poses,
-            problem_info=data.get('problem_info'),
-            protocol_info=data.get('protocol_info'),
-            provenance=data.get('provenance'),
+            problem_info=context.get('problem_info'),
+            protocol_info=context.get('protocol_info'),
+            provenance=context.get('provenance'),
         )
 
     @arg_digest(config='dockingmt._argdigest', record_factory=True)

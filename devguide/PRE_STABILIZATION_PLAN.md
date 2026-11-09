@@ -5,6 +5,18 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Result restoration profiling](validation/result_restore_2026-11-08.md) now
+receives a bounded allocation improvement under #28: peak Python allocations
+fall about 44%/56% on two fixed mapped JSON fixtures. Final medians are
+20.151→24.188 / 212.414→205.881 ms; no general acceleration is claimed. Rich
+Python copy/alias behavior retains its original route. The faster initial
+candidate's one compatibility failure remains; final complete affected source
+gates pass 571 cases normal then pm/fs, with one explicit native execution
+deselection each. Independent receiving verifies 278 primary/nine reader members
+without replay. This is a Core C5 source increment; #28 stays partial, with full
+workflow/hosted/installed/scientific/public/canvas gates separate. The maintainer's
+wait for #256 and #558's maps/history requirement remain.
+
 [Identity/rank audit #91](archive/audit_pose_identity_admission.md) closes another
 Core C5 source boundary: current declarations and ranking observations use the
 existing pose rules before comparison. Malformed scalars/arrays are inconsistent;

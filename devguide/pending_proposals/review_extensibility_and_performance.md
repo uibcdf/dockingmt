@@ -14,6 +14,20 @@ supersedes: []
 
 # Review extensibility and performance
 
+## Bounded result restoration allocation profile — 2026-11-08
+
+[The new source profile](../validation/result_restore_2026-11-08.md) measures the
+reader separately from historical export timings. Final ordinary JSON restoration
+reduces peak Python allocations about 44%/56% on fixed 9×64/64×256 fixtures, while
+retaining rich Python extension behavior through the original route. Median time
+is 20.151→24.188 / 212.414→205.881 ms: no general speed improvement is accepted.
+The faster initial candidate fails a nested-hook compatibility control and is
+retained as rejected evidence. Complete final affected source gates pass 571 cases
+normal then pm/fs, one explicit native execution deselection each. Independent
+receiving verifies 278 primary/nine reader members without replay. Full workflow,
+scientific, installed/public, canvas and current-head hosted acceptance remain
+separate. #28 stays partial; no remote CI or provider polling/build is launched.
+
 ## Audit follow-up: current user instructions — 2026-11-04
 
 The [first audit follow-up](../library_audit_2026-11-04.md#follow-up-1--current-instructions-and-scientific-choices-2026-11-04)
