@@ -11,6 +11,7 @@ making a bounded contribution.
 | Document | Primary question |
 | --- | --- |
 | [README.md](README.md) | Where should a new developer start? |
+| [PUBLIC_API.md](PUBLIC_API.md) | Which public operations/methods/errors exist, what work do they perform and which unit/ownership contracts apply? |
 | [DEVELOPMENT.md](DEVELOPMENT.md) | How do I reconstruct the development setup, locate code and choose the appropriate checks? |
 | [MACHINE_HANDOFF.md](MACHINE_HANDOFF.md) | What is the verified checkpoint, what remains, and which local resources need custody when moving to another machine? |
 | [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) | What evidence is required for the complete Core-plus-Extended functional objective before stabilization? |
@@ -34,6 +35,7 @@ making a bounded contribution.
 | [archive/audit_pose_identity_admission.md](archive/audit_pose_identity_admission.md) | How do offline audits validate current/historical identity and rank fields without false scalar agreement or array truth errors? |
 | [validation/result_restore_2026-11-08.md](validation/result_restore_2026-11-08.md) | Which fixed-input restoration allocation savings and timing costs are received, with original/final compatibility evidence and explicit scope? |
 | [archive/input_normalization_masks_resource_failures.md](archive/input_normalization_masks_resource_failures.md) | How do public molecular/quantity inputs preserve resource failures while retaining ordinary field diagnostics and exact provider causes? |
+| [validation/public_api_namespace_2026-11-09.md](validation/public_api_namespace_2026-11-09.md) | How are all 13 public exception aliases, 33 source exports, exact snippets and affected source gates received without changing class identity or certifying earlier wheels? |
 | [validation/record_wheel_editable_2026-11-08.md](validation/record_wheel_editable_2026-11-08.md) | Which current record APIs pass in an actual private wheel with editable siblings, and how are the original wheel and corrected qualification descriptor distinguished? |
 | [validation/e4_saved_analysis_admission_2026-11-07.md](validation/e4_saved_analysis_admission_2026-11-07.md) | What saved-analysis projection/scene recipe must be admitted before an E4 consumer/addon API? |
 | [validation/e4_saved_carrier_receiving_2026-11-07.md](validation/e4_saved_carrier_receiving_2026-11-07.md) | What normal/pm-fs saved-carrier, Python Viewer and independent-reader evidence passes, which failures remain, and what binding API is next? |

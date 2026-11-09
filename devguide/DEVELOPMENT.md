@@ -45,6 +45,8 @@ unknown information. See [score semantics](validation/score_semantics.md),
 
 ## Find the implementation
 
+The [public API guide](PUBLIC_API.md) maps root exports, public methods, error
+handling and the distinction between reading, molecular work and execution.
 The [real source map](ARCHITECTURE.md) distinguishes implemented modules from
 conceptual future packages. Public orchestration is in `dock.py`, `score.py`,
 `batch.py`, `evaluation.py` and `aggregation.py`; `core/` owns scientific

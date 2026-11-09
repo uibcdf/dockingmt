@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (67)
+### Resolved (68)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_coordinate_record_admission.md`](audit_coordinate_record_admission.md) — [#90](https://github.com/uibcdf/dockingmt/issues/90) — Offline coordinate audits disagree with the existing pose-record admission. *(resolved, reproduced)*
@@ -43,6 +43,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`pose_reference_loading.md`](pose_reference_loading.md) — [#37](https://github.com/uibcdf/dockingmt/issues/37) — Pair docking reference frames explicitly and expose viewer failures. *(resolved, measured)*
 - [`prepare_new_machine_handoff.md`](prepare_new_machine_handoff.md) — [#82](https://github.com/uibcdf/dockingmt/issues/82) — Make the developer guide a coherent onboarding and new-machine handoff. *(resolved, measured)*
 - [`protocol_energy_record_coerces_invalid_values.md`](protocol_energy_record_coerces_invalid_values.md) — [#84](https://github.com/uibcdf/dockingmt/issues/84) — Saved protocol energy magnitudes bypass scalar admission through float coercion. *(resolved, measured)*
+- [`publish_public_exception_namespace.md`](publish_public_exception_namespace.md) — [#94](https://github.com/uibcdf/dockingmt/issues/94) — Expose existing diagnostic identities through a public exception namespace. *(resolved, reproduced)*
 - [`qualify_exact_input_vina_fidelity.md`](qualify_exact_input_vina_fidelity.md) — [#62](https://github.com/uibcdf/dockingmt/issues/62) — Qualify exact-input adapter/direct Vina fidelity with a bounded control. *(resolved, measured)*
 - [`qualify_independent_installed_reproduction.md`](qualify_independent_installed_reproduction.md) — [#83](https://github.com/uibcdf/dockingmt/issues/83) — Receive the existing stored 1IEP workflow in a source-free installation for E5. *(resolved, measured)*
 - [`qualify_molecular_variant_copy.md`](qualify_molecular_variant_copy.md) — [#51](https://github.com/uibcdf/dockingmt/issues/51) — Qualify molecular variants against the delivered native copy contract. *(resolved, measured)*

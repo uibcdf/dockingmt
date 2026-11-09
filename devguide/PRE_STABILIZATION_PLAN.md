@@ -5,6 +5,20 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Public exception access and API reference #94](validation/public_api_namespace_2026-11-09.md)
+now expose the same 13 local diagnostic classes through `dockingmt.exceptions`.
+The source-linked guide covers all 33 root exports, 13 model/extension classes,
+units/ownership/positions, work boundaries and explicit CPU use. Complete affected
+source selections pass 251 cases normal then pm/fs; two exact offline snippets
+and all alias identities pass in both policies. Original 12 missing-namespace
+failures and fourteen harness-only availability-probe failures remain preserved.
+Independent 157-member primary/nine-member reader receiving passes without replay.
+The resource descriptor now requires 67 runtime paths; 594 helper/data inputs
+remain unchanged. Complete distribution controls pass 19 tests/five subtests. This later namespace is source-qualified only: the prior wheel
+retains its original 66-path qualification. #19/#28/#73 and scientific/public/
+installed/platform/canvas/hosted gates remain partial; #256/#558 holds stay.
+No provider refresh/build, shared install, molecular operation or remote CI.
+
 [Current private installed-record receiving](validation/record_wheel_editable_2026-11-08.md)
 passes 990 cases normal then pm/fs, the fixed union of recent source selections,
 using the actual unchanged wheel from producer `6310a97` with editable siblings.

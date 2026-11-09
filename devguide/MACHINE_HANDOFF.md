@@ -27,6 +27,39 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Public exceptions and source-linked API #94 — 2026-11-09
+
+[Public exception access and API reference #94](validation/public_api_namespace_2026-11-09.md)
+now expose the same 13 local diagnostic classes through `dockingmt.exceptions`.
+The source-linked guide covers all 33 root exports, 13 model/extension classes,
+units/ownership/positions, work boundaries and explicit CPU use. Complete affected
+source selections pass 251 cases normal then pm/fs; two exact offline snippets
+and all alias identities pass in both policies. Original 12 missing-namespace
+failures and fourteen harness-only availability-probe failures remain preserved.
+Independent 157-member primary/nine-member reader receiving passes without replay.
+The resource descriptor now requires 67 runtime paths; 594 helper/data inputs
+remain unchanged. Complete distribution controls pass 19 tests/five subtests. This later namespace is source-qualified only: the prior wheel
+retains its original 66-path qualification. #19/#28/#73 and scientific/public/
+installed/platform/canvas/hosted gates remain partial; #256/#558 holds stay.
+No provider refresh/build, shared install, molecular operation or remote CI.
+
+Execution base `457eb090f0e36b6d2b34e1b7d90cbab4d43a4c00` plus frozen
+additive namespace/root/test/descriptor changes. Existing catalog classes and
+implementation paths stay exact; no exception framework or provider behavior
+changes. The public guide maps source declarations, with 42 checked local links;
+its examples read synthetic records unchanged and construct one-CPU parameters.
+Final test cells take 4.092/4.706 s, below 200 MB sampled RSS, with CPU 0/nice 10/
+one worker and monitored 13 GiB reserve. All groups terminate without interruption.
+
+Primary manifest `b644b5719a4954cf942d0acd19bdd064554e58d2eb2da5a353ed76714994fdec`;
+reader `cf5b0481b748a4790df109d20583a044b4873d311145ec655ccd862e0a7e8497`.
+Retain private `.molsyssuite/public-api-map-20261108` under #94/#28/#19/#50,
+review 2026-11-14. Preserve all failed attempts, published private test support,
+previous wheel/receiver, migration directory and interrupted native-build records.
+The original H5MSM/reference, generation-map/history, live canvas and public
+artifact/platform requirements retain their existing owners. Resume accepted
+independent work; no provider polling/build or automatic remote CI follows.
+
 ### Private installed record API and complete payload #93 — 2026-11-08
 
 [Current private installed-record receiving](validation/record_wheel_editable_2026-11-08.md)

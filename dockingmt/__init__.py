@@ -18,6 +18,8 @@ from ._private.smonitor import PACKAGE_ROOT
 
 ensure_configured(PACKAGE_ROOT)
 
+from . import exceptions
+
 from .core import (
     BoxRegion,
     DockingPose,
@@ -50,6 +52,7 @@ from .preparation import (
 from .view import show, view
 
 __all__ = [
+    'exceptions',
     'PoseInteractions',
     'bind_interactions',
     'compare_scores',

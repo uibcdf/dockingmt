@@ -14,6 +14,22 @@ supersedes: []
 
 # Review extensibility and performance
 
+## Public exception access and API reference — 2026-11-09
+
+[#94's source receiving](../validation/public_api_namespace_2026-11-09.md)
+exposes the same 13 local classes through a public namespace; codes, context,
+causes, native families and provider/resource propagation retain their identity.
+The [guide](../PUBLIC_API.md) maps all 33 root exports, 13 model/extension classes
+and actual work/unit/ownership/resource contracts. Complete affected source gates
+pass 251 cases normal then pm/fs, and exact offline snippets/13 alias identities
+pass in each policy. Independent 157-member primary/nine-member reader receiving
+preserves original missing-namespace and harness-only failures without replay.
+The resource inventory adds one runtime module (67 paths); all 594 support
+inputs stay exact. Earlier private wheel qualification remains 66 paths and does
+not certify this later namespace. Wider adoption, measured user usability,
+workflow performance and full scientific/public/installed/hosted/canvas scope
+remain separate. #19/#28/#73 stay partial; respect #256/#558 holds.
+
 ## Bounded result restoration allocation profile — 2026-11-08
 
 [The new source profile](../validation/result_restore_2026-11-08.md) measures the

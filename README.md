@@ -33,6 +33,7 @@ These examples do not establish general predictive accuracy or binding affinity.
 
 | Task | Current guide | What the example does |
 | --- | --- | --- |
+| Find public operations, methods and error handling | [Public API guide](devguide/PUBLIC_API.md) | Maps actual source declarations, units/ownership and execution boundaries; includes offline reading examples. |
 | Inspect a saved result | [Result inspection](devguide/validation/installed_result_inspection.md) | Reads caller-supplied records and checks available evidence; no new docking. |
 | Inspect saved scoring evaluations | [Saved-scoring inspection](devguide/validation/installed_scoring_inspection.md) | Reads poses or explicit result collections, retaining scores, evaluation producers and missing evidence. |
 | Add named evaluations to a prepared pose | [Rescoring with the public API](devguide/validation/same_state_rescoring_workflow.md) | Reconstructs and prepares matching inputs for the received rigid two-pose profile, preserves earlier scores and adds Vina/Vinardo evaluations. |

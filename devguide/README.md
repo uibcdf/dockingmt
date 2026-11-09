@@ -16,6 +16,10 @@ Vina is the first backend; its command-line vocabulary is not our scientific mod
 | 5 | [Scientific model](SCIENTIFIC_MODEL.md), [architecture](ARCHITECTURE.md), [decisions](DECISIONS.md) | Why the code is organized this way and which choices must not be reopened accidentally. |
 | 6 | [Operational roadmap](ROADMAP.md#current-operational-plan), [proposals](pending_proposals/README.md), [bugs](pending_bugs/README.md) | Next contributions and ownership of missing capabilities. |
 
+For public entry points and detailed method contracts, use the
+[public API guide](PUBLIC_API.md); it links source declarations and distinguishes
+offline reading from molecular and engine work.
+
 Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historical
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
@@ -78,6 +82,7 @@ shared boundary contracts. See the [suite contract](MOLSYSSUITE_CONTRACT.md) and
 | Offline identity/rank audits | [Source correction #91](archive/audit_pose_identity_admission.md) validates current declarations and historical observations before comparison, retaining unknown values, NumPy integer ranks and valid reports. 562 affected source cases pass per unit policy; public/scientific/visual acceptance remains separate. |
 | Result restoration allocation | [Bounded reader profile #28](validation/result_restore_2026-11-08.md): ordinary JSON peak Python allocations fall about 44%/56% on two fixed inputs; timing tradeoff and rejected compatibility candidate are explicit. 571 affected source cases pass per unit policy; general speed, scientific/public/installed acceptance remains unproven. |
 | Public input resource errors | [Source correction #92](archive/input_normalization_masks_resource_failures.md): seven admission handlers preserve MemoryError; 549 complete affected source cases pass per caller policy, with all original failures and private test-support custody retained. |
+| Public API and errors | [Source-linked guide](PUBLIC_API.md), [#94 receiving](validation/public_api_namespace_2026-11-09.md): 33 exports/13 exception aliases; 251 source cases per policy and two exact offline snippets pass. This later namespace has no new installed/public claim. |
 | Current installed record API | [Private wheel/editable receiving](validation/record_wheel_editable_2026-11-08.md): 990 cases per caller policy, complete 66-path payload, four import refusals and 594-input support retirement. #93 fixes the descriptor; producer/public/full-suite/platform limits remain explicit. |
 | Selected-pose interaction API | [`bind_interactions`/`PoseInteractions`](validation/pose_interaction_binding.md) preserve a complete result and detached carrier/analysis access. 190 source cases and [actual installed normal/pm-fs receiving](validation/e4_pose_binding_installed_2026-11-07.md) now pass, with fourteen refusals/profile, two complete carrier roundtrips and independent original-record verification. [Native unevaluated coverage](validation/e4_native_unevaluated_2026-11-07.md) now passes for empty-source invalidation. [The #642 source correction](validation/e4_evidence_catalog_fix_2026-11-07.md) is published; its exact native construction is held after a memory stop, so installed client acceptance remains pending. The explicit view route below retains separate qualification. |
 | Ligand-model/source checkpoint | [Source decisions and failed anionic-reference receiving](validation/scientific_panel_ligand_models_2026-11-07.md) preserve both intended candidates and all original criteria; a separate minimal diagnostic identifies MolSysMT #644. First receive the provider correction, then complete fresh reference cells. No case/preparation/search is accepted. |
