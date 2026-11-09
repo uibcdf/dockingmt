@@ -1,0 +1,81 @@
+{
+  "schema": "dockingmt.e3_reference_policy_receiving@1",
+  "source_commit": "ae0db98560f66ac6be7a933fb053f6e1e9917d99",
+  "provider_commit": "efbe67e1c6042078144bce1db24aa80bb565dbd2",
+  "owner": "uibcdf/dockingmt#79",
+  "criterion_owner": "uibcdf/dockingmt#88",
+  "files": [
+    {
+      "path": "reader/frozen-admin.py.gz",
+      "original_path": "reader/frozen-admin.py",
+      "bytes": 4053,
+      "sha256": "cc1e582218a8e2349098a37ab5be5997e60553085e0c9d0301e879323af26c8a",
+      "decoded_bytes": 12300,
+      "decoded_sha256": "f611f594510f4e4a02dc3f77452f1555dea33cae4598db4a3b3baa20bb435273"
+    },
+    {
+      "path": "reader/frozen-reader.py.gz",
+      "original_path": "reader/frozen-reader.py",
+      "bytes": 2535,
+      "sha256": "b2ffc6aa95e07d2f3c5a0882c304c511b97d742ed40decc1888d524bc2e776ce",
+      "decoded_bytes": 7312,
+      "decoded_sha256": "2af11b1c044780e94b7c875b9b02081a47b97fba425e5294da55e4cbbaeededa"
+    },
+    {
+      "path": "reader/frozen-resource-guard.py.gz",
+      "original_path": "reader/frozen-resource-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "reader/receipt.json.gz",
+      "original_path": "reader/receipt.json",
+      "bytes": 342,
+      "sha256": "6c28ad0b82e78150fce89ba48b5225d6d74a6c679ddde82d989610b6ed021d38",
+      "decoded_bytes": 538,
+      "decoded_sha256": "0e94f4d41cac8152270b1217e9ea13193bd9cf32f4caafe50c1f84e9107fc363"
+    },
+    {
+      "path": "reader/registration.json.gz",
+      "original_path": "reader/registration.json",
+      "bytes": 428,
+      "sha256": "7671c6a5d7b87bac769b01d63554ef5942db3815c68edd936fa7b8348789219c",
+      "decoded_bytes": 696,
+      "decoded_sha256": "f93b177a25d6c8a8462593a399f254359be2b1586129fad4cb312661272b0c39"
+    },
+    {
+      "path": "reader/resource-outcome.json.gz",
+      "original_path": "reader/resource-outcome.json",
+      "bytes": 331,
+      "sha256": "c3ff8d85abfabc446c26e190d0ab1853938fe44e93b95c3e49498234d6c33613",
+      "decoded_bytes": 574,
+      "decoded_sha256": "dc52455815ffcd63a57786b0a4a6ed90bd3e08a90de7e95a6b3125f542bb380d"
+    },
+    {
+      "path": "reader/stderr.log.gz",
+      "original_path": "reader/stderr.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reader/stdout.log.gz",
+      "original_path": "reader/stdout.log",
+      "bytes": 330,
+      "sha256": "b2abd9792c072151a031f3d38b74b10d6fc510f32402a741837460bd2d3b6755",
+      "decoded_bytes": 496,
+      "decoded_sha256": "91cd6f132cded8967d799bcba17d48e3cdef7a8a76d835dfe18398ad17920826"
+    },
+    {
+      "path": "final-reader-input.json.gz",
+      "original_path": "final-reader-input.json",
+      "bytes": 143,
+      "sha256": "5fc20087dfe021b78b2bdbacbd2cf0b622652aa1784d179cf0990d311c0500cb",
+      "decoded_bytes": 166,
+      "decoded_sha256": "d71b566019e8993d53244c6fa7f1f77899004e7d77f09af2f52e8e85dffb2e53"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # E3 bounded geometry-provider receiving — 2026-11-08
 
-Owner: [DockingMT #79](../pending_proposals/qualify_pose_comparison_and_clustering.md).
+Owner: [DockingMT #79](../archive/qualify_pose_comparison_and_clustering.md).
 Registered before execution; outcome **normal PASS; pm/fs FAIL at inclusive
 cutoff equality**. Whole E3 remains unaccepted. Original prescriptions are
 retained in the frozen attempt records; the outcome below is an append-only

@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (69)
+### Resolved (72)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_coordinate_record_admission.md`](audit_coordinate_record_admission.md) — [#90](https://github.com/uibcdf/dockingmt/issues/90) — Offline coordinate audits disagree with the existing pose-record admission. *(resolved, reproduced)*
@@ -25,6 +25,8 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`describe_saved_search_variability.md`](describe_saved_search_variability.md) — [#67](https://github.com/uibcdf/dockingmt/issues/67) — Describe seed and effort variability in frozen search results *(resolved, measured)*
 - [`describe_scores_and_preserve_ranking_history.md`](describe_scores_and_preserve_ranking_history.md) — [#31](https://github.com/uibcdf/dockingmt/issues/31) — Describe score semantics and preserve ranking history *(resolved, measured)*
 - [`diagnose_p59_score_preference.md`](diagnose_p59_score_preference.md) — [#69](https://github.com/uibcdf/dockingmt/issues/69) — Diagnose saved P59 total-score preference versus positional recovery. *(resolved, measured)*
+- [`e3_reference_mechanics_evidence_gap.md`](e3_reference_mechanics_evidence_gap.md) — [#96](https://github.com/uibcdf/dockingmt/issues/96) — E3 reference readback omits explicit mechanical parameters and assignment evidence. *(resolved, inspected)*
+- [`e3_source_replay_artifact_identity.md`](e3_source_replay_artifact_identity.md) — [#88](https://github.com/uibcdf/dockingmt/issues/88) — E3's full historical PDBQT checksum conflates artifact identity with current-producer compatibility. *(resolved, reproduced)*
 - [`evaluate_redocking.md`](evaluate_redocking.md) — [#38](https://github.com/uibcdf/dockingmt/issues/38) — Evaluate redocking with explicit RMSD policy and detached comparison evidence. *(resolved, measured)*
 - [`fixed_pose_scoring.md`](fixed_pose_scoring.md) — [#34](https://github.com/uibcdf/dockingmt/issues/34) — Score prepared fixed conformations independently of docking and preserve prior evaluations. *(resolved, measured)*
 - [`flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md`](flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md) — [#12](https://github.com/uibcdf/dockingmt/issues/12) — Flexible-ligand Vina coordinate arrays differ in order from PDBQT pose records *(resolved, measured)*
@@ -48,6 +50,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`qualify_exact_input_vina_fidelity.md`](qualify_exact_input_vina_fidelity.md) — [#62](https://github.com/uibcdf/dockingmt/issues/62) — Qualify exact-input adapter/direct Vina fidelity with a bounded control. *(resolved, measured)*
 - [`qualify_independent_installed_reproduction.md`](qualify_independent_installed_reproduction.md) — [#83](https://github.com/uibcdf/dockingmt/issues/83) — Receive the existing stored 1IEP workflow in a source-free installation for E5. *(resolved, measured)*
 - [`qualify_molecular_variant_copy.md`](qualify_molecular_variant_copy.md) — [#51](https://github.com/uibcdf/dockingmt/issues/51) — Qualify molecular variants against the delivered native copy contract. *(resolved, measured)*
+- [`qualify_pose_comparison_and_clustering.md`](qualify_pose_comparison_and_clustering.md) — [#79](https://github.com/uibcdf/dockingmt/issues/79) — Qualify provider-backed positional pose comparison and declared geometric clustering for E3. *(resolved, reproduced)*
 - [`qualify_same_state_rescoring.md`](qualify_same_state_rescoring.md) — [#78](https://github.com/uibcdf/dockingmt/issues/78) — Qualify same-state multi-pose rescoring with explicit reference and comparison evidence. *(resolved, measured)*
 - [`qualify_small_ligand_collection.md`](qualify_small_ligand_collection.md) — [#81](https://github.com/uibcdf/dockingmt/issues/81) — Qualify a bounded multi-ligand study with isolated outcomes and explicit comparison policy. *(resolved, measured)*
 - [`receptor_pdbqt_atom_name_overflow.md`](receptor_pdbqt_atom_name_overflow.md) — [#44](https://github.com/uibcdf/dockingmt/issues/44) — Reject receptor atom names that overflow fixed PDBQT columns *(resolved, measured)*

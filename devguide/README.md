@@ -24,6 +24,12 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+The latest [E3 saved-pose checkpoint](validation/e3_saved_pose_study_2026-11-09.md)
+receives the original three-pose comparison/clustering workflow in both unit
+policies, after complete [public0.6 reference receiving](validation/e3_h5msm06_reference_receiving_2026-11-09.md).
+#79/#88/#96 close their bounded scope; #558, actual canvas and public/hosted gates
+remain. The full plan and handoff name the next owners and preserved evidence.
+
 ## Accepted destination and present limits
 
 The accepted product scope is **Core C0–C6 plus Extended E1–E5**, bounded scientific
@@ -68,10 +74,10 @@ shared boundary contracts. See the [suite contract](MOLSYSSUITE_CONTRACT.md) and
 | Scientific assumptions/limits | [Scope](SCIENTIFIC_SCOPE.md), [validation strategy](VALIDATION_STRATEGY.md), [2026-11-04 audit](library_audit_2026-11-04.md). |
 | Existing recovery/ranking observations | [Scientific overview](validation/scientific_evidence_overview_2026-11-04.md); its sources/populations remain frozen. |
 | Installed walkthroughs | [Inspection](validation/installed_result_inspection.md), [preparation](validation/installed_3ptb_preparation.md), [execution](validation/installed_3ptb_execution.md), [evaluation](validation/installed_3ptb_evaluation.md). Check which steps execute science. |
-| Extended work | [E1 bounded acceptance](archive/qualify_same_state_rescoring.md), [E2 bounded acceptance](archive/qualify_small_ligand_collection.md), [E3](pending_proposals/qualify_pose_comparison_and_clustering.md), [E4](pending_proposals/receive_docking_interaction_analysis.md). |
+| Extended work | [E1 bounded acceptance](archive/qualify_same_state_rescoring.md), [E2 bounded acceptance](archive/qualify_small_ligand_collection.md), [E3](archive/qualify_pose_comparison_and_clustering.md), [E4](pending_proposals/receive_docking_interaction_analysis.md). |
 | E2 source receiving | [P59/P69 current source interpretations](validation/e2_source_admission_2026-11-07.md): source/axis/geometry/readiness/CIP evidence and independent saved reading pass; raw and interpreted representations retain their separate roles. |
 | E2 preparation | [Named rigid preparation receiving](validation/e2_preparation_receiving_2026-11-07.md): both preparations and the fresh saved reader pass, preserving H accounting, named parameters, maps and actual exports. That separate phase adds no energies/searches. |
-| E2 native acceptance and next workflow | [Native collection and independent reader](validation/e2_native_collection_2026-11-07.md) pass: three outcomes, two searches, five original poses and the declared empirical order. [#81 resolves the bounded rigid25 joint-domain workflow](archive/qualify_small_ligand_collection.md); broader science, public delivery and the complete functional objective remain separate. Next receive [E3 pose comparison/clustering under #79](pending_proposals/qualify_pose_comparison_and_clustering.md) through supported MolSysMT tools/composition. |
+| E2 native acceptance and next workflow | [Native collection and independent reader](validation/e2_native_collection_2026-11-07.md) pass: three outcomes, two searches, five original poses and the declared empirical order. [#81 resolves the bounded rigid25 joint-domain workflow](archive/qualify_small_ligand_collection.md); broader science, public delivery and the complete functional objective remain separate. Next receive [E3 pose comparison/clustering under #79](archive/qualify_pose_comparison_and_clustering.md) through supported MolSysMT tools/composition. |
 | Measured interaction workflow | [E4 receiving](validation/installed_3ptb_interactions.md): one case, normal/pm-fs and fresh readers; whole E4 remains partial. |
 | E3 provider admission | [Source/population inspection](validation/e3_provider_admission_2026-11-07.md) identifies the retained poses/reference. [Latest H-policy and paired-control receiving](validation/e3_source_control_receiving_2026-11-08.md) reaches strict full39/prepared25 maps and exact current control bytes, then fails native persistence. #79 retains the #256 reference-storage hold; that selection’s pm/fs and final live checks remain unreceived. The separate geometry row below carries current #604/#659 state. |
 | E3 geometry tools | [Complete correction receiving](validation/e3_geometry_fix_receiving_2026-11-08.md) passes the original analytic/adverse selection normal/pm-fs with byte-identical worker/assertions, clearing #659's client geometry hold. The old failed selection remains frozen; #256/reference/common-frame/full E3 remain separate. |

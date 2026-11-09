@@ -23,10 +23,6 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 - [`select_molecular_states_and_record_preparation_decisions_for_docking.md`](select_molecular_states_and_record_preparation_decisions_for_docking.md) — [#4](https://github.com/uibcdf/dockingmt/issues/4) — Select molecular states and record preparation decisions for docking *(partial, measured)*
 - [`validate_native_molsysmt_formats.md`](validate_native_molsysmt_formats.md) — [#33](https://github.com/uibcdf/dockingmt/issues/33) — Validate native MolSysMT SDF/PDBQT inputs and define the supported preparation profile *(partial, measured)*
 
-### Blocked (1)
-
-- [`qualify_pose_comparison_and_clustering.md`](qualify_pose_comparison_and_clustering.md) — [#79](https://github.com/uibcdf/dockingmt/issues/79) — Qualify provider-backed positional pose comparison and declared geometric clustering for E3. *(blocked, inspected)*
-
 ### Open (1)
 
 - [`support_selected_flexible_receptor_residues_in_the_vina_adapter.md`](support_selected_flexible_receptor_residues_in_the_vina_adapter.md) — [#7](https://github.com/uibcdf/dockingmt/issues/7) — Support selected flexible receptor residues in the Vina adapter *(open, inspected)*

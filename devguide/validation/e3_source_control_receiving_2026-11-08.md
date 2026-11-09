@@ -1,7 +1,7 @@
 # E3 current-producer paired source control — 2026-11-08
 
 Owners: [DockingMT #88](https://github.com/uibcdf/dockingmt/issues/88) for the
-qualification criterion and [#79](../pending_proposals/qualify_pose_comparison_and_clustering.md)
+qualification criterion and [#79](../archive/qualify_pose_comparison_and_clustering.md)
 for the reference prerequisite. Registered before execution; outcome **normal
 FAIL at prepared-native H5MSM persistence; pm/fs unattempted**. The prescription
 below is retained verbatim as the executed frozen input in the archive.

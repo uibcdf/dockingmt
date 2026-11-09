@@ -1,6 +1,6 @@
 # Receiving the explicit indexed-H policy in E3 — 2026-11-08
 
-Owner: [DockingMT #79](../pending_proposals/qualify_pose_comparison_and_clustering.md).
+Owner: [DockingMT #79](../archive/qualify_pose_comparison_and_clustering.md).
 Provider policy: [MolSysMT #645](https://github.com/uibcdf/molsysmt/issues/645).
 Registered before execution; current outcome: **normal FAIL at the historical
 PDBQT checksum gate; pm/fs unattempted**. The original prescription below and
@@ -21,7 +21,7 @@ The new export SHA-256 is
 `49f054d3fa258bcf965619d7edb4f154949512aa74a3d57a0876da19af8ee9e0`.
 It differs from the historical artifact in actual producer-version comments and
 three final written coordinate digits. Neither only-comment equality nor a
-causal explanation for rounding is claimed. [DockingMT #88](../pending_bugs/e3_source_replay_artifact_identity.md)
+causal explanation for rounding is claimed. [DockingMT #88](../archive/e3_source_replay_artifact_identity.md)
 owns the qualification-criterion correction. The [separate paired-control
 selection](e3_source_control_receiving_2026-11-08.md) preserves this entire FAIL
 and historical identity; it does not retry or relabel this campaign.

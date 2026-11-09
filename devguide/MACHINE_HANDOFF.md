@@ -27,6 +27,49 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Current E3 receiving and provider handoff — 2026-11-09
+
+[E3 bounded comparison/clustering now received](validation/e3_saved_pose_study_2026-11-09.md)
+passes both complete normal/pm-fs profiles on DockingMT `ae0db98`, editable
+MolSysMT `efbe67e1` and unchanged native `5715bda2`. The original three P59 poses
+pass fixed-state/common-frame admission, reconstruction, strict heavy24/full25
+correspondence, two pairwise metrics, independent-reference RMSD and public
+complete/single linkage. At2angstrom both return three singleton medoid groups.
+The 256-member primary/nine-member reader verifies 34 physical fields, four invalid
+handshakes and cross-policy agreement within 1e-12 nm without molecular replay.
+Final [public H5MSM0.6 reference receiving](validation/e3_h5msm06_reference_receiving_2026-11-09.md)
+passes both complete profiles and 261-member/nine-member reading, including five
+actual mechanical-loss refusals with literal text preserved. #79/#88/#96 are
+resolved for this bounded profile; all old failures and initial weaker seals stay.
+No runtime/helper/test change, new search, shared install, build or remote CI.
+
+This user-requested provider check safely fast-forwards only clean MolSysMT
+27 commits after checking unchanged native/build inputs. Other siblings stay
+fixed; Viewer54behind is deliberately not updated for this non-view workflow.
+#256 delivers useful experimental explicit0.6 but remains open for provider
+stable/default and broader receiving scope. #558 remains open for panel maps/
+history. Next inspect #30/#47's public-provider/artifact readiness against its existing
+candidate dossier before registering any new installation or build. Panel
+preparation waits for #558 maps/history. Actual browser/comm/canvas #52/#60
+still needs the maintainer's scheduled observation; exact public/installed/
+platform closure and required hosted #28/#21 evidence remain missing. No automatic CI/build restart.
+The historical native-build interruption remains preserved; editable #642 was
+already received at `c238513a1e76715a56abffb6528ba31bf913e226`, so it is not a
+current editable codec blocker. Earlier private wheels retain their original
+provider composition; they do not certify this new source. Older checkpoint
+paragraphs below keep their dated historical scope.
+
+Resume from the archived #79 contract and two new receiving prescriptions above.
+Task `.molsyssuite/e3-h5msm06-20261109` retains initial/final reference selections,
+corrected observer and independent readers. `.molsyssuite/e3-pose-study-20261109`
+retains original fixed inputs, all failures, both complete selections and final
+reader. Owners #79/#50, review 2026-11-14. Both tasks use CPU0/nice10/one worker,
+13GiB monitored reserve/1GiB group RSS/2GiB address space/45CPU/60wall bounds.
+All final cells terminate without interruption. Preserve human migration,
+shared environment, old wheels/readers/producers and historical interruptions.
+Final relevant local and fresh committed-source checks accompany publication;
+remote CI remains unexecuted, not passed.
+
 ### Current private wheel and 67-path receiving — 2026-11-09
 
 [New private installed API receiving](validation/record_wheel_editable_2026-11-09.md)
@@ -723,7 +766,7 @@ attempts and exact identities/JUnit. Keep
 #19 is still partial for wider adoption/central handoff and public-provider
 closure; #28 exact-head hosted evidence remains missing, no manual CI.
 
-Separately, [E3 #79](pending_proposals/qualify_pose_comparison_and_clustering.md)
+Separately, [E3 #79](archive/qualify_pose_comparison_and_clustering.md)
 records owner-resolved MolSysMT #645 at `4f7c7e4c278a9995909c2f4d9bec917d03729a63`:
 an explicit experimental indexed-H policy with conservative admission and typed
 history. Its pinned public rules are inspected, not executed here. Next obtain
@@ -807,7 +850,7 @@ All six molecular/diagnostic groups are terminal with no resource interruption:
 scientific reference attempts14.951/15.697/16.587s, maximum sampled group RSS
 214,679,552 bytes; completed persistence/minimal diagnostics15.260/5.009s.
 CPU 0/nice 10/worker 1, monitored 13 GiB reserve; zero native search or admitted case.
-Retain task `.molsyssuite/panel-receptor-models-20261108` under #50/review2026-11-14.
+Retain task `.molsyssuite/panel-receptor-models-20261108` under #50/review 2026-11-14.
 After its final successful diagnostic, routine metadata gains giflib/openjdk/libxt
 records; no old record changes/removals or private payload changes. The first
 seal fails that historical metadata check. Preserve it and the additions; fresh
@@ -1628,7 +1671,7 @@ E4 checkpoint above supersedes its old next-action statements.
   `82bfa1c82f1d48035679fa4630e81a2506b67bd6`; no checkout/pin change occurs.
   MolSysMT #604 is open with zero comments at inspection. Existing per-reference
   RMSD does not supply an admitted N×N/clustering composition, so
-  [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) is blocked by
+  [#79](archive/qualify_pose_comparison_and_clustering.md) is blocked by
   the provider. Its complete reference, degeneracy, symmetry, threshold/unit,
   frame/map/budget and nonmutation contract stays intact; E3 is unaccepted.
   Three original P59 poses are a same-state population candidate. Their
@@ -1785,7 +1828,7 @@ records. Whole E1, public delivery, hosted gates and the E4 hold stay separate.
 | E4 structured consumer/addon admission | Next independent admission: follow the [source-reviewed public recipe](validation/e4_saved_analysis_admission_2026-11-07.md) to receive projection/atom/frame axes before a consumer API; preserve original coverage, methods, units and provenance. | [#80](pending_proposals/receive_docking_interaction_analysis.md). No hidden recalculation or automatic restart of the local hold; saved-analysis consumer receiving and whole E4 remain partial. |
 | E1 representative rescoring | Preserve the resolved bounded same-state contract and its original successful/failed evidence; E3 remains provider-blocked while E4 saved-analysis admission can progress independently. | [#78 archived](archive/qualify_same_state_rescoring.md). Whole E1, provider-wide #599/#447 and public delivery remain separate; preserve strict ranking and original producers. |
 | E2 distinct-ligand study | Preserve the accepted P59/P69 rigid25 joint-domain source/preparation/native/persistence records: success/refusal/success, 3+2 poses, five native columns, own references and the separate empirical decision. No repeat search or new runtime framework is needed. | [#81 resolved](archive/qualify_small_ligand_collection.md). Other E2 profiles, screening effectiveness, public delivery and #73 remain separate; strict same-state ranking is unchanged. |
-| E3 comparison/clustering | Blocked: receive the supported provider N×N/clustering composition/tools without reducing the complete #79 contract. P59 population/reference candidates are not new analysis evidence. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md), MolSysMT [#604](https://github.com/uibcdf/molsysmt/issues/604); [static admission review](validation/e3_provider_admission_2026-11-07.md). No local matrix, clustering or matching. |
+| E3 comparison/clustering | Blocked: receive the supported provider N×N/clustering composition/tools without reducing the complete #79 contract. P59 population/reference candidates are not new analysis evidence. | [#79](archive/qualify_pose_comparison_and_clustering.md), MolSysMT [#604](https://github.com/uibcdf/molsysmt/issues/604); [static admission review](validation/e3_provider_admission_2026-11-07.md). No local matrix, clustering or matching. |
 | Scientific panel | Resolve source/state/environment/template/reconstruction admission before searches. | [Panel admission](validation/scientific_panel_admission_2026-11-04.md) and [environment](validation/scientific_panel_environment_2026-11-04.md) retain #33/#49 and MolSysMT #555–#558. Proposed candidates are not admitted complexes. |
 | E5 reproduction | Qualify a whole independent representative workflow to its documented degree. | Full plan #73; existing readers/captures are pieces, not whole E5. |
 | Public/platform delivery | Refresh artifacts, qualify the actual compatible public combination and exact staged Conda file/cells. | #30/#47. No source fallback or private-wheel proof substitutes. |

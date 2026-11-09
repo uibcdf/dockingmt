@@ -40,7 +40,7 @@ This bounded search is not proof that every public composition is absent.
 [MolSysMT #604](https://github.com/uibcdf/molsysmt/issues/604) asks first for a
 supported existing composition, otherwise minimal bounded pairwise positional
 RMSD/clustering tools. Their geometry, correspondence and grouping remain in
-MolSysMT. The [consumer contract](../pending_proposals/qualify_pose_comparison_and_clustering.md)
+MolSysMT. The [consumer contract](../archive/qualify_pose_comparison_and_clustering.md)
 defines ordered populations, no implicit fitting, units, linkage/threshold and
 tie behavior, meaningful controls and representative receiving. No molecular
 algorithm is added to DockingMT; no E3 execution has occurred.
