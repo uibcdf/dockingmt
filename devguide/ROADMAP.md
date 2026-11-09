@@ -5,6 +5,18 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[The new E3 geometry-provider receiving](validation/e3_geometry_provider_receiving_2026-11-08.md)
+receives delivered #604 APIs on editable MolSysMT `8af8628e6`, with unchanged
+Rust/native bytes and no rebuild. Complete normal controls pass; pm/fs fails an
+exact inclusive clustering cutoff. Newly reported MolSysMT #659 owns the
+cutoff-only unit-roundtrip defect, corroborated by 12 separate diagnostic calls.
+The 136-member primary/nine-member reader records retain both whole outcomes
+and receive 84 physical fields without molecular replay. Next receive #659's
+correction through unchanged whole controls; #256 still holds original
+reference persistence. Common frame, saved-pose workflow and full E3 remain
+unaccepted. Earlier `2325038e8` receipts retain their exact source scope;
+no runtime/helper/data/pin change, install/build/search or remote CI occurs.
+
 [E3's explicit H-policy and paired source control](validation/e3_source_control_receiving_2026-11-08.md)
 now reach strict full39/prepared25 maps and exact current-control PDBQT equality
 on the editable cohort. Both whole normal selections remain FAIL: first the

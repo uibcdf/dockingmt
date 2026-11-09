@@ -8,11 +8,40 @@ verification: inspected
 area: [analysis, scientific-validation, provenance]
 guard:
 normative: devguide/MVP.md
-blocked_by: [uibcdf/molsysmt#604, uibcdf/molsysmt#256]
+blocked_by: [uibcdf/molsysmt#659, uibcdf/molsysmt#256]
 supersedes: []
 ---
 
 # Provider-backed pose comparison and clustering
+
+## Pairwise/clustering source delivered; independent unit defect — 2026-11-08
+
+[MolSysMT #604](https://github.com/uibcdf/molsysmt/issues/604) is resolved by
+`b649d10528b7214d95f752cdb43166d5cd27e579`, included in clean editable
+`8af8628e61ac28b519827802c39cf2e3eaa48b7e` after a 16-commit fast-forward.
+The unchanged Rust tree/native extension needs no rebuild. Public experimental
+pairwise RMSD and complete/single-linkage tools now exist; do not describe their
+source as missing or add a consumer fallback.
+
+The [independent analytic/adverse receiving](../validation/e3_geometry_provider_receiving_2026-11-08.md)
+passes the complete normal selection (18 pairwise/23 clustering calls and 22
+typed refusals), but pm/fs fails at the exact inclusive cutoff after nine
+pairwise/two cluster calls. [MolSysMT #659](https://github.com/uibcdf/molsysmt/issues/659)
+owns the demonstrated cutoff-only unit-roundtrip defect. A separate 12-call
+unit diagnosis and 136-member primary/nine-member reader records preserve all
+outcomes; the reader receives 84 physical fields without molecular replay.
+Final pm/fs live checks are unreached. #657's stale development version label
+is recorded separately from actual source/import/native identities.
+
+Receive #659's correction with unchanged complete normal/pm-fs controls. The
+original experimental-reference mechanics persistence hold remains #256, and
+all saved-population/state/common-frame criteria above remain required. This
+synthetic fixture never replaces that reference or admits full E3. Existing
+`2325038e8` workflow/source receipts retain their original producer scope.
+
+Earlier dated inspections and artifact-first next steps below are historical;
+the current editable route and source-delivered #604 replace that missing-API
+hold without waiving independent consumer/installed/public acceptance.
 
 ## Editable H-policy/reference receiving; persistence hold — 2026-11-08
 

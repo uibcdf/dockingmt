@@ -7,6 +7,14 @@ Classification: **static source and saved-record inspection; E3 is blocked on
 the supported provider composition, not accepted**. This is not a registration
 for molecular calculations or permission to change a provider pin.
 
+Current follow-up: [independent geometry receiving](e3_geometry_provider_receiving_2026-11-08.md)
+now receives #604's source-delivered public tools on the editable cohort. Normal
+controls pass; pm/fs fails an inclusive-cutoff defect reported as MolSysMT #659.
+#256 still holds the original reference's lossless native persistence. Full E3,
+saved-pose/reference/common-frame and public acceptance remain unproven. The
+following source inventory/zero-map findings retain their dated producers; they
+do not describe #604 as still source-missing today.
+
 Subsequent [experimental-reference receiving](e3_experimental_reference_2026-11-08.md)
 is separately registered and executed: full39 correspondence returns no map
 because the public producers retain different indexed-H implicit-permission

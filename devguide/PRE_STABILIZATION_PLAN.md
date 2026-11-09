@@ -5,6 +5,19 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[The delivered E3 geometry tools](validation/e3_geometry_provider_receiving_2026-11-08.md)
+are now independently exercised on clean editable MolSysMT `8af8628e6`, unchanged
+native/Rust bytes. Complete normal controls pass, including 22 typed refusals;
+pm/fs fails at inclusive clustering equality. Newly reported MolSysMT #659 owns
+the demonstrated cutoff-only unit roundtrip; #604 is source-resolved. The
+136-member primary/nine-member reader evidence receives 84 physical fields,
+preserving the failure and unreached pm/fs final checks. Next receive the
+provider fix with unchanged complete controls. #256 still owns original
+reference persistence; synthetic controls do not admit its reference, the saved
+population/common frame or full E3. Historical whole-cohort receipts remain
+scoped to their original source; no rebuild/package wait follows this pure
+Python source refresh.
+
 [E3's new editable receiving](validation/e3_source_control_receiving_2026-11-08.md)
 passes the explicit H-policy/strict full39 prefix and, after #88's registered
 same-producer control amendment, exact source/control bytes, strict prepared25,
@@ -185,8 +198,8 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | C6 visualization | Real addon controls, communication and canvas display correctly paired receptor/domain/poses/reference, with actual interaction evidence. | Python/DOM/export/private evidence exists; live acceptance is still unproven. Respect the maintainer's scheduling decision. |
 | E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ordered and audited reproducibly. | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07) for the full-source rigid prepared13 profile: both actual original poses complete public reconstruction/preparation/additive Vina/Vinardo 1.2.7 scoring and separate method-local interaction comparison. Eight old values/ranks/history survive with 32 new values; native receiving and independent persistence pass. The original generator qualification remains failed with unreached original live checks. Broader E1, total/reference comparisons, independent science and public delivery retain their owners. |
 | E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for the P59(R)/P69(S) rigid25 joint-domain profile. Source/preparation reproduction and exact PDBQT gates precede native success/refusal/success, 3+2 poses and two original-rank-1 representatives. Five native columns, own per-run references, original scores/histories, three public outcome reconstructions and fresh independent receiving pass. The receptor remains externally prepared/unassessed; other E2 profiles, screening effectiveness, #73 and public delivery remain unaccepted. |
-| E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md) retains MolSysMT #604's missing admitted N×N/clustering composition. [Reference receiving](validation/e3_experimental_reference_2026-11-08.md) reaches public SDF/H generation but fails at zero full39 maps, with different stored indexed-H implicit permission. #645 owns explicit normalization; receive it before a whole fresh reference selection. pm/fs, rigid25, persistence, common-frame and all original controls remain unreceived; no RMSD or E3 acceptance. |
-| E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | #80 retains the original `5952053` molecular receiving and its failures. [Same-carrier receiving](validation/e4_saved_carrier_receiving_2026-11-07.md) now passes normal/pm-fs Python Viewer load/filter/attachment/persistence, eleven refusals per profile and independent record reading. No new detection/preparation/native calculation. [The installed selected-pose binding](validation/e4_pose_binding_installed_2026-11-07.md) now passes normal/pm-fs actual candidate receiving, fourteen refusals/profile, full-carrier persistence and independent record reading, separately from 190 source cases. [Focused native unevaluated-family receiving](validation/e4_native_unevaluated_2026-11-07.md) passes for empty-source invalidation; [The published #642 fix](validation/e4_evidence_catalog_fix_2026-11-07.md) remains client-unreceived after exact native construction hits the owned-memory limit; historical old-provider persistence failures remain failed. [The single-frame view route](validation/pose_interaction_view.md) has 186 passing source cases and 23 exact-ESM DOM cases, plus [eight real-provider exact-candidate cells](validation/e4_pose_interaction_view_installed_2026-11-07.md) normal/pm-fs and independent record reading. Next audit the remaining one-carrier workflow criteria; actual canvas stays held. Four other original poses stay unevaluated. Other-carrier correspondence, usable addon/canvas, whole E4 and public delivery remain open. |
+| E3 comparison/clustering | Supported pose/reference and pose/pose measurements and useful clustering with explicit populations, correspondence, units, method/thresholds and degeneracies. | [#79](pending_proposals/qualify_pose_comparison_and_clustering.md): #604 tools are source-delivered. [Independent geometry receiving](validation/e3_geometry_provider_receiving_2026-11-08.md) passes normal but fails pm/fs inclusive cutoff under MolSysMT #659. #256 still holds original reference persistence. Saved-population/common-frame admission, full controls, workflow and installed/public receiving remain required; no synthetic reference substitution. |
+| E4 interaction analysis | A minimal structured interaction record supports interpretation/filtering/visualization with named molecular definitions, selections, units, identities and unsupported cases. | [#80](pending_proposals/receive_docking_interaction_analysis.md) retains its original molecular population. [Complete catalog receiving](validation/e4_evidence_catalog_editable_2026-11-08.md) passes normal/pm-fs on editable `2325038e8`, clearing the historical #642 one-carrier persistence hold. Same-carrier, installed binding and interaction-view/DOM profiles retain their exact producers; actual browser/comm/canvas and remaining one-carrier/full E4 criteria stay unaccepted. Four original poses remain unevaluated; no detector/search repeats. |
 | E5 independent reproduction | A separate receiving installation reconstructs a representative stored workflow from documented inputs, with observed agreement/tolerances, failures and missing information. | [#83 resolved](archive/qualify_independent_installed_reproduction.md#bounded-acceptance-and-resolution--2026-11-07): complete stored 1IEP pair receives fresh normal/pm-fs installations, zero observed drift, twelve pre-native refusals, twelve version refusals, independent reader and all six original criteria. [Exact receiving](validation/e5_timed_replay_2026-11-07.md) keeps external chemistry, historical failures, public/platform and independent molecular accuracy separate. |
 | Bounded scientific qualification | An admitted transparent independent panel and informative positive/adverse controls, explicit preparation/search/ranking hypotheses, denominators, budgets and all outcomes. | Audit Q2–Q4 and #33/#49 own admission. Existing within-case repetitions do not become independent complexes. |
 | Public delivery and support | Actual compatible public dependencies, exact staged Conda artifact, required source/native gates and eight Linux/macOS arm64 × Python 3.11–3.14 installed cells, same-byte promotion and public receiving. | #30/#47 remain partial. Refresh artifact availability before acquiring/receiving; old private receipts do not certify a new public file. Distribution is Conda `uibcdf`. |
@@ -195,77 +208,51 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 
 ## Immediate sequence
 
-1. Keep exact-source hosted evidence missing under #28 while the incremental
-   `[skip ci]` route applies; run applicable local checks without manual CI
-   dispatch. The [machine handoff](MACHINE_HANDOFF.md) identifies the passing
-   pre-handoff head; a later head needs its own applicable evidence.
-2. Preserve the [bounded resolved E1 profile](archive/qualify_same_state_rescoring.md)
-   and its original reference/provider/native/persistence records. No repeat
-   search or relaxed ranking is needed for its acceptance. The old generator
-   remains failed; the complete fresh receiving passes its own controls.
-3. Preserve the [bounded resolved E2 workflow](archive/qualify_small_ligand_collection.md)
-   and its [native/persistence evidence](validation/e2_native_collection_2026-11-07.md).
-   Two source/named-preparation reproductions match the admitted exact bytes;
-   the three-item public serial selection receives two searches, the intervening
-   DMT-E003 refusal, five original poses and two representatives under the frozen
-   caller-owned policy. Native totals -11.462/-10.787 kcal/mol retain five columns
-   and separate per-run references; no common unbound reference or affinity is
-   inferred. All three public outcome roundtrips and the fresh saved reader pass.
-   No repeat search, runtime expansion or relaxed same-state ranking is needed.
-   E3 is now provider-blocked under #79/MolSysMT #604. Preserve its full
-   [contract and static inventory](validation/e3_provider_admission_2026-11-07.md)
-   until the provider admits a supported composition or tools. A smaller RMSD-only
-   exercise does not discharge clustering, reference or adverse-case requirements.
-   Its independent reference prerequisite now also needs #645's explicit stored-H
-   policy composition after the failed whole normal selection. Do not erase that
-   failure, assume source order or normalize inside the matcher.
-4. Keep complete-source public MolSysMT compositions as the received route.
-   [MolSysMT #599](https://github.com/uibcdf/molsysmt/issues/599),
-   [#447](https://github.com/uibcdf/molsysmt/issues/447) and #521 retain broader
-   provider/partial-input scope. Request demonstrated gaps there; no local
-   molecular fallback or guessed historical chemistry follows.
-5. Scope and qualify the remaining E3–E5 workflows with their owners and receive
-   outstanding Core, broader E1/E2, scientific, visual and public-delivery evidence.
-   Independent requirements may progress while a provider or hosted run is pending.
-   E3's [provider-backed contract](pending_proposals/qualify_pose_comparison_and_clustering.md)
-   is #79/MolSysMT #604; E4's
-   [existing-tool receiving](pending_proposals/receive_docking_interaction_analysis.md)
-   is #80. Use E4's now [received same-carrier route](validation/e4_saved_carrier_receiving_2026-11-07.md)
-   with the [installed binding receiving](validation/e4_pose_binding_installed_2026-11-07.md)
-   and [focused native coverage receiving](validation/e4_native_unevaluated_2026-11-07.md)
-   and [eight-cell installed interaction-view receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md)
-   to audit the remaining #80/#60 criteria against the one-carrier route. Real
-   visuals/metadata/widgets and the native regression pass normal/pm-fs on
-   source `2ef82d2`; actual browser/comm/canvas retains its scheduling hold.
-   Positive-source
-   invalidation persistence still needs receiving of published MolSysMT #642
-   correction 4d8af6c; exact native construction is held after its memory stop.
-   Request an owner-built artifact; do not restart automatically. The complete
-   original result and unmeasured poses remain intact; source tests, actual private receiving and public/canvas
-   acceptance keep separate scopes.
-   That recipe and the
-   [earlier inspection](validation/extended_provider_scope_2026-11-06.md) are not
-   runtime/scientific acceptance or permission to resume held calculations. E2's
-   [bounded resolution](archive/qualify_small_ligand_collection.md)
-   preserves strict pose ranking and molecular ownership; it does not accept all
-   E2 profiles or the complete #73 objective. Keep E4/live-visual holds unchanged.
-6. Preserve completed [E5 #83](archive/qualify_independent_installed_reproduction.md)
-   and advance #33's scientific-panel admission. Preserve the completed bounded
-   [#556/#557 receiving](validation/scientific_panel_provider_receiving_2026-11-07.md);
-   retain the [protein states and failed reference receiving](validation/scientific_panel_receptor_models_2026-11-08.md),
-   receive #646's public comparison correction before a new full six-chain/two-policy
-   selection, and preserve the documented canonical-storage contract and all old
-   failures. A complete coordinate-free reference still does not admit a receptor.
-   retain the new [ligand models and failed reference receiving](validation/scientific_panel_ligand_models_2026-11-07.md).
-   Receive MolSysMT #644's exact source/artifact and complete a fresh reference
-   selection with the unchanged negative controls; record remaining receptor/
-   environment/terminus decisions and receive #558 before application/preparation/search. Keep all
-   Core/E3/E4/scientific/public/visual requirements; no fallback, repeated E5
-   campaign or automatic #642 construction follows from E5 resolution.
-
-7. Select/qualify the actual functional release candidate only when every row's
-   evidence supports the complete declared scope; perform the version-specific
-   release/package/notice route. Enter stabilization afterwards.
+1. Keep exact-head hosted evidence missing under #28 during the authorized
+   incremental `[skip ci]` route. Run applicable local checks and final shared
+   resource validation, including on a fresh committed export. Do not dispatch
+   manual CI automatically. Source/installed/release evidence remains separate.
+2. Preserve the bounded resolved [E1](archive/qualify_same_state_rescoring.md),
+   [E2](archive/qualify_small_ligand_collection.md) and
+   [E5](archive/qualify_independent_installed_reproduction.md) profiles, their
+   original data, producers, failures and exact receiving scope. No repeated
+   search or relaxed ranking is needed. Receptor chemistry remains externally
+   prepared/unassessed where declared; those cases are not independent samples.
+3. Receive MolSysMT #659's inclusive-cutoff correction with the unchanged whole
+   [analytic/adverse normal/pm-fs selection](validation/e3_geometry_provider_receiving_2026-11-08.md).
+   #604's public pairwise/clustering APIs now exist; retain experimental scope
+   and provider ownership. In parallel resolve the supported lossless native
+   storage question under #256 before a fresh original experimental-reference
+   selection. Keep #88 partial, all earlier failures, saved-pose state/maps,
+   common receptor frame and every full #79 criterion. A synthetic or self
+   reference does not replace the original reference; no local algorithm/codec.
+4. Audit remaining [E4/#80](pending_proposals/receive_docking_interaction_analysis.md)
+   one-carrier criteria against its completed catalog/native/history/persistence,
+   saved binding and interaction-view/DOM receiving. #642's earlier native-build
+   memory interruption and artifact-first hold are historical; complete editable
+   `2325038e8` receiving supersedes that one-carrier hold. Actual browser/comm/
+   canvas stays under the maintainer's #52/#60 scheduling decision. Do not start
+   a server/kernel/browser or re-evaluate the four unmeasured poses implicitly.
+5. Advance #33/#49's original scientific-panel admission. Preserve the received
+   #556/#557 inspection and complete six-chain/ligand reference profiles; those
+   coordinate-free models do not admit prepared receptors or independent docking
+   cases. Freeze state, source, environment/occupant and terminal decisions and
+   receive MolSysMT #558 atom maps/history before source application/preparation.
+   Keep the original full panel and all its positive/adverse controls. General
+   restoration/partial-input limits under #599/#447/#521 retain provider owners.
+6. Keep routine work on participating editable source checkouts and verify
+   changed boundaries with exact source/native identities. The newer `8af8628e6`
+   Python cohort has the partial geometry receiving above, not a re-execution of
+   older `2325038e8` whole-workflow/115-provider/383-consumer guards. Record #657's
+   observed stale metadata separately from actual source; no package wait or
+   native rebuild is inferred. Separately complete #30/#47 exact Conda artifact,
+   public dependency closure and eight Linux/macOS arm64 × Python 3.11–3.14
+   installed lanes, resource/launcher, scientific and same-byte delivery gates.
+7. Select the actual functional release candidate only when every requirement
+   row supports its complete scope. Follow version-specific release/package/
+   notice gates, then stabilize the accepted surface through as many 0.x releases
+   as needed before the 1.0 decision. No fixed 0.9 endpoint or completed full
+   objective is implied by provider-source or bounded-profile acceptance.
 
 ## Ownership and completion discipline
 

@@ -6,6 +6,14 @@ Owners: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md
 Starting source: `acce58e3dc0ff17673f091b42765fb65257b8977`.
 Status: **editable composition and original catalog/protein/ligand receiving pass within their declared profiles; E3 and installed/public qualification remain separate**.
 
+Later pure-Python refresh: the clean provider checkout advances 16 commits to
+`8af8628e61ac28b519827802c39cf2e3eaa48b7e`, with unchanged Rust/native bytes and
+no rebuild/reinstall. [Independent new geometry controls](e3_geometry_provider_receiving_2026-11-08.md)
+pass normal, fail pm/fs inclusive cutoff under MolSysMT #659. Source-delivered
+#604 is no longer a missing capability. #657's stale metadata is recorded
+separately from source/import identities. The complete prior cases below retain
+their `2325038e8` scope; they were not all rerun on this newer Python cohort.
+
 The subsequent [E3 H-policy/current-control selection](e3_source_control_receiving_2026-11-08.md)
 reaches strict full39/prepared25 maps and exact current source/control bytes on
 this editable cohort. Whole normal receiving remains FAIL at the documented

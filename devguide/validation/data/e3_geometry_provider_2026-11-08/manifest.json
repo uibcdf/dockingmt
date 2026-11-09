@@ -1,0 +1,1096 @@
+{
+  "schema": "dockingmt.e3_geometry_provider_receiving@1",
+  "source_commit": "3c5145c69367d15148ecb113501ed87dd6106ce1",
+  "provider_commit": "8af8628e61ac28b519827802c39cf2e3eaa48b7e",
+  "owner": "uibcdf/dockingmt#79",
+  "files": [
+    {
+      "path": "producer/worker.py.txt.gz",
+      "original_path": "producer/worker.py.txt",
+      "bytes": 6336,
+      "sha256": "27936ff1bec1f28b797d14d21a0cc29f241c3991b0d9a5feed243c42e50015ea",
+      "decoded_bytes": 21706,
+      "decoded_sha256": "65627af215163a9c012da536f4450df2892f04db2816d8c8fea6791fc2c49c5c"
+    },
+    {
+      "path": "producer/body.py.txt.gz",
+      "original_path": "producer/body.py.txt",
+      "bytes": 4224,
+      "sha256": "47bff52c8321db96d7a02f82e9b456f2b318b2db700639f7a4fc11badd91295d",
+      "decoded_bytes": 15752,
+      "decoded_sha256": "506d6308b61e54d4cfd240fc9ff4c8afeb9bde70a059b97a6ead9c5730a494bc"
+    },
+    {
+      "path": "producer/run.py.txt.gz",
+      "original_path": "producer/run.py.txt",
+      "bytes": 2968,
+      "sha256": "d8b184fb9b7065762b05ecc08c71e29c045f8fae6fb67a3a254f663bac4b684a",
+      "decoded_bytes": 7067,
+      "decoded_sha256": "57acc78d41aefaac1b0e795328b9e59902bcbb7e55e9474750af618017223f85"
+    },
+    {
+      "path": "producer/diagnose.py.txt.gz",
+      "original_path": "producer/diagnose.py.txt",
+      "bytes": 2786,
+      "sha256": "41a3afa62f5dbbf755f7b7151656dc66e6fc883800bbcb8f6e4c72e62936eb71",
+      "decoded_bytes": 6651,
+      "decoded_sha256": "9bfcd9cca8b1bac7c7cc50a56b194126dfa6130bc80fcf559b2018e0a066e322"
+    },
+    {
+      "path": "producer/provider-identities.json.gz",
+      "original_path": "producer/provider-identities.json",
+      "bytes": 608,
+      "sha256": "01c8de29a711e73a3b500186f38c9acffe83721d19cb4c60f125cfcfc152f8c1",
+      "decoded_bytes": 1364,
+      "decoded_sha256": "1a43ef933236c6482b43e3e7ab99a7172a9c70220a05ff3cb010cbc0874ba56a"
+    },
+    {
+      "path": "producer/scheduler.json.gz",
+      "original_path": "producer/scheduler.json",
+      "bytes": 264,
+      "sha256": "6774baf4ef52df3b429408dd9fa2b9146105157ddc801b6db860533fd875b6db",
+      "decoded_bytes": 634,
+      "decoded_sha256": "92a6b25bf508ea18e26f5b06f8938a79defd45b8167658b951c711d6304650be"
+    },
+    {
+      "path": "producer/campaign-terminal.json.gz",
+      "original_path": "producer/campaign-terminal.json",
+      "bytes": 124,
+      "sha256": "cbd4c925bba9c6785ffd51762e71844af87e35211f21499913d0673668e6d345",
+      "decoded_bytes": 128,
+      "decoded_sha256": "1c697ee6af0b4bbde7934acc9bdd703e9351ab6224502f63943e9c23ae8a5ccd"
+    },
+    {
+      "path": "producer/provider-00.txt.gz",
+      "original_path": "producer/provider-00.txt",
+      "bytes": 4718,
+      "sha256": "19b3fb171be99777359107bb60c1d6f6f696f1c5e39c7d9d1a3ebba28a585770",
+      "decoded_bytes": 15244,
+      "decoded_sha256": "5e61a1683bd7e1a8fa451de5c3ed11f49338791e1044ead8fc575c81e962fbc8"
+    },
+    {
+      "path": "producer/provider-01.txt.gz",
+      "original_path": "producer/provider-01.txt",
+      "bytes": 3369,
+      "sha256": "88c1448f1bf834acee027b0bd7d7fe792acc8d1b124a4ad81d566235b275d853",
+      "decoded_bytes": 9036,
+      "decoded_sha256": "92623b83a6cc5491db4a0a5019abf0a85359b51709464283421a05b5315702a4"
+    },
+    {
+      "path": "producer/provider-02.txt.gz",
+      "original_path": "producer/provider-02.txt",
+      "bytes": 1365,
+      "sha256": "857a3411c68f1cf13adb2cf71b5959d423893dba639f9d5cf50d3c53799c4afb",
+      "decoded_bytes": 3821,
+      "decoded_sha256": "2e067d2e67815c2b2688563130ce60c9462a28709356f4a1d6433631eb0ffd0a"
+    },
+    {
+      "path": "producer/provider-03.txt.gz",
+      "original_path": "producer/provider-03.txt",
+      "bytes": 4956,
+      "sha256": "70728228697c0c72e8a72ba5c8f00a26faf3d86cca142a105dccefc065dcca0f",
+      "decoded_bytes": 10812,
+      "decoded_sha256": "f341889ca5839422c05b6a5327344db0e9adc2f1ac7c1f913be8680be1f9aa6a"
+    },
+    {
+      "path": "producer/provider-04.txt.gz",
+      "original_path": "producer/provider-04.txt",
+      "bytes": 1400,
+      "sha256": "a40fa5314fca8767043b3ab881c84e6ad585b4a9ef5270386149e0035721d680",
+      "decoded_bytes": 2851,
+      "decoded_sha256": "96d97678f850d6d37cf774c9b3fe28fed452348fb21219201e4add0d79c138ac"
+    },
+    {
+      "path": "producer/provider-05.txt.gz",
+      "original_path": "producer/provider-05.txt",
+      "bytes": 4724,
+      "sha256": "78b86954389626a16993ec5689bfce4572578bdf43d02db97c18f773af0c17dc",
+      "decoded_bytes": 17804,
+      "decoded_sha256": "dd4425f1f00603ca37257df1fa19dc69108ff23db4bd41727495362ef8b2ccd6"
+    },
+    {
+      "path": "producer/provider-06.txt.gz",
+      "original_path": "producer/provider-06.txt",
+      "bytes": 10991,
+      "sha256": "c4c1a73ba58a0253810123d44a2ffc5bac2baa5740ee46346a29ee5ae6e4e76e",
+      "decoded_bytes": 29524,
+      "decoded_sha256": "0798225a49439dbd1025da10c89901b784eae2b21454fd6929d5e14e95925978"
+    },
+    {
+      "path": "attempts/geometry-normal/asymmetric-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/asymmetric-refusal.json",
+      "bytes": 311,
+      "sha256": "add8d3acf208bd4ef572da07437e2a7d578ffec46b0661fdc9c5c008e42438c3",
+      "decoded_bytes": 470,
+      "decoded_sha256": "88b1d53fa0713553f56fb8cc056072f24dbce4ee4107e883406cccf9625c5a10"
+    },
+    {
+      "path": "attempts/geometry-normal/below-cutoff.json.gz",
+      "original_path": "attempts/geometry-normal/below-cutoff.json",
+      "bytes": 1159,
+      "sha256": "f1125f5dffafa8f4018a85872248d0ddb3ee844810300f9205a7003b8710a63a",
+      "decoded_bytes": 4139,
+      "decoded_sha256": "2fda64e6644fe95029ab807b45271d30bb7f049f30b7d8a39633b004c8f4a664"
+    },
+    {
+      "path": "attempts/geometry-normal/cached-maps.json.gz",
+      "original_path": "attempts/geometry-normal/cached-maps.json",
+      "bytes": 1485,
+      "sha256": "01b5fc0b35a7e5074a1d9b1d56a1c623319e10a5168f827726d637e7d3d969eb",
+      "decoded_bytes": 10280,
+      "decoded_sha256": "2e02bfd74ae75ca3b313c5a1d0c824b081ab70f7b25d0890da7bc063620133a9"
+    },
+    {
+      "path": "attempts/geometry-normal/chain-complete.json.gz",
+      "original_path": "attempts/geometry-normal/chain-complete.json",
+      "bytes": 1158,
+      "sha256": "9a7bbdf957cce519b824c449e17a3fd7b59c29dececa8fbf146069d0367e0c43",
+      "decoded_bytes": 4119,
+      "decoded_sha256": "d0f4574179ddb8efd6a4584db8794940de0e2592fd195274aabc6820b6a441d6"
+    },
+    {
+      "path": "attempts/geometry-normal/chain-single.json.gz",
+      "original_path": "attempts/geometry-normal/chain-single.json",
+      "bytes": 1154,
+      "sha256": "0a2c4cd5f0e9401b365b0f2f93b72699573f2252884d7796a19e1b913151f187",
+      "decoded_bytes": 4086,
+      "decoded_sha256": "2509cf3400b4e6efa32c67f36e90a78a34226737935c7516b96bd5785b7d5076"
+    },
+    {
+      "path": "attempts/geometry-normal/cluster-duplicate-keys-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/cluster-duplicate-keys-refusal.json",
+      "bytes": 238,
+      "sha256": "e8569603e1a7b38cdafecb26f21a37e520f115208e4f7d3627676e8ac646080a",
+      "decoded_bytes": 324,
+      "decoded_sha256": "77f514b6d0afa87040a01fe4b2bd7dd6c1697e01444ca2e58c46e9da13696226"
+    },
+    {
+      "path": "attempts/geometry-normal/cluster-ram-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/cluster-ram-refusal.json",
+      "bytes": 227,
+      "sha256": "7700b75b12fa37d6259da252ae26827bc65d2f8332cf20303c6d0051ded32f84",
+      "decoded_bytes": 325,
+      "decoded_sha256": "e8215e7c428fc89fcfad41272f6cfe22e7d36feadb399a6152a04015a04c8b05"
+    },
+    {
+      "path": "attempts/geometry-normal/cluster-work-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/cluster-work-refusal.json",
+      "bytes": 293,
+      "sha256": "af70b7f222a3bbbdc2f3e5bc67a9be9b87cb18c35d933ade911341b2628eea40",
+      "decoded_bytes": 414,
+      "decoded_sha256": "a1183147151672c11de13f64f22ff5cfddf8297e7e01961ad4a47b1bea46535e"
+    },
+    {
+      "path": "attempts/geometry-normal/corrupt-map-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/corrupt-map-refusal.json",
+      "bytes": 232,
+      "sha256": "40e57972cf38c97da5626c2ff4aa970005a1cb08f0d57a9665f712ddae416f5b",
+      "decoded_bytes": 317,
+      "decoded_sha256": "d00cf5e6ebdbfa4f702964f75888aa4a54b7b68b8564c26ba17ead1b07f989d9"
+    },
+    {
+      "path": "attempts/geometry-normal/directional-maps-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/directional-maps-refusal.json",
+      "bytes": 239,
+      "sha256": "94afbd913d4dd4bb94f71e7bf033b2a7aa2814c05946ad7506d222fe9d26a6e8",
+      "decoded_bytes": 333,
+      "decoded_sha256": "4f79d44caedf6cb9d5f9aa03908a453d2ff5316a7ac077357bce2b199be84031"
+    },
+    {
+      "path": "attempts/geometry-normal/duplicate-atoms-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/duplicate-atoms-refusal.json",
+      "bytes": 230,
+      "sha256": "f14dd67098557c865a791732fee50f70e11702d612edeafabd298245ecc365a9",
+      "decoded_bytes": 315,
+      "decoded_sha256": "2276cc676e5a5c91d5011f5a5f433e9922d9999595134c968332d46b1149842b"
+    },
+    {
+      "path": "attempts/geometry-normal/duplicate-member-keys-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/duplicate-member-keys-refusal.json",
+      "bytes": 236,
+      "sha256": "e3df30689d239d90a0265bc0c0cf76f321cdd5ff8c13ec669d069c6170a7e8e6",
+      "decoded_bytes": 323,
+      "decoded_sha256": "f9cc31ea9a4e5b9442a7268e59a7310b42b49f7e12c1c5cd043b8af935f3fe54"
+    },
+    {
+      "path": "attempts/geometry-normal/duplicate.json.gz",
+      "original_path": "attempts/geometry-normal/duplicate.json",
+      "bytes": 1130,
+      "sha256": "ade6d5a8cdd3ecdc7f68620eb32571ef7437c279bd664c663827d6802826688a",
+      "decoded_bytes": 4088,
+      "decoded_sha256": "a89745c4d32eaa4c8f5b76458faadadcbd68d0d03885fb221fb835c4cb84f4dd"
+    },
+    {
+      "path": "attempts/geometry-normal/empty-cluster.json.gz",
+      "original_path": "attempts/geometry-normal/empty-cluster.json",
+      "bytes": 1130,
+      "sha256": "94ace484e108b3cec9afa53021c27689ad2f1cee764c6898c0d3dd5806489cdc",
+      "decoded_bytes": 3933,
+      "decoded_sha256": "91cbe7de3f8839c1cfc5657adf6944aa70f5fb734e710e0caefdd3f7e5bf0f41"
+    },
+    {
+      "path": "attempts/geometry-normal/empty.json.gz",
+      "original_path": "attempts/geometry-normal/empty.json",
+      "bytes": 1020,
+      "sha256": "9dce52ac2fd1ad03b2677d57148b4da7b44911b489c9c16cc7e34ed8ff26eb47",
+      "decoded_bytes": 3361,
+      "decoded_sha256": "33ed8562a016bb2ce85961ac3cb4fd2569097e453ce75982f421a3d94e0b1030"
+    },
+    {
+      "path": "attempts/geometry-normal/exact-cutoff.json.gz",
+      "original_path": "attempts/geometry-normal/exact-cutoff.json",
+      "bytes": 1121,
+      "sha256": "3bb5c1aadd2b3ac0f9994105d02c8357e36f2baea74b86e0d74905bf247eeb9f",
+      "decoded_bytes": 4046,
+      "decoded_sha256": "6a3f126730256bc38c04449bd771474f59bdaed40c7b807981d71de42f80e047"
+    },
+    {
+      "path": "attempts/geometry-normal/first.json.gz",
+      "original_path": "attempts/geometry-normal/first.json",
+      "bytes": 1129,
+      "sha256": "ea9cfa45571acb5bcd31abc147dad2e2fd6cf0c6aa9bf96ce7f6a96b2fde69dd",
+      "decoded_bytes": 4075,
+      "decoded_sha256": "442f7e3906b329a706324368b49d30addddeec0a710aff5a3ea7a6dfb18117ef"
+    },
+    {
+      "path": "attempts/geometry-normal/fitted-method-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/fitted-method-refusal.json",
+      "bytes": 228,
+      "sha256": "fd60c8cb0f2a4fec0f352ca641d84865e8ee44803f7f7c0dda9f4f7f7df88013",
+      "decoded_bytes": 310,
+      "decoded_sha256": "a9223861f1f6d7ce68023f90a0b9da29c850516135a0e8965699d40edfe4bfe0"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-body.py.txt.gz",
+      "original_path": "attempts/geometry-normal/frozen-body.py.txt",
+      "bytes": 4224,
+      "sha256": "47bff52c8321db96d7a02f82e9b456f2b318b2db700639f7a4fc11badd91295d",
+      "decoded_bytes": 15752,
+      "decoded_sha256": "506d6308b61e54d4cfd240fc9ff4c8afeb9bde70a059b97a6ead9c5730a494bc"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-composition-producer.py.gz",
+      "original_path": "attempts/geometry-normal/frozen-composition-producer.py",
+      "bytes": 3425,
+      "sha256": "a47eb2c0ab9aca584b4fa5a0ff4fe5c8862b9f7422b0f66560820a2264ee91df",
+      "decoded_bytes": 8505,
+      "decoded_sha256": "19f759fc4ad87753596f9c18150959e11d74ec4a2a9609fb7d1d1550bf81c40b"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-composition.json.gz",
+      "original_path": "attempts/geometry-normal/frozen-composition.json",
+      "bytes": 194632,
+      "sha256": "2a3c6c1cc0d73096cca4f55ac46a4c5fbc5a566209526a054e78a873ef1dde81",
+      "decoded_bytes": 700473,
+      "decoded_sha256": "7536f86e161ea897da56a588e7e60f4c98a2c66075d418e2d3707a8cd44bb0ca"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-controller.py.gz",
+      "original_path": "attempts/geometry-normal/frozen-controller.py",
+      "bytes": 2968,
+      "sha256": "d8b184fb9b7065762b05ecc08c71e29c045f8fae6fb67a3a254f663bac4b684a",
+      "decoded_bytes": 7067,
+      "decoded_sha256": "57acc78d41aefaac1b0e795328b9e59902bcbb7e55e9474750af618017223f85"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-guard.py.gz",
+      "original_path": "attempts/geometry-normal/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-plan.json.gz",
+      "original_path": "attempts/geometry-normal/frozen-plan.json",
+      "bytes": 634,
+      "sha256": "e09f50b2b68307701c34706c890f1b28ec35860f979a04983f55b7c71c96a94c",
+      "decoded_bytes": 1291,
+      "decoded_sha256": "2c21bfa135829e1cb1744f4c5cdf0db6a5b74e47193c1f4bf86d33b55cdde9cf"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-prescription.md.gz",
+      "original_path": "attempts/geometry-normal/frozen-prescription.md",
+      "bytes": 2744,
+      "sha256": "cfda2f34c63b12aac89360b482456c1f9dcfbab89b5cfa5be2386a9c2abf9324",
+      "decoded_bytes": 5222,
+      "decoded_sha256": "dc4ee6e51bfd79b866f7be09421aaba2294a3bbc5a1d0a1f480c226cfcf7f8a9"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-provider-00.txt.gz",
+      "original_path": "attempts/geometry-normal/frozen-provider-00.txt",
+      "bytes": 4718,
+      "sha256": "19b3fb171be99777359107bb60c1d6f6f696f1c5e39c7d9d1a3ebba28a585770",
+      "decoded_bytes": 15244,
+      "decoded_sha256": "5e61a1683bd7e1a8fa451de5c3ed11f49338791e1044ead8fc575c81e962fbc8"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-provider-01.txt.gz",
+      "original_path": "attempts/geometry-normal/frozen-provider-01.txt",
+      "bytes": 3369,
+      "sha256": "88c1448f1bf834acee027b0bd7d7fe792acc8d1b124a4ad81d566235b275d853",
+      "decoded_bytes": 9036,
+      "decoded_sha256": "92623b83a6cc5491db4a0a5019abf0a85359b51709464283421a05b5315702a4"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-provider-02.txt.gz",
+      "original_path": "attempts/geometry-normal/frozen-provider-02.txt",
+      "bytes": 1365,
+      "sha256": "857a3411c68f1cf13adb2cf71b5959d423893dba639f9d5cf50d3c53799c4afb",
+      "decoded_bytes": 3821,
+      "decoded_sha256": "2e067d2e67815c2b2688563130ce60c9462a28709356f4a1d6433631eb0ffd0a"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-provider-03.txt.gz",
+      "original_path": "attempts/geometry-normal/frozen-provider-03.txt",
+      "bytes": 4956,
+      "sha256": "70728228697c0c72e8a72ba5c8f00a26faf3d86cca142a105dccefc065dcca0f",
+      "decoded_bytes": 10812,
+      "decoded_sha256": "f341889ca5839422c05b6a5327344db0e9adc2f1ac7c1f913be8680be1f9aa6a"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-provider-04.txt.gz",
+      "original_path": "attempts/geometry-normal/frozen-provider-04.txt",
+      "bytes": 1400,
+      "sha256": "a40fa5314fca8767043b3ab881c84e6ad585b4a9ef5270386149e0035721d680",
+      "decoded_bytes": 2851,
+      "decoded_sha256": "96d97678f850d6d37cf774c9b3fe28fed452348fb21219201e4add0d79c138ac"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-provider-05.txt.gz",
+      "original_path": "attempts/geometry-normal/frozen-provider-05.txt",
+      "bytes": 4724,
+      "sha256": "78b86954389626a16993ec5689bfce4572578bdf43d02db97c18f773af0c17dc",
+      "decoded_bytes": 17804,
+      "decoded_sha256": "dd4425f1f00603ca37257df1fa19dc69108ff23db4bd41727495362ef8b2ccd6"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-provider-06.txt.gz",
+      "original_path": "attempts/geometry-normal/frozen-provider-06.txt",
+      "bytes": 10991,
+      "sha256": "c4c1a73ba58a0253810123d44a2ffc5bac2baa5740ee46346a29ee5ae6e4e76e",
+      "decoded_bytes": 29524,
+      "decoded_sha256": "0798225a49439dbd1025da10c89901b784eae2b21454fd6929d5e14e95925978"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-provider-identities.json.gz",
+      "original_path": "attempts/geometry-normal/frozen-provider-identities.json",
+      "bytes": 608,
+      "sha256": "01c8de29a711e73a3b500186f38c9acffe83721d19cb4c60f125cfcfc152f8c1",
+      "decoded_bytes": 1364,
+      "decoded_sha256": "1a43ef933236c6482b43e3e7ab99a7172a9c70220a05ff3cb010cbc0874ba56a"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-resources.toml.gz",
+      "original_path": "attempts/geometry-normal/frozen-resources.toml",
+      "bytes": 34420,
+      "sha256": "f3d620ebb99508595d666b4a4ba38f0738ec03e7be56168ff6da5549c731a148",
+      "decoded_bytes": 164479,
+      "decoded_sha256": "db4b8fff8eb775a2ba21d77af8095c00adb249ba498102d31977bf2543f7df31"
+    },
+    {
+      "path": "attempts/geometry-normal/frozen-worker.py.gz",
+      "original_path": "attempts/geometry-normal/frozen-worker.py",
+      "bytes": 6336,
+      "sha256": "27936ff1bec1f28b797d14d21a0cc29f241c3991b0d9a5feed243c42e50015ea",
+      "decoded_bytes": 21706,
+      "decoded_sha256": "65627af215163a9c012da536f4450df2892f04db2816d8c8fea6791fc2c49c5c"
+    },
+    {
+      "path": "attempts/geometry-normal/infinite-distance-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/infinite-distance-refusal.json",
+      "bytes": 317,
+      "sha256": "4ce8685b55251ebeed65503081142b55e0f4c8d6c041562ee2529b10cf72dfb7",
+      "decoded_bytes": 477,
+      "decoded_sha256": "7abb76935f23769f6b3beb941da5dbdf680bdf56c889d349c7277adfbec7160d"
+    },
+    {
+      "path": "attempts/geometry-normal/medoid.json.gz",
+      "original_path": "attempts/geometry-normal/medoid.json",
+      "bytes": 1129,
+      "sha256": "5c4dc07c6108160babd23eb5e8c25ef9e884e2117f7edd72e75767feb03b5c64",
+      "decoded_bytes": 4076,
+      "decoded_sha256": "0380cc4961c407555b8ff3cddf7cc940688527aca1a55bdbbda28295478ebc8b"
+    },
+    {
+      "path": "attempts/geometry-normal/mixed-units.json.gz",
+      "original_path": "attempts/geometry-normal/mixed-units.json",
+      "bytes": 1166,
+      "sha256": "c22f2b9e67ea1d93f035054ee8fa87e38c93c7d5026a2f58327edf440ad99c9e",
+      "decoded_bytes": 4137,
+      "decoded_sha256": "b8a696e0f9883e9f7601c04abb012ca6a7811e87d660c41efadcd7411a415dcf"
+    },
+    {
+      "path": "attempts/geometry-normal/nan-distance-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/nan-distance-refusal.json",
+      "bytes": 315,
+      "sha256": "ce314d7f80a9a85d23326baa0a8d71749dfc6903868775d307346c460b4bc373",
+      "decoded_bytes": 472,
+      "decoded_sha256": "4453f1356476b1153b2116a4e72b7eadb839ec203addd136da451bbeaa995d24"
+    },
+    {
+      "path": "attempts/geometry-normal/negative-cutoff-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/negative-cutoff-refusal.json",
+      "bytes": 235,
+      "sha256": "141361f38272b0757de832f5b98eeace5884dc9710f782ba6d8b9738159ffbef",
+      "decoded_bytes": 321,
+      "decoded_sha256": "16b5f1750e6435330575648f9674dd57aca7e469cbe34d90a97996381f06437e"
+    },
+    {
+      "path": "attempts/geometry-normal/negative-distance-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/negative-distance-refusal.json",
+      "bytes": 317,
+      "sha256": "ea88fa7467c5af81db6a2fe3f83fabde41d92f8aaa2627424f125744c81f902e",
+      "decoded_bytes": 477,
+      "decoded_sha256": "ffa03310952426efb26f8b3bd228135d557821c7e9773cfb1bac54cca8be7408"
+    },
+    {
+      "path": "attempts/geometry-normal/nonfinite-singleton-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/nonfinite-singleton-refusal.json",
+      "bytes": 314,
+      "sha256": "e9b741630aa9ab87207ddd0d0dc816b6a8b25c62b4819a8bb66322843c4f3ef2",
+      "decoded_bytes": 469,
+      "decoded_sha256": "297ce82ed4a9a64db64ab861a20d6f47349953ca1c865ee9b0ebd294f40fd210"
+    },
+    {
+      "path": "attempts/geometry-normal/nonsquare-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/nonsquare-refusal.json",
+      "bytes": 229,
+      "sha256": "125a9fca787d45647b7ff0f717099600b38a9e276c4ced8e43b80180d157de8b",
+      "decoded_bytes": 309,
+      "decoded_sha256": "880c5e81e9688a43d246ff8c4edd0078da4c81b1fbc9a4e91209e608f6713356"
+    },
+    {
+      "path": "attempts/geometry-normal/nonzero-diagonal-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/nonzero-diagonal-refusal.json",
+      "bytes": 318,
+      "sha256": "0384183c0618251d1486f73574d9aaa74ad0d431b9b173d20fdbdd929a32b8ea",
+      "decoded_bytes": 476,
+      "decoded_sha256": "b86dd3ea2fc208677451dc74bae4584b8d93c9ab4d0047410482d3fa10f0c6a7"
+    },
+    {
+      "path": "attempts/geometry-normal/pairwise-ram-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/pairwise-ram-refusal.json",
+      "bytes": 224,
+      "sha256": "06398c49399df0a31798e1cfa116332b332bee643e94b234c89ff17aef435ce7",
+      "decoded_bytes": 326,
+      "decoded_sha256": "57da91d016b9bf59bceada51fbad0077d82a13b02d7e686cdac080a107620708"
+    },
+    {
+      "path": "attempts/geometry-normal/pairwise-work-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/pairwise-work-refusal.json",
+      "bytes": 286,
+      "sha256": "935532e5d50abc0f50731825a182815094ac67203361de4d85b93de3f81a35f1",
+      "decoded_bytes": 410,
+      "decoded_sha256": "d3fa8e15881184a0560eb0ec39e431ef37b781ad82a76a8550bf62e4a8fad99c"
+    },
+    {
+      "path": "attempts/geometry-normal/positional-maps-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/positional-maps-refusal.json",
+      "bytes": 234,
+      "sha256": "bcce3876f84967c82db9860fe7d715ada40f14c48d2b7937b88ad0fba24d2e7e",
+      "decoded_bytes": 321,
+      "decoded_sha256": "30d068254d6081780a6ab1f94d85332f497b9d3ddad4d65f8f8c15efe1ae04b9"
+    },
+    {
+      "path": "attempts/geometry-normal/producer-label.json.gz",
+      "original_path": "attempts/geometry-normal/producer-label.json",
+      "bytes": 186,
+      "sha256": "8da583b28caa18e81611178bd7a7105a9a9312f8cfb543ebc0bf72932b108686",
+      "decoded_bytes": 254,
+      "decoded_sha256": "37ace48d8f0128b4c2f71ec258209a35237752cfba4c0c0e88eea200281e63dc"
+    },
+    {
+      "path": "attempts/geometry-normal/progress.jsonl.gz",
+      "original_path": "attempts/geometry-normal/progress.jsonl",
+      "bytes": 279,
+      "sha256": "0c7333ebf1a6f92975c3637f1e9498f833a0f089aae636cc2add1eff14ca6b9b",
+      "decoded_bytes": 5339,
+      "decoded_sha256": "61db33d67379bc22034472ac98599a99f47a80f8e2d575f8a59ff94b5e6601df"
+    },
+    {
+      "path": "attempts/geometry-normal/receipt.json.gz",
+      "original_path": "attempts/geometry-normal/receipt.json",
+      "bytes": 565,
+      "sha256": "b7348b50ac6848e55946817846426356d241f4526ab9214cb5ac00742608f16a",
+      "decoded_bytes": 1021,
+      "decoded_sha256": "247023a6302ec157c0aaddc5d66c3c8d4d2b43826d702456ad61bfa2690f6da7"
+    },
+    {
+      "path": "attempts/geometry-normal/registration.json.gz",
+      "original_path": "attempts/geometry-normal/registration.json",
+      "bytes": 1569,
+      "sha256": "88b7dff11f5b8c623daecda4bbe6465a2e35bc089c1df054a3cf1a734e8f9076",
+      "decoded_bytes": 3179,
+      "decoded_sha256": "69c4657e340da884fb76ad415f9319c8275014c8cc83f2fa2302c2b5c3944ec2"
+    },
+    {
+      "path": "attempts/geometry-normal/repeated.json.gz",
+      "original_path": "attempts/geometry-normal/repeated.json",
+      "bytes": 1149,
+      "sha256": "78375354c72b1d81a34b9bcca273fd0f51c68cb9898012117b1a2a325b3c6bfb",
+      "decoded_bytes": 4193,
+      "decoded_sha256": "df11a5d0661f2117ef215daf85238280e35ba71aca0a5039004ef945eab931aa"
+    },
+    {
+      "path": "attempts/geometry-normal/resource-outcome.json.gz",
+      "original_path": "attempts/geometry-normal/resource-outcome.json",
+      "bytes": 332,
+      "sha256": "d4d8a1867c83afce19c0aa9bac735d60860474f505af1a793e8b85869e02e0ae",
+      "decoded_bytes": 576,
+      "decoded_sha256": "e91eb138e2a7a4ccbd200398f563113a814847dd9a29cf6e9bae0e349a433d1e"
+    },
+    {
+      "path": "attempts/geometry-normal/ring-after.json.gz",
+      "original_path": "attempts/geometry-normal/ring-after.json",
+      "bytes": 1149,
+      "sha256": "802eb72d67d8c271d554119b57e3b38ae13793dceffebf192d04128f059e3756",
+      "decoded_bytes": 12057,
+      "decoded_sha256": "26879473c7140aa8fe64a3dcd241b008a7e887f55b39108f5a72eb0620c1b316"
+    },
+    {
+      "path": "attempts/geometry-normal/ring-anchored.json.gz",
+      "original_path": "attempts/geometry-normal/ring-anchored.json",
+      "bytes": 2303,
+      "sha256": "226c05b1cee6ae00aa70ea7404ff7f4ca82d3df6984460837f305fb99ace2077",
+      "decoded_bytes": 13311,
+      "decoded_sha256": "e6f80e408fad480f30ef43d7c7da9db3889b9cc3c816d4d159461fd5e5d1d7e8"
+    },
+    {
+      "path": "attempts/geometry-normal/ring-before.json.gz",
+      "original_path": "attempts/geometry-normal/ring-before.json",
+      "bytes": 1149,
+      "sha256": "802eb72d67d8c271d554119b57e3b38ae13793dceffebf192d04128f059e3756",
+      "decoded_bytes": 12057,
+      "decoded_sha256": "26879473c7140aa8fe64a3dcd241b008a7e887f55b39108f5a72eb0620c1b316"
+    },
+    {
+      "path": "attempts/geometry-normal/ring-cached.json.gz",
+      "original_path": "attempts/geometry-normal/ring-cached.json",
+      "bytes": 2530,
+      "sha256": "6144bcbc89c425510fb303c3b0d3596e950a44b0233075b5cda7fc1c6fb3be87",
+      "decoded_bytes": 20099,
+      "decoded_sha256": "6d27252901f06f654c888f0060369e494b1286f1f691400bdd4fe2597717cd34"
+    },
+    {
+      "path": "attempts/geometry-normal/ring-identity.json.gz",
+      "original_path": "attempts/geometry-normal/ring-identity.json",
+      "bytes": 2273,
+      "sha256": "521f97310cd869d4faaefcfd75e12e1e694f678fc8db94d04d090349c4e0963b",
+      "decoded_bytes": 12915,
+      "decoded_sha256": "6cb9b06c8c7849fd8bcea19b29aa109da8cd7fef3ededca585fdbcbdc86c3680"
+    },
+    {
+      "path": "attempts/geometry-normal/ring-positional.json.gz",
+      "original_path": "attempts/geometry-normal/ring-positional.json",
+      "bytes": 1129,
+      "sha256": "17e1d72b74a7b6cb687a4f2b6a4b7e9cff0a4a198cddafc9149fd0d0f7ccaca3",
+      "decoded_bytes": 3916,
+      "decoded_sha256": "70596d2a5ae67d3803be117e1119c7df60bb01bf8fcabd80e5c0ab2283a5c016"
+    },
+    {
+      "path": "attempts/geometry-normal/ring-symmetry.json.gz",
+      "original_path": "attempts/geometry-normal/ring-symmetry.json",
+      "bytes": 2530,
+      "sha256": "6144bcbc89c425510fb303c3b0d3596e950a44b0233075b5cda7fc1c6fb3be87",
+      "decoded_bytes": 20099,
+      "decoded_sha256": "6d27252901f06f654c888f0060369e494b1286f1f691400bdd4fe2597717cd34"
+    },
+    {
+      "path": "attempts/geometry-normal/runtime-origins.json.gz",
+      "original_path": "attempts/geometry-normal/runtime-origins.json",
+      "bytes": 79901,
+      "sha256": "a7e1240238e2dcf5c13dc4a9bb2f3fbf6458671975493465e33d614e692394f8",
+      "decoded_bytes": 497410,
+      "decoded_sha256": "8e1617dfa5eb36d15870bb8fe36ce2abe5fcf62d3ccd5feb9800cbf84e9fb485"
+    },
+    {
+      "path": "attempts/geometry-normal/score-representative-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/score-representative-refusal.json",
+      "bytes": 232,
+      "sha256": "d77e36602d5aeba7d4cbaa8daf4c547ad6c87a45234e0f827fdd2dd984b13d08",
+      "decoded_bytes": 325,
+      "decoded_sha256": "5c59f3e5c853a949ea3f69b617a0d184a23accd2ff118438a400187360c4123a"
+    },
+    {
+      "path": "attempts/geometry-normal/singleton-cluster.json.gz",
+      "original_path": "attempts/geometry-normal/singleton-cluster.json",
+      "bytes": 1115,
+      "sha256": "13cfa41c5c7da73b2e1b8f147fba6931f990784d834725a35f3a5d46e7fee71f",
+      "decoded_bytes": 4017,
+      "decoded_sha256": "1e15aba17fe416531ee598dcaaa8bf23185386ba8b1738577906f547eba39d66"
+    },
+    {
+      "path": "attempts/geometry-normal/singleton.json.gz",
+      "original_path": "attempts/geometry-normal/singleton.json",
+      "bytes": 1032,
+      "sha256": "6cdfe0577512579898dbf07206ffc37a57bb89fb8d418b0eebc5b50fad692786",
+      "decoded_bytes": 3443,
+      "decoded_sha256": "86249992ad9a29d221e47581773446e46521b40283435d9f38a7236c713b3d75"
+    },
+    {
+      "path": "attempts/geometry-normal/source-final.json.gz",
+      "original_path": "attempts/geometry-normal/source-final.json",
+      "bytes": 111,
+      "sha256": "cbef8531db566cc914e3776a26d903badabde6764d11c795971d071296daf10b",
+      "decoded_bytes": 161,
+      "decoded_sha256": "d0c148be4ef89eb35e3bc8f29ea7f96f3d10ce61162d6b6771e4b7199d4f979b"
+    },
+    {
+      "path": "attempts/geometry-normal/stderr.log.gz",
+      "original_path": "attempts/geometry-normal/stderr.log",
+      "bytes": 804,
+      "sha256": "7c9b0f9eade02ad1dd43c6c35187ca15beae3c83811d3d63e5dcbf6a8f5ac7b1",
+      "decoded_bytes": 8845,
+      "decoded_sha256": "9603fc49a495b969342e638113643feca6b81202dc3d8e1e7aebdf0340de8c0e"
+    },
+    {
+      "path": "attempts/geometry-normal/stdout.log.gz",
+      "original_path": "attempts/geometry-normal/stdout.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/geometry-normal/support-receipt.json.gz",
+      "original_path": "attempts/geometry-normal/support-receipt.json",
+      "bytes": 36458,
+      "sha256": "e30419161abe4d7a381c20267b1045b1681aefe0d7343f78ec6fe460053eafee",
+      "decoded_bytes": 187625,
+      "decoded_sha256": "0430e4c921b41ee1ddff0cad812f3636ea8ef9c3df0ee837f72512505cb40b00"
+    },
+    {
+      "path": "attempts/geometry-normal/translation-input.json.gz",
+      "original_path": "attempts/geometry-normal/translation-input.json",
+      "bytes": 136,
+      "sha256": "3033e8a8b3883122f9914bc23194a1056c01ab1463700cff4c74c16be06ef412",
+      "decoded_bytes": 453,
+      "decoded_sha256": "99b8531f8f1436d012a5940c38ce809c3dcbc9f987f7e58748ae3d6cf861e043"
+    },
+    {
+      "path": "attempts/geometry-normal/translation.json.gz",
+      "original_path": "attempts/geometry-normal/translation.json",
+      "bytes": 1108,
+      "sha256": "54f7fe7394b2527e29d972846b7206c6b576668d53ce16e9494d0df0d4d44b9c",
+      "decoded_bytes": 3857,
+      "decoded_sha256": "08bf0e8c7fea8fad628b290b5bad7d5171b45a59c0c2574c2b700ebc93f4cfb5"
+    },
+    {
+      "path": "attempts/geometry-normal/unsupported-linkage-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/unsupported-linkage-refusal.json",
+      "bytes": 234,
+      "sha256": "6dcc9c9cb57fb12c5a0d3c37192c17b3e2001e36bf1ca3e30f9619b9260869cc",
+      "decoded_bytes": 316,
+      "decoded_sha256": "3bd230e9fbd764d9c89c9fd2ce3f248e62b2c96c0a10d5ce88d57d6b12316312"
+    },
+    {
+      "path": "attempts/geometry-normal/wrong-dimension-refusal.json.gz",
+      "original_path": "attempts/geometry-normal/wrong-dimension-refusal.json",
+      "bytes": 231,
+      "sha256": "528f5006015badd82aa90f6dc71a55552d09a9dbd31338c1822932315d26faf3",
+      "decoded_bytes": 315,
+      "decoded_sha256": "433ac85ab17a842c1b003259fc3df936d104a701486b8c6350cf6a49c477707b"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/cached-maps.json.gz",
+      "original_path": "attempts/geometry-pm_fs/cached-maps.json",
+      "bytes": 1485,
+      "sha256": "01b5fc0b35a7e5074a1d9b1d56a1c623319e10a5168f827726d637e7d3d969eb",
+      "decoded_bytes": 10280,
+      "decoded_sha256": "2e02bfd74ae75ca3b313c5a1d0c824b081ab70f7b25d0890da7bc063620133a9"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/chain-complete.json.gz",
+      "original_path": "attempts/geometry-pm_fs/chain-complete.json",
+      "bytes": 1159,
+      "sha256": "acdd3413d3353da1d6116d69e15859c0e2ea36a541a52952b3d6981ea12ef547",
+      "decoded_bytes": 4153,
+      "decoded_sha256": "b8035aa9a1ef6a1a711a4837c53ec6586a3d6f2e87ae936f98e1dee21d6ca8e2"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/chain-single.json.gz",
+      "original_path": "attempts/geometry-pm_fs/chain-single.json",
+      "bytes": 1159,
+      "sha256": "48285afc762ae9b22f08a382deb2a853298a3bd5a92b021e46d118d4fc0cc9f5",
+      "decoded_bytes": 4151,
+      "decoded_sha256": "ab7a929dae28c0abf98dbfd10f2b63f8a6a6708a1906a5eef076bc258d5508a7"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/empty.json.gz",
+      "original_path": "attempts/geometry-pm_fs/empty.json",
+      "bytes": 1024,
+      "sha256": "cd4f544150a26727c936a1ef477530ed61523c5bb22b5a9f162f216b18f05aa4",
+      "decoded_bytes": 3377,
+      "decoded_sha256": "a7ec1b570b22db053be0561f79c3d0aa20bc54a12adbc2852262e09d39841da9"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/failure.json.gz",
+      "original_path": "attempts/geometry-pm_fs/failure.json",
+      "bytes": 155,
+      "sha256": "05f15e8ca97f9d9e305a92312d1098627ec5c60292c254deee8c8cc1e19b28b2",
+      "decoded_bytes": 218,
+      "decoded_sha256": "a83f9baa5035be137481253d49afe3f8fb1f4ae8e31a09a16090338c156eed18"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-body.py.txt.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-body.py.txt",
+      "bytes": 4224,
+      "sha256": "47bff52c8321db96d7a02f82e9b456f2b318b2db700639f7a4fc11badd91295d",
+      "decoded_bytes": 15752,
+      "decoded_sha256": "506d6308b61e54d4cfd240fc9ff4c8afeb9bde70a059b97a6ead9c5730a494bc"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-composition-producer.py.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-composition-producer.py",
+      "bytes": 3425,
+      "sha256": "a47eb2c0ab9aca584b4fa5a0ff4fe5c8862b9f7422b0f66560820a2264ee91df",
+      "decoded_bytes": 8505,
+      "decoded_sha256": "19f759fc4ad87753596f9c18150959e11d74ec4a2a9609fb7d1d1550bf81c40b"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-composition.json.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-composition.json",
+      "bytes": 194632,
+      "sha256": "2a3c6c1cc0d73096cca4f55ac46a4c5fbc5a566209526a054e78a873ef1dde81",
+      "decoded_bytes": 700473,
+      "decoded_sha256": "7536f86e161ea897da56a588e7e60f4c98a2c66075d418e2d3707a8cd44bb0ca"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-controller.py.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-controller.py",
+      "bytes": 2968,
+      "sha256": "d8b184fb9b7065762b05ecc08c71e29c045f8fae6fb67a3a254f663bac4b684a",
+      "decoded_bytes": 7067,
+      "decoded_sha256": "57acc78d41aefaac1b0e795328b9e59902bcbb7e55e9474750af618017223f85"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-guard.py.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-plan.json.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-plan.json",
+      "bytes": 634,
+      "sha256": "e09f50b2b68307701c34706c890f1b28ec35860f979a04983f55b7c71c96a94c",
+      "decoded_bytes": 1291,
+      "decoded_sha256": "2c21bfa135829e1cb1744f4c5cdf0db6a5b74e47193c1f4bf86d33b55cdde9cf"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-prescription.md.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-prescription.md",
+      "bytes": 2744,
+      "sha256": "cfda2f34c63b12aac89360b482456c1f9dcfbab89b5cfa5be2386a9c2abf9324",
+      "decoded_bytes": 5222,
+      "decoded_sha256": "dc4ee6e51bfd79b866f7be09421aaba2294a3bbc5a1d0a1f480c226cfcf7f8a9"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-provider-00.txt.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-provider-00.txt",
+      "bytes": 4718,
+      "sha256": "19b3fb171be99777359107bb60c1d6f6f696f1c5e39c7d9d1a3ebba28a585770",
+      "decoded_bytes": 15244,
+      "decoded_sha256": "5e61a1683bd7e1a8fa451de5c3ed11f49338791e1044ead8fc575c81e962fbc8"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-provider-01.txt.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-provider-01.txt",
+      "bytes": 3369,
+      "sha256": "88c1448f1bf834acee027b0bd7d7fe792acc8d1b124a4ad81d566235b275d853",
+      "decoded_bytes": 9036,
+      "decoded_sha256": "92623b83a6cc5491db4a0a5019abf0a85359b51709464283421a05b5315702a4"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-provider-02.txt.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-provider-02.txt",
+      "bytes": 1365,
+      "sha256": "857a3411c68f1cf13adb2cf71b5959d423893dba639f9d5cf50d3c53799c4afb",
+      "decoded_bytes": 3821,
+      "decoded_sha256": "2e067d2e67815c2b2688563130ce60c9462a28709356f4a1d6433631eb0ffd0a"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-provider-03.txt.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-provider-03.txt",
+      "bytes": 4956,
+      "sha256": "70728228697c0c72e8a72ba5c8f00a26faf3d86cca142a105dccefc065dcca0f",
+      "decoded_bytes": 10812,
+      "decoded_sha256": "f341889ca5839422c05b6a5327344db0e9adc2f1ac7c1f913be8680be1f9aa6a"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-provider-04.txt.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-provider-04.txt",
+      "bytes": 1400,
+      "sha256": "a40fa5314fca8767043b3ab881c84e6ad585b4a9ef5270386149e0035721d680",
+      "decoded_bytes": 2851,
+      "decoded_sha256": "96d97678f850d6d37cf774c9b3fe28fed452348fb21219201e4add0d79c138ac"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-provider-05.txt.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-provider-05.txt",
+      "bytes": 4724,
+      "sha256": "78b86954389626a16993ec5689bfce4572578bdf43d02db97c18f773af0c17dc",
+      "decoded_bytes": 17804,
+      "decoded_sha256": "dd4425f1f00603ca37257df1fa19dc69108ff23db4bd41727495362ef8b2ccd6"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-provider-06.txt.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-provider-06.txt",
+      "bytes": 10991,
+      "sha256": "c4c1a73ba58a0253810123d44a2ffc5bac2baa5740ee46346a29ee5ae6e4e76e",
+      "decoded_bytes": 29524,
+      "decoded_sha256": "0798225a49439dbd1025da10c89901b784eae2b21454fd6929d5e14e95925978"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-provider-identities.json.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-provider-identities.json",
+      "bytes": 608,
+      "sha256": "01c8de29a711e73a3b500186f38c9acffe83721d19cb4c60f125cfcfc152f8c1",
+      "decoded_bytes": 1364,
+      "decoded_sha256": "1a43ef933236c6482b43e3e7ab99a7172a9c70220a05ff3cb010cbc0874ba56a"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-resources.toml.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-resources.toml",
+      "bytes": 34420,
+      "sha256": "f3d620ebb99508595d666b4a4ba38f0738ec03e7be56168ff6da5549c731a148",
+      "decoded_bytes": 164479,
+      "decoded_sha256": "db4b8fff8eb775a2ba21d77af8095c00adb249ba498102d31977bf2543f7df31"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/frozen-worker.py.gz",
+      "original_path": "attempts/geometry-pm_fs/frozen-worker.py",
+      "bytes": 6336,
+      "sha256": "27936ff1bec1f28b797d14d21a0cc29f241c3991b0d9a5feed243c42e50015ea",
+      "decoded_bytes": 21706,
+      "decoded_sha256": "65627af215163a9c012da536f4450df2892f04db2816d8c8fea6791fc2c49c5c"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/producer-label.json.gz",
+      "original_path": "attempts/geometry-pm_fs/producer-label.json",
+      "bytes": 186,
+      "sha256": "8da583b28caa18e81611178bd7a7105a9a9312f8cfb543ebc0bf72932b108686",
+      "decoded_bytes": 254,
+      "decoded_sha256": "37ace48d8f0128b4c2f71ec258209a35237752cfba4c0c0e88eea200281e63dc"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/progress.jsonl.gz",
+      "original_path": "attempts/geometry-pm_fs/progress.jsonl",
+      "bytes": 186,
+      "sha256": "b27bff2ae1dfd9f3c5dcdee10b0e8c55c0a13685ac90542a872d23a4ee5c5f9e",
+      "decoded_bytes": 1793,
+      "decoded_sha256": "07000f1369773d5b22e4130efee83a0791b580e1402fd40210a34065dfccc6e6"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/registration.json.gz",
+      "original_path": "attempts/geometry-pm_fs/registration.json",
+      "bytes": 1570,
+      "sha256": "070ca04560ee6eb46e2e8798bf251847ae2a04563cdf67f9b1ac3396f77dadaa",
+      "decoded_bytes": 3178,
+      "decoded_sha256": "1f846106b77604c00c43747c0faa092afa14f08cea64471619b5f5ddf7cb04fc"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/repeated.json.gz",
+      "original_path": "attempts/geometry-pm_fs/repeated.json",
+      "bytes": 1169,
+      "sha256": "5f9e1220f023b2c1d78004492ef93887c5c6eb0b966189b8b6c9d3dd2eec5a28",
+      "decoded_bytes": 4359,
+      "decoded_sha256": "947feff2fbe8a7546c83e3f8d66f979a9739ca40b421e9c14024d8172c695ef2"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/resource-outcome.json.gz",
+      "original_path": "attempts/geometry-pm_fs/resource-outcome.json",
+      "bytes": 476,
+      "sha256": "6939605f17e31a317bbefe64b462fdc49df83f7d4fc4b720e36c2dfa1c92b502",
+      "decoded_bytes": 786,
+      "decoded_sha256": "9d94625b2c7d229964d65d40461fcc7a07a76f5d79237212e8c32616665babe8"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/ring-anchored.json.gz",
+      "original_path": "attempts/geometry-pm_fs/ring-anchored.json",
+      "bytes": 2310,
+      "sha256": "72b255f0f8d01937fbe053472c7c61448a401d391ae127a7125b3ad74ca5c477",
+      "decoded_bytes": 13381,
+      "decoded_sha256": "6e9d22a512f908e11d63c154b572ea95bf4d64b8d527120436a542c0849972ee"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/ring-before.json.gz",
+      "original_path": "attempts/geometry-pm_fs/ring-before.json",
+      "bytes": 1156,
+      "sha256": "b6017a8bf43ff3ea4fc42561639a6f3ad504f97965b1034d5796ae33da23bae9",
+      "decoded_bytes": 12147,
+      "decoded_sha256": "3f51da03c8ae612cde53cb8d300a7865e7c0464313f9ee7e6c6a808bd19ec972"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/ring-cached.json.gz",
+      "original_path": "attempts/geometry-pm_fs/ring-cached.json",
+      "bytes": 2538,
+      "sha256": "1f0332d94774b45600b9119d3ef9efee35b63c1de3728e27521cab25d161cad6",
+      "decoded_bytes": 20175,
+      "decoded_sha256": "4f87eb35feef53236bc80706c82d829289dee9fa92ff518e5878bf8eaf1ba80e"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/ring-identity.json.gz",
+      "original_path": "attempts/geometry-pm_fs/ring-identity.json",
+      "bytes": 2279,
+      "sha256": "cb535173fe900c3ec9cb0e66cd191dfbc6e3edf0344aef774f1f7f3fdf4928bf",
+      "decoded_bytes": 12985,
+      "decoded_sha256": "1947b4e253f7f385b515d78bbe61002508b3710ac6056594cdc257961b2dc3e2"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/ring-positional.json.gz",
+      "original_path": "attempts/geometry-pm_fs/ring-positional.json",
+      "bytes": 1137,
+      "sha256": "2ee68f0d6a818d094301dddf1897b0891bb19e93dd54b04a7dbbaca518c3d0f6",
+      "decoded_bytes": 3986,
+      "decoded_sha256": "2ffec9519f258bbaaa1f9efe71f6ac4d050e85049ebc57cea0e7eab195fab0c6"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/ring-symmetry.json.gz",
+      "original_path": "attempts/geometry-pm_fs/ring-symmetry.json",
+      "bytes": 2538,
+      "sha256": "1f0332d94774b45600b9119d3ef9efee35b63c1de3728e27521cab25d161cad6",
+      "decoded_bytes": 20175,
+      "decoded_sha256": "4f87eb35feef53236bc80706c82d829289dee9fa92ff518e5878bf8eaf1ba80e"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/singleton.json.gz",
+      "original_path": "attempts/geometry-pm_fs/singleton.json",
+      "bytes": 1035,
+      "sha256": "0a1a90c4cfe0a75297eeedcae619cd7bdc98f7666458cf015ee6f5afdd663da8",
+      "decoded_bytes": 3459,
+      "decoded_sha256": "410712a5db33926d71ce97d0ba78acb6432c37e3e616b227ab67cfb9297fc7c0"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/stderr.log.gz",
+      "original_path": "attempts/geometry-pm_fs/stderr.log",
+      "bytes": 258,
+      "sha256": "4368d183738d97d6f92b092e333d0a2a2723158dd0f0ce347e82dcc64c3a8630",
+      "decoded_bytes": 830,
+      "decoded_sha256": "d178516e14e532564d6e8d738cd191a357e28e25a28e8a536d2c89e1f1e40f68"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/stdout.log.gz",
+      "original_path": "attempts/geometry-pm_fs/stdout.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/support-receipt.json.gz",
+      "original_path": "attempts/geometry-pm_fs/support-receipt.json",
+      "bytes": 36467,
+      "sha256": "e0bf7887f192ba102d3cc1a4ef8ae9cb5058b36981fc8a65deedf6f98d4e4fda",
+      "decoded_bytes": 187631,
+      "decoded_sha256": "64a57611ee0580f147e738983d1ca784898083c4e3dbe4d1d2f9cc4d526c7d16"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/translation-input.json.gz",
+      "original_path": "attempts/geometry-pm_fs/translation-input.json",
+      "bytes": 136,
+      "sha256": "3033e8a8b3883122f9914bc23194a1056c01ab1463700cff4c74c16be06ef412",
+      "decoded_bytes": 453,
+      "decoded_sha256": "99b8531f8f1436d012a5940c38ce809c3dcbc9f987f7e58748ae3d6cf861e043"
+    },
+    {
+      "path": "attempts/geometry-pm_fs/translation.json.gz",
+      "original_path": "attempts/geometry-pm_fs/translation.json",
+      "bytes": 1118,
+      "sha256": "e65390d805141acdceb0afc0369f765485448300bdc79685d468cd2439ed7dc2",
+      "decoded_bytes": 3963,
+      "decoded_sha256": "53fd821771f5f99455ab27339dacf708ada76b4d9d284db7238e668b62e37db4"
+    },
+    {
+      "path": "attempts/cutoff-diagnostic-01/frozen-composition.json.gz",
+      "original_path": "attempts/cutoff-diagnostic-01/frozen-composition.json",
+      "bytes": 194632,
+      "sha256": "2a3c6c1cc0d73096cca4f55ac46a4c5fbc5a566209526a054e78a873ef1dde81",
+      "decoded_bytes": 700473,
+      "decoded_sha256": "7536f86e161ea897da56a588e7e60f4c98a2c66075d418e2d3707a8cd44bb0ca"
+    },
+    {
+      "path": "attempts/cutoff-diagnostic-01/frozen-diagnose.py.gz",
+      "original_path": "attempts/cutoff-diagnostic-01/frozen-diagnose.py",
+      "bytes": 2786,
+      "sha256": "41a3afa62f5dbbf755f7b7151656dc66e6fc883800bbcb8f6e4c72e62936eb71",
+      "decoded_bytes": 6651,
+      "decoded_sha256": "9bfcd9cca8b1bac7c7cc50a56b194126dfa6130bc80fcf559b2018e0a066e322"
+    },
+    {
+      "path": "attempts/cutoff-diagnostic-01/frozen-resource-guard.py.gz",
+      "original_path": "attempts/cutoff-diagnostic-01/frozen-resource-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/cutoff-diagnostic-01/frozen-selected-worker.py.gz",
+      "original_path": "attempts/cutoff-diagnostic-01/frozen-selected-worker.py",
+      "bytes": 6336,
+      "sha256": "27936ff1bec1f28b797d14d21a0cc29f241c3991b0d9a5feed243c42e50015ea",
+      "decoded_bytes": 21706,
+      "decoded_sha256": "65627af215163a9c012da536f4450df2892f04db2816d8c8fea6791fc2c49c5c"
+    },
+    {
+      "path": "attempts/cutoff-diagnostic-01/receipt.json.gz",
+      "original_path": "attempts/cutoff-diagnostic-01/receipt.json",
+      "bytes": 177,
+      "sha256": "633d63bbdf66a7ca3a889860ee790bc14cb5bd452996058e9f4d8b5b57fca6c9",
+      "decoded_bytes": 219,
+      "decoded_sha256": "256db86a4530c2966e9ffa014d6ce67f81081d20d9787a21f196b05d5a37ad61"
+    },
+    {
+      "path": "attempts/cutoff-diagnostic-01/registration.json.gz",
+      "original_path": "attempts/cutoff-diagnostic-01/registration.json",
+      "bytes": 637,
+      "sha256": "9cc9e879c729c117cfedb149873ac057cb85fd7b1a39c7825ce38975ca81f184",
+      "decoded_bytes": 1052,
+      "decoded_sha256": "8912b8d4d0cfbb44e70e5db386843c075bf5ed2dd37de38a3fd36a0e37d3753c"
+    },
+    {
+      "path": "attempts/cutoff-diagnostic-01/resource-outcome.json.gz",
+      "original_path": "attempts/cutoff-diagnostic-01/resource-outcome.json",
+      "bytes": 334,
+      "sha256": "71813b88c27b9409d05b8684b033bef41209c85b942ea50f7e67febcdc4ae47b",
+      "decoded_bytes": 575,
+      "decoded_sha256": "bf50794c71b9a546c9f85d537f64f64f5b8ba9659986c9373cfa3243a763bf1d"
+    },
+    {
+      "path": "attempts/cutoff-diagnostic-01/results.json.gz",
+      "original_path": "attempts/cutoff-diagnostic-01/results.json",
+      "bytes": 1528,
+      "sha256": "28cd39f624d8e1012d6f1873a15cabc48859a1fc85dcc6a8746303bdf881da23",
+      "decoded_bytes": 24172,
+      "decoded_sha256": "8e4ed5a477db6d6afc3d6e7a6d4532c410f2a5a99a383dbd53942a69a88361cb"
+    },
+    {
+      "path": "attempts/cutoff-diagnostic-01/runtime-origins.json.gz",
+      "original_path": "attempts/cutoff-diagnostic-01/runtime-origins.json",
+      "bytes": 59024,
+      "sha256": "73af2af39ec394b08f23c34c6a19318d0cd9a3aa741d50caf444b249c0cc2c37",
+      "decoded_bytes": 370041,
+      "decoded_sha256": "05997d2bada17983bfcefd8ec1ccad0e0cdba643ec5529782461a6d4b25f63ed"
+    },
+    {
+      "path": "attempts/cutoff-diagnostic-01/stderr.log.gz",
+      "original_path": "attempts/cutoff-diagnostic-01/stderr.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/cutoff-diagnostic-01/stdout.log.gz",
+      "original_path": "attempts/cutoff-diagnostic-01/stdout.log",
+      "bytes": 221,
+      "sha256": "4c9f7d18e6013332513d631855a8f719d3edcda229c8fc3e361a6aa0c77ec491",
+      "decoded_bytes": 1877,
+      "decoded_sha256": "22a0df8d51de781a0f95e0e77fe27ec6e432fd4b6cc363dcb7f6fbc69b129141"
+    }
+  ]
+}

@@ -24,6 +24,45 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### E3 geometry tools delivered; independent cutoff defect — 2026-11-08
+
+Read [the complete geometry receiving record](validation/e3_geometry_provider_receiving_2026-11-08.md).
+#604 is source-resolved at `b649d105`; clean editable MolSysMT is fast-forwarded
+16 commits to `8af8628e61ac28b519827802c39cf2e3eaa48b7e`. Rust tree
+`fb25b2ea` and native SHA-256 `5715bda2` are unchanged, so no rebuild/reinstall
+is needed. Consumer execution base is `3c5145c`. Observed provider version remains
+`0.23.0+687.g2325038e8`: #657 owns that metadata limitation; actual source,
+Python inventories/imports and native origins are independently retained.
+
+The whole analytic/adverse normal selection passes: 18 pairwise, 23 clustering,
+four map, one conversion/append calls, 22 typed refusals and final live source/
+caller/configuration/custody assertions. The identical pm/fs selection fails
+after nine pairwise/two clustering calls: both linkage rules return three
+singletons at the exact inclusive 1 nm chain cutoff. Final pm/fs checks and
+remaining adverse controls are unreached. A separately registered 12-call
+unit-path diagnosis corroborates the asymmetric cutoff standardization path:
+1 nm becomes `0.9999999999999999 nm` through pm, while the nm-input matrix
+retains 1.0. MolSysMT #659 owns the defect; do not add a fuzzy cutoff or relax
+the original assertions. The terminal whole campaign remains FAIL.
+
+The 136-member primary/nine-member reader archives authenticate all attempts,
+original producers and source context. The independent reader receives 84
+physical fields using PyUnitWizard, rejects two wrong receiver handshakes and
+imports no MolSysMT/RDKit. The normal/pm-fs/diagnostic cells finish in
+16.502/24.687/3.785 s; maximum sampled group RSS 228,356,096 bytes, minimum
+available RAM 59,124,211,712 bytes. CPU 0/nice 10/one native worker, monitored
+13 GiB reserve and all owned groups terminal without resource interruption.
+Retain `.molsyssuite/e3-geometry-receiving-20261108` under #50/review 2026-11-14.
+
+Next receive #659's provider correction with a fresh complete normal/pm-fs
+selection, preserving the original failed campaign. #256 separately holds the
+original reference's lossless mechanics storage; no analytic fixture replaces
+that reference or admits the saved-pose/common receptor frame/full E3. #558,
+independent science, actual canvas and installed/public/minor/platform scope
+remain. Earlier complete workflow/115-provider/383-consumer receipts retain
+their `2325038e8` source scope, not a full qualification of this newer Python
+cohort. No runtime/helper/pin edit, native search, browser/kernel or CI dispatch.
+
 ### E3 H-policy and current-source control; storage hold — 2026-11-08
 
 The [latest registered E3 receiving](validation/e3_source_control_receiving_2026-11-08.md)
