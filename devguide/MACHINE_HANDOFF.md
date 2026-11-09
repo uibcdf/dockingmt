@@ -1,7 +1,7 @@
 # New-machine development handoff
 
 Owner: [DockingMT #82](https://github.com/uibcdf/dockingmt/issues/82).
-Checkpoint date: **2026-11-08**; original machine handoff: **2026-11-06**.
+Checkpoint date: **2026-11-09**; original machine handoff: **2026-11-06**.
 The destination is another **machine**, using the
 same `uibcdf/dockingmt` repository, issue history and scientific producers.
 No repository rename, issue transfer or new release is part of this handoff.
@@ -26,6 +26,34 @@ their original scope.
 Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
+
+### Offline audit resource propagation #95 — 2026-11-09
+
+[Offline audit resource correction #95](validation/audit_resource_errors_2026-11-09.md)
+now preserves the exact native MemoryError at length/protocol/reference-energy
+checks instead of reporting bad saved data. Three bare-raise handlers (six lines)
+are the only executable AST changes. Original source retains 15 failures/45 passes;
+final complete affected selections pass 464 cases normal then pm/fs, including
+60 new public controls and one explicit unchanged native-test deselection each.
+Independent 102-member primary/nine-member reader receiving passes without replay.
+Fixture/support hashes, 67 runtime paths, units, ordinary reports and historical
+producers remain exact. #19/#28/#73 and full installed/public/scientific/platform/
+canvas/hosted gates stay partial; #256/#558 and the native-build hold remain.
+No provider refresh, shared install, molecular operation or remote CI.
+
+Execution base `7271667b35f8d95a5c5097a8ee604a45376b97e7` plus frozen
+six-line correction/new guard. Final cells take 13.501/13.602 s, below 140 MB
+sampled RSS, with CPU 0/nice 10/one worker and monitored 13 GiB reserve. All
+owned groups terminate without interruption. Final local and fresh-source
+resource/publication checks retain missing hosted/installed evidence separately.
+
+Primary manifest `fca556fe4ef4ecc777f7f74c3ad3683d740db1a1b9a80a96db418b5f0d304982`;
+reader `e75d9bad49db15a4e2f93f31553cdeafd98bf24cbb9f741d63e79b6443c8ce76`.
+Retain `.molsyssuite/audit-memory-20261109` under #95/#19/#28/#50, review
+2026-11-14. Keep all failures, authenticated private test support, original
+wheels/receivers, migration directory and interrupted native build unchanged.
+Continue independent accepted work while respecting #256/#558, original
+reference/preparation, browser/comm/canvas and public artifact/platform gates.
 
 ### Public exceptions and source-linked API #94 — 2026-11-09
 

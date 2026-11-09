@@ -42,6 +42,12 @@ populations and independent Receptor/JUnit/source/AST evidence stay distinct.
 These source results preserve valid report digests and every Core criterion;
 they do not requalify historical installed/scientific artifacts or visible use.
 
+[The #95 source correction](validation/audit_resource_errors_2026-11-09.md)
+preserves native memory failures in offline quantity/protocol/reference checks.
+Its 464-case normal/pm-fs selections and independent receiving strengthen C5
+resource semantics without changing any Core criterion, ordinary report digest,
+historical producer or installed/scientific/public/visible acceptance.
+
 ## Scope and interpretation
 
 The supported starting profile is a declared single-state small molecule and

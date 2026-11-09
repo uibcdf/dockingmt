@@ -64,7 +64,10 @@ if result.top_pose is not None:
 
 Audit status is `consistent`, `incomplete` or `inconsistent`; contradictions
 take precedence over missing evidence. A restored record can be usable while
-its evidence is incomplete. `verify_captured_inputs` takes the **artifacts
+its evidence is incomplete. Native memory failures during quantity/protocol/
+reference checks propagate to the caller rather than becoming an audit verdict;
+see [the source correction](validation/audit_resource_errors_2026-11-09.md).
+`verify_captured_inputs` takes the **artifacts
 mapping**, such as `record['provenance']['backend_artifacts']`, rather than the
 whole result. Missing captures remain missing evidence.
 

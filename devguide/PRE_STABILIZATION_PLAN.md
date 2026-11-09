@@ -5,6 +5,19 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Offline audit resource correction #95](validation/audit_resource_errors_2026-11-09.md)
+now preserves the exact native MemoryError at length/protocol/reference-energy
+checks instead of reporting bad saved data. Three bare-raise handlers (six lines)
+are the only executable AST changes. Original source retains 15 failures/45 passes;
+final complete affected selections pass 464 cases normal then pm/fs, including
+60 new public controls and one explicit unchanged native-test deselection each.
+Independent 102-member primary/nine-member reader receiving passes without replay.
+Fixture/support hashes, 67 runtime paths, units, ordinary reports and historical
+producers remain exact. #19/#28/#73 and full installed/public/scientific/platform/
+canvas/hosted gates stay partial; #256/#558 and the native-build hold remain.
+No provider refresh, shared install, molecular operation or remote CI.
+
+
 [Public exception access and API reference #94](validation/public_api_namespace_2026-11-09.md)
 now expose the same 13 local diagnostic classes through `dockingmt.exceptions`.
 The source-linked guide covers all 33 root exports, 13 model/extension classes,

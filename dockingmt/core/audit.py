@@ -97,6 +97,8 @@ def _length_values(record, shape, positive=False):
         if not puw.are_compatible(quantity, 'angstrom'):
             raise ValueError('length_units_required')
         values = np.asarray(puw.get_value(quantity, to_unit='angstrom'), dtype=float)
+    except MemoryError:
+        raise
     except Exception as exc:
         # Unit backends have distinct parse and conversion exceptions.
         raise ValueError('invalid_length_quantity') from exc

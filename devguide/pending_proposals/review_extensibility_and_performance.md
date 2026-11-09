@@ -14,6 +14,20 @@ supersedes: []
 
 # Review extensibility and performance
 
+## Offline audit resource errors — 2026-11-09
+
+[#95's source correction](../validation/audit_resource_errors_2026-11-09.md)
+adds three MemoryError passthrough handlers (six lines) so offline length,
+protocol and reference-energy checks preserve native resource identity.
+Original guard: 15 failures/45 passes. Final complete affected gates: 464 normal,
+464 pm/fs, one unchanged real-native scoring test explicitly outside each
+selection. All 60 new controls, original diagnostics/legacy digests/fixtures
+and caller units remain. Independent 102-member primary/nine-member reader
+receiving verifies native/Receptor/source/AST agreement without replay. Runtime
+inventory (67) and 594 support inputs are unchanged. No new installed/public/
+scientific/platform/visual acceptance; #19/#28/#73 remain partial and hosted
+exact-head evidence is unreceived. Keep #256/#558 and the native-build hold.
+
 ## Public exception access and API reference — 2026-11-09
 
 [#94's source receiving](../validation/public_api_namespace_2026-11-09.md)

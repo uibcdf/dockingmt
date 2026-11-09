@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (68)
+### Resolved (69)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_coordinate_record_admission.md`](audit_coordinate_record_admission.md) — [#90](https://github.com/uibcdf/dockingmt/issues/90) — Offline coordinate audits disagree with the existing pose-record admission. *(resolved, reproduced)*
@@ -39,6 +39,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`maintain_python_coverage_reporting.md`](maintain_python_coverage_reporting.md) — [#22](https://github.com/uibcdf/dockingmt/issues/22) — Measure the existing Python suite and publish truthful exact-source coverage. *(resolved, measured)*
 - [`missing_installed_typing_marker.md`](missing_installed_typing_marker.md) — [#45](https://github.com/uibcdf/dockingmt/issues/45) — The declared py.typed resource is absent from source and installed wheels. *(resolved, measured)*
 - [`normalize_vina_box_numbers_after_unit_conversion.md`](normalize_vina_box_numbers_after_unit_conversion.md) — [#13](https://github.com/uibcdf/dockingmt/issues/13) — Normalize Vina box numbers after unit conversion *(resolved, measured)*
+- [`offline_audits_mask_memory_failures.md`](offline_audits_mask_memory_failures.md) — [#95](https://github.com/uibcdf/dockingmt/issues/95) — Offline record audits translate native memory failures into inconsistent data. *(resolved, reproduced)*
 - [`pose_coordinate_record_admission.md`](pose_coordinate_record_admission.md) — [#86](https://github.com/uibcdf/dockingmt/issues/86) — Pose records reject their empty output and leak coordinate field/unit errors. *(resolved, measured)*
 - [`pose_reference_loading.md`](pose_reference_loading.md) — [#37](https://github.com/uibcdf/dockingmt/issues/37) — Pair docking reference frames explicitly and expose viewer failures. *(resolved, measured)*
 - [`prepare_new_machine_handoff.md`](prepare_new_machine_handoff.md) — [#82](https://github.com/uibcdf/dockingmt/issues/82) — Make the developer guide a coherent onboarding and new-machine handoff. *(resolved, measured)*

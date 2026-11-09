@@ -51,6 +51,14 @@ stop interpretation; omitted outer versions retain the existing legacy admission
 but are reported as implicit evidence. A missing field does not acquire a default
 unit, method, input, ranking observation or source identity.
 
+## Resource interruptions
+
+Native MemoryError at quantity/protocol/reference checks propagates to the caller;
+it is not evidence that a saved record is inconsistent. KeyboardInterrupt and
+SystemExit also retain their native identity. Ordinary malformed values still
+produce bounded report entries. [#95's source receiving](audit_resource_errors_2026-11-09.md)
+records the exact scope, original failures and retained installed/scientific limits.
+
 ## Supported checks
 
 - Existing result/pose schema admission, finite named scores, score descriptors

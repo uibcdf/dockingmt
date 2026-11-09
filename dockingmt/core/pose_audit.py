@@ -73,6 +73,8 @@ def _protocol(report, entry, path):
         _normalize_scores({'energy_range': energy['value']})
         try:
             return VinaProtocol.from_dict(record)
+        except MemoryError:
+            raise
         except Exception as exc:
             # Quantity parsers have distinct exception types for malformed units.
             raise ValueError('invalid_protocol') from exc
@@ -313,6 +315,8 @@ def _reference_energy(report, entry, scores, definitions, components, path):
                 to_unit='kcal/mol',
                 value_type=float,
             )
+        except MemoryError:
+            raise
         except Exception as exc:
             raise ValueError('invalid_reference_energy_unit') from exc
         return _normalize_scores({'reference': converted})['reference']
