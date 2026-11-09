@@ -14,6 +14,17 @@ supersedes: []
 
 # Temporary-resource review — 2026-11-05
 
+## Declaration/source custody increment — 2026-11-09
+
+Retain `.molsyssuite/plan-push-20261109` under #97/#98/#99/#47/#50, review 2026-11-14:
+original 61-failure population, collection error, three-failure ownership refinement,
+intermediate 518-case and final 521-case profiles, initial/final seals and readers,
+ten normalized registry documents, original/final source and published test-only
+prefix identities. All owned groups terminate without interruption. The local
+controller syntax failure is preserved before any worker/replay. No shared
+install, native build, search, environment removal or automatic retry occurs.
+Old wheels/helpers/data/migration/scientific producers and central deferrals remain.
+
 ## Pose identity/rank audit custody increment — 2026-11-08
 
 Retain [#91's task and original/final source records](../archive/audit_pose_identity_admission.md),

@@ -14,6 +14,17 @@ supersedes: []
 
 # Distribution control adoption
 
+## Current public/source boundary — 2026-11-09
+
+The [fresh public inventory](../validation/public_candidate_readiness.md#availability-refresh--2026-11-09)
+finds unchanged relevant MT/Viewer bytes; #334/#294 retain their covering-artifact
+handoff. Newly indexed support micro versions are not a qualified closure.
+#97/#98/#99 source receiving passes 521 cases per policy independently; old private
+wheels retain their original source/composition. This issue remains partial for
+actual exact public/Conda/full installed/minor/platform gates. Next inspect the
+current hosted immutable sibling routes against received development APIs before
+registering new execution; no automatic CI or native build follows.
+
 ## Current private installed API receiving — 2026-11-09
 
 [The new genuine private wheel](../validation/record_wheel_editable_2026-11-09.md)

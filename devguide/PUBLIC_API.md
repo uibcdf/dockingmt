@@ -98,11 +98,25 @@ detached copy of every supplied Python object. Keep borrowed molecular inputs
 stable while an operation uses them.
 
 `to_dict`/`from_dict` provide detached observation snapshots for pose/result/
-outcome records. `ranking_history` and score-definition access also detach their
+outcome records. Prepared ligand/receptor `to_dict` and problem `to_dict` also
+detach their declaration lists and nested metadata. Problem `from_dict` detaches
+consumed declarations and selections; explicit live receptor/partner arguments
+remain borrowed, and unused/replaced record payloads are not copied. `ranking_history` and score-definition access also detach their
 evidence. A Python snapshot may contain caller-supplied NumPy values, tuples,
 sets or other metadata: `to_dict` is **not a universal JSON encoder**. Select
 JSON-compatible metadata before using `json.dumps`; never erase units or
 scientific evidence merely to serialize it.
+
+Prepared declaration exports retain their existing schema and omit coordinates
+and `source_molsys`; they are not full molecular checkpoints. Keep native
+molecular systems through the provider's supported persistence route. Copying a
+Python declaration needs memory proportional to that declaration, while leaving
+the live molecular source outside the copied payload.
+
+When a source is identified as an existing file, an open/read failure propagates
+its original filesystem exception. It is not recorded as literal text or
+reclassified as changed scientific content. Successful hashes and explicit
+literal/nonfile inputs retain their existing interpretation.
 
 `rank_by(score_name, ascending=True)` returns a new ordered result with new pose
 objects, stable ties and recorded ranking evidence. It validates score

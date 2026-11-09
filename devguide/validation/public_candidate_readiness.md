@@ -8,6 +8,44 @@ this review checks the separate public package boundary and prepares controls.
 **No release version, real release plan, environment, build, scientific run,
 upload, promotion or credential operation is selected by this work.**
 
+## Availability refresh — 2026-11-09
+
+The maintainer requests a sustained continuation of the accepted plan. Ten
+bounded anonymous official requests inspect complete inventories for DockingMT
+and six providers, plus independent Linux64/macOS-arm64/noarch main indexes.
+Use the accepted common public verifier's bounded fetcher at immutable SDK
+`95f693be10c9205ab9b912cb53453710a207bf45`; its exact source and normalized JSON
+documents/hashes are retained in the [final 200-member evidence](data/declaration_io_final_v2_2026-11-09/manifest.json),
+with [independent receiving](declaration_and_io_receiving_2026-11-09.md).
+These are normalized JSON snapshots, not claimed original HTTP byte captures.
+
+Relevant highest main-indexed MolSysMT0.23.0 Linux and Viewer0.24.0 build1 noarch
+files retain their original exact SHA-256 values below. No covering replacement
+is identified; their original static/installed failures remain applicable to
+those unchanged bytes. MolSysMT #334 and Viewer #294 remain open; Viewer owner
+comment6638360176 independently confirms the two public API gaps while source
+progress does not identify an accepted covering additive file. #558 also remains
+open for panel terminal-completion maps/history. No repeated package download,
+installation, native build, solve, scientific test or public minimum change is
+justified by this observation.
+
+Newly visible support versions include ArgDigest0.17.1, DepDigest0.15.2 and
+PyUnitWizard0.29.1; SMonitor0.22.1 remains indexed. Availability is not consumer
+compatibility or a complete public closure. Keep DepDigest PyPI routes disabled;
+editable source remains the development route. DockingMT's package API returns404
+and no record appears in the three main indexes. This does not prove absence
+at every label or authorize a version/build/release choice.
+
+Latest offline source work resolves #97/#98/#99 with 521 tests per normal/pm-fs
+policy; [the earlier actual private wheel](record_wheel_editable_2026-11-09.md)
+retains its original 1,062-case67-path receipt and provider composition, without
+retroactive acceptance of these new fixes. #30/#47 remain partial for the exact
+public Conda candidate/closure and all eight installed OS/minor cells. Current
+CI's older immutable sibling routes are separate from this development receiving;
+inspect that exact composition before preparing the next authorized hosted
+checkpoint, without automatically dispatching CI. Earlier dated sections retain
+their original scientific/source/artifact scope.
+
 ## Separate private record receiving — 2026-11-08
 
 [The current installed-record checkpoint](record_wheel_editable_2026-11-08.md)

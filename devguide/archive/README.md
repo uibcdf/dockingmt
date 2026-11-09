@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (72)
+### Resolved (75)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_coordinate_record_admission.md`](audit_coordinate_record_admission.md) — [#90](https://github.com/uibcdf/dockingmt/issues/90) — Offline coordinate audits disagree with the existing pose-record admission. *(resolved, reproduced)*
@@ -13,6 +13,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
 - [`audit_saved_scoring_poses.md`](audit_saved_scoring_poses.md) — [#35](https://github.com/uibcdf/dockingmt/issues/35) — Audit saved pose scores and evaluation history without a live backend. *(resolved, measured)*
 - [`backend_box_requires_explicit_unit.md`](backend_box_requires_explicit_unit.md) — [#65](https://github.com/uibcdf/dockingmt/issues/65) — Reject unlabelled numerical backend-box exports *(resolved, measured)*
+- [`batch_collection_imports_optional_engine.md`](batch_collection_imports_optional_engine.md) — [#99](https://github.com/uibcdf/dockingmt/issues/99) — Offline batch-test collection imports an optional native engine through a fixture helper. *(resolved, reproduced)*
 - [`box_record_coerces_invalid_vectors.md`](box_record_coerces_invalid_vectors.md) — [#85](https://github.com/uibcdf/dockingmt/issues/85) — Saved box vectors bypass scalar admission through float coercion. *(resolved, measured)*
 - [`complete_molsyssuite_governance_baseline.md`](complete_molsyssuite_governance_baseline.md) — [#1](https://github.com/uibcdf/dockingmt/issues/1) — Complete the MolSysSuite governance baseline omitted from the initial seed. *(resolved, measured)*
 - [`consume_fixed_state_hydrogens.md`](consume_fixed_state_hydrogens.md) — [#41](https://github.com/uibcdf/dockingmt/issues/41) — Consume explicit fixed-state ligand hydrogen and charge stages with provenance. *(resolved, measured)*
@@ -20,6 +21,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`consume_named_partial_charges.md`](consume_named_partial_charges.md) — [#40](https://github.com/uibcdf/dockingmt/issues/40) — Consume named MolSysMT charges with explicit conserved projection evidence. *(resolved, measured)*
 - [`correct_suite_dependency_installation_routes.md`](correct_suite_dependency_installation_routes.md) — [#64](https://github.com/uibcdf/dockingmt/issues/64) — Advertise the actual MolSysMT and MolSysViewer installation routes. *(resolved, measured)*
 - [`decide_validation_and_benchmark_publication.md`](decide_validation_and_benchmark_publication.md) — [#29](https://github.com/uibcdf/dockingmt/issues/29) — Decide how to collect and publish validation strategies and benchmarks *(resolved, inspected)*
+- [`declaration_snapshots_alias_live_inputs.md`](declaration_snapshots_alias_live_inputs.md) — [#97](https://github.com/uibcdf/dockingmt/issues/97) — Preparation/problem snapshots alias live mutable declarations. *(resolved, reproduced)*
 - [`declare_unyt_test_dependency.md`](declare_unyt_test_dependency.md) — [#66](https://github.com/uibcdf/dockingmt/issues/66) — Declare the alternate unit backend required by box-export tests *(resolved, measured)*
 - [`deliver_installed_scoring_inspection.md`](deliver_installed_scoring_inspection.md) — [#75](https://github.com/uibcdf/dockingmt/issues/75) — Inspect saved named-scoring evidence through an ordinary-installed public API example. *(resolved, measured)*
 - [`describe_saved_search_variability.md`](describe_saved_search_variability.md) — [#67](https://github.com/uibcdf/dockingmt/issues/67) — Describe seed and effort variability in frozen search results *(resolved, measured)*
@@ -28,6 +30,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`e3_reference_mechanics_evidence_gap.md`](e3_reference_mechanics_evidence_gap.md) — [#96](https://github.com/uibcdf/dockingmt/issues/96) — E3 reference readback omits explicit mechanical parameters and assignment evidence. *(resolved, inspected)*
 - [`e3_source_replay_artifact_identity.md`](e3_source_replay_artifact_identity.md) — [#88](https://github.com/uibcdf/dockingmt/issues/88) — E3's full historical PDBQT checksum conflates artifact identity with current-producer compatibility. *(resolved, reproduced)*
 - [`evaluate_redocking.md`](evaluate_redocking.md) — [#38](https://github.com/uibcdf/dockingmt/issues/38) — Evaluate redocking with explicit RMSD policy and detached comparison evidence. *(resolved, measured)*
+- [`file_fingerprint_masks_io_failures.md`](file_fingerprint_masks_io_failures.md) — [#98](https://github.com/uibcdf/dockingmt/issues/98) — Identified source-file read failures are relabeled as literal fingerprints. *(resolved, reproduced)*
 - [`fixed_pose_scoring.md`](fixed_pose_scoring.md) — [#34](https://github.com/uibcdf/dockingmt/issues/34) — Score prepared fixed conformations independently of docking and preserve prior evaluations. *(resolved, measured)*
 - [`flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md`](flexible_ligand_vina_coordinate_arrays_differ_in_order_from_pdbqt_pose_records.md) — [#12](https://github.com/uibcdf/dockingmt/issues/12) — Flexible-ligand Vina coordinate arrays differ in order from PDBQT pose records *(resolved, measured)*
 - [`incremental_prepared_docking.md`](incremental_prepared_docking.md) — [#36](https://github.com/uibcdf/dockingmt/issues/36) — Execute prepared docking problems one at a time with explicit failure handling. *(resolved, measured)*

@@ -48,6 +48,14 @@ Its 464-case normal/pm-fs selections and independent receiving strengthen C5
 resource semantics without changing any Core criterion, ordinary report digest,
 historical producer or installed/scientific/public/visible acceptance.
 
+[The later declaration/I-O correction](validation/declaration_and_io_receiving_2026-11-09.md)
+resolves #97/#98/#99: preparation/problem exported declarations are independent,
+restoration copies only consumed declarations, and source-file read failures
+retain their original filesystem meaning.521 offline tests pass per unit policy,
+with three native cases explicitly outside scope and independent record receiving.
+This strengthens C1/C5 ownership/provenance without changing their scientific
+criteria or requalifying earlier installed/public artifacts.
+
 ## Scope and interpretation
 
 The supported starting profile is a declared single-state small molecule and

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+from copy import deepcopy
 from numbers import Integral
 from pathlib import Path
 from typing import Any
@@ -23,14 +24,15 @@ def _source_fingerprint(value: Any) -> dict[str, str] | None:
     if '\n' not in raw:
         path = Path(raw)
         try:
-            if path.is_file():
-                digest = hashlib.sha256()
-                with path.open('rb') as stream:
-                    for block in iter(lambda: stream.read(1024 * 1024), b''):
-                        digest.update(block)
-                return {'kind': 'file', 'sha256': digest.hexdigest()}
+            is_file = path.is_file()
         except OSError:
-            pass
+            is_file = False
+        if is_file:
+            digest = hashlib.sha256()
+            with path.open('rb') as stream:
+                for block in iter(lambda: stream.read(1024 * 1024), b''):
+                    digest.update(block)
+            return {'kind': 'file', 'sha256': digest.hexdigest()}
     return {'kind': 'literal', 'sha256': hashlib.sha256(raw.encode()).hexdigest()}
 
 
@@ -466,7 +468,7 @@ class DockingProblem:
         return self._metadata
 
     def to_dict(self) -> dict[str, Any]:
-        """Serialize DockingProblem specification to a versioned machine-readable dictionary."""
+        """Return detached declarations while leaving live molecular inputs borrowed."""
         serialized_receptor: Any
         if isinstance(self._receptor, (str, Path)):
             serialized_receptor = {'type': 'string', 'value': str(self._receptor)}
@@ -483,37 +485,39 @@ class DockingProblem:
         else:
             serialized_partner = {'type': 'external', 'value': None}
 
-        return {
-            'schema_version': SCHEMA_VERSION,
-            'receptor': serialized_receptor,
-            'partner': serialized_partner,
-            'molecular_inputs': {
-                'receptor': {
-                    'form': self._receptor_form,
-                    'selection': _serialize_selection(self._receptor_selection),
-                    'structure_index': self._receptor_structure_index,
-                    'atom_indices': self.receptor_atom_indices,
-                    'chemical_state_index': self._receptor_chemical_state_index,
-                    'chemical_state_id': self._receptor_chemical_state_id,
-                    'conversion_report': self._receptor_conversion_report,
-                    'source_fingerprint': self._receptor_fingerprint,
+        return deepcopy(
+            {
+                'schema_version': SCHEMA_VERSION,
+                'receptor': serialized_receptor,
+                'partner': serialized_partner,
+                'molecular_inputs': {
+                    'receptor': {
+                        'form': self._receptor_form,
+                        'selection': _serialize_selection(self._receptor_selection),
+                        'structure_index': self._receptor_structure_index,
+                        'atom_indices': self.receptor_atom_indices,
+                        'chemical_state_index': self._receptor_chemical_state_index,
+                        'chemical_state_id': self._receptor_chemical_state_id,
+                        'conversion_report': self._receptor_conversion_report,
+                        'source_fingerprint': self._receptor_fingerprint,
+                    },
+                    'partner': {
+                        'form': self._partner_form,
+                        'selection': _serialize_selection(self._partner_selection),
+                        'structure_index': self._partner_structure_index,
+                        'atom_indices': self.partner_atom_indices,
+                        'chemical_state_index': self._partner_chemical_state_index,
+                        'chemical_state_id': self._partner_chemical_state_id,
+                        'conversion_report': self._partner_conversion_report,
+                        'source_fingerprint': self._partner_fingerprint,
+                    },
                 },
-                'partner': {
-                    'form': self._partner_form,
-                    'selection': _serialize_selection(self._partner_selection),
-                    'structure_index': self._partner_structure_index,
-                    'atom_indices': self.partner_atom_indices,
-                    'chemical_state_index': self._partner_chemical_state_index,
-                    'chemical_state_id': self._partner_chemical_state_id,
-                    'conversion_report': self._partner_conversion_report,
-                    'source_fingerprint': self._partner_fingerprint,
-                },
-            },
-            'search_domain': self._search_domain.to_dict(),
-            'constraints': self._constraints,
-            'search_guidance': self._search_guidance,
-            'metadata': self._metadata,
-        }
+                'search_domain': self._search_domain.to_dict(),
+                'constraints': self._constraints,
+                'search_guidance': self._search_guidance,
+                'metadata': self._metadata,
+            }
+        )
 
     @classmethod
     @arg_digest(config='dockingmt._argdigest', record_factory=True)
@@ -571,15 +575,24 @@ class DockingProblem:
                     reason='Molecular source content has changed since the problem was recorded.',
                 )
 
+        declarations = deepcopy(
+            {
+                'constraints': data.get('constraints'),
+                'search_guidance': data.get('search_guidance'),
+                'metadata': data.get('metadata'),
+                'receptor_selection': rec_info.get('selection', 'all'),
+                'partner_selection': part_info.get('selection', 'all'),
+            }
+        )
         reconstructed = cls(
             receptor=rec,
             partner=part,
             search_domain=search_domain,
-            constraints=data.get('constraints'),
-            search_guidance=data.get('search_guidance'),
-            metadata=data.get('metadata'),
-            receptor_selection=rec_info.get('selection', 'all'),
-            partner_selection=part_info.get('selection', 'all'),
+            constraints=declarations['constraints'],
+            search_guidance=declarations['search_guidance'],
+            metadata=declarations['metadata'],
+            receptor_selection=declarations['receptor_selection'],
+            partner_selection=declarations['partner_selection'],
             receptor_structure_index=rec_info.get('structure_index'),
             partner_structure_index=part_info.get('structure_index'),
         )

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from copy import deepcopy
 from typing import Any
 
 import numpy as np
@@ -125,21 +126,23 @@ class PreparedLigand:
         return render_pdbqt(self, ligand=True)
 
     def to_dict(self) -> dict[str, Any]:
-        """Serialize prepared ligand to a versioned dictionary."""
-        return {
-            'schema_version': '1.0',
-            'state_id': self.state_id,
-            'n_atoms': self.n_atoms,
-            'atom_names': self.atom_names,
-            'group_name': self.group_name,
-            'group_names': self.group_names,
-            'group_ids': self.group_ids,
-            'atom_types': self.atom_types,
-            'charges': self.charges,
-            'torsion_dof': self.torsion_dof,
-            'pdbqt_atom_indices': self.pdbqt_atom_indices,
-            'metadata': self.metadata,
-        }
+        """Return a detached declaration without copying the molecular source."""
+        return deepcopy(
+            {
+                'schema_version': '1.0',
+                'state_id': self.state_id,
+                'n_atoms': self.n_atoms,
+                'atom_names': self.atom_names,
+                'group_name': self.group_name,
+                'group_names': self.group_names,
+                'group_ids': self.group_ids,
+                'atom_types': self.atom_types,
+                'charges': self.charges,
+                'torsion_dof': self.torsion_dof,
+                'pdbqt_atom_indices': self.pdbqt_atom_indices,
+                'metadata': self.metadata,
+            }
+        )
 
     def to_molecular_system(self) -> Any:
         """Convert through MolSysMT, restoring full-precision prepared values.

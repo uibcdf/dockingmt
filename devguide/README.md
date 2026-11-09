@@ -24,6 +24,12 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+The latest [source ownership/I-O checkpoint](validation/declaration_and_io_receiving_2026-11-09.md)
+resolves #97/#98/#99: independent declaration snapshots, exact source-read errors
+and offline batch-test collection pass complete affected receiving in both unit
+policies. The [public inventory](validation/public_candidate_readiness.md#availability-refresh--2026-11-09)
+still lacks covering MT/Viewer files; the public/installed and hosted gates remain.
+
 The latest [E3 saved-pose checkpoint](validation/e3_saved_pose_study_2026-11-09.md)
 receives the original three-pose comparison/clustering workflow in both unit
 policies, after complete [public0.6 reference receiving](validation/e3_h5msm06_reference_receiving_2026-11-09.md).

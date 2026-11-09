@@ -6,6 +6,30 @@ The roadmap defines direction and gates, not dates.
 
 Work is **active after the maintainer's resumption**.
 
+[Preparation/problem ownership and I/O receiving](validation/declaration_and_io_receiving_2026-11-09.md)
+resolves #97/#98/#99 in source: public declaration exports detach mutable lists/
+metadata, problem restoration copies only consumed declarations while keeping
+explicit live inputs borrowed, and identified source-file read failures retain
+their exact original exception. A test-only typing import moves into its two
+scientific users, allowing offline batch collection without importing Vina.
+Complete final affected selections pass 521 tests normal/pm-fs, with three
+explicit unchanged native deselections each and no warnings. Independent
+200-member/16-member receiving authenticates source/AST/JUnit/Receptor/resource
+facts and all failed/intermediate populations without replay. Shared helper/data
+inputs, all original scientific producers and dependency routes remain exact.
+
+The [public availability refresh](validation/public_candidate_readiness.md#availability-refresh--2026-11-09)
+checks ten official inventory/index documents: no covering MolSysMT/Viewer
+replacement is identified; #334/#294 remain their public-artifact owners. New
+support micro versions are availability only. #30/#47 still need an exact Conda
+candidate/public closure and eight installed OS/minor cells. Current private
+wheels retain their original source/bytes/composition and do not receive these
+later fixes. Next inspect current immutable hosted sibling routes against the
+received development APIs before preparing an authorized CI checkpoint. No
+automatic remote CI or build; #28/#21 evidence remains missing. #558 panel maps/
+history and actual browser/comm/canvas #52/#60 keep their original holds.
+
+
 [E3 bounded comparison/clustering now received](validation/e3_saved_pose_study_2026-11-09.md)
 passes both complete normal/pm-fs profiles on DockingMT `ae0db98`, editable
 MolSysMT `efbe67e1` and unchanged native `5715bda2`. The original three P59 poses

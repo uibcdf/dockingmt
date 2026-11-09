@@ -5,7 +5,6 @@ import pytest
 import pyunitwizard as puw
 from molecular_fixtures import named_181l_pair
 
-from dmt_test_support.qualify_named_types import TYPING, explicit_source
 from dockingmt._private.smonitor import ArgumentError, CapabilityMismatchError
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import DockingProtocol, VinaProtocol
@@ -226,6 +225,8 @@ def test_dock_invalid_backend():
 
 
 def test_rdkit_ligand_with_explicit_hydrogens_has_pose_source_map():
+    from dmt_test_support.qualify_named_types import TYPING
+
     backend = VinaBackend()
     if not backend.is_available:
         pytest.skip('Vina is not installed in the environment.')
@@ -304,6 +305,8 @@ def test_rdkit_ligand_with_explicit_hydrogens_has_pose_source_map():
 
 
 def test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs():
+    from dmt_test_support.qualify_named_types import TYPING, explicit_source
+
     backend = VinaBackend()
     if not backend.is_available:
         pytest.skip('Vina is not installed in the environment.')

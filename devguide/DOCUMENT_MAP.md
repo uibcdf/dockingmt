@@ -56,6 +56,7 @@ making a bounded contribution.
 | [pending_proposals/receive_docking_interaction_analysis.md](pending_proposals/receive_docking_interaction_analysis.md) | Which E4/#80 interaction receiving passes, and what remains for structured consumer/addon admission? |
 | [validation/e3_h5msm06_reference_receiving_2026-11-09.md](validation/e3_h5msm06_reference_receiving_2026-11-09.md) | Which public0.6 reference readbacks pass complete unit-policy receiving, why are initial observer claims narrowed, and how are actual mechanics/reports/literal strings checked? |
 | [validation/e3_saved_pose_study_2026-11-09.md](validation/e3_saved_pose_study_2026-11-09.md) | Which original three-pose frame/state/chemical comparison and clustering profile resolves E3, with what finite outcomes, failures and independent receiving? |
+| [validation/declaration_and_io_receiving_2026-11-09.md](validation/declaration_and_io_receiving_2026-11-09.md) | How do preparation/problem snapshots detach only consumed declarations, preserve exact file-I/O failures and collect offline batch tests without importing an optional engine? |
 | [reporting_protocol.md](reporting_protocol.md) | How are owning issues, active reports, indexes and archived resolutions maintained? |
 | [pending_bugs/README.md](pending_bugs/README.md), [pending_proposals/README.md](pending_proposals/README.md), [archive/README.md](archive/README.md) | Where is the generated issue-backed inventory of open work and resolved history? |
 

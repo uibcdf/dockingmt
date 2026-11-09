@@ -27,6 +27,40 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Current declaration and file-I/O source checkpoint — 2026-11-09
+
+[Preparation/problem ownership and I/O receiving](validation/declaration_and_io_receiving_2026-11-09.md)
+resolves #97/#98/#99 in source: public declaration exports detach mutable lists/
+metadata, problem restoration copies only consumed declarations while keeping
+explicit live inputs borrowed, and identified source-file read failures retain
+their exact original exception. A test-only typing import moves into its two
+scientific users, allowing offline batch collection without importing Vina.
+Complete final affected selections pass 521 tests normal/pm-fs, with three
+explicit unchanged native deselections each and no warnings. Independent
+200-member/16-member receiving authenticates source/AST/JUnit/Receptor/resource
+facts and all failed/intermediate populations without replay. Shared helper/data
+inputs, all original scientific producers and dependency routes remain exact.
+
+The [public availability refresh](validation/public_candidate_readiness.md#availability-refresh--2026-11-09)
+checks ten official inventory/index documents: no covering MolSysMT/Viewer
+replacement is identified; #334/#294 remain their public-artifact owners. New
+support micro versions are availability only. #30/#47 still need an exact Conda
+candidate/public closure and eight installed OS/minor cells. Current private
+wheels retain their original source/bytes/composition and do not receive these
+later fixes. Next inspect current immutable hosted sibling routes against the
+received development APIs before preparing an authorized CI checkpoint. No
+automatic remote CI or build; #28/#21 evidence remains missing. #558 panel maps/
+history and actual browser/comm/canvas #52/#60 keep their original holds.
+
+Private task `.molsyssuite/plan-push-20261109`, owners #97/#98/#99/#47/#50,
+review 2026-11-14, retains all baseline/initial/final code, test attempts, registry
+JSON and independent readers. Both final profiles terminate without interruption,
+CPU0/nice10/one worker and monitored13GiB reserve/1GiB RSS/2GiB address space/
+45CPU/60wall bounds. Preserve original migration, shared/sibling environments,
+old wheels/evidence, test-only verified prefixes and interrupted native build.
+The held build is not restarted. Final resource/documentation checks and fresh
+actual committed-source receiving precede direct `[skip ci]` publication.
+
 ### Current E3 receiving and provider handoff — 2026-11-09
 
 [E3 bounded comparison/clustering now received](validation/e3_saved_pose_study_2026-11-09.md)
@@ -1258,7 +1292,7 @@ position4, local frame0, original scientific rank/ID. The derived empty control
 is separately identified and is never a sixth original. Other original poses
 remain unevaluated. Native regression passes exactly one case per policy with
 setup/call/teardown/JUnit agreement. Its cached archive-verified published Pytest
-Receptor1.2.2 has a separate 15-file prefix; the routine Conda prefix is unchanged.
+Receptor 1.2.2 has a separate 15-file prefix; the routine Conda prefix is unchanged.
 
 Two receiver setup failures and a pre-process label rejection remain preserved.
 Normal elapsed times are 51.145/58.230/37.177/10.442 s; pm/fs are
