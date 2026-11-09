@@ -10,7 +10,10 @@ The map covers all 33 names in `dockingmt.__all__`, including the additive
 `dockingmt.exceptions` namespace delivered under [#94](https://github.com/uibcdf/dockingmt/issues/94).
 It was checked against source base `457eb090f0e36b6d2b34e1b7d90cbab4d43a4c00`
 plus that increment. It is maintained guidance, not a stable-1.0 promise or a
-claim that an earlier wheel contains later APIs. For the installed version, use
+claim that an earlier wheel contains later APIs. The separate
+[current private wheel receiving](validation/record_wheel_editable_2026-11-09.md)
+qualifies these offline APIs with the recorded editable sibling composition;
+public installation and full scientific/platform gates retain their own scope. For the installed version, use
 `help(dmt.DockingResult)` or `inspect.signature(dmt.dock)`.
 
 ## Choose an operation

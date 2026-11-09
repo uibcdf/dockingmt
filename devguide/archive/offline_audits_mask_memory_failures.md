@@ -70,3 +70,13 @@ verifies native/Receptor/hash agreement and that only three passthrough handlers
 change executable AST. All fixture/594 support hashes and 67 runtime paths stay
 exact. Final local/fresh committed checks and [skip ci] publication retain missing
 hosted/public/installed evidence. No provider defect or molecular work follows.
+
+## Subsequent private installed receiving — 2026-11-09
+
+[Separate installed qualification](../validation/record_wheel_editable_2026-11-09.md)
+now receives the later behavior from one genuine wheel at producer `841a34d`,
+with 1,062 complete offline cases normal then pm/fs and the original explicit
+native-test exclusion. Exact payload/source/metadata/import/support checks and
+independent primary 130/reader 9 receiving pass. This later receipt does not change
+or relabel the original source failures, old wheel, producer or evidence above.
+No public/full scientific/platform/canvas/hosted acceptance is inferred.

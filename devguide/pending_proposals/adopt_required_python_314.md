@@ -14,6 +14,21 @@ supersedes: []
 
 # Required Python 3.14 adoption
 
+## Current private installed API receiving — 2026-11-09
+
+[The new genuine private wheel](../validation/record_wheel_editable_2026-11-09.md)
+from producer `841a34d` passes the complete 21-module/1,062-case offline union
+normal then pm/fs with actual unchanged editable siblings. All 67 payload paths,
+metadata/source/RECORD/PEP610, public exception identities, four shared import
+refusals and all 594 support-input retirement pass. Independent primary 130/
+reader 9 receiving imports no consumer code and replays no tests. The earlier
+`6310a97` file and historical failures retain their original scope; this new
+original file receives #94/#95 behavior. Qualification changes docs/evidence
+only. One unchanged native-scoring test remains explicitly outside each profile;
+public Conda/closure, full installed/scientific/platform/browser/comm/canvas and
+hosted exact-head requirements stay separate. #47/#30/#19/#28/#73 remain partial.
+Keep #256/#558, private custody #50 and the interrupted native-build hold.
+
 ## Current private installed-record receiving — 2026-11-08
 
 [The new actual wheel checkpoint](../validation/record_wheel_editable_2026-11-08.md)

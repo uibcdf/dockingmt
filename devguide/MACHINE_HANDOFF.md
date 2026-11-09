@@ -27,6 +27,40 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Current private wheel and 67-path receiving — 2026-11-09
+
+[New private installed API receiving](validation/record_wheel_editable_2026-11-09.md)
+passes 1,062 cases normal then pm/fs using the single genuine wheel from producer
+`841a34d`, version `0.0.0+342.g841a34d`, with unchanged editable siblings. The
+complete 67-path payload/metadata/RECORD/PEP610, real private venv, public exception
+aliases, four import refusals and all 594 support-input cleanup/import retirement
+pass. Independent 130-member primary/nine-member reader receiving passes without
+replay. The new file receives #94/#95 behavior; the earlier `6310a97` wheel and
+its historical failures/66-path receiving stay unchanged. One original actual-
+native scoring test remains explicitly outside each offline profile. Full public/
+installed/scientific/platform/canvas and hosted gates remain partial; #256/#558
+and the native-build hold stay. No provider refresh/build, shared install,
+molecular operation, package publication or remote CI.
+
+Original filename `dockingmt-0.0.0+342.g841a34d-py3-none-any.whl`, 157,177 bytes,
+SHA-256 `a50b21c25e0e254af321836f404f54553611e9d299ee3fdcfe2abe539889ac11`.
+Producer `841a34dd30e848adfb72087a27864253cbe2602d` remains the code/test source;
+this later qualification changes only docs/evidence. Actual MolSysMT `fab8cbccf`,
+Viewer `1187fc18` and native `5715bda2` are unchanged, with stale distribution
+labels attributed separately. Full normal/pm-fs cells take 24.956/24.261 seconds,
+below 230 MB sampled group RSS, CPU 0/nice 10/one worker and monitored 13 GiB reserve.
+All owned groups terminate without interruption; no hypothetical speed claim.
+
+Primary manifest `b8d5196095020e89144e8fdc1074a8a0a5c03719044445ad33311bb09c83fea6`;
+reader `cfd7acfd7052a49e935e24bdcc9ced0136b4d86360989c9962986e62711f31c2`.
+Retain `.molsyssuite/record-wheel-20261109` under #47/#30/#50, review 2026-11-14,
+including the real original wheel, private receiver/harness, exact tool support
+and all receipts. Preserve older wheels/receivers, all historical failures,
+migration directory, shared environment and interrupted native build. Resume
+remaining public/full scientific/platform/canvas work through its own original
+criteria; #256's wait and #558's maps/history requirement remain. No automatic
+CI, provider poll/build or held native-construction restart follows.
+
 ### Offline audit resource propagation #95 — 2026-11-09
 
 [Offline audit resource correction #95](validation/audit_resource_errors_2026-11-09.md)

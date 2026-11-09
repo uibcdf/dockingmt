@@ -65,3 +65,13 @@ The source map covers all 33 root exports/13 model classes and 42 local links.
 Runtime descriptor adds exceptions.py (67 paths), with 594 support inputs unchanged.
 Final local/fresh-export checks and [skip ci] publication preserve missing remote
 and installed/public qualification. No provider defect or new scientific work.
+
+## Subsequent private installed receiving — 2026-11-09
+
+[Separate installed qualification](../validation/record_wheel_editable_2026-11-09.md)
+now receives the later behavior from one genuine wheel at producer `841a34d`,
+with 1,062 complete offline cases normal then pm/fs and the original explicit
+native-test exclusion. Exact payload/source/metadata/import/support checks and
+independent primary 130/reader 9 receiving pass. This later receipt does not change
+or relabel the original source failures, old wheel, producer or evidence above.
+No public/full scientific/platform/canvas/hosted acceptance is inferred.

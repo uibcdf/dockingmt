@@ -6,6 +6,20 @@ The roadmap defines direction and gates, not dates.
 
 Work is **active after the maintainer's resumption**.
 
+[New private installed API receiving](validation/record_wheel_editable_2026-11-09.md)
+passes 1,062 cases normal then pm/fs using the single genuine wheel from producer
+`841a34d`, version `0.0.0+342.g841a34d`, with unchanged editable siblings. The
+complete 67-path payload/metadata/RECORD/PEP610, real private venv, public exception
+aliases, four import refusals and all 594 support-input cleanup/import retirement
+pass. Independent 130-member primary/nine-member reader receiving passes without
+replay. The new file receives #94/#95 behavior; the earlier `6310a97` wheel and
+its historical failures/66-path receiving stay unchanged. One original actual-
+native scoring test remains explicitly outside each offline profile. Full public/
+installed/scientific/platform/canvas and hosted gates remain partial; #256/#558
+and the native-build hold stay. No provider refresh/build, shared install,
+molecular operation, package publication or remote CI.
+
+
 [Offline audit resource correction #95](validation/audit_resource_errors_2026-11-09.md)
 now preserves the exact native MemoryError at length/protocol/reference-energy
 checks instead of reporting bad saved data. Three bare-raise handlers (six lines)

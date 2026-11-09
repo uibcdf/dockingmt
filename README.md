@@ -89,6 +89,12 @@ platform's qualification. The separate full-matrix workflow does not publish thi
 report. Original source/artifact/CI/service evidence is recorded under
 [uibcdf/dockingmt#22](https://github.com/uibcdf/dockingmt/issues/22).
 
+The [current private installed record-API checkpoint](devguide/validation/record_wheel_editable_2026-11-09.md)
+receives the public exception namespace and corrected offline audits from one
+exact wheel with editable siblings: 1,062 cases per caller unit policy. It
+retains the original scientific/native-test exclusions and does not qualify a
+public Conda dependency closure or another platform.
+
 ## Molecular input
 
 Prepared ligands without their original native source reconstruct the available
