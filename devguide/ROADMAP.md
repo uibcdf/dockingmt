@@ -5,6 +5,19 @@ The roadmap defines direction and gates, not dates.
 ## Current operational plan
 
 Work is **active after the maintainer's resumption**.
+[Offline coordinate audit #90](archive/audit_coordinate_record_admission.md)
+now shares the pose reader's existing wire admission: invalid Boolean/complex
+coordinates are inconsistent and canonical empty snapshots are valid with
+length units. The original 13-failure/28-pass guard remains failed; complete
+affected record gates pass 409 cases per normal/pm-fs policy, with one native
+execution case explicitly outside this source scope. All native test assertions
+remain; its fixture import is lazy. The 148-member primary/nine-member reader
+evidence retains initial setup/test/collection failures and verifies complete
+Receptor/JUnit/source agreement without replay. #90 resolves source behavior
+only. MolSysMT #558 still owns panel generation maps/history; #256's handoff
+is being worked on. Preserve both preparation/reference gates, original
+scientific populations, actual canvas and public/installed/hosted requirements.
+
 [The complete current editable E4 Python workflow](validation/e4_view_editable_2026-11-08.md)
 passes all eight original cells: retained/reordered/empty and native two-frame
 widgets, normal then pm/fs. Exact source/native/import custody, full original

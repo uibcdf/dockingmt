@@ -4,9 +4,10 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (63)
+### Resolved (64)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
+- [`audit_coordinate_record_admission.md`](audit_coordinate_record_admission.md) — [#90](https://github.com/uibcdf/dockingmt/issues/90) — Offline coordinate audits disagree with the existing pose-record admission. *(resolved, reproduced)*
 - [`audit_result_scoring_stages.md`](audit_result_scoring_stages.md) — [#76](https://github.com/uibcdf/dockingmt/issues/76) — Attribute per-pose scoring histories correctly inside saved result audits. *(resolved, measured)*
 - [`audit_saved_results_offline.md`](audit_saved_results_offline.md) — [#32](https://github.com/uibcdf/dockingmt/issues/32) — Audit internal consistency of saved docking results offline *(resolved, measured)*
 - [`audit_saved_scoring_poses.md`](audit_saved_scoring_poses.md) — [#35](https://github.com/uibcdf/dockingmt/issues/35) — Audit saved pose scores and evaluation history without a live backend. *(resolved, measured)*

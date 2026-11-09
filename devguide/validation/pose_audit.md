@@ -52,6 +52,12 @@ Absent evidence never acquires default values or inferred meaning.
 
 - Pose schema, finite named scores, explicit coordinate length units and finite
   `(N, 3)` coordinate values reuse the existing saved-result validators.
+  [Coordinate-record admission #90](../archive/audit_coordinate_record_admission.md)
+  shares the reader's raw scalar/shape check before quantity conversion. Mixed
+  Booleans and complex values are inconsistent; canonical empty xyz `[]` is
+  valid with length units. Missing units/evidence stay incomplete and asserted
+  invalid units/shapes stay inconsistent. A valid empty field establishes no
+  molecular geometry, scoring history or scientific readiness.
 - Each scoring evaluation has an admitted schema and `operation='score'`.
   Resolved protocol parameters are validated before constructing the owned
   protocol: missing parameters remain missing. Applied settings must match the

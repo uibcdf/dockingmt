@@ -1,0 +1,1191 @@
+{
+  "schema": "dockingmt.audit_coordinate_admission@1",
+  "source_commit": "a6e636902af26fc624eb5ff60c782a75a95732b7",
+  "owner": "uibcdf/dockingmt#90",
+  "files": [
+    {
+      "path": "producer/run.py.txt.gz",
+      "original_path": "producer/run.py.txt",
+      "bytes": 2089,
+      "sha256": "34b381b5a1bde311ad14409bbaf8c08f8c519a13d2691f1c2ce6ea703f602130",
+      "decoded_bytes": 4651,
+      "decoded_sha256": "02c422648911ecf223aa4e2e5afb5794bbb07b651ca1e555a47d24c27e9c237e"
+    },
+    {
+      "path": "producer/test_child.py.txt.gz",
+      "original_path": "producer/test_child.py.txt",
+      "bytes": 1720,
+      "sha256": "cbbbe0c8d43a4966e1ac9c6789f07b24014ae1b40d79cd839f652cee901455bc",
+      "decoded_bytes": 3883,
+      "decoded_sha256": "f6ca9d720e7f2cdbedacc16823d717777f1cf55994314edc177f610f56dd1045"
+    },
+    {
+      "path": "producer/probe.py.txt.gz",
+      "original_path": "producer/probe.py.txt",
+      "bytes": 1249,
+      "sha256": "ad2054df3b140fa8a7953cad8a7eaa4aab9d666de713da3ee876114a795e8c6c",
+      "decoded_bytes": 2921,
+      "decoded_sha256": "e4d32d9afea321ad639c766077a3415d543a37ee609b804e3c7ee5b83523d2e6"
+    },
+    {
+      "path": "producer/run_probe.py.txt.gz",
+      "original_path": "producer/run_probe.py.txt",
+      "bytes": 1430,
+      "sha256": "844203af3ce98a67f8bf272250156a213c90d57ea955b168600323ce3c7a7647",
+      "decoded_bytes": 2828,
+      "decoded_sha256": "b0593c1289c87c3bf7d5b69cda18b3b441ca1cad0c6ffb85836bebe35143a472"
+    },
+    {
+      "path": "producer/reporting-tools-receipt.json.gz",
+      "original_path": "producer/reporting-tools-receipt.json",
+      "bytes": 1239,
+      "sha256": "12152885fc8f7cfd1714fa8050058ad7f950058d48d0d44e6e7bb75fba799682",
+      "decoded_bytes": 2417,
+      "decoded_sha256": "6deb72abe10fbc706aa57052c98a07c58d7b716d8a7678fe8d27796773fb25f1"
+    },
+    {
+      "path": "producer/admin.py.txt.gz",
+      "original_path": "producer/admin.py.txt",
+      "bytes": 3978,
+      "sha256": "f7f809a4aa0ac5e116d232b52a1a635ff93c975c81ec50ff1158bcb7c192cf0e",
+      "decoded_bytes": 12203,
+      "decoded_sha256": "33e91fc44fa16038a90ca6ea6d0ab322178dfdfea5c5465aa98e2a35aed4a79d"
+    },
+    {
+      "path": "producer/read_records.py.txt.gz",
+      "original_path": "producer/read_records.py.txt",
+      "bytes": 2202,
+      "sha256": "96a311311e8d7aabcea746da6021c314f086d231be5070a8ff4a0144c15e6a8d",
+      "decoded_bytes": 6070,
+      "decoded_sha256": "41b0ea1de9248bb22801702bd0363c6c29ade9426c7de7ae8b2dcbb38ce94081"
+    },
+    {
+      "path": "attempts/probe-01/frozen-controller.py.gz",
+      "original_path": "attempts/probe-01/frozen-controller.py",
+      "bytes": 1408,
+      "sha256": "feaee110b319a76bc5a4fbaadcd63cb43ecd929948df254cf3e0d3fdf8900011",
+      "decoded_bytes": 2771,
+      "decoded_sha256": "7973f3382f50b5dd0b02ee39f36e2b187d3fa1fa3f7338c891d4fad98f65da8b"
+    },
+    {
+      "path": "attempts/probe-01/frozen-dockingmt__core__audit.py.gz",
+      "original_path": "attempts/probe-01/frozen-dockingmt__core__audit.py",
+      "bytes": 4894,
+      "sha256": "5f80417d6b9747e65e21cd2643f18b181f3eb3cfe36efbfd8b61c12c28798cdf",
+      "decoded_bytes": 19870,
+      "decoded_sha256": "29f03d07a7e0b90219ae7b5696964fa883f39f92f143d37df4656dd677bf9249"
+    },
+    {
+      "path": "attempts/probe-01/frozen-dockingmt__core__pose_audit.py.gz",
+      "original_path": "attempts/probe-01/frozen-dockingmt__core__pose_audit.py",
+      "bytes": 4240,
+      "sha256": "f9c4226965babce472aa75161ea5891c7e90c22927e8ed280b90ed36a0d213c0",
+      "decoded_bytes": 17817,
+      "decoded_sha256": "f3a4207b924bd05fd8c511a715a1a6af3f4272690a1d06907c67283cabc01114"
+    },
+    {
+      "path": "attempts/probe-01/frozen-dockingmt__core__results.py.gz",
+      "original_path": "attempts/probe-01/frozen-dockingmt__core__results.py",
+      "bytes": 8817,
+      "sha256": "e7f0ab29aac80b0ea66aeb03a4e74247b64f3da960ec45307afb78442e663393",
+      "decoded_bytes": 37361,
+      "decoded_sha256": "974817259b1f996e33f445b1c053905ec89d6887733bbbdd1839c63addd54d96"
+    },
+    {
+      "path": "attempts/probe-01/frozen-guard.py.gz",
+      "original_path": "attempts/probe-01/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/probe-01/frozen-probe.py.gz",
+      "original_path": "attempts/probe-01/frozen-probe.py",
+      "bytes": 1152,
+      "sha256": "718a06d98c92c760c2942ee722d54bd890da5e3b8730605bd2e6e432170f7739",
+      "decoded_bytes": 2651,
+      "decoded_sha256": "0241558e6be73b01868ea66b2e6a82fdab370bea72dba32dfbb11cfa240b4415"
+    },
+    {
+      "path": "attempts/probe-01/registration.json.gz",
+      "original_path": "attempts/probe-01/registration.json",
+      "bytes": 623,
+      "sha256": "6c5ca808de67690ed8fcfb13bc1825308f2e91ea6420de38704c528234f8c2f5",
+      "decoded_bytes": 1107,
+      "decoded_sha256": "6280fde4b5da47c56e5ef34683adb0f386d346f9dc632b8fe9a5c5a8659de3ae"
+    },
+    {
+      "path": "attempts/probe-01/resource-outcome.json.gz",
+      "original_path": "attempts/probe-01/resource-outcome.json",
+      "bytes": 333,
+      "sha256": "5bf3abb2f2116696799dc60150f03fef2b13b4970a85ab5160ad20f17365310d",
+      "decoded_bytes": 572,
+      "decoded_sha256": "37cf6bb2a779cc7f93c51624d62daa205f128d7b60d051bf72ad25f5377a6e66"
+    },
+    {
+      "path": "attempts/probe-01/stderr.log.gz",
+      "original_path": "attempts/probe-01/stderr.log",
+      "bytes": 455,
+      "sha256": "9e84c70b20c39ce038f8a20081c91b5d9e642fa32b93ff9a1529e5d0495e98c5",
+      "decoded_bytes": 1474,
+      "decoded_sha256": "adf5b1bc020b5f303b11035b631002b023c22bcbe2484b8506b424ba4e50d875"
+    },
+    {
+      "path": "attempts/probe-01/stdout.log.gz",
+      "original_path": "attempts/probe-01/stdout.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/probe-02/frozen-controller.py.gz",
+      "original_path": "attempts/probe-02/frozen-controller.py",
+      "bytes": 1430,
+      "sha256": "844203af3ce98a67f8bf272250156a213c90d57ea955b168600323ce3c7a7647",
+      "decoded_bytes": 2828,
+      "decoded_sha256": "b0593c1289c87c3bf7d5b69cda18b3b441ca1cad0c6ffb85836bebe35143a472"
+    },
+    {
+      "path": "attempts/probe-02/frozen-dockingmt__core__audit.py.gz",
+      "original_path": "attempts/probe-02/frozen-dockingmt__core__audit.py",
+      "bytes": 4894,
+      "sha256": "5f80417d6b9747e65e21cd2643f18b181f3eb3cfe36efbfd8b61c12c28798cdf",
+      "decoded_bytes": 19870,
+      "decoded_sha256": "29f03d07a7e0b90219ae7b5696964fa883f39f92f143d37df4656dd677bf9249"
+    },
+    {
+      "path": "attempts/probe-02/frozen-dockingmt__core__pose_audit.py.gz",
+      "original_path": "attempts/probe-02/frozen-dockingmt__core__pose_audit.py",
+      "bytes": 4240,
+      "sha256": "f9c4226965babce472aa75161ea5891c7e90c22927e8ed280b90ed36a0d213c0",
+      "decoded_bytes": 17817,
+      "decoded_sha256": "f3a4207b924bd05fd8c511a715a1a6af3f4272690a1d06907c67283cabc01114"
+    },
+    {
+      "path": "attempts/probe-02/frozen-dockingmt__core__results.py.gz",
+      "original_path": "attempts/probe-02/frozen-dockingmt__core__results.py",
+      "bytes": 8817,
+      "sha256": "e7f0ab29aac80b0ea66aeb03a4e74247b64f3da960ec45307afb78442e663393",
+      "decoded_bytes": 37361,
+      "decoded_sha256": "974817259b1f996e33f445b1c053905ec89d6887733bbbdd1839c63addd54d96"
+    },
+    {
+      "path": "attempts/probe-02/frozen-guard.py.gz",
+      "original_path": "attempts/probe-02/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/probe-02/frozen-probe.py.gz",
+      "original_path": "attempts/probe-02/frozen-probe.py",
+      "bytes": 1249,
+      "sha256": "ad2054df3b140fa8a7953cad8a7eaa4aab9d666de713da3ee876114a795e8c6c",
+      "decoded_bytes": 2921,
+      "decoded_sha256": "e4d32d9afea321ad639c766077a3415d543a37ee609b804e3c7ee5b83523d2e6"
+    },
+    {
+      "path": "attempts/probe-02/receipt.json.gz",
+      "original_path": "attempts/probe-02/receipt.json",
+      "bytes": 4484,
+      "sha256": "bb24a8c62551896f772b311be4a97209ebc43101e1bda04e164e8ecc8e4e6d64",
+      "decoded_bytes": 230600,
+      "decoded_sha256": "0ee52a56e03e3eca845e6f93fb47819ed87da6f7fca15542e936fdbb0e6cd92e"
+    },
+    {
+      "path": "attempts/probe-02/registration.json.gz",
+      "original_path": "attempts/probe-02/registration.json",
+      "bytes": 625,
+      "sha256": "d4481acfe862ab20bda69b78cafd0f12e709e25f8bddcab6e8adc38de11be194",
+      "decoded_bytes": 1107,
+      "decoded_sha256": "d6ce9e083b2eb91e2a35ac6b527a003a62eb0fc98aed2e824ef3467112329e8d"
+    },
+    {
+      "path": "attempts/probe-02/resource-outcome.json.gz",
+      "original_path": "attempts/probe-02/resource-outcome.json",
+      "bytes": 330,
+      "sha256": "1ae9ce11cc2720e7e6900594a728b6ddcb539a5b75a7e2ce085d2a97b3e98786",
+      "decoded_bytes": 571,
+      "decoded_sha256": "e6bbd6985e111b8a8bdb718df8811f00e49990bb22bb89cd302eb53228f12fcd"
+    },
+    {
+      "path": "attempts/probe-02/stderr.log.gz",
+      "original_path": "attempts/probe-02/stderr.log",
+      "bytes": 232,
+      "sha256": "93a3f941cdad7ad7b22f759a4e26eca0b9a4ef0b6525d319d842594fa1e264e4",
+      "decoded_bytes": 1887,
+      "decoded_sha256": "0e9ecc08779b76bdde182bfced12fcd59a47fc68c6be14c4965802c2e1cde1aa"
+    },
+    {
+      "path": "attempts/probe-02/stdout.log.gz",
+      "original_path": "attempts/probe-02/stdout.log",
+      "bytes": 178,
+      "sha256": "6caadeb9223197c14b703102cbc7eed912ec4adbb8753541918a9bd92bd62f3a",
+      "decoded_bytes": 806,
+      "decoded_sha256": "c80e62ed6f49d57a5c93be73e38364959b39ea555898e53bf908fff49992368c"
+    },
+    {
+      "path": "attempts/red-normal/events.jsonl.gz",
+      "original_path": "attempts/red-normal/events.jsonl",
+      "bytes": 6386,
+      "sha256": "6606f511e1544c16f4fd174ff7068a106c40b676656fa7f2dc874bea24b58ed6",
+      "decoded_bytes": 86301,
+      "decoded_sha256": "d63d5fef9cf50fb85f4e2ca0de8c6b0546830a29d74e55438bda3deef20b2669"
+    },
+    {
+      "path": "attempts/red-normal/frozen-controller.py.gz",
+      "original_path": "attempts/red-normal/frozen-controller.py",
+      "bytes": 2089,
+      "sha256": "34b381b5a1bde311ad14409bbaf8c08f8c519a13d2691f1c2ce6ea703f602130",
+      "decoded_bytes": 4651,
+      "decoded_sha256": "02c422648911ecf223aa4e2e5afb5794bbb07b651ca1e555a47d24c27e9c237e"
+    },
+    {
+      "path": "attempts/red-normal/frozen-devguide__pending_bugs__audit_coordinate_record_admission.md.gz",
+      "original_path": "attempts/red-normal/frozen-devguide__pending_bugs__audit_coordinate_record_admission.md",
+      "bytes": 2039,
+      "sha256": "322228974195624907ac06742cb8be254f8c902fd5bd623c0d75eeb48dfedc12",
+      "decoded_bytes": 3945,
+      "decoded_sha256": "ae385f9bde2962d0782891034a81cc767f66173e7b711e9645d2986ee866bdf2"
+    },
+    {
+      "path": "attempts/red-normal/frozen-dockingmt__core__audit.py.gz",
+      "original_path": "attempts/red-normal/frozen-dockingmt__core__audit.py",
+      "bytes": 4894,
+      "sha256": "5f80417d6b9747e65e21cd2643f18b181f3eb3cfe36efbfd8b61c12c28798cdf",
+      "decoded_bytes": 19870,
+      "decoded_sha256": "29f03d07a7e0b90219ae7b5696964fa883f39f92f143d37df4656dd677bf9249"
+    },
+    {
+      "path": "attempts/red-normal/frozen-dockingmt__core__pose_audit.py.gz",
+      "original_path": "attempts/red-normal/frozen-dockingmt__core__pose_audit.py",
+      "bytes": 4240,
+      "sha256": "f9c4226965babce472aa75161ea5891c7e90c22927e8ed280b90ed36a0d213c0",
+      "decoded_bytes": 17817,
+      "decoded_sha256": "f3a4207b924bd05fd8c511a715a1a6af3f4272690a1d06907c67283cabc01114"
+    },
+    {
+      "path": "attempts/red-normal/frozen-dockingmt__core__results.py.gz",
+      "original_path": "attempts/red-normal/frozen-dockingmt__core__results.py",
+      "bytes": 8817,
+      "sha256": "e7f0ab29aac80b0ea66aeb03a4e74247b64f3da960ec45307afb78442e663393",
+      "decoded_bytes": 37361,
+      "decoded_sha256": "974817259b1f996e33f445b1c053905ec89d6887733bbbdd1839c63addd54d96"
+    },
+    {
+      "path": "attempts/red-normal/frozen-guard.py.gz",
+      "original_path": "attempts/red-normal/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/red-normal/frozen-pyproject.toml.gz",
+      "original_path": "attempts/red-normal/frozen-pyproject.toml",
+      "bytes": 1210,
+      "sha256": "41d6cb9453223991324e3468b52ea2155ab8583e378b3e81a5223faa2882755a",
+      "decoded_bytes": 2810,
+      "decoded_sha256": "ec2ef40c3ed7c228b182477dc498f39f0a097045a37f766011376fa41b25337a"
+    },
+    {
+      "path": "attempts/red-normal/frozen-test_child.py.gz",
+      "original_path": "attempts/red-normal/frozen-test_child.py",
+      "bytes": 1720,
+      "sha256": "cbbbe0c8d43a4966e1ac9c6789f07b24014ae1b40d79cd839f652cee901455bc",
+      "decoded_bytes": 3883,
+      "decoded_sha256": "f6ca9d720e7f2cdbedacc16823d717777f1cf55994314edc177f610f56dd1045"
+    },
+    {
+      "path": "attempts/red-normal/frozen-tests__test_audit_coordinate_records.py.gz",
+      "original_path": "attempts/red-normal/frozen-tests__test_audit_coordinate_records.py",
+      "bytes": 1400,
+      "sha256": "9af519618117efda980d20da21a5551b298dd96274f0a3c414cf6dc590ac4965",
+      "decoded_bytes": 4869,
+      "decoded_sha256": "8bffb6dc4f5a8db1e7d9290a37ac3a2a4276e9fa94e1eb45b073d2221032a0d3"
+    },
+    {
+      "path": "attempts/red-normal/frozen-tests__test_pose_audit.py.gz",
+      "original_path": "attempts/red-normal/frozen-tests__test_pose_audit.py",
+      "bytes": 3175,
+      "sha256": "030e4e5acb3142c8af763708045a568833971b88de6f6751f98a966614ed637f",
+      "decoded_bytes": 11329,
+      "decoded_sha256": "33f4264be7d4c2f665a724a1e7daca8a0d7751fc5884d3310b75e6c3b5a21141"
+    },
+    {
+      "path": "attempts/red-normal/frozen-tests__test_pose_record_admission.py.gz",
+      "original_path": "attempts/red-normal/frozen-tests__test_pose_record_admission.py",
+      "bytes": 1579,
+      "sha256": "dd5f8c173ece1eedc736f22e4db0e3520a2d0217015a8876638574026f76d6b9",
+      "decoded_bytes": 5785,
+      "decoded_sha256": "7950bf293b5772f5953257e9ddfbb2426025f8c623d88739b5b6ce5ec6a63e08"
+    },
+    {
+      "path": "attempts/red-normal/frozen-tests__test_result_audit.py.gz",
+      "original_path": "attempts/red-normal/frozen-tests__test_result_audit.py",
+      "bytes": 2690,
+      "sha256": "ebb72e63c500614f1096b1fbd863842f71352154f1294d8d6cf782b631b32b80",
+      "decoded_bytes": 10564,
+      "decoded_sha256": "e50c036269d7204ce06f73e858fd628017cc50602ee6eb321ec233ae72642593"
+    },
+    {
+      "path": "attempts/red-normal/frozen-tests__test_result_contracts.py.gz",
+      "original_path": "attempts/red-normal/frozen-tests__test_result_contracts.py",
+      "bytes": 2701,
+      "sha256": "8e7795e4fad299176cde0f1a405c97460b34ad51bef8e1069d5acbc8fecd3d4d",
+      "decoded_bytes": 10998,
+      "decoded_sha256": "38670a538ccece5d895a4cddf244bc40a1dbdd11341f50431db9c8d160310889"
+    },
+    {
+      "path": "attempts/red-normal/frozen-tests__test_result_record_admission.py.gz",
+      "original_path": "attempts/red-normal/frozen-tests__test_result_record_admission.py",
+      "bytes": 2016,
+      "sha256": "af74082f1d2bc23b3cc2a6968bd333c9677a8531151bdd402257c60cdebc075d",
+      "decoded_bytes": 8067,
+      "decoded_sha256": "ff14ab1f2ce9827a026ca232ad042158f61a66b026576220a63cbb3c08d21a12"
+    },
+    {
+      "path": "attempts/red-normal/frozen-tests__test_scored_result_audit.py.gz",
+      "original_path": "attempts/red-normal/frozen-tests__test_scored_result_audit.py",
+      "bytes": 1953,
+      "sha256": "f6ff592120d3ba965909856656295819f633ca26bc06acc2090e795f1a1d6240",
+      "decoded_bytes": 6740,
+      "decoded_sha256": "cead09cb6d470b4a82567540d1ef4a480281f846ea09647b460e5e07cf633f0e"
+    },
+    {
+      "path": "attempts/red-normal/frozen-tests__test_scoring_reference.py.gz",
+      "original_path": "attempts/red-normal/frozen-tests__test_scoring_reference.py",
+      "bytes": 2246,
+      "sha256": "cc81dc57548bc5c2168273c20e80407c82c7c57182a24e7a626185ebaccc0a48",
+      "decoded_bytes": 7406,
+      "decoded_sha256": "1da9f747f52b04fab178d27399beb74025d806580cdb96a55bdf1de8361f92fd"
+    },
+    {
+      "path": "attempts/red-normal/frozen-tests__test_serialization_contracts.py.gz",
+      "original_path": "attempts/red-normal/frozen-tests__test_serialization_contracts.py",
+      "bytes": 1438,
+      "sha256": "4fcc52c7d40573a90abe98927cea6462ec4afef4e8af6e12e2bb540c0fccf559",
+      "decoded_bytes": 4717,
+      "decoded_sha256": "7b8671c184f01e8a9c576e9d3dcd427cb72f04ef8cf1cf2909f0b7512f32ecd2"
+    },
+    {
+      "path": "attempts/red-normal/junit.xml.gz",
+      "original_path": "attempts/red-normal/junit.xml",
+      "bytes": 1526,
+      "sha256": "81d239c09bb2e7d93aa82354c3966af0aa852a783534876eee2408687c59fd94",
+      "decoded_bytes": 20515,
+      "decoded_sha256": "24dea6a1c880c40c75ad1f5640f0fabdb5699e7dfda72b992fb463231db010d9"
+    },
+    {
+      "path": "attempts/red-normal/receipt.json.gz",
+      "original_path": "attempts/red-normal/receipt.json",
+      "bytes": 1061,
+      "sha256": "decaa890e24ffeb3606332f4ab2bdf560a708ef537eb002abcfa6b035906e9b8",
+      "decoded_bytes": 2713,
+      "decoded_sha256": "d9cb4fe05cd9ff2b0b6c2434656d42726caf60e29f5378554793141d1e1ddcd9"
+    },
+    {
+      "path": "attempts/red-normal/registration.json.gz",
+      "original_path": "attempts/red-normal/registration.json",
+      "bytes": 1473,
+      "sha256": "75f8e5a047262e2b407d9cf942c6952ae3867045a13aeecff9b7108f15f3bf51",
+      "decoded_bytes": 4250,
+      "decoded_sha256": "a543acadbf9bc9e0218b395066646baf35f83483abdd49b46f1dbbec405022d8"
+    },
+    {
+      "path": "attempts/red-normal/resource-outcome.json.gz",
+      "original_path": "attempts/red-normal/resource-outcome.json",
+      "bytes": 334,
+      "sha256": "13ae2a5584aee7a23eaec84392a9cf0e6e9406ea71f85d92e91786050794229b",
+      "decoded_bytes": 574,
+      "decoded_sha256": "3c426dc6ee3f7dba1297099b8af2cb53580a1a91763c87cb7e56a5a9626a1c00"
+    },
+    {
+      "path": "attempts/red-normal/stderr.log.gz",
+      "original_path": "attempts/red-normal/stderr.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/red-normal/stdout.log.gz",
+      "original_path": "attempts/red-normal/stdout.log",
+      "bytes": 644,
+      "sha256": "0e6cb039aa131d46715292af9e91efd8a20759752cb39f1ffc6a5f3619081e4d",
+      "decoded_bytes": 2328,
+      "decoded_sha256": "8dfd1ac3b8178ff61d7d37eb6b624160a538aeb5b7677ebb230c4a9d294e2c71"
+    },
+    {
+      "path": "attempts/red-normal-02/events.jsonl.gz",
+      "original_path": "attempts/red-normal-02/events.jsonl",
+      "bytes": 6170,
+      "sha256": "c1d6fb7fa4a8551db88ed3bb743a987b2e46fbe53046db25f30378db8b4394af",
+      "decoded_bytes": 82158,
+      "decoded_sha256": "3b7546d0827151aa3009bc9b58a989d800333748c190d956e68324ce91315196"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-controller.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-controller.py",
+      "bytes": 2089,
+      "sha256": "34b381b5a1bde311ad14409bbaf8c08f8c519a13d2691f1c2ce6ea703f602130",
+      "decoded_bytes": 4651,
+      "decoded_sha256": "02c422648911ecf223aa4e2e5afb5794bbb07b651ca1e555a47d24c27e9c237e"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-devguide__pending_bugs__audit_coordinate_record_admission.md.gz",
+      "original_path": "attempts/red-normal-02/frozen-devguide__pending_bugs__audit_coordinate_record_admission.md",
+      "bytes": 2321,
+      "sha256": "6bab2ab499da652e5cbb19fb07fab26ac650f8853edd90805a56c74a12706f8e",
+      "decoded_bytes": 4645,
+      "decoded_sha256": "440e8b82ee93b0f12ba7366187155f247aaa35cbc4d1ba0c4a8ae5591a564d14"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-dockingmt__core__audit.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-dockingmt__core__audit.py",
+      "bytes": 4894,
+      "sha256": "5f80417d6b9747e65e21cd2643f18b181f3eb3cfe36efbfd8b61c12c28798cdf",
+      "decoded_bytes": 19870,
+      "decoded_sha256": "29f03d07a7e0b90219ae7b5696964fa883f39f92f143d37df4656dd677bf9249"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-dockingmt__core__pose_audit.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-dockingmt__core__pose_audit.py",
+      "bytes": 4240,
+      "sha256": "f9c4226965babce472aa75161ea5891c7e90c22927e8ed280b90ed36a0d213c0",
+      "decoded_bytes": 17817,
+      "decoded_sha256": "f3a4207b924bd05fd8c511a715a1a6af3f4272690a1d06907c67283cabc01114"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-dockingmt__core__results.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-dockingmt__core__results.py",
+      "bytes": 8817,
+      "sha256": "e7f0ab29aac80b0ea66aeb03a4e74247b64f3da960ec45307afb78442e663393",
+      "decoded_bytes": 37361,
+      "decoded_sha256": "974817259b1f996e33f445b1c053905ec89d6887733bbbdd1839c63addd54d96"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-guard.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-pyproject.toml.gz",
+      "original_path": "attempts/red-normal-02/frozen-pyproject.toml",
+      "bytes": 1210,
+      "sha256": "41d6cb9453223991324e3468b52ea2155ab8583e378b3e81a5223faa2882755a",
+      "decoded_bytes": 2810,
+      "decoded_sha256": "ec2ef40c3ed7c228b182477dc498f39f0a097045a37f766011376fa41b25337a"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-test_child.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-test_child.py",
+      "bytes": 1720,
+      "sha256": "cbbbe0c8d43a4966e1ac9c6789f07b24014ae1b40d79cd839f652cee901455bc",
+      "decoded_bytes": 3883,
+      "decoded_sha256": "f6ca9d720e7f2cdbedacc16823d717777f1cf55994314edc177f610f56dd1045"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-tests__test_audit_coordinate_records.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-tests__test_audit_coordinate_records.py",
+      "bytes": 1425,
+      "sha256": "1f1afe30afedd62abef35ef23f5f689f785161723919ae826e08e8a305bb71e0",
+      "decoded_bytes": 4912,
+      "decoded_sha256": "8946fa411baf2e9ce35753fcf25ba3174b673fee96c72ec5f0fbfa91560b111d"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-tests__test_pose_audit.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-tests__test_pose_audit.py",
+      "bytes": 3175,
+      "sha256": "030e4e5acb3142c8af763708045a568833971b88de6f6751f98a966614ed637f",
+      "decoded_bytes": 11329,
+      "decoded_sha256": "33f4264be7d4c2f665a724a1e7daca8a0d7751fc5884d3310b75e6c3b5a21141"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-tests__test_pose_record_admission.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-tests__test_pose_record_admission.py",
+      "bytes": 1579,
+      "sha256": "dd5f8c173ece1eedc736f22e4db0e3520a2d0217015a8876638574026f76d6b9",
+      "decoded_bytes": 5785,
+      "decoded_sha256": "7950bf293b5772f5953257e9ddfbb2426025f8c623d88739b5b6ce5ec6a63e08"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-tests__test_result_audit.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-tests__test_result_audit.py",
+      "bytes": 2690,
+      "sha256": "ebb72e63c500614f1096b1fbd863842f71352154f1294d8d6cf782b631b32b80",
+      "decoded_bytes": 10564,
+      "decoded_sha256": "e50c036269d7204ce06f73e858fd628017cc50602ee6eb321ec233ae72642593"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-tests__test_result_contracts.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-tests__test_result_contracts.py",
+      "bytes": 2701,
+      "sha256": "8e7795e4fad299176cde0f1a405c97460b34ad51bef8e1069d5acbc8fecd3d4d",
+      "decoded_bytes": 10998,
+      "decoded_sha256": "38670a538ccece5d895a4cddf244bc40a1dbdd11341f50431db9c8d160310889"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-tests__test_result_record_admission.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-tests__test_result_record_admission.py",
+      "bytes": 2016,
+      "sha256": "af74082f1d2bc23b3cc2a6968bd333c9677a8531151bdd402257c60cdebc075d",
+      "decoded_bytes": 8067,
+      "decoded_sha256": "ff14ab1f2ce9827a026ca232ad042158f61a66b026576220a63cbb3c08d21a12"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-tests__test_scored_result_audit.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-tests__test_scored_result_audit.py",
+      "bytes": 1953,
+      "sha256": "f6ff592120d3ba965909856656295819f633ca26bc06acc2090e795f1a1d6240",
+      "decoded_bytes": 6740,
+      "decoded_sha256": "cead09cb6d470b4a82567540d1ef4a480281f846ea09647b460e5e07cf633f0e"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-tests__test_scoring_reference.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-tests__test_scoring_reference.py",
+      "bytes": 2246,
+      "sha256": "cc81dc57548bc5c2168273c20e80407c82c7c57182a24e7a626185ebaccc0a48",
+      "decoded_bytes": 7406,
+      "decoded_sha256": "1da9f747f52b04fab178d27399beb74025d806580cdb96a55bdf1de8361f92fd"
+    },
+    {
+      "path": "attempts/red-normal-02/frozen-tests__test_serialization_contracts.py.gz",
+      "original_path": "attempts/red-normal-02/frozen-tests__test_serialization_contracts.py",
+      "bytes": 1438,
+      "sha256": "4fcc52c7d40573a90abe98927cea6462ec4afef4e8af6e12e2bb540c0fccf559",
+      "decoded_bytes": 4717,
+      "decoded_sha256": "7b8671c184f01e8a9c576e9d3dcd427cb72f04ef8cf1cf2909f0b7512f32ecd2"
+    },
+    {
+      "path": "attempts/red-normal-02/junit.xml.gz",
+      "original_path": "attempts/red-normal-02/junit.xml",
+      "bytes": 1425,
+      "sha256": "b99ee740de14530cf6688e0292614ee07dedc09378e0b027c3989ea8e137bf8c",
+      "decoded_bytes": 17866,
+      "decoded_sha256": "8cf1208f5dbc0ea6a70ce114cdce2c5bfce52d0f3e5aea25b1749a7ac38959d5"
+    },
+    {
+      "path": "attempts/red-normal-02/receipt.json.gz",
+      "original_path": "attempts/red-normal-02/receipt.json",
+      "bytes": 1062,
+      "sha256": "734e488d923e5d5c863e901b97ef9fdd5fbd249b37aa7e45b89bfc5dbb43b68a",
+      "decoded_bytes": 2714,
+      "decoded_sha256": "cdc2300853ff271a8e3a1e6a58ec40ce6adda296605dffde2d20665e2a3d8b34"
+    },
+    {
+      "path": "attempts/red-normal-02/registration.json.gz",
+      "original_path": "attempts/red-normal-02/registration.json",
+      "bytes": 1472,
+      "sha256": "ec425b3b29e08c531e57721a150dda09807dd5f7a23c00afa409419a697f6675",
+      "decoded_bytes": 4250,
+      "decoded_sha256": "e914793729852b45df8a0e50df8830a4b3c63d3e9315a253a597b5e4ad79ae3f"
+    },
+    {
+      "path": "attempts/red-normal-02/resource-outcome.json.gz",
+      "original_path": "attempts/red-normal-02/resource-outcome.json",
+      "bytes": 334,
+      "sha256": "20067724f59262b6ae9134fe194dbf87616e71a8ff83a12a889e73ad572dbbcf",
+      "decoded_bytes": 574,
+      "decoded_sha256": "3955a87d83d65347efa2ae9f38b845e67693d84c7680a0a2ce14bc05f1b75907"
+    },
+    {
+      "path": "attempts/red-normal-02/stderr.log.gz",
+      "original_path": "attempts/red-normal-02/stderr.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/red-normal-02/stdout.log.gz",
+      "original_path": "attempts/red-normal-02/stdout.log",
+      "bytes": 568,
+      "sha256": "864c640f3230ba0e21a741526f4fc15bd84516d8e3417c0e03e4c09ce180874d",
+      "decoded_bytes": 1733,
+      "decoded_sha256": "7843ea8ffad6585ae0f641a6fef39f9c7bceed05a1100e8c498b430b7fcddb06"
+    },
+    {
+      "path": "attempts/green-normal/events.jsonl.gz",
+      "original_path": "attempts/green-normal/events.jsonl",
+      "bytes": 1505,
+      "sha256": "08b087542ab1c2658a417ebaaac4b18b15819d1cf11d64f77ce45d7667226abf",
+      "decoded_bytes": 4524,
+      "decoded_sha256": "6289f416aa4ff8024ff4895437ab619d0e2d4dbb9f98d4fde0fc05cf4053d9da"
+    },
+    {
+      "path": "attempts/green-normal/frozen-controller.py.gz",
+      "original_path": "attempts/green-normal/frozen-controller.py",
+      "bytes": 2089,
+      "sha256": "34b381b5a1bde311ad14409bbaf8c08f8c519a13d2691f1c2ce6ea703f602130",
+      "decoded_bytes": 4651,
+      "decoded_sha256": "02c422648911ecf223aa4e2e5afb5794bbb07b651ca1e555a47d24c27e9c237e"
+    },
+    {
+      "path": "attempts/green-normal/frozen-devguide__pending_bugs__audit_coordinate_record_admission.md.gz",
+      "original_path": "attempts/green-normal/frozen-devguide__pending_bugs__audit_coordinate_record_admission.md",
+      "bytes": 2321,
+      "sha256": "6bab2ab499da652e5cbb19fb07fab26ac650f8853edd90805a56c74a12706f8e",
+      "decoded_bytes": 4645,
+      "decoded_sha256": "440e8b82ee93b0f12ba7366187155f247aaa35cbc4d1ba0c4a8ae5591a564d14"
+    },
+    {
+      "path": "attempts/green-normal/frozen-dockingmt__core__audit.py.gz",
+      "original_path": "attempts/green-normal/frozen-dockingmt__core__audit.py",
+      "bytes": 4891,
+      "sha256": "d9fa70dae3c7070b2d3a1b9414cbb6e3ede57d0cb46220fe7325f4bcf93067eb",
+      "decoded_bytes": 19841,
+      "decoded_sha256": "82c74754bb9d9fc93c7e89110aed8a9f78e5a193091e5e96f1bbaeca249e8894"
+    },
+    {
+      "path": "attempts/green-normal/frozen-dockingmt__core__pose_audit.py.gz",
+      "original_path": "attempts/green-normal/frozen-dockingmt__core__pose_audit.py",
+      "bytes": 4240,
+      "sha256": "f9c4226965babce472aa75161ea5891c7e90c22927e8ed280b90ed36a0d213c0",
+      "decoded_bytes": 17817,
+      "decoded_sha256": "f3a4207b924bd05fd8c511a715a1a6af3f4272690a1d06907c67283cabc01114"
+    },
+    {
+      "path": "attempts/green-normal/frozen-dockingmt__core__results.py.gz",
+      "original_path": "attempts/green-normal/frozen-dockingmt__core__results.py",
+      "bytes": 8837,
+      "sha256": "77e2c874c41de2f9ba76c4c7fc794aa36c8ac808fef164e9d870fa140b72f59d",
+      "decoded_bytes": 37430,
+      "decoded_sha256": "4733c41e05173a6a945dd274ae7f5840052c234688634a868f5b5784ea6b9647"
+    },
+    {
+      "path": "attempts/green-normal/frozen-guard.py.gz",
+      "original_path": "attempts/green-normal/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/green-normal/frozen-pyproject.toml.gz",
+      "original_path": "attempts/green-normal/frozen-pyproject.toml",
+      "bytes": 1210,
+      "sha256": "41d6cb9453223991324e3468b52ea2155ab8583e378b3e81a5223faa2882755a",
+      "decoded_bytes": 2810,
+      "decoded_sha256": "ec2ef40c3ed7c228b182477dc498f39f0a097045a37f766011376fa41b25337a"
+    },
+    {
+      "path": "attempts/green-normal/frozen-test_child.py.gz",
+      "original_path": "attempts/green-normal/frozen-test_child.py",
+      "bytes": 1720,
+      "sha256": "cbbbe0c8d43a4966e1ac9c6789f07b24014ae1b40d79cd839f652cee901455bc",
+      "decoded_bytes": 3883,
+      "decoded_sha256": "f6ca9d720e7f2cdbedacc16823d717777f1cf55994314edc177f610f56dd1045"
+    },
+    {
+      "path": "attempts/green-normal/frozen-tests__test_audit_coordinate_records.py.gz",
+      "original_path": "attempts/green-normal/frozen-tests__test_audit_coordinate_records.py",
+      "bytes": 1425,
+      "sha256": "1f1afe30afedd62abef35ef23f5f689f785161723919ae826e08e8a305bb71e0",
+      "decoded_bytes": 4912,
+      "decoded_sha256": "8946fa411baf2e9ce35753fcf25ba3174b673fee96c72ec5f0fbfa91560b111d"
+    },
+    {
+      "path": "attempts/green-normal/frozen-tests__test_pose_audit.py.gz",
+      "original_path": "attempts/green-normal/frozen-tests__test_pose_audit.py",
+      "bytes": 3175,
+      "sha256": "030e4e5acb3142c8af763708045a568833971b88de6f6751f98a966614ed637f",
+      "decoded_bytes": 11329,
+      "decoded_sha256": "33f4264be7d4c2f665a724a1e7daca8a0d7751fc5884d3310b75e6c3b5a21141"
+    },
+    {
+      "path": "attempts/green-normal/frozen-tests__test_pose_record_admission.py.gz",
+      "original_path": "attempts/green-normal/frozen-tests__test_pose_record_admission.py",
+      "bytes": 1579,
+      "sha256": "dd5f8c173ece1eedc736f22e4db0e3520a2d0217015a8876638574026f76d6b9",
+      "decoded_bytes": 5785,
+      "decoded_sha256": "7950bf293b5772f5953257e9ddfbb2426025f8c623d88739b5b6ce5ec6a63e08"
+    },
+    {
+      "path": "attempts/green-normal/frozen-tests__test_result_audit.py.gz",
+      "original_path": "attempts/green-normal/frozen-tests__test_result_audit.py",
+      "bytes": 2690,
+      "sha256": "ebb72e63c500614f1096b1fbd863842f71352154f1294d8d6cf782b631b32b80",
+      "decoded_bytes": 10564,
+      "decoded_sha256": "e50c036269d7204ce06f73e858fd628017cc50602ee6eb321ec233ae72642593"
+    },
+    {
+      "path": "attempts/green-normal/frozen-tests__test_result_contracts.py.gz",
+      "original_path": "attempts/green-normal/frozen-tests__test_result_contracts.py",
+      "bytes": 2701,
+      "sha256": "8e7795e4fad299176cde0f1a405c97460b34ad51bef8e1069d5acbc8fecd3d4d",
+      "decoded_bytes": 10998,
+      "decoded_sha256": "38670a538ccece5d895a4cddf244bc40a1dbdd11341f50431db9c8d160310889"
+    },
+    {
+      "path": "attempts/green-normal/frozen-tests__test_result_record_admission.py.gz",
+      "original_path": "attempts/green-normal/frozen-tests__test_result_record_admission.py",
+      "bytes": 2016,
+      "sha256": "af74082f1d2bc23b3cc2a6968bd333c9677a8531151bdd402257c60cdebc075d",
+      "decoded_bytes": 8067,
+      "decoded_sha256": "ff14ab1f2ce9827a026ca232ad042158f61a66b026576220a63cbb3c08d21a12"
+    },
+    {
+      "path": "attempts/green-normal/frozen-tests__test_scored_result_audit.py.gz",
+      "original_path": "attempts/green-normal/frozen-tests__test_scored_result_audit.py",
+      "bytes": 1953,
+      "sha256": "f6ff592120d3ba965909856656295819f633ca26bc06acc2090e795f1a1d6240",
+      "decoded_bytes": 6740,
+      "decoded_sha256": "cead09cb6d470b4a82567540d1ef4a480281f846ea09647b460e5e07cf633f0e"
+    },
+    {
+      "path": "attempts/green-normal/frozen-tests__test_scoring_reference.py.gz",
+      "original_path": "attempts/green-normal/frozen-tests__test_scoring_reference.py",
+      "bytes": 2246,
+      "sha256": "cc81dc57548bc5c2168273c20e80407c82c7c57182a24e7a626185ebaccc0a48",
+      "decoded_bytes": 7406,
+      "decoded_sha256": "1da9f747f52b04fab178d27399beb74025d806580cdb96a55bdf1de8361f92fd"
+    },
+    {
+      "path": "attempts/green-normal/frozen-tests__test_serialization_contracts.py.gz",
+      "original_path": "attempts/green-normal/frozen-tests__test_serialization_contracts.py",
+      "bytes": 1438,
+      "sha256": "4fcc52c7d40573a90abe98927cea6462ec4afef4e8af6e12e2bb540c0fccf559",
+      "decoded_bytes": 4717,
+      "decoded_sha256": "7b8671c184f01e8a9c576e9d3dcd427cb72f04ef8cf1cf2909f0b7512f32ecd2"
+    },
+    {
+      "path": "attempts/green-normal/junit.xml.gz",
+      "original_path": "attempts/green-normal/junit.xml",
+      "bytes": 668,
+      "sha256": "80d04caa4c560dfd0dc23f9c2d551310f9b11f89f3cc215a438a513c0c46035c",
+      "decoded_bytes": 1516,
+      "decoded_sha256": "a3556149bb8c69247636bc65931c6bd2a2f50a22b9244312d562ac42241f58c6"
+    },
+    {
+      "path": "attempts/green-normal/receipt.json.gz",
+      "original_path": "attempts/green-normal/receipt.json",
+      "bytes": 1090,
+      "sha256": "1d5686c92a8e64eee8a014c6f596a4556da1a429f9d20a56dc1535a048f70d33",
+      "decoded_bytes": 2754,
+      "decoded_sha256": "0bb7acd5a8d9547d7d7674ecf8d9d440c08754eb5c798db63a3a815701880b10"
+    },
+    {
+      "path": "attempts/green-normal/registration.json.gz",
+      "original_path": "attempts/green-normal/registration.json",
+      "bytes": 1554,
+      "sha256": "47249bf51820a12ae7ca2dd321155ba6241f9a4a1ea557f6d140d6814305e70b",
+      "decoded_bytes": 4680,
+      "decoded_sha256": "b33c0f654033519de336ae154cf8333a8c9c63f78023d908bb0228085ea9b8fd"
+    },
+    {
+      "path": "attempts/green-normal/resource-outcome.json.gz",
+      "original_path": "attempts/green-normal/resource-outcome.json",
+      "bytes": 335,
+      "sha256": "1d5a7aa12a53b89102c617e1500952f59cb9f411916bf755a1cacd2aac77c175",
+      "decoded_bytes": 575,
+      "decoded_sha256": "400e8ab359457d47b1d01931a8b275384d9f1dd94877a4661476ef75ff03920d"
+    },
+    {
+      "path": "attempts/green-normal/stderr.log.gz",
+      "original_path": "attempts/green-normal/stderr.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/green-normal/stdout.log.gz",
+      "original_path": "attempts/green-normal/stdout.log",
+      "bytes": 475,
+      "sha256": "4c2c186348fe1d131860dae206eed7a50fb9e8295868e588634af42ab249e2fd",
+      "decoded_bytes": 1000,
+      "decoded_sha256": "dfd757e4477b3e2e2a264d3c68188d4720ae976b93ca235c14b949a90bfcdd12"
+    },
+    {
+      "path": "attempts/green-normal-02/events.jsonl.gz",
+      "original_path": "attempts/green-normal-02/events.jsonl",
+      "bytes": 35450,
+      "sha256": "8abc2f02594f0f8d2469334e638571d9ba6dfd58118da6dff9bba288e9283864",
+      "decoded_bytes": 537500,
+      "decoded_sha256": "a1bad4ec64836266ac0e5569bbe8e40f31d3b6c9bebadc0b4c868cdee578e783"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-controller.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-controller.py",
+      "bytes": 2089,
+      "sha256": "34b381b5a1bde311ad14409bbaf8c08f8c519a13d2691f1c2ce6ea703f602130",
+      "decoded_bytes": 4651,
+      "decoded_sha256": "02c422648911ecf223aa4e2e5afb5794bbb07b651ca1e555a47d24c27e9c237e"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-devguide__pending_bugs__audit_coordinate_record_admission.md.gz",
+      "original_path": "attempts/green-normal-02/frozen-devguide__pending_bugs__audit_coordinate_record_admission.md",
+      "bytes": 2644,
+      "sha256": "61eeca8625087e91785179c5357c2db818e0e7c376e0336d67ef760b5037ffbe",
+      "decoded_bytes": 5488,
+      "decoded_sha256": "808a10c167c69ac360b03d272b676d8ff31d3f366ece1989172b2fe85e32fbed"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-dockingmt__core__audit.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-dockingmt__core__audit.py",
+      "bytes": 4891,
+      "sha256": "d9fa70dae3c7070b2d3a1b9414cbb6e3ede57d0cb46220fe7325f4bcf93067eb",
+      "decoded_bytes": 19841,
+      "decoded_sha256": "82c74754bb9d9fc93c7e89110aed8a9f78e5a193091e5e96f1bbaeca249e8894"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-dockingmt__core__pose_audit.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-dockingmt__core__pose_audit.py",
+      "bytes": 4240,
+      "sha256": "f9c4226965babce472aa75161ea5891c7e90c22927e8ed280b90ed36a0d213c0",
+      "decoded_bytes": 17817,
+      "decoded_sha256": "f3a4207b924bd05fd8c511a715a1a6af3f4272690a1d06907c67283cabc01114"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-dockingmt__core__results.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-dockingmt__core__results.py",
+      "bytes": 8838,
+      "sha256": "22397dd3bd41ef8412f4280c27ec91d52608e0dea6b94cda42923c8538b7a085",
+      "decoded_bytes": 37433,
+      "decoded_sha256": "02eebdc7a89b01c1c53e6656195e8e9a40f66fe035a2832651f89bef42a4c527"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-guard.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-pyproject.toml.gz",
+      "original_path": "attempts/green-normal-02/frozen-pyproject.toml",
+      "bytes": 1210,
+      "sha256": "41d6cb9453223991324e3468b52ea2155ab8583e378b3e81a5223faa2882755a",
+      "decoded_bytes": 2810,
+      "decoded_sha256": "ec2ef40c3ed7c228b182477dc498f39f0a097045a37f766011376fa41b25337a"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-test_child.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-test_child.py",
+      "bytes": 1720,
+      "sha256": "cbbbe0c8d43a4966e1ac9c6789f07b24014ae1b40d79cd839f652cee901455bc",
+      "decoded_bytes": 3883,
+      "decoded_sha256": "f6ca9d720e7f2cdbedacc16823d717777f1cf55994314edc177f610f56dd1045"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-tests__test_audit_coordinate_records.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-tests__test_audit_coordinate_records.py",
+      "bytes": 1425,
+      "sha256": "1f1afe30afedd62abef35ef23f5f689f785161723919ae826e08e8a305bb71e0",
+      "decoded_bytes": 4912,
+      "decoded_sha256": "8946fa411baf2e9ce35753fcf25ba3174b673fee96c72ec5f0fbfa91560b111d"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-tests__test_pose_audit.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-tests__test_pose_audit.py",
+      "bytes": 3177,
+      "sha256": "de3fed610003d35823916c08f7e64d40d767a76a56542c3882fc373aa93dce52",
+      "decoded_bytes": 11334,
+      "decoded_sha256": "c2f0b47b6828905d97465c03029b221b80ac6eab8571fd060eb740b3fbdc8290"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-tests__test_pose_record_admission.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-tests__test_pose_record_admission.py",
+      "bytes": 1579,
+      "sha256": "dd5f8c173ece1eedc736f22e4db0e3520a2d0217015a8876638574026f76d6b9",
+      "decoded_bytes": 5785,
+      "decoded_sha256": "7950bf293b5772f5953257e9ddfbb2426025f8c623d88739b5b6ce5ec6a63e08"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-tests__test_result_audit.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-tests__test_result_audit.py",
+      "bytes": 2690,
+      "sha256": "ebb72e63c500614f1096b1fbd863842f71352154f1294d8d6cf782b631b32b80",
+      "decoded_bytes": 10564,
+      "decoded_sha256": "e50c036269d7204ce06f73e858fd628017cc50602ee6eb321ec233ae72642593"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-tests__test_result_contracts.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-tests__test_result_contracts.py",
+      "bytes": 2701,
+      "sha256": "8e7795e4fad299176cde0f1a405c97460b34ad51bef8e1069d5acbc8fecd3d4d",
+      "decoded_bytes": 10998,
+      "decoded_sha256": "38670a538ccece5d895a4cddf244bc40a1dbdd11341f50431db9c8d160310889"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-tests__test_result_record_admission.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-tests__test_result_record_admission.py",
+      "bytes": 2016,
+      "sha256": "af74082f1d2bc23b3cc2a6968bd333c9677a8531151bdd402257c60cdebc075d",
+      "decoded_bytes": 8067,
+      "decoded_sha256": "ff14ab1f2ce9827a026ca232ad042158f61a66b026576220a63cbb3c08d21a12"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-tests__test_scored_result_audit.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-tests__test_scored_result_audit.py",
+      "bytes": 1953,
+      "sha256": "f6ff592120d3ba965909856656295819f633ca26bc06acc2090e795f1a1d6240",
+      "decoded_bytes": 6740,
+      "decoded_sha256": "cead09cb6d470b4a82567540d1ef4a480281f846ea09647b460e5e07cf633f0e"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-tests__test_scoring_reference.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-tests__test_scoring_reference.py",
+      "bytes": 2246,
+      "sha256": "cc81dc57548bc5c2168273c20e80407c82c7c57182a24e7a626185ebaccc0a48",
+      "decoded_bytes": 7406,
+      "decoded_sha256": "1da9f747f52b04fab178d27399beb74025d806580cdb96a55bdf1de8361f92fd"
+    },
+    {
+      "path": "attempts/green-normal-02/frozen-tests__test_serialization_contracts.py.gz",
+      "original_path": "attempts/green-normal-02/frozen-tests__test_serialization_contracts.py",
+      "bytes": 1438,
+      "sha256": "4fcc52c7d40573a90abe98927cea6462ec4afef4e8af6e12e2bb540c0fccf559",
+      "decoded_bytes": 4717,
+      "decoded_sha256": "7b8671c184f01e8a9c576e9d3dcd427cb72f04ef8cf1cf2909f0b7512f32ecd2"
+    },
+    {
+      "path": "attempts/green-normal-02/junit.xml.gz",
+      "original_path": "attempts/green-normal-02/junit.xml",
+      "bytes": 4774,
+      "sha256": "2161d0f5aa31c9565964ac51be56a8d4eae5576c0fb2952c37fa894faf5abf59",
+      "decoded_bytes": 56335,
+      "decoded_sha256": "a7581fb950fb44082857e3f2f37e6dd09788404ea4c4f897339e2beca4f2515e"
+    },
+    {
+      "path": "attempts/green-normal-02/receipt.json.gz",
+      "original_path": "attempts/green-normal-02/receipt.json",
+      "bytes": 1053,
+      "sha256": "9c4fab0cb2e844a6d95d954e5eae891458b9391a184e2f37f89932b6f7e7dfd3",
+      "decoded_bytes": 2717,
+      "decoded_sha256": "099ea4010d6d9c330a0780b0f928d773150f39600c6b6ae32d048c27913f20e8"
+    },
+    {
+      "path": "attempts/green-normal-02/registration.json.gz",
+      "original_path": "attempts/green-normal-02/registration.json",
+      "bytes": 1554,
+      "sha256": "4528e54bda1d2bd53abb0325c93cc4aa507b9e80a70702b112e359ac3a798942",
+      "decoded_bytes": 4680,
+      "decoded_sha256": "381d521ee1349e708b8295d9c0e471eacae678af53be6ef616453a09508f67bf"
+    },
+    {
+      "path": "attempts/green-normal-02/resource-outcome.json.gz",
+      "original_path": "attempts/green-normal-02/resource-outcome.json",
+      "bytes": 330,
+      "sha256": "1eeb5b406c161367a151c99f539d79b2e27f77eedabe74468120f25dc5dc96a7",
+      "decoded_bytes": 574,
+      "decoded_sha256": "a78be3854fe9c0034d8c7013902b334c65633657c931ed563bc84e591136b307"
+    },
+    {
+      "path": "attempts/green-normal-02/stderr.log.gz",
+      "original_path": "attempts/green-normal-02/stderr.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/green-normal-02/stdout.log.gz",
+      "original_path": "attempts/green-normal-02/stdout.log",
+      "bytes": 188,
+      "sha256": "7aae438ac22b690098abdb3e7c7f6a1887dbd0d78425f4ef2d1850f763c0f3a1",
+      "decoded_bytes": 218,
+      "decoded_sha256": "a637903eda429002db0b33875dc98b217a8eea31bdfc3e1fe41a8a248c7c1c08"
+    },
+    {
+      "path": "attempts/green-pm_fs/events.jsonl.gz",
+      "original_path": "attempts/green-pm_fs/events.jsonl",
+      "bytes": 35395,
+      "sha256": "d1c4d3d159dacec4280489f415de2c36d0fd7a8969419cae9d0d3025045c67f3",
+      "decoded_bytes": 537349,
+      "decoded_sha256": "75954ca64955f879e5ca855b3b1f70226282bb4367308674f306d5bf0e248b34"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-controller.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-controller.py",
+      "bytes": 2089,
+      "sha256": "34b381b5a1bde311ad14409bbaf8c08f8c519a13d2691f1c2ce6ea703f602130",
+      "decoded_bytes": 4651,
+      "decoded_sha256": "02c422648911ecf223aa4e2e5afb5794bbb07b651ca1e555a47d24c27e9c237e"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-devguide__pending_bugs__audit_coordinate_record_admission.md.gz",
+      "original_path": "attempts/green-pm_fs/frozen-devguide__pending_bugs__audit_coordinate_record_admission.md",
+      "bytes": 2644,
+      "sha256": "61eeca8625087e91785179c5357c2db818e0e7c376e0336d67ef760b5037ffbe",
+      "decoded_bytes": 5488,
+      "decoded_sha256": "808a10c167c69ac360b03d272b676d8ff31d3f366ece1989172b2fe85e32fbed"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-dockingmt__core__audit.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-dockingmt__core__audit.py",
+      "bytes": 4891,
+      "sha256": "d9fa70dae3c7070b2d3a1b9414cbb6e3ede57d0cb46220fe7325f4bcf93067eb",
+      "decoded_bytes": 19841,
+      "decoded_sha256": "82c74754bb9d9fc93c7e89110aed8a9f78e5a193091e5e96f1bbaeca249e8894"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-dockingmt__core__pose_audit.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-dockingmt__core__pose_audit.py",
+      "bytes": 4240,
+      "sha256": "f9c4226965babce472aa75161ea5891c7e90c22927e8ed280b90ed36a0d213c0",
+      "decoded_bytes": 17817,
+      "decoded_sha256": "f3a4207b924bd05fd8c511a715a1a6af3f4272690a1d06907c67283cabc01114"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-dockingmt__core__results.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-dockingmt__core__results.py",
+      "bytes": 8838,
+      "sha256": "22397dd3bd41ef8412f4280c27ec91d52608e0dea6b94cda42923c8538b7a085",
+      "decoded_bytes": 37433,
+      "decoded_sha256": "02eebdc7a89b01c1c53e6656195e8e9a40f66fe035a2832651f89bef42a4c527"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-guard.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-guard.py",
+      "bytes": 5262,
+      "sha256": "e17fb7351872e2cff79c592bce2b2b785488aa77e40e187381f71e1c12d94a41",
+      "decoded_bytes": 19121,
+      "decoded_sha256": "3663659769ae4cddabd4edc8e351558fe900b568f195496ffd0a07e6f0c65c2d"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-pyproject.toml.gz",
+      "original_path": "attempts/green-pm_fs/frozen-pyproject.toml",
+      "bytes": 1210,
+      "sha256": "41d6cb9453223991324e3468b52ea2155ab8583e378b3e81a5223faa2882755a",
+      "decoded_bytes": 2810,
+      "decoded_sha256": "ec2ef40c3ed7c228b182477dc498f39f0a097045a37f766011376fa41b25337a"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-test_child.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-test_child.py",
+      "bytes": 1720,
+      "sha256": "cbbbe0c8d43a4966e1ac9c6789f07b24014ae1b40d79cd839f652cee901455bc",
+      "decoded_bytes": 3883,
+      "decoded_sha256": "f6ca9d720e7f2cdbedacc16823d717777f1cf55994314edc177f610f56dd1045"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-tests__test_audit_coordinate_records.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-tests__test_audit_coordinate_records.py",
+      "bytes": 1425,
+      "sha256": "1f1afe30afedd62abef35ef23f5f689f785161723919ae826e08e8a305bb71e0",
+      "decoded_bytes": 4912,
+      "decoded_sha256": "8946fa411baf2e9ce35753fcf25ba3174b673fee96c72ec5f0fbfa91560b111d"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-tests__test_pose_audit.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-tests__test_pose_audit.py",
+      "bytes": 3177,
+      "sha256": "de3fed610003d35823916c08f7e64d40d767a76a56542c3882fc373aa93dce52",
+      "decoded_bytes": 11334,
+      "decoded_sha256": "c2f0b47b6828905d97465c03029b221b80ac6eab8571fd060eb740b3fbdc8290"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-tests__test_pose_record_admission.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-tests__test_pose_record_admission.py",
+      "bytes": 1579,
+      "sha256": "dd5f8c173ece1eedc736f22e4db0e3520a2d0217015a8876638574026f76d6b9",
+      "decoded_bytes": 5785,
+      "decoded_sha256": "7950bf293b5772f5953257e9ddfbb2426025f8c623d88739b5b6ce5ec6a63e08"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-tests__test_result_audit.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-tests__test_result_audit.py",
+      "bytes": 2690,
+      "sha256": "ebb72e63c500614f1096b1fbd863842f71352154f1294d8d6cf782b631b32b80",
+      "decoded_bytes": 10564,
+      "decoded_sha256": "e50c036269d7204ce06f73e858fd628017cc50602ee6eb321ec233ae72642593"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-tests__test_result_contracts.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-tests__test_result_contracts.py",
+      "bytes": 2701,
+      "sha256": "8e7795e4fad299176cde0f1a405c97460b34ad51bef8e1069d5acbc8fecd3d4d",
+      "decoded_bytes": 10998,
+      "decoded_sha256": "38670a538ccece5d895a4cddf244bc40a1dbdd11341f50431db9c8d160310889"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-tests__test_result_record_admission.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-tests__test_result_record_admission.py",
+      "bytes": 2016,
+      "sha256": "af74082f1d2bc23b3cc2a6968bd333c9677a8531151bdd402257c60cdebc075d",
+      "decoded_bytes": 8067,
+      "decoded_sha256": "ff14ab1f2ce9827a026ca232ad042158f61a66b026576220a63cbb3c08d21a12"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-tests__test_scored_result_audit.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-tests__test_scored_result_audit.py",
+      "bytes": 1953,
+      "sha256": "f6ff592120d3ba965909856656295819f633ca26bc06acc2090e795f1a1d6240",
+      "decoded_bytes": 6740,
+      "decoded_sha256": "cead09cb6d470b4a82567540d1ef4a480281f846ea09647b460e5e07cf633f0e"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-tests__test_scoring_reference.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-tests__test_scoring_reference.py",
+      "bytes": 2246,
+      "sha256": "cc81dc57548bc5c2168273c20e80407c82c7c57182a24e7a626185ebaccc0a48",
+      "decoded_bytes": 7406,
+      "decoded_sha256": "1da9f747f52b04fab178d27399beb74025d806580cdb96a55bdf1de8361f92fd"
+    },
+    {
+      "path": "attempts/green-pm_fs/frozen-tests__test_serialization_contracts.py.gz",
+      "original_path": "attempts/green-pm_fs/frozen-tests__test_serialization_contracts.py",
+      "bytes": 1438,
+      "sha256": "4fcc52c7d40573a90abe98927cea6462ec4afef4e8af6e12e2bb540c0fccf559",
+      "decoded_bytes": 4717,
+      "decoded_sha256": "7b8671c184f01e8a9c576e9d3dcd427cb72f04ef8cf1cf2909f0b7512f32ecd2"
+    },
+    {
+      "path": "attempts/green-pm_fs/junit.xml.gz",
+      "original_path": "attempts/green-pm_fs/junit.xml",
+      "bytes": 4856,
+      "sha256": "f3aa15f423baee60a9933d827d2f90ed042b20cefcf4d6001afa664cf7b4d14d",
+      "decoded_bytes": 56335,
+      "decoded_sha256": "41d766349e9c361138f03726d2b4deac2af40a4a5408e1bdea61f14129eebb4b"
+    },
+    {
+      "path": "attempts/green-pm_fs/receipt.json.gz",
+      "original_path": "attempts/green-pm_fs/receipt.json",
+      "bytes": 1060,
+      "sha256": "4ba2ad4f5928d07514588314006430ec470e82391679c0696cadbd966b0f3f34",
+      "decoded_bytes": 2727,
+      "decoded_sha256": "1ee17649926dd29e8768825b05b1d77a5051d776287eaefdbff707a20ba461c7"
+    },
+    {
+      "path": "attempts/green-pm_fs/registration.json.gz",
+      "original_path": "attempts/green-pm_fs/registration.json",
+      "bytes": 1553,
+      "sha256": "26691c2a22a0f63b5e94aec7b7a157cd19ecb95d40a18268ef8fb39e657962d6",
+      "decoded_bytes": 4679,
+      "decoded_sha256": "3af25d51a1f7417839b6f233da7dcceaa39ba252f336171d0641777b19f0cbe6"
+    },
+    {
+      "path": "attempts/green-pm_fs/resource-outcome.json.gz",
+      "original_path": "attempts/green-pm_fs/resource-outcome.json",
+      "bytes": 333,
+      "sha256": "3bde5651f7e000e05267809c4bd0f84d8c07373fd923f94621fffa7a3dbfea2f",
+      "decoded_bytes": 576,
+      "decoded_sha256": "a0853c17b56b02e89d031da57c5a77eefec121500d9fd80c817c04469638d734"
+    },
+    {
+      "path": "attempts/green-pm_fs/stderr.log.gz",
+      "original_path": "attempts/green-pm_fs/stderr.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "attempts/green-pm_fs/stdout.log.gz",
+      "original_path": "attempts/green-pm_fs/stdout.log",
+      "bytes": 187,
+      "sha256": "b6761cea5befe914a1c7e1b3212c8b0dbb1904acb45e6c5d969af441dbf93a8a",
+      "decoded_bytes": 218,
+      "decoded_sha256": "ed45450a481dd0bd2cf7f798cfc9897db103d7821c219eff0d4ad48ef193157f"
+    }
+  ]
+}

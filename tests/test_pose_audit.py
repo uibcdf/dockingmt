@@ -12,7 +12,6 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 from argdigest.core.errors import UnknownArgumentError
-from test_engines import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
 from dockingmt._private.smonitor import ArgumentError
@@ -28,6 +27,8 @@ def native_record():
 
 
 def test_fresh_native_scoring_and_rescoring_produce_auditable_evidence():
+    from test_engines import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+
     problem = dmt.DockingProblem(
         MINIMAL_REC_PDBQT,
         MINIMAL_LIG_PDBQT,

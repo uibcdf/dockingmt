@@ -159,6 +159,31 @@ def _coordinate_values(values: Any) -> np.ndarray:
     return raw
 
 
+def _coordinate_record_values(values: Any) -> np.ndarray:
+    """Admit the existing pose xyz record before numerical/unit coercion."""
+    # Preserve wire scalar types until admission: NumPy/quantity factories
+    # can otherwise turn mixed booleans or numeric strings into real values.
+    try:
+        scalars = np.asarray(values, dtype=object)
+    except (TypeError, ValueError) as exc:
+        raise ArgumentError(
+            arg_name='coordinates', reason='Coordinates must have shape (N, 3).'
+        ) from exc
+    if any(
+        isinstance(value, (bool, np.bool_)) or not isinstance(value, Real)
+        for value in scalars.flat
+    ):
+        raise ArgumentError(
+            arg_name='coordinates',
+            reason='Coordinates must contain finite real numbers.',
+        )
+    # The wire schema fixes xyz width; [] is the serializer's zero-row output.
+    numeric = (
+        np.empty((0, 3), dtype=float) if scalars.shape == (0,) else np.asarray(values)
+    )
+    return _coordinate_values(numeric)
+
+
 def _ensure_coordinates_quantity(coords: Any) -> Any:
     """Require finite real (N, 3) length data and normalize it to nanometers."""
     if not puw.is_quantity(coords):
@@ -420,29 +445,7 @@ class DockingPose:
                 arg_name='coordinates',
                 reason='Supply a coordinate record with both value and unit.',
             )
-        # Preserve wire scalar types until admission: NumPy/quantity factories
-        # can otherwise turn mixed booleans or numeric strings into real values.
-        try:
-            values = np.asarray(c_info['value'], dtype=object)
-        except (TypeError, ValueError) as exc:
-            raise ArgumentError(
-                arg_name='coordinates', reason='Coordinates must have shape (N, 3).'
-            ) from exc
-        if any(
-            isinstance(value, (bool, np.bool_)) or not isinstance(value, Real)
-            for value in values.flat
-        ):
-            raise ArgumentError(
-                arg_name='coordinates',
-                reason='Coordinates must contain finite real numbers.',
-            )
-        # The wire schema fixes xyz width; [] is the serializer's zero-row output.
-        numeric = (
-            np.empty((0, 3), dtype=float)
-            if values.shape == (0,)
-            else np.asarray(c_info['value'])
-        )
-        numeric = _coordinate_values(numeric)
+        numeric = _coordinate_record_values(c_info['value'])
         try:
             coords = puw.quantity(numeric, c_info['unit'])
         except MemoryError:

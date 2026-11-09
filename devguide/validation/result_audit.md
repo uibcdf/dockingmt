@@ -60,6 +60,13 @@ unit, method, input, ranking observation or source identity.
   when a digest is absent. Digests without retained bytes are incomplete.
 - Explicit coordinate length units, finite `(N, 3)` values, and native box/grid
   length units. PyUnitWizard interprets and converts units; no defaults are used.
+  Coordinate scalars use the pose reader's existing validation before conversion:
+  mixed Booleans, strings, complex and nonfinite values are inconsistent. The
+  schema's canonical zero-row `[]` coordinate snapshot is valid with explicit
+  length units; unrelated missing evidence remains incomplete. Other malformed
+  empty axes remain invalid. [#90's source correction and receiving](../archive/audit_coordinate_record_admission.md)
+  applies equally to standalone and scored-collection pose records; it does not
+  authenticate geometry or create an evaluated molecular pose.
 - Native `AutoDock Vina/vina` and `AutoDock Vina/vinardo` declarations: backend,
   selected scoring function, version, retained component meaning, native
   kcal/mol numeric scale, preferred direction, docking stage, input hashes,

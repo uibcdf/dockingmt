@@ -14,6 +14,26 @@ supersedes: []
 
 # Temporary-resource review — 2026-11-05
 
+## Offline coordinate audit custody increment — 2026-11-08
+
+Retain [#90's source receiving](../archive/audit_coordinate_record_admission.md)
+task, owned by #90/#50, review 2026-11-14. It contains the initial probe setup
+failure, original/corrected red populations, first green collection failure,
+two complete 409-pass unit-policy selections and reader/admin records. All
+owned groups are terminal without resource interruption. Preserve original
+failures and exact source/test/tool dependencies; the published 15-file Receptor
+prefix remains separate from the shared environment. No molecular/native
+execution, provider build/pull or environment repair occurs.
+
+The 148-member primary manifest is SHA-256
+`fc210deb387b6323a3953b64c074b8a530e410fae71a8741021e9dfb5cfeddff`;
+the nine-member reader companion is
+`05ec7bfe41306b694df7d0ccae8a6363830a48b4bc1a538df8d808b96c85fd17`.
+The independent reader verifies original/final classifications, native JUnit,
+published Receptor events and test AST custody without test/molecular replay.
+Cache disposal awaits exact dependency/owner checks. No original migration,
+shared/sibling work, old interrupted build or central-handoff disposition changes.
+
 ## Editable E4 integration custody increment — 2026-11-08
 
 Retain the three task contexts for

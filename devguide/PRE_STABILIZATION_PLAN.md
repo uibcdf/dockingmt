@@ -5,6 +5,19 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Coordinate-audit correction #90](archive/audit_coordinate_record_admission.md)
+closes a Core C5 source defect independently of the provider holds. Standalone,
+docking and scored-collection audits now use the reader's existing xyz schema
+before coercion, refusing Boolean/complex values and admitting canonical empty
+snapshots without inventing evidence. The original corrected guard has 13
+failures/28 passes; final complete affected source selection passes 409 cases
+per normal/pm-fs policy, one native execution case explicitly deselected. The
+148-member primary/nine-member reader evidence preserves every failed attempt
+and native JUnit/Receptor/source agreement. Reader behavior, historical inputs,
+native test assertions and scientific/installed/public scope stay separate.
+Panel preparation still needs #558 maps/history; wait for the ongoing #256
+handoff before E3's full reference receiving. No remote CI is dispatched.
+
 [Current E4 Python integration](validation/e4_view_editable_2026-11-08.md)
 passes the complete original eight-cell matrix on actual editable sources
 `204f5f6c`/MolSysMT `fab8cbccf`/Viewer `1187fc18`, normal then pm/fs. Original
@@ -226,7 +239,7 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 | C1 explicit preparation | A declared conventional protein/small-ligand profile, selected states, source/output maps, preparation assessment and reproducible supported transformations. | Worked preparation exists; #4/#33/#49 retain broader source/state and independent admission questions. Reuse provider operations. |
 | C2/C3 redocking/local docking | Complete reproducible searches, normalized poses/scores, input/domain provenance and explicit reference recovery within the admitted scientific profile. | Existing 3PTB/1IEP and other finite controls retain their producers. Receive changed boundaries and panel admission separately; do not relabel old observations. |
 | C4 selection-derived domain | Provider-owned selection/geometry, stored derivation/projection and observed domain/reference/pose correspondence. | Construction/record evidence exists; visible acceptance remains #52/#60. |
-| C5 results/provenance | Saved scores/rankings/evaluations, actual input identities/maps, traceable preparation/protocol and explicit recoverable/missing information. | #75–#77 deliver bounded reading/audits. General source restoration and partial/reference coverage remain #4/#49 and MolSysMT #521. |
+| C5 results/provenance | Saved scores/rankings/evaluations, actual input identities/maps, traceable preparation/protocol and explicit recoverable/missing information. | #75–#77 deliver bounded reading/audits. [#90](archive/audit_coordinate_record_admission.md) aligns offline coordinate audits with the existing reader; 409 affected source cases pass per unit policy. General source restoration and partial/reference coverage remain #4/#49 and MolSysMT #521. |
 | C6 visualization | Real addon controls, communication and canvas display correctly paired receptor/domain/poses/reference, with actual interaction evidence. | Python/DOM/export/private evidence exists; live acceptance is still unproven. Respect the maintainer's scheduling decision. |
 | E1 named rescoring/ranking | Existing poses acquire distinct named evaluations; original scores survive; declared comparable collections can be ordered and audited reproducibly. | [#78 resolved](archive/qualify_same_state_rescoring.md#bounded-acceptance-and-resolution--2026-11-07) for the full-source rigid prepared13 profile: both actual original poses complete public reconstruction/preparation/additive Vina/Vinardo 1.2.7 scoring and separate method-local interaction comparison. Eight old values/ranks/history survive with 32 new values; native receiving and independent persistence pass. The original generator qualification remains failed with unreached original live checks. Broader E1, total/reference comparisons, independent science and public delivery retain their owners. |
 | E2 modest ligand collections | A declared study isolates individual failures, retains ligand/state/run identity and supports scientifically delimited aggregation/ranking. | [#81 resolved](archive/qualify_small_ligand_collection.md#bounded-acceptance-and-resolution--2026-11-07) for the P59(R)/P69(S) rigid25 joint-domain profile. Source/preparation reproduction and exact PDBQT gates precede native success/refusal/success, 3+2 poses and two original-rank-1 representatives. Five native columns, own per-run references, original scores/histories, three public outcome reconstructions and fresh independent receiving pass. The receptor remains externally prepared/unassessed; other E2 profiles, screening effectiveness, #73 and public delivery remain unaccepted. |

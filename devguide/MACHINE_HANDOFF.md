@@ -27,6 +27,43 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Offline coordinate audit admission #90 — 2026-11-08
+
+[The source correction](archive/audit_coordinate_record_admission.md) shares
+existing pose-record scalar/xyz shape validation between the reader and both
+auditors. Boolean/complex coordinates no longer become silently numerical;
+canonical zero-row `[]` with length units is valid. Missing evidence remains
+incomplete and invalid units/shapes inconsistent. Reader schema priority,
+resource-error identity, valid report digests and historical inputs remain.
+
+Execution base `a6e636902af26fc624eb5ff60c782a75a95732b7` plus exact frozen changes.
+The corrected original guard has 13 failures/28 passes. Final affected source
+selection passes 409 cases normal then pm/fs, no failures/errors/skips, one
+explicitly deselected native execution test. Its fixture import moves inside
+that native test; independent AST comparison proves every test/assertion stays.
+All 41 new guard cases, complete existing audits/records/serialization/snapshot
+and scoring-reference guards pass with identical final runtime/test bytes.
+
+The 148-member primary manifest is SHA-256
+`fc210deb387b6323a3953b64c074b8a530e410fae71a8741021e9dfb5cfeddff`;
+the nine-member reader companion is
+`05ec7bfe41306b694df7d0ccae8a6363830a48b4bc1a538df8d808b96c85fd17`.
+Initial probe setup, initial red fixture mistake, corrected red and first green
+collection failure remain separate failures. Final supported Receptor/JUnit
+reading passes without tests/molecular replay. The published 15-file Receptor
+1.2.2 tool prefix is authenticated separately from the unchanged shared runtime.
+Final cells take 7.263/10.860 s, peak 136,462,336/136,716,288 RSS bytes, CPU 0/
+nice 10/one worker, monitored 13 GiB reserve; all owned groups terminate without
+resource interruption. Retain the private audit-length-admission task under
+#50/review 2026-11-14; preserve the untracked migration and old build holds.
+
+#90 resolves the source defect only. MolSysMT #558 is still open and supplies
+no received generation-map/history route; it still precedes panel preparation.
+The maintainer reports #256 is being worked on, so wait for its supported
+handoff without polling/building or replacing E3's lossless-reference gate.
+Scientific/canvas/installed/public/platform and exact-head hosted acceptance
+remain unproven; no search, detector, native build/install or remote CI occurs.
+
 ### Complete current editable E4 Python receiving — 2026-11-08
 
 [Complete registration/outcomes/audit](validation/e4_view_editable_2026-11-08.md)

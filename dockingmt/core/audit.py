@@ -11,7 +11,7 @@ from dockingmt._private.serialization import validate_schema_version
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt._private.vina_records import score_components
 from dockingmt.core._scores import normalize_definitions, ranking_history
-from dockingmt.core.results import _normalize_scores
+from dockingmt.core.results import _coordinate_record_values, _normalize_scores
 
 
 @arg_digest()
@@ -386,11 +386,10 @@ def _audit_pose_payload(report, pose, path):
     else:
 
         def check_coordinates():
-            values = coordinates['value']
-            shape = np.asarray(values).shape
-            if len(shape) != 2 or shape[1] != 3:
-                raise ValueError('invalid_coordinate_shape')
-            return _length_values(coordinates, shape)
+            values = _coordinate_record_values(coordinates['value'])
+            return _length_values(
+                {'value': values, 'unit': coordinates['unit']}, values.shape
+            )
 
         report.validate('coordinate_units', path, check_coordinates)
     scores = pose.get('scores')
