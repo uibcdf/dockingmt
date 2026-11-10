@@ -5,6 +5,26 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Installed saved-result receiving](validation/installed_results_2026-11-09.md)
+passes all four complete selections with normal and pm/fs units: 16 restoration/
+materialization, 22 mapped-reader, 6 staged-reader and 155 record-admission cases.
+There are no errors, skips or warnings. Eleven live-engine cases remain explicitly
+outside these selections. All 606 support records retire; the original aeae47d
+wheel, 67-path payload and reviewed six-provider cohort remain unchanged.
+
+Four ordinary Python processes also complete the eight exact user-notebook cells:
+the original five-pose result and a detached no-capture control, each under both
+policies. Original producer/current reader remain separate; consistent versus
+incomplete audits, capture availability, caller policy and detached records remain
+explicit. This is headless execution, with no actual kernel/browser/canvas claim.
+No implementation/test/input edit, new package build, provider refresh or remote CI
+is needed. Independent authentication covers 389 primary records, 14 reader records,
+eight JUnit/Receptor sessions and all four headless-cell receipts; eleven exact
+qualified source files and all original identities bind without molecular replay. Next inspect and
+register tiny installed live-reader/backend controls on the finite existing fixtures
+and retained original engine, one CPU; no native rebuild follows. Full #47/#30/#73,
+SSH #100/#178 and public/platform/hosted/canvas evidence retain separate scope.
+
 [Reconstruction/composition receiving](validation/installed_reconstruction_2026-11-09.md)
 resolves #104 in source and the genuine aeae47d wheel. Independent native copies
 retain unchanged canonical geometry exactly; explicit edits still reach the

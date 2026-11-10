@@ -144,3 +144,25 @@ Small input copies, execution diagnostics and receipts belong to #4/#50, review
 **2026-11-10**, for reproducibility. They reuse the existing scientific receiver
 and task kernel tools. Original receivers, artifacts and shared/sibling work
 are preserved. No kernel, server or watcher remains active.
+
+
+## Current private reader: headless receiving — 2026-11-10
+
+[Current result receiving](installed_results_2026-11-09.md) executes these same
+eight formatted code cells with the genuine installed `0.0.0+351.gaeae47d` reader,
+using the original externally identified five-pose file and a detached software
+control with only the two capture bodies removed. Both inputs pass under normal
+and pm/fs caller policies. The original stays audit-consistent with captures
+verified; the control is explicitly incomplete with captures unavailable. Recorded
+producer `0.0.0+180.g1decee5`, pose identities/order/scores, physical coordinate
+records, detached roundtrip and caller policy remain intact. No molecular problem
+or absent input is reconstructed. Runtime/provider/input bytes stay unchanged.
+
+These are four ordinary isolated Python executions of the exact sources, without
+SDK/harness/source path injection, molecular operations, engine work or a GUI.
+They do not receive a new real Jupyter kernel or relabel the 2026-11-03 real-kernel
+population and its original reader. The notebook itself is unchanged; per-cell
+sources/outputs, input derivation and actual reader/archive identities are retained.
+The same checkpoint separately receives the 16/22/6/155-case installed restoration/
+molecular-reader/record selections under both policies. Full scientific/public
+Conda/platform/source-context and actual canvas/comm evidence remain separate.

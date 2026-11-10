@@ -105,3 +105,20 @@ environment or sibling source is modified. These are software/integration contro
 not biological preparation or affinity validation. #49/#33/#5 remain partial;
 HTML/C6 #52 stays deferred, and public delivery remains #30/#47. No package or
 GitHub Release is published.
+
+
+## Installed non-search reader receiving — 2026-11-10
+
+[Saved-result receiving](installed_results_2026-11-09.md) passes the complete six
+non-search staged-reader controls and 22 mapped-reader controls with the genuine
+unchanged aeae47d wheel and MolSysMT 0c6f9c7 cohort, normal/pm-fs. Actual public
+file/text readers, exact source/payload maps, numeric coherence and later-model/
+changed-source refusals execute without fallback or assertion changes. All 606
+support rows and original source/input/provider/native identities remain exact.
+
+The nine staged and two mapped live-engine cases remain explicitly deselected;
+these finite software outcomes do not receive those production-search cases.
+Original native production populations above keep their own producers. Next inspect
+and register a tiny installed live-reader selection using the retained original
+engine, one CPU and measured headroom; no native rebuild or wider scientific
+accuracy claim follows from these non-search controls.

@@ -24,6 +24,14 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Installed saved-result receiving](validation/installed_results_2026-11-09.md)
+passes the 16/22/6/155-case restoration, molecular-reader and record selections under
+both caller policies. Four headless executions also complete the exact eight user
+inspection cells on the original record and an explicit incomplete control. The
+actual wheel/providers and original producers remain unchanged; actual kernel/
+GUI/public/full-scientific acceptance stays separate. Next register tiny installed
+live-reader/backend controls with the retained engine and conservative resources.
+
 [Reconstruction/composition receiving](validation/installed_reconstruction_2026-11-09.md)
 resolves [#104](archive/prepared_materialization_unit_roundtrip.md) in source and
 an actual new installed wheel. The source-only MolSysMT 0c6f9c7 update then receives
