@@ -64,3 +64,9 @@ warnings/errors/skips each. Administrative checks pass 104 tests/26 subtests,
 including source-free fixture-path routing. Full scientific/native/public/platform
 and hosted gates remain separately pending. Initial failures and the existing
 Pytest Receptor#46 count discrepancy are retained rather than reclassified.
+
+
+The first committed export also exposes five ignored compressed evidence members.
+Their exact original bytes are explicitly versioned without rewriting either
+manifest or result. The 13-member failure appendix preserves this failed admission;
+final local/fresh committed checks authenticate all 235 members before push.

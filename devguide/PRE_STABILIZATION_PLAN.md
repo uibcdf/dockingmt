@@ -25,6 +25,11 @@ stored/decoded records, original failures and exact qualified source bytes
 without replay. Collection completion and actually executed tests retain their
 separate counts; the archive claims no full scientific/source-context acceptance.
 
+The first committed export catches five ignored inert compressed evidence
+members before push. Explicit tracking preserves their original bytes/manifests;
+a 13-member failure appendix keeps that failed admission. Final export admission
+covers all 235 archived members and exact qualified source bytes.
+
 [Current CI context alignment](validation/ci_source_alignment_2026-11-09.md)
 selects the already received ArgDigest07126411/MTefbe67e1/Viewer1187fc18
 revisions for ordinary four-minor CI and explicit current bootstrap floors.

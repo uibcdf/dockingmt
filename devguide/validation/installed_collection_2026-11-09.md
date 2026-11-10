@@ -150,3 +150,24 @@ the first six applicable gates on an actual committed export and retire that
 export. Retain exact receipts in the task's published checkpoint; `[skip ci]`
 is a batching instruction and supplies no hosted PASS. No remote workflow is
 started automatically.
+
+
+### Committed-export correction
+
+The first actual committed export at `5e93414cbd8cdd39e6747ffafa1e04cf0ab5ea1b`
+passes the five lint/index/resource/contract commands but fails the sixth archive
+admission check: Git's `.pytest_cache/` exclusion omitted five inert compressed
+records beneath the minimal comparison's archived input path. All five were
+already present locally and declared by the original 214-member manifest. This
+is an evidence publication omission, not a test/runtime failure or resource stop.
+
+Preserve the original manifest/records exactly and explicitly version only those
+five declared files; keep live caches ignored. Do not reinterpret that first
+committed check as PASS. The [13-member export-failure appendix](data/installed_collection_export_2026-11-09/manifest.json)
+retains original programs, registration, stdout/stderr, resource outcome and all
+five command logs plus the exact missing-member list: 11,213 stored bytes /
+30,591 decoded bytes, manifest SHA256
+`016b3b86b086c1b15f0561ce9fe39e152d62225a94061d2c2689df3557bce3b3`.
+Final admission must verify all 235 primary/reader/appendix members and exact
+qualified source bytes on a new actual committed export. The failed export's
+owned temporary directory was retired; no scientific/native job was replayed.

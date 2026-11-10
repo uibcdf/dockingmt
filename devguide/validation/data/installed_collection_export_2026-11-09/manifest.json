@@ -1,0 +1,112 @@
+{
+  "schema": "dockingmt.installed_collection@1",
+  "source_commit": "9375f3a8b96a651f8944c48105d56d33a0cf4c68",
+  "runtime_producer": "9a40e385d951b0521f6509de6b127083b78be61c",
+  "owner": "uibcdf/dockingmt#102",
+  "files": [
+    {
+      "path": "committed-01/contract.log.gz",
+      "original_path": "committed-01/contract.log",
+      "bytes": 83,
+      "sha256": "2e6405112a17f473c272af3e51844ab9fd08395f80e054eaf82e823f2b1fc951",
+      "decoded_bytes": 66,
+      "decoded_sha256": "763b36fdf6b8f2b30e2191a6dd113b091b86ac94dd233bc8c46e93e2aba1b82c"
+    },
+    {
+      "path": "committed-01/frozen-records.py.gz",
+      "original_path": "committed-01/frozen-records.py",
+      "bytes": 3506,
+      "sha256": "8b6090c1f2b0a4a8476557732c201d5773e2e0deded6f11ff00d559259aa4f27",
+      "decoded_bytes": 9782,
+      "decoded_sha256": "bb60e1d3952c1bf7e08ee33489e68c6c94dcecc0fec85929dfc309b71c415f9e"
+    },
+    {
+      "path": "committed-01/frozen-run.py.gz",
+      "original_path": "committed-01/frozen-run.py",
+      "bytes": 1913,
+      "sha256": "67b525dca2737be9d209117743e2eb3d00455e37464f167af7fd349e1d5296ad",
+      "decoded_bytes": 4003,
+      "decoded_sha256": "9d915e63a5b5a7905fda6b06f24716780773d4c0064b2ddbf052ebe2550a7a09"
+    },
+    {
+      "path": "committed-01/frozen-worker.py.gz",
+      "original_path": "committed-01/frozen-worker.py",
+      "bytes": 3993,
+      "sha256": "aa2ff2dc72eba87b4d6c12aacf3435e941716fd13606eefd0b53398c1664164b",
+      "decoded_bytes": 13239,
+      "decoded_sha256": "b4949ea5ba374479cd2549321b4aaa8296bd809d2435e38886c2dd7093d285f1"
+    },
+    {
+      "path": "committed-01/index.log.gz",
+      "original_path": "committed-01/index.log",
+      "bytes": 58,
+      "sha256": "500c8ceaf8745af05cfc6f058233ff86f7151abbc95eb9f92255bfa97c9fba6b",
+      "decoded_bytes": 38,
+      "decoded_sha256": "3a525cb88e38e62b2cd78f962eec311aeb1797c9a439b3c7d832b95b00a8d5b5"
+    },
+    {
+      "path": "committed-01/registration.json.gz",
+      "original_path": "committed-01/registration.json",
+      "bytes": 363,
+      "sha256": "49181e9e4d37593d5fc21a4997616c4096d8cc58e30edc04f3822061036e228c",
+      "decoded_bytes": 570,
+      "decoded_sha256": "df58381b5655d567b84a75f50f0b2eb167f8f005ab4c2363aaa7b8578ac48fed"
+    },
+    {
+      "path": "committed-01/resource-outcome.json.gz",
+      "original_path": "committed-01/resource-outcome.json",
+      "bytes": 331,
+      "sha256": "6ab4306436a32ea5f233b57e338066f4f8d6e0a0eca75647dd9bb0a2d6042095",
+      "decoded_bytes": 574,
+      "decoded_sha256": "14f015febd16f0ce9240ca8b97707d77106450a689c97cfab29544c1b0d1f267"
+    },
+    {
+      "path": "committed-01/resources.log.gz",
+      "original_path": "committed-01/resources.log",
+      "bytes": 90,
+      "sha256": "786c405599a03d85919b616dac7e3422eb6b11cfe9f9be301b748eba0ccada6b",
+      "decoded_bytes": 83,
+      "decoded_sha256": "1a7af59385a2fb98bf9900ea7148d42802f441182037b21684e534bba83dc7e0"
+    },
+    {
+      "path": "committed-01/ruff-check.log.gz",
+      "original_path": "committed-01/ruff-check.log",
+      "bytes": 39,
+      "sha256": "4c2365851498f2ee80e1619d00b38f91589df5921afdbfb2290aa98c05dc5330",
+      "decoded_bytes": 19,
+      "decoded_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    },
+    {
+      "path": "committed-01/ruff-format.log.gz",
+      "original_path": "committed-01/ruff-format.log",
+      "bytes": 48,
+      "sha256": "5bd244990e5c23d8e511d43ab6762f690a62166fe1e7fb8ed6edfe5b86cd83b8",
+      "decoded_bytes": 28,
+      "decoded_sha256": "433b487039d8bbdf0a0027eb9984140ff9577abcf59eee9585a205de2200efda"
+    },
+    {
+      "path": "committed-01/stderr.log.gz",
+      "original_path": "committed-01/stderr.log",
+      "bytes": 579,
+      "sha256": "0dcb8fd436df76edc1942483c4655387b3cf8a4008bc2da49cc2a4ad3d0a5f86",
+      "decoded_bytes": 1564,
+      "decoded_sha256": "4b9c418899eb2a0c33e7b3852d314884c3df3b873f76acad984427688a7f1fce"
+    },
+    {
+      "path": "committed-01/stdout.log.gz",
+      "original_path": "committed-01/stdout.log",
+      "bytes": 20,
+      "sha256": "ac73670af3abed54ac6fb4695131f4099be9fbe39d6076c5d0264a6bbdae9d83",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "untracked-archive-members.json.gz",
+      "original_path": "untracked-archive-members.json",
+      "bytes": 190,
+      "sha256": "a576633b322e1fea9a52a1eb43479fd10c8d9fbaa875fd8047d8b076d1b7ea4b",
+      "decoded_bytes": 625,
+      "decoded_sha256": "e033f66d664294bd56c5bfa79ab86e041b1dce1b0e6b8597b308a9fbb8ec6211"
+    }
+  ]
+}
