@@ -6,6 +6,33 @@ The roadmap defines direction and gates, not dates.
 
 Work is **active after the maintainer's resumption**.
 
+[Installed fixed-pose scoring](validation/installed_fixed_score_2026-11-10.md)
+receives 31 small-input scoring and 89 record/reference/audit cases under each
+caller unit policy, with zero errors/skips/warnings. Direct/API native Vina and
+Vinardo components agree exactly; record-only cases make zero molecular/native
+calls. The overlapping pilot and two notebook profiles bring actual score calls
+to 20; no search or optimization runs. The single larger receptor/30-angstrom
+case remains explicitly unexecuted. Runtime/test/helper/scientific input bytes,
+the genuine aeae47d wheel and the six-provider/native cohort remain unchanged.
+
+[#105's portable notebook](archive/portable_fixed_pose_scoring_notebook.md) now
+uses explicit caller file/SHA256 inputs and public admission APIs without a
+checkout or named developer environment. All four exact cells pass outside the
+checkout with the actual installed consumer under both policies. Wrong identity
+and missing captures stop before native setup; coordinates, two histories and
+detached score records remain intact. Original developer qualification and frozen
+installed-support snapshots keep their original identities. This is headless
+source-cell evidence; actual Jupyter/comm/browser/canvas remains separate.
+
+Independent authentication covers 365 primary and 14 reader members, five complete
+JUnit/Receptor sessions, actual loaded native maps and nine qualified source
+files. Peak native RSS stays below 656 MiB; no resource interruption occurs. Next
+audit #47's installed workflow ledger and register a small uncovered boundary.
+MolSysMT #521/#558 remain open after review 2026-11-10; original #33/#49 panel
+state/environment/terminal admission must precede preparation. Review custody and
+the bounded reader exception on 2026-11-14. Full #47/#30/#73, SSH #100/#178,
+public/platform/hosted and native-build holds retain separate scope; no remote CI.
+
 [Installed live-reader receiving](validation/installed_live_reader_2026-11-10.md)
 passes the complete 15-case prepared-reader module and two mapped live cases under
 both caller policies, with zero errors/skips/warnings. All nine previously excluded

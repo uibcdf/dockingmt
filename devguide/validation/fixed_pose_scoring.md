@@ -4,7 +4,7 @@
 score_name='score')` evaluates one already prepared ligand conformation against
 a rigid receptor and returns a `DockingPose`. Vina/Vinardo call native
 `Vina.score()`: no search, randomization or local optimization occurs.
-The [executed notebook](fixed_pose_scoring.ipynb) demonstrates a prepared
+The [portable notebook](fixed_pose_scoring.ipynb) demonstrates a prepared
 software control, additive rescoring and an independent JSON roundtrip.
 
 ## Prepared-input contract
@@ -102,9 +102,51 @@ stores them, keeping original result-level docking provenance separate. Missing
 collection evidence stays incomplete; an evaluation is not promoted to that
 provenance. This is not a general stage-composition or score-comparison policy.
 
-## Reproduction and limits
+## Run the notebook with explicit inputs
 
-Run `python -m pytest tests/test_scoring.py --receptor=llm` in
+Choose a Python environment containing DockingMT and a compatible Vina engine,
+and select that environment's notebook kernel. No checkout location, Conda
+environment name or Python minor is hardcoded in the cells. Before opening the
+notebook, supply the saved input record and its independently expected file digest:
+
+```bash
+export DOCKINGMT_RESULT_PATH="prepared_input_record.json"
+export DOCKINGMT_RESULT_SHA256="DIGEST_FROM_YOUR_TRUSTED_SOURCE"
+jupyter lab
+```
+
+Alternatively, replace those two environment lookups in the first cell with your
+explicit path and trusted digest. JSON and gzip-compressed JSON are supported.
+For the retained synthetic example, download
+[the original input record](data/audit/minimal_vina_result.json), keep its bytes
+unchanged and use the externally recorded SHA256:
+
+```text
+4d66f4e3d00f5e5e6014ce00bd0ec11370890997f570f6272dc1f5205f1c0a88
+```
+
+The first cell verifies file identity, admits the record with public audit/schema
+APIs and requires both captured prepared PDBQT byte strings plus the declared
+box. A wrong digest, unsupported/inconsistent record or unavailable capture stops
+before native setup. Capture verification authenticates the recorded byte hashes;
+it does not reconstruct absent chemical state, source topology or historical
+software. Original producer information remains visible separately from the
+current reader. This example does not recover a full molecular problem.
+
+The conformation scored is the original **captured submitted partner**, not an
+automatically selected historical output pose. To evaluate another conformation,
+supply matching already prepared inputs through the public scoring contract above.
+The next cells perform the existing Vina/Vinardo evaluations with CPU1, retain
+16 native components/two histories and demonstrate an independent roundtrip with
+one explicitly undeclared manual score. Public structured errors handle the
+expected duplicate-score refusal; unrelated exceptions propagate. The notebook
+contains clean outputs, a generic Python kernel declaration and no checkout-specific or helper
+imports. Choose current installation routes from the maintained package guidance;
+this private receiving does not establish a new public engine/platform matrix.
+
+## Original developer reproduction and limits
+
+Original 2026-10-03 developer profile: run `python -m pytest tests/test_scoring.py --receptor=llm` in
 `molsyssuite@uibcdf_3.14`, with DockingMT installed editable. Select the explicit
 Python 3.14 Conda kernel for notebook execution. Notebook/test source qualification
 uses the existing unchanged CI pins: MolSysMT
@@ -130,3 +172,24 @@ the requested Conda interpreter. Both scoring functions preserve the original
 control geometry, and the additive example keeps 16 native score components,
 two evaluation records and a separate undeclared manual score through JSON.
 This is source-qualified behavior evidence within the bounds above.
+
+
+## Current installed scoring and portable source cells — 2026-11-10
+
+[Current receiving](installed_fixed_score_2026-11-10.md) uses the same genuine
+installed aeae47d wheel and retained native engine with the fixed six-provider
+cohort. It keeps the original developer notebook/source outputs and historical
+producer/data identities separate from the revised portable example (#105).
+The 31 small-input scoring cases and 89 record semantics/reference/audit controls
+pass under both caller policies; the single larger receptor guard remains an
+explicit unexecuted selection boundary. Actual direct/API component equality,
+negative native setup, preparation policy, file cleanup and independent histories
+retain their original assertions. No runtime API or force field is changed.
+
+The revised four exact formatted notebook cells are received separately from
+outside-source directories with explicit caller inputs and ordinary installed
+origins. Wrong identity/missing-capture controls both stop in the first cell with zero
+native calls. These are headless Python executions, not new Jupyter/browser/public-platform
+receiving. The original developer qualification above is not relabelled with
+current software. Exact source/input/output/native identities and remaining scope
+are retained in the owning receiving record.

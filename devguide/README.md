@@ -24,6 +24,15 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Installed fixed-pose scoring](validation/installed_fixed_score_2026-11-10.md)
+passes 31+89 admitted cases per caller policy. The
+[portable notebook](validation/fixed_pose_scoring.ipynb) now takes explicit
+caller inputs and completes all four cells outside the checkout with an ordinary
+installed consumer under both policies; bad identity/missing captures stop before
+native setup. [#105 is resolved](archive/portable_fixed_pose_scoring_notebook.md).
+Original runtime/input producers remain intact. Real kernel/browser/public/full
+plan acceptance is separate; next audit #47's remaining installed-workflow ledger.
+
 [Installed live-reader receiving](validation/installed_live_reader_2026-11-10.md)
 passes the complete 15-case module and two mapped controls under both unit policies,
 including actual native construction, grids, search and output reading. The real
