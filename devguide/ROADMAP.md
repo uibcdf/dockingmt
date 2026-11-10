@@ -7,15 +7,26 @@ The roadmap defines direction and gates, not dates.
 Work is **active after the maintainer's resumption**.
 
 [Reconstruction/composition receiving](validation/installed_reconstruction_2026-11-09.md)
-executes the collected native copy/permutation/composition controls and exposes
-#104's unchanged-coordinate round trip. Source now preserves canonical bits in
-independent native copies: complete52-case and20-case source selections pass
-under both unit policies, with the one explicit real-search exclusion retained.
-The original installed/source failures and an unqualified changed-docstring cell
-stay separate. All606 support/provider/native inputs remain unchanged. Next
-build/receive the actual new consumer wheel, then admit MolSysMT#675's fetched
-source-only delivery independently; full#47/#30/#73 and SSH/public/platform/
-canvas/hosted/build holds remain. Actual alanine input query confirms22 atoms.
+resolves #104 in source and the genuine aeae47d wheel. Independent native copies
+retain unchanged canonical geometry exactly; explicit edits still reach the
+public setter. The complete 52-case and 20-case selections pass with both unit
+policies on the original provider cohort. The payload keeps 67 runtime paths,
+and all 606 support records retain their original bytes.
+
+MolSysMT then fast-forwards to reviewed 0c6f9c7, receiving #675 and #677. Native,
+build, data and installed metadata bytes stay unchanged; other providers stay
+fixed. The complete 52-, 20- and 64-case installed selections pass with both
+policies. Only the three explicit legacy-H5MSM warnings remain in each 52-case
+cell. Six separate original provider guards pass, including a genuine lost-time
+warning and actual 22-atom catalog/manifest/input agreement.
+
+Independent authentication covers 1,412 primary records, 14 reader records and
+23 stored JUnit/Receptor sessions, without molecular replay. Nine qualified source
+files bind to the final source/installed inputs. Original failures, one wall stop
+and an unclassified finalization signal remain separate. Next register bounded
+installed result materialization/inspection controls from saved inputs. Full
+#47/#30/#73, SSH #100/#178, public/platform/canvas/hosted and native-build holds
+retain their separate scope. CI pins/frozen candidates stay unchanged; no remote CI.
 
 [Native small-fixture receiving](validation/installed_small_fixtures_2026-11-09.md)
 resolves #103 in source and the new genuinely installed bba53f6 wheel: unchanged

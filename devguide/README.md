@@ -25,14 +25,16 @@ records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
 [Reconstruction/composition receiving](validation/installed_reconstruction_2026-11-09.md)
-now isolates #104's native-coordinate round trip and receives both complete
-source selections under both caller unit policies. Independent-copy semantics,
-original failures and exact input identities stay explicit; the new wheel and
-upstream #675 delivery still need receiving.
+resolves [#104](archive/prepared_materialization_unit_roundtrip.md) in source and
+an actual new installed wheel. The source-only MolSysMT 0c6f9c7 update then receives
+#675/#677: whole52/20/64-case installed selections pass under both caller policies,
+with original failures and exact artifact/input/native identities preserved. Six
+original owner guards also pass. Full/public/hosted/canvas and SSH-source gates
+remain separate; next register small saved-result materialization controls.
 
 [Native small-fixture receiving](validation/installed_small_fixtures_2026-11-09.md)
 now resolves #103's caller-unit copy defect in source and a genuinely new private
-wheel. Both complete64-case and20-case selections pass under both policies;
+wheel. Both complete 64-case and20-case selections pass under both policies;
 original failures, provider warnings and exact input/runtime identities stay
 explicit. Full public/scientific/platform/hosted acceptance remains separate.
 

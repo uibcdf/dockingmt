@@ -1,7 +1,7 @@
 # Installed reconstruction and composition — 2026-11-09
 
 Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), with
-molecular delegation #49 and complete functional plan #73. Status: consumer source correction received; new wheel/provider receiving pending.
+molecular delegation #49 and complete functional plan #73. Status: consumer correction and source-only provider delivery received; independent evidence reading passes. Full/public/source-context gates remain partial.
 
 ## Question and inputs
 
@@ -61,8 +61,8 @@ available, load0.33/0.30/0.34,97% interval CPU idle, no active swap I/O or memor
 PSI. Slurm commands exist but no allocation is present; earlier scheduler
 applicability probing was inconclusive. Free capacity is not reserved.
 
-Each native cell is serial, CPU0/nice10, one native/build worker,13GiB available
-reserve,1GiB group RSS cap,2GiB address space,45 CPU/60 wall seconds; expected
+Each native cell is serial, CPU0/nice10, one native/build worker,13 GiB available
+reserve,1 GiB group RSS cap,2 GiB address space,45 CPU/60 wall seconds; expected
 peak512MiB. Monitor owned descendants and preserve every failure/interruption.
 Never automatically restart native work after a headroom stop. Actual GUI/native
 build holds, public/platform/hosted evidence and SSH-source context #100 under
@@ -110,8 +110,8 @@ materialization still copies, but only real coordinate edits invoke the setter.
 The new guards include both roles, all nine unit pairs, exact unchanged native
 snapshots, one-ULP edit transport and original copy/read/set MemoryError identity.
 
-Measured pilot peak is below300MiB and the shared reserve remains ample. Receive
-a complete source selection containing the two original modules, the new24-case
+Measured pilot peak is below300 MiB and the shared reserve remains ample. Receive
+a complete source selection containing the two original modules, the new 24-case
 regression and existing molecular-variant ownership module: expected52 executed,
 one explicit search deselection, normal then pm/fs. Also receive the complete
 20-case export-unit regression separately under both policies, since #103's
@@ -148,7 +148,7 @@ coordinates are not reinserted through a setter; exact explicit prepared edits
 still are. The shared private comparison performs public native/PyUnitWizard
 reads, adds no scientific tolerance or public runtime path, and preserves generic
 and source-free behavior. Current policies for available native chemistry and
-mechanics are unchanged. All606 support declarations/input producers remain exact.
+mechanics are unchanged. All 606 support declarations/input producers remain exact.
 
 Source-mode execution is explicitly a measured working-tree overlay on dc4a0c5.
 The reused source-mode registration's bba53f6 labels name the retained reference
@@ -158,7 +158,149 @@ and frozen runtime/test SHA256 inputs make that distinction explicit. Future
 installed claims require their own real committed producer.
 
 The fetched provider main97a9857 contains #675 but is not yet merged. Rust tree,
-pyproject and native build/package inputs are unchanged. Keep MolSysMTefbe67e1
+pyproject and native build/package inputs are unchanged. Keep MolSysMT efbe67e1
 fixed through source/new-consumer-wheel receiving, then independently receive the
 provider diagnostic update with original/new cohorts separate. No release, remote
 CI, metadata reinstall or native build is part of this checkpoint.
+
+
+## Genuine new consumer wheel on the original provider cohort
+
+Committed producer `aeae47d50c5e90687c2558437cb22cf8f271ce85` builds private wheel
+`dockingmt-0.0.0+351.gaeae47d-py3-none-any.whl`,157821B, SHA256
+`0b303ae371466a6736e8d194a89a54048f8bc51de3cd293cdc68c06050ae042b`.
+All 67 runtime paths, generated version, source payload, wheel RECORD, license,
+PEP610 archive identity, ordinary private pip installation/check and origins pass.
+Only the four preparation files and generated version differ from bba53f6;
+METADATA changes only Version. No dependency, public payload path, support record,
+original data/fixture producer or shared environment installation changes.
+
+The independently anchored installed qualification root has its own actual detached
+producer HEAD, with both runtime source directories removed. The new receiver
+passes complete 52-case reconstruction/materialization/ownership and20-case export
+controls under normal and pm/fs policies on the unchanged original provider cohort.
+Each 52-case cell retains one explicit real-search deselection and28 warnings
+(25 index diagnostics, three legacy-H5MSM warnings); export retains20 index warnings.
+There are no test errors/skips, actual engine/viewer operations or mutated inputs.
+
+The first installed52-case attempt reaches its60-second wall limit after raw pytest
+passes; no final integrity receipt exists, so it is a retained resource interruption,
+not qualified success. A task-local review extends elapsed allowance to90 seconds
+while keeping45 CPU seconds,CPU0/nice10,one worker,13 GiB reserve,1 GiB group RSS and
+2 GiB address space. Repeated whole cells pass in32–43 seconds with stable inputs;
+no headroom stop, native rebuild or increased parallelism occurs. Source gates also
+pass Ruff,index,shared resources/release contract,diff and29 administrative tests
+plus five subtests, without importing scientific packages.
+
+## Registered provider receiving — exact source-only transition
+
+Following immutable old-cohort receiving, the clean editable MolSysMT checkout
+fast-forwards efbe67e1 to `0c6f9c746dbd10b02dfe8474a5af280b857ace0d`.
+That reviewed26-commit transition includes #675's af46ea3 correction and #677's
+0c6f9c7 catalog correction. Later owner changes have also been reviewed; the
+caller-scoped selection/capping, cached PDB producer/version, angular analysis,
+constraint translation and viewer-panel changes do not justify broader claims.
+Rust tree remains `fb25b2eac60b6e706c712e788119b3dad94329fe`; actual native SHA256
+remains `5715bda28be19820e96c2b81e4734bf75e1a9f05dd660d9c7e2817bc6bcd79d3`.
+No Rust/build/package/data bytes, source cleanliness, shared installed metadata or
+other provider identities change. Existing distribution version labels stay distinct
+from actual source/native identities; no reinstall is needed for this Python update.
+
+Receive complete 52-case and20-case consumer selections plus the existing64-case
+preparation/map/writer/ownership selection, each normal then pm/fs against the same
+new consumer wheel and frozen new cohort. Expected index-only warning removal:
+52-case warnings28 to three legacy-H5MSM warnings;20/64-case warnings to zero.
+Keep all assertions and warning filters exact. Also receive six original owner
+guards separately: five regenerated-index diagnostics cases (including a real
+lost-time observation warning) and the actual catalog/manifest/public-input query.
+This owner-source test copying preserves byte identities and is not presented as
+consumer installed qualification. The public input remains the exact96624B,
+SHA256 `92ec5f1d3e2b2e753891488c7e984631609819ab07b1b046b2c7b312bed47069`
+legacy fixture,22 atoms/one structure. CI source pins, E4 records, fixed candidates,
+public matrices and actual Viewer1187fc18 remain independent and unchanged.
+
+
+### Provider finalization resource review
+
+Provider-complete-normal-01 writes a passing52-case pytest result and final
+integrity receipt, then its process exits on SIGKILL. The whole cell is failed,
+not accepted; its original monitor reports no classified resource interruption.
+The historical guard has a45-second hard CPU limit, consistent with that exit,
+but no original CPU accounting proves the cause. There is no memory/headroom
+warning. Preserve the raw unclassified signal and the explicit task review.
+
+Subsequent cells retain one CPU,nice10,one worker,13 GiB available reserve,1 GiB RSS
+and2 GiB address space, with60 soft/65 hard CPU seconds and90 wall seconds. This
+task-local launcher records child user/system CPU and diagnoses a soft CPU-limit
+signal; it does not edit the frozen historical guard. Provider-complete-pm-fs-01
+finishes under its original45-second CPU allowance. Repeat the complete normal
+selection with the bounded finalization allowance and unchanged scientific bytes;
+no passing pytest result overrides a failed process or integrity check.
+
+
+## Final installed consumer outcomes
+
+| Actual whole cell | Cases / outcome | Warnings | Wall seconds / peak RSS bytes |
+| --- | --- | --- | --- |
+| installed-complete-normal-02 | 52 / PASS | 28 | 42.368 / 302149632 |
+| installed-complete-pm-fs-01 | 52 / PASS | 28 | 41.140 / 301682688 |
+| installed-export-normal-01 | 20 / PASS | 20 | 41.929 / 282578944 |
+| installed-export-pm-fs-01 | 20 / PASS | 20 | 32.068 / 282259456 |
+| provider-complete-normal-02 | 52 / PASS | 3 | 42.600 / 301387776 |
+| provider-complete-pm-fs-01 | 52 / PASS | 3 | 41.549 / 300077056 |
+| provider-export-normal-01 | 20 / PASS | 0 | 30.501 / 282357760 |
+| provider-export-pm-fs-01 | 20 / PASS | 0 | 29.921 / 283549696 |
+| provider-expanded-normal-01 | 64 / PASS | 0 | 39.907 / 294109184 |
+| provider-expanded-pm-fs-01 | 64 / PASS | 0 | 40.033 / 292999168 |
+
+These are separate software populations with some overlapping tests; do not add
+the counts as independent scientific observations. Every52-case cell keeps one
+explicit real-search deselection;20/64-case cells have none. All have zero test
+errors/skips, exact stable606 support inputs, final process success and verified
+installed origins. No actual engine/viewer work occurs. Provider warning removal
+matches #675 without consumer filters; the three remaining warnings explicitly
+name the unchanged legacy H5MSM0.4 input. The actual22-atom/one-structure inventory,
+independent manifest and both corrected catalog descriptions now agree under #677.
+Other providers, actual native bytes, metadata labels, source input/data producers,
+CI pins and prior candidates/evidence retain their identities.
+
+
+## Owner controls, independent reading and resumption
+
+The six exact upstream cases pass separately under pm/fs, with zero errors/skips
+and one explicit legacy-input warning, in 5.116 seconds; peak group RSS is
+364056576B. Four complementary composition variants have no index-loss noise;
+the fifth guard retains a real lost-time warning; the catalog guard independently
+queries the actual input and both declarations. Temporary pytest copies retire;
+original owner test bytes, source identity and exact native/input hashes remain.
+This is owner-source receiving, separate from shared consumer installed staging.
+
+The [primary manifest](data/installed_reconstruction_2026-11-09/manifest.json)
+contains 1,412 members,11092971 stored bytes/37896485 decoded bytes,
+SHA256 `d7c0f6658b4c28b65b75b8af84da6c85772959f06ebeab1100c370a423a3edb1`. Independent reading
+verifies every stored/decoded length and digest,606 exact old/new support rows,
+source/installed origins, both provider cohorts, nine qualified runtime/test files,
+actual fixture/catalog/native identity and all original outcomes. Its source
+provenance clarification retains the working-tree/reference-artifact distinction.
+Original support-root/hash setup failures,20 source red failures, the unqualified
+docstring cell, wall stop and unclassified post-receipt signal remain explicit.
+
+The [reader companion](data/installed_reconstruction_reader_2026-11-09/manifest.json)
+contains 14 members,17665 stored bytes/52004 decoded bytes,
+SHA256 `43be9441dbf12915a499f9bc06c1158b0b08dfcea1a8767db89ccd09ddc846ec`. All 23 stored native JUnit/Receptor
+populations cross-check through the verified Receptor1.2.2 reader API, without
+molecular imports or replay. Passing pytest and whole qualification outcomes
+remain distinct for both incomplete finalizations. #104 is archived at
+[the resolved record](../archive/prepared_materialization_unit_roundtrip.md), with
+`tests/test_prepared_materialization_units.py` as its durable guard.
+
+Next inspect/register finite installed result materialization/inspection controls
+using saved original inputs against this same wheel/new cohort. Admit no actual
+search/scoring or broader accuracy case by inference. #47/#30/#73 completion,
+SSH-source context #100 under MolSysSuite#178, public Conda/closure/eight installed
+OS-minor cells, actual canvas/comm, hosted #21/#28 and the prior native-build hold
+remain separate. CI dependency pins and prior E4/fixed-candidate identities stay
+unchanged. Retain this task, both anchored harnesses, exact new/old private wheels,
+original engine and SDKs under #47/#49/#50, review2026-11-14. Managed build/owner
+execution copies retire; no shared environment reinstall, native build, public
+publication or remote workflow dispatch occurs.

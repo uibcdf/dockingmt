@@ -164,3 +164,12 @@ Actual edits still use the public setter; source-free parser/permutation and
 generic-source behavior stay unchanged. The complete source52/20 selections pass
 both policies; real new-wheel receiving remains separate. No general molecular
 algorithm, approximate tolerance or provider-private read is introduced.
+
+
+The actual aeae47d private wheel now passes both complete52-case and20-case
+selections on the original provider cohort. Subsequent MolSysMT0c6f9c7 receiving
+passes complete52/20/64-case installed selections normal/pm-fs and six original
+owner controls. #675 removes index-only diagnostics without filters; #677 aligns
+the catalog with the original22-atom input. Native/build/data bytes,606 support
+records and other providers remain unchanged. Original failed/interrupted cells
+and complete/public/platform/source-context gates retain their separate scope.
