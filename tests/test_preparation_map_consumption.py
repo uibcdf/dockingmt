@@ -6,11 +6,11 @@ from copy import deepcopy
 import molsysmt as msm
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import declared_methanol
 from molsysmt.native import Structures
-from test_ligand_preparation_stages import CHARGE, HYDROGEN, methanol_source
 
 import dockingmt as dmt
+from dmt_test_support.ligand_stage_fixtures import CHARGE, HYDROGEN, methanol_source
+from dmt_test_support.molecular_fixtures import declared_methanol
 from dmt_test_support.qualify_chemical_templates import snapshot
 from dmt_test_support.qualify_named_types import TYPING
 

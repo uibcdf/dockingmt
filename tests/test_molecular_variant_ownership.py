@@ -7,12 +7,15 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import declared_methanol
-from test_named_partial_charges import atom_charges
 
 import dockingmt as dmt
+from dmt_test_support.molecular_fixtures import declared_methanol
+from dmt_test_support.partial_charge_fixtures import atom_charges
 from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
 from dmt_test_support.qualify_named_types import CHARGE, TYPING
+from dmt_test_support.resource_fixtures import (
+    UnavailableResource as UnavailableResource,
+)
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.results import _molecular_atom_keys
 
@@ -131,11 +134,6 @@ def test_reconstructed_poses_are_independent_of_each_other_and_retained_result(s
         poses[0].to_molecular_system(prepared)
     assert snapshot(second) == second_before
     assert result.to_dict() == original_result
-
-
-class UnavailableResource:
-    def __deepcopy__(self, memo):
-        raise RuntimeError('test resource cannot be copied')
 
 
 @pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])

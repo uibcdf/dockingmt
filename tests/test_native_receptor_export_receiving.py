@@ -7,9 +7,9 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import named_181l_pair
 from vina import Vina
 
+from dmt_test_support.molecular_fixtures import named_181l_pair
 from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
 
 

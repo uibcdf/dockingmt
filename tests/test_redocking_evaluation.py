@@ -10,9 +10,9 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import named_181l_pair
 
 import dockingmt as dmt
+from dmt_test_support.molecular_fixtures import named_181l_pair
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.results import _molecular_atom_keys
 

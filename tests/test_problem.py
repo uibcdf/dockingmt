@@ -6,6 +6,9 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
+from dmt_test_support.problem_fixtures import (
+    _multi_structure_redocking_source as _multi_structure_redocking_source,
+)
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.search_domain import BoxRegion
@@ -60,24 +63,6 @@ def test_redocking_factory_uses_selected_partner_for_box():
     )
     assert problem.partner_atom_indices == [1299, 1300, 1301, 1302, 1303, 1304]
     assert problem.receptor_structure_index == problem.partner_structure_index == 0
-
-
-def _multi_structure_redocking_source():
-    path = msm.systems['alanine dipeptide']['alanine_dipeptide.h5msm']
-    molsys = msm.convert(path, to_form='molsysmt.MolSys')
-    msm.append_structures(molsys, msm.copy(molsys))
-    coordinates = np.array(
-        puw.get_value(
-            msm.get(molsys, element='atom', coordinates=True), to_unit='angstrom'
-        ),
-        copy=True,
-    )
-    coordinates[1] += [20.0, 0.0, 0.0]
-    molsys.structures.coordinates = puw.quantity(coordinates, 'angstrom')
-    second_state = molsys.chemical_states.append_state()
-    molsys.chemical_states._states[second_state].state_id = 'selected-second-state'
-    molsys._set_structure_chemical_state_indices([0, second_state])
-    return molsys, coordinates
 
 
 def test_redocking_factory_requires_explicit_multi_structure_choice():

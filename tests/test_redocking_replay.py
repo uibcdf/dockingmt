@@ -6,8 +6,8 @@ from pathlib import Path
 import molsysmt as msm
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import named_181l_pair
 
+from dmt_test_support.molecular_fixtures import named_181l_pair
 from dmt_test_support.redocking_181l import (
     _compare,
     _summarize,

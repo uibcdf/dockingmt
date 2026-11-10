@@ -9,10 +9,10 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 from molsysmt._private.smonitor import FormatError, StructuralInconsistencyError
-from test_flexible_reconstruction import _manual
-from test_known_source_pose_consumption import _case
 
 import dockingmt as dmt
+from dmt_test_support.flexible_reconstruction_fixtures import _manual
+from dmt_test_support.mapped_pose_fixtures import _case
 from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 from dmt_test_support.qualify_chemical_templates import snapshot
 from dockingmt._private.smonitor import ArgumentError

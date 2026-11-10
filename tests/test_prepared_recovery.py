@@ -258,8 +258,7 @@ def test_invalid_prepared_json_declaration_rejects_without_writer(bad, monkeypat
 
 
 def test_native_prepared_coordinate_refusal_preserves_source_and_assignment_reports():
-    from molecular_fixtures import named_181l_pair
-
+    from dmt_test_support.molecular_fixtures import named_181l_pair
     from dmt_test_support.qualify_chemical_templates import snapshot
 
     receptor, partner = named_181l_pair()

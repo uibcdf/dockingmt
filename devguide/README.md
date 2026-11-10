@@ -24,6 +24,13 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Full installed collection](validation/installed_collection_2026-11-09.md) now
+receives all 2,593 case imports under deliberate runtime-source isolation and
+resolves #102's remaining shared-helper dependencies. Both complete offline
+profiles still pass 1,267 cases; collection itself executes no scientific test.
+The 104 administrative tests/26 subtests, exact input custody and provider count
+feedback are recorded separately from public/full scientific/hosted gates.
+
 The current [CI/source-context review](validation/ci_source_alignment_2026-11-09.md)
 keeps #100 partial under MolSysSuite #178, while
 [new private installed receiving](validation/record_wheel_inputs_2026-11-09.md)

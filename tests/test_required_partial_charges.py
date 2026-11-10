@@ -6,9 +6,9 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import declared_methanol
 
 import dockingmt as dmt
+from dmt_test_support.molecular_fixtures import declared_methanol
 from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
 from dmt_test_support.qualify_named_types import CHARGE, TYPING

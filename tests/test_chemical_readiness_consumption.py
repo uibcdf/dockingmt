@@ -6,8 +6,8 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from test_flexible_ligand import _ligand
 
+from dmt_test_support.flexible_ligand_fixtures import _ligand
 from dockingmt.preparation import prepare_ligand, prepare_receptor
 from dockingmt.preparation._molsys import chemistry_evidence
 

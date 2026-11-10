@@ -4,28 +4,15 @@ import pytest
 import pyunitwizard as puw
 
 from dmt_test_support.audit_1iep_preparation import _pdbqt_torsion_graph
+from dmt_test_support.flexible_ligand_fixtures import (
+    _ligand as _ligand,
+)
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.core.problem import DockingProblem
 from dockingmt.core.protocol import VinaProtocol
 from dockingmt.core.search_domain import BoxRegion
 from dockingmt.engines.vina import VinaBackend
 from dockingmt.preparation import prepare_ligand
-
-
-def _ligand(smiles):
-    from rdkit import Chem
-    from rdkit.Chem import AllChem
-
-    molecule = Chem.AddHs(Chem.MolFromSmiles(smiles))
-    assert AllChem.EmbedMolecule(molecule, randomSeed=7) == 0
-    return msm.build.assign_autodock_atom_types(
-        msm.build.assign_partial_charges(
-            msm.convert(molecule, to_form='molsysmt.MolSys'),
-            method='gasteiger_marsili',
-        ),
-        typing_scheme='autodock4',
-        method='chemical_environment',
-    )
 
 
 def test_explicit_torsion_writes_one_valid_branch_and_tracks_atom_order():

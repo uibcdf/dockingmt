@@ -10,9 +10,9 @@ import pyunitwizard as puw
 from molsysmt._private.smonitor import FormatError
 from molsysmt.form.file_pdbqt import get_torsion_tree
 from molsysmt.form.string_pdbqt_text import get_torsion_tree as string_tree
-from test_vina_torsion_matrix import CASES
 
 import dockingmt as dmt
+from dmt_test_support.torsion_reference_fixtures import CASES
 
 DATA = Path(__file__).parent / 'data/vina_torsions'
 PREPARED = [(case[0], case[2], case[3]) for case in CASES] + [

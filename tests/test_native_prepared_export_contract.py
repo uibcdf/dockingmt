@@ -10,11 +10,11 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import declared_methanol
-from test_flexible_ligand import _ligand
-from test_named_partial_charges import atom_charges
 from vina import Vina
 
+from dmt_test_support.flexible_ligand_fixtures import _ligand
+from dmt_test_support.molecular_fixtures import declared_methanol
+from dmt_test_support.partial_charge_fixtures import atom_charges
 from dmt_test_support.qualify_named_types import TYPING
 from dockingmt import prepare_ligand, prepare_receptor
 

@@ -8,10 +8,18 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import declared_methanol
-from molsysmt.native import Structures
 
 import dockingmt as dmt
+from dmt_test_support.ligand_stage_fixtures import (
+    CHARGE as CHARGE,
+)
+from dmt_test_support.ligand_stage_fixtures import (
+    HYDROGEN as HYDROGEN,
+)
+from dmt_test_support.ligand_stage_fixtures import (
+    methanol_source as methanol_source,
+)
+from dmt_test_support.molecular_fixtures import declared_methanol
 from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
 from dmt_test_support.qualify_chemical_templates import (
     load_181l_benzene,
@@ -19,19 +27,6 @@ from dmt_test_support.qualify_chemical_templates import (
 )
 from dmt_test_support.qualify_named_types import TYPING
 from dockingmt._private.smonitor import ArgumentError
-
-HYDROGEN = {'mode': 'fixed_chemical_state', 'pH': None, 'engine': 'RDKit'}
-CHARGE = {'method': 'gasteiger_marsili'}
-
-
-def methanol_source():
-    # Public MolSysMT conversion owns chemistry; declared synthetic coordinates
-    # are supplied through its native Structures/composition APIs. No RDKit API.
-    native = msm.convert(
-        msm.convert('smiles:CO', to_form='rdkit.Mol'), to_form='molsysmt.MolSys'
-    )
-    pose = Structures(coordinates=puw.quantity([[[0, 0, 0], [1.4, 0, 0]]], 'angstrom'))
-    return msm.convert([native, pose], to_form='molsysmt.MolSys')
 
 
 def xyz(system):

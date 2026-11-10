@@ -3,20 +3,23 @@
 import json
 from copy import deepcopy
 from math import fsum
-from pathlib import Path
 
 import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import declared_methanol
 
 import dockingmt as dmt
+from dmt_test_support.molecular_fixtures import declared_methanol
+from dmt_test_support.partial_charge_fixtures import (
+    METHANOL as METHANOL,
+)
+from dmt_test_support.partial_charge_fixtures import (
+    atom_charges as atom_charges,
+)
 from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
 from dmt_test_support.qualify_named_types import TYPING
 from dockingmt._private.smonitor import ArgumentError
-
-METHANOL = Path(__file__).parent / 'data/charges/methanol.sdf'
 
 
 @pytest.fixture
@@ -25,13 +28,6 @@ def assigned():
     return msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(source, method='gasteiger_marsili'), **TYPING
     )
-
-
-def atom_charges(system):
-    values = msm.get(system, partial_charge=True)
-    if puw.is_quantity(values):
-        values = puw.get_value(values, to_unit='elementary_charge')
-    return np.asarray(values)
 
 
 def written_charges(prepared):

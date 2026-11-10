@@ -8,10 +8,10 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-import test_native_ligand_export_receiving as native_ligands
-from molecular_fixtures import named_181l_pair
 from vina import Vina
 
+import dmt_test_support.native_ligand_export_fixtures as native_ligands
+from dmt_test_support.molecular_fixtures import named_181l_pair
 from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
 from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
 from dockingmt.engines.vina import _verify_pose_atom_order
@@ -242,7 +242,7 @@ def test_real_receptor_presentation_composes_without_source_renumbering(
 
 
 def test_actual_vina_poses_follow_presented_flexible_map(tmp_path):
-    from test_known_source_pose_consumption import _case
+    from dmt_test_support.mapped_pose_fixtures import _case
 
     _, native, projection, _, _, tree = _case('CCCCCC')
     before = snapshot(native)

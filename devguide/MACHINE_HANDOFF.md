@@ -29,6 +29,26 @@ resuming; earlier dated "next" statements below retain their historical scope.
 
 ### Current CI and private installed input checkpoint — 2026-11-09
 
+[Full isolated installed collection](validation/installed_collection_2026-11-09.md)
+resolves #102: all 2,593 cases collect with zero tests/fixtures or molecular work
+executed, using the unchanged real 9a40e385 wheel and retained original Vina bytes.
+Eleven unshipped shared helper modules remove all sibling-test imports; structural
+receiving preserves helper bodies, 31 test-module ASTs, all 595 old support rows,
+original data/producers and 67 runtime paths.606 declared support inputs now retire.
+Both whole offline profiles pass 1,267 cases with four explicit native exclusions;
+104 administrative tests/26 subtests pass, including source-free file routing.
+The original missing-import/tool failures and native/compact Receptor#46 count
+comparison stay explicit. #47 full scientific/public/platform receiving and#100
+under MolSysSuite#178 stay partial. Next register a small installed scientific
+selection against the collected graph; preserve scheduled canvas/native-build
+holds and missing hosted evidence. No provider refresh/build/shared install or
+remote workflow dispatch. Retention review 2026-11-14 includes the reused E5 engine.
+
+Independent214-member primary/eight-member reader receiving authenticates all
+stored/decoded records, original failures and exact qualified source bytes
+without replay. Collection completion and actually executed tests retain their
+separate counts; the archive claims no full scientific/source-context acceptance.
+
 [Current CI context alignment](validation/ci_source_alignment_2026-11-09.md)
 selects the already received ArgDigest07126411/MTefbe67e1/Viewer1187fc18
 revisions for ordinary four-minor CI and explicit current bootstrap floors.

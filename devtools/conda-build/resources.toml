@@ -3067,3 +3067,58 @@ sha256 = "4dfec44af100ddeb60ae7db5f9e10e5d681d819bf9f78ac76bfc33fd81fa6dfc"
 source = "dmt_test_support/pdbqt_fixtures.py"
 target = "dmt_test_support/pdbqt_fixtures.py"
 sha256 = "9b0f8ceba9bb10e64da847e7d85a46e9e06f46c579bc6ec95995cc5d0f159826"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/molecular_fixtures.py"
+target = "dmt_test_support/molecular_fixtures.py"
+sha256 = "e813e232e774f7a09ff2c06071ce7efc88e1f0b5f227d927a7e9742239700fa6"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/flexible_ligand_fixtures.py"
+target = "dmt_test_support/flexible_ligand_fixtures.py"
+sha256 = "97f833cdd756e243509ba7b5c9af61d2047ce1c3335cb4b8c537e720e978d000"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/partial_charge_fixtures.py"
+target = "dmt_test_support/partial_charge_fixtures.py"
+sha256 = "a12ce82c8b03c786a46b65bda48f38dbd1f63f9cfdf72d381f9b528907d11383"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/ligand_stage_fixtures.py"
+target = "dmt_test_support/ligand_stage_fixtures.py"
+sha256 = "226c6aad2bdbe4e5243f5edaf6d5e6bba10586ab8fd5978b17d3ec24b00edfbb"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/flexible_reconstruction_fixtures.py"
+target = "dmt_test_support/flexible_reconstruction_fixtures.py"
+sha256 = "aca9346de679ccab3fcc3f1b09fa2bcc67bb1ff005e2349a2d6d4ea048b42f49"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/molecular_delegation_fixtures.py"
+target = "dmt_test_support/molecular_delegation_fixtures.py"
+sha256 = "4fc29a28de50498a1514a097e609efc146cb13c7a834a71121bda9976a403943"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/resource_fixtures.py"
+target = "dmt_test_support/resource_fixtures.py"
+sha256 = "c2a1add9789081d14f7045ec3d7c077bffa275a460074327667bce01b88b489f"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/problem_fixtures.py"
+target = "dmt_test_support/problem_fixtures.py"
+sha256 = "a1ebbb48b365d019a4e6e125cfb0d936183c05f51d73d3bf1147dc916368cca7"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/torsion_reference_fixtures.py"
+target = "dmt_test_support/torsion_reference_fixtures.py"
+sha256 = "d9bbdfeca1e566f7376af85348971f9a0dbba8b044311d233f635ed0f037d6e3"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/mapped_pose_fixtures.py"
+target = "dmt_test_support/mapped_pose_fixtures.py"
+sha256 = "35af019d85ab34b7c6f63d81defd193c4ed5c3c36e1cf74d3a17c73a0cfdcbfc"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/native_ligand_export_fixtures.py"
+target = "dmt_test_support/native_ligand_export_fixtures.py"
+sha256 = "347e47946c99040ab0d8a9b71b9e6a20968b7645e7de5292f72318b6d984b2ea"

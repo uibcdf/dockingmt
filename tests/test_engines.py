@@ -3,8 +3,8 @@ import hashlib
 import molsysmt as msm
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import named_181l_pair
 
+from dmt_test_support.molecular_fixtures import named_181l_pair
 from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 from dockingmt._private.smonitor import ArgumentError, CapabilityMismatchError
 from dockingmt.core.problem import DockingProblem

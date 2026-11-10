@@ -6,10 +6,10 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import declared_methanol
-from test_named_partial_charges import METHANOL, atom_charges
 
 import dockingmt as dmt
+from dmt_test_support.molecular_fixtures import declared_methanol
+from dmt_test_support.partial_charge_fixtures import METHANOL, atom_charges
 from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
 from dmt_test_support.qualify_named_types import CHARGE, TYPING
 

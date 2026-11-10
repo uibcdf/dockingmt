@@ -8,7 +8,9 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dockingmt.preparation import PreparedLigand, PreparedReceptor
+from dmt_test_support.molecular_delegation_fixtures import (
+    _manual_prepared as _manual_prepared,
+)
 from molsysviewer_dockingmt.adapters.complex import build_docking_complex_system
 
 
@@ -81,26 +83,6 @@ def test_later_frame_composition_failure_propagates(monkeypatch):
         build_docking_complex_system(source, poses, source)
     assert caught.value is error
     assert len(calls) == 2
-
-
-def _manual_prepared(kind):
-    arguments = dict(
-        state_id='manual',
-        atom_names=['C1', 'C1', 'O1'],
-        group_names=['LIG'] * 3,
-        group_ids=[7] * 3,
-        coordinates=puw.quantity(
-            [[0.123456789, 0, 0], [0.2, 0.123456789, 0], [0, 0.2, 0.123456789]],
-            'nm',
-        ),
-        atom_types=['C', 'A', 'OA'],
-        charges=[0.123456789, -0.234567891, 0.111111102],
-    )
-    return (
-        PreparedLigand(group_name='LIG', **arguments)
-        if kind == 'ligand'
-        else PreparedReceptor(**arguments)
-    )
 
 
 @pytest.mark.parametrize('kind', ['ligand', 'receptor'])

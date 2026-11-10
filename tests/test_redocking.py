@@ -1,9 +1,9 @@
 import molsysmt as msm
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import named_181l_pair
 
 import dockingmt
+from dmt_test_support.molecular_fixtures import named_181l_pair
 from dockingmt import (
     BoxRegion,
     DockingProblem,

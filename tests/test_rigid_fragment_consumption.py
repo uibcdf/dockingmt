@@ -8,11 +8,16 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 from molsysmt._private.smonitor import StructuralInconsistencyError
-from test_flexible_ligand import _ligand
-from test_vina_torsion_matrix import _atom_map, _reference, _source, _source_graph
 
+from dmt_test_support.flexible_ligand_fixtures import _ligand
 from dmt_test_support.qualify_chemical_templates import snapshot
 from dmt_test_support.qualify_named_types import CHARGE, HYDROGEN, TYPING
+from dmt_test_support.torsion_reference_fixtures import (
+    _atom_map,
+    _reference,
+    _source,
+    _source_graph,
+)
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation import prepare_ligand
 from dockingmt.preparation._temporary_torsions import build_torsion_tree

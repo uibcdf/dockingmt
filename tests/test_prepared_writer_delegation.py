@@ -6,10 +6,10 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from test_flexible_reconstruction import _manual
-from test_molecular_delegation import _manual_prepared
 
 import dockingmt as dmt
+from dmt_test_support.flexible_reconstruction_fixtures import _manual
+from dmt_test_support.molecular_delegation_fixtures import _manual_prepared
 from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
 from dmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
 from dockingmt.preparation._molsys import autodock_element
@@ -244,7 +244,7 @@ def test_actual_export_map_must_match_the_declared_prepared_order():
 def test_readonly_export_ignores_unrelated_copy_resource_but_edits_require_copy(
     length_unit,
 ):
-    from test_molecular_variant_ownership import UnavailableResource
+    from dmt_test_support.resource_fixtures import UnavailableResource
 
     source = msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(explicit_source('CO'), **CHARGE), **TYPING

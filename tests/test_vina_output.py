@@ -4,10 +4,10 @@ from functools import wraps
 
 import numpy as np
 import pyunitwizard as puw
-from molecular_fixtures import named_181l_pair
 from vina import Vina
 
 import dockingmt as dmt
+from dmt_test_support.molecular_fixtures import named_181l_pair
 
 
 def test_native_fifth_energy_column_and_defaults_survive_serialization(monkeypatch):

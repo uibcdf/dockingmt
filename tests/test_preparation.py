@@ -2,8 +2,8 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from molecular_fixtures import named_181l_pair
 
+from dmt_test_support.molecular_fixtures import named_181l_pair
 from dmt_test_support.qualify_named_types import TYPING
 from dockingmt._private.smonitor import ArgumentError
 from dockingmt.preparation import (
