@@ -1,0 +1,48 @@
+---
+summary: Preserve allocation exceptions while projecting prepared scoring geometry.
+issue: uibcdf/dockingmt#107
+status: active
+opened: 2026-11-10
+closed:
+severity: medium
+verification: measured
+area: [scoring, resources, diagnostics]
+guard: tests/test_input_resource_errors.py
+normative: devguide/validation/source_scoring_evidence_2026-11-10.md
+blocked_by: []
+supersedes: []
+---
+
+# Fixed-pose geometry translation masks resource errors
+
+## Observation
+
+The `_input_pose` helper's broad Exception translator converts both MemoryError
+and OSError(errno.ENOMEM) from MolSysMT geometry reading into ArgumentError/DMT-E002.
+A controlled actual installed aeae47d diagnostic confirms this and byte-matches
+the current source helper at 02228c3. Original errors remain causes, not the same
+propagated objects. Ordinary ValueError correctly becomes the structured argument
+error. This is a local DockingMT translator, not a provider defect.
+
+The helper diagnostic raises pre-created failures, with zero actual molecular/
+native work or allocation exhaustion. Exact program/registration/outcomes remain
+under `.molsyssuite/scoring-resource-probe-20261110/diagnostic-01`, owners #107/#50,
+review 2026-11-14. Elapsed 1.025s, peak 78991360 B, no interruption and terminal groups.
+Receipt SHA256: `f8a45f004b11eb8c39eddcf61c28587fc12ebbe49bc040f3640807c154201e57`.
+Public score reaches this helper before native construction; public regression
+coverage is the next step, not an observation claimed for this private probe.
+
+## Correction and acceptance
+
+Propagate the exact resource exception from conversion and coordinate/name/
+element reads through public score. Preserve ordinary malformed-value and I/O
+ArgumentError diagnostics, exact cause and field, no further provider/native
+steps, caller input/protocol and owned staging-file cleanup. Do not inspect error
+strings or treat every OSError as allocation failure. No dependency, schema or
+scientific definition change is needed.
+
+Add controlled red/green public guards and receive the complete affected input-
+resource and pose-audit modules under both caller unit policies, preserving all
+original tests/fixtures and the original two tiny live scoring calls. Keep source
+and original installed-artifact evidence separate. Existing #92/#95/#106 fixes
+have distinct scopes; #73/#47 own wider qualification and #50 resource custody.

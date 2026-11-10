@@ -6,6 +6,30 @@ The roadmap defines direction and gates, not dates.
 
 Work is **active after the maintainer's resumption**.
 
+[Complete source scoring-evidence receiving](validation/source_scoring_evidence_2026-11-10.md)
+passes all 48 pose-audit and 54 saved-comparison controls per caller unit policy,
+without exclusions/errors/skips/warnings. Fresh eight/sixteen-value native records
+and their audit pass; software comparison retains original observations/ranks and
+explicitly synthetic molecular seams. No new chemical/preparation/accuracy claim.
+The main pair has four actual tiny native scores. The initial audit also passes
+its 48 cases, but its original zero-provider expectation is explicitly unreceived:
+the corrected admission observes only two conversions/six reads of the submitted
+two-atom geometry. No actual molecular/native work occurs in comparison.
+
+Independent authentication covers 171 primary/14 reader members, five complete
+JUnit/Receptor streams, original fixtures/native maps, fresh outputs and eight
+qualified source files. All 788 source/support/data inputs and 606 declarations stay
+exact. Initial/final core source origins are actually recorded in this population;
+no old missing metadata is reconstructed. Source Git 02228c3 remains distinct from
+the retained generated label and old unchanged aeae47d wheel. No resource stop,
+source/test/fixture change, build, shared install or remote CI.
+
+Next correct/qualify [#107](pending_bugs/scoring_geometry_masks_resource_errors.md),
+the separately confirmed resource-error translation in scoring geometry, through
+public early-stop/cleanup guards and complete affected source receiving. Future
+artifact delivery of #106/#107 stays #47. Full/public/platform/SSH-source/hosted/
+interactive and provider-panel holds retain their owners; review custody 2026-11-14.
+
 [#106 source correction](validation/batch_os_allocation_fix_2026-11-10.md)
 now propagates OS memory-allocation failures from recorded batches as the same
 exception, without consuming another input. Ordinary missing-file/full-disk

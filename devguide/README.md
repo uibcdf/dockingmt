@@ -24,6 +24,13 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Complete source scoring-evidence controls](validation/source_scoring_evidence_2026-11-10.md)
+pass 48 pose-audit and 54 saved-comparison cases under both caller policies. Fresh
+native scores/audits and original saved-observation controls remain separate;
+actual provider geometry reads are bounded and source origins recorded. Next
+correct [#107](pending_bugs/scoring_geometry_masks_resource_errors.md), the
+separately reproduced allocation-error translation in fixed-pose scoring.
+
 [#106 is corrected in source](archive/batch_os_allocation_failure.md): recorded
 batches stop on OS memory-allocation failures, preserve the same exception and
 leave the next source item unconsumed. Both whole 45-case source profiles pass;
