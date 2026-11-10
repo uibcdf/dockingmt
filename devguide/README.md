@@ -25,10 +25,10 @@ records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
 [Native small-fixture receiving](validation/installed_small_fixtures_2026-11-09.md)
-executes the collected preparation/map/export/copy controls and exposes #103's
-caller-unit copy defect. Both affected source profiles now pass; a new genuine
-wheel still needs actual receiving. The original installed failure and provider
-warnings stay explicit, separate from public/platform/hosted acceptance.
+now resolves #103's caller-unit copy defect in source and a genuinely new private
+wheel. Both complete64-case and20-case selections pass under both policies;
+original failures, provider warnings and exact input/runtime identities stay
+explicit. Full public/scientific/platform/hosted acceptance remains separate.
 
 [Full installed collection](validation/installed_collection_2026-11-09.md) now
 receives all 2,593 case imports under deliberate runtime-source isolation and

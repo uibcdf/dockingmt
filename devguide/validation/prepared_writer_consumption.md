@@ -146,3 +146,9 @@ or suppress explicit-edit copies/resource failures. The existing generic
 nonnative route retains its original behavior. Source receiving covers both
 prepared roles, one-ULP edits and original MemoryError identity; actual new-wheel
 receiving retains its separate gate. Historical outcomes above are unchanged.
+
+
+The new real private wheel frombba53f6 now receives the correction:64 affected
+cases and 20 new regression cases pass separately under both caller unit policies.
+The original wheel's failed outcome and explicit provider warnings remain;
+public/full scientific/platform acceptance is not inferred.

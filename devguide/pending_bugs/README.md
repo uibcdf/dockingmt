@@ -4,10 +4,6 @@ Open defects following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
-### Active (1)
-
-- [`prepared_export_unit_copy.md`](prepared_export_unit_copy.md) — [#103](https://github.com/uibcdf/dockingmt/issues/103) — Caller length-unit changes falsely require copying unchanged native preparations. *(active, reproduced)*
-
 ### Partial (2)
 
 - [`current_ci_source_composition.md`](current_ci_source_composition.md) — [#100](https://github.com/uibcdf/dockingmt/issues/100) — Current source CI declarations differ from the received development composition. *(partial, reproduced)*

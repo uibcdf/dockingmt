@@ -29,17 +29,18 @@ resuming; earlier dated "next" statements below retain their historical scope.
 
 ### Current CI and private installed input checkpoint — 2026-11-09
 
-[Installed small-fixture receiving](validation/installed_small_fixtures_2026-11-09.md)
-now executes native preparation, map/export and ownership controls. The original
-wheel passes31 pilot cases and64 affected cases normal, but pm/fs exposes one
-readonly export defect. #103 now corrects native coordinate comparison in source:
-20 new unit-cross-product/tiny-edit/read-failure controls and all64 affected
-cases pass separately under both caller policies. The original setup/source/
-installed failures and provider warnings remain visible. MolSysMT#675 owns the
-nonblocking index-warning review. All606 support inputs/provider/native bytes
-stay unchanged. Next build and receive a genuine new private wheel from the
-committed fix; #103 remains open until actual installed receiving. Full#47/#30,
-SSH#100/#178, public/canvas/hosted limits and native-build hold remain separate.
+[Native small-fixture receiving](validation/installed_small_fixtures_2026-11-09.md)
+resolves #103 in source and the new genuinely installed bba53f6 wheel: unchanged
+native exports stay readonly across caller units, and one-ULP edits still require
+copying. Both whole64-case affected and20-case regression selections pass under
+normal/pm-fs policies, with explicit12/20 provider warnings and zero skips/errors.
+All606 support inputs/provider/native bytes stay unchanged. Only exporter/version
+runtime bytes differ; all67 paths/metadata/RECORD/PEP610/imports and normal private
+installation pass. Independent999-member reading plus12 JUnit/Receptor audits
+preserve all original failures without replay. MolSysMT#675/#677 own nonblocking
+warning/catalog feedback. Next register small installed reconstruction/composition
+controls against this wheel. Full#47/#30/#73, SSH#100/#178, public/platform/canvas/
+hosted limits and the native-build hold remain separate; no remote CI is launched.
 
 [Full isolated installed collection](validation/installed_collection_2026-11-09.md)
 resolves #102: all 2,593 cases collect with zero tests/fixtures or molecular work

@@ -1,7 +1,29 @@
 # Installed small-fixture receiving — 2026-11-09
 
 Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), within
-source/public qualification #30 and functional delivery #73. Status: source correction received; new installed receiving pending.
+source/public qualification #30 and functional delivery #73. Status: bounded source and new installed receiving complete; full qualification partial.
+
+
+## Current delivered checkpoint
+
+#103 is resolved for canonical native prepared export. Both complete selections
+pass in source and in the new real private wheel, under normal and pm/fs caller
+policies:64 affected cases plus20 new regression cases, in separately bounded
+cells. No deselections, errors or skips occur. Provider off-axis warnings remain
+explicit:12 per affected cell and 20 per regression cell; MolSysMT#675 owns their
+review. No Vina/viewer operation, provider change, native build or shared install.
+
+New runtime producer:`bba53f602c2e30a5817808bda303c0f736405651`, wheel version
+`0.0.0+349.gbba53f6`,157,503B, SHA256
+`6ec6fe0214b95ece7850f404ae0c1a281e75775e6d3dd80cb0f1c95b7853fac1`.
+The clean-source offline build and ordinary private pip installation/check pass.
+All 67 runtime paths, metadata/RECORD/generated version/license and installed
+origins pass; only `_export.py` and generated version differ from the original
+wheel. Metadata changes only Version; requirements and description stay exact.
+All 606 support inputs stage/check/retire, with exact same editable provider and
+native/engine bytes before/after. The retained original wheel keeps its failed
+outcome and is never relabelled as receiving this fix. Earlier prescription and
+source-checkpoint paragraphs below retain their original historical scope.
 
 ## Question and immutable inputs
 
@@ -17,7 +39,7 @@ version `0.0.0+345.g9a40e38`. Qualification source:
 `installed-collection-20261109/collect-03/harness` and unchanged real private
 receiver. Preserve its original export identity and explicit helper/test overrides.
 Use shared publication SDK `95f693be10c9205ab9b912cb53453710a207bf45` staging,
-installed-origin verification and positive executed-test requirement. All606
+installed-origin verification and positive executed-test requirement. All 606
 support declarations and existing scientific input bytes remain unchanged.
 
 Pilot selection: whole `tests/test_required_partial_charges.py` and
@@ -107,7 +129,7 @@ acceptance requires a new wheel built from the later committed source; the old
 ## Source checkpoint before new-wheel receiving
 
 Both final source populations pass under both caller policies:20 new regression
-cases and the complete64-case original affected selection per policy, in
+cases and the complete 64-case original affected selection per policy, in
 separate bounded cells. The original source regression has six failures/14 passes;
 its initial setup failure remains separate. Final source peaks remain below
 263MiB; no resource interruption or engine/viewer operation occurs. Explicit
@@ -131,3 +153,45 @@ checks. A task-only gate setup failure preceded these checks and remains retaine
 MolSysMT#677 separately owns the source-inspected catalog contradiction between
 12 alanine-dipeptide atoms in its descriptions and 22 in the demo manifest; no
 new dataset query is claimed by that report and it does not block this selection.
+
+
+## Final installed outcomes and independent reading
+
+| Actual cell | Cases / outcome | Warnings | Wall seconds / peak RSS bytes |
+| --- | --- | --- | --- |
+| installed-expanded-normal-01 | 64 passed | 12 off-axis | 39.178 /259,784,704 |
+| installed-expanded-pm-fs-01 | 64 passed | 12 off-axis | 40.852 /258,859,008 |
+| installed-regression-normal-01 | 20 passed | 20 off-axis | 30.505 /246,452,224 |
+| installed-regression-pm-fs-01 | 20 passed | 20 off-axis | 30.732 /246,865,920 |
+
+These are disjoint software controls, not independent molecular accuracy cases.
+Actual public provider conversion, get/set, projection, named charge/type and
+copy operations are observed; neither stale outputs nor provider stubs qualify
+these native cells. All owned process groups terminate, no headroom interruption
+occurs and every reserve/cap remains respected. Explicit negative-test MemoryError
+and resource-copy exceptions are test inputs, not resource interruptions.
+
+The [999-member primary](data/installed_small_fixtures_2026-11-09/manifest.json)
+retains exact old/source/new-wheel programs, metadata/inputs, all original setup/
+source/installed failures and final outcomes. Stored 5,863,993B /decoded 20,081,795B,
+manifest SHA256
+`60bf15efca561ca9735b0c56d882c489292d69a154690933742a52d978aad293`.
+Independent reading authenticates every stored/decoded member, policy/cohort/
+engine/support facts and exact qualified source bytes without molecular replay.
+A separate audit cross-checks all 12 executed source/native selections' JUnit
+against their receipts and validates JSONL integrity/final values through the
+verified published Pytest Receptor1.2.2 public API. It imports no scientific
+package and retires its temporary event inputs. The companion preserves both
+readers and their exact programs/resource records.
+
+#47/#30 still need full scientific/public/provider/platform installed admission;
+#73 is not complete. Actual SSH-source context remains partial under#100 and
+MolSysSuite#178. Existing MolSysMT#256/#558, scheduled canvas#52/#60, native-build
+hold and missing exact-head hosted#21/#28 keep their separate scope. No public
+version, publication or remote workflow is selected/dispatched. Next admit a
+separately registered small reconstruction/composition selection against this
+new wheel, then continue the remaining installed/public gates when their owning
+providers deliver support. Retention and original shared-source identities above
+remain authoritative; review 2026-11-14 before any cleanup.
+
+[Reader companion](data/installed_small_fixtures_reader_2026-11-09/manifest.json): 14 members, 14,592 stored bytes / 38,846 decoded bytes; manifest SHA256 `5aadd2664892848ee121cfc0ed88cd11aaf3d100cebb577ac81fb8b65c40ff0d`.
