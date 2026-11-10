@@ -159,6 +159,9 @@ deliberately. `assess_preparation(...)` declarations, charge audits and
 provisional admission have separate meanings, explained in the
 [preparation walkthrough](validation/installed_3ptb_preparation.md).
 An engine score is not experimental binding affinity.
+MemoryError and OS ENOMEM from prepared-geometry conversion and reads propagate
+unchanged; ordinary malformed geometry keeps its structured argument error and
+provider cause. See [the source receiving and artifact limits](validation/scoring_geometry_resource_errors_2026-11-10.md).
 
 `dock_many` admits options/resolves the backend at the call, then consumes and
 executes one input at a time during iteration. It borrows the protocol/backend

@@ -1,5 +1,6 @@
 """The bounded prepared-conformation consumer of Vina.score()."""
 
+import errno
 from copy import deepcopy
 
 import molsysmt as msm
@@ -92,7 +93,11 @@ def _input_pose(partner, content, states, pose):
         xyz = np.asarray(puw.get_value(coordinates, to_unit='angstrom'), dtype=float)
         names = list(msm.get(native, element='atom', name=True))
         elements = list(msm.get(native, element='atom', atom_type=True))
+    except MemoryError:
+        raise
     except Exception as exc:
+        if isinstance(exc, OSError) and exc.errno == errno.ENOMEM:
+            raise
         raise ArgumentError(
             arg_name='problem.partner',
             reason=f'Cannot read prepared geometry through MolSysMT: {exc}',

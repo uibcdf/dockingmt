@@ -24,12 +24,20 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[#107 is corrected in source](archive/scoring_geometry_masks_resource_errors.md):
+fixed-pose geometry reads preserve allocation failures and ordinary input
+errors remain structured. Both complete 203-case source profiles pass, including
+16 cleanup/early-stop guards and the original tiny native scores.
+[Exact evidence](validation/scoring_geometry_resource_errors_2026-11-10.md)
+keeps old artifacts/producers distinct. Next receive #106/#107 in a genuine new
+private consumer wheel; full/public/platform/interactive gates remain separate.
+
 [Complete source scoring-evidence controls](validation/source_scoring_evidence_2026-11-10.md)
 pass 48 pose-audit and 54 saved-comparison cases under both caller policies. Fresh
 native scores/audits and original saved-observation controls remain separate;
-actual provider geometry reads are bounded and source origins recorded. Next
-correct [#107](pending_bugs/scoring_geometry_masks_resource_errors.md), the
-separately reproduced allocation-error translation in fixed-pose scoring.
+actual provider geometry reads are bounded and source origins recorded. The
+separate [#107 correction](archive/scoring_geometry_masks_resource_errors.md)
+above now precedes genuine new-artifact receiving.
 
 [#106 is corrected in source](archive/batch_os_allocation_failure.md): recorded
 batches stop on OS memory-allocation failures, preserve the same exception and

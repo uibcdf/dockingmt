@@ -1,5 +1,9 @@
 """Public admission must preserve native resource and process-control failures."""
 
+import errno
+import importlib
+import sys
+from pathlib import Path
 from types import SimpleNamespace
 
 import pytest
@@ -226,3 +230,97 @@ def test_quantity_admission_preserves_resource_errors_and_provider_causes(
         assert caught.value is failure
     assert calls == [boundary]
     assert not pose.scores
+
+
+@pytest.mark.parametrize('step', ['conversion', 'coordinates', 'names', 'elements'])
+@pytest.mark.parametrize(
+    'error_kind', ['memory', 'os_memory', 'ordinary', 'os_ordinary']
+)
+def test_scoring_geometry_preserves_resource_errors_and_cleans_staging(
+    monkeypatch, tmp_path, step, error_kind
+):
+    from depdigest.core import checker
+
+    from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+
+    scoring = importlib.import_module('dockingmt.engines._vina_scoring')
+    engine = importlib.import_module('dockingmt.engines.vina')
+    problem = dmt.DockingProblem(
+        MINIMAL_REC_PDBQT,
+        MINIMAL_LIG_PDBQT,
+        dmt.BoxRegion(
+            puw.quantity([0, 0, 0], 'angstrom'),
+            puw.quantity([10, 10, 10], 'angstrom'),
+        ),
+    )
+    protocol = dmt.VinaProtocol(cpu=1, seed=17)
+    before = problem.to_dict(), protocol.to_dict()
+    failure = {
+        'memory': MemoryError('controlled geometry allocation failure'),
+        'os_memory': OSError(errno.ENOMEM, 'controlled geometry allocation failure'),
+        'ordinary': ValueError('controlled malformed geometry'),
+        'os_ordinary': OSError(errno.ENOSPC, 'controlled geometry I/O failure'),
+    }[error_kind]
+    native = object()
+    coordinates = puw.quantity([[[0, 0, 0], [1.5, 0, 0]]], 'angstrom')
+    calls = []
+    staged = []
+
+    def visit(operation):
+        calls.append(operation)
+        if operation == step:
+            raise failure
+
+    def convert(value, **options):
+        assert value == 'pdbqt_text:' + MINIMAL_LIG_PDBQT
+        assert options == {
+            'to_form': 'molsysmt.MolSys',
+            'discard_torsion_tree': True,
+        }
+        visit('conversion')
+        return native
+
+    def get(value, **options):
+        assert value is native and options['element'] == 'atom'
+        if options.get('coordinates'):
+            visit('coordinates')
+            return coordinates
+        if options.get('name'):
+            visit('names')
+            return ['C1', 'C2']
+        assert options.get('atom_type')
+        visit('elements')
+        return ['C', 'C']
+
+    def forbidden(*args, **kwargs):
+        pytest.fail('Geometry failure reached native construction')
+
+    available = checker.is_installed
+    monkeypatch.setattr(
+        checker,
+        'is_installed',
+        lambda name: True if name == 'vina' else available(name),
+    )
+    monkeypatch.setitem(sys.modules, 'vina', SimpleNamespace(Vina=forbidden))
+    monkeypatch.setattr(scoring, 'msm', SimpleNamespace(convert=convert, get=get))
+    factory = engine.tempfile.NamedTemporaryFile
+
+    def allocate(**options):
+        created = factory(dir=tmp_path, **options)
+        staged.append(Path(created.name))
+        return created
+
+    monkeypatch.setattr(engine.tempfile, 'NamedTemporaryFile', allocate)
+    expected = type(failure) if error_kind in ('memory', 'os_memory') else ArgumentError
+    with pytest.raises(expected) as caught:
+        dmt.score(problem, protocol)
+    if error_kind in ('memory', 'os_memory'):
+        assert caught.value is failure
+    else:
+        assert caught.value.__cause__ is failure
+        assert caught.value.code == 'DMT-E002'
+        assert caught.value.extra['arg_name'] == 'problem.partner'
+    order = ['conversion', 'coordinates', 'names', 'elements']
+    assert calls == order[: order.index(step) + 1]
+    assert staged and all(not path.exists() for path in staged)
+    assert (problem.to_dict(), protocol.to_dict()) == before

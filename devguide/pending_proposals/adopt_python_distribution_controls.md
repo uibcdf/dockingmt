@@ -14,6 +14,17 @@ supersedes: []
 
 # Distribution control adoption
 
+## Source scoring-resource correction — 2026-11-10
+
+[#107 source receiving](../validation/scoring_geometry_resource_errors_2026-11-10.md)
+passes both complete 203-case source input/audit profiles after preserving public
+allocation failures. The 119/14-member evidence retains original red failures,
+source/native identities and ordinary diagnostic/cleanup controls. Together with
+#106 this is source behavior, not receiving in the unchanged aeae47d installation.
+Next register a genuine private consumer artifact and shared ordinary installed
+receiving with the retained provider/native cohort. Public/Conda/eight OS-minor
+requirements and this issue stay partial; no remote CI or native rebuild.
+
 ## Separate source allocation correction — 2026-11-10
 
 [#106](../archive/batch_os_allocation_failure.md) resolves OS allocation-error

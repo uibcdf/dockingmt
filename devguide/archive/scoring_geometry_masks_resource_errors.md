@@ -1,14 +1,14 @@
 ---
 summary: Preserve allocation exceptions while projecting prepared scoring geometry.
 issue: uibcdf/dockingmt#107
-status: active
+status: resolved
 opened: 2026-11-10
-closed:
+closed: 2026-11-10
 severity: medium
 verification: measured
 area: [scoring, resources, diagnostics]
-guard: tests/test_input_resource_errors.py
-normative: devguide/validation/source_scoring_evidence_2026-11-10.md
+guard: tests/test_input_resource_errors.py::test_scoring_geometry_preserves_resource_errors_and_cleans_staging
+normative: devguide/validation/scoring_geometry_resource_errors_2026-11-10.md
 blocked_by: []
 supersedes: []
 ---
@@ -46,3 +46,21 @@ resource and pose-audit modules under both caller unit policies, preserving all
 original tests/fixtures and the original two tiny live scoring calls. Keep source
 and original installed-artifact evidence separate. Existing #92/#95/#106 fixes
 have distinct scopes; #73/#47 own wider qualification and #50 resource custody.
+
+
+## Resolution — 2026-11-10
+
+Public score now propagates the same MemoryError or OS ENOMEM object through
+conversion and coordinate/name/element reads. Ordinary malformed-value/I/O errors
+retain DMT-E002, exact cause and field. All 16 new cases stop before further
+provider/native work, clean owned staging paths and preserve caller snapshots.
+The original public guard retains eight resource failures/eight ordinary passes;
+both complete 203-case source profiles now pass, with all 187 original cases and
+four original tiny native score calls across policies.
+
+The normative evidence authenticates 119 primary/14 reader members, exact handler-
+only runtime AST changes, unchanged original test ASTs and complete public/native
+outputs without replay. The original installed helper diagnostic and generated
+labels retain their actual identity. No provider/schema/scientific fixture or
+shared installation changes; genuine new artifact receiving of #106/#107 remains
+#47. The implementation defect resolves in source with its public regression.

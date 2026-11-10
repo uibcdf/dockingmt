@@ -6,6 +6,29 @@ The roadmap defines direction and gates, not dates.
 
 Work is **active after the maintainer's resumption**.
 
+[#107 scoring-resource correction](validation/scoring_geometry_resource_errors_2026-11-10.md)
+now propagates exact MemoryError/OS ENOMEM objects during prepared geometry reads;
+ordinary malformed-value/I/O diagnostics and causes stay intact. The original
+public guard has eight resource failures/eight ordinary passes; both complete
+203-case source profiles now pass, preserving 187 original cases and 16 new
+controls. Every new control stops further provider/native work, cleans owned
+staging paths and preserves input/protocol. Four original tiny Vina/Vinardo score
+calls retain the original CPU 1/seed/geometry and pass their internal audits.
+
+Independent authentication covers 119 primary/14 reader members, six qualified
+source files, public red/green populations and exact resource-handler-only AST
+delta. Original observations/fixtures, generated label and old installed consumer
+remain separate from actual source Git/overlay identity. Source origins are
+recorded before/after; all 788 inputs and 606 support declarations stay exact apart
+from the two declared runtime/test edits. No native build, shared install, resource
+interruption or remote CI.
+
+Next register a genuine private Python wheel build/ordinary installed receiving
+for #106/#107 with the retained cohort, then new resource and original native
+regressions. Preserve original aeae47d and source populations. Full #30/#47/#73,
+public Conda/closure/eight OS-minor lanes, SSH-source/hosted/interactive and original
+panel/provider holds retain their owners; review custody 2026-11-14.
+
 [Complete source scoring-evidence receiving](validation/source_scoring_evidence_2026-11-10.md)
 passes all 48 pose-audit and 54 saved-comparison controls per caller unit policy,
 without exclusions/errors/skips/warnings. Fresh eight/sixteen-value native records
@@ -24,9 +47,8 @@ no old missing metadata is reconstructed. Source Git 02228c3 remains distinct fr
 the retained generated label and old unchanged aeae47d wheel. No resource stop,
 source/test/fixture change, build, shared install or remote CI.
 
-Next correct/qualify [#107](pending_bugs/scoring_geometry_masks_resource_errors.md),
-the separately confirmed resource-error translation in scoring geometry, through
-public early-stop/cleanup guards and complete affected source receiving. Future
+#107's separate public resource-error correction is received above. Next receive
+those source changes in a genuine private consumer artifact. Future
 artifact delivery of #106/#107 stays #47. Full/public/platform/SSH-source/hosted/
 interactive and provider-panel holds retain their owners; review custody 2026-11-14.
 

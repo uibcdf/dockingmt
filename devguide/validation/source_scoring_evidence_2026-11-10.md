@@ -163,7 +163,7 @@ ArgumentError/DMT-E002. ValueError is appropriately translated. The original
 error remains a cause, but its resource type is lost to callers. No actual
 allocation failure or molecular/native calculation is induced. That helper read
 is on the public fixed-pose score path; the diagnostic itself calls the helper.
-[#107](../pending_bugs/scoring_geometry_masks_resource_errors.md) owns public
+[#107](../archive/scoring_geometry_masks_resource_errors.md) owns public
 regressions and a separate source correction. The passing 102-case population
 contains no such allocation-failure injection and does not certify that boundary.
 Preserve this original source population; do not relabel it after a later fix.
