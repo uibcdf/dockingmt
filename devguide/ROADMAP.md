@@ -6,6 +6,29 @@ The roadmap defines direction and gates, not dates.
 
 Work is **active after the maintainer's resumption**.
 
+[The complete original offline union](validation/installed_offline_union_2026-11-10.md)
+now passes all 1,287 cases under each caller unit policy on the same actual
+37a61e6 private wheel, retaining four native exclusions and zero failures/errors/
+skips/warnings. All original 1,267 case identities and 320 selected function/class
+ASTs remain; exactly twenty #106/#107 controls are added. Both actual installed
+core/addon roots, all 67 payload files, 305 qualification inputs, six providers
+and 606 support declarations/retirement verify. Independent 291/14-member records
+authenticate four sessions and 93 qualified files without test/native replay.
+No implementation/input/provider change, native build, shared install, resource
+interruption, package build/publication or remote CI occurs. Original native/
+notebook/scientific evidence retains its original producer; #30/#47/#73 stays
+partial for full/public/platform/interactive acceptance. Custody #47/#50 review
+remains 2026-11-14.
+
+The maintainer's MolSysMT #256 handoff is mapped in the
+[finite P5 client-scope review](validation/h5msm_p5_client_scope_2026-11-10.md).
+Accepted 9b077fab reference/E3 and closed #79/#88/#96 stay intact; explicit atom/
+structure permutation, restored coordinate-edit coverage and unknown-assignment
+transport/refusal are additional unexecuted controls. Next agree/register that
+small profile and admit its exact provider source/native composition before
+execution. Keep the current cohort and native-build hold. Earlier checkpoint
+next actions below retain their historical scope; use this route to resume.
+
 [Genuine new private installed receiving](validation/installed_allocation_fixes_2026-11-10.md)
 now receives #106/#107 from exact producer `37a61e6`, actual wheel version
 `0.0.0+359.g37a61e6`. All 67 runtime paths, generated/metadata/imported version,

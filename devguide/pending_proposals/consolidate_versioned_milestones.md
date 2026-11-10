@@ -14,6 +14,26 @@ supersedes: []
 
 # Consolidate versioned milestones
 
+## Installed offline union and finite provider review — 2026-11-10
+
+[Complete current-wheel receiving](../validation/installed_offline_union_2026-11-10.md)
+passes all 1,287 original-plus-guard cases per caller policy, retaining four
+native exclusions, actual installed origins, original assertions and 606 support
+rows. Independent 291/14-member records authenticate four complete sessions and
+93 files; no runtime/test/fixture/provider change or actual molecular/native/
+viewer work is made. This does not complete the broader functional objective.
+
+The maintainer forwards MolSysMT #256's finite stable-format review request.
+[The consumer scope assessment](../validation/h5msm_p5_client_scope_2026-11-10.md)
+retains accepted publication 9b077fab and closed #79/#88/#96, and identifies three
+additional unexecuted controls: explicit atom/structure reorder and persistence,
+restored coordinate-edit coverage invalidation, and unknown-assignment evidence
+transport versus projection/export refusal. The small public fixture packet and
+provider assertions are reviewed, not independently executed here. Next agree/
+register the finite profile and admit the exact compatible source/native pair;
+current frozen sources and native-build hold remain. No preparation/docking
+repeat, stable H5MSM 1.0 acceptance, package release or remote CI follows.
+
 ## Active complete objective — 2026-11-06
 
 The maintainer requests the full previously described Core-plus-Extended outcome

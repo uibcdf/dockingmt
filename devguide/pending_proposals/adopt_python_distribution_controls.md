@@ -14,6 +14,26 @@ supersedes: []
 
 # Distribution control adoption
 
+## Complete original offline union on the new wheel — 2026-11-10
+
+[Whole installed receiving](../validation/installed_offline_union_2026-11-10.md)
+passes 1,287 cases per unit policy, keeping all original 1,267 case identities,
+320 selected function/class ASTs and four native exclusions. Exactly twenty
+#106/#107 controls are added. The unchanged genuine 37a61e6 wheel/version/67
+payload files, 305 qualification inputs, both actual installed roots and 606
+support declarations/retirement verify. Independent 291/14-member records cover
+four complete sessions and 93 qualified files without replay. The stronger
+pilot isolates addon rejection; its first mixed-origin refusal remains intact.
+
+This issue stays partial for public Conda/same-byte closure, full scientific
+installed and eight OS/minor gates. No source/test/fixture/provider change, actual
+native/molecular/viewer work, resource interruption, native build, shared install,
+new package/publication or remote CI occurs. Custody #47/#50 review remains
+2026-11-14. The maintainer's additional MolSysMT #256 handoff is reviewed
+[separately](../validation/h5msm_p5_client_scope_2026-11-10.md): its three P5
+controls need exact composition admission and registered execution under #73/#256;
+accepted #79/#88/#96 evidence stays closed and stable 1.0 remains unreceived.
+
 ## Genuine installed allocation corrections — 2026-11-10
 
 [The new actual private wheel](../validation/installed_allocation_fixes_2026-11-10.md)

@@ -24,6 +24,17 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[The complete original offline union](validation/installed_offline_union_2026-11-10.md)
+now passes 1,287 cases per unit policy on that actual new wheel, keeping four
+native exclusions. Independent 291/14-member evidence verifies original case/AST
+preservation, both installed roots, 606 support rows and all resource limits.
+No actual molecular/native/viewer operation runs in this software gate.
+The [MolSysMT #256 scope review](validation/h5msm_p5_client_scope_2026-11-10.md)
+retains accepted reference/E3 evidence and identifies the three additional P5
+controls; they remain unexecuted. Next agree/register that finite profile and
+admit the exact provider composition. Public/full/platform/interactive and
+native-build holds retain their owners; custody review stays 2026-11-14.
+
 [The genuine new private wheel](validation/installed_allocation_fixes_2026-11-10.md)
 now receives #106/#107 through ordinary installed imports: all 305 resource,
 backend/staging, pose-audit and batch cases pass per caller unit policy. Version

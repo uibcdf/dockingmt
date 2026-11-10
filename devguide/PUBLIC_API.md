@@ -188,6 +188,14 @@ including the original tiny native score and search controls. This is bounded
 private installed evidence; public distribution, full scientific coverage and
 platform acceptance retain their separate gates.
 
+The same actual wheel also passes the
+[complete 26-module offline union](validation/installed_offline_union_2026-11-10.md):
+1,287 cases per unit policy, retaining four explicitly excluded native cases.
+Original case identities and selected ASTs remain intact, both installed roots
+are actually imported/validated and all 606 support inputs retire. This software
+gate performs no actual molecular, engine or Viewer operation; earlier live
+controls retain their separate evidence and original producer identities.
+
 `evaluate_redocking` requires `rmsd_cutoff` and an explicit reference population;
 its `top_n` windows follow current collection order, independently of recorded
 rank. Selection/frame/symmetry choices affect the question being measured.
