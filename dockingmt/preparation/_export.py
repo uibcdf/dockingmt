@@ -14,12 +14,12 @@ from dockingmt.preparation.charges import _charge_remark
 
 def _native_input(prepared):
     """Supply this prepared object's actual values without changing its source."""
+    from molsysmt.native import MolSys
+
     coordinates = puw.quantity(
         puw.get_value(prepared.coordinates)[None], puw.get_unit(prepared.coordinates)
     )
     if prepared.source_molsys is None:
-        from molsysmt.native import MolSys
-
         # A source-free prepared object declares only partial molecular data.
         # The provider decodes labels and constructs/sets its native domains;
         # no graph, bond order, H inventory or experimental identity is inferred.
@@ -45,13 +45,21 @@ def _native_input(prepared):
             arg_name='source_molsys',
             reason='Prepared atom count differs from its molecular source.',
         )
-    original_coordinates = msm.get(native, element='atom', coordinates=True)
-    # Compare in the getter's unit: converting it back to the prepared unit
-    # would add a round trip and could falsely require copying unchanged data.
-    coordinates_changed = original_coordinates is None or not np.array_equal(
-        puw.get_value(original_coordinates),
-        puw.get_value(coordinates, to_unit=puw.get_unit(original_coordinates)),
-    )
+    if isinstance(native, MolSys):
+        # This public native getter returns owned nm coordinates independently
+        # of the caller's display policy. Convert once to the actual prepared
+        # representation, matching preparation without a caller-unit round trip.
+        original_coordinates = native.structures.get_coordinates()
+        coordinates_changed = original_coordinates is None or not np.array_equal(
+            puw.get_value(original_coordinates, to_unit=puw.get_unit(coordinates)),
+            puw.get_value(coordinates),
+        )
+    else:
+        original_coordinates = msm.get(native, element='atom', coordinates=True)
+        coordinates_changed = original_coordinates is None or not np.array_equal(
+            puw.get_value(original_coordinates),
+            puw.get_value(coordinates, to_unit=puw.get_unit(original_coordinates)),
+        )
     values = msm.get(native, element='atom', partial_charge=True)
     if puw.is_quantity(values):
         values = puw.get_value(values, to_unit='elementary_charge')

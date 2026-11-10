@@ -24,6 +24,12 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Native small-fixture receiving](validation/installed_small_fixtures_2026-11-09.md)
+executes the collected preparation/map/export/copy controls and exposes #103's
+caller-unit copy defect. Both affected source profiles now pass; a new genuine
+wheel still needs actual receiving. The original installed failure and provider
+warnings stay explicit, separate from public/platform/hosted acceptance.
+
 [Full installed collection](validation/installed_collection_2026-11-09.md) now
 receives all 2,593 case imports under deliberate runtime-source isolation and
 resolves #102's remaining shared-helper dependencies. Both complete offline

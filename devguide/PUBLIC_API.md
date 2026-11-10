@@ -428,6 +428,12 @@ Source: [dockingmt/engines/vina.py](../dockingmt/engines/vina.py). Bases: `Docki
 | `dock` | `dock(problem: DockingProblem, protocol: DockingProtocol \| None=None) -> DockingResult` |
 | `score` | `score(problem: DockingProblem, protocol: DockingProtocol \| None=None, pose: DockingPose \| None=None, score_name: str='score') -> DockingPose` |
 
+For a native molecular source, rendering an unchanged prepared view preserves
+the source without copying unrelated caller resources, including when caller
+length units differ from preparation units. Explicit coordinate, charge or type
+edits require an independent provider copy; provider failures retain their
+original exception. Rendering preserves the caller's unit policy.
+
 #### PreparedReceptor
 
 Source: [dockingmt/preparation/receptor.py](../dockingmt/preparation/receptor.py).

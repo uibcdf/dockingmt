@@ -5,6 +5,18 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Installed small-fixture receiving](validation/installed_small_fixtures_2026-11-09.md)
+now executes native preparation, map/export and ownership controls. The original
+wheel passes31 pilot cases and64 affected cases normal, but pm/fs exposes one
+readonly export defect. #103 now corrects native coordinate comparison in source:
+20 new unit-cross-product/tiny-edit/read-failure controls and all64 affected
+cases pass separately under both caller policies. The original setup/source/
+installed failures and provider warnings remain visible. MolSysMT#675 owns the
+nonblocking index-warning review. All606 support inputs/provider/native bytes
+stay unchanged. Next build and receive a genuine new private wheel from the
+committed fix; #103 remains open until actual installed receiving. Full#47/#30,
+SSH#100/#178, public/canvas/hosted limits and native-build hold remain separate.
+
 [Full isolated installed collection](validation/installed_collection_2026-11-09.md)
 resolves #102: all 2,593 cases collect with zero tests/fixtures or molecular work
 executed, using the unchanged real 9a40e385 wheel and retained original Vina bytes.

@@ -131,3 +131,18 @@ second live view and assume it has the same binding, or rebind a map to old byte
 Existing numeric-array coherence checks stay engine-specific. #49/#33/#5 remain
 partial; biological preparation/affinity, public delivery #30/#47 and explicitly
 deferred HTML/C6 #52 retain their own acceptance. No package/Release is published.
+
+
+## Caller-unit native comparison correction — 2026-11-09
+
+[DockingMT#103](https://github.com/uibcdf/dockingmt/issues/103) and its
+[receiving record](installed_small_fixtures_2026-11-09.md) extend the original
+readonly contract to preparation/export unit cross-products. Canonical native
+sources are read through public `Structures.get_coordinates()` (owned nm data)
+and converted once to the actual prepared representation for exact comparison.
+This avoids a round trip through the export caller's display unit. It does not
+change process-global unit policy, use approximate tolerance, mutate the source
+or suppress explicit-edit copies/resource failures. The existing generic
+nonnative route retains its original behavior. Source receiving covers both
+prepared roles, one-ULP edits and original MemoryError identity; actual new-wheel
+receiving retains its separate gate. Historical outcomes above are unchanged.
