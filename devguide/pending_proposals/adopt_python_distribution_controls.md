@@ -14,6 +14,24 @@ supersedes: []
 
 # Distribution control adoption
 
+## Current installed execution boundary — 2026-11-10
+
+[Complete batch/refusal receiving](../validation/installed_execution_boundaries_2026-11-10.md)
+passes 41 batch and 57 backend/staging cases per caller unit policy, with zero
+errors/skips/warnings. All three former live batch exclusions now execute with
+the original tiny inputs, seed and CPU 1; individual/batch equivalence, isolated
+missing-file failure and original lazy/error/cleanup controls pass. 331 primary
+and 14 independent reader members retain exact runtime/test/input identities,
+actual native maps and exports without replay. The genuine aeae47d consumer,
+fixed providers and 606 support declarations remain unchanged.
+
+This issue stays partial for full installed scientific execution, public Conda
+closure/exact artifact, all eight OS/minor cells and delivery gates. No new build,
+shared install or remote CI. Next register the whole original pose-audit module,
+including its previously excluded fresh Vina/Vinardo scoring control. Keep
+SSH #100/MolSysSuite #178, interactive/native-build holds and MolSysMT #521/#558
+separate. Review retained resources on 2026-11-14.
+
 ## Current CI/private installed increment — 2026-11-09
 
 [Current CI alignment](../validation/ci_source_alignment_2026-11-09.md) passes 101

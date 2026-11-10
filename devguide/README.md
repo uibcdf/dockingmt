@@ -24,6 +24,13 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Installed batch/refusal receiving](validation/installed_execution_boundaries_2026-11-10.md)
+passes all 41 batch and 57 backend/staging cases under both caller policies. It
+receives the earlier three live exclusions, native individual/batch equality,
+missing-file isolation and failure cleanup, without runtime/test/input edits.
+Next correct/qualify [#106](pending_bugs/batch_os_allocation_failure.md) before
+receiving the complete original pose-audit module and its fresh-native scoring node. Public/full-platform/interactive and native-build holds remain.
+
 [Installed fixed-pose scoring](validation/installed_fixed_score_2026-11-10.md)
 passes 31+89 admitted cases per caller policy. The
 [portable notebook](validation/fixed_pose_scoring.ipynb) now takes explicit

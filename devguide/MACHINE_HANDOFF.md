@@ -29,6 +29,30 @@ resuming; earlier dated "next" statements below retain their historical scope.
 
 ### Current CI and private installed input checkpoint — 2026-11-10
 
+[Installed batch and refusal boundaries](validation/installed_execution_boundaries_2026-11-10.md)
+receive the complete 41-case batch module and 57 backend/staging controls under
+both caller unit policies, without exclusions, errors, skips or warnings. All
+three earlier live batch exclusions now run: individual/batch records match
+with the same seed, and an intervening missing file does not contaminate the
+next success. Original lazy iteration, result/traceback release and primary-error/
+cleanup-warning controls pass. Native calls remain CPU 1 on the four/two-record
+inputs; 22 searches include the overlapping pilot. Controls make zero actual
+native constructions or observed public molecular calls. Peak RSS is below 452 MiB;
+there is no resource interruption or runtime/test/input change.
+
+Independent authentication covers 331 primary/14 reader members, five complete
+JUnit/Receptor streams, original input/output/native maps, 39 actual exports per
+batch policy and ten qualified source files. The focused 98-node ledger retains
+the original graph/earlier selection without claiming whole-suite coverage.
+Next correct/qualify [#106](pending_bugs/batch_os_allocation_failure.md), the
+separately observed OS-allocation-error classification gap. Then register complete
+`test_pose_audit.py` receiving with a score-only observer:
+its original fresh-native audit node remains outside earlier offline evidence.
+Original artifacts/providers and 606 support inputs stay exact. MolSysMT #521/#558
+remain open after review 2026-11-10. Full #47/#30/#73, public/minor/platform,
+SSH #100/#178, hosted/interactive and native-build holds stay separate; no remote CI.
+Review retained custody and the reader exception on 2026-11-14.
+
 [Installed fixed-pose scoring](validation/installed_fixed_score_2026-11-10.md)
 receives 31 small-input scoring and 89 record/reference/audit cases under each
 caller unit policy, with zero errors/skips/warnings. Direct/API native Vina and
