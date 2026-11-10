@@ -10,9 +10,9 @@ import pytest
 import pyunitwizard as puw
 from molecular_fixtures import declared_methanol
 from molsysmt.native import Structures
-from test_engines import MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
+from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
 from dmt_test_support.qualify_chemical_templates import (
     load_181l_benzene,
     template_options,

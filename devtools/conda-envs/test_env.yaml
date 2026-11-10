@@ -25,11 +25,12 @@ dependencies:
   # The current reference PDB profile uses MolSysMT's optional OpenMM bond inference.
   # Native, explicitly selected inference is tracked by uibcdf/molsysmt#304.
   - openmm
-  - h5py
-  - pandas
-  - networkx
-  - tqdm
-  - matplotlib
+  - h5py >=3.11.0
+  - pandas >=2.2.2
+  - jinja2 >=3.1.2
+  - networkx >=3.3
+  - tqdm >=4.65.0
+  - matplotlib >=3.8.4
   - py-mmcif >=1.1.1
   - aiohttp
   - anywidget

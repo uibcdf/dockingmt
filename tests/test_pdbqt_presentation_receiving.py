@@ -10,9 +10,9 @@ import pytest
 import pyunitwizard as puw
 import test_native_ligand_export_receiving as native_ligands
 from molecular_fixtures import named_181l_pair
-from test_engines import MINIMAL_REC_PDBQT
 from vina import Vina
 
+from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
 from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
 from dockingmt.engines.vina import _verify_pose_atom_order
 from dockingmt.preparation._typing import type_remark

@@ -27,7 +27,7 @@ def native_record():
 
 
 def test_fresh_native_scoring_and_rescoring_produce_auditable_evidence():
-    from test_engines import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+    from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
     problem = dmt.DockingProblem(
         MINIMAL_REC_PDBQT,

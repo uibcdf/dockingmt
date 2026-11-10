@@ -10,9 +10,9 @@ import molsysmt as msm
 import numpy as np
 import pytest
 import pyunitwizard as puw
-from test_engines import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
+from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 from dockingmt._private.smonitor import (
     ArgumentError,
     CapabilityMismatchError,

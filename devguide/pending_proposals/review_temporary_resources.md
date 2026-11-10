@@ -14,6 +14,19 @@ supersedes: []
 
 # Temporary-resource review — 2026-11-05
 
+## CI/private installed custody increment — 2026-11-09
+
+Retain `.molsyssuite/ci-alignment-20261109` and
+`.molsyssuite/record-wheel-inputs-20261109` under #100/#101/#47/#30/#50,
+review 2026-11-14. Preserve the original 157,431-byte wheel/source producer 9a40e385,
+actual private receiver, original/qualification-only descriptors/tests/helpers,
+594-to595 exact support relation, every failed collection/context/reader and
+intermediate/final test outcome. Independent415/25-member records pass without
+replay; all owned groups terminate without resource interruption. No shared
+install, provider/native build, new scientific work or Git-origin rewrite. Keep
+old artifacts/helpers/input producers, human migration and shared environments;
+cleanup remains subject to exact owner/dependency checks and central deferrals.
+
 ## Declaration/source custody increment — 2026-11-09
 
 Retain `.molsyssuite/plan-push-20261109` under #97/#98/#99/#47/#50, review 2026-11-14:

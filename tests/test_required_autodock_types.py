@@ -5,9 +5,9 @@ from copy import deepcopy
 import molsysmt as msm
 import pytest
 import pyunitwizard as puw
-from test_engines import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
 import dockingmt as dmt
+from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
 from dmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
 from dockingmt._private.smonitor import ArgumentError

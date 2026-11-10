@@ -5,6 +5,37 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Current CI context alignment](validation/ci_source_alignment_2026-11-09.md)
+selects the already received ArgDigest07126411/MTefbe67e1/Viewer1187fc18
+revisions for ordinary four-minor CI and explicit current bootstrap floors.
+Original E4 source/environment and the fixed0.1.0 candidate stay independent;
+only E4 preflight source IDs change. Complete administrative gates pass 101 tests
+plus 26 subtests. #100 remains partial: actual routine installed-context receiving
+is refused by the shared SDK's documented HTTPS-only origin profile for the
+ordinary SSH development clones. MolSysSuite #178 owns a supported route or
+reviewed extension. No user remotes/shared metadata/verifier logic are changed
+and no source-context/hosted PASS is inferred.
+
+[New private installed receiving](validation/record_wheel_inputs_2026-11-09.md)
+passes 1,267 cases normal/pm-fs on the single original wheel from runtime producer
+9a40e385, version 0.0.0+345.g9a40e38, with four explicit native exclusions each.
+#101 resolves the installed fixture-import boundary: two original PDBQT literals
+move to declared unshipped support and 20 test-module imports preserve all other
+scientific AST. All original 594 records remain exact;595 support inputs retire.
+The67-path runtime/payload/metadata/RECORD/PEP610/private import controls pass.
+Independent415-member/25-member reading preserves the failed first collection,
+old/current context refusals, original/intermediate/final producers and reader
+failures without replay. Runtime packages are unchanged in this increment;
+older wheel files/receipts retain their own code/provider composition.
+
+Next receive #178's owning source-context route when delivered and audit #47's
+remaining full installed-test collection prerequisites before registering native
+scientific execution. #30/#47 public Conda/closure/eight installed OS-minor cells,
+#21/#28 exact-head hosted evidence, #558 panel maps/history and scheduled actual
+browser/comm/canvas #52/#60 remain pending. No shared install, provider/native
+build, new molecular calculation, package publication or remote CI dispatch.
+
+
 [Preparation/problem ownership and I/O receiving](validation/declaration_and_io_receiving_2026-11-09.md)
 resolves #97/#98/#99 in source: public declaration exports detach mutable lists/
 metadata, problem restoration copies only consumed declarations while keeping

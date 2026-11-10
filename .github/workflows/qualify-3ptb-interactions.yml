@@ -101,9 +101,9 @@ jobs:
         shell: bash -l {0}
         run: |
           python devtools/check_dependency_routes.py --context e4-3.14 \
-            --source-root argdigest-source=.molsyssuite/e4-hosted/argdigest \
-            --source-root molsysmt-source=.molsyssuite/e4-hosted/molsysmt \
-            --source-root viewer-py314=.molsyssuite/e4-hosted/molsysviewer
+            --source-root e4-argdigest-20261105=.molsyssuite/e4-hosted/argdigest \
+            --source-root e4-molsysmt-20261105=.molsyssuite/e4-hosted/molsysmt \
+            --source-root e4-viewer-20261105=.molsyssuite/e4-hosted/molsysviewer
           python -m pip check
       - name: Run both finite notebook profiles and fresh saved readers
         shell: bash -l {0}

@@ -24,6 +24,13 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+The current [CI/source-context review](validation/ci_source_alignment_2026-11-09.md)
+keeps #100 partial under MolSysSuite #178, while
+[new private installed receiving](validation/record_wheel_inputs_2026-11-09.md)
+passes 1,267 cases per unit policy and resolves #101's fixture namespace boundary.
+These are separate from public delivery and executed hosted CI. The handoff
+retains all original artifact and qualification identities.
+
 The latest [source ownership/I-O checkpoint](validation/declaration_and_io_receiving_2026-11-09.md)
 resolves #97/#98/#99: independent declaration snapshots, exact source-read errors
 and offline batch-test collection pass complete affected receiving in both unit

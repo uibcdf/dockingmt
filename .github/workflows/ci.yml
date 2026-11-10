@@ -32,14 +32,14 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       # The uibcdf channel does not yet publish this integrated set for Python 3.13.
-      # Exact current sibling composition is qualified under dockingmt#49.
-      # Both Viewer contexts now use the same source; public pair admission is separate.
+      # Reviewed development revisions; hosted/context receiving remains #100.
+      # Frozen manual receivers keep separate source identities; public admission is separate.
       - name: Check out compatible ArgDigest source
         if: matrix.python-version != '3.14'
         uses: actions/checkout@v6
         with:
           repository: uibcdf/argdigest
-          ref: "3d1ec53c374098016452abab74706e9d80df5462"
+          ref: "07126411f108ee1ff607e9c9a0816109b2c9253e"
           path: .molsyssuite/argdigest
           fetch-depth: 0
       - name: Check out compatible ArgDigest source for Python 3.14
@@ -47,7 +47,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/argdigest
-          ref: "3d1ec53c374098016452abab74706e9d80df5462"
+          ref: "07126411f108ee1ff607e9c9a0816109b2c9253e"
           path: .molsyssuite/argdigest
           fetch-depth: 0
       - name: Check out compatible MolSysMT source
@@ -55,7 +55,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "00abb958fb93649131d5ce5fe5e12e90cf4900e9"
+          ref: "efbe67e1c6042078144bce1db24aa80bb565dbd2"
           path: .molsyssuite/molsysmt
           fetch-depth: 0
       - name: Check out compatible MolSysMT source for Python 3.14
@@ -63,7 +63,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysmt
-          ref: "00abb958fb93649131d5ce5fe5e12e90cf4900e9"
+          ref: "efbe67e1c6042078144bce1db24aa80bb565dbd2"
           path: .molsyssuite/molsysmt
           fetch-depth: 0
       - name: Check out compatible MolSysViewer source
@@ -71,7 +71,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysviewer
-          ref: "78ede79e2e345593db5bfe80d246d3f6c70bd005"
+          ref: "1187fc187247aa2d20d01791856a541d50562bcb"
           path: .molsyssuite/molsysviewer
           fetch-depth: 0
       - name: Check out compatible MolSysViewer source for Python 3.14
@@ -79,7 +79,7 @@ jobs:
         uses: actions/checkout@v6
         with:
           repository: uibcdf/molsysviewer
-          ref: "78ede79e2e345593db5bfe80d246d3f6c70bd005"
+          ref: "1187fc187247aa2d20d01791856a541d50562bcb"
           path: .molsyssuite/molsysviewer
           fetch-depth: 0
       - name: Setup micromamba

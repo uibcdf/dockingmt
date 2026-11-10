@@ -199,7 +199,8 @@ def test_explicit_manual_values_replace_only_the_export_copy(prepare, monkeypatc
 
 def test_known_disconnected_rigid_ligand_refuses_before_engine(monkeypatch):
     from molsysmt._private.smonitor import FormatError
-    from test_engines import MINIMAL_REC_PDBQT
+
+    from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
 
     source = msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(explicit_source('CC(=O)N'), **CHARGE),

@@ -175,7 +175,8 @@ def test_unassessed_inventory_rejects_before_engine_even_with_opt_in(
     allow_provisional, monkeypatch
 ):
     import vina
-    from test_engines import MINIMAL_REC_PDBQT
+
+    from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
 
     raw = msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(

@@ -439,7 +439,7 @@ def test_native_fragment_cuts_match_temporary_bridge_on_5x72():
 
 
 def test_molsysmt_explicit_strings_reach_vina_without_format_prefix():
-    from test_engines import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+    from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
     problem = dmt.DockingProblem(
         receptor='pdbqt_text:' + MINIMAL_REC_PDBQT,

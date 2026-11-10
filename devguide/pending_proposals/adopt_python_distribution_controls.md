@@ -14,6 +14,18 @@ supersedes: []
 
 # Distribution control adoption
 
+## Current CI/private installed increment — 2026-11-09
+
+[Current CI alignment](../validation/ci_source_alignment_2026-11-09.md) passes 101
+administrative tests/26 subtests but actual SSH source-context receiving remains
+partial under #100/MolSysSuite #178. Existing hosted/public requirements stay.
+[New private installed receiving](../validation/record_wheel_inputs_2026-11-09.md)
+passes 1,267 cases per policy on one original9a40e385 wheel; #101's qualification-
+only fixture import correction preserves all runtime bytes, original 594 support
+rows and historical producers.595 support inputs retire;415/25-member independent
+receiving retains all old failures. This issue stays partial for exact public/
+Conda closure, full scientific/native installed and all platform/minor gates.
+
 ## Current public/source boundary — 2026-11-09
 
 The [fresh public inventory](../validation/public_candidate_readiness.md#availability-refresh--2026-11-09)

@@ -10,10 +10,10 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 from molsysmt._private.smonitor import FormatError
-from test_engines import MINIMAL_REC_PDBQT
 from test_vina_torsion_matrix import CASES, _source
 
 import dockingmt as dmt
+from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
 from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
 from dmt_test_support.qualify_named_types import (
     CHARGE,

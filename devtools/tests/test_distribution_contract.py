@@ -245,6 +245,8 @@ class TestDistributionContract(unittest.TestCase):
             ]
             self.assertTrue(all(s['with']['fetch-depth'] == 0 for s in clones))
             for context in inventory['contexts']:
+                if not context['name'].startswith('ci-'):
+                    continue
                 condition = (
                     "matrix.python-version == '3.14'"
                     if context['python_minor'] == '3.14'

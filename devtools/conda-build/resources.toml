@@ -3062,3 +3062,8 @@ sha256 = "bc9da4807844ca6c96fceb18f6e2bb3745b5cdc2789247a4d9ac2f1fcf2f11ea"
 source = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_5/vinardo_scored_pose.json.gz"
 target = "devguide/validation/data/e1_native_rescoring_2026-11-06/pose_5/vinardo_scored_pose.json.gz"
 sha256 = "4dfec44af100ddeb60ae7db5f9e10e5d681d819bf9f78ac76bfc33fd81fa6dfc"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/pdbqt_fixtures.py"
+target = "dmt_test_support/pdbqt_fixtures.py"
+sha256 = "9b0f8ceba9bb10e64da847e7d85a46e9e06f46c579bc6ec95995cc5d0f159826"

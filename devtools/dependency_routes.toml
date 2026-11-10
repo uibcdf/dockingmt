@@ -29,36 +29,63 @@ id = "argdigest-source"
 name = "argdigest"
 role = "required-runtime"
 url = "https://github.com/uibcdf/argdigest"
-commit = "3d1ec53c374098016452abab74706e9d80df5462"
+commit = "07126411f108ee1ff607e9c9a0816109b2c9253e"
 install = "pip-no-deps-directory"
-reason = "Chemical-domain candidate composition under dockingmt#56; directory installation and the exact four-minor CI remain required. Historical #49 evidence is retained separately."
+reason = "Current source composition under dockingmt#100, received with development APIs and exact source identities. Directory installation and executed four-minor CI remain separate requirements; historical candidates retain their original contexts."
 
 [[source_routes]]
 id = "molsysmt-source"
 name = "molsysmt"
 role = "required-runtime"
 url = "https://github.com/uibcdf/molsysmt"
-commit = "00abb958fb93649131d5ce5fe5e12e90cf4900e9"
+commit = "efbe67e1c6042078144bce1db24aa80bb565dbd2"
 install = "pip-no-deps-directory"
-reason = "ChemicalStates/Topology receiving under dockingmt#56 selects MolSysMT main 00abb958f. PDBQT contracts remain required; exact-source and installed/public qualification remain separate."
+reason = "Current received MolSysMT efbe67e1 under dockingmt#100 includes the bounded public0.6/E3 and editable integration handoffs. Native bytes/build inputs are independently fingerprinted; hosted/native/public gates remain separate."
 
 [[source_routes]]
 id = "viewer-base"
 name = "molsysviewer"
 role = "integration"
 url = "https://github.com/uibcdf/molsysviewer"
-commit = "78ede79e2e345593db5bfe80d246d3f6c70bd005"
+commit = "1187fc187247aa2d20d01791856a541d50562bcb"
 install = "pip-no-deps-directory"
-reason = "Python player callback receiving under dockingmt#60 and molsysviewer#291. Exact source notifications are qualified separately from browser rendering and public dependency floors; molecular provider pins stay unchanged."
+reason = "Current Viewer1187fc18 already received by the original eight-cell editable E4 Python workflow. Source notifications remain separate from actual browser rendering, full hosted installation and public dependency floors (#60/#100)."
 
 [[source_routes]]
 id = "viewer-py314"
 name = "molsysviewer"
 role = "integration"
 url = "https://github.com/uibcdf/molsysviewer"
+commit = "1187fc187247aa2d20d01791856a541d50562bcb"
+install = "pip-no-deps-directory"
+reason = "Current Viewer1187fc18 already received by the original eight-cell editable E4 Python workflow. Source notifications remain separate from actual browser rendering, full hosted installation and public dependency floors (#60/#100)."
+
+[[source_routes]]
+id = "e4-argdigest-20261105"
+name = "argdigest"
+role = "required-runtime"
+url = "https://github.com/uibcdf/argdigest"
+commit = "3d1ec53c374098016452abab74706e9d80df5462"
+install = "pip-no-deps-directory"
+reason = "Original fixed E4 manual receiver source identity retained under dockingmt#80/#100; not the current ordinary-CI composition."
+
+[[source_routes]]
+id = "e4-molsysmt-20261105"
+name = "molsysmt"
+role = "required-runtime"
+url = "https://github.com/uibcdf/molsysmt"
+commit = "00abb958fb93649131d5ce5fe5e12e90cf4900e9"
+install = "pip-no-deps-directory"
+reason = "Original fixed E4 manual receiver source identity retained under dockingmt#80/#100; not the current ordinary-CI composition."
+
+[[source_routes]]
+id = "e4-viewer-20261105"
+name = "molsysviewer"
+role = "integration"
+url = "https://github.com/uibcdf/molsysviewer"
 commit = "78ede79e2e345593db5bfe80d246d3f6c70bd005"
 install = "pip-no-deps-directory"
-reason = "Python player callback receiving under dockingmt#60 and molsysviewer#291. Exact source notifications are qualified separately from browser rendering and public dependency floors; molecular provider pins stay unchanged."
+reason = "Original fixed E4 manual receiver source identity retained under dockingmt#80/#100; not the current ordinary-CI composition."
 
 [[contexts]]
 name = "ci-3.11"
@@ -96,7 +123,7 @@ reason = "Current Python 3.14 source selection under dockingmt#49; required dire
 name = "e4-3.14"
 environment = "devtools/conda-envs/e4_env.yaml"
 python_minor = "3.14"
-sources = ["argdigest-source", "molsysmt-source", "viewer-py314"]
+sources = ["e4-argdigest-20261105", "e4-molsysmt-20261105", "e4-viewer-20261105"]
 overlays = []
 reason = "DockingMT #80 finite normal/pm-fs receiving; fresh same-run installed consumer, no local restart, public package or other-platform/minor admission."
 
@@ -112,7 +139,7 @@ reason = "DockingMT #60 addon-specific Node/jsdom DOM tests; standard-library AS
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "6cb3b6f1293222d35d4a22b62dba572bc8b0296158193cd4183d56041659df05"
+sha256 = "3acd02eabcab46850e0bc7b288eb4684e0d98deb4bbffc3a303a128af432aa40"
 reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22. Administrative selection includes the five isolated export resource guards (#72) and fixed-candidate hosted qualification controls (#74) and E4 hosted/source/association controls (#80); acquisition routes are unchanged."
 
 [[workflows]]
@@ -122,7 +149,7 @@ reason = "Administrative no-build recipe/resources and immutable publisher contr
 
 [[workflows]]
 path = ".github/workflows/full-matrix.yml"
-sha256 = "533adc353043d7f5fd4cc826415749804bd2ac21bc176623469fb13e58f38b76"
+sha256 = "787fbceb0452d37a0ab422a8a72506ee0ce732344406d37b65508fb821397deb"
 reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under dockingmt#49; directory preflight does not dispatch or change the matrix."
 
 [[workflows]]
@@ -147,5 +174,5 @@ reason = "DockingMT #74 manual hosted-only private 0.1.0 receiving for remaining
 
 [[workflows]]
 path = ".github/workflows/qualify-3ptb-interactions.yml"
-sha256 = "25a7d224e027eced129d16b0e2b8f1ad71d55a910aa6edb89220381706dede05"
+sha256 = "6997e29a599a0317b587c5e31b95fe0bba23a688c3af69ea8df5acebc90165b4"
 reason = "DockingMT #80 manual hosted-only finite notebook receiving after a measured local RAM stop. Uses existing micromamba/read-only/failed-outcome retention patterns and immutable sibling routes. Normal and pm-fs are serial, each followed by a fresh saved reader; no publisher or full-suite claim. Retire after #80 receiving or replacement by an accepted common scientific receiver; suite #31 owns source-acquisition replacement."

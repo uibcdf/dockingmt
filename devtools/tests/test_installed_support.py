@@ -71,3 +71,35 @@ def test_legacy_script_entry_point_keeps_help_outside_the_clone(tmp_path):
     )
     assert result.returncode == 0, result.stderr
     assert '--bundle' in result.stdout and '--source' in result.stdout
+
+
+def test_shared_pdbqt_fixtures_keep_their_original_literal_bytes():
+    import hashlib
+
+    from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+
+    assert (
+        hashlib.sha256(MINIMAL_REC_PDBQT.encode()).hexdigest()
+        == 'fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b'
+    )
+    assert (
+        hashlib.sha256(MINIMAL_LIG_PDBQT.encode()).hexdigest()
+        == 'e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884'
+    )
+
+
+def test_shared_pdbqt_fixture_import_has_no_engine_or_sibling_test_dependency(tmp_path):
+    code = """import sys
+sys.path.insert(0, sys.argv[1])
+from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+assert MINIMAL_REC_PDBQT.startswith('ATOM') and MINIMAL_LIG_PDBQT.startswith('ROOT')
+assert not any(name == 'test_engines' or name.split('.')[0] in {'dockingmt', 'molsysmt', 'molsysviewer', 'vina', 'rdkit', 'openmm'} for name in sys.modules)
+"""
+    result = subprocess.run(
+        [sys.executable, '-I', '-B', '-c', code, str(ROOT)],
+        cwd=tmp_path,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+    assert result.returncode == 0, result.stderr

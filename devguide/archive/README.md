@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (75)
+### Resolved (76)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_coordinate_record_admission.md`](audit_coordinate_record_admission.md) — [#90](https://github.com/uibcdf/dockingmt/issues/90) — Offline coordinate audits disagree with the existing pose-record admission. *(resolved, reproduced)*
@@ -36,6 +36,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`incremental_prepared_docking.md`](incremental_prepared_docking.md) — [#36](https://github.com/uibcdf/dockingmt/issues/36) — Execute prepared docking problems one at a time with explicit failure handling. *(resolved, measured)*
 - [`input_normalization_masks_resource_failures.md`](input_normalization_masks_resource_failures.md) — [#92](https://github.com/uibcdf/dockingmt/issues/92) — Public input normalization masks native memory failures as invalid arguments. *(resolved, reproduced)*
 - [`inspect_saved_scoring_collections.md`](inspect_saved_scoring_collections.md) — [#77](https://github.com/uibcdf/dockingmt/issues/77) — Inspect saved scoring collections through an explicit ordinary-installed example mode. *(resolved, measured)*
+- [`installed_pdbqt_fixture_imports.md`](installed_pdbqt_fixture_imports.md) — [#101](https://github.com/uibcdf/dockingmt/issues/101) — Isolated installed tests import shared PDBQT fixtures from a sibling test module. *(resolved, reproduced)*
 - [`interaction_binding_partial_carrier_diagnostic.md`](interaction_binding_partial_carrier_diagnostic.md) — [#89](https://github.com/uibcdf/dockingmt/issues/89) — Interaction binding leaks scalar/form errors for absent carrier domains. *(resolved, reproduced)*
 - [`interaction_module_missing_from_resource_inventory.md`](interaction_module_missing_from_resource_inventory.md) — [#93](https://github.com/uibcdf/dockingmt/issues/93) — The installed resource inventory omits the already-shipped interaction module. *(resolved, measured)*
 - [`invalid_scores_can_corrupt_pose_ranking.md`](invalid_scores_can_corrupt_pose_ranking.md) — [#24](https://github.com/uibcdf/dockingmt/issues/24) — Reject invalid named scores before ranking docking poses *(resolved, measured)*

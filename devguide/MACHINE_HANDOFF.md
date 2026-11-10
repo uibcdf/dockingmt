@@ -27,6 +27,51 @@ Keep `devguide/` updated with every increment.
 Read this checkpoint, the current operational roadmap and owning report before
 resuming; earlier dated "next" statements below retain their historical scope.
 
+### Current CI and private installed input checkpoint — 2026-11-09
+
+[Current CI context alignment](validation/ci_source_alignment_2026-11-09.md)
+selects the already received ArgDigest07126411/MTefbe67e1/Viewer1187fc18
+revisions for ordinary four-minor CI and explicit current bootstrap floors.
+Original E4 source/environment and the fixed0.1.0 candidate stay independent;
+only E4 preflight source IDs change. Complete administrative gates pass 101 tests
+plus 26 subtests. #100 remains partial: actual routine installed-context receiving
+is refused by the shared SDK's documented HTTPS-only origin profile for the
+ordinary SSH development clones. MolSysSuite #178 owns a supported route or
+reviewed extension. No user remotes/shared metadata/verifier logic are changed
+and no source-context/hosted PASS is inferred.
+
+[New private installed receiving](validation/record_wheel_inputs_2026-11-09.md)
+passes 1,267 cases normal/pm-fs on the single original wheel from runtime producer
+9a40e385, version 0.0.0+345.g9a40e38, with four explicit native exclusions each.
+#101 resolves the installed fixture-import boundary: two original PDBQT literals
+move to declared unshipped support and 20 test-module imports preserve all other
+scientific AST. All original 594 records remain exact;595 support inputs retire.
+The67-path runtime/payload/metadata/RECORD/PEP610/private import controls pass.
+Independent415-member/25-member reading preserves the failed first collection,
+old/current context refusals, original/intermediate/final producers and reader
+failures without replay. Runtime packages are unchanged in this increment;
+older wheel files/receipts retain their own code/provider composition.
+
+Next receive #178's owning source-context route when delivered and audit #47's
+remaining full installed-test collection prerequisites before registering native
+scientific execution. #30/#47 public Conda/closure/eight installed OS-minor cells,
+#21/#28 exact-head hosted evidence, #558 panel maps/history and scheduled actual
+browser/comm/canvas #52/#60 remain pending. No shared install, provider/native
+build, new molecular calculation, package publication or remote CI dispatch.
+
+Retain `.molsyssuite/ci-alignment-20261109` and
+`.molsyssuite/record-wheel-inputs-20261109` under #100/#101/#47/#30/#50,
+review 2026-11-14. The wheel file is 157,431 B, SHA-256
+`0ed16b5a607a684be611b964b1996f56cc3273f7fcf012e6f86403551f3e91dd`;
+producer 9a40e385d951b0521f6509de6b127083b78be61c remains fixed. Keep original
+and changed qualification-input manifests/bytes, the actual private receiver,
+all earlier failures, shared support/tool identities and the single actual wheel.
+New code/evidence publication does not relabel it. All owned cells are terminal
+without resource interruption, CPU0/nice10/one worker with 13 GiB available reserve,
+1GiB group RSS/2GiB address space/45 CPU/60 wall bounds. Preserve human migration,
+shared/sibling environments, old artifacts and the held native-build interruption.
+Final local/fresh actual committed-source checks precede `[skip ci]` publication.
+
 ### Current declaration and file-I/O source checkpoint — 2026-11-09
 
 [Preparation/problem ownership and I/O receiving](validation/declaration_and_io_receiving_2026-11-09.md)
@@ -98,7 +143,7 @@ Task `.molsyssuite/e3-h5msm06-20261109` retains initial/final reference selectio
 corrected observer and independent readers. `.molsyssuite/e3-pose-study-20261109`
 retains original fixed inputs, all failures, both complete selections and final
 reader. Owners #79/#50, review 2026-11-14. Both tasks use CPU0/nice10/one worker,
-13GiB monitored reserve/1GiB group RSS/2GiB address space/45CPU/60wall bounds.
+13GiB monitored reserve/1GiB group RSS/2GiB address space/45 CPU/60 wall bounds.
 All final cells terminate without interruption. Preserve human migration,
 shared environment, old wheels/readers/producers and historical interruptions.
 Final relevant local and fresh committed-source checks accompany publication;

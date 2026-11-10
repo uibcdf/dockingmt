@@ -7,10 +7,10 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 from molecular_fixtures import declared_methanol
-from test_engines import MINIMAL_LIG_PDBQT
 from test_named_partial_charges import METHANOL, atom_charges
 
 import dockingmt as dmt
+from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT
 from dmt_test_support.qualify_181l_receptor import prepare_case
 from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
 from dmt_test_support.qualify_named_types import CHARGE, TYPING
