@@ -24,6 +24,14 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Installed live-reader receiving](validation/installed_live_reader_2026-11-10.md)
+passes the complete 15-case module and two mapped controls under both unit policies,
+including actual native construction, grids, search and output reading. The real
+retained engine, exact submitted bytes and unchanged consumer/providers are checked;
+original selector failure and all outcomes remain explicit. #521 still owns the
+partial/reference reader extension. Next inspect tiny fixed-pose scoring controls;
+full/public/source-context/interactive and native-build holds remain separate.
+
 [Installed saved-result receiving](validation/installed_results_2026-11-09.md)
 passes the 16/22/6/155-case restoration, molecular-reader and record selections under
 both caller policies. Four headless executions also complete the exact eight user

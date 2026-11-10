@@ -122,3 +122,27 @@ Original native production populations above keep their own producers. Next insp
 and register a tiny installed live-reader selection using the retained original
 engine, one CPU and measured headroom; no native rebuild or wider scientific
 accuracy claim follows from these non-search controls.
+
+
+## Current installed live-reader receiving — 2026-11-10
+
+[Actual-engine receiving](installed_live_reader_2026-11-10.md) now passes the whole
+15-case production-reader module, with no exclusions, and the two mapped native
+controls under both normal and pm/fs caller policies. The nine module cases that
+were explicitly outside the prior non-search receiving now execute real Vina
+constructors, maps and searches. The unchanged aeae47d wheel, 606 support records,
+MolSysMT 0c6f9c7 cohort and original engine bytes are verified. Actual source/view/map
+binding, independent numeric reading, manual exported copies, result roundtrip,
+source preservation, handled reader failure and staging cleanup all retain their
+original assertions. No source/test/fixture edit or native build is needed.
+
+The original 2026-11-04 legacy-exception review remains historical. Current review:
+MolSysMT #521 is still open as checked 2026-11-10; its partial/reference contract is
+not received here. Current provider documentation requires a complete chemical
+state for this reader. The three uncovered controls retain their preselected legacy
+route, without recovery after a known-source error; multiple-state sources remain
+separate. Owner stays DockingMT #49/#33 with provider#521, next review 2026-11-14.
+Remove this bounded duplication when a provider-owned partial/reference reader is
+qualified on the actual remaining profiles. Do not expand the consumer parser or
+infer missing chemical information to enter the complete-source API. This review
+introduces no new workaround or accepted profile.

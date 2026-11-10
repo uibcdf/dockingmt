@@ -6,6 +6,27 @@ The roadmap defines direction and gates, not dates.
 
 Work is **active after the maintainer's resumption**.
 
+[Installed live-reader receiving](validation/installed_live_reader_2026-11-10.md)
+passes the complete 15-case prepared-reader module and two mapped live cases under
+both caller policies, with zero errors/skips/warnings. All nine previously excluded
+module searches now execute; native counters record 11 constructors/searches per
+policy, plus the successful pilot. Every call uses one CPU and the unchanged tiny
+four-record receptor. Peak group RSS stays below 553 MiB; no resource interruption
+occurs. The initial unsafe-selector admission fails before pytest and is retained.
+
+Actual Vina1.2.7 origin/native mappings, input/output bytes and CPU/seed/grid/search
+parameters bind to the original authenticated engine and unchanged aeae47d wheel.
+All 606 support records retire; the six-provider cohort and original fixtures stay
+exact. Independent authentication covers 241 primary and 14 reader records, five
+JUnit/Receptor sessions, actual loaded native extension hashes and four exact
+qualified source files without molecular replay. Known-source reader
+failures and cleanup controls pass; preselected uncovered profiles remain explicit
+legacy routes under open MolSysMT #521. Review that bounded #49/#33 exception on
+2026-11-14; no provider contract or parser is expanded here. Next inspect/register
+small installed fixed-pose scoring controls with the retained engine and measured
+resource limits. Full #47/#30/#73, SSH #100/#178, public/platform/hosted/canvas and
+native-build holds remain separate; no remote CI or shared environment mutation.
+
 [Installed saved-result receiving](validation/installed_results_2026-11-09.md)
 passes all four complete selections with normal and pm/fs units: 16 restoration/
 materialization, 22 mapped-reader, 6 staged-reader and 155 record-admission cases.

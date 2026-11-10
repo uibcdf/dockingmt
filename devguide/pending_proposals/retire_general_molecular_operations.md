@@ -594,3 +594,20 @@ including all 24 historical rows / 167 poses without repeating their searches.
 SDF admission has also advanced; optional explicit-RDKit 1IEP export is reported
 separately as MolSysMT #436. Projection/maps, native pose ensembles, permutations,
 connectivity and persistence retain their owners and this report remains partial.
+
+
+## Installed live-reader checkpoint — 2026-11-10
+
+[Current receiving](../validation/installed_live_reader_2026-11-10.md) passes the
+whole 15-case prepared-reader module and two mapped live controls with the real
+unchanged installed wheel/engine under both caller policies. Native execution,
+public known-source reading, original handled failures and source/staging cleanup
+are received; all 606 support/native/provider inputs retain their identities.
+
+This does not close #49 or deliver MolSysMT #521's missing partial/reference API.
+The current provider contract still requires complete source chemistry; three
+explicit uncovered controls keep their preselected legacy route. The existing
+bounded exception is reviewed 2026-11-10 under #49/#33/#521, next review 2026-11-14,
+with removal only after actual provider qualification of those remaining profiles.
+No local parser capability or provider-contract relaxation is added. Multiple-state
+and public/platform/source-context receiving remain separate.
