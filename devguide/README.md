@@ -24,12 +24,20 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[#106 is corrected in source](archive/batch_os_allocation_failure.md): recorded
+batches stop on OS memory-allocation failures, preserve the same exception and
+leave the next source item unconsumed. Both whole 45-case source profiles pass;
+ordinary file errors remain recordable. [Exact receiving and limits](validation/batch_os_allocation_fix_2026-11-10.md)
+keep the old installed wheel, generated labels and missing post-origin metadata
+separate. Next receive the fresh-native pose-audit node and a future genuine
+consumer artifact; full/public/interactive gates remain.
+
 [Installed batch/refusal receiving](validation/installed_execution_boundaries_2026-11-10.md)
 passes all 41 batch and 57 backend/staging cases under both caller policies. It
 receives the earlier three live exclusions, native individual/batch equality,
 missing-file isolation and failure cleanup, without runtime/test/input edits.
-Next correct/qualify [#106](pending_bugs/batch_os_allocation_failure.md) before
-receiving the complete original pose-audit module and its fresh-native scoring node. Public/full-platform/interactive and native-build holds remain.
+The separate [#106 source correction](archive/batch_os_allocation_failure.md)
+above precedes complete pose-audit and new-artifact receiving. Public/full-platform/interactive and native-build holds remain.
 
 [Installed fixed-pose scoring](validation/installed_fixed_score_2026-11-10.md)
 passes 31+89 admitted cases per caller policy. The

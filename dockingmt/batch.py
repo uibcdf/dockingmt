@@ -1,5 +1,6 @@
 """Incremental local execution of already prepared docking problems."""
 
+import errno
 from copy import deepcopy
 
 import smonitor
@@ -37,7 +38,8 @@ def dock_many(problems, protocol=None, backend=None, on_error='raise'):
     API options are admitted now; items execute serially as the caller advances
     the iterator. Default item errors propagate. Explicit ``on_error='record'``
     yields failure summaries and continues. Source, process-control and memory
-    failures always propagate. No future item is consumed before the current
+    failures always propagate, including OS errors reporting memory exhaustion.
+    No future item is consumed before the current
     outcome is yielded, and completed outcomes are not retained.
 
     Inputs, protocol/backend and source iterator are borrowed. Keep them stable
@@ -62,7 +64,9 @@ def dock_many(problems, protocol=None, backend=None, on_error='raise'):
             except MemoryError:
                 raise
             except Exception as exc:
-                if on_error == 'raise':
+                if on_error == 'raise' or (
+                    isinstance(exc, OSError) and exc.errno == errno.ENOMEM
+                ):
                     raise
                 code = getattr(exc, 'code', None)
                 error = {

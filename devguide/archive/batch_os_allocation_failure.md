@@ -1,14 +1,14 @@
 ---
 summary: Stop recorded batch execution on OS-level memory allocation failure.
 issue: uibcdf/dockingmt#106
-status: active
+status: resolved
 opened: 2026-11-10
-closed:
+closed: 2026-11-10
 severity: medium
 verification: measured
 area: [execution, resources, diagnostics]
-guard: tests/test_batch.py::test_control_and_resource_exceptions_propagate
-normative: devguide/validation/installed_execution_boundaries_2026-11-10.md
+guard: tests/test_batch.py::test_os_allocation_failure_stops_without_consuming_next_item
+normative: devguide/validation/batch_os_allocation_fix_2026-11-10.md
 blocked_by: []
 supersedes: []
 ---
@@ -52,3 +52,21 @@ original native batch selection under both caller unit policies with the same
 tiny inputs/seed/CPU 1. Keep source and old installed-wheel evidence separate.
 No shared environment, provider, scientific fixture or runtime schema change is
 needed. Public delivery/full-platform/scientific gates remain separately owned.
+
+
+## Resolution — 2026-11-10
+
+The recording policy now propagates the same OS allocation exception only when
+its errno is ENOMEM. Four new cases verify both policies, first-outcome identity,
+source borrowing/consumption and ordinary ENOENT/ENOSPC recording. The new
+record-policy guard fails on original code, then both complete 45-case source
+profiles pass with ten original tiny native searches each. All 41 original test
+declarations/assertions remain unchanged; independent AST checks and retained
+red/green records confirm that scope.
+
+The normative source record retains 257 primary and 20 reader members, including
+the original installed diagnostic, initial selector failure and missing serialized
+post-origin metadata. Initial source import is checked by the executed driver;
+missing later metadata is explicit. Original generated version labels and the
+old aeae47d artifact keep their identities; new installed receiving remains #47.
+No scientific fixture/dependency/environment or runtime schema change is made.

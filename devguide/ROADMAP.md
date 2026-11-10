@@ -6,6 +6,25 @@ The roadmap defines direction and gates, not dates.
 
 Work is **active after the maintainer's resumption**.
 
+[#106 source correction](validation/batch_os_allocation_fix_2026-11-10.md)
+now propagates OS memory-allocation failures from recorded batches as the same
+exception, without consuming another input. Ordinary missing-file/full-disk
+errors still record and continue. The regression fails before the fix; both
+complete 45-case source profiles pass, retaining all 41 original assertions and
+four new cases. Their 20 native searches use the original tiny inputs/seed/CPU 1;
+no molecular preparation, build or shared installation occurs.
+
+Independent reading authenticates 257 primary/20 reader members, three qualified
+source files, original tests and exact source/native overlays. The original
+selector failure and missing serialized post-origin field remain explicit; the
+executed driver checks initial source import, while its old generated version
+label does not identify the source producer. The old installed aeae47d wheel is
+unchanged and remains outside this fix's receiving. Next register complete
+`test_pose_audit.py` source receiving, including its fresh native scoring node;
+receive #106 in a genuine future artifact under #47. Full/public/platform,
+SSH-source/hosted/interactive and provider-panel holds retain their owners.
+Review retained resources on 2026-11-14; no remote CI is launched.
+
 [Installed batch and refusal boundaries](validation/installed_execution_boundaries_2026-11-10.md)
 receive the complete 41-case batch module and 57 backend/staging controls under
 both caller unit policies, without exclusions, errors, skips or warnings. All
@@ -21,8 +40,7 @@ Independent authentication covers 331 primary/14 reader members, five complete
 JUnit/Receptor streams, original input/output/native maps, 39 actual exports per
 batch policy and ten qualified source files. The focused 98-node ledger retains
 the original graph/earlier selection without claiming whole-suite coverage.
-Next correct/qualify [#106](pending_bugs/batch_os_allocation_failure.md), the
-separately observed OS-allocation-error classification gap. Then register complete
+#106's separate source correction is received above. Next register complete
 `test_pose_audit.py` receiving with a score-only observer:
 its original fresh-native audit node remains outside earlier offline evidence.
 Original artifacts/providers and 606 support inputs stay exact. MolSysMT #521/#558

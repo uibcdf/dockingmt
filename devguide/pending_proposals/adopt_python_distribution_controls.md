@@ -14,6 +14,16 @@ supersedes: []
 
 # Distribution control adoption
 
+## Separate source allocation correction — 2026-11-10
+
+[#106](../archive/batch_os_allocation_failure.md) resolves OS allocation-error
+passthrough in source; both complete 45-case batch profiles pass. The source
+origin assertion, exact overlay and retained generated version label remain
+separate from the old ordinary installed consumer. Its missing serialized
+post-origin metadata is explicit in the [source receiving](../validation/batch_os_allocation_fix_2026-11-10.md).
+No new artifact is claimed; receive the fix in a genuine future wheel/Conda
+candidate under this issue. Public/full installed/platform gates remain partial.
+
 ## Current installed execution boundary — 2026-11-10
 
 [Complete batch/refusal receiving](../validation/installed_execution_boundaries_2026-11-10.md)

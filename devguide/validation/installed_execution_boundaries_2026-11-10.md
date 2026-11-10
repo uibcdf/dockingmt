@@ -186,7 +186,7 @@ state/environment/terminal admission and source/public/interactive holds remain.
 A subsequent controlled diagnostic, outside the 98-case selection, finds that
 `MemoryError` propagates but `OSError(errno.ENOMEM)` is recorded and permits the
 next item. ENOENT still records/continues as intended. No real allocation failure
-or native work is induced. [#106](../pending_bugs/batch_os_allocation_failure.md)
+or native work is induced. [#106](../archive/batch_os_allocation_failure.md)
 owns that missing exception-classification control and source correction; the
 passing original selection does not establish this uncovered behavior. Preserve
 the original aeae47d wheel and this receiving unchanged. Correct/qualify #106 in

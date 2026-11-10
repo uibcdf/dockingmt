@@ -164,8 +164,9 @@ An engine score is not experimental binding affinity.
 executes one input at a time during iteration. It borrows the protocol/backend
 and source iterator. Prepared inputs or PDBQT are required. With
 `on_error='record'`, item failures become detached summaries in outcomes;
-source-iterator failures, memory failures and process-control interruptions
-still propagate. Retain/write each outcome if needed: the iterator does not
+source-iterator failures, memory-allocation failures (`MemoryError` or
+`OSError` with `errno.ENOMEM`) and process-control interruptions still propagate.
+Ordinary file errors such as missing files or full disks remain recordable. Retain/write each outcome if needed: the iterator does not
 retain completed results. See [the collection workflow](validation/e2_native_collection_2026-11-07.md#short-reviewed-public-route).
 
 The [current installed batch/refusal controls](validation/installed_execution_boundaries_2026-11-10.md)
@@ -174,6 +175,8 @@ serial-batch runs agree for the same explicit seed, and an intervening file
 failure leaves later results intact. Capability and staging-cleanup controls
 pass separately without native construction. This synthetic software evidence
 retains its exact inputs/providers and does not extend scientific/public scope.
+The later [OS allocation correction](validation/batch_os_allocation_fix_2026-11-10.md)
+is qualified in source; that earlier cached wheel has not received the fix.
 
 `evaluate_redocking` requires `rmsd_cutoff` and an explicit reference population;
 its `top_n` windows follow current collection order, independently of recorded

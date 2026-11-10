@@ -1,5 +1,6 @@
 """Incremental prepared execution preserves individual docking boundaries."""
 
+import errno
 import importlib
 import json
 import weakref
@@ -134,6 +135,47 @@ def test_control_and_resource_exceptions_propagate(policy, error):
     with pytest.raises(type(error)) as caught:
         next(stream)
     assert caught.value is error
+
+
+@pytest.mark.parametrize('policy', ['raise', 'record'])
+def test_os_allocation_failure_stops_without_consuming_next_item(policy):
+    error = OSError(errno.ENOMEM, 'controlled allocation failure')
+    backend = ControlBackend(error)
+    consumed = []
+
+    def source():
+        for label in ('first', 'bad', 'third'):
+            consumed.append(label)
+            yield problem(label)
+
+    supplied = source()
+    stream = dmt.dock_many(supplied, backend=backend, on_error=policy)
+    first = next(stream)
+    before = first.to_dict()
+    with pytest.raises(OSError) as caught:
+        next(stream)
+    assert caught.value is error
+    assert consumed == backend.calls == ['first', 'bad']
+    assert first.to_dict() == before and list(stream) == []
+    assert next(supplied).metadata['ligand_id'] == 'third'
+    assert backend.calls == ['first', 'bad']
+    supplied.close()
+
+
+@pytest.mark.parametrize('error_number', [errno.ENOENT, errno.ENOSPC])
+def test_ordinary_os_failure_remains_recordable(error_number):
+    error = OSError(error_number, 'controlled item failure')
+    backend = ControlBackend(error)
+    outcomes = list(
+        dmt.dock_many(
+            [problem(label) for label in ('first', 'bad', 'third')],
+            backend=backend,
+            on_error='record',
+        )
+    )
+    assert [item.status for item in outcomes] == ['success', 'failure', 'success']
+    assert backend.calls == ['first', 'bad', 'third']
+    assert outcomes[1].error['message'] == str(error)
 
 
 def test_source_failure_is_not_an_item_failure_and_source_is_borrowed():

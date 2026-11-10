@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (80)
+### Resolved (81)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_coordinate_record_admission.md`](audit_coordinate_record_admission.md) — [#90](https://github.com/uibcdf/dockingmt/issues/90) — Offline coordinate audits disagree with the existing pose-record admission. *(resolved, reproduced)*
@@ -14,6 +14,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`audit_saved_scoring_poses.md`](audit_saved_scoring_poses.md) — [#35](https://github.com/uibcdf/dockingmt/issues/35) — Audit saved pose scores and evaluation history without a live backend. *(resolved, measured)*
 - [`backend_box_requires_explicit_unit.md`](backend_box_requires_explicit_unit.md) — [#65](https://github.com/uibcdf/dockingmt/issues/65) — Reject unlabelled numerical backend-box exports *(resolved, measured)*
 - [`batch_collection_imports_optional_engine.md`](batch_collection_imports_optional_engine.md) — [#99](https://github.com/uibcdf/dockingmt/issues/99) — Offline batch-test collection imports an optional native engine through a fixture helper. *(resolved, reproduced)*
+- [`batch_os_allocation_failure.md`](batch_os_allocation_failure.md) — [#106](https://github.com/uibcdf/dockingmt/issues/106) — Stop recorded batch execution on OS-level memory allocation failure. *(resolved, measured)*
 - [`box_record_coerces_invalid_vectors.md`](box_record_coerces_invalid_vectors.md) — [#85](https://github.com/uibcdf/dockingmt/issues/85) — Saved box vectors bypass scalar admission through float coercion. *(resolved, measured)*
 - [`complete_molsyssuite_governance_baseline.md`](complete_molsyssuite_governance_baseline.md) — [#1](https://github.com/uibcdf/dockingmt/issues/1) — Complete the MolSysSuite governance baseline omitted from the initial seed. *(resolved, measured)*
 - [`consume_fixed_state_hydrogens.md`](consume_fixed_state_hydrogens.md) — [#41](https://github.com/uibcdf/dockingmt/issues/41) — Consume explicit fixed-state ligand hydrogen and charge stages with provenance. *(resolved, measured)*
