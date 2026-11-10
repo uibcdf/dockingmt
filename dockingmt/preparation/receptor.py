@@ -11,6 +11,7 @@ from smonitor.integrations import context_extra
 from dockingmt._private.smonitor import ArgumentError, signal
 from dockingmt.preparation._export import render_pdbqt
 from dockingmt.preparation._molsys import (
+    _native_coordinates_match,
     atom_metadata,
     chemistry_evidence,
     detached_provider_report,
@@ -109,6 +110,8 @@ class PreparedReceptor:
 
         Without a source, only PDBQT's partial chemistry is available. No absent
         bonds, aromaticity or chemical assignments are inferred by DockingMT.
+        A native source is copied independently; unchanged canonical geometry
+        is retained exactly, and explicit coordinate edits use its public setter.
         """
         import molsysmt as msm
 
@@ -123,7 +126,8 @@ class PreparedReceptor:
                 np.expand_dims(puw.get_value(self.coordinates), axis=0),
                 puw.get_unit(self.coordinates),
             )
-            msm.set(molsys, element='atom', coordinates=coords)
+            if not _native_coordinates_match(molsys, coords):
+                msm.set(molsys, element='atom', coordinates=coords)
             return molsys
 
         molsys = msm.convert('pdbqt_text:' + self.to_pdbqt(), to_form='molsysmt.MolSys')

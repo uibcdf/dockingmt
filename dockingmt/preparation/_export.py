@@ -8,6 +8,7 @@ import numpy as np
 import pyunitwizard as puw
 
 from dockingmt._private.smonitor import ArgumentError
+from dockingmt.preparation._molsys import _native_coordinates_match
 from dockingmt.preparation._typing import type_remark
 from dockingmt.preparation.charges import _charge_remark
 
@@ -49,11 +50,7 @@ def _native_input(prepared):
         # This public native getter returns owned nm coordinates independently
         # of the caller's display policy. Convert once to the actual prepared
         # representation, matching preparation without a caller-unit round trip.
-        original_coordinates = native.structures.get_coordinates()
-        coordinates_changed = original_coordinates is None or not np.array_equal(
-            puw.get_value(original_coordinates, to_unit=puw.get_unit(coordinates)),
-            puw.get_value(coordinates),
-        )
+        coordinates_changed = not _native_coordinates_match(native, coordinates)
     else:
         original_coordinates = msm.get(native, element='atom', coordinates=True)
         coordinates_changed = original_coordinates is None or not np.array_equal(

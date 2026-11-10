@@ -11,6 +11,7 @@ from smonitor.integrations import context_extra
 from dockingmt._private.smonitor import ArgumentError, signal
 from dockingmt.preparation._export import render_pdbqt
 from dockingmt.preparation._molsys import (
+    _native_coordinates_match,
     atom_metadata,
     chemistry_evidence,
     detached_provider_report,
@@ -151,6 +152,8 @@ class PreparedLigand:
         conversion does not recover absent bonds or assign a chemical model.
         MolSysMT applies the declared inverse traversal for a flexible ligand,
         transporting all available native domains onto the prepared atom axis.
+        A native source is copied independently; unchanged canonical geometry
+        is retained exactly, and explicit coordinate edits use its public setter.
         """
         import molsysmt as msm
 
@@ -185,7 +188,8 @@ class PreparedLigand:
             np.expand_dims(puw.get_value(self.coordinates), axis=0),
             puw.get_unit(self.coordinates),
         )
-        msm.set(molsys, element='atom', coordinates=coords)
+        if not _native_coordinates_match(molsys, coords):
+            msm.set(molsys, element='atom', coordinates=coords)
         return molsys
 
     def __repr__(self) -> str:

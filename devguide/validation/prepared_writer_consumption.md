@@ -152,3 +152,15 @@ The new real private wheel frombba53f6 now receives the correction:64 affected
 cases and 20 new regression cases pass separately under both caller unit policies.
 The original wheel's failed outcome and explicit provider warnings remain;
 public/full scientific/platform acceptance is not inferred.
+
+
+## Independent native materialization — 2026-11-09
+
+[Reconstruction receiving](installed_reconstruction_2026-11-09.md) isolates #104:
+reapplying unchanged prepared coordinates during native materialization can
+change canonical bits. Both materializers retain mandatory provider copying and
+reuse the export comparison to omit only unchanged coordinate assignment.
+Actual edits still use the public setter; source-free parser/permutation and
+generic-source behavior stay unchanged. The complete source52/20 selections pass
+both policies; real new-wheel receiving remains separate. No general molecular
+algorithm, approximate tolerance or provider-private read is introduced.

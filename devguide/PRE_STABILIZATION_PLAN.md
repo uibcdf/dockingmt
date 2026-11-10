@@ -5,6 +5,17 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Reconstruction/composition receiving](validation/installed_reconstruction_2026-11-09.md)
+executes the collected native copy/permutation/composition controls and exposes
+#104's unchanged-coordinate round trip. Source now preserves canonical bits in
+independent native copies: complete52-case and20-case source selections pass
+under both unit policies, with the one explicit real-search exclusion retained.
+The original installed/source failures and an unqualified changed-docstring cell
+stay separate. All606 support/provider/native inputs remain unchanged. Next
+build/receive the actual new consumer wheel, then admit MolSysMT#675's fetched
+source-only delivery independently; full#47/#30/#73 and SSH/public/platform/
+canvas/hosted/build holds remain. Actual alanine input query confirms22 atoms.
+
 [Native small-fixture receiving](validation/installed_small_fixtures_2026-11-09.md)
 resolves #103 in source and the new genuinely installed bba53f6 wheel: unchanged
 native exports stay readonly across caller units, and one-ULP edits still require

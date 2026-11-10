@@ -12,6 +12,19 @@ import pyunitwizard as puw
 from dockingmt._private.smonitor import ArgumentError
 
 
+def _native_coordinates_match(molecular_system: Any, coordinates: Any) -> bool:
+    """Compare native coordinates once in the actual prepared representation."""
+    from molsysmt.native import MolSys
+
+    if not isinstance(molecular_system, MolSys):
+        return False
+    original = molecular_system.structures.get_coordinates()
+    return original is not None and np.array_equal(
+        puw.get_value(original, to_unit=puw.get_unit(coordinates)),
+        puw.get_value(coordinates),
+    )
+
+
 def autodock_element(atom_type: str) -> str:
     """Decode only the element identity carried by a known AutoDock atom type."""
     return msm.element.atom.get_atom_type_from_atom_ff_type(

@@ -434,6 +434,12 @@ length units differ from preparation units. Explicit coordinate, charge or type
 edits require an independent provider copy; provider failures retain their
 original exception. Rendering preserves the caller's unit policy.
 
+`to_molecular_system()` returns an independent provider copy when a native
+source is available. It preserves unchanged canonical geometry exactly and
+applies actual coordinate edits through the public provider setter. Available
+native chemistry and mechanics remain with that source. Source-free conversion
+retains its partial-chemistry and declared-axis contracts.
+
 #### PreparedReceptor
 
 Source: [dockingmt/preparation/receptor.py](../dockingmt/preparation/receptor.py).

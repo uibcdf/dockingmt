@@ -24,6 +24,12 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Reconstruction/composition receiving](validation/installed_reconstruction_2026-11-09.md)
+now isolates #104's native-coordinate round trip and receives both complete
+source selections under both caller unit policies. Independent-copy semantics,
+original failures and exact input identities stay explicit; the new wheel and
+upstream #675 delivery still need receiving.
+
 [Native small-fixture receiving](validation/installed_small_fixtures_2026-11-09.md)
 now resolves #103's caller-unit copy defect in source and a genuinely new private
 wheel. Both complete64-case and20-case selections pass under both policies;
