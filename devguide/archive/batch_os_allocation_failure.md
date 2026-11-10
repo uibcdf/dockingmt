@@ -70,3 +70,20 @@ post-origin metadata. Initial source import is checked by the executed driver;
 missing later metadata is explicit. Original generated version labels and the
 old aeae47d artifact keep their identities; new installed receiving remains #47.
 No scientific fixture/dependency/environment or runtime schema change is made.
+
+## Installed receiving addendum — 2026-11-10
+
+[Genuine private wheel receiving](../validation/installed_allocation_fixes_2026-11-10.md)
+now receives this correction from exact producer `37a61e6`, actual version
+`0.0.0+359.g37a61e6`. All 45 batch cases pass under each caller unit policy,
+including all four allocation/ordinary-I/O controls and the original ten tiny
+native searches per policy. The additional overlapping four-case pilot passes
+without actual native/molecular calls. All 305 main installed cases per policy
+pass; independent 419/14-member records bind actual wheel/installed bytes,
+version/RECORD/PEP 610, native outputs and 606 shared support declarations.
+
+The old aeae47d diagnostic, source red/green population and missing historical
+post-origin field remain unchanged. No source/fixture/provider change, native
+rebuild, shared install, publication or remote CI occurs. This issue remains
+resolved; broader public/full/platform delivery stays #47/#30/#73 and retained
+private resources stay #47/#50, review 2026-11-14.

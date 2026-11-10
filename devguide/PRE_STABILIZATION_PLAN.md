@@ -5,6 +5,32 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Genuine new private installed receiving](validation/installed_allocation_fixes_2026-11-10.md)
+now receives #106/#107 from exact producer `37a61e6`, actual wheel version
+`0.0.0+359.g37a61e6`. All 67 runtime paths, generated/metadata/imported version,
+RECORD and normal pip archive identity verify. Both complete 305-case resource/
+backend/staging/audit/batch profiles pass, plus the overlapping four-case pilot.
+The original four native score calls and twenty searches retain their tiny inputs,
+seeds, CPU 1 and exact output/loaded-extension identities. No scientific definition
+or source/test/helper/fixture/provider changes during this receiving.
+
+Independent authentication covers 419 primary/14 reader members, seven complete
+JUnit/Receptor sessions, ten qualified source/test files and 606 shared support
+declarations/retirement per cell. The old aeae47d wheel and earlier source/installed
+populations stay unchanged. Peak RSS is 523,571,200 B; minimum available RAM is
+58,975,883,264 B against a 13 GiB reserve. No resource interruption, native build,
+shared install, package publication or remote CI occurs.
+
+Next review/register the complete original offline union for this new wheel,
+keeping explicit native exclusions and exact artifact/cohort identities. Full
+#30/#47/#73, public Conda/closure/eight OS-minor lanes, SSH-source/hosted/interactive
+and original panel/provider holds retain their owners. Private wheel, new receiver/
+source-free harness and original engine/SDK stay under
+`.molsyssuite/installed-allocation-fixes-20261110`, #47/#50 custody, review
+2026-11-14. Managed build clone is retired; the human migration backup is untouched.
+Earlier checkpoints below retain their original next-action and producer scope;
+use this genuine installed receiving for current resumption.
+
 [#107 scoring-resource correction](validation/scoring_geometry_resource_errors_2026-11-10.md)
 now propagates exact MemoryError/OS ENOMEM objects during prepared geometry reads;
 ordinary malformed-value/I/O diagnostics and causes stay intact. The original

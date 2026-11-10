@@ -161,7 +161,8 @@ provisional admission have separate meanings, explained in the
 An engine score is not experimental binding affinity.
 MemoryError and OS ENOMEM from prepared-geometry conversion and reads propagate
 unchanged; ordinary malformed geometry keeps its structured argument error and
-provider cause. See [the source receiving and artifact limits](validation/scoring_geometry_resource_errors_2026-11-10.md).
+provider cause. See [the source correction](validation/scoring_geometry_resource_errors_2026-11-10.md)
+and [genuine installed receiving](validation/installed_allocation_fixes_2026-11-10.md).
 
 `dock_many` admits options/resolves the backend at the call, then consumes and
 executes one input at a time during iteration. It borrows the protocol/backend
@@ -172,7 +173,7 @@ source-iterator failures, memory-allocation failures (`MemoryError` or
 Ordinary file errors such as missing files or full disks remain recordable. Retain/write each outcome if needed: the iterator does not
 retain completed results. See [the collection workflow](validation/e2_native_collection_2026-11-07.md#short-reviewed-public-route).
 
-The [current installed batch/refusal controls](validation/installed_execution_boundaries_2026-11-10.md)
+The [earlier installed batch/refusal controls](validation/installed_execution_boundaries_2026-11-10.md)
 receive the full batch module under both caller unit policies: individual and
 serial-batch runs agree for the same explicit seed, and an intervening file
 failure leaves later results intact. Capability and staging-cleanup controls
@@ -180,6 +181,12 @@ pass separately without native construction. This synthetic software evidence
 retains its exact inputs/providers and does not extend scientific/public scope.
 The later [OS allocation correction](validation/batch_os_allocation_fix_2026-11-10.md)
 is qualified in source; that earlier cached wheel has not received the fix.
+The new genuine `0.0.0+359.g37a61e6` private wheel
+[receives both #106 and #107](validation/installed_allocation_fixes_2026-11-10.md):
+all 305 resource/backend/staging/audit/batch cases pass under each unit policy,
+including the original tiny native score and search controls. This is bounded
+private installed evidence; public distribution, full scientific coverage and
+platform acceptance retain their separate gates.
 
 `evaluate_redocking` requires `rmsd_cutoff` and an explicit reference population;
 its `top_n` windows follow current collection order, independently of recorded

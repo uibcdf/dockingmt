@@ -24,6 +24,18 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[The genuine new private wheel](validation/installed_allocation_fixes_2026-11-10.md)
+now receives #106/#107 through ordinary installed imports: all 305 resource,
+backend/staging, pose-audit and batch cases pass per caller unit policy. Version
+`0.0.0+359.g37a61e6` binds to actual producer `37a61e6`; all 67 payload paths,
+metadata/RECORD and pip archive identity verify. Independent 419/14-member records
+retain seven complete sessions and the original bounded native controls. No
+shared install, native build, resource interruption, package publication or remote
+CI occurs. Next register the original complete offline union for this new wheel.
+Full #30/#47/#73, public/platform/interactive and provider holds stay separate;
+review custody 2026-11-14. Earlier dated checkpoints retain their original scope
+and next actions; use this route for current resumption.
+
 [#107 is corrected in source](archive/scoring_geometry_masks_resource_errors.md):
 fixed-pose geometry reads preserve allocation failures and ordinary input
 errors remain structured. Both complete 203-case source profiles pass, including

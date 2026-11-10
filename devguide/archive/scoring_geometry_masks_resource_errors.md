@@ -64,3 +64,20 @@ outputs without replay. The original installed helper diagnostic and generated
 labels retain their actual identity. No provider/schema/scientific fixture or
 shared installation changes; genuine new artifact receiving of #106/#107 remains
 #47. The implementation defect resolves in source with its public regression.
+
+## Installed receiving addendum — 2026-11-10
+
+[Genuine private wheel receiving](../validation/installed_allocation_fixes_2026-11-10.md)
+now receives this correction from exact producer `37a61e6`, actual version
+`0.0.0+359.g37a61e6`. All sixteen public geometry-resource/ordinary-diagnostic
+guards pass in the actual installed consumer under each unit policy. The whole
+155-case input-resource and 48-case pose-audit modules pass, including the
+original two tiny native score calls per policy and consistent fresh audits.
+All 305 main installed cases per policy pass; independent 419/14-member records
+authenticate actual wheel/version/imported bytes, native outputs, bounded original
+provider reads and 606 shared support declarations/retirement.
+
+The original installed helper failure and source red/green population keep their
+identities. No source/test/fixture/provider change, native rebuild, shared install,
+publication or remote CI occurs. This issue remains resolved; full/public/platform
+delivery stays #47/#30/#73, with #47/#50 custody reviewed on 2026-11-14.

@@ -14,6 +14,30 @@ supersedes: []
 
 # Distribution control adoption
 
+## Genuine installed allocation corrections — 2026-11-10
+
+[The new actual private wheel](../validation/installed_allocation_fixes_2026-11-10.md)
+from `37a61e61db40f386a4ad031ecd14d578441f61ce`, version
+`0.0.0+359.g37a61e6`, receives #106/#107 through ordinary pip installation.
+All 67 payload paths, generated/metadata/imported version, RECORD and PEP 610
+archive identity verify. Only the two corrected runtime files and generated
+version differ from the preserved aeae47d artifact; the clean build clone retires.
+
+All 305 complete resource/backend/staging/audit/batch cases pass per caller unit
+policy, plus the overlapping four-case pilot. Seven complete sessions have no
+failures/errors/skips/warnings; four actual scores and twenty searches retain
+the original tiny fixtures, seeds and CPU 1. Independent 419/14-member records
+authenticate actual outputs, source-free installed imports, native/cohort bytes
+and all 606 support declarations/retirement. No runtime/test/fixture or provider
+change, native rebuild, shared install, resource interruption, publication or
+remote CI occurs. Private artifact custody remains #47/#50, review 2026-11-14.
+
+This issue stays partial for actual public Conda/same-byte closure, full installed
+scientific and eight OS/minor gates. Next review/register the complete original
+offline union on this new artifact. Earlier records below retain their original
+producer and next-action scope; no notebook/scientific/platform evidence is
+automatically transferred to the new wheel.
+
 ## Source scoring-resource correction — 2026-11-10
 
 [#107 source receiving](../validation/scoring_geometry_resource_errors_2026-11-10.md)
