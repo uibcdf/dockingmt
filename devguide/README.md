@@ -1,48 +1,33 @@
 # DockingMT Development Guide
 
-### PyUnitWizard fix received — 2026-11-11
+### Four-minor 0.1.0 qualification received — 2026-11-11
 
-PyUnitWizard #147 is merged as f1b6464; the current clean development checkout
-and editable distribution are **c81916e65ce61e905008e8931af3c0e527157251**,
-observed version `0.29.2+7.gc81916e`. A fresh interpreter verifies the real
-creator file/spec for `pyunitwizard.main`. No package publication or reinstall
-is needed for this development route. The source profile, checkout and declared
-context now select that exact provider; the other five source pins stay fixed.
-The refreshed shared workspace is preserved, including its separately updated
-SMonitor checkout; it is not substituted for the frozen qualification cohort.
+Exact candidate **1030a29025914e01dff09e5fc606ec73b90f4cd9**, tree
+`5f0c98567ae06263c1a43b9a24c63f7c81675539`, is qualified for its declared
+source-assisted Linux x86_64/Python 3.11–3.14 profile. [Terminal receiving](validation/data/current_0_1_0_terminal_20261111.json)
+authenticates the same complete **2658 passing cases per minor**, zero
+failures/errors/skips, 154 warnings, and both ten-case storage policies.
+One original 0.1.0 wheel, all 67 consumer files, six provider wheel/native
+payloads, 4508 unchanged installed entries and 623 retired support inputs bind
+to original JSONL/JUnit and closure/collection hashes. PyUnitWizard c81916e is
+received as 0.29.3; no shared package reinstall or source update is required.
 
-The first replacement candidate, 7b113917, reaches the full installed Python
-3.11 selection in run 42971262503: both original ten-case storage policies pass,
-but two DockingMT checks fail (2656 passed, two failed). The other minors are
-cancelled. The ordinary-CI baseline now selects its own declared contexts; the
-quickstart compares restoration with the JSON-loaded mapping, preserving native
-values and the existing tuple/list contract. Eleven focused editable regressions
-pass with the retained private Vina overlay. A new immutable guide input is
-added; all 622 earlier inputs and staged targets remain unchanged.
+Three installed cells and build/quality/policy remain original attempt-1
+successes in run 42976065511. Python 3.13 succeeds in [finite recovery
+43074858531](https://github.com/uibcdf/dockingmt/actions/runs/43074858531),
+qualification head 286f811, preserving the exact original candidate/file and
+scientific logic. Both failed pre-test attempts remain recorded. Recovery
+controls pass 142 local cases/26 subtests; earlier candidate controls and fresh
+committed exports retain their identities. Later evidence commits do not move
+the candidate. Next create the maintainer-selected **lightweight `0.1.0` tag**
+and record the source-event notice; no package or GitHub Release is selected.
 
-Corrected candidate **1030a29025914e01dff09e5fc606ec73b90f4cd9** stays frozen.
-[Run 42976065511](https://github.com/uibcdf/dockingmt/actions/runs/42976065511)
-passes build, quality/frontend, policy and ordinary-installed Python **3.11,
-3.12 and 3.14**. [Original artifact receiving](validation/data/current_0_1_0_terminal_20261111.json)
-authenticates all three: each passes the same complete 2658-case selection and
-two ten-case storage policies, with zero failures/errors/skips. The same wheel,
-67 consumer files, six provider payloads, 4508 unchanged installed entries,
-623 retired support inputs, JSONL integrity and JUnit agree. Warnings remain.
-
-Python 3.13 has two retained pre-test failures: the original Conda download
-timeout, then an attempt-2 consumer workflow error requesting a nonexistent
-attempt-2 wheel instead of the original attempt-1 producer artifact. The normal
-workflow now passes the actual producer artifact ID through job outputs.
-A finite manual recovery targets only original candidate 1030a29/Python 3.13
-and artifact 13835014036, checking the original wheel/receipt hashes, source
-profile and unchanged scientific helper AST outside hosted admission. Actual
-candidate, producer and later qualification identities stay separate. All five
-original scientific shell steps and six source pins are preserved; 142 local
-administrative cases/26 subtests pass. [Recovery run 43074858531](https://github.com/uibcdf/dockingmt/actions/runs/43074858531) uses qualification head 286f811; terminal receiving remains pending.
-
-The original three passing cells/build remain attempt-1 evidence. Receive the
-fourth cell before the lightweight `0.1.0` tag and source-event notice. #74 owns
-recovery; #50 custody review is 2026-11-14. No package or Release is selected.
+#74 owns source closeout; #50 custody review remains 2026-11-14. Whole Core/
+Extended (#73), public package/platform (#30/#47), independent science and actual
+canvas acceptance retain their existing owners and limits. Resume the accepted
+#33/#49 scientific-panel admission next, preserving provider maps/decisions and
+the maintainer's browser scheduling. Earlier checkpoint entries below are dated
+history; no completed scientific workflow is repeated for this source milestone.
 
 [The current 0.1.0 origin checkpoint](validation/current_0_1_0_origin_receiving_2026-11-10.md)
 receives ten passing normal-policy storage cases on candidate 9aee16b7 and a

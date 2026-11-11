@@ -321,3 +321,34 @@ and is retired. Exactly one [finite recovery run 43074858531](https://github.com
 is dispatched on that actual head; candidate and producer remain original.
 Terminal acceptance is pending. The receptor diagnostic is reported in
 [GH Run Receptor #83](https://github.com/uibcdf/gh-run-receptor/issues/83).
+
+
+## Four-minor terminal receiving and pre-tag decision — 2026-11-11
+
+[The final matrix](data/current_0_1_0_terminal_20261111.json) independently
+receives original Python 3.13.18 artifact **13884638140**, 64,911,194 bytes,
+SHA-256 d20943c096fb45a881fb29b5187a34ff9a8072b7efb00f2b19fa901ef92af5c6.
+Run 43074858531/attempt 1, job 130711920656, is completed/success at actual
+qualification source 286f811cf4ee7bc131f3b661bc8eab949de028fd. Candidate remains
+1030a29025914e01dff09e5fc606ec73b90f4cd9 and the original consumer wheel remains
+3b70094ee1d9103ceed19ee64214c0025662781acf8eb28eaeb4733f5c5a53ca.
+
+Its complete 2658-case selection passes, zero failures/errors/skips, 154
+warnings, in 582.614 s. Both original storage policies pass ten cases each,
+with two warnings each. Original JSONL integrity/JUnit, complete identical
+collection, original provider wheel/native bytes, 4508 unchanged installed
+entries, all 67 consumer paths and 623 support declarations/retirement verify.
+All four minors therefore receive the same intended-version consumer with their
+separately recorded source-assisted closures/builds. Original source/control
+jobs and three passing cells stay attempt 1; failed original attempts remain
+failed. No source/artifact/population is silently transferred or rebuilt.
+
+The pre-tag receipt names every reuse/replacement decision and verifies the 83
+reviewed candidate inputs against immutable Git source, plus byte-identical
+original support declarations. The whole original Git tree binds the remaining
+tests/fixtures. This qualifies only the declared Linux x86_64 source profile,
+not public Conda/other platforms, broad provider native/format acceptance,
+independent scientific accuracy, actual canvas work or whole Core/Extended.
+The maintainer-selected lightweight 0.1.0 target is the exact qualified
+candidate; later documentation/recovery commits do not move that target.
+Actual tag creation and release-specific notice remain the closeout action.
