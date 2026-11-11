@@ -14,6 +14,23 @@ supersedes: []
 
 # Distribution control adoption
 
+## Complete current batch and current 0.1.0 plan — 2026-11-10
+
+[Whole batch receiving](../validation/installed_batch_current_2026-11-10.md)
+passes 45 original cases per policy on unchanged actual consumer 37a61e6/current
+9df62445/2dbcf13d. Ten tiny native searches per policy retain seed 123/CPU 1/input
+bounds; public molecular/provider/MolSysMT-native calls are zero. Independent
+282/20-member records preserve the reader return-type correction and verify
+39 exports per policy, 68 source files and 606 retired support inputs.
+
+The maintainer accepts [a new current 0.1.0 source candidate](../releases/0.1.0_current.md)
+and lightweight tag route. Source-only candidate preparation is #74; public
+Conda/closure/platform acceptance remains here/#30. No new candidate, source
+reconstruction, native-build provenance or full CI is inferred from the finite
+batch. Next review/prepare that actual composition and exact-candidate checkpoint.
+No runtime/test/helper edit, shared install, native build, tag or remote CI in
+this receiving. #47 remains partial; #50 custody review stays 2026-11-14.
+
 ## Updated-cohort installed pose audit — 2026-11-10
 
 [Whole original pose-audit receiving](../validation/installed_pose_audit_2026-11-10.md)

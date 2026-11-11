@@ -110,6 +110,12 @@ this repository's older policy caller has not adopted the archive-tag capability
 
 ### Development checkpoint tags — review 2026-11-10
 
+Later maintainer decision, 2026-11-10: prefer lightweight tags and proceed with
+canonical `0.1.0` under [the accepted current-candidate plan](releases/0.1.0_current.md).
+The archive-marker proposal below is not selected. Preserve it as review history;
+no archive-policy upgrade is required solely for the selected numeric tag route.
+The earlier private candidate and its validation tags retain their history.
+
 The maintainer asks whether useful progress should also have a tag without a
 package or GitHub Release. An annotated `archive/<description>` is the suitable
 historical marker for a finite development checkpoint. Choose a completed,

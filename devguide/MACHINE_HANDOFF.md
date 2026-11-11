@@ -29,6 +29,28 @@ resuming; earlier dated "next" statements below retain their historical scope.
 
 ### Current CI and private installed input checkpoint — 2026-11-10
 
+The maintainer accepts [the current 0.1.0 source milestone](releases/0.1.0_current.md):
+a usable public workflow, reliable execution, provenance/storage, fresh source
+reproduction, exact-candidate validation and coherent docs/version, followed by
+a lightweight canonical tag. No archive tag, GitHub Release or public package is
+selected. Preserve the old fixed 905abc9 dossier/artifacts as historical; prepare
+and explicitly freeze a new candidate incorporating the current improvements.
+
+[Complete current-cohort batch receiving](validation/installed_batch_current_2026-11-10.md)
+passes all 45 original cases per unit policy on unchanged consumer 37a61e6 and
+9df62445/2dbcf13d. Each profile retains ten tiny searches with original four/two-
+atom inputs, CPU 1/seed 123, all failure/resource controls and 39 result/outcome
+exports. Actual public molecular/provider/MolSysMT-native calls are zero.
+Independent 282/20-member evidence authenticates both sessions/68 source files
+and preserves the initial stored-reader return-type witness failure. All 606
+support inputs retire; groups terminate without resource interruption.
+
+Next review clean source dependencies, native-build provenance and a short
+current public entry workflow; prepare the deliberate current-candidate 0.1.0
+checkpoint. No held local build is resumed. Full #30/#47/#73, later Core/Extended/
+scientific/public/platform/interactive gates stay owned; custody review remains
+2026-11-14. Earlier next actions below retain their historical scope.
+
 [Complete installed pose audit](validation/installed_pose_audit_2026-11-10.md)
 now passes all 48 original cases per policy on unchanged consumer 37a61e6 and
 updated development source/native 9df62445/2dbcf13d. Each policy retains two tiny

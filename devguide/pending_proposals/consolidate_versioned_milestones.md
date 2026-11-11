@@ -14,6 +14,23 @@ supersedes: []
 
 # Consolidate versioned milestones
 
+## Maintainer accepts current 0.1.0 preparation — 2026-11-10
+
+[The accepted current plan](../releases/0.1.0_current.md) requires a complete
+public entry workflow, reliable execution, result/provenance storage, fresh
+source/native reproduction, exact-candidate validation and coherent docs/version.
+Prepare a new candidate including current improvements, then a lightweight
+canonical 0.1.0 tag without GitHub Release/package publication. The earlier
+annotated archive proposal is not selected; old fixed candidate 905abc9 and all
+private artifacts/gates remain historical. #74 owns candidate preparation.
+
+[Complete current batch receiving](../validation/installed_batch_current_2026-11-10.md)
+now passes 45 cases per policy with original native/input/resource controls and
+independent 282/20-member records. Next clean-source/native provenance and short
+entry-workflow review, then the deliberate exact-candidate checkpoint. No tag,
+Release, package or remote CI occurs here. Full objective remains active and
+unproven; original later gates/holds and #50 review 2026-11-14 stay in force.
+
 ## Whole pose audit and archive-marker review — 2026-11-10
 
 [Complete pose audit](../validation/installed_pose_audit_2026-11-10.md) passes all

@@ -24,6 +24,14 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+Current target: [prepare a new 0.1.0 source candidate](releases/0.1.0_current.md)
+with the six accepted goals and a lightweight canonical tag. The old 905abc9
+candidate stays historical; no tag, Release or package is published yet.
+[Whole current-cohort batch receiving](validation/installed_batch_current_2026-11-10.md)
+now passes 45 cases per policy, with original tiny native calls and independent
+282/20-member evidence. Next source/dependency/provenance and public-entry review,
+then exact-candidate qualification; custody review stays 2026-11-14.
+
 [Complete installed pose audit](validation/installed_pose_audit_2026-11-10.md)
 passes 48 original cases per unit policy on the updated development cohort,
 including the original bounded Vina/Vinardo score case. Independent 165/26-member

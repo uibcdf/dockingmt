@@ -14,6 +14,18 @@ supersedes: []
 
 # Prepare the 0.1.0 source milestone
 
+## Accepted current-candidate continuation — 2026-11-10
+
+The maintainer approves [six concrete current 0.1.0 goals](../releases/0.1.0_current.md)
+and a lightweight canonical tag, without package or GitHub Release publication.
+Prepare a replacement candidate incorporating subsequent improvements; freeze
+it explicitly after source/reproduction review. The original 905abc9 candidate,
+private annotated validation tags and all evidence below remain historical.
+Current comparison/pose-audit receiving is complete; whole-batch receiving and
+fresh source/native provenance, current workflow/docs and exact-candidate gates
+remain. The new source/tag event retains its required notice. This issue stays
+partial until those results and the actual event are recorded.
+
 ## What
 
 Fix candidate `905abc9698cf9d4add78a52d57dab707859a148d` for the first `0.1.0`
