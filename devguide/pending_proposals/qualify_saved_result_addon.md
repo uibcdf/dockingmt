@@ -17,7 +17,7 @@ supersedes: []
 
 ## Canonical BindingMT addon receiving — 2026-11-11
 
-[#108](rename_bindingmt.md) receives `molsysviewer_bindingmt`, addon/workspace
+[#108](../archive/rename_bindingmt.md) receives `molsysviewer_bindingmt`, addon/workspace
 `bindingmt`, canonical state/CSS identifiers and current public exceptions with
 the existing Python result/frame/interaction controls and **23/23 DOM cases**
 on exact Node 26.3.1 / jsdom 30.1.3. Production ESM input hashes remain recorded.

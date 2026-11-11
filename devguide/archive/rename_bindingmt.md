@@ -1,9 +1,9 @@
 ---
 summary: Adopt BindingMT as the canonical component identity and expand its molecular binding domain.
 issue: uibcdf/bindingmt#108
-status: active
+status: resolved
 opened: 2026-11-11
-closed:
+closed: 2026-11-11
 verification: measured
 area: [architecture, public-api, interoperability]
 guard: tests/test_bindingmt_identity.py
@@ -157,6 +157,11 @@ and real browser/comm/canvas remain unreceived. Some successful widget runs emit
 unraisable interpreter-shutdown cleanup errors; #60 owns diagnosis. These limits
 do not turn future domain concepts into implemented or qualified capabilities.
 
-Next publish this component checkpoint and the two maintainer-requested
-coordination issues, archive this decision and close #108. Central receiving
-remains separately owned; the source-only 0.1.0 tag stays immutable.
+Component checkpoint [95b69df](https://github.com/uibcdf/bindingmt/commit/95b69df)
+is published. The maintainer-requested handoffs are delivered in
+[MolI #97](https://github.com/uibcdf/moli/issues/97) and
+[MolSysSuite #190](https://github.com/uibcdf/molsyssuite/issues/190), cross-linked
+in both directions. This completes the component identity/scope decision;
+central receiving stays open in its owner, and the source-only 0.1.0 tag stays
+immutable. The canonical identity guard checks class/diagnostic ownership,
+record round-tripping, optional-engine independence and addon state identity.

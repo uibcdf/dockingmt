@@ -16,7 +16,7 @@ supersedes: []
 
 ## BindingMT transition custody — 2026-11-11
 
-[#108](rename_bindingmt.md) retains its private candidate history, rejected
+[#108](../archive/rename_bindingmt.md) retains its private candidate history, rejected
 contaminated-build attempt/cache, failed and incomplete test records, exact
 cached tool/native/unit payload receipts, outside-source receiver, and final
 verification records for review on **2026-11-14**. Three support staging trees

@@ -18,7 +18,11 @@ defect, affinity error or corrected model.
 | Input under `validation/data/` | SHA-256 |
 | --- | --- |
 | `5x72_root_order/audit_2026-10-09.json.gz` | `2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e` |
-| `saved_search_variability_2026-11-05/summary.json` | `0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc` |
+| `saved_search_variability_2026-11-05/frozen_20261105_summary.json` | `0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc` |
+
+The original projection is retained byte-for-byte at the frozen path above
+after the 2026-11-11 canonical presentation refresh. The current `summary.json`
+and plots have new presentation producer bytes with identical observations.
 
 The original archive is the molecular/search evidence authority. The second
 input reuses #67's validated numerical RMSD projection, with producer module

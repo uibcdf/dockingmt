@@ -557,5 +557,10 @@
       "check": "contract",
       "exit_code": 0
     }
-  ]
+  ],
+  "handoffs": {
+    "moli": "https://github.com/uibcdf/moli/issues/97",
+    "molsyssuite": "https://github.com/uibcdf/molsyssuite/issues/190",
+    "central_receiving_complete": false
+  }
 }

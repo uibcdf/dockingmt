@@ -25,7 +25,7 @@ scientific differences.
 
 Canonical source is `bindingmt` and `molsysviewer_bindingmt`; the addon/workspace
 identity and development namespace follow the same early-development clean cut.
-See [the identity/scope decision](pending_proposals/rename_bindingmt.md). New
+See [the identity/scope decision](archive/rename_bindingmt.md). New
 integrations remain reviewed independently under #109/#110. Generic chemistry,
 numerical methods, recording and scheduling keep their suite/platform owners.
 

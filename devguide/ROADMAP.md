@@ -4,13 +4,14 @@ The roadmap defines direction and gates, not dates.
 
 ## Current operational plan
 
-Work is **active for the maintainer-directed BindingMT identity/scope transition**.
+The **BindingMT identity/scope increment is delivered**; central receiving and
+the original accepted development plan retain the separate next steps below.
 
-### BindingMT identity and scope received locally — 2026-11-11
+### BindingMT identity and scope delivered — 2026-11-11
 
-[#108](pending_proposals/rename_bindingmt.md) implements the clean canonical
-repository/distribution/import `bindingmt`, addon `molsysviewer_bindingmt` /
-`bindingmt`, and unshipped `bmt_test_support`; no compatibility package is kept.
+[#108](archive/rename_bindingmt.md) delivers the clean canonical repository/
+distribution/import `bindingmt`, addon `molsysviewer_bindingmt` / `bindingmt`,
+and unshipped `bmt_test_support`; no compatibility package is kept.
 [Vision](VISION.md), [scope](SCIENTIFIC_SCOPE.md), [model](SCIENTIFIC_MODEL.md)
 and [architecture](ARCHITECTURE.md) include docking, fixed-identity complex
 prediction, refinement, binding free-energy calculation and prediction, and
@@ -22,11 +23,13 @@ cases passing. The full ordinary/scientific gate remains incomplete after an
 owned-memory interruption; do not restart that heavy selection automatically.
 Public/minor/platform/browser and exact-head remote evidence retain their owners.
 
-Next publish the checkpoint and the two requested MolI/MolSysSuite coordination
-issues, then archive #108. Canonical registry/policy, guides, development profile,
-labels and consumer adoption remain central owner handoffs. Original #33/#49
-state/environment/terminal decisions and separate #109/#110 proposals remain;
-no new provider or campaign is commissioned. The 0.1.0 source tag is immutable.
+[MolI #97](https://github.com/uibcdf/moli/issues/97) receives platform naming/
+domain; [MolSysSuite #190](https://github.com/uibcdf/molsyssuite/issues/190)
+owns canonical registry/policy, guides, development profile, labels and consumer
+adoption. Local delivery does not close those central receiving tasks.
+Original #33/#49 state/environment/terminal decisions, #28 full validation,
+#60 widget/canvas follow-up and separate #109/#110 proposals remain; no new
+provider or campaign is commissioned. The 0.1.0 source tag is immutable.
 
 ### Terminal maps/history received in development — 2026-11-11
 

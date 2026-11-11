@@ -10,7 +10,7 @@ making a bounded contribution.
 
 | Document | Primary question |
 | --- | --- |
-| [pending_proposals/rename_bindingmt.md](pending_proposals/rename_bindingmt.md) | Which canonical identity/domain is received, what was tested, and which owners receive the remaining central adoption? |
+| [archive/rename_bindingmt.md](archive/rename_bindingmt.md) | Which canonical identity/domain is received, what was tested, and which owners receive the remaining central adoption? |
 | [README.md](README.md) | Where should a new developer start? |
 | [PUBLIC_API.md](PUBLIC_API.md) | Which public operations/methods/errors exist, what work do they perform and which unit/ownership contracts apply? |
 | [DEVELOPMENT.md](DEVELOPMENT.md) | How do I reconstruct the development setup, locate code and choose the appropriate checks? |

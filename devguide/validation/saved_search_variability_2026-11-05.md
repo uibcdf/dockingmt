@@ -11,6 +11,13 @@ seeds, while none of their first poses recover. More effort does not uniformly
 lower the closest saved RMSD. These are within-case observations, without a
 general recovery probability, significance or affinity claim.
 
+The 2026-11-11 BindingMT presentation refresh changes current owner/schema,
+renderer labels and presentation producer bytes only. The complete original
+projection remains `data/saved_search_variability_2026-11-05/frozen_20261105_summary.json`
+with SHA-256 `0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc`;
+P59's retrospective receiver authenticates that original. Numerical observations
+and original molecular/search producers remain unchanged.
+
 ## Inputs, producers and denominators
 
 The reader authenticates these compressed bytes before parsing. Originals are

@@ -4,10 +4,6 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
-### Active (1)
-
-- [`rename_bindingmt.md`](rename_bindingmt.md) — [#108](https://github.com/uibcdf/bindingmt/issues/108) — Adopt BindingMT as the canonical component identity and expand its molecular binding domain. *(active, measured)*
-
 ### Partial (15)
 
 - [`adopt_python_distribution_controls.md`](adopt_python_distribution_controls.md) — [#47](https://github.com/uibcdf/bindingmt/issues/47) — Adopt distribution controls and the agreed first noarch Conda route. *(partial, measured)*

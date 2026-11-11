@@ -22,7 +22,7 @@ providers or turn scores/confidence into binding free energies.
 
 Use `import bindingmt as bmt`. The distribution, viewer addon and development
 interfaces use the same component identity. See the
-[identity/scope decision](devguide/pending_proposals/rename_bindingmt.md).
+[identity/scope decision](devguide/archive/rename_bindingmt.md).
 
 Development uses the editable source checkout. A future public BindingMT package
 uses the `uibcdf` Conda route after its own qualification/publication; this rename
