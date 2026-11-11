@@ -64,7 +64,18 @@ def require_hosted():
     if not re.fullmatch('[0-9a-f]{40}', candidate_sha):
         raise ValueError('Select one reviewed full candidate commit')
     if candidate_sha != os.environ.get('GITHUB_SHA'):
-        raise ValueError('Qualification source must be the exact selected candidate')
+        if (
+            os.environ.get('DOCKINGMT_RECOVERY')
+            != 'current-010-python313-original-wheel'
+        ):
+            raise ValueError(
+                'Qualification source must be the exact selected candidate'
+            )
+        path = ROOT / 'devtools/current_0_1_0_recovery.py'
+        spec = importlib.util.spec_from_file_location('_dmt_current_recovery', path)
+        recovery = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(recovery)
+        recovery.admit(ROOT, TASK, candidate_sha)
     candidate = TASK / 'candidate'
     if git(candidate, 'rev-parse', 'HEAD') != candidate_sha:
         raise ValueError('Candidate checkout does not match the selected commit')

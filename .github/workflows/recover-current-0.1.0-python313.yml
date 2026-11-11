@@ -1,0 +1,226 @@
+name: Recover current 0.1.0 Python 3.13
+run-name: Original 1030a29 wheel recovery at ${{ inputs.recovery_sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      recovery_sha:
+        description: Reviewed recovery implementation commit, equal to dispatch head
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: current-source-0.1.0-python313-recovery
+  cancel-in-progress: false
+
+env:
+  CANDIDATE_SHA: 1030a29025914e01dff09e5fc606ec73b90f4cd9
+  DOCKINGMT_RECOVERY: current-010-python313-original-wheel
+  OPENBLAS_NUM_THREADS: "1"
+  OMP_NUM_THREADS: "1"
+  OMP_THREAD_LIMIT: "1"
+  MKL_NUM_THREADS: "1"
+  NUMEXPR_NUM_THREADS: "1"
+  RAYON_NUM_THREADS: "1"
+  CARGO_BUILD_JOBS: "1"
+  CMAKE_BUILD_PARALLEL_LEVEL: "1"
+  OPENMM_CPU_THREADS: "1"
+  MAX_JOBS: "1"
+  MAKEFLAGS: -j1
+  CC: /usr/bin/gcc
+  CXX: /usr/bin/g++
+  CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER: /usr/bin/gcc
+
+jobs:
+  installed:
+    name: Current 0.1.0 installed, Python ${{ matrix.python }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        python: ["3.13"]
+    env:
+      EXPECTED_PYTHON: ${{ matrix.python }}
+      EXPECTED_WHEEL_SHA256: 3b70094ee1d9103ceed19ee64214c0025662781acf8eb28eaeb4733f5c5a53ca
+      DOCKINGMT_SUITE_ROOT: ${{ github.workspace }}/.molsyssuite/current-0.1.0-hosted/dependency-sdk
+      TMPDIR: ${{ github.workspace }}/.molsyssuite/current-0.1.0-hosted/tmp
+      PIP_CACHE_DIR: ${{ github.workspace }}/.molsyssuite/current-0.1.0-hosted/pip-cache
+    steps:
+      - name: Admit the reviewed recovery workflow head
+        env:
+          RECOVERY_SHA: ${{ inputs.recovery_sha }}
+        run: >-
+          python -c 'import os,re; value=os.environ["RECOVERY_SHA"];
+          assert re.fullmatch("[0-9a-f]{40}",value);
+          assert value==os.environ["GITHUB_SHA"], "Dispatch the reviewed recovery head"'
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          ref: 1030a29025914e01dff09e5fc606ec73b90f4cd9
+          path: .molsyssuite/current-0.1.0-hosted/candidate
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/argdigest
+          ref: "07126411f108ee1ff607e9c9a0816109b2c9253e"
+          path: .molsyssuite/current-0.1.0-hosted/argdigest
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsysmt
+          ref: "9df62445e49a1e268cf4c13d1ebbdd06b2088674"
+          path: .molsyssuite/current-0.1.0-hosted/molsysmt
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsysviewer
+          ref: "1187fc187247aa2d20d01791856a541d50562bcb"
+          path: .molsyssuite/current-0.1.0-hosted/molsysviewer
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/pyunitwizard
+          ref: "c81916e65ce61e905008e8931af3c0e527157251"
+          path: .molsyssuite/current-0.1.0-hosted/pyunitwizard
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/smonitor
+          ref: "c1b6ce29c3729b99429b395a00c7866a759be406"
+          path: .molsyssuite/current-0.1.0-hosted/smonitor
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/depdigest
+          ref: "032d345becf8f8f574c24ede61ee62fcf0321de7"
+          path: .molsyssuite/current-0.1.0-hosted/depdigest
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsyssuite
+          ref: "738fe8dd731abb99dac421b0bb2acc8564110180"
+          path: .molsyssuite/current-0.1.0-hosted/dependency-sdk
+          persist-credentials: false
+      - uses: actions/checkout@v6
+        with:
+          repository: uibcdf/molsyssuite
+          ref: "95f693be10c9205ab9b912cb53453710a207bf45"
+          path: .molsyssuite/current-0.1.0-hosted/installed-sdk
+          persist-credentials: false
+      - name: Prepare owned scratch and record host allocation
+        run: |
+          mkdir -p "$TMPDIR" .molsyssuite/current-0.1.0-hosted/evidence
+          free -b > .molsyssuite/current-0.1.0-hosted/evidence/host-memory-before.txt
+          lscpu > .molsyssuite/current-0.1.0-hosted/evidence/host-cpu.txt
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: "13835014036"
+          run-id: "42976065511"
+          github-token: ${{ github.token }}
+          merge-multiple: true
+          path: .molsyssuite/current-0.1.0-hosted
+      - name: Setup micromamba
+        id: environment
+        uses: mamba-org/setup-micromamba@v3.2.1
+        with:
+          environment-file: .molsyssuite/current-0.1.0-hosted/candidate/devtools/conda-envs/test_env.yaml
+          environment-name: current-source-010
+          condarc: |
+            channels:
+              - uibcdf
+              - conda-forge
+            channel_priority: strict
+          create-args: >-
+            python=${{ matrix.python }}
+      - name: Build and install the exact sibling sources and same-run consumer
+        shell: bash -l {0}
+        run: |
+          set -euo pipefail
+          taskset -cp "$(python -c 'import os; print(min(os.sched_getaffinity(0)))')" $$
+          renice -n 10 -p $$
+          ulimit -v 5242880
+          task_root="$GITHUB_WORKSPACE/.molsyssuite/current-0.1.0-hosted"
+          python -m pip install build==1.6.1 versioningit==3.3.0 setuptools==84.0.0 wheel==0.48.0 setuptools-rust
+          python -I -B devtools/qualify_current_0_1_0.py sources
+          python -m pip install --no-deps --no-build-isolation --no-clean \
+            "$task_root/smonitor" "$task_root/depdigest" "$task_root/argdigest" \
+            "$task_root/pyunitwizard" "$task_root/molsysviewer" "$task_root/molsysmt"
+          python -m pip install --no-index --no-deps --no-compile "$task_root/wheels/dockingmt-0.1.0-py3-none-any.whl"
+          python -m pip install --target "$task_root/candidate/.molsyssuite-tools" PyYAML==6.0.3 Jinja2 packaging
+          python -I -B devtools/qualify_current_0_1_0.py providers
+      - name: Verify declared source context and complete installed bounds
+        shell: bash -l {0}
+        run: |
+          set -euo pipefail
+          task_root="$GITHUB_WORKSPACE/.molsyssuite/current-0.1.0-hosted"
+          python "$task_root/candidate/devtools/check_dependency_routes.py" --context source-010-${{ matrix.python }} \
+            --source-root source-010-argdigest="$task_root/argdigest" \
+            --source-root source-010-molsysmt="$task_root/molsysmt" \
+            --source-root source-010-molsysviewer="$task_root/molsysviewer" \
+            --source-root source-010-pyunitwizard="$task_root/pyunitwizard" \
+            --source-root source-010-smonitor="$task_root/smonitor" \
+            --source-root source-010-depdigest="$task_root/depdigest"
+          python -I -B devtools/qualify_current_0_1_0.py bounds
+          python -m pip check
+      - name: Receive the original explicit H5MSM 1.0 client under both policies
+        shell: bash -l {0}
+        run: |
+          set -euo pipefail
+          taskset -cp "$(python -c 'import os; print(min(os.sched_getaffinity(0)))')" $$
+          renice -n 10 -p $$
+          ulimit -v 5242880
+          python -I -B devtools/qualify_current_0_1_0.py storage-normal
+          python -I -B devtools/qualify_current_0_1_0.py storage-pm-fs
+      - name: Run the complete candidate installed selection
+        shell: bash -l {0}
+        env:
+          PYTEST_ADDOPTS: >-
+            ${{ matrix.python == '3.14' && '--cov=dockingmt --cov=molsysviewer_dockingmt --cov-branch --cov-report=xml' || '' }}
+        run: |
+          set -euo pipefail
+          taskset -cp "$(python -c 'import os; print(min(os.sched_getaffinity(0)))')" $$
+          renice -n 10 -p $$
+          ulimit -v 5242880
+          mkdir -p "$RUNNER_TEMP/dmt-current-source-runtime"
+          cd "$RUNNER_TEMP/dmt-current-source-runtime"
+          python -I -B "$GITHUB_WORKSPACE/devtools/qualify_current_0_1_0.py" receive
+          if [ -f coverage.xml ]; then
+            cp coverage.xml "$GITHUB_WORKSPACE/.molsyssuite/current-0.1.0-hosted/evidence/coverage.xml"
+          fi
+      - name: Retain actual environment and build observations
+        if: ${{ always() && steps.environment.outcome == 'success' }}
+        shell: bash -l {0}
+        run: |
+          set -euo pipefail
+          evidence="$GITHUB_WORKSPACE/.molsyssuite/current-0.1.0-hosted/evidence"
+          mkdir -p "$evidence"
+          python -m pip inspect > "$evidence/pip-inspect.json"
+          micromamba list --name current-source-010 --json > "$evidence/conda-list.json"
+          micromamba env export --name current-source-010 --explicit > "$evidence/conda-explicit.txt"
+          free -b > "$evidence/host-memory-after.txt"
+      - name: Retain installed evidence including unsuccessful attempts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: recovered-current-source-0.1.0-py${{ matrix.python }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .molsyssuite/current-0.1.0-hosted/evidence/
+            .molsyssuite/current-0.1.0-hosted/provider-wheels/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14

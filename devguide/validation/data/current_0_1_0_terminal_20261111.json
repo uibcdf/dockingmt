@@ -373,10 +373,11 @@
       "status": "passed"
     },
     "3.13": {
-      "status": "pending",
+      "status": "pending-recovery",
       "attempt": 2,
       "job_id": 130629684966,
-      "reason": "Original attempt timed out downloading Conda archives before provider construction/tests; failed-job-only recovery requested."
+      "reason": "Explicit original-file recovery prepared; no scientific assertion executed in either failed attempt",
+      "last_attempt_result": "attempt 2 failed before setup/tests: requested nonexistent attempt-2 artifact; original producer is attempt 1"
     },
     "3.14": {
       "candidate": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
@@ -587,5 +588,18 @@
     "owner_issue": "uibcdf/dockingmt#50",
     "review": "2026-11-14",
     "original_artifact_expiry": "2026-11-25"
+  },
+  "recovery_preparation": {
+    "workflow": ".github/workflows/recover-current-0.1.0-python313.yml",
+    "candidate": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+    "producer_artifact_id": 13835014036,
+    "producer_run_id": 42976065511,
+    "producer_attempt": 1,
+    "producer_build_receipt_sha256": "602117e87c127645ec12effd708f9c2810b97c2dca24402d0ad8f1a2b17979a5",
+    "local_admin_passed": 142,
+    "local_subtests_passed": 26,
+    "new_recovery_cases": 20,
+    "remote": "pending",
+    "scope": "Only hosted admission changes; entire other helper AST, all five scientific shell steps, frozen wheel guard/profile, original selection and producer bytes are preserved."
   }
 }

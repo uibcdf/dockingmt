@@ -29,14 +29,20 @@ two ten-case storage policies, with zero failures/errors/skips. The same wheel,
 67 consumer files, six provider payloads, 4508 unchanged installed entries,
 623 retired support inputs, JSONL integrity and JUnit agree. Warnings remain.
 
-Python 3.13 originally times out downloading Conda archives before provider
-construction/tests. Only that failed job is retried in attempt 2; it is queued
-without a runner. Original successful cells/build stay attempt-1 evidence.
-The primary timeout and secondary cleanup error are retained; GH Run Receptor
-#81 receives the diagnostic omission. Receive the fourth cell before the
-lightweight `0.1.0` tag and source-event notice. Later evidence commits do not
-move the candidate. #74 owns receiving; #50 custody review is 2026-11-14.
-No package or GitHub Release is selected.
+Python 3.13 has two retained pre-test failures: the original Conda download
+timeout, then an attempt-2 consumer workflow error requesting a nonexistent
+attempt-2 wheel instead of the original attempt-1 producer artifact. The normal
+workflow now passes the actual producer artifact ID through job outputs.
+A finite manual recovery targets only original candidate 1030a29/Python 3.13
+and artifact 13835014036, checking the original wheel/receipt hashes, source
+profile and unchanged scientific helper AST outside hosted admission. Actual
+candidate, producer and later qualification identities stay separate. All five
+original scientific shell steps and six source pins are preserved; 142 local
+administrative cases/26 subtests pass. Remote recovery remains pending.
+
+The original three passing cells/build remain attempt-1 evidence. Receive the
+fourth cell before the lightweight `0.1.0` tag and source-event notice. #74 owns
+recovery; #50 custody review is 2026-11-14. No package or Release is selected.
 
 [The current 0.1.0 origin checkpoint](validation/current_0_1_0_origin_receiving_2026-11-10.md)
 receives ten passing normal-policy storage cases on candidate 9aee16b7 and a

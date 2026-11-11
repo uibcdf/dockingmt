@@ -199,7 +199,7 @@ class TestDistributionContract(unittest.TestCase):
             raise AssertionError('Declaration-only must not read installed science')
 
         result = self.routes.audit(self.root, distribution_for=absent)
-        self.assertEqual(len(result['routes']), 14)
+        self.assertEqual(len(result['routes']), 15)
         self.assertEqual(len(result['contexts']), 9)
         self.assertEqual(result['qualification'], 'declared-only')
         self.assertTrue(result['installed_check_required'])

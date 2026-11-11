@@ -41,6 +41,7 @@ jobs:
     timeout-minutes: 15
     outputs:
       wheel_sha256: ${{ steps.build.outputs.wheel_sha256 }}
+      wheel_artifact_id: ${{ steps.archive.outputs.artifact-id }}
     steps:
       - name: Admit the explicit milestone checkpoint
         env:
@@ -69,6 +70,7 @@ jobs:
         id: build
         run: python -I -B devtools/qualify_current_0_1_0.py build
       - name: Retain the private wheel and build receipt
+        id: archive
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
@@ -222,15 +224,16 @@ jobs:
           ref: "95f693be10c9205ab9b912cb53453710a207bf45"
           path: .molsyssuite/current-0.1.0-hosted/installed-sdk
           persist-credentials: false
-      - uses: actions/download-artifact@v4
-        with:
-          name: current-source-0.1.0-wheel-${{ github.run_id }}-${{ github.run_attempt }}
-          path: .molsyssuite/current-0.1.0-hosted
       - name: Prepare owned scratch and record host allocation
         run: |
           mkdir -p "$TMPDIR" .molsyssuite/current-0.1.0-hosted/evidence
           free -b > .molsyssuite/current-0.1.0-hosted/evidence/host-memory-before.txt
           lscpu > .molsyssuite/current-0.1.0-hosted/evidence/host-cpu.txt
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: ${{ needs.build.outputs.wheel_artifact_id }}
+          merge-multiple: true
+          path: .molsyssuite/current-0.1.0-hosted
       - name: Setup micromamba
         id: environment
         uses: mamba-org/setup-micromamba@v3.2.1

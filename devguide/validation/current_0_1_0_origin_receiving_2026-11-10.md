@@ -266,3 +266,51 @@ but remains deliberately frozen at the qualified c81916e. Central/tool checkouts
 are untouched. #74 owns the fourth terminal receiving and tag/notice closeout;
 #50 custody review remains 2026-11-14. No tag, package or GitHub Release is
 created while this required minor remains unreceived.
+
+
+## Attempt-2 artifact identity failure and bounded recovery — 2026-11-11
+
+Attempt 2 of run 42976065511 finishes failed before environment/provider setup
+or tests. Original job 130629684966 requests wheel artifact
+`current-source-0.1.0-wheel-42976065511-2`, which does not exist: the inherited
+producer uploaded attempt 1. Its log at 16:26:38Z records that primary error;
+the later empty evidence-upload failure is secondary. The inherited producer's
+wheel SHA output is still correctly available, confirming that job outputs
+survive this partial retry. Neither failed 3.13 attempt executes product tests.
+
+The ordinary workflow now exports the successful upload's immutable artifact
+ID and downloads by that output, without constructing a name from the consumer
+attempt. A separate manual `recover-current-0.1.0-python313.yml` preserves
+candidate **1030a29025914e01dff09e5fc606ec73b90f4cd9** and downloads original
+artifact **13835014036** from run **42976065511**, with a read-only Actions token.
+It executes only Python 3.13 and the original five scientific shell steps,
+SDK/provider pins, two storage policies and complete installed collection.
+Scratch/evidence registration precedes the download so early failure retains
+its own evidence. No consumer rebuild, passed-cell repetition or tag occurs.
+
+The finite admission requires this exact hosted/manual main-branch workflow,
+Python 3.13, candidate/tree, original wheel SHA-256 3b70094ee1d9103ceed19ee64214c0025662781acf8eb28eaeb4733f5c5a53ca,
+original build-receipt SHA-256 602117e87c127645ec12effd708f9c2810b97c2dca24402d0ad8f1a2b17979a5,
+original profile/build inputs and original helper digest. The current helper's
+entire AST must equal the frozen original except `require_hosted`; the original
+wheel guard/profile remain byte-identical. Scientific assertions, selection and
+serialization code remain original. Receipt identities use the actual later
+qualification commit/run; no GitHub environment identity is falsified. The
+normal route continues to reject an unmatched candidate/workflow head.
+
+All **142 administrative cases/26 subtests pass** without scientific imports,
+including 20 recovery controls: positive original-file admission, wrong hosts/
+workflow/event/interpreter/identity, altered scientific logic/profile/wheel/
+receipt/build inputs, inherited producer artifact selection and all five
+unchanged scientific steps. The first administrative attempt retains its one
+route-count assertion failure (141 passed), corrected from fourteen to fifteen
+for the newly registered workflow; no route or installation assertion is removed.
+Runtime, candidate tests, original 623 support inputs and three authenticated
+passing cells remain unchanged. Local resource monitoring has no interruption.
+
+The recovery is a component-owned finite exception for #74, following the older
+fixed-candidate receiving pattern already used by `qualify_source_0_1_0.py`;
+it is not a general recovery framework or a public runtime API. Retain its
+historical source after the first-tag decision; suite #31 owns reusable source
+acquisition. Applicable local checks pass; fresh export and actual recovery
+execution remain required before the fourth-cell/tag decision.
