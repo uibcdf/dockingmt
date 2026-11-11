@@ -66,7 +66,12 @@ def _snapshot(source):
     return {
         'molecular': snapshot(source),
         'occupancy': source.structures.occupancy,
-        'b_factor': source.structures.b_factor,
+        'b_factor': (
+            puw.get_value(source.structures.b_factor, to_unit='nm**2')
+            if source.structures.b_factor is not None
+            else None
+        ),
+        'observation_units': {'b_factor': 'nm**2', 'occupancy': 'dimensionless'},
         'molecular_mechanics_present': source.molecular_mechanics is not None,
     }
 

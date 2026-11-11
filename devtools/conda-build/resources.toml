@@ -3211,7 +3211,7 @@ sha256 = "fc8765220c5f465e0d55a2a3c83f09191f54050abec6ba02552b1b31a83f5a30"
 [[installed_tests.support.files]]
 source = "dmt_test_support/terminal_completion_receiving.py"
 target = "dmt_test_support/terminal_completion_receiving.py"
-sha256 = "91219efb174403c2fd1e8041d9c6713c1f633178f2f25809a74d0dfa3d26b72a"
+sha256 = "06ebf31bf9b204bfcc26ad8d4baf006c297c579879b13214aff33e64e1db3e92"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/panel_admission_2026-11-04/1HSG.pdb.gz"

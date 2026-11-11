@@ -19,9 +19,9 @@ supersedes: []
 [#33/#49 receiving](../validation/panel_terminal_receiving_2026-11-11.md) resumes the
 original panel work after the immutable 0.1.0 source milestone. MolSysMT #558 is
 source-resolved; the clean editable provider is fast-forwarded to `aee7aa65` with
-unchanged native bytes/build inputs. Import admission passes; six synthetic and
-two original-input controls under both unit policies are registered, not yet
-executed. Next run these bounded controls before panel chemistry/environment
+unchanged native bytes/build inputs. Normal synthetic controls pass 6/6; the original-stage attempt exposed
+consumer snapshot/selection errors and remains failed. The corrected complete
+eight-case selection must pass both unit policies before panel chemistry/environment
 admission. Original scientific results and tag-specific policy evidence retain
 their separate scope.
 

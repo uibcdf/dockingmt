@@ -2,7 +2,7 @@
 
 Owners: [DockingMT #33](https://github.com/uibcdf/dockingmt/issues/33) and
 [#49](https://github.com/uibcdf/dockingmt/issues/49).
-Status: **registered; molecular controls not yet executed**.
+Status: **initial normal synthetic controls pass; receiving-harness correction**.
 Prescription: [#33 registration](https://github.com/uibcdf/dockingmt/issues/33#issuecomment-6806162112).
 
 MolSysMT #558 is source-resolved at `20054c5e28798aeff0c2c04849fac34d337b1a8b`.
@@ -42,7 +42,20 @@ and one original-source covalent inference. Serial CPU 0, nice 10, native worker
 reserve and stop only owned work if threatened. No local native build, molecular
 download, docking, scoring or hosted CI is required for this receiving.
 
-Next: execute the staged controls, retain actual sources/native identity,
+Initial DockingMT `a1abb79` receives all six normal synthetic cases. A failed
+pre-test staging attempt exposed the namespace already available from a source
+parent; bind only the consumer package instead. The subsequent original-stage
+attempt remains failed: two snapshot errors before original completion because
+B factors carry quantities, plus an accidentally repeated synthetic history case
+selected by the word `original` in its name (three failures total). Nine total
+completion calls and two factory calls were observed across that population;
+its original-input inference/completion did not execute. This is a consumer
+harness failure, not a provider failure. Preserve its logs and first six passes.
+The amended population uses explicit nm^2 B factors and the `test_original_`
+selection prefix, with no relaxed molecular assertion. Rerun all eight cases
+under both policies with separate journals and the original per-policy budgets.
+
+Next: execute the corrected staged controls, retain actual sources/native identity,
 Receptor/JUnit outcomes, warnings, unit policy and SDK retirement, and report any
 provider defect with the smallest reproducer. Zero new panel receptors/searches
 are admitted. Panel chemical states, environment/waters and terminal/truncation
