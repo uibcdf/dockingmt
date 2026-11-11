@@ -29,22 +29,23 @@ resuming; earlier dated "next" statements below retain their historical scope.
 
 ### Current CI and private installed input checkpoint — 2026-11-10
 
-[Current 0.1.0 checkpoint preparation](validation/current_0_1_0_preparation_2026-11-10.md)
-now delivers the short public quickstart, exact frozen guide/607th support input,
-outside-checkout workflow test and a manual same-wheel/four-minor source profile.
-Six exact directory providers get fresh native-build provenance; shared SDKs
-check final source bounds/origins/support, with original quality/policy/DOM gates.
-66 local administrative cases/five subtests pass, preserving two earlier guard
-failures; full candidate/native/source reconstruction remains unexecuted.
+[The first current 0.1.0 checkpoint](validation/current_0_1_0_preparation_2026-11-10.md#first-hosted-attempt-and-consumer-corrections)
+fixes candidate 7a757ab0 and receives its private 0.1.0 payload, build and policy
+jobs. Run 42956040456 remains cancelled after two consumer qualification failures:
+a historical route guard selected unrelated new sources, and the native receipt
+looked for `Cargo.lock` outside `rust/`. No storage/product test executed. The
+remaining cells were cancelled deliberately; this is not a resource interruption.
 
-Next freeze the new candidate after final source/export checks, then execute the
-single deliberate 0.1.0 checkpoint. The tiny quickstart adds one registered
-four/two-atom CPU1/seed123 software search per complete installed cell; existing
-scientific assertions stay unchanged. Ordinary/frozen CI routes and all sibling
-checkouts remain intact. Incoming default-1.0/provider revisions are preserved
-outside this already received composition. No tag, package, Release or local
-native-build restart; #74/#50 review remains 2026-11-14. Broader objective gates
-keep their scope. Earlier next actions below remain historical.
+The focused corrections preserve source pins, all 622 support inputs, frozen
+guide and original product assertions. Native tool versions are now observed
+inside the provider checkout; policy/quality gate the serial installed matrix.
+114 local administrative cases and 26 subtests pass, with scientific imports
+blocked; initial workflow-registration failures remain retained. Next freeze the
+corrected candidate after source/export checks, run the deliberate checkpoint
+and authenticate its own artifacts before a lightweight tag. No local native
+rebuild, tag, package or Release exists. #74/#50 review remains 2026-11-14;
+public/platform/interactive and whole Core/Extended gates retain their owners.
+Earlier dated next actions below remain historical.
 
 The maintainer accepts [the current 0.1.0 source milestone](releases/0.1.0_current.md):
 a usable public workflow, reliable execution, provenance/storage, fresh source

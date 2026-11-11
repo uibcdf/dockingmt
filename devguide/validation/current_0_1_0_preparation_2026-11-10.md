@@ -2,9 +2,10 @@
 
 Owner: [DockingMT #74](https://github.com/uibcdf/dockingmt/issues/74), with
 #73 milestone scope, #30/#47 qualification and #50 custody. Status: current
-entry workflow and deliberate hosted profile prepared; candidate not yet frozen
-or qualified. Starting source 00415b15. This record describes preparation, not
-a passing new release gate or a published tag/package/GitHub Release.
+original preparation frozen in 7a757ab0; first hosted candidate unqualified;
+consumer corrections prepared below. Starting source 00415b15. This record
+describes preparation/correction, not a passing release gate or published
+tag/package/GitHub Release.
 
 ## Delivered source and user route
 
@@ -164,3 +165,78 @@ failures. Only its completed applicable gates and explicit source-event ledger
 can admit the lightweight tag; prepare the actual milestone notice with it.
 The old fixed candidate, full Core/Extended/scientific/public/platform/interactive
 acceptance and historical fixtures/native identities remain separate.
+
+## First hosted attempt and consumer corrections
+
+The preparation above is frozen in candidate
+**7a757ab0b29f9da97a04224434c7a53ad91bcf5b**, tree
+`56cdeff4dab54409f41e6b6bb80389461ff88397`. Final-11 passes 66 cases/five
+subtests and all eight source controls. Fresh committed export committed-01
+passes its six applicable quality/index/resource/archive checks and retires.
+Cloud main independently matches. The original 244/seven-member archives and
+80-source snapshot retain that candidate; later corrections do not rewrite them.
+
+[Manual run 42956040456](https://github.com/uibcdf/dockingmt/actions/runs/42956040456),
+attempt 1, uses that exact head. Build and shared policy succeed. Private wheel
+`dockingmt-0.1.0-py3-none-any.whl` is 157,926 B, SHA-256
+`3e7aec46f1733dc3a53d7ab90ec7bf5add5ac2562e37d8a5ddf1b727f8d24158`.
+Independent stored reading authenticates build artifact 13826294093, its ZIP
+digest, all 67 source-derived payload paths, metadata/license/entry point,
+intended version, source/tree/run/attempt and private lightweight-tag receipt.
+This is construction/payload evidence, not installed acceptance.
+
+The quality job retains **one failed/109 passed**: its historical interaction
+workflow guard compared its three fixed source checkouts with all new routes.
+Select its actual `e4-3.14` context while retaining exact equality. The Python
+3.11 cell builds and installs all six providers and the consumer, then fails
+before tests because our receipt looks for `Cargo.lock` at the provider root.
+MolSysMT declares `rust/Cargo.toml`; its tracked lock is `rust/Cargo.lock`.
+Correct that observation path and run Rust/Cargo/tool version queries inside
+that exact provider checkout so rustup selects its source-owned toolchain.
+A regression uses inert fixture bytes, original-wheel retention and observed
+command working directories without loading native/scientific code.
+
+Cancel the remaining three cells after these known failures. GitHub's terminal
+run conclusion is **cancelled**, preserving both failed jobs; Python 3.12 is
+interrupted during setup and 3.13/3.14 never execute their qualification. No
+storage or product test runs anywhere in this attempt. This is a deliberate
+invalid-candidate stop, not memory pressure or a product result. The first
+source/admission/closure observations and two original provider wheels remain
+in original artifact 13826812798, 61,268,790 B, ZIP SHA-256
+`ff78f88e88df62f2acb5a683e35a6e24a75454373a1178fada40630207880384`.
+Its retained wheels are ArgDigest and MolSysMT; the exception occurs before a
+complete six-provider receipt. No full native provenance pass is inferred.
+Both original artifact ZIPs and job-only Receptor captures remain private.
+
+The corrected workflow makes policy and quality prerequisites of the serial
+installed matrix, retaining the same single-wheel input and source profile.
+Review and update its inventory digest. Final-12 passes the expanded 113-case/
+26-subtest administrative selection after the historical guard fix. Final-13
+preserves three expected registration failures while the workflow hash is stale.
+Final-14 passes **114 cases plus 26 subtests**, zero failures/errors/skips/
+warnings/scientific imports, after the native observation fix/regression and
+hash update. These local attempts retain the original resource controls; all
+owned groups terminate without headroom interruption. Intermediate failed
+uncommitted trees are not fully snapshotted and retain that limitation.
+
+The [separate correction archive](data/current_source_0_1_0_correction_2026-11-10/manifest.json)
+retains these administrative outcomes, sanitized original-run facts, original
+build/source receipts and a distinct 81-file corrected source snapshot. It
+preserves the original preparation population: **165 members**, 339,498 stored
+B/1,667,024 decoded B, manifest SHA-256
+`41a05ba05f13e936cbc3da1cf3ea9780d46c4520865b76ed021e6aefff5662d5`.
+Its [seven-member reader companion](data/current_source_0_1_0_correction_reader_2026-11-10/manifest.json)
+has manifest SHA-256
+`9f59eee6fc177277706b6ca801077cac7d353a6009c8b8a2b729a016a65e7900`.
+The stored reader verifies every blob, original Receptor/JUnit/resource outcomes
+and all 81 source files, including 66 unchanged runtime sources, without tests/
+native/build replay. Final source and fresh committed-export controls also check
+both archive populations against their own source identities. Custody stays with
+#74/#50, review 2026-11-14.
+
+Freeze a replacement only after final documentation/source/export controls.
+Run its deliberate checkpoint with the unchanged scientific/quickstart/storage
+selection and exact provider commits. It needs its own complete executed gates;
+these failed/cancelled observations and old green jobs are not substitutes.
+No local native rebuild/shared install, canonical tag, package, Release or
+central source-event notice is created by this correction.

@@ -325,7 +325,8 @@ def providers():
             'wheel_sha256': digest(retained),
         }
         if name == 'molsysmt':
-            observed[name]['cargo_lock_sha256'] = digest(source / 'Cargo.lock')
+            observed[name]['cargo_lock_path'] = 'rust/Cargo.lock'
+            observed[name]['cargo_lock_sha256'] = digest(source / 'rust/Cargo.lock')
             if len(native) != 1:
                 raise ValueError('Receive exactly the freshly built MolSysMT extension')
             for path, value in admitted['sources'][name]['build_input_sha256'].items():
@@ -343,7 +344,9 @@ def providers():
                     'Fresh native provider has an unresolved shared library'
                 )
     tools = {
-        name: subprocess.check_output([name, '--version'], text=True).strip()
+        name: subprocess.check_output(
+            [name, '--version'], cwd=TASK / 'molsysmt', text=True
+        ).strip()
         for name in ['rustc', 'cargo', '/usr/bin/gcc']
     }
     receipt = identity(candidate)

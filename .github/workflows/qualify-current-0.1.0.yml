@@ -144,7 +144,7 @@ jobs:
 
   installed:
     name: Current 0.1.0 installed, Python ${{ matrix.python }}
-    needs: build
+    needs: [build, controls, policy]
     runs-on: ubuntu-latest
     timeout-minutes: 60
     strategy:

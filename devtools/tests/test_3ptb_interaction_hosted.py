@@ -250,8 +250,11 @@ def test_manual_route_is_read_only_serial_and_uses_reviewed_sources():
     ]
     assert all(s['with']['persist-credentials'] is False for s in checkouts)
     routes = tomllib.loads((ROOT / 'devtools/dependency_routes.toml').read_text())
+    context = next(row for row in routes['contexts'] if row['name'] == 'e4-3.14')
     expected = {
-        'uibcdf/' + row['name']: row['commit'] for row in routes['source_routes']
+        'uibcdf/' + row['name']: row['commit']
+        for row in routes['source_routes']
+        if row['id'] in context['sources']
     }
     actual = {
         s['with']['repository']: s['with']['ref']

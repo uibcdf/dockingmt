@@ -14,6 +14,26 @@ supersedes: []
 
 # Prepare the 0.1.0 source milestone
 
+## First current checkpoint and correction — 2026-11-10
+
+[The first current 0.1.0 checkpoint](../validation/current_0_1_0_preparation_2026-11-10.md#first-hosted-attempt-and-consumer-corrections)
+fixes candidate 7a757ab0 and receives its private 0.1.0 payload, build and policy
+jobs. Run 42956040456 remains cancelled after two consumer qualification failures:
+a historical route guard selected unrelated new sources, and the native receipt
+looked for `Cargo.lock` outside `rust/`. No storage/product test executed. The
+remaining cells were cancelled deliberately; this is not a resource interruption.
+
+The focused corrections preserve source pins, all 622 support inputs, frozen
+guide and original product assertions. Native tool versions are now observed
+inside the provider checkout; policy/quality gate the serial installed matrix.
+114 local administrative cases and 26 subtests pass, with scientific imports
+blocked; initial workflow-registration failures remain retained. Next freeze the
+corrected candidate after source/export checks, run the deliberate checkpoint
+and authenticate its own artifacts before a lightweight tag. No local native
+rebuild, tag, package or Release exists. #74/#50 review remains 2026-11-14;
+public/platform/interactive and whole Core/Extended gates retain their owners.
+Earlier dated next actions below remain historical.
+
 ## Current source checkpoint prepared — 2026-11-10
 
 [The current preparation](../validation/current_0_1_0_preparation_2026-11-10.md)

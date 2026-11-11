@@ -11,6 +11,7 @@ import sys
 import tomllib
 import zipfile
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 import yaml
@@ -38,7 +39,7 @@ def test_current_checkpoint_is_manual_read_only_and_same_archive_for_all_minors(
     job = data['jobs']['installed']
     assert job['strategy']['matrix']['python'] == caller.profile()['python_minors']
     assert job['strategy']['max-parallel'] == 1
-    assert job['needs'] == 'build'
+    assert job['needs'] == ['build', 'controls', 'policy']
     assert (
         job['env']['EXPECTED_WHEEL_SHA256'] == '${{ needs.build.outputs.wheel_sha256 }}'
     )
@@ -210,6 +211,79 @@ def test_milestone_workflow_bytes_remain_registered():
     path = '.github/workflows/qualify-current-0.1.0.yml'
     row = next(row for row in inventory['workflows'] if row['path'] == path)
     assert row['sha256'] == hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+
+
+def test_provider_receipt_observes_the_native_project_lock_and_toolchain(
+    tmp_path, monkeypatch
+):
+    source = tmp_path / 'molsysmt'
+    (source / 'rust').mkdir(parents=True)
+    (source / 'rust/Cargo.lock').write_text('# retained source lock\n')
+    (source / 'pyproject.toml').write_text(
+        '[[tool.setuptools-rust.ext-modules]]\npath="rust/Cargo.toml"\n'
+    )
+    prefix = tmp_path / 'prefix'
+    native = prefix / 'molsysmt/_rust.abi3.so'
+    native.parent.mkdir(parents=True)
+    native.write_bytes(b'fixture bytes; never loaded or executed')
+    wheel = (
+        tmp_path
+        / 'tmp/pip-ephem-wheel-cache-fixture/wheels/00/molsysmt-0.23.0-cp311-abi3-linux_x86_64.whl'
+    )
+    wheel.parent.mkdir(parents=True)
+    with zipfile.ZipFile(wheel, 'w') as archive:
+        archive.writestr('molsysmt/_rust.abi3.so', native.read_bytes())
+    evidence = tmp_path / 'evidence'
+    evidence.mkdir()
+    lock_sha = caller.digest(source / 'rust/Cargo.lock')
+    (evidence / 'source-admission.json').write_text(
+        json.dumps(
+            {
+                'candidate': 'a' * 40,
+                'sources': {
+                    'molsysmt': {'build_input_sha256': {'rust/Cargo.lock': lock_sha}}
+                },
+            }
+        )
+    )
+    monkeypatch.setattr(caller, 'TASK', tmp_path)
+    monkeypatch.setattr(caller.sys, 'prefix', str(prefix))
+    monkeypatch.setenv('CANDIDATE_SHA', 'a' * 40)
+    monkeypatch.setattr(caller, 'require_hosted', lambda: tmp_path / 'candidate')
+    monkeypatch.setattr(caller, 'profile', lambda: {'sources': {'molsysmt': 'b' * 40}})
+    monkeypatch.setattr(caller, 'identity', lambda candidate: {'candidate': 'a' * 40})
+    monkeypatch.setattr(
+        caller,
+        'git',
+        lambda path, *args: 'b' * 40 if args == ('rev-parse', 'HEAD') else '',
+    )
+    dist = SimpleNamespace(
+        version='0.23.0',
+        files=['molsysmt/_rust.abi3.so'],
+        locate_file=lambda name: prefix / name,
+        read_text=lambda name: json.dumps({'url': source.as_uri(), 'dir_info': {}}),
+    )
+    monkeypatch.setattr(caller.metadata, 'distribution', lambda name: dist)
+    monkeypatch.setattr(caller.metadata, 'version', lambda name: 'fixture')
+    commands = []
+
+    def observe(command, **kwargs):
+        commands.append((command, kwargs.get('cwd')))
+        return 'fixture tool/linkage observation'
+
+    monkeypatch.setattr(caller.subprocess, 'check_output', observe)
+    caller.providers()
+    receipt = json.loads((evidence / 'provider-build-receipt.json').read_text())
+    provider = receipt['sources']['molsysmt']
+    assert provider['cargo_lock_path'] == 'rust/Cargo.lock'
+    assert provider['cargo_lock_sha256'] == lock_sha
+    assert provider['native_sha256'] == {
+        'molsysmt/_rust.abi3.so': caller.digest(native)
+    }
+    assert (
+        tmp_path / 'provider-wheels' / wheel.name
+    ).read_bytes() == wheel.read_bytes()
+    assert all(cwd == source for command, cwd in commands if command[-1] == '--version')
 
 
 def test_storage_program_and_observation_oracle_keep_the_original_receiving():
