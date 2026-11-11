@@ -1,0 +1,9 @@
+{
+  "scope": "Original 2026-10-20 human-case vocabulary, copied without renaming producer identities; this is retained evidence metadata, not a public import alias.",
+  "qualification_schema": "dockingmt.human_workflow_receiving@1",
+  "admission_schema": "dockingmt.3ptb_molecular_admission@1",
+  "version_producers": [
+    "dockingmt",
+    "molsysmt"
+  ]
+}

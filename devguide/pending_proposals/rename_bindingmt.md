@@ -104,3 +104,13 @@ unchanged SHA-256; its full schema/producer identity remains authenticated rathe
 than relabelled. Canonical current text/figure presentations are regenerated with
 zero molecular imports/operations and identical saved numerical observations.
 The support declaration now has 626 inputs, including that frozen original.
+
+The saved human-case receiver also retains its original producer/schema
+vocabulary as a hash-checked evidence descriptor, independently of the canonical
+current runtime and output identity. Its guard compares the complete original
+version record instead of assigning the new component name to an old producer.
+That descriptor brings declared support to 627 inputs. CLI controls invoke the
+actual staged, unshipped helper file; the source-only reporting CLI child opts
+out of the installed worker's safe-path environment while runtime import-origin
+checks stay isolated. These are qualification/support corrections, not public
+compatibility packages or renamed historical measurements.

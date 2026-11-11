@@ -92,7 +92,10 @@ def test_original_case_restores_five_poses_and_original_identity_without_molecul
     assert len(report['verified_files']) == 16
     assert report['status'] == report['result_audit']['status'] == 'consistent'
     assert report['original_producer'] == '1decee504b112cfd92026c52dcbe22449de30f4f'
-    assert report['original_versions']['bindingmt'] == '0.0.0+180.g1decee5'
+    assert (
+        report['original_versions']
+        == _record(ORIGINAL, tool.MEMBERS['execution'])['versions']
+    )
     assert report['verifier']['bindingmt_version'] == bmt.__version__
     assert (
         report['new_searches']
@@ -238,8 +241,7 @@ def test_self_consistent_file_hashes_do_not_hide_broken_record_links(bundle, dam
 def _command(bundle, report):
     return [
         sys.executable,
-        '-m',
-        'bmt_test_support.recover_saved_3ptb_case',
+        str(Path(tool.__file__).resolve()),
         '--bundle',
         str(bundle),
         '--source',

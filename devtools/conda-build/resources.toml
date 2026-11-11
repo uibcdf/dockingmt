@@ -212,7 +212,7 @@ sha256 = "ed22e1b4d6934a4d0a519498d37cbc4988e6f4f733a12e76f06fb67abe798a29"
 [[installed_tests.support.files]]
 source = "bmt_test_support/recover_saved_3ptb_case.py"
 target = "bmt_test_support/recover_saved_3ptb_case.py"
-sha256 = "77f6e4b71f7616d569df17fa3d05413d4871ee331b8dbc4345b338142b9b1c3b"
+sha256 = "dbddf4632cd33cb4b66bf4fc52d561e292e44dfb0cc7cedb2c1361b77e3a00c7"
 
 [[installed_tests.support.files]]
 source = "bmt_test_support/redocking_181l.py"
@@ -3223,3 +3223,8 @@ sha256 = "eef33be911e35b27f49b1ce97cde422ef4bb792af452959dd0c662957f7c2b3a"
 source = "devguide/validation/data/saved_search_variability_2026-11-05/frozen_20261105_summary.json"
 target = "devguide/validation/data/saved_search_variability_2026-11-05/frozen_20261105_summary.json"
 sha256 = "0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/human_3ptb/producer_contract_2026-10-20.json"
+target = "devguide/validation/data/human_3ptb/producer_contract_2026-10-20.json"
+sha256 = "7858e3a4f1bf22164dac772e6132163d9ab6bb74b58ea22604af755270830cef"

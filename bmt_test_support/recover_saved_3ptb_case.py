@@ -21,6 +21,13 @@ QUALIFICATION = 'qualification_2026-10-20.json'
 QUALIFICATION_SHA256 = (
     'b89b8dcb9ec296d01f12cd28cb633577e868e5c60b264c5f4bb4eefd6f3b9bf2'
 )
+ORIGINAL_CONTRACT = (
+    Path(__file__).resolve().parents[1]
+    / 'devguide/validation/data/human_3ptb/producer_contract_2026-10-20.json'
+)
+ORIGINAL_CONTRACT_SHA256 = (
+    '7858e3a4f1bf22164dac772e6132163d9ab6bb74b58ea22604af755270830cef'
+)
 MEMBERS = {
     'result': 'native_result_2026-10-20.json.gz',
     'admission': 'admission_2026-10-20.json.gz',
@@ -171,9 +178,15 @@ def recover_saved_case(
         digest == qualification_sha256,
         'The qualification SHA-256 differs from the trust root.',
     )
+    _, contract_digest = _fingerprint(ORIGINAL_CONTRACT, 'original producer contract')
+    _require(
+        contract_digest == ORIGINAL_CONTRACT_SHA256,
+        'Original producer vocabulary changed.',
+    )
+    contract = _json(ORIGINAL_CONTRACT, 'original producer contract')
     qualification = _json(qualification_path, 'qualification')
     _require(
-        qualification.get('schema') == 'bindingmt.human_workflow_receiving@1',
+        qualification.get('schema') == contract['qualification_schema'],
         'Unsupported human-case qualification schema.',
     )
     paths, verified = _members(root, qualification)
@@ -188,7 +201,7 @@ def recover_saved_case(
     )
     try:
         _require(
-            admission['schema'] == 'bindingmt.3ptb_molecular_admission@1',
+            admission['schema'] == contract['admission_schema'],
             'Unsupported molecular-admission record schema.',
         )
         _require(
@@ -209,7 +222,7 @@ def recover_saved_case(
             'Original producer records disagree.',
         )
         provenance = record['provenance']
-        for name in ('bindingmt', 'molsysmt'):
+        for name in contract['version_producers']:
             _require(
                 provenance[name + '_version'] == execution['versions'][name],
                 f'The original {name} version records disagree.',
