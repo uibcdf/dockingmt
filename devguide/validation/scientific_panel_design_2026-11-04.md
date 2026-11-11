@@ -1,8 +1,8 @@
 # Small redocking panel: design and admission boundary — 2026-11-04
 
-Owner: [DockingMT #33](https://github.com/uibcdf/dockingmt/issues/33), following
+Owner: [BindingMT #33](https://github.com/uibcdf/bindingmt/issues/33), following
 questions Q2/Q3 and risks R3/R6 of the [library audit](../library_audit_2026-11-04.md).
-Evidence presentation remains [#29](https://github.com/uibcdf/dockingmt/issues/29).
+Evidence presentation remains [#29](https://github.com/uibcdf/bindingmt/issues/29).
 Reviewed consumer: `71287ce86db365c9063846ae7d904c9586a99354`.
 
 **Status: proposed design; not execution-ready or a registered experiment.**
@@ -44,13 +44,13 @@ There is no requirement that either candidate yield favorable docking results.
 | New candidate B | [RCSB 1STP](https://www.rcsb.org/structure/1STP), ligand BTN | Streptavidin/biotin complex; RCSB lists a tetrameric assembly and a difference between deposited and modeled residue counts. Establish the relevant complete binding environment and classify missing segments; do not silently use an isolated asymmetric-unit chain. |
 
 Entry descriptions and identities above were read on 2026-11-04. No occurrence
-of these two IDs was found in the inspected DockingMT tests, validation records or
+of these two IDs was found in the inspected BindingMT tests, validation records or
 test-support sources at the reviewed head. This is a local development-corpus
 observation, not proof that the cases are unseen by Vina's developers, training
 sets, other tools or published benchmarks. Their different receptor contexts are
 a deliberate diagnostic choice, not random or representative sampling.
 
-The candidates are selected before observing DockingMT outcomes. If admission
+The candidates are selected before observing BindingMT outcomes. If admission
 fails, preserve the failure and its reason. Do not replace a difficult case with
 an easier successful case. A replacement requires a dated pre-search design
 amendment with its rationale and a preserved candidate ledger.

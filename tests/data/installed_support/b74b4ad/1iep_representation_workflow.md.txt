@@ -1,6 +1,6 @@
 # 1IEP rooted-representation sensitivity
 
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17) owns this bounded
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17) owns this bounded
 follow-up to the [matched torsion experiment](1iep_flexibility_workflow.md).
 The [driver](../../devtools/qualify_1iep_representation.py),
 [original evidence](data/1iep_representation/audit_2026-10-07.json.gz),
@@ -34,7 +34,7 @@ by the exact native byte digest. It implements no general PDBQT writer,
 rerooting operation, chemical classifier or atom matcher. Those molecular
 operations remain provider-owned.
 
-The fixed-conformation control composes public `dockingmt.score` without search
+The fixed-conformation control composes public `bindingmt.score` without search
 or optimization. It retains all eight Vina components, original geometry,
 scoring history and actual submitted bytes. Equality at the initial conformation
 checks one scoring observation; it does not establish equivalence of the full

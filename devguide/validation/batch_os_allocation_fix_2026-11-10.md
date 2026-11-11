@@ -1,6 +1,6 @@
 # Recorded-batch OS allocation errors — 2026-11-10
 
-Owner: [DockingMT #106](https://github.com/uibcdf/dockingmt/issues/106),
+Owner: [BindingMT #106](https://github.com/uibcdf/bindingmt/issues/106),
 functional/resource owners #73/#50. Source base 85d91c1. Status: corrected and qualified in source; no new installed artifact.
 
 The original ordinary installed aeae47d diagnostic raises pre-created errors,

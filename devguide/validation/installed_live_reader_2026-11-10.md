@@ -1,6 +1,6 @@
 # Installed live-engine reader controls — 2026-11-10
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), with the
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), with the
 public molecular boundary #49 and complete functional plan #73. Status: whole live-engine populations and independent evidence reading pass. Full/public/partial-reference gates remain partial. Execution base `697d75442a174e5d4632c85c0c1532550164c06d`.
 
 ## Question and exact software inputs
@@ -62,7 +62,7 @@ no monkeypatched result, alternate parser or softened assertion may replace them
    nine actual constructor/dock calls per cell. Preserve original handled provider
    errors and staged-file cleanup assertions.
 3. Receive the two original parameter cases of
-   `test_known_source_pose_consumption.py::test_real_dockingmt_vina_output_matches_native_pose_reader`
+   `test_known_source_pose_consumption.py::test_real_bindingmt_vina_output_matches_native_pose_reader`
    under normal and pm/fs. The seed 14 hexane control independently rereads actual
    engine output on the source axis and retains its original tolerances, map/
    payload hashes and source snapshots. Save its original receiving.json and poses.

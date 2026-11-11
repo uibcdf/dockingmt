@@ -1,6 +1,6 @@
 ---
 summary: Qualify molecular variants against the delivered native copy contract.
-issue: uibcdf/dockingmt#51
+issue: uibcdf/bindingmt#51
 status: resolved
 opened: 2026-10-23
 closed: 2026-10-23
@@ -17,7 +17,7 @@ supersedes: []
 ## What
 
 Receive MolSysMT's native copy delivery without implementing molecular storage
-or copying in DockingMT. The existing public independent-copy calls remain the
+or copying in BindingMT. The existing public independent-copy calls remain the
 consumer route. No shallow/deferred geometry optimization is selected merely
 because the provider can represent it.
 
@@ -29,7 +29,7 @@ and pandas inplace repair (#431), with ancestry verified in the detached source.
 The original ArgDigest and Viewer composition is retained.
 
 Use a new ordinary source-built provider wheel and the original unchanged
-DockingMT wheel in a task-owned Python 3.14 prefix. Shared environments, sibling
+BindingMT wheel in a task-owned Python 3.14 prefix. Shared environments, sibling
 worktrees, original wheel/native results and the deferred 3PTB scene stay intact.
 Source qualification, this installed receiving profile and public distribution
 are separate claims. No new search, scoring or browser review is required.
@@ -72,7 +72,7 @@ profile built successfully. No native binary was copied from an older provider.
 The redundant network clone was stopped and existing public Git objects reused;
 canonical remotes and the exact source commit remain verified.
 
-Task resources belong to #50 under `/tmp/dockingmt-provider-receiving-20261023`
+Task resources belong to #50 under `/tmp/bindingmt-provider-receiving-20261023`
 and `.molsyssuite-tools/provider-receiving-20261023/`, review by 2026-10-30.
 Retain the dependent original runtime and evidence with their existing dates.
 Preserve the inventory's behind sibling clones and human TopoMT/PharmacophoreMT

@@ -6,8 +6,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dockingmt.exceptions import ArgumentError
+import bindingmt as bmt
+from bindingmt.exceptions import ArgumentError
 
 
 class MolecularSource:
@@ -25,13 +25,13 @@ def prepared(role):
         metadata={'nested': {'steps': ['original']}},
     )
     if role == 'ligand':
-        return dmt.PreparedLigand(**options, group_name='LIG')
-    return dmt.PreparedReceptor(**options, group_names=['REC'], group_ids=[1])
+        return bmt.PreparedLigand(**options, group_name='LIG')
+    return bmt.PreparedReceptor(**options, group_names=['REC'], group_ids=[1])
 
 
 def problem(**options):
-    domain = dmt.BoxRegion('[0,0,0] angstrom', '[10,10,10] angstrom')
-    return dmt.DockingProblem('unused-rec.pdbqt', 'unused-lig.pdbqt', domain, **options)
+    domain = bmt.BoxRegion('[0,0,0] angstrom', '[10,10,10] angstrom')
+    return bmt.DockingProblem('unused-rec.pdbqt', 'unused-lig.pdbqt', domain, **options)
 
 
 @pytest.mark.parametrize('role', ['ligand', 'receptor'])
@@ -116,7 +116,7 @@ def test_problem_reader_detaches_supported_and_legacy_records(legacy, field, dir
     if legacy:
         del record['schema_version']
     before = deepcopy(record)
-    restored = dmt.DockingProblem.from_dict(record)
+    restored = bmt.DockingProblem.from_dict(record)
     expected = deepcopy(restored.to_dict())
     target = record[field] if direction == 'record' else getattr(restored, field)
     target['nested'].append('changed')
@@ -127,8 +127,8 @@ def test_problem_reader_detaches_supported_and_legacy_records(legacy, field, dir
 
 def test_problem_prepared_declarations_detach_while_explicit_inputs_stay_borrowed():
     receptor, ligand = prepared('receptor'), prepared('ligand')
-    domain = dmt.BoxRegion('[0,0,0] angstrom', '[10,10,10] angstrom')
-    item = dmt.DockingProblem(receptor, ligand, domain)
+    domain = bmt.BoxRegion('[0,0,0] angstrom', '[10,10,10] angstrom')
+    item = bmt.DockingProblem(receptor, ligand, domain)
     receptor.source_molsys = ligand.source_molsys = MolecularSource()
     record = item.to_dict()
     record['partner']['value']['metadata']['nested']['steps'].append('edited export')
@@ -136,18 +136,18 @@ def test_problem_prepared_declarations_detach_while_explicit_inputs_stay_borrowe
     # Explicit input reconstruction normally resolves molecular states. Remove
     # this sentinel only for construction; no source/renderer is serialized.
     receptor.source_molsys = ligand.source_molsys = None
-    restored = dmt.DockingProblem.from_dict(
+    restored = bmt.DockingProblem.from_dict(
         item.to_dict(), receptor=receptor, partner=ligand
     )
     assert restored.receptor is receptor and restored.partner is ligand
 
 
-@pytest.mark.parametrize('model', [dmt.PreparedLigand, dmt.PreparedReceptor])
+@pytest.mark.parametrize('model', [bmt.PreparedLigand, bmt.PreparedReceptor])
 def test_prepared_subclass_inherits_snapshot_ownership(model):
     class Extension(model):
         pass
 
-    item = prepared('ligand' if model is dmt.PreparedLigand else 'receptor')
+    item = prepared('ligand' if model is bmt.PreparedLigand else 'receptor')
     item.__class__ = Extension
     record = item.to_dict()
     record['metadata']['nested']['steps'].append('extension export')
@@ -167,7 +167,7 @@ def test_problem_reader_admits_schema_before_copying_metadata(kind):
     else:
         record['search_domain']['schema_version'] = '999.0'
     with pytest.raises(ArgumentError):
-        dmt.DockingProblem.from_dict(record)
+        bmt.DockingProblem.from_dict(record)
 
 
 @pytest.mark.parametrize('field', ['extra', 'receptor', 'partner'])
@@ -185,6 +185,6 @@ def test_problem_reader_does_not_copy_ignored_or_replaced_payloads(field):
         options[field] = (
             'unused-rec.pdbqt' if field == 'receptor' else 'unused-lig.pdbqt'
         )
-    restored = dmt.DockingProblem.from_dict(record, **options)
+    restored = bmt.DockingProblem.from_dict(record, **options)
     assert restored.receptor == 'unused-rec.pdbqt'
     assert restored.partner == 'unused-lig.pdbqt'

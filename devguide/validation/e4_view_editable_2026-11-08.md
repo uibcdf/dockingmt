@@ -1,6 +1,6 @@
 # Receiving the original interaction-view workflow on editable sources — 2026-11-08
 
-Owners: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis.md)
+Owners: [BindingMT #80](../pending_proposals/receive_docking_interaction_analysis.md)
 and [#60](../pending_proposals/qualify_saved_result_addon.md).
 Registered before execution; the complete eight-cell matrix is **PASS**.
 The original registrations below retain their prospective scope. The executed
@@ -248,5 +248,5 @@ After committing, execute the controller's `committed` stage: export that exact
 Git source to a fresh managed directory, repeat indexes/resources/publication
 checks and verify both archive manifests and every stored blob, then remove
 only that managed export. Publish its exact commit and terminal receipt in
-[#80](https://github.com/uibcdf/dockingmt/issues/80) / #60 and #73. A workspace
+[#80](https://github.com/uibcdf/bindingmt/issues/80) / #60 and #73. A workspace
 PASS does not substitute for that postcommit check or missing #28 hosted CI.

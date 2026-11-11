@@ -1,12 +1,12 @@
 # H5MSM P5 client-scope review — 2026-11-10
 
 Provider owner: [MolSysMT #256](https://github.com/uibcdf/molsysmt/issues/256).
-Consumer coordination: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73),
+Consumer coordination: [BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73),
 with #30/#47 for separate installed/public qualification. Status: existing
 evidence reviewed; the three additional controls are now received in the
 [finite client execution](h5msm_p5_client_receiving_2026-11-10.md). The review below
 retains its original pre-execution prescription; stable 1.0 remains unreceived.
-This record does not reopen resolved DockingMT #79/#88/#96.
+This record does not reopen resolved BindingMT #79/#88/#96.
 
 ## Inspected immutable handoff
 
@@ -15,7 +15,7 @@ and [fixture packet at 1ce072ae](https://github.com/uibcdf/molsysmt/tree/1ce072a
 are reviewed directly. The manifest names generator `ee4f727960ddb7f86b2c9c8e28e7f842fbe1bdfc`,
 unchanged product `5e7d65a665425fe6077f016dd95cbd65d424ee91`, experimental root
 0.6 and native SHA-256 `4ffb82e4250a1862fff17dbe7725fb8f0770d613ffef2648370389a66983d345`.
-Its 156 passing provider checks are owner evidence, not independent DockingMT
+Its 156 passing provider checks are owner evidence, not independent BindingMT
 execution. The complete/projected/nonpolar-H-merged files are synthetic storage
 controls; their supplemental assignments are not a validated force field.
 
@@ -32,11 +32,11 @@ their own hashes. Directory/README/manifest inspection is not file readback.
 
 The provider explicitly retains publication `9b077fab` for:
 
-- [Complete reference and public-0.6 roundtrips](https://github.com/uibcdf/dockingmt/blob/9b077fab/devguide/validation/e3_h5msm06_reference_receiving_2026-11-09.md):
+- [Complete reference and public-0.6 roundtrips](https://github.com/uibcdf/bindingmt/blob/9b077fab/devguide/validation/e3_h5msm06_reference_receiving_2026-11-09.md):
   normal/pm-fs complete reference receiving, strict full39/prepared25 maps,
   mechanical values/dtypes/reports, literal string fidelity, current-producer
   PDBQT parity, both full readbacks and five adverse mechanical-copy refusals.
-- [Original three saved E3 poses](https://github.com/uibcdf/dockingmt/blob/9b077fab/devguide/validation/e3_saved_pose_study_2026-11-09.md):
+- [Original three saved E3 poses](https://github.com/uibcdf/bindingmt/blob/9b077fab/devguide/validation/e3_saved_pose_study_2026-11-09.md):
   original state/order/rank/coordinates/scores/history, correspondence, physical
   comparison and clustering under both unit policies, with independent stored
   receiving and preserved failed attempts.

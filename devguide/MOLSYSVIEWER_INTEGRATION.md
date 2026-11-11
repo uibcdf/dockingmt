@@ -4,13 +4,13 @@
 
 Docking should be explorable as a scientific result, not merely exported as coordinates.
 
-DockingMT ships `molsysviewer_dockingmt`, a dedicated MolSysViewer addon that
+BindingMT ships `molsysviewer_bindingmt`, a dedicated MolSysViewer addon that
 understands `DockingResult` and `DockingPose`. Its bounded interactive
-qualification is tracked in [#60](https://github.com/uibcdf/dockingmt/issues/60)
+qualification is tracked in [#60](https://github.com/uibcdf/bindingmt/issues/60)
 and the [current proposal](pending_proposals/qualify_saved_result_addon.md).
 
-Following the MolSysViewer ownership model, the addon belongs to the DockingMT repository
-and package distribution. MolSysViewer provides the host API; DockingMT owns the docking
+Following the MolSysViewer ownership model, the addon belongs to the BindingMT repository
+and package distribution. MolSysViewer provides the host API; BindingMT owns the docking
 integration.
 
 ## Core MVP visualization
@@ -27,7 +27,7 @@ With an admitted result and its explicit molecular inputs, the existing public
 entry is:
 
 ```python
-import dockingmt as dmt
+import bindingmt as dmt
 
 viewer = dmt.view(
     result,
@@ -61,7 +61,7 @@ at Viewer `78ede79e2e345593db5bfe80d246d3f6c70bd005` verifies immediate addon
 panel state after those calls; it is no longer a missing source capability.
 The [reviewed public Viewer 0.24.0 build 1](validation/public_viewer_receiving.md)
 does not provide that qualified handle/callback behavior. Its public-artifact
-disposition remains MolSysViewer #294 and DockingMT #30/#47; do not infer a
+disposition remains MolSysViewer #294 and BindingMT #30/#47; do not infer a
 compatible public pair or new minimum from source/private success.
 
 Search-domain handles, rather than tag names alone, determine
@@ -136,13 +136,13 @@ pose
 
 ## Separation of responsibilities
 
-DockingMT owns docking-specific result, score/ranking and analysis-association
+BindingMT owns docking-specific result, score/ranking and analysis-association
 semantics. General molecular detection, characterization, geometry, identity,
 editing and serialization must remain in MolSysMT; missing reusable tools are
 requested there. Topographic, pharmacophore and elastic-network models retain
 TopoMT, PharmacophoreMT and ElastNetMT ownership.
 
-DockingMT owns the docking-specific interaction in its addon. MolSysViewer owns
+BindingMT owns the docking-specific interaction in its addon. MolSysViewer owns
 generic presentation, rendering, panel hosting and transport. General molecular
 operations remain MolSysMT-owned.
 
@@ -160,4 +160,4 @@ Display the pocket and residues contacting pose 4.
 Show how this pose changes across receptor states.
 ```
 
-This should emerge from structured DockingMT data, not from parsing rendered scenes.
+This should emerge from structured BindingMT data, not from parsing rendered scenes.

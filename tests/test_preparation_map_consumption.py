@@ -8,11 +8,11 @@ import pytest
 import pyunitwizard as puw
 from molsysmt.native import Structures
 
-import dockingmt as dmt
-from dmt_test_support.ligand_stage_fixtures import CHARGE, HYDROGEN, methanol_source
-from dmt_test_support.molecular_fixtures import declared_methanol
-from dmt_test_support.qualify_chemical_templates import snapshot
-from dmt_test_support.qualify_named_types import TYPING
+import bindingmt as bmt
+from bmt_test_support.ligand_stage_fixtures import CHARGE, HYDROGEN, methanol_source
+from bmt_test_support.molecular_fixtures import declared_methanol
+from bmt_test_support.qualify_chemical_templates import snapshot
+from bmt_test_support.qualify_named_types import TYPING
 
 
 @pytest.mark.parametrize('length_unit', ['angstrom', 'pm'])
@@ -41,7 +41,7 @@ def test_generated_h_lineage_consumes_real_reports_and_stays_detached(
     monkeypatch.setattr(msm, 'compose_atom_maps', observed)
     monkeypatch.setattr(msm.build, 'add_missing_hydrogens', observed_hydrogens)
     with puw.context(standard_units=[length_unit, 'fs', 'coulomb']):
-        prepared = dmt.prepare_ligand(
+        prepared = bmt.prepare_ligand(
             source,
             selection='all',
             hydrogen_options=HYDROGEN,
@@ -86,7 +86,7 @@ def test_generated_h_lineage_consumes_real_reports_and_stays_detached(
     assert workflow['hydrogen_addition']['atom_correspondence'][0] == [0, 0]
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_no_h_stage_uses_projection_and_selected_input_axis(prepare, monkeypatch):
     source = msm.merge([declared_methanol(), declared_methanol()])
     before = snapshot(source)
@@ -148,7 +148,7 @@ def test_flexible_legacy_order_does_not_fabricate_a_completed_export_map():
     )
     source = msm.convert([heavy, pose], to_form='molsysmt.MolSys')
     before = snapshot(source)
-    prepared = dmt.prepare_ligand(
+    prepared = bmt.prepare_ligand(
         source,
         selection='all',
         hydrogen_options=HYDROGEN,
@@ -173,7 +173,7 @@ def test_flexible_legacy_order_does_not_fabricate_a_completed_export_map():
     assert snapshot(source) == before
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_composition_failure_propagates_without_local_fallback(prepare, monkeypatch):
     source = declared_methanol()
     before = snapshot(source)
@@ -201,7 +201,7 @@ def test_inconsistent_h_correspondence_is_rejected_by_provider(monkeypatch):
     with pytest.raises(
         msm.StructuralInconsistencyError, match='Creation correspondence'
     ):
-        dmt.prepare_ligand(
+        bmt.prepare_ligand(
             methanol_source(),
             selection='all',
             hydrogen_options=HYDROGEN,

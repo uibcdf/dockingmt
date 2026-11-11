@@ -1,6 +1,6 @@
 # Public redocking collection summary
 
-`dockingmt.summarize_redocking(evaluations, *, failures=None)` summarizes a
+`bindingmt.summarize_redocking(evaluations, *, failures=None)` summarizes a
 small caller-selected collection of saved `evaluate_redocking` schema 1.0
 reports. It uses saved observations, with no molecular operation, engine run,
 ranking change or viewer access.
@@ -12,7 +12,7 @@ exact compatibility gate unchanged. Historical summary files keep their original
 bytes; an absent field means that producer did not report it, not nonrecovery.
 
 ```python
-summary = dockingmt.summarize_redocking(
+summary = bindingmt.summarize_redocking(
     {'case-a': report_a, 'case-b': report_b},
     failures={
         'case-c': {
@@ -115,7 +115,7 @@ confidence intervals, predictive accuracy or a chemical preparation qualificatio
 ## Detached evidence and reproducibility
 
 The any-returned extension is tracked in
-[#61](https://github.com/uibcdf/dockingmt/issues/61). Its source checks include
+[#61](https://github.com/uibcdf/bindingmt/issues/61). Its source checks include
 recovery beyond the largest requested N, mixed positive/negative/empty/failure
 denominators, null-policy collections, detached output, a fresh offline reader
 and the existing exact-declaration refusals. No original experiment is rerun.
@@ -138,7 +138,7 @@ Keep original reports separately; the compact summary cannot reconstruct them.
 
 The [executed notebook](redocking_summary.ipynb), [raw receipt](data/redocking_summary/summary.json)
 and [`qualify()` helper](../../devtools/qualify_redocking_summary.py) read the
-unchanged native reports from [#38](https://github.com/uibcdf/dockingmt/issues/38).
+unchanged native reports from [#38](https://github.com/uibcdf/bindingmt/issues/38).
 Their source hash, source size, implementation/helper hashes, checkout HEAD,
 Python and current summarizer version are recorded. Historical evaluator/provider
 versions and native observations remain in the input reports and common policies.
@@ -153,7 +153,7 @@ fixture is not a newly observed runtime failure. All-failure and empty collectio
 controls infer no recovery policy. The collection is a positive/negative software
 control pair, not a biological benchmark or a representative dataset.
 
-[DockingMT #39](https://github.com/uibcdf/dockingmt/issues/39) owns this block.
+[BindingMT #39](https://github.com/uibcdf/bindingmt/issues/39) owns this block.
 Publication organization remains separate in #29; future molecular symmetry
 remains provider-owned in MolSysMT #310. No sibling source or dependency pins
 change for aggregation.

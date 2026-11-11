@@ -1,6 +1,6 @@
 ---
 summary: Run the fixed-pose scoring example from ordinary installed environments.
-issue: uibcdf/dockingmt#105
+issue: uibcdf/bindingmt#105
 status: resolved
 opened: 2026-11-10
 closed: 2026-11-10
@@ -18,7 +18,7 @@ supersedes: []
 ## What
 
 The existing executed developer example asserts Python3.14 and a particular Conda
-environment path, then searches ancestors for a DockingMT checkout and silently
+environment path, then searches ancestors for a BindingMT checkout and silently
 reads a repository fixture. Its scientific/developer qualification remains valid,
 but those assumptions prevent ordinary installed use outside that checkout.
 

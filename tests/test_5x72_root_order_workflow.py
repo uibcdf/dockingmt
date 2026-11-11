@@ -10,8 +10,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_5x72_root_order import (
+import bindingmt as bmt
+from bmt_test_support.qualify_5x72_root_order import (
     DATA,
     INPUTS,
     NAMES,
@@ -34,9 +34,9 @@ def cases():
 def assert_metrics(run, case):
     """Recompute the declared crystal correspondence without fitting any pose."""
     control = case['controls'][run['order']]
-    result = dmt.DockingResult.from_dict(run['result'])
+    result = bmt.DockingResult.from_dict(run['result'])
     artifacts = result.provenance['backend_artifacts']
-    assert dmt.verify_captured_inputs(artifacts)
+    assert bmt.verify_captured_inputs(artifacts)
     assert artifacts['partner']['sha256'] == control['sha256']
     assert (
         base64.b64decode(artifacts['partner']['content_base64'])

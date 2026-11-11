@@ -1,6 +1,6 @@
 ---
 summary: Recover the saved 3PTB human result from verified linked evidence
-issue: uibcdf/dockingmt#58
+issue: uibcdf/bindingmt#58
 status: resolved
 opened: 2026-10-29
 closed: 2026-10-29

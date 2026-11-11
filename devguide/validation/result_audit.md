@@ -1,6 +1,6 @@
 # Offline saved-result audit
 
-`dockingmt.audit_result(record)` checks an already loaded saved DockingResult
+`bindingmt.audit_result(record)` checks an already loaded saved DockingResult
 mapping. The caller owns file access. It does not reconstruct molecular systems,
 prepare inputs, run a backend, or invoke a viewer. Invalid record claims produce
 report entries; a non-mapping API argument is rejected by ArgDigest.
@@ -15,7 +15,7 @@ for missing collection provenance.
 
 ```python
 import json
-import dockingmt as dmt
+import bindingmt as dmt
 
 with open("saved-result.json") as stream:
     record = json.load(stream)
@@ -118,9 +118,9 @@ unassessed by these record-only checks; molecular inspection belongs to MolSysMT
 
 ## Shared integrity operation
 
-`dockingmt.verify_captured_inputs(artifacts)` accepts the existing
+`bindingmt.verify_captured_inputs(artifacts)` accepts the existing
 `provenance['backend_artifacts']` mapping and returns receptor/partner byte sizes.
-Missing or invalid evidence raises the catalog `ArgumentError` (`DMT-E002`). Audit
+Missing or invalid evidence raises the catalog `ArgumentError` (`BMT-E002`). Audit
 and the existing replay tools share the same private byte-integrity operation;
 the developer replay wrapper preserves its historical `ValueError` contract.
 
@@ -136,7 +136,7 @@ byte tampering, absent evidence, malformed scores/units/history, native-context
 contradictions, stable ties, successive rankings and stale policy/current poses.
 Guards forbid file access, molecular operations and live backend/viewer imports
 during the supported operations. Replay regression tests exercise the shared
-integrity rule. Issue [#32](https://github.com/uibcdf/dockingmt/issues/32) owns this
+integrity rule. Issue [#32](https://github.com/uibcdf/bindingmt/issues/32) owns this
 bounded Core C5 follow-up; validation publication remains the separate #29 decision.
 
 The separate [#76 correction](../archive/audit_result_scoring_stages.md)
@@ -148,7 +148,7 @@ and standalone/docking-only report content remain unchanged.
 
 ## Collection scoring-history receiving — 2026-11-05
 
-[Issue #76](https://github.com/uibcdf/dockingmt/issues/76) corrects ignored known
+[Issue #76](https://github.com/uibcdf/bindingmt/issues/76) corrects ignored known
 histories and false original-docking attribution. The
 [receiving receipt](data/scored_result_audit_2026-11-05/receiving.json) binds the
 separate implementation, unchanged inputs, source/installed test selection,

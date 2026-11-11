@@ -1,7 +1,7 @@
 # Published test-reporter receiving — 2026-11-05
 
-Owner: [DockingMT #19](https://github.com/uibcdf/dockingmt/issues/19).
-Hosted source observation: [#28](https://github.com/uibcdf/dockingmt/issues/28).
+Owner: [BindingMT #19](https://github.com/uibcdf/bindingmt/issues/19).
+Hosted source observation: [#28](https://github.com/uibcdf/bindingmt/issues/28).
 Starting source: `74bf2cc9d046a4e00695b864f76e9d8f38b56ded`.
 
 ## Change and public-file identity
@@ -57,8 +57,8 @@ is **1**, deliberately. An initial invocation incorrectly supplied a nonexistent
 CLI rerun option and exited with usage error before collection; the comparison
 above uses the documented configuration override.
 
-This local environment still uses the source DockingMT checkout. It does not
-qualify an ordinary installed DockingMT artifact, a fresh dependency closure,
+This local environment still uses the source BindingMT checkout. It does not
+qualify an ordinary installed BindingMT artifact, a fresh dependency closure,
 another platform or new molecular/scientific behavior. Administrative CI and
 the independently pinned shared installed-test caller retain Pytest Receptor
 1.2.1; this source-science receiving does not silently change those profiles.
@@ -82,7 +82,7 @@ bounded receipts after the durable handoff.
 ### Hosted source receiving observed — 2026-11-05
 
 At exact source `cddf8941482e410a62fd191923f1e26fdf69015b`, CI
-[42051846017](https://github.com/uibcdf/dockingmt/actions/runs/42051846017)
+[42051846017](https://github.com/uibcdf/bindingmt/actions/runs/42051846017)
 passes all four Linux Python **3.11–3.14** science jobs, **1,613 tests each**.
 Native job/step facts and the actual completed-job logs confirm reporter
 **1.2.2**, its site-packages origin, the isolated installed-package probe,

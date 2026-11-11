@@ -9,9 +9,9 @@ from types import SimpleNamespace
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.core import problem as problem_module
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.core import problem as problem_module
 
 STEPS = (
     'form',
@@ -93,19 +93,19 @@ def _provider(monkeypatch, fail_at=None, failure=None):
 
 def _construct(route, source):
     if route == 'redocking':
-        return dmt.DockingProblem.for_redocking(
+        return bmt.DockingProblem.for_redocking(
             source,
             receptor_selection='all',
             partner_selection='all',
             padding=puw.quantity(1, 'angstrom'),
         )
-    box = dmt.BoxRegion(
+    box = bmt.BoxRegion(
         center=puw.quantity([0, 0, 0], 'angstrom'),
         lengths=puw.quantity([5, 5, 5], 'angstrom'),
     )
     inputs = {'receptor': 'pdbqt_text:CONTROL', 'partner': 'pdbqt_text:CONTROL'}
     inputs[route] = source
-    return dmt.DockingProblem(**inputs, search_domain=box)
+    return bmt.DockingProblem(**inputs, search_domain=box)
 
 
 @pytest.mark.parametrize('route', ['receptor', 'partner', 'redocking'])
@@ -121,7 +121,7 @@ def test_molecular_admission_preserves_resource_errors_and_stops(
         _construct(route, source)
     if error_type is ValueError:
         assert caught.value.__cause__ is failure
-        assert caught.value.code == 'DMT-E002'
+        assert caught.value.code == 'BMT-E002'
         assert caught.value.extra['arg_name'] == (
             'partner' if route == 'redocking' else route
         )
@@ -167,9 +167,9 @@ def test_quantity_admission_preserves_resource_errors_and_provider_causes(
     length = puw.quantity(1, 'angstrom')
     energy = puw.quantity(1, 'kcal/mol')
     vector = puw.quantity([1, 2, 3], 'angstrom')
-    box = dmt.BoxRegion(center=vector, lengths=vector)
-    pose = dmt.DockingPose(puw.quantity([[0, 0, 0]], 'angstrom'))
-    result = dmt.DockingResult([pose])
+    box = bmt.BoxRegion(center=vector, lengths=vector)
+    pose = bmt.DockingPose(puw.quantity([[0, 0, 0]], 'angstrom'))
+    result = bmt.DockingResult([pose])
     failure = error_type('injected quantity-provider failure')
     calls = []
 
@@ -179,13 +179,13 @@ def test_quantity_admission_preserves_resource_errors_and_provider_causes(
 
     def invoke():
         if boundary == 'box':
-            return dmt.BoxRegion(center=vector, lengths=vector)
+            return bmt.BoxRegion(center=vector, lengths=vector)
         if boundary == 'protocol':
-            return dmt.VinaProtocol(energy_range=energy)
+            return bmt.VinaProtocol(energy_range=energy)
         if boundary == 'evaluation':
-            return dmt.evaluate_redocking(result, pose.coordinates, rmsd_cutoff=length)
+            return bmt.evaluate_redocking(result, pose.coordinates, rmsd_cutoff=length)
         if boundary == 'binding':
-            return dmt.bind_interactions(
+            return bmt.bind_interactions(
                 result,
                 object(),
                 pose_index=0,
@@ -224,7 +224,7 @@ def test_quantity_admission_preserves_resource_errors_and_provider_causes(
         invoke()
     if error_type is ValueError:
         assert caught.value.__cause__ is failure
-        assert caught.value.code == 'DMT-E002'
+        assert caught.value.code == 'BMT-E002'
         assert caught.value.extra['arg_name'] == field
     else:
         assert caught.value is failure
@@ -241,19 +241,19 @@ def test_scoring_geometry_preserves_resource_errors_and_cleans_staging(
 ):
     from depdigest.core import checker
 
-    from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+    from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
-    scoring = importlib.import_module('dockingmt.engines._vina_scoring')
-    engine = importlib.import_module('dockingmt.engines.vina')
-    problem = dmt.DockingProblem(
+    scoring = importlib.import_module('bindingmt.engines._vina_scoring')
+    engine = importlib.import_module('bindingmt.engines.vina')
+    problem = bmt.DockingProblem(
         MINIMAL_REC_PDBQT,
         MINIMAL_LIG_PDBQT,
-        dmt.BoxRegion(
+        bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'),
             puw.quantity([10, 10, 10], 'angstrom'),
         ),
     )
-    protocol = dmt.VinaProtocol(cpu=1, seed=17)
+    protocol = bmt.VinaProtocol(cpu=1, seed=17)
     before = problem.to_dict(), protocol.to_dict()
     failure = {
         'memory': MemoryError('controlled geometry allocation failure'),
@@ -313,12 +313,12 @@ def test_scoring_geometry_preserves_resource_errors_and_cleans_staging(
     monkeypatch.setattr(engine.tempfile, 'NamedTemporaryFile', allocate)
     expected = type(failure) if error_kind in ('memory', 'os_memory') else ArgumentError
     with pytest.raises(expected) as caught:
-        dmt.score(problem, protocol)
+        bmt.score(problem, protocol)
     if error_kind in ('memory', 'os_memory'):
         assert caught.value is failure
     else:
         assert caught.value.__cause__ is failure
-        assert caught.value.code == 'DMT-E002'
+        assert caught.value.code == 'BMT-E002'
         assert caught.value.extra['arg_name'] == 'problem.partner'
     order = ['conversion', 'coordinates', 'names', 'elements']
     assert calls == order[: order.index(step) + 1]

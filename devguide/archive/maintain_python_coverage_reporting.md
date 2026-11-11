@@ -1,6 +1,6 @@
 ---
 summary: Measure the existing Python suite and publish truthful exact-source coverage.
-issue: uibcdf/dockingmt#22
+issue: uibcdf/bindingmt#22
 status: resolved
 opened: 2026-10-01
 closed: 2026-10-08
@@ -18,14 +18,14 @@ supersedes: []
 
 The initial default-branch source has tested executable Python packages but no
 coverage producer or accepted public report. uibcdf/molsyssuite#69 owns the common
-percentage/cadence and evidence rule; this issue owns DockingMT's implementation.
+percentage/cadence and evidence rule; this issue owns BindingMT's implementation.
 An absent public report is not evidence that coverage is inapplicable.
 
 ## How
 
 Reuse the exact existing unfiltered `pytest --receptor=ci` suite in the ordinary
 Linux/Python 3.14 lane. Only measurement options are added through
-`PYTEST_ADDOPTS`: `dockingmt` plus `molsysviewer_dockingmt`, including branches,
+`PYTEST_ADDOPTS`: `bindingmt` plus `molsysviewer_bindingmt`, including branches,
 with one XML file. The original four supported-minor lanes, independent six-cell
 full matrix, scientific sibling pins, runtime floors and tests selected are retained.
 The environment already declares pytest-cov; no runtime dependency is introduced.
@@ -75,7 +75,7 @@ pins is unnecessary: current test execution is already suitable for measurement.
 A static percentage, unknown badge or inferred service acceptance would violate
 the evidence rule. Selecting only administrative code would not represent the
 chosen executable package boundary. TopoMT's independently approved maturity
-deferral under uibcdf/topomt#81 is not automatically applied to DockingMT.
+deferral under uibcdf/topomt#81 is not automatically applied to BindingMT.
 
 ## Scope and exclusions
 
@@ -102,7 +102,7 @@ handoff; preserve the primary clone and caller-owned shared environment.
 ## Resolution — 2026-10-08
 
 Producer `9db7074828083da03094eae091e84bb4ae6caa61` completes native ordinary
-CI [37799841269](https://github.com/uibcdf/dockingmt/actions/runs/37799841269)
+CI [37799841269](https://github.com/uibcdf/bindingmt/actions/runs/37799841269)
 with all seven jobs, including the unchanged four supported-minor suites,
 measurement/retention and automatic independent publisher. Native policy
 37799842358 passes its actual required conformance/lint/format steps.

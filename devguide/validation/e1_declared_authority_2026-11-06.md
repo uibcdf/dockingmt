@@ -1,6 +1,6 @@
 # E1 declared chemical authority receiving — 2026-11-06
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
 Status at prescription: **prospective**. The
 [notebook](e1_declared_authority.ipynb) separates attempted legacy transport from
 construction of a new declared source. Code/input identities and resources are
@@ -15,7 +15,7 @@ It is about 97 MB decoded. Select its ligand observed/charged snapshots and
 template options once, preserving a JSON selection and original file identities,
 then release unrelated receptor records before scientific imports.
 
-The legacy `dockingmt.chemical_template_snapshot@2` records include public
+The legacy `bindingmt.chemical_template_snapshot@2` records include public
 ChemicalStatesDict version 2 payloads whose preparation-history arrays were
 converted to JSON lists. Current native transport requires the original array
 dtypes/shapes. Public conversion is expected to reject both snapshots at that
@@ -146,7 +146,7 @@ events, resource outcome and expected ERROR diagnostics. Gzip is transport only;
 verify each compressed digest and its recorded decoded digest before restoring
 the original filename. Raw receiving outputs remain unchanged in local custody.
 
-Runtime is Python 3.14.10 on Linux x86_64, editable DockingMT
+Runtime is Python 3.14.10 on Linux x86_64, editable BindingMT
 `0.0.0+295.g2fda623`, MolSysMT `0.23.0+513.g9e1f1b1ad`, ArgDigest
 `0.17.1+3.g0712641`, PyUnitWizard `0.29.1+6.gf82b618`, NumPy `2.5.4`, RDKit
 `2026.9.2` and h5py `3.16.0`. The actually loaded `molsysmt._rust` module belongs

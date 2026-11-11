@@ -1,6 +1,6 @@
 # Installed small-fixture receiving — 2026-11-09
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), within
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), within
 source/public qualification #30 and functional delivery #73. Status: bounded source and new installed receiving complete; full qualification partial.
 
 
@@ -104,11 +104,11 @@ The old wheel's expanded normal profile passes 64 cases with 12 explicit
 `StructuralAttributeOffAxisWarning` records. Its expanded pm/fs profile passes 63
 and fails the unchanged-resource/angstrom export case. Preserve that failure;
 there is no resource interruption or engine/viewer operation. The generic getter
-complies with caller units; DockingMT compared quantities along different
+complies with caller units; BindingMT compared quantities along different
 conversion paths. The warnings name `atom_index` and remain visible, separately
 from this coordinate comparison defect.
 
-[DockingMT#103](https://github.com/uibcdf/dockingmt/issues/103) owns the bounded
+[BindingMT#103](https://github.com/uibcdf/bindingmt/issues/103) owns the bounded
 native correction and new20-case guard. It checks both roles across all nine
 preparation/export length-unit pairs, exact one-ULP edits and original native
 read MemoryError identity. Source-red-01 stops before tests because a source

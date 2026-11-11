@@ -7,12 +7,12 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dockingmt import DockingPose, DockingResult
-from molsysviewer_dockingmt.adapters.complex import set_active_pose
-from molsysviewer_dockingmt.export import build_docking_export_payload
-from molsysviewer_dockingmt.panels import DockingExplorerPanel
-from molsysviewer_dockingmt.runtime import ensure_runtime
-from molsysviewer_dockingmt.workbench import get_docking_summary_section
+from bindingmt import DockingPose, DockingResult
+from molsysviewer_bindingmt.adapters.complex import set_active_pose
+from molsysviewer_bindingmt.export import build_docking_export_payload
+from molsysviewer_bindingmt.panels import DockingExplorerPanel
+from molsysviewer_bindingmt.runtime import ensure_runtime
+from molsysviewer_bindingmt.workbench import get_docking_summary_section
 
 
 def _pose(identity, rank=None, scores=None, definitions=None):

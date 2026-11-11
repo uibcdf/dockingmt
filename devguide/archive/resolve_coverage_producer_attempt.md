@@ -1,6 +1,6 @@
 ---
 summary: Resolve coverage from its actual retention step after partial reruns.
-issue: uibcdf/dockingmt#68
+issue: uibcdf/bindingmt#68
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-05
@@ -20,7 +20,7 @@ supersedes: []
 Run 42059033330 at `5071731168bab30cab514fcf32142b76d732cae4` retains
 Python 3.14 coverage in attempt 1. Attempt 2 reruns the failed Python 3.11/3.12
 lanes successfully, but its publisher requests an attempt-2 coverage artifact.
-Only `dockingmt-python-coverage-42059033330-1` exists. The overall retry fails;
+Only `bindingmt-python-coverage-42059033330-1` exists. The overall retry fails;
 the effective successful science lanes are a separate fact.
 
 ## How
@@ -49,7 +49,7 @@ turning their failure into a successful suite.
 
 ## Ownership and scope
 
-This is specific identity selection in the existing DockingMT workflow, using
+This is specific identity selection in the existing BindingMT workflow, using
 official GitHub actions/API operations. The shared starter's coverage pattern
 and tool catalogue do not supply this partial-rerun binding. Any reusable
 cross-component custody tool remains MolSysSuite-owned; work and issue updates
@@ -109,7 +109,7 @@ public-report evidence retains its original producer. Other components' issues,
 new scientific work, package qualification and visible C4/C6 remain separate.
 
 Hosted receiving: exact `ae2a9a924bf860e8c2f4315f2beaabb6eb6c23a7`
-[CI 42094443810, attempt 1](https://github.com/uibcdf/dockingmt/actions/runs/42094443810/attempts/1)
+[CI 42094443810, attempt 1](https://github.com/uibcdf/bindingmt/actions/runs/42094443810/attempts/1)
 passes 7/7, including actual binding, download and Codecov upload. This adds
 normal-attempt hosted integration to the historical partial-rerun controlled
 receiving; it does not turn the original failed attempt into success.

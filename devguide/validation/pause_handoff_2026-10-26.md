@@ -2,7 +2,7 @@
 
 The maintainer paused work after closing the native receptor qualification's
 pending CI. Resume from this checkpoint and the [current roadmap](../ROADMAP.md),
-then consult [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49).
+then consult [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49).
 The earlier [2026-10-20 handoff](pause_handoff_2026-10-20.md) retains the preceding
 scientific workflows, original producers and scene recovery.
 
@@ -10,15 +10,15 @@ scientific workflows, original producers and scene recovery.
 
 The current qualified source checkpoint is
 `ae5940432b8672abf8efb96eb0e659151272e8c5`. Its
-[terminal receipt](https://github.com/uibcdf/dockingmt/issues/49#issuecomment-6425206189)
+[terminal receipt](https://github.com/uibcdf/bindingmt/issues/49#issuecomment-6425206189)
 closes the formerly pending CI verification:
 
-- [CI 40149390711](https://github.com/uibcdf/dockingmt/actions/runs/40149390711):
+- [CI 40149390711](https://github.com/uibcdf/bindingmt/actions/runs/40149390711):
   **1,231 tests passed per Python 3.11–3.14**, zero test skips, all seven jobs.
 - Ordinary sibling/consumer installation, installed namespace/context checks,
   dependency closure and the actual exact-head Codecov upload execute successfully.
-- [Policy 40149390941](https://github.com/uibcdf/dockingmt/actions/runs/40149390941)
-  and [publication governance 40149390974](https://github.com/uibcdf/dockingmt/actions/runs/40149390974)
+- [Policy 40149390941](https://github.com/uibcdf/bindingmt/actions/runs/40149390941)
+  and [publication governance 40149390974](https://github.com/uibcdf/bindingmt/actions/runs/40149390974)
   succeed at the same source.
 - The overlapping native writer/reader/projection/map selections pass **58 source
   cases** (96.44 s) and **58 ordinary-installed cases** (87.98 s), zero skips.
@@ -50,7 +50,7 @@ unchanged; that revision is not runtime-adopted.
 
 The ordinary installed consumer wheel retains its original producer
 `fe8ad1351b8661b43957132236715115d495d795`:
-`dockingmt-0.0.0+196.gfe8ad13-py3-none-any.whl`, 122,993 bytes, SHA-256
+`bindingmt-0.0.0+196.gfe8ad13-py3-none-any.whl`, 122,993 bytes, SHA-256
 `962ce548821ee37a7b2cf986280de720ad39c989059da2dc3daa2c95c7ade05e`.
 All 57 package/addon code files, wheel bytes and installed origins were reverified
 on 2026-10-26. The later qualification and this pause change tests/documentation
@@ -69,7 +69,7 @@ No historical search is repeated for this checkpoint.
    Its contract must distinguish molecular IDs from output serials and bind
    the completed export map to the final actual bytes.
 2. Decide whether to prepare a provider-owned contribution through a PR linked
-   to that existing issue, or wait and choose independent DockingMT work from
+   to that existing issue, or wait and choose independent BindingMT work from
    the accepted pilot/issue backlog. That priority question was not answered
    before the pause. No provider contribution has been started.
 3. Keep the current production presentation until a provider route is received
@@ -90,14 +90,14 @@ package/Release availability announcement.
 
 ## Resources and recovery
 
-Resources remain owned by [#50](https://github.com/uibcdf/dockingmt/issues/50):
+Resources remain owned by [#50](https://github.com/uibcdf/bindingmt/issues/50):
 
 | Location | Retained purpose | Review |
 | --- | --- | --- |
-| `/tmp/dockingmt-native-writer-20261024` | Protein probes, source-free harness, full CI bundles, original pending and final receipts | 2026-10-31 |
-| `/tmp/dockingmt-continuation-20261026` | Final verifier, handoffs, source/artifact rechecks and suite inventory | 2026-10-31 |
-| `/tmp/dockingmt-stage-maps-20261024` | Unchanged ordinary receiver, wheel, provider evidence and stable GH Run Receptor 1.3.0 | 2026-10-31 |
-| `/tmp/dockingmt-human-20261020/environment` | Inherited dependency base under its existing ownership | 2026-10-27 |
+| `/tmp/bindingmt-native-writer-20261024` | Protein probes, source-free harness, full CI bundles, original pending and final receipts | 2026-10-31 |
+| `/tmp/bindingmt-continuation-20261026` | Final verifier, handoffs, source/artifact rechecks and suite inventory | 2026-10-31 |
+| `/tmp/bindingmt-stage-maps-20261024` | Unchanged ordinary receiver, wheel, provider evidence and stable GH Run Receptor 1.3.0 | 2026-10-31 |
+| `/tmp/bindingmt-human-20261020/environment` | Inherited dependency base under its existing ownership | 2026-10-27 |
 
 Review dates are not automatic deletion. Preserve older artifacts and human/shared
 environments. The latest read-only suite inventory preserves all sibling work and

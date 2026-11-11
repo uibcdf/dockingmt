@@ -2,8 +2,8 @@
 
 ## Compatibility change — 2026-10-10
 
-[DockingMT #5](https://github.com/uibcdf/dockingmt/issues/5) and
-[#49](https://github.com/uibcdf/dockingmt/issues/49) own removal of fabricated
+[BindingMT #5](https://github.com/uibcdf/bindingmt/issues/5) and
+[#49](https://github.com/uibcdf/bindingmt/issues/49) own removal of fabricated
 zero charges from molecular preparation. Both `prepare_ligand` and
 `prepare_receptor` now require complete finite atomic partial charges after
 requested provider stages. Missing values raise an actionable `ArgumentError`.
@@ -18,7 +18,7 @@ charge assignment precedes requested named typing. Options and input systems
 remain detached, and provider failures propagate without fallback.
 
 ```python
-prepared = dmt.prepare_receptor(
+prepared = bmt.prepare_receptor(
     receptor_with_declared_chemistry_and_indexed_hydrogens,
     selection='all',
     charge_options={'method': chosen_method, **chosen_charge_parameters},
@@ -38,7 +38,7 @@ retain their separate actionable error when both requirements are absent.
 The policy requires values, not a nonzero sum or a compulsory new named charge
 calculation. Explicit supplied zeros remain valid. Complete legacy supplied
 numeric charges without a named calculation report remain **unassessed** and
-unattributed; DockingMT does not invent a report. Numeric native values are in
+unattributed; BindingMT does not invent a report. Numeric native values are in
 elementary charge; quantity inputs use explicit conversion to that unit.
 
 Valid named assignments keep method, parameters, versions, references and
@@ -84,7 +84,7 @@ template fixture explicitly declares coulomb as it now performs charge work.
 observed limitation when native charge assignment runs under a policy containing
 only pm/fs: its internal standardized quantity raises `NoStandardsError`.
 This describes the original `739395d7e` source boundary. The provider resolved
-it under #381; the current adopted behavior is recorded below. DockingMT neither
+it under #381; the current adopted behavior is recorded below. BindingMT neither
 overrides caller policy nor catches the error.
 
 Use the unchanged CI provider source
@@ -138,7 +138,7 @@ without requiring a presentation standard. The provider's quantity-returning
 getter keeps its own configured-standard contract; this does not redefine it.
 
 `test_explicit_preparation_needs_no_charge_presentation_standard` checks both
-DockingMT preparation roles under a caller policy containing only pm/fs.
+BindingMT preparation roles under a caller policy containing only pm/fs.
 Requested named charge and type assignment yields the same prepared charge
 values, maps, coordinates and PDBQT bytes as the default policy; the caller's
 policy and input system remain unchanged. Calculation and molecular state work

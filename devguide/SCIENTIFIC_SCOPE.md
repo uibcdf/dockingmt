@@ -1,91 +1,100 @@
-# Scientific Scope
+# Scientific scope
 
-## NOW — Core scientific MVP
+## Accepted molecular binding domain
 
-DockingMT initially targets canonical **protein–small-molecule local docking** with AutoDock Vina as the reference engine.
+BindingMT models and characterizes molecular binding. The maintainer accepts the
+canonical identity and conceptual expansion under
+[#108](https://github.com/uibcdf/bindingmt/issues/108), including the explicit
+future free-energy/interface direction, on 2026-11-11. This is one continuing
+component, broader than a docking method or any initial provider.
 
-The Core MVP should support:
+| Operation | Scientific promise | Current status |
+| --- | --- | --- |
+| Molecular docking | Explore relative placements and allowed conformations of declared partners, with explicit preparation, constraints and search information. | Implemented Vina/Vinardo profiles; broader flexibility/partner/provider support needs its own receiving. |
+| Fixed-identity complex prediction | Predict complete multicomponent structures from declared identities, sequences and optional structural/prior information. Every partner may move. | Accepted domain; Boltz-2 proposal [#110](https://github.com/uibcdf/bindingmt/issues/110), no received prediction runtime/API. |
+| Complex refinement | Transform a declared complex through an explicit physical or model-based protocol, preserving correspondence and changes. | Accepted domain; provider-specific design/qualification pending. HADDOCK3 [#109](https://github.com/uibcdf/bindingmt/issues/109) proposes a physical docking/refinement route. |
+| Binding free-energy calculation | Estimate a declared binding thermodynamic quantity with a physical/statistical method, states, conditions, units and available uncertainty/convergence evidence. Absolute and relative binding questions belong here. | Accepted future capability; no provider, implementation or scientific profile qualified. |
+| Binding free-energy prediction | Predict a defined binding free-energy endpoint using an applicable model, retaining domain limitations, conditions, scale and supplied uncertainty. | Accepted future capability; not implied by structural confidence or generic affinity output. |
+| Binding-interface characterization | Investigate contacts, geometry/topography, physicochemical organization and changes at a declared interface, composing owner-provided molecular analyses. | Accepted future capability; bounded pose-interaction binding/viewing is a narrower implemented foundation. |
 
-- reproducible receptor preparation through a documented path;
-- reproducible ligand preparation through a documented path;
-- explicit local docking regions;
-- regions derived from molecular selections;
-- redocking of a known ligand;
-- docking of one small molecule;
-- normalized pose/result representation;
-- pose ranking from named backend scores;
-- MolSysViewer basic visualization;
-- complete provenance and molecular identity tracking.
+Future domain acceptance neither implements an operation nor makes it a new
+automatic release/1.0 gate. The existing Core/Extended objective and separate
+provider proposals retain their commissioning, owners and evidence requirements.
+No new engine, molecular campaign, weights download or native calculation is
+part of the naming/conceptual transition.
 
-Redocking is the primary end-to-end scientific gate.
+## Scientific distinctions and applicability
 
-## NOW — Extended MVP
+Physical docking and joint complex prediction receive different inputs and make
+different promises. An operation may accept sequence-only or coordinate-free
+identity when supported. A Vina box, prepared PDBQT, pre-existing ligand pose and
+unchanged receptor are not universal requirements. Current
+`DockingProblem`/`VinaProtocol` contracts retain their received docking scope;
+future operations receive their own scientific obligations.
 
-After the Core MVP is scientifically reliable:
+Free-energy calculation and prediction need an explicit endpoint and molecular
+states, thermodynamic/standard-state conventions and relevant conditions. A
+method identifies what is estimated and what uncertainty/convergence evidence
+is available. Do not relabel an empirical docking score, interaction energy,
+confidence, dissociation constant or assay endpoint as a binding free energy
+without a scientifically justified relation and its assumptions. An affinity
+predictor is admitted only for its actual endpoint and applicability profile.
 
-- scoring/rescoring as an explicit operation;
-- small virtual-screening collections;
-- pose comparison and basic clustering;
-- basic interaction analysis;
-- richer result exploration.
+Interface geometry, contact counts, buried/exposed surfaces, interaction networks
+and energetic descriptors remain method-specific observations. They do not alone
+establish affinity, biological function or a physically populated binding state.
+General molecular analysis and surface/topographic kernels remain with MolSysMT,
+TopoMT and specialized owners. BindingMT supplies the binding question,
+associations and interpretation.
 
-The MVP is not intended to be a production-scale million-compound screening platform.
+Keep native, completed and refined artifacts distinct. Generated/removed atoms,
+representation approximations and changes to every partner require explicit
+maps and provenance. Native model confidence belongs to its original prediction;
+new atoms or transformed coordinates do not automatically inherit it. Unsupported
+chemistry, incomplete output and failed completion remain inspectable outcomes.
 
-## DESIGNED FOR
+## Current received software and scientific profiles
 
-The scientific model should not block:
+The initial reference profile remains canonical **protein-small-molecule local
+docking** with AutoDock Vina. The source-only 0.1.0 milestone belongs to its exact
+historical BindingMT source, wheel/providers and evidence. Renaming does not
+qualify those artifacts as new BindingMT packages or broaden their science.
 
-- fragments;
-- macrocycles;
-- peptides;
-- multiple docking partners;
-- receptor side-chain flexibility;
-- receptor ensembles;
-- trajectory-derived receptor states;
-- blind/global docking;
-- optional or multiple search domains;
-- structural waters and cofactors;
-- metals and coordination-aware protocols;
-- pharmacophoric/geometric constraints;
-- search guidance distinct from hard constraints;
-- multiple scoring functions;
-- multiple engines/backends;
-- consensus docking;
-- multi-stage docking/refinement;
-- GPU/ML engines;
-- campaign-level execution and analysis.
+The Core objective includes reproducible preparation, declared local/selection
+regions, redocking, normalized poses/results, named ranking, visualization and
+molecular/provenance identity. The Extended objective includes explicit
+scoring/rescoring, small collections, comparison/clustering, bounded interaction
+analysis and exploration. Consult the owning evidence/plan for received profiles
+and remaining public, platform, scientific and canvas gates.
 
-Support is not promised merely because a concept is represented.
+Current starting workflows use one declared small-molecule state and rigid
+protein, a physical search box and Vina. Broader partner domains, receptor motion,
+covalent chemistry, metal/water handling and production-scale screening need
+independently admitted profiles. Code, metadata or a concept in this guide does
+not establish scientific support.
 
-## HORIZON
+## Architectural directions and boundaries
 
-Longer-term research directions include:
+Design for fragments, macrocycles, peptides and multiple partners; receptor
+flexibility/ensembles; non-box/global domains; waters/cofactors/metals; restraints
+and guidance; multiple providers/stages; refinement; binding-energy methods;
+interface/landscape analyses and meaningful uncertainty. Add concrete operations
+when accepted workflows need them. Preserve public contracts; do not implement a
+universal framework or rewrite numerical engines without a measured need.
 
-- topography-aware sampling;
-- non-box search domains;
-- pocket/subpocket decomposition;
-- pharmacophore-guided sampling;
-- flexibility-aware docking;
-- ensemble and dynamic-pocket docking;
-- water-aware docking;
-- metal-aware docking;
-- covalent docking;
-- fragment placement, growth and linking workflows;
-- physically refined pose landscapes;
-- uncertainty-aware docking;
-- native DockingMT search/scoring methods;
-- adaptive and hybrid physics/ML protocols.
+- MolSysMT owns molecular representations, chemistry, preparation, selections,
+  transformations, formats, maps and general interaction analysis.
+- TopoMT owns topography; specialized suite components retain pharmacophore,
+  elastic-network, visualization and numerical responsibilities.
+- BindingMT owns binding-domain scientific operations and provider adaptation,
+  composing public tools and reporting missing owner capabilities.
+- PeptideMT owns peptide generation/redesign and peptide-specific selection;
+  Praxis and other MolI components keep their established boundaries.
+- Single-molecule folding, general conformational sampling, sequence generation,
+  a universal AI model platform, generic project/evidence management and a new
+  scheduler are outside this component's present ownership.
 
-## Explicit non-goals for the first MVP
-
-- implementing a new docking engine from scratch;
-- rewriting AutoDock Vina in Rust;
-- peptide docking as a validated general workflow;
-- protein–protein docking;
-- covalent docking;
-- production-scale HPC screening infrastructure;
-- solving every receptor/ligand preparation problem;
-- committing to one universal preparation implementation;
-- rebuilding general MolSysMT molecular capabilities inside DockingMT;
-- creating DockingMT-specific substitutes for MolSysSuite shared infrastructure;
-- hiding engine limitations behind a misleading common denominator.
+External methods remain optional and independently inspectable. Their operation,
+execution route, dependencies, source/model terms, hardware/resource limits and
+failure modes are explicit. Core import and saved-result inspection remain
+independent of optional runtimes, accelerators and remote services.

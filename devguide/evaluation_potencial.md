@@ -1,10 +1,10 @@
-Sí. **Creo que DockingMT merece la pena**, pero no principalmente porque el mundo necesite otro programa que haga docking. El valor potencial está en otra parte: convertir el docking en un **objeto científico bien integrado dentro de MolSysSuite**, en lugar de otro ejecutable aislado en una cadena de scripts.
+Sí. **Creo que BindingMT merece la pena**, pero no principalmente porque el mundo necesite otro programa que haga docking. El valor potencial está en otra parte: convertir el docking en un **objeto científico bien integrado dentro de MolSysSuite**, en lugar de otro ejecutable aislado en una cadena de scripts.
 
 Y siendo exigente, veo potencial para que llegue a ser una herramienta especialmente útil en proyectos reales de diseño computacional de fármacos.
 
 ### Lo que no justificaría el proyecto
 
-Si DockingMT terminara siendo:
+Si BindingMT terminara siendo:
 
 ```text
 prepare receptor
@@ -26,7 +26,7 @@ La semilla que hemos diseñado, afortunadamente, apunta a otra cosa.
 
 ---
 
-## El problema real que DockingMT puede resolver
+## El problema real que BindingMT puede resolver
 
 En proyectos reales de drug design, el docking raramente es:
 
@@ -74,7 +74,7 @@ Y ahí el ecosistema actual sigue siendo bastante fragmentario.
 
 El problema no es ejecutar Vina. **El problema es construir un experimento computacional de docking científicamente coherente, reproducible e interpretable.**
 
-Ahí sí veo un hueco para DockingMT.
+Ahí sí veo un hueco para BindingMT.
 
 ---
 
@@ -82,7 +82,7 @@ Ahí sí veo un hueco para DockingMT.
 
 Esto es probablemente lo que más me convence.
 
-DockingMT aislado tendría un valor moderado.
+BindingMT aislado tendría un valor moderado.
 
 Pero:
 
@@ -91,7 +91,7 @@ MolSysMT
 TopoMT
 PharmacophoreMT
 ElastNetMT
-DockingMT
+BindingMT
 MolSysViewer
 MolSys-AI
 ```
@@ -115,7 +115,7 @@ molecular + conformational landscape
      interaction hypotheses
               │
               ↓
-          DockingMT
+          BindingMT
      guided exploration
               │
               ↓
@@ -191,7 +191,7 @@ Pocket
            ↓
       SearchGuidance
            ↓
-       DockingMT
+       BindingMT
 ```
 
 Puede haber tesis, artículos y algoritmos ahí.
@@ -211,7 +211,7 @@ collective mode
 mobile loop
 ```
 
-DockingMT podría utilizar esa información para decidir:
+BindingMT podría utilizar esa información para decidir:
 
 ```text
 qué residuos flexibilizar
@@ -234,7 +234,7 @@ TopoMT
    ↓
 pocket evolution
    ↓
-DockingMT
+BindingMT
 ```
 
 Eso es científicamente mucho más interesante que añadir otro scoring function.
@@ -256,7 +256,7 @@ PharmacophoreMT
 what interactions should be satisfied?
 ```
 
-Y DockingMT puede preguntar:
+Y BindingMT puede preguntar:
 
 ```text
 where?
@@ -316,7 +316,7 @@ Eso se aproxima mucho más a cómo debería utilizarse docking científicamente.
 
 Hay varios peligros.
 
-### 1. Convertir DockingMT en un framework gigantesco
+### 1. Convertir BindingMT en un framework gigantesco
 
 Este es el principal.
 
@@ -369,7 +369,7 @@ Sólo entonces nuevas abstracciones.
 
 ### 2. Confundir arquitectura elegante con ciencia nueva
 
-DockingMT puede ser una excelente herramienta aunque inicialmente no contenga ningún algoritmo novedoso.
+BindingMT puede ser una excelente herramienta aunque inicialmente no contenga ningún algoritmo novedoso.
 
 Pero para convertirse además en una contribución científica relevante habrá que demostrar algo.
 
@@ -420,7 +420,7 @@ Si TopoMT-guided docking funciona sólo para ciertos tipos de pocket, **eso ya s
 
 # Hay otro potencial que quizá estamos infravalorando
 
-MolSysSuite puede convertir DockingMT en una herramienta excelente para **investigación metodológica sobre docking**.
+MolSysSuite puede convertir BindingMT en una herramienta excelente para **investigación metodológica sobre docking**.
 
 Normalmente comparar métodos implica mucho glue code.
 
@@ -436,7 +436,7 @@ result_guided = dmt.dock(problem, protocol=topomt_protocol)
 
 y obtener objetos comparables.
 
-Entonces DockingMT no sería solamente una herramienta para *hacer docking*.
+Entonces BindingMT no sería solamente una herramienta para *hacer docking*.
 
 Sería también una infraestructura para **investigar docking**.
 
@@ -508,7 +508,7 @@ Y eso es una evolución científicamente razonable.
 
 Hay una propiedad de este proyecto que considero especialmente saludable.
 
-**No necesitamos que nuestra investigación futura funcione para que DockingMT sea útil.**
+**No necesitamos que nuestra investigación futura funcione para que BindingMT sea útil.**
 
 Si nunca conseguimos demostrar que topography-aware docking supera a Vina, todavía tendremos:
 
@@ -526,7 +526,7 @@ analysis
 
 una herramienta útil.
 
-Pero si alguna de esas hipótesis científicas funciona, DockingMT se convierte además en **el vehículo natural para distribuirla**.
+Pero si alguna de esas hipótesis científicas funciona, BindingMT se convierte además en **el vehículo natural para distribuirla**.
 
 Eso reduce muchísimo el riesgo del proyecto.
 
@@ -534,5 +534,5 @@ Por eso sí invertiría en él.
 
 No intentaría construir inmediatamente “el futuro del docking”. Haría algo bastante más científico: **construir primero una infraestructura excelente para formular y comprobar hipótesis sobre docking**.
 
-Y, si MolSysMT y MolSysViewer son ya las piezas maduras de MolSysSuite, DockingMT puede ser una de las piezas que haga que el conjunto deje de percibirse sólo como una colección de toolkits y empiece a funcionar como **una plataforma integrada para computational molecular design**.
+Y, si MolSysMT y MolSysViewer son ya las piezas maduras de MolSysSuite, BindingMT puede ser una de las piezas que haga que el conjunto deje de percibirse sólo como una colección de toolkits y empiece a funcionar como **una plataforma integrada para computational molecular design**.
 

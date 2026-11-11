@@ -2,9 +2,9 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dockingmt import DockingPose, DockingResult
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.core.results import _molecular_atom_keys
+from bindingmt import DockingPose, DockingResult
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.core.results import _molecular_atom_keys
 
 
 def test_docking_pose_creation_and_attributes():

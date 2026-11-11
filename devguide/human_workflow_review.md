@@ -1,8 +1,8 @@
 # Installed Python/Jupyter workflow review
 
-Owner: [#4](https://github.com/uibcdf/dockingmt/issues/4), coordinated with
-[#28](https://github.com/uibcdf/dockingmt/issues/28). Publication-route decision:
-[#29](https://github.com/uibcdf/dockingmt/issues/29).
+Owner: [#4](https://github.com/uibcdf/bindingmt/issues/4), coordinated with
+[#28](https://github.com/uibcdf/bindingmt/issues/28). Publication-route decision:
+[#29](https://github.com/uibcdf/bindingmt/issues/29).
 Source inspected: `92d31e0bf6aaf128b79f8990732dbd5ac49b45e8`, 2026-11-03.
 The original source/workflow review is retained below. Dated delivery updates
 link separately executed notebook evidence with its finite scope; historical
@@ -27,7 +27,7 @@ public artifact/platform admission, full case authentication or a new experiment
 
 The [preparation guide](validation/installed_3ptb_preparation.md) and
 [notebook](validation/installed_3ptb_preparation.ipynb) expose the existing
-3PTB prescription through public MolSysMT/DockingMT APIs. All nine source cells
+3PTB prescription through public MolSysMT/BindingMT APIs. All nine source cells
 complete in normal and pm/fs kernels outside source: explicit source/declaration
 trust, caller-supplied maps, template assessment/application, fixed-state H,
 named charge/type preparation, original prepared-value controls and protocol
@@ -69,7 +69,7 @@ The [evaluation guide/notebook](validation/installed_3ptb_evaluation.md) complet
 seven exact cells under normal and pm/fs policies, with zero preparation/engine/
 viewer attempts in either scientific kernel. MolSysMT selects the captured
 partner's nine heavy atoms, verifies the declared axis through public getters
-and extracts pose coordinates; fresh public DockingMT comparison records retain
+and extracts pose coordinates; fresh public BindingMT comparison records retain
 explicit parent bindings without slicing preparation metadata or inventing
 verified maps. Both original thirteen-atom results remain intact. Public
 `evaluate_redocking` / `summarize_redocking` use provider geometry and the
@@ -99,7 +99,7 @@ failures remain separately recorded. No new molecular tool/runtime API is needed
 
 Scientific orchestration belongs in the notebook. Repeated independently useful
 molecular construction, correspondence, characterization, geometry or storage
-belongs in MolSysMT. DockingMT owns docking policies, result semantics and their
+belongs in MolSysMT. BindingMT owns docking policies, result semantics and their
 orchestration. A notebook must not implement a missing provider tool to appear
 complete; report the concrete need in that provider. No new molecular tool is
 identified as necessary for the bounded record-inspection slice below.
@@ -124,7 +124,7 @@ Those tools have distinct purposes:
   generic archive reader. `audit_result` alone does not perform that authentication.
 
 The [wheel payload](validation/data/addon_player/consumer_wheel_2026-11-03.json)
-ships `dockingmt` and `molsysviewer_dockingmt`, not these developer tools. This is
+ships `bindingmt` and `molsysviewer_bindingmt`, not these developer tools. This is
 intentional for qualification; it means the notebook is not yet an example that
 an installed-package user can run from arbitrary working directories without
 the source/data harness. [README](../README.md) exposes the public primitives and

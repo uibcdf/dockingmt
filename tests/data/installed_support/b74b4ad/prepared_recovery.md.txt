@@ -1,7 +1,7 @@
 # Prepared-input recovery checks — 2026-10-29
 
-Owner: [#57](https://github.com/uibcdf/dockingmt/issues/57), a bounded follow-up
-under [#4](https://github.com/uibcdf/dockingmt/issues/4). This strengthens the
+Owner: [#57](https://github.com/uibcdf/bindingmt/issues/57), a bounded follow-up
+under [#4](https://github.com/uibcdf/bindingmt/issues/4). This strengthens the
 existing `DockingResult.reconstruct_problem(receptor=..., partner=...)` workflow
 from the [preparation/provenance profile](preparation_profile.md). It does not
 introduce a molecular snapshot, new storage API or implicit preparation.
@@ -35,7 +35,7 @@ no H generation, charge/type assignment, energy, optimization, docking or viewer
 The signatures, outer schemas and saved-result reader remain unchanged.
 
 ```python
-saved = dockingmt.DockingResult.from_dict(record)
+saved = bindingmt.DockingResult.from_dict(record)
 problem = saved.reconstruct_problem(
     receptor=original_prepared_receptor,
     partner=original_prepared_ligand,
@@ -51,7 +51,7 @@ it as the old one. Original result files remain readable and are never rewritten
 
 ## Ownership and limits
 
-DockingMT compares its own saved declarations and operation-specific byte hashes.
+BindingMT compares its own saved declarations and operation-specific byte hashes.
 The shared artifact inspector validates bytes only. All molecular rendering,
 construction, copied views and scientific validation remain in public MolSysMT;
 no PDBQT parser, atom matcher, graph checker or coordinate algorithm is added.
@@ -77,7 +77,7 @@ The [case-bundle contract](preparation_profile.md#source-provenance-is-a-bundle-
 and #4's broader persistence/recovery scope remain partial. General mechanics
 storage is [MolSysMT #256](https://github.com/uibcdf/molsysmt/issues/256), not a
 missing serializer to implement downstream. No new provider capability is needed
-for this fix: the native writer and existing DockingMT integrity tool already
+for this fix: the native writer and existing BindingMT integrity tool already
 cover the accepted recovery operation. The incoming ChemicalStates migration
 notice #56 retains its separate receiving scope and does not change provider pins.
 

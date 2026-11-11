@@ -1,13 +1,13 @@
 # Private installed-wheel addon receiving
 
-Owners: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47) and
-[#60](https://github.com/uibcdf/dockingmt/issues/60). This checkpoint qualifies
+Owners: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47) and
+[#60](https://github.com/uibcdf/bindingmt/issues/60). This checkpoint qualifies
 one private Linux x86_64 / Python 3.14.8 installation. Public distribution,
 platform admission, browser observation and C6 remain separate gates.
 
 ## Exact candidate
 
-The private wheel is `dockingmt-0.0.0+222.g376679c-py3-none-any.whl`, built once
+The private wheel is `bindingmt-0.0.0+222.g376679c-py3-none-any.whl`, built once
 from committed producer `376679c2fe77298eda7a80edd311335c2cfa205b`.
 Its SHA-256 is
 `aa5626e1ee7073a2df32fdce75cf10c132eeedffc807aa71a5421d1a55a9391e`.
@@ -27,14 +27,14 @@ remain task-owned evidence; these public records are sanitized summaries.
 A new independent Conda prefix provides support/scientific dependencies through
 the ordinary UIBCDF/conda-forge route. The unchanged controlled ArgDigest,
 MolSysMT and MolSysViewer wheels are then installed normally alongside this
-DockingMT wheel. OpenMM 8.6.1 comes from its public CPython 3.14 wheel, without
+BindingMT wheel. OpenMM 8.6.1 comes from its public CPython 3.14 wheel, without
 the Conda CUDA dependency chain. This is an explicitly recorded acquisition
 variant, not a claim that every dependency byte equals the earlier receiver.
 `pip check` reports no broken requirements. The original receiver is preserved.
 
 PEP 610 records bind the installed consumer to the exact archive digest and
 refuse editable installation. The `molsysviewer.addons` entry point loads
-`molsysviewer_dockingmt`; its addon version equals the wheel version. The public
+`molsysviewer_bindingmt`; its addon version equals the wheel version. The public
 Viewer resolver creates and mounts the real Explorer widget. All 63 installed
 consumer files and every non-metadata payload member of the three provider
 wheels match their original archives.
@@ -101,9 +101,9 @@ no personal paths or unrestricted logs.
 For a later run, retain the exact wheel and provider archives identified by the
 manifest, use the recorded receiver composition and prepare a separate test/data
 checkout of the producer without either production package. Set
-`DOCKINGMT_NOTEBOOK_ROOT` to that harness,
-`DOCKINGMT_EXPECTED_PROVIDER_PREFIX` to the receiver and
-`DOCKINGMT_ADDON_OUTPUT` to a new directory. Start the recorded kernel with
+`BINDINGMT_NOTEBOOK_ROOT` to that harness,
+`BINDINGMT_EXPECTED_PROVIDER_PREFIX` to the receiver and
+`BINDINGMT_ADDON_OUTPUT` to a new directory. Start the recorded kernel with
 task-only Jupyter tooling and that harness on its import path and as its working
 directory. The companion's
 first cell refuses a source overlay, editable candidate, wrong archive/version

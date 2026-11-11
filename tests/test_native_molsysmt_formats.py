@@ -1,4 +1,4 @@
-"""Consumer acceptance of the prepared-input profile in dockingmt#33."""
+"""Consumer acceptance of the prepared-input profile in bindingmt#33."""
 
 import hashlib
 from pathlib import Path
@@ -11,8 +11,8 @@ from molsysmt._private.smonitor import FormatError
 from molsysmt.form.file_pdbqt import get_torsion_tree
 from molsysmt.form.string_pdbqt_text import get_torsion_tree as string_tree
 
-import dockingmt as dmt
-from dmt_test_support.torsion_reference_fixtures import CASES
+import bindingmt as bmt
+from bmt_test_support.torsion_reference_fixtures import CASES
 
 DATA = Path(__file__).parent / 'data/vina_torsions'
 PREPARED = [(case[0], case[2], case[3]) for case in CASES] + [
@@ -389,7 +389,7 @@ def test_stale_tree_rejected_before_destination_mutation(tmp_path):
 
 
 def test_native_fragment_cuts_match_temporary_bridge_on_5x72():
-    from dockingmt.preparation._temporary_torsions import build_torsion_tree
+    from bindingmt.preparation._temporary_torsions import build_torsion_tree
 
     source = msm.convert(
         DATA / '5x72_ligand_p59H.sdf',
@@ -439,19 +439,19 @@ def test_native_fragment_cuts_match_temporary_bridge_on_5x72():
 
 
 def test_molsysmt_explicit_strings_reach_vina_without_format_prefix():
-    from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+    from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         receptor='pdbqt_text:' + MINIMAL_REC_PDBQT,
         partner='pdbqt_text:' + MINIMAL_LIG_PDBQT,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             center=puw.quantity([0, 0, 0], 'angstrom'),
             size=puw.quantity([10, 10, 10], 'angstrom'),
         ),
     )
-    result = dmt.dock(
+    result = bmt.dock(
         problem,
-        protocol=dmt.VinaProtocol(
+        protocol=bmt.VinaProtocol(
             cpu=1, seed=123, n_poses=2, exhaustiveness=1, capture_backend_inputs=True
         ),
     )

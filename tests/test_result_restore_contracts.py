@@ -6,24 +6,24 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
+import bindingmt as bmt
 
 
 def _record():
-    pose = dmt.DockingPose(
+    pose = bmt.DockingPose(
         puw.quantity([[1, 2, 3]], 'angstrom'),
         pose_id='restoration-control',
         metadata={'annotations': ['original']},
     )
-    return dmt.DockingResult([pose]).to_dict()
+    return bmt.DockingResult([pose]).to_dict()
 
 
 @pytest.mark.parametrize('extension', [False, True])
 def test_repeated_poses_and_shared_context_keep_distinct_owners(extension):
-    class ExtensionResult(dmt.DockingResult):
+    class ExtensionResult(bmt.DockingResult):
         __module__ = 'consumer_extension.models'
 
-    model = ExtensionResult if extension else dmt.DockingResult
+    model = ExtensionResult if extension else bmt.DockingResult
     record = _record()
     shared = {'array': np.array([1, 2]), 'tuple': ([3], {'tag'})}
     for field in ('problem_info', 'protocol_info', 'provenance'):
@@ -67,7 +67,7 @@ def test_custom_root_mapping_copy_semantics_remain_supported():
             return value
 
     record = Record(_record())
-    restored = dmt.DockingResult.from_dict(record)
+    restored = bmt.DockingResult.from_dict(record)
     assert restored.provenance['extension'] == {'labels': ['root-hook']}
     assert 'extension' not in record['provenance']
 
@@ -81,7 +81,7 @@ def test_custom_pose_mapping_copy_semantics_remain_supported():
 
     record = _record()
     record['poses'][0] = Record(record['poses'][0])
-    restored = dmt.DockingResult.from_dict(record)
+    restored = bmt.DockingResult.from_dict(record)
     assert restored[0].metadata['extension'] == {'labels': ['pose-hook']}
     assert 'extension' not in record['poses'][0]['metadata']
 
@@ -102,7 +102,7 @@ def test_copy_resource_failures_keep_the_original_exception(field):
     else:
         record[field]['payload'] = Payload()
     with pytest.raises(MemoryError) as caught:
-        dmt.DockingResult.from_dict(record)
+        bmt.DockingResult.from_dict(record)
     assert caught.value is failure
 
 
@@ -116,7 +116,7 @@ def test_nested_custom_mapping_keeps_its_existing_copy_semantics():
     record = _record()
     original = Annotation(history=['source'])
     record['poses'][0]['metadata']['annotation'] = original
-    restored = dmt.DockingResult.from_dict(record)
+    restored = bmt.DockingResult.from_dict(record)
     assert restored[0].metadata['annotation']['history'] == [
         'source',
         'snapshot',

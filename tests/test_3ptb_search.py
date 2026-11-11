@@ -10,10 +10,10 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.evaluate_3ptb_saved import OUTPUT as EVALUATIONS
-from dmt_test_support.qualify_3ptb_admission import DATA, sha
-from dmt_test_support.qualify_3ptb_search import (
+import bindingmt as bmt
+from bmt_test_support.evaluate_3ptb_saved import OUTPUT as EVALUATIONS
+from bmt_test_support.qualify_3ptb_admission import DATA, sha
+from bmt_test_support.qualify_3ptb_search import (
     OUTPUT,
     baseline,
     evaluate,
@@ -118,8 +118,8 @@ def test_original_archive_and_all_attempts_are_retained(original, searches):
         }
         assert run['status'] in ('evaluated', 'search_failed', 'evaluation_failed')
         if 'result' in run:
-            restored = dmt.DockingResult.from_dict(run['result'])
-            dmt.verify_captured_inputs(restored.provenance['backend_artifacts'])
+            restored = bmt.DockingResult.from_dict(run['result'])
+            bmt.verify_captured_inputs(restored.provenance['backend_artifacts'])
             for role in ('receptor', 'partner'):
                 assert (
                     restored.provenance['backend_artifacts'][role]['sha256']
@@ -137,8 +137,8 @@ def test_saved_metrics_replay_with_nondefault_units(original, measured, referenc
     with puw.context(
         standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'degrees']
     ):
-        result = dmt.DockingResult.from_dict(run['result'])
-        box = dmt.BoxRegion(
+        result = bmt.DockingResult.from_dict(run['result'])
+        box = bmt.BoxRegion(
             puw.quantity(run['backend_box']['center'], 'angstrom'),
             puw.quantity(run['backend_box']['size'], 'angstrom'),
         )
@@ -188,7 +188,7 @@ def test_changed_pose_identity_is_rejected_before_geometry(
     run = next(
         r for r in measured if r['arm'] == 'flexible' and r['status'] == 'evaluated'
     )
-    result = dmt.DockingResult.from_dict(run['result'])
+    result = bmt.DockingResult.from_dict(run['result'])
     index = run['evaluation']['heavy_written_indices'][0]
     result.poses[0].metadata['source_atom_keys'][index]['atom_id'] = 'wrong-observed-id'
 
@@ -196,7 +196,7 @@ def test_changed_pose_identity_is_rejected_before_geometry(
         pytest.fail('Identity drift reached molecular geometry')
 
     monkeypatch.setattr(msm.structure, 'get_rmsd', forbidden)
-    box = dmt.BoxRegion(
+    box = bmt.BoxRegion(
         puw.quantity(run['backend_box']['center'], 'angstrom'),
         puw.quantity(run['backend_box']['size'], 'angstrom'),
     )
@@ -210,7 +210,7 @@ def test_heavy_selection_ignores_hydrogens_without_aligning_the_pose(
     run = next(
         r for r in measured if r['arm'] == 'flexible' and r['status'] == 'evaluated'
     )
-    result = dmt.DockingResult.from_dict(run['result'])
+    result = bmt.DockingResult.from_dict(run['result'])
     pose = result.poses[0]
     original_xyz = puw.get_value(
         msm.get(reference, coordinates=True), to_unit='angstrom'
@@ -224,7 +224,7 @@ def test_heavy_selection_ignores_hydrogens_without_aligning_the_pose(
         coordinates[written] = original_xyz[observed] + [3, 4, 0]
     metadata = deepcopy(pose.metadata)
     metadata.pop('score_definitions', None)
-    synthetic = dmt.DockingPose(
+    synthetic = bmt.DockingPose(
         coordinates=puw.quantity(coordinates, 'angstrom'),
         scores=pose.scores,
         rank=pose.rank,
@@ -239,8 +239,8 @@ def test_heavy_selection_ignores_hydrogens_without_aligning_the_pose(
     provenance['backend_output']['energies'] = provenance['backend_output']['energies'][
         :1
     ]
-    reduced = dmt.DockingResult([synthetic], provenance=provenance)
-    box = dmt.BoxRegion(
+    reduced = bmt.DockingResult([synthetic], provenance=provenance)
+    box = bmt.BoxRegion(
         puw.quantity(run['backend_box']['center'], 'angstrom'),
         puw.quantity(run['backend_box']['size'], 'angstrom'),
     )
@@ -260,7 +260,7 @@ def test_receiving_all_saved_poses_forbids_new_native_work(
     for name in ('compute_vina_maps', 'score', 'optimize', 'dock'):
         monkeypatch.setattr(Vina, name, forbidden)
     for name in ('dock', 'score', 'prepare_ligand', 'prepare_receptor'):
-        monkeypatch.setattr(dmt, name, forbidden)
+        monkeypatch.setattr(bmt, name, forbidden)
     # A new receiver evaluates current code. The original strict receiver keeps
     # its original source-hash requirement; it cannot certify a changed producer.
     previous = json.loads(gzip.decompress(EVALUATIONS.read_bytes()))
@@ -268,8 +268,8 @@ def test_receiving_all_saved_poses_forbids_new_native_work(
         standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'degrees']
     ):
         for saved, expected in zip(searches['runs'], previous['runs'], strict=True):
-            result = dmt.DockingResult.from_dict(saved['result'])
-            box = dmt.BoxRegion(
+            result = bmt.DockingResult.from_dict(saved['result'])
+            box = bmt.BoxRegion(
                 puw.quantity(saved['backend_box']['center'], 'angstrom'),
                 puw.quantity(saved['backend_box']['size'], 'angstrom'),
             )
@@ -290,7 +290,7 @@ def test_receiving_all_saved_poses_forbids_new_native_work(
 
 
 def test_original_receiver_still_rejects_changed_source(tmp_path, monkeypatch):
-    import dmt_test_support.evaluate_3ptb_saved as receiver
+    import bmt_test_support.evaluate_3ptb_saved as receiver
 
     # Provide every original path but changed bytes. No source-identity waiver is
     # introduced when the new consumer receives the old scientific population.

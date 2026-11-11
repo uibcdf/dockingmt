@@ -1,6 +1,6 @@
 ---
 summary: Integrate the historical 5X72 control chain into the scientific synthesis.
-issue: uibcdf/dockingmt#70
+issue: uibcdf/bindingmt#70
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-05
@@ -22,7 +22,7 @@ distance and displacement controls. #69 describes a valid protein-only subset;
 the broader evidence is needed to interpret that subset. Integrate all seven
 historical stages without creating another scientific campaign.
 
-The [owning issue](https://github.com/uibcdf/dockingmt/issues/70) declares all
+The [owning issue](https://github.com/uibcdf/bindingmt/issues/70) declares all
 seven archive SHA-256 values, output scope and interpretation before this
 new synthesis. Original records, producers, failures and earlier #67/#69/four-input
 overview outputs remain unchanged. This is retrospective presentation.

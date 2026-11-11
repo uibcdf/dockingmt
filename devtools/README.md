@@ -1,18 +1,18 @@
-# DockingMT development controls
+# BindingMT development controls
 
-Owner: uibcdf/dockingmt#47; suite distribution coordination: uibcdf/molsyssuite#45.
-Scientific source tests and release decisions stay with DockingMT.
+Owner: uibcdf/bindingmt#47; suite distribution coordination: uibcdf/molsyssuite#45.
+Scientific source tests and release decisions stay with BindingMT.
 
 ## Dependency routes and immutable scientific clones
 
 `check_dependency_routes.py` is a thin loader for the accepted shared source SDK
 `738fe8dd731abb99dac421b0bb2acc8564110180` (uibcdf/molsyssuite#109). It checks
 SDK identity/cleanliness and actual import origin before calling the provider.
-Use `.molsyssuite/sdk` or explicitly set `DOCKINGMT_SUITE_ROOT` to that clean
+Use `.molsyssuite/sdk` or explicitly set `BINDINGMT_SUITE_ROOT` to that clean
 immutable clone. Parser tools are administrative dependencies; the science jobs
 put them in `.molsyssuite-tools`, which is used only in the preflight process.
 
-On a fresh DockingMT clone, run the following from the repository root to obtain
+On a fresh BindingMT clone, run the following from the repository root to obtain
 the missing SDK. This creates a separate checkout; it does not move a working
 MolSysSuite branch. If the destination already exists, inspect its ownership,
 commit and local changes instead of replacing or resetting it. The chained
@@ -25,7 +25,7 @@ git clone --no-checkout https://github.com/uibcdf/molsyssuite.git .molsyssuite/s
 ```
 
 The default location needs no environment variable. To use another clean checkout
-at that same commit, export `DOCKINGMT_SUITE_ROOT` with its absolute path. An
+at that same commit, export `BINDINGMT_SUITE_ROOT` with its absolute path. An
 unpacked source export is not a substitute: this adapter checks Git identity and
 cleanliness. Publication/installed controls use their separately reviewed SDK
 revision; do not replace the dependency SDK pin globally.

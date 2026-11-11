@@ -51,15 +51,15 @@ def jobs(prefix=''):
 def test_every_python_minor_must_execute_the_full_suite(monkeypatch):
     evidence = jobs()
     monkeypatch.setattr(ci_backlog, 'api_json', lambda *_: {'jobs': evidence})
-    assert ci_backlog.full_linux_passed('uibcdf/dockingmt', 1, 'token')
+    assert ci_backlog.full_linux_passed('uibcdf/bindingmt', 1, 'token')
     evidence = jobs('Full ')
     for job in evidence:
         job['name'] = job['name'].replace('Full Test', 'Full test')
-    assert ci_backlog.full_linux_passed('uibcdf/dockingmt', 1, 'token')
+    assert ci_backlog.full_linux_passed('uibcdf/bindingmt', 1, 'token')
     evidence[0]['steps'][0]['conclusion'] = 'skipped'
-    assert not ci_backlog.full_linux_passed('uibcdf/dockingmt', 1, 'token')
+    assert not ci_backlog.full_linux_passed('uibcdf/bindingmt', 1, 'token')
     evidence = jobs()[:-1]
-    assert not ci_backlog.full_linux_passed('uibcdf/dockingmt', 1, 'token')
+    assert not ci_backlog.full_linux_passed('uibcdf/bindingmt', 1, 'token')
 
 
 def test_full_push_clears_debt_but_probe_pr_feature_and_failure_do_not(monkeypatch):
@@ -100,12 +100,12 @@ def test_full_push_clears_debt_but_probe_pr_feature_and_failure_do_not(monkeypat
     monkeypatch.setattr(
         ci_backlog, 'is_ancestor', lambda left, right: (left, right) != ('push', 'full')
     )
-    assert ci_backlog.last_full_success('uibcdf/dockingmt', 'head', 'token') == 'push'
+    assert ci_backlog.last_full_success('uibcdf/bindingmt', 'head', 'token') == 'push'
 
 
 def test_uncertain_history_runs_full_matrix(tmp_path, monkeypatch, capsys):
     output = tmp_path / 'github-output'
-    monkeypatch.setenv('GITHUB_REPOSITORY', 'uibcdf/dockingmt')
+    monkeypatch.setenv('GITHUB_REPOSITORY', 'uibcdf/bindingmt')
     monkeypatch.setenv('GITHUB_SHA', 'head')
     monkeypatch.setenv('GITHUB_TOKEN', 'token')
     monkeypatch.setenv('GITHUB_OUTPUT', str(output))
@@ -122,4 +122,4 @@ def test_uncertain_history_runs_full_matrix(tmp_path, monkeypatch, capsys):
 def test_a_previous_three_minor_matrix_cannot_clear_314_debt(monkeypatch):
     evidence = [job for job in jobs() if 'Python 3.14' not in job['name']]
     monkeypatch.setattr(ci_backlog, 'api_json', lambda *_: {'jobs': evidence})
-    assert not ci_backlog.full_linux_passed('uibcdf/dockingmt', 1, 'token')
+    assert not ci_backlog.full_linux_passed('uibcdf/bindingmt', 1, 'token')

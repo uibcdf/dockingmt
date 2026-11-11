@@ -1,6 +1,6 @@
 ---
 summary: Qualify exact-input adapter/direct Vina fidelity with a bounded control.
-issue: uibcdf/dockingmt#62
+issue: uibcdf/bindingmt#62
 status: resolved
 opened: 2026-11-04
 closed: 2026-11-04
@@ -69,7 +69,7 @@ both routes once. Each returns five poses with identical native energies, arrays
 and raw PDBQT bytes, matching prescribed input/options and score projection.
 The original gate fails 14/16 because its new oracle compares a unit abbreviation
 literally and excludes the wrong engine-info path keys. Preserve that failure,
-producer and all original output hashes. No DockingMT runtime defect is demonstrated.
+producer and all original output hashes. No BindingMT runtime defect is demonstrated.
 
 The separately registered offline amendment corrects those two observer rules
 on saved data through PyUnitWizard and exact nonpath metadata equality. It first

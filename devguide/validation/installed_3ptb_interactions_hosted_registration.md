@@ -1,6 +1,6 @@
 # Hosted 3PTB interaction receiving — registered scope
 
-Owner: [DockingMT #80](https://github.com/uibcdf/dockingmt/issues/80), with
+Owner: [BindingMT #80](https://github.com/uibcdf/bindingmt/issues/80), with
 #73/#28/#50. Date: **2026-11-06**. Status at registration: **prospective; not executed**.
 This is a new receiving population after the
 [interrupted local attempt](installed_3ptb_interactions.md). Its local resource
@@ -33,9 +33,9 @@ unchanged. No positive pose selection, search, energy call or optimization occur
 
 All preparation, H generation, selection, assembly, coordinate editing,
 interaction recognition/geometry, filtering and molecular persistence use public
-MolSysMT APIs. DockingMT's operator binds its own records, source/archive identities
+MolSysMT APIs. BindingMT's operator binds its own records, source/archive identities
 and finite execution. A missing molecular operation or provider defect is reported
-in MolSysMT, without a DockingMT replacement.
+in MolSysMT, without a BindingMT replacement.
 
 ## Installed composition
 
@@ -54,11 +54,11 @@ closure. Existing ordinary-CI directory source routes remain exact:
 | MolSysViewer | `78ede79e2e345593db5bfe80d246d3f6c70bd005` |
 | Dependency SDK | `738fe8dd731abb99dac421b0bb2acc8564110180` |
 
-Build one ordinary private DockingMT wheel from that exact source, verify its
+Build one ordinary private BindingMT wheel from that exact source, verify its
 63 declared runtime payloads against source (62 tracked plus generated version),
 metadata, license and addon entry point, then install those same archive bytes.
 Each scientific process uses isolated Python outside the checkout, checks
-installed origins and archive binding, and compares DockingMT plus the three
+installed origins and archive binding, and compares BindingMT plus the three
 source-provider payload sets before/after. This does not verify every native file
 in the entire environment. Retain pip inspection, Conda inventory/explicit
 resolution and before/after pip closure separately.
@@ -113,8 +113,8 @@ acceptance, complete E4 or functional-release claim follows from this bounded ru
 ## First disposition and explicit-atom amendment
 
 Initial producer `988d8a1cd9cc069d2d44d3bd229cd1ff10fc780f` is
-[registered before execution](https://github.com/uibcdf/dockingmt/issues/80#issuecomment-6682811593).
-[Run 42203647830](https://github.com/uibcdf/dockingmt/actions/runs/42203647830)
+[registered before execution](https://github.com/uibcdf/bindingmt/issues/80#issuecomment-6682811593).
+[Run 42203647830](https://github.com/uibcdf/bindingmt/actions/runs/42203647830)
 fails after preparation and before detectors because omitted-element XYZ
 coordinate extraction selects an unavailable system getter. Its final observer
 verifies zero detector attempts, passing pip closure and unchanged payloads;
@@ -139,8 +139,8 @@ remain. A proposed composition and successful preparation do not accept E4.
 ## Amended receiving disposition
 
 Producer `5952053328aac6f737e22906e984c0f9eb938dd7` is
-[registered before execution](https://github.com/uibcdf/dockingmt/issues/80#issuecomment-6683154180).
-[Run 42206087852](https://github.com/uibcdf/dockingmt/actions/runs/42206087852)
+[registered before execution](https://github.com/uibcdf/bindingmt/issues/80#issuecomment-6683154180).
+[Run 42206087852](https://github.com/uibcdf/bindingmt/actions/runs/42206087852)
 completes both six-call profiles and both independent readers. The
 [durable success record](data/interaction_hosted_success_2026-11-06.json) and
 [maintained interpretation](installed_3ptb_interactions.md) retain observations,

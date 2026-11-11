@@ -13,9 +13,9 @@ functional milestone, followed by stabilization across the further 0.x.0
 milestones the actual work needs and the later 1.0.0 decision. Stabilization
 has no compulsory 0.9.0 release or predetermined final minor. For example,
 0.23.0 remains a possible illustration, not a selected version or release.
-[DMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100),
-[DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization),
-[DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+[BMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100),
+[BMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization),
+[BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
 and the [maintained release ladder](RELEASE_MILESTONES.md) own that scope. It remains
 incomplete; an implemented API, a passing helper or one qualified workflow does
 not accept the complete objective. Moving development to another machine does
@@ -98,7 +98,7 @@ Integrate AutoDock Vina behind a backend boundary.
 
 Vina-specific concepts must remain internal to the adapter/provider layer.
 
-Do not expose PDBQT, Vina boxes or command-line flags as DockingMT's universal model.
+Do not expose PDBQT, Vina boxes or command-line flags as BindingMT's universal model.
 
 ### Step 4 — preparation path
 
@@ -108,7 +108,7 @@ protein–small-molecule redocking case.
 Delegate general molecular operations to MolSysMT. If a required operation is
 missing, request or propose it in MolSysMT and receive the supported contract.
 
-Use external providers only behind MolSysSuite/DockingMT contracts where needed.
+Use external providers only behind MolSysSuite/BindingMT contracts where needed.
 
 Record what happened.
 
@@ -141,7 +141,7 @@ Add:
 
 ### Step 7 — MolSysViewer basic addon
 
-Once the result model is stable enough, implement the minimal DockingMT-owned viewer
+Once the result model is stable enough, implement the minimal BindingMT-owned viewer
 addon needed to inspect receptor, search domain, poses and reference pose.
 
 Visualization must consume scientific objects; it must not become their owner.
@@ -207,28 +207,28 @@ Ask:
 1. Does MolSysSuite already provide the capability?
 2. Does the capability scientifically belong to a sibling component?
 3. Is there an excellent external implementation that can sit behind the contract?
-4. Does DockingMT require native control for scientific novelty, traceability or
+4. Does BindingMT require native control for scientific novelty, traceability or
    performance?
 
 Follow the owning component's supported contract, preserving the scientific
 abstraction. Selecting an external backend does not move a reusable molecular,
-pharmacophore, topographic or flexibility operation into DockingMT.
+pharmacophore, topographic or flexibility operation into BindingMT.
 
 ## Cross-component discovery rule
 
-If implementation reveals that DockingMT needs a missing MolSysMT/PyUnitWizard/
+If implementation reveals that BindingMT needs a missing MolSysMT/PyUnitWizard/
 ArgDigest/DepDigest/SMonitor/MolSysViewer capability, do not quietly solve the provider's
-problem inside DockingMT.
+problem inside BindingMT.
 
 Use the MolSysSuite cross-component feedback workflow: open or update the
-provider issue with concrete consumer evidence, cross-link the DockingMT owner,
+provider issue with concrete consumer evidence, cross-link the BindingMT owner,
 and receive the delivered public operation. Existing relevant issues should be
 extended instead of duplicated. Provider source availability is not proof of
 compatibility with a particular installed artifact.
 
 ## Definition of a useful implementation commit
 
-A useful DockingMT commit should make an accepted scientific workflow more correct,
+A useful BindingMT commit should make an accepted scientific workflow more correct,
 inspectable or testable.
 
 It should not make the repository merely look architecturally complete.

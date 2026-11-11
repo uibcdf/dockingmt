@@ -1,7 +1,7 @@
 # Native terminal completion: diagnostic receiving — 2026-11-04
 
-Owner: [DockingMT #33](https://github.com/uibcdf/dockingmt/issues/33), with
-[#49](https://github.com/uibcdf/dockingmt/issues/49) for molecular delegation.
+Owner: [BindingMT #33](https://github.com/uibcdf/bindingmt/issues/33), with
+[#49](https://github.com/uibcdf/bindingmt/issues/49) for molecular delegation.
 Follows the [environment/template checkpoint](scientific_panel_environment_2026-11-04.md)
 at `78eef90c781f3eea7e7951a35b275dcdb91baf49`.
 
@@ -85,7 +85,7 @@ proposes reusing existing map/history and terminal-attachment report conventions
 preserving current public return behavior and earlier history. It does not assert
 that the observed OXT coordinates are wrong or add a release gate.
 
-DockingMT does not reconstruct the map using IDs, names, coordinates or a copied
+BindingMT does not reconstruct the map using IDs, names, coordinates or a copied
 private implementation. Provider #557 still owns the CCD/template route; #556
 occupancy and #555 plausibility keep their separate scopes. No response/delivery
 of #557 or #556 was observed at this checkpoint.
@@ -95,4 +95,4 @@ or equivalent exact source map, followed by observed-coordinate checks and expli
 attribute-loss acceptance. In parallel, obtain provider CCD templates/maps and
 decide ligand/receptor states, water/other-ligand disposition and 1STP boundary
 chemistry. Until those are resolved, the proposed 24-search matrix remains
-unregistered and unexecuted. This limits the new panel, not all DockingMT work.
+unregistered and unexecuted. This limits the new panel, not all BindingMT work.

@@ -1,6 +1,6 @@
 # Installed fixed-pose scoring controls — 2026-11-10
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), with public
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), with public
 scoring/evidence #76 and complete functional plan #73. Status: complete admitted installed selections and portable notebook profiles pass; #105 resolved in source. Execution base `4e30da511afa4181bbdbb63a3f53c31a19b4e5fa`.
 
 ## Question and immutable composition
@@ -174,7 +174,7 @@ Fake failure/component controls are retained and never counted as native calls.
 | Revised portable notebook, normal | 4 | 2 | PASS |
 | Revised portable notebook, pm/fs | 4 | 2 | PASS |
 | Revised notebook, bad external SHA256 | 0 | 0 | Expected first-cell ValueError |
-| Revised notebook, captures absent | 0 | 0 | Expected first-cell public DMT-E002 |
+| Revised notebook, captures absent | 0 | 0 | Expected first-cell public BMT-E002 |
 
 Both positive notebook profiles execute the exact four formatted sources from
 managed directories outside the checkout with the genuine ordinary installed

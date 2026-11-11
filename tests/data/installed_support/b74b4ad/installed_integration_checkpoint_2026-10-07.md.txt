@@ -1,17 +1,17 @@
 # Installed consumer and hosted integration checkpoint — 2026-10-07
 
-Owners: [#30](https://github.com/uibcdf/dockingmt/issues/30) (Python and installed
-delivery), [#21](https://github.com/uibcdf/dockingmt/issues/21) (recurring CI),
-[#42](https://github.com/uibcdf/dockingmt/issues/42) (chemical-history qualification),
-[#45](https://github.com/uibcdf/dockingmt/issues/45) (declared marker) and
-[#46](https://github.com/uibcdf/dockingmt/issues/46) (portable evaluation guard).
+Owners: [#30](https://github.com/uibcdf/bindingmt/issues/30) (Python and installed
+delivery), [#21](https://github.com/uibcdf/bindingmt/issues/21) (recurring CI),
+[#42](https://github.com/uibcdf/bindingmt/issues/42) (chemical-history qualification),
+[#45](https://github.com/uibcdf/bindingmt/issues/45) (declared marker) and
+[#46](https://github.com/uibcdf/bindingmt/issues/46) (portable evaluation guard).
 
 ## Exact producers and artifacts
 
 | Producer | Ordinary wheel | SHA-256 | Declared typing marker |
 | --- | --- | --- | --- |
-| `365668e30f5f519adf4abc5c5e5e387d50af00a1` | `dockingmt-0.0.0+131.g365668e-py3-none-any.whl` | `7a0c0dbefb6e134f20e3e9b8a4a56442114a13f45d94fd0557cf54a7ed0eb374` | Missing |
-| `8741fb2e104814e6f1012e0cb7073689e710f982` | `dockingmt-0.0.0+132.g8741fb2-py3-none-any.whl` | `12f2ac10e0b6c44d2b1da8e9f3e100c394596897f0c1924d23a210fe82a8e1a6` | Present; installed bytes verified |
+| `365668e30f5f519adf4abc5c5e5e387d50af00a1` | `bindingmt-0.0.0+131.g365668e-py3-none-any.whl` | `7a0c0dbefb6e134f20e3e9b8a4a56442114a13f45d94fd0557cf54a7ed0eb374` | Missing |
+| `8741fb2e104814e6f1012e0cb7073689e710f982` | `bindingmt-0.0.0+132.g8741fb2-py3-none-any.whl` | `12f2ac10e0b6c44d2b1da8e9f3e100c394596897f0c1924d23a210fe82a8e1a6` | Present; installed bytes verified |
 
 Each file was built once from its own separate clone with normal versioningit
 and Python 3.14.7, using `python -m pip wheel --no-deps --no-build-isolation`.
@@ -19,7 +19,7 @@ Setuptools 84.0.0, wheel 0.48.0 and versioningit 3.3.0 were the existing build
 tools. Ordinary installation used `pip install --no-deps WHEEL`; no Python
 metadata override was used. The original file remains distinct from the corrected
 producer's file. Files remain locally at
-`/tmp/dockingmt-installed-PRODUCER-wheels/` under their abbreviated producer IDs;
+`/tmp/bindingmt-installed-PRODUCER-wheels/` under their abbreviated producer IDs;
 they were not published to a package registry.
 
 The [machine-readable checkpoint](data/installed_integration/checkpoint_2026-10-07.json)
@@ -32,8 +32,8 @@ all 56 loaded consumer/addon modules resolve within the installed prefix.
 The corrected artifact's consumer version matches distribution metadata;
 its `Requires-Python` is parsed as `>=3.11,<3.15`. Installed payload members
 match the corresponding wheel bytes, excluding the install-generated `RECORD`.
-The declared `dockingmt/py.typed` marker is present. The single
-`molsysviewer.addons` entry named `dockingmt` loads the installed addon module.
+The declared `bindingmt/py.typed` marker is present. The single
+`molsysviewer.addons` entry named `bindingmt` loads the installed addon module.
 The marker is a resource-delivery assertion, not a claim of complete annotations.
 
 ## Installed execution boundary
@@ -50,7 +50,7 @@ the artifact receipt supplies installed-package identity.
 
 Scientific tests execute from `/tmp` through the existing MolSysSuite
 `devtools/scripts/installed_noarch.py::run_tests` operation. Its before/after
-hooks require every loaded DockingMT module to come from the installed prefix.
+hooks require every loaded BindingMT module to come from the installed prefix.
 The invocation uses `--import-mode=importlib`, `-o pythonpath=` to clear the
 checkout's pytest source insertion, and `PYTHONSAFEPATH=1` for subprocesses.
 `PYTHONPATH` supplies only the reviewed sibling archives and the source-free
@@ -83,7 +83,7 @@ authenticate a source revision.
   its helper directory under safe-path execution. After supplying those harness
   prerequisites, the same three tests pass in 10.93 seconds. This is combined
   evidence, not a single green 985-test run.
-- [Original exact-head CI](https://github.com/uibcdf/dockingmt/actions/runs/37580554662)
+- [Original exact-head CI](https://github.com/uibcdf/bindingmt/actions/runs/37580554662)
   passes 984 tests and fails one H5MSM snapshot assertion on each required Linux
   minor. A Pandas 3.0.6 reproduction finds only two `str` to `string` changes in
   component text-column dtype labels. Values, null masks and all other state/history
@@ -91,7 +91,7 @@ authenticate a source revision.
   full value/history equality. The corrected chemical-template selection passes
   all 15 tests with Pandas 3.0.6 in 37.56 seconds; local Pandas 2.3.3 coverage also
   passes (16 tests in 33.87 seconds during an exploratory parametrization).
-- [Historical macOS matrix](https://github.com/uibcdf/dockingmt/actions/runs/37491745012)
+- [Historical macOS matrix](https://github.com/uibcdf/bindingmt/actions/runs/37491745012)
   has one false first-pose recovery expectation and 886 passing tests in each
   representative arm64 lane. #46 now independently verifies live positional RMSDs
   from actual returned coordinates. It retains captured-input checks, the 2.5
@@ -106,14 +106,14 @@ authenticate a source revision.
 
 ## Hosted recovery and remaining qualification
 
-[Original manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/37580610601)
+[Original manual matrix](https://github.com/uibcdf/bindingmt/actions/runs/37580610601)
 executes and fails all four Linux cells at the same snapshot assertion. Its macOS
 jobs have not started when the obsolete run is cancelled in favor of the corrected
 producer. Cancelled or unexecuted cells are not passing evidence.
 
-The corrected producer's [required CI](https://github.com/uibcdf/dockingmt/actions/runs/37581673369),
-[suite policy](https://github.com/uibcdf/dockingmt/actions/runs/37581674154) and
-[six-cell manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344)
+The corrected producer's [required CI](https://github.com/uibcdf/bindingmt/actions/runs/37581673369),
+[suite policy](https://github.com/uibcdf/bindingmt/actions/runs/37581674154) and
+[six-cell manual matrix](https://github.com/uibcdf/bindingmt/actions/runs/37581760344)
 provide separate source integration, isolated ordinary-installed import and
 administrative evidence. Full pytest in the existing hosted workflows runs from
 the checkout and is not asserted to use installed consumer code throughout.
@@ -136,7 +136,7 @@ remaining acceptance conditions.
 
 ### Completion of queued macOS cells — 2026-10-07, 06:57 UTC
 
-The same [manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344)
+The same [manual matrix](https://github.com/uibcdf/bindingmt/actions/runs/37581760344)
 finishes green on the original corrected producer `8741fb2`: all six scientific
 cells actually execute 986 tests without skips. macOS arm64 Python 3.13 passes
 in 197.41 s and Python 3.14 in 188.14 s, with 382 warnings each. The interpreter,
@@ -153,7 +153,7 @@ torsion-policy/provider export gaps and public installed delivery keep their
 separate owning issues.
 
 The receipt appends completion evidence without replacing its earlier pending
-observations. [Evidence-head CI](https://github.com/uibcdf/dockingmt/actions/runs/37582910814)
+observations. [Evidence-head CI](https://github.com/uibcdf/bindingmt/actions/runs/37582910814)
 also passes quality and all 986 tests per required Linux minor at `7ac138b`.
 Both original local wheels have exact byte copies under the ignored local
 `dist/qualification/2026-10-07/` directory; their original identities and

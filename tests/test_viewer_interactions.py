@@ -6,23 +6,23 @@ from types import SimpleNamespace
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import (
+import bindingmt as bmt
+from bindingmt._private.smonitor import (
     ArgumentError,
     ViewerCapabilityError,
     ViewerStateError,
 )
-from molsysviewer_dockingmt import (
+from molsysviewer_bindingmt import (
     clear_docking,
     on_context_action,
     on_disable,
     set_active_pose,
 )
-from molsysviewer_dockingmt.adapters.interactions import _render_pose_interactions
-from molsysviewer_dockingmt.export import build_docking_export_payload
-from molsysviewer_dockingmt.panels import DockingExplorerPanel, SearchDomainPanel
-from molsysviewer_dockingmt.runtime import ensure_runtime
-from molsysviewer_dockingmt.workbench import get_docking_summary_section
+from molsysviewer_bindingmt.adapters.interactions import _render_pose_interactions
+from molsysviewer_bindingmt.export import build_docking_export_payload
+from molsysviewer_bindingmt.panels import DockingExplorerPanel, SearchDomainPanel
+from molsysviewer_bindingmt.runtime import ensure_runtime
+from molsysviewer_bindingmt.workbench import get_docking_summary_section
 
 
 class _Visual:
@@ -113,7 +113,7 @@ def binding(monkeypatch):
 
     monkeypatch.setattr(msm, 'copy', copy)
     poses = [
-        dmt.DockingPose(
+        bmt.DockingPose(
             puw.quantity([[float(index), 0, 0]], 'angstrom'),
             pose_id=f'original-{index}',
             rank=[7, None, 1, 2, 9][index],
@@ -121,8 +121,8 @@ def binding(monkeypatch):
         )
         for index in range(5)
     ]
-    original = dmt.DockingResult(poses, provenance={'original': 'preserve-me'})
-    result = object.__new__(dmt.PoseInteractions)
+    original = bmt.DockingResult(poses, provenance={'original': 'preserve-me'})
+    result = object.__new__(bmt.PoseInteractions)
     result._result_record = original.to_dict()
     result._pose_index = 3
     result._analysis_names = ('hbonds', 'hydrophobic')
@@ -162,7 +162,7 @@ def panel_state(view):
 def test_view_binding_retains_all_results_and_maps_nonfirst_pose_to_frame_zero(binding):
     before = binding.result.to_dict()
     view = _View()
-    assert dmt.view(binding, view=view) is view
+    assert bmt.view(binding, view=view) is view
     runtime = ensure_runtime(view)
     assert runtime.result.to_dict() == before
     assert len(runtime.result.poses) == 5
@@ -181,7 +181,7 @@ def test_view_binding_retains_all_results_and_maps_nonfirst_pose_to_frame_zero(b
 
 def test_explorer_coverage_is_live_and_missing_is_not_empty(binding):
     view = _View()
-    dmt.view(binding, view=view)
+    bmt.view(binding, view=view)
     state = panel_state(view)
     assert state['active_index'] == 3
     assert len(state['poses']) == 5
@@ -206,7 +206,7 @@ def test_explorer_coverage_is_live_and_missing_is_not_empty(binding):
 
 def test_callbacks_summary_and_export_keep_original_position_and_result(binding):
     view = _View()
-    dmt.view(binding, view=view)
+    bmt.view(binding, view=view)
     panel = DockingExplorerPanel(view=view)
     try:
         panel.on_mount(view)
@@ -234,7 +234,7 @@ def test_callbacks_summary_and_export_keep_original_position_and_result(binding)
 @pytest.mark.parametrize('rank', [1, 2, 3, 5])
 def test_unloaded_pose_navigation_is_refused_before_player(binding, rank):
     view = _View()
-    dmt.view(binding, view=view)
+    bmt.view(binding, view=view)
     moves = view.moves.copy()
     with pytest.raises(ViewerStateError):
         set_active_pose(view, rank)
@@ -246,7 +246,7 @@ def test_unloaded_pose_navigation_is_refused_before_player(binding, rank):
 
 def test_replaced_scene_is_not_accepted_by_equal_dimensions(binding):
     view = _View()
-    dmt.view(binding, view=view)
+    bmt.view(binding, view=view)
     view.molsys = deepcopy(view.molsys)
     state = panel_state(view)
     assert state['interaction_geometry_available'] is False
@@ -279,7 +279,7 @@ def test_binding_conflicts_fail_before_creating_or_mutating_view(
         'pose_rank': 4,
     }
     with pytest.raises(ArgumentError):
-        dmt.view(binding, **{option: values[option]}, skip_digestion=True)
+        bmt.view(binding, **{option: values[option]}, skip_digestion=True)
 
 
 @pytest.mark.parametrize('capability', ['interactions', 'player'])
@@ -287,7 +287,7 @@ def test_missing_provider_capability_fails_before_loading(binding, capability):
     view = _View()
     setattr(view, capability, None)
     with pytest.raises(ViewerCapabilityError):
-        dmt.view(binding, view=view)
+        bmt.view(binding, view=view)
     assert view.loads == []
     assert ensure_runtime(view).result is None
 
@@ -296,7 +296,7 @@ def test_provider_load_error_propagates_without_publishing_result(binding):
     view = _View()
     view.fail_load = True
     with pytest.raises(RuntimeError, match='provider load failed'):
-        dmt.view(binding, view=view)
+        bmt.view(binding, view=view)
     assert ensure_runtime(view).result is None
     assert ensure_runtime(view).interaction_binding is None
 
@@ -305,7 +305,7 @@ def test_partial_visual_creation_retains_cleanup_ownership(binding):
     view = _View()
     view.interactions.fail_add = 'hydrophobic'
     with pytest.raises(RuntimeError, match='provider visual creation failed'):
-        dmt.view(binding, view=view)
+        bmt.view(binding, view=view)
     runtime = ensure_runtime(view)
     assert runtime.result is None and runtime.interaction_binding is None
     assert len(runtime.interaction_layers) == 1
@@ -317,7 +317,7 @@ def test_partial_visual_creation_retains_cleanup_ownership(binding):
 
 def test_clear_preserves_foreign_visuals_and_scientific_analyses(binding):
     view = _View()
-    dmt.view(binding, view=view)
+    bmt.view(binding, view=view)
     runtime = ensure_runtime(view)
     foreign = view.interactions.add('hbonds', tag='foreign', structure_indices=[0])
     original = runtime.interaction_layers[0]
@@ -332,7 +332,7 @@ def test_clear_preserves_foreign_visuals_and_scientific_analyses(binding):
 
 def test_failed_cleanup_keeps_handles_for_explicit_retry(binding):
     view = _View()
-    dmt.view(binding, view=view)
+    bmt.view(binding, view=view)
     runtime = ensure_runtime(view)
     first = runtime.interaction_layers[0]
     first.fail_delete = True
@@ -349,7 +349,7 @@ def test_failed_cleanup_keeps_handles_for_explicit_retry(binding):
 
 def test_provider_read_failure_does_not_leave_geometry_marked_available(binding):
     view = _View()
-    dmt.view(binding, view=view)
+    bmt.view(binding, view=view)
     panel = DockingExplorerPanel(view=view)
     try:
         panel.on_mount(view)
@@ -370,10 +370,10 @@ def test_provider_read_failure_does_not_leave_geometry_marked_available(binding)
 
 
 def test_ordinary_result_render_releases_single_frame_mapping(binding, monkeypatch):
-    from molsysviewer_dockingmt.adapters import complex
+    from molsysviewer_bindingmt.adapters import complex
 
     view = _View()
-    dmt.view(binding, view=view)
+    bmt.view(binding, view=view)
     layers = ensure_runtime(view).interaction_layers.copy()
     monkeypatch.setattr(
         complex, 'build_docking_complex_system', lambda **kwargs: {'analyses': []}
@@ -399,7 +399,7 @@ def test_loaded_metadata_axes_must_match_before_visual_creation(binding):
 
 def test_missing_cleanup_registry_preserves_ownership_for_retry(binding):
     view = _View()
-    dmt.view(binding, view=view)
+    bmt.view(binding, view=view)
     manager = view.interactions
     view.interactions = None
     with pytest.raises(ViewerCapabilityError):
@@ -412,7 +412,7 @@ def test_missing_cleanup_registry_preserves_ownership_for_retry(binding):
 
 def test_context_and_panel_actions_use_the_bound_position(binding):
     view = _View()
-    dmt.view(binding, view=view)
+    bmt.view(binding, view=view)
     panel = DockingExplorerPanel(view=view)
     try:
         on_context_action(view, 'set-pose', {'rank': 4})
@@ -431,9 +431,9 @@ def test_context_and_panel_actions_use_the_bound_position(binding):
 
 
 def test_explicit_search_visual_does_not_change_the_bound_carrier(binding, monkeypatch):
-    from molsysviewer_dockingmt.adapters import interactions
+    from molsysviewer_bindingmt.adapters import interactions
 
-    domain = dmt.BoxRegion(
+    domain = bmt.BoxRegion(
         center=puw.quantity([0, 0, 0], 'angstrom'),
         lengths=puw.quantity([1, 1, 1], 'angstrom'),
     )
@@ -442,7 +442,7 @@ def test_explicit_search_visual_does_not_change_the_bound_carrier(binding, monke
         interactions, 'render_search_domain', lambda view, box: calls.append(box)
     )
     view = _View()
-    dmt.view(binding, view=view, search_domain=domain)
+    bmt.view(binding, view=view, search_domain=domain)
     assert calls == [domain]
     assert view.molsys == binding._carrier
     assert ensure_runtime(view).active_pose_index == 3
@@ -452,7 +452,7 @@ def test_view_keeps_the_callers_nondefault_unit_policy_and_source_record(binding
     before = binding.result.to_dict()
     with puw.context(standard_units=['pm', 'fs']):
         policy = puw.configure.report()
-        dmt.view(binding, view=_View())
+        bmt.view(binding, view=_View())
         assert puw.configure.report()['standard_units'] == policy['standard_units']
         assert puw.configure.report()['provenance'] == policy['provenance']
         assert binding.result.to_dict() == before
@@ -462,7 +462,7 @@ def test_provider_player_failure_does_not_publish_a_completed_binding(binding):
     view = _View()
     view.fail_move = True
     with pytest.raises(RuntimeError, match='provider player failed'):
-        dmt.view(binding, view=view)
+        bmt.view(binding, view=view)
     runtime = ensure_runtime(view)
     assert runtime.result is None and runtime.interaction_binding is None
     assert len(runtime.interaction_layers) == 2

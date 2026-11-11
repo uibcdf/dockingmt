@@ -1,6 +1,6 @@
 # Installed pose interaction binding — registered 2026-11-07
 
-Owner: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
+Owner: [BindingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
 Current result: **bounded actual installed normal/pm-fs receiving and independent
 record reading pass**. Original client/reader failures remain failed. A native
 family with no evaluated frames, addon/canvas and whole E4 remain unreceived.
@@ -20,7 +20,7 @@ wheel into a new private prefix with `--no-index --no-deps --no-compile`; no sha
 Conda/pip prefix, dependency solve or public package route changes.
 
 Transport the 3867-file existing private payload through its exact installation
-receipt, excluding its 73 historical DockingMT/addon/distribution files. Preserve
+receipt, excluding its 73 historical BindingMT/addon/distribution files. Preserve
 the remaining 3794 provider files byte-for-byte in a new task prefix. The source
 receipt is anchored to the frozen original saved-carrier archive. Borrowed
 MolSysMT remains `9e1f1b1ad8bf09446374ab6f04ca7208e2717936`; auxiliary providers
@@ -46,7 +46,7 @@ candidate/composition manifests, SDK revision and files, original compressed/
 decoded inputs, operation caps and command before each profile. The pm/fs
 selection requires a complete passing normal receipt with identical executable
 sources and actual composition. Use isolated Python `-B -I -S`; activate the
-caller unit policy before importing DockingMT/MolSysMT and preserve/restore it.
+caller unit policy before importing BindingMT/MolSysMT and preserve/restore it.
 
 Original producer `5952053`, its [success receipt](data/interaction_hosted_success_2026-11-06.json),
 the five-pose result and each profile's original `association.json`,
@@ -127,7 +127,7 @@ admission, real comm/canvas and public/platform gates remain separate outcomes.
 ## Candidate preparation outcome — 2026-11-07
 
 `candidate-01` passes its build/install/transport and semantic resource gate.
-The actual private wheel is `dockingmt-0.0.0+307.gcfff386-py3-none-any.whl`,
+The actual private wheel is `bindingmt-0.0.0+307.gcfff386-py3-none-any.whl`,
 151409 bytes, SHA-256
 `bc6da61abcb51a6950b2c5ed388616a70dd7cd393056c2b98d3665f9a40d1c51`.
 All tracked runtime inputs equal source `cfff386`; wheel RECORD and installed

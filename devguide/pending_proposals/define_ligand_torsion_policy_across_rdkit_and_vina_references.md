@@ -1,6 +1,6 @@
 ---
 summary: Define ligand torsion policy across RDKit and Vina reference differences
-issue: uibcdf/dockingmt#17
+issue: uibcdf/bindingmt#17
 status: partial
 opened: 2026-09-26
 closed:
@@ -16,7 +16,7 @@ supersedes: []
 
 ## What
 
-Decide the DockingMT protocol policy for ligand torsions when RDKit descriptors,
+Decide the BindingMT protocol policy for ligand torsions when RDKit descriptors,
 published Vina PDBQT branches, and explicitly selected bonds differ. The current
 API accepts explicit bonds after bounded structural checks; it has no automatic
 chemical classifier.
@@ -33,9 +33,9 @@ preparation provenance.
 ## Why
 
 For 1IEP, the published PDBQT has seven branches and RDKit `Strict` counts
-seven, but the published bonds were supplied explicitly to DockingMT. In 1S63,
+seven, but the published bonds were supplied explicitly to BindingMT. In 1S63,
 the published PDBQT has six branches while RDKit `Strict` counts five; the extra
-branch is aryl–C≡N (source atoms 26–27). For ethyl acetate, DockingMT permits
+branch is aryl–C≡N (source atoms 26–27). For ethyl acetate, BindingMT permits
 an explicit ester acyl C–O torsion while RDKit `Strict` excludes it. Matching
 one descriptor count cannot establish a general docking torsion policy.
 
@@ -48,13 +48,13 @@ refuted by tests where an incorrect cut has the same branch count.
 
 ## Scope and exclusions
 
-DockingMT owns protocol-level selection and user-facing policy. MolSysMT
+BindingMT owns protocol-level selection and user-facing policy. MolSysMT
 [#224](https://github.com/uibcdf/molsysmt/issues/224) owns reusable bond
 classification and fragment contracts; MolSysMT
 [#214](https://github.com/uibcdf/molsysmt/issues/214) owns eventual PDBQT
 serialization. No Meeko runtime dependency or affinity-score claim is part of
 this proposal. The temporary four-character atom-name defect was resolved
-separately in [DockingMT #18](https://github.com/uibcdf/dockingmt/issues/18).
+separately in [BindingMT #18](https://github.com/uibcdf/bindingmt/issues/18).
 The 1S63 reference-only polar hydrogen has separate provider handoffs in
 MolSysMT [#223](https://github.com/uibcdf/molsysmt/issues/223) for atom
 correspondence and [#220](https://github.com/uibcdf/molsysmt/issues/220) for
@@ -88,7 +88,7 @@ These are concrete policy comparison cases for MolSysMT #224 and this issue,
 not a request to import Meeko or copy its defaults. Compare exact eligible bond
 identities and induced fragments, with reasons for exclusions; descriptor or
 TORSDOF counts alone remain insufficient. Chemical classification belongs in a
-public provider operation; DockingMT chooses the docking policy and records it.
+public provider operation; BindingMT chooses the docking policy and records it.
 
 ## 2026-10-06 public classifier and explicit docking policy
 
@@ -119,7 +119,7 @@ One retained-axis traversal remains under
 [MolSysMT #348](https://github.com/uibcdf/molsysmt/issues/348): current public
 connectivity tools cannot request the structure-assigned induced subset. The
 two-state probe gives assigned offsets `[0, 3, 6]` versus one reference block and
-retains the unsupported explicit request. Owner: DockingMT contributors; review
+retains the unsupported explicit request. Owner: BindingMT contributors; review
 2027-01-06. Remove after public assigned-state/subset acceptance; documented
 reference defaults are not alleged incorrect.
 
@@ -206,7 +206,7 @@ producer `27a18ef` remain unchanged, and the corrected head needs fresh CI.
 
 ## Independent 5X72 ROOT-order challenge — 2026-10-09
 
-The [prespecified plan](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6080145389)
+The [prespecified plan](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6080145389)
 adds an independent complex after the 1IEP conformer controls. The
 [workflow](../validation/5x72_root_order_workflow.md), raw 24-cell/99-pose archive,
 executed saved-result notebook and `tests/test_5x72_root_order_workflow.py` retain

@@ -6,8 +6,8 @@ import numpy as np
 import pyunitwizard as puw
 from vina import Vina
 
-import dockingmt as dmt
-from dmt_test_support.molecular_fixtures import named_181l_pair
+import bindingmt as bmt
+from bmt_test_support.molecular_fixtures import named_181l_pair
 
 
 def test_native_fifth_energy_column_and_defaults_survive_serialization(monkeypatch):
@@ -22,17 +22,17 @@ def test_native_fifth_energy_column_and_defaults_survive_serialization(monkeypat
 
     monkeypatch.setattr(Vina, 'energies', capture)
     receptor, ligand = named_181l_pair()
-    result = dmt.dock(
-        dmt.DockingProblem(
+    result = bmt.dock(
+        bmt.DockingProblem(
             receptor,
             ligand,
-            dmt.BoxRegion.from_points(
+            bmt.BoxRegion.from_points(
                 ligand.coordinates, padding=puw.quantity(8, 'angstrom')
             ),
         ),
-        dmt.VinaProtocol(cpu=1, seed=7, exhaustiveness=1, n_poses=3),
+        bmt.VinaProtocol(cpu=1, seed=7, exhaustiveness=1, n_poses=3),
     )
-    restored = dmt.DockingResult.from_dict(result.to_dict())
+    restored = bmt.DockingResult.from_dict(result.to_dict())
     native = restored.provenance['backend_output']
     assert len(observed) == 1
     assert np.asarray(native['energies']).shape == (len(result), 5)

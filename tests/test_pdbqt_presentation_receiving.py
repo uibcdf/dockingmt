@@ -10,19 +10,19 @@ import pytest
 import pyunitwizard as puw
 from vina import Vina
 
-import dmt_test_support.native_ligand_export_fixtures as native_ligands
-from dmt_test_support.molecular_fixtures import named_181l_pair
-from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
-from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
-from dockingmt.engines.vina import _verify_pose_atom_order
-from dockingmt.preparation._typing import type_remark
-from dockingmt.preparation.charges import _charge_remark
+import bmt_test_support.native_ligand_export_fixtures as native_ligands
+from bindingmt.engines.vina import _verify_pose_atom_order
+from bindingmt.preparation._typing import type_remark
+from bindingmt.preparation.charges import _charge_remark
+from bmt_test_support.molecular_fixtures import named_181l_pair
+from bmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
+from bmt_test_support.qualify_chemical_templates import detached_record, snapshot
 
 export_case = native_ligands.export_case
 
 
 def _presentation(prepared):
-    """The existing DockingMT display policy on the prepared atom axis."""
+    """The existing BindingMT display policy on the prepared atom axis."""
     return {
         'atom_serials': 'consecutive',
         'atom_names': prepared.atom_names,
@@ -242,7 +242,7 @@ def test_real_receptor_presentation_composes_without_source_renumbering(
 
 
 def test_actual_vina_poses_follow_presented_flexible_map(tmp_path):
-    from dmt_test_support.mapped_pose_fixtures import _case
+    from bmt_test_support.mapped_pose_fixtures import _case
 
     _, native, projection, _, _, tree = _case('CCCCCC')
     before = snapshot(native)
@@ -258,7 +258,7 @@ def test_actual_vina_poses_follow_presented_flexible_map(tmp_path):
             'group_ids': '1',
             'chain_ids': 'A',
         },
-        remarks=['REMARK DOCKINGMT_RECEIVING presented-flexible-control'],
+        remarks=['REMARK BINDINGMT_RECEIVING presented-flexible-control'],
         return_atom_map=True,
     )
     receptor = tmp_path / 'minimal-receptor.pdbqt'

@@ -1,6 +1,6 @@
 ---
 summary: Qualify retained MolSysMT preparation history and successful fixed-state benzene hydrogen addition.
-issue: uibcdf/dockingmt#42
+issue: uibcdf/bindingmt#42
 status: resolved
 opened: 2026-10-05
 closed: 2026-10-07
@@ -18,7 +18,7 @@ supersedes: []
 
 Adopt the provider handoff from resolved MolSysMT #298/#318: retain chemical
 preparation history in audit snapshots and positively qualify the original 181L
-BNZ fixed-state hydrogen and named-charge route. This is DockingMT #42; broader
+BNZ fixed-state hydrogen and named-charge route. This is BindingMT #42; broader
 preparation stays in #5/#33 and the explicit-stage workflow in #41.
 
 ## How
@@ -38,7 +38,7 @@ The old audit snapshot and negative BNZ expectation no longer match those tools.
 
 ## Initial reproduction — 2026-10-06
 
-Unchanged DockingMT d419fee, Python 3.14.7, MolSysMT 5bd893c85: the three affected
+Unchanged BindingMT d419fee, Python 3.14.7, MolSysMT 5bd893c85: the three affected
 modules produce 58 passes and eight failures. Five fail on MolSysDict's explicit
 history-loss rejection; one expects the resolved H failure. Two further controls
 require absent Vina. This reproduces the handoff and separates engine absence
@@ -71,7 +71,7 @@ policy migration, provider source edits, public artifact or biological claim.
 
 ## 2026-10-07 hosted representation correction
 
-Exact-head [CI 37580554662](https://github.com/uibcdf/dockingmt/actions/runs/37580554662)
+Exact-head [CI 37580554662](https://github.com/uibcdf/bindingmt/actions/runs/37580554662)
 at `365668e30f5f519adf4abc5c5e5e387d50af00a1` executes all 985 tests on each
 required Linux minor. Each cell passes 984 and fails the new H5MSM snapshot
 comparison. A local reproduction with Pandas 3.0.6 finds exactly two changes:
@@ -92,7 +92,7 @@ changed here; the source file is also unchanged in inspected provider
 
 ## 2026-10-06 measured adoption candidate
 
-Public native-domain snapshots use schema `dockingmt.chemical_template_snapshot@2`
+Public native-domain snapshots use schema `bindingmt.chemical_template_snapshot@2`
 and retain original preparation history with declared nm/ps structure units.
 The new regression checks template history through H5MSM 0.5 recovery under pm/fs,
 including indexed original reports, input immutability and independently editable
@@ -144,15 +144,15 @@ The component-guide check passes. Canonical-byte comparison finds pre-existing
 SMonitor/ArgDigest guide drift; both local copies are unchanged. Their new scoped
 API/guide receiving remains coordinated in
 [MolSysSuite #106](https://github.com/uibcdf/molsyssuite/issues/106), with the local
-support-layer adoption in [DockingMT #19](https://github.com/uibcdf/dockingmt/issues/19).
+support-layer adoption in [BindingMT #19](https://github.com/uibcdf/bindingmt/issues/19).
 Archive/close this record and #41 only after the owning publication/checkpoint
 decision; general preparation, named typing and provider export remain separate.
 
 
 ## Public state synchronization — 2026-10-06
 
-- [Owning #42 update](https://github.com/uibcdf/dockingmt/issues/42#issuecomment-6026692859).
-- [Positive #41 consumer follow-up](https://github.com/uibcdf/dockingmt/issues/41#issuecomment-6026702174).
+- [Owning #42 update](https://github.com/uibcdf/bindingmt/issues/42#issuecomment-6026692859).
+- [Positive #41 consumer follow-up](https://github.com/uibcdf/bindingmt/issues/41#issuecomment-6026702174).
 - [Provider #298 evidence](https://github.com/uibcdf/molsysmt/issues/298#issuecomment-6026704320).
 - [Central #106 guide/source receiving notice](https://github.com/uibcdf/molsyssuite/issues/106#issuecomment-6026703587).
 
@@ -165,15 +165,15 @@ The #42 candidate and its new receipts were subsequently saved in local commit
 `6f193fb`, before changing preparation behavior. No push or new hosted result is
 claimed. Its receipt hashes qualify that runtime vintage; subsequent named-type
 consumption is tracked separately by
-[DockingMT #43](https://github.com/uibcdf/dockingmt/issues/43) with its own
+[BindingMT #43](https://github.com/uibcdf/bindingmt/issues/43) with its own
 [executed evidence](../validation/named_autodock_types.md).
 
 ## Resolution — 2026-10-07
 
 The source candidate is published, and its owning integration checkpoint is
 complete. Producer `8741fb2e104814e6f1012e0cb7073689e710f982` has
-[green required CI](https://github.com/uibcdf/dockingmt/actions/runs/37581673369)
-and a [completed six-cell matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344):
+[green required CI](https://github.com/uibcdf/bindingmt/actions/runs/37581673369)
+and a [completed six-cell matrix](https://github.com/uibcdf/bindingmt/actions/runs/37581760344):
 986 tests without skips on every required Linux Python minor and both
 representative macOS arm64 cells. Its ordinarily installed local consumer
 wheel also passes all 986 tests, with source shadowing excluded and original

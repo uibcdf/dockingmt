@@ -30,9 +30,9 @@
     "The selection body is identified by its own hash, separate from the base commit.",
     "No new scientific population or installed artifact qualification.",
     "The historical attempt remains failed.",
-    "Exact-head hosted binding/download/upload observation remains dockingmt#28."
+    "Exact-head hosted binding/download/upload observation remains bindingmt#28."
   ],
-  "owner": "uibcdf/dockingmt#68",
+  "owner": "uibcdf/bindingmt#68",
   "scope": "Read-only receiving of the local workflow script against original GitHub API/artifact evidence; no workflow rerun or Codecov upload.",
   "selected": {
     "artifact_id": 13431816891,

@@ -1,6 +1,6 @@
 ---
 summary: Result pose collections admit malformed empty axes and unordered live inputs.
-issue: uibcdf/dockingmt#87
+issue: uibcdf/bindingmt#87
 status: resolved
 opened: 2026-11-08
 closed: 2026-11-08
@@ -19,7 +19,7 @@ supersedes: []
 
 The saved-result reader now requires a list/tuple pose axis and validates each
 member as a mapping before copying or coordinate construction. Invalid members
-raise DMT-E002 naming `poses` with their zero-based `pose_index`; nested version
+raise BMT-E002 naming `poses` with their zero-based `pose_index`; nested version
 failures retain their existing schema diagnostic and before-copy priority.
 Malformed empty objects/text/sets can no longer appear to be legitimate empty
 results. Omitted legacy axes and actual empty lists/tuples remain supported.
@@ -91,7 +91,7 @@ controls retain these observations and valid/legacy positive controls.
 Require a stored list/tuple axis and mapping members before copying/conversion.
 Keep nested version admission and its before-copy priority. Exclude Set inputs
 from the live ArgDigest boundary without restricting ordered iterables/generators.
-Use DMT-E002 naming poses and the invalid member position. Preserve order,
+Use BMT-E002 naming poses and the invalid member position. Preserve order,
 multiplicity, scores/IDs/metadata, detachment and resource failures.
 
 ## Why

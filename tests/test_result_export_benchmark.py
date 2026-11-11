@@ -9,8 +9,8 @@ from pathlib import Path
 import molsysmt as msm
 import pytest
 
-from dmt_test_support import benchmark_result_export as benchmark
-from dmt_test_support import redocking_181l
+from bmt_test_support import benchmark_result_export as benchmark
+from bmt_test_support import redocking_181l
 
 
 def test_benchmark_attribution_with_separate_helper_has_unknown_git(
@@ -30,7 +30,7 @@ def test_benchmark_attribution_with_separate_helper_has_unknown_git(
     first = redocking_181l._source_revision()
     assert first['git_head'] is None and first['worktree_dirty'] is None
     assert first['shared_checkout'] is False
-    assert first['code_scope'] == 'imported_dockingmt_core_and_redocking_helper'
+    assert first['code_scope'] == 'imported_bindingmt_core_and_redocking_helper'
     helper.write_bytes(helper.read_bytes() + b'\n# Changed helper identity.\n')
     assert redocking_181l._source_revision()['code_sha256'] != first['code_sha256']
 

@@ -2,6 +2,38 @@
 
 This document defines scientific concepts before implementation classes. Not every concept must immediately become a Python class.
 
+## Binding-domain model and operation-specific contracts
+
+[Scientific scope](SCIENTIFIC_SCOPE.md) defines the accepted domain. The numbered
+model below describes its docking subdomain, not a universal schema. Existing
+class names remain appropriate for docking.
+
+- **Docking** receives prepared partner states and search information; it returns
+  bound-configuration hypotheses with explicit molecular maps and scores.
+- **Complex prediction** receives fixed identities, supported sequence/chemical
+  representations and structural/prior information. Results preserve the complete
+  complex, every partner/frame change and original chain/pair/token confidence.
+- **Refinement** receives one complex/state and a resolved method. The transformed
+  complex, mapping, approximations and evaluations are distinct from its parent.
+- **Binding free-energy calculation** receives an absolute/relative binding
+  question, molecular states, thermodynamic/standard-state conventions, conditions
+  and physical/statistical protocol. Estimates retain physical units, method and
+  available uncertainty/convergence evidence.
+- **Binding free-energy prediction** receives a defined endpoint and model
+  applicability profile. Predicted quantities/evidence remain distinct from
+  calculated values and measured affinity; unrelated assay/model output is never
+  converted implicitly.
+- **Interface characterization** associates a declared complex/selection/frame
+  with owner-supplied geometry, topology, physicochemical and energetic
+  descriptors. Preserve definitions, units/scales, meaningful direction and
+  atom/residue coverage.
+
+Shared invariants are source/chemical identity, state/frame, exact correspondence,
+provider/model/code identity, resolved choices, actual artifacts, quantities and
+honest failure/unknown states. Native, completed and refined artifacts remain
+separate lineage nodes. Confidence/scores do not automatically transfer to changed
+atoms or coordinates. These obligations authorize no empty classes or methods.
+
 ## 1. Molecular identity and molecular state
 
 ### Molecular entity
@@ -310,7 +342,7 @@ Exact ID schemes should be designed with MolSysSuite conventions rather than inv
 
 ## 15. Physical quantities and score semantics
 
-DockingMT inherits the MolSysSuite physical-quantity contract through PyUnitWizard rather
+BindingMT inherits the MolSysSuite physical-quantity contract through PyUnitWizard rather
 than defining an independent unit system.
 
 At minimum this applies to:

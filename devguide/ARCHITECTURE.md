@@ -6,25 +6,48 @@ and [the full requirement/evidence plan](PRE_STABILIZATION_PLAN.md) to assess
 acceptance. A source module or conceptual diagram does not establish a completed
 Core/Extended gate.
 
+## Domain operations and compatibility
+
+BindingMT owns molecular docking, fixed-identity complex prediction, complex
+refinement, binding free-energy calculation and prediction, and binding-interface
+characterization. [Scientific scope](SCIENTIFIC_SCOPE.md) distinguishes these
+promises and their current implementation states. The class names below remain
+docking-specific; this transition creates no universal request/result classes
+or implementations of future operations.
+
+Operation-specific inputs/results share molecular identities/maps, quantities,
+resolved protocol/provider choices, actual artifacts and explicit failures.
+Predictions may accept coordinate-free identities and move all partners.
+Free-energy methods need defined states, thermodynamic conventions, conditions
+and uncertainty/convergence evidence. Predictions and interface descriptors keep
+their own endpoints/applicability. A technical receipt does not erase these
+scientific differences.
+
+Canonical source is `bindingmt` and `molsysviewer_bindingmt`; the addon/workspace
+identity and development namespace follow the same early-development clean cut.
+See [the identity/scope decision](pending_proposals/rename_bindingmt.md). New
+integrations remain reviewed independently under #109/#110. Generic chemistry,
+numerical methods, recording and scheduling keep their suite/platform owners.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the
 [2026-11-06 handoff](MACHINE_HANDOFF.md). Public exports in
-[`dockingmt/__init__.py`](../dockingmt/__init__.py) and the actual source remain
+[`bindingmt/__init__.py`](../bindingmt/__init__.py) and the actual source remain
 authoritative when this navigation map changes.
 
 | Area | Current source | Responsibility |
 | --- | --- | --- |
-| Scientific declarations and records | [`core/problem.py`](../dockingmt/core/problem.py), [`protocol.py`](../dockingmt/core/protocol.py), [`search_domain.py`](../dockingmt/core/search_domain.py), [`results.py`](../dockingmt/core/results.py), [`outcome.py`](../dockingmt/core/outcome.py) | Problems, resolved Vina protocol, physical search domains, poses/results and per-item batch outcomes. |
-| Record admission and provenance | [`core/audit.py`](../dockingmt/core/audit.py), [`pose_audit.py`](../dockingmt/core/pose_audit.py), [`_scores.py`](../dockingmt/core/_scores.py), [`_private/artifacts.py`](../dockingmt/_private/artifacts.py) | Internal consistency, named score/ranking evidence and captured backend-input identity. These do not certify chemistry or reconstruct missing molecular sources. |
-| Public orchestration | [`dock.py`](../dockingmt/dock.py), [`score.py`](../dockingmt/score.py), [`batch.py`](../dockingmt/batch.py), [`evaluation.py`](../dockingmt/evaluation.py), [`aggregation.py`](../dockingmt/aggregation.py) | Docking/fixed scoring, serial prepared-problem execution and explicitly delimited reference-recovery evaluation/aggregation. |
-| Existing interaction association | [`interactions.py`](../dockingmt/interactions.py) | `bind_interactions`/`PoseInteractions` bind one explicitly selected pose to an admitted one-frame carrier. Source controls and [bounded installed normal/pm-fs receiving](validation/e4_pose_binding_installed_2026-11-07.md) pass, preserving full original results/provider analyses and full-carrier persistence. [Empty-source native unevaluated coverage](validation/e4_native_unevaluated_2026-11-07.md) also passes. Positive-source persistence awaits [client receiving of the published #642 source fix](validation/e4_evidence_catalog_fix_2026-11-07.md); exact native construction is held after an owned-memory stop. The [view route](validation/pose_interaction_view.md) has separate source/DOM controls and [passing exact-candidate receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md): eight real-provider View/native cells normal/pm-fs plus independent record checks. Actual canvas/public delivery remain unproven. |
-| Docking preparation | [`preparation/`](../dockingmt/preparation/) | Docking intent, named preparation choices, assessments, provider orchestration and source/prepared/backend maps. General molecular operations belong to MolSysMT; remaining migration boundaries stay in #49. |
-| Backend adapter | [`engines/base.py`](../dockingmt/engines/base.py), [`vina.py`](../dockingmt/engines/vina.py), [`_vina_scoring.py`](../dockingmt/engines/_vina_scoring.py) | Capability negotiation, native Vina execution and interpretation of backend outputs. |
-| Viewer entry and addon | [`view.py`](../dockingmt/view.py), [`molsysviewer_dockingmt/`](../molsysviewer_dockingmt/), [`viewer/__init__.py`](../dockingmt/viewer/__init__.py) | Public view entry, DockingMT-owned runtime/panels/adapters and compatibility exports. [`adapters/interactions.py`](../molsysviewer_dockingmt/adapters/interactions.py) displays an admitted one-frame binding with full result preservation and explicit pose/frame mapping. MolSysViewer owns generic host/rendering behavior. |
-| Shared support integration | [`_argdigest.py`](../dockingmt/_argdigest.py), [`_depdigest.py`](../dockingmt/_depdigest.py), [`_smonitor.py`](../dockingmt/_smonitor.py), [`_pyunitwizard.py`](../dockingmt/_pyunitwizard.py), [`_private/`](../dockingmt/_private/) | Owned argument contracts, dependency declarations, structured diagnostics and quantity policy. Follow the synchronized root tool guides. |
+| Scientific declarations and records | [`core/problem.py`](../bindingmt/core/problem.py), [`protocol.py`](../bindingmt/core/protocol.py), [`search_domain.py`](../bindingmt/core/search_domain.py), [`results.py`](../bindingmt/core/results.py), [`outcome.py`](../bindingmt/core/outcome.py) | Problems, resolved Vina protocol, physical search domains, poses/results and per-item batch outcomes. |
+| Record admission and provenance | [`core/audit.py`](../bindingmt/core/audit.py), [`pose_audit.py`](../bindingmt/core/pose_audit.py), [`_scores.py`](../bindingmt/core/_scores.py), [`_private/artifacts.py`](../bindingmt/_private/artifacts.py) | Internal consistency, named score/ranking evidence and captured backend-input identity. These do not certify chemistry or reconstruct missing molecular sources. |
+| Public orchestration | [`dock.py`](../bindingmt/dock.py), [`score.py`](../bindingmt/score.py), [`batch.py`](../bindingmt/batch.py), [`evaluation.py`](../bindingmt/evaluation.py), [`aggregation.py`](../bindingmt/aggregation.py) | Docking/fixed scoring, serial prepared-problem execution and explicitly delimited reference-recovery evaluation/aggregation. |
+| Existing interaction association | [`interactions.py`](../bindingmt/interactions.py) | `bind_interactions`/`PoseInteractions` bind one explicitly selected pose to an admitted one-frame carrier. Source controls and [bounded installed normal/pm-fs receiving](validation/e4_pose_binding_installed_2026-11-07.md) pass, preserving full original results/provider analyses and full-carrier persistence. [Empty-source native unevaluated coverage](validation/e4_native_unevaluated_2026-11-07.md) also passes. Positive-source persistence awaits [client receiving of the published #642 source fix](validation/e4_evidence_catalog_fix_2026-11-07.md); exact native construction is held after an owned-memory stop. The [view route](validation/pose_interaction_view.md) has separate source/DOM controls and [passing exact-candidate receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md): eight real-provider View/native cells normal/pm-fs plus independent record checks. Actual canvas/public delivery remain unproven. |
+| Docking preparation | [`preparation/`](../bindingmt/preparation/) | Docking intent, named preparation choices, assessments, provider orchestration and source/prepared/backend maps. General molecular operations belong to MolSysMT; remaining migration boundaries stay in #49. |
+| Backend adapter | [`engines/base.py`](../bindingmt/engines/base.py), [`vina.py`](../bindingmt/engines/vina.py), [`_vina_scoring.py`](../bindingmt/engines/_vina_scoring.py) | Capability negotiation, native Vina execution and interpretation of backend outputs. |
+| Viewer entry and addon | [`view.py`](../bindingmt/view.py), [`molsysviewer_bindingmt/`](../molsysviewer_bindingmt/), [`viewer/__init__.py`](../bindingmt/viewer/__init__.py) | Public view entry, BindingMT-owned runtime/panels/adapters and compatibility exports. [`adapters/interactions.py`](../molsysviewer_bindingmt/adapters/interactions.py) displays an admitted one-frame binding with full result preservation and explicit pose/frame mapping. MolSysViewer owns generic host/rendering behavior. |
+| Shared support integration | [`_argdigest.py`](../bindingmt/_argdigest.py), [`_depdigest.py`](../bindingmt/_depdigest.py), [`_smonitor.py`](../bindingmt/_smonitor.py), [`_pyunitwizard.py`](../bindingmt/_pyunitwizard.py), [`_private/`](../bindingmt/_private/) | Owned argument contracts, dependency declarations, structured diagnostics and quantity policy. Follow the synchronized root tool guides. |
 | User-facing example | [`examples/inspect_saved_scoring.py`](../examples/inspect_saved_scoring.py) | Explicit saved-pose/result inspection; it is not a molecular recovery tool or a new scoring study. |
-| Tests and qualification tools | [`tests/`](../tests/), [`devtools/`](../devtools/), [`dmt_test_support/`](../dmt_test_support/) | Software guards, administrative controls and unshipped scientific helpers. The exact installed helper/data selection is declared in `devtools/conda-build/resources.toml`. |
+| Tests and qualification tools | [`tests/`](../tests/), [`devtools/`](../devtools/), [`bmt_test_support/`](../bmt_test_support/) | Software guards, administrative controls and unshipped scientific helpers. The exact installed helper/data selection is declared in `devtools/conda-build/resources.toml`. |
 | Engineering and scientific evidence | [`.github/workflows/`](../.github/workflows/), [`devguide/`](README.md) | Source/installed/administrative gates, accepted design, owning work records and original scientific receipts. |
 
 There are no standalone public `DockingRun`, `DockingCampaign`, general executor
@@ -87,7 +110,7 @@ It differs from the implemented tree above; it does not authorize creating the
 absent packages:
 
 ```text
-dockingmt/
+bindingmt/
 ├── core/          # scientific concepts and stable data model
 ├── protocols/     # canonical/composed workflows
 ├── preparation/   # docking intent/orchestration over provider tools
@@ -154,7 +177,7 @@ Protocols should validate requested capabilities before execution.
 ## Adapters
 
 ```text
-DockingMT scientific model
+BindingMT scientific model
           ↓
 backend-specific model/files/parameters
           ↓
@@ -162,7 +185,7 @@ execution
           ↓
 backend output
           ↓
-DockingMT result model
+BindingMT result model
 ```
 
 Lossy conversions must be explicit. Example:
@@ -198,8 +221,8 @@ This permits future alternative preparation methods without redefining docking.
 General molecular inspection, chemical-state/identity work, repair, hydrogen
 handling, coordinate transformations and molecular format serialization must
 use MolSysMT's supported operations. Missing reusable capabilities are requested
-in MolSysMT, not filled by a DockingMT molecular helper. Other specialized
-capabilities retain TopoMT, PharmacophoreMT and ElastNetMT ownership. DockingMT
+in MolSysMT, not filled by a BindingMT molecular helper. Other specialized
+capabilities retain TopoMT, PharmacophoreMT and ElastNetMT ownership. BindingMT
 owns the docking-specific policy, association and interpretation around them.
 
 ## Provenance
@@ -208,7 +231,7 @@ The conceptual `DockingRun` should eventually capture at least the fields below.
 Today inspect the actual problem/protocol/result declarations and provenance;
 do not infer that a standalone run object or every listed field is implemented:
 
-- DockingMT version;
+- BindingMT version;
 - backend(s) and versions;
 - protocol and resolved parameters;
 - preparation methods and versions;
@@ -222,11 +245,11 @@ do not infer that a standalone run object or every listed field is implemented:
 
 ## Identity preservation
 
-Backend conversion must preserve a mapping between source atoms/entities and backend atoms/entities wherever possible. If an engine changes ordering, typing or representation, DockingMT should retain the mapping required to reconstruct scientifically meaningful results.
+Backend conversion must preserve a mapping between source atoms/entities and backend atoms/entities wherever possible. If an engine changes ordering, typing or representation, BindingMT should retain the mapping required to reconstruct scientifically meaningful results.
 
 ## Physical-quantity infrastructure
 
-The core follows the current MolSysSuite PyUnitWizard contract. DockingMT does not own a
+The core follows the current MolSysSuite PyUnitWizard contract. BindingMT does not own a
 separate unit subsystem.
 
 Adapters own conversion to/from backend-native numerical conventions.
@@ -240,7 +263,7 @@ Scores must carry semantic metadata sufficient to distinguish:
 
 ## Shared MolSysSuite infrastructure
 
-DockingMT should inherit the suite infrastructure contracts:
+BindingMT should inherit the suite infrastructure contracts:
 
 ```text
 physical quantities       -> PyUnitWizard
@@ -266,7 +289,7 @@ catalog-driven SMonitor diagnostics.
 
 No implementation language is prescribed. Rust, C++, CUDA or other approaches should be selected only when a concrete algorithmic or performance requirement exists.
 
-A native engine must implement DockingMT contracts rather than redefine them.
+A native engine must implement BindingMT contracts rather than redefine them.
 
 ## Scientific defaults
 
@@ -317,7 +340,7 @@ the canonical persistent representation of a `DockingResult`.
 Stable scientific objects should use versioned schemas so saved results can be read,
 inspected and migrated independently of the backend process that produced them.
 
-DockingMT's own record admission and backend-artifact hashes remain separate from
+BindingMT's own record admission and backend-artifact hashes remain separate from
 molecular persistence and authentication. MolSysMT owns molecular codecs and
 typed interaction persistence. A detached `DockingResult` or captured PDBQT file
 does not by itself restore a complete molecular state. Preserve source/index

@@ -1,7 +1,7 @@
 # Installed 3PTB execution and saved-record inspection
 
-Owner: [#4](https://github.com/uibcdf/dockingmt/issues/4), coordinated with
-[#33](https://github.com/uibcdf/dockingmt/issues/33). The
+Owner: [#4](https://github.com/uibcdf/bindingmt/issues/4), coordinated with
+[#33](https://github.com/uibcdf/bindingmt/issues/33). The
 [notebook](installed_3ptb_execution.ipynb) delivers the separately registered
 two-search follow-up to [preparation/admission](installed_3ptb_preparation.md).
 **Run All executes two new Vina searches.** It saves complete results and reads
@@ -18,11 +18,11 @@ using a fresh preparation directory. Add these five inputs before launching
 Jupyter:
 
 ```bash
-export DOCKINGMT_3PTB_PREPARATION_NOTEBOOK="installed_3ptb_preparation.ipynb"
-export DOCKINGMT_3PTB_PREPARATION_NOTEBOOK_SHA256="c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9"
-export DOCKINGMT_RESULT_INSPECTION_NOTEBOOK="installed_result_inspection.ipynb"
-export DOCKINGMT_RESULT_INSPECTION_NOTEBOOK_SHA256="bfe922f86012834ba12bf9cb1ada5098944c6979fee00523ef9fd38ba25ee3e0"
-export DOCKINGMT_3PTB_EXECUTION_OUTPUT="new-execution-output"
+export BINDINGMT_3PTB_PREPARATION_NOTEBOOK="installed_3ptb_preparation.ipynb"
+export BINDINGMT_3PTB_PREPARATION_NOTEBOOK_SHA256="c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9"
+export BINDINGMT_RESULT_INSPECTION_NOTEBOOK="installed_result_inspection.ipynb"
+export BINDINGMT_RESULT_INSPECTION_NOTEBOOK_SHA256="bfe922f86012834ba12bf9cb1ada5098944c6979fee00523ef9fd38ba25ee3e0"
+export BINDINGMT_3PTB_EXECUTION_OUTPUT="new-execution-output"
 jupyter lab
 ```
 
@@ -48,7 +48,7 @@ installation recipe, provider-minimum decision or platform admission (#30/#47).
 
 The [prospective contract](installed_3ptb_execution_registration.md),
 [source/artifact registration](data/installed_3ptb_execution/registration_2026-11-03.json)
-and [pre-search issue registration](https://github.com/uibcdf/dockingmt/issues/4#issuecomment-6619228750)
+and [pre-search issue registration](https://github.com/uibcdf/bindingmt/issues/4#issuecomment-6619228750)
 precede both attempts. Frozen workflow source is
 `1ef85cbdcbe75fb0c8a2f4dd37228f52a987f020`; the exact execution notebook SHA-256
 is `9ee4394a17ebb369d75783f19e2ae523b651e4fc4c2c18f70b5d208611e89734`.
@@ -88,7 +88,7 @@ MolSysMT's 3,415 payloads and native Vina files before/after. Loaded core/suppor
 provider/engine origins belong to the independent scientific prefix. Counters
 observe exactly two public `dock` calls and two Vina initializations, map builds,
 searches and energy retrievals; guards observe zero standalone score, RMSD,
-reconstruction, viewer or developer-import attempts. The unchanged DockingMT
+reconstruction, viewer or developer-import attempts. The unchanged BindingMT
 archive remains producer `50d8e33`, SHA-256
 `5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98`;
 MolSysMT remains producer `de7ffad2a` / controlled main `00abb958f`, archive
@@ -110,7 +110,7 @@ maintained source and public evidence.
 A restricted controller initially stalls before scientific cells and is stopped.
 The corrected launch diagnoses missing `nbformat` in the task's minimal kernel
 tooling before preparation. Its kernel closes; the
-[tooling amendment](https://github.com/uibcdf/dockingmt/issues/4#issuecomment-6619316784)
+[tooling amendment](https://github.com/uibcdf/bindingmt/issues/4#issuecomment-6619316784)
 supplies notebook IO outside the unchanged scientific prefix. A controller-only
 string-escaping syntax stop is corrected before launching the final kernel.
 These stops create no preparation output, search ledger or scientific attempt.
@@ -130,7 +130,7 @@ observed status and recovery on #4.
 Preparation → execution → detached saved-record inspection is delivered for this
 declared case. Before later RMSD, fix the comparison population and verify the
 public route for the nine originally observed heavy atoms. Use MolSysMT for
-selection/correspondence/geometry and DockingMT for docking-result/evaluation
+selection/correspondence/geometry and BindingMT for docking-result/evaluation
 semantics; do not copy the private heavy-pose projection helper. Missing reusable
 provider capabilities, if encountered, belong in their owning repository.
 No new molecular operation is needed for the present execution/inspection slice.

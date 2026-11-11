@@ -34,7 +34,7 @@ before requesting the next one, keeping partial results if a later call fails:
 import json
 from pathlib import Path
 
-import dockingmt as dmt
+import bindingmt as dmt
 
 current = pose
 for method in ('vina', 'vinardo'):

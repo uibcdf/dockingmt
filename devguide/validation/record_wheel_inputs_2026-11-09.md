@@ -1,6 +1,6 @@
 # Private installed input-declaration receiving
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), #30/#50.
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), #30/#50.
 Registered 2026-11-09. Fixed code/test producer
 `9a40e385d951b0521f6509de6b127083b78be61c`, retaining #97/#98/#99's new
 snapshot, source-I/O and offline test-import behavior. Current uncommitted CI
@@ -75,7 +75,7 @@ error, old harness/source/descriptor/attempt and both pre-import warnings. No
 scientific/native failure or runtime import defect is inferred.
 
 #101 moves exactly the two original PDBQT literals into declared unshipped
-`dmt_test_support.pdbqt_fixtures`; producer 9a40e38 and exact receptor/ligand text
+`bmt_test_support.pdbqt_fixtures`; producer 9a40e38 and exact receptor/ligand text
 SHA-256 values remain `fdf890083d54bf740b9ca1eab96069840bffbbf6cea4a8dfdbfa9651ba79d80b`
 and `e195e663227eb6b77c2fe7b71efbc906ef6b5e72860261f0c18b8b37a43bf884`.
 Nineteen fixture-import consumers change only that module path; test_engines keeps
@@ -108,7 +108,7 @@ final published source bytes agree with actually executed qualification inputs.
 
 Final suffix-03 normal and pm/fs pass **1,267 cases each**, four explicit
 unchanged native deselections, zero failures/errors/skips/warnings. The same
-single original wheel is `dockingmt-0.0.0+345.g9a40e38-py3-none-any.whl`,157,431B,
+single original wheel is `bindingmt-0.0.0+345.g9a40e38-py3-none-any.whl`,157,431B,
 SHA-256 `0ed16b5a607a684be611b964b1996f56cc3273f7fcf012e6f86403551f3e91dd`.
 Its fixed runtime producer remains 9a40e385; later qualification edits affect only
 explicit tests/support/descriptor inputs, recorded separately by exact hashes.

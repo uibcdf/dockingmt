@@ -1,6 +1,6 @@
 ---
 summary: Evaluate redocking with explicit RMSD policy and detached comparison evidence.
-issue: uibcdf/dockingmt#38
+issue: uibcdf/bindingmt#38
 status: resolved
 opened: 2026-10-03
 closed: 2026-10-03
@@ -62,7 +62,7 @@ gates pass in the qualified shared Python 3.14 profile.
 
 ## Measured outcome — 2026-10-03
 
-Public `dockingmt.evaluate_redocking` returns the independently serializable
+Public `bindingmt.evaluate_redocking` returns the independently serializable
 report described in [the contract](../validation/redocking_evaluation.md).
 The 44 new guard cases cover independent translation/permutation expectations,
 first-position versus closest pose, ties, recorded order/ranks, known/unknown
@@ -101,7 +101,7 @@ to the shared-workspace owner in
 which already routes joint Sabueso qualification to MOLI #40/Sabueso #109.
 The earlier successful host closure receipt remains historical. No package
 floor/version was fabricated and no provider installation or worktree changed.
-This bounded DockingMT gate does not certify the complete current host or a
+This bounded BindingMT gate does not certify the complete current host or a
 public dependency release; that closure remains provider/workspace-owned.
 
 ### Correction — withdrawn metadata diagnosis, 2026-10-03
@@ -130,7 +130,7 @@ and MolSysViewer qualification pins: **750 passed, no skips, 198.37 s**,
 with the same 96 provider/existing warnings. Ruff lint/format, generated report
 indexes and diff checks pass; `pip check` remains successful. The original
 implementation commit `a5fb97b763012eb0df7fd3eb9206ce10c784fb1c` also has
-successful [CI](https://github.com/uibcdf/dockingmt/actions/runs/37159093062)
-and [suite policy](https://github.com/uibcdf/dockingmt/actions/runs/37159093232)
+successful [CI](https://github.com/uibcdf/bindingmt/actions/runs/37159093062)
+and [suite policy](https://github.com/uibcdf/bindingmt/actions/runs/37159093232)
 runs. This correction changes documentation only; no scientific implementation,
 provider pins or previously retained notebook measurements are changed.

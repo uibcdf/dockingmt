@@ -1,9 +1,9 @@
 # Prospective 3PTB redocking protocol
 
-Registered on 2026-10-10 under DockingMT [#5](https://github.com/uibcdf/dockingmt/issues/5)
-and [#6](https://github.com/uibcdf/dockingmt/issues/6), with preparation-state scope
-in [#4](https://github.com/uibcdf/dockingmt/issues/4) and provider migration in
-[#49](https://github.com/uibcdf/dockingmt/issues/49). **Planning only: no 3PTB
+Registered on 2026-10-10 under BindingMT [#5](https://github.com/uibcdf/bindingmt/issues/5)
+and [#6](https://github.com/uibcdf/bindingmt/issues/6), with preparation-state scope
+in [#4](https://github.com/uibcdf/bindingmt/issues/4) and provider migration in
+[#49](https://github.com/uibcdf/bindingmt/issues/49). **Planning only: no 3PTB
 preparation, fixed evaluation or docking search has been executed for this slice.**
 The [registration record](data/3ptb_prospective/registration_2026-10-10.json)
 binds the protocol bytes to its owning issue comment; it is not a molecular
@@ -21,7 +21,7 @@ that is an informative outcome, not permission to replace molecular tools locall
 structure of bovine beta-trypsin, one modeled protein chain with 223 residues,
 benzamidine and calcium. It is a different protein/ligand case from the existing
 181L, 1IEP and 5X72 controls. Selection uses public structural and methodological
-evidence, not observed DockingMT performance on 3PTB. One additional case does
+evidence, not observed BindingMT performance on 3PTB. One additional case does
 not establish generalization or an unbiased multi-complex benchmark.
 
 The [BEN chemical definition](https://www.rcsb.org/ligand/BEN) has formal charge
@@ -60,7 +60,7 @@ or assembly reconstruction is authorized in this population.
 
 All extraction, copying, templates, chemical application, H generation, named
 charges/types, molecular projection and geometry use public MolSysMT tools.
-DockingMT owns the explicit state/torsion choices, search, reporting and evaluation.
+BindingMT owns the explicit state/torsion choices, search, reporting and evaluation.
 
 - Select the observed protein chain A as a rigid receptor. Exclude all observed
   waters, calcium and BEN from it, preserving their source identities in the
@@ -75,7 +75,7 @@ DockingMT owns the explicit state/torsion choices, search, reporting and evaluat
   Resolve them to exact selected group indices, declare those twelve residues
   CYX and supply the pairs to `physchem.get_peptide_chemical_template`.
   Confirm the deposited source and resulting chemical links agree. Do not
-  classify links from sulfur-distance thresholds in DockingMT.
+  classify links from sulfur-distance thresholds in BindingMT.
 - Declare ligand benzamidinium, total formal charge +1, with the explicit
   template `smiles:NC(=[NH2+])c1ccccc1`. BEN's neutral CCD remains a source
   reference, not an automatically adopted state. In this template the declared

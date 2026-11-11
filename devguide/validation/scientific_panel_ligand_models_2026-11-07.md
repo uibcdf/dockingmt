@@ -1,6 +1,6 @@
 # Panel source identity and declared ligand models — 2026-11-07
 
-Owner: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md),
+Owner: [BindingMT #33](../pending_proposals/validate_native_molsysmt_formats.md),
 with [#49](../pending_proposals/retire_general_molecular_operations.md) for
 provider ownership. Starting source: `70354c4e59c55b961036aaca0d76d357228b40bd`.
 The preceding goal turn made progress: exact private occupancy/neutral-reference
@@ -92,7 +92,7 @@ and history encoding; any JSON conversion is restricted to returned NumPy arrays
 and scalars, with no custom quantity codec. Original neutral constructor reports
 remain historical neutral evidence after editing; never forge a new provider
 curation report or relabel that old construction history as anionic production.
-A DockingMT case receipt binds the explicit hypothesis, actual assignments and
+A BindingMT case receipt binds the explicit hypothesis, actual assignments and
 native artifact bytes separately.
 
 Nested public caps per cell: convert 64, get 1024, get_form 2048, select 256,

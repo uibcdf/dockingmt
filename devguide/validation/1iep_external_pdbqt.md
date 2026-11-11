@@ -1,6 +1,6 @@
 # External PDBQT adapter check: 1IEP
 
-This case exercises DockingMT's Vina adapter with a flexible ligand and receptor
+This case exercises BindingMT's Vina adapter with a flexible ligand and receptor
 already prepared by the [official AutoDock Vina basic-docking
 example](https://github.com/ccsb-scripps/AutoDock-Vina/blob/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/docs/source/docking_basic.rst).
 It checks backend-input identity, pose atom order and the documented search box.
@@ -8,15 +8,15 @@ The source ligand SDF is converted through RDKit to a MolSysMT molecular system.
 For this fixed, aligned example, element and coordinate checks map each prepared
 PDBQT atom to one source atom. The pose metric uses that molecular source as its
 reference, while the ligand graph and omitted atoms remain identifiable.
-The external chemistry is recorded as `unassessed`; DockingMT's own preparation
-remains provisional under [issue #5](https://github.com/uibcdf/dockingmt/issues/5).
+The external chemistry is recorded as `unassessed`; BindingMT's own preparation
+remains provisional under [issue #5](https://github.com/uibcdf/bindingmt/issues/5).
 
 ## Pinned inputs
 
 Source: `ccsb-scripps/AutoDock-Vina` commit
 `3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645`,
 `example/basic_docking/solution/`. The files are fetched from upstream rather
-than copied into DockingMT.
+than copied into BindingMT.
 
 | File | SHA-256 |
 | --- | --- |
@@ -52,12 +52,12 @@ python -m devtools.replay_1iep_pdbqt --manifest /tmp/1iep-manifest.json --contro
 The replay checks the pinned SDF and PDBQT hashes, verifies the source atom map
 through MolSysMT, and reconstructs both problems from PDBQT bytes staged in a
 temporary directory. The three original input paths need not exist. It requires
-the recorded DockingMT source revision, protocol and software versions, and
+the recorded BindingMT source revision, protocol and software versions, and
 compares every returned pose's identity, Vina scores, coordinates, mapped
 heavy-atom positional RMSD and near-native classification. The allowed maximum
 score drift is 0.05 kcal/mol; the allowed pose-coordinate RMSD and
 source-reference RMSD drift are each 0.25 Å. A failed comparison exits nonzero
-and leaves a JSON report. See [issue #16](https://github.com/uibcdf/dockingmt/issues/16).
+and leaves a JSON report. See [issue #16](https://github.com/uibcdf/bindingmt/issues/16).
 
 ## Installed attribution — 2026-11-07
 
@@ -87,9 +87,9 @@ poses. The box is centered at `(15.190, 53.903, 16.917)` Å and has dimensions
 box numbers to six decimal places after unit conversion and records the exact
 values sent to Vina.
 
-The original adapter measurement used clean DockingMT source commit
+The original adapter measurement used clean BindingMT source commit
 `c519cca60a451c100def46ec448c4d42889eff7b` and MolSysMT
-`0.21.0+606.ga03eb4bf6`. The editable DockingMT installation reported a
+`0.21.0+606.ga03eb4bf6`. The editable BindingMT installation reported a
 stale generated package version (`0.0.0+14.g25b6e0b.dirty`); the clean source
 commit in the report identifies the implementation tested.
 
@@ -114,8 +114,8 @@ success rates or validate the input preparation scheme. The official tutorial
 describes 1IEP as a challenging ligand and recommends greater exhaustiveness
 for consistent docking.
 
-The check exposed two adapter defects: [#12](https://github.com/uibcdf/dockingmt/issues/12)
-concerns coordinate-array ordering, and [#13](https://github.com/uibcdf/dockingmt/issues/13)
+The check exposed two adapter defects: [#12](https://github.com/uibcdf/bindingmt/issues/12)
+concerns coordinate-array ordering, and [#13](https://github.com/uibcdf/bindingmt/issues/13)
 concerns box numbers after unit conversion. Before the box correction, the
 same nominal box reached Vina as `19.999999999999996` Å per side and yielded
 two poses with best score -7.531 kcal/mol. Direct Vina reproduced that result
@@ -131,7 +131,7 @@ placement, not a biologically inactive ligand or an affinity measurement.
 The report records its exact backend box, submitted input hashes, all returned
 pose scores and source-referenced RMSDs, the declared 2.5 Å near-native cutoff,
 and the digest of its separate result manifest. See
-[issue #15](https://github.com/uibcdf/dockingmt/issues/15).
+[issue #15](https://github.com/uibcdf/bindingmt/issues/15).
 
 In the 2026-09-26 seeded run, the control returned three poses with scores
 between -4.106 and -4.064 kcal/mol; their positional heavy-atom RMSDs were

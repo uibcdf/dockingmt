@@ -1,6 +1,6 @@
 # Scientific-panel occupancy and CCD-reference receiving — 2026-11-07
 
-Owner: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md),
+Owner: [BindingMT #33](../pending_proposals/validate_native_molsysmt_formats.md),
 with [#49](../pending_proposals/retire_general_molecular_operations.md) retaining
 molecular ownership. Starting source: `9977317bfdbff60ee783043c5445f5b3e9719920`.
 Status: **bounded read-only receiving passes; panel admission remains partial**.

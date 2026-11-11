@@ -1,6 +1,6 @@
 # Current-workflow phase profiling
 
-Owned by [DockingMT #28](https://github.com/uibcdf/dockingmt/issues/28).
+Owned by [BindingMT #28](https://github.com/uibcdf/bindingmt/issues/28).
 This is software performance evidence for existing workflows. The 181L
 chemistry remains provisional; timings do not qualify docking accuracy.
 
@@ -66,7 +66,7 @@ ArgDigest `0.12.1+7.ga2edfe9`, DepDigest `0.10.1+15.g78a9106`, PyUnitWizard
 `0.27.0`, SMonitor `0.18.0+1.gb308ee0`, MolSysMT
 `0.22.4+118.g03b318549.dirty`. No sibling checkout was modified by this work.
 This environment differs from the earlier import/export baseline; no cross-version
-speedup is inferred. The editable DockingMT version string was
+speedup is inferred. The editable BindingMT version string was
 `0.0.0+14.g25b6e0b.dirty`; exact inspected source, rather than that stale installed
 version string, identifies this measurement:
 
@@ -86,7 +86,7 @@ Median seconds for the three profiling-enabled samples:
 
 | Measurement | Molecular 181L route | Captured PDBQT route |
 | --- | ---: | ---: |
-| Import MolSysMT, PyUnitWizard and DockingMT | 0.472851 | 0.453780 |
+| Import MolSysMT, PyUnitWizard and BindingMT | 0.472851 | 0.453780 |
 | Input normalization / problem construction | 5.498096 | 0.010935 |
 | Public docking call | 1.300083 | 1.008789 |
 | Adapter preparation | 0.273936 | 0.000015 |
@@ -139,7 +139,7 @@ and
 [`181l_captured_pdbqt_2026-10-02.json`](data/workflow_profiling/181l_captured_pdbqt_2026-10-02.json).
 They preserve all twelve samples and their original hashes, versions, protocol
 and timing definitions. They were copied unchanged from the development reports
-in `/tmp/dockingmt-181l-profile.json` and `/tmp/dockingmt-pdbqt-profile.json`;
+in `/tmp/bindingmt-181l-profile.json` and `/tmp/bindingmt-pdbqt-profile.json`;
 the commands regenerate equivalent evidence,
 not identical wall times or manifest hashes. No CI runtime limit, public package
 dependency qualification, campaign claim or scientific recovery claim is made.

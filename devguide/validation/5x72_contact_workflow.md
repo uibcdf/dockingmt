@@ -1,10 +1,10 @@
 # Saved-input distance contrasts in 5X72
 
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17),
-[#6](https://github.com/uibcdf/dockingmt/issues/6) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33) own this follow-up to the
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17),
+[#6](https://github.com/uibcdf/bindingmt/issues/6) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33) own this follow-up to the
 [original-rigid control](5x72_rigid_workflow.md). The
-[prespecified protocol](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6094190056)
+[prespecified protocol](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6094190056)
 precedes all new fixture distances and proximity summaries. The
 [driver](../../devtools/qualify_5x72_contact.py),
 [raw archive](data/5x72_contact/audit_2026-10-09.json.gz),

@@ -16,9 +16,9 @@ import pytest
 import pyunitwizard as puw
 from argdigest import UnknownArgumentError
 
-import dockingmt as dmt
-from dockingmt import comparison
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt import comparison
+from bindingmt._private.smonitor import ArgumentError
 
 DATA = (
     Path(__file__).resolve().parents[1]
@@ -54,12 +54,12 @@ def no_scientific_operations(monkeypatch):
         monkeypatch.setattr(msm, name, forbidden)
     monkeypatch.setattr(msm.chemical_states, 'get_atom_correspondences', forbidden)
     for name in ('score', 'dock', 'prepare_ligand', 'prepare_receptor'):
-        monkeypatch.setattr(dmt, name, forbidden)
+        monkeypatch.setattr(bmt, name, forbidden)
 
 
 def _result(records):
-    return dmt.DockingResult(
-        poses=[dmt.DockingPose.from_dict(record) for record in records]
+    return bmt.DockingResult(
+        poses=[bmt.DockingPose.from_dict(record) for record in records]
     )
 
 
@@ -170,7 +170,7 @@ def test_saved_observations_order_per_method_without_mutating_ranks(
     case = software_case
     result = _result(case.records)
     before = result.to_dict()
-    report = dmt.compare_scores(result, name, problems=case.problems, ascending=True)
+    report = bmt.compare_scores(result, name, problems=case.problems, ascending=True)
     assert report['display_order'] == order
     assert len(report['rows']) == len(report['groups']) == 5
     assert [row['value'] for row in report['rows']] == [
@@ -201,10 +201,10 @@ def test_selected_component_direction_and_exact_ties_are_explicit(software_case)
         case.records[1], 'vina.lig_inter', case.records[0]['scores']['vina.lig_inter']
     )
     result = _result(case.records)
-    lower = dmt.compare_scores(
+    lower = bmt.compare_scores(
         result, 'vina.lig_inter', problems=case.problems, ascending=True
     )
-    higher = dmt.compare_scores(
+    higher = bmt.compare_scores(
         result, 'vina.lig_inter', problems=case.problems, ascending=False
     )
     assert lower['display_order'] == [1, 2, 3, 4, 5]
@@ -222,7 +222,7 @@ def test_names_and_positions_are_not_a_five_pose_fixture_policy(software_case):
         record['pose_id'] = f'caller-conformer-{i}'
         _rename_evaluation(record, 'vina', 'caller_eval')
     permutation = [4, 0, 3, 1, 2]
-    report = dmt.compare_scores(
+    report = bmt.compare_scores(
         _result([case.records[i] for i in permutation]),
         'caller_eval.lig_inter',
         problems=[case.problems[i] for i in permutation],
@@ -239,7 +239,7 @@ def test_methods_cannot_be_pooled_by_renaming_the_score(software_case):
     for index, record in enumerate(case.records):
         _rename_evaluation(record, 'vinardo' if index == 1 else 'vina', 'chosen')
     with pytest.raises(ArgumentError, match='shared comparison context differs'):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records),
             'chosen.lig_inter',
             problems=case.problems,
@@ -268,7 +268,7 @@ def test_changed_context_is_rejected_before_prepared_work(software_case, key, va
     case = software_case
     _context(case.records[-1], 'vina.lig_inter', key, value)
     with pytest.raises(ArgumentError):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records),
             'vina.lig_inter',
             problems=case.problems,
@@ -282,7 +282,7 @@ def test_caller_assertion_is_not_a_supported_context_field(software_case):
     for record in case.records:
         _context(record, 'vina.lig_inter', 'caller_verified', True)
     with pytest.raises(ArgumentError, match='comparison-context fields'):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records),
             'vina.lig_inter',
             problems=case.problems,
@@ -318,7 +318,7 @@ def test_selected_evaluation_requires_complete_consistent_evidence(
     else:
         record['scores']['vina.lig_inter'] += 1
     with pytest.raises(ArgumentError):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records),
             'vina.lig_inter',
             problems=case.problems,
@@ -331,7 +331,7 @@ def test_selected_evaluation_requires_complete_consistent_evidence(
 def test_unsupported_components_are_not_silently_substituted(software_case, score_name):
     case = software_case
     with pytest.raises(ArgumentError):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records), score_name, problems=case.problems, ascending=True
         )
     assert not case.correspondence_calls
@@ -350,7 +350,7 @@ def test_unknown_or_conflicting_identity_is_not_guessed(software_case, field, va
     case = software_case
     case.records[-1][field] = value
     with pytest.raises(ArgumentError):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records),
             'vina.lig_inter',
             problems=case.problems,
@@ -378,7 +378,7 @@ def test_prepared_invariants_are_checked(software_case, change):
     else:
         problem.system.keys.reverse()
     with pytest.raises(ArgumentError):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records),
             'vina.lig_inter',
             problems=case.problems,
@@ -390,7 +390,7 @@ def test_prepared_invariants_are_checked(software_case, change):
 def test_direction_requires_an_explicit_boolean(software_case, ascending):
     case = software_case
     with pytest.raises(ArgumentError):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records),
             'vina.lig_inter',
             problems=case.problems,
@@ -402,7 +402,7 @@ def test_direction_requires_an_explicit_boolean(software_case, ascending):
 def test_problem_count_must_match_the_complete_selection(software_case, count):
     case = software_case
     with pytest.raises(ArgumentError, match='at least two poses'):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records),
             'vina.lig_inter',
             problems=(case.problems * 2)[:count],
@@ -413,7 +413,7 @@ def test_problem_count_must_match_the_complete_selection(software_case, count):
 def test_one_pose_does_not_create_a_comparison(software_case):
     case = software_case
     with pytest.raises(ArgumentError, match='at least two poses'):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records[:1]),
             'vina.lig_inter',
             problems=case.problems[:1],
@@ -425,7 +425,7 @@ def test_one_pose_does_not_create_a_comparison(software_case):
 def test_selected_name_requires_an_explicit_nonempty_string(software_case, name):
     case = software_case
     with pytest.raises(ArgumentError):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records), name, problems=case.problems, ascending=True
         )
 
@@ -433,7 +433,7 @@ def test_selected_name_requires_an_explicit_nonempty_string(software_case, name)
 @pytest.mark.parametrize('problems', ['prepared', {}, None])
 def test_problem_argument_is_an_iterable_collection(software_case, problems):
     with pytest.raises(ArgumentError):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(software_case.records),
             'vina.lig_inter',
             problems=problems,
@@ -444,7 +444,7 @@ def test_problem_argument_is_an_iterable_collection(software_case, problems):
 def test_caller_boolean_is_not_a_chemical_authentication_option(software_case):
     case = software_case
     with pytest.raises(UnknownArgumentError):
-        dmt.compare_scores(
+        bmt.compare_scores(
             _result(case.records),
             'vina.lig_inter',
             problems=case.problems,
@@ -468,7 +468,7 @@ def test_report_is_detached_json_under_a_different_unit_policy(
 
     monkeypatch.setattr(builtins, '__import__', guarded)
     with puw.context(standard_units=['pm', 'fs', 'coulomb', 'kJ/mol']):
-        report = dmt.compare_scores(
+        report = bmt.compare_scores(
             result, 'vina.lig_inter', problems=iter(case.problems), ascending=True
         )
         assert result.to_dict() == before
@@ -481,7 +481,7 @@ def test_report_is_detached_json_under_a_different_unit_policy(
         'test-C',
         'test-N',
     ]
-    fresh = dmt.compare_scores(
+    fresh = bmt.compare_scores(
         result, 'vina.lig_inter', problems=case.problems, ascending=True
     )
     assert fresh['display_order'] == [1, 2, 3, 4, 5]
@@ -493,15 +493,15 @@ def prepared_case(received_records, monkeypatch):
     """Real binding helper, with synthetic provider/export/geometry doubles."""
     import molsysmt as msm
 
-    from dockingmt.engines import _vina_scoring
+    from bindingmt.engines import _vina_scoring
 
-    pose = dmt.DockingPose.from_dict(deepcopy(received_records[0]))
+    pose = bmt.DockingPose.from_dict(deepcopy(received_records[0]))
     entry = pose.to_dict()['metadata']['scoring_history'][0]
     definition = pose.score_definitions['vina.lig_inter']
     captures = entry['backend_artifacts']
     ligand = base64.b64decode(captures['partner']['content_base64'])
     receptor = base64.b64decode(captures['receptor']['content_base64'])
-    prepared = dmt.PreparedLigand(
+    prepared = bmt.PreparedLigand(
         state_id=pose.partner_state_id,
         atom_names=[f'test-{i}' for i in range(pose.n_atoms)],
         group_name='LIG',
@@ -515,10 +515,10 @@ def prepared_case(received_records, monkeypatch):
         },
     )
     box = definition['context']['backend_box']
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         receptor='pdbqt_text:' + receptor.decode(),
         partner=prepared,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             puw.quantity(box['center'], 'angstrom'),
             puw.quantity(box['size'], 'angstrom'),
         ),

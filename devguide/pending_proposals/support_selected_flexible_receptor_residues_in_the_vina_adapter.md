@@ -1,6 +1,6 @@
 ---
 summary: Support selected flexible receptor residues in the Vina adapter
-issue: uibcdf/dockingmt#7
+issue: uibcdf/bindingmt#7
 status: open
 opened: 2026-09-22
 closed:
@@ -14,8 +14,8 @@ supersedes: []
 
 # Support selected flexible receptor residues in the Vina adapter
 
-**Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
-**Status:** Open; extended DockingMT capability.
+**Reported:** 2026-09-22, from the MolSysMT–BindingMT Vina preparation and conversion review.
+**Status:** Open; extended BindingMT capability.
 
 ## What
 
@@ -31,7 +31,7 @@ Vina supports a separate flexible receptor file, while the current adapter adver
 
 ## What is measured and what is assumed
 
-**Inspected:** Inspected dockingmt/engines/vina.py and Vina Python documentation; flexible receptor validation has not been performed.
+**Inspected:** Inspected bindingmt/engines/vina.py and Vina Python documentation; flexible receptor validation has not been performed.
 **Assumed:** The proposed contract is useful for the stated consumer; quantitative impact and complete chemical coverage need representative validation.
 
 ## What was refuted
@@ -49,6 +49,6 @@ Extended capability after the rigid Core MVP; no generic induced-fit algorithm o
 
 ## Dependencies and risks
 
-Related tracked work: uibcdf/dockingmt#3
+Related tracked work: uibcdf/bindingmt#3
 Cross-component implementation links: uibcdf/molsysmt#225.
 New functionality requires tests of scientific semantics and documentation appropriate to its public surface.

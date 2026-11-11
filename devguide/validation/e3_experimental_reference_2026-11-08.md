@@ -1,6 +1,6 @@
 # E3 experimental-reference chemistry receiving — 2026-11-08
 
-Owner: [DockingMT #79](https://github.com/uibcdf/dockingmt/issues/79).
+Owner: [BindingMT #79](https://github.com/uibcdf/bindingmt/issues/79).
 Consumer checkpoint: `dc060579b097643546cf38655aa262c596f4b68c`.
 Status: **executed; whole reference selection FAIL, E3 unaccepted**.
 

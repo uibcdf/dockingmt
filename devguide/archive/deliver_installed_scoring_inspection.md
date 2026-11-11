@@ -1,6 +1,6 @@
 ---
 summary: Inspect saved named-scoring evidence through an ordinary-installed public API example.
-issue: uibcdf/dockingmt#75
+issue: uibcdf/bindingmt#75
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-05

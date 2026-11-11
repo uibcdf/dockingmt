@@ -11,21 +11,21 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
-from dockingmt._private.smonitor import (
+import bindingmt as bmt
+from bindingmt._private.smonitor import (
     ArgumentError,
     CapabilityMismatchError,
     LibraryNotFoundError,
 )
+from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
 
 @pytest.fixture
 def problem():
-    return dmt.DockingProblem(
+    return bmt.DockingProblem(
         receptor=MINIMAL_REC_PDBQT,
         partner=MINIMAL_LIG_PDBQT,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([10, 10, 10], 'angstrom')
         ),
         metadata={'partner_state_id': 'ligand', 'receptor_state_id': 'receptor'},
@@ -34,7 +34,7 @@ def problem():
 
 @pytest.fixture
 def pose():
-    return dmt.DockingPose(
+    return bmt.DockingPose(
         puw.quantity([[0, 0, 0], [1.5, 0, 0]], 'angstrom'),
         scores={'prior': -2.5},
         pose_id='original',
@@ -109,9 +109,9 @@ def test_native_scoring_matches_direct_engine_and_preserves_pose(
     before = pose.to_dict()
     with puw.context(standard_units=['pm', 'fs', 'kJ/mol']):
         units = deepcopy(puw.configure.get_standard_units())
-        result = dmt.score(
+        result = bmt.score(
             problem,
-            dmt.VinaProtocol(
+            bmt.VinaProtocol(
                 scoring=scoring,
                 cpu=1,
                 seed=17,
@@ -173,16 +173,16 @@ def test_native_scoring_matches_direct_engine_and_preserves_pose(
             'lower' if component == 'total' else None
         )
     record = json.loads(json.dumps(result.to_dict(), allow_nan=False))
-    restored = dmt.DockingPose.from_dict(record)
+    restored = bmt.DockingPose.from_dict(record)
     assert restored.to_dict() == result.to_dict()
 
 
 def test_successive_scoring_retains_independent_histories(problem):
-    first = dmt.score(problem, dmt.VinaProtocol(cpu=1, seed=17), score_name='vina')
+    first = bmt.score(problem, bmt.VinaProtocol(cpu=1, seed=17), score_name='vina')
     before = first.to_dict()
-    second = dmt.score(
+    second = bmt.score(
         problem,
-        dmt.VinaProtocol(cpu=1, scoring='vinardo', seed=17),
+        bmt.VinaProtocol(cpu=1, scoring='vinardo', seed=17),
         pose=first,
         score_name='vinardo',
     )
@@ -223,7 +223,7 @@ def test_invalid_pose_rejected_before_native_setup(problem, pose, no_engine, cha
     if change == 'coordinates':
         puw.get_value(pose.coordinates)[0, 0] += 0.001
     elif change == 'count':
-        pose = dmt.DockingPose(puw.quantity([[0, 0, 0]], 'nm'))
+        pose = bmt.DockingPose(puw.quantity([[0, 0, 0]], 'nm'))
     elif change == 'state':
         pose.partner_state_id = 'other'
     elif change == 'collision':
@@ -241,16 +241,16 @@ def test_invalid_pose_rejected_before_native_setup(problem, pose, no_engine, cha
             ],
         )
     with pytest.raises(ArgumentError):
-        dmt.score(problem, pose=pose)
+        bmt.score(problem, pose=pose)
 
 
 @pytest.mark.parametrize(
     'protocol',
-    [dmt.VinaProtocol(scoring='ad4'), dmt.VinaProtocol(active_torsion_bonds=[(0, 1)])],
+    [bmt.VinaProtocol(scoring='ad4'), bmt.VinaProtocol(active_torsion_bonds=[(0, 1)])],
 )
 def test_unsupported_protocol_rejected_early(problem, protocol, no_engine):
     with pytest.raises((ArgumentError, CapabilityMismatchError)):
-        dmt.score(problem, protocol)
+        bmt.score(problem, protocol)
 
 
 def test_scoring_rejects_unprepared_inputs_and_guidance(problem, no_engine):
@@ -259,19 +259,19 @@ def test_scoring_rejects_unprepared_inputs_and_guidance(problem, no_engine):
         to_form='molsysmt.MolSys',
         discard_torsion_tree=True,
     )
-    unprepared = dmt.DockingProblem(
+    unprepared = bmt.DockingProblem(
         receptor=problem.receptor, partner=native, search_domain=problem.search_domain
     )
     with pytest.raises(ArgumentError, match='already prepared'):
-        dmt.score(unprepared)
-    guided = dmt.DockingProblem(
+        bmt.score(unprepared)
+    guided = bmt.DockingProblem(
         receptor=problem.receptor,
         partner=problem.partner,
         search_domain=problem.search_domain,
         search_guidance={'request': 'unsupported'},
     )
     with pytest.raises(CapabilityMismatchError):
-        dmt.score(guided)
+        bmt.score(guided)
 
 
 @pytest.mark.parametrize('failure', ['native', 'shape', 'nonfinite', 'geometry'])
@@ -285,11 +285,11 @@ def test_scoring_failures_cleanup_staged_files(
         path = tmp_path / f'{role}.pdbqt'
         path.write_text(text)
         files[role] = path
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         **files, search_domain=problem.search_domain, metadata=problem.metadata
     )
     paths = []
-    original = dmt.VinaBackend._stage_inputs
+    original = bmt.VinaBackend._stage_inputs
 
     def stage(self, receptor, partner, protocol, temp_files):
         result = original(self, receptor, partner, protocol, temp_files)
@@ -314,12 +314,12 @@ def test_scoring_failures_cleanup_staged_files(
                 raise RuntimeError('native failure')
             return [0] * 7 if failure == 'shape' else [np.nan] * 8
 
-    monkeypatch.setattr(dmt.VinaBackend, '_stage_inputs', stage)
+    monkeypatch.setattr(bmt.VinaBackend, '_stage_inputs', stage)
     monkeypatch.setattr(vina, 'Vina', FakeVina)
     if failure == 'geometry':
         puw.get_value(pose.coordinates)[0, 0] += 1
     with pytest.raises((RuntimeError, ArgumentError)):
-        dmt.score(problem, pose=pose)
+        bmt.score(problem, pose=pose)
     assert len(paths) == 2
     assert all(not Path(path).exists() for path in paths)
     assert all(getattr(problem, role).exists() for role in ('receptor', 'partner'))
@@ -330,7 +330,7 @@ def test_absent_vina_reports_local_dependency_error(problem, monkeypatch):
 
     monkeypatch.setattr(checker, 'is_installed', lambda name: False)
     with pytest.raises(LibraryNotFoundError):
-        dmt.score(problem)
+        bmt.score(problem)
 
 
 @pytest.mark.parametrize('scoring', ['vina', 'vinardo'])
@@ -343,7 +343,7 @@ def test_score_component_mapping_never_calls_search_and_snapshots_files(
     ligand = tmp_path / 'lig.pdbqt'
     receptor.write_text(MINIMAL_REC_PDBQT)
     ligand.write_text(MINIMAL_LIG_PDBQT)
-    problem = dmt.DockingProblem(receptor, ligand, problem.search_domain)
+    problem = bmt.DockingProblem(receptor, ligand, problem.search_domain)
 
     class FixedEngine:
         def __init__(self, **kwargs):
@@ -369,9 +369,9 @@ def test_score_component_mapping_never_calls_search_and_snapshots_files(
         # No dock(), optimize(), randomize(), poses() or energies().
 
     monkeypatch.setattr(vina, 'Vina', FixedEngine)
-    result = dmt.score(
+    result = bmt.score(
         problem,
-        dmt.VinaProtocol(cpu=1, capture_backend_inputs=True, scoring=scoring),
+        bmt.VinaProtocol(cpu=1, capture_backend_inputs=True, scoring=scoring),
     )
     assert list(result.scores.values()) == [i + 0.5 for i in range(8)]
     assert list(
@@ -413,7 +413,7 @@ def test_prepared_ligand_rounding_mapping_and_provisional_policy(problem):
         discard_torsion_tree=True,
     )
     coordinates = puw.quantity([[0.0004, 0, 0], [1.5004, 0, 0]], 'angstrom')
-    prepared = dmt.PreparedLigand(
+    prepared = bmt.PreparedLigand(
         'ligand',
         ['C1', 'C2'],
         'LIG',
@@ -423,14 +423,14 @@ def test_prepared_ligand_rounding_mapping_and_provisional_policy(problem):
         source_molsys=native,
         metadata={'charge_source': 'zero_placeholder'},
     )
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         problem.receptor, prepared, problem.search_domain, metadata=problem.metadata
     )
     before = prepared.to_dict()
     with pytest.raises(ArgumentError, match='provisional'):
-        dmt.score(problem)
-    scored = dmt.score(
-        problem, dmt.VinaProtocol(cpu=1, allow_provisional_preparation=True)
+        bmt.score(problem)
+    scored = bmt.score(
+        problem, bmt.VinaProtocol(cpu=1, allow_provisional_preparation=True)
     )
     np.testing.assert_allclose(
         puw.get_value(scored.coordinates, to_unit='angstrom'),
@@ -458,15 +458,15 @@ def test_flexible_external_input_retains_tree_and_record_order():
     original = ligand.read_bytes()
     xyz = msm.get(ligand, element='atom', coordinates=True)[0]
     center = np.mean(puw.get_value(xyz, to_unit='angstrom'), axis=0)
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         data / '1iep_receptor.pdbqt',
         ligand,
-        dmt.BoxRegion(
+        bmt.BoxRegion(
             puw.quantity(center, 'angstrom'), puw.quantity([30, 30, 30], 'angstrom')
         ),
     )
-    scored = dmt.score(
-        problem, dmt.VinaProtocol(cpu=1, seed=17, capture_backend_inputs=True)
+    scored = bmt.score(
+        problem, bmt.VinaProtocol(cpu=1, seed=17, capture_backend_inputs=True)
     )
     np.testing.assert_array_equal(
         puw.get_value(scored.coordinates, to_unit='angstrom'),
@@ -479,15 +479,15 @@ def test_flexible_external_input_retains_tree_and_record_order():
 
 
 def test_docking_only_backends_remain_compatible(problem):
-    class DockingOnly(dmt.DockingBackend):
+    class DockingOnly(bmt.DockingBackend):
         name = 'docking_only'
         capabilities = set()
         is_available = True
 
         def dock(self, problem, protocol=None):
-            return dmt.DockingResult([])
+            return bmt.DockingResult([])
 
     backend = DockingOnly()
-    assert len(dmt.dock(problem, backend=backend)) == 0
+    assert len(bmt.dock(problem, backend=backend)) == 0
     with pytest.raises(CapabilityMismatchError, match='pose_scoring'):
-        dmt.score(problem, backend=backend)
+        bmt.score(problem, backend=backend)

@@ -1,9 +1,9 @@
 # Nonvisual Core MVP acceptance audit — 2026-10-28
 
-Coordination: [#28](https://github.com/uibcdf/dockingmt/issues/28), with
-[#4](https://github.com/uibcdf/dockingmt/issues/4),
-[#5](https://github.com/uibcdf/dockingmt/issues/5) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33).
+Coordination: [#28](https://github.com/uibcdf/bindingmt/issues/28), with
+[#4](https://github.com/uibcdf/bindingmt/issues/4),
+[#5](https://github.com/uibcdf/bindingmt/issues/5) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33).
 The criteria in [MVP](../MVP.md) are unchanged. This audit maps all **32 C0–C5
 criteria** to existing implementation, immutable evidence and remaining work.
 It changes no runtime, dependency, chemical hypothesis, search population or
@@ -30,7 +30,7 @@ observation prevent declaring the whole Core complete. C6 remains explicitly
 - **E1 — Current implementation qualification:** runtime source
   `c9c819688a8ff9a9d662af842ef2c82627ceb8b3`, qualified MolSysMT
   `e395e52646dab2ecb480d3d67aa7254be99b8524`.
-  [Terminal #49 receipt](https://github.com/uibcdf/dockingmt/issues/49#issuecomment-6480128177):
+  [Terminal #49 receipt](https://github.com/uibcdf/bindingmt/issues/49#issuecomment-6480128177):
   1,279 source tests per Python 3.11–3.14, all seven CI jobs, actual coverage
   upload, and 209 ordinary-installed cases. These are prior executed gates,
   reused because this audit changes documentation/evidence only.
@@ -55,7 +55,7 @@ observation prevent declaring the whole Core complete. C6 remains explicitly
   hashes, checks score contexts/states and preserves a before/after file ledger.
 - **E6 — Executed domain probe:** [record](data/core_mvp_audit_2026-10-28/domain-probe.json)
   confirms geometry roundtrip but absent source/selection/frame/padding fields;
-  [#55](https://github.com/uibcdf/dockingmt/issues/55) owns the missing descriptor.
+  [#55](https://github.com/uibcdf/bindingmt/issues/55) owns the missing descriptor.
 - **E7 — Scene construction only:** [scene record](3ptb_scene.md) and saved
   scene notebook. Python construction/export is not a browser observation.
 
@@ -66,11 +66,11 @@ The criterion numbers below follow each gate's existing bullet order.
 | Criterion | Concrete evidence | Limit / owner |
 | --- | --- | --- |
 | C0.1 Implementable core concepts | `DockingProblem`, `VinaProtocol`, `DockingPose`, `DockingResult`, `BoxRegion`; E1/E4. | Present box/rigid-receptor workflow, not all design horizons; #28. |
-| C0.2 Isolated Vina adapter | [adapter](../../dockingmt/engines/vina.py), backend abstraction and capability guards; E1. | No second engine claimed. |
+| C0.2 Isolated Vina adapter | [adapter](../../bindingmt/engines/vina.py), backend abstraction and capability guards; E1. | No second engine claimed. |
 | C0.3 Backend files are not the scientific model | Problems/domains/results serialize independently of staged PDBQT; E4/E5. | External PDBQT remains an explicitly limited input profile; #49. |
 | C0.4 Molecular identity survives conversion | Prepared source keys, completed native maps and known-source reading; E1. | External/partial/multiple-state verifier retirement stays #49 and MolSysMT #521. |
 | C0.5 Run provenance | E4 result plus admission/qualification bundle; E5 verifies hashes and state links. | Standalone source-file provenance is conditional; #4. |
-| C0.6 Capability validation | [backend checks](../../dockingmt/engines/base.py), `test_capability_validation`; E1. | Supported capabilities only. |
+| C0.6 Capability validation | [backend checks](../../bindingmt/engines/base.py), `test_capability_validation`; E1. | Supported capabilities only. |
 | C0.7 Physical quantities | Explicit length/energy boundaries and nondefault-unit guards; E1/E5. | No new global policy or unit convention. |
 | C0.8 ArgDigest boundary | `dock`, protocol, preparation and geometric entry points; [argument guards](../../tests/test_argument_contracts.py). | Representative paths inspected; complete public-surface/adoption review remains #19. |
 | C0.9 Optional providers / DepDigest | Lazy Vina/viewer imports and [missing-dependency guards](../../tests/test_support_contracts.py); E1. | Availability is not scientific suitability. |
@@ -104,7 +104,7 @@ The original #5 mechanisms are absent from current supported preparation: no
 implicit zero substitution, no name-derived typing, no local H-parent charge
 aggregation, and no consumer molecular serializer. Explicit supplied zeros remain
 valid data; requested provider operations fail transparently. These corrected
-mechanisms are not a reason to repeat molecular implementations in DockingMT.
+mechanisms are not a reason to repeat molecular implementations in BindingMT.
 #5 stays partial for bounded preparation/scoring-profile acceptance, not because
 those old mechanisms still run. Complete-source pose reading is adopted; remaining
 partial/reference reading is proposed in MolSysMT #521.
@@ -126,7 +126,7 @@ blockers. The complete-disconnected single-ROOT restriction remains MolSysMT #21
 
 1. **Settle and implement the bounded #55 domain-provenance contract.** Preserve
    explicit-box/legacy readability and delegate molecular access to MolSysMT.
-   This is an actionable nonvisual DockingMT step independent of #521.
+   This is an actionable nonvisual BindingMT step independent of #521.
 2. **Reconcile the declared supported profile under #5/#33 and prepared-source
    provenance under #4.** Use the positive/negative controls and stated uncertainties;
    the first path need not solve all chemistry. If a current-composition admission
@@ -151,5 +151,5 @@ feature is authorized merely by this audit.
 record gap in a separately qualified implementation. The table above retains its
 original `c9c8196` inspection and cannot be read as new visual/scientific acceptance.
 C4's observation/C6 stay deferred. The original audit head's hosted verification
-is now completed in [the terminal recovery](https://github.com/uibcdf/dockingmt/issues/28#issuecomment-6485389513),
+is now completed in [the terminal recovery](https://github.com/uibcdf/bindingmt/issues/28#issuecomment-6485389513),
 without overwriting its pending snapshots or scientific producers.

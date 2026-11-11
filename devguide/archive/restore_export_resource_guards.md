@@ -1,6 +1,6 @@
 ---
 summary: Restore isolated tracing guards against the migrated export benchmark implementation.
-issue: uibcdf/dockingmt#72
+issue: uibcdf/bindingmt#72
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-05
@@ -26,7 +26,7 @@ assertions are never reached.
 ## How
 
 Load the actual standard-library-only implementation directly from
-`dmt_test_support/benchmark_result_export.py`. Add these five existing guards to
+`bmt_test_support/benchmark_result_export.py`. Add these five existing guards to
 the current administrative CI job; do not create another job or dependency route.
 The installed-support tests retain source shim coverage.
 

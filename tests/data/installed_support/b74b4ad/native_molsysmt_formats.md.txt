@@ -1,6 +1,6 @@
 # Native MolSysMT format consumption: initial prepared-input profile
 
-Issue [#33](https://github.com/uibcdf/dockingmt/issues/33) owns consumer acceptance
+Issue [#33](https://github.com/uibcdf/bindingmt/issues/33) owns consumer acceptance
 of experimental MolSysMT SDF/PDBQT support. The first accepted slice consumes
 **already prepared PDBQT**, retaining its supplied atom inventory, charges, labels
 and declared torsion tree. It does not qualify or assign chemical preparation.
@@ -59,7 +59,7 @@ payload = msm.convert(native, to_form="string:pdbqt_text",
 # payload can be supplied directly as DockingProblem.partner.
 ```
 
-DockingMT accepts the explicit `pdbqt_text:` form for receptor and partner and
+BindingMT accepts the explicit `pdbqt_text:` form for receptor and partner and
 removes its prefix before external Vina input. File/string identity bridges retain
 original bytes; native reserialization intentionally drops source remarks/record
 kinds and may reorder atoms. Native output is compared using retained serial IDs,
@@ -86,7 +86,7 @@ AutoDock4 assignment is required; provisional opt-in cannot bypass that
 round trips/parser checks, pm/fs unit-policy serialization, two SDF stereo round
 trips, two current unsupported SDF dialect controls, malformed/unsupported PDBQT,
 stale-tree rejection before destination mutation, explicit-fragment equivalence
-and actual DockingMT explicit-string docking. File/native inputs are unchanged.
+and actual BindingMT explicit-string docking. File/native inputs are unchanged.
 Coordinate round-trip tolerances are 1e-10 angstrom for the already rounded PDBQT
 inputs and 1e-4 angstrom for SDF output. The curated 5X72 SDF/PDBQT correspondence
 uses unique same-element coordinates within 0.002 angstrom; this matches existing
@@ -102,7 +102,7 @@ The 1S63 added H and aryl–nitrile branch require separate mapping/policy evide
 | SDF/RDKit reference bridge | MolSysMT #215 admits original 1IEP/1S63 chemistry and identity without unreported normalization. |
 | Input/pose PDBQT atom parsing | MolSysMT #214/#226 covers both the actual prepared input profile and Vina MODEL pose outputs with verified atom correspondence. Current single-record support does not cover pose ensembles. |
 | `_temporary_torsions` final fragment partition | Retired after the [four-case migration](rigid_fragment_consumption.md); public MolSysMT partition plus explicit retained-axis projection preserves prior output. |
-| `_temporary_torsions` connectivity and chemical eligibility checks | #224 qualifies the existing chemical policy and retained-axis validation controls; docking root orientation and selected cuts remain DockingMT decisions (#6/#17). |
+| `_temporary_torsions` connectivity and chemical eligibility checks | #224 qualifies the existing chemical policy and retained-axis validation controls; docking root orientation and selected cuts remain BindingMT decisions (#6/#17). |
 | Prepared ligand/receptor PDBQT writers | #214 serialization plus the independently reviewed charge/type/hydrogen/projection profile meet the existing consumer contracts and atom/charge maps. Serialization alone cannot remove #5's protection. Consumer typing heuristics were retired on 2026-10-10. |
 
 Minimum chemical-profile review remains open: fixed selected states/readiness
@@ -116,7 +116,7 @@ from these issue references. #33 therefore remains partial.
 ## Subsequent fragment consumption (2026-10-03)
 
 The initial one-case partition evidence above is extended to all four source
-ligands by [the retained migration](rigid_fragment_consumption.md). DockingMT now
+ligands by [the retained migration](rigid_fragment_consumption.md). BindingMT now
 consumes the public partition operation while preserving the prior permutations
 and PDBQT bytes. Remaining chemical eligibility and serialization operations
 keep their independent removal conditions.

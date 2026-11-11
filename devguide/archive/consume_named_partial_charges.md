@@ -1,6 +1,6 @@
 ---
 summary: Consume named MolSysMT charges with explicit conserved projection evidence.
-issue: uibcdf/dockingmt#40
+issue: uibcdf/bindingmt#40
 status: resolved
 opened: 2026-10-04
 closed: 2026-10-04
@@ -22,7 +22,7 @@ metadata. Record the existing nonpolar-H charge transfers and PDBQT rounding.
 ## How
 
 Explicit callers assign a named model through MolSysMT. Public MolSysMT indexed
-extraction validates its molecular binding and marks stale reports. DockingMT
+extraction validates its molecular binding and marks stale reports. BindingMT
 rejects stale attribution and records original software, coverage, units and
 atom correspondence without recalculating a model. Public
 `audit_preparation_charges` observes current prepared numeric values and export
@@ -31,7 +31,7 @@ rounding; writers reject changed named consumer values.
 ## Why
 
 MolSysMT #221 delivered named Gasteiger–Marsili and forcefield assignment in
-`d43648337`. Existing DockingMT preparation consumes charges but drops model
+`d43648337`. Existing BindingMT preparation consumes charges but drops model
 provenance. Original calculation coverage, a selected projection, nonpolar-H
 transfers and decimal rounding must remain distinguishable.
 
@@ -70,7 +70,7 @@ exploratory docking/save/reload pass; the default heuristic-typing gate remains.
 The complete final local gate passes **861 tests, no skips, 200.83 s**, with the
 same 96 known warnings. Ruff lint/format (112 Python files), `pip check`, report
 indexes and diff checks pass in `molsyssuite@uibcdf_3.14`, Python 3.14.7, Vina
-1.2.7. DockingMT's editable distribution points at this checkout; no provider or
+1.2.7. BindingMT's editable distribution points at this checkout; no provider or
 viewer worktree is changed. MolSysMT source `7894435e748bc55254b6c3d2b63ae82c101e5774`
 is qualified through a committed archive; viewer pin `ec4c71e574d798b7c8675b7e7e983da878ce9889`
 remains unchanged. CI pins advance only the MolSysMT source.
@@ -87,7 +87,7 @@ Provider delivery consumption is reported in
 [MolSysMT #221](https://github.com/uibcdf/molsysmt/issues/221#issuecomment-5978093987);
 derived transform/binding and retirement evidence is handed off in
 [MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223#issuecomment-5978094139).
-DockingMT #5/#33 remain partial. The remote instruction/guide-only checkpoint
+BindingMT #5/#33 remain partial. The remote instruction/guide-only checkpoint
 adoption `a5db15c` was integrated without changing scientific source; completed
 scientific gates remain applicable under the scoped checkpoint policy. Hosted
 Python-lane results remain separate from this local source-qualified receipt.

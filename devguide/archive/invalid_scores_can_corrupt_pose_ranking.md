@@ -1,6 +1,6 @@
 ---
 summary: Reject invalid named scores before ranking docking poses
-issue: uibcdf/dockingmt#24
+issue: uibcdf/bindingmt#24
 status: resolved
 opened: 2026-10-02
 closed: 2026-10-03
@@ -84,7 +84,7 @@ establish compatibility with CI's pinned dependency set.
 
 ## Hosted resolution (2026-10-03)
 
-[CI run 37107875583](https://github.com/uibcdf/dockingmt/actions/runs/37107875583)
+[CI run 37107875583](https://github.com/uibcdf/bindingmt/actions/runs/37107875583)
 qualified commit `ff64d84239dbadd030ac1ba5f82eb0a60b5517b4`. All four Linux
 lanes (Python 3.11, 3.12, 3.13 and 3.14) passed the ordinary installed-package
 import and metadata gate and all 414 tests, without skips. The test named in

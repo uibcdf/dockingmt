@@ -59,7 +59,7 @@ def association():
         'provenance': {
             key: 'declared'
             for key in (
-                'dockingmt_version',
+                'bindingmt_version',
                 'molsysmt_version',
                 'backend',
                 'backend_version',
@@ -72,7 +72,7 @@ def association():
         }
     }
     value = {
-        'schema': 'dockingmt.3ptb_interaction_association@1',
+        'schema': 'bindingmt.3ptb_interaction_association@1',
         'inputs': {key: row['sha256'] for key, row in registration['inputs'].items()},
         'selected_original_position': 1,
         'original_decoded_result_sha256': caller.ORIGINAL_RESULT_SHA,
@@ -190,28 +190,28 @@ def test_record_corruption_and_unknown_completion_are_not_accepted(association, 
 )
 def test_installed_archive_cannot_substitute_source_or_contract(tmp_path, damage):
     root = tmp_path / 'source'
-    (root / 'dockingmt').mkdir(parents=True)
+    (root / 'bindingmt').mkdir(parents=True)
     (root / 'devtools/conda-build').mkdir(parents=True)
     payload = b'fixture = True\n'
-    (root / 'dockingmt/__init__.py').write_bytes(payload)
+    (root / 'bindingmt/__init__.py').write_bytes(payload)
     (root / 'LICENSE').write_bytes(b'MIT fixture')
     (root / 'devtools/conda-build/resources.toml').write_text(
-        'required_paths = ["site-packages/dockingmt/__init__.py"]\n'
+        'required_paths = ["site-packages/bindingmt/__init__.py"]\n'
     )
-    prefix = 'dockingmt-0.1.1.dev1.dist-info/'
+    prefix = 'bindingmt-0.1.1.dev1.dist-info/'
     files = {
-        'dockingmt/__init__.py': payload,
+        'bindingmt/__init__.py': payload,
         prefix
-        + 'METADATA': b'Name: dockingmt\nVersion: 0.1.1.dev1\nLicense-Expression: MIT\nRequires-Python: >=3.11,<3.15\n',
+        + 'METADATA': b'Name: bindingmt\nVersion: 0.1.1.dev1\nLicense-Expression: MIT\nRequires-Python: >=3.11,<3.15\n',
         prefix + 'WHEEL': b'Root-Is-Purelib: true\nTag: py3-none-any\n',
         prefix
-        + 'entry_points.txt': b'[molsysviewer.addons]\ndockingmt = molsysviewer_dockingmt\n',
+        + 'entry_points.txt': b'[molsysviewer.addons]\nbindingmt = molsysviewer_bindingmt\n',
         prefix + 'licenses/LICENSE': b'MIT fixture',
     }
     if damage == 'payload':
-        files['dockingmt/__init__.py'] = b'other source'
+        files['bindingmt/__init__.py'] = b'other source'
     elif damage == 'extra':
-        files['dmt_test_support/__init__.py'] = b'not shipped'
+        files['bmt_test_support/__init__.py'] = b'not shipped'
     elif damage == 'license':
         files[prefix + 'licenses/LICENSE'] = b'other'
     elif damage == 'python':
@@ -221,14 +221,14 @@ def test_installed_archive_cannot_substitute_source_or_contract(tmp_path, damage
     elif damage == 'tag':
         files[prefix + 'WHEEL'] = b'Root-Is-Purelib: false\nTag: cp314-linux_x86_64\n'
     elif damage == 'entry-point':
-        files[prefix + 'entry_points.txt'] += b'dockingmt = other\n'
+        files[prefix + 'entry_points.txt'] += b'bindingmt = other\n'
     path = tmp_path / 'consumer.whl'
     with zipfile.ZipFile(path, 'w') as archive:
         for name, value in files.items():
             archive.writestr(name, value)
     if damage is None:
         assert caller.wheel_contract(path, root)['runtime_sha256'] == {
-            'dockingmt/__init__.py': hashlib.sha256(payload).hexdigest()
+            'bindingmt/__init__.py': hashlib.sha256(payload).hexdigest()
         }
     else:
         with pytest.raises((ValueError, caller.configparser.DuplicateOptionError)):

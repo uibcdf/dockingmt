@@ -1,7 +1,7 @@
 # Panel admission: binding environment and template boundary — 2026-11-04
 
-Owner: [DockingMT #33](https://github.com/uibcdf/dockingmt/issues/33), with
-[#49](https://github.com/uibcdf/dockingmt/issues/49) for molecular delegation.
+Owner: [BindingMT #33](https://github.com/uibcdf/bindingmt/issues/33), with
+[#49](https://github.com/uibcdf/bindingmt/issues/49) for molecular delegation.
 Continues the [source inspection](scientific_panel_admission_2026-11-04.md)
 at `d2079282e3fda0783f7c9e7aa4101111c94f8964` and the
 [proposed panel](scientific_panel_design_2026-11-04.md).
@@ -132,7 +132,7 @@ reusable CCD-to-template route and preserved atom identity/correspondence. Exist
 template assessment/application remains the application mechanism; complete-graph
 matching is not used to manufacture its own missing prerequisites. The provider's
 EST curation example is explicitly case-specific and records a stereo discrepancy;
-it should not become a copied DockingMT CCD parser or a universal stereo policy.
+it should not become a copied BindingMT CCD parser or a universal stereo policy.
 The request asks the provider to identify an existing supported composition if one
 already covers this boundary. It does not commit implementation or add a release gate.
 

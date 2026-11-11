@@ -7,7 +7,7 @@
    "source": [
     "# Named AutoDock type consumption — 2026-10-06\n",
     "\n",
-    "Bounded software qualification for DockingMT #43 and MolSysMT #222. Original provider rule/software attribution and parent atom axes are retained. Synthetic poses and real Vina admission do not establish docking readiness or predictive accuracy. Historical #42 receipts are preserved separately."
+    "Bounded software qualification for BindingMT #43 and MolSysMT #222. Original provider rule/software attribution and parent atom axes are retained. Synthetic poses and real Vina admission do not establish docking readiness or predictive accuracy. Historical #42 receipts are preserved separately."
    ]
   },
   {
@@ -145,7 +145,7 @@
     "sys.path.insert(0, str(root))\n",
     "import json\n",
     "import pandas as pd\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "from devtools.qualify_named_types import qualify, save\n",
     "record = qualify()\n",
     "save(record)\n",
@@ -1022,8 +1022,8 @@
     "saved = record['default_vina_result']\n",
     "assert len(saved['poses']) == 1\n",
     "assert all(saved['provenance']['preparation'][role]['assessment'] == 'unassessed' for role in ('receptor', 'partner'))\n",
-    "assert dmt.verify_captured_inputs(saved['provenance']['backend_artifacts']) == record['verified_captured_bytes']\n",
-    "restored = dmt.DockingResult.from_dict(json.loads(json.dumps(saved, allow_nan=False)))\n",
+    "assert bmt.verify_captured_inputs(saved['provenance']['backend_artifacts']) == record['verified_captured_bytes']\n",
+    "restored = bmt.DockingResult.from_dict(json.loads(json.dumps(saved, allow_nan=False)))\n",
     "print('poses:', len(restored.poses))\n",
     "print(record['verified_captured_bytes'])\n",
     "print({role: saved['provenance']['preparation'][role]['metadata']['atom_type_assignment']['rule_version'] for role in ('receptor', 'partner')})"
@@ -1113,9 +1113,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "DockingMT qualification (MolSysSuite 3.14)",
+   "display_name": "BindingMT qualification (MolSysSuite 3.14)",
    "language": "python",
-   "name": "dockingmt-molsyssuite-314"
+   "name": "bindingmt-molsyssuite-314"
   },
   "language_info": {
    "codemirror_mode": {

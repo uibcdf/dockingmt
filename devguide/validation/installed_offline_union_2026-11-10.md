@@ -1,6 +1,6 @@
 # Complete private installed offline union — 2026-11-10
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), with
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), with
 #30/#73 qualification and #50 custody. Status: bounded complete offline installed union received; full/public/platform
 qualification remains partial.
 Documentation base `e7149cf7d72defa252bcb8e85ef03395838b5019`; runtime and
@@ -9,7 +9,7 @@ qualification-input producer `37a61e61db40f386a4ad031ecd14d578441f61ce`.
 ## Artifact and receiving boundary
 
 Reuse the actual normally installed private wheel
-`dockingmt-0.0.0+359.g37a61e6-py3-none-any.whl`, 157,933 B, SHA-256
+`bindingmt-0.0.0+359.g37a61e6-py3-none-any.whl`, 157,933 B, SHA-256
 `ca082ab77b5b9ec77bd1bb75bc865f5279cde9105fe401b989b2b9b13f348e1d`.
 The [prior genuine build/install and native receiving](installed_allocation_fixes_2026-11-10.md)
 keeps its immutable 419/14-member records and producer identity. Do not rebuild,
@@ -101,7 +101,7 @@ Preserve the complete pilot-01 population and its exact reason.
 
 For pilot-02, first import the installed core and assert that the addon is absent,
 then expose the source addon. Require the actual validator diagnostic to name
-`molsysviewer_dockingmt`. Keep all original public cases and the other three
+`molsysviewer_bindingmt`. Keep all original public cases and the other three
 refusals unchanged. Require this stronger pilot before either whole profile;
 the paired whole workers remain byte-identical. No shared validator or runtime
 change is needed. The first measured peak is 273,944,576 B, slightly above the
@@ -140,7 +140,7 @@ operations remain software seams. Both whole profiles explicitly import core
 and addon from the actual private prefix before test admission and retain actual
 paths plus shared initial/admission/final validator records. The initial snapshot
 before imports can have no loaded roots; it is not substituted for admission.
-The second pilot's isolated-addon refusal names `molsysviewer_dockingmt.runtime`;
+The second pilot's isolated-addon refusal names `molsysviewer_bindingmt.runtime`;
 the first pilot retains its original foreign-core refusal and narrower scope.
 
 All 67 installed runtime files, reporting/unit files, metadata/generated/imported

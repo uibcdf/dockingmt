@@ -11,7 +11,7 @@ ordinary source changes do not automatically authorize repeating these searches.
 
 > **Software correctness is not scientific validation.**
 
-DockingMT requires both.
+BindingMT requires both.
 
 ## 1. Software validation
 
@@ -112,7 +112,7 @@ The first measured, exploratory case is the
 [181L redocking regression baseline](validation/181l_redocking_exploratory.md).
 The [1IEP external PDBQT adapter check](validation/1iep_external_pdbqt.md)
 separately probes a flexible ligand and the Vina boundary with upstream
-prepared inputs. It does not validate DockingMT's preparation chemistry.
+prepared inputs. It does not validate BindingMT's preparation chemistry.
 
 Changes to:
 
@@ -134,18 +134,18 @@ Every reported benchmark should record enough provenance to reproduce:
 - search domain;
 - engine/version;
 - parameters/seeds;
-- DockingMT version;
+- BindingMT version;
 - metric definitions.
 
 ## 6. Avoid benchmark overfitting
 
-The initial validation set is for correctness and regression, not for tuning DockingMT into apparent superiority.
+The initial validation set is for correctness and regression, not for tuning BindingMT into apparent superiority.
 
 Broader scientific claims require independent, appropriately designed benchmarks.
 
 ## 7. MolSysSuite contract validation
 
-DockingMT should test not only docking algorithms/adapters but its citizenship in
+BindingMT should test not only docking algorithms/adapters but its citizenship in
 MolSysSuite:
 
 - PyUnitWizard dimension/quantity behavior at public boundaries;
@@ -153,7 +153,7 @@ MolSysSuite:
 - DepDigest lazy-loading and missing-provider behavior;
 - SMonitor diagnostic codes/signals for representative scientific failures;
 - MolSysMT identity preservation across preparation/backend round trips;
-- DockingMT-owned MolSysViewer addon integration when present.
+- BindingMT-owned MolSysViewer addon integration when present.
 
 ## 8. Named charge consumption controls
 
@@ -225,7 +225,7 @@ records, retaining their original producers, cutoffs, atom populations and
 reporting failures. Its ten strata are not independent complexes. Rebuilding the
 presentation performs no molecular/native calculation or new qualification.
 
-[DMT-044 and the local evidence policy](validation/evidence_publication_policy.md)
+[BMT-044 and the local evidence policy](validation/evidence_publication_policy.md)
 select a staged repository-first presentation, preserving single-source records,
 readers, original producers, lifecycle and concrete rerun/migration triggers.
 That organizational decision does not establish new scientific/public/visual

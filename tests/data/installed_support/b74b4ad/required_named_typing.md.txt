@@ -7,18 +7,18 @@ or explicit `charge_options` in either preparator. Typing alone no longer create
 provisional zero charges. [The charge contract](required_partial_charges.md)
 defines the current behavior; dated typing qualification below remains intact.
 
-[DockingMT #5](https://github.com/uibcdf/dockingmt/issues/5) and
-[#49](https://github.com/uibcdf/dockingmt/issues/49) own removal of the ligand and
+[BindingMT #5](https://github.com/uibcdf/bindingmt/issues/5) and
+[#49](https://github.com/uibcdf/bindingmt/issues/49) own removal of the ligand and
 receptor classifiers based on elements, atom/residue names and ring membership.
 MolSysMT already supplies reusable AutoDock4 assignment under
-[#222](https://github.com/uibcdf/molsysmt/issues/222). DockingMT now requires a valid
+[#222](https://github.com/uibcdf/molsysmt/issues/222). BindingMT now requires a valid
 named assignment or explicit provider `typing_options`; it selects no replacement
 model. Bare force-field labels, charge-only assignments and untyped PDB inputs
 raise an actionable `ArgumentError`. Automatic Vina preparation applies the same
 requirement, even with `allow_provisional_preparation=True`.
 
 ```python
-prepared = dmt.prepare_ligand(
+prepared = bmt.prepare_ligand(
     ligand_with_declared_chemistry_and_indexed_hydrogens,
     selection='all',
     charge_options={'method': chosen_charge_method},
@@ -68,7 +68,7 @@ Original search receipts and unintegrated 5X72 displacement work stay unchanged.
 Force-field charges alone do not supply all typing prerequisites: the current
 1VII AMBER14 route returns 596 atoms and +2 e without declaring a complete
 chemical graph. Tests now retain explicit rejection of that charge-only input;
-DockingMT adds no graph-completion routine. The earlier 364-atom charge-only
+BindingMT adds no graph-completion routine. The earlier 364-atom charge-only
 export remains historical evidence on its original consumer source.
 
 The original `739395d7e` provider exposed a public native
@@ -123,7 +123,7 @@ ensure historical producers reject rather than invent typing or write a manifest
 A PDB fingerprint is not persistence of named MolecularMechanics assignments.
 [MolSysMT #256](https://github.com/uibcdf/molsysmt/issues/256) owns future H5MSM 0.6
 mechanics persistence; #234 resolved silent loss by explicit rejection in H5MSM
-0.5. DockingMT adds no molecular snapshot or implicit preparation recipe. This
+0.5. BindingMT adds no molecular snapshot or implicit preparation recipe. This
 consumer limitation does not change the provider's post-1.0 priority.
 
 
@@ -142,7 +142,7 @@ The corrected evaluation/replay selection passes **51 tests without skips in
 117.17 s**, with 40 retained provider warnings. Together with the unchanged
 232-case preparation selection this covers **283 distinct local contracts**;
 reporting is checked separately. The initial hosted run
-[38037422889](https://github.com/uibcdf/dockingmt/actions/runs/38037422889)
+[38037422889](https://github.com/uibcdf/bindingmt/actions/runs/38037422889)
 finished with the same two legacy-workflow failures in each of four minors
 (1,066 passed/2 failed per lane); it is retained as diagnostic evidence only.
 The corrected published head requires a new complete unskipped matrix.

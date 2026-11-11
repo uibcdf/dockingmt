@@ -1,6 +1,6 @@
 ---
 summary: Retire remaining consumer implementations of general molecular operations
-issue: uibcdf/dockingmt#49
+issue: uibcdf/bindingmt#49
 status: partial
 opened: 2026-10-10
 closed:
@@ -23,7 +23,7 @@ next prescribed step only after the discussion and maintainer resumption.
 original panel work after the immutable 0.1.0 source milestone. MolSysMT #558 is
 source-resolved; the clean editable provider is fast-forwarded to `aee7aa65` with
 unchanged native bytes/build inputs. The full eight-case selection
-passes both unit policies on DockingMT `7873ec4` / MolSysMT `aee7aa65`: exact
+passes both unit policies on BindingMT `7873ec4` / MolSysMT `aee7aa65`: exact
 mapped geometry, typed maps, explicit losses, intact source/history and native
 history persistence. All 625 support inputs retire; original failures and the
 pre-test wall interruption remain in the 129-member record. Next decide original
@@ -78,7 +78,7 @@ failures, #558/#644/environment prerequisites and all broader scopes unchanged.
 [The case-specific reference attempt](../validation/scientific_panel_ligand_models_2026-11-07.md)
 uses public MolSysMT copy/select/get/set for a declared BTN carboxylate hypothesis;
 no chemical parser, pH predictor or general curation tool is implemented in
-DockingMT. The whole receiving fails its fractional formal-charge error control.
+BindingMT. The whole receiving fails its fractional formal-charge error control.
 Separate normal/pm-fs synthetic diagnostics reproduce the component digester's
 leaked unit-form error; [MolSysMT #644](https://github.com/uibcdf/molsysmt/issues/644)
 receives exact evidence. No ArgDigest/PyUnitWizard implementation defect is
@@ -95,7 +95,7 @@ valid for its unchanged composition and scope.
 consumes public MolSysMT occupancy, neutral CCD construction, strict name maps
 and read-only template assessments for original MK1/BTN PDB/CIF observations.
 No parser, chemistry curator, matcher, geometry or coordinate codec is added
-in DockingMT. #556/#557 are received for this finite use; #558 still owns
+in BindingMT. #556/#557 are received for this finite use; #558 still owns
 terminal-generation correspondence/history. No preparation/search or new
 independent docking case occurs. #33/#49 stay partial.
 
@@ -108,7 +108,7 @@ is received. It does not apply to #642's changed Rust tree or relax that hold.
 ## Pre-stabilization E1 needs — 2026-11-06
 
 The maintainer reaffirms this ownership boundary for the complete functional
-0.5.0 objective. DockingMT #78 requests prepared conformation projection in
+0.5.0 objective. BindingMT #78 requests prepared conformation projection in
 [MolSysMT #599](https://github.com/uibcdf/molsysmt/issues/599), and adds the
 same-state identity/equivalence use case to existing
 [#447](https://github.com/uibcdf/molsysmt/issues/447). Public basic/chemical-state/
@@ -117,8 +117,8 @@ separate from the preserved local clone and qualified runtime source `00abb958f`
 Provider-supported compositions may satisfy these requests; no downstream
 coordinate rewriter, molecular matcher/fingerprint or chemistry repair is added.
 
-The independent DMT-047 code slice records backend-specific energy-reference
-meaning and audits DockingMT records. It does not inspect/edit molecular systems.
+The independent BMT-047 code slice records backend-specific energy-reference
+meaning and audits BindingMT records. It does not inspect/edit molecular systems.
 Existing molecular bridges/input profiles retain their explicit #49 receiving
 obligations; missing tools are not replaced by local fallbacks or dropped scope.
 
@@ -179,7 +179,7 @@ Broader scientific and format acceptance stays partial.
 [Native writer consumption](../validation/prepared_writer_consumption.md) removes
 both serializer loops and the remaining AutoDock-label/element dictionary. Public
 construction, setters and decoding support source-free objects; native copies
-preserve source identity and truthful attribution. DockingMT declares presentation
+preserve source identity and truthful attribution. BindingMT declares presentation
 and explicit ROOT choices and checks actual output order through the completed
 provider map. Known complete disconnected ligand graphs now propagate native
 refusal; the provider profile question is linked under #214. No graph erasure,
@@ -205,10 +205,10 @@ remains partial and HTML/C6 stays deferred.
 
 ## What
 
-The [owning review](https://github.com/uibcdf/dockingmt/issues/49) distinguishes
+The [owning review](https://github.com/uibcdf/bindingmt/issues/49) distinguishes
 actual MolSysMT delegation from remaining consumer duplicates. The maintainer
 requires general molecular operations to be proposed and implemented in MolSysMT;
-pharmacophoric operations belong to PharmacophoreMT. DockingMT selects and
+pharmacophoric operations belong to PharmacophoreMT. BindingMT selects and
 interprets docking workflows and consumes these tools.
 
 ## How
@@ -217,7 +217,7 @@ The first migration removes manual coordinate concatenation from
 `build_docking_complex_system`. Every pose frame is composed with public
 `msm.merge([receptor, ligand_frame])`; public `msm.append_structures` collects the
 frames. Static-receptor pairing, pose order and the requirement for a verified
-source ligand remain DockingMT decisions. No local molecular merger or new
+source ligand remain BindingMT decisions. No local molecular merger or new
 dependency is introduced.
 
 The three new guards exercise distinct ligand placements with the static receptor,
@@ -311,8 +311,8 @@ attribute handling; its failures propagate instead of being bypassed.
 
 - **Typing adopted:** the [2026-10-10 compatibility change](../validation/required_named_typing.md)
   removes both consumer classifiers. A valid named provider assignment or explicit
-  typing options are required; DockingMT chooses no model. Scientific acceptance
-  remains open under [#5](https://github.com/uibcdf/dockingmt/issues/5).
+  typing options are required; BindingMT chooses no model. Scientific acceptance
+  remains open under [#5](https://github.com/uibcdf/bindingmt/issues/5).
 - **Projection:** retained/omitted H, charge aggregation and derived atom maps
   belong to [molsysmt#223](https://github.com/uibcdf/molsysmt/issues/223). Its bounded
   typed-H projection and completed native export maps are delivered and consumed
@@ -373,8 +373,8 @@ attribute handling; its failures propagate instead of being bypassed.
   implement a downstream merger or atom reordering to bypass these requirements.
 
 The remaining historical conversion/writer/projection routes are tracked here and
-in [#33](https://github.com/uibcdf/dockingmt/issues/33); they are not architectural
-acceptance. Responsible role: DockingMT contributors. Review by 2027-01-06.
+in [#33](https://github.com/uibcdf/bindingmt/issues/33); they are not architectural
+acceptance. Responsible role: BindingMT contributors. Review by 2027-01-06.
 Removal requires a qualified supported provider operation covering the existing
 units, inventories, correspondence, source immutability and explicit preparation
 attribution. They must not be generalized while adoption is pending.
@@ -384,7 +384,7 @@ attribution. They must not be generalized while adoption is pending.
 Successful current tests do not prove that all molecular operations are delegated.
 Source inspection of a newer provider does not qualify its runtime, installed
 artifacts or scientific compatibility. MOLI's platform architecture does not
-transfer provider implementation ownership to DockingMT. Independent finite
+transfer provider implementation ownership to BindingMT. Independent finite
 checks of provider geometry in developer controls are not a replacement geometry
 API. No current missing pharmacophoric capability was established, so no
 speculative PharmacophoreMT implementation or issue is introduced.
@@ -481,7 +481,7 @@ The corrected evaluation/replay selection passes **51 tests without skips in
 117.17 s**, with 40 retained provider warnings. Together with the unchanged
 232-case preparation selection this covers **283 distinct local contracts**;
 reporting is checked separately. The initial hosted run
-[38037422889](https://github.com/uibcdf/dockingmt/actions/runs/38037422889)
+[38037422889](https://github.com/uibcdf/bindingmt/actions/runs/38037422889)
 finished with the same two legacy-workflow failures in each of four minors
 (1,066 passed/2 failed per lane); it is retained as diagnostic evidence only.
 The corrected published head requires a new complete unskipped matrix.
@@ -520,7 +520,7 @@ The [executed workflow](../validation/3ptb_search.md) adds case decisions and
 orchestration around public preparation, docking and molecular RMSD. Exact
 admitted source maps select the nine observed identities; no general matcher,
 geometry, H/charge/typing or pharmacophore routine is added. Backend five-column
-energy/default preservation belongs to DockingMT. Optional-map/descriptor
+energy/default preservation belongs to BindingMT. Optional-map/descriptor
 reporting defects are corrected locally with original failures preserved in
 the immutable producer and separate receiving evidence.
 Existing molecular projection/reconstruction and compressed-provider issues
@@ -605,7 +605,7 @@ owners and partial status. Original scientific producers and archives are intact
 The [bounded provider receiving](../validation/provider_receiving_2026-10-23.md)
 selects MolSysMT `128a0bbb94e6804f5663e58a45313c77de1cc30d`, including #121,
 #390 and #431. Native-copy refusal/independent edits and retained template stereo
-now have consumer regression guards under DockingMT #51. The earlier explicit
+now have consumer regression guards under BindingMT #51. The earlier explicit
 stereo declaration stays historical; no blanket setter or consumer classifier
 is introduced. Ten ownership controls and 174 installed receiving cases pass,
 including all 24 historical rows / 167 poses without repeating their searches.

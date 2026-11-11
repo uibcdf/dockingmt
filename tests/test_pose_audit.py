@@ -13,8 +13,8 @@ import pytest
 import pyunitwizard as puw
 from argdigest.core.errors import UnknownArgumentError
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 
 @pytest.fixture(scope='module')
@@ -27,12 +27,12 @@ def native_record():
 
 
 def test_fresh_native_scoring_and_rescoring_produce_auditable_evidence():
-    from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+    from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         MINIMAL_REC_PDBQT,
         MINIMAL_LIG_PDBQT,
-        dmt.BoxRegion(
+        bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([10, 10, 10], 'angstrom')
         ),
         metadata={
@@ -40,14 +40,14 @@ def test_fresh_native_scoring_and_rescoring_produce_auditable_evidence():
             'receptor_state_id': 'receptor-control',
         },
     )
-    first = dmt.score(
+    first = bmt.score(
         problem,
-        dmt.VinaProtocol(cpu=1, seed=17, capture_backend_inputs=True),
+        bmt.VinaProtocol(cpu=1, seed=17, capture_backend_inputs=True),
         score_name='vina',
     )
-    second = dmt.score(
+    second = bmt.score(
         problem,
-        dmt.VinaProtocol(
+        bmt.VinaProtocol(
             cpu=1, seed=17, capture_backend_inputs=True, scoring='vinardo'
         ),
         pose=first,
@@ -55,7 +55,7 @@ def test_fresh_native_scoring_and_rescoring_produce_auditable_evidence():
     )
     record = second.to_dict()
     assert len(record['scores']) == 16
-    assert dmt.audit_pose(record)['status'] == 'consistent'
+    assert bmt.audit_pose(record)['status'] == 'consistent'
 
 
 @pytest.fixture
@@ -83,15 +83,15 @@ def test_native_rescoring_record_is_consistent_without_external_operations(
     monkeypatch.setattr(builtins, '__import__', guarded)
     monkeypatch.setattr(builtins, 'open', forbidden)
     before = deepcopy(record)
-    report = dmt.audit_pose(record)
+    report = bmt.audit_pose(record)
     assert report['status'] == 'consistent'
     assert report['scope'] == 'saved_pose_internal_consistency'
-    assert report == dmt.audit_pose(record)
+    assert report == bmt.audit_pose(record)
     assert json.loads(json.dumps(report, allow_nan=False)) == report
     assert 'content_base64' not in json.dumps(report)
     assert record == before
     report['checks'][0]['status'] = 'changed'
-    assert dmt.audit_pose(record)['status'] == 'consistent'
+    assert bmt.audit_pose(record)['status'] == 'consistent'
 
 
 @pytest.mark.parametrize(
@@ -145,7 +145,7 @@ def test_recorded_scoring_contradictions_are_reported(record, field):
         entry['geometry_check']['coordinate_tolerance']['unit'] = 'seconds'
     else:
         entry['preparation']['partner']['assessment_report']['assessment'] = 'qualified'
-    assert dmt.audit_pose(record)['status'] == 'inconsistent'
+    assert bmt.audit_pose(record)['status'] == 'inconsistent'
 
 
 @pytest.mark.parametrize(
@@ -162,7 +162,7 @@ def test_recorded_scoring_contradictions_are_reported(record, field):
 )
 def test_missing_evaluation_evidence_stays_incomplete(record, field):
     del record['metadata']['scoring_history'][0][field]
-    assert dmt.audit_pose(record)['status'] == 'incomplete'
+    assert bmt.audit_pose(record)['status'] == 'incomplete'
 
 
 @pytest.mark.parametrize(
@@ -171,7 +171,7 @@ def test_missing_evaluation_evidence_stays_incomplete(record, field):
 )
 def test_malformed_or_future_history_is_bounded(record, value):
     record['metadata']['scoring_history'] = value
-    report = dmt.audit_pose(record)
+    report = bmt.audit_pose(record)
     assert report['status'] == 'inconsistent'
     assert json.loads(json.dumps(report)) == report
 
@@ -179,9 +179,9 @@ def test_malformed_or_future_history_is_bounded(record, value):
 @pytest.mark.parametrize('value', [True, np.nan, np.inf, '-1'])
 def test_invalid_current_and_historical_scores(record, value):
     record['metadata']['scoring_history'][0]['scores']['vina'] = value
-    assert dmt.audit_pose(record)['status'] == 'inconsistent'
+    assert bmt.audit_pose(record)['status'] == 'inconsistent'
     record['scores']['vina'] = value
-    assert dmt.audit_pose(record)['status'] == 'inconsistent'
+    assert bmt.audit_pose(record)['status'] == 'inconsistent'
 
 
 def test_no_capture_and_unknown_state_are_incomplete(record):
@@ -190,19 +190,19 @@ def test_no_capture_and_unknown_state_are_incomplete(record):
             artifact.pop('content_base64')
         entry['protocol']['parameters']['capture_backend_inputs'] = False
         entry['applied_parameters']['capture_backend_inputs'] = False
-    assert dmt.audit_pose(record)['status'] == 'incomplete'
+    assert bmt.audit_pose(record)['status'] == 'incomplete'
     for entry in record['metadata']['scoring_history']:
         entry['preparation']['partner']['state_id'] = None
         entry['geometry_check']['state_checks']['partner'] = 'unknown'
     record['partner_state_id'] = None
-    assert dmt.audit_pose(record)['status'] == 'incomplete'
+    assert bmt.audit_pose(record)['status'] == 'incomplete'
 
 
 def test_pose_without_history_and_external_scores_keep_unknown_origin(record):
     standalone = {key: value for key, value in record.items() if key != 'metadata'}
-    assert dmt.audit_pose(standalone)['status'] == 'incomplete'
+    assert bmt.audit_pose(standalone)['status'] == 'incomplete'
     record['scores']['review'] = 0.75
-    assert dmt.audit_pose(record)['status'] == 'incomplete'
+    assert bmt.audit_pose(record)['status'] == 'incomplete'
 
 
 def test_explicit_compatible_units_preserve_user_policy(record):
@@ -214,21 +214,21 @@ def test_explicit_compatible_units_preserve_user_policy(record):
             ]
     with puw.context(standard_units=['pm', 'fs', 'kJ/mol']):
         units = deepcopy(puw.configure.get_standard_units())
-        assert dmt.audit_pose(record)['status'] == 'consistent'
+        assert bmt.audit_pose(record)['status'] == 'consistent'
         assert puw.configure.get_standard_units() == units
 
 
 def test_unsupported_pose_schema_is_not_interpreted():
-    report = dmt.audit_pose({'schema_version': '99', 'metadata': object()})
+    report = bmt.audit_pose({'schema_version': '99', 'metadata': object()})
     assert report['status'] == 'inconsistent'
     assert len(report['checks']) == 1
 
 
 def test_public_pose_audit_admission():
     with pytest.raises(ArgumentError):
-        dmt.audit_pose('pose.json')
+        bmt.audit_pose('pose.json')
     with pytest.raises(UnknownArgumentError):
-        dmt.audit_pose({}, unknown=True)
+        bmt.audit_pose({}, unknown=True)
 
 
 def test_retained_descriptor_context_uses_strict_json_semantics(record):
@@ -236,13 +236,13 @@ def test_retained_descriptor_context_uses_strict_json_semantics(record):
     current = record['metadata']['score_definitions']['vina']
     historical['context']['flag'] = 1
     current['context']['flag'] = True
-    assert dmt.audit_pose(record)['status'] == 'inconsistent'
+    assert bmt.audit_pose(record)['status'] == 'inconsistent'
 
 
 def test_historical_score_cannot_disappear_from_current_pose(record):
     del record['scores']['vina']
     del record['metadata']['score_definitions']['vina']
-    assert dmt.audit_pose(record)['status'] == 'inconsistent'
+    assert bmt.audit_pose(record)['status'] == 'inconsistent'
 
 
 @pytest.mark.parametrize(
@@ -258,27 +258,27 @@ def test_invalid_resolved_protocol_is_reported(record, parameters):
     record['metadata']['scoring_history'][0]['protocol']['parameters'].update(
         parameters
     )
-    assert dmt.audit_pose(record)['status'] == 'inconsistent'
+    assert bmt.audit_pose(record)['status'] == 'inconsistent'
 
 
 def test_missing_resolved_parameter_is_not_defaulted(record):
     del record['metadata']['scoring_history'][0]['protocol']['parameters']['cpu']
-    assert dmt.audit_pose(record)['status'] == 'incomplete'
+    assert bmt.audit_pose(record)['status'] == 'incomplete'
 
 
 def test_legacy_scoring_record_is_readable_with_missing_independent_evidence(record):
     for entry in record['metadata']['scoring_history']:
         del entry['score_name']
         del entry['backend_box']
-    assert dmt.DockingPose.from_dict(record).to_dict() == record
-    assert dmt.audit_pose(record)['status'] == 'incomplete'
+    assert bmt.DockingPose.from_dict(record).to_dict() == record
+    assert bmt.audit_pose(record)['status'] == 'incomplete'
 
 
 def test_stored_geometry_is_validated_but_input_match_is_not_replayed(record):
     record['coordinates']['value'][0][0] += 10
-    assert dmt.audit_pose(record)['status'] == 'consistent'
+    assert bmt.audit_pose(record)['status'] == 'consistent'
     record['coordinates']['unit'] = 'seconds'
-    assert dmt.audit_pose(record)['status'] == 'inconsistent'
+    assert bmt.audit_pose(record)['status'] == 'inconsistent'
 
 
 def test_unknown_state_and_different_hash_are_not_replaced(record):
@@ -286,7 +286,7 @@ def test_unknown_state_and_different_hash_are_not_replaced(record):
     entry = record['metadata']['scoring_history'][0]
     entry['backend_artifacts']['partner'].pop('content_base64')
     entry['score_definitions']['vina']['context']['partner_sha256'] = '0' * 64
-    report = dmt.audit_pose(record)
+    report = bmt.audit_pose(record)
     assert report['status'] == 'inconsistent'
     assert {'incomplete', 'inconsistent'} <= {
         item['status'] for item in report['checks']
@@ -308,10 +308,10 @@ class BlockOptional(importlib.abc.MetaPathFinder):
         if fullname.split('.')[0] in ('vina', 'molsysviewer', 'rdkit'):
             raise ModuleNotFoundError(fullname)
 sys.meta_path.insert(0, BlockOptional())
-import dockingmt as dmt
+import bindingmt as bmt
 with open(sys.argv[1]) as stream:
     record = json.load(stream)
-report = dmt.audit_pose(record)
+report = bmt.audit_pose(record)
 assert report['status'] == 'consistent'
 assert 'vina' not in sys.modules and 'molsysviewer' not in sys.modules
 print(report['status'])

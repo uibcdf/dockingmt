@@ -1,6 +1,6 @@
 # Receiving the E3 clustering cutoff correction — 2026-11-08
 
-Owner: [DockingMT #79](../archive/qualify_pose_comparison_and_clustering.md).
+Owner: [BindingMT #79](../archive/qualify_pose_comparison_and_clustering.md).
 Provider: [MolSysMT #659](https://github.com/uibcdf/molsysmt/issues/659).
 Registered before execution; outcome **normal PASS and pm/fs PASS for the
 complete original analytic/adverse selection; full E3 remains unaccepted**.

@@ -1,6 +1,6 @@
 # 3PTB source handoff clarification, 2026-10-10
 
-Owning issue: [DockingMT #5](https://github.com/uibcdf/dockingmt/issues/5).
+Owning issue: [BindingMT #5](https://github.com/uibcdf/bindingmt/issues/5).
 Provider: [MolSysMT #385](https://github.com/uibcdf/molsysmt/issues/385).
 
 The original [prospective protocol](3ptb_prospective_protocol.md) and its
@@ -15,7 +15,7 @@ The case-specific admission command accepts a **caller-supplied plain PDB**.
 It authenticates that file against the original downloaded-byte SHA-256
 `288f7954d4d013fa8eab3808e1037e2958e2dcd12c9eca65a3f1014404a9f9a2`
 before molecular conversion. Generic `gzip` archive extraction is an explicit
-caller action, outside the molecular command; DockingMT gains no compressed
+caller action, outside the molecular command; BindingMT gains no compressed
 PDB reader, format adapter, connectivity inference or molecular parser.
 The immutable compressed source and acquisition receipt stay authoritative.
 Plain input success does **not** qualify direct compressed-input consumption.

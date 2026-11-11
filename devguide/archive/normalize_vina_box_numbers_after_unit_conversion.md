@@ -1,6 +1,6 @@
 ---
 summary: Normalize Vina box numbers after unit conversion
-issue: uibcdf/dockingmt#13
+issue: uibcdf/bindingmt#13
 status: resolved
 opened: 2026-09-26
 closed: 2026-09-26
@@ -27,7 +27,7 @@ Using the official 1IEP PDBQT pair with Vina 1.2.7, seed 42, one CPU,
 exhaustiveness 1 and five requested poses, exact documented box values gave
 one pose with best score -13.286 kcal/mol. Passing the converted floating-point
 values to the same direct Vina code gave two poses with best score -7.531
-kcal/mol. DockingMT gave the latter result. The numeric box values are the
+kcal/mol. BindingMT gave the latter result. The numeric box values are the
 observed input difference; the internal Vina mechanism remains unconfirmed.
 
 Round Vina center and size values to an explicit fine decimal precision after
@@ -43,7 +43,7 @@ unit round-trip noise.
 ## What was refuted
 
 The score difference was reproduced in direct Vina by changing only the box
-numbers, so it is not caused by DockingMT's PDBQT staging or atom-order repair.
+numbers, so it is not caused by BindingMT's PDBQT staging or atom-order repair.
 
 ## Scope and exclusions
 
@@ -71,5 +71,5 @@ The pinned 1IEP check now sends the documented 20 Å box and returned one pose
 at -13.286 kcal/mol, with 0.897 Å identity-ordered heavy-atom positional RMSD
 to the prepared bound ligand. See
 `devguide/validation/1iep_external_pdbqt.md`. The internal Vina sensitivity
-mechanism was not investigated further; the DockingMT boundary now supplies
+mechanism was not investigated further; the BindingMT boundary now supplies
 stable, inspectable numbers.

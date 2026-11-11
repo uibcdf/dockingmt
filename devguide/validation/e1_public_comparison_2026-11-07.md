@@ -1,7 +1,7 @@
 # E1 public interaction-component comparison — 2026-11-07
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78), with
-resource/custody coordination in [#50](https://github.com/uibcdf/dockingmt/issues/50).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78), with
+resource/custody coordination in [#50](https://github.com/uibcdf/bindingmt/issues/50).
 Status at prescription: **prospective; no execution or new measurements recorded**.
 Custody review: **2026-11-14**.
 
@@ -44,11 +44,11 @@ not authenticate a producer or prove historical chemical preparation.
 
 ## Runtime and registration
 
-The supervisor registers `DOCKINGMT_COMPARISON_ROOT` and a fresh
-`DOCKINGMT_COMPARISON_OUTPUT`, exact notebook/cell and prescription identities,
+The supervisor registers `BINDINGMT_COMPARISON_ROOT` and a fresh
+`BINDINGMT_COMPARISON_OUTPUT`, exact notebook/cell and prescription identities,
 all harness files, source revisions and runtime/API file hashes before launch.
 It records the actual Python executable, versions and loaded module origins,
-including the public `dockingmt.compare_scores` implementation, MolSysMT,
+including the public `bindingmt.compare_scores` implementation, MolSysMT,
 PyUnitWizard and assignment/correspondence providers. Record the actual native
 provider identities and any private/borrowed runtime scope. A checkout HEAD
 alone does not identify uncommitted runtime changes or prove installed delivery.
@@ -57,7 +57,7 @@ The observed source HEAD while drafting is
 actual complete candidate used, including any reviewed working-tree files.
 
 This is reception of molecular preparation and comparison over saved energies.
-Guard against `dockingmt.dock`, `dockingmt.score`, importing Vina and hydrogen
+Guard against `bindingmt.dock`, `bindingmt.score`, importing Vina and hydrogen
 generation. No new search, energy, minimization or visualization operation is
 authorized. RDKit may execute the explicitly registered fresh charge/type
 assignments and the provider's declared-graph capability. Preserve all provider
@@ -95,7 +95,7 @@ that a top-level aggregation method has lost Gasteiger/RDKit attribution.
 
 Static review corrected this operation order before registration or scientific
 execution; no failed run prompted the change. The historical export includes
-`REMARK DOCKINGMT_ATOM_TYPES` with `source_status='projected'`: its named typing
+`REMARK BINDINGMT_ATOM_TYPES` with `source_status='projected'`: its named typing
 preceded the real selection/extraction performed by `prepare_ligand`. Assigning
 inside preparation options would instead occur after extraction and retain
 `source_status='assigned'`, changing the exact bytes despite equivalent chemical
@@ -281,7 +281,7 @@ bundle and existing build/cache material are retained without modification.
 
 The corrected consumer is built from
 `a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe` in a fresh sparse Git worktree.
-Wheel `dockingmt-0.0.0+298.ga7422df-py3-none-any.whl`, SHA-256
+Wheel `bindingmt-0.0.0+298.ga7422df-py3-none-any.whl`, SHA-256
 `93d76f898575fb64b39520f33ceded25708270c8042c2a53c9a451acd834bcdd`,
 contains exactly 64 runtime paths and its own distribution metadata, with no
 foreign namespace. All 63 nongenerated paths match that source commit; installed

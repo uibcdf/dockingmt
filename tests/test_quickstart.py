@@ -5,8 +5,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-import dockingmt as dmt
-from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+import bindingmt as bmt
+from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
 
 def test_prepared_input_quickstart_saves_and_restores_original_tiny_result(tmp_path):
@@ -20,7 +20,7 @@ def test_prepared_input_quickstart_saves_and_restores_original_tiny_result(tmp_p
     (tmp_path / 'ligand.pdbqt').write_text(MINIMAL_LIG_PDBQT)
     script = code + (
         "\nPath('consumer.json').write_text(json.dumps({"
-        "'origin': str(Path(dmt.__file__).resolve()), 'version': dmt.__version__}))\n"
+        "'origin': str(Path(bmt.__file__).resolve()), 'version': bmt.__version__}))\n"
     )
     completed = subprocess.run(
         [sys.executable, '-I', '-B', '-c', script],
@@ -35,14 +35,14 @@ def test_prepared_input_quickstart_saves_and_restores_original_tiny_result(tmp_p
     assert 1 <= len(record['poses']) <= 2
     assert record['provenance']['backend'] == 'vina'
     consumer = json.loads((tmp_path / 'consumer.json').read_text())
-    assert consumer['version'] == dmt.__version__
-    assert consumer['origin'] == str(Path(dmt.__file__).resolve())
+    assert consumer['version'] == bmt.__version__
+    assert consumer['origin'] == str(Path(bmt.__file__).resolve())
     original_output = (tmp_path / 'result.json').read_bytes()
     refusal = (
-        'import dockingmt\n'
+        'import bindingmt\n'
         'def forbidden(*args, **kwargs):\n'
         '    raise AssertionError("Existing output reached engine execution")\n'
-        'dockingmt.dock = forbidden\n'
+        'bindingmt.dock = forbidden\n'
     ) + code
     repeated = subprocess.run(
         [sys.executable, '-I', '-B', '-c', refusal],

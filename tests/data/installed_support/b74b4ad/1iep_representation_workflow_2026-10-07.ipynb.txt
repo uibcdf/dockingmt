@@ -7,7 +7,7 @@
    "source": [
     "# 1IEP rooted representation controls\n",
     "\n",
-    "Owning DockingMT issue #17. Inspect six preserved native searches and twelve new searches, plus a separate raw-input repeat. Physical input geometry, chemistry and seven cuts agree. Reversing ROOT changes its first atom and therefore the coordinate origin in the official Vina parser. No preferred ROOT, convergence or affinity claim."
+    "Owning BindingMT issue #17. Inspect six preserved native searches and twelve new searches, plus a separate raw-input repeat. Physical input geometry, chemistry and seven cuts agree. Reversing ROOT changes its first atom and therefore the coordinate origin in the official Vina parser. No preferred ROOT, convergence or affinity claim."
    ]
   },
   {
@@ -40,7 +40,7 @@
     "import gzip, hashlib, json\n",
     "import numpy as np\n",
     "import pyunitwizard as puw\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "root = next(p for p in [Path.cwd(), *Path.cwd().parents] if (p / 'pyproject.toml').exists())\n",
     "path = root / 'devguide/validation/data/1iep_representation/audit_2026-10-07.json.gz'\n",
     "raw = gzip.decompress(path.read_bytes())\n",
@@ -51,7 +51,7 @@
     "print('Original JSON SHA-256:', hashlib.sha256(raw).hexdigest())\n",
     "for variant, pose in record['fixed_conformation_scores'].items():\n",
     "    print(variant, pose['scores'])\n",
-    "    assert dmt.verify_captured_inputs(pose['metadata']['scoring_history'][0]['backend_artifacts'])"
+    "    assert bmt.verify_captured_inputs(pose['metadata']['scoring_history'][0]['backend_artifacts'])"
    ]
   },
   {
@@ -102,7 +102,7 @@
     "    heavy = run['heavy_atom_metrics']\n",
     "    values = [row['heavy_atom_positional_rmsd_angstrom'] for row in heavy]\n",
     "    print(f\"{name:21s} {p['exhaustiveness']:6d} {p['seed']:4d} {len(heavy):5d} {values[0]:11.4f} {min(values):13.4f} {heavy[0]['vina_score_kcal_per_mol']:11.3f}\")\n",
-    "    assert dmt.verify_captured_inputs(run['result']['provenance']['backend_artifacts'])\n",
+    "    assert bmt.verify_captured_inputs(run['result']['provenance']['backend_artifacts'])\n",
     "print('RMSD in angstrom, no alignment or symmetry correction; scores are Vina kcal/mol.')"
    ]
   },
@@ -129,11 +129,11 @@
    ],
    "source": [
     "run = next(r for r in record['new_runs'] if r['variant'] == 'published')\n",
-    "restored = dmt.DockingResult.from_dict(run['result'])\n",
+    "restored = bmt.DockingResult.from_dict(run['result'])\n",
     "xyz = puw.get_value(puw.quantity(record['audit']['source_snapshot']['structures']['coordinates'], 'nm'), to_unit='angstrom')[0]\n",
     "reference = puw.quantity(xyz[run['pdbqt_to_source_atom_indices']], 'angstrom')\n",
     "with puw.context(standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'radians']):\n",
-    "    report = dmt.evaluate_redocking(restored, reference, rmsd_cutoff=puw.quantity(250, 'pm'))\n",
+    "    report = bmt.evaluate_redocking(restored, reference, rmsd_cutoff=puw.quantity(250, 'pm'))\n",
     "assert report['criterion'] == run['evaluation']['criterion']\n",
     "np.testing.assert_allclose([r['rmsd'] for r in report['poses']], [r['rmsd'] for r in run['evaluation']['poses']], rtol=0, atol=1e-12)\n",
     "print('Saved written-order report agrees under pm/fs; no engine searches rerun.')"
@@ -144,7 +144,7 @@
   "kernelspec": {
    "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
    "language": "python",
-   "name": "dockingmt-molsyssuite-314"
+   "name": "bindingmt-molsyssuite-314"
   },
   "language_info": {
    "codemirror_mode": {

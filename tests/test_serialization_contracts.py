@@ -3,14 +3,14 @@ from copy import deepcopy
 import pytest
 import pyunitwizard as puw
 
-from dockingmt import (
+from bindingmt import (
     BoxRegion,
     DockingPose,
     DockingProblem,
     DockingResult,
     VinaProtocol,
 )
-from dockingmt._private.smonitor import ArgumentError
+from bindingmt._private.smonitor import ArgumentError
 
 READERS = [BoxRegion, DockingPose, DockingProblem, DockingResult, VinaProtocol]
 
@@ -36,7 +36,7 @@ def test_reader_rejects_unsupported_schema_before_payload(reader, version):
     # No scientific fields: admission must fail before field access or conversion.
     with pytest.raises(ArgumentError) as caught:
         reader.from_dict({'schema_version': version})
-    assert caught.value.code == 'DMT-E002'
+    assert caught.value.code == 'BMT-E002'
     assert caught.value.extra['arg_name'] == 'schema_version'
     assert caught.value.extra['record_type'] == reader.__name__
     assert caught.value.extra['supported_versions'] == ['1.0']

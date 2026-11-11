@@ -1,4 +1,4 @@
-# dockingmt developer-guide instructions
+# bindingmt developer-guide instructions
 
 Read `../AGENTS.md`, `reporting_protocol.md` and
 [the common working-instruction policy](../MOLSYSSUITE_GUIDE.md#durable-working-instructions).
@@ -19,7 +19,7 @@ action. Retain resource/custody information when needed. A fresh contributor
 must be able to resume from these files without recovering the conversation.
 
 For scientific/performance evidence and its presentation, follow
-[DMT-044](DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
+[BMT-044](DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
 and [the local evidence publication policy](validation/evidence_publication_policy.md).
 When changing the scientific overview or its declared inputs, regenerate its
 derived outputs and run the documented `build_summary.py --check`. Keep frozen

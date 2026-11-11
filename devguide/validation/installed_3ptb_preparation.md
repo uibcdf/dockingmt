@@ -1,9 +1,9 @@
 # Installed 3PTB preparation and protocol admission
 
-Owner: [DockingMT #4](https://github.com/uibcdf/dockingmt/issues/4), coordinated
-with [#33](https://github.com/uibcdf/dockingmt/issues/33). The maintained
+Owner: [BindingMT #4](https://github.com/uibcdf/bindingmt/issues/4), coordinated
+with [#33](https://github.com/uibcdf/bindingmt/issues/33). The maintained
 [notebook](installed_3ptb_preparation.ipynb) exposes the existing public
-MolSysMT/DockingMT preparation recipe without a repository/data harness.
+MolSysMT/BindingMT preparation recipe without a repository/data harness.
 **Run All prepares one receptor and one rigid ligand and admits two problems;
 it never executes Vina, evaluates RMSD or opens a viewer.**
 
@@ -14,11 +14,11 @@ Copy the notebook to your working directory and supply these five inputs before
 starting Jupyter, or edit their assignments in the first cell:
 
 ```bash
-export DOCKINGMT_3PTB_SOURCE="3ptb.pdb.gz"
-export DOCKINGMT_3PTB_SOURCE_SHA256="75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be"
-export DOCKINGMT_3PTB_DECLARATIONS="admission_2026-10-20.json.gz"
-export DOCKINGMT_3PTB_DECLARATIONS_SHA256="79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53"
-export DOCKINGMT_3PTB_OUTPUT="new-preparation-output"
+export BINDINGMT_3PTB_SOURCE="3ptb.pdb.gz"
+export BINDINGMT_3PTB_SOURCE_SHA256="75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be"
+export BINDINGMT_3PTB_DECLARATIONS="admission_2026-10-20.json.gz"
+export BINDINGMT_3PTB_DECLARATIONS_SHA256="79e9283236ebbb645cd75d7c3341d457a8078361466b7a26458c814d8041cd53"
+export BINDINGMT_3PTB_OUTPUT="new-preparation-output"
 jupyter lab
 ```
 
@@ -103,7 +103,7 @@ profiles. Each finishes outside source and shuts down explicitly:
 | Current PDBQT | Both role files byte-identical between the two policies |
 | Engine, energy, RMSD and viewer attempts | Zero guarded calls; zero new searches |
 
-Python is 3.14.8. The unchanged DockingMT archive is
+Python is 3.14.8. The unchanged BindingMT archive is
 `0.0.0+225.g50d8e33`, producer `50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9`,
 SHA-256 `5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98`.
 All 63 installed files are verified before/after each kernel; its 62 nongenerated
@@ -126,12 +126,12 @@ Dependency closure is checked separately, not inferred from kernel completion.
 
 Attempts are retained honestly. An initial notebook-generation syntax error stops
 before kernel execution. The first kernel stops at the refusal assertion because
-the example expected DockingMT's `arg_name` instead of MolSysMT's `argument`.
+the example expected BindingMT's `arg_name` instead of MolSysMT's `argument`.
 The next stops at the coordinate assertion because coordinates are in the outer
 admission sidecar. Each kernel closes. The two corrections change only client
 assertions, not chemistry, controls or tolerances; both final exact-cell profiles
-pass. Their [first amendment](https://github.com/uibcdf/dockingmt/issues/4#issuecomment-6618857115)
-and [second amendment](https://github.com/uibcdf/dockingmt/issues/4#issuecomment-6618882394)
+pass. Their [first amendment](https://github.com/uibcdf/bindingmt/issues/4#issuecomment-6618857115)
+and [second amendment](https://github.com/uibcdf/bindingmt/issues/4#issuecomment-6618882394)
 precede the respective retries. No provider defect or extra scientific case is
 inferred. Expected provider warnings report the explicitly accepted attribute loss.
 
@@ -152,7 +152,7 @@ Retain actual submitted bytes/configuration and original versus new results.
 
 Reference evaluation requires a separate explicit atom-population/correspondence
 decision: the nine-heavy-atom reference cannot be compared directly with a
-13-atom prepared ligand. Use public provider selection/geometry and DockingMT's
+13-atom prepared ligand. Use public provider selection/geometry and BindingMT's
 evaluation semantics; do not copy a private heavy-pose projection helper. The
 [saved-result notebook](installed_result_inspection.md) already serves detached
 audit/inspection afterward. Visual C4/C6 remains deferred under #52/#60.

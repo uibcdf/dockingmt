@@ -1,6 +1,6 @@
 # Source-free flexible reconstruction — 2026-10-24
 
-Owner: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49); provider
+Owner: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49); provider
 [MolSysMT #369](https://github.com/uibcdf/molsysmt/issues/369) is delivered.
 `PreparedLigand.to_molecular_system` now delegates flexible source-free
 reconstruction to public PDBQT conversion and `msm.permute_atoms`. The local PDB
@@ -11,7 +11,7 @@ conversion utility are removed. Native source-backed copy/set remains unchanged.
 
 The existing prepared writer supplies its declared written atom traversal.
 MolSysMT converts those PDBQT bytes with explicit `discard_torsion_tree=True`.
-DockingMT inverts its known traversal as index accounting; public
+BindingMT inverts its known traversal as index accounting; public
 `msm.permute_atoms(..., atom_indices=inverse)` transports the available native
 domains back to the prepared axis. Its contract is `atom_indices[new] = old`.
 No molecular matching, coordinate-only molecular reorder or general permutation

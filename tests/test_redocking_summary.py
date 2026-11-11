@@ -12,14 +12,14 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 
 def make_report(distances=(4, 1), *, top_n=(1, 2, 5), n_atoms=2):
     reference = puw.quantity([[index, 0, 0] for index in range(n_atoms)], 'angstrom')
     poses = [
-        dmt.DockingPose(
+        bmt.DockingPose(
             puw.quantity(
                 [[distance + atom, 0, 0] for atom in range(n_atoms)], 'angstrom'
             ),
@@ -28,7 +28,7 @@ def make_report(distances=(4, 1), *, top_n=(1, 2, 5), n_atoms=2):
         )
         for index, distance in enumerate(distances, 1)
     ]
-    result = dmt.DockingResult(
+    result = bmt.DockingResult(
         poses,
         protocol_info={'seed': 42, 'cpu': 1},
         problem_info={'metadata': {'fixture': ['analytical translations']}},
@@ -38,7 +38,7 @@ def make_report(distances=(4, 1), *, top_n=(1, 2, 5), n_atoms=2):
             'preparation': {'partner': {'assessment': 'unassessed'}},
         },
     )
-    return dmt.evaluate_redocking(
+    return bmt.evaluate_redocking(
         result,
         reference,
         rmsd_cutoff=puw.quantity(2, 'angstrom'),
@@ -48,7 +48,7 @@ def make_report(distances=(4, 1), *, top_n=(1, 2, 5), n_atoms=2):
 
 
 def failure():
-    outcome = dmt.DockingOutcome(
+    outcome = bmt.DockingOutcome(
         0,
         error={
             'type': 'builtins.RuntimeError',
@@ -78,7 +78,7 @@ def test_independent_denominators_empty_cases_and_pose_identity():
         'first': make_report((0,)),
     }
     failures = {'missing': failure()}
-    summary = dmt.summarize_redocking(inputs, failures=failures)
+    summary = bmt.summarize_redocking(inputs, failures=failures)
     assert (summary['n_submitted'], summary['n_evaluated'], summary['n_failed']) == (
         4,
         3,
@@ -136,7 +136,7 @@ def test_independent_denominators_empty_cases_and_pose_identity():
 
 @pytest.mark.parametrize('failures', [None, {}, {'failed': failure()}])
 def test_zero_evaluated_cases_infer_no_policy_or_recovery(failures):
-    summary = dmt.summarize_redocking({}, failures=failures)
+    summary = bmt.summarize_redocking({}, failures=failures)
     assert summary['policy'] is None and summary['top_n'] == []
     assert summary['any_returned'] is None
     assert summary['n_evaluated'] == summary['n_empty_results'] == 0
@@ -146,7 +146,7 @@ def test_zero_evaluated_cases_infer_no_policy_or_recovery(failures):
 
 
 def test_empty_result_is_evaluated_nonrecovery():
-    summary = dmt.summarize_redocking({'empty': make_report(())})
+    summary = bmt.summarize_redocking({'empty': make_report(())})
     assert summary['evaluation_coverage'] == 1
     assert summary['policy'] is not None
     assert summary['any_returned'] == {
@@ -167,7 +167,7 @@ def test_empty_result_is_evaluated_nonrecovery():
 def test_any_returned_recovery_can_occur_beyond_every_requested_top_n():
     report = make_report((9, 8, 7, 6, 5, 1), top_n=(1, 5))
     before = deepcopy(report)
-    summary = dmt.summarize_redocking({'late': report})
+    summary = bmt.summarize_redocking({'late': report})
     assert [entry['n_recovered'] for entry in summary['top_n']] == [0, 0]
     assert summary['any_returned'] == {
         'n_recovered': 1,
@@ -192,7 +192,7 @@ def test_any_returned_denominators_separate_nonrecovery_empty_and_failed():
         'far': make_report((5, 6), top_n=(1, 5)),
         'empty': make_report((), top_n=(1, 5)),
     }
-    summary = dmt.summarize_redocking(reports, failures={'failed': failure()})
+    summary = bmt.summarize_redocking(reports, failures={'failed': failure()})
     assert (
         summary['n_evaluated'],
         summary['n_failed'],
@@ -213,7 +213,7 @@ def test_any_returned_denominators_separate_nonrecovery_empty_and_failed():
 def test_json_detachment_in_both_directions_and_between_output_sections():
     inputs, failures = {'case': make_report()}, {'failed': failure()}
     before = deepcopy((inputs, failures))
-    summary = dmt.summarize_redocking(inputs, failures=failures)
+    summary = bmt.summarize_redocking(inputs, failures=failures)
     assert (inputs, failures) == before
     assert json.loads(json.dumps(summary, allow_nan=False)) == summary
     summary['policy']['protocol_info']['seed'] = 100
@@ -239,7 +239,7 @@ def test_json_detachment_in_both_directions_and_between_output_sections():
         (('context', 'preparation'), None),
         (('context', 'preparation', 'partner', 'assessment'), 'provisional'),
         (('evaluator', 'molsysmt_version'), 'other'),
-        (('evaluator', 'dockingmt_version'), 'other'),
+        (('evaluator', 'bindingmt_version'), 'other'),
     ],
 )
 def test_incompatible_known_unknown_or_changed_declarations_raise(path, value):
@@ -250,14 +250,14 @@ def test_incompatible_known_unknown_or_changed_declarations_raise(path, value):
         target = target[key]
     target[path[-1]] = value
     with pytest.raises(ArgumentError, match='Incompatible'):
-        dmt.summarize_redocking({'a': a, 'b': b})
+        bmt.summarize_redocking({'a': a, 'b': b})
 
 
 def test_top_n_order_and_population_are_conservative_cohort_choices():
     a = make_report(top_n=(1, 2))
     for counts in ((2, 1), (1, 5)):
         with pytest.raises(ArgumentError, match='Incompatible'):
-            dmt.summarize_redocking({'a': a, 'b': make_report(top_n=counts)})
+            bmt.summarize_redocking({'a': a, 'b': make_report(top_n=counts)})
 
 
 def test_different_inputs_atom_counts_domains_and_reference_declarations_remain_case_specific():
@@ -267,7 +267,7 @@ def test_different_inputs_atom_counts_domains_and_reference_declarations_remain_
     b['reference']['snapshot_sha256'] = digest(
         {k: v for k, v in b['reference'].items() if k != 'snapshot_sha256'}
     )
-    summary = dmt.summarize_redocking({'a': a, 'b': b})
+    summary = bmt.summarize_redocking({'a': a, 'b': b})
     assert summary['n_evaluated'] == 2
     assert summary['cases'][0]['reference'] != summary['cases'][1]['reference']
     assert summary['cases'][1]['context'] == {
@@ -298,7 +298,7 @@ def test_malformed_or_inconsistent_saved_reports_raise(field, value):
     report = make_report()
     report[field] = value
     with pytest.raises(ArgumentError):
-        dmt.summarize_redocking({'bad': report})
+        bmt.summarize_redocking({'bad': report})
 
 
 @pytest.mark.parametrize(
@@ -320,7 +320,7 @@ def test_unsupported_criterion_or_units_are_not_silently_normalized(field, value
     report = make_report()
     report['criterion'][field] = value
     with pytest.raises(ArgumentError, match='criterion'):
-        dmt.summarize_redocking({'bad': report})
+        bmt.summarize_redocking({'bad': report})
 
 
 @pytest.mark.parametrize(
@@ -343,7 +343,7 @@ def test_inconsistent_pose_evidence_is_rejected(field, value):
     report = make_report()
     report['poses'][0][field] = value
     with pytest.raises(ArgumentError):
-        dmt.summarize_redocking({'bad': report})
+        bmt.summarize_redocking({'bad': report})
 
 
 @pytest.mark.parametrize(
@@ -361,7 +361,7 @@ def test_top_n_numerical_evidence_must_agree_with_observations(field, value):
     report = make_report()
     report['top_n'][0][field] = value
     with pytest.raises(ArgumentError, match='Top-N'):
-        dmt.summarize_redocking({'bad': report})
+        bmt.summarize_redocking({'bad': report})
 
 
 def test_missing_fields_duplicate_top_n_and_reference_digest_reject():
@@ -377,20 +377,20 @@ def test_missing_fields_duplicate_top_n_and_reference_digest_reject():
         report = make_report()
         mutate(report)
         with pytest.raises(ArgumentError):
-            dmt.summarize_redocking({'bad': report})
+            bmt.summarize_redocking({'bad': report})
 
 
 def test_closest_tie_and_typed_summary_identity_cannot_change():
     tied = make_report((1, 1))
     tied['closest_pose'] = deepcopy(tied['poses'][1])
     with pytest.raises(ArgumentError, match='First/closest'):
-        dmt.summarize_redocking({'tied': tied})
+        bmt.summarize_redocking({'tied': tied})
     report = make_report()
     report['poses'][0]['rank'] = 1
     report['first_pose'] = deepcopy(report['poses'][0])
     report['first_pose']['rank'] = True
     with pytest.raises(ArgumentError, match='First/closest'):
-        dmt.summarize_redocking({'boolean_rank': report})
+        bmt.summarize_redocking({'boolean_rank': report})
 
 
 def test_saved_report_units_are_admitted_without_implicit_conversion():
@@ -403,13 +403,13 @@ def test_saved_report_units_are_admitted_without_implicit_conversion():
     report['first_pose'] = deepcopy(report['poses'][0])
     report['closest_pose'] = deepcopy(report['poses'][1])
     with pytest.raises(ArgumentError, match='angstrom'):
-        dmt.summarize_redocking({'alternate_protocol': report})
+        bmt.summarize_redocking({'alternate_protocol': report})
 
 
 @pytest.mark.parametrize('bad', [None, [], 'report', float('nan'), np.asarray([1])])
 def test_invalid_evaluation_payload_is_rejected(bad):
     with pytest.raises(ArgumentError):
-        dmt.summarize_redocking({'bad': bad})
+        bmt.summarize_redocking({'bad': bad})
 
 
 @pytest.mark.parametrize('bad', [float('inf'), (1, 2), np.float64(1), {1: 'value'}])
@@ -417,7 +417,7 @@ def test_finite_json_contract_is_preserved_even_in_unused_context(bad):
     report = make_report()
     report['context']['caller_extension'] = bad
     with pytest.raises(ArgumentError):
-        dmt.summarize_redocking({'bad': report})
+        bmt.summarize_redocking({'bad': report})
 
 
 @pytest.mark.parametrize(
@@ -433,7 +433,7 @@ def test_finite_json_contract_is_preserved_even_in_unused_context(bad):
 )
 def test_mapping_contract_and_disjoint_case_ids(evaluations, failures):
     with pytest.raises(ArgumentError):
-        dmt.summarize_redocking(evaluations, failures=failures)
+        bmt.summarize_redocking(evaluations, failures=failures)
 
 
 @pytest.mark.parametrize(
@@ -452,13 +452,13 @@ def test_mapping_contract_and_disjoint_case_ids(evaluations, failures):
 )
 def test_declared_failures_use_typed_outcome_error_contract(bad):
     with pytest.raises(ArgumentError):
-        dmt.summarize_redocking({}, failures={'bad': bad})
+        bmt.summarize_redocking({}, failures={'bad': bad})
 
 
 def test_unknown_preparation_is_preserved_without_qualification():
     a = make_report()
     a['context']['preparation'] = None
-    summary = dmt.summarize_redocking({'unknown': a})
+    summary = bmt.summarize_redocking({'unknown': a})
     assert summary['policy']['preparation'] is None
     assert summary['interpretation'] == 'observations_in_caller_selected_cases'
 
@@ -471,9 +471,9 @@ def test_nondefault_units_and_no_molecular_or_engine_calls(monkeypatch):
 
     monkeypatch.setattr(msm.structure, 'get_rmsd', forbidden)
     monkeypatch.setattr(msm, 'convert', forbidden)
-    monkeypatch.setattr(dmt, 'dock', forbidden)
+    monkeypatch.setattr(bmt, 'dock', forbidden)
     with puw.context(standard_units=['pm', 'fs']):
-        summary = dmt.summarize_redocking({'saved': report})
+        summary = bmt.summarize_redocking({'saved': report})
     assert summary['policy']['criterion']['unit'] == 'angstrom'
     assert summary['cases'][0]['first_pose']['rmsd'] == pytest.approx(4)
 
@@ -488,9 +488,9 @@ class Block(importlib.abc.MetaPathFinder):
         if fullname.split('.')[0] in ('vina', 'molsysviewer', 'meeko'):
             raise AssertionError(fullname)
 sys.meta_path.insert(0, Block())
-import dockingmt as dmt
+import bindingmt as bmt
 from pathlib import Path
-summary = dmt.summarize_redocking(json.loads(Path(sys.argv[1]).read_text()))
+summary = bmt.summarize_redocking(json.loads(Path(sys.argv[1]).read_text()))
 assert summary['n_evaluated'] == 1
 assert summary['top_n'][0]['n_recovered'] == 0
 assert summary['any_returned']['n_recovered'] == 1
@@ -514,9 +514,9 @@ def test_retained_native_reports_show_positive_and_displaced_controls():
         ).read_text()
     )
     with pytest.raises(ArgumentError, match='Incompatible'):
-        dmt.summarize_redocking(reports)
+        bmt.summarize_redocking(reports)
     selected = {key: reports[key] for key in ('1iep_external', '1iep_displaced_domain')}
-    summary = dmt.summarize_redocking(selected, failures={'fixture': failure()})
+    summary = bmt.summarize_redocking(selected, failures={'fixture': failure()})
     assert summary['n_evaluated'] == 2 and summary['n_failed'] == 1
     assert all(
         entry['n_recovered'] == 1

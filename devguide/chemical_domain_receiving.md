@@ -1,6 +1,6 @@
 # Receiving independent chemical domains
 
-This source migration is owned by `uibcdf/dockingmt#56`, coordinated with
+This source migration is owned by `uibcdf/bindingmt#56`, coordinated with
 `uibcdf/molsysmt#255` and `uibcdf/molsyssuite#155`.
 
 ## Current source contract
@@ -34,7 +34,7 @@ compares the two graphs and verifies unchanged source data. It replaces an
 obsolete expected capability failure in the current receiving guard.
 
 `devtools.qualify_chemical_templates.snapshot` uses schema
-`dockingmt.chemical_template_snapshot@3`: its stable TopologyDict contains no
+`bindingmt.chemical_template_snapshot@3`: its stable TopologyDict contains no
 bonds, while the complete ChemicalStatesDict remains a separate snapshot. This
 keeps multistate bonds and preparation history in the mutation audit.
 
@@ -77,7 +77,7 @@ and an explicitly complete zero-bond graph. Copies, MolSysDict and H5MSM 0.5
 round trips preserve nonconsecutive selected atom axes, string IDs, structure state
 labels and coordinates under angstrom/pm application policies. A controlled
 provider edit of the recovered copy preserves both the source and the already
-extracted DockingMT input. No downstream chemical store or reconstruction is added.
+extracted BindingMT input. No downstream chemical store or reconstruction is added.
 
 The preexisting 103-case receiving selection and all 13 new cases pass against
 the new ordinary-built provider wheel in the development receiver. Its inherited
@@ -93,10 +93,10 @@ operational diagnostics remain local.
 ## Source adoption and executed owner qualification — 2026-11-02
 
 Source implementation `79740b4ce373c8d98da6f1c9f5633456381f73fa` is adopted from
-[PR #59](https://github.com/uibcdf/dockingmt/pull/59). Full local source validation
+[PR #59](https://github.com/uibcdf/bindingmt/pull/59). Full local source validation
 passes **1,381 tests**, zero skips, 857.34 s, 327 warnings, Python 3.14.7/Pandas
-2.3.3. Exact-source [PR CI](https://github.com/uibcdf/dockingmt/actions/runs/41578225641)
-and [branch CI](https://github.com/uibcdf/dockingmt/actions/runs/41578221426)
+2.3.3. Exact-source [PR CI](https://github.com/uibcdf/bindingmt/actions/runs/41578225641)
+and [branch CI](https://github.com/uibcdf/bindingmt/actions/runs/41578221426)
 each pass **1,381 tests per Python 3.11–3.14**, zero test skips, ordinary installed,
 source-context and dependency-closure gates. Policy and publication governance
 pass. Coverage publication is intentionally inapplicable on those events; the
@@ -141,17 +141,17 @@ ArgDigest pins, molecular implementation and scientific expectations are unchang
 
 The private ordinary wheels above retain their original producers, versions and
 SHA-256 values. Neither wheel is rebuilt or relabelled to represent main. Installed
-Python/native members and all 58 DockingMT runtime files are checked again before
+Python/native members and all 58 BindingMT runtime files are checked again before
 qualification. The complete `tests` selection is re-executed through immutable
 SDK `738fe8dd731abb99dac421b0bb2acc8564110180` in the verified corrected context:
 real Git history, root governance/workflow files, complete fixtures and no runtime
 source packages. Inherited pytest source paths remain cleared. Its new full-run
-receipt and actual result are recorded on [#56](https://github.com/uibcdf/dockingmt/issues/56),
+receipt and actual result are recorded on [#56](https://github.com/uibcdf/bindingmt/issues/56),
 separately from the failed original run and 131-case correction above. The new
 run does not rewrite either earlier result.
 
 The provider's eight-cell source matrix and exact-main smoke gates have succeeded;
-the [owner handoff](https://github.com/uibcdf/dockingmt/issues/56#issuecomment-6596245045)
+the [owner handoff](https://github.com/uibcdf/bindingmt/issues/56#issuecomment-6596245045)
 retains disclosed optional skips and separates original versus main execution.
 This is not provider package publication. Remaining public coordinates, justified
 published API minimum and exact installed/platform admission stay under #30/#47;

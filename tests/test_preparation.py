@@ -3,15 +3,15 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.molecular_fixtures import named_181l_pair
-from dmt_test_support.qualify_named_types import TYPING
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.preparation import (
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.preparation import (
     PreparedLigand,
     PreparedReceptor,
     prepare_ligand,
     prepare_receptor,
 )
+from bmt_test_support.molecular_fixtures import named_181l_pair
+from bmt_test_support.qualify_named_types import TYPING
 
 
 @pytest.mark.parametrize('name', ['', 'H1291'])

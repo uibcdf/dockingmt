@@ -1,6 +1,6 @@
 # Shared provider-correction artifact admission — 2026-11-08
 
-Owners: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md),
+Owners: [BindingMT #33](../pending_proposals/validate_native_molsysmt_formats.md),
 [#49](../pending_proposals/retire_general_molecular_operations.md) and
 [#80](../pending_proposals/receive_docking_interaction_analysis.md).
 Starting source: `acce58e3dc0ff17673f091b42765fb65257b8977`.
@@ -26,7 +26,7 @@ reaches strict full39/prepared25 maps and exact current source/control bytes on
 this editable cohort. Whole normal receiving remains FAIL at the documented
 H5MSM 0.5 mechanics boundary; pm/fs and final live checks are unreached.
 MolSysMT #256 owns lossless storage and #604 comparison/clustering. Earlier
-historical PDBQT replay failure remains separately failed under DockingMT #88.
+historical PDBQT replay failure remains separately failed under BindingMT #88.
 This is not an installation/native-rebuild hold or public-package wait.
 
 Current client receiving — 2026-11-08: [the complete original catalog selection](e4_evidence_catalog_editable_2026-11-08.md)
@@ -40,7 +40,7 @@ and installed/public/minor/platform requirements retain their own scope.
 
 After the maintainer reported completing the editable reinstall, the routine
 environment actually imports MolSysMT `0.23.0+687.g2325038e8` from clean
-`../molsysmt` at `2325038e8c68157f5c730693ffbb8535f0b45540`, and DockingMT from
+`../molsysmt` at `2325038e8c68157f5c730693ffbb8535f0b45540`, and BindingMT from
 this editable checkout. The loaded `_rust.abi3.so` is 101,190,496 bytes, SHA-256
 `5715bda28be19820e96c2b81e4734bf75e1a9f05dd660d9c7e2817bc6bcd79d3`;
 it differs from the earlier unchanged binary. Imports retain the application's
@@ -53,7 +53,7 @@ complete evidence-catalog persistence across four routes, invalid formal-charge
 diagnostics/nonmutation, explicit indexed-H normalization with typed history,
 component-type comparison flags, direct rotated-cell native kernels and changing-
 cell unwrap. The original provider guards include normal/nondefault unit
-profiles. Eight existing DockingMT modules pass **383 cases once**, zero
+profiles. Eight existing BindingMT modules pass **383 cases once**, zero
 failures/errors/skips, for result/pose/protocol/box/schema/argument boundaries.
 No assertion, selected guard or source module is modified. The
 [11-member archive](data/editable_provider_receiving_2026-11-08/manifest.json)

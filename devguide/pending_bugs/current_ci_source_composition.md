@@ -1,6 +1,6 @@
 ---
 summary: Current source CI declarations differ from the received development composition.
-issue: uibcdf/dockingmt#100
+issue: uibcdf/bindingmt#100
 status: partial
 opened: 2026-11-09
 closed:

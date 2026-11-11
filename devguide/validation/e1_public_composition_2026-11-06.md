@@ -1,6 +1,6 @@
 # E1 public reconstruction and additive rescoring — 2026-11-06
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
 Status at prescription: **prospective**. This receives the first missing
 boundary in the [public-workflow review](e1_public_workflow_review_2026-11-06.md):
 existing docking result → public reconstruction → explicit repreparation →
@@ -106,7 +106,7 @@ comparison policy or new public comparison API is claimed.
 
 ## Runtime, counters and failure policy
 
-Reuse the exact private DockingMT/support wheels, borrowed MolSysMT snapshot and
+Reuse the exact private BindingMT/support wheels, borrowed MolSysMT snapshot and
 Vina/Boost overlay of the [installed receiving](e1_installed_receiving_2026-11-06.md).
 Check 3,824 private paths and 103 engine paths before/after, actual module/native
 origins/versions and unchanged routine Conda metadata. Retain the generated

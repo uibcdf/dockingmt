@@ -11,8 +11,8 @@ import pandas as pd
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_5x72_occupancy import (
+import bindingmt as bmt
+from bmt_test_support.qualify_5x72_occupancy import (
     DATA,
     atom_fields,
     diagnostic_rows,
@@ -25,7 +25,7 @@ from dmt_test_support.qualify_5x72_occupancy import (
     reference_box,
     sha,
 )
-from dmt_test_support.qualify_5x72_reciprocal import ARMS, BASELINE_SHA, OUTPUT
+from bmt_test_support.qualify_5x72_reciprocal import ARMS, BASELINE_SHA, OUTPUT
 
 UNITS = ['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'radians']
 
@@ -39,10 +39,10 @@ def prepared():
 
 
 def assert_evaluation(data, original, receptor):
-    pose = dmt.DockingPose.from_dict(data)
+    pose = bmt.DockingPose.from_dict(data)
     history = pose.metadata['scoring_history'][-1]
     artifacts = history['backend_artifacts']
-    assert dmt.verify_captured_inputs(artifacts)
+    assert bmt.verify_captured_inputs(artifacts)
     assert (
         base64.b64decode(artifacts['receptor']['content_base64']) == receptor.encode()
     )
@@ -111,7 +111,7 @@ def test_saved_p69_geometry_keeps_its_tree_under_pm_fs(prepared, order):
         for r in load_baseline()['new_runs']
         if r['ligand'] == 'p69' and r['order'] == order
     )
-    original = dmt.DockingResult.from_dict(run['result']).poses[0]
+    original = bmt.DockingResult.from_dict(run['result']).poses[0]
     with puw.context(standard_units=UNITS):
         written = frozen_partner(case['controls'][order], original)
         atoms = atom_fields(written)
@@ -131,16 +131,16 @@ def test_live_reciprocal_search_and_both_frozen_contexts_under_pm_fs(prepared):
     control = case['controls']['first_fixed']
     receptors = {k: v['pdbqt'] for k, v in preparation['receptors'].items()}
     with puw.context(standard_units=UNITS):
-        result = dmt.dock(
-            dmt.DockingProblem(
+        result = bmt.dock(
+            bmt.DockingProblem(
                 receptors['occupied'], control['pdbqt'], reference_box()
             ),
-            dmt.VinaProtocol(
+            bmt.VinaProtocol(
                 cpu=1, seed=42, exhaustiveness=1, n_poses=1, capture_backend_inputs=True
             ),
         )
         assert len(result.poses) == 1 and result.poses[0].n_atoms == 25
-        assert dmt.verify_captured_inputs(result.provenance['backend_artifacts'])
+        assert bmt.verify_captured_inputs(result.provenance['backend_artifacts'])
         assert len(measure(result, case, control)) == 1
         original = result.poses[0]
         before = original.to_dict()
@@ -173,7 +173,7 @@ def test_saved_reciprocal_matrix_and_all_historical_serialization_controls():
                     parameters['exhaustiveness'],
                 )
             )
-            result = dmt.DockingResult.from_dict(run['result'])
+            result = bmt.DockingResult.from_dict(run['result'])
             case = record['cases']['p69']
             measured = measure(result, case, case['controls'][run['order']])
             for current, saved in zip(measured, run['heavy_atom_metrics'], strict=True):
@@ -183,7 +183,7 @@ def test_saved_reciprocal_matrix_and_all_historical_serialization_controls():
                     saved['heavy_atom_positional_rmsd_angstrom'], abs=1e-10
                 )
             artifacts = result.provenance['backend_artifacts']
-            assert dmt.verify_captured_inputs(artifacts)
+            assert bmt.verify_captured_inputs(artifacts)
             assert (
                 artifacts['receptor']['sha256']
                 == record['preparation']['receptors'][run['receptor']]['sha256']
@@ -206,7 +206,7 @@ def test_saved_reciprocal_matrix_and_all_historical_serialization_controls():
                     and r['result']['protocol_info']['parameters'] == parameters
                 )
                 for old, new in zip(
-                    dmt.DockingResult.from_dict(prior['result']).poses,
+                    bmt.DockingResult.from_dict(prior['result']).poses,
                     result.poses,
                     strict=True,
                 ):
@@ -226,7 +226,7 @@ def test_saved_reciprocal_matrix_and_all_historical_serialization_controls():
                 and observed['protocol'] == prior['result']['protocol_info']
             )
             for original, pair in zip(
-                dmt.DockingResult.from_dict(prior['result']).poses,
+                bmt.DockingResult.from_dict(prior['result']).poses,
                 observed['fixed_scores'],
                 strict=True,
             ):

@@ -5,11 +5,11 @@
    "id": "1032073b",
    "metadata": {},
    "source": [
-    "# Stored chemical coverage before DockingMT preparation\n",
+    "# Stored chemical coverage before BindingMT preparation\n",
     "\n",
-    "Consumer evidence for DockingMT #5/#33 and MolSysMT #217. The provider audits\n",
+    "Consumer evidence for BindingMT #5/#33 and MolSysMT #217. The provider audits\n",
     "stored fields without repairing chemistry. Presence is distinct from scientific\n",
-    "validity; DockingMT's existing provisional-preparation safeguard remains active.\n",
+    "validity; BindingMT's existing provisional-preparation safeguard remains active.\n",
     "See `chemical_readiness_consumption.md` for contracts, axes and limits.\n"
    ]
   },
@@ -33,7 +33,7 @@
       "{\n",
       "  \"python\": \"3.14.7\",\n",
       "  \"interpreter\": \"/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\",\n",
-      "  \"provider_import\": \"/tmp/dockingmt-readiness-provider-3edbf8ad0/molsysmt/__init__.py\",\n",
+      "  \"provider_import\": \"/tmp/bindingmt-readiness-provider-3edbf8ad0/molsysmt/__init__.py\",\n",
       "  \"qualified_provider_source\": \"3edbf8ad0a13b9a56a009c0bd3f707e54b807351\",\n",
       "  \"provider_readiness_sha256\": \"62b715f2dc63dbee6e4bfd79437b1ed61e82e144e80ef35c88b4878bc9747540\"\n",
       "}\n"
@@ -47,7 +47,7 @@
     "import sys\n",
     "\n",
     "import molsysmt as msm\n",
-    "from dockingmt.preparation import prepare_ligand\n",
+    "from bindingmt.preparation import prepare_ligand\n",
     "\n",
     "root = next(path for path in [Path.cwd(), *Path.cwd().parents]\n",
     "            if (path / \"devguide/validation/data/readiness/preparation_profile.json\").is_file())\n",
@@ -488,7 +488,7 @@
       "  \"sampling\": \"Five paired rounds per role, alternating profile order after one warm-up per profile.\",\n",
       "  \"python\": \"3.14.7\",\n",
       "  \"interpreter\": \"/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\",\n",
-      "  \"provider_import\": \"/tmp/dockingmt-readiness-provider-3edbf8ad0/molsysmt/__init__.py\",\n",
+      "  \"provider_import\": \"/tmp/bindingmt-readiness-provider-3edbf8ad0/molsysmt/__init__.py\",\n",
       "  \"qualified_provider_source\": \"3edbf8ad0a13b9a56a009c0bd3f707e54b807351\",\n",
       "  \"provider_readiness_sha256\": \"62b715f2dc63dbee6e4bfd79437b1ed61e82e144e80ef35c88b4878bc9747540\",\n",
       "  \"cases\": [\n",

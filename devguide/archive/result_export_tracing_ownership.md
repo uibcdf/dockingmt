@@ -1,6 +1,6 @@
 ---
 summary: Preserve caller tracing in the developer result-export benchmark.
-issue: uibcdf/dockingmt#48
+issue: uibcdf/bindingmt#48
 status: resolved
 opened: 2026-10-08
 closed: 2026-10-08
@@ -64,7 +64,7 @@ manual policy/publication gates verify source controls after the authorized
 conditional internal skip; they do not execute these regressions remotely or
 clear full-suite debt. The five guards are executed locally on the committed
 code. Diego/Liliana and existing nightly/manual recovery retain full-suite
-evidence under uibcdf/dockingmt#30 and uibcdf/molsyssuite#104.
+evidence under uibcdf/bindingmt#30 and uibcdf/molsyssuite#104.
 
 ## Guard entry-point correction — 2026-11-05
 

@@ -11,10 +11,10 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.molecular_fixtures import named_181l_pair
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.core.results import _molecular_atom_keys
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.core.results import _molecular_atom_keys
+from bmt_test_support.molecular_fixtures import named_181l_pair
 
 
 @pytest.fixture
@@ -37,7 +37,7 @@ def make_pose(reference, distance, *, rank=None, pose_id=None, order=None):
     if order is not None:
         coordinates = coordinates[order]
         keys = [keys[index] for index in order]
-    return dmt.DockingPose(
+    return bmt.DockingPose(
         puw.quantity(coordinates, 'angstrom'),
         rank=rank,
         pose_id=pose_id,
@@ -47,7 +47,7 @@ def make_pose(reference, distance, *, rank=None, pose_id=None, order=None):
 
 
 def evaluate(result, reference, **kwargs):
-    return dmt.evaluate_redocking(
+    return bmt.evaluate_redocking(
         result, reference, rmsd_cutoff=puw.quantity(2, 'angstrom'), **kwargs
     )
 
@@ -57,7 +57,7 @@ def test_translation_first_position_closest_and_top_n(reference):
         make_pose(reference, 4, rank=1, pose_id='far'),
         make_pose(reference, 1, rank=2, pose_id='near'),
     ]
-    result = dmt.DockingResult(poses)
+    result = bmt.DockingResult(poses)
     report = evaluate(result, reference, top_n=(1, 2, 5))
     np.testing.assert_allclose(
         [row['rmsd'] for row in report['poses']], [4, 1], atol=1e-12
@@ -77,7 +77,7 @@ def test_translation_first_position_closest_and_top_n(reference):
 
 
 def test_permuted_pose_mapping_and_tied_closest_keep_input_order(reference):
-    result = dmt.DockingResult(
+    result = bmt.DockingResult(
         [make_pose(reference, 0, order=[2, 0, 1]), make_pose(reference, 0)]
     )
     report = evaluate(result, reference)
@@ -88,13 +88,13 @@ def test_permuted_pose_mapping_and_tied_closest_keep_input_order(reference):
 def test_reordered_molecular_reference_uses_verified_identity(reference):
     pose = make_pose(reference, 0)
     reordered = msm.extract(reference, selection=[2, 0, 1])
-    assert evaluate(dmt.DockingResult([pose]), reordered)['poses'][0][
+    assert evaluate(bmt.DockingResult([pose]), reordered)['poses'][0][
         'rmsd'
     ] == pytest.approx(0)
 
 
 def test_current_positions_are_independent_of_declared_ranks(reference):
-    result = dmt.DockingResult(
+    result = bmt.DockingResult(
         [make_pose(reference, 5, rank=9), make_pose(reference, 0, rank=1)]
     )
     report = evaluate(result, reference)
@@ -104,7 +104,7 @@ def test_current_positions_are_independent_of_declared_ranks(reference):
 
 
 def test_report_is_finite_json_detached_and_excludes_captured_payloads(reference):
-    result = dmt.DockingResult(
+    result = bmt.DockingResult(
         [make_pose(reference, 0)],
         problem_info={
             'metadata': {'case': ['original']},
@@ -134,9 +134,9 @@ def test_report_is_finite_json_detached_and_excludes_captured_payloads(reference
 
 
 def test_nondefault_unit_policy_has_explicit_fixed_unit_output(reference):
-    result = dmt.DockingResult([make_pose(reference, 3)])
+    result = bmt.DockingResult([make_pose(reference, 3)])
     with puw.context(standard_units=['pm', 'fs']):
-        report = dmt.evaluate_redocking(
+        report = bmt.evaluate_redocking(
             result, reference, rmsd_cutoff=puw.quantity(0.2, 'nm')
         )
         assert report['criterion']['unit'] == 'angstrom'
@@ -147,7 +147,7 @@ def test_nondefault_unit_policy_has_explicit_fixed_unit_output(reference):
 
 
 def test_empty_result_has_no_best_pose_or_recovery(reference):
-    report = evaluate(dmt.DockingResult([]), reference)
+    report = evaluate(bmt.DockingResult([]), reference)
     assert report['n_poses'] == 0
     assert report['first_pose'] is None and report['closest_pose'] is None
     assert all(
@@ -157,8 +157,8 @@ def test_empty_result_has_no_best_pose_or_recovery(reference):
 
 def test_explicit_coordinate_reference_is_labelled_positional():
     coordinates = puw.quantity([[0, 0, 0], [1, 0, 0]], 'angstrom')
-    pose = dmt.DockingPose(coordinates)
-    report = evaluate(dmt.DockingResult([pose]), coordinates)
+    pose = bmt.DockingPose(coordinates)
+    report = evaluate(bmt.DockingResult([pose]), coordinates)
     assert report['criterion']['atom_correspondence'] == 'caller_declared_positional'
     assert report['poses'][0]['atom_keys'] is None
     assert report['reference']['atom_keys'] is None
@@ -167,7 +167,7 @@ def test_explicit_coordinate_reference_is_labelled_positional():
 
 def test_same_pose_reference_uses_verified_map(reference):
     pose = make_pose(reference, 0)
-    assert evaluate(dmt.DockingResult([pose]), pose)['poses'][0][
+    assert evaluate(bmt.DockingResult([pose]), pose)['poses'][0][
         'rmsd'
     ] == pytest.approx(0)
 
@@ -185,13 +185,13 @@ def test_same_pose_reference_uses_verified_map(reference):
 )
 def test_invalid_cutoff_rejected(reference, cutoff):
     with pytest.raises(ArgumentError):
-        dmt.evaluate_redocking(dmt.DockingResult([]), reference, rmsd_cutoff=cutoff)
+        bmt.evaluate_redocking(bmt.DockingResult([]), reference, rmsd_cutoff=cutoff)
 
 
 @pytest.mark.parametrize('top_n', [0, (0,), (True,), (1.5,), (), (1, 1), '1'])
 def test_invalid_top_positions_rejected(reference, top_n):
     with pytest.raises(ArgumentError):
-        evaluate(dmt.DockingResult([]), reference, top_n=top_n)
+        evaluate(bmt.DockingResult([]), reference, top_n=top_n)
 
 
 @pytest.mark.parametrize(
@@ -199,7 +199,7 @@ def test_invalid_top_positions_rejected(reference, top_n):
 )
 def test_reference_declarations_require_strict_finite_json(reference, info):
     with pytest.raises(ArgumentError):
-        evaluate(dmt.DockingResult([]), reference, reference_info=info)
+        evaluate(bmt.DockingResult([]), reference, reference_info=info)
 
 
 def test_conflicting_known_states_are_not_aggregated(reference):
@@ -207,7 +207,7 @@ def test_conflicting_known_states_are_not_aggregated(reference):
     poses[0].partner_state_id = 'one'
     poses[1].partner_state_id = 'another'
     with pytest.raises(ArgumentError, match='Conflicting'):
-        evaluate(dmt.DockingResult(poses), reference)
+        evaluate(bmt.DockingResult(poses), reference)
 
 
 def test_different_atom_populations_are_not_aggregated(reference):
@@ -216,28 +216,28 @@ def test_different_atom_populations_are_not_aggregated(reference):
         make_pose(msm.extract(reference, selection=[0, 1]), 0),
     ]
     with pytest.raises(ArgumentError, match='population'):
-        evaluate(dmt.DockingResult(poses), reference)
+        evaluate(bmt.DockingResult(poses), reference)
 
 
 def test_unmapped_pose_against_molecular_reference_is_rejected(reference):
-    pose = dmt.DockingPose(puw.quantity(np.zeros((3, 3)), 'angstrom'))
+    pose = bmt.DockingPose(puw.quantity(np.zeros((3, 3)), 'angstrom'))
     with pytest.raises(ArgumentError, match='verified source atom map'):
-        evaluate(dmt.DockingResult([pose]), reference)
+        evaluate(bmt.DockingResult([pose]), reference)
 
 
 def test_multiframe_reference_rejected(reference):
     reference = msm.extract(reference, structure_indices=[0, 0])
     with pytest.raises(ArgumentError, match='one reference'):
-        evaluate(dmt.DockingResult([]), reference)
+        evaluate(bmt.DockingResult([]), reference)
 
 
 def test_coordinate_reference_count_and_single_frame_are_required():
-    pose = dmt.DockingPose(puw.quantity(np.zeros((2, 3)), 'angstrom'))
+    pose = bmt.DockingPose(puw.quantity(np.zeros((2, 3)), 'angstrom'))
     with pytest.raises(ArgumentError, match='atom count'):
-        evaluate(dmt.DockingResult([pose]), puw.quantity(np.zeros((3, 3)), 'angstrom'))
+        evaluate(bmt.DockingResult([pose]), puw.quantity(np.zeros((3, 3)), 'angstrom'))
     with pytest.raises(ArgumentError, match='one nonempty'):
         evaluate(
-            dmt.DockingResult([pose]), puw.quantity(np.zeros((2, 2, 3)), 'angstrom')
+            bmt.DockingResult([pose]), puw.quantity(np.zeros((2, 2, 3)), 'angstrom')
         )
 
 
@@ -245,19 +245,19 @@ def test_nonfinite_pose_is_not_a_failed_recovery(reference):
     pose = make_pose(reference, 0)
     pose.coordinates[0, 0] = puw.quantity(float('nan'), 'nm')
     with pytest.raises(ArgumentError, match='finite'):
-        evaluate(dmt.DockingResult([pose]), reference)
+        evaluate(bmt.DockingResult([pose]), reference)
 
 
 def test_complex_coordinate_reference_is_not_silently_cast_to_real():
     coordinates = puw.quantity([[0, 0, 1j]], 'angstrom')
     with pytest.raises(ArgumentError, match='real lengths'):
-        evaluate(dmt.DockingResult([]), coordinates)
+        evaluate(bmt.DockingResult([]), coordinates)
 
 
 def test_provider_error_propagates_and_inclusive_cutoff_is_literal(
     reference, monkeypatch
 ):
-    result = dmt.DockingResult([make_pose(reference, 0)])
+    result = bmt.DockingResult([make_pose(reference, 0)])
     monkeypatch.setattr(
         result, 'get_rmsds', lambda **kwargs: [puw.quantity(2, 'angstrom')]
     )
@@ -276,12 +276,12 @@ def test_provider_error_propagates_and_inclusive_cutoff_is_literal(
 def test_evaluation_of_saved_coordinates_needs_no_engine_or_viewer():
     program = """
 import sys
-import dockingmt as dmt
+import bindingmt as bmt
 import pyunitwizard as puw
 coordinates = puw.quantity([[0, 0, 0]], 'nm')
-saved = dmt.DockingResult([dmt.DockingPose(coordinates)]).to_dict()
-restored = dmt.DockingResult.from_dict(saved)
-report = dmt.evaluate_redocking(restored, coordinates, rmsd_cutoff=puw.quantity(1, 'angstrom'))
+saved = bmt.DockingResult([bmt.DockingPose(coordinates)]).to_dict()
+restored = bmt.DockingResult.from_dict(saved)
+report = bmt.evaluate_redocking(restored, coordinates, rmsd_cutoff=puw.quantity(1, 'angstrom'))
 assert report['poses'][0]['recovered']
 assert 'vina' not in sys.modules and 'molsysviewer' not in sys.modules and 'meeko' not in sys.modules
 """
@@ -294,28 +294,28 @@ def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
     # A seed records the search choice, not a portable recovery guarantee.
     # Independently check the report against every actual returned geometry.
     results = []
-    dock = dmt.dock
+    dock = bmt.dock
 
     def recorded_dock(*args, **kwargs):
         result = dock(*args, **kwargs)
         results.append(result)
         return result
 
-    monkeypatch.setattr(dmt, 'dock', recorded_dock)
+    monkeypatch.setattr(bmt, 'dock', recorded_dock)
     receptor, ligand = named_181l_pair()
     native = msm.convert(
         msm.systems['T4 lysozyme L99A']['181l.pdb'], to_form='molsysmt.MolSys'
     )
     reference = msm.extract(native, selection="group_name=='BNZ'")
-    domain = dmt.BoxRegion.from_selection(
+    domain = bmt.BoxRegion.from_selection(
         native, selection="group_name=='BNZ'", padding=puw.quantity(8, 'angstrom')
     )
-    protocol = dmt.VinaProtocol(
+    protocol = bmt.VinaProtocol(
         seed=42, cpu=1, exhaustiveness=1, n_poses=5, capture_backend_inputs=True
     )
     reports = {
-        '181l_named': dmt.evaluate_redocking(
-            dmt.dock(dmt.DockingProblem(receptor, ligand, domain), protocol),
+        '181l_named': bmt.evaluate_redocking(
+            bmt.dock(bmt.DockingProblem(receptor, ligand, domain), protocol),
             reference,
             rmsd_cutoff=puw.quantity(2.5, 'angstrom'),
         )
@@ -327,7 +327,7 @@ def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
 
     # The original producer stays untouched. Current external controls use the
     # same digest-checked input bytes and full 40-atom positional reference.
-    from dmt_test_support.qualify_redocking_evaluation import DATA, INPUT_DIGESTS
+    from bmt_test_support.qualify_redocking_evaluation import DATA, INPUT_DIGESTS
 
     for filename, digest in INPUT_DIGESTS.items():
         assert hashlib.sha256((DATA / filename).read_bytes()).hexdigest() == digest
@@ -342,7 +342,7 @@ def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
         ('1iep_external', [15.190, 53.903, 16.917]),
         ('1iep_displaced_domain', [45.190, 53.903, 16.917]),
     ]:
-        domain = dmt.BoxRegion(
+        domain = bmt.BoxRegion(
             puw.quantity(center, 'angstrom'), puw.quantity([20, 20, 20], 'angstrom')
         )
         if name == '1iep_displaced_domain':
@@ -350,8 +350,8 @@ def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
                 domain.contains(puw.quantity(xyz, 'angstrom'))
                 for xyz in puw.get_value(coordinates, to_unit='angstrom')[0]
             )
-        result = dmt.dock(
-            dmt.DockingProblem(
+        result = bmt.dock(
+            bmt.DockingProblem(
                 DATA / '1iep_receptor.pdbqt', DATA / '1iep_ligand.pdbqt', domain
             ),
             protocol,
@@ -364,13 +364,13 @@ def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
                 result.provenance['backend_artifacts'][role]['sha256']
                 == INPUT_DIGESTS[filename]
             )
-        reports[name] = dmt.evaluate_redocking(
+        reports[name] = bmt.evaluate_redocking(
             result, coordinates, rmsd_cutoff=puw.quantity(2.5, 'angstrom')
         )
     assert len(results) == len(reports) == 3
     for (name, report), result in zip(reports.items(), results):
         assert report['n_poses'] == len(result) > 0, name
-        assert dmt.verify_captured_inputs(result.provenance['backend_artifacts'])
+        assert bmt.verify_captured_inputs(result.provenance['backend_artifacts'])
         assert report['criterion']['cutoff'] == 2.5
         reference = np.asarray(report['reference']['coordinates']['value'])
         reference_keys = report['reference']['atom_keys']
@@ -403,7 +403,7 @@ def test_native_181l_external_1iep_and_displaced_box_reports(monkeypatch):
 
 
 def test_legacy_evaluation_producer_requires_its_original_source():
-    from dmt_test_support.qualify_redocking_evaluation import qualify
+    from bmt_test_support.qualify_redocking_evaluation import qualify
 
     with pytest.raises(
         ArgumentError, match='Named MolSysMT AutoDock4 types are required'
@@ -436,7 +436,7 @@ def test_retained_native_positive_and_displaced_observations():
     ],
 )
 def test_invalid_provider_measurement_is_rejected(reference, monkeypatch, measurement):
-    result = dmt.DockingResult([make_pose(reference, 0)])
+    result = bmt.DockingResult([make_pose(reference, 0)])
     monkeypatch.setattr(result, 'get_rmsds', lambda **kwargs: [measurement])
     with pytest.raises(ArgumentError, match='scalar length'):
         evaluate(result, reference)
@@ -445,20 +445,20 @@ def test_invalid_provider_measurement_is_rejected(reference, monkeypatch, measur
 def test_coordinate_comparison_rejects_conflicting_known_atom_order(reference):
     poses = [make_pose(reference, 0), make_pose(reference, 0, order=[2, 0, 1])]
     with pytest.raises(ArgumentError, match='population'):
-        evaluate(dmt.DockingResult(poses), msm.get(reference, coordinates=True))
+        evaluate(bmt.DockingResult(poses), msm.get(reference, coordinates=True))
 
 
 def test_reference_selection_is_resolved_and_does_not_filter_pose_atoms(reference):
     pose = make_pose(reference, 0)
-    report = evaluate(dmt.DockingResult([pose]), reference, selection=[0, 1, 2])
+    report = evaluate(bmt.DockingResult([pose]), reference, selection=[0, 1, 2])
     assert report['reference']['selected_atom_indices'] == [0, 1, 2]
     with pytest.raises(ArgumentError, match='Reference atoms'):
-        evaluate(dmt.DockingResult([pose]), reference, selection=[0, 1])
+        evaluate(bmt.DockingResult([pose]), reference, selection=[0, 1])
 
 
 def test_unknown_states_remain_unknown(reference):
     poses = [make_pose(reference, 0), make_pose(reference, 1)]
     poses[1].partner_state_id = 'declared'
-    report = evaluate(dmt.DockingResult(poses), reference)
+    report = evaluate(bmt.DockingResult(poses), reference)
     assert report['poses'][0]['partner_state_id'] is None
     assert report['poses'][1]['partner_state_id'] == 'declared'

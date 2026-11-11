@@ -1,7 +1,7 @@
 # Prepared native receptor export receiving — 2026-10-24
 
-Owner: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49), related to
-[#33](https://github.com/uibcdf/dockingmt/issues/33) and the existing
+Owner: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49), related to
+[#33](https://github.com/uibcdf/bindingmt/issues/33) and the existing
 [MolSysMT #214 request](https://github.com/uibcdf/molsysmt/issues/214#issuecomment-6389119365).
 This qualifies the actual reduced 181L receptor through the public native writer.
 Production writing/parsing, output policy and dependency pins are unchanged.
@@ -41,7 +41,7 @@ unchanged identity labels. No fake rename report, label stripping or completed-m
 rebinding is introduced downstream.
 
 MolSysMT #214 therefore needs to distinguish molecular source IDs from explicit
-output serial presentation when retaining the existing DockingMT contract.
+output serial presentation when retaining the existing BindingMT contract.
 The original request also covers names, hierarchy/optional fields and caller
 REMARK inclusion before the final payload hash. The current native writer works;
 this does not classify its faithful native presentation as a defect.
@@ -63,7 +63,7 @@ separate terminal handoff in #49. Overlapping selections are not summed.
 The [compact evidence](data/native_receptor_export_2026-10-24/manifest.json)
 retains original/native serial-policy probes, wire bytes, identities and diagnostics.
 
-Qualification reuses the unchanged ordinary DockingMT wheel from producer
+Qualification reuses the unchanged ordinary BindingMT wheel from producer
 `fe8ad1351b8661b43957132236715115d495d795`, SHA-256
 `962ce548821ee37a7b2cf986280de720ad39c989059da2dc3daa2c95c7ade05e`, with normally
 installed MolSysMT `3502232d8`, Python 3.14.8 and Vina 1.2.7. This tests representation

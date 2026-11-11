@@ -1,6 +1,6 @@
 # Installed allocation-failure corrections — 2026-11-10
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), with #30/#73
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), with #30/#73
 qualification and #50 custody. Status: bounded private installed receiving passed;
 full/public/platform qualification remains partial.
 Exact producer `37a61e61db40f386a4ad031ecd14d578441f61ce` includes source #106/#107.
@@ -89,7 +89,7 @@ context holds remain separate. No automatic remote CI or public package operatio
 ## Genuine build and receiving outcome
 
 The clean detached producer clone built
-`dockingmt-0.0.0+359.g37a61e6-py3-none-any.whl` normally. The actual version is
+`bindingmt-0.0.0+359.g37a61e6-py3-none-any.whl` normally. The actual version is
 `0.0.0+359.g37a61e6`, size **157,933 B**, SHA-256
 `ca082ab77b5b9ec77bd1bb75bc865f5279cde9105fe401b989b2b9b13f348e1d`. The private file remains at
 `.molsyssuite/installed-allocation-fixes-20261110/wheels/`; it is not uploaded or
@@ -100,8 +100,8 @@ All 67 installed runtime paths match the actual wheel. The 66 nongenerated
 source paths match the exact producer; the generated `_version.py`, distribution
 metadata and actual imported version agree on the new version. Metadata, MIT
 license and every wheel RECORD row verify. Compared with original aeae47d,
-only `dockingmt/batch.py`, `dockingmt/engines/_vina_scoring.py` and generated
-`dockingmt/_version.py` differ. The managed build clone is retired.
+only `bindingmt/batch.py`, `bindingmt/engines/_vina_scoring.py` and generated
+`bindingmt/_version.py` differ. The managed build clone is retired.
 
 Normal pip installation into the new private receiver passes `pip check` and
 retains the actual PEP 610 archive digest. The qualification harness has its own

@@ -1,6 +1,6 @@
 ---
 summary: Execute prepared docking problems one at a time with explicit failure handling.
-issue: uibcdf/dockingmt#36
+issue: uibcdf/bindingmt#36
 status: resolved
 opened: 2026-10-03
 closed: 2026-10-03
@@ -60,7 +60,7 @@ ranking is introduced. None is justified by this accepted execution slice.
 The first full run passed 683 tests and failed the bootstrap import assertion:
 it read the shared pytest process after earlier batch controls had legitimately
 executed Vina. `tests/test_bootstrap.py::test_no_leaky_optional_imports` now checks
-an actual fresh DockingMT import in a subprocess. This preserves the startup
+an actual fresh BindingMT import in a subprocess. This preserves the startup
 boundary and removes collection-order dependence; it does not unload Vina from
 an active scientific session or suppress an actual optional import.
 

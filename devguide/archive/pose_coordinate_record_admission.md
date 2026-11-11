@@ -1,6 +1,6 @@
 ---
 summary: Pose records reject their empty output and leak coordinate field/unit errors.
-issue: uibcdf/dockingmt#86
+issue: uibcdf/bindingmt#86
 status: resolved
 opened: 2026-11-08
 closed: 2026-11-08
@@ -24,7 +24,7 @@ other malformed empty axes still reject. This creates no atoms or coordinate
 values and does not qualify a zero-atom scientific/native input.
 
 Missing/malformed fields and invalid unit construction identify `coordinates`
-through DMT-E002. A provider exception remains the cause where one was raised;
+through BMT-E002. A provider exception remains the cause where one was raised;
 MemoryError propagates unchanged. PyUnitWizard owns unit parsing/conversion and
 the existing constructor retains length/shape admission. Valid numeric/legacy
 records, scores, ranks, IDs, metadata, array detachment and caller policy survive.

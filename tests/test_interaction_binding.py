@@ -8,9 +8,9 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.core.results import _molecular_atom_keys
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.core.results import _molecular_atom_keys
 
 
 class _Analysis:
@@ -36,7 +36,7 @@ def _key(atom_id, element):
 @pytest.fixture
 def case(monkeypatch):
     expected = [_key('A', 'C'), _key('B', 'N')]
-    pose = dmt.DockingPose(
+    pose = bmt.DockingPose(
         puw.quantity([[1, 2, 3], [4, 5, 6]], 'angstrom'),
         scores={'original': -4},
         rank=7,
@@ -48,7 +48,7 @@ def case(monkeypatch):
             'source_atom_keys': deepcopy(expected),
         },
     )
-    other = dmt.DockingPose(
+    other = bmt.DockingPose(
         pose.coordinates + puw.quantity([10, 0, 0], 'angstrom'),
         scores={'original': -5},
         rank=1,
@@ -57,7 +57,7 @@ def case(monkeypatch):
         receptor_state_id=pose.receptor_state_id,
         metadata=deepcopy(pose.metadata),
     )
-    result = dmt.DockingResult(
+    result = bmt.DockingResult(
         [other, pose],
         provenance={'producer': 'synthetic-original', 'details': {'seed': 3}},
     )
@@ -119,12 +119,12 @@ def case(monkeypatch):
 
 
 def _bind(case, **overrides):
-    return dmt.bind_interactions(
+    return bmt.bind_interactions(
         case.result, case.carrier, **{**case.options, **overrides}
     )
 
 
-@pytest.mark.parametrize('factory', [dmt.bind_interactions, dmt.PoseInteractions])
+@pytest.mark.parametrize('factory', [bmt.bind_interactions, bmt.PoseInteractions])
 @pytest.mark.parametrize('length_unit', ['angstrom', 'pm'])
 def test_full_result_identity_units_and_evaluation_are_preserved(
     case, factory, length_unit
@@ -217,7 +217,7 @@ def test_invalid_declarations_fail_before_provider_work(case, overrides):
     before = case.result.to_dict()
     with pytest.raises(ArgumentError) as caught:
         _bind(case, **overrides)
-    assert caught.value.code == 'DMT-E002'
+    assert caught.value.code == 'BMT-E002'
     assert case.calls == []
     assert case.result.to_dict() == before
 
@@ -258,7 +258,7 @@ def test_carrier_frames_are_not_repeated_or_projected(case, n_structures):
     assert case.carrier.n_structures == n_structures
 
 
-@pytest.mark.parametrize('factory', [dmt.bind_interactions, dmt.PoseInteractions])
+@pytest.mark.parametrize('factory', [bmt.bind_interactions, bmt.PoseInteractions])
 @pytest.mark.parametrize('missing', ['n_atoms', 'n_structures', 'coordinates'])
 def test_missing_carrier_domains_have_a_local_argument_diagnostic(
     case, factory, missing
@@ -277,7 +277,7 @@ def test_missing_carrier_domains_have_a_local_argument_diagnostic(
     case.provider.get = get
     with pytest.raises(ArgumentError) as caught:
         factory(case.result, case.carrier, **case.options)
-    assert caught.value.code == 'DMT-E002'
+    assert caught.value.code == 'BMT-E002'
     assert caught.value.extra['arg_name'] == 'molecular_system'
     assert case.result.to_dict() == before_result
     np.testing.assert_array_equal(

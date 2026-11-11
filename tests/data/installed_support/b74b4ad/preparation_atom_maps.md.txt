@@ -2,7 +2,7 @@
 
 ## Consumer migration — 2026-10-24
 
-[DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49) owns this bounded
+[BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49) owns this bounded
 adoption of public `msm.compose_atom_maps` at the already qualified MolSysMT
 source `3502232d802ee2927f6b6f5d19f0ae045777ecb5`. Both preparation roles pass
 their actual completed typed-H projection report. When fixed-state H addition
@@ -32,7 +32,7 @@ does not acquire the parent's coordinates or become directly retained.
 
 Existing `prepared_to_input_atom_indices` and
 `pdbqt_to_input_atom_indices` remain compatible, converting provider `-1` to
-JSON `null`/Python `None`. The latter presents those indices in DockingMT's
+JSON `null`/Python `None`. The latter presents those indices in BindingMT's
 declared legacy ROOT/BRANCH traversal. That ordering is consumer accounting,
 **not a completed native export map or payload binding**. No export report is
 fabricated from it. `source_n_atoms`, retained indices and charge/type projection
@@ -65,7 +65,7 @@ selection, not added to its total. The broader source selection passes **363
 cases**, 222.44 s, with 135 retained warnings and zero skips. Administrative
 reporting/distribution/coverage controls pass separately (29 cases, 2.81 s).
 Ordinary installed and exact-head results are retained
-in the [owning issue](https://github.com/uibcdf/dockingmt/issues/49) and
+in the [owning issue](https://github.com/uibcdf/bindingmt/issues/49) and
 [compact evidence](data/preparation_atom_maps_2026-10-24/manifest.json).
 Four ordinary baseline preparations at producer `489d0c2e2e3f0097ffa5579060d601de4d396195`
 retain their original PDBQT bytes, charges, legacy maps and traversal. This is

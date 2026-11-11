@@ -1,7 +1,7 @@
 # Finite H5MSM P5 client receiving — 2026-11-10
 
 Owners: [MolSysMT #256](https://github.com/uibcdf/molsysmt/issues/256),
-[DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73); #50 custody.
+[BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73); #50 custody.
 Status: final seven-case client profiles received under both unit policies;
 stable H5MSM 1.0 and general native/public qualification remain separate.
 Consumer documentation base `e90c0446b7d3cb89cdf3285516f23db1e058d801`;
@@ -11,7 +11,7 @@ and accepted publication 9b077fab/#79/#88/#96 retain their original scope.
 
 ## Exact source and native admission
 
-Bounded shared suite-status refresh preserves every worktree: DockingMT's human
+Bounded shared suite-status refresh preserves every worktree: BindingMT's human
 migration directory, clean MolSysMT 0c6f9c7 (87 behind), clean Viewer 1187fc18
 (75 behind), and unchanged current ArgDigest/PyUnitWizard/SMonitor/DepDigest.
 Preserve the actual old shared environment and earlier frozen installed receipts.
@@ -56,7 +56,7 @@ validated production force field or a new preparation.
 Reuse the frozen provider's `_plain`, `_snapshot` and `_hdf_snapshot` observation
 functions for exact oracle comparison, recording that they are provider oracles,
 not an independent codec/calculation. Remove only the local cross-test import
-so the frozen functions share a task-local `dmt_test_support` observation module.
+so the frozen functions share a task-local `bmt_test_support` observation module.
 They never restore objects. Complement their snapshots with independent direct
 atom/structure/coordinate/charge/name/state/map/coverage assertions. No runtime,
 helper declaration or existing test/scientific input changes are required.
@@ -263,7 +263,7 @@ The source package is actual isolated 5e7d65a6; actual imported version is
 `0+unknown`, with the old unrelated editable stamp prevented from filling a
 package-local absence. Actual distribution labels remain separately recorded.
 Every final implementation module originates in the isolated package, while the
-actual DockingMT core/addon originate in the genuine installed 37a61e6 wheel.
+actual BindingMT core/addon originate in the genuine installed 37a61e6 wheel.
 All 67 consumer files, reporting/unit inputs, source hashes, packet hashes,
 original shared cohort and caller policies verify before/after. No shared source,
 environment, runtime, helper declaration or existing test/data input changes.

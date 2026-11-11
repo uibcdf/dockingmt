@@ -1,7 +1,7 @@
 # Explicit H5MSM 1.0 migration and client receiving — 2026-11-10
 
 Owners: [MolSysMT #256](https://github.com/uibcdf/molsysmt/issues/256),
-[DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73); #50 custody.
+[BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73); #50 custody.
 Status: actual development-binary admission and both complete ten-case profiles
 received; default/candidate/platform/public acceptance remains separate.
 Consumer checkpoint `d83d86d47c1961fee0177868369141478b912325`; unchanged genuine
@@ -36,7 +36,7 @@ binary into it. Require ELF64/little-endian/x86_64 before load, actual import/
 loaded-map digest and the expected updated neighbor API signature before pytest.
 All actual neighbor execution remains forbidden; only the same real unchanged
 one-atom/zero-bond topology binding is admitted, twice per whole profile, with
-original arguments/result [0]. Use the original private DockingMT receiver;
+original arguments/result [0]. Use the original private BindingMT receiver;
 authenticate all 67 installed files, installed core/addon origins and metadata.
 The five other development siblings remain pinned; capture the new MolSysMT
 source/Python/native cohort after the maintainer's change and verify it thereafter.

@@ -8,8 +8,8 @@ from pathlib import Path
 import pytest
 from argdigest.core.errors import UnknownArgumentError
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 
 @pytest.fixture(params=['ligand', 'receptor'])
@@ -24,8 +24,8 @@ def prepared(request):
         charges=[0.0],
     )
     if request.param == 'ligand':
-        return dmt.PreparedLigand(group_name='LIG', **common)
-    return dmt.PreparedReceptor(group_names=['LIG'], group_ids=[1], **common)
+        return bmt.PreparedLigand(group_name='LIG', **common)
+    return bmt.PreparedReceptor(group_names=['LIG'], group_ids=[1], **common)
 
 
 @pytest.mark.parametrize(
@@ -51,7 +51,7 @@ def test_declared_sources_classify_preparation_without_certifying_it(
     prepared, metadata, codes
 ):
     prepared.metadata.update(metadata)
-    report = dmt.assess_preparation(prepared)
+    report = bmt.assess_preparation(prepared)
     assert report['assessment'] == ('provisional' if codes else 'unassessed')
     assert report['provisional_reason_codes'] == codes
     assert report['evidence'] == {
@@ -71,11 +71,11 @@ def test_assessment_detaches_only_bounded_evidence(prepared):
         'atom_type_source': 'heuristic',
         'source_chemistry': {'large_payload': object()},
     }
-    report = dmt.assess_preparation(prepared)
+    report = bmt.assess_preparation(prepared)
     report['evidence']['charge_source'] = 'edited'
     report['provisional_reasons'].clear()
     prepared.metadata['charge_source'] = 'source_partial_charge'
-    new_report = dmt.assess_preparation(prepared)
+    new_report = bmt.assess_preparation(prepared)
     assert new_report['provisional_reason_codes'] == ['heuristic_atom_types']
     assert len(new_report['provisional_reasons']) == 1
     assert 'source_chemistry' not in new_report['evidence']
@@ -88,8 +88,8 @@ def test_assessment_detaches_only_bounded_evidence(prepared):
 def test_mutated_malformed_metadata_fails_with_local_diagnostic(prepared, metadata):
     prepared.metadata = metadata
     with pytest.raises(ArgumentError) as caught:
-        dmt.assess_preparation(prepared)
-    assert caught.value.code == 'DMT-E002'
+        bmt.assess_preparation(prepared)
+    assert caught.value.code == 'BMT-E002'
     assert caught.value.extra['arg_name'] == 'prepared'
 
 
@@ -101,7 +101,7 @@ def test_external_inputs_stay_unassessed_without_io(tmp_path):
             pytest.fail('Assessment must not invoke an external renderer')
 
     reports = [
-        dmt.assess_preparation(value)
+        bmt.assess_preparation(value)
         for value in (
             'pdbqt_text:ROOT\nENDROOT\nTORSDOF 0\n',
             tmp_path / 'absent.pdbqt',
@@ -119,13 +119,13 @@ def test_external_inputs_stay_unassessed_without_io(tmp_path):
 )
 def test_unsupported_inputs_are_not_silently_unassessed(value):
     with pytest.raises(ArgumentError) as caught:
-        dmt.assess_preparation(value)
+        bmt.assess_preparation(value)
     assert caught.value.extra['arg_name'] == 'prepared'
 
 
 def test_assessment_rejects_unknown_keywords():
     with pytest.raises(UnknownArgumentError):
-        dmt.assess_preparation('external.pdbqt', prepare=True)
+        bmt.assess_preparation('external.pdbqt', prepare=True)
 
 
 def test_assessment_works_in_fresh_process_without_optional_engine_or_viewer():
@@ -137,12 +137,12 @@ class BlockOptional(importlib.abc.MetaPathFinder):
         if fullname.split('.')[0] in ('vina', 'molsysviewer'):
             raise ModuleNotFoundError(fullname)
 sys.meta_path.insert(0, BlockOptional())
-import dockingmt as dmt
-ligand = dmt.PreparedLigand(
+import bindingmt as bmt
+ligand = bmt.PreparedLigand(
     'test', ['C1'], 'LIG', None, ['C'], [0],
     metadata={'charge_source': 'zero_placeholder'},
 )
-report = dmt.assess_preparation(ligand)
+report = bmt.assess_preparation(ligand)
 assert report['provisional_reason_codes'] == ['zero_placeholder_charges']
 assert 'vina' not in sys.modules and 'molsysviewer' not in sys.modules
 print(report['assessment'])

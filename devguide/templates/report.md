@@ -1,6 +1,6 @@
 ---
 summary: One line describing the independently closable theme.
-issue: uibcdf/dockingmt#1
+issue: uibcdf/bindingmt#1
 status: open
 opened: 2026-01-01
 closed:

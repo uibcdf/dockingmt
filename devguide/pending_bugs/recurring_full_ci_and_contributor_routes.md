@@ -1,6 +1,6 @@
 ---
 summary: Recurring full CI and protected contributor routes are missing.
-issue: uibcdf/dockingmt#21
+issue: uibcdf/bindingmt#21
 status: partial
 opened: 2026-09-30
 closed:
@@ -18,14 +18,14 @@ supersedes: []
 ## Current integration recovery — 2026-10-07
 
 Corrected producer `8741fb2e104814e6f1012e0cb7073689e710f982` has executed green
-[required CI](https://github.com/uibcdf/dockingmt/actions/runs/37581673369):
+[required CI](https://github.com/uibcdf/bindingmt/actions/runs/37581673369):
 quality plus all 986 tests on each of Python 3.11–3.14, without skips. Manual
 execution of the existing recovery detector identifies that exact producer as
 its four-minor watermark and reports zero skipped commits since it. This is
 executed recovery evidence, not proof of a scheduled daily trigger or hosted PR
 enforcement.
 
-The [manual six-cell matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344)
+The [manual six-cell matrix](https://github.com/uibcdf/bindingmt/actions/runs/37581760344)
 passes all four Linux cells; both representative macOS jobs remain pending
 without a runner assigned at inspection. An older obsolete manual run retains
 its Linux failures and was cancelled before its macOS jobs executed. The
@@ -36,14 +36,14 @@ corrected macOS evaluation guard; this broader report remains partial.
 Completion update, 2026-10-07 06:57 UTC: the same manual matrix now passes all
 six scientific cells, each with 986 tests without skips. Both macOS arm64
 controls actually execute and #46 is resolved. The documentation/evidence head
-`7ac138b` also has [green required CI](https://github.com/uibcdf/dockingmt/actions/runs/37582910814).
+`7ac138b` also has [green required CI](https://github.com/uibcdf/bindingmt/actions/runs/37582910814).
 Configured/daily-trigger and hosted contributor-route acceptance remain distinct,
 so this broader report remains partial.
 
 ## What
 
 At `ac91b22`, CI executes the full Linux Python 3.11–3.13 suite on pushes
-and PRs but has no scheduled or manual matrix. The [current push CI](https://github.com/uibcdf/dockingmt/actions/runs/36349574106)
+and PRs but has no scheduled or manual matrix. The [current push CI](https://github.com/uibcdf/bindingmt/actions/runs/36349574106)
 passed; `main` has no branch protection and skipped pushes have no recovery.
 
 ## How
@@ -83,7 +83,7 @@ Linux minors actually executed the suite; a routine smoke lane could not.
 
 The first local checkout-only run had 92 passing tests, three addon
 registration failures and eight skips because the shared environment did
-not install DockingMT's entry point or Vina. This is not the hosted pinned
+not install BindingMT's entry point or Vina. This is not the hosted pinned
 environment and does not establish a scientific regression. Local gates
 use an isolated editable installation; hosted evidence uses the complete
 existing Conda closure, including Vina.
@@ -112,26 +112,26 @@ Vina and the new matrix checks its import explicitly. The four new detector
 regressions cover persistent debt, executed full-minor coverage, rejection
 of probes/PRs/other branches and fail-open recovery on API uncertainty.
 
-At `1dd86ec`, the [initial probe](https://github.com/uibcdf/dockingmt/actions/runs/36685765426)
+At `1dd86ec`, the [initial probe](https://github.com/uibcdf/bindingmt/actions/runs/36685765426)
 recognized `ac91b22` as an executed full push-CI watermark, found zero
-skipped commits and omitted heavy jobs. [CI](https://github.com/uibcdf/dockingmt/actions/runs/36685744582)
+skipped commits and omitted heavy jobs. [CI](https://github.com/uibcdf/bindingmt/actions/runs/36685744582)
 passed all four quality/full-suite jobs on the new source. The
-[suite policy](https://github.com/uibcdf/dockingmt/actions/runs/36685745455)
+[suite policy](https://github.com/uibcdf/bindingmt/actions/runs/36685745455)
 passed on the new source.
 
 Protected `main` now requires strict Quality and all three supported-minor
 Test checks. The explicit PR rule requires zero mandatory approvals;
 administrators retain the direct-push route. Documentation push `d74aaa1`
 deliberately used `[skip ci]`; GitHub accepted it with explicit PR and
-required-check bypass notices. The [debt probe](https://github.com/uibcdf/dockingmt/actions/runs/36686660142)
+required-check bypass notices. The [debt probe](https://github.com/uibcdf/bindingmt/actions/runs/36686660142)
 found exactly one skipped commit since full CI at `1dd86ec` and omitted all
-heavy jobs. The [first manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/36686938454)
+heavy jobs. The [first manual matrix](https://github.com/uibcdf/bindingmt/actions/runs/36686938454)
 passed all four test cells at `d74aaa1`, including the actual interpreter,
 architecture and Vina assertions and the full pytest step in each job.
 The decision job was intentionally skipped for this unconditional manual
 matrix. GH Run Receptor preserved `conclusion=success`; native job/step
 evidence separately verified execution of every required cell.
-The [recovery probe](https://github.com/uibcdf/dockingmt/actions/runs/36687546093)
+The [recovery probe](https://github.com/uibcdf/bindingmt/actions/runs/36687546093)
 recognized `d74aaa1` as the new full watermark, found zero skipped commits
 and omitted heavy jobs. Keep this issue open until actual daily execution,
 hosted PR enforcement and publication platform claims are reviewed.

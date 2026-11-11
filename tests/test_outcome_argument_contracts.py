@@ -6,13 +6,13 @@ import numpy as np
 import pytest
 from argdigest import UnknownArgumentError
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 ERROR = {'type': 'builtins.ValueError', 'message': 'control', 'code': None}
 
 
-@pytest.mark.parametrize('factory', [dmt.DockingOutcome, dmt.DockingOutcome.from_dict])
+@pytest.mark.parametrize('factory', [bmt.DockingOutcome, bmt.DockingOutcome.from_dict])
 def test_unknown_keywords_use_argdigest(factory):
     with pytest.raises(UnknownArgumentError):
         factory(indez=0)
@@ -21,27 +21,27 @@ def test_unknown_keywords_use_argdigest(factory):
 @pytest.mark.parametrize('record', [None, [], 'record', 1])
 def test_reader_admits_its_named_record_argument(record):
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingOutcome.from_dict(record)
+        bmt.DockingOutcome.from_dict(record)
     assert caught.value.extra['arg_name'] == 'record'
 
 
 @pytest.mark.parametrize('index', [True, False, -1, 1.5, '0', np.int64(0)])
 def test_index_remains_a_builtin_nonnegative_integer(index):
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingOutcome(index, error=ERROR)
+        bmt.DockingOutcome(index, error=ERROR)
     assert caught.value.extra['arg_name'] == 'index'
 
 
 @pytest.mark.parametrize('backend', [None, 'custom.adapter', 'VINA'])
 def test_inherited_failure_constructor_keeps_optional_result_and_backend(backend):
-    class ExtensionOutcome(dmt.DockingOutcome):
+    class ExtensionOutcome(bmt.DockingOutcome):
         __module__ = 'consumer_extension.models'
 
     class OverrideOutcome(ExtensionOutcome):
         def __init__(self, index, **kwargs):
             super().__init__(index, **kwargs)
 
-    for model in (dmt.DockingOutcome, ExtensionOutcome, OverrideOutcome):
+    for model in (bmt.DockingOutcome, ExtensionOutcome, OverrideOutcome):
         error = deepcopy(ERROR)
         declaration = {'nested': ['original']}
         outcome = model(0, backend=backend, error=error, problem_info=declaration)
@@ -62,16 +62,16 @@ def test_inherited_failure_constructor_keeps_optional_result_and_backend(backend
 @pytest.mark.parametrize('backend', ['', ' ', object(), 3])
 def test_outcome_backend_is_a_label_without_relaxing_execution(backend):
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingOutcome(0, backend=backend, error=ERROR)
+        bmt.DockingOutcome(0, backend=backend, error=ERROR)
     assert caught.value.extra['arg_name'] == 'backend'
 
 
 def test_outcome_optionality_does_not_relax_other_public_boundaries():
     with pytest.raises(ArgumentError) as caught:
-        dmt.evaluate_redocking(None, reference=None)
+        bmt.evaluate_redocking(None, reference=None)
     assert caught.value.extra['arg_name'] == 'result'
     with pytest.raises(ArgumentError) as caught:
-        dmt.dock_many([], backend='custom.adapter')
+        bmt.dock_many([], backend='custom.adapter')
     assert caught.value.extra['arg_name'] == 'backend'
 
 
@@ -80,16 +80,16 @@ def test_outcome_optionality_does_not_relax_other_public_boundaries():
 )
 def test_error_summary_retains_its_closed_typed_schema(error):
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingOutcome(0, error=error)
+        bmt.DockingOutcome(0, error=error)
     assert caught.value.extra['arg_name'] == 'error'
 
 
 @pytest.mark.parametrize(
-    'payload', [{}, {'result': dmt.DockingResult([]), 'error': ERROR}]
+    'payload', [{}, {'result': bmt.DockingResult([]), 'error': ERROR}]
 )
 def test_exactly_one_result_or_error_remains_required(payload):
     with pytest.raises(ArgumentError):
-        dmt.DockingOutcome(0, **payload)
+        bmt.DockingOutcome(0, **payload)
 
 
 def test_success_reader_stays_offline_and_borrows_the_live_result(monkeypatch):
@@ -100,10 +100,10 @@ def test_success_reader_stays_offline_and_borrows_the_live_result(monkeypatch):
 
     for operation in ('get', 'get_form', 'select', 'convert', 'copy', 'set'):
         monkeypatch.setattr(msm, operation, forbidden)
-    result = dmt.DockingResult([])
-    outcome = dmt.DockingOutcome(1, result=result, backend='custom.adapter')
+    result = bmt.DockingResult([])
+    outcome = bmt.DockingOutcome(1, result=result, backend='custom.adapter')
     assert outcome.result is result
     record = outcome.to_dict()
-    restored = dmt.DockingOutcome.from_dict(record)
+    restored = bmt.DockingOutcome.from_dict(record)
     assert restored.to_dict() == record
     assert restored.result is not result and restored.result.problem is None

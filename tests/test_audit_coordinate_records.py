@@ -8,8 +8,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 DATA = Path(__file__).resolve().parents[1] / 'devguide/validation/data/audit'
 KINDS = ['standalone', 'docking', 'scored_collection']
@@ -21,10 +21,10 @@ def _records(kind):
     )
     record = json.loads((DATA / name).read_text())
     if kind == 'standalone':
-        return record, record, dmt.audit_pose
+        return record, record, bmt.audit_pose
     if kind == 'scored_collection':
-        record = dmt.DockingResult([dmt.DockingPose.from_dict(record)]).to_dict()
-    return record, record['poses'][0], dmt.audit_result
+        record = bmt.DockingResult([bmt.DockingPose.from_dict(record)]).to_dict()
+    return record, record['poses'][0], bmt.audit_result
 
 
 @pytest.mark.parametrize('kind', KINDS)
@@ -41,20 +41,20 @@ def test_invalid_coordinate_scalars_are_inconsistent_without_coercion(kind, valu
     )
     assert repr(record) == before
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingPose.from_dict(pose)
+        bmt.DockingPose.from_dict(pose)
     assert caught.value.extra['arg_name'] == 'coordinates'
 
 
 @pytest.mark.parametrize('collection', [False, True])
 @pytest.mark.parametrize('unit', ['nm', 'angstrom'])
 def test_canonical_empty_pose_snapshot_has_valid_coordinates(collection, unit):
-    pose = dmt.DockingPose(puw.quantity(np.empty((0, 3)), unit))
+    pose = bmt.DockingPose(puw.quantity(np.empty((0, 3)), unit))
     wire = pose.to_dict()
     assert wire['coordinates']['value'] == []
-    assert dmt.DockingPose.from_dict(wire).n_atoms == 0
-    record = dmt.DockingResult([pose]).to_dict() if collection else wire
+    assert bmt.DockingPose.from_dict(wire).n_atoms == 0
+    record = bmt.DockingResult([pose]).to_dict() if collection else wire
     before = deepcopy(record)
-    report = (dmt.audit_result if collection else dmt.audit_pose)(record)
+    report = (bmt.audit_result if collection else bmt.audit_pose)(record)
     assert report['status'] == 'incomplete'
     assert not any(check['status'] == 'inconsistent' for check in report['checks'])
     assert any(
@@ -84,11 +84,11 @@ def test_valid_numeric_coordinates_keep_units_and_detached_reports(kind, unit):
 @pytest.mark.parametrize('collection', [False, True])
 @pytest.mark.parametrize('unit', [None, 'seconds', 'unknown-unit'])
 def test_empty_coordinates_still_require_length_units(collection, unit):
-    record = dmt.DockingPose(puw.quantity(np.empty((0, 3)), 'nm')).to_dict()
+    record = bmt.DockingPose(puw.quantity(np.empty((0, 3)), 'nm')).to_dict()
     record['coordinates']['unit'] = unit
     if collection:
         record = {'schema_version': '1.0', 'poses': [record], 'provenance': {}}
-    report = (dmt.audit_result if collection else dmt.audit_pose)(record)
+    report = (bmt.audit_result if collection else bmt.audit_pose)(record)
     assert report['status'] == 'inconsistent'
     assert any(
         check['check'] == 'coordinate_units' and check['status'] == 'inconsistent'

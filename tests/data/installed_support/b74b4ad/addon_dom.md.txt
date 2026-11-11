@@ -1,6 +1,6 @@
 # Addon JavaScript DOM checkpoint
 
-Owner: [DockingMT #60](https://github.com/uibcdf/dockingmt/issues/60).
+Owner: [BindingMT #60](https://github.com/uibcdf/bindingmt/issues/60).
 The accepted next slice executes the shipped Explorer/Search Domain JavaScript
 without requiring maintainer interaction. It adds test coverage and a test-only
 CI job; production core/addon code is byte-identical to baseline `9f8b787`.

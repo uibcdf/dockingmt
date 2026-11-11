@@ -1,7 +1,7 @@
 # Production known-source pose reading — 2026-10-28
 
-Owners: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33). This consumes the qualified
+Owners: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33). This consumes the qualified
 MolSysMT `e395e52646dab2ecb480d3d67aa7254be99b8524` reader delivered under
 [MolSysMT #226](https://github.com/uibcdf/molsysmt/issues/226), after
 [prepared writer adoption](prepared_writer_consumption.md). Dependencies and
@@ -59,7 +59,7 @@ reason: `unmapped_input`, `incomplete_source_connectivity` or
 `multiple_source_states`. No missing graph or state is inferred to enter the
 complete-source reader.
 
-This bounded remaining duplication is owned by DockingMT #49/#33, with the
+This bounded remaining duplication is owned by BindingMT #49/#33, with the
 complete-source contract owned by MolSysMT #226. The executed partial/reference
 extension is proposed in [MolSysMT #521](https://github.com/uibcdf/molsysmt/issues/521);
 multiple native states retain a separate qualification question. Review
@@ -98,7 +98,7 @@ ordinary-installed and exact-head CI receipts are recorded
 separately under #49; overlapping counts are not summed. The package must be built
 normally from its own producer and checked without checkout import shadows.
 
-Task-owned resources are retained at `/tmp/dockingmt-pose-adoption-20261028`,
+Task-owned resources are retained at `/tmp/bindingmt-pose-adoption-20261028`,
 review **2026-11-04**, no automatic disposal, under #49/#50. Earlier artifacts,
 receivers and provider binaries retain their own hashes and producers. No shared
 environment or sibling source is modified. These are software/integration controls,
@@ -141,7 +141,7 @@ MolSysMT #521 is still open as checked 2026-11-10; its partial/reference contrac
 not received here. Current provider documentation requires a complete chemical
 state for this reader. The three uncovered controls retain their preselected legacy
 route, without recovery after a known-source error; multiple-state sources remain
-separate. Owner stays DockingMT #49/#33 with provider#521, next review 2026-11-14.
+separate. Owner stays BindingMT #49/#33 with provider#521, next review 2026-11-14.
 Remove this bounded duplication when a provider-owned partial/reference reader is
 qualified on the actual remaining profiles. Do not expand the consumer parser or
 infer missing chemical information to enter the complete-source API. This review

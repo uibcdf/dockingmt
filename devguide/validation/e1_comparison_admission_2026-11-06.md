@@ -1,6 +1,6 @@
 # E1 complete-pose construction and comparison admission — 2026-11-06
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
 This case-specific prescription follows [prepared-authority receiving](e1_prepared_authority_2026-11-06.md).
 The [notebook](e1_complete_pose_receiving.ipynb) constructs a new five-pose
 population and stages comparison evidence. Status at prescription: **prospective**.
@@ -35,9 +35,9 @@ pose IDs/scores as historical associations and give every new pose its own
 producer/input identities. The explicit flexible tree differs from the original
 rigid input; this is a new scoring population, not an exact historical replay.
 
-For every variant, keep independent public-native and DockingMT PDBQT bytes,
+For every variant, keep independent public-native and BindingMT PDBQT bytes,
 actual native export map/hash, composed source9 lineage and written tree.
-Check native/DockingMT fields through MolSysMT, then read the native export with
+Check native/BindingMT fields through MolSysMT, then read the native export with
 its complete chemical source and its own map. Expect thirty positive witnesses:
 ten full18, ten prepared13 and ten mapped-read13. The pose reader does not
 transfer MolecularMechanics. H5MSM files explicitly contain only chemical and
@@ -173,7 +173,7 @@ Jupyter frontend/kernel session or an installed/public artifact.
 | H and mechanics | Ten fixed-state local H expansions 9→18, ten named charge assignments, ten named typings, ten flexible reductions 18→13; four polar H retained and five nonpolar H merged per model. |
 | Chemical checks | Thirty supplied-map witnesses: ten full18, ten prepared13 and ten mapped-read13. Four are first-reference self checks; counts are not independent molecular cases. |
 | Prepared representation | Charges/types agree across new poses within the prescribed scope; the single active cut, nonidentity written order, source9 lineage, actual payload hashes and rounding checks pass. |
-| Policies and custody | Corresponding native and DockingMT PDBQT bytes are identical between policies; explicit-unit full-precision comparisons and checked source snapshots pass. Historical scores and input bytes remain unchanged. |
+| Policies and custody | Corresponding native and BindingMT PDBQT bytes are identical between policies; explicit-unit full-precision comparisons and checked source snapshots pass. Historical scores and input bytes remain unchanged. |
 | Domain | Minimum all-ligand-atom margin in the common 24-angstrom requested box is `1.0161559903577775 angstrom`. Pose 5's margin in the original requested box is `-0.9838440096422225 angstrom`. These are checked coordinate margins, not measured Vina grid acceptance. |
 | Resources | One CPU, nice 10, one native/build worker; sampled peak RSS **315.55 MiB**, minimum available RAM **47.18 GiB**, no resource interruption. |
 

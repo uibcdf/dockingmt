@@ -9,7 +9,7 @@ from pathlib import Path
 
 import pytest
 
-from dmt_test_support import saved_search_variability as analysis
+from bmt_test_support import saved_search_variability as analysis
 
 
 @pytest.fixture(scope='module')
@@ -171,7 +171,7 @@ def test_derived_output_tampering_is_detected(tmp_path, record):
 def test_reproducer_checks_records_without_scientific_or_plotting_imports(tmp_path):
     script = """
 import importlib.abc, runpy, sys
-blocked = {'dockingmt','molsysmt','vina','rdkit','openmm','pyunitwizard','numpy','matplotlib'}
+blocked = {'bindingmt','molsysmt','vina','rdkit','openmm','pyunitwizard','numpy','matplotlib'}
 class BlockScientific(importlib.abc.MetaPathFinder):
     def find_spec(self, fullname, path=None, target=None):
         if fullname.split('.')[0] in blocked:

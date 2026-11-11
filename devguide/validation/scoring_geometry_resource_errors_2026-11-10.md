@@ -1,6 +1,6 @@
 # Resource failures in fixed-pose geometry — 2026-11-10
 
-Owner: [DockingMT #107](https://github.com/uibcdf/dockingmt/issues/107), with
+Owner: [BindingMT #107](https://github.com/uibcdf/bindingmt/issues/107), with
 #73/#47 qualification and #50 custody. Source base a0c184f. Status: corrected and qualified in source.
 
 The old installed helper diagnostic raises controlled MemoryError, OS ENOMEM

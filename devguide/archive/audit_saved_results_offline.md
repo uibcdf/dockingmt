@@ -1,6 +1,6 @@
 ---
 summary: Audit internal consistency of saved docking results offline
-issue: uibcdf/dockingmt#32
+issue: uibcdf/bindingmt#32
 status: resolved
 opened: 2026-10-03
 closed: 2026-10-03

@@ -1,6 +1,6 @@
 ---
 summary: Retain derivation provenance for selection-based search domains
-issue: uibcdf/dockingmt#55
+issue: uibcdf/bindingmt#55
 status: resolved
 opened: 2026-10-28
 closed: 2026-10-28
@@ -29,7 +29,7 @@ frame/state, method, padding and units through domain/problem/result records and
 backend projection. Preserve old geometry-only records and explicit boxes without
 fabricated provenance. Reject malformed bindings without embedding mutable native
 systems or implementing a molecular snapshot. Public MolSysMT owns molecular
-access/selection; DockingMT owns its docking-domain decision and record.
+access/selection; BindingMT owns its docking-domain decision and record.
 
 ## Why
 

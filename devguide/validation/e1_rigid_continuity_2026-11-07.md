@@ -8,7 +8,7 @@ The original generator's post-save qualification remains failed. Start with
 The prospective registration and subsequent amendments below retain their
 original pre-execution meaning; this summary starts no new calculation.
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78), with
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78), with
 resource/custody coordination in #50. Status at registration: **prospective**.
 Custody review: **2026-11-14**. This receives a complete bounded public route:
 new original docking result → complete-source reconstruction → explicit
@@ -144,7 +144,7 @@ its 3,867-file private target and identified borrowed provider/support snapshot.
 Reuse the separately verified 103-path Vina/Boost overlay from
 [the native receiving](e1_native_rescoring_2026-11-06.md). Check actual loaded
 origins, complete target/engine hashes, native identities and routine Conda
-metadata before/after. Use declared unshipped `dmt_test_support` through the
+metadata before/after. Use declared unshipped `bmt_test_support` through the
 shared installed-test support mechanism. No provider rebuild or global
 installation is authorized by this receiving.
 

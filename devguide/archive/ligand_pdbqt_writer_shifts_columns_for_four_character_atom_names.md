@@ -1,6 +1,6 @@
 ---
 summary: Ligand PDBQT writer shifts columns for four-character atom names
-issue: uibcdf/dockingmt#18
+issue: uibcdf/bindingmt#18
 status: resolved
 opened: 2026-09-26
 closed: 2026-09-26
@@ -41,9 +41,9 @@ atom-name overflow directly changed fixed PDBQT column positions.
 
 ## Scope and exclusions
 
-This fixes DockingMT's temporary ligand writer. General PDBQT form ownership
+This fixes BindingMT's temporary ligand writer. General PDBQT form ownership
 belongs to MolSysMT [#214](https://github.com/uibcdf/molsysmt/issues/214).
-The chemical choice of 1S63 torsions is tracked in DockingMT #17.
+The chemical choice of 1S63 torsions is tracked in BindingMT #17.
 
 ## Acceptance criteria
 

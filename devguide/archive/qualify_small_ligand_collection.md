@@ -1,6 +1,6 @@
 ---
 summary: Qualify a bounded multi-ligand study with isolated outcomes and explicit comparison policy.
-issue: uibcdf/dockingmt#81
+issue: uibcdf/bindingmt#81
 status: resolved
 opened: 2026-11-06
 closed: 2026-11-07
@@ -29,7 +29,7 @@ Use public MolSysMT tools for all molecular acquisition/conversion, chemical
 inspection, identity, transformations and geometry. Request uncovered reusable
 needs in MolSysMT and receive supported existing compositions before proposing
 new APIs. Existing #49/#33 and relevant provider issues retain their owners.
-Do not generate missing chemical evidence in DockingMT.
+Do not generate missing chemical evidence in BindingMT.
 
 Reuse `dock_many`, `DockingOutcome` and individual result records. A caller-owned
 manifest associates study/run/ligand/state identities with each input position,
@@ -183,10 +183,10 @@ package delivery, whole E2 in every profile or the complete #73 objective.
 | Original criterion | Actual receiving evidence / limits |
 | --- | --- |
 | Transparent distinct-ligand collection | Source archive `a5a60b6` and preparation archive `bd4f34c` receive licensed P59(R)/P69(S), declared states and source/prepared maps. One complex/two experimental sites, no activity labels; receptor preparation remains external/unassessed. |
-| Serial execution, identities, all outcomes and adverse control | [Original native receiving](../validation/e2_native_collection_2026-11-07.md) returns success/refusal/success at positions 0/1/2, preserving run/state/result/pose identities, three terminal outcomes, two native searches and 3+2 original poses. `DMT-E003` adds no native/writer calls and the final item completes. Byte gates, live nonmutation, temporary cleanup and all denominators pass. |
+| Serial execution, identities, all outcomes and adverse control | [Original native receiving](../validation/e2_native_collection_2026-11-07.md) returns success/refusal/success at positions 0/1/2, preserving run/state/result/pose identities, three terminal outcomes, two native searches and 3+2 original poses. `BMT-E003` adds no native/writer calls and the final item completes. Byte gates, live nonmutation, temporary cleanup and all denominators pass. |
 | Explicit study comparison | Policy `d7bae710` is frozen before search. Unique original-rank-1 representatives yield native totals -11.462/-10.787 kcal/mol, with all five columns and original four public scores/histories retained. Per-search reference zeros are not a common unbound reference. Missing/tie/empty/incompatible rules remain declared; those adverse scientific branches are not observed in this two-row order. No E1 cross-state ranking API is relaxed. |
 | Installed and independent saved receiving | Exact consumer source `a7422df`, 3,867-file private payload, 103-path Vina/Boost overlay, source/provider identities, both input archives, pm/fs/coulomb policy/restoration and staged support pass. Three public outcome reconstructions pass. A fresh standard-library reader receives all 166 native members plus 80 source/120 preparation members, original NPY/JSON arrays, outcomes, maps, policies and records with zero molecular/native calls. This is controlled private evidence; actual public/platform delivery stays #30/#47. |
-| Evidence matches workflow and ownership | The real native selection and independent reader pass, followed by eleven selected software controls. General molecular work remains public MolSysMT; existing DockingMT composition suffices without a new API, codec or campaign framework. Core, E3/E4/E5, independent science, public delivery and stable-release gates keep their owners. |
+| Evidence matches workflow and ownership | The real native selection and independent reader pass, followed by eleven selected software controls. General molecular work remains public MolSysMT; existing BindingMT composition suffices without a new API, codec or campaign framework. Core, E3/E4/E5, independent science, public delivery and stable-release gates keep their owners. |
 
 The [193-member immutable native archive](../validation/data/e2_native_collection_2026-11-07/manifest.json)
 has SHA-256 `4535ecab26c9fbe4d80bf50fabb48ec3a74ae067979f4e970f5523f703c98e46`.
@@ -200,7 +200,7 @@ The durable guard directly asserts that an ordinary item failure preserves the
 prior result and permits the third item. Its source-iterator/exception behavior
 remains the existing executor contract. The additionally executed
 `tests/test_backend_contracts.py::test_vina_rejects_unsupported_intent_before_hooks_or_execution`
-asserts the actual DMT-E003 pre-execution refusal across list/dict intent and
+asserts the actual BMT-E003 pre-execution refusal across list/dict intent and
 both direct/public dispatch. These selectors protect the mechanisms exercised
 by the native middle control; they do not establish ligand chemistry or all
 unobserved ranking branches. Both named targets are mechanically addressable.

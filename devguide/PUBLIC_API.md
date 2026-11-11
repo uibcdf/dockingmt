@@ -1,20 +1,11 @@
 # Public API guide
 
-Use `import dockingmt as dmt` for the supported entry points. For a first
-workflow, start with the [saved-result inspection](validation/installed_result_inspection.md)
-or the [preparation-to-execution walkthroughs](../README.md#start-here).
-This page maps the current source API and its work/ownership boundaries; the
-walkthroughs retain their own exact installed compositions and qualifications.
-
-The map covers all 33 names in `dockingmt.__all__`, including the additive
-`dockingmt.exceptions` namespace delivered under [#94](https://github.com/uibcdf/dockingmt/issues/94).
-It was checked against source base `457eb090f0e36b6d2b34e1b7d90cbab4d43a4c00`
-plus that increment. It is maintained guidance, not a stable-1.0 promise or a
-claim that an earlier wheel contains later APIs. The separate
-[current private wheel receiving](validation/record_wheel_editable_2026-11-09.md)
-qualifies these offline APIs with the recorded editable sibling composition;
-public installation and full scientific/platform gates retain their own scope. For the installed version, use
-`help(dmt.DockingResult)` or `inspect.signature(dmt.dock)`.
+Canonical import and distribution: `bindingmt`. Component base diagnostics are
+`BindingMTException` and `BindingMTViewerError`; viewer imports use
+`molsysviewer_bindingmt`. [Scientific scope](SCIENTIFIC_SCOPE.md) distinguishes
+these implemented operations from accepted future complex prediction, refinement,
+binding free-energy calculation/prediction and interface characterization. Future
+operations are not advertised as implemented exports by the naming transition.
 
 ## Choose an operation
 
@@ -34,10 +25,10 @@ public installation and full scientific/platform gates retain their own scope. F
 | Measure recovery against a reference | `evaluate_redocking` | Molecular correspondence/geometry through MolSysMT with explicit reference, cutoff and frame/symmetry policy; no new search. |
 | Combine compatible evaluation reports | `summarize_redocking` | Offline cohort/denominator checks; incompatible populations are refused. |
 | Associate saved interaction analysis | `bind_interactions` → `PoseInteractions` | Validate an existing analysed carrier against one selected pose. Does not run a detector or infer atom matching. |
-| Explore interactively | `view` (`show` is the same function) | Construct/use MolSysViewer and its DockingMT addon; rendering/communication has separate live acceptance. |
+| Explore interactively | `view` (`show` is the same function) | Construct/use MolSysViewer and its BindingMT addon; rendering/communication has separate live acceptance. |
 | Implement an extension | `SearchDomain`, `DockingProtocol`, `DockingBackend` | Existing abstract contracts. Only add a concrete implementation for an accepted workflow. |
 | Inspect version or units | `__version__`, `__print_version__`, `pyunitwizard` | Version value/printing and the provider module. PyUnitWizard retains ownership of its API. |
-| Handle a diagnosed local failure | `exceptions` | Public aliases to the existing DockingMT catalog classes; see below. |
+| Handle a diagnosed local failure | `exceptions` | Public aliases to the existing BindingMT catalog classes; see below. |
 
 ### Read and audit a caller-owned file
 
@@ -49,16 +40,16 @@ Replace `saved-result.json` with your own input path.
 import json
 from pathlib import Path
 
-import dockingmt as dmt
+import bindingmt as bmt
 
 record = json.loads(Path('saved-result.json').read_text(encoding='utf-8'))
 try:
-    result = dmt.DockingResult.from_dict(record)
-except dmt.exceptions.ArgumentError as error:
+    result = bmt.DockingResult.from_dict(record)
+except bmt.exceptions.ArgumentError as error:
     print(error.code, error.extra.get('arg_name'))
     raise
 
-report = dmt.audit_result(result.to_dict())
+report = bmt.audit_result(result.to_dict())
 print('Poses:', len(result))
 print('Evidence:', report['status'])
 if result.top_pose is not None:
@@ -77,7 +68,7 @@ whole result. Missing captures remain missing evidence.
 ## Units, positions and ownership
 
 Pass physical quantities with their units, for example
-`dmt.pyunitwizard.quantity([1, 2, 3], 'nm')`. Pose coordinates are normalized to
+`bmt.pyunitwizard.quantity([1, 2, 3], 'nm')`. Pose coordinates are normalized to
 nanometres internally; records carry explicit units. Backend conversion names
 its target unit (`BoxRegion.to_backend_box(unit='angstrom')`). Reading a record
 must not reinterpret its values using the application's current unit policy.
@@ -142,9 +133,9 @@ See [molecular inputs](archive/use_molsysmt_as_canonical_molecular_input_for_the
 Choose engine CPU use explicitly, especially on a shared machine:
 
 ```python
-import dockingmt as dmt
+import bindingmt as bmt
 
-protocol = dmt.VinaProtocol(cpu=1, seed=17, capture_backend_inputs=True)
+protocol = bmt.VinaProtocol(cpu=1, seed=17, capture_backend_inputs=True)
 ```
 
 The current API default is `cpu=0`, passed to Vina's automatic CPU selection;
@@ -214,7 +205,7 @@ rank. Selection/frame/symmetry choices affect the question being measured.
 `summarize_redocking` retains compatible report denominators and explicit
 failures; it does not turn repeated poses/seeds into independent complexes.
 See [evaluation](validation/installed_3ptb_evaluation.md) and
-[aggregation](../dockingmt/aggregation.py).
+[aggregation](../bindingmt/aggregation.py).
 
 `bind_interactions` requires explicit `pose_index`, atom correspondence and both
 state IDs, an existing analysed one-frame carrier, and the deliberate
@@ -226,8 +217,8 @@ analysis access; it has no public persistence codec. See
 
 ## Catch local diagnostics
 
-Use `dmt.exceptions.ArgumentError` for a DockingMT-owned diagnosed argument
-failure, or `dmt.exceptions.DockingMTException` for its local catalog family.
+Use `bmt.exceptions.ArgumentError` for a BindingMT-owned diagnosed argument
+failure, or `bmt.exceptions.BindingMTException` for its local catalog family.
 `ArgumentError` is not a subclass of native `ValueError`. The public namespace
 exports the **same existing classes**, preserving identity, implementation
 module paths, native multiple inheritance, catalog codes, `extra` and causes.
@@ -258,31 +249,31 @@ Private implementation names and arbitrary provider attributes are outside it.
 
 | Name | Declaration / owner |
 | --- | --- |
-| [bind_interactions](../dockingmt/interactions.py) | `bind_interactions(result: DockingResult, molecular_system: Any, *, pose_index: int, pose_atom_indices: Any, partner_state_id: str, receptor_state_id: str, assume_aligned: bool=False, coordinate_tolerance: Any=None) -> PoseInteractions` |
-| [compare_scores](../dockingmt/comparison.py) | `compare_scores(result, score_name, *, problems, ascending)` |
-| [summarize_redocking](../dockingmt/aggregation.py) | `summarize_redocking(evaluations: Mapping, *, failures: Mapping \| None=None) -> dict` |
-| [evaluate_redocking](../dockingmt/evaluation.py) | `evaluate_redocking(result: DockingResult, reference: Any, *, rmsd_cutoff: Any, top_n: tuple[int, ...]=(1, 5), selection: Any='all', reference_info: Mapping \| None=None, symmetry_options: Mapping \| None=None) -> dict[str, Any]` |
-| [dock_many](../dockingmt/batch.py) | `dock_many(problems, protocol=None, backend=None, on_error='raise')` |
-| [audit_pose](../dockingmt/core/pose_audit.py) | `audit_pose(record)` |
-| [assess_preparation](../dockingmt/preparation/assessment.py) | `assess_preparation(prepared)` |
-| [audit_preparation_charges](../dockingmt/preparation/charges.py) | `audit_preparation_charges(prepared)` |
-| [audit_result](../dockingmt/core/audit.py) | `audit_result(record)` |
-| [verify_captured_inputs](../dockingmt/core/audit.py) | `verify_captured_inputs(artifacts)` |
+| [bind_interactions](../bindingmt/interactions.py) | `bind_interactions(result: DockingResult, molecular_system: Any, *, pose_index: int, pose_atom_indices: Any, partner_state_id: str, receptor_state_id: str, assume_aligned: bool=False, coordinate_tolerance: Any=None) -> PoseInteractions` |
+| [compare_scores](../bindingmt/comparison.py) | `compare_scores(result, score_name, *, problems, ascending)` |
+| [summarize_redocking](../bindingmt/aggregation.py) | `summarize_redocking(evaluations: Mapping, *, failures: Mapping \| None=None) -> dict` |
+| [evaluate_redocking](../bindingmt/evaluation.py) | `evaluate_redocking(result: DockingResult, reference: Any, *, rmsd_cutoff: Any, top_n: tuple[int, ...]=(1, 5), selection: Any='all', reference_info: Mapping \| None=None, symmetry_options: Mapping \| None=None) -> dict[str, Any]` |
+| [dock_many](../bindingmt/batch.py) | `dock_many(problems, protocol=None, backend=None, on_error='raise')` |
+| [audit_pose](../bindingmt/core/pose_audit.py) | `audit_pose(record)` |
+| [assess_preparation](../bindingmt/preparation/assessment.py) | `assess_preparation(prepared)` |
+| [audit_preparation_charges](../bindingmt/preparation/charges.py) | `audit_preparation_charges(prepared)` |
+| [audit_result](../bindingmt/core/audit.py) | `audit_result(record)` |
+| [verify_captured_inputs](../bindingmt/core/audit.py) | `verify_captured_inputs(artifacts)` |
 | `__version__` | Generated version value; created by the build/version machinery. |
-| [__print_version__](../dockingmt/__init__.py) | `__print_version__()` |
-| [pyunitwizard](../dockingmt/_pyunitwizard.py) | Provider module; follow PyUnitWizard documentation. |
-| [prepare_receptor](../dockingmt/preparation/receptor.py) | `prepare_receptor(molecular_system: Any, selection: str="molecule_type=='protein'", state_id: str \| None=None, *, charge_options: dict[str, Any] \| None=None, typing_options: dict[str, Any] \| None=None) -> PreparedReceptor` |
-| [prepare_ligand](../dockingmt/preparation/ligand.py) | `prepare_ligand(molecular_system: Any, selection: str="molecule_type=='small molecule'", state_id: str \| None=None, torsion_dof: int \| None=None, active_torsion_bonds: list[tuple[int, int]] \| None=None, *, hydrogen_options: dict[str, Any] \| None=None, charge_options: dict[str, Any] \| None=None, typing_options: dict[str, Any] \| None=None) -> PreparedLigand` |
-| [dock](../dockingmt/dock.py) | `dock(problem: DockingProblem, protocol: DockingProtocol \| None=None, backend: DockingBackend \| str \| None=None) -> DockingResult` |
-| [score](../dockingmt/score.py) | `score(problem: DockingProblem, protocol: DockingProtocol \| None=None, backend: DockingBackend \| str \| None=None, pose: DockingPose \| None=None, score_name: str='score') -> DockingPose` |
-| [show](../dockingmt/view.py) | Exact alias of `view`. |
-| [view](../dockingmt/view.py) | `view(item: Any=None, *, result: DockingResult \| None=None, problem: DockingProblem \| None=None, search_domain: SearchDomain \| None=None, reference: Any=None, receptor: Any=None, partner: Any=None, pose_rank: int=1, view: Any=None, **kwargs: Any) -> Any` |
+| [__print_version__](../bindingmt/__init__.py) | `__print_version__()` |
+| [pyunitwizard](../bindingmt/_pyunitwizard.py) | Provider module; follow PyUnitWizard documentation. |
+| [prepare_receptor](../bindingmt/preparation/receptor.py) | `prepare_receptor(molecular_system: Any, selection: str="molecule_type=='protein'", state_id: str \| None=None, *, charge_options: dict[str, Any] \| None=None, typing_options: dict[str, Any] \| None=None) -> PreparedReceptor` |
+| [prepare_ligand](../bindingmt/preparation/ligand.py) | `prepare_ligand(molecular_system: Any, selection: str="molecule_type=='small molecule'", state_id: str \| None=None, torsion_dof: int \| None=None, active_torsion_bonds: list[tuple[int, int]] \| None=None, *, hydrogen_options: dict[str, Any] \| None=None, charge_options: dict[str, Any] \| None=None, typing_options: dict[str, Any] \| None=None) -> PreparedLigand` |
+| [dock](../bindingmt/dock.py) | `dock(problem: DockingProblem, protocol: DockingProtocol \| None=None, backend: DockingBackend \| str \| None=None) -> DockingResult` |
+| [score](../bindingmt/score.py) | `score(problem: DockingProblem, protocol: DockingProtocol \| None=None, backend: DockingBackend \| str \| None=None, pose: DockingPose \| None=None, score_name: str='score') -> DockingPose` |
+| [show](../bindingmt/view.py) | Exact alias of `view`. |
+| [view](../bindingmt/view.py) | `view(item: Any=None, *, result: DockingResult \| None=None, problem: DockingProblem \| None=None, search_domain: SearchDomain \| None=None, reference: Any=None, receptor: Any=None, partner: Any=None, pose_rank: int=1, view: Any=None, **kwargs: Any) -> Any` |
 
 ### Model and extension classes
 
 #### PoseInteractions
 
-Source: [dockingmt/interactions.py](../dockingmt/interactions.py).
+Source: [bindingmt/interactions.py](../bindingmt/interactions.py).
 
 | Member | Declaration |
 | --- | --- |
@@ -297,7 +288,7 @@ Source: [dockingmt/interactions.py](../dockingmt/interactions.py).
 
 #### DockingOutcome
 
-Source: [dockingmt/core/outcome.py](../dockingmt/core/outcome.py).
+Source: [bindingmt/core/outcome.py](../bindingmt/core/outcome.py).
 
 | Member | Declaration |
 | --- | --- |
@@ -314,7 +305,7 @@ Source: [dockingmt/core/outcome.py](../dockingmt/core/outcome.py).
 
 #### SearchDomain
 
-Source: [dockingmt/core/search_domain.py](../dockingmt/core/search_domain.py). Bases: `ABC`.
+Source: [bindingmt/core/search_domain.py](../bindingmt/core/search_domain.py). Bases: `ABC`.
 
 | Member | Declaration |
 | --- | --- |
@@ -324,7 +315,7 @@ Source: [dockingmt/core/search_domain.py](../dockingmt/core/search_domain.py). B
 
 #### BoxRegion
 
-Source: [dockingmt/core/search_domain.py](../dockingmt/core/search_domain.py). Bases: `SearchDomain`.
+Source: [bindingmt/core/search_domain.py](../bindingmt/core/search_domain.py). Bases: `SearchDomain`.
 
 | Member | Declaration |
 | --- | --- |
@@ -346,7 +337,7 @@ Source: [dockingmt/core/search_domain.py](../dockingmt/core/search_domain.py). B
 
 #### DockingPose
 
-Source: [dockingmt/core/results.py](../dockingmt/core/results.py).
+Source: [bindingmt/core/results.py](../bindingmt/core/results.py).
 
 | Member | Declaration |
 | --- | --- |
@@ -362,7 +353,7 @@ Source: [dockingmt/core/results.py](../dockingmt/core/results.py).
 
 #### DockingResult
 
-Source: [dockingmt/core/results.py](../dockingmt/core/results.py).
+Source: [bindingmt/core/results.py](../bindingmt/core/results.py).
 
 | Member | Declaration |
 | --- | --- |
@@ -381,7 +372,7 @@ Source: [dockingmt/core/results.py](../dockingmt/core/results.py).
 
 #### DockingProblem
 
-Source: [dockingmt/core/problem.py](../dockingmt/core/problem.py).
+Source: [bindingmt/core/problem.py](../bindingmt/core/problem.py).
 
 | Member | Declaration |
 | --- | --- |
@@ -408,7 +399,7 @@ Source: [dockingmt/core/problem.py](../dockingmt/core/problem.py).
 
 #### DockingProtocol
 
-Source: [dockingmt/core/protocol.py](../dockingmt/core/protocol.py). Bases: `ABC`.
+Source: [bindingmt/core/protocol.py](../bindingmt/core/protocol.py). Bases: `ABC`.
 
 | Member | Declaration |
 | --- | --- |
@@ -420,7 +411,7 @@ Source: [dockingmt/core/protocol.py](../dockingmt/core/protocol.py). Bases: `ABC
 
 #### VinaProtocol
 
-Source: [dockingmt/core/protocol.py](../dockingmt/core/protocol.py). Bases: `DockingProtocol`.
+Source: [bindingmt/core/protocol.py](../bindingmt/core/protocol.py). Bases: `DockingProtocol`.
 
 | Member | Declaration |
 | --- | --- |
@@ -444,7 +435,7 @@ Source: [dockingmt/core/protocol.py](../dockingmt/core/protocol.py). Bases: `Doc
 
 #### DockingBackend
 
-Source: [dockingmt/engines/base.py](../dockingmt/engines/base.py). Bases: `ABC`.
+Source: [bindingmt/engines/base.py](../bindingmt/engines/base.py). Bases: `ABC`.
 
 | Member | Declaration |
 | --- | --- |
@@ -457,7 +448,7 @@ Source: [dockingmt/engines/base.py](../dockingmt/engines/base.py). Bases: `ABC`.
 
 #### VinaBackend
 
-Source: [dockingmt/engines/vina.py](../dockingmt/engines/vina.py). Bases: `DockingBackend`.
+Source: [bindingmt/engines/vina.py](../bindingmt/engines/vina.py). Bases: `DockingBackend`.
 
 | Member | Declaration |
 | --- | --- |
@@ -482,7 +473,7 @@ retains its partial-chemistry and declared-axis contracts.
 
 #### PreparedReceptor
 
-Source: [dockingmt/preparation/receptor.py](../dockingmt/preparation/receptor.py).
+Source: [bindingmt/preparation/receptor.py](../bindingmt/preparation/receptor.py).
 
 | Member | Declaration |
 | --- | --- |
@@ -494,7 +485,7 @@ Source: [dockingmt/preparation/receptor.py](../dockingmt/preparation/receptor.py
 
 #### PreparedLigand
 
-Source: [dockingmt/preparation/ligand.py](../dockingmt/preparation/ligand.py).
+Source: [bindingmt/preparation/ligand.py](../bindingmt/preparation/ligand.py).
 
 | Member | Declaration |
 | --- | --- |
@@ -507,22 +498,22 @@ Source: [dockingmt/preparation/ligand.py](../dockingmt/preparation/ligand.py).
 
 ### exceptions
 
-Source: [dockingmt/exceptions.py](../dockingmt/exceptions.py). Each name aliases its existing implementation class.
+Source: [bindingmt/exceptions.py](../bindingmt/exceptions.py). Each name aliases its existing implementation class.
 
 | Public alias | Existing bases |
 | --- | --- |
-| `DockingMTException` | `CatalogException` |
-| `LibraryNotFoundError` | `DockingMTException` |
-| `ArgumentError` | `DockingMTException` |
-| `CapabilityMismatchError` | `DockingMTException` |
-| `DockingMTViewerError` | `DockingMTException` |
-| `ViewerPoseCountError` | `DockingMTViewerError`, `ValueError` |
-| `ViewerStructureCountError` | `DockingMTViewerError`, `ValueError` |
-| `ViewerInputMissingError` | `DockingMTViewerError`, `ValueError` |
-| `ViewerPosePositionError` | `DockingMTViewerError`, `ValueError` |
-| `ViewerShapeOwnershipError` | `DockingMTViewerError`, `ValueError` |
-| `ViewerStateError` | `DockingMTViewerError`, `RuntimeError` |
-| `ViewerCapabilityError` | `DockingMTViewerError`, `RuntimeError` |
-| `ViewerActionError` | `DockingMTViewerError`, `ValueError` |
+| `BindingMTException` | `CatalogException` |
+| `LibraryNotFoundError` | `BindingMTException` |
+| `ArgumentError` | `BindingMTException` |
+| `CapabilityMismatchError` | `BindingMTException` |
+| `BindingMTViewerError` | `BindingMTException` |
+| `ViewerPoseCountError` | `BindingMTViewerError`, `ValueError` |
+| `ViewerStructureCountError` | `BindingMTViewerError`, `ValueError` |
+| `ViewerInputMissingError` | `BindingMTViewerError`, `ValueError` |
+| `ViewerPosePositionError` | `BindingMTViewerError`, `ValueError` |
+| `ViewerShapeOwnershipError` | `BindingMTViewerError`, `ValueError` |
+| `ViewerStateError` | `BindingMTViewerError`, `RuntimeError` |
+| `ViewerCapabilityError` | `BindingMTViewerError`, `RuntimeError` |
+| `ViewerActionError` | `BindingMTViewerError`, `ValueError` |
 
 <!-- SOURCE_MAP:END -->

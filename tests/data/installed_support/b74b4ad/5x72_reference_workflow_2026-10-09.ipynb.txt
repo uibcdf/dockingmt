@@ -153,7 +153,7 @@
     "import numpy as np\n",
     "import pandas as pd\n",
     "import pyunitwizard as puw\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "from devtools.qualify_5x72_reference import OUTPUT, sha, load_archives, compare_saved, score_components\n",
     "\n",
     "payload = OUTPUT.read_bytes()\n",
@@ -553,12 +553,12 @@
     "with puw.context(standard_units=['pm','fs','K','mole','dalton','e','kJ/mol','radians']):\n",
     "    for ligand, reference in record['references'].items():\n",
     "        for order, contexts in reference['fixed_scores'].items():\n",
-    "            original = dmt.DockingPose.from_dict(reference['poses'][order])\n",
+    "            original = bmt.DockingPose.from_dict(reference['poses'][order])\n",
     "            assert original.rank is None and original.scores == {}\n",
     "            for data in contexts.values():\n",
-    "                scored = dmt.DockingPose.from_dict(data)\n",
+    "                scored = bmt.DockingPose.from_dict(data)\n",
     "                history = scored.metadata['scoring_history'][-1]\n",
-    "                assert dmt.verify_captured_inputs(history['backend_artifacts'])\n",
+    "                assert bmt.verify_captured_inputs(history['backend_artifacts'])\n",
     "                assert history['operation']=='score' and len(history['scores'])==8\n",
     "                np.testing.assert_array_equal(puw.get_value(scored.coordinates,to_unit='angstrom'),\n",
     "                    puw.get_value(original.coordinates,to_unit='angstrom'))\n",
@@ -582,9 +582,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "DockingMT qualified Python 3.14",
+   "display_name": "BindingMT qualified Python 3.14",
    "language": "python",
-   "name": "dockingmt-reference"
+   "name": "bindingmt-reference"
   },
   "language_info": {
    "codemirror_mode": {

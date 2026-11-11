@@ -1,6 +1,6 @@
 ---
 summary: Validate native MolSysMT SDF/PDBQT inputs and define the supported preparation profile
-issue: uibcdf/dockingmt#33
+issue: uibcdf/bindingmt#33
 status: partial
 opened: 2026-10-03
 closed:
@@ -161,7 +161,7 @@ gate and does not block separate admission or scoped positional-RMSD research.
 [The #4 evaluation](../validation/installed_3ptb_evaluation.md) verifies the
 declared nine-heavy-atom axis through public MolSysMT selection/getters and
 passes seven cells under normal and pm/fs policies. Full original thirteen-atom
-results remain unchanged; fresh explicit coordinate views use public DockingMT
+results remain unchanged; fresh explicit coordinate views use public BindingMT
 constructors/evaluation/summary and provider RMSD, without private metadata
 projection or a new molecular routine. All nine saved poses remain included;
 native first/closest is about 1.934/0.228 Å, displaced 65.312/62.074 Å under the
@@ -222,7 +222,7 @@ scoring acceptance is explicitly retained in #33. #33 remains partial for that
 question and remaining input/reader profiles; #4 remains partial for general
 prepared-source/replay persistence. Native prepared inputs retain honest absent
 file fingerprints, with source binding established by the case bundle. No new
-molecular operation or snapshot is implemented downstream. DMT-043 records the
+molecular operation or snapshot is implemented downstream. BMT-043 records the
 bounded decision; visible C4/C6 remains deferred.
 
 ## Supported profile versus historical gaps — 2026-10-28
@@ -238,7 +238,7 @@ writing stays under #214.
 This issue remains partial for explicit chemical/representation-profile acceptance,
 remaining input/state profiles and scientific limits. The frozen 24/167 population
 and five-pose human result are not new experiments on the latest provider. The
-C4 derivation descriptor is DockingMT #55; C6 remains deferred under #52. No generic
+C4 derivation descriptor is BindingMT #55; C6 remains deferred under #52. No generic
 chemical certification, affinity claim or public artifact admission is inferred.
 
 ## Production known-source pose reader — 2026-10-28
@@ -294,7 +294,7 @@ prefix at the external-engine boundary.
 ## Why
 
 Molecular format operations belong to MolSysMT. Consumer evidence determines when
-DockingMT can retire temporary operations without changing scientific assumptions.
+BindingMT can retire temporary operations without changing scientific assumptions.
 
 ## What was refuted
 
@@ -361,7 +361,7 @@ Hosted qualification against the newly pinned provider commit remains separate.
 ## 2026-10-03 hosted receipt and fragment migration
 
 The preceding prepared-input implementation at `be39d74` passed all four required
-Python jobs in [run 37114604512](https://github.com/uibcdf/dockingmt/actions/runs/37114604512).
+Python jobs in [run 37114604512](https://github.com/uibcdf/bindingmt/actions/runs/37114604512).
 This establishes that software slice's hosted qualification, not chemical validity.
 
 The [next migration](../validation/rigid_fragment_consumption.md) consumes public
@@ -467,7 +467,7 @@ is retained in the validation record. Ruff, indexes and diff checks pass.
 ## 2026-10-04 named-charge consumer qualification
 
 The bounded [consumer slice](../validation/named_partial_charges.md), tracked
-by dockingmt#40, preserves public MolSysMT #221 model/software attribution,
+by bindingmt#40, preserves public MolSysMT #221 model/software attribution,
 original coverage and source indices through selected projection and existing
 nonpolar-H charge transfers. Public `audit_preparation_charges` observes current
 numeric binding, conservation and actual three-decimal PDBQT rounding. The
@@ -476,7 +476,7 @@ executed notebook qualifies methanol, selected OH, flexible 5X72 and explicit-H
 
 Public MolSysMT indexed extraction owns stale molecular binding detection. No
 charge calculation, graph validator, implicit model or renormalization is added
-in DockingMT. CI pins advance to qualified source `7894435e748bc55254b6c3d2b63ae82c101e5774`;
+in BindingMT. CI pins advance to qualified source `7894435e748bc55254b6c3d2b63ae82c101e5774`;
 dirty sibling work is preserved. Typing (#222), general preparation/scoring
 compatibility and provider H/export projection (#223) remain separate. The
 default provisional gate is preserved; this owning issue remains partial.
@@ -484,7 +484,7 @@ default provisional gate is preserved; this owning issue remains partial.
 ## 2026-10-04 explicit fixed-state H/charge stages
 
 The [bounded consumer contract](../validation/ligand_preparation_stages.md),
-tracked by dockingmt#41, adds opt-in provider option mappings to existing public
+tracked by bindingmt#41, adds opt-in provider option mappings to existing public
 `prepare_ligand`. MolSysMT H addition precedes named charges, defaults to strict
 attribute preservation and retains original reports/credit and composed input,
 expanded, prepared and written correspondence. Generated H has no original input

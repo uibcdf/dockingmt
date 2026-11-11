@@ -1,6 +1,6 @@
 # Exact-input Vina adapter differential control — 2026-11-04
 
-Owner: [#62](https://github.com/uibcdf/dockingmt/issues/62), following audit
+Owner: [#62](https://github.com/uibcdf/bindingmt/issues/62), following audit
 Q1/E3 under #28/#33. This is an existing-input software control, separate from
 the proposed two-complex panel and from the original 3PTB scientific populations.
 
@@ -76,7 +76,7 @@ capabilities retain MolSysMT ownership.
 ## Executed observation and original failure
 
 Producer **`32599a8ea59dbe9615cef005b7f1c4685dae39b2`** was committed, published
-and [registered before execution](https://github.com/uibcdf/dockingmt/issues/62#issuecomment-6641441751).
+and [registered before execution](https://github.com/uibcdf/bindingmt/issues/62#issuecomment-6641441751).
 Both workers complete once: **two new searches total, five returned poses each**,
 no emitted warnings and unchanged staged-input hashes. Input/cache directories
 are retired. Raw original evidence is 58,886 bytes, below the declared ceiling;
@@ -105,8 +105,8 @@ terms, flexible-ligand ordering, Vinardo or other backends; those retain their
 existing separate evidence and future workflow-specific controls.
 
 These last two failures are defects of this new observer's evaluation, not
-observed differences in native search outputs or DockingMT score values. The
-[diagnosis/amendment](https://github.com/uibcdf/dockingmt/issues/62#issuecomment-6641478729)
+observed differences in native search outputs or BindingMT score values. The
+[diagnosis/amendment](https://github.com/uibcdf/bindingmt/issues/62#issuecomment-6641478729)
 is recorded before offline reassessment. No third search or relaxed numerical
 tolerance is used to resolve them.
 
@@ -126,7 +126,7 @@ rejected by their intended guards: fifth energy column, native array/text,
 actual seed/map spacing, input hash, normalized score, incompatible/differently
 scaled units, engine weight, unexpected flexible receptor and empty outputs.
 The equivalent
-abbreviation is accepted separately. The reader imports no DockingMT, MolSysMT,
+abbreviation is accepted separately. The reader imports no BindingMT, MolSysMT,
 Vina, Viewer or Meeko, and executes **zero additional searches**.
 
 Reproduce this record assessment, without scientific execution:

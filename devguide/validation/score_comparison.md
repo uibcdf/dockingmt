@@ -1,6 +1,6 @@
 # Compare fixed interaction components
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
 The first public comparison profile is deliberately bounded. Its implementation
 and separately recorded receiving do not accept the whole E1 workflow.
 
@@ -16,7 +16,7 @@ as `prepared_problems` alongside `rescored_result`.
 import json
 from pathlib import Path
 
-import dockingmt as dmt
+import bindingmt as dmt
 
 comparison = dmt.compare_scores(
     rescored_result,
@@ -52,7 +52,7 @@ the actual per-conformation `partner_sha256`. Unknown context fields refuse the
 profile. Recorded producer versions and applied execution parameters must also
 agree. The complete original descriptors and all different hashes survive.
 
-For each preparation, DockingMT reuses its native MolSysMT export, retaining the
+For each preparation, BindingMT reuses its native MolSysMT export, retaining the
 actual exported molecular view and atom map. Final bytes, export-map payload
 hash and captured scoring input must agree. The supplied receptor and domain
 must also match the recorded inputs. Existing fixed-score geometry admission

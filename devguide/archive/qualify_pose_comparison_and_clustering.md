@@ -1,6 +1,6 @@
 ---
 summary: Qualify provider-backed positional pose comparison and declared geometric clustering for E3.
-issue: uibcdf/dockingmt#79
+issue: uibcdf/bindingmt#79
 status: resolved
 opened: 2026-11-06
 closed: 2026-11-09
@@ -108,7 +108,7 @@ hold without waiving independent consumer/installed/public acceptance.
 The [explicit #645 receiving selection](../validation/e3_indexed_h_policy_receiving_2026-11-08.md)
 now reaches two strict full39 maps after the supported two policy operations on
 editable MolSysMT `2325038e8` and rebuilt native SHA-256 `5715bda2`. Its normal
-selection remains FAIL at the historical PDBQT checksum. [DockingMT #88](../archive/e3_source_replay_artifact_identity.md)
+selection remains FAIL at the historical PDBQT checksum. [BindingMT #88](../archive/e3_source_replay_artifact_identity.md)
 corrects that criterion prospectively with an independent same-current-producer
 unnormalized preparation, retaining the distinct authenticated historical input.
 
@@ -168,7 +168,7 @@ supported public compositions are absent.
 [MolSysMT #604](https://github.com/uibcdf/molsysmt/issues/604) requests an existing
 supported composition first, or the smallest reusable bounded pairwise-distance
 and geometric-clustering tools. MolSysMT owns molecular geometry, correspondence,
-matrix construction and clustering. DockingMT owns population selection,
+matrix construction and clustering. BindingMT owns population selection,
 association with docking records and interpretation. No consumer clustering
 loop, metric, atom matcher or coordinate writer is introduced.
 

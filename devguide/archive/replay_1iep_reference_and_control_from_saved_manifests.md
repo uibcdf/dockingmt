@@ -1,6 +1,6 @@
 ---
 summary: Replay 1IEP reference and control from saved manifests
-issue: uibcdf/dockingmt#16
+issue: uibcdf/bindingmt#16
 status: resolved
 opened: 2026-09-26
 closed: 2026-09-26
@@ -16,7 +16,7 @@ supersedes: []
 
 ## What
 
-The public 1IEP validator records complete DockingMT results and captured Vina
+The public 1IEP validator records complete BindingMT results and captured Vina
 PDBQT inputs for its reference and displaced-box runs. The original ligand SDF
 and the source-to-PDBQT atom map live only in the report. There is no separate
 process that reconstructs both runs from durable records and compares them.
@@ -34,7 +34,7 @@ RMSD, and the control's near-native classification. State numeric tolerances.
 ## Why
 
 This checks reproducibility after the original Python objects and input paths
-are unavailable. It exercises DockingMT's result/provenance model with a
+are unavailable. It exercises BindingMT's result/provenance model with a
 flexible ligand and a methodological negative control. The case-specific 1IEP
 map remains temporary; general molecular correspondence belongs to MolSysMT
 `uibcdf/molsysmt#223` and `#226`.
@@ -47,7 +47,7 @@ without retained bytes does not reconstruct a missing source.
 
 ## Scope and exclusions
 
-DockingMT owns this audit of its protocol, Vina adapter, results and provenance.
+BindingMT owns this audit of its protocol, Vina adapter, results and provenance.
 The externally prepared chemistry remains unassessed. The replay does not infer
 general PDBQT chemistry or a graph mapping for another ligand.
 
@@ -65,7 +65,7 @@ general PDBQT chemistry or a graph mapping for another ligand.
 ## Resolution
 
 Both manifests now retain authenticated source SDF and Vina PDBQT bytes, a
-verified source atom map, and the DockingMT source revision. The replay checks
+verified source atom map, and the BindingMT source revision. The replay checks
 their fixed identities, reconstructs both problems from temporary PDBQT files,
 reruns the recorded protocol, and compares every pose under the declared score
 and RMSD tolerances. A separate-process replay passed after all three original

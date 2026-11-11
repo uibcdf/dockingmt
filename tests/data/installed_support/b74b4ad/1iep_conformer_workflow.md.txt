@@ -1,9 +1,9 @@
 # 1IEP alternative-conformer challenge
 
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17) and
-[#6](https://github.com/uibcdf/dockingmt/issues/6) own this finite follow-up to
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17) and
+[#6](https://github.com/uibcdf/bindingmt/issues/6) own this finite follow-up to
 the [fixed-first-ROOT control](1iep_root_order_workflow.md). The
-[prespecified plan](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6068927987)
+[prespecified plan](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6068927987)
 was recorded before searches. The [driver](../../devtools/qualify_1iep_conformers.py),
 [original observations](data/1iep_conformers/audit_2026-10-08.json.gz),
 [executed notebook](1iep_conformer_workflow_2026-10-08.ipynb),
@@ -158,7 +158,7 @@ The first uncommitted sequential attempt was stopped after three completed +60
 native e1 cells and during its first e8 cell when the independent fixed-score
 guard exposed the -60 outside-grid refusal. Those preliminary pose payloads were
 only in memory and are not reconstructable or counted in the final matrix. The
-[execution clarification](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6069044113)
+[execution clarification](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6069044113)
 records the limit. The full unchanged declared matrix is rerun with per-cell
 retention; successful final cells and all fixed-score refusals are preserved.
 
@@ -201,7 +201,7 @@ results remain applicable. The final unskipped head supplies fresh hosted gates.
 
 ## Portable annotation correction after first hosted CI — 2026-10-08
 
-The [first exact-head CI](https://github.com/uibcdf/dockingmt/actions/runs/37846351830)
+The [first exact-head CI](https://github.com/uibcdf/bindingmt/actions/runs/37846351830)
 fails the three portable input/live guards in fixture setup. The driver compared
 runtime REMARK metadata with historical annotation bytes. Ordinary installation
 of the same pinned MolSysMT source reports `1.0.0` in CI, while the preserved
@@ -218,11 +218,11 @@ All five current guards pass locally in 70.94 s; with the applicable unchanged
 62 boundary cases, the current scope is **67 distinct tests, no skips**.
 
 Original observations and scientific driver bytes remain attached to producer
-[27a18ef](https://github.com/uibcdf/dockingmt/commit/27a18ef0781016957e4ecc8c523314973be52b37).
+[27a18ef](https://github.com/uibcdf/bindingmt/commit/27a18ef0781016957e4ecc8c523314973be52b37).
 Its driver hash is authenticated at that commit, rather than claiming the changed
 portable driver has the old hash. The current strict-profile preparation
 reproduces all saved case dictionaries exactly. Scientific archive/digest,
 notebook, input bytes, counts and earlier producers remain unchanged; no searches
-are rerun. This corrects a DockingMT guard, not a demonstrated provider molecular
+are rerun. This corrects a BindingMT guard, not a demonstrated provider molecular
 operation or public-version defect. The corrected head requires fresh hosted CI,
 recorded separately in the owning issues.

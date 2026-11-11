@@ -1,6 +1,6 @@
 ---
 summary: Qualify same-state multi-pose rescoring with explicit reference and comparison evidence.
-issue: uibcdf/dockingmt#78
+issue: uibcdf/bindingmt#78
 status: resolved
 opened: 2026-11-06
 closed: 2026-11-07
@@ -84,7 +84,7 @@ These are provider requests, not new-source/runtime acceptance.
 ## Reference-evidence implementation slice — 2026-11-06
 
 Implementation `49a7729` adds explicit native reference declarations and shared
-record crosschecks under DMT-047, preserving public signatures/native numbers,
+record crosschecks under BMT-047, preserving public signatures/native numbers,
 frozen observations, canonical legacy reports and strict ranking. The
 [contract/receiving](../validation/scoring_reference.md) records 155 selected
 source tests with the published receptor, one native case deselected, and 106
@@ -138,8 +138,8 @@ export with `msm.convert(..., to_form='string:pdbqt_text',
 typing_scheme='autodock4', torsion_tree=..., return_atom_map=True)`. Preserve
 the new bytes/hash and map separately from the original input.
 
-DockingMT already composes much of this in
-[`preparation/_export.py`](../../dockingmt/preparation/_export.py):
+BindingMT already composes much of this in
+[`preparation/_export.py`](../../bindingmt/preparation/_export.py):
 `PreparedExport` retains the actual molecular view and export map, and
 `_declared_tree` binds the existing docking tree to native IDs. The public
 `pose.to_molecular_system(prepared)` also applies admitted pose coordinates
@@ -191,13 +191,13 @@ certificate. Graph correspondence also does not establish preservation of
 partial charges, AutoDock `atom_ff_type`, assignment provenance or torsion-tree
 meaning. Those prepared-representation contracts need separate receiving.
 
-### Comparison admission remains DockingMT work
+### Comparison admission remains BindingMT work
 
-[`_vina_scoring.py`](../../dockingmt/engines/_vina_scoring.py) retains each
+[`_vina_scoring.py`](../../bindingmt/engines/_vina_scoring.py) retains each
 evaluation's actual `partner_sha256` in its context. Different conformations can
 also round to identical PDBQT bytes; the hash does not certify their identity.
 For explicitly described scoring evaluations,
-[`_scores.py`](../../dockingmt/core/_scores.py) deliberately requires identical
+[`_scores.py`](../../bindingmt/core/_scores.py) deliberately requires identical
 definitions, contexts and state IDs for `rank_by`; its existing refusal and the
 separate entirely undescribed legacy route remain unchanged. A received chemical
 witness does not make different input hashes identical or demonstrate a common
@@ -308,7 +308,7 @@ original provider assignments and generated-atom lineage preserved.
 
 Ten bounded chemical witnesses, eight export refusals and two inconsistent
 edited-charge audits pass. The flexible writer has an actual nonidentity axis;
-the public native writer map binds its own bytes, independently of DockingMT's
+the public native writer map binds its own bytes, independently of BindingMT's
 remark-bearing export. Rounded PDBQT charges sum to 1.001 e, within the declared
 0.0065 e bound, while unrounded totals remain +1 e within provider tolerance.
 Corresponding PDBQT bytes agree between unit policies. The complete attempt
@@ -432,7 +432,7 @@ partial, without closing broader provider questions or restarting E4.
 ## Finite private installed workflow — 2026-11-06
 
 The [registered installed receiving](../validation/e1_installed_receiving_2026-11-06.md)
-now passes for a private DockingMT wheel built from unchanged runtime
+now passes for a private BindingMT wheel built from unchanged runtime
 `2fda6238e6b1cb3742f5d30b8ed3af699f9ed748`. Five support members also use private
 wheels. MolSysMT remains an explicitly borrowed, hashed runtime snapshot with its
 existing extension: its separate offline wheel build fails before compilation
@@ -681,7 +681,7 @@ needed to review these assertions.
 The next independent implementation work is #81's distinct-ligand study
 admission and explicit study comparison, preserving this same-state profile.
 Whole E1 and Core+Extended completion remain governed by #73. The maintainer's
-open-ended 0.x stabilization clarification is [DMT-048](../DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress).
+open-ended 0.x stabilization clarification is [BMT-048](../DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress).
 
 
 ## Closeout local qualification — 2026-11-07

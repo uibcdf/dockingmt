@@ -1,6 +1,6 @@
 ---
 summary: Advertise the actual MolSysMT and MolSysViewer installation routes.
-issue: uibcdf/dockingmt#64
+issue: uibcdf/bindingmt#64
 status: resolved
 opened: 2026-11-04
 closed: 2026-11-04
@@ -42,7 +42,7 @@ not a request to publish providers or implement another dependency manager.
 
 No install/upgrade, runtime floor, provider pin or scientific behavior changes.
 An available Conda route does not certify the current public files' compatibility
-with DockingMT; that remains #30/#47. Broader ArgDigest/SMonitor adoption remains
+with BindingMT; that remains #30/#47. Broader ArgDigest/SMonitor adoption remains
 #19; the scanner's relative-import false positive is separately DepDigest #47.
 
 ## Acceptance criteria

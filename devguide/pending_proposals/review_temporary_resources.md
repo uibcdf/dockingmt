@@ -1,6 +1,6 @@
 ---
 summary: Complete the local resource disposition and retain the deferred central handoff.
-issue: uibcdf/dockingmt#50
+issue: uibcdf/bindingmt#50
 status: partial
 opened: 2026-11-05
 closed:
@@ -253,8 +253,8 @@ receipts. Current inspection does not substitute for those executed checks.
 
 | Operation / resource | Ownership and purpose | Disposition and release condition | Evidence / boundary |
 | --- | --- | --- | --- |
-| Vina staging for `dock` and `score` | DockingMT backend owns only newly allocated input copies. Caller input paths remain caller-owned. | Attempt every owned removal on success/failure; missing files are harmless. Retained paths are reported; the same primary error survives. | `engines/vina.py`, `engines/_vina_scoring.py`; #71's 19 controlled lifecycle cases. No molecular export change. |
-| Addon shapes, state and DOM fixtures | Addon owns its registered domain handles; MolSysViewer owns molecular scene/render/comm resources. The DOM test owns its emulated windows. | `clear_docking` removes owned shapes and releases binding; failed deletion preserves remaining handles for retry. DOM teardown closes its windows in `finally`. | `molsysviewer_dockingmt/adapters/complex.py`, `tests/test_viewer_state.py`, `devtools/frontend/panels.test.mjs`. This neither closes caller scene data nor certifies a live canvas. |
+| Vina staging for `dock` and `score` | BindingMT backend owns only newly allocated input copies. Caller input paths remain caller-owned. | Attempt every owned removal on success/failure; missing files are harmless. Retained paths are reported; the same primary error survives. | `engines/vina.py`, `engines/_vina_scoring.py`; #71's 19 controlled lifecycle cases. No molecular export change. |
+| Addon shapes, state and DOM fixtures | Addon owns its registered domain handles; MolSysViewer owns molecular scene/render/comm resources. The DOM test owns its emulated windows. | `clear_docking` removes owned shapes and releases binding; failed deletion preserves remaining handles for retry. DOM teardown closes its windows in `finally`. | `molsysviewer_bindingmt/adapters/complex.py`, `tests/test_viewer_state.py`, `devtools/frontend/panels.test.mjs`. This neither closes caller scene data nor certifies a live canvas. |
 | Profile/replay and preparation qualification scratch | Each helper owns its managed temporary input/output directory; report/input destinations belong to the caller or declared case. | Existing `TemporaryDirectory` scopes dispose scratch on success/failure. Persistent reports remain outside that scope for their declared evidence use. | `profile_workflow.py`, `replay_1iep_pdbqt.py`, `qualify_named_types.py`, `qualify_chemical_templates.py`, `qualify_3ptb_admission.py`, and `devtools/qualify_named_charges.py`. Source inspection only; no rerun of their molecular/native operations. |
 | Export memory profiling | Benchmark owns tracing only when it starts tracing. | Stop owned tracing on success/failure; preserve an already active caller tracer. | #48 mechanism, #72's five restored isolated child guards. No benchmark population rerun. |
 | Saved-case recovery report | Recovery writer owns only a newly created report, never an existing output. | Exclusive creation protects existing files; a failed new write removes the partial file or exposes its cleanup failure. | `recover_saved_3ptb_case.py::_write_report` and its existing failed-write guard. No general molecular serialization or reconstruction is added. |
@@ -329,7 +329,7 @@ location, age, an absent path or a completed experiment into disposal authority.
 
 ## Scope and exclusions
 
-Local DockingMT operations and explicitly identified retained contexts only.
+Local BindingMT operations and explicitly identified retained contexts only.
 Machine paths, account/environment diagnostics and process details stay in the
 ignored local ledger. Public records contain categories, owners, decisions,
 counts, source identities and this ledger's digest. Runtime code, existing

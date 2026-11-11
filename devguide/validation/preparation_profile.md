@@ -1,8 +1,8 @@
 # Declared preparation and provenance profile — 2026-10-29
 
-Owners: [#33](https://github.com/uibcdf/dockingmt/issues/33) (representation and
-profile), [#5](https://github.com/uibcdf/dockingmt/issues/5) (preparation/scoring
-acceptance), and [#4](https://github.com/uibcdf/dockingmt/issues/4) (source and
+Owners: [#33](https://github.com/uibcdf/bindingmt/issues/33) (representation and
+profile), [#5](https://github.com/uibcdf/bindingmt/issues/5) (preparation/scoring
+acceptance), and [#4](https://github.com/uibcdf/bindingmt/issues/4) (source and
 scientific decisions). This follows the [Core audit](core_mvp_audit_2026-10-28.md)
 and [domain-provenance implementation](domain_derivation.md).
 
@@ -10,7 +10,7 @@ and [domain-provenance implementation](domain_derivation.md).
 
 The first supported molecular workflow is **one explicitly declared protein and
 small-molecule state, a rigid receptor, and a rigid or explicitly cut ligand**.
-General molecular work is composed through public MolSysMT. DockingMT records
+General molecular work is composed through public MolSysMT. BindingMT records
 scientific choices, builds its domain/protocol, runs Vina and preserves results.
 This document defines the bounded admission contract; it adds no runtime preset,
 chemical model, automatic state choice or new default.
@@ -27,7 +27,7 @@ and its safe execution policy remain unchanged.
 
 | Boundary | Admitted workflow | Limits and separate ownership |
 | --- | --- | --- |
-| Source and structure | Public MolSysMT conversion; one selected structure with an explicit chemical hypothesis and available source/state association. | Select among structures before preparation; do not infer experimental state or repair incomplete data in DockingMT. |
+| Source and structure | Public MolSysMT conversion; one selected structure with an explicit chemical hypothesis and available source/state association. | Select among structures before preparation; do not infer experimental state or repair incomplete data in BindingMT. |
 | Receptor | Explicitly chosen rigid protein state; declared termini, disulfides, waters/ions/cofactors and any intentional repair or attribute loss. | The 3PTB evidence is a dry, protein-only hypothesis, not general water, metal or cofactor support. General preparation belongs to MolSysMT. |
 | Ligand | Declared chemical state and complete graph for the native known-source reader. | Source-free/partial representations are a separate compatibility route, not evidence of complete chemistry. |
 | Hydrogens | Explicit public fixed-state H generation when requested, with original maps, parents and loss reports. | No implicit H addition, pH inference or environmental H refinement. The receptor workflow composes H generation before `prepare_receptor`. |
@@ -99,13 +99,13 @@ The later human run is a separate five-pose result, not another execution of tho
 
 Current software qualification at `8d40870724e21cf579ce4d5289d46b5d8a5aaa1c`
 passes 1,301 source tests per Python 3.11–3.14 and all exact-head CI jobs, with
-ordinary installed checks separately recorded in [#55](https://github.com/uibcdf/dockingmt/issues/55).
+ordinary installed checks separately recorded in [#55](https://github.com/uibcdf/bindingmt/issues/55).
 That supports current software contracts; it does not relabel an older scientific
 experiment as execution on the current composition.
 
 ### Separately registered current-composition admission
 
-[Pre-execution registration](https://github.com/uibcdf/dockingmt/issues/33#issuecomment-6501548627)
+[Pre-execution registration](https://github.com/uibcdf/bindingmt/issues/33#issuecomment-6501548627)
 freezes the unchanged chemical hypothesis and an admission-only control on the
 ordinary installed `0.0.0+207.g8d40870` artifact with qualified MolSysMT
 `e395e52646dab2ecb480d3d67aa7254be99b8524`.

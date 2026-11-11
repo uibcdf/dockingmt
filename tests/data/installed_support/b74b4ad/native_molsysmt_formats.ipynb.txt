@@ -7,7 +7,7 @@
    "source": [
     "# Native MolSysMT prepared-input consumption\n",
     "\n",
-    "Initial acceptance slice for DockingMT #33. Published Vina preparations are comparison\n",
+    "Initial acceptance slice for BindingMT #33. Published Vina preparations are comparison\n",
     "inputs, not chemical ground truth. This notebook uses public MolSysMT form conversion\n",
     "and tree retrieval; raw PDBQT retains its unassessed preparation status. SDF dialect gaps\n",
     "and chemical readiness are recorded in `native_molsysmt_formats.md`. No molecular source\n",
@@ -44,7 +44,7 @@
     "from pathlib import Path\n",
     "import molsysmt as msm\n",
     "import pyunitwizard as puw\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "from molsysmt.form.file_pdbqt import get_torsion_tree\n",
     "\n",
     "root = next(path for path in [Path.cwd(), *Path.cwd().parents]\n",
@@ -145,7 +145,7 @@
    "source": [
     "## Run the existing 1IEP docking path using explicit MolSysMT strings\n",
     "\n",
-    "File-to-string bridges preserve original bytes. DockingMT removes `pdbqt_text:` at\n",
+    "File-to-string bridges preserve original bytes. BindingMT removes `pdbqt_text:` at\n",
     "the external Vina boundary. This exploratory execution verifies consumption, capture\n",
     "and internal consistency; it does not qualify binding affinity or chemical preparation."
    ]
@@ -185,15 +185,15 @@
    "source": [
     "receptor = msm.convert(data / \"1iep_receptor.pdbqt\", to_form=\"string:pdbqt_text\")\n",
     "partner = msm.convert(data / \"1iep_ligand.pdbqt\", to_form=\"string:pdbqt_text\")\n",
-    "problem = dmt.DockingProblem(\n",
+    "problem = bmt.DockingProblem(\n",
     "    receptor=receptor, partner=partner,\n",
-    "    search_domain=dmt.BoxRegion(center=puw.quantity([15.190, 53.903, 16.917], \"angstrom\"),\n",
+    "    search_domain=bmt.BoxRegion(center=puw.quantity([15.190, 53.903, 16.917], \"angstrom\"),\n",
     "                                size=puw.quantity([20, 20, 20], \"angstrom\")),\n",
     "    metadata={\"partner_state_id\": \"published-1iep-ligand\", \"receptor_state_id\": \"published-1iep-receptor\"})\n",
-    "result = dmt.dock(problem, protocol=dmt.VinaProtocol(cpu=1, seed=42, n_poses=2,\n",
+    "result = bmt.dock(problem, protocol=bmt.VinaProtocol(cpu=1, seed=42, n_poses=2,\n",
     "                  exhaustiveness=1, capture_backend_inputs=True))\n",
     "record = result.to_dict()\n",
-    "audit = dmt.audit_result(record)\n",
+    "audit = bmt.audit_result(record)\n",
     "assert audit[\"status\"] == \"consistent\"\n",
     "assert all(record[\"provenance\"][\"preparation\"][role][\"assessment\"] == \"unassessed\"\n",
     "           for role in (\"receptor\", \"partner\"))\n",

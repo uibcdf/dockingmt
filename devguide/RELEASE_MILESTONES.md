@@ -1,13 +1,13 @@
 # Versioned milestones toward 1.0.0
 
-Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
+Owner: [BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73).
 Maintainer request: 2026-11-05. This is a **prospective release ladder**, not a
 selected release candidate, a public version announcement or permission to infer
 unexecuted gates. The [operational roadmap](ROADMAP.md#current-operational-plan),
 [scientific MVP](MVP.md) and [Core acceptance map](CORE_MVP_STATUS.md) retain their
 own authority. Existing scientific producers and package identities remain intact.
 The maintainer has accepted **Core plus Extended MVP for 1.0.0** under
-[DMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100).
+[BMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100).
 That target scope is settled; intermediate numeric identities and actual release
 candidates remain prospective.
 
@@ -16,9 +16,9 @@ the prospective **0.5.0 milestone before stabilization**, reserving 1.0.0 for
 afterwards. Stabilization can span as many further reviewed **0.x.0** milestones
 as the actual work requires. There is no mandatory `0.9.0` release or fixed
 upper minor before 1.0.0. A possible `0.23.0` illustrates that open sequence;
-it is not a selected DockingMT version, candidate or release.
-[DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization)
-and [DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress),
+it is not a selected BindingMT version, candidate or release.
+[BMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization)
+and [BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress),
 together with the [requirement/evidence plan](PRE_STABILIZATION_PLAN.md), preserve
 every Core, Extended, scientific, reproducibility and public-delivery obligation.
 
@@ -34,7 +34,7 @@ the future ladder below is not a fixed minor-count schedule.
 
 ## Why consolidate intermediate versions
 
-DockingMT has meaningful software, workflow and scientific checkpoints worth
+BindingMT has meaningful software, workflow and scientific checkpoints worth
 making easy to identify. A version should name a reviewed, reproducible scope
 with explicit limitations. It need not claim the whole Core, general docking
 accuracy or a public Conda package merely because a tag exists.
@@ -82,7 +82,7 @@ gate acceptance.
 
 In particular, missing clustering/interaction workflows and the independent
 reproducibility audit remain pre-1.0 work. General molecular operations belong
-to MolSysMT, specialized tools to their providers, and DockingMT owns scientific
+to MolSysMT, specialized tools to their providers, and BindingMT owns scientific
 orchestration, result interpretation and evidence. Concrete workflow/ownership
 review still precedes implementation; accepting this target does not authorize
 unbounded speculative frameworks or new scientific experiments.
@@ -148,7 +148,7 @@ This proposal does not create a tag, Release or package, move the fixed private
 Archive preparation belongs to existing #73; a future canonical X.Y.Z source tag
 keeps the distinct exact-candidate and release-notice requirements below.
 
-Preparation is now concrete under [#74](https://github.com/uibcdf/dockingmt/issues/74):
+Preparation is now concrete under [#74](https://github.com/uibcdf/bindingmt/issues/74):
 the [0.1.0 candidate dossier](releases/0.1.0.md) fixes source `905abc9`, records
 the private version/payload check and separates pending source/closure/gate
 receiving from a public tag. Later evidence commits do not move that target.
@@ -189,9 +189,9 @@ noarch files remain at the highest relevant version with the same hashes.
 There is no new artifact covering the missing reader/graph or handle/player
 boundary, so repeating their prior failed receiving is not informative.
 SMonitor `0.22.1` is newly indexed; its presence alone qualifies neither its
-runtime nor DockingMT's full dependency pairing. Public pins/minima remain.
+runtime nor BindingMT's full dependency pairing. Public pins/minima remain.
 
-No DockingMT package appears in the three queried `main` indexes; its package API
+No BindingMT package appears in the three queried `main` indexes; its package API
 returns 404. This bounded availability observation is not the all-label,
 exact-coordinate absence check required for a real candidate publication.
 No new artifact download, environment, install, molecular/native operation,

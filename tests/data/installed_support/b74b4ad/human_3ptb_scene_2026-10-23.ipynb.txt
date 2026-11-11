@@ -7,7 +7,7 @@
    "source": [
     "# Saved 3PTB scene: receptor, reference, rank-1 pose and search domain\n",
     "\n",
-    "Owner: [DockingMT #52](https://github.com/uibcdf/dockingmt/issues/52).\n",
+    "Owner: [BindingMT #52](https://github.com/uibcdf/bindingmt/issues/52).\n",
     "Can a human inspect the saved 2026-10-20 result in its original receptor frame,\n",
     "without new docking or manual molecular file conversion?\n",
     "\n",
@@ -19,9 +19,9 @@
     "rank 1 selected initially. Ranking is explicitly `vina`, ascending, in kcal/mol.\n",
     "\n",
     "Run with the retained ordinary receiving kernel outside the checkout. Set\n",
-    "`DOCKINGMT_SCENE_DATA_ROOT` to the source-free case/data harness,\n",
-    "`DOCKINGMT_EXPECTED_PREFIX` to the wheel receiver, and\n",
-    "`DOCKINGMT_SCENE_OUTPUT` to a new output directory. The portable HTML is the\n",
+    "`BINDINGMT_SCENE_DATA_ROOT` to the source-free case/data harness,\n",
+    "`BINDINGMT_EXPECTED_PREFIX` to the wheel receiver, and\n",
+    "`BINDINGMT_SCENE_OUTPUT` to a new output directory. The portable HTML is the\n",
     "saved visual artifact; rerun the display cell for a live Jupyter widget."
    ]
   },
@@ -43,7 +43,7 @@
      "output_type": "stream",
      "text": [
       "{\n",
-      "  \"dockingmt\": \"0.0.0+180.g1decee5\",\n",
+      "  \"bindingmt\": \"0.0.0+180.g1decee5\",\n",
       "  \"molsysmt\": \"0.23.0+78.gc35252d89\",\n",
       "  \"molsysviewer\": \"0.24.0+76.ga61b75bc\",\n",
       "  \"argdigest\": \"0.15.0+5.g3d1ec53\",\n",
@@ -64,7 +64,7 @@
     "from pathlib import Path\n",
     "from unittest.mock import patch\n",
     "\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "import molsysmt as msm\n",
     "import molsysviewer as msv\n",
     "import numpy as np\n",
@@ -72,16 +72,16 @@
     "from IPython.display import display\n",
     "from vina import Vina\n",
     "\n",
-    "root = Path(os.environ['DOCKINGMT_SCENE_DATA_ROOT']).resolve()\n",
-    "prefix = Path(os.environ['DOCKINGMT_EXPECTED_PREFIX']).resolve()\n",
-    "output = Path(os.environ['DOCKINGMT_SCENE_OUTPUT']).resolve()\n",
-    "assert not (root / 'dockingmt').exists()\n",
-    "assert not (root / 'molsysviewer_dockingmt').exists()\n",
-    "assert Path(dmt.__file__).resolve().is_relative_to(prefix)\n",
+    "root = Path(os.environ['BINDINGMT_SCENE_DATA_ROOT']).resolve()\n",
+    "prefix = Path(os.environ['BINDINGMT_EXPECTED_PREFIX']).resolve()\n",
+    "output = Path(os.environ['BINDINGMT_SCENE_OUTPUT']).resolve()\n",
+    "assert not (root / 'bindingmt').exists()\n",
+    "assert not (root / 'molsysviewer_bindingmt').exists()\n",
+    "assert Path(bmt.__file__).resolve().is_relative_to(prefix)\n",
     "output.mkdir(parents=True, exist_ok=False)\n",
     "sys.path.insert(0, str(root))  # Existing case recipe/data, no production overlay.\n",
     "from devtools.qualify_3ptb_admission import admit\n",
-    "from molsysviewer_dockingmt import (\n",
+    "from molsysviewer_bindingmt import (\n",
     "    compute_box_wireframe_coordinate_pairs, ensure_runtime,\n",
     "    set_active_pose, set_reference_visibility, set_search_domain_visibility,\n",
     ")\n",
@@ -90,10 +90,10 @@
     "guards = ExitStack()\n",
     "guards.enter_context(patch.object(Vina, 'dock', side_effect=AssertionError('No new search')))\n",
     "guards.enter_context(patch.object(Vina, 'score', side_effect=AssertionError('No new scoring')))\n",
-    "guards.enter_context(patch.object(dmt, 'dock', side_effect=AssertionError('No new docking')))\n",
+    "guards.enter_context(patch.object(bmt, 'dock', side_effect=AssertionError('No new docking')))\n",
     "versions = {name: metadata.version(name) for name in\n",
-    "            ['dockingmt', 'molsysmt', 'molsysviewer', 'argdigest', 'pyunitwizard', 'vina']}\n",
-    "assert versions['dockingmt'] == '0.0.0+180.g1decee5'\n",
+    "            ['bindingmt', 'molsysmt', 'molsysviewer', 'argdigest', 'pyunitwizard', 'vina']}\n",
+    "assert versions['bindingmt'] == '0.0.0+180.g1decee5'\n",
     "assert versions['molsysmt'] == '0.23.0+78.gc35252d89'\n",
     "assert versions['molsysviewer'] == '0.24.0+76.ga61b75bc'\n",
     "print(json.dumps(versions, indent=2))"
@@ -155,7 +155,7 @@
     "original_bytes = gzip.decompress(saved_bytes)\n",
     "assert hashlib.sha256(original_bytes).hexdigest() == 'ed0eeb3ade25e54f8a5829729578fcbec9f0d73d6c0ceb03d146b0c3492d7fac'\n",
     "record = json.loads(original_bytes)\n",
-    "result = dmt.DockingResult.from_dict(record)\n",
+    "result = bmt.DockingResult.from_dict(record)\n",
     "source_path = root / 'devguide/validation/data/3ptb_prospective/3PTB.pdb.gz'\n",
     "source_sha = hashlib.sha256(source_path.read_bytes()).hexdigest()\n",
     "assert source_sha == '75b1b8e73b4c197b7dcb217fbcfdd39c451860c0fd5a86cdef587c4dbd9972be'\n",
@@ -164,7 +164,7 @@
     "box = boxes['native']\n",
     "for role, prepared in [('receptor', receptor), ('partner', partner)]:\n",
     "    assert hashlib.sha256(prepared.to_pdbqt().encode()).hexdigest() == result.provenance['backend_artifacts'][role]['sha256']\n",
-    "dmt.verify_captured_inputs(result.provenance['backend_artifacts'])\n",
+    "bmt.verify_captured_inputs(result.provenance['backend_artifacts'])\n",
     "assert result.provenance['ranking_policy'] == {'score_name': 'vina', 'ascending': True}\n",
     "assert len(result.poses) == 5 and result.top_pose.rank == 1\n",
     "score = result.top_pose.scores['vina']\n",
@@ -179,7 +179,7 @@
    "source": [
     "## Build and verify the scene through public tools\n",
     "\n",
-    "DockingMT checks pose/source correspondence and chooses the static receptor\n",
+    "BindingMT checks pose/source correspondence and chooses the static receptor\n",
     "pairing. MolSysMT owns conversion, copying and composition; MolSysViewer owns\n",
     "loading and rendering. Provider warnings about fields dropped during composition\n",
     "remain visible: the scene is not a new complete preparation/mechanics archive."
@@ -256,7 +256,7 @@
     }
    ],
    "source": [
-    "view = dmt.view(result, receptor=receptor, partner=partner,\n",
+    "view = bmt.view(result, receptor=receptor, partner=partner,\n",
     "                reference=reference, search_domain=box, pose_rank=1)\n",
     "rec_n, lig_n = receptor.n_atoms, partner.n_atoms\n",
     "ref_n = msm.get(reference, n_atoms=True)\n",
@@ -290,7 +290,7 @@
     "        np.testing.assert_array_equal(region.get(element='atom', **{attribute: True}),\n",
     "                                      msm.get(system, element='atom', **{attribute: True}))\n",
     "shape = next(item for item in view.shapes.records()\n",
-    "             if item.get('options', {}).get('tag') == 'dockingmt:search_domain')\n",
+    "             if item.get('options', {}).get('tag') == 'bindingmt:search_domain')\n",
     "expected_edges = puw.get_value(compute_box_wireframe_coordinate_pairs(box), to_unit='angstrom')\n",
     "assert expected_edges.shape == (12, 2, 3)\n",
     "np.testing.assert_allclose(shape['options']['coordinate_pairs'], expected_edges, rtol=0, atol=1e-12)\n",
@@ -409,7 +409,7 @@
       "  \"browser_verified\": false,\n",
       "  \"C6_accepted\": false\n",
       "}\n",
-      "Scene exported: /tmp/dockingmt-3ptb-scene-20261023/output/scene.html\n"
+      "Scene exported: /tmp/bindingmt-3ptb-scene-20261023/output/scene.html\n"
      ]
     }
    ],
@@ -422,12 +422,12 @@
     "(output / 'scene_state.json').write_text(json.dumps(state, indent=2, allow_nan=False))\n",
     "origins = {}\n",
     "for name, module in tuple(sys.modules.items()):\n",
-    "    if name.split('.')[0] in ('dockingmt', 'molsysviewer_dockingmt') and getattr(module, '__file__', None):\n",
+    "    if name.split('.')[0] in ('bindingmt', 'molsysviewer_bindingmt') and getattr(module, '__file__', None):\n",
     "        origin = str(Path(module.__file__).resolve())\n",
     "        assert Path(origin).is_relative_to(prefix), (name, origin)\n",
     "        origins[name] = origin\n",
     "receipt = {\n",
-    "    'owner': 'uibcdf/dockingmt#52', 'versions': versions, 'origins': origins,\n",
+    "    'owner': 'uibcdf/bindingmt#52', 'versions': versions, 'origins': origins,\n",
     "    'wheel_producer': '1decee504b112cfd92026c52dcbe22449de30f4f',\n",
     "    'source_sha256': source_sha, 'saved_result_gzip_sha256': saved_sha,\n",
     "    'saved_result_original_sha256': hashlib.sha256(original_bytes).hexdigest(),\n",
@@ -455,9 +455,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "DockingMT ordinary receiver (2026-10-20)",
+   "display_name": "BindingMT ordinary receiver (2026-10-20)",
    "language": "python",
-   "name": "dockingmt-human-20261020"
+   "name": "bindingmt-human-20261020"
   },
   "language_info": {
    "codemirror_mode": {

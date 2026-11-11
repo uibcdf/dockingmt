@@ -15,11 +15,11 @@ import subprocess
 import sys
 from pathlib import Path
 
+import dockingmt as dmt
 import molsysmt as msm
 import numpy as np
 import pyunitwizard as puw
 
-import dockingmt as dmt
 from devtools.qualify_5x72_occupancy import atom_fields
 from devtools.qualify_5x72_reference import (
     ROOT,

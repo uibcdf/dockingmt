@@ -1,12 +1,12 @@
 # Incremental prepared docking
 
-`dockingmt.dock_many(problems, protocol=None, backend=None, on_error='raise')`
+`bindingmt.dock_many(problems, protocol=None, backend=None, on_error='raise')`
 returns an iterator of public `DockingOutcome` records. It executes already
 prepared problems locally, sequentially, by calling the existing public `dock`.
 Advance the iterator to execute one item; no later item is consumed first.
 
 ```python
-for outcome in dmt.dock_many(prepared_problems, protocol, on_error='record'):
+for outcome in bmt.dock_many(prepared_problems, protocol, on_error='record'):
     if outcome.status == 'success':
         consume_result(outcome.index, outcome.result)
     else:
@@ -17,7 +17,7 @@ The [executed notebook](incremental_docking.ipynb) uses captured inputs from the
 existing [minimal Vina software control](data/audit/minimal_vina_result.json).
 It streams successful and failed outcomes to JSON Lines, restores them offline
 and checks native equivalence with an individual call. This is the first
-execution block of [issue #36](https://github.com/uibcdf/dockingmt/issues/36),
+execution block of [issue #36](https://github.com/uibcdf/bindingmt/issues/36),
 not completion of MVP E2's aggregation or scientific qualification gates.
 
 ## Inputs and execution

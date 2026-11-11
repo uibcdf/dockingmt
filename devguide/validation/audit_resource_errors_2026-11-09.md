@@ -1,6 +1,6 @@
 # Native resource failures in offline audits
 
-Owner: [DockingMT #95](https://github.com/uibcdf/dockingmt/issues/95).
+Owner: [BindingMT #95](https://github.com/uibcdf/bindingmt/issues/95).
 Execution base: `7271667b35f8d95a5c5097a8ee604a45376b97e7`, with frozen
 source/test changes. This is software qualification over existing saved records,
 not a new molecular observation, installed artifact or scientific calculation.
@@ -80,7 +80,7 @@ The reader verifies all source/test/fixture/tool hashes, red/final native and
 Receptor counts, policy/resource outcomes, exact selection and the unchanged
 native-test exclusion. It confirms only the three bare-raise handlers change
 AST; every other frozen runtime/test/descriptor/fixture input remains exact.
-It imports no DockingMT or molecular package and replays no test or calculation.
+It imports no BindingMT or molecular package and replays no test or calculation.
 
 ## Resources, final checks and limits
 

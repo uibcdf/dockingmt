@@ -2,16 +2,16 @@ import molsysmt as msm
 import pytest
 import pyunitwizard as puw
 
-import dockingmt
-from dmt_test_support.molecular_fixtures import named_181l_pair
-from dockingmt import (
+import bindingmt
+from bindingmt import (
     BoxRegion,
     DockingProblem,
     DockingResult,
     VinaProtocol,
     dock,
 )
-from dockingmt.engines.vina import VinaBackend
+from bindingmt.engines.vina import VinaBackend
+from bmt_test_support.molecular_fixtures import named_181l_pair
 
 
 def test_redocking_benchmark_181l():
@@ -107,10 +107,10 @@ def test_redocking_benchmark_181l():
     assert saved['metadata']['source_chemistry']['residue_coverage'] == coverage
 
     # Gate C6: MolSysViewer integration
-    view = dockingmt.view(result=result, reference=native_benzene)
-    assert view.shapes.contains('dockingmt:search_domain')
+    view = bindingmt.view(result=result, reference=native_benzene)
+    assert view.shapes.contains('bindingmt:search_domain')
     assert view.player.n_structures == len(result)
-    assert view.addons.dockingmt.active_pose_rank == 1
+    assert view.addons.bindingmt.active_pose_rank == 1
     assert 'reference_ligand' in [r.tag for r in view.regions.values()]
 
 

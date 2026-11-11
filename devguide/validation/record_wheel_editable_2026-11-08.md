@@ -50,7 +50,7 @@ suite, Conda delivery or all platforms/minors. Preserve #256's original H5MSM ga
 ## Declaration correction amendment — before further receiving
 
 The single build completes, but its exact payload gate fails: 66 runtime files
-versus 65 required paths. Only the already-shipped `dockingmt/interactions.py`
+versus 65 required paths. Only the already-shipped `bindingmt/interactions.py`
 is undeclared. #93 owns the one-line resource correction and existing complete-
 coverage distribution guard; no new regression or runtime change is needed.
 Keep wheel `0.0.0+339.g6310a97`, SHA-256
@@ -121,7 +121,7 @@ receiving. MolSysMT native SHA-256 remains
 Its distribution label `0.23.0+687.g2325038e8` is stale source attribution; it is
 recorded separately from the actual commit above. Viewer remains 32 commits behind
 the last locally known remote ref; the explicit offline snapshot performs no fetch,
-pull, reset or provider build. DockingMT's migration directory remains untouched.
+pull, reset or provider build. BindingMT's migration directory remains untouched.
 
 Exact published test support is Receptor 1.2.2, unyt 3.2.0, SymPy 1.14.0 and
 mpmath 1.3.0, all authenticated in the private receiver. This bounded profile uses

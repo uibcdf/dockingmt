@@ -1,6 +1,6 @@
 # Native ligand projection in production — 2026-10-24
 
-Owner: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49), related to
+Owner: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49), related to
 #5/#33 and [MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223).
 `prepare_ligand` now calls public `msm.build.merge_nonpolar_hydrogens` instead
 of determining H parents and aggregating their charges in a local loop.
@@ -14,9 +14,9 @@ selection='all', chemical_state='structure', structure_indices=0,
 return_report=True`. It owns H-label eligibility, parent validation, charge
 transfer, retained graph/coordinates, virtual-H updates, native domain handling
 and derived assignment binding. Failures propagate without another projection
-or an implicit repair/model calculation in DockingMT.
+or an implicit repair/model calculation in BindingMT.
 
-DockingMT consumes the returned axes for presentation and existing stage/source/
+BindingMT consumes the returned axes for presentation and existing stage/source/
 prepared/written accounting. Explicit docking cuts and ROOT/branch orientation
 still use the complete selected source through public topology tools. Legacy
 charge audit/remarks continue to describe the original assignment plus transfer
@@ -47,7 +47,7 @@ charges, valid named AutoDock4 types, and known virtual explicit-H / zero implic
 counts on merged parents. Indexed H and successful named parameter assignment do
 not alone establish that stored inventory. Raw native SDF admission can preserve
 unknown counts. Such input now rejects before Vina, even with provisional opt-in;
-DockingMT does not assume missing counts are zero or invoke an unrequested stage.
+BindingMT does not assume missing counts are zero or invoke an unrequested stage.
 
 Use public `msm.physchem.get_hydrogen_inventory` to inspect the source. Supply a
 prepared/declared state through MolSysMT. Its fixed-state H builder materializes a
@@ -60,7 +60,7 @@ pruner or fallback is introduced.
 While this consumer checkpoint was being prepared, MolSysMT
 [closed #223](https://github.com/uibcdf/molsysmt/issues/223#issuecomment-6388413966)
 with its [provider delivery guide](https://github.com/uibcdf/molsysmt/blob/8a43cb2eb/devguide/atom_correspondence_delivery.md).
-That closure distinguishes delivered provider tools from DockingMT production
+That closure distinguishes delivered provider tools from BindingMT production
 adoption. Its later reader/composition namespaces have not been qualified here:
 the installed provider and its public entry points remain at `128a0bbb`. The raw
 inventory refusal and submitted boundary evidence remain valid for that revision;
@@ -109,13 +109,13 @@ The shared routine environment and prior scientific receivers are not modified.
 
 ## Four reference wire comparisons
 
-The original ordinary DockingMT wheel at
+The original ordinary BindingMT wheel at
 `173319a71b17b70bc6d13ecc68eb413edfd08640` is preserved. Its four preparations
 were repeated at the same provider and agree with their retained snapshots.
 All four candidate preparations retain atom records, coordinates, written charges,
 ROOT/BRANCH/TORSDOF, written/retained axes and complete torsion selection reports.
 Three complete PDBQT byte streams match. The 1S63 stream changes only its
-`REMARK DOCKINGMT_PARTIAL_CHARGES` total, from
+`REMARK BINDINGMT_PARTIAL_CHARGES` total, from
 `-4.5102810375396984e-17` to `-1.734723475976807e-17` elementary charge, reflecting
 the provider's floating-point aggregation order. No value is renormalized or
 rounded to manufacture equality; atom records and the tree remain exact. Both
@@ -135,7 +135,7 @@ acceptance and public file/pair qualification remain separate under #49/#33/#5 a
 Task resources are retained under #50 for review by 2026-10-31. A new task-owned
 ordinary receiver inherits the original dependency runtime read-only (review by
 2026-10-27) and installs the authenticated provider wheel plus the candidate
-DockingMT wheel into its own prefix. Old receivers/wheels and sibling human work
+BindingMT wheel into its own prefix. Old receivers/wheels and sibling human work
 remain unchanged. Review dates are not automatic deletion. A single diagnostic
 sample during the slow full run showed active public native fixture construction;
 it is diagnostic evidence, not a performance comparison or a passing gate.

@@ -1,6 +1,6 @@
 ---
 summary: Reject unlabelled numerical backend-box exports
-issue: uibcdf/dockingmt#65
+issue: uibcdf/bindingmt#65
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-05

@@ -1,6 +1,6 @@
 ---
 summary: Describe score semantics and preserve ranking history
-issue: uibcdf/dockingmt#31
+issue: uibcdf/bindingmt#31
 status: resolved
 opened: 2026-10-03
 closed: 2026-10-03

@@ -1,7 +1,7 @@
 # Result export optimization
 
-Owned by [#28](https://github.com/uibcdf/dockingmt/issues/28), preserving the
-independent-snapshot contract in [#25](https://github.com/uibcdf/dockingmt/issues/25).
+Owned by [#28](https://github.com/uibcdf/bindingmt/issues/28), preserving the
+independent-snapshot contract in [#25](https://github.com/uibcdf/bindingmt/issues/25).
 The [executed notebook](result_export.ipynb) explores the unchanged
 [before](data/result_export/before_2026-10-02.json) and
 [after](data/result_export/after_2026-10-02.json) raw reports.

@@ -1,6 +1,6 @@
 # Complete installed batch module on the current cohort — 2026-11-10
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), with
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), with
 #74/#73 source-milestone preparation and #50 custody. Status: both complete
 profiles and independent stored receiving pass.
 Starting checkpoint 9d84c0ab; unchanged genuine consumer producer 37a61e6,

@@ -13,7 +13,7 @@ import pyunitwizard as puw
 from molsysmt.native import Structures
 from vina import Vina
 
-import dockingmt as dmt
+import bindingmt as bmt
 from devtools.qualify_chemical_templates import (
     detached_record,
     load_181l_benzene,
@@ -64,14 +64,14 @@ def qualify():
         proof[relative] = hashlib.sha256(actual).hexdigest()
     source = polar_source()
     before = snapshot(source)
-    prepared = dmt.prepare_ligand(
+    prepared = bmt.prepare_ligand(
         source, selection='all', hydrogen_options=HYDROGEN, charge_options=CHARGE
     )
     assert snapshot(source) == before
     assert prepared.metadata['preparation_workflow'][
         'prepared_to_input_atom_indices'
     ] == [0, 1, None]
-    audit = dmt.audit_preparation_charges(prepared)
+    audit = bmt.audit_preparation_charges(prepared)
     assert audit['assessment'] == 'consistent'
     assert abs(audit['total_charge']) < 1e-12
     sites = msm.physchem.get_hbond_sites(prepared.source_molsys)
@@ -81,7 +81,7 @@ def qualify():
     full = msm.build.add_missing_hydrogens(
         source, attribute_policy='strict', **HYDROGEN
     )
-    idempotent = dmt.prepare_ligand(
+    idempotent = bmt.prepare_ligand(
         full, selection='all', hydrogen_options=HYDROGEN, charge_options=CHARGE
     )
     assert (
@@ -101,7 +101,7 @@ def qualify():
     application = msm.physchem.apply_chemical_template(bnz_source, **options)
     applied = application['molecular_system']
     before_bnz = snapshot(applied)
-    benzene = dmt.prepare_ligand(
+    benzene = bmt.prepare_ligand(
         applied,
         selection='all',
         hydrogen_options={**HYDROGEN, 'attribute_policy': 'intersection'},
@@ -122,7 +122,7 @@ def qualify():
     assert msm.get(benzene.source_molsys, element='atom', atom_id=True) == msm.get(
         applied, element='atom', atom_id=True
     )
-    benzene_audit = dmt.audit_preparation_charges(benzene)
+    benzene_audit = bmt.audit_preparation_charges(benzene)
     assert benzene_audit['assessment'] == 'consistent'
     assert benzene_audit['partial_charge_assignment']['n_atoms'] == 12
     assert len(benzene_audit['charge_projection']['transfers']) == 6
@@ -138,15 +138,15 @@ def qualify():
         'provider_source_sha256': proof,
         'distribution_versions': {
             name: metadata.version(name)
-            for name in ('dockingmt', 'molsysmt', 'rdkit', 'vina')
+            for name in ('bindingmt', 'molsysmt', 'rdkit', 'vina')
         },
         'version_limit': 'Original producer distribution versions are retained separately from exact loaded source qualification.',
-        'dockingmt_source_sha256': {
+        'bindingmt_source_sha256': {
             relative: _digest(ROOT / relative)
             for relative in (
-                'dockingmt/preparation/_stages.py',
-                'dockingmt/preparation/_molsys.py',
-                'dockingmt/preparation/ligand.py',
+                'bindingmt/preparation/_stages.py',
+                'bindingmt/preparation/_molsys.py',
+                'bindingmt/preparation/ligand.py',
                 'devtools/qualify_ligand_stages.py',
                 'devtools/qualify_chemical_templates.py',
             )

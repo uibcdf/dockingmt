@@ -10,10 +10,10 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.flexible_ligand_fixtures import _ligand
-from dockingmt import prepare_ligand, prepare_receptor
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.preparation._molsys import chemistry_evidence
+from bindingmt import prepare_ligand, prepare_receptor
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.preparation._molsys import chemistry_evidence
+from bmt_test_support.flexible_ligand_fixtures import _ligand
 
 SOURCE_1IEP = Path(__file__).parent / 'data/vina_torsions/1iep_receptorH.pdb'
 SHA256_1IEP = '5f6aee6029f9a2a2c2be32d4eb948ae70808690573e1b69a0850cdffd7048ca7'

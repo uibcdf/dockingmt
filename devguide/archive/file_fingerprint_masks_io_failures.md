@@ -1,6 +1,6 @@
 ---
 summary: Identified source-file read failures are relabeled as literal fingerprints.
-issue: uibcdf/dockingmt#98
+issue: uibcdf/bindingmt#98
 status: resolved
 opened: 2026-11-09
 closed: 2026-11-09

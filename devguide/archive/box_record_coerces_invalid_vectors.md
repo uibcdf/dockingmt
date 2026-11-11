@@ -1,6 +1,6 @@
 ---
 summary: Saved box vectors bypass scalar admission through float coercion.
-issue: uibcdf/dockingmt#85
+issue: uibcdf/bindingmt#85
 status: resolved
 opened: 2026-11-08
 closed: 2026-11-08
@@ -21,7 +21,7 @@ The saved-box reader now admits complete value/unit mappings and three real
 numeric scalars before converting them to float. Booleans, text, complex arrays,
 wrong shapes and arbitrary float-only objects no longer acquire the meaning of
 declared geometry. Invalid scalar/field/unit construction identifies `center`
-or `lengths` through DMT-E002 and retains the provider cause where applicable.
+or `lengths` through BMT-E002 and retains the provider cause where applicable.
 MemoryError propagates with its original identity. PyUnitWizard still owns units;
 existing BoxRegion admission still owns finite values, positive lengths and
 derivation binding. No general geometry or quantity codec is added.
@@ -115,7 +115,7 @@ all old scientific failures remain.
 ## Acceptance criteria
 
 Reject Boolean/text/complex/nonfinite/wrong-shaped vectors and malformed fields
-with DMT-E002, preserve valid/legacy records, unit conversion, caller arrays and
+with BMT-E002, preserve valid/legacy records, unit conversion, caller arrays and
 active policy, and retain existing derivation refusal. Demonstrate old failures
 then run complete affected offline selections under both unit policies. Retain
 all raw JUnit/source/resource evidence, archive this record and synchronize #85

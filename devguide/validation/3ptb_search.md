@@ -1,9 +1,9 @@
 # Executed registered 3PTB search population
 
-Executed on 2026-10-10 under DockingMT [#5](https://github.com/uibcdf/dockingmt/issues/5),
-[#6](https://github.com/uibcdf/dockingmt/issues/6),
-[#4](https://github.com/uibcdf/dockingmt/issues/4) and
-[#49](https://github.com/uibcdf/dockingmt/issues/49), all partial/open.
+Executed on 2026-10-10 under BindingMT [#5](https://github.com/uibcdf/bindingmt/issues/5),
+[#6](https://github.com/uibcdf/bindingmt/issues/6),
+[#4](https://github.com/uibcdf/bindingmt/issues/4) and
+[#49](https://github.com/uibcdf/bindingmt/issues/49), all partial/open.
 The unchanged [prospective protocol](3ptb_prospective_protocol.md) and
 [molecular admission](3ptb_admission.md) supply the scientific population.
 
@@ -45,7 +45,7 @@ did not alter any search or pose. The corrected case-specific receiver selects
 optional arrays only when present. It also supplies score descriptors once:
 its initial constructor startup rejected duplicate descriptors before RMSD.
 Both bounded corrections preserve identities, scores, ranks and the registered
-comparison. They concern DockingMT orchestration, not missing molecular tools.
+comparison. They concern BindingMT orchestration, not missing molecular tools.
 
 The [separate receiving archive](data/3ptb_search/evaluation_2026-10-10.json.gz),
 SHA-256 `8351d4db25b2ad25de413158a8d3dc0a5e4fee31678ea06649994a1832fa53af`,
@@ -94,7 +94,7 @@ rows return fewer. Retrieval counts and seed/effort strata remain explicit.
 The saved written-to-full-source map selects exactly the original nine observed
 atoms. IDs, names, elements and residue identities are checked against public
 MolSysMT getters before any geometry calculation. Heavy-only public pose results
-are passed to `dockingmt.evaluate_redocking`; positional RMSD comes from
+are passed to `bindingmt.evaluate_redocking`; positional RMSD comes from
 `molsysmt.structure.get_rmsd`. No downstream matcher, fitting implementation,
 symmetry algorithm or molecular repair is introduced. The complete native energy
 matrix and resolved backend calls are now reusable adapter evidence documented
@@ -164,5 +164,5 @@ reported third-party/AmberTools constraints. This actual workspace limitation is
 recorded in [MolSysSuite #82](https://github.com/uibcdf/molsyssuite/issues/82).
 No shared dependency is changed here and no clean whole-environment closure is
 claimed. The pinned scientific source/native composition and bounded executed
-DockingMT checks are separate evidence. Normal installed/public artifact
-admission remains under DockingMT #30/#47.
+BindingMT checks are separate evidence. Normal installed/public artifact
+admission remains under BindingMT #30/#47.

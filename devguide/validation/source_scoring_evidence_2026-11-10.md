@@ -1,6 +1,6 @@
 # Source scoring evidence and saved comparison — 2026-11-10
 
-Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73), with source/
+Owner: [BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73), with source/
 artifact qualification #47 and resource custody #50. Status: complete admitted source selections and independent reading pass.
 Execution source `02228c3aa94a37c8d0219068ac77bef836dc2e2c`.
 
@@ -32,7 +32,7 @@ Use the routine Python 3.14 development interpreter with this source checkout an
 the unchanged six-provider cohort: MolSysMT 0c6f9c7, Viewer 1187fc18,
 ArgDigest 07126411, PyUnitWizard f82b618e, SMonitor c1b6ce29, DepDigest 032d345b.
 Freeze source/Python/native identities before/after each cell. The old generated
-DockingMT package label is retained separately from execution Git identity.
+BindingMT package label is retained separately from execution Git identity.
 Check and record actual core source origin before and after pytest; this new
 population does not reconstruct the prior #106 receipt's missing post-origin.
 
@@ -159,7 +159,7 @@ retroactively alter it.
 
 A controlled diagnostic of the actual old installed `_input_pose` helper, whose
 bytes match this execution source, confirms that MemoryError and OS ENOMEM become
-ArgumentError/DMT-E002. ValueError is appropriately translated. The original
+ArgumentError/BMT-E002. ValueError is appropriately translated. The original
 error remains a cause, but its resource type is lost to callers. No actual
 allocation failure or molecular/native calculation is induced. That helper read
 is on the public fixed-pose score path; the diagnostic itself calls the helper.

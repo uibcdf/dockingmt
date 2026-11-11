@@ -6,14 +6,14 @@ producer and raw reports below remain unchanged and require their recorded
 consumer/environment; the legacy helper's raw-PDB stage now rejects missing
 types on current `main`.
 
-`dockingmt.evaluate_redocking(result, reference, *, rmsd_cutoff,
+`bindingmt.evaluate_redocking(result, reference, *, rmsd_cutoff,
 top_n=(1, 5), selection='all', reference_info=None)` evaluates one result
 against one reference frame and returns a detached finite JSON report.
 It reuses public `DockingResult.get_rmsds` and MolSysMT geometry. It does not
 execute a docking engine or require the viewer.
 
 ```python
-report = dockingmt.evaluate_redocking(
+report = bindingmt.evaluate_redocking(
     result, reference,
     rmsd_cutoff=pyunitwizard.quantity(2.5, 'angstrom'),
     top_n=(1, 3, 5),
@@ -67,7 +67,7 @@ The report has evaluation schema `1.0`, separate from pose/result records:
 - `context`: detached problem declarations (excluding receptor/partner payloads),
   protocol, known backend/version, preparation assessments, ranking history and
   available artifact hashes/format/size. Captured PDBQT bytes are not duplicated.
-- `evaluator`: actual DockingMT/MolSysMT versions and public RMSD function.
+- `evaluator`: actual BindingMT/MolSysMT versions and public RMSD function.
 
 `reference_info` must be finite JSON; it records caller declarations, without
 claiming to authenticate a URI, checksum or common-frame assertion. The actual
@@ -139,13 +139,13 @@ The full local regression after that refresh also passes: **750 tests, no skips,
 198.37 s**, with the same 96 warnings and unchanged provider pins. Ruff
 lint/format, generated report indexes and diff checks pass. The implementation
 commit `a5fb97b763012eb0df7fd3eb9206ce10c784fb1c` has successful
-[CI](https://github.com/uibcdf/dockingmt/actions/runs/37159093062) and
-[suite policy](https://github.com/uibcdf/dockingmt/actions/runs/37159093232)
+[CI](https://github.com/uibcdf/bindingmt/actions/runs/37159093062) and
+[suite policy](https://github.com/uibcdf/bindingmt/actions/runs/37159093232)
 runs. Existing notebook measurements retain their original execution evidence.
 
 ### Portable live-search guard correction — 2026-10-07
 
-[DockingMT #46](https://github.com/uibcdf/dockingmt/issues/46) records a macOS
+[BindingMT #46](https://github.com/uibcdf/bindingmt/issues/46) records a macOS
 arm64 failure of the live first-pose recovery expectation at exhaustiveness 1.
 The earlier table and executed notebook retain their measured Linux outcomes;
 a seed does not make those outcomes a recovery guarantee on another platform.
@@ -157,10 +157,10 @@ and negative observations. Search parameters and production evaluation are uncha
 
 ## Provider follow-up
 
-[DockingMT #38](https://github.com/uibcdf/dockingmt/issues/38) owns this report.
+[BindingMT #38](https://github.com/uibcdf/bindingmt/issues/38) owns this report.
 Future chemically constrained symmetry correspondence is handed off to
 [MolSysMT #310](https://github.com/uibcdf/molsysmt/issues/310). Positional RMSD is
 not a defect: symmetry-aware recovery needs its own supported molecular policy
 and evidence. Missing/ambiguous chemical declarations must not be silently
 declared equivalent. No local symmetry, graph matching, RMSD kernel or general
-atom-mapping implementation is added to DockingMT.
+atom-mapping implementation is added to BindingMT.

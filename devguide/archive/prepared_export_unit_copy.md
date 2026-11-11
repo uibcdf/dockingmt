@@ -1,6 +1,6 @@
 ---
 summary: Caller length-unit changes falsely require copying unchanged native preparations.
-issue: uibcdf/dockingmt#103
+issue: uibcdf/bindingmt#103
 status: resolved
 opened: 2026-11-09
 closed: 2026-11-09
@@ -40,7 +40,7 @@ still require a detached provider copy and must propagate its original failures.
 
 ## What was refuted
 
-This is a DockingMT comparison defect. No provider conversion/read-only contract
+This is a BindingMT comparison defect. No provider conversion/read-only contract
 violation is demonstrated. Approximate scientific tolerance, hidden coordinate
 repair, temporary global unit-policy changes and private native access are not
 required. The 12 off-axis warnings are separately retained provider diagnostics.

@@ -1,6 +1,6 @@
 ---
 summary: Review Python support-library and developer-tool adoption
-issue: uibcdf/dockingmt#19
+issue: uibcdf/bindingmt#19
 status: partial
 opened: 2026-09-27
 closed:
@@ -64,7 +64,7 @@ remain separate. #19/#28/#73 stay partial; respect #256/#558 holds.
 [#92's source correction](../archive/input_normalization_masks_resource_failures.md)
 adds explicit MemoryError passthrough at seven molecular/physical-value admission
 handlers. 139 new public controls preserve resource/process-control identity,
-ordinary DMT-E002 fields/causes, valid selection/state/source behavior and failure
+ordinary BMT-E002 fields/causes, valid selection/state/source behavior and failure
 frontiers. Complete old-runtime qualification retains 34 failures/515 passes;
 final affected selections pass 549 cases normal then pm/fs. A separately verified
 published unyt/SymPy/mpmath prefix receives four missing test-extra cases without
@@ -204,7 +204,7 @@ for DepDigest owner acceptance, wider adoption and public compatibility.
 ## Direct dependency ownership and audit proposal — 2026-11-04
 
 The [inventory/audit block](../validation/support_library_review_2026-11-04.md#dependency-ownership-channels-and-scoped-audit-receiving)
-removes MolSysMT-owned molecular engines from DockingMT's direct runtime inventory
+removes MolSysMT-owned molecular engines from BindingMT's direct runtime inventory
 and aligns all six suite-package hints with the maintainer-confirmed current
 uibcdf Conda route. PyPI hints are explicitly disabled; local source development
 continues. Required runtime names, optional extras, test/CI tools and scientific
@@ -260,7 +260,7 @@ capture and application configuration are preserved; no molecular work runs.
 A distinct callback-emission limitation is tracked as SMonitor #61, proposed
 in PR #60 and integrated independently by the provider maintainer as `5ee88c1`.
 Final accepted source `ccdcace` passes 812 provider tests and another ten routine
-DockingMT controls. The parallel proposal `11116e2` retains its separate 813-test/
+BindingMT controls. The parallel proposal `11116e2` retains its separate 813-test/
 44-private-installed receipt; it is not represented as merged or publicly
 delivered. MolSysSuite #163 and ArgDigest #49 hold the shared handoff. #19 stays
 partial: prepared constructors, owned-view
@@ -281,7 +281,7 @@ The original thirteen controls reproduce twelve failures/one pass on the startin
 source. Forty-four routine focused checks, all 264 affected cases with the exact
 existing CI ArgDigest/MolSysMT/Viewer source pins, and 21 DOM cases pass. Fifteen
 failures with older routine molecular/viewer clones are independently reproduced
-against the starting DockingMT source; no provider contract or scientific pin is
+against the starting BindingMT source; no provider contract or scientific pin is
 changed to accommodate them. This is source receiving, not public/installed or
 visible C4/C6 qualification.
 
@@ -328,11 +328,11 @@ boundaries and the declared inventory still require work.
 
 ## Pose-coordinate public-boundary follow-up — 2026-11-04
 
-[#63](https://github.com/uibcdf/dockingmt/issues/63) corrects finite-real numerical
+[#63](https://github.com/uibcdf/bindingmt/issues/63) corrects finite-real numerical
 admission/export for DockingPose. Its [contract and source evidence](../validation/pose_coordinate_contract.md)
 preserve valid units/schema and reject lossy coercion/nonfinite snapshots, with
 453 relevant checks passing. Molecular inspection/manipulation remains provider-
-owned; the new guards concern DockingMT result-schema values only.
+owned; the new guards concern BindingMT result-schema values only.
 
 The current controlled quantity-form probe passes pose roundtrips across all
 16 Pint/OpenMM/unyt/Astropy pairs. Protocol energy admission passes nine pairs
@@ -369,7 +369,7 @@ The first implementation block covers `dock`, `VinaBackend.dock`, `VinaProtocol.
 `prepare_ligand`, and `prepare_receptor`: closed argument admission, meaningful
 value validation, explicit energy units, stable catalog diagnostics, and lazy
 optional Vina/viewer dependency checks. Molecular forms and selection interpretation
-remain owned by MolSysMT; DockingMT validates docking options and absent inputs.
+remain owned by MolSysMT; BindingMT validates docking options and absent inputs.
 
 ## Why
 
@@ -405,7 +405,7 @@ matching declaration.
 
 ## What was refuted
 
-Replacing MolSysMT's molecular-form or selection contracts with DockingMT's own
+Replacing MolSysMT's molecular-form or selection contracts with BindingMT's own
 recognition rules would duplicate provider responsibilities. Support-library
 runtime evidence alone cannot close the independent developer-tool review.
 
@@ -445,7 +445,7 @@ not a new hosted CI or published-dependency qualification.
 or mistyped protocols with local diagnostics. Its structured mismatch includes
 all requested, supported, and missing capabilities. The associated execution
 ordering defect and unsupported AD4 declaration are tracked independently in
-[DockingMT #23](https://github.com/uibcdf/dockingmt/issues/23), with evidence in
+[BindingMT #23](https://github.com/uibcdf/bindingmt/issues/23), with evidence in
 [`vina_adapter_advertises_unsupported_ad4_scoring.md`](../archive/vina_adapter_advertises_unsupported_ad4_scoring.md).
 After this block, all 197 tests and the local quality gates passed. This does not
 complete the outstanding developer-tool or provider qualification review.
@@ -455,8 +455,8 @@ complete the outstanding developer-tool or provider qualification review.
 `DockingResult.rank_by` now uses ArgDigest to validate the named score and require
 an explicit boolean direction, including unknown-keyword rejection. Named score
 validation and independent serialization boundaries are tracked separately in
-[DockingMT #24](https://github.com/uibcdf/dockingmt/issues/24) and
-[DockingMT #25](https://github.com/uibcdf/dockingmt/issues/25). The bounded guards
+[BindingMT #24](https://github.com/uibcdf/bindingmt/issues/24) and
+[BindingMT #25](https://github.com/uibcdf/bindingmt/issues/25). The bounded guards
 are in `tests/test_result_contracts.py`; these operations request no molecular
 or viewer operations. Pose/result constructors and serialization methods are
 not claimed to have complete ArgDigest coverage by this block.
@@ -518,4 +518,4 @@ receiving under #123; #19 remains partial.
 
 ## Canonical component-guide synchronization — 2026-10-07
 
-During the fixed-origin 1IEP qualification, the component-guide check detected canonical drift after MolSysSuite `aba762dde114dfa78e8947cf1fe6e0b66f0d1643` introduced policy-v1.5.8 guidance and the temporary-resource lifecycle under [MolSysSuite #104](https://github.com/uibcdf/molsyssuite/issues/104). The central `sync_component_guide.py ../dockingmt --write` copied the exact canonical bytes, and the repeated component-guide check passes. No local guide policy was authored; the existing automated workflow pin is preserved. Task resources retain explicit ownership and evidence purposes in the scientific checkpoint. Earlier SMonitor/ArgDigest guide drift and broader runtime/developer-tool adoption remain separate under #19 and MolSysSuite #106; #19 stays partial.
+During the fixed-origin 1IEP qualification, the component-guide check detected canonical drift after MolSysSuite `aba762dde114dfa78e8947cf1fe6e0b66f0d1643` introduced policy-v1.5.8 guidance and the temporary-resource lifecycle under [MolSysSuite #104](https://github.com/uibcdf/molsyssuite/issues/104). The central `sync_component_guide.py ../bindingmt --write` copied the exact canonical bytes, and the repeated component-guide check passes. No local guide policy was authored; the existing automated workflow pin is preserved. Task resources retain explicit ownership and evidence purposes in the scientific checkpoint. Earlier SMonitor/ArgDigest guide drift and broader runtime/developer-tool adoption remain separate under #19 and MolSysSuite #106; #19 stays partial.

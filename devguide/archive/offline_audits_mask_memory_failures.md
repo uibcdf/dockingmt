@@ -1,6 +1,6 @@
 ---
 summary: Offline record audits translate native memory failures into inconsistent data.
-issue: uibcdf/dockingmt#95
+issue: uibcdf/bindingmt#95
 status: resolved
 opened: 2026-11-09
 closed: 2026-11-09

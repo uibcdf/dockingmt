@@ -1,6 +1,6 @@
 # Receiving the provider evidence-catalog correction — 2026-11-07
 
-Owner: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
+Owner: [BindingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
 Provider: [MolSysMT #642](https://github.com/uibcdf/molsysmt/issues/642).
 Registered before execution; outcome at registration: **unexecuted**.
 
@@ -15,11 +15,11 @@ development. This does not relabel them or accept a new installed/public file.
 
 The provider closed #642 with published correction
 `4d8af6c34cb6b3f9e22833771b246d8767ef85e9`. Its source tests and real-carrier
-checks do not receive DockingMT's actual installed client. Preserve both old
+checks do not receive BindingMT's actual installed client. Preserve both old
 failed consumer attempts and every existing archive. This increment must not
 discard unused labels, normalize catalogs or patch an installed provider module.
 
-Use the unchanged DockingMT source `2ef82d2`, private wheel
+Use the unchanged BindingMT source `2ef82d2`, private wheel
 `0.0.0+310.g2ef82d2`, SHA-256
 `6db76835f4f3f9c41d06a163cb3a4fbc9e780597bfd89d2fc6a75d29cff31133`.
 Build the complete provider wheel from the exact published correction in a
@@ -57,7 +57,7 @@ reconstructed from an inspection dictionary or query page.
 For each policy: read the original positive 3238-atom/one-frame carrier; retain
 original native/typed witnesses and complete five-pose result. Publicly invalidate
 `hbonds` at frame0, copy/reassociate the full carrier, bind the selected original
-pose through the actual installed DockingMT API and receive detached accessors,
+pose through the actual installed BindingMT API and receive detached accessors,
 queries/pages and one full H5MSM write/readback. Require complete typed equality,
 including the retained `baker_hubbard_hbond_geometry` catalog and original codes,
 zero evaluated hbonds frames/occurrences and unchanged evaluated hydrophobic2.

@@ -2,8 +2,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dockingmt import BoxRegion, SearchDomain
-from dockingmt._private.smonitor import ArgumentError
+from bindingmt import BoxRegion, SearchDomain
+from bindingmt._private.smonitor import ArgumentError
 
 
 def test_box_region_creation_and_properties():

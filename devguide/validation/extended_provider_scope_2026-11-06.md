@@ -1,15 +1,15 @@
 # Extended molecular-provider scope inspection — 2026-11-06
 
-Owners: [DockingMT #79](https://github.com/uibcdf/dockingmt/issues/79) (E3) and
-[#80](https://github.com/uibcdf/dockingmt/issues/80) (E4), under the
+Owners: [BindingMT #79](https://github.com/uibcdf/bindingmt/issues/79) (E3) and
+[#80](https://github.com/uibcdf/bindingmt/issues/80) (E4), under the
 [complete pre-stabilization objective](../PRE_STABILIZATION_PLAN.md).
 Classification: **static source/contract inspection, not runtime receiving or
 scientific acceptance**. Inspected consumer: `2a2168d4b7ccd382f0cd4ac0e9e6f78009d71979`.
 
 ## Actual sources and preservation
 
-Scoped central `suite_status.py` refreshes DockingMT, MolSysMT and PharmacophoreMT.
-DockingMT is clean/current. MolSysMT's clean local main `71fbe4f46d3c` is 123 commits
+Scoped central `suite_status.py` refreshes BindingMT, MolSysMT and PharmacophoreMT.
+BindingMT is clean/current. MolSysMT's clean local main `71fbe4f46d3c` is 123 commits
 behind fetched main; PharmacophoreMT's clean main `c4c31a89a61d` is one commit
 ahead. Both worktrees/local commits are explicitly preserved. Read immutable
 remote Git blobs rather than pulling, checking out, installing or editing them.
@@ -18,7 +18,7 @@ context; no pharmacophore runtime dependency or new capability is required here.
 
 MolSysMT inspected main is
 [`ed09f64539a5af6c1dbe9bd352c7ef65dcd4a7a6`](https://github.com/uibcdf/molsysmt/tree/ed09f64539a5af6c1dbe9bd352c7ef65dcd4a7a6).
-Qualified DockingMT CI/private runtime remains
+Qualified BindingMT CI/private runtime remains
 [`00abb958fb93649131d5ce5fe5e12e90cf4900e9`](https://github.com/uibcdf/molsysmt/tree/00abb958fb93649131d5ce5fe5e12e90cf4900e9).
 No pin, shared environment or frozen producer changes. The
 [blob/signature receipt](data/extended_provider_scope_2026-11-06.json) records
@@ -43,7 +43,7 @@ RMSD/clustering tools. Their geometry, correspondence and grouping remain in
 MolSysMT. The [consumer contract](../archive/qualify_pose_comparison_and_clustering.md)
 defines ordered populations, no implicit fitting, units, linkage/threshold and
 tie behavior, meaningful controls and representative receiving. No molecular
-algorithm is added to DockingMT; no E3 execution has occurred.
+algorithm is added to BindingMT; no E3 execution has occurred.
 
 ## E4: existing structured interactions are usable candidates
 
@@ -72,7 +72,7 @@ coverage; empty observations do not erase unevaluated/unsupported scope.
 [#80's receiving contract](../pending_proposals/receive_docking_interaction_analysis.md)
 starts with explicitly named hydrogen-bond and hydrophobic-proximity profiles.
 All assembly, recognition, geometry, detection and interchange remain provider
-operations. DockingMT owns actual pose/result associations and interpretation;
+operations. BindingMT owns actual pose/result associations and interpretation;
 specialized pharmacophore work retains PharmacophoreMT ownership. No current
 detector calculation, new molecular preparation or native docking runs here.
 

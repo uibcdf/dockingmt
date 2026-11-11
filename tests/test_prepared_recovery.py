@@ -10,8 +10,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 
 def _pair():
@@ -22,23 +22,23 @@ def _pair():
         'charges': [0.0, 0.0],
         'metadata': {'declared_choice': {'model': 'supplied'}},
     }
-    receptor = dmt.PreparedReceptor(
+    receptor = bmt.PreparedReceptor(
         state_id='receptor-A',
         group_names=['REC', 'REC'],
         group_ids=[1, 1],
         **deepcopy(values),
     )
-    partner = dmt.PreparedLigand(
+    partner = bmt.PreparedLigand(
         state_id='partner-A', group_name='LIG', **deepcopy(values)
     )
     return receptor, partner
 
 
 def _saved(receptor, partner, *, captured=True, artifacts=True):
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         receptor,
         partner,
-        dmt.BoxRegion(
+        bmt.BoxRegion(
             center=puw.quantity([0, 0, 0], 'angstrom'),
             size=puw.quantity([10, 10, 10], 'angstrom'),
         ),
@@ -54,10 +54,10 @@ def _saved(receptor, partner, *, captured=True, artifacts=True):
             if captured:
                 record['content_base64'] = base64.b64encode(payload).decode('ascii')
             provenance['backend_artifacts'][role] = record
-    result = dmt.DockingResult(
+    result = bmt.DockingResult(
         poses=[], problem_info=problem.to_dict(), provenance=provenance
     )
-    return dmt.DockingResult.from_dict(json.loads(json.dumps(result.to_dict())))
+    return bmt.DockingResult.from_dict(json.loads(json.dumps(result.to_dict())))
 
 
 def _forbidden(*args, **kwargs):
@@ -97,8 +97,8 @@ def test_changed_prepared_declaration_rejects_before_writer_and_attachment(
             'atom_names': 'X1',
             'group_ids': 2,
         }[field]
-    monkeypatch.setattr(dmt.PreparedReceptor, 'to_pdbqt', _forbidden)
-    monkeypatch.setattr(dmt.PreparedLigand, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedReceptor, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedLigand, 'to_pdbqt', _forbidden)
     with pytest.raises(ArgumentError, match='prepared.*declaration'):
         saved.reconstruct_problem(receptor=receptor, partner=partner)
     assert saved.problem is previous
@@ -123,8 +123,8 @@ def test_changed_coordinates_reject_against_recorded_hash_without_native_computa
     saved = _saved(receptor, partner, captured=captured)
     prepared = receptor if role == 'receptor' else partner
     _shift(prepared, 0.25)
-    monkeypatch.setattr(dmt, 'dock', _forbidden)
-    monkeypatch.setattr(dmt, 'score', _forbidden)
+    monkeypatch.setattr(bmt, 'dock', _forbidden)
+    monkeypatch.setattr(bmt, 'score', _forbidden)
     with pytest.raises(ArgumentError, match='PDBQT.*recorded'):
         saved.reconstruct_problem(receptor=receptor, partner=partner)
     assert saved.problem is None
@@ -152,8 +152,8 @@ def test_matching_recovery_uses_public_native_writer_and_preserves_policy_and_in
         return convert(item, **options)
 
     monkeypatch.setattr(msm, 'convert', exported)
-    monkeypatch.setattr(dmt, 'dock', _forbidden)
-    monkeypatch.setattr(dmt, 'score', _forbidden)
+    monkeypatch.setattr(bmt, 'dock', _forbidden)
+    monkeypatch.setattr(bmt, 'score', _forbidden)
     with puw.context(standard_units=[length_unit, 'fs', 'coulomb', 'kJ/mol']):
         policy = puw.configure.report()
         recovered = saved.reconstruct_problem(receptor=receptor, partner=partner)
@@ -182,8 +182,8 @@ def test_corrupt_recorded_artifact_rejects_before_rendering(role, damage, monkey
         artifacts[role]['format'] = 'other'
     else:
         artifacts[role] = []
-    monkeypatch.setattr(dmt.PreparedReceptor, 'to_pdbqt', _forbidden)
-    monkeypatch.setattr(dmt.PreparedLigand, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedReceptor, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedLigand, 'to_pdbqt', _forbidden)
     with pytest.raises(ArgumentError):
         saved.reconstruct_problem(receptor=receptor, partner=partner)
     assert saved.problem is None
@@ -206,8 +206,8 @@ def test_provider_export_failure_propagates_without_attaching_a_problem(monkeypa
 def test_legacy_missing_artifacts_recovers_declared_values_without_export(monkeypatch):
     receptor, partner = _pair()
     saved = _saved(receptor, partner, artifacts=False)
-    monkeypatch.setattr(dmt.PreparedReceptor, 'to_pdbqt', _forbidden)
-    monkeypatch.setattr(dmt.PreparedLigand, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedReceptor, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedLigand, 'to_pdbqt', _forbidden)
     assert (
         saved.reconstruct_problem(receptor=receptor, partner=partner).partner is partner
     )
@@ -220,8 +220,8 @@ def test_missing_digest_cannot_establish_coordinate_identity(monkeypatch):
         artifact.pop('sha256')
         artifact.pop('content_base64')
     _shift(partner, 0.25)
-    monkeypatch.setattr(dmt.PreparedReceptor, 'to_pdbqt', _forbidden)
-    monkeypatch.setattr(dmt.PreparedLigand, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedReceptor, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedLigand, 'to_pdbqt', _forbidden)
     assert (
         saved.reconstruct_problem(receptor=receptor, partner=partner).partner is partner
     )
@@ -251,15 +251,15 @@ def test_invalid_prepared_json_declaration_rejects_without_writer(bad, monkeypat
     receptor, partner = _pair()
     saved = _saved(receptor, partner)
     partner.metadata['invalid'] = bad
-    monkeypatch.setattr(dmt.PreparedReceptor, 'to_pdbqt', _forbidden)
-    monkeypatch.setattr(dmt.PreparedLigand, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedReceptor, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedLigand, 'to_pdbqt', _forbidden)
     with pytest.raises(ArgumentError, match='prepared.*declaration'):
         saved.reconstruct_problem(receptor=receptor, partner=partner)
 
 
 def test_native_prepared_coordinate_refusal_preserves_source_and_assignment_reports():
-    from dmt_test_support.molecular_fixtures import named_181l_pair
-    from dmt_test_support.qualify_chemical_templates import snapshot
+    from bmt_test_support.molecular_fixtures import named_181l_pair
+    from bmt_test_support.qualify_chemical_templates import snapshot
 
     receptor, partner = named_181l_pair()
     saved = _saved(receptor, partner)
@@ -287,7 +287,7 @@ def test_recovery_requires_no_engine_viewer_or_chemical_preparation(monkeypatch)
 
     monkeypatch.setattr(builtins, '__import__', import_without_runtime)
     for name in ('dock', 'score', 'prepare_ligand', 'prepare_receptor'):
-        monkeypatch.setattr(dmt, name, _forbidden)
+        monkeypatch.setattr(bmt, name, _forbidden)
     assert (
         saved.reconstruct_problem(receptor=receptor, partner=partner).partner is partner
     )
@@ -315,8 +315,8 @@ def test_mixed_inputs_check_external_capture_before_prepared_export(
     saved.provenance['backend_artifacts'][external_role]['content_base64'] = (
         base64.b64encode(b'changed').decode('ascii')
     )
-    monkeypatch.setattr(dmt.PreparedReceptor, 'to_pdbqt', _forbidden)
-    monkeypatch.setattr(dmt.PreparedLigand, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedReceptor, 'to_pdbqt', _forbidden)
+    monkeypatch.setattr(bmt.PreparedLigand, 'to_pdbqt', _forbidden)
     with pytest.raises(ArgumentError):
         saved.reconstruct_problem(**inputs)
     assert saved.problem is None

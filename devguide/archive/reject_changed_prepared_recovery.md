@@ -1,6 +1,6 @@
 ---
 summary: Reject changed prepared inputs during saved-result recovery
-issue: uibcdf/dockingmt#57
+issue: uibcdf/bindingmt#57
 status: resolved
 opened: 2026-10-29
 closed: 2026-10-29

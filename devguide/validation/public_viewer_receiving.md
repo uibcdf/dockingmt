@@ -1,12 +1,12 @@
 # Public Viewer archive receiving — 2026-11-04
 
-Owners: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47),
-[#60](https://github.com/uibcdf/dockingmt/issues/60) and qualification
-[#30](https://github.com/uibcdf/dockingmt/issues/30). Provider disposition:
+Owners: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47),
+[#60](https://github.com/uibcdf/bindingmt/issues/60) and qualification
+[#30](https://github.com/uibcdf/bindingmt/issues/30). Provider disposition:
 [MolSysViewer #294](https://github.com/uibcdf/molsysviewer/issues/294).
 
 **The exact public Viewer 0.24.0 build 1 is incompatible with the qualified
-DockingMT addon profile.** Static addon/callback symbols do not establish the
+BindingMT addon profile.** Static addon/callback symbols do not establish the
 required behavior. Keep the successful private-source receiving and its
 scientific pins unchanged. No runtime, dependency minimum or release is changed.
 
@@ -31,7 +31,7 @@ retained separately; no provider defect is inferred from that setup correction.
 | Component | Received identity |
 | --- | --- |
 | Python / platform | 3.14.8 / Linux x86_64 |
-| DockingMT private wheel | `0.0.0+225.g50d8e33`, producer `50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9`, SHA-256 `5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98` |
+| BindingMT private wheel | `0.0.0+225.g50d8e33`, producer `50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9`, SHA-256 `5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98` |
 | MolSysMT controlled wheel | `0.23.0+361.gde7ffad2a`, SHA-256 `4a8e58f40627ff468fab99301674429fba66362f549a31fb4cc747d9cf19a0ba` |
 | ArgDigest controlled wheel | `0.15.0+5.g3d1ec53`, SHA-256 `1cb379478b1abea9d91c06fc6fa5dffa24ede35a24fb1a2d8657c9b13ed55f0c` |
 | Unchanged support | PyUnitWizard 0.29.0, SMonitor 0.22.0, DepDigest 0.15.1 |
@@ -114,5 +114,5 @@ Repeat this bounded installed gate before the saved-case kernel. Separately
 receive a MolSysMT artifact exposing the reader/graph APIs under its #334;
 neither provider's frozen initial release is expanded by this request. Then
 qualify the real public combination, numerical minima and installed-helper
-profile before choosing a staged DockingMT candidate. Preserve published bytes
+profile before choosing a staged BindingMT candidate. Preserve published bytes
 and tags. Browser controls/comm/canvas and visible C4/C6 remain deferred.

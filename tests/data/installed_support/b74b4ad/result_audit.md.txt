@@ -1,6 +1,6 @@
 # Offline saved-result audit
 
-`dockingmt.audit_result(record)` checks an already loaded saved DockingResult
+`bindingmt.audit_result(record)` checks an already loaded saved DockingResult
 mapping. The caller owns file access. It does not reconstruct molecular systems,
 prepare inputs, run a backend, or invoke a viewer. Invalid record claims produce
 report entries; a non-mapping API argument is rejected by ArgDigest.
@@ -11,11 +11,11 @@ not replace a docking result's provenance or establish ranking evidence.
 
 ```python
 import json
-import dockingmt as dmt
+import bindingmt as bmt
 
 with open("saved-result.json") as stream:
     record = json.load(stream)
-report = dmt.audit_result(record)
+report = bmt.audit_result(record)
 print(report["status"])
 ```
 
@@ -77,7 +77,7 @@ Numeric agreement and coherent ranking do not establish scientific comparability
 
 ## Shared integrity operation
 
-`dockingmt.verify_captured_inputs(artifacts)` accepts the existing
+`bindingmt.verify_captured_inputs(artifacts)` accepts the existing
 `provenance['backend_artifacts']` mapping and returns receptor/partner byte sizes.
 Missing or invalid evidence raises the catalog `ArgumentError` (`DMT-E002`). Audit
 and the existing replay tools share the same private byte-integrity operation;
@@ -95,5 +95,5 @@ byte tampering, absent evidence, malformed scores/units/history, native-context
 contradictions, stable ties, successive rankings and stale policy/current poses.
 Guards forbid file access, molecular operations and live backend/viewer imports
 during the supported operations. Replay regression tests exercise the shared
-integrity rule. Issue [#32](https://github.com/uibcdf/dockingmt/issues/32) owns this
+integrity rule. Issue [#32](https://github.com/uibcdf/bindingmt/issues/32) owns this
 bounded Core C5 follow-up; validation publication remains the separate #29 decision.

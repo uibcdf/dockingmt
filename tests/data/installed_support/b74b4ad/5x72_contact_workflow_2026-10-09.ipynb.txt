@@ -39,7 +39,7 @@
     "import numpy as np\n",
     "import pandas as pd\n",
     "import pyunitwizard as puw\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "from devtools.qualify_5x72_contact import OUTPUT, SOURCE_AXIS, PROTEIN_COUNT, THRESHOLDS, load_inputs, sha\n",
     "payload=OUTPUT.read_bytes();record=json.loads(gzip.decompress(payload))\n",
     "assert sha(payload)=='84ad1212925bd0765f99b5e9a8932d5b7976e887f51a14964ec295b501aa5490'\n",
@@ -57,7 +57,7 @@
     "            right=np.asarray([a['coordinates'] for a in item['receptor_atoms']])\n",
     "            assert [a['source_atom_index'] for a in item['canonical_ligand_atoms']]==SOURCE_AXIS\n",
     "            np.testing.assert_allclose(values,np.linalg.norm(left[:,None]-right[None,:],axis=2),rtol=0,atol=1e-10)\n",
-    "            assert all(dmt.verify_captured_inputs(a) for a in item['root_input_identities'].values())\n",
+    "            assert all(bmt.verify_captured_inputs(a) for a in item['root_input_identities'].values())\n",
     "            entries+=values.size;matrices+=1\n",
     "        np.testing.assert_allclose(np.asarray(arm['occupied']['matrix_angstrom'])[:,:PROTEIN_COUNT],arm['sham']['matrix_angstrom'],rtol=0,atol=1e-10)\n",
     "assert entries==298700 and matrices==8\n",
@@ -969,9 +969,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "DockingMT qualified Python3.14",
+   "display_name": "BindingMT qualified Python3.14",
    "language": "python",
-   "name": "dockingmt-contact"
+   "name": "bindingmt-contact"
   },
   "language_info": {
    "codemirror_mode": {

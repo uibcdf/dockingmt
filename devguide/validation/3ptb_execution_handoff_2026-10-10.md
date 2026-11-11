@@ -1,6 +1,6 @@
 # 3PTB execution handoff, before the first search
 
-Owning issues: DockingMT #5, #6, #4 and #49. This clarification preserves the
+Owning issues: BindingMT #5, #6, #4 and #49. This clarification preserves the
 [registered scientific protocol](3ptb_prospective_protocol.md) and the admitted
 24-row population. It changes no molecular state, geometry, model, torsion tree,
 box, seed, effort, retrieval limit or interpretation threshold.
@@ -18,7 +18,7 @@ every literal PDBQT byte, box and population before any search.
 The adapter will additionally retain the complete native `energies()` array,
 its five Vina/Vinardo column meanings and units, engine information, and resolved
 call defaults from the loaded Python wrapper. Existing four named scores and
-ranking remain unchanged. This is DockingMT's backend evidence responsibility;
+ranking remain unchanged. This is BindingMT's backend evidence responsibility;
 no general molecular operation is added. See the
 [Vina 1.2.7 source](https://github.com/ccsb-scripps/AutoDock-Vina/blob/v1.2.7/build/python/vina/vina.py).
 The installed wrapper declares `min_rmsd=1.0` angstrom and `max_evals=0` for
@@ -31,7 +31,7 @@ five-component energy vector. Evaluation selects the nine observed atoms through
 the admission's written-to-full-source map, verifies original IDs, names,
 elements and residue identities against public MolSysMT getters, and passes
 the selected pose and original molecular reference to the existing public
-DockingMT evaluator. Positional RMSD is supplied by MolSysMT, without fitting
+BindingMT evaluator. Positional RMSD is supplied by MolSysMT, without fitting
 or symmetry matching. Full and heavy-atom containment are recorded separately.
 
 The receiving run records progress before and after each attempt, keeps a

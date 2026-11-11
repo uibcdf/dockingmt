@@ -7,19 +7,19 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.molecular_fixtures import declared_methanol
-from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
-from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
-from dmt_test_support.qualify_named_types import CHARGE, TYPING
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bmt_test_support.molecular_fixtures import declared_methanol
+from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+from bmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from bmt_test_support.qualify_named_types import CHARGE, TYPING
 
 
 def _typed_without_charges():
     return msm.build.assign_autodock_atom_types(declared_methanol(), **TYPING)
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_missing_charges_reject_without_unrequested_calculation(prepare, monkeypatch):
     source = _typed_without_charges()
     before = snapshot(source)
@@ -54,9 +54,9 @@ def test_automatic_vina_cannot_bypass_missing_charges(
     source = _typed_without_charges()
     inputs = {'receptor': MINIMAL_REC_PDBQT, 'partner': MINIMAL_LIG_PDBQT}
     inputs[role] = source
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         **inputs,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([10, 10, 10], 'angstrom')
         ),
     )
@@ -67,14 +67,14 @@ def test_automatic_vina_cannot_bypass_missing_charges(
 
     monkeypatch.setattr(vina, 'Vina', forbidden)
     with pytest.raises(ArgumentError, match='Atomic partial charges are required'):
-        dmt.dock(
+        bmt.dock(
             problem,
-            dmt.VinaProtocol(cpu=1, allow_provisional_preparation=allow_provisional),
+            bmt.VinaProtocol(cpu=1, allow_provisional_preparation=allow_provisional),
         )
     assert snapshot(source) == before
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_explicit_supplied_zeros_remain_unattributed_and_are_not_placeholders(
     prepare, monkeypatch
 ):
@@ -93,12 +93,12 @@ def test_explicit_supplied_zeros_remain_unattributed_and_are_not_placeholders(
     assert prepared.metadata['charge_source'] == 'source_partial_charge'
     assert prepared.metadata['partial_charge_assignment'] is None
     assert prepared.metadata['charge_projection'] is None
-    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == []
-    assert dmt.audit_preparation_charges(prepared)['assessment'] == 'unassessed'
+    assert bmt.assess_preparation(prepared)['provisional_reason_codes'] == []
+    assert bmt.audit_preparation_charges(prepared)['assessment'] == 'unassessed'
     assert detached_record(source.molecular_mechanics.to_dict()) == mechanics
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_explicit_charge_then_typing_stage_matches_public_pipeline(
     prepare, monkeypatch
 ):
@@ -163,7 +163,7 @@ def test_explicit_charge_then_typing_stage_matches_public_pipeline(
     assert not msm.has_attribute(source, 'partial_charge')
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_explicit_preparation_needs_no_charge_presentation_standard(prepare):
     source = declared_methanol()
     before = snapshot(source)
@@ -192,7 +192,7 @@ def test_explicit_preparation_needs_no_charge_presentation_standard(prepare):
     assert not msm.has_attribute(source, 'partial_charge')
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_charge_provider_failure_propagates_without_zero_fallback(prepare, monkeypatch):
     source = _typed_without_charges()
     before = snapshot(source)
@@ -209,7 +209,7 @@ def test_charge_provider_failure_propagates_without_zero_fallback(prepare, monke
 
 
 @pytest.mark.parametrize('value', [float('nan'), float('inf')])
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_nonfinite_provider_values_cannot_reach_prepared_export(
     prepare, value, monkeypatch
 ):
@@ -241,4 +241,4 @@ def test_receptor_invalid_charge_request_fails_before_conversion(options, monkey
 
     monkeypatch.setattr(msm, 'convert', forbidden)
     with pytest.raises(ArgumentError):
-        dmt.prepare_receptor('unused', selection='all', charge_options=options)
+        bmt.prepare_receptor('unused', selection='all', charge_options=options)

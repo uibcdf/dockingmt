@@ -1,6 +1,6 @@
 ---
 summary: Attribute per-pose scoring histories correctly inside saved result audits.
-issue: uibcdf/dockingmt#76
+issue: uibcdf/bindingmt#76
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-05
@@ -37,7 +37,7 @@ Preserve ordinary docking-only and standalone reports and strict ranking policy.
 The concrete E1 workflow following #75 stores and inspects a collection carrying
 named evaluations. Ignoring known histories misses contradictory evidence;
 checking them as original docking stages invents contradictions. Ownership is
-DockingMT's record semantics; molecular inspection/reconstruction stays MolSysMT.
+BindingMT's record semantics; molecular inspection/reconstruction stays MolSysMT.
 
 ## What was refuted
 

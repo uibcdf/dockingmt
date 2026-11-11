@@ -7,10 +7,10 @@ import pyunitwizard
 
 
 def test_package_import_and_version():
-    import dockingmt
+    import bindingmt
 
-    assert hasattr(dockingmt, '__version__')
-    assert isinstance(dockingmt.__version__, str)
+    assert hasattr(bindingmt, '__version__')
+    assert isinstance(bindingmt.__version__, str)
 
 
 def test_pyunitwizard_policy_active():
@@ -25,16 +25,16 @@ def test_pyunitwizard_policy_active():
 
 
 def test_smonitor_configuration():
-    from dockingmt._private.smonitor import CATALOG, META
+    from bindingmt._private.smonitor import CATALOG, META
 
-    assert META['project_name'] == 'DockingMT'
+    assert META['project_name'] == 'BindingMT'
     assert 'signals' in CATALOG
     assert 'exceptions' in CATALOG
     assert 'LibraryNotFoundError' in CATALOG['exceptions']
 
 
 def test_depdigest_configuration():
-    from dockingmt import _depdigest
+    from bindingmt import _depdigest
 
     assert 'vina' in _depdigest.LIBRARIES
     assert _depdigest.LIBRARIES['vina']['type'] == 'soft'
@@ -60,15 +60,15 @@ class BlockOptional(importlib.abc.MetaPathFinder):
         if fullname.split('.')[0] in blocked:
             raise ModuleNotFoundError(fullname)
 sys.meta_path.insert(0, BlockOptional())
-import dockingmt as dmt
-record = dmt.DockingResult([]).to_dict()
-assert dmt.DockingResult.from_dict(record).to_dict() == record
+import bindingmt as bmt
+record = bmt.DockingResult([]).to_dict()
+assert bmt.DockingResult.from_dict(record).to_dict() == record
 for outcome in (
-    dmt.DockingOutcome(0, result=dmt.DockingResult([]), backend='control'),
-    dmt.DockingOutcome(1, error={'type': 'ValueError', 'message': '', 'code': None}),
+    bmt.DockingOutcome(0, result=bmt.DockingResult([]), backend='control'),
+    bmt.DockingOutcome(1, error={'type': 'ValueError', 'message': '', 'code': None}),
 ):
     record = outcome.to_dict()
-    assert dmt.DockingOutcome.from_dict(record).to_dict() == record
+    assert bmt.DockingOutcome.from_dict(record).to_dict() == record
 assert not blocked & sys.modules.keys()
 """
     completed = subprocess.run(

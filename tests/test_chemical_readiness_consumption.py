@@ -7,9 +7,9 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.flexible_ligand_fixtures import _ligand
-from dockingmt.preparation import prepare_ligand, prepare_receptor
-from dockingmt.preparation._molsys import chemistry_evidence
+from bindingmt.preparation import prepare_ligand, prepare_receptor
+from bindingmt.preparation._molsys import chemistry_evidence
+from bmt_test_support.flexible_ligand_fixtures import _ligand
 
 
 @pytest.mark.parametrize('prepare', [prepare_ligand, prepare_receptor])
@@ -64,7 +64,7 @@ def test_preparation_consumes_provider_on_source_before_projection(
 
 def test_incomplete_pdb_coverage_is_reported_without_chemical_completion():
     source = msm.systems['T4 lysozyme L99A']['181l.pdb']
-    from dockingmt._private.smonitor import ArgumentError
+    from bindingmt._private.smonitor import ArgumentError
 
     with pytest.raises(
         ArgumentError, match='Named MolSysMT AutoDock4 types are required'

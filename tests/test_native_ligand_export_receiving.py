@@ -11,12 +11,12 @@ import pyunitwizard as puw
 from molsysmt._private.smonitor import FormatError
 from vina import Vina
 
-import dockingmt as dmt
-from dmt_test_support.native_ligand_export_fixtures import (
+import bindingmt as bmt
+from bmt_test_support.native_ligand_export_fixtures import (
     export_case as export_case,
 )
-from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
-from dmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
+from bmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from bmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
 
 
 def _export(native, tree):
@@ -78,7 +78,7 @@ def test_actual_prepared_values_export_with_bound_map_and_declared_tree(
     assert snapshot(native) == before
     assert snapshot(prepared.source_molsys) == original
     assert detached_record(native.molecular_mechanics.to_dict()) == mechanics
-    # A source without hierarchy stays without hierarchy. DockingMT's LIG/A/1
+    # A source without hierarchy stays without hierarchy. BindingMT's LIG/A/1
     # presentation is a separate, unresolved output-policy choice, not chemistry.
     assert msm.get(native, n_groups=True) == 0
     assert all(line[17:26].strip() == '' for line in atoms)
@@ -95,8 +95,8 @@ def test_caller_remarks_cannot_reuse_the_native_payload_identity(export_case):
     remarks = [
         line for line in prepared.to_pdbqt().splitlines() if line.startswith('REMARK ')
     ]
-    assert any(line.startswith('REMARK DOCKINGMT_PARTIAL_CHARGES ') for line in remarks)
-    assert any(line.startswith('REMARK DOCKINGMT_ATOM_TYPES ') for line in remarks)
+    assert any(line.startswith('REMARK BINDINGMT_PARTIAL_CHARGES ') for line in remarks)
+    assert any(line.startswith('REMARK BINDINGMT_ATOM_TYPES ') for line in remarks)
     decorated = '\n'.join([*remarks, payload])
     assert hashlib.sha256(decorated.encode()).hexdigest() != mapping['payload_sha256']
     assert detached_record(mapping) == detached_record(before)
@@ -111,7 +111,7 @@ def test_provider_rejects_unrepresentable_names_without_mutating_prepared_source
     source = msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(source, **CHARGE), **TYPING
     )
-    prepared = dmt.prepare_ligand(source, selection='all')
+    prepared = bmt.prepare_ligand(source, selection='all')
     before = snapshot(prepared.source_molsys)
     native = msm.copy(prepared.source_molsys)
     msm.set(native, atom_id=[1, 2, 3])

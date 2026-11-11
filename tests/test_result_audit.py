@@ -7,8 +7,8 @@ from pathlib import Path
 import pytest
 from argdigest.core.errors import UnknownArgumentError
 
-from dockingmt import DockingResult, audit_result, verify_captured_inputs
-from dockingmt._private.smonitor import ArgumentError
+from bindingmt import DockingResult, audit_result, verify_captured_inputs
+from bindingmt._private.smonitor import ArgumentError
 
 FIXTURE = (
     Path(__file__).resolve().parents[1]

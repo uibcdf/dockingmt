@@ -1,6 +1,6 @@
 ---
 summary: Consume named MolSysMT AutoDock types with explicit stages and parent-label projection.
-issue: uibcdf/dockingmt#43
+issue: uibcdf/bindingmt#43
 status: resolved
 opened: 2026-10-06
 closed: 2026-10-07
@@ -32,7 +32,7 @@ Bind saved prepared labels before emitting attributed PDBQT remarks.
 
 ## Why
 
-MolSysMT #222 is delivered, but DockingMT still replaces native chemical-context
+MolSysMT #222 is delivered, but BindingMT still replaces native chemical-context
 labels with heuristic N/S and residue/name rules. Supported named evidence should
 reach ligand/receptor output without losing chemistry, rules or producer credit.
 
@@ -105,8 +105,8 @@ locally as `6f193fb`; historical notebooks/receipts were not overwritten.
 
 The source candidate is published, and its owning integration checkpoint is
 complete. Producer `8741fb2e104814e6f1012e0cb7073689e710f982` has
-[green required CI](https://github.com/uibcdf/dockingmt/actions/runs/37581673369)
-and a [completed six-cell matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344):
+[green required CI](https://github.com/uibcdf/bindingmt/actions/runs/37581673369)
+and a [completed six-cell matrix](https://github.com/uibcdf/bindingmt/actions/runs/37581760344):
 986 tests without skips on every required Linux Python minor and both
 representative macOS arm64 cells. Its ordinarily installed local consumer
 wheel also passes all 986 tests, with source shadowing excluded and original

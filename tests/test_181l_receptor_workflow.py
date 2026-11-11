@@ -6,8 +6,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_181l_receptor import prepare_case, redock
+import bindingmt as bmt
+from bmt_test_support.qualify_181l_receptor import prepare_case, redock
 
 
 @pytest.fixture(scope='module')
@@ -58,8 +58,8 @@ def test_real_protein_projection_conserves_declared_charge(prepared_case):
     assert receptor.metadata['atom_type_assignment']['n_atoms'] == 2603
     assert 'HD' in receptor.atom_types
     for prepared in (receptor, ligand):
-        assert dmt.assess_preparation(prepared)['assessment'] == 'unassessed'
-        assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == []
+        assert bmt.assess_preparation(prepared)['assessment'] == 'unassessed'
+        assert bmt.assess_preparation(prepared)['provisional_reason_codes'] == []
 
 
 def test_real_workflow_is_independent_of_session_length_units(prepared_case):
@@ -81,12 +81,12 @@ def test_real_workflow_is_independent_of_session_length_units(prepared_case):
 
 
 def test_default_real_vina_retains_declared_choices_and_submitted_bytes(saved_run):
-    restored = dmt.DockingResult.from_dict(json.loads(json.dumps(saved_run['result'])))
+    restored = bmt.DockingResult.from_dict(json.loads(json.dumps(saved_run['result'])))
     assert len(restored) > 0
     assert (
         restored.protocol_info['parameters']['allow_provisional_preparation'] is False
     )
-    assert dmt.verify_captured_inputs(restored.provenance['backend_artifacts'])
+    assert bmt.verify_captured_inputs(restored.provenance['backend_artifacts'])
     assert restored.problem_info['metadata']['preparation_decisions'][
         'water_policy'
     ] == ('exclude_all_observed_waters')
@@ -103,11 +103,11 @@ def test_saved_real_result_re_evaluates_with_original_atom_identity(
     saved_run, prepared_case
 ):
     _, _, reference, _ = prepared_case
-    restored = dmt.DockingResult.from_dict(json.loads(json.dumps(saved_run['result'])))
+    restored = bmt.DockingResult.from_dict(json.loads(json.dumps(saved_run['result'])))
     with puw.context(
         standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'radians']
     ):
-        report = dmt.evaluate_redocking(
+        report = bmt.evaluate_redocking(
             restored, reference, rmsd_cutoff=puw.quantity(250, 'pm')
         )
     assert report['criterion'] == saved_run['evaluation']['criterion']

@@ -1,6 +1,6 @@
 # Offline saved-pose audit
 
-`dockingmt.audit_pose(record)` checks an already loaded `DockingPose` mapping,
+`bindingmt.audit_pose(record)` checks an already loaded `DockingPose` mapping,
 including successive fixed-pose Vina/Vinardo evaluations. The caller owns file
 access. The audit performs no molecular reads, preparation, engine execution or
 viewer operations. Invalid claims become report checks; ArgDigest rejects a
@@ -13,7 +13,7 @@ or authorize cross-pose score comparison; see the [result audit](result_audit.md
 
 ```python
 import json
-import dockingmt as dmt
+import bindingmt as dmt
 
 with open('saved-pose.json') as stream:
     record = json.load(stream)
@@ -136,7 +136,7 @@ only load JSON and audit records. Full-suite source qualification uses the
 unchanged CI pins: MolSysMT `c19a47ada0c2279029abfa296cf915560610ad9a`
 and MolSysViewer `ec4c71e574d798b7c8675b7e7e983da878ce9889`.
 No sibling implementation is changed. Publication of validation evidence remains
-the separate [issue #29](https://github.com/uibcdf/dockingmt/issues/29) decision.
+the separate [issue #29](https://github.com/uibcdf/bindingmt/issues/29) decision.
 
 ## 2026-10-03 qualification result
 

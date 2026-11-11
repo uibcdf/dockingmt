@@ -10,7 +10,7 @@ def panel_sources(root: Path) -> dict[str, str]:
     """Return the literal production ESM; refuse unsupported declarations."""
     sources = {}
     for name in ('explorer', 'domain'):
-        path = root / 'molsysviewer_dockingmt' / 'panels' / f'{name}.py'
+        path = root / 'molsysviewer_bindingmt' / 'panels' / f'{name}.py'
         tree = ast.parse(path.read_text(), filename=str(path))
         values = [
             ast.literal_eval(node.value)

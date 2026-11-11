@@ -1,6 +1,6 @@
 ---
 summary: Unchanged native materialization reassigns coordinates and changes canonical bits.
-issue: uibcdf/dockingmt#104
+issue: uibcdf/bindingmt#104
 status: resolved
 opened: 2026-11-09
 closed: 2026-11-09

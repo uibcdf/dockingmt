@@ -1,6 +1,6 @@
 ---
 summary: Adopt the mandatory four-minor contract and qualify normal installed delivery
-issue: uibcdf/dockingmt#30
+issue: uibcdf/bindingmt#30
 status: partial
 opened: 2026-10-03
 closed:
@@ -89,7 +89,7 @@ pass for the required files, platforms and minors.
 ## Installed consumer checkpoint — 2026-10-07
 
 Producer `8741fb2e104814e6f1012e0cb7073689e710f982` has successful
-[required CI](https://github.com/uibcdf/dockingmt/actions/runs/37581673369),
+[required CI](https://github.com/uibcdf/bindingmt/actions/runs/37581673369),
 with 986 tests without skips on each required Linux Python minor and executed
 ordinary-install/isolated import steps. A separately identified ordinary wheel
 passes all 986 tests outside the source checkout in Python 3.14.7 with Pandas
@@ -106,7 +106,7 @@ dependency conflicts are recorded; no Requires-Python override or package
 publication is used. Earlier installed/hosted evidence keeps its original scope.
 
 Completion update, 2026-10-07 06:57 UTC: the same
-[manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344)
+[manual matrix](https://github.com/uibcdf/bindingmt/actions/runs/37581760344)
 finishes successfully, with 986 tests without skips in each of its four Linux
 and two representative macOS arm64 cells. #46 is resolved and archived. The
 earlier pending observation is retained in the receipt with separate completion
@@ -115,7 +115,7 @@ closure, exact Conda files and suite admission remain pending under this issue.
 
 ## Development environment correction (2026-10-03)
 
-The maintainer now requires routine DockingMT development in the Conda environment
+The maintainer now requires routine BindingMT development in the Conda environment
 `molsyssuite@uibcdf_3.14`, superseding this report's earlier local 3.13 choice.
 Python 3.14.7 and the editable installation of this checkout were verified from
 outside the repository. Install with `python -m pip install --no-deps --editable .`
@@ -230,9 +230,9 @@ the corrected semantic comparison.
 
 Concurrent component work and its guard correction were preserved by rebase.
 Source `ff64d84239dbadd030ac1ba5f82eb0a60b5517b4` passes all four Linux
-full-test jobs in [37107875583](https://github.com/uibcdf/dockingmt/actions/runs/37107875583).
+full-test jobs in [37107875583](https://github.com/uibcdf/bindingmt/actions/runs/37107875583).
 Documented source `0c48cf73f5b1f89dc374d1628e3a0d0f7c547ca0` passes
-[full matrix 37108673271](https://github.com/uibcdf/dockingmt/actions/runs/37108673271):
+[full matrix 37108673271](https://github.com/uibcdf/bindingmt/actions/runs/37108673271):
 four Linux minors and macOS ARM 3.13/3.14. All six cells executed ordinary
 installation, isolated import/metadata validation, interpreter/architecture
 and required Vina checks, followed by full tests. No metadata override is used.
@@ -244,7 +244,7 @@ This documentary skipped commit must not clear recovery debt.
 
 ### Four-minor pytest measurements — 2026-10-03
 
-[Run 37107875583](https://github.com/uibcdf/dockingmt/actions/runs/37107875583)
+[Run 37107875583](https://github.com/uibcdf/bindingmt/actions/runs/37107875583)
 on commit `ff64d84239dbadd030ac1ba5f82eb0a60b5517b4` passed ordinary
 installed-package imports, dependency metadata admission and 414 tests without
 skips in every Linux lane. Pytest durations were 30.65 s (3.11), 27.89 s (3.12),
@@ -269,7 +269,7 @@ direct pushes; their exact commits and outcomes remain to be measured.
 
 During #78 private comparison receiving, the wheel from `3b1853a` passed its
 64 required-runtime checks but failed a full payload-ownership inspection:
-Setuptools discovery patterns `dockingmt*`/`molsysviewer_dockingmt*` also selected
+Setuptools discovery patterns `bindingmt*`/`molsysviewer_bindingmt*` also selected
 the untracked migration snapshot tree. The rejected wheel SHA-256 is
 `eaa5b04adc6e60e8b21f96b3f67056f69af18bbcd1ade3826e8234210f1cf263`;
 62 historical Python paths were included outside the two runtime namespaces.

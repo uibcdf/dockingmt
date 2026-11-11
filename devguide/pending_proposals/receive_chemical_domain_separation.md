@@ -1,6 +1,6 @@
 ---
 summary: Receive independent ChemicalStates storage and graph tools from MolSysMT.
-issue: uibcdf/dockingmt#56
+issue: uibcdf/bindingmt#56
 status: partial
 opened: 2026-10-28
 closed:

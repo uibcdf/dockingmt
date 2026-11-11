@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
+import bindingmt as bmt
 
 DATA = Path(__file__).resolve().parents[1] / 'devguide/validation/data/audit'
 CASES = (
@@ -55,8 +55,8 @@ def _control(kind, boundary):
                     'native_current_conformation'
                 )
     if kind == 'scored_collection':
-        record = dmt.DockingResult([dmt.DockingPose.from_dict(record)]).to_dict()
-    return record, dmt.audit_pose if kind == 'standalone' else dmt.audit_result
+        record = bmt.DockingResult([bmt.DockingPose.from_dict(record)]).to_dict()
+    return record, bmt.audit_pose if kind == 'standalone' else bmt.audit_result
 
 
 def _inject(monkeypatch, boundary, failure):
@@ -68,13 +68,13 @@ def _inject(monkeypatch, boundary, failure):
             raise failure
 
     if boundary == 'protocol':
-        original = dmt.VinaProtocol.from_dict
+        original = bmt.VinaProtocol.from_dict
 
         def protocol(cls, record):
             fail_once()
             return original(record)
 
-        monkeypatch.setattr(dmt.VinaProtocol, 'from_dict', classmethod(protocol))
+        monkeypatch.setattr(bmt.VinaProtocol, 'from_dict', classmethod(protocol))
     else:
         function = {
             'reference_quantity': 'quantity',
@@ -126,7 +126,7 @@ def test_audit_resource_identity_and_ordinary_value_reports(
             with pytest.raises(error_type) as caught:
                 audit(record)
             assert caught.value is failure
-            assert not isinstance(caught.value, dmt.exceptions.DockingMTException)
+            assert not isinstance(caught.value, bmt.exceptions.BindingMTException)
         assert hits == [boundary]
     assert record == before
     assert audit(record) == clean_report

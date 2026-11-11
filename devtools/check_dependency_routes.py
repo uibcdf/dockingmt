@@ -30,7 +30,7 @@ def load_sdk(module_name: str = 'dependency_routes') -> ModuleType:
         The SDK identity, worktree or imported namespace differs.
     """
     sdk = Path(
-        os.environ.get('DOCKINGMT_SUITE_ROOT', ROOT / '.molsyssuite/sdk')
+        os.environ.get('BINDINGMT_SUITE_ROOT', ROOT / '.molsyssuite/sdk')
     ).resolve()
     head = subprocess.check_output(
         ['git', 'rev-parse', 'HEAD'], cwd=sdk, text=True

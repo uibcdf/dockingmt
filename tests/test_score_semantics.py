@@ -6,8 +6,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dockingmt import DockingPose, DockingResult
-from dockingmt._private.smonitor import ArgumentError
+from bindingmt import DockingPose, DockingResult
+from bindingmt._private.smonitor import ArgumentError
 
 
 @pytest.fixture

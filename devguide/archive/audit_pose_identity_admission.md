@@ -1,6 +1,6 @@
 ---
 summary: Offline audits accept malformed pose identities/ranks or leak array comparison errors.
-issue: uibcdf/dockingmt#91
+issue: uibcdf/bindingmt#91
 status: resolved
 opened: 2026-11-08
 closed: 2026-11-08

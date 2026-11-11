@@ -1,6 +1,6 @@
 # Selection-domain construction provenance — 2026-10-28
 
-Owner: [#55](https://github.com/uibcdf/dockingmt/issues/55), identified by the
+Owner: [#55](https://github.com/uibcdf/bindingmt/issues/55), identified by the
 [nonvisual Core audit](core_mvp_audit_2026-10-28.md) under #28/#4.
 This closes the construction-record part of C4. Its visible observation and C6
 remain deferred under #52; broader scientific/profile acceptance stays #4/#5/#33.
@@ -15,15 +15,15 @@ that optional record; `from_dict` validates/restores it without rereading a sour
 Explicit `BoxRegion`, `from_points`, `from_bounds` and legacy geometry-only
 records have `derivation is None` and retain their previous serialized keys.
 The enclosing box schema stays `1.0`; the nested schema is independently named
-`dockingmt.box_derivation@1`.
+`bindingmt.box_derivation@1`.
 
 ```python
-box = dockingmt.BoxRegion.from_selection(
+box = bindingmt.BoxRegion.from_selection(
     source, selection=[2, 3], structure_indices=1,
     padding=pyunitwizard.quantity(2, 'angstrom'))
 recipe = box.derivation
 saved = box.to_dict()
-restored = dockingmt.BoxRegion.from_dict(saved)
+restored = bindingmt.BoxRegion.from_dict(saved)
 ```
 
 The recipe retains provider form and source atom count, existing input-byte
@@ -46,7 +46,7 @@ Public `msm.select/get/has_attribute/get_form` resolve the molecular input, atom
 axis, coordinates and available state association. Provider failures propagate.
 The existing input-boundary byte-fingerprint helper is reused for file/literal
 integrity; it does not parse molecular content. The box extent/padding remain
-DockingMT's pre-existing search-domain policy over returned coordinates.
+BindingMT's pre-existing search-domain policy over returned coordinates.
 
 `DockingProblem.for_redocking` reuses its existing public native normalization and
 selected-frame/state handling. It constructs the same geometric box from those
@@ -108,8 +108,8 @@ normally reinstalls the same provider wheel in the task's own receiver. Source
 checks are repeated after recovery. No sibling source, shared environment, original
 scientific evidence or qualification artifact is edited or disposed.
 
-Task resources `/tmp/dockingmt-domain-provenance-20261028` remain owned by #55/#50,
+Task resources `/tmp/bindingmt-domain-provenance-20261028` remain owned by #55/#50,
 review **2026-11-04**, no automatic deletion. No public package or GitHub Release
 is published. The earlier audit's pending hosted verification is separately closed
-by [its terminal recovery](https://github.com/uibcdf/dockingmt/issues/28#issuecomment-6485389513);
+by [its terminal recovery](https://github.com/uibcdf/bindingmt/issues/28#issuecomment-6485389513);
 that older run does not qualify this new implementation.

@@ -21,7 +21,7 @@ activates the Conda wrapper; review the route and exact candidate before that ev
 ## Availability announcement
 
 Maintainer decision, 2026-10-23, tracked in
-[DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47): after both the new
+[BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47): after both the new
 public package and its matching GitHub Release are available, open an issue in
 [`uibcdf/molsyssuite`](https://github.com/uibcdf/molsyssuite/issues) announcing the
 available version, with links to the package and release. Record the announcement

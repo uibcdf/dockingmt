@@ -8,10 +8,10 @@ this evidence. Current named-result replay needs the original prepared objects
 until provider-owned [mechanics persistence](https://github.com/uibcdf/molsysmt/issues/256)
 is qualified; a PDB fingerprint does not retain a named assignment.
 
-Measured on 2026-09-22 for [DockingMT issue #10](https://github.com/uibcdf/dockingmt/issues/10).
+Measured on 2026-09-22 for [BindingMT issue #10](https://github.com/uibcdf/bindingmt/issues/10).
 This is a reproducibility and software regression case, **not a validated
 docking-performance result**. Receptor and ligand preparation still require the
-explicit provisional opt-in tracked in [issue #5](https://github.com/uibcdf/dockingmt/issues/5).
+explicit provisional opt-in tracked in [issue #5](https://github.com/uibcdf/bindingmt/issues/5).
 
 ## Reproduce
 
@@ -35,7 +35,7 @@ and the explicit replay comparison. A changed source file fails reconstruction.
 - Vina: scoring `vina`, exhaustiveness 1, five requested poses, seed 42,
   one CPU, energy range 3 kcal/mol, provisional preparation opt-in enabled.
 - Python 3.13.14, MolSysMT `0.21.0+606.ga03eb4bf6`, Vina 1.2.7.
-- DockingMT source: commit `c044de4082b5daea33e19ffdc565e63a7bba2313`, clean
+- BindingMT source: commit `c044de4082b5daea33e19ffdc565e63a7bba2313`, clean
   worktree, code SHA-256
   `05a56d47f22f1ae8d5bf1ca8709bd61922159f7a1454a65e236eb26dde778909`.
   The editable installation reported a stale generated package version
@@ -76,5 +76,5 @@ all zero. The regression tolerances are 0.05 kcal/mol for each named score and
 This one small rigid case establishes a replayable baseline for the current
 implementation. It does not establish preparation correctness, behavior on
 other systems, or sensitivity to search settings. Preparation decisions and
-chemical validity remain under [issues #4](https://github.com/uibcdf/dockingmt/issues/4)
-and [#5](https://github.com/uibcdf/dockingmt/issues/5).
+chemical validity remain under [issues #4](https://github.com/uibcdf/bindingmt/issues/4)
+and [#5](https://github.com/uibcdf/bindingmt/issues/5).

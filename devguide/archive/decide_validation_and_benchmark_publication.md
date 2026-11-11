@@ -1,6 +1,6 @@
 ---
 summary: Decide how to collect and publish validation strategies and benchmarks
-issue: uibcdf/dockingmt#29
+issue: uibcdf/bindingmt#29
 status: resolved
 opened: 2026-10-02
 closed: 2026-11-04
@@ -16,7 +16,7 @@ supersedes: []
 
 ## Resolution — 2026-11-04
 
-[DMT-044](../DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
+[BMT-044](../DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
 selects a staged repository-first route: the maintained scientific overview and
 original records remain in Git, with a root README entry. There is no main
 documentation site/build in the inspected checkout; rendered user documentation
@@ -39,7 +39,7 @@ remain separate. Original opening specification below is retained as history.
 
 ## What
 
-Choose how DockingMT should collect, document, maintain and publish validation
+Choose how BindingMT should collect, document, maintain and publish validation
 strategies and benchmark evidence. The user requested a future decision between
 a documentation section, a dedicated website, or another appropriate collection
 and publication route. No platform has been selected.
@@ -60,7 +60,7 @@ unsuitable, and how notebooks and pages reuse the same maintained source data.
 
 ## Why
 
-The work in [#28](https://github.com/uibcdf/dockingmt/issues/28) already retains an
+The work in [#28](https://github.com/uibcdf/bindingmt/issues/28) already retains an
 [executed profiling notebook](../validation/workflow_profiling.ipynb),
 [measurement definitions](../validation/workflow_profiling.md) and
 [raw reports](../validation/data/workflow_profiling/). Other existing cases cover
@@ -71,7 +71,7 @@ reader-facing collection or its maintenance lifecycle.
 Scientific correctness/accuracy, software regression, integration qualification
 and runtime/memory benchmarking need clear interpretation. Provisional chemistry,
 passing CI and performance observations must retain their actual evidence level.
-Related coverage work in [#22](https://github.com/uibcdf/dockingmt/issues/22)
+Related coverage work in [#22](https://github.com/uibcdf/bindingmt/issues/22)
 concerns a distinct software metric.
 
 ## What was refuted
@@ -82,7 +82,7 @@ gates or imply that the current exploratory cases are scientifically qualified.
 
 ## Scope and exclusions
 
-This is a DockingMT decision, with no immediate website, publishing pipeline or
+This is a BindingMT decision, with no immediate website, publishing pipeline or
 benchmark service implementation. Existing evidence and molecular ownership are
 preserved. No sibling changes or coordination are required. A future shared suite
 rule or reusable publishing tool would need its own MolSysSuite proposal.

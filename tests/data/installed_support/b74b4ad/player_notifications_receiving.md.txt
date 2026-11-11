@@ -1,8 +1,8 @@
 # Public player notification receiving
 
-Owner: [DockingMT #60](https://github.com/uibcdf/dockingmt/issues/60).
+Owner: [BindingMT #60](https://github.com/uibcdf/bindingmt/issues/60).
 Provider: [MolSysViewer #291](https://github.com/uibcdf/molsysviewer/issues/291).
-This receiving adds consumer guards and controlled source pins. DockingMT runtime
+This receiving adds consumer guards and controlled source pins. BindingMT runtime
 and molecular routines are unchanged. Browser transport, controls, pixels and C6
 remain pending; no maintainer interaction is required now.
 
@@ -23,13 +23,13 @@ Conda receiver installs this archive and the retained scientific wheels normally
 OpenMM retains the previously recorded public CPython-wheel acquisition variant.
 Dependency closure passes; original receivers and sibling worktrees are preserved.
 
-DockingMT reuses the private SPDX wheel from producer
+BindingMT reuses the private SPDX wheel from producer
 `50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9`, version `0.0.0+225.g50d8e33`,
 SHA-256 `5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98`.
 Its 62 nongenerated runtime files equal the receiving source; the generated
 version retains its original artifact identity. The test/data harness is the
 separate qualification commit `1c343924b4a144058685796783d72c174b032651`.
-The retained DockingMT artifact is not rebuilt or relabelled. The new Viewer
+The retained BindingMT artifact is not rebuilt or relabelled. The new Viewer
 wheel is private; no archive is uploaded or promoted by this receiving.
 
 ## Informative regression and actual widgets

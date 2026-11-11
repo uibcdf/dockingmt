@@ -7,7 +7,7 @@
    "source": [
     "# Explicit 181L receptor audit and bounded BNZ redocking\n",
     "\n",
-    "Owning issues: DockingMT #4/#5/#33; writer defect #44. This notebook inspects the retained original six-run evidence and independently re-evaluates recovered poses. It does **not** rerun those searches or certify biological preparation. See `181l_receptor_workflow.md` for hypotheses and remaining provider #223/#323/#310 work."
+    "Owning issues: BindingMT #4/#5/#33; writer defect #44. This notebook inspects the retained original six-run evidence and independently re-evaluates recovered poses. It does **not** rerun those searches or certify biological preparation. See `181l_receptor_workflow.md` for hypotheses and remaining provider #223/#323/#310 work."
    ]
   },
   {
@@ -41,11 +41,11 @@
     "import numpy as np\n",
     "import pandas as pd\n",
     "import pyunitwizard as puw\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "\n",
     "assert sys.version_info[:2] == (3, 14)\n",
-    "root = next(p for p in (Path.cwd(), *Path.cwd().parents) if (p / 'dockingmt/core').is_dir())\n",
-    "assert Path(dmt.__file__).resolve().parent == root / 'dockingmt'\n",
+    "root = next(p for p in (Path.cwd(), *Path.cwd().parents) if (p / 'bindingmt/core').is_dir())\n",
+    "assert Path(bmt.__file__).resolve().parent == root / 'bindingmt'\n",
     "sys.path.insert(0, str(root))\n",
     "from devtools.qualify_chemical_templates import load_181l_benzene\n",
     "receipt = json.loads((root / 'devguide/validation/data/181l_receptor/checkpoint_2026-10-06.json').read_text())\n",
@@ -55,7 +55,7 @@
     "assert hashlib.sha256(compressed).hexdigest() == receipt['evidence']['gzip_sha256']\n",
     "assert hashlib.sha256(original).hexdigest() == receipt['evidence']['json_sha256']\n",
     "record = json.loads(original)\n",
-    "assert record['schema'] == 'dockingmt.181l_receptor_audit@1'\n",
+    "assert record['schema'] == 'bindingmt.181l_receptor_audit@1'\n",
     "json.dumps(record, allow_nan=False)\n",
     "for relative, expected in record['consumer_source_sha256'].items():\n",
     "    assert hashlib.sha256((root / relative).read_bytes()).hexdigest() == expected\n",
@@ -428,7 +428,7 @@
     "    parameters = run['result']['protocol_info']['parameters']\n",
     "    evaluation = run['evaluation']\n",
     "    assert not parameters['allow_provisional_preparation']\n",
-    "    dmt.verify_captured_inputs(run['result']['provenance']['backend_artifacts'])\n",
+    "    bmt.verify_captured_inputs(run['result']['provenance']['backend_artifacts'])\n",
     "    assert run['result']['problem_info']['metadata']['preparation_decisions'] == decisions\n",
     "    rows.append({'exhaustiveness': parameters['exhaustiveness'], 'seed': parameters['seed'],\n",
     "                 'returned_poses': evaluation['n_poses'],\n",
@@ -476,9 +476,9 @@
    "source": [
     "reference, _, _ = load_181l_benzene()\n",
     "first = record['redocking_runs'][0]\n",
-    "restored = dmt.DockingResult.from_dict(first['result'])\n",
+    "restored = bmt.DockingResult.from_dict(first['result'])\n",
     "with puw.context(standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'radians']):\n",
-    "    repeated = dmt.evaluate_redocking(restored, reference, rmsd_cutoff=puw.quantity(250, 'pm'))\n",
+    "    repeated = bmt.evaluate_redocking(restored, reference, rmsd_cutoff=puw.quantity(250, 'pm'))\n",
     "assert repeated['criterion'] == first['evaluation']['criterion']\n",
     "for actual, expected in zip(repeated['poses'], first['evaluation']['poses']):\n",
     "    np.testing.assert_allclose(actual['rmsd'], expected['rmsd'], rtol=0, atol=1e-12)\n",
@@ -539,7 +539,7 @@
   "kernelspec": {
    "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
    "language": "python",
-   "name": "dockingmt-molsyssuite-314"
+   "name": "bindingmt-molsyssuite-314"
   },
   "language_info": {
    "codemirror_mode": {

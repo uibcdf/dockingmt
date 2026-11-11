@@ -7,8 +7,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'devguide/validation/data/redocking_evaluation/cases.json'
@@ -24,7 +24,7 @@ def qualify():
     source_bytes = SOURCE.read_bytes()
     reports = json.loads(source_bytes)
     try:
-        dmt.summarize_redocking(reports)
+        bmt.summarize_redocking(reports)
     except ArgumentError as exc:
         rejected = {'code': exc.code, 'reason': str(exc)}
     else:
@@ -32,7 +32,7 @@ def qualify():
     selected = {
         name: reports[name] for name in ('1iep_external', '1iep_displaced_domain')
     }
-    outcome = dmt.DockingOutcome(
+    outcome = bmt.DockingOutcome(
         0,
         error={
             'type': 'fixture.DeclaredEvaluationFailure',
@@ -41,11 +41,11 @@ def qualify():
         },
     )
     summaries = {
-        '181l_provisional': dmt.summarize_redocking(
+        '181l_provisional': bmt.summarize_redocking(
             {'181l_provisional': reports['181l_provisional']}
         ),
-        '1iep_external_controls': dmt.summarize_redocking(selected),
-        '1iep_with_declared_failure_fixture': dmt.summarize_redocking(
+        '1iep_external_controls': bmt.summarize_redocking(selected),
+        '1iep_with_declared_failure_fixture': bmt.summarize_redocking(
             selected,
             failures={
                 'declared_failure_fixture': {
@@ -55,7 +55,7 @@ def qualify():
                 }
             },
         ),
-        'all_failure_fixture': dmt.summarize_redocking(
+        'all_failure_fixture': bmt.summarize_redocking(
             {},
             failures={
                 'declared_failure_fixture': {
@@ -65,7 +65,7 @@ def qualify():
                 }
             },
         ),
-        'empty_collection': dmt.summarize_redocking({}),
+        'empty_collection': bmt.summarize_redocking({}),
     }
     for entry in summaries['1iep_with_declared_failure_fixture']['top_n']:
         assert (entry['n_recovered'], entry['n_not_recovered'], entry['n_unknown']) == (
@@ -83,18 +83,18 @@ def qualify():
             'path': str(SOURCE.relative_to(ROOT)),
             'sha256': hashlib.sha256(source_bytes).hexdigest(),
             'size_bytes': len(source_bytes),
-            'original_qualification': 'dockingmt#38',
+            'original_qualification': 'bindingmt#38',
             'fresh_engine_execution': False,
         },
         'execution': {
             'python': platform.python_version(),
             'interpreter': sys.executable,
-            'dockingmt_version': dmt.__version__,
+            'bindingmt_version': bmt.__version__,
             'checkout_head': subprocess.check_output(
                 ['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True
             ).strip(),
             'implementation_sha256': hashlib.sha256(
-                (ROOT / 'dockingmt/aggregation.py').read_bytes()
+                (ROOT / 'bindingmt/aggregation.py').read_bytes()
             ).hexdigest(),
             'helper_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         },

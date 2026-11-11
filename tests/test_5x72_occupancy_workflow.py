@@ -10,8 +10,8 @@ import pandas as pd
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_5x72_occupancy import (
+import bindingmt as bmt
+from bmt_test_support.qualify_5x72_occupancy import (
     ARMS,
     BASELINE_SHA,
     DATA,
@@ -38,10 +38,10 @@ def prepared():
 
 
 def assert_score(evaluation, original, receptor):
-    pose = dmt.DockingPose.from_dict(evaluation)
+    pose = bmt.DockingPose.from_dict(evaluation)
     history = pose.metadata['scoring_history'][-1]
     artifacts = history['backend_artifacts']
-    assert dmt.verify_captured_inputs(artifacts)
+    assert bmt.verify_captured_inputs(artifacts)
     assert (
         base64.b64decode(artifacts['receptor']['content_base64']) == receptor.encode()
     )
@@ -127,7 +127,7 @@ def test_both_saved_root_orders_keep_frozen_tree_and_geometry_under_pm_fs(prepar
                 for r in baseline['new_runs']
                 if r['ligand'] == 'p59' and r['order'] == order
             )
-            pose = dmt.DockingResult.from_dict(run['result']).poses[0]
+            pose = bmt.DockingResult.from_dict(run['result']).poses[0]
             written = frozen_partner(case['controls'][order], pose)
             atoms = atom_fields(written)
             assert [a['id'] for a in atoms] == [
@@ -148,16 +148,16 @@ def test_live_fixed_companion_search_and_frozen_scores_under_pm_fs(prepared):
     with puw.context(
         standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'radians']
     ):
-        result = dmt.dock(
-            dmt.DockingProblem(
+        result = bmt.dock(
+            bmt.DockingProblem(
                 receptors['occupied'], control['pdbqt'], reference_box()
             ),
-            dmt.VinaProtocol(
+            bmt.VinaProtocol(
                 cpu=1, seed=42, exhaustiveness=1, n_poses=1, capture_backend_inputs=True
             ),
         )
         assert len(result.poses) == 1 and result.poses[0].n_atoms == 25
-        assert dmt.verify_captured_inputs(result.provenance['backend_artifacts'])
+        assert bmt.verify_captured_inputs(result.provenance['backend_artifacts'])
         assert len(measure(result, case, control)) == 1
         before = result.poses[0].to_dict()
         scored = fixed_pair(result.poses[0], control, receptors)
@@ -187,7 +187,7 @@ def test_all_saved_cells_and_frozen_scores_use_complete_declared_populations():
                     parameters['exhaustiveness'],
                 )
             )
-            result = dmt.DockingResult.from_dict(run['result'])
+            result = bmt.DockingResult.from_dict(run['result'])
             case = record['cases']['p59']
             metrics = measure(result, case, case['controls'][run['order']])
             for measured, saved in zip(metrics, run['heavy_atom_metrics'], strict=True):
@@ -198,7 +198,7 @@ def test_all_saved_cells_and_frozen_scores_use_complete_declared_populations():
                     saved['heavy_atom_positional_rmsd_angstrom'], abs=1e-10
                 )
             artifacts = result.provenance['backend_artifacts']
-            assert dmt.verify_captured_inputs(artifacts)
+            assert bmt.verify_captured_inputs(artifacts)
             receptor = preparation['receptors'][run['receptor']]
             assert (
                 artifacts['receptor']['sha256']
@@ -225,7 +225,7 @@ def test_all_saved_cells_and_frozen_scores_use_complete_declared_populations():
         )
         assert len(observed['fixed_scores']) == len(prior['heavy_atom_metrics'])
         for original, pair in zip(
-            dmt.DockingResult.from_dict(prior['result']).poses,
+            bmt.DockingResult.from_dict(prior['result']).poses,
             observed['fixed_scores'],
             strict=True,
         ):

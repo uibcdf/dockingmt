@@ -7,12 +7,12 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.flexible_reconstruction_fixtures import _manual
-from dmt_test_support.molecular_delegation_fixtures import _manual_prepared
-from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
-from dmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
-from dockingmt.preparation._molsys import autodock_element
+import bindingmt as bmt
+from bindingmt.preparation._molsys import autodock_element
+from bmt_test_support.flexible_reconstruction_fixtures import _manual
+from bmt_test_support.molecular_delegation_fixtures import _manual_prepared
+from bmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from bmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
 
 
 @pytest.mark.parametrize('kind', ['ligand', 'receptor'])
@@ -90,7 +90,7 @@ def test_source_free_flexible_tree_reaches_native_writer(nested, monkeypatch):
     assert not msm.has_attribute(restored, 'bond_order')
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_source_backed_writer_preserves_native_identity_and_derived_evidence(
     prepare, monkeypatch
 ):
@@ -122,9 +122,9 @@ def test_source_backed_writer_preserves_native_identity_and_derived_evidence(
     assert seen[0][0] == list(msm.get(native, element='atom', atom_id=True))
     assert seen[0][1]['status'] == seen[0][2]['status'] == 'derived'
     assert 'REMARK MOLSYSMT_PARTIAL_CHARGES ' in payload
-    assert 'REMARK DOCKINGMT_PARTIAL_CHARGES ' in payload
+    assert 'REMARK BINDINGMT_PARTIAL_CHARGES ' in payload
     assert 'REMARK MOLSYSMT_ATOM_TYPES ' in payload
-    assert 'REMARK DOCKINGMT_ATOM_TYPES ' in payload
+    assert 'REMARK BINDINGMT_ATOM_TYPES ' in payload
     assert snapshot(native) == before
     assert detached_record(native.molecular_mechanics.to_dict()) == original
 
@@ -155,7 +155,7 @@ def test_existing_element_adapter_delegates_named_dictionary(monkeypatch):
     assert calls == [('A', {'typing_scheme': 'autodock4'})]
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_explicit_manual_values_replace_only_the_export_copy(prepare, monkeypatch):
     source = msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(explicit_source('CO'), **CHARGE), **TYPING
@@ -183,7 +183,7 @@ def test_explicit_manual_values_replace_only_the_export_copy(prepare, monkeypatc
     assert len(seen) == 1
     assert seen[0].molecular_mechanics.partial_charge_assignment is None
     assert 'REMARK MOLSYSMT_PARTIAL_CHARGES ' not in text
-    assert 'REMARK DOCKINGMT_PARTIAL_CHARGES ' not in text
+    assert 'REMARK BINDINGMT_PARTIAL_CHARGES ' not in text
     assert snapshot(prepared.source_molsys) == before
     assert (
         detached_record(
@@ -200,29 +200,29 @@ def test_explicit_manual_values_replace_only_the_export_copy(prepare, monkeypatc
 def test_known_disconnected_rigid_ligand_refuses_before_engine(monkeypatch):
     from molsysmt._private.smonitor import FormatError
 
-    from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
+    from bmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
 
     source = msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(explicit_source('CC(=O)N'), **CHARGE),
         **TYPING,
     )
     selected = msm.extract(source, selection=[3, 0])
-    prepared = dmt.prepare_ligand(selected, selection='all')
+    prepared = bmt.prepare_ligand(selected, selection='all')
     before = snapshot(prepared.source_molsys)
 
     def forbid(*args, **kwargs):
         raise AssertionError('Unsupported known graph must reject before Vina.')
 
     monkeypatch.setattr('vina.Vina', forbid)
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         receptor='pdbqt_text:' + MINIMAL_REC_PDBQT,
         partner=prepared,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([16, 16, 16], 'angstrom')
         ),
     )
     with pytest.raises(FormatError, match='fragments must agree'):
-        dmt.dock(problem, protocol=dmt.VinaProtocol(cpu=1))
+        bmt.dock(problem, protocol=bmt.VinaProtocol(cpu=1))
     assert prepared.atom_types == ['C', 'N']
     assert snapshot(prepared.source_molsys) == before
 
@@ -230,7 +230,7 @@ def test_known_disconnected_rigid_ligand_refuses_before_engine(monkeypatch):
 def test_actual_export_map_must_match_the_declared_prepared_order():
     from dataclasses import replace
 
-    from dockingmt._private.smonitor import ArgumentError
+    from bindingmt._private.smonitor import ArgumentError
 
     prepared = _manual()
     prepared._torsion_tree = replace(
@@ -244,12 +244,12 @@ def test_actual_export_map_must_match_the_declared_prepared_order():
 def test_readonly_export_ignores_unrelated_copy_resource_but_edits_require_copy(
     length_unit,
 ):
-    from dmt_test_support.resource_fixtures import UnavailableResource
+    from bmt_test_support.resource_fixtures import UnavailableResource
 
     source = msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(explicit_source('CO'), **CHARGE), **TYPING
     )
-    prepared = dmt.prepare_ligand(source, selection='all')
+    prepared = bmt.prepare_ligand(source, selection='all')
     before = snapshot(prepared.source_molsys)
     prepared.source_molsys.unavailable_resource = UnavailableResource()
     with puw.context(standard_units=[length_unit, 'fs', 'coulomb', 'kJ/mol']):

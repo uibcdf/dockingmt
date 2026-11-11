@@ -5,7 +5,7 @@ import pytest
 import pyunitwizard as puw
 from argdigest import UnknownArgumentError
 
-from dockingmt import (
+from bindingmt import (
     BoxRegion,
     DockingProblem,
     DockingProtocol,
@@ -13,7 +13,7 @@ from dockingmt import (
     VinaProtocol,
     dock,
 )
-from dockingmt._private.smonitor import ArgumentError, CapabilityMismatchError
+from bindingmt._private.smonitor import ArgumentError, CapabilityMismatchError
 
 
 class OtherProtocol(DockingProtocol):
@@ -50,7 +50,7 @@ def no_execution(monkeypatch):
         'is_installed',
         lambda name: True if name == 'vina' else available(name),
     )
-    engine = importlib.import_module('dockingmt.engines.vina')
+    engine = importlib.import_module('bindingmt.engines.vina')
 
     def forbidden(*args, **kwargs):
         pytest.fail('Unsupported request reached problem handling or input preparation')
@@ -89,7 +89,7 @@ def test_ad4_rejected_before_problem_hooks_preparation_or_provider(
     protocol = VinaProtocol(scoring='ad4')
     with pytest.raises(CapabilityMismatchError) as caught:
         dispatch(prepared_problem, protocol)
-    assert caught.value.code == 'DMT-E003'
+    assert caught.value.code == 'BMT-E003'
     assert caught.value.extra['capability'] == 'scoring_ad4'
     assert caught.value.extra['engine'] == 'vina'
     assert caught.value.extra['missing_capabilities'] == ['scoring_ad4']
@@ -117,7 +117,7 @@ def test_incompatible_protocol_fails_before_its_validation_hook(
 ):
     with pytest.raises(ArgumentError) as caught:
         VinaBackend().dock(prepared_problem, OtherProtocol())
-    assert caught.value.code == 'DMT-E002'
+    assert caught.value.code == 'BMT-E002'
     assert caught.value.extra['arg_name'] == 'protocol'
 
 
@@ -170,7 +170,7 @@ def test_vina_rejects_unsupported_intent_before_hooks_or_execution(
         setattr(prepared_problem, '_' + field, value)
     with pytest.raises(CapabilityMismatchError) as caught:
         dispatch(prepared_problem, VinaProtocol())
-    assert caught.value.code == 'DMT-E003'
+    assert caught.value.code == 'BMT-E003'
     assert caught.value.extra['unsupported_fields'] == list(requests)
     assert caught.value.extra['arg_name'] == 'problem.' + next(iter(requests))
     assert caught.value.extra['engine'] == 'vina'

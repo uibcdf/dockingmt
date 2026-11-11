@@ -1,6 +1,6 @@
 ---
 summary: Review extension boundaries and establish an architecture performance baseline
-issue: uibcdf/dockingmt#28
+issue: uibcdf/bindingmt#28
 status: partial
 opened: 2026-10-02
 closed:
@@ -165,7 +165,7 @@ is introduced for this slice.
 
 ## What
 
-The user reaffirmed that DockingMT must support growth in several scientific
+The user reaffirmed that BindingMT must support growth in several scientific
 directions while remaining powerful, lightweight, and fast. Review actual
 extension boundaries and costs against the existing seed, rather than deriving
 the architecture from the first Vina workflow or implementing every horizon.
@@ -189,7 +189,7 @@ bounded work, starting with the concrete defects found here.
 | Multiple engines and protocol stages | Protocol and backend are separate; callers can supply a backend instance; results have named scores. | `dock` currently dispatches one backend call; the base backend exposes only `dock`. Resolve stages above adapters, with stage-specific capabilities and traceability. |
 | Rescoring, refinement, consensus | Poses retain identity and multiple numeric scores; ranking records a score and direction. | Add method/stage, interpretation, unit or dimensionless status, and preferred direction per score. Preserve previous stage outputs and ranking history. Numeric names alone do not establish comparability. |
 | TopoMT domains and guided search | Domain, guidance, and constraints are distinct problem fields; Vina has a projection boundary. | Reject unsupported intent now (#26). When a rich domain is supported, distinguish exact projection from approximation, preserve source information, and add its reader. The domain base currently requires box approximation and the problem reader accepts only `BoxRegion`. |
-| PharmacophoreMT and ElastNetMT | Scientific contracts are assigned to peers, not copied into DockingMT. | Distinguish annotation, post-filtering, scoring, hard constraints, and sampling guidance. A data field is not proof of supported execution. |
+| PharmacophoreMT and ElastNetMT | Scientific contracts are assigned to peers, not copied into BindingMT. | Distinguish annotation, post-filtering, scoring, hard constraints, and sampling guidance. A data field is not proof of supported execution. |
 | Ensembles and small screening | Molecular/receptor state identifiers and prepared inputs already exist; run and campaign are conceptually distinct. | Define input ownership, run/pose identity across aggregation, partial failures, bounded memory, and preparation/backend-map reuse before adding campaign behavior. General molecular operations remain in MolSysMT. |
 | Local, parallel, Slurm, GPU execution | Accepted backend/executor distinction protects the scientific model. | Keep local execution simple. At a second real mode, resolve CPU/thread resources, work units, cancellation, and failures independently of scientific engine identity. |
 | Durable records and independent analysis | Results have schema fields and detached snapshots; optional engines and viewer are not loaded by import. | Enforce schema admission (#27), maintain migration decisions only for actual schema evolution, and retain interpretation without live backend objects. |
@@ -221,10 +221,10 @@ were not reset. Module counts and loaded-provider flags were inspected through
 | --- | ---: | ---: | ---: |
 | PyUnitWizard | 0.0381 | 20.26 | 167 |
 | MolSysMT | 0.4317 | 65.30 | 628 |
-| DockingMT | 0.4340 | 65.24 | 656 |
+| BindingMT | 0.4340 | 65.24 | 656 |
 
 Vina, MolSysViewer, RDKit, and Torch were absent from `sys.modules` after
-DockingMT import. MolSysMT is loaded eagerly through the current module graph.
+BindingMT import. MolSysMT is loaded eagerly through the current module graph.
 The near-equal import controls do not measure an isolated provider contribution;
 in particular, the small RSS difference is noise, not a memory saving claim.
 
@@ -270,24 +270,24 @@ immediate architecture risks than the lack of a generic plugin/executor framewor
 
 ## Concrete findings
 
-- [#26](https://github.com/uibcdf/dockingmt/issues/26): an actual Vina probe
+- [#26](https://github.com/uibcdf/bindingmt/issues/26): an actual Vina probe
   accepted nonempty constraints/guidance and returned the unconstrained control's
   coordinates and scores. Source inspection confirms the intent is never consumed.
-- [#27](https://github.com/uibcdf/dockingmt/issues/27): an explicit result schema
+- [#27](https://github.com/uibcdf/bindingmt/issues/27): an explicit result schema
   `999.0` is accepted and subsequently exported as `1.0`.
 - The adapter rebuilds preparation and affinity maps within each execution.
   Prepared objects can already be supplied explicitly. Repeated campaign costs
   have not been measured; do not introduce a global cache from inspection alone.
 - The scientific Core MVP remains limited by provisional preparation in
-  [#5](https://github.com/uibcdf/dockingmt/issues/5) and unresolved decisions in
-  [#4](https://github.com/uibcdf/dockingmt/issues/4) and
-  [#17](https://github.com/uibcdf/dockingmt/issues/17). Strong software boundaries
+  [#5](https://github.com/uibcdf/bindingmt/issues/5) and unresolved decisions in
+  [#4](https://github.com/uibcdf/bindingmt/issues/4) and
+  [#17](https://github.com/uibcdf/bindingmt/issues/17). Strong software boundaries
   do not establish scientific qualification or justify skipping the Core gates.
 
 ## Proposed next-step order
 
 1. Correct unsupported-intent admission (#26) and scientific-schema admission
-   (#27), each with focused guards. Both are DockingMT-only work.
+   (#27), each with focused guards. Both are BindingMT-only work.
 2. Establish repeatable profiling of actual current workflows by phase: import,
    normalization, preparation/projection, affinity maps, native docking, result
    normalization, and export. The current elapsed time covers native docking,
@@ -316,7 +316,7 @@ are archived in
 and
 [`scientific_record_readers_ignore_schema_versions.md`](../archive/scientific_record_readers_ignore_schema_versions.md).
 The five existing readers share the explicit/legacy version policy recorded in
-DMT-030; no generic framework or sibling changes were introduced.
+BMT-030; no generic framework or sibling changes were introduced.
 
 Full local validation passed all 344 tests in 48.96 seconds with unchanged provider
 warnings and passing quality gates. This review remains partial: phase profiling,
@@ -373,7 +373,7 @@ samples previously kept only in `/tmp`. The notebook reuses the existing report
 summarizer, checks output/input/context equality and renders separate workflow and
 adapter tables/plots. Native measurements are explicitly opt-in through the
 existing command; default execution reads retained evidence without importing
-DockingMT or Vina. Notebook tools do not become package runtime dependencies.
+BindingMT or Vina. Notebook tools do not become package runtime dependencies.
 All seven code cells execute successfully, the notebook schema validates, and
 the retained report bytes match the original files. Local gates pass with 354
 tests in 54.70 seconds and the same 12 provider warnings.
@@ -414,7 +414,7 @@ imports. Its retained raw reports match the sampled originals byte for byte.
 ## Score/ranking contract progress (2026-10-03)
 
 The next accepted local extension boundary is complete in
-[#31](https://github.com/uibcdf/dockingmt/issues/31): validated optional score
+[#31](https://github.com/uibcdf/bindingmt/issues/31): validated optional score
 descriptors, actual Vina/Vinardo empirical meaning and comparison context, and
 independent scalar evidence for successive rankings. Legacy records remain
 readable and explicitly rankable; mixed/incompatible declared meanings are
@@ -431,7 +431,7 @@ and the concrete comparison/identity policies of later accepted extensions.
 
 ## Fixed-pose scoring progress (2026-10-03)
 
-[Issue #34](https://github.com/uibcdf/dockingmt/issues/34) adds the first concrete
+[Issue #34](https://github.com/uibcdf/bindingmt/issues/34) adds the first concrete
 independent scoring operation. `score` evaluates already prepared Vina/Vinardo
 conformations, and `DockingPose.with_scores` preserves separate named outputs.
 The optional backend method leaves docking-only adapters compatible. Prior pose
@@ -445,13 +445,13 @@ accepted extension/comparison contracts.
 
 ## Offline pose audit and incremental execution progress (2026-10-03)
 
-[Issue #35](https://github.com/uibcdf/dockingmt/issues/35) adds bounded public
+[Issue #35](https://github.com/uibcdf/bindingmt/issues/35) adds bounded public
 `audit_pose(record)` for standalone fixed-pose evaluation history, sharing
 existing result/descriptor/unit/input checks. Its
 [contract](../validation/pose_audit.md) explicitly excludes molecular geometry
 replay and scientific qualification.
 
-[Issue #36](https://github.com/uibcdf/dockingmt/issues/36) adds lazy serial
+[Issue #36](https://github.com/uibcdf/bindingmt/issues/36) adds lazy serial
 `dock_many(...)` for already prepared problems, reusing public `dock`.
 Independent `DockingOutcome` records preserve declarations, resolved adapter,
 input position and success/failure evidence. The
@@ -464,7 +464,7 @@ scientific workloads and future accepted integration boundaries.
 
 ## Explicit redocking evaluation progress (2026-10-03)
 
-[Issue #38](https://github.com/uibcdf/dockingmt/issues/38) adds public
+[Issue #38](https://github.com/uibcdf/bindingmt/issues/38) adds public
 `evaluate_redocking`, reusing the existing RMSD/MolSysMT boundary and preserving
 explicit cutoff, correspondence, result-order top-N interpretation and detached
 comparison evidence. The [contract](../validation/redocking_evaluation.md) and
@@ -519,7 +519,7 @@ receives the consumer evidence, and this performance issue remains partial.
 
 ## 2026-10-04 bounded redocking collection aggregation
 
-[DockingMT #39](https://github.com/uibcdf/dockingmt/issues/39) adds public offline
+[BindingMT #39](https://github.com/uibcdf/bindingmt/issues/39) adds public offline
 `summarize_redocking` above the existing individual evaluation boundary. Exact
 recorded policy admission, per-case evidence, distinct failure/empty-result
 semantics and explicit denominators provide the first collection-analysis slice.

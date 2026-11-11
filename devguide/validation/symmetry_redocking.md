@@ -1,6 +1,6 @@
 # Optional declared-state symmetry evaluation
 
-Owners: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49) and
+Owners: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49) and
 [MolSysMT #310](https://github.com/uibcdf/molsysmt/issues/310).
 
 `evaluate_redocking` retains its original positional RMSD, result order, thresholds
@@ -9,7 +9,7 @@ and summaries. Supplying `symmetry_options` explicitly requests a separate
 original positional criterion; it does not silently switch to corrected recovery.
 
 ```python
-report = dockingmt.evaluate_redocking(
+report = bindingmt.evaluate_redocking(
     result,
     reference,
     rmsd_cutoff=pyunitwizard.quantity(2, 'angstrom'),
@@ -30,14 +30,14 @@ population is required. Optional provider options are `chemical_state`,
 are rejected. The initial integration enumerates the provider's unrestricted
 declared-state chemical scope, without consumer anchor or map-search algorithms.
 
-DockingMT copies the declared query context and sets only measured pose coordinates
+BindingMT copies the declared query context and sets only measured pose coordinates
 through public MolSysMT operations. Unselected coordinates retain context values
 and are not represented as reconstructed pose geometry. In particular, omitted H
 coordinates are neither predicted nor included in a heavy-atom metric. MolSysMT's
 public topology operation enumerates admitted maps; its public geometry operation
 validates/reuses those maps and computes each RMSD. Provider failures propagate.
 No matching, graph normalization, fitting or molecular transformation is implemented
-in DockingMT.
+in BindingMT.
 
 Both source-identity and corrected measurements use the shared receptor frame,
 without translation, rotation, periodic imaging or implicit superposition. The
@@ -69,7 +69,7 @@ benzene correspondence, a translated negative control, non-equivalent same-eleme
 sites, fixed amidinium N roles, pose-axis permutations, incompatible state/H
 representation, search bounds, caller immutability and nondefault units.
 `tests/test_compressed_molecular_input.py` compares the frozen compressed source
-with plain truth through public MolSysMT input and DockingMT selection routes.
+with plain truth through public MolSysMT input and BindingMT selection routes.
 
 The original strict 3PTB receiver keeps its original source-hash gate. It must
 reject changed source and is not relabelled as a new producer. The current
@@ -85,7 +85,7 @@ both evaluation records, saved-result restoration and the historical receiver.
 ## Executed installed workflow — 2026-10-20
 
 The ordinary wheel from `1decee504b112cfd92026c52dcbe22449de30f4f`,
-`dockingmt-0.0.0+180.g1decee5-py3-none-any.whl`, has SHA-256
+`bindingmt-0.0.0+180.g1decee5-py3-none-any.whl`, has SHA-256
 `24cfe209935b9bcdef371590427dc74818f23eece6711171346c72402c02ba4e`.
 All 60 required package files match the installed bytes; PEP 610 identity,
 ordinary import origins, addon entry-point declaration and dependency closure pass.
@@ -144,8 +144,8 @@ acceptance remain open.
 
 The old receiving/candidate interpreters and wheel are absent at their registered
 2026-10-13 paths; absence does not identify who removed them. Versioned historical
-receipts remain in Git. The new task owns `/tmp/dockingmt-human-20261020` under
-[#50](https://github.com/uibcdf/dockingmt/issues/50). Retain the qualified provider
+receipts remain in Git. The new task owns `/tmp/bindingmt-human-20261020` under
+[#50](https://github.com/uibcdf/bindingmt/issues/50). Retain the qualified provider
 environment, ordinary receiver, original wheel, source-free harness, exact source
 and SDK identities, initial failure/native result and complete execution/CI
 evidence for the immediate visualization discussion or recovery. Review by

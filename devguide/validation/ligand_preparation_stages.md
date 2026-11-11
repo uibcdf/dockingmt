@@ -19,7 +19,7 @@ neither option still require a valid named type assignment or explicit
 on one selected state/frame; this does not repair an unresolved chemical graph.
 
 ```python
-import dockingmt as dmt
+import bindingmt as dmt
 
 prepared = dmt.prepare_ligand(
     ligand_with_declared_chemistry,
@@ -131,7 +131,7 @@ explicit heavy-only benzene template, public fixed-state H addition rejects
 missing covalent bond aromaticity. The notebook retains this negative control,
 its template report and unchanged experimental pose. Evidence is handed off in
 [MolSysMT #314](https://github.com/uibcdf/molsysmt/issues/314#issuecomment-5978374154).
-DockingMT #41 stays partial for that real-input acceptance; no local aromaticity
+BindingMT #41 stays partial for that real-input acceptance; no local aromaticity
 perception, direct RDKit manipulation or alternate template workaround is added.
 
 Generated H positions are local modeled geometry, not experimental observations,
@@ -145,7 +145,7 @@ The [new executed notebook](ligand_preparation_stages_2026-10-06.ipynb) and
 [new raw receipt](data/ligand_stages/qualification_2026-10-06.json) supersede the
 earlier BNZ rejection for committed MolSysMT
 `5bd893c85fe8d211663b2b1f865f5f1d2c382a90`. Historical notebooks/receipts above
-remain intact. [DockingMT #42](https://github.com/uibcdf/dockingmt/issues/42)
+remain intact. [BindingMT #42](https://github.com/uibcdf/bindingmt/issues/42)
 tracks this adoption; the original #41 software workflow now has positive BNZ
 evidence locally.
 

@@ -8,7 +8,7 @@ Earlier interrupted attempts stay failed. The campaign is terminal; the initial
 unexecuted status and later prospective amendments below describe their original
 registration stages, not a pending instruction to launch more searches.
 
-Owner: [DockingMT #83](../archive/qualify_independent_installed_reproduction.md).
+Owner: [BindingMT #83](../archive/qualify_independent_installed_reproduction.md).
 Starting checkpoint: `51ed3dd39e169f0b59d48797788cddd37ec9f14d`.
 Registered before execution. Current selection: **admission and zero-search
 diagnostic only; unexecuted**. The full scientific objective remains unchanged.
@@ -49,7 +49,7 @@ Require unchanged code identity `2612b3e`, unknown Git/dirty and no source fallb
 Verify complete installed Python/native origins, relocated Boost and every
 prefix/metadata byte before/after. Restore the original caller policy.
 
-All public DockingMT dock/score/preparation/view/evaluation calls, Vina method
+All public BindingMT dock/score/preparation/view/evaluation calls, Vina method
 entries, molecular getters/conversions/copies/source maps/comparisons and
 detectors are forbidden or capped at zero. No ligand/input read, graph
 reconstruction, source-reference metric, native initialization/grid/search,
@@ -94,7 +94,7 @@ complete Core C0–C6/Extended E1–E5/scientific/public/stabilization goal acti
 
 Fresh admission01 passes in 9.107 s/142,139,392 sampled group-RSS bytes.
 Diagnostic01 passes in 9.930 wall seconds/324,743,168 bytes, zero observed
-DockingMT/helper/provider/native calls, no forbidden operation, complete origin/
+BindingMT/helper/provider/native calls, no forbidden operation, complete origin/
 prefix/metadata nonmutation, all 594 support inputs retired and caller policy
 restored. Its last phase marker is 9.474 elapsed / 9.435 own CPU seconds; child
 CPU totals 0.023 s. First custody takes 1.633 s, Viewer class import 1.005 s,

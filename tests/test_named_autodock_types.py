@@ -9,24 +9,24 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
-from dmt_test_support.qualify_chemical_templates import (
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
+from bmt_test_support.qualify_chemical_templates import (
     load_5x72,
     load_181l_benzene,
     snapshot,
     template_options,
 )
-from dmt_test_support.qualify_named_types import (
+from bmt_test_support.qualify_named_types import (
     CHARGE,
     HYDROGEN,
     TYPING,
     declared_source,
 )
-from dmt_test_support.qualify_named_types import (
+from bmt_test_support.qualify_named_types import (
     explicit_source as _explicit_source,
 )
-from dockingmt._private.smonitor import ArgumentError
 
 
 def explicit_source(smiles):
@@ -43,7 +43,7 @@ def explicit_source(smiles):
     return source
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 @pytest.mark.parametrize(
     'smiles,heavy',
     [
@@ -77,11 +77,11 @@ def test_named_chemical_context_overrides_heuristics_without_changing_input(
     assert prepared.metadata['atom_type_source'] == 'molsysmt_named_autodock4'
     assert prepared.metadata['charge_source'] == 'source_partial_charge'
     assert prepared.metadata['partial_charge_assignment'] is None
-    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == []
+    assert bmt.assess_preparation(prepared)['provisional_reason_codes'] == []
 
 
 @pytest.mark.parametrize('smiles,heavy', [('F', 'F'), ('P', 'P')])
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_provider_polar_h_classification_is_preserved_for_f_and_p(
     prepare, smiles, heavy
 ):
@@ -95,7 +95,7 @@ def test_provider_polar_h_classification_is_preserved_for_f_and_p(
 def test_h_charge_type_stage_order_and_generated_h_correspondence():
     source = declared_source('CO')
     before = snapshot(source)
-    prepared = dmt.prepare_ligand(
+    prepared = bmt.prepare_ligand(
         source,
         selection='all',
         hydrogen_options=HYDROGEN,
@@ -117,12 +117,12 @@ def test_h_charge_type_stage_order_and_generated_h_correspondence():
     assert prepared.metadata['atom_type_projection'][
         'retained_source_atom_indices'
     ] == [0, 1, 5]
-    assert dmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
-    assert dmt.assess_preparation(prepared)['assessment'] == 'unassessed'
+    assert bmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
+    assert bmt.assess_preparation(prepared)['assessment'] == 'unassessed'
     assert snapshot(source) == before
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_preassigned_projected_parent_labels_are_not_reclassified(prepare, monkeypatch):
     assigned = msm.build.assign_autodock_atom_types(
         explicit_source('CC(=O)N'), **TYPING
@@ -151,19 +151,19 @@ def test_preassigned_projected_parent_labels_are_not_reclassified(prepare, monke
     # writer requires ROOT fragments consistent with its known complete graph.
     # Receptor format has no ligand tree. No graph knowledge is erased to make
     # the ligand export succeed (MolSysMT #214).
-    if prepare is dmt.prepare_ligand:
+    if prepare is bmt.prepare_ligand:
         from molsysmt._private.smonitor import FormatError
 
-        from dockingmt.preparation._typing import type_remark
+        from bindingmt.preparation._typing import type_remark
 
-        assert 'REMARK DOCKINGMT_ATOM_TYPES' in type_remark(prepared)[0]
+        assert 'REMARK BINDINGMT_ATOM_TYPES' in type_remark(prepared)[0]
         with pytest.raises(FormatError, match='fragments must agree'):
             prepared.to_pdbqt()
     else:
-        assert 'REMARK DOCKINGMT_ATOM_TYPES' in prepared.to_pdbqt()
+        assert 'REMARK BINDINGMT_ATOM_TYPES' in prepared.to_pdbqt()
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 @pytest.mark.parametrize('mutation', ['labels', 'chemistry'])
 def test_stale_provider_binding_is_rejected(prepare, mutation):
     assigned = msm.build.assign_autodock_atom_types(explicit_source('CO'), **TYPING)
@@ -176,7 +176,7 @@ def test_stale_provider_binding_is_rejected(prepare, mutation):
         prepare(assigned, selection='all')
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_manual_type_replacement_does_not_inherit_named_provenance(
     prepare, monkeypatch
 ):
@@ -206,7 +206,7 @@ def test_manual_type_replacement_does_not_inherit_named_provenance(
         {**TYPING, 'molecular_system': 'other'},
     ],
 )
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_invalid_options_fail_before_molecular_conversion(
     prepare, options, monkeypatch
 ):
@@ -218,7 +218,7 @@ def test_invalid_options_fail_before_molecular_conversion(
         prepare('unused', selection='all', typing_options=options)
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_requested_provider_failure_propagates_without_heuristic_fallback(
     prepare, monkeypatch
 ):
@@ -238,11 +238,11 @@ def test_virtual_h_is_rejected_without_implicitly_adding_atoms():
     source = declared_source('CO')
     before = snapshot(source)
     with pytest.raises(msm.StructuralInconsistencyError, match='indexed'):
-        dmt.prepare_ligand(source, selection='all', typing_options=TYPING)
+        bmt.prepare_ligand(source, selection='all', typing_options=TYPING)
     assert snapshot(source) == before
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_changed_prepared_labels_cannot_be_exported_as_named(prepare):
     prepared = prepare(explicit_source('CN'), selection='all', typing_options=TYPING)
     prepared.atom_types[1] = 'N'
@@ -250,7 +250,7 @@ def test_changed_prepared_labels_cannot_be_exported_as_named(prepare):
         prepared.to_pdbqt()
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 @pytest.mark.parametrize(
     'record,key,value',
     [
@@ -276,7 +276,7 @@ def test_nondefault_units_and_input_pose_are_preserved():
     before = puw.get_value(msm.get(source, coordinates=True), to_unit='angstrom').copy()
     with puw.context(standard_units=['pm', 'coulomb']):
         charged = msm.build.assign_partial_charges(source, **CHARGE)
-        prepared = dmt.prepare_ligand(charged, selection='all', typing_options=TYPING)
+        prepared = bmt.prepare_ligand(charged, selection='all', typing_options=TYPING)
         assert prepared.charges == pytest.approx(
             [0.19000057917, -0.39963024356, 0.20962966439], abs=1e-10
         )
@@ -287,7 +287,7 @@ def test_nondefault_units_and_input_pose_are_preserved():
             atol=1e-12,
         )
         assert prepared.atom_types == ['C', 'OA', 'HD']
-        assert dmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
+        assert bmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
 
 
 def test_original_bnz_template_h_charge_type_route_is_named():
@@ -303,7 +303,7 @@ def test_original_bnz_template_h_charge_type_route_is_named():
         'molecular_system'
     ]
     before = snapshot(applied)
-    prepared = dmt.prepare_ligand(
+    prepared = bmt.prepare_ligand(
         applied,
         selection='all',
         hydrogen_options={**HYDROGEN, 'attribute_policy': 'intersection'},
@@ -315,15 +315,15 @@ def test_original_bnz_template_h_charge_type_route_is_named():
     assert prepared.metadata['preparation_workflow'][
         'pdbqt_to_input_atom_indices'
     ] == list(range(6))
-    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == []
-    assert dmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
+    assert bmt.assess_preparation(prepared)['provisional_reason_codes'] == []
+    assert bmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
     assert snapshot(applied) == before
 
 
 def test_flexible_output_keeps_named_labels_on_verified_written_axis():
     _, source = load_5x72('p59')
     charged = msm.build.assign_partial_charges(source, **CHARGE)
-    prepared = dmt.prepare_ligand(
+    prepared = bmt.prepare_ligand(
         charged,
         selection='all',
         active_torsion_bonds=[(6, 7), (17, 18)],
@@ -341,34 +341,34 @@ def test_flexible_output_keeps_named_labels_on_verified_written_axis():
         projection['retained_source_atom_indices'][i]
         for i in prepared.pdbqt_atom_indices
     ]
-    assert dmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
+    assert bmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
     from vina import Vina
 
     Vina(cpu=1, verbosity=0).set_ligand_from_string(prepared.to_pdbqt())
 
 
 def test_default_real_vina_run_retains_named_types_in_saved_result():
-    prepared = dmt.prepare_ligand(
+    prepared = bmt.prepare_ligand(
         declared_source('CO'),
         selection='all',
         hydrogen_options=HYDROGEN,
         charge_options=CHARGE,
         typing_options=TYPING,
     )
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         receptor=MINIMAL_REC_PDBQT,
         partner=prepared,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([10, 10, 10], 'angstrom')
         ),
     )
-    result = dmt.dock(
+    result = bmt.dock(
         problem,
-        dmt.VinaProtocol(
+        bmt.VinaProtocol(
             cpu=1, seed=17, n_poses=1, exhaustiveness=1, capture_backend_inputs=True
         ),
     )
-    restored = dmt.DockingResult.from_dict(
+    restored = bmt.DockingResult.from_dict(
         json.loads(json.dumps(result.to_dict(), allow_nan=False))
     )
     provenance = restored.provenance['preparation']['partner']
@@ -385,4 +385,4 @@ def test_default_real_vina_run_retains_named_types_in_saved_result():
     captured = base64.b64decode(
         result.provenance['backend_artifacts']['partner']['content_base64']
     )
-    assert b'REMARK DOCKINGMT_ATOM_TYPES' in captured
+    assert b'REMARK BINDINGMT_ATOM_TYPES' in captured

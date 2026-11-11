@@ -1,6 +1,6 @@
 ---
 summary: Preserve allocation exceptions while projecting prepared scoring geometry.
-issue: uibcdf/dockingmt#107
+issue: uibcdf/bindingmt#107
 status: resolved
 opened: 2026-11-10
 closed: 2026-11-10
@@ -18,11 +18,11 @@ supersedes: []
 ## Observation
 
 The `_input_pose` helper's broad Exception translator converts both MemoryError
-and OSError(errno.ENOMEM) from MolSysMT geometry reading into ArgumentError/DMT-E002.
+and OSError(errno.ENOMEM) from MolSysMT geometry reading into ArgumentError/BMT-E002.
 A controlled actual installed aeae47d diagnostic confirms this and byte-matches
 the current source helper at 02228c3. Original errors remain causes, not the same
 propagated objects. Ordinary ValueError correctly becomes the structured argument
-error. This is a local DockingMT translator, not a provider defect.
+error. This is a local BindingMT translator, not a provider defect.
 
 The helper diagnostic raises pre-created failures, with zero actual molecular/
 native work or allocation exhaustion. Exact program/registration/outcomes remain
@@ -52,7 +52,7 @@ have distinct scopes; #73/#47 own wider qualification and #50 resource custody.
 
 Public score now propagates the same MemoryError or OS ENOMEM object through
 conversion and coordinate/name/element reads. Ordinary malformed-value/I/O errors
-retain DMT-E002, exact cause and field. All 16 new cases stop before further
+retain BMT-E002, exact cause and field. All 16 new cases stop before further
 provider/native work, clean owned staging paths and preserve caller snapshots.
 The original public guard retains eight resource failures/eight ordinary passes;
 both complete 203-case source profiles now pass, with all 187 original cases and

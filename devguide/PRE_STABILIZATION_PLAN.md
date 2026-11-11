@@ -1,9 +1,28 @@
 # Core and Extended delivery before stabilization
 
-Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
-Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
-Status: **paused at maintainer request; completion unproven**.
+Owner: [BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73).
+Accepted maintainer objective: 2026-11-06, [BMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
+Status: **active for BindingMT identity/scope transition; completion unproven**.
 Inspected starting source: `530a4cf`.
+
+### BindingMT transition active — 2026-11-11
+
+The maintainer resumes work for [#108](pending_proposals/rename_bindingmt.md):
+BindingMT adopts one canonical repository/distribution/import identity,
+`bindingmt`, through the maintainer-directed clean rename without compatibility
+layers.
+Its accepted domain now includes docking, fixed-identity complex prediction,
+refinement, binding free-energy calculation and prediction, and interface
+characterization. [Vision](VISION.md), [scope](SCIENTIFIC_SCOPE.md),
+[model](SCIENTIFIC_MODEL.md) and [architecture](ARCHITECTURE.md) separate current
+Vina software/scientific profiles from future operations. #109/#110 remain
+separate provider proposals; no new engine or scientific campaign starts here.
+
+Next qualify the renamed payload and compatibility, preserve immutable 0.1.0/
+scientific inputs, receive the already-renamed GitHub repository and deliver MolI/MolSysSuite
+coordination issues. Central registry/policy/guide and consumer adoption are
+separate owner handoffs. The earlier pause below belongs to its dated checkpoint;
+original #33/#49 preparation decisions remain pending outside this increment.
 
 ### Terminal maps/history received in development — 2026-11-11
 
@@ -14,7 +33,7 @@ next prescribed step only after the discussion and maintainer resumption.
 original panel work after the immutable 0.1.0 source milestone. MolSysMT #558 is
 source-resolved; the clean editable provider is fast-forwarded to `aee7aa65` with
 unchanged native bytes/build inputs. The full eight-case selection
-passes both unit policies on DockingMT `7873ec4` / MolSysMT `aee7aa65`: exact
+passes both unit policies on BindingMT `7873ec4` / MolSysMT `aee7aa65`: exact
 mapped geometry, typed maps, explicit losses, intact source/history and native
 history persistence. All 625 support inputs retire; original failures and the
 pre-test wall interruption remain in the 129-member record. Next decide original
@@ -25,7 +44,7 @@ scientific and actual-canvas criteria retain their separate scope.
 
 ### Source milestone 0.1.0 delivered — 2026-11-11
 
-Published [lightweight tag **0.1.0**](https://github.com/uibcdf/dockingmt/tree/0.1.0)
+Published [lightweight tag **0.1.0**](https://github.com/uibcdf/bindingmt/tree/0.1.0)
 targets **1030a29025914e01dff09e5fc606ec73b90f4cd9**, tree
 `5f0c98567ae06263c1a43b9a24c63f7c81675539`; GitHub verifies a direct commit ref.
 [Source-event notice](https://github.com/uibcdf/molsyssuite/issues/189) records
@@ -40,7 +59,7 @@ support inputs. Three original cells/build/quality/policy stay attempt-1 evidenc
 Python 3.13 succeeds in run 43074858531/head 286f811 with the original candidate/
 file and unchanged scientific logic. Both failed pre-test attempts remain failed.
 
-The tag-specific [conformance check 43088048207](https://github.com/uibcdf/dockingmt/actions/runs/43088048207)
+The tag-specific [conformance check 43088048207](https://github.com/uibcdf/bindingmt/actions/runs/43088048207)
 passes on the exact tag target (job 130757511025); the [final receipt](validation/data/current_0_1_0_tag_policy_20261111.json)
 retains its separate conformance/lint/format scope. #74 is complete and its
 report is archived. The tag target stays immutable.
@@ -484,7 +503,7 @@ history and actual browser/comm/canvas #52/#60 keep their original holds.
 
 
 [E3 bounded comparison/clustering now received](validation/e3_saved_pose_study_2026-11-09.md)
-passes both complete normal/pm-fs profiles on DockingMT `ae0db98`, editable
+passes both complete normal/pm-fs profiles on BindingMT `ae0db98`, editable
 MolSysMT `efbe67e1` and unchanged native `5715bda2`. The original three P59 poses
 pass fixed-state/common-frame admission, reconstruction, strict heavy24/full25
 correspondence, two pairwise metrics, independent-reference RMSD and public
@@ -542,7 +561,7 @@ No provider refresh, shared install, molecular operation or remote CI.
 
 
 [Public exception access and API reference #94](validation/public_api_namespace_2026-11-09.md)
-now expose the same 13 local diagnostic classes through `dockingmt.exceptions`.
+now expose the same 13 local diagnostic classes through `bindingmt.exceptions`.
 The source-linked guide covers all 33 root exports, 13 model/extension classes,
 units/ownership/positions, work boundaries and explicit CPU use. Complete affected
 source selections pass 251 cases normal then pm/fs; two exact offline snippets
@@ -807,7 +826,7 @@ qualification, independent reproducibility and public installation as the
 prospective **0.5.0** functional milestone in the existing
 [release ladder](RELEASE_MILESTONES.md). Then stabilize the accepted surface across the
 ordinary 0.x.0 releases actually needed; reserve 1.0.0 for the subsequent
-stable-release decision. [DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+stable-release decision. [BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
 removes a mandatory 0.9.0 endpoint; 0.23.0 is illustrative, not selected. This identifies
 the development target, not a selected candidate, completed gate, tag or package.
 Earlier milestones may consolidate genuinely qualified subsets. The separate
@@ -897,13 +916,13 @@ implemented API or record-only test is not acceptance of a scientific workflow.
 
 ## Ownership and completion discipline
 
-DockingMT owns docking protocols, backend result meaning, score/ranking policy,
+BindingMT owns docking protocols, backend result meaning, score/ranking policy,
 workflow orchestration and interpretation. Molecular inspection, characterization,
 editing, coordinate projection, identity, matching and reusable geometry belong
 to MolSysMT. Inspect existing supported APIs/issues first; report missing tools
 in their provider with concrete consumer evidence and receive their contracts.
 Specialized capabilities retain their own component owners; MolSysViewer owns
-generic rendering/communication, while DockingMT owns its addon semantics.
+generic rendering/communication, while BindingMT owns its addon semantics.
 
 The maintainer explicitly reaffirmed this boundary and the MolSysMT issue route
 on 2026-11-06. It remains a requirement throughout the accepted development
@@ -914,7 +933,7 @@ a missing provider requirement.
 The remaining general molecular bridges tracked by #49 must be received from
 their provider for the accepted input profiles. Do not obtain completion by
 silently dropping an accepted prepared/partial-input workflow or treating an
-unknown molecular state as verified. Numerical admission of DockingMT's own
+unknown molecular state as verified. Numerical admission of BindingMT's own
 serialized records and backend-specific score interpretation remain consumer
 responsibilities; reusable molecular work does not move here.
 

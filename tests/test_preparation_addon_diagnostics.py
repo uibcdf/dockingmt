@@ -8,8 +8,8 @@ import pytest
 import pyunitwizard as puw
 import smonitor
 
-import dockingmt as dmt
-from molsysviewer_dockingmt import (
+import bindingmt as bmt
+from molsysviewer_bindingmt import (
     build_docking_complex_system,
     build_docking_reference_system,
     render_search_domain,
@@ -17,9 +17,9 @@ from molsysviewer_dockingmt import (
     set_reference_visibility,
     set_search_domain_visibility,
 )
-from molsysviewer_dockingmt._scene import sync_scene_state
-from molsysviewer_dockingmt.panels import DockingExplorerPanel, SearchDomainPanel
-from molsysviewer_dockingmt.runtime import ensure_runtime
+from molsysviewer_bindingmt._scene import sync_scene_state
+from molsysviewer_bindingmt.panels import DockingExplorerPanel, SearchDomainPanel
+from molsysviewer_bindingmt.runtime import ensure_runtime
 
 
 @pytest.fixture
@@ -46,7 +46,7 @@ def events(monkeypatch):
 def test_preparation_traces_provider_failure_without_translation(
     role, monkeypatch, events
 ):
-    module = importlib.import_module(f'dockingmt.preparation.{role}')
+    module = importlib.import_module(f'bindingmt.preparation.{role}')
     failure = ValueError('provider selection failed')
 
     def reject(*args, **kwargs):
@@ -54,7 +54,7 @@ def test_preparation_traces_provider_failure_without_translation(
 
     monkeypatch.setattr(module, 'select_one_structure', reject)
     with pytest.raises(ValueError) as caught:
-        getattr(dmt, f'prepare_{role}')(object(), selection='all')
+        getattr(bmt, f'prepare_{role}')(object(), selection='all')
     assert caught.value is failure
     frames = [
         frame
@@ -73,44 +73,44 @@ def test_preparation_traces_provider_failure_without_translation(
         (
             lambda: build_docking_reference_system(object(), True),
             ValueError,
-            'DMT-E004',
+            'BMT-E004',
             'n_poses',
             True,
         ),
         (
             lambda: build_docking_complex_system(object(), []),
             ValueError,
-            'DMT-E006',
+            'BMT-E006',
             'resource',
             'nonempty pose collection',
         ),
         (
             lambda: set_active_pose(SimpleNamespace(), 1),
             RuntimeError,
-            'DMT-E009',
+            'BMT-E009',
             'resource',
             'docking result',
         ),
         (
             lambda: set_reference_visibility(SimpleNamespace(), True),
             RuntimeError,
-            'DMT-E009',
+            'BMT-E009',
             'resource',
             'explicit reference',
         ),
         (
             lambda: set_search_domain_visibility(SimpleNamespace(), True),
             RuntimeError,
-            'DMT-E009',
+            'BMT-E009',
             'resource',
             'search domain',
         ),
         (
             lambda: render_search_domain(
-                SimpleNamespace(), dmt.BoxRegion('[0, 0, 0] nm', '[1, 1, 1] nm')
+                SimpleNamespace(), bmt.BoxRegion('[0, 0, 0] nm', '[1, 1, 1] nm')
             ),
             RuntimeError,
-            'DMT-E010',
+            'BMT-E010',
             'capability',
             'shapes',
         ),
@@ -139,8 +139,8 @@ def test_panel_handles_owned_error_with_code_and_trace(panel_type, events):
     try:
         panel.handle_action(view, 'unknown-control', {})
         assert states[-1]['status'] == 'error'
-        assert states[-1]['error_code'] == 'DMT-E011'
-        emitted = [event for event in events if event.get('code') == 'DMT-E011']
+        assert states[-1]['error_code'] == 'BMT-E011'
+        emitted = [event for event in events if event.get('code') == 'BMT-E011']
         assert len(emitted) == 1
         assert emitted[0]['extra']['action_id'] == 'unknown-control'
         panel.handle_action(view, 'refresh', {})
@@ -158,8 +158,8 @@ def test_panel_provider_failure_is_reported_without_local_reclassification(event
 
     view = SimpleNamespace(player=SimpleNamespace(go_to_structure=reject))
     runtime = ensure_runtime(view)
-    runtime.result = dmt.DockingResult(
-        [dmt.DockingPose(puw.quantity([[0, 0, 0]], 'nm'))]
+    runtime.result = bmt.DockingResult(
+        [bmt.DockingPose(puw.quantity([[0, 0, 0]], 'nm'))]
     )
     panel = DockingExplorerPanel(view=view)
     states = []
@@ -191,7 +191,7 @@ def test_owned_error_is_emitted_at_normal_application_threshold(events, monkeypa
     monkeypatch.setattr(manager, '_config', replace(manager._config, level='WARNING'))
     with pytest.raises(RuntimeError) as caught:
         set_active_pose(SimpleNamespace(), 1)
-    assert caught.value.code == 'DMT-E009'
+    assert caught.value.code == 'BMT-E009'
     assert [event['level'] for event in events] == ['ERROR']
 
 

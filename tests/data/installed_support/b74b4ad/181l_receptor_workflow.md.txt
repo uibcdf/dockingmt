@@ -1,8 +1,8 @@
 # Explicit 181L receptor composition and bounded BNZ redocking
 
-Measured on 2026-10-06 under DockingMT [#4](https://github.com/uibcdf/dockingmt/issues/4),
-[#5](https://github.com/uibcdf/dockingmt/issues/5) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33). The
+Measured on 2026-10-06 under BindingMT [#4](https://github.com/uibcdf/bindingmt/issues/4),
+[#5](https://github.com/uibcdf/bindingmt/issues/5) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33). The
 [driver](../../devtools/qualify_181l_receptor.py),
 [executed evidence notebook](181l_receptor_workflow_2026-10-06.ipynb),
 [original compressed evidence](data/181l_receptor/audit_2026-10-06.json.gz) and
@@ -76,7 +76,7 @@ zero-based atom index. Every original/new name, atom ID and index is saved.
 Original observed names/IDs remain unchanged; hydrogen-generation history keeps
 the original producer report and operation domain.
 
-DockingMT [#44](https://github.com/uibcdf/dockingmt/issues/44) fixes the discovered
+BindingMT [#44](https://github.com/uibcdf/bindingmt/issues/44) fixes the discovered
 receptor writer defect: empty/overwide names now raise an actionable argument
 error, matching the ligand writer's constraint, instead of shifting coordinate
 columns and reaching Vina as malformed bytes. Valid existing receptor formatting
@@ -132,7 +132,7 @@ silently substituted into that historical manifest.
 
 ## Reproduce and assess limits
 
-Use Python 3.14 in `molsyssuite@uibcdf_3.14`, editable DockingMT, released-tag
+Use Python 3.14 in `molsyssuite@uibcdf_3.14`, editable BindingMT, released-tag
 ArgDigest `1bea27fab5f5b15ee4c16ca2402cd0cfa1614d2e` and the existing qualified
 viewer `ec4c71e574d798b7c8675b7e7e983da878ce9889`. MolSysMT is a read-only archive
 of `5bd893c85fe8d211663b2b1f865f5f1d2c382a90`, selected with `PYTHONPATH`, with
@@ -181,6 +181,6 @@ Ruff lint and formatting pass for 122 Python files; six notebook code cells
 execute on the explicit 3.14 kernel. Original compressed/uncompressed evidence,
 consumer/test hashes, local links, report indexes and current component-guide
 routes are checked. Existing synchronized SMonitor/ArgDigest drift is unchanged,
-tracked by DockingMT #19/MolSysSuite #106. Writer #44 is locally resolved and its
+tracked by BindingMT #19/MolSysSuite #106. Writer #44 is locally resolved and its
 [record archived](../archive/receptor_pdbqt_atom_name_overflow.md). Source commits
 remain local, with no new hosted, installed-artifact or public-admission claim.

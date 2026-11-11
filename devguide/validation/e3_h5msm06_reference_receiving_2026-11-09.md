@@ -1,9 +1,9 @@
 # E3 reference receiving through public H5MSM 0.6
 
-Owners: [DockingMT #79](https://github.com/uibcdf/dockingmt/issues/79),
-[#88](https://github.com/uibcdf/dockingmt/issues/88), provider
+Owners: [BindingMT #79](https://github.com/uibcdf/bindingmt/issues/79),
+[#88](https://github.com/uibcdf/bindingmt/issues/88), provider
 [MolSysMT #256](https://github.com/uibcdf/molsysmt/issues/256).
-Registered before execution, 2026-11-09. DockingMT source `ae0db98560f66ac6be7a933fb053f6e1e9917d99`;
+Registered before execution, 2026-11-09. BindingMT source `ae0db98560f66ac6be7a933fb053f6e1e9917d99`;
 provider `efbe67e1c6042078144bce1db24aa80bb565dbd2`.
 
 ## Provider handoff and prospective storage amendment
@@ -16,7 +16,7 @@ stable-root/default-writer freeze. Its source evidence is not client acceptance.
 #558 remains open; #642 already has editable-client receiving and is not rerun.
 
 Bounded suite-status inspection refreshes seven relevant component references.
-DockingMT's human migration directory is preserved. MolSysMT is clean/27 behind
+BindingMT's human migration directory is preserved. MolSysMT is clean/27 behind
 and is fast-forwarded from `fab8cbccf` to the exact owner main above; the other
 sources stay fixed, including deliberately unrefreshed Viewer `1187fc18` (54
 behind). All 118 changed paths contain no Rust/Cargo/Fortran/build or project

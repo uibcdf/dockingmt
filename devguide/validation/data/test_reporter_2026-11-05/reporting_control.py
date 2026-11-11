@@ -1,8 +1,7 @@
 import warnings
 
-import pytest
-
 import dockingmt as dmt
+import pytest
 
 
 def test_protocol_pass():

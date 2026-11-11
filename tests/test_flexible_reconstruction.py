@@ -7,13 +7,13 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.flexible_reconstruction_fixtures import (
+import bindingmt as bmt
+from bmt_test_support.flexible_reconstruction_fixtures import (
     _manual as _manual,
 )
-from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
-from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
-from dmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
+from bmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
+from bmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from bmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
 
 
 @pytest.mark.parametrize('nested', [False, True])
@@ -130,7 +130,7 @@ def test_conversion_failure_propagates_before_permutation(monkeypatch):
 
 
 def _prepared():
-    return dmt.prepare_ligand(
+    return bmt.prepare_ligand(
         msm.build.assign_autodock_atom_types(
             msm.build.assign_partial_charges(explicit_source('CCCCCC'), **CHARGE),
             **TYPING,
@@ -162,17 +162,17 @@ def test_actual_vina_pose_reconstructs_source_free_prepared_axis():
     prepared = _prepared()
     prepared.source_molsys = None
     before = detached_record(prepared.to_dict())
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         receptor='pdbqt_text:' + MINIMAL_REC_PDBQT,
         partner=prepared,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'),
             puw.quantity([16, 16, 16], 'angstrom'),
         ),
     )
-    result = dmt.dock(
+    result = bmt.dock(
         problem,
-        dmt.VinaProtocol(
+        bmt.VinaProtocol(
             cpu=1,
             seed=17,
             exhaustiveness=1,

@@ -1,6 +1,6 @@
 ---
 summary: Stop recorded batch execution on OS-level memory allocation failure.
-issue: uibcdf/dockingmt#106
+issue: uibcdf/bindingmt#106
 status: resolved
 opened: 2026-11-10
 closed: 2026-11-10

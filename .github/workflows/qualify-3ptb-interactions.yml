@@ -13,12 +13,12 @@ permissions:
   contents: read
 
 concurrency:
-  group: dockingmt-e4-interactions
+  group: bindingmt-e4-interactions
   cancel-in-progress: false
 
 jobs:
   receive:
-    if: github.repository == 'uibcdf/dockingmt' && github.ref == 'refs/heads/main'
+    if: github.repository == 'uibcdf/bindingmt' && github.ref == 'refs/heads/main'
     name: Installed E4 on Linux Python 3.14
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -37,7 +37,7 @@ jobs:
       CC: /usr/bin/gcc
       CXX: /usr/bin/g++
       CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER: /usr/bin/gcc
-      DOCKINGMT_SUITE_ROOT: ${{ github.workspace }}/.molsyssuite/e4-hosted/sdk
+      BINDINGMT_SUITE_ROOT: ${{ github.workspace }}/.molsyssuite/e4-hosted/sdk
     steps:
       - uses: actions/checkout@v6
         with:
@@ -108,21 +108,21 @@ jobs:
       - name: Run both finite notebook profiles and fresh saved readers
         shell: bash -l {0}
         run: |
-          cd "$RUNNER_TEMP/dockingmt-e4"
+          cd "$RUNNER_TEMP/bindingmt-e4"
           python -I -B "$GITHUB_WORKSPACE/devtools/qualify_3ptb_interactions.py" receive
       - name: Retain observed installed environment
         if: ${{ always() && steps.environment.outcome == 'success' }}
         shell: bash -l {0}
         run: |
-          python -m pip inspect > "$RUNNER_TEMP/dockingmt-e4/pip-inspect.json"
-          micromamba list --name e4 --json > "$RUNNER_TEMP/dockingmt-e4/conda-list.json"
-          micromamba env export --name e4 --explicit > "$RUNNER_TEMP/dockingmt-e4/conda-explicit.txt"
+          python -m pip inspect > "$RUNNER_TEMP/bindingmt-e4/pip-inspect.json"
+          micromamba list --name e4 --json > "$RUNNER_TEMP/bindingmt-e4/conda-list.json"
+          micromamba env export --name e4 --explicit > "$RUNNER_TEMP/bindingmt-e4/conda-explicit.txt"
       - name: Retain original outcomes including nonpassing attempts
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
-          name: dockingmt-e4-${{ github.run_id }}-${{ github.run_attempt }}
-          path: ${{ runner.temp }}/dockingmt-e4/
+          name: bindingmt-e4-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/bindingmt-e4/
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 14

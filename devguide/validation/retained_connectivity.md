@@ -1,8 +1,8 @@
 # Retained ligand connectivity through MolSysMT
 
-Owner: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49), with active
+Owner: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49), with active
 ligand torsions under #6/#17 and native formats under #33. This 2026-10-23 slice
-removes one molecular implementation from DockingMT's flexible preparation path.
+removes one molecular implementation from BindingMT's flexible preparation path.
 The broader issues remain partial.
 
 ## Public contract and behavior
@@ -19,13 +19,13 @@ blocks = msm.topology.get_covalent_blocks(
 ```
 
 The already checked nonempty retained inventory must yield exactly one block.
-Disconnected retained atoms still reject with the existing DockingMT diagnostic.
+Disconnected retained atoms still reject with the existing BindingMT diagnostic.
 An omitted atom cannot connect selected atoms. Source indices are passed directly;
 nonmonotonic retained order remains available for ROOT tie-breaking and branch
 orientation. There is no molecular copy, local graph traversal, reference-state
 fallback or caught provider exception in this check.
 
-MolSysMT owns connectivity, chemical eligibility and rigid fragments. DockingMT
+MolSysMT owns connectivity, chemical eligibility and rigid fragments. BindingMT
 retains explicit cuts, recorded docking exceptions, ROOT and tree orientation.
 The classifier still requires complete assigned-state chemistry before this
 connectivity check; the provider's generic stored-bond graph is not itself a
@@ -89,7 +89,7 @@ terminal identities and outcomes are handed off through #49.
 
 Task resources belong to #50; review by 2026-10-30. A new receiver inherits the
 retained original dependency runtime read-only and installs the authenticated
-provider wheel plus the new ordinary DockingMT candidate wheel into its own prefix.
+provider wheel plus the new ordinary BindingMT candidate wheel into its own prefix.
 Its base runtime retains the 2026-10-27 review date and must remain while dependent
 receivers/scenes need it. No automatic deletion is authorized. The initial unused
 prefix selected the routine base; it was replaced before qualification with the

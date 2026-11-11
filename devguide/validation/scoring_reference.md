@@ -1,7 +1,7 @@
 # Fixed-pose scoring reference evidence
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78).
-Decision: [DMT-047](../DECISIONS.md#dmt-047--record-the-executed-fixed-score-reference-convention).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
+Decision: [BMT-047](../DECISIONS.md#dmt-047--record-the-executed-fixed-score-reference-convention).
 This is one implementation slice of the [complete pre-stabilization plan](../PRE_STABILIZATION_PLAN.md).
 
 ## Executed native convention
@@ -118,7 +118,7 @@ No public package, release, scientific-panel or full supported-matrix acceptance
 follows. #78 remains partial for molecular receiving/comparison and the actual
 representative E1 workflow; the broader goal remains active.
 
-The [separately prescribed installed native receiving](https://github.com/uibcdf/dockingmt/issues/78#issuecomment-6679255611)
+The [separately prescribed installed native receiving](https://github.com/uibcdf/bindingmt/issues/78#issuecomment-6679255611)
 then executes exactly two fixed-score calls, Vina and Vinardo, on the unchanged
 captured inputs of the deliberately overlapping software control. The
 [new producer record](data/scoring_reference_2026-11-06/native_scored_pose.json)

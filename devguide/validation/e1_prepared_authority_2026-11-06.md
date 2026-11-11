@@ -1,6 +1,6 @@
 # E1 declared-source preparation receiving — 2026-11-06
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
 Status at prescription: **prospective**. The
 [notebook](e1_prepared_authority.ipynb) receives preparation of the
 [new declared authority](e1_declared_authority_2026-11-06.md). It uses the selected
@@ -40,9 +40,9 @@ torsional degree of freedom. Check this declaration against the actual public
 prepared traversal and provider writer. This is a specified case, not a local
 graph-rooting/remapping implementation.
 
-Keep independent public-native and DockingMT PDBQT exports. Only the actual
+Keep independent public-native and BindingMT PDBQT exports. Only the actual
 native export receives its public atom map; its hash must not be reassigned to
-DockingMT text with different remarks. Interpret both through MolSysMT and
+BindingMT text with different remarks. Interpret both through MolSysMT and
 compare written coordinates, labels, elements, charges, types and torsion trees.
 Keep the parsed trees before explicitly discarding them for native conversion.
 Check coordinate rounding within `0.0000500001 nm` per component and charge
@@ -144,7 +144,7 @@ isolated Python process, not a received Jupyter frontend/kernel session.
 | Written axes | Rigid order 0–12; flexible order `[6,7,8,9,10,11,12,0,1,2,3,4,5]`. Actual public map hashes bind only their own native export bytes. |
 | Generation lineage | Composed maps retain four generated polar H with source9 index `-1`. They receive no historical H identity or invented pre-generation coordinates. |
 | Adverse receiving | Eight expected export refusals and two inconsistent edited-prepared-charge audits. All checked reference snapshots remain unchanged after the adverse operations. |
-| Unit policies | Full-precision typed18 coordinates/charges agree within `1e-12` in explicit nm/e units; types agree exactly. All corresponding native and DockingMT PDBQT files are byte-identical between policies; caller policy is restored. |
+| Unit policies | Full-precision typed18 coordinates/charges agree within `1e-12` in explicit nm/e units; types agree exactly. All corresponding native and BindingMT PDBQT files are byte-identical between policies; caller policy is restored. |
 | Resources | One CPU, nice 10, one native/build worker, sampled peak RSS **311.63 MiB**, minimum available RAM **48.41 GiB**; no resource interruption. |
 
 The [receipt](data/e1_prepared_authority_2026-11-06/receipt.json.gz) records the actual

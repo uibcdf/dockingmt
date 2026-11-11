@@ -1,6 +1,6 @@
 # Named partial-charge consumption
 
-DockingMT consumes an explicitly assigned MolSysMT charge model. It preserves
+BindingMT consumes an explicitly assigned MolSysMT charge model. It preserves
 original provenance and observes charge conservation through its existing
 hydrogen projection and PDBQT writer. The charge-only qualification below retains
 provisional AutoDock typing. The [2026-10-06 named-type adoption](named_autodock_types.md)
@@ -11,7 +11,7 @@ chemical-graph prerequisites. See [the compatibility contract](required_named_ty
 
 ```python
 import molsysmt as msm
-import dockingmt as dmt
+import bindingmt as dmt
 
 assigned = msm.build.assign_partial_charges(
     ligand, method='gasteiger_marsili',
@@ -28,7 +28,7 @@ print(report['partial_charge_assignment']['software'])
 For a supported explicit-H protein graph, the caller can instead use
 `method='forcefield', forcefield='AMBER14', expected_total_charge=2` with MolSysMT.
 This declaration is specific to the 1VII control here; other inputs require their
-own justified inventory and model. DockingMT never chooses, calculates or falls
+own justified inventory and model. BindingMT never chooses, calculates or falls
 back to a charge model. Unsupported chemistry, missing providers and invalid
 model requests are handled by the public MolSysMT assignment operation.
 
@@ -43,7 +43,7 @@ Historical qualification below retains its original consumer and observations.
 MolSysMT operations. Values are converted explicitly to elementary charge when
 returned as quantities; native numeric charge values already use that unit.
 MolSysMT's public indexed extraction checks its stored molecular assignment
-binding. DockingMT rejects reports marked stale or carrying an unsupported
+binding. BindingMT rejects reports marked stale or carrying an unsupported
 schema/status/unit. It imports no private molecular validator.
 
 Prepared metadata contains two detached finite JSON records:
@@ -94,7 +94,7 @@ The PDBQT record gives actual prepared/source atom order, rounded values,
 rounded total, rounding difference and the bound `n_atoms * 0.0005 e`.
 Full-precision conservation and decimal conservation are separate. The writer
 uses three decimals without renormalization. Named preparations include a
-bounded `REMARK DOCKINGMT_PARTIAL_CHARGES` with original model/software,
+bounded `REMARK BINDINGMT_PARTIAL_CHARGES` with original model/software,
 calculated/written atom counts, units, full-precision total and hydrogen policy.
 Writers reject changed named prepared values. External or unattributed supplied
 charges receive no invented model attribution.

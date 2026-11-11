@@ -1,6 +1,6 @@
 ---
 summary: Track allocated Vina inputs before writes and report failed cleanup without masking primary errors.
-issue: uibcdf/dockingmt#71
+issue: uibcdf/bindingmt#71
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-05
@@ -26,7 +26,7 @@ Cleanup also silently discards removal errors.
 
 Inject write, flush, close and removal failures using owned test files. Register
 ownership immediately after allocation. Attempt every removal, tolerate an already
-absent path, and report other failures through a DockingMT SMonitor catalog entry.
+absent path, and report other failures through a BindingMT SMonitor catalog entry.
 When a primary exception exists, attach its cleanup diagnostic as an exception
 note, preserving the same exception even with warnings promoted to errors.
 
@@ -69,7 +69,7 @@ retain the same primary exception when cleanup fails under warnings-as-errors.
 The primary error is passed explicitly: an unrelated exception already handled
 by the caller must not acquire the diagnostic or suppress the cleanup warning.
 Missing files are harmless; all other failures are aggregated after every owned
-path is attempted. Normal completion emits `DMT-W003` through the existing
+path is attempted. Normal completion emits `BMT-W003` through the existing
 SMonitor bundle, respecting caller warning filters; an operation failure receives
 a catalog-rendered note with that code and the retained paths. No global warning
 policy is changed. Exact binary contents and caller-owned inputs are guarded.

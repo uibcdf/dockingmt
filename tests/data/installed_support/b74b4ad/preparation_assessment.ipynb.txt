@@ -28,7 +28,7 @@
      "output_type": "stream",
      "text": [
       "/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\n",
-      "MolSysMT source: /home/diego/repos@uibcdf/dockingmt/.pytest_cache/codex-source-archives/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/__init__.py\n"
+      "MolSysMT source: /home/diego/repos@uibcdf/bindingmt/.pytest_cache/codex-source-archives/bindingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/__init__.py\n"
      ]
     }
    ],
@@ -36,7 +36,7 @@
     "import sys\n",
     "from pathlib import Path\n",
     "import json\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "import molsysmt as msm\n",
     "\n",
     "assert sys.version_info[:2] == (3, 14)\n",
@@ -92,8 +92,8 @@
    ],
    "source": [
     "source = msm.systems['T4 lysozyme L99A']['181l.pdb']\n",
-    "ligand = dmt.prepare_ligand(source, selection=\"group_name=='BNZ'\")\n",
-    "report = dmt.assess_preparation(ligand)\n",
+    "ligand = bmt.prepare_ligand(source, selection=\"group_name=='BNZ'\")\n",
+    "report = bmt.assess_preparation(ligand)\n",
     "assert report['assessment'] == 'provisional'\n",
     "assert report['provisional_reason_codes'] == ['zero_placeholder_charges', 'heuristic_atom_types']\n",
     "print(json.dumps(report, indent=2))"
@@ -140,12 +140,12 @@
     }
    ],
    "source": [
-    "external = dmt.assess_preparation(Path('externally-prepared.pdbqt'))\n",
+    "external = bmt.assess_preparation(Path('externally-prepared.pdbqt'))\n",
     "assert external['assessment'] == 'unassessed'\n",
     "assert not external['provisional_reason_codes']\n",
     "print(json.dumps(external, indent=2))\n",
     "report['provisional_reason_codes'].clear()\n",
-    "assert dmt.assess_preparation(ligand)['provisional_reason_codes']\n",
+    "assert bmt.assess_preparation(ligand)['provisional_reason_codes']\n",
     "print('Fresh inspection preserves the original provisional evidence.')"
    ]
   },
@@ -162,7 +162,7 @@
   "kernelspec": {
    "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
    "language": "python",
-   "name": "dockingmt-molsyssuite-314"
+   "name": "bindingmt-molsyssuite-314"
   },
   "language_info": {
    "codemirror_mode": {

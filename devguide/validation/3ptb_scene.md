@@ -1,16 +1,16 @@
 # Saved 3PTB human scene
 
-Owner: [DockingMT #52](https://github.com/uibcdf/dockingmt/issues/52).
+Owner: [BindingMT #52](https://github.com/uibcdf/bindingmt/issues/52).
 The maintainer accepted the first scene on 2026-10-23, following the
 [pre-visualization pause](pause_handoff_2026-10-20.md).
 
 The [notebook](human_3ptb_scene_2026-10-23.ipynb) composes existing public tools:
 restore the original result, reproduce its audited explicit preparation, verify
-submitted hashes, call `dockingmt.view`, give disjoint molecular regions explicit
+submitted hashes, call `bindingmt.view`, give disjoint molecular regions explicit
 representations, exercise Python visibility/frame commands and export through
 `view.export.html`. MolSysMT owns all molecular operations and MolSysViewer owns
 loading, representations and HTML/runtime export. There is no new molecular
-implementation, rendering engine or production API in DockingMT.
+implementation, rendering engine or production API in BindingMT.
 
 ## Executed evidence — 2026-10-23
 
@@ -34,7 +34,7 @@ The [manifest](data/3ptb_scene/manifest_2026-10-23.json),
 exact bytes/digests, execution scope and limits. Decompress the HTML archive before
 opening it; the manifest records both stored and original digests. The original
 uncompressed artifact is also retained at
-`/tmp/dockingmt-3ptb-scene-20261023/output/scene.html` (7,758,464 bytes, SHA-256
+`/tmp/bindingmt-3ptb-scene-20261023/output/scene.html` (7,758,464 bytes, SHA-256
 `25fb6eb625f96c721f3b0b4d14ab19ef1884b5d8a166272cae2e225d3b537439`).
 
 The first exploratory call used an incorrect export method name, and the initial
@@ -83,15 +83,15 @@ Use the recorded kernel with the ordinary receiver outside the source checkout.
 Set these environment variables before starting the kernel:
 
 ```bash
-export DOCKINGMT_SCENE_DATA_ROOT=/tmp/dockingmt-3ptb-scene-20261023/harness
-export DOCKINGMT_EXPECTED_PREFIX=/tmp/dockingmt-human-20261020/receiving
-export DOCKINGMT_SCENE_OUTPUT=/tmp/dockingmt-3ptb-scene-20261023/my-new-output
+export BINDINGMT_SCENE_DATA_ROOT=/tmp/bindingmt-3ptb-scene-20261023/harness
+export BINDINGMT_EXPECTED_PREFIX=/tmp/bindingmt-human-20261020/receiving
+export BINDINGMT_SCENE_OUTPUT=/tmp/bindingmt-3ptb-scene-20261023/my-new-output
 ```
 
 The data root contains the committed case recipes/data but neither production
 namespace. The output directory must not already exist. The notebook authenticates
 both original input and saved result, forbids search/scoring, and verifies loaded
-DockingMT/addon module origins. If temporary resources disappeared, reconstruct and
+BindingMT/addon module origins. If temporary resources disappeared, reconstruct and
 qualify a new receiver using the [pause recovery instructions](pause_handoff_2026-10-20.md#recovery-and-temporary-resources);
 do not relabel a rebuilt wheel as the old artifact.
 
@@ -106,8 +106,8 @@ Open the generated self-contained `scene.html` in a WebGL-capable browser. If a
 served page is needed, use the provider's existing preview tool:
 
 ```bash
-/tmp/dockingmt-human-20261020/receiving/bin/python -m molsysviewer.preview \
-    /tmp/dockingmt-3ptb-scene-20261023/output
+/tmp/bindingmt-human-20261020/receiving/bin/python -m molsysviewer.preview \
+    /tmp/bindingmt-3ptb-scene-20261023/output
 ```
 
 Check receptor, pose, reference and box are simultaneously visible, the title
@@ -134,12 +134,12 @@ installed scene composition. The earlier notebook and explicit bounded declarati
 retain their original identity; future adoption needs its own consumer checks.
 
 The newer native copy delivery tracked by
-[DockingMT #51](https://github.com/uibcdf/dockingmt/issues/51) is also separate.
+[BindingMT #51](https://github.com/uibcdf/bindingmt/issues/51) is also separate.
 This scene continues to call existing public independent-copy operations; it
 does not migrate molecular storage or claim qualification of that newer provider.
 
-Task-owned `/tmp/dockingmt-3ptb-scene-20261023` retains scene artifacts, notebooks,
-logs and a source-free harness under [#50](https://github.com/uibcdf/dockingmt/issues/50).
+Task-owned `/tmp/bindingmt-3ptb-scene-20261023` retains scene artifacts, notebooks,
+logs and a source-free harness under [#50](https://github.com/uibcdf/bindingmt/issues/50).
 Review by **2026-10-30**, with no automatic deletion. Keep the dependent original
 receiver/environment/artifact while needed; their existing review date remains
 2026-10-27. Shared environments and sibling worktrees are preserved.

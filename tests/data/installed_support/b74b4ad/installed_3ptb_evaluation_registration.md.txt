@@ -1,8 +1,8 @@
 # Prospective saved nine-atom evaluation
 
-Owner: [#4](https://github.com/uibcdf/dockingmt/issues/4), coordinated with
-[#33](https://github.com/uibcdf/dockingmt/issues/33) and
-[#28](https://github.com/uibcdf/dockingmt/issues/28). This contract is fixed
+Owner: [#4](https://github.com/uibcdf/bindingmt/issues/4), coordinated with
+[#33](https://github.com/uibcdf/bindingmt/issues/33) and
+[#28](https://github.com/uibcdf/bindingmt/issues/28). This contract is fixed
 before measuring the saved two-search demonstration. Search outcomes/scores
 and the older 3PTB benchmark are already known; this is a retrospective workflow
 receiving, not a blinded or independent benchmark.

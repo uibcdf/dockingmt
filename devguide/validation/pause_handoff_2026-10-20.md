@@ -6,8 +6,8 @@ consume delivered MolSysMT input/symmetry tools, and execute the human workflow
 through evaluation and result recovery. No viewer scene or browser rendering was
 executed. The next action is a discussion with the maintainer, not another search.
 
-Owner: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49), with human
-workflow coordination in [#33](https://github.com/uibcdf/dockingmt/issues/33).
+Owner: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49), with human
+workflow coordination in [#33](https://github.com/uibcdf/bindingmt/issues/33).
 This checkpoint changes documentation and retained evidence only.
 
 ## Read these first
@@ -17,7 +17,7 @@ This checkpoint changes documentation and retained evidence only.
    final pre-visualization stop, and the [workflow contract](symmetry_redocking.md#executed-installed-workflow--2026-10-20).
 3. The [qualification manifest](data/human_3ptb/qualification_2026-10-20.json),
    [source CI receipt](data/human_3ptb/terminal_2026-10-20.json) and
-   [terminal owning-issue report](https://github.com/uibcdf/dockingmt/issues/49#issuecomment-6298468447).
+   [terminal owning-issue report](https://github.com/uibcdf/bindingmt/issues/49#issuecomment-6298468447).
 4. For scene planning, the existing [MolSysViewer integration design](../MOLSYSVIEWER_INTEGRATION.md),
    [viewer/reference contract](viewer_reference.md) and Core gates in [MVP](../MVP.md).
    These are starting contracts, not evidence that the present human scene passed.
@@ -56,7 +56,7 @@ This checkpoint changes documentation and retained evidence only.
 | --- | --- |
 | Implementation and original wheel producer | `1decee504b112cfd92026c52dcbe22449de30f4f` |
 | Executed notebook, final regression and qualified source head | `4695041ea8923bdf6180d5a86d66ebe015af1789` |
-| Ordinary wheel | `dockingmt-0.0.0+180.g1decee5-py3-none-any.whl`, 123,838 bytes |
+| Ordinary wheel | `bindingmt-0.0.0+180.g1decee5-py3-none-any.whl`, 123,838 bytes |
 | Wheel SHA-256 | `24cfe209935b9bcdef371590427dc74818f23eece6711171346c72402c02ba4e` |
 | MolSysMT | `c35252d89a28a8faff11e0014bda91312167f549` |
 | ArgDigest | `3d1ec53c374098016452abab74706e9d80df5462` |
@@ -90,10 +90,10 @@ the earlier scoped scientific evidence retains its producer and limits.
    coordinate frame, units, source identities and visible object labels. The
    maintainer has not yet accepted this scene or chosen among pose comparison and
    rigid/flexible comparison alternatives.
-2. After agreement, inspect the existing DockingMT/Viewer public tools against
+2. After agreement, inspect the existing BindingMT/Viewer public tools against
    that concrete scene. Molecular selection, copying, conversion or other general
    system manipulation belongs to MolSysMT; viewer behavior belongs to MolSysViewer.
-   Keep docking decisions and orchestration in DockingMT. Propose missing reusable
+   Keep docking decisions and orchestration in BindingMT. Propose missing reusable
    operations as issues in their providers, linked from the consumer evidence.
 3. Restore the saved result for the agreed visualization; a new docking search is
    not required. Validate observable scene behavior and provenance before deciding
@@ -107,8 +107,8 @@ authorized by this pause checkpoint itself.
 
 ## Recovery and temporary resources
 
-Task owner [#50](https://github.com/uibcdf/dockingmt/issues/50) retains
-`/tmp/dockingmt-human-20261020`; review by **2026-10-27**, with no automatic cleanup.
+Task owner [#50](https://github.com/uibcdf/bindingmt/issues/50) retains
+`/tmp/bindingmt-human-20261020`; review by **2026-10-27**, with no automatic cleanup.
 See the [actual resource disposition](data/human_3ptb/resource_closeout_2026-10-20.json).
 
 - `environment/bin/python`: normally installed pinned providers and native engine.
@@ -123,9 +123,9 @@ See the [actual resource disposition](data/human_3ptb/resource_closeout_2026-10-
 Before reuse, check that both prefixes and the original wheel still exist, verify
 the wheel digest, actual module origins, `pip check` and recorded provider/native
 identities. Work outside the checkout without an editable production overlay.
-The notebook documents `DOCKINGMT_HUMAN_DATA_ROOT`, a new never-overwritten
-`DOCKINGMT_HUMAN_OUTPUT`, `DOCKINGMT_EXPECTED_PREFIX` and explicit
-`DOCKINGMT_HUMAN_RESTORE_FROM` for restoring the original result without a search.
+The notebook documents `BINDINGMT_HUMAN_DATA_ROOT`, a new never-overwritten
+`BINDINGMT_HUMAN_OUTPUT`, `BINDINGMT_EXPECTED_PREFIX` and explicit
+`BINDINGMT_HUMAN_RESTORE_FROM` for restoring the original result without a search.
 
 If temporary resources disappeared or drifted, use the committed environment and
 identity receipts to qualify a new receiver. A rebuilt wheel is a new producer;
@@ -139,11 +139,11 @@ needs to remain active. Shared environments and sibling worktrees are preserved.
 - [MolSysMT #390](https://github.com/uibcdf/molsysmt/issues/390): reusable
   stereochemistry handoff from chemical templates; the bounded explicit context
   declaration does not resolve the provider proposal.
-- [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49): remaining molecular
+- [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49): remaining molecular
   projection/export maps, native pose/permutation and selected connectivity needs
   stay provider-owned. Delivered gzip and symmetry support do not close all of #49.
-- [#30](https://github.com/uibcdf/dockingmt/issues/30) and
-  [#47](https://github.com/uibcdf/dockingmt/issues/47): public artifact/channel/pair
+- [#30](https://github.com/uibcdf/bindingmt/issues/30) and
+  [#47](https://github.com/uibcdf/bindingmt/issues/47): public artifact/channel/pair
   admission, complete installed qualification and untested platform/browser scope.
   This controlled wheel is not a public release.
 - Chemical/scoring hypotheses and broad biological performance still require

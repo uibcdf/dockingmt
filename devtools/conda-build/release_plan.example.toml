@@ -1,7 +1,7 @@
 # Example only: review and commit release_plan.toml before an actual candidate.
 # 0.0.0/build 0 are examples, not a release decision or authorization.
 schema = "molsyssuite.conda-plan@1"
-package = "dockingmt"
+package = "bindingmt"
 version = "0.0.0"
 build_number = 0
 route = "staged"

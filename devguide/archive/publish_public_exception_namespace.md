@@ -1,6 +1,6 @@
 ---
 summary: Expose existing diagnostic identities through a public exception namespace.
-issue: uibcdf/dockingmt#94
+issue: uibcdf/bindingmt#94
 status: resolved
 opened: 2026-11-08
 closed: 2026-11-09
@@ -16,7 +16,7 @@ supersedes: []
 
 ## What
 
-Public callers currently need `dockingmt._private.smonitor` to catch local
+Public callers currently need `bindingmt._private.smonitor` to catch local
 ArgumentError. That class belongs to the catalog hierarchy, not native ValueError.
 The API-reference review at `457eb090f0e36b6d2b34e1b7d90cbab4d43a4c00`
 identifies a concrete supported-import gap; #28's initial documentation-only
@@ -24,7 +24,7 @@ scope is amended to deliver an additive namespace, not another error framework.
 
 ## How
 
-Expose `dockingmt.exceptions` at the root with explicit aliases to the existing
+Expose `bindingmt.exceptions` at the root with explicit aliases to the existing
 13 local classes. Keep exact identities, implementation module paths, native
 families, catalog codes/context/causes and provider/resource/control propagation.
 Add complete resource coverage and a source-linked public API map. Use public

@@ -1,6 +1,6 @@
 ---
 summary: Interaction binding leaks scalar/form errors for absent carrier domains.
-issue: uibcdf/dockingmt#89
+issue: uibcdf/bindingmt#89
 status: resolved
 opened: 2026-11-08
 closed: 2026-11-08
@@ -19,7 +19,7 @@ supersedes: []
 
 Both public routes now check absent successful atom/frame count returns before
 integer coercion, and absent coordinates before unit extraction. The existing
-catalog DMT-E002 identifies `molecular_system` and its missing domain. Actual
+catalog BMT-E002 identifies `molecular_system` and its missing domain. Actual
 provider exceptions remain untouched; no domain, geometry, frame or analysis
 is invented. Existing valid/adverse binding, coverage and detachment remain.
 
@@ -84,7 +84,7 @@ NotImplementedFormError, zero errors/skips in the pytest summary. This red
 population remains FAIL. No real molecular operation, engine or canvas executes.
 
 Check missing successful returns before scalar coercion or physical extraction.
-Use the existing DMT-E002 catalog exception with `arg_name='molecular_system'`
+Use the existing BMT-E002 catalog exception with `arg_name='molecular_system'`
 and an actionable domain explanation. Keep actual provider exceptions unchanged.
 
 ## Why
@@ -96,7 +96,7 @@ at the binding boundary, without a misleading unit-form or Python scalar error.
 ## What was refuted
 
 No faulty molecular detector, coordinate generation, provider format conversion
-or PyUnitWizard behavior is established. This is a DockingMT consumer check;
+or PyUnitWizard behavior is established. This is a BindingMT consumer check;
 there is no justification for a provider workaround or broad exception wrapper.
 
 ## Scope and exclusions

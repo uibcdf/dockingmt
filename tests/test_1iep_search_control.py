@@ -4,8 +4,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.validate_1iep_pdbqt import _displaced_control_box
-from dockingmt import BoxRegion
+from bindingmt import BoxRegion
+from bmt_test_support.validate_1iep_pdbqt import _displaced_control_box
 
 
 def test_1iep_displaced_control_excludes_native_reference():

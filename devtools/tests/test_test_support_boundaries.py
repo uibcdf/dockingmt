@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def test_shared_helpers_never_import_sibling_test_modules():
     violations = []
-    for folder in ('tests', 'dmt_test_support'):
+    for folder in ('tests', 'bmt_test_support'):
         for source in (ROOT / folder).rglob('*.py'):
             for node in ast.walk(ast.parse(source.read_text())):
                 names = []
@@ -37,7 +37,7 @@ def test_shared_helpers_never_import_sibling_test_modules():
 def test_declared_fixture_uses_the_same_staged_data_path(monkeypatch):
     # Exercise only the fixture's file routing. The provider stub performs no
     # molecular operation and keeps the original convert/set request observable.
-    helper = importlib.import_module('dmt_test_support.molecular_fixtures')
+    helper = importlib.import_module('bmt_test_support.molecular_fixtures')
     calls = []
     sentinel = object()
 
@@ -73,10 +73,10 @@ def test_declared_fixture_uses_the_same_staged_data_path(monkeypatch):
 
 
 def test_fixture_file_routing_survives_an_export_without_runtime_source(tmp_path):
-    namespace = tmp_path / 'dmt_test_support'
+    namespace = tmp_path / 'bmt_test_support'
     namespace.mkdir()
     for name in ('__init__.py', 'molecular_fixtures.py'):
-        shutil.copyfile(ROOT / 'dmt_test_support' / name, namespace / name)
+        shutil.copyfile(ROOT / 'bmt_test_support' / name, namespace / name)
     source = ROOT / 'tests/data/charges/methanol.sdf'
     target = tmp_path / 'tests/data/charges/methanol.sdf'
     target.parent.mkdir(parents=True)
@@ -86,7 +86,7 @@ from pathlib import Path
 from types import SimpleNamespace
 root = Path(sys.argv[1])
 sys.path.insert(0, str(root))
-from dmt_test_support.molecular_fixtures import declared_methanol
+from bmt_test_support.molecular_fixtures import declared_methanol
 sentinel = object()
 calls = []
 def convert(path, **kwargs):
@@ -99,7 +99,7 @@ def set_attributes(system, **kwargs):
     calls.append('set')
 sys.modules['molsysmt'] = SimpleNamespace(convert=convert, set=set_attributes)
 assert declared_methanol() is sentinel and calls == ['convert', 'set']
-assert not any(name.split('.')[0] in {'dockingmt', 'vina', 'rdkit', 'openmm'} for name in sys.modules)
+assert not any(name.split('.')[0] in {'bindingmt', 'vina', 'rdkit', 'openmm'} for name in sys.modules)
 """
     shutil.copyfile(source, tmp_path / 'expected.sdf')
     result = subprocess.run(

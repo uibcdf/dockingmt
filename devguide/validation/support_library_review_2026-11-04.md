@@ -1,8 +1,8 @@
 # ArgDigest, DepDigest and SMonitor receiving review — 2026-11-04
 
-Owner: [#19](https://github.com/uibcdf/dockingmt/issues/19). Reviewed starting
+Owner: [#19](https://github.com/uibcdf/bindingmt/issues/19). Reviewed starting
 source: `edf72ce8a5841c2aa7d033b2cb573ecf98797456`; the bounded installer-hint
-correction is [#64](https://github.com/uibcdf/dockingmt/issues/64). This review
+correction is [#64](https://github.com/uibcdf/bindingmt/issues/64). This review
 checks actual calls and behavior, rather than treating imports/declarations or
 passing numerical tests as complete adoption. No molecular workflow is changed.
 
@@ -20,7 +20,7 @@ independently, currently through the uibcdf Conda channel.
 
 | Tool | Actual adoption | Remaining work |
 | --- | --- | --- |
-| ArgDigest | Strict registry configuration and real digesters protect dock/score/batch/evaluation/summary, VinaProtocol, BoxRegion and selected preparation/result methods. | DockingPose/Result/Problem constructors, prepared-object constructors, record factories and view's DockingMT-owned arguments are not uniformly covered. |
+| ArgDigest | Strict registry configuration and real digesters protect dock/score/batch/evaluation/summary, VinaProtocol, BoxRegion and selected preparation/result methods. | DockingPose/Result/Problem constructors, prepared-object constructors, record factories and view's BindingMT-owned arguments are not uniformly covered. |
 | DepDigest | Vina and Viewer execution paths have real guards, local diagnostics and delayed optional imports. Fresh core import loads none of Vina/Viewer/RDKit/OpenMM. | Installer metadata advertised nonexistent/default routes; #64 corrects two suite entries. Reconcile other declarations with directly owned versus MolSysMT-delegated capabilities. |
 | SMonitor | Package-local config, ensure_configured, catalog exceptions/warnings and DiagnosticBundle are active; five codes render across profiles and survive rebuilding. Existing application config is preserved. | Preparation orchestration lacks explicit signals; addon-owned validation still raises uncoded ValueError/RuntimeError. Add useful structured context where needed, retaining original provider failures. |
 
@@ -29,18 +29,18 @@ Neither missing optional advanced features nor a different supported ArgDigest
 layout is automatically a defect. The registry style is supported: ElastNetMT
 also uses it. MolSysMT's larger argument/function/domain hierarchy addresses its
 own form-agnostic and extensible-keyword contracts; copying that whole tree is
-not required for DockingMT's mostly closed signatures.
+not required for BindingMT's mostly closed signatures.
 
 ## Accepted DepDigest correction in the routine environment — 2026-11-08
 
-Starting DockingMT source: `75db240e9c0b3aefa64eae7258c1a513b664f9af`.
+Starting BindingMT source: `75db240e9c0b3aefa64eae7258c1a513b664f9af`.
 [DepDigest #47](https://github.com/uibcdf/depdigest/issues/47) is resolved after
 owner acceptance of #48 at `02339c2917588a91ba938575be44816d706b5e27`.
 The routine editable provider is now clean/current at
 `032d345becf8f8f574c24ede61ee62fcf0321de7`, version `0.15.2+2.g032d345`;
 local ancestry includes the accepted correction. The common workspace checker
 refreshes both participating remotes. Its nonzero status records only the
-preserved untracked DockingMT migration directory; no worktree is changed.
+preserved untracked BindingMT migration directory; no worktree is changed.
 
 The unchanged original [seven-control producer](data/depdigest47_receiving_2026-11-04/control.py),
 SHA-256 `e16b04e90932724ee9c937967211c8b885227a9a46f10c7879c50d6328af08fe`,
@@ -109,7 +109,7 @@ These are inspected source patterns, not new whole-component qualifications.
 Their local worktrees are preserved, including TopoMT's existing modified
 `_version.py`; no sibling code is changed by this review.
 
-DockingMT should apply the same separation: digest public inputs, keep necessary
+BindingMT should apply the same separation: digest public inputs, keep necessary
 mutable-object/output invariants inside models, and delegate molecular work to
 MolSysMT. The finite-real guards added in #63 remain necessary for snapshot
 integrity; their presence does not complete constructor ArgDigest adoption.
@@ -118,18 +118,18 @@ DockingPose accepts scores=None, while with_scores requires a mapping. Inherited
 constructors and selected ArgDigest generations need explicit receiving checks.
 
 The view keyword passthrough is already scoped under #19: Viewer options remain
-provider-owned. Validate DockingMT's own options without inventing the downstream
+provider-owned. Validate BindingMT's own options without inventing the downstream
 converter/widget keyword domain. Do not add skip flags indiscriminately: some
 delegated public calls have stronger or still-unvalidated arguments.
 
 ## Executed checks and limits
 
 - Original argument/support/coordinate selection: **70 pass**, 1.24 s.
-- Installed routine SMonitor CLI validates DockingMT's config; the provider's
+- Installed routine SMonitor CLI validates BindingMT's config; the provider's
   canonical checker passes config/templates/profile rendering/reserved names.
   Existing tests cover args-only rebuilding, pickle/copy and warning filters.
 - A fresh application-configured process preserves its complete SMonitor config
-  after importing DockingMT; optional scientific imports remain absent. Runtime
+  after importing BindingMT; optional scientific imports remain absent. Runtime
   digestion-plan inspection confirms the covered/uncovered examples above.
 - Raw DepDigest scans report one core and one addon finding. The core is a
   **false positive** for `from .vina import VinaBackend`, which names our adapter,
@@ -171,7 +171,7 @@ installation, version floor, scientific pin or new API is selected here.
    import disposition before treating its raw output as a complete consumer gate.
    Review remaining dependency inventory against real ownership/acquisition.
 
-Use our owning repositories for reusable fixes and #19 for DockingMT receiving;
+Use our owning repositories for reusable fixes and #19 for BindingMT receiving;
 source access permits coordinated implementation without duplicating providers.
 
 ## Core model/factory receiving follow-up
@@ -212,7 +212,7 @@ Molecular forms, selections, structure indices and chemical states keep their
 MolSysMT route. Explicit pass-through digesters document that ownership; they
 do not interpret or normalize provider values. The selection factory preserves
 None/array selections, original structure/state objects and native provider
-exception identity, including through inheritance. DockingMT checks only absent
+exception identity, including through inheritance. BindingMT checks only absent
 required sources and its own domain/options. Invalid metadata/domain/guidance
 or padding fails before molecular operations. A pre-existing state-selection
 test used a removed private charge setter; it now assigns the same charges
@@ -261,13 +261,13 @@ frames use context_extra with operation and provider=molsysmt. Molecular work
 still goes through the existing MolSysMT operations; no preparation choice,
 geometry kernel, source mapping, frame policy or provider exception is replaced.
 
-Eight catalog identities (DMT-E004 through DMT-E011) distinguish corrections for
+Eight catalog identities (BMT-E004 through BMT-E011) distinguish corrections for
 pose count, structure pairing, missing display inputs, pose position, foreign
 shape ownership, missing scene state, unsupported Viewer capabilities and unknown
 panel actions. Their wording lives in the catalog; typed occurrence facts include
 operation/provider, resource, observed/expected counts, pose index/position,
 shape tag and action ID. Existing ValueError/RuntimeError catch families remain
-valid through catalog-backed subclasses. Published DMT-E001–E003/W001–W002
+valid through catalog-backed subclasses. Published BMT-E001–E003/W001–W002
 meanings are retained. New classes survive args-only rebuilding, pickle and
 deepcopy; all thirteen codes render under the five supported profiles.
 
@@ -288,7 +288,7 @@ and their declared hashes retain their original bytes.
 
 ### Source and protocol evidence
 
-- A verified export of the starting DockingMT source reproduces **12 failures /
+- A verified export of the starting BindingMT source reproduces **12 failures /
   one pass** in the original thirteen diagnostic controls. The final diagnostic
   module has fourteen cases, including a normal-threshold owned-error control.
 - **44 routine source checks pass** for diagnostics, catalog contracts and
@@ -298,7 +298,7 @@ and their declared hashes retain their original bytes.
   checker pass configuration, templates, rendering and reserved-name checks.
 - The broader first routine selection gives 244 passes/19 failures: four stale
   protocol examples are corrected here. The remaining fifteen failures are
-  reproduced unchanged against the starting DockingMT source: thirteen Viewer
+  reproduced unchanged against the starting BindingMT source: thirteen Viewer
   player receiving cases and two MolSysMT preparation/map profile cases. Routine
   clones are Viewer `73a6f388e09146650349dfe83564ae318ba20298` and MolSysMT
   `71fbe4f46d3c70e4e973c8025f01752a8c9b1084`; do not call that profile qualified
@@ -332,7 +332,7 @@ it does not replace the previous installed-science receipts or public gates.
 ### Independently reproduced SMonitor limitation
 
 [SMonitor #59](https://github.com/uibcdf/smonitor/issues/59) owns a newly observed
-nested-signal defect, reproduced without DockingMT or ArgDigest: with application
+nested-signal defect, reproduced without BindingMT or ArgDigest: with application
 threshold WARNING, a filtered inner DEBUG signal marks the exception emitted
 and suppresses the outer ERROR event. At threshold DEBUG the one DEBUG event is
 observable; nested ERROR at threshold WARNING produces one ERROR. All controls
@@ -345,7 +345,7 @@ prove normal-threshold ERROR delivery for the affected ArgDigest composition.
 No production threshold, decorator order, private emission marker or provider
 implementation is changed to work around it. Receive the provider correction
 under #19 before closing that broader diagnostic claim; the owner issue includes
-ArgDigest/DockingMT relationships and the shared-impact handoff requirement.
+ArgDigest/BindingMT relationships and the shared-impact handoff requirement.
 
 The local diagnostic block is delivered. #19 remains partial for SMonitor #59
 receiving, prepared-object/owned-view argument contracts and dependency inventory/
@@ -360,7 +360,7 @@ commit `b1241ef`, received here from accepted main
 `82dad5a7e26e0fba712e30657a6739188d770d79`. A filtered inner observation no longer
 acknowledges the exception before the outer ERROR can report it. An already
 accepted DEBUG observation still wins; this does not promote every nested event.
-DockingMT keeps its ordinary signal/ArgDigest composition without a local marker
+BindingMT keeps its ordinary signal/ArgDigest composition without a local marker
 reset, decorator-order change or application-policy override.
 
 The frozen [control producer](data/smonitor59_receiving_2026-11-04/control.py)
@@ -431,7 +431,7 @@ An independent full provider run on accepted `ccdcace` passes **812 tests**,
 no skips, with required collective E2E enabled. Its CI `41951351240`, QA CI
 `41951351174` and policy `41951351465` succeed, inspected through GH Run Receptor.
 After a second clean sibling fast-forward/editable reinstall, the frozen
-DockingMT producer passes **10/10** again with no source override; separate
+BindingMT producer passes **10/10** again with no source override; separate
 [accepted-main identities](data/smonitor59_receiving_2026-11-04/accepted-main-profile.json)
 and [observations](data/smonitor59_receiving_2026-11-04/accepted-main-routine.json)
 retain this later profile. These checks qualify accepted source, not a new
@@ -441,7 +441,7 @@ Advance shared impact/receiving is coordinated in
 [MolSysSuite #163](https://github.com/uibcdf/molsyssuite/issues/163), related to
 #106, and [ArgDigest #49](https://github.com/uibcdf/argdigest/issues/49). Other
 registered consumers are candidates for their own receiving, not qualified by
-DockingMT's controls. #19 remains partial for prepared constructors, owned-view
+BindingMT's controls. #19 remains partial for prepared constructors, owned-view
 arguments, dependency inventory/scanner receiving (DepDigest #47) and actual
 public dependency qualification.
 
@@ -476,7 +476,7 @@ to Python integers. The existing duck-typed item route, same-object repetitions,
 optional defaults and existing-widget reuse are preserved.
 
 The closed helper is deliberate: public view's open kwargs belong to MolSysViewer.
-They bypass DockingMT's registry entirely, including names also used by local
+They bypass BindingMT's registry entirely, including names also used by local
 digesters, a literal kwargs key and the provider's skip_digestion option. That
 provider option cannot bypass the separate owned-argument boundary. Viewer
 options are not copied into a local domain or reinterpreted; provider exceptions
@@ -488,7 +488,7 @@ provider implementation is changed.
 
 - The final **60** controls in `tests/test_prepared_view_argument_contracts.py`
   reproduce **52 failures / eight passes** against a verified managed export of
-  the starting DockingMT source. Final test-producer SHA-256 is
+  the starting BindingMT source. Final test-producer SHA-256 is
   `05d62f9f69f5a847733d69317e486ee5b5fefc8c0fe72366098dd4a55ee1d440`.
 - **170 routine source cases pass**, 2.97 s: the new module plus
   test_model_argument_contracts, test_argument_contracts and
@@ -536,7 +536,7 @@ environment's separate dependency-closure findings remain MolSysSuite #82.
 ## Dependency ownership, channels and scoped audit receiving
 
 Starting from `6305b2bb2f997c9eca16966684ee247337536329`, #19 reconciles the
-DepDigest inventory with DockingMT's actual direct runtime and optional extras.
+DepDigest inventory with BindingMT's actual direct runtime and optional extras.
 The required dependencies remain NumPy, MolSysMT, PyUnitWizard, ArgDigest,
 DepDigest and SMonitor. The directly owned optional capabilities are Vina's
 Python API and MolSysViewer integration. RDKit, OpenMM and PDBFixer are removed
@@ -548,9 +548,9 @@ floor, CI source pin or molecular implementation changes.
 | Capability | Owner / route and boundary |
 | --- | --- |
 | Docking and fixed-pose scoring | Vina Python API, guarded by DepDigest on VinaBackend.dock/score; no CLI route or automatic backend substitution is added. |
-| Molecular forms, preparation and optional molecular engines | MolSysMT; DockingMT passes the explicit workflow/options through its existing provider calls. |
+| Molecular forms, preparation and optional molecular engines | MolSysMT; BindingMT passes the explicit workflow/options through its existing provider calls. |
 | Widget, player and panels | MolSysViewer; public view is guarded, and explicitly selecting the addon requires its Viewer contracts. |
-| Saved records and declaration assessment | DockingMT; fresh import/empty-result roundtrip works with Vina, Viewer, RDKit, OpenMM, PDBFixer and Meeko blocked. |
+| Saved records and declaration assessment | BindingMT; fresh import/empty-result roundtrip works with Vina, Viewer, RDKit, OpenMM, PDBFixer and Meeko blocked. |
 
 `VinaBackend.is_available` documents discovery, matching DepDigest's find_spec
 check. Discovery is distinct from loading a native extension, solving its
@@ -594,7 +594,7 @@ The relative-import false positive remains in accepted DepDigest main `9dc5621`
 in [DepDigest #48](https://github.com/uibcdf/depdigest/pull/48), for
 [owner #47](https://github.com/uibcdf/depdigest/issues/47), at exact source
 `23c028c1bafe6b8241e0a3d57b1df1773afa2322`. It classifies ImportFrom.level in
-DepDigest; DockingMT adds no scanner implementation or core-file exemption.
+DepDigest; BindingMT adds no scanner implementation or core-file exemption.
 The 27 owning controls reproduce fifteen failures/twelve passes before repair.
 The proposal passes **332 provider tests**, no skips, including supplied
 shared-SDK and sibling integration gates, Ruff/index/format checks and all
@@ -611,10 +611,10 @@ Original import origins are checked before execution. All controlled fixtures
 are retired; no docking or molecular operation runs in these audit controls.
 
 The raw addon finding is real and remains visible:
-`molsysviewer_dockingmt/panels/_base.py` imports AddonPanelWidget at definition
+`molsysviewer_bindingmt/panels/_base.py` imports AddonPanelWidget at definition
 time because its local panel inherits that Viewer class. This is an explicitly
 selected Viewer integration, reached after requesting the addon/panels; core
-DockingMT import stays independent. The supported exact-file exception is scoped
+BindingMT import stays independent. The supported exact-file exception is scoped
 only to this class-definition boundary. Owner: #19; review by 2026-11-11; remove
 or revise it if panel ownership, import reachability or the provider's class
 construction contract changes. A new absolute import in another addon file
@@ -624,8 +624,8 @@ mode is used for the consumer's scoped pass.
 With the proposal selected explicitly, run from the repository root:
 
 ```bash
-depdigest audit --src-root dockingmt --soft-deps vina,molsysviewer --json
-depdigest audit --src-root molsysviewer_dockingmt --soft-deps vina,molsysviewer --exempt-file molsysviewer_dockingmt/panels/_base.py --json
+depdigest audit --src-root bindingmt --soft-deps vina,molsysviewer --json
+depdigest audit --src-root molsysviewer_bindingmt --soft-deps vina,molsysviewer --exempt-file molsysviewer_bindingmt/panels/_base.py --json
 ```
 
 Both scoped checks pass on the proposal; raw addon audit retains one finding.
@@ -708,7 +708,7 @@ existing role; decoration is not a coverage metric by itself.
 | `BoxRegion.to_backend_box` | An explicit recognized length unit, using public PyUnitWizard predicates. | Provider conversion, original string/unit-object representation, caller unit policy, source geometry, derivation verification and engine-specific precision remain. |
 
 The unit review reproduces a real separate defect: `unit=None` returned bare
-nanometer values with no unit label. [#65](https://github.com/uibcdf/dockingmt/issues/65)
+nanometer values with no unit label. [#65](https://github.com/uibcdf/bindingmt/issues/65)
 owns its [guarded resolution](../archive/backend_box_requires_explicit_unit.md).
 The Vina adapter already requests angstrom; no new incorrect docking result is
 inferred. #13's decimal-noise correction remains distinct. General unit parsing,
@@ -750,5 +750,5 @@ action implementation, cache policy or test selection change to conceal the
 transport failure. Published GH Run Receptor 1.4.0 preserves the native failure
 state but reports only the cleanup cause; native job logs identify transport.
 That known provider limitation receives this evidence in GH Run Receptor #81,
-with `component:dockingmt`. Later source changes need their own CI observation;
+with `component:bindingmt`. Later source changes need their own CI observation;
 neither a successful subset nor a scheduled skipped matrix qualifies them.

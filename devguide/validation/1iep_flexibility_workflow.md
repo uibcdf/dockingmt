@@ -1,8 +1,8 @@
 # Named 1IEP preparation and matched torsion sensitivity
 
-This bounded experiment advances [DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17),
-[#6](https://github.com/uibcdf/dockingmt/issues/6) and
-[#5](https://github.com/uibcdf/dockingmt/issues/5). The
+This bounded experiment advances [BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17),
+[#6](https://github.com/uibcdf/bindingmt/issues/6) and
+[#5](https://github.com/uibcdf/bindingmt/issues/5). The
 [driver](../../devtools/qualify_1iep_flexibility.py),
 [original evidence](data/1iep_flexibility/audit_2026-10-07.json.gz),
 [executed notebook](1iep_flexibility_workflow_2026-10-07.ipynb),

@@ -132,7 +132,7 @@ jobs:
           .molsyssuite/molsysmt
           .molsyssuite/molsysviewer
           --no-deps
-      - name: Install dockingmt
+      - name: Install bindingmt
         shell: bash -l {0}
         run: python -m pip install . --no-deps
       - name: Verify interpreter, architecture and required backend
@@ -174,13 +174,13 @@ jobs:
       - name: Verify ordinary installed package
         shell: bash -l {0}
         run: >-
-          python -I -c 'import importlib.metadata as m; import dockingmt;
+          python -I -c 'import importlib.metadata as m; import bindingmt;
           from packaging.specifiers import SpecifierSet;
-          assert SpecifierSet(m.metadata("dockingmt")["Requires-Python"]) == SpecifierSet(">=3.11,<3.15");
+          assert SpecifierSet(m.metadata("bindingmt")["Requires-Python"]) == SpecifierSet(">=3.11,<3.15");
           import pytest_receptor;
           assert m.version("pytest-receptor") == "1.2.2";
           print("Test reporter", m.version("pytest-receptor"), pytest_receptor.__file__);
-          print("Installed", m.version("dockingmt"), dockingmt.__file__)'
+          print("Installed", m.version("bindingmt"), bindingmt.__file__)'
       - name: Check installed dependency closure
         shell: bash -l {0}
         run: python -m pip check

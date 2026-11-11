@@ -1,6 +1,6 @@
 # Installed saved-result materialization and inspection — 2026-11-09
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), with public
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), with public
 molecular API #49 and complete functional plan #73. Status: eight installed pytest populations, four headless notebook populations and independent evidence reading pass. Full/public/interactive gates remain partial. Registered on 2026-11-10 UTC, still 2026-11-09 America/Mexico_City.
 
 ## Question and actual inputs

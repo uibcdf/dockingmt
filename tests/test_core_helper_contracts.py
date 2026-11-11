@@ -7,18 +7,18 @@ import pytest
 import pyunitwizard as puw
 from argdigest import UnknownArgumentError
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 
 @pytest.fixture
 def pose():
-    return dmt.DockingPose(puw.quantity([[1, 2, 3]], 'nm'))
+    return bmt.DockingPose(puw.quantity([[1, 2, 3]], 'nm'))
 
 
 @pytest.fixture
 def box():
-    return dmt.BoxRegion(center='[1, 2, 3] nm', lengths='[2, 4, 6] nm')
+    return bmt.BoxRegion(center='[1, 2, 3] nm', lengths='[2, 4, 6] nm')
 
 
 @pytest.mark.parametrize(
@@ -36,10 +36,10 @@ def test_helper_unknown_names_use_argdigest(helper, pose, box):
     owner = {
         'get_rmsd': pose,
         'to_molecular_system': pose,
-        'get_rmsds': dmt.DockingResult([]),
-        'reconstruct_problem': dmt.DockingResult([]),
+        'get_rmsds': bmt.DockingResult([]),
+        'reconstruct_problem': bmt.DockingResult([]),
         'to_backend_box': box,
-        'validate_problem': dmt.VinaProtocol(),
+        'validate_problem': bmt.VinaProtocol(),
     }[helper]
     with pytest.raises(UnknownArgumentError):
         getattr(owner, helper)(unkown=object())
@@ -49,7 +49,7 @@ def test_helper_unknown_names_use_argdigest(helper, pose, box):
 def test_absent_rmsd_reference_is_rejected_even_for_an_empty_collection(
     collection, pose
 ):
-    owner = dmt.DockingResult([]) if collection else pose
+    owner = bmt.DockingResult([]) if collection else pose
     method = owner.get_rmsds if collection else owner.get_rmsd
     with pytest.raises(ArgumentError) as caught:
         method(None)
@@ -65,7 +65,7 @@ def test_absent_partner_fails_before_pose_map_or_molecular_work(pose):
 @pytest.mark.parametrize('problem', [None, object(), {}])
 def test_protocol_admits_a_docking_problem_before_inspecting_intent(problem):
     with pytest.raises(ArgumentError) as caught:
-        dmt.VinaProtocol().validate_problem(problem)
+        bmt.VinaProtocol().validate_problem(problem)
     assert caught.value.extra['arg_name'] == 'problem'
 
 
@@ -75,7 +75,7 @@ def test_rmsd_selection_and_molecular_form_are_delegated_unchanged(
 ):
     import molsysmt as msm
 
-    import dockingmt.core.results as models
+    import bindingmt.core.results as models
 
     key = {'atom_id': '1', 'element': 'C'}
     pose.metadata.update(pose_atom_order='verified_pdbqt_order', source_atom_keys=[key])
@@ -106,7 +106,7 @@ def test_rmsd_selection_and_molecular_form_are_delegated_unchanged(
     monkeypatch.setattr(
         msm.structure, 'get_rmsd', lambda *args, **kwargs: puw.quantity([0.25], 'nm')
     )
-    result = dmt.DockingResult([pose])
+    result = bmt.DockingResult([pose])
     measurements = result.get_rmsds(reference, selection=selection)
     assert observed[0] is selection and len(observed) == 1
     assert puw.get_value(measurements[0], to_unit='angstrom') == pytest.approx(2.5)
@@ -115,8 +115,8 @@ def test_rmsd_selection_and_molecular_form_are_delegated_unchanged(
 def test_reconstruction_keeps_optional_overrides_and_attaches_only_after_success(
     box, monkeypatch
 ):
-    problem = dmt.DockingProblem('rec.pdbqt', 'lig.pdbqt', box)
-    saved = dmt.DockingResult([], problem_info=problem.to_dict())
+    problem = bmt.DockingProblem('rec.pdbqt', 'lig.pdbqt', box)
+    saved = bmt.DockingResult([], problem_info=problem.to_dict())
     original = deepcopy(saved.to_dict())
     assert saved.reconstruct_problem().to_dict() == problem.to_dict()
     assert saved.to_dict() == original
@@ -140,7 +140,7 @@ def test_backend_box_retains_explicit_unit_and_caller_policy(
     form, as_object, target, factor
 ):
     with puw.context(default_form=form, standard_units=['pm', 'fs', 'kJ/mol']):
-        box = dmt.BoxRegion(center='[1, 2, 3] nm', lengths='[2, 4, 6] nm')
+        box = bmt.BoxRegion(center='[1, 2, 3] nm', lengths='[2, 4, 6] nm')
         original = deepcopy(box.to_dict())
         policy = deepcopy(puw.configure.get_standard_units())
         unit = puw.unit(target) if as_object else target

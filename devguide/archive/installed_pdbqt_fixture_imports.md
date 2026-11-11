@@ -1,6 +1,6 @@
 ---
 summary: Isolated installed tests import shared PDBQT fixtures from a sibling test module.
-issue: uibcdf/dockingmt#101
+issue: uibcdf/bindingmt#101
 status: resolved
 opened: 2026-11-09
 closed: 2026-11-09
@@ -24,7 +24,7 @@ no molecular test executes in the failed selection. This is test support.
 
 ## How
 
-Move the two original literal constants into unshipped `dmt_test_support`,
+Move the two original literal constants into unshipped `bmt_test_support`,
 retain their byte identities/producer and test-engine aliases, update direct
 consumer imports and add one exact support SHA-256 entry. Preserve all previous
 594 source/target/digest records and every scientific assertion. Transport only

@@ -1,6 +1,6 @@
 ---
 summary: Vina preparation fabricates zero charges and name-based atom types
-issue: uibcdf/dockingmt#5
+issue: uibcdf/bindingmt#5
 status: resolved
 opened: 2026-09-22
 closed: 2026-10-29
@@ -15,7 +15,7 @@ supersedes: []
 
 # Vina preparation fabricates zero charges and name-based atom types
 
-**Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
+**Reported:** 2026-09-22, from the MolSysMT–BindingMT Vina preparation and conversion review.
 **Status:** Resolved for the original unsafe mechanisms; scientific model/profile follow-up remains in #33. See the 2026-10-29 resolution below.
 
 ## Current mechanism and acceptance status — 2026-10-28
@@ -61,7 +61,7 @@ The generated PDBQT can be syntactically accepted while misrepresenting the prep
 
 ## What is measured and what is assumed
 
-**Inspected:** Source inspected at dockingmt/preparation/ligand.py and receptor.py; scientifically validated impact and numerical score differences have not been measured.
+**Inspected:** Source inspected at bindingmt/preparation/ligand.py and receptor.py; scientifically validated impact and numerical score differences have not been measured.
 **Assumed:** The proposed contract is useful for the stated consumer; quantitative impact and complete chemical coverage need representative validation.
 
 ## What was refuted
@@ -79,7 +79,7 @@ Vina input chemical parameterization; general charge models, AutoDock typing, an
 
 ## Dependencies and risks
 
-Related tracked work: uibcdf/dockingmt#3
+Related tracked work: uibcdf/bindingmt#3
 Cross-component implementation links: uibcdf/molsysmt#214, uibcdf/molsysmt#221, uibcdf/molsysmt#222, uibcdf/molsysmt#223.
 New functionality requires tests of scientific semantics and documentation appropriate to its public surface.
 
@@ -92,13 +92,13 @@ remaining heuristic is based on element, group, and available aromaticity, not
 atom names. Neither this heuristic nor the zero-charge fallback is a validated
 parameterization.
 
-Vina now rejects DockingMT-generated provisional preparations by default, for
+Vina now rejects BindingMT-generated provisional preparations by default, for
 both automatic MolSysMT input and previously created prepared objects. The
 caller can explicitly opt into exploratory docking with
 `VinaProtocol(allow_provisional_preparation=True)`; the policy and assessment
 are serialized in result provenance. Existing external PDBQT inputs remain
 accepted with an `unassessed` chemistry assessment. This addresses silent use
-of DockingMT's known placeholders, but does not satisfy the full acceptance
+of BindingMT's known placeholders, but does not satisfy the full acceptance
 criteria: validated receptor and ligand parameterization, scoring compatibility,
 and scientific preparation tests are still needed. The provider requirements
 remain tracked by molsysmt#221 and molsysmt#222.
@@ -209,7 +209,7 @@ is retained in the validation record. Ruff, indexes and diff checks pass.
 
 ## 2026-10-03 public preparation assessment
 
-`dockingmt.assess_preparation` now exposes the existing provisional preparation
+`bindingmt.assess_preparation` now exposes the existing provisional preparation
 classification before engine execution. Vina consumes the public operation and
 retains its bounded, detached `assessment_report` with stable reason codes and
 declared charge/type sources, preserving the existing provenance fields and
@@ -228,7 +228,7 @@ parameterization or scoring compatibility.
 ## 2026-10-03 native capability review from Meeko source
 
 The [source review](../validation/meeko_native_capability_review.md) maps useful
-Meeko methods to public native MolSysMT operations (#221–#224) and DockingMT
+Meeko methods to public native MolSysMT operations (#221–#224) and BindingMT
 protocol decisions. The user explicitly excludes importing Meeko. Named chemical
 typing is the recommended next slice; source inspection identifies N/NA and S/SA
 context, ordered rule precedence, charge-preserving H projection and explicit
@@ -244,7 +244,7 @@ This is inspected design evidence, not runtime equivalence or a new dependency.
 ## 2026-10-04 named-charge consumer qualification
 
 The bounded [consumer slice](../validation/named_partial_charges.md), tracked
-by dockingmt#40, preserves public MolSysMT #221 model/software attribution,
+by bindingmt#40, preserves public MolSysMT #221 model/software attribution,
 original coverage and source indices through selected projection and existing
 nonpolar-H charge transfers. Public `audit_preparation_charges` observes current
 numeric binding, conservation and actual three-decimal PDBQT rounding. The
@@ -253,7 +253,7 @@ executed notebook qualifies methanol, selected OH, flexible 5X72 and explicit-H
 
 Public MolSysMT indexed extraction owns stale molecular binding detection. No
 charge calculation, graph validator, implicit model or renormalization is added
-in DockingMT. CI pins advance to qualified source `7894435e748bc55254b6c3d2b63ae82c101e5774`;
+in BindingMT. CI pins advance to qualified source `7894435e748bc55254b6c3d2b63ae82c101e5774`;
 dirty sibling work is preserved. Typing (#222), general preparation/scoring
 compatibility and provider H/export projection (#223) remain separate. The
 default provisional gate is preserved; this owning issue remains partial.
@@ -261,7 +261,7 @@ default provisional gate is preserved; this owning issue remains partial.
 ## 2026-10-04 explicit fixed-state H/charge stages
 
 The [bounded consumer contract](../validation/ligand_preparation_stages.md),
-tracked by dockingmt#41, adds opt-in provider option mappings to existing public
+tracked by bindingmt#41, adds opt-in provider option mappings to existing public
 `prepare_ligand`. MolSysMT H addition precedes named charges, defaults to strict
 attribute preservation and retains original reports/credit and composed input,
 expanded, prepared and written correspondence. Generated H has no original input
@@ -278,7 +278,7 @@ remain partial. Published source pins are unchanged and sibling work is preserve
 
 ## 2026-10-06 named-type consumer qualification
 
-[DockingMT #43](https://github.com/uibcdf/dockingmt/issues/43) consumes valid
+[BindingMT #43](https://github.com/uibcdf/bindingmt/issues/43) consumes valid
 named MolSysMT AutoDock4 assignments, including projected parent labels, and
 adds explicit optional typing after requested ligand H/charge stages. The
 [contract and executed evidence](../validation/named_autodock_types.md) cover
@@ -405,7 +405,7 @@ The corrected evaluation/replay selection passes **51 tests without skips in
 117.17 s**, with 40 retained provider warnings. Together with the unchanged
 232-case preparation selection this covers **283 distinct local contracts**;
 reporting is checked separately. The initial hosted run
-[38037422889](https://github.com/uibcdf/dockingmt/actions/runs/38037422889)
+[38037422889](https://github.com/uibcdf/bindingmt/actions/runs/38037422889)
 finished with the same two legacy-workflow failures in each of four minors
 (1,066 passed/2 failed per lane); it is retained as diagnostic evidence only.
 The corrected published head requires a new complete unskipped matrix.
@@ -478,7 +478,7 @@ explicit method choice and rejection before unrequested molecular work. Public
 projection, actual native writer/reader and preparation-assessment guards cover
 both roles and persistence of their truthful evidence.
 
-[The bounded profile](../validation/preparation_profile.md), DMT-043 and its
+[The bounded profile](../validation/preparation_profile.md), BMT-043 and its
 separately registered current-composition 3PTB admission establish the precise
 supported software/representation scope without a new search. Both ligand arms,
 receptor, named fields, conserved charges, actual native export/map/readback and
@@ -487,7 +487,7 @@ and complete fields do not establish experimental protonation or affinity.
 
 The earlier partial status combined this defect with a broader scientific
 acceptance question. That remaining **model/scoring acceptance is retained in
-uibcdf/dockingmt#33**, together with the explicit limits and requirements for
+uibcdf/bindingmt#33**, together with the explicit limits and requirements for
 additional registered informative cases. It is not declared resolved or silently
 dropped. #4 retains general source/replay provenance and #49/#33 the remaining
 reader profiles. Closing this original bug does not accept the whole Core MVP,

@@ -1,6 +1,6 @@
 # Docking poses and reference frames
 
-`dockingmt.view(result, reference=reference, view=existing_view)` replaces the
+`bindingmt.view(result, reference=reference, view=existing_view)` replaces the
 displayed docking complex. Reusing a viewer therefore does not accumulate
 duplicate receptors and poses. A result's structures correspond to pose ranks:
 frame 0 is rank 1. Reconstruction still requires checked source atom identity.
@@ -8,7 +8,7 @@ The receptor and each reconstructed pose must contain exactly one structure;
 select the receptor conformation through MolSysMT before rendering a result.
 
 The independently usable public operation
-`molsysviewer_dockingmt.build_docking_reference_system(reference, n_poses)`
+`molsysviewer_bindingmt.build_docking_reference_system(reference, n_poses)`
 prepares a detached reference through public MolSysMT conversion, copy and
 extraction:
 
@@ -39,9 +39,9 @@ There is no catch-and-retry on `TypeError` or other provider errors.
 The unchanged CI-pinned legacy viewer receives its existing load signature.
 
 This bounded compatibility branch is tracked by
-[DockingMT #37](https://github.com/uibcdf/dockingmt/issues/37) and
+[BindingMT #37](https://github.com/uibcdf/bindingmt/issues/37) and
 [MolSysViewer #151](https://github.com/uibcdf/molsysviewer/issues/151).
-DockingMT maintainers will review it by 2026-11-03 and remove it when published
+BindingMT maintainers will review it by 2026-11-03 and remove it when published
 explicit pairing support is qualified across the supported provider profiles.
 The provider owns time/cell compatibility and loading behavior. No minimum
 published version or committed delivery of the candidate is asserted here.
@@ -76,7 +76,7 @@ Neither execution certifies browser graphics or docking accuracy.
 
 The legacy viewer emits `RegionWithoutOwnVisualWarning` when visibility is
 toggled on the reference region without its own representation. These tests
-verify the DockingMT command/runtime boundary; they do not claim that legacy
+verify the BindingMT command/runtime boundary; they do not claim that legacy
 visibility changes browser graphics. The candidate supports masking such
 regions through the whole representation. This distinction is handed off in
 MolSysViewer #151 rather than bypassing its representation policy here.

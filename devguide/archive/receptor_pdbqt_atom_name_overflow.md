@@ -1,6 +1,6 @@
 ---
 summary: Reject receptor atom names that overflow fixed PDBQT columns
-issue: uibcdf/dockingmt#44
+issue: uibcdf/bindingmt#44
 status: resolved
 opened: 2026-10-06
 closed: 2026-10-07

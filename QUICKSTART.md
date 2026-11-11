@@ -1,4 +1,4 @@
-# DockingMT quickstart
+# BindingMT quickstart
 
 This source milestone supports a declared small-molecule state, a rigid receptor
 and an explicit physical search box. Start with prepared PDBQT inputs. For raw
@@ -22,17 +22,17 @@ allocation remains the execution environment's responsibility.
 import json
 from pathlib import Path
 
-import dockingmt as dmt
+import bindingmt as bmt
 import pyunitwizard as puw
 
 output = Path('result.json')
 if output.exists() or output.is_symlink():
     raise FileExistsError(f'Choose a new result filename: {output}')
 
-problem = dmt.DockingProblem(
+problem = bmt.DockingProblem(
     receptor='receptor.pdbqt',
     partner='ligand.pdbqt',
-    search_domain=dmt.BoxRegion(
+    search_domain=bmt.BoxRegion(
         center=puw.quantity([0, 0, 0], 'angstrom'),
         size=puw.quantity([10, 10, 10], 'angstrom'),
     ),
@@ -41,10 +41,10 @@ problem = dmt.DockingProblem(
         'partner_state_id': 'ligand-state-01',
     },
 )
-protocol = dmt.VinaProtocol(
+protocol = bmt.VinaProtocol(
     cpu=1, seed=123, exhaustiveness=1, n_poses=2, capture_backend_inputs=True
 )
-result = dmt.dock(problem, protocol)
+result = bmt.dock(problem, protocol)
 for pose in result.poses:
     print(pose.rank, pose.scores)
 
@@ -52,9 +52,9 @@ record = result.to_dict()
 with output.open('x') as stream:
     json.dump(record, stream, indent=2, allow_nan=False)
 restored_record = json.loads(output.read_text())
-restored = dmt.DockingResult.from_dict(restored_record)
+restored = bmt.DockingResult.from_dict(restored_record)
 assert restored.to_dict() == restored_record
-print('Audit:', dmt.audit_result(restored_record)['status'])
+print('Audit:', bmt.audit_result(restored_record)['status'])
 ```
 
 `dock` performs the calculation. Saving, restoring and auditing these mappings

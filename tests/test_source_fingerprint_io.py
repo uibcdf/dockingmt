@@ -6,15 +6,15 @@ from pathlib import Path
 
 import pytest
 
-import dockingmt as dmt
-from dockingmt.exceptions import ArgumentError
+import bindingmt as bmt
+from bindingmt.exceptions import ArgumentError
 
 
 def make_problem(receptor):
-    return dmt.DockingProblem(
+    return bmt.DockingProblem(
         receptor,
         'unused-ligand.pdbqt',
-        dmt.BoxRegion('[0,0,0] angstrom', '[10,10,10] angstrom'),
+        bmt.BoxRegion('[0,0,0] angstrom', '[10,10,10] angstrom'),
     )
 
 
@@ -57,7 +57,7 @@ def test_public_file_fingerprint_propagates_exact_read_failure(
         if route == 'construct':
             make_problem(source)
         else:
-            dmt.DockingProblem.from_dict(record)
+            bmt.DockingProblem.from_dict(record)
     assert caught.value is error
     assert visits == (['open'] if step == 'open' else ['open', 'read', 'closed'])
 
@@ -76,7 +76,7 @@ def test_file_hash_binds_exact_bytes_including_chunked_reads(
     assert (
         item.to_dict()['molecular_inputs']['receptor']['source_fingerprint'] == expected
     )
-    assert dmt.DockingProblem.from_dict(item.to_dict()).to_dict() == item.to_dict()
+    assert bmt.DockingProblem.from_dict(item.to_dict()).to_dict() == item.to_dict()
 
 
 @pytest.mark.parametrize(
@@ -97,7 +97,7 @@ def test_changed_file_content_is_distinct_from_an_io_failure(tmp_path):
     record = make_problem(source).to_dict()
     source.write_text('REMARK changed\n')
     with pytest.raises(ArgumentError, match='source content has changed'):
-        dmt.DockingProblem.from_dict(record)
+        bmt.DockingProblem.from_dict(record)
     assert (
         record['molecular_inputs']['receptor']['source_fingerprint']['sha256']
         == hashlib.sha256(b'REMARK original\n').hexdigest()

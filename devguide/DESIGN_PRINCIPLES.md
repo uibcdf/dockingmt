@@ -1,10 +1,10 @@
 # Design Principles
 
-These principles protect DockingMT from premature architectural constraints.
+These principles protect BindingMT from premature architectural constraints.
 
 ## Constitutional principles
 
-### 1. DockingMT is not a Vina wrapper
+### 1. BindingMT is not a Vina wrapper
 AutoDock Vina is the initial reference engine, not the conceptual model.
 
 ### 2. Engine is not protocol
@@ -41,7 +41,7 @@ A pose may carry multiple scores from different functions or stages. Ranking pol
 A single computational execution and a collection of related runs across ligands, receptor states, engines or protocols require different conceptual levels.
 
 ### 13. MolSysSuite integration should use scientific contracts
-TopoMT, PharmacophoreMT and ElastNetMT are evolving. DockingMT should integrate through stable concepts/adapters rather than unnecessary hard dependencies on internal implementations.
+TopoMT, PharmacophoreMT and ElastNetMT are evolving. BindingMT should integrate through stable concepts/adapters rather than unnecessary hard dependencies on internal implementations.
 
 ### 14. MVP scope is not architectural scope
 Implement only what is needed now, while avoiding representations that prohibit anticipated extensions.
@@ -65,18 +65,18 @@ PDBQT details, Vina grids and backend-specific flags belong in adapters/configur
 A TopoMT pocket may contain geometry, topology and relationships. Converting it to a Vina box may be necessary for one backend, but the richer information should remain available to the protocol and provenance.
 
 ### 21. Capability support must be honest
-DockingMT must not hide backend limitations behind a misleading common denominator. Unsupported science should fail clearly or require an explicit approximation.
+BindingMT must not hide backend limitations behind a misleading common denominator. Unsupported science should fail clearly or require an explicit approximation.
 
 ### 22. Architecture should be stressed by difficult future cases
 Peptides, covalent docking, blind docking, dynamic pockets, structural waters and metals are useful design stress tests even when they are not MVP features.
 
 ### 23. MolSysSuite owns the scientific language and workflow
-DockingMT is a native MolSysSuite component. It should compose suite capabilities instead
+BindingMT is a native MolSysSuite component. It should compose suite capabilities instead
 of rebuilding a parallel molecular-science stack.
 
 ### 24. Third-party tools are providers, not abstractions
 RDKit, PDBFixer, Meeko, Vina and future tools may implement capabilities behind MolSysSuite
-contracts. Their object models must not define DockingMT's scientific API.
+contracts. Their object models must not define BindingMT's scientific API.
 
 ### 25. Shared infrastructure is inherited, not reinvented
 Use PyUnitWizard for physical quantities, ArgDigest for public argument contracts,

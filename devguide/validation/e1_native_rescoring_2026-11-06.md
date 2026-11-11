@@ -1,6 +1,6 @@
 # E1 finite native rescoring — 2026-11-06
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
 Status at prescription: **prospective**. This follows the
 [complete-pose receiving and comparison matrix](e1_comparison_admission_2026-11-06.md).
 The [notebook](e1_native_rescoring.ipynb) qualifies the selected backend and
@@ -9,7 +9,7 @@ search, optimization, historical scoring or interaction detection.
 
 ## Selected runtime and artifact gate
 
-Use routine Python 3.14.10 with the current editable DockingMT/MolSysMT
+Use routine Python 3.14.10 with the current editable BindingMT/MolSysMT
 composition. A task-local Conda artifact overlay supplies Vina 1.2.7
 `py314ha160325_0`, SHA-256
 `9a337ada583bf92635f34211c7c3dc47249b0bd85b912432a53b46f4e795d824`,
@@ -51,7 +51,7 @@ or independent energy accuracy.
 
 Verify every entry of the frozen complete-pose manifest, including compressed
 and decoded identities. Stage its original provided receptor and the five
-normal-policy `dockingmt.pdbqt` exports unchanged. Match each ligand hash to its
+normal-policy `bindingmt.pdbqt` exports unchanged. Match each ligand hash to its
 prospective scoring contract and retain its source/preparation associations.
 No chemical/mechanical model is reconstructed from inspection sidecars.
 
@@ -199,7 +199,7 @@ verify compressed and decoded identities before restoring an original filename.
 Original complete-pose inputs remain in their existing custody and in native
 captures; no duplicate staged-input archive is published here.
 
-Runtime is Python 3.14.10, editable DockingMT `0.0.0+295.g2fda623`, MolSysMT
+Runtime is Python 3.14.10, editable BindingMT `0.0.0+295.g2fda623`, MolSysMT
 `0.23.0+513.g9e1f1b1ad`, ArgDigest `0.17.1+3.g0712641`, PyUnitWizard
 `0.29.1+6.gf82b618`, NumPy `2.5.4`, DepDigest `0.15.2+2.g032d345` and
 SMonitor `0.22.1+1.gc1b6ce2`, with the selected Vina 1.2.7 artifact. This differs

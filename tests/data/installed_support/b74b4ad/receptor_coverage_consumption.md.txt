@@ -1,10 +1,10 @@
 # Consuming exact receptor residue coverage
 
-DockingMT receptor preparation consumes public
+BindingMT receptor preparation consumes public
 `msm.build.get_residue_chemical_coverage`, delivered by MolSysMT
 [#218](https://github.com/uibcdf/molsysmt/issues/218). Consumer preparation remains
-owned by DockingMT [#5](https://github.com/uibcdf/dockingmt/issues/5) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33). The
+owned by BindingMT [#5](https://github.com/uibcdf/bindingmt/issues/5) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33). The
 [executed notebook](receptor_coverage_consumption.ipynb),
 [case evidence](data/receptor_coverage/cases.json) and
 [paired profile](data/receptor_coverage/profile.json) retain the observations.
@@ -22,7 +22,7 @@ hydrogen candidates and diagnostic arrays. Reason counts count group occurrences
 one group can have several reasons. Template digests identify packaged reference
 resources, not a chemical qualification of that reference or the receptor.
 
-The combined provider report includes stored chemical readiness, which DockingMT
+The combined provider report includes stored chemical readiness, which BindingMT
 reuses rather than requesting a second audit. Ligand preparation continues using
 the stored-field audit. Group-free receptors retain their existing preparation
 behavior and explicitly report `status='unassessed', reason_code='no_group_domain'`;
@@ -33,7 +33,7 @@ The group axis belongs to the extracted selected source, not the original full
 input, retained atoms or PDBQT ordering. To locate a specific residue or inspect H
 candidates, call the public provider on that same source with the same state/frame.
 Numeric provider selection denotes groups; atom selection belongs to the earlier
-DockingMT extraction. Inter-group chemistry, bonds outside the original selection
+BindingMT extraction. Inter-group chemistry, bonds outside the original selection
 and terminal context are not certified by this summary.
 
 ## Original-source observations
@@ -94,7 +94,7 @@ The refreshed suite inventory was inspected and all sibling dirty/ahead/behind
 work preserved. A read-only `git archive` of the exact provider source under `/tmp`
 was selected with `PYTHONPATH`, without changing the provider checkout or its
 installed distribution. Development uses `molsyssuite@uibcdf_3.14`, Python 3.14.7,
-Vina 1.2.7 and editable DockingMT.
+Vina 1.2.7 and editable BindingMT.
 
 From this checkout, with the exact provider snapshot on `PYTHONPATH`:
 
@@ -132,7 +132,7 @@ and stored-field summary are identical between profiles. The additional time is
 measured provider comparison cost, not inferred from metadata size. These small
 samples with uncontrolled OS caches/load are not a general timing or peak-memory
 claim. The result establishes a follow-up measurement point for
-[#28](https://github.com/uibcdf/dockingmt/issues/28) and provider #218, without a new
+[#28](https://github.com/uibcdf/bindingmt/issues/28) and provider #218, without a new
 local molecular audit, campaign cache or benchmark framework.
 
 The previous readiness-only notebook/raw profile is preserved. Its command

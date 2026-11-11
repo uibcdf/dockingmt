@@ -1,6 +1,6 @@
 # First guarded Conda route
 
-Owner: uibcdf/dockingmt#47. Reviewed publication/build/upload/promotion and
+Owner: uibcdf/bindingmt#47. Reviewed publication/build/upload/promotion and
 publication-governance SDK: `95f693be10c9205ab9b912cb53453710a207bf45`
 (MolSysSuite #87, Conda provider v2.3.0). The installed-scientific caller adopts
 that same immutable revision after full private-wheel receiving of the isolated
@@ -63,8 +63,8 @@ its mapping/access before any publication.
 
 No real version, plan, build, scientific dispatch, upload, promotion or tag was
 selected by this control preparation. Component-owned scientific failures block
-a candidate and stay with DockingMT; MolSysSuite administrative passes do not
-repair or clear them. The Python badge/admission remains uibcdf/dockingmt#30.
+a candidate and stay with BindingMT; MolSysSuite administrative passes do not
+repair or clear them. The Python badge/admission remains uibcdf/bindingmt#30.
 
 ## Installed selection and import isolation
 
@@ -85,7 +85,7 @@ route and checks every loaded core/addon root inferred from the actual payload.
 The compatible explicit override stays in the descriptor. No global installer/
 pytest profile is altered.
 
-Scientific helpers use the unshipped `dmt_test_support` namespace. The optional
+Scientific helpers use the unshipped `bmt_test_support` namespace. The optional
 shared #117 declaration selects 30 Python files and 564 explicit fixture/text
 files with exact SHA-256. Keep it synchronized when changing an input; new
 receiving reports are not recursively included. The shared operation validates,

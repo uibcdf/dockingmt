@@ -65,7 +65,7 @@ def require_hosted():
         raise ValueError('Select one reviewed full candidate commit')
     if candidate_sha != os.environ.get('GITHUB_SHA'):
         if (
-            os.environ.get('DOCKINGMT_RECOVERY')
+            os.environ.get('BINDINGMT_RECOVERY')
             != 'current-010-python313-original-wheel'
         ):
             raise ValueError(
@@ -115,11 +115,11 @@ def candidate_contract(candidate):
     """Derive expected wheel inputs from the selected source, before building."""
     project = tomllib.loads((candidate / 'pyproject.toml').read_text())['project']
     paths = git(
-        candidate, 'ls-files', 'dockingmt', 'molsysviewer_dockingmt'
+        candidate, 'ls-files', 'bindingmt', 'molsysviewer_bindingmt'
     ).splitlines()
     runtime = {name: digest(candidate / name) for name in paths}
     stamp = '__version__ = "0.1.0"\n'.encode()
-    runtime['dockingmt/_version.py'] = hashlib.sha256(stamp).hexdigest()
+    runtime['bindingmt/_version.py'] = hashlib.sha256(stamp).hexdigest()
     requirements = list(project['dependencies'])
     for extra, dependencies in project.get('optional-dependencies', {}).items():
         for dependency in dependencies:
@@ -192,7 +192,7 @@ def build():
         ],
         check=True,
     )
-    wheel = TASK / 'wheels/dockingmt-0.1.0-py3-none-any.whl'
+    wheel = TASK / 'wheels/bindingmt-0.1.0-py3-none-any.whl'
     runtime = check_wheel(wheel, expected)
     if git(candidate, 'status', '--porcelain', '--untracked-files=no'):
         raise ValueError('Build changed tracked candidate inputs')
@@ -376,7 +376,7 @@ def providers():
 
 def bounds():
     require_hosted()
-    names = ['dockingmt', *profile()['sources'], 'vina']
+    names = ['bindingmt', *profile()['sources'], 'vina']
     for name in names:
         for text in metadata.requires(name) or []:
             req = Requirement(text)
@@ -391,7 +391,7 @@ def bounds():
 def snapshot():
     prefix = Path(sys.prefix).resolve()
     result = {}
-    names = ['dockingmt', *profile()['sources'], 'vina']
+    names = ['bindingmt', *profile()['sources'], 'vina']
     for name in names:
         dist = metadata.distribution(name)
         for item in dist.files or []:
@@ -485,15 +485,15 @@ def storage(policy):
         if policy == 'normal'
         else ['pm', 'fs', 'K', 'mole', 'dalton', 'coulomb', 'J/mol', 'radians']
     )
-    roots = ('dockingmt', 'molsysviewer_dockingmt', *profile()['sources'])
+    roots = ('bindingmt', 'molsysviewer_bindingmt', *profile()['sources'])
     with puw.context(default_form='pint', default_parser='pint', standard_units=units):
         caller = puw.configure.report()
         import molsysmt as msm
         import molsysviewer as viewer
 
-        import dockingmt as dmt
+        import bindingmt as bmt
 
-        assert dmt.__version__ == VERSION
+        assert bmt.__version__ == VERSION
         viewer.MolSysView = reject
         for name in [
             'assign_partial_charges',
@@ -509,7 +509,7 @@ def storage(policy):
             'sha256': os.environ['EXPECTED_WHEEL_SHA256'],
         }
         with staged_support(candidate, declaration, roots, context=binding) as stage:
-            import dmt_test_support.h5msm_client_oracle as oracle
+            import bmt_test_support.h5msm_client_oracle as oracle
 
             data = stage.root / 'tests/data/h5msm_client'
             primary = json.loads((data / 'primary-manifest.json').read_text())
@@ -630,7 +630,7 @@ def receive():
     if not sys.flags.isolated or Path.cwd().resolve().is_relative_to(ROOT):
         raise ValueError('Use isolated Python outside qualification/source roots')
     admit_installed_sdk(candidate)
-    wheel = TASK / 'wheels/dockingmt-0.1.0-py3-none-any.whl'
+    wheel = TASK / 'wheels/bindingmt-0.1.0-py3-none-any.whl'
     if digest(wheel) != os.environ['EXPECTED_WHEEL_SHA256']:
         raise ValueError('Installed qualification must consume the same-run wheel')
     build_receipt = json.loads((TASK / 'evidence/build-receipt.json').read_text())
@@ -640,7 +640,7 @@ def receive():
         if digest(candidate / name) != value:
             raise ValueError('Candidate source inputs differ from the build: ' + name)
     runtime = check_wheel(wheel, build_receipt['contract'])
-    dist = metadata.distribution('dockingmt')
+    dist = metadata.distribution('bindingmt')
     direct = json.loads(dist.read_text('direct_url.json'))
     if dist.version != VERSION or direct.get('archive_info', {}).get('hashes', {}).get(
         'sha256'
@@ -649,22 +649,22 @@ def receive():
     for name, value in runtime.items():
         if digest(dist.locate_file(name)) != value:
             raise ValueError('Installed wheel payload changed: ' + name)
-    for namespace in ['dockingmt', 'molsysviewer_dockingmt']:
+    for namespace in ['bindingmt', 'molsysviewer_bindingmt']:
         shutil.rmtree(candidate / namespace)
     from devtools.scripts.installed_imports import check_installed_imports
     from devtools.scripts.installed_noarch import run_tests
 
-    import dockingmt as dmt
+    import bindingmt as bmt
 
-    addon = importlib.import_module('molsysviewer_dockingmt.addon')
+    addon = importlib.import_module('molsysviewer_bindingmt.addon')
     import pytest
     from pytest_receptor import read_artifact
 
-    if dmt.__version__ != VERSION or addon.addon.version != VERSION:
+    if bmt.__version__ != VERSION or addon.addon.version != VERSION:
         raise ValueError('Actual consumer/addon version attribution differs')
     for name in profile()['sources']:
         importlib.import_module(name)
-    roots = ('dockingmt', 'molsysviewer_dockingmt', *profile()['sources'], 'vina')
+    roots = ('bindingmt', 'molsysviewer_bindingmt', *profile()['sources'], 'vina')
     origins = check_installed_imports(roots, Path(sys.prefix), candidate)
     before = snapshot()
     selected = []
@@ -691,7 +691,7 @@ def receive():
     inventory = tomllib.loads(
         (candidate / 'devtools/conda-build/resources.toml').read_text()
     )
-    inventory['import_name'] = 'dockingmt'
+    inventory['import_name'] = 'bindingmt'
     evidence = TASK / 'evidence'
     inventory['installed_tests']['pytest_args'] += [
         '--receptor=ci',

@@ -1,6 +1,6 @@
 # Complete installed saved-score comparison — 2026-11-10
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), with
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), with
 #30/#73 qualification and #50 custody. Status: both complete installed profiles and independent stored reading pass.
 Actual consumer producer 37a61e6, wheel `0.0.0+359.g37a61e6`, SHA-256
 `ca082ab77b5b9ec77bd1bb75bc865f5279cde9105fe401b989b2b9b13f348e1d`.

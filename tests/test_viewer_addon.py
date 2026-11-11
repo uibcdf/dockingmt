@@ -1,4 +1,4 @@
-"""Tests for the MolSysViewer integration and DockingMT addon (Gate C6)."""
+"""Tests for the MolSysViewer integration and BindingMT addon (Gate C6)."""
 
 from __future__ import annotations
 
@@ -6,11 +6,11 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.core import BoxRegion, DockingPose, DockingProblem, DockingResult
-from dockingmt.core.results import _molecular_atom_keys
-from dockingmt.view import show, view
+import bindingmt
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.core import BoxRegion, DockingPose, DockingProblem, DockingResult
+from bindingmt.core.results import _molecular_atom_keys
+from bindingmt.view import show, view
 
 
 def _mapped_mock_pose(partner, coordinates, scores, rank):
@@ -27,18 +27,18 @@ def _mapped_mock_pose(partner, coordinates, scores, rank):
 
 
 def test_addon_spec_matches_molsysviewer_contract():
-    """Verify that the DockingMT addon spec adheres to MolSysViewer standards."""
+    """Verify that the BindingMT addon spec adheres to MolSysViewer standards."""
     msv = pytest.importorskip('molsysviewer')
-    import molsysviewer_dockingmt as dmt_viewer
+    import molsysviewer_bindingmt as dmt_viewer
 
     addon = dmt_viewer.addon
     assert isinstance(addon, msv.AddonSpec)
-    assert addon.name == 'dockingmt'
-    assert addon.package == 'dockingmt'
-    assert addon.version == dockingmt.__version__
+    assert addon.name == 'bindingmt'
+    assert addon.package == 'bindingmt'
+    assert addon.version == bindingmt.__version__
 
     assert len(addon.workspaces) == 1
-    assert addon.workspaces[0].id == 'dockingmt'
+    assert addon.workspaces[0].id == 'bindingmt'
     assert addon.workspaces[0].entry_panel == 'explorer'
 
     panel_ids = [p.id for p in addon.panels]
@@ -61,14 +61,14 @@ def test_addon_spec_matches_molsysviewer_contract():
 def test_lifecycle_hooks_and_runtime_events():
     """Verify on_enable, on_disable, and on_context_action lifecycle hooks."""
     msv = pytest.importorskip('molsysviewer')
-    import molsysviewer_dockingmt as dmt_viewer
+    import molsysviewer_bindingmt as dmt_viewer
 
     v = msv.MolSysView(debug_js=True)
     dmt_viewer.on_enable(v)
     runtime = dmt_viewer.ensure_runtime(v)
 
     assert runtime.enabled is True
-    assert runtime.workspace == 'dockingmt'
+    assert runtime.workspace == 'bindingmt'
     assert runtime.event_log[-1]['event'] == 'enable'
 
     dmt_viewer.render_search_domain(
@@ -97,7 +97,7 @@ def test_search_domain_wireframe_coordinate_pairs():
         center=puw.quantity([1.0, 2.0, 3.0], 'nm'),
         lengths=puw.quantity([2.0, 2.0, 2.0], 'nm'),
     )
-    from molsysviewer_dockingmt.adapters.shapes import (
+    from molsysviewer_bindingmt.adapters.shapes import (
         compute_box_wireframe_coordinate_pairs,
     )
 
@@ -118,11 +118,11 @@ def test_search_domain_wireframe_coordinate_pairs():
 def test_render_search_domain_and_visibility():
     """Verify that render_search_domain creates a shape layer and can toggle visibility."""
     msv = pytest.importorskip('molsysviewer')
-    from molsysviewer_dockingmt.adapters.shapes import (
+    from molsysviewer_bindingmt.adapters.shapes import (
         render_search_domain,
         set_search_domain_visibility,
     )
-    from molsysviewer_dockingmt.runtime import ensure_runtime
+    from molsysviewer_bindingmt.runtime import ensure_runtime
 
     v = msv.MolSysView(debug_js=True)
     box = BoxRegion(
@@ -131,8 +131,8 @@ def test_render_search_domain_and_visibility():
     )
 
     layer = render_search_domain(v, box)
-    assert layer.tag == 'dockingmt:search_domain'
-    assert v.shapes.contains('dockingmt:search_domain')
+    assert layer.tag == 'bindingmt:search_domain'
+    assert v.shapes.contains('bindingmt:search_domain')
 
     runtime = ensure_runtime(v)
     assert runtime.domain_visible is True
@@ -149,7 +149,7 @@ def test_build_docking_complex_system_and_set_active_pose():
     pytest.importorskip('molsysviewer')
     import molsysmt as msm
 
-    from molsysviewer_dockingmt.adapters.complex import (
+    from molsysviewer_bindingmt.adapters.complex import (
         build_docking_complex_system,
         render_docking_result,
         set_active_pose,
@@ -199,16 +199,16 @@ def test_build_docking_complex_system_and_set_active_pose():
 
     assert v.player.n_structures == 3
     assert v.player.index == 0
-    assert v.addons.dockingmt.active_pose_rank == 1
+    assert v.addons.bindingmt.active_pose_rank == 1
 
     # Switch poses
     set_active_pose(v, 2)
     assert v.player.index == 1
-    assert v.addons.dockingmt.active_pose_rank == 2
+    assert v.addons.bindingmt.active_pose_rank == 2
 
     set_active_pose(v, 3)
     assert v.player.index == 2
-    assert v.addons.dockingmt.active_pose_rank == 3
+    assert v.addons.bindingmt.active_pose_rank == 3
 
     with pytest.raises(ValueError):
         set_active_pose(v, 0)
@@ -217,8 +217,8 @@ def test_build_docking_complex_system_and_set_active_pose():
         set_active_pose(v, 4)
 
 
-def test_dockingmt_view_with_result_problem_and_search_domain():
-    """Verify the high-level dockingmt.view() API."""
+def test_bindingmt_view_with_result_problem_and_search_domain():
+    """Verify the high-level bindingmt.view() API."""
     pytest.importorskip('molsysviewer')
     import molsysmt as msm
 
@@ -244,28 +244,28 @@ def test_dockingmt_view_with_result_problem_and_search_domain():
     res = DockingResult(poses=poses, problem=problem)
 
     # 1. view(result)
-    v1 = dockingmt.view(res)
-    assert v1.shapes.contains('dockingmt:search_domain')
+    v1 = bindingmt.view(res)
+    assert v1.shapes.contains('bindingmt:search_domain')
     assert v1.player.n_structures == 1
-    assert v1.addons.dockingmt.active_pose_rank == 1
+    assert v1.addons.bindingmt.active_pose_rank == 1
 
     # 2. show(result) alias
     v2 = show(res)
-    assert v2.shapes.contains('dockingmt:search_domain')
+    assert v2.shapes.contains('bindingmt:search_domain')
 
     # 3. view(problem=problem)
     v3 = view(problem=problem)
-    assert v3.shapes.contains('dockingmt:search_domain')
+    assert v3.shapes.contains('bindingmt:search_domain')
 
     # 4. view(search_domain=box)
     v4 = view(search_domain=box)
-    assert v4.shapes.contains('dockingmt:search_domain')
+    assert v4.shapes.contains('bindingmt:search_domain')
 
 
 def test_viewer_rejects_unmapped_poses_without_inventing_ligand_atoms():
     import molsysmt as msm
 
-    from molsysviewer_dockingmt.adapters.complex import build_docking_complex_system
+    from molsysviewer_bindingmt.adapters.complex import build_docking_complex_system
 
     molsys = msm.convert(
         msm.systems['alanine dipeptide']['alanine_dipeptide.h5msm'],
@@ -283,9 +283,9 @@ def test_panels_workbench_and_export():
     pytest.importorskip('molsysviewer')
     import molsysmt as msm
 
-    from molsysviewer_dockingmt.export import build_docking_export_payload
-    from molsysviewer_dockingmt.panels import DockingExplorerPanel, SearchDomainPanel
-    from molsysviewer_dockingmt.workbench import get_docking_summary_section
+    from molsysviewer_bindingmt.export import build_docking_export_payload
+    from molsysviewer_bindingmt.panels import DockingExplorerPanel, SearchDomainPanel
+    from molsysviewer_bindingmt.workbench import get_docking_summary_section
 
     rec = msm.convert(
         msm.systems['alanine dipeptide']['alanine_dipeptide.h5msm'],
@@ -312,25 +312,25 @@ def test_panels_workbench_and_export():
     ]
     res = DockingResult(poses=poses)
 
-    v = dockingmt.view(result=res, receptor=rec, partner=partner, search_domain=box)
+    v = bindingmt.view(result=res, receptor=rec, partner=partner, search_domain=box)
 
     # Explorer panel
     explorer = DockingExplorerPanel(view=v)
     explorer.on_mount(v)
     explorer.handle_action(v, 'set_pose', {'rank': 2})
-    assert v.addons.dockingmt.active_pose_rank == 2
+    assert v.addons.bindingmt.active_pose_rank == 2
 
     explorer.handle_action(v, 'prev_pose', {})
-    assert v.addons.dockingmt.active_pose_rank == 1
+    assert v.addons.bindingmt.active_pose_rank == 1
 
     explorer.handle_action(v, 'next_pose', {})
-    assert v.addons.dockingmt.active_pose_rank == 2
+    assert v.addons.bindingmt.active_pose_rank == 2
 
     # Domain panel
     domain_p = SearchDomainPanel(view=v)
     domain_p.on_mount(v)
     domain_p.handle_action(v, 'toggle_domain', {})
-    assert v.addons.dockingmt.domain_visible is False
+    assert v.addons.bindingmt.domain_visible is False
 
     # Workbench summary
     summary = get_docking_summary_section(v)
@@ -341,7 +341,7 @@ def test_panels_workbench_and_export():
 
     # Export payload
     payload = build_docking_export_payload(v)
-    assert payload['title'] == 'DockingMT Result Export'
+    assert payload['title'] == 'BindingMT Result Export'
     assert payload['active_pose_rank'] == 2
     assert payload['result'] is not None
     assert payload['search_domain'] is not None

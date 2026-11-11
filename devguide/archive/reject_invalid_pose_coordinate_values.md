@@ -1,6 +1,6 @@
 ---
 summary: Reject invalid pose-coordinate values before coercion and export.
-issue: uibcdf/dockingmt#63
+issue: uibcdf/bindingmt#63
 status: resolved
 opened: 2026-11-04
 closed: 2026-11-04
@@ -38,7 +38,7 @@ silently altered complex data or nonfinite snapshots.
 ## What was refuted
 
 Shape and length units alone do not establish finite real numerical contents.
-This is a DockingMT record-admission defect, not an observed molecular-provider
+This is a BindingMT record-admission defect, not an observed molecular-provider
 or physical-model defect. No geometric assessment or repair is needed.
 
 ## Scope and exclusions
@@ -51,7 +51,7 @@ Preserve original scientific/artifact receipts and qualification identities.
 ## Acceptance criteria
 
 Invalid construction, saved values, normalization overflow and mutated snapshot
-exports raise DMT-E002 for coordinates. Valid conversion, independent roundtrips
+exports raise BMT-E002 for coordinates. Valid conversion, independent roundtrips
 and caller policies remain covered. Existing result/score/evaluation/export and
 native-output controls pass with source and installed scopes distinguished.
 

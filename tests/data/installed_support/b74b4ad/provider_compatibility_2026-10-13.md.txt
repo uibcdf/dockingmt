@@ -1,7 +1,7 @@
 # Provider compatibility checkpoint — 2026-10-13
 
-Owner: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49).
-[Prospective registration](https://github.com/uibcdf/dockingmt/issues/49#issuecomment-6141557097)
+Owner: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49).
+[Prospective registration](https://github.com/uibcdf/bindingmt/issues/49#issuecomment-6141557097)
 binds the candidate composition before tests or consumer adoption.
 
 ## Composition and executed boundary
@@ -20,7 +20,7 @@ copies are installed with normal `pip install --no-deps` directory builds and
 ordinary build isolation. MolSysMT's Rust extension is compiled from the candidate;
 its installed SHA-256 is
 `feb001379201b92690eadf04fd0be6b710cdfe50bad240feba26cf666e19b41b`.
-DockingMT is editable only in this task prefix. There is no scientific source
+BindingMT is editable only in this task prefix. There is no scientific source
 overlay, copied old native binary or sibling branch update.
 
 The immutable dependency SDK `738fe8dd731abb99dac421b0bb2acc8564110180`
@@ -65,7 +65,7 @@ The selected run retains 704 warnings: 587 pandas deprecations, 82 off-axis
 attribute warnings, 29 legacy H5MSM warnings and six explicit atom-expansion
 attribute-loss warnings. A minimal public two-system merge reproduces eight pandas
 warnings while preserving 44 output atoms. Provider improvement is reported in
-[MolSysMT #386](https://github.com/uibcdf/molsysmt/issues/386); DockingMT adds no
+[MolSysMT #386](https://github.com/uibcdf/molsysmt/issues/386); BindingMT adds no
 warning filter or molecular merger.
 
 ## Local decision before hosted qualification
@@ -117,8 +117,8 @@ checkouts or the routine prefix, and makes no whole-global-environment closure c
 General projection, export maps, native multi-pose/permutation and symmetry remain
 owned by the existing MolSysMT issues. A passing current composition does not prove
 those proposals delivered or establish scientific model/scoring validity. Public
-installed pair/channel qualification stays under [#30](https://github.com/uibcdf/dockingmt/issues/30)
-and [#47](https://github.com/uibcdf/dockingmt/issues/47). A source checkout and compiled
+installed pair/channel qualification stays under [#30](https://github.com/uibcdf/bindingmt/issues/30)
+and [#47](https://github.com/uibcdf/bindingmt/issues/47). A source checkout and compiled
 provider wheel are distinct from an admitted public Conda artifact.
 
 The next human workflow must execute through Python/Jupyter from an ordinary
@@ -131,7 +131,7 @@ scientific pilot content.
 ## Source-history correction before CI admission
 
 The first published source candidate `a7f753a` starts CI
-[38374178868](https://github.com/uibcdf/dockingmt/actions/runs/38374178868).
+[38374178868](https://github.com/uibcdf/bindingmt/actions/runs/38374178868).
 A receiving versioning probe of the exact ArgDigest source shows that its shallow
 Git checkout produces `0.0.0`, while the full source clone produces
 `0.15.0+5.g3d1ec53`. The former violates MolSysMT's declared ArgDigest >=0.13.0
@@ -155,15 +155,15 @@ The reusable sibling-source mechanism and this versioning requirement belong to
 
 The corrected source adoption is qualified at
 `06e2d84b92b6c44caa1108d5ef2cfcccc6b16d4e` by
-[CI 38375329396](https://github.com/uibcdf/dockingmt/actions/runs/38375329396),
+[CI 38375329396](https://github.com/uibcdf/bindingmt/actions/runs/38375329396),
 attempt 1: all seven jobs succeed. Every Linux Python 3.11–3.14 cell executes
 **1,125 tests without skips**, with independent installed source/context
 verification, ordinary installed consumer import and `pip check` before science.
 The real three provider versions match the normally installed local composition.
 Python 3.11 uses NumPy 2.4.6; the other three use 2.5.4.
 
-[Policy 38375330236](https://github.com/uibcdf/dockingmt/actions/runs/38375330236)
-and [publication governance 38375330332](https://github.com/uibcdf/dockingmt/actions/runs/38375330332)
+[Policy 38375330236](https://github.com/uibcdf/bindingmt/actions/runs/38375330236)
+and [publication governance 38375330332](https://github.com/uibcdf/bindingmt/actions/runs/38375330332)
 also pass on that exact head. Native run/attempt/job/step facts and full logs are
 preserved in the [terminal receipt](data/provider_compatibility/terminal_2026-10-13.json).
 The measured Python 3.14 artifact is downloaded and its single report uploaded:
@@ -173,7 +173,7 @@ This establishes actual upload; subsequent Codecov processing is separate.
 This fulfills the source checkpoint required above. The initial local old-pin
 failure and cancelled first CI remain diagnostic records. The ordinary installed
 consumer import in CI does not replace a source-free scientific receiving test or
-public Conda file/pair admission. DockingMT #49 remains partial for missing provider
+public Conda file/pair admission. BindingMT #49 remains partial for missing provider
 operations; #30/#47 retain installed/public qualification scope. Original 3PTB
 producer/archive bytes and the no-new-search boundary remain unchanged.
 
@@ -181,11 +181,11 @@ producer/archive bytes and the no-new-search boundary remain unchanged.
 
 The four delivered-provider consumer controls are qualified at
 `ef8ee2ec6a075456c0429a4011dcd2cd571bcfde` by
-[CI 38426588362](https://github.com/uibcdf/dockingmt/actions/runs/38426588362),
+[CI 38426588362](https://github.com/uibcdf/bindingmt/actions/runs/38426588362),
 attempt 1, all seven jobs successful. Every Linux Python 3.11–3.14 lane executes
 **1,129 tests with zero skips**, including independent installed dependency checks.
-[Policy 38426588937](https://github.com/uibcdf/dockingmt/actions/runs/38426588937)
-and [publication governance 38426588938](https://github.com/uibcdf/dockingmt/actions/runs/38426588938)
+[Policy 38426588937](https://github.com/uibcdf/bindingmt/actions/runs/38426588937)
+and [publication governance 38426588938](https://github.com/uibcdf/bindingmt/actions/runs/38426588938)
 also pass on that exact head. Actual coverage publication downloads the measured
 report and uploads 37,446 compressed bytes with the successful queued response;
 subsequent Codecov processing remains separate. The
@@ -194,12 +194,12 @@ run/attempt/job identity and test-log digests without replacing the earlier
 1,125-case checkpoint.
 
 The ordinary PEP 517 wheel built from that producer is
-`dockingmt-0.0.0+176.gef8ee2e-py3-none-any.whl` (121,060 bytes), SHA-256
+`bindingmt-0.0.0+176.gef8ee2e-py3-none-any.whl` (121,060 bytes), SHA-256
 `0f6c0a97bcd584d2c45447909c8eef1f81368c9567ef70d1f89eda793f61da72`.
 It is normally installed into an isolated receiving prefix outside this checkout,
 inheriting only the qualified task-owned provider environment. PEP 610 identity,
 59 installed resources, `py.typed`, the Viewer addon entry point and all 54 loaded
-DockingMT/addon module origins are verified; `pip check` passes. The source-free
+BindingMT/addon module origins are verified; `pip check` passes. The source-free
 test harness uses the shared installed-test operation at MolSysSuite
 `738fe8dd731abb99dac421b0bb2acc8564110180`, with importlib collection, cleared
 pytest pythonpath and no production namespaces in the harness.
@@ -222,6 +222,6 @@ qualification and initial harness-only diagnostics. Original wheel bytes and ful
 native bundles remain in the explicitly owned temporary resources described by
 the [pause handoff](pause_handoff_2026-10-13.md). They are not a public release.
 Owning evidence is synchronized to
-[#49](https://github.com/uibcdf/dockingmt/issues/49#issuecomment-6149978306),
-[#47](https://github.com/uibcdf/dockingmt/issues/47#issuecomment-6150011610) and
-[#30](https://github.com/uibcdf/dockingmt/issues/30#issuecomment-6150012065).
+[#49](https://github.com/uibcdf/bindingmt/issues/49#issuecomment-6149978306),
+[#47](https://github.com/uibcdf/bindingmt/issues/47#issuecomment-6150011610) and
+[#30](https://github.com/uibcdf/bindingmt/issues/30#issuecomment-6150012065).

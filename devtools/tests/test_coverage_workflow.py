@@ -33,8 +33,8 @@ class TestCoverageWorkflow(unittest.TestCase):
         self.assertNotIn('continue-on-error', step)
         options = step['env']['PYTEST_ADDOPTS']
         self.assertIn("matrix.python-version == '3.14'", options)
-        self.assertIn('--cov=dockingmt', options)
-        self.assertIn('--cov=molsysviewer_dockingmt', options)
+        self.assertIn('--cov=bindingmt', options)
+        self.assertIn('--cov=molsysviewer_bindingmt', options)
         self.assertIn('--cov-branch', options)
         self.assertIn('--cov-report=xml:coverage.xml', options)
         for filter_option in ('--ignore', '--deselect', ' -k ', ' -m '):
@@ -188,7 +188,7 @@ const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor;
             self.assertEqual(call['parameters']['run_id'], 42059033330)
             self.assertEqual(call['parameters']['per_page'], 100)
             self.assertEqual(call['parameters']['owner'], 'uibcdf')
-            self.assertEqual(call['parameters']['repo'], 'dockingmt')
+            self.assertEqual(call['parameters']['repo'], 'bindingmt')
         self.assertEqual(received['calls'][0]['parameters']['filter'], 'latest')
         message = json.loads(received['messages'][0])
         self.assertEqual(message['producer_attempt'], 1)
@@ -210,7 +210,7 @@ const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor;
         new = copy.deepcopy(evidence['artifacts'][0])
         new.update(
             id=13431816892,
-            name='dockingmt-python-coverage-42059033330-2',
+            name='bindingmt-python-coverage-42059033330-2',
             created_at='2026-11-05T16:10:05Z',
         )
         evidence['artifacts'].append(new)
@@ -293,7 +293,7 @@ const AsyncFunction = Object.getPrototypeOf(async function(){}).constructor;
                 elif damage == 'bad_attempt':
                     artifact['name'] += '-alias'
                 elif damage == 'future_attempt':
-                    artifact['name'] = 'dockingmt-python-coverage-42059033330-3'
+                    artifact['name'] = 'bindingmt-python-coverage-42059033330-3'
                 elif damage == 'bad_artifact_id':
                     artifact['id'] = 0
                 elif damage == 'missing_created_at':

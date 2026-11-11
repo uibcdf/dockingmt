@@ -1,6 +1,6 @@
 ---
 summary: Replay file-backed redocking and report exploratory metrics
-issue: uibcdf/dockingmt#10
+issue: uibcdf/bindingmt#10
 status: resolved
 opened: 2026-09-22
 closed: 2026-09-22
@@ -50,7 +50,7 @@ validity of provisional ligand/receptor chemistry.
 ## Scope and exclusions
 
 One conventional rigid, file-backed case. Charge/typing validation remains
-dockingmt#5. General multi-backend replay and a broad benchmark suite await
+bindingmt#5. General multi-backend replay and a broad benchmark suite await
 concrete accepted workflows.
 
 ## Acceptance criteria
@@ -64,7 +64,7 @@ concrete accepted workflows.
 
 ## Dependencies and risks
 
-Related local work: uibcdf/dockingmt#4, uibcdf/dockingmt#5.
+Related local work: uibcdf/bindingmt#4, uibcdf/bindingmt#5.
 Provider limitation uibcdf/molsysmt#234 prevents assuming in-memory molecular
 objects can be serialized to H5MSM without losing partial charges.
 

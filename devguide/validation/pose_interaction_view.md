@@ -1,6 +1,6 @@
 # Viewing an admitted pose interaction binding
 
-Owner: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
+Owner: [BindingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
 Registered source increment before execution, starting at `d71fd6b`.
 Implementation and qualification were unproven at registration. The route is
 now implemented with passing source/DOM qualification below and separately
@@ -16,7 +16,7 @@ query = viewer.interactions.query('hbonds', structure_indices=[0])
 ```
 
 The existing binding operation supplies `PoseInteractions`. Opening it retains
-the complete original result in `viewer.addons.dockingmt.result`; it does not
+the complete original result in `viewer.addons.bindingmt.result`; it does not
 make a one-pose replacement result. Original position, pose ID and scientific
 rank stay distinct. Python/context navigation rejects positions without loaded
 geometry before asking the player to move. The ordinary result renderer remains

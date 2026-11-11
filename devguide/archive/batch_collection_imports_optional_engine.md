@@ -1,6 +1,6 @@
 ---
 summary: Offline batch-test collection imports an optional native engine through a fixture helper.
-issue: uibcdf/dockingmt#99
+issue: uibcdf/bindingmt#99
 status: resolved
 opened: 2026-11-09
 closed: 2026-11-09

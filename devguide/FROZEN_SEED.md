@@ -1,7 +1,7 @@
-# DockingMT devguide v0.1 — Frozen Seed
+# BindingMT devguide v0.1 — Frozen Seed
 
 This directory is the frozen architectural and scientific seed for the initial
-implementation of DockingMT.
+implementation of BindingMT.
 
 The seed captures the intended scientific model, MolSysSuite contracts, Core MVP,
 validation strategy, implementation sequence and protected future horizons.

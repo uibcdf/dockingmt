@@ -156,8 +156,8 @@ def test_lightweight_numeric_tag_drives_the_real_version_configuration(tmp_path)
     source = tmp_path / 'source'
     source.mkdir()
     (source / 'pyproject.toml').write_bytes((ROOT / 'pyproject.toml').read_bytes())
-    (source / 'dockingmt').mkdir()
-    (source / 'dockingmt/__init__.py').write_text('')
+    (source / 'bindingmt').mkdir()
+    (source / 'bindingmt/__init__.py').write_text('')
     env = os.environ.copy()
     env.update(
         GIT_AUTHOR_NAME='Qualification',
@@ -174,7 +174,7 @@ def test_lightweight_numeric_tag_drives_the_real_version_configuration(tmp_path)
         subprocess.run(['git', '-C', str(source), *args], env=env, check=True)
     assert caller.git(source, 'cat-file', '-t', 'refs/tags/0.1.0') == 'commit'
     assert get_version(source, write=False) == '0.1.0'
-    assert not (source / 'dockingmt/_version.py').exists()
+    assert not (source / 'bindingmt/_version.py').exists()
     assert caller.git(source, 'remote') == ''
 
 
@@ -186,7 +186,7 @@ def test_directory_install_retains_its_original_wheel_without_rebuilding(tmp_pat
     (source / 'cache_fixture/__init__.py').write_bytes(payload)
     (source / 'pyproject.toml').write_text(
         '[build-system]\nrequires=["setuptools"]\nbuild-backend="setuptools.build_meta"\n'
-        '[project]\nname="dmt-qualification-cache-fixture"\nversion="0.0.1"\n'
+        '[project]\nname="bmt-qualification-cache-fixture"\nversion="0.0.1"\n'
     )
     scratch = tmp_path / 'scratch'
     scratch.mkdir()
@@ -254,7 +254,7 @@ def test_login_shell_stops_before_the_next_command_when_a_gate_fails(tmp_path):
 def test_real_sdk_imports_with_only_its_owned_private_qa_dependencies(tmp_path):
     sdk = Path(
         os.environ.get(
-            'DOCKINGMT_INSTALLED_SDK_ROOT', ROOT / '.molsyssuite/installed-sdk'
+            'BINDINGMT_INSTALLED_SDK_ROOT', ROOT / '.molsyssuite/installed-sdk'
         )
     ).resolve()
     assert sdk.is_dir(), 'Supply the exact installed-support SDK checkout'
@@ -289,7 +289,7 @@ def test_real_sdk_imports_with_only_its_owned_private_qa_dependencies(tmp_path):
         'blocked=[]\n'
         'class Block(importlib.abc.MetaPathFinder):\n'
         ' def find_spec(self,fullname,path=None,target=None):\n'
-        '  if fullname.split(".")[0] in {"dockingmt","molsysmt","molsysviewer","vina","rdkit","openmm"}:\n'
+        '  if fullname.split(".")[0] in {"bindingmt","molsysmt","molsysviewer","vina","rdkit","openmm"}:\n'
         '   blocked.append(fullname); raise AssertionError(fullname)\n'
         'sys.meta_path.insert(0,Block())\n'
         + ast.unparse(functions)
@@ -410,7 +410,7 @@ def test_storage_program_and_observation_oracle_keep_the_original_receiving():
         if row['original_path'] == 'producer/oracle.py.txt'
     )
     old = ast.parse(gzip.decompress((base / oracle['path']).read_bytes()))
-    current = ast.parse((ROOT / 'dmt_test_support/h5msm_client_oracle.py').read_bytes())
+    current = ast.parse((ROOT / 'bmt_test_support/h5msm_client_oracle.py').read_bytes())
     for kind in [(ast.FunctionDef,), (ast.Import, ast.ImportFrom)]:
         assert {
             ast.dump(n, include_attributes=False)

@@ -1,7 +1,7 @@
 # PDBQT output-presentation receiving — 2026-10-28
 
-Owner: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49), with
-[#33](https://github.com/uibcdf/dockingmt/issues/33) and provider
+Owner: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49), with
+[#33](https://github.com/uibcdf/bindingmt/issues/33) and provider
 [MolSysMT #214](https://github.com/uibcdf/molsysmt/issues/214).
 This resumes the [pause checkpoint](pause_handoff_2026-10-26.md).
 
@@ -15,15 +15,15 @@ creating hierarchy. The provider includes caller REMARKs before completing the
 export map/hash. Its known-source reader separates original labels from written
 labels and restores the original source axis. The provider's
 [receipt](https://github.com/uibcdf/molsysmt/blob/e395e52646dab2ecb480d3d67aa7254be99b8524/devtools/data/pdbqt_presentation_20261026.json)
-records its own bounded tests, not DockingMT installation or scientific admission.
+records its own bounded tests, not BindingMT installation or scientific admission.
 
 The [consumer module](../../tests/test_pdbqt_presentation_receiving.py) uses real
 production preparations and the public converter. Rigid methanol, one-cut hexane
 and nested hexane retain the existing explicit ROOT/cut decisions. Native sources
 stay unchanged, including their absent group/chain hierarchy; display fields are
 declared on the prepared atom axis. Independent fixed-column comparison verifies
-the meaningful fields of the current DockingMT output, allowing name alignment
-and branch whitespace differences. Original DockingMT charge/type REMARKs coexist
+the meaningful fields of the current BindingMT output, allowing name alignment
+and branch whitespace differences. Original BindingMT charge/type REMARKs coexist
 with truthful native derived attribution. No molecular builder, serializer,
 atom-record patcher, ID renaming or completed-map rebinding is added downstream.
 
@@ -72,9 +72,9 @@ The receiver is Python 3.14.8/Vina 1.2.7 with unchanged compatible ArgDigest
 closures pass; the shared environment is preserved and not used to qualify this
 new provider. Its separate reconciliation remains outside this receiving change.
 
-DockingMT's ordinary artifact keeps original producer
+BindingMT's ordinary artifact keeps original producer
 `fe8ad1351b8661b43957132236715115d495d795`, filename
-`dockingmt-0.0.0+196.gfe8ad13-py3-none-any.whl`, **122,993 bytes**, SHA-256
+`bindingmt-0.0.0+196.gfe8ad13-py3-none-any.whl`, **122,993 bytes**, SHA-256
 `962ce548821ee37a7b2cf986280de720ad39c989059da2dc3daa2c95c7ade05e`.
 All 57 runtime/addon Python files excluding generated version metadata match that
 producer, wheel, installed prefix and current source. Installed tests have no

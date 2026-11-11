@@ -14,7 +14,7 @@
     "This human-executable analysis reads the original 112 evaluations. It performs\n",
     "no search, optimization, preparation, H regeneration or new scoring. Recorded\n",
     "values are observations, not an affinity ranking or a validated scientific model.\n",
-    "The [prescription](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6094392354)\n",
+    "The [prescription](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6094392354)\n",
     "precedes the original producer. Software qualification is recorded separately.\n"
    ]
   },
@@ -44,7 +44,7 @@
     "from pathlib import Path\n",
     "import numpy as np\n",
     "import pandas as pd\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "\n",
     "checkout = next(p for p in (Path.cwd(), *Path.cwd().parents)\n",
     "                if (p / 'devtools/qualify_5x72_displacement.py').is_file())\n",
@@ -78,7 +78,7 @@
     "            history = score['metadata']['scoring_history']\n",
     "            assert len(history) == 1 and history[0]['operation'] == 'score'\n",
     "            assert len(history[0]['scores']) == 8 and 'vina' not in score['scores']\n",
-    "            assert dmt.verify_captured_inputs(history[0]['backend_artifacts'])\n",
+    "            assert bmt.verify_captured_inputs(history[0]['backend_artifacts'])\n",
     "            evaluations += 1\n",
     "assert evaluations == 112\n",
     "print('Authenticated 28 full-atom points / 112 captures / 20,748 pair distances; no new scoring.')\n"
@@ -1094,9 +1094,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "DockingMT qualified Python3.14",
+   "display_name": "BindingMT qualified Python3.14",
    "language": "python",
-   "name": "dockingmt-displacement"
+   "name": "bindingmt-displacement"
   },
   "language_info": {
    "codemirror_mode": {

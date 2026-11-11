@@ -1,7 +1,7 @@
 # Declared installed scientific support — 2026-11-04
 
-Owners: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47) and
-qualification [#30](https://github.com/uibcdf/dockingmt/issues/30). Shared provider:
+Owners: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47) and
+qualification [#30](https://github.com/uibcdf/bindingmt/issues/30). Shared provider:
 [MolSysSuite #117](https://github.com/uibcdf/molsyssuite/issues/117), with #110
 covering installed runtime import roots.
 
@@ -15,7 +15,7 @@ eight installed cells, public dependency closure or C4/C6 observation.
 ## Source and artifact roles
 
 Static review found 51 directly importing scientific test files and 26 transitive
-qualification/helper modules. Implementations move to unshipped `dmt_test_support`;
+qualification/helper modules. Implementations move to unshipped `bmt_test_support`;
 source `devtools` paths remain compatibility delegates. Test/helper imports use
 the dedicated namespace. Molecular operations, scientific fixtures and assertions
 are preserved; no runtime core/addon routine or dependency version changes.

@@ -163,15 +163,15 @@
    "source": [
     "import numpy as np\n",
     "import pyunitwizard as puw\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "run = record['new_runs'][0]\n",
     "original_xyz = np.array(record['audit']['source_snapshot']['structures']['coordinates'])[0] * 10\n",
     "indices = run['pdbqt_to_source_atom_indices']\n",
     "heavy = run['heavy_pdbqt_indices']\n",
     "with puw.context(standard_units=['pm','fs','K','mole','dalton','e','kJ/mol','radians']):\n",
-    "    result = dmt.DockingResult.from_dict(run['result'])\n",
-    "    report = dmt.evaluate_redocking(result, puw.quantity(original_xyz[indices], 'angstrom'), rmsd_cutoff=puw.quantity(250, 'pm'))\n",
-    "    assert dmt.verify_captured_inputs(result.provenance['backend_artifacts'])\n",
+    "    result = bmt.DockingResult.from_dict(run['result'])\n",
+    "    report = bmt.evaluate_redocking(result, puw.quantity(original_xyz[indices], 'angstrom'), rmsd_cutoff=puw.quantity(250, 'pm'))\n",
+    "    assert bmt.verify_captured_inputs(result.provenance['backend_artifacts'])\n",
     "    for pose, row, saved, metric in zip(result.poses, report['poses'], run['evaluation']['poses'], run['heavy_atom_metrics'], strict=True):\n",
     "        squared = np.sum((puw.get_value(pose.coordinates, to_unit='angstrom')-original_xyz[indices])**2, axis=-1)\n",
     "        assert report['criterion'] == run['evaluation']['criterion']\n",
@@ -188,7 +188,7 @@
   "kernelspec": {
    "display_name": "Python 3.14 (qualified source profile)",
    "language": "python",
-   "name": "dockingmt-molsyssuite-314"
+   "name": "bindingmt-molsyssuite-314"
   },
   "language_info": {
    "codemirror_mode": {

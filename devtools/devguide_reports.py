@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEVGUIDE = ROOT / 'devguide'
-REPOSITORY = 'uibcdf/dockingmt'
+REPOSITORY = 'uibcdf/bindingmt'
 OPEN_STATUSES = ('active', 'partial', 'blocked', 'open')
 CLOSED_STATUSES = ('resolved', 'withdrawn', 'superseded')
 VERIFICATIONS = {'reproduced', 'measured', 'inspected', 'upstream', 'asserted'}

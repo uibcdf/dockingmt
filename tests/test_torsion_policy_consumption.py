@@ -8,17 +8,17 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
-from dmt_test_support.qualify_chemical_templates import load_5x72, snapshot
-from dmt_test_support.qualify_named_types import (
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.preparation._temporary_torsions import build_torsion_tree
+from bmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
+from bmt_test_support.qualify_chemical_templates import load_5x72, snapshot
+from bmt_test_support.qualify_named_types import (
     CHARGE,
     TYPING,
     declared_source,
     explicit_source,
 )
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.preparation._temporary_torsions import build_torsion_tree
 
 
 def typed_source(smiles):
@@ -44,7 +44,7 @@ def test_independent_explicit_cut_decisions_and_unchanged_source(smiles, bond, r
     source = typed_source(smiles)
     before = snapshot(source)
     requested = [bond]
-    prepared = dmt.prepare_ligand(
+    prepared = bmt.prepare_ligand(
         source, selection='all', active_torsion_bonds=requested
     )
     report = prepared.metadata['torsion_selection']
@@ -111,7 +111,7 @@ def test_rigid_default_does_not_classify_or_invent_active_cuts(bonds, monkeypatc
 
     monkeypatch.setattr(msm.chemical_states, 'get_rotatable_bonds', forbidden)
     monkeypatch.setattr(msm.chemical_states, 'get_rigid_fragments', forbidden)
-    prepared = dmt.prepare_ligand(source, selection='all', active_torsion_bonds=bonds)
+    prepared = bmt.prepare_ligand(source, selection='all', active_torsion_bonds=bonds)
     assert prepared.torsion_dof == 0
     assert 'torsion_selection' not in prepared.metadata
     assert prepared.metadata['active_torsion_bonds'] == []
@@ -185,7 +185,7 @@ def test_provider_failure_propagates_unchanged_without_fallback(
     monkeypatch.setattr(msm.chemical_states, 'get_rotatable_bonds', fail)
     monkeypatch.setattr(msm.chemical_states, 'get_rigid_fragments', forbidden)
     with pytest.raises(error_class) as caught:
-        dmt.prepare_ligand(source, selection='all', active_torsion_bonds=[(1, 2)])
+        bmt.prepare_ligand(source, selection='all', active_torsion_bonds=[(1, 2)])
     assert caught.value is error
 
 
@@ -207,7 +207,7 @@ def test_unknown_provider_exclusion_is_not_silently_allowed(monkeypatch):
 
     monkeypatch.setattr(msm.chemical_states, 'get_rotatable_bonds', future_reason)
     with pytest.raises(ArgumentError, match='unsupported provider exclusions'):
-        dmt.prepare_ligand(source, selection='all', active_torsion_bonds=[(1, 2)])
+        bmt.prepare_ligand(source, selection='all', active_torsion_bonds=[(1, 2)])
 
 
 def test_source_bond_positions_follow_reordered_provider_axis():
@@ -258,20 +258,20 @@ def test_default_automatic_vina_retains_named_torsion_reports_and_pose_identity(
     typed = msm.build.assign_autodock_atom_types(charged, **TYPING)
     before = snapshot(typed)
     bonds = [(6, 7), (17, 18)]
-    prepared = dmt.prepare_ligand(typed, selection='all', active_torsion_bonds=bonds)
+    prepared = bmt.prepare_ligand(typed, selection='all', active_torsion_bonds=bonds)
     coordinates = puw.get_value(msm.get(typed, coordinates=True), to_unit='angstrom')[0]
     with puw.context(standard_units=['pm', 'fs']):
-        problem = dmt.DockingProblem(
+        problem = bmt.DockingProblem(
             receptor=MINIMAL_REC_PDBQT,
             partner=typed,
-            search_domain=dmt.BoxRegion(
+            search_domain=bmt.BoxRegion(
                 puw.quantity(coordinates.mean(axis=0), 'angstrom'),
                 puw.quantity([20, 20, 20], 'angstrom'),
             ),
         )
-        result = dmt.dock(
+        result = bmt.dock(
             problem,
-            dmt.VinaProtocol(
+            bmt.VinaProtocol(
                 cpu=1,
                 seed=17,
                 exhaustiveness=1,
@@ -280,7 +280,7 @@ def test_default_automatic_vina_retains_named_torsion_reports_and_pose_identity(
                 capture_backend_inputs=True,
             ),
         )
-        restored = dmt.DockingResult.from_dict(
+        restored = bmt.DockingResult.from_dict(
             json.loads(json.dumps(result.to_dict(), allow_nan=False))
         )
         assert len(restored.poses) == 1
@@ -289,7 +289,7 @@ def test_default_automatic_vina_retains_named_torsion_reports_and_pose_identity(
         assert (
             restored.provenance['preparation']['partner']['assessment'] == 'unassessed'
         )
-        assert dmt.verify_captured_inputs(restored.provenance['backend_artifacts'])
+        assert bmt.verify_captured_inputs(restored.provenance['backend_artifacts'])
         pose = restored.poses[0]
         recovered = pose.to_molecular_system(typed)
         recovered_xyz = puw.get_value(
@@ -316,7 +316,7 @@ def test_default_automatic_vina_retains_named_torsion_reports_and_pose_identity(
 
 
 def test_qualification_probe_compares_assigned_and_reference_connectivity():
-    from dmt_test_support.qualify_chemical_domain_receiving import state_scope_probe
+    from bmt_test_support.qualify_chemical_domain_receiving import state_scope_probe
 
     report = state_scope_probe()
     assert report['explicit_state_request'] == {

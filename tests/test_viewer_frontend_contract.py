@@ -8,10 +8,10 @@ from types import SimpleNamespace
 import pytest
 import pyunitwizard as puw
 
-import molsysviewer_dockingmt as addon
-from dockingmt import BoxRegion, DockingPose, DockingResult
-from molsysviewer_dockingmt.panels import DockingExplorerPanel, SearchDomainPanel
-from molsysviewer_dockingmt.runtime import ensure_runtime
+import molsysviewer_bindingmt as addon
+from bindingmt import BoxRegion, DockingPose, DockingResult
+from molsysviewer_bindingmt.panels import DockingExplorerPanel, SearchDomainPanel
+from molsysviewer_bindingmt.runtime import ensure_runtime
 
 
 def example_states():

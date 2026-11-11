@@ -8,10 +8,10 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.molecular_delegation_fixtures import (
+from bmt_test_support.molecular_delegation_fixtures import (
     _manual_prepared as _manual_prepared,
 )
-from molsysviewer_dockingmt.adapters.complex import build_docking_complex_system
+from molsysviewer_bindingmt.adapters.complex import build_docking_complex_system
 
 
 @pytest.mark.parametrize('alternate_units', [False, True])

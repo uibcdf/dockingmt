@@ -5,9 +5,9 @@
    "id": "intro",
    "metadata": {},
    "source": [
-    "# DockingMT result export: retained optimization comparison\n",
+    "# BindingMT result export: retained optimization comparison\n",
     "\n",
-    "Owned by [#28](https://github.com/uibcdf/dockingmt/issues/28).\n",
+    "Owned by [#28](https://github.com/uibcdf/bindingmt/issues/28).\n",
     "See the [measurement record](result_export.md) for methods and limits.\n",
     "\n",
     "This **2026-10-02 baseline** compares dictionary export before and after removing\n",
@@ -17,7 +17,7 @@
     "and after; independent snapshot ownership is tested separately.\n",
     "\n",
     "The notebook reads the two versioned raw reports and renders tables/figures.\n",
-    "It does not execute a benchmark or import DockingMT, MolSysMT or a native engine.\n",
+    "It does not execute a benchmark or import BindingMT, MolSysMT or a native engine.\n",
     "Running it requires Jupyter/IPython and Matplotlib, plus this checkout for the\n",
     "existing comparison helper. These are not package runtime dependencies."
    ]
@@ -40,7 +40,7 @@
      "output_type": "stream",
      "text": [
       "Verified 6 matching JSON snapshots and comparable measurement settings.\n",
-      "Scientific modules loaded by report analysis: {'dockingmt': False, 'molsysmt': False, 'vina': False, 'molsysviewer': False}\n"
+      "Scientific modules loaded by report analysis: {'bindingmt': False, 'molsysmt': False, 'vina': False, 'molsysviewer': False}\n"
      ]
     }
    ],
@@ -54,7 +54,7 @@
     "ROOT = next((path for path in (Path.cwd(), *Path.cwd().parents)\n",
     "             if (path / 'devtools/benchmark_result_export.py').is_file()), None)\n",
     "if ROOT is None:\n",
-    "    raise RuntimeError('Open this notebook from within the DockingMT checkout.')\n",
+    "    raise RuntimeError('Open this notebook from within the BindingMT checkout.')\n",
     "if str(ROOT) not in sys.path:\n",
     "    sys.path.insert(0, str(ROOT))\n",
     "from devtools.benchmark_result_export import _compare\n",
@@ -68,7 +68,7 @@
     "         'many_poses', 'large_mapped', 'manifest']\n",
     "print(f'Verified {len(comparison)} matching JSON snapshots and comparable measurement settings.')\n",
     "print('Scientific modules loaded by report analysis:',\n",
-    "      {name: name in sys.modules for name in ('dockingmt', 'molsysmt', 'vina', 'molsysviewer')})"
+    "      {name: name in sys.modules for name in ('bindingmt', 'molsysmt', 'vina', 'molsysviewer')})"
    ]
   },
   {

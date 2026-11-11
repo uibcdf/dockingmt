@@ -1,6 +1,6 @@
 ---
 summary: Offline coordinate audits disagree with the existing pose-record admission.
-issue: uibcdf/dockingmt#90
+issue: uibcdf/bindingmt#90
 status: resolved
 opened: 2026-11-08
 closed: 2026-11-08

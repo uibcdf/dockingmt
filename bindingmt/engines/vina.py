@@ -1,0 +1,831 @@
+from __future__ import annotations
+
+import base64
+import hashlib
+import inspect
+import os
+import tempfile
+import time
+from collections import Counter
+from pathlib import Path
+from typing import Any
+
+import depdigest
+import molsysmt as msm
+import numpy as np
+import pyunitwizard as puw
+from argdigest import arg_digest
+from depdigest import dep_digest
+
+from bindingmt._private.smonitor import ArgumentError, TemporaryFileCleanupWarning, warn
+from bindingmt._private.vina_records import score_components
+from bindingmt._version import __version__ as bindingmt_version
+from bindingmt.core._scores import make_ranking_record
+from bindingmt.core.problem import DockingProblem
+from bindingmt.core.protocol import DockingProtocol, VinaProtocol, _validate_vina_intent
+from bindingmt.core.results import DockingPose, DockingResult, _molecular_atom_keys
+from bindingmt.engines.base import DockingBackend
+from bindingmt.preparation import (
+    PreparedLigand,
+    PreparedReceptor,
+    assess_preparation,
+    prepare_ligand,
+    prepare_receptor,
+)
+from bindingmt.preparation._export import export_pdbqt
+from bindingmt.preparation._molsys import autodock_element, detached_provider_report
+
+VINA_BOX_DECIMALS = 6
+
+
+def _resolved_native_call(function, **arguments):
+    """Record supplied arguments and defaults from the loaded Python wrapper."""
+    bound = inspect.signature(function).bind(**arguments)
+    bound.apply_defaults()
+    return dict(bound.arguments)
+
+
+def _cleanup_staged_files(temp_files, *, primary_error=None):
+    """Attempt every owned removal, retaining the operation's primary failure."""
+    failures = []
+    for temp_path in temp_files:
+        try:
+            os.remove(temp_path)
+        except FileNotFoundError:
+            continue
+        except OSError as exc:
+            failures.append(
+                {
+                    'path': temp_path,
+                    'errno': exc.errno,
+                    'error_type': type(exc).__name__,
+                }
+            )
+    if failures:
+        diagnostic = TemporaryFileCleanupWarning(failures=failures)
+        if primary_error is not None:
+            primary_error.add_note(f'{diagnostic.code}: {diagnostic}')
+        else:
+            warn(diagnostic)
+
+
+def _vina_score_definitions(
+    scoring, version, artifacts, center, size, info, preparation
+):
+    """Describe the four currently retained columns of Vina.energies()."""
+    context = {
+        'stage': 'docking',
+        'receptor_sha256': artifacts['receptor']['sha256'],
+        'partner_sha256': artifacts['partner']['sha256'],
+        'backend_box': {'center': center, 'size': size, 'unit': 'angstrom'},
+        'weights': [float(weight) for weight in info['weights']],
+        'grid_spacing': {'value': float(info['box_spacing']), 'unit': 'angstrom'},
+        'preparation_assessment': {
+            role: preparation[role]['assessment'] for role in ('receptor', 'partner')
+        },
+    }
+    return {
+        name: {
+            'schema_version': '1.0',
+            'method': f'AutoDock Vina/{scoring}',
+            'method_version': version,
+            'component': component,
+            'kind': 'empirical',
+            'unit': 'kcal/mol',
+            'preferred_direction': 'lower' if name == scoring else None,
+            'context': context,
+        }
+        for name, component in score_components(scoring).items()
+    }
+
+
+class _VinaTimings:
+    """A successful Vina invocation's consecutive, non-overlapping wall times."""
+
+    def __init__(self) -> None:
+        self._start = self._previous = time.perf_counter()
+        self._phases: dict[str, float] = {}
+
+    def end_phase(self, name: str) -> None:
+        now = time.perf_counter()
+        self._phases[name] = now - self._previous
+        self._previous = now
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            'unit': 'second',
+            'clock': 'perf_counter',
+            'scope': 'VinaBackend.dock body; excludes public decorators and export',
+            'phases': dict(self._phases),
+            'total': self._previous - self._start,
+        }
+
+
+def _vina_box(search_domain: Any) -> tuple[list[float], list[float]]:
+    """Project a physical search domain to stable Vina input numbers in Å."""
+    if hasattr(search_domain, 'to_backend_box'):
+        box = search_domain.to_backend_box(unit='angstrom')
+    else:
+        box = search_domain.as_box_approximation().to_backend_box(unit='angstrom')
+    center = [round(float(value), VINA_BOX_DECIMALS) for value in box['center']]
+    size = [round(float(value), VINA_BOX_DECIMALS) for value in box['size']]
+    if (
+        len(center) != 3
+        or len(size) != 3
+        or not np.isfinite(center).all()
+        or not np.isfinite(size).all()
+        or any(value <= 0 for value in size)
+    ):
+        raise ArgumentError(
+            arg_name='problem.search_domain',
+            reason='The Vina search box needs three finite center and positive size values.',
+        )
+    return center, size
+
+
+def _pdbqt_atom_records(
+    text: str,
+) -> list[tuple[tuple[str, str, str], tuple[float, float, float]]]:
+    """Read stable atom labels and rounded coordinates from Vina PDBQT text."""
+    records = []
+    for line in text.splitlines():
+        if not line.startswith(('ATOM', 'HETATM')):
+            continue
+        try:
+            key = (line[6:11].strip(), line[12:16].strip(), line.split()[-1])
+            xyz = tuple(float(line[start : start + 8]) for start in (30, 38, 46))
+        except (ValueError, IndexError) as exc:
+            raise ArgumentError(
+                arg_name='problem.partner',
+                reason='Cannot read atom identity from a PDBQT ligand record.',
+            ) from exc
+        records.append((key, xyz))
+    return records
+
+
+def _verify_pose_atom_order(
+    ligand_pdbqt: str, poses_pdbqt: str, coordinates: np.ndarray
+) -> np.ndarray:
+    """Verify pose identity and return coordinates in source PDBQT record order."""
+    source = _pdbqt_atom_records(ligand_pdbqt)
+    output = _pdbqt_atom_records(poses_pdbqt)
+    expected = [record[0] for record in source]
+    if (
+        not source
+        or len(set(expected)) != len(expected)
+        or coordinates.ndim != 3
+        or coordinates.shape[1:] != (len(source), 3)
+        or len(output) != len(source) * len(coordinates)
+    ):
+        raise ArgumentError(
+            arg_name='problem.partner',
+            reason='Cannot verify the PDBQT source-to-pose atom map.',
+        )
+    ordered_coordinates = []
+    for pose_index, pose_coordinates in enumerate(coordinates):
+        records = output[pose_index * len(source) : (pose_index + 1) * len(source)]
+        record_coordinates = np.asarray([record[1] for record in records])
+        if [record[0] for record in records] != expected:
+            raise ArgumentError(
+                arg_name='problem.partner',
+                reason='Vina pose atom order or coordinates differ from the supplied ligand PDBQT.',
+            )
+        ordered_coordinates.append(record_coordinates)
+    return _verify_pose_coordinates(np.stack(ordered_coordinates), coordinates)
+
+
+def _verify_pose_coordinates(written, coordinates):
+    """Check Vina's two numeric outputs without assigning molecular identity."""
+    if (
+        written.shape != coordinates.shape
+        or not np.isfinite(written).all()
+        or not np.isfinite(coordinates).all()
+        or any(
+            Counter(map(tuple, np.round(record, 3)))
+            != Counter(map(tuple, np.round(numeric, 3)))
+            for record, numeric in zip(written, coordinates)
+        )
+    ):
+        raise ArgumentError(
+            arg_name='problem.partner',
+            reason='Vina pose atom order or coordinates differ from the supplied ligand PDBQT.',
+        )
+    return written
+
+
+def _read_staged_poses(staged, poses_pdbqt, coordinates):
+    """Read against the actual staged export; provider failures never fall back."""
+    if staged['pose_reading_mode'] == 'molsysmt_known_source':
+        exported = staged['partner_export']
+        if (
+            exported.atom_map['payload_sha256']
+            != hashlib.sha256(staged['partner_pdbqt']).hexdigest()
+        ):
+            raise ArgumentError(
+                arg_name='problem.partner',
+                reason='The completed export map does not bind the staged PDBQT payload.',
+            )
+        received = msm.form.string_pdbqt_text.read_poses(
+            'pdbqt_text:' + poses_pdbqt,
+            exported.molecular_system,
+            exported.atom_map,
+            return_report=True,
+        )
+        report = received['report']
+        source_coordinates = puw.get_value(
+            msm.get(received['molecular_system'], coordinates=True), to_unit='angstrom'
+        )
+        # DockingPose retains the established written axis. The provider report
+        # supplies this declared result-array order; no identity is inferred.
+        written = np.asarray(source_coordinates)[
+            :, report['pdbqt_to_output_atom_indices']
+        ]
+        return _verify_pose_coordinates(written, coordinates), {
+            'method': 'molsysmt.form.string_pdbqt_text.read_poses',
+            'report': detached_provider_report(report),
+        }
+    return _verify_pose_atom_order(
+        staged['partner_pdbqt'].decode('utf-8'), poses_pdbqt, coordinates
+    ), {'method': 'legacy_pdbqt_order', 'reason': staged['pose_reading_mode']}
+
+
+def _stage_pdbqt_bytes(content: bytes, temp_files: list[str]) -> str:
+    """Give Vina the same bytes that were captured for the run record."""
+    with tempfile.NamedTemporaryFile(
+        suffix='.pdbqt', mode='wb', delete=False
+    ) as staged:
+        temp_files.append(staged.name)
+        staged.write(content)
+    return staged.name
+
+
+class VinaBackend(DockingBackend):
+    """DockingBackend adapter for AutoDock Vina.
+
+    Isolates Vina execution behind standard BindingMT contracts. Handles
+    conversion of search domains, invocation of Vina's C++ computational core,
+    extraction of poses and affinity scores, and normalization into DockingResult.
+    """
+
+    def __init__(self) -> None:
+        self._name = 'vina'
+        self._capabilities = {
+            'pose_scoring',
+            'rigid_receptor',
+            'small_molecule',
+            'flexible_ligand',
+            'box_search',
+            'scoring_vina',
+            'scoring_vinardo',
+        }
+
+    @property
+    def name(self) -> str:
+        """Name of the backend."""
+        return self._name
+
+    @property
+    def capabilities(self) -> set[str]:
+        """Capabilities implemented by this adapter, distinct from upstream Vina."""
+        return set(self._capabilities)
+
+    @property
+    def is_available(self) -> bool:
+        """Whether DepDigest can discover the optional Vina Python package."""
+        return depdigest.is_installed('vina')
+
+    @arg_digest(config='bindingmt._argdigest')
+    @dep_digest('vina')
+    def dock(
+        self,
+        problem: DockingProblem,
+        protocol: DockingProtocol | None = None,
+    ) -> DockingResult:
+        """Execute AutoDock Vina docking calculation.
+
+        Parameters
+        ----------
+        problem : DockingProblem
+            Scientific docking problem specification.
+        protocol : DockingProtocol | None, optional
+            Docking protocol configuration. If None, default VinaProtocol() is used.
+
+        Returns
+        -------
+        DockingResult
+            Normalized docking result containing poses, plural scores, and provenance.
+        """
+        if protocol is None:
+            protocol = VinaProtocol()
+
+        if not isinstance(protocol, VinaProtocol):
+            raise ArgumentError(
+                arg_name='protocol',
+                reason=f'VinaBackend requires a VinaProtocol instance, got {type(protocol).__name__}.',
+            )
+
+        timings = _VinaTimings() if protocol.collect_timings else None
+
+        # Reject unsupported requests before problem hooks or input preparation.
+        self.validate_capabilities(protocol)
+        _validate_vina_intent(problem, protocol.name)
+        protocol.validate_problem(problem)
+        if timings is not None:
+            timings.end_phase('validation')
+
+        # Extract search box parameters in Angstroms
+        center, box_size = _vina_box(problem.search_domain)
+        if timings is not None:
+            timings.end_phase('search_domain_projection')
+
+        # Prepare selected MolSys inputs only at the backend boundary.
+        receptor = problem.receptor
+        partner = problem.partner
+        receptor_mode = 'provided'
+        partner_mode = 'provided'
+        partner_selected_indices: list[int] | None = None
+        partner_source_indices: list[int] | None = None
+        partner_source_n_atoms: int | None = None
+        if (
+            not isinstance(receptor, PreparedReceptor)
+            and problem.receptor_molsys is not None
+        ):
+            receptor = prepare_receptor(
+                problem.receptor_molsys,
+                selection='all',
+                state_id=problem.metadata.get('receptor_state_id'),
+            )
+            receptor_mode = 'automatic'
+        if (
+            not isinstance(partner, PreparedLigand)
+            and problem.partner_molsys is not None
+        ):
+            partner = prepare_ligand(
+                problem.partner_molsys,
+                selection='all',
+                state_id=problem.metadata.get('partner_state_id'),
+                active_torsion_bonds=protocol.active_torsion_bonds,
+            )
+            source_n_atoms = msm.get(
+                problem.partner_molsys, element='system', n_atoms=True
+            )
+            retained = partner.metadata.get('retained_atom_indices')
+            if (
+                not isinstance(retained, list)
+                or len(retained) != partner.n_atoms
+                or len(set(retained)) != len(retained)
+                or any(
+                    not isinstance(i, int) or i < 0 or i >= source_n_atoms
+                    for i in retained
+                )
+                or partner.metadata.get('atom_map_status')
+                not in ('identity', 'hydrogen_subset_mapped')
+            ):
+                raise ArgumentError(
+                    arg_name='problem.partner',
+                    reason=(
+                        'Vina preparation has no valid source-to-PDBQT atom map. '
+                        'A verified source-to-pose atom map is required (bindingmt#8).'
+                    ),
+                )
+            partner_selected_indices = [retained[i] for i in partner.pdbqt_atom_indices]
+            partner_source_n_atoms = source_n_atoms
+            if problem.partner_atom_indices is not None:
+                partner_source_indices = [
+                    problem.partner_atom_indices[i] for i in partner_selected_indices
+                ]
+            partner_mode = 'automatic'
+
+        if protocol.active_torsion_bonds and partner_mode != 'automatic':
+            raise ArgumentError(
+                arg_name='protocol.active_torsion_bonds',
+                reason='Protocol torsions require automatic MolSysMT ligand preparation; prepare a custom ligand separately without this protocol option.',
+            )
+
+        receptor_assessment = assess_preparation(receptor)
+        partner_assessment = assess_preparation(partner)
+        receptor_reasons = receptor_assessment['provisional_reasons']
+        partner_reasons = partner_assessment['provisional_reasons']
+        if not protocol.allow_provisional_preparation:
+            for role, reasons in (
+                ('receptor', receptor_reasons),
+                ('partner', partner_reasons),
+            ):
+                if reasons:
+                    raise ArgumentError(
+                        arg_name=f'problem.{role}',
+                        reason=(
+                            f'Vina preparation would use {", ".join(reasons)}. '
+                            'Provide chemically parameterized PDBQT input, or set '
+                            'VinaProtocol(allow_provisional_preparation=True) for '
+                            'exploratory docking only. See bindingmt#5 and '
+                            'molsysmt#221/#222.'
+                        ),
+                    )
+
+        preparation = {
+            'receptor': {
+                'mode': receptor_mode,
+                'state_id': getattr(receptor, 'state_id', None),
+                'metadata': getattr(receptor, 'metadata', None),
+                'assessment': receptor_assessment['assessment'],
+                'provisional_reasons': receptor_reasons,
+                'assessment_report': receptor_assessment,
+            },
+            'partner': {
+                'mode': partner_mode,
+                'state_id': getattr(partner, 'state_id', None),
+                'metadata': getattr(partner, 'metadata', None),
+                'assessment': partner_assessment['assessment'],
+                'provisional_reasons': partner_reasons,
+                'assessment_report': partner_assessment,
+            },
+        }
+
+        # Prepare receptor and partner representations
+        if timings is not None:
+            timings.end_phase('preparation')
+        temp_files_to_remove: list[str] = []
+
+        import vina
+
+        if timings is not None:
+            timings.end_phase('backend_import')
+        result = None
+        primary_error = None
+        try:
+            staged = self._stage_inputs(
+                receptor, partner, protocol, temp_files_to_remove
+            )
+            receptor_file = staged['receptor_file']
+            partner_file = staged['partner_file']
+            partner_string = staged['partner_string']
+            backend_artifacts = staged['artifacts']
+            partner_atom_keys = None
+            if isinstance(partner, PreparedLigand):
+                exported = staged['partner_export']
+                # Source-free identities retain the existing PDBQT projection,
+                # now reading the already staged payload rather than reexporting.
+                if partner.source_molsys is None:
+                    source = msm.convert(
+                        'pdbqt_text:' + exported.text,
+                        to_form='molsysmt.MolSys',
+                        discard_torsion_tree=True,
+                    )
+                    partner_atom_keys = _molecular_atom_keys(source)
+                else:
+                    keys = _molecular_atom_keys(exported.molecular_system)
+                    partner_atom_keys = [keys[i] for i in partner.pdbqt_atom_indices]
+                if (
+                    len(partner_atom_keys) != partner.n_atoms
+                    or (
+                        all(key['atom_name'] is not None for key in partner_atom_keys)
+                        and [key['atom_name'] for key in partner_atom_keys]
+                        != [partner.atom_names[i] for i in partner.pdbqt_atom_indices]
+                    )
+                    or [key['element'] for key in partner_atom_keys]
+                    != [
+                        autodock_element(partner.atom_types[i])
+                        for i in partner.pdbqt_atom_indices
+                    ]
+                ):
+                    raise ArgumentError(
+                        arg_name='problem.partner',
+                        reason='Prepared ligand names or elements do not match its molecular source.',
+                    )
+            if timings is not None:
+                timings.end_phase('input_projection')
+
+            # Initialize Vina engine
+            v = vina.Vina(
+                sf_name=protocol.scoring,
+                cpu=protocol.cpu,
+                seed=protocol.seed if protocol.seed is not None else 0,
+                verbosity=0,
+            )
+
+            v.set_receptor(rigid_pdbqt_filename=receptor_file)
+
+            if partner_file is not None:
+                v.set_ligand_from_file(partner_file)
+            elif partner_string is not None:
+                v.set_ligand_from_string(partner_string)
+            else:
+                raise ArgumentError(
+                    arg_name='problem.partner',
+                    reason='Could not resolve partner representation to a file or PDBQT string.',
+                )
+
+            # Compute affinity maps
+            if timings is not None:
+                timings.end_phase('engine_setup')
+            v.compute_vina_maps(center=center, box_size=box_size)
+            if timings is not None:
+                timings.end_phase('affinity_maps')
+
+            # Run global docking optimization
+            start_time = time.perf_counter()
+            v.dock(
+                exhaustiveness=protocol.exhaustiveness,
+                n_poses=protocol.n_poses,
+            )
+            elapsed_seconds = time.perf_counter() - start_time
+            if timings is not None:
+                timings.end_phase('native_docking')
+
+            # Retrieve poses and scores
+            energy_range_val = float(
+                puw.get_value(puw.convert(protocol.energy_range, to_unit='kcal/mol'))
+            )
+            coords_arr = v.poses(
+                n_poses=protocol.n_poses,
+                energy_range=energy_range_val,
+                coordinates_only=True,
+            )
+            energies_arr = v.energies(
+                n_poses=protocol.n_poses,
+                energy_range=energy_range_val,
+            )
+            backend_output = {
+                'format': 'vina_python_docking@1',
+                'energies': np.asarray(energies_arr).tolist(),
+                'energy_columns': [
+                    'total',
+                    'inter',
+                    'intra',
+                    'torsions',
+                    'intra_best_pose',
+                ],
+                'energy_unit': 'kcal/mol',
+                'engine_info': v.info(),
+                'resolved_calls': {
+                    'compute_vina_maps': _resolved_native_call(
+                        v.compute_vina_maps, center=center, box_size=box_size
+                    ),
+                    'dock': _resolved_native_call(
+                        v.dock,
+                        exhaustiveness=protocol.exhaustiveness,
+                        n_poses=protocol.n_poses,
+                    ),
+                    'energies': _resolved_native_call(
+                        v.energies,
+                        n_poses=protocol.n_poses,
+                        energy_range=energy_range_val,
+                    ),
+                },
+            }
+
+            poses: list[DockingPose] = []
+            score_definitions = _vina_score_definitions(
+                protocol.scoring,
+                getattr(vina, '__version__', 'unknown'),
+                backend_artifacts,
+                center,
+                box_size,
+                v.info(),
+                preparation,
+            )
+            if coords_arr is not None and len(coords_arr) > 0:
+                coords_np = np.asarray(coords_arr)
+                energies_np = np.asarray(energies_arr)
+                poses_pdbqt = v.poses(
+                    n_poses=protocol.n_poses,
+                    energy_range=energy_range_val,
+                    coordinates_only=False,
+                )
+                coords_np, reading = _read_staged_poses(staged, poses_pdbqt, coords_np)
+                backend_output['pose_reading'] = reading
+                if isinstance(partner, PreparedLigand) and (
+                    coords_np.ndim != 3 or coords_np.shape[1:] != (partner.n_atoms, 3)
+                ):
+                    raise ArgumentError(
+                        arg_name='problem.partner',
+                        reason='Vina pose coordinates do not match the prepared ligand atom count; a verified atom map is required.',
+                    )
+                partner_state_id = getattr(
+                    partner,
+                    'state_id',
+                    problem.metadata.get('partner_state_id'),
+                )
+                receptor_state_id = getattr(
+                    receptor,
+                    'state_id',
+                    problem.metadata.get('receptor_state_id'),
+                )
+
+                for idx in range(len(coords_np)):
+                    pose_coords = puw.quantity(coords_np[idx], 'angstrom')
+                    row_e = energies_np[idx]
+                    scores: dict[str, float] = {
+                        protocol.scoring: float(row_e[0]),
+                        'inter': float(row_e[1]),
+                        'intra': float(row_e[2]),
+                        'torsion': float(row_e[3]),
+                    }
+                    pose = DockingPose(
+                        coordinates=pose_coords,
+                        scores=scores,
+                        rank=idx + 1,
+                        pose_id=f'pose_{idx + 1}',
+                        partner_state_id=partner_state_id,
+                        receptor_state_id=receptor_state_id,
+                        score_definitions=score_definitions,
+                        metadata={
+                            'pose_atom_order': 'verified_pdbqt_order',
+                            'prepared_atom_indices': partner.pdbqt_atom_indices,
+                            'selected_atom_indices': partner_selected_indices
+                            if partner_mode == 'automatic'
+                            else partner.pdbqt_atom_indices,
+                            'source_atom_indices': partner_source_indices,
+                            'selected_partner_n_atoms': partner_source_n_atoms
+                            if partner_mode == 'automatic'
+                            else partner.n_atoms,
+                            'source_atom_keys': partner_atom_keys,
+                        }
+                        if isinstance(partner, PreparedLigand)
+                        else {
+                            'pose_atom_order': 'verified_pdbqt_order',
+                        },
+                    )
+                    poses.append(pose)
+
+            provenance: dict[str, Any] = {
+                'backend': self.name,
+                'backend_version': getattr(vina, '__version__', 'unknown'),
+                'bindingmt_version': bindingmt_version,
+                'molsysmt_version': msm.__version__,
+                'protocol': protocol.to_dict(),
+                'search_domain': problem.search_domain.to_dict(),
+                'backend_box': {
+                    'center': center,
+                    'size': box_size,
+                    'unit': 'angstrom',
+                    'rounding_decimals': VINA_BOX_DECIMALS,
+                },
+                'seed': protocol.seed,
+                'elapsed_seconds': elapsed_seconds,
+                'preparation': preparation,
+                'backend_artifacts': backend_artifacts,
+                'backend_output': backend_output,
+                'ranking_policy': {'score_name': protocol.scoring, 'ascending': True},
+                'ranking_history': [
+                    make_ranking_record(
+                        poses,
+                        protocol.scoring,
+                        True,
+                        poses[0].score_definitions[protocol.scoring] if poses else None,
+                        [pose.scores[protocol.scoring] for pose in poses],
+                        range(len(poses)),
+                        'backend',
+                    )
+                ],
+            }
+
+            result = DockingResult(
+                poses=poses,
+                problem_info=problem.to_dict(),
+                protocol_info=protocol.to_dict(),
+                provenance=provenance,
+                problem=problem,
+            )
+            if timings is not None:
+                timings.end_phase('result_normalization')
+            return result
+
+        except BaseException as exc:
+            primary_error = exc
+            raise
+        finally:
+            _cleanup_staged_files(temp_files_to_remove, primary_error=primary_error)
+            if timings is not None and result is not None:
+                timings.end_phase('cleanup')
+                result.provenance['timings'] = timings.to_dict()
+
+    @arg_digest(config='bindingmt._argdigest')
+    @dep_digest('vina')
+    def score(
+        self,
+        problem: DockingProblem,
+        protocol: DockingProtocol | None = None,
+        pose: DockingPose | None = None,
+        score_name: str = 'score',
+    ) -> DockingPose:
+        """Evaluate a prepared fixed pose through Vina.score()."""
+        from bindingmt.engines._vina_scoring import score_prepared
+
+        return score_prepared(self, problem, protocol, pose, score_name)
+
+    def _stage_inputs(self, receptor, partner, protocol, temp_files):
+        """Snapshot the exact bytes submitted to docking or scoring."""
+        receptor_file = self._resolve_receptor_path(receptor, temp_files)
+        partner_export = None
+        if isinstance(partner, PreparedLigand):
+            partner_export = export_pdbqt(partner, ligand=True)
+            partner_file, partner_string = None, partner_export.text
+        else:
+            partner_file, partner_string = self._resolve_partner(partner, temp_files)
+        pose_reading_mode = 'unmapped_input'
+        if partner_export is not None:
+            # Decide the supported profile before engine execution. A later
+            # source change must be rejected by the bound reader, never switch
+            # a known-source operation silently to legacy parsing.
+            native = partner_export.molecular_system
+            if msm.get(native, n_chemical_states=True) != 1:
+                pose_reading_mode = 'multiple_source_states'
+            elif msm.get(native, connectivity_completeness=True) != 'complete':
+                pose_reading_mode = 'incomplete_source_connectivity'
+            else:
+                pose_reading_mode = 'molsysmt_known_source'
+        receptor_pdbqt = Path(receptor_file).read_bytes()
+        if receptor_file not in temp_files:
+            receptor_file = _stage_pdbqt_bytes(receptor_pdbqt, temp_files)
+        partner_pdbqt = (
+            partner_string.encode('utf-8')
+            if partner_string is not None
+            else Path(partner_file).read_bytes()
+        )
+        if partner_file is not None and partner_file not in temp_files:
+            partner_file = _stage_pdbqt_bytes(partner_pdbqt, temp_files)
+        backend_artifacts = {
+            'receptor': {
+                'format': 'pdbqt',
+                'sha256': hashlib.sha256(receptor_pdbqt).hexdigest(),
+            },
+            'partner': {
+                'format': 'pdbqt',
+                'sha256': hashlib.sha256(partner_pdbqt).hexdigest(),
+            },
+        }
+        if protocol.capture_backend_inputs:
+            for role, content in (
+                ('receptor', receptor_pdbqt),
+                ('partner', partner_pdbqt),
+            ):
+                backend_artifacts[role]['content_base64'] = base64.b64encode(
+                    content
+                ).decode('ascii')
+        return {
+            'receptor_file': receptor_file,
+            'partner_file': partner_file,
+            'partner_string': partner_string,
+            'partner_pdbqt': partner_pdbqt,
+            'partner_export': partner_export,
+            'pose_reading_mode': pose_reading_mode,
+            'artifacts': backend_artifacts,
+        }
+
+    def _resolve_receptor_path(self, receptor: Any, temp_files: list[str]) -> str:
+        """Resolve receptor input to a filesystem path acceptable by Vina."""
+        if hasattr(receptor, 'to_pdbqt'):
+            pdbqt_str = receptor.to_pdbqt()
+            with tempfile.NamedTemporaryFile(
+                suffix='.pdbqt', mode='w', delete=False
+            ) as tmp:
+                temp_files.append(tmp.name)
+                tmp.write(pdbqt_str)
+            return tmp.name
+
+        if isinstance(receptor, (str, Path)):
+            path_str = str(receptor)
+            if os.path.isfile(path_str):
+                return path_str
+            path_str = path_str.removeprefix('pdbqt_text:')
+            # Might be a raw PDBQT string
+            if 'ATOM' in path_str or 'HETATM' in path_str:
+                with tempfile.NamedTemporaryFile(
+                    suffix='.pdbqt', mode='w', delete=False
+                ) as tmp:
+                    temp_files.append(tmp.name)
+                    tmp.write(path_str)
+                return tmp.name
+
+        raise ArgumentError(
+            arg_name='problem.receptor',
+            reason=(
+                f'Receptor must be a valid PreparedReceptor, PDBQT file path, or PDBQT string, '
+                f'got {type(receptor).__name__}.'
+            ),
+        )
+
+    def _resolve_partner(
+        self, partner: Any, temp_files: list[str]
+    ) -> tuple[str | None, str | None]:
+        """Resolve partner input to either a filepath or a PDBQT string."""
+        if hasattr(partner, 'to_pdbqt'):
+            return None, partner.to_pdbqt()
+
+        if isinstance(partner, (str, Path)):
+            path_str = str(partner)
+            if os.path.isfile(path_str):
+                return path_str, None
+            path_str = path_str.removeprefix('pdbqt_text:')
+            if 'ROOT' in path_str or 'ATOM' in path_str:
+                return None, path_str
+
+        raise ArgumentError(
+            arg_name='problem.partner',
+            reason=(
+                f'Partner must be a valid PreparedLigand, PDBQT file path, or PDBQT string, '
+                f'got {type(partner).__name__}.'
+            ),
+        )

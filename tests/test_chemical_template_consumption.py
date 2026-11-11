@@ -8,8 +8,12 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
-from dmt_test_support.qualify_chemical_templates import (
+from bindingmt import BoxRegion, DockingProblem, DockingResult, VinaProtocol
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.engines.vina import VinaBackend
+from bindingmt.preparation import assess_preparation, prepare_ligand
+from bmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
+from bmt_test_support.qualify_chemical_templates import (
     ROOT,
     SDF_DIGESTS,
     checked_application,
@@ -21,11 +25,7 @@ from dmt_test_support.qualify_chemical_templates import (
     snapshot,
     template_options,
 )
-from dmt_test_support.qualify_named_types import CHARGE, HYDROGEN, TYPING
-from dockingmt import BoxRegion, DockingProblem, DockingResult, VinaProtocol
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.engines.vina import VinaBackend
-from dockingmt.preparation import assess_preparation, prepare_ligand
+from bmt_test_support.qualify_named_types import CHARGE, HYDROGEN, TYPING
 
 
 @pytest.fixture

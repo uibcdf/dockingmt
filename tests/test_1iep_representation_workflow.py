@@ -8,8 +8,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_1iep_representation import (
+import bindingmt as bmt
+from bmt_test_support.qualify_1iep_representation import (
     OUTPUT,
     fixed_score,
     observe,
@@ -76,7 +76,7 @@ def test_equivalent_input_conformation_scores_without_search(prepared_controls):
             'n_poses',
             'energy_range',
         ]
-        assert dmt.verify_captured_inputs(history['backend_artifacts'])
+        assert bmt.verify_captured_inputs(history['backend_artifacts'])
         assert (
             history['backend_artifacts']['partner']['sha256']
             == controls[name]['sha256']
@@ -88,7 +88,7 @@ def test_equivalent_input_conformation_scores_without_search(prepared_controls):
         ]
         np.testing.assert_allclose(
             puw.get_value(
-                dmt.DockingPose.from_dict(pose).coordinates, to_unit='angstrom'
+                bmt.DockingPose.from_dict(pose).coordinates, to_unit='angstrom'
             ),
             written,
             rtol=0,
@@ -97,9 +97,9 @@ def test_equivalent_input_conformation_scores_without_search(prepared_controls):
 
 
 def assert_geometry(run, source_xyz):
-    result = dmt.DockingResult.from_dict(run['result'])
+    result = bmt.DockingResult.from_dict(run['result'])
     assert result.poses
-    assert dmt.verify_captured_inputs(result.provenance['backend_artifacts'])
+    assert bmt.verify_captured_inputs(result.provenance['backend_artifacts'])
     indices = run['pdbqt_to_source_atom_indices']
     heavy = run['heavy_pdbqt_indices']
     assert sorted(indices[i] for i in heavy) == list(range(37))

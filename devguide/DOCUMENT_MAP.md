@@ -10,6 +10,7 @@ making a bounded contribution.
 
 | Document | Primary question |
 | --- | --- |
+| [pending_proposals/rename_bindingmt.md](pending_proposals/rename_bindingmt.md) | What changes under BindingMT, which historical identities remain compatible and which owners receive the expanded domain? |
 | [README.md](README.md) | Where should a new developer start? |
 | [PUBLIC_API.md](PUBLIC_API.md) | Which public operations/methods/errors exist, what work do they perform and which unit/ownership contracts apply? |
 | [DEVELOPMENT.md](DEVELOPMENT.md) | How do I reconstruct the development setup, locate code and choose the appropriate checks? |
@@ -94,17 +95,17 @@ Provider-owned root guides are read-only copies, not local policy forks.
 
 | Document | Primary question |
 |---|---|
-| [VISION.md](VISION.md) | What should DockingMT become? |
+| [VISION.md](VISION.md) | What should BindingMT become? |
 | [DESIGN_PRINCIPLES.md](DESIGN_PRINCIPLES.md) | What must implementation not accidentally violate? |
 | [SCIENTIFIC_SCOPE.md](SCIENTIFIC_SCOPE.md) | What is NOW, DESIGNED FOR, or a HORIZON? |
-| [MOLSYSSUITE_CONTRACT.md](MOLSYSSUITE_CONTRACT.md) | What does DockingMT inherit and what must be delegated to MolSysMT or another provider? |
+| [MOLSYSSUITE_CONTRACT.md](MOLSYSSUITE_CONTRACT.md) | What does BindingMT inherit and what must be delegated to MolSysMT or another provider? |
 | [GLOSSARY.md](GLOSSARY.md) | What do the central terms mean? |
-| [SCIENTIFIC_MODEL.md](SCIENTIFIC_MODEL.md) | What scientific concepts must DockingMT represent? |
+| [SCIENTIFIC_MODEL.md](SCIENTIFIC_MODEL.md) | What scientific concepts must BindingMT represent? |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Where is the current code, and which architecture diagrams remain conceptual? |
 | [ENGINES.md](ENGINES.md) | How do Vina and future backends/providers fit? |
 | [MVP.md](MVP.md) | What workflows define the Core and Extended MVPs? |
 | [VALIDATION_STRATEGY.md](VALIDATION_STRATEGY.md) | How do we distinguish software correctness from scientific validity? |
-| [MOLSYSSUITE_INTEGRATION.md](MOLSYSSUITE_INTEGRATION.md) | How does DockingMT interact scientifically with sibling components? |
+| [MOLSYSSUITE_INTEGRATION.md](MOLSYSSUITE_INTEGRATION.md) | How does BindingMT interact scientifically with sibling components? |
 | [MOLSYSVIEWER_INTEGRATION.md](MOLSYSVIEWER_INTEGRATION.md) | What does the existing addon do, and what remains unaccepted in real visual use? |
 | [IMPLEMENTATION_STRATEGY.md](IMPLEMENTATION_STRATEGY.md) | How should a contributor advance accepted workflows without repeating bootstrap or overengineering? |
 | [SCIENTIFIC_HORIZONS.md](SCIENTIFIC_HORIZONS.md) | Which future scientific directions must remain possible? |

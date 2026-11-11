@@ -5,8 +5,8 @@ import pytest
 import pyunitwizard as puw
 from argdigest import UnknownArgumentError
 
-from dockingmt import DockingPose, DockingResult
-from dockingmt._private.smonitor import ArgumentError
+from bindingmt import DockingPose, DockingResult
+from bindingmt._private.smonitor import ArgumentError
 
 
 @pytest.fixture
@@ -20,7 +20,7 @@ def coordinates():
 def test_pose_rejects_invalid_named_score(value, coordinates):
     with pytest.raises(ArgumentError) as caught:
         DockingPose(coordinates, scores={'vina': value})
-    assert caught.value.code == 'DMT-E002'
+    assert caught.value.code == 'BMT-E002'
     assert caught.value.extra['arg_name'] == 'scores'
     assert caught.value.extra['score_name'] == 'vina'
 

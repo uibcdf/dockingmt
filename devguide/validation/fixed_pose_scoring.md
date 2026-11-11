@@ -1,6 +1,6 @@
 # Public fixed-pose scoring
 
-`dockingmt.score(problem, protocol=None, backend=None, pose=None,
+`bindingmt.score(problem, protocol=None, backend=None, pose=None,
 score_name='score')` evaluates one already prepared ligand conformation against
 a rigid receptor and returns a `DockingPose`. Vina/Vinardo call native
 `Vina.score()`: no search, randomization or local optimization occurs.
@@ -104,14 +104,14 @@ provenance. This is not a general stage-composition or score-comparison policy.
 
 ## Run the notebook with explicit inputs
 
-Choose a Python environment containing DockingMT and a compatible Vina engine,
+Choose a Python environment containing BindingMT and a compatible Vina engine,
 and select that environment's notebook kernel. No checkout location, Conda
 environment name or Python minor is hardcoded in the cells. Before opening the
 notebook, supply the saved input record and its independently expected file digest:
 
 ```bash
-export DOCKINGMT_RESULT_PATH="prepared_input_record.json"
-export DOCKINGMT_RESULT_SHA256="DIGEST_FROM_YOUR_TRUSTED_SOURCE"
+export BINDINGMT_RESULT_PATH="prepared_input_record.json"
+export BINDINGMT_RESULT_SHA256="DIGEST_FROM_YOUR_TRUSTED_SOURCE"
 jupyter lab
 ```
 
@@ -147,7 +147,7 @@ this private receiving does not establish a new public engine/platform matrix.
 ## Original developer reproduction and limits
 
 Original 2026-10-03 developer profile: run `python -m pytest tests/test_scoring.py --receptor=llm` in
-`molsyssuite@uibcdf_3.14`, with DockingMT installed editable. Select the explicit
+`molsyssuite@uibcdf_3.14`, with BindingMT installed editable. Select the explicit
 Python 3.14 Conda kernel for notebook execution. Notebook/test source qualification
 uses the existing unchanged CI pins: MolSysMT
 `c19a47ada0c2279029abfa296cf915560610ad9a` and MolSysViewer

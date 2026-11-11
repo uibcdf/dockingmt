@@ -1,6 +1,6 @@
 ---
 summary: Public input normalization masks native memory failures as invalid arguments.
-issue: uibcdf/dockingmt#92
+issue: uibcdf/bindingmt#92
 status: resolved
 opened: 2026-11-08
 closed: 2026-11-08
@@ -29,7 +29,7 @@ Use synthetic provider/quantity failures through public constructor, redocking,
 box, protocol, evaluation, interaction-binding, backend-unit and score APIs.
 Never exhaust memory or execute molecular operations to reproduce the boundary.
 Preserve the exact MemoryError object, unchanged process-control exceptions,
-ordinary field-local DMT-E002 diagnostics and provider cause, and valid input
+ordinary field-local BMT-E002 diagnostics and provider cause, and valid input
 selection/state/source behavior. Add only explicit resource passthrough before
 ordinary exception translation; no new exception framework or retry policy.
 
@@ -77,7 +77,7 @@ cases: three molecular entry routes at nine provider boundaries, four exception
 families, three valid selection/state/source controls, and seven quantity-boundary
 variants across those same exception families. A MemoryError/KeyboardInterrupt/
 SystemExit object must propagate unchanged, and a ValueError must retain the
-existing field-local DMT-E002 and exact cause. Call traces stop at the injected
+existing field-local BMT-E002 and exact cause. Call traces stop at the injected
 boundary. No test exhausts RAM, invokes a molecular provider operation or executes
 an optional engine. These are software controls, not scientific populations.
 

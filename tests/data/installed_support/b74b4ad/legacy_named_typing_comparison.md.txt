@@ -4,11 +4,11 @@ The [2026-10-10 compatibility implementation](required_named_typing.md) now
 requires named typing. This document and its producer retain the original
 pre-change comparison; replay requires its recorded consumer source.
 
-The 2026-10-10 comparison under [DockingMT #5](https://github.com/uibcdf/dockingmt/issues/5)
-and [#49](https://github.com/uibcdf/dockingmt/issues/49) measures the compatibility
+The 2026-10-10 comparison under [BindingMT #5](https://github.com/uibcdf/bindingmt/issues/5)
+and [#49](https://github.com/uibcdf/bindingmt/issues/49) measures the compatibility
 cost of retiring consumer typing. **Fourteen of 23 paired preparations change
 labels or retained H.** MolSysMT's explicit named scheme already supplies the
-classification; DockingMT needs no replacement molecular algorithm. Preparation
+classification; BindingMT needs no replacement molecular algorithm. Preparation
 defaults are unchanged in this evidence slice.
 
 ## Controlled method

@@ -1,7 +1,7 @@
 # Integrated 5X72 control evidence — 2026-11-05
 
-Owner: [DockingMT #70](https://github.com/uibcdf/dockingmt/issues/70), following
-the finite scientific questions in #17/#6/#33 and the DMT-044 evidence policy.
+Owner: [BindingMT #70](https://github.com/uibcdf/bindingmt/issues/70), following
+the finite scientific questions in #17/#6/#33 and the BMT-044 evidence policy.
 This retrospective synthesis incorporates seven already executed stages. It
 adds no search, score, molecular measurement, optimization or independent case.
 The original producers, archives and receiving corrections remain authoritative.
@@ -146,7 +146,7 @@ and deferrals. No production preparation/ranking default changes follow.
 ## Reproduction and historical proof scope
 
 ```bash
-python -m dmt_test_support.synthesize_5x72_controls --check
+python -m bmt_test_support.synthesize_5x72_controls --check
 ```
 
 The standard-library helper authenticates all seven compressed archives before
@@ -175,7 +175,7 @@ invalid recovery values, dependent reuse, negative outcomes, historical false
 proof flags, stale outputs and fresh scientific-import blocking. Four shared
 integrity checks pass and managed resources/imports retire. The private staging
 area is workspace-owned; this verifies import/source isolation, not a filesystem
-location outside the checkout or an installed DockingMT artifact.
+location outside the checkout or an installed BindingMT artifact.
 Another 24 reporting/distribution/support controls pass: 45 affected tests in
 total with published Pytest Receptor 1.2.2 on Python 3.14. Ruff, report indexes,
 all three earlier saved-evidence reproducers and shared publication/resource

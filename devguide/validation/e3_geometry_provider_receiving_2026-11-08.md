@@ -1,6 +1,6 @@
 # E3 bounded geometry-provider receiving — 2026-11-08
 
-Owner: [DockingMT #79](../archive/qualify_pose_comparison_and_clustering.md).
+Owner: [BindingMT #79](../archive/qualify_pose_comparison_and_clustering.md).
 Registered before execution; outcome **normal PASS; pm/fs FAIL at inclusive
 cutoff equality**. Whole E3 remains unaccepted. Original prescriptions are
 retained in the frozen attempt records; the outcome below is an append-only
@@ -19,7 +19,7 @@ correspondence, one conversion and one structure-append calls, including 22
 expected typed refusals, return detachment and final live source/configuration/
 caller/custody checks. Full/cached/restricted/anchored chemical scopes remain
 distinct. These are analytic provider controls, not a saved-pose or experimental-
-reference workflow. No new DockingMT public API or molecular algorithm is added.
+reference workflow. No new BindingMT public API or molecular algorithm is added.
 
 The identical pm/fs selection passes nine pairwise, three correspondence, one
 conversion and one append calls, then returns three singleton clusters for both

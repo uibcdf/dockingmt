@@ -24,8 +24,8 @@ labels, coordinates and a declared ROOT/BRANCH tree. This checkpoint qualifies
 that supported route independently of the molecular transform still requested in
 [MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223). It does not replace
 the production writers or add a consumer projection, molecular snapshot builder,
-tree remapper or fallback. [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49)
-remains partial; [#5](https://github.com/uibcdf/dockingmt/issues/5) retains charge
+tree remapper or fallback. [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49)
+remains partial; [#5](https://github.com/uibcdf/bindingmt/issues/5) retains charge
 policy and scientific preparation acceptance.
 
 The complete migration needs a provider-produced molecular projection whose
@@ -58,12 +58,12 @@ contains five controls against the actual public writer and Vina 1.2.7:
 Public `msm.set(..., partial_charge=...)` correctly clears the native charge
 calculation assignment. The resulting payload must not claim a new Gasteiger
 calculation. Production adoption must retain the original calculation report
-and describe its derived transform separately, as existing DockingMT remarks
+and describe its derived transform separately, as existing BindingMT remarks
 already do. A serializer's projected typing report alone does not describe
 hydrogen charge aggregation.
 
 The RDKit source has no groups. Native output preserves blank group/chain fields
-and still parses in Vina. DockingMT's prepared object declares `LIG/1`; adopting
+and still parses in Vina. BindingMT's prepared object declares `LIG/1`; adopting
 the writer must explicitly carry those presentation fields or document a
 compatibility change. This is a consumer representation decision, not a native
 writer defect. Whitespace, charge field padding, END and native remarks also
@@ -100,18 +100,18 @@ This is serialization/adoption evidence, not chemical validity, new scores,
 search success, public dependency closure or installed-artifact admission.
 Source-free reconstruction, arbitrary permutation and mechanical persistence
 remain owned by MolSysMT #226/#369/#256. The existing retained-graph exception
-remains #348. No sibling implementation is added in DockingMT.
+remains #348. No sibling implementation is added in BindingMT.
 
 ## Provider handoff and next adoption
 
 The executed evidence is handed to
 [MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223) and
-[#214](https://github.com/uibcdf/molsysmt/issues/214), linked from DockingMT #49.
+[#214](https://github.com/uibcdf/molsysmt/issues/214), linked from BindingMT #49.
 The provider owns implementation and priority. Request the existing proposal's
 native projected system plus retained/omitted/merged source maps and recipients,
 pre-rounding conserved charges, valid named type binding, original versus derived
 attribution, unchanged source and an explicit output axis. Keep declared docking
-cuts, ROOT orientation and presentation compatibility in DockingMT.
+cuts, ROOT orientation and presentation compatibility in BindingMT.
 
 After that operation is delivered, qualify its actual result through the native
 serializer for rigid receptors, rigid and nested flexible ligands, four-character
@@ -119,4 +119,4 @@ names, missing/nonfinite fields, original maps, charge rounding, non-default
 units and source-free legacy compatibility. Remove the corresponding consumer
 projection and writers only for covered routes. Original archived bytes and
 their producer identities remain fixed. Existing compatibility limits are owned
-by #49/#33, reviewed by DockingMT contributors by 2027-01-06.
+by #49/#33, reviewed by BindingMT contributors by 2027-01-06.

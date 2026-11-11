@@ -7,7 +7,7 @@
    "source": [
     "# 1IEP order sensitivity at a fixed ROOT origin\n",
     "\n",
-    "Owned by DockingMT #17/#6. Six new searches keep the first ROOT ATOM line and origin fixed while reversing the other seven. Eighteen historical observations are authenticated by reference, with their original producers. All outcomes are retained. This notebook reads saved data; it does not rerun searches or select a ROOT policy."
+    "Owned by BindingMT #17/#6. Six new searches keep the first ROOT ATOM line and origin fixed while reversing the other seven. Eighteen historical observations are authenticated by reference, with their original producers. All outcomes are retained. This notebook reads saved data; it does not rerun searches or select a ROOT policy."
    ]
   },
   {
@@ -41,7 +41,7 @@
     "import gzip, hashlib, json, sys\n",
     "import numpy as np\n",
     "import pyunitwizard as puw\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "root = next(p for p in [Path.cwd(), *Path.cwd().parents] if (p / 'pyproject.toml').exists())\n",
     "path = root / 'devguide/validation/data/1iep_root_order/audit_2026-10-07.json.gz'\n",
     "raw = gzip.decompress(path.read_bytes())\n",
@@ -59,7 +59,7 @@
     "print('Fixed ROOT source atom/origin:', record['control']['first_root_source_atom_index'], record['control']['rigid_body_origin_angstrom'])\n",
     "scored = record['fixed_conformation_score']\n",
     "assert scored['scores'] == baseline['fixed_conformation_scores']['native']['scores']\n",
-    "assert dmt.verify_captured_inputs(scored['metadata']['scoring_history'][0]['backend_artifacts'])\n",
+    "assert bmt.verify_captured_inputs(scored['metadata']['scoring_history'][0]['backend_artifacts'])\n",
     "print('Fixed-conformation score components:', scored['scores'])"
    ]
   },
@@ -147,12 +147,12 @@
    ],
    "source": [
     "run = record['new_runs'][0]\n",
-    "restored = dmt.DockingResult.from_dict(run['result'])\n",
-    "assert dmt.verify_captured_inputs(restored.provenance['backend_artifacts'])\n",
+    "restored = bmt.DockingResult.from_dict(run['result'])\n",
+    "assert bmt.verify_captured_inputs(restored.provenance['backend_artifacts'])\n",
     "xyz = puw.get_value(puw.quantity(record['audit']['source_snapshot']['structures']['coordinates'], 'nm'), to_unit='angstrom')[0]\n",
     "reference = puw.quantity(xyz[run['pdbqt_to_source_atom_indices']], 'angstrom')\n",
     "with puw.context(standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'radians']):\n",
-    "    report = dmt.evaluate_redocking(restored, reference, rmsd_cutoff=puw.quantity(250, 'pm'))\n",
+    "    report = bmt.evaluate_redocking(restored, reference, rmsd_cutoff=puw.quantity(250, 'pm'))\n",
     "assert report['criterion'] == run['evaluation']['criterion']\n",
     "np.testing.assert_allclose([row['rmsd'] for row in report['poses']], [row['rmsd'] for row in run['evaluation']['poses']], rtol=0, atol=1e-12)\n",
     "print('Saved 40-atom evaluation agrees under pm/fs; no searches rerun.')"
@@ -163,7 +163,7 @@
   "kernelspec": {
    "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
    "language": "python",
-   "name": "dockingmt-molsyssuite-314"
+   "name": "bindingmt-molsyssuite-314"
   },
   "language_info": {
    "codemirror_mode": {

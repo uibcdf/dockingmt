@@ -1,25 +1,33 @@
-# DockingMT
+# BindingMT
 
-*The molecular docking layer of MolSysSuite*
+*Molecular binding modelling and characterization for MolSysSuite*
 
 [![MolSysSuite: Scientific Component](https://img.shields.io/badge/MolSysSuite-scientific%20component-0b7285?labelColor=24292f)](https://github.com/uibcdf/molsyssuite/blob/main/devguide/repository_badges.md#scientific-component)
-[![MolSysSuite policy](https://github.com/uibcdf/dockingmt/actions/workflows/molsyssuite-policy.yml/badge.svg?branch=main)](https://github.com/uibcdf/dockingmt/actions/workflows/molsyssuite-policy.yml)
+[![MolSysSuite policy](https://github.com/uibcdf/bindingmt/actions/workflows/molsyssuite-policy.yml/badge.svg?branch=main)](https://github.com/uibcdf/bindingmt/actions/workflows/molsyssuite-policy.yml)
 [![Python 3.11 | 3.12 | 3.13](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.13-3776AB?logo=python&logoColor=white)](https://github.com/uibcdf/molsyssuite/blob/main/devguide/python_policy.md)
-[![License](https://img.shields.io/github/license/uibcdf/dockingmt)](https://github.com/uibcdf/dockingmt/blob/main/LICENSE)
-[![Codecov](https://codecov.io/gh/uibcdf/dockingmt/branch/main/graph/badge.svg)](https://app.codecov.io/gh/uibcdf/dockingmt)
+[![License](https://img.shields.io/github/license/uibcdf/bindingmt)](https://github.com/uibcdf/bindingmt/blob/main/LICENSE)
+[![Codecov](https://codecov.io/gh/uibcdf/bindingmt/branch/main/graph/badge.svg)](https://app.codecov.io/gh/uibcdf/bindingmt)
 
-DockingMT is a native scientific component of **MolSysSuite**, designed to provide a
-reproducible, inspectable, and backend-independent framework for molecular docking.
+BindingMT is the molecular binding modelling and characterization component of
+**MolSysSuite**, with a single canonical repository, distribution and import identity.
+Its accepted domain includes docking, fixed-identity complex prediction,
+refinement, binding free-energy calculation and prediction, and interface studies.
+[Vision](devguide/VISION.md) and [scientific scope](devguide/SCIENTIFIC_SCOPE.md)
+define these operations, ownership boundaries and implementation states.
 
-Its long-term direction evolves *from box-based docking to molecular-landscape-aware docking*,
-integrating conformational, topographic, flexibility, and pharmacophoric landscapes
-provided by MolSysMT, TopoMT, ElastNetMT, and PharmacophoreMT.
+The received starting profile remains rigid-protein/small-molecule docking with
+Vina. Complex prediction, general refinement, free-energy methods and broader
+interface characterization are future capabilities; renaming does not qualify
+providers or turn scores/confidence into binding free energies.
 
-AutoDock Vina is the initial reference engine for canonical protein–small-molecule docking
-and redocking validation.
+Use `import bindingmt as bmt`. The distribution, viewer addon and development
+interfaces use the same component identity. See the
+[identity/scope decision](devguide/pending_proposals/rename_bindingmt.md).
 
-Our current public package route is the `uibcdf` Conda channel. Development
-uses the local source checkouts; the qualified installation scope is described below.
+Development uses the editable source checkout. A future public BindingMT package
+uses the `uibcdf` Conda route after its own qualification/publication; this rename
+publishes no package or release. Historical BindingMT 0.1.0 artifacts, guides and
+scientific producers retain their names, bytes and original evidence scope.
 
 ## Start here
 
@@ -82,8 +90,8 @@ explains the current repository presentation and when to reconsider it.
 
 ## Software qualification
 
-Coverage reports measure the Python packages `dockingmt` and
-`molsysviewer_dockingmt` through the existing unfiltered Linux/Python 3.14 CI suite,
+Coverage reports measure the Python packages `bindingmt` and
+`molsysviewer_bindingmt` through the existing unfiltered Linux/Python 3.14 CI suite,
 including branches. The separate publisher runs automatically after ordinary
 trusted-main CI and can retain/publish the measured XML when tests fail; PRs do
 not request publication credentials. The badge reflects the last report accepted
@@ -92,7 +100,7 @@ native internals, browser/JavaScript runtime and separate validation campaigns a
 outside this percentage; it is not a claim of scientific correctness or another
 platform's qualification. The separate full-matrix workflow does not publish this
 report. Original source/artifact/CI/service evidence is recorded under
-[uibcdf/dockingmt#22](https://github.com/uibcdf/dockingmt/issues/22).
+[uibcdf/bindingmt#22](https://github.com/uibcdf/bindingmt/issues/22).
 
 The [current private installed record-API checkpoint](devguide/validation/record_wheel_editable_2026-11-09.md)
 receives the public exception namespace and corrected offline audits from one
@@ -116,7 +124,7 @@ come from the same complex:
 ```python
 import molsysmt as msm
 import pyunitwizard as puw
-from dockingmt import BoxRegion, DockingProblem
+from bindingmt import BoxRegion, DockingProblem
 
 complex_path = msm.systems['T4 lysozyme L99A']['181l.pdb']
 domain = BoxRegion.from_selection(
@@ -167,7 +175,7 @@ adapter prepares selected MolSys inputs when `dock(problem)` is called.
 Preparation requires a valid named MolSysMT AutoDock4 assignment. Assign types
 explicitly with `msm.build.assign_autodock_atom_types(...)` before automatic
 preparation, or pass `typing_options` to `prepare_ligand`/`prepare_receptor`.
-DockingMT selects no typing model and infers no types from names or residues.
+BindingMT selects no typing model and infers no types from names or residues.
 The requested provider method requires its declared chemistry and indexed H;
 an incomplete PDB or bare `atom_ff_type` column does not satisfy that contract.
 Preparation also requires complete finite partial charges. Supply them before
@@ -193,7 +201,7 @@ provided PDBQT inputs are accepted with an `unassessed` chemistry assessment.
 Inspect a preparation before choosing an execution policy:
 
 ```python
-from dockingmt import assess_preparation, prepare_ligand
+from bindingmt import assess_preparation, prepare_ligand
 
 prepared = prepare_ligand(
     ligand_with_declared_chemistry_indexed_hydrogens_and_charges,
@@ -214,14 +222,14 @@ for each input in result provenance. See the
 Named charges are assigned explicitly with MolSysMT before preparation, for
 example `msm.build.assign_partial_charges(ligand, method='gasteiger_marsili')`.
 Preparation retains the original model and software provenance. Public
-`dockingmt.audit_preparation_charges(prepared)` reports full-precision conservation,
+`bindingmt.audit_preparation_charges(prepared)` reports full-precision conservation,
 hydrogen charge transfers and PDBQT rounding in elementary charge. See the
 [charge contract and executed notebook](devguide/validation/named_partial_charges.md).
 These numeric checks do not validate the charge model or chemical typing.
 See the [required-charge contract](devguide/validation/required_partial_charges.md)
 for explicit assignment, supplied zeros and failure behavior.
 
-Complete charges are a DockingMT molecular-preparation representation requirement.
+Complete charges are a BindingMT molecular-preparation representation requirement.
 The Vina scoring function ignores supplied partial-charge values; its documentation
 also states that charge assignment is not needed for Vina/Vinardo. See the
 [official FAQ](https://autodock-vina.readthedocs.io/en/stable/faq.html) and
@@ -252,7 +260,7 @@ Raw PDBQT inputs without a molecular source map can still produce scores and
 coordinates, but cannot be reconstructed as molecular poses or compared by
 molecular RMSD. Explicit coordinate-array RMSD is positional. Other atom losses
 require a verified map. Scientific preparation/model qualification remains scoped
-under [issue #33](https://github.com/uibcdf/dockingmt/issues/33); #5's original
+under [issue #33](https://github.com/uibcdf/bindingmt/issues/33); #5's original
 unsafe mechanisms are resolved.
 Automatically prepared ligands remain rigid by default (`TORSDOF 0`). Supplied
 prepared ligands or PDBQT retain their declared torsions. For a molecular ligand with an
@@ -260,7 +268,7 @@ explicit graph and bond orders, select active torsions by pairs of atom indices
 in the selected ligand before nonpolar hydrogen removal:
 
 ```python
-from dockingmt import VinaProtocol
+from bindingmt import VinaProtocol
 
 protocol = VinaProtocol(
     active_torsion_bonds=[(1, 2)],
@@ -292,16 +300,16 @@ nonempty request fails with a capability error before preparation or execution:
 the adapter cannot apply those scientific requirements.
 
 The same selection can be passed to `prepare_ligand(...)` when preparing a
-ligand explicitly. DockingMT checks that selected bonds are single, outside
+ligand explicitly. BindingMT checks that selected bonds are single, outside
 rings and amide C–N bonds, and have nonterminal heavy-atom sides; invalid or
 unavailable graph information fails clearly. MolSysMT supplies the public
-rotatable-bond classification and rigid-fragment partition; DockingMT records
+rotatable-bond classification and rigid-fragment partition; BindingMT records
 the caller's explicit docking cuts. Explicit torsions do not validate charge
 models or atom types.
 Result provenance records the hydrogen and torsion policies, preparation
 assessment, and SHA-256 digests of the PDBQT bytes submitted to Vina. Remaining
 preparation-decision provenance is tracked in
-[issue #4](https://github.com/uibcdf/dockingmt/issues/4).
+[issue #4](https://github.com/uibcdf/bindingmt/issues/4).
 Set `VinaProtocol(capture_backend_inputs=True)` to also retain the exact receptor
 and ligand PDBQT bytes as base64 in the serialized result's `backend_artifacts`.
 This increases manifest size and supports independent inspection of the backend
@@ -337,30 +345,30 @@ results. Those commands require their historical source/environment: current
 raw-PDB preparation cannot recreate absent named assignments, and provisional
 opt-in does not bypass that refusal. Use the current installed walkthrough above
 for explicit preparation and saved-result inspection. The original unsafe
-placeholder mechanisms in [#5](https://github.com/uibcdf/dockingmt/issues/5) are
+placeholder mechanisms in [#5](https://github.com/uibcdf/bindingmt/issues/5) are
 resolved; scientific preparation/model qualification remains
-[#33](https://github.com/uibcdf/dockingmt/issues/33).
+[#33](https://github.com/uibcdf/bindingmt/issues/33).
 
 An additional [1IEP external PDBQT check](devguide/validation/1iep_external_pdbqt.md)
 uses the official AutoDock Vina prepared receptor and flexible ligand to audit
 the Vina adapter. It retains the submitted PDBQT bytes, verifies pose atom
 identity, and records the exact search box sent to Vina. Its external preparation
-does not validate DockingMT's molecular profile, tracked in
-[issue #33](https://github.com/uibcdf/dockingmt/issues/33).
+does not validate BindingMT's molecular profile, tracked in
+[issue #33](https://github.com/uibcdf/bindingmt/issues/33).
 The [1IEP native preparation audit](devguide/validation/1iep_preparation_audit.md)
 also verifies seven explicitly selected torsions and records the remaining
 charge and atom-type differences.
 
 ## Inspecting results
 
-`dockingmt.score(...)` evaluates one already prepared PDBQT conformation with
+`bindingmt.score(...)` evaluates one already prepared PDBQT conformation with
 Vina/Vinardo and returns a `DockingPose`, without pose search or optimization:
 
 ```python
-problem = dmt.DockingProblem('receptor.pdbqt', 'ligand_pose.pdbqt', box)
-pose = dmt.score(problem, dmt.VinaProtocol(cpu=1, seed=123), score_name='vina_fixed')
-rescored = dmt.score(
-    problem, dmt.VinaProtocol(cpu=1, seed=123, scoring='vinardo'),
+problem = bmt.DockingProblem('receptor.pdbqt', 'ligand_pose.pdbqt', box)
+pose = bmt.score(problem, bmt.VinaProtocol(cpu=1, seed=123), score_name='vina_fixed')
+rescored = bmt.score(
+    problem, bmt.VinaProtocol(cpu=1, seed=123, scoring='vinardo'),
     pose=pose, score_name='vinardo_fixed',
 )
 ```
@@ -378,7 +386,7 @@ nonfinite values are rejected before lossy conversion, including malformed saved
 values and invalid mutable snapshots. See the
 [coordinate-record contract](devguide/validation/pose_coordinate_contract.md).
 
-Pose scores require nonempty names and finite real values. DockingMT normalizes
+Pose scores require nonempty names and finite real values. BindingMT normalizes
 them to Python floats without inferring units. `result.rank_by('vina')` returns
 a new result with lower scores first; use `ascending=False` for higher scores
 first. Ties preserve input order, and provenance records the selected score and
@@ -415,7 +423,7 @@ qualification retain their separate evidence and public-delivery limits.
 
 For explicit preparation, the [3PTB guide](devguide/validation/installed_3ptb_preparation.md)
 and [notebook](devguide/validation/installed_3ptb_preparation.ipynb) use public
-MolSysMT/DockingMT APIs with caller-supplied source/declaration identities and
+MolSysMT/BindingMT APIs with caller-supplied source/declaration identities and
 scientific choices. Run All prepares one receptor and rigid ligand and admits
 two planned problems; it performs no engine, RMSD or viewer action. Both unit-policy
 kernel profiles pass. The proposed execution follow-up requires a separate
@@ -431,7 +439,7 @@ viewer action is included; recovery/affinity and public delivery remain separate
 The [saved-pose evaluation](devguide/validation/installed_3ptb_evaluation.md) and
 [notebook](devguide/validation/installed_3ptb_evaluation.ipynb) complete the explicit
 nine-observed-heavy-atom follow-up through public MolSysMT selection/geometry
-and DockingMT reports. Both unit-policy profiles pass while preserving the full
+and BindingMT reports. Both unit-policy profiles pass while preserving the full
 thirteen-atom original records. Its retrospective <=2 Å positional observation
 does not establish general model quality, affinity or public/visual acceptance.
 
@@ -442,7 +450,7 @@ does not establish general model quality, affinity or public/visual acceptance.
 * [`devguide/`](devguide/) contains the frozen architectural and scientific seed (`devguide v0.1`).
 
 For an iterable of prepared `DockingProblem` inputs, use
-`dockingmt.dock_many(problems, protocol, on_error='record')`. It delivers one
+`bindingmt.dock_many(problems, protocol, on_error='record')`. It delivers one
 `DockingOutcome` at a time, retaining either a normalized result or a failure
 summary with the input position and declarations. The default error policy
 propagates failures. See the [incremental execution contract](devguide/validation/incremental_docking.md)
@@ -450,16 +458,16 @@ and [executed notebook](devguide/validation/incremental_docking.ipynb).
 
 ## Installation status
 
-DockingMT is currently developed and tested from source with its reviewed
+BindingMT is currently developed and tested from source with its reviewed
 scientific dependency versions. The first guarded Conda route is being prepared
-under [#47](https://github.com/uibcdf/dockingmt/issues/47); its configuration does
+under [#47](https://github.com/uibcdf/bindingmt/issues/47); its configuration does
 not establish a published package or clean public installation. See
 [development controls](devtools/README.md) for the managed source route.
 
 ## Development
 
 Routine development uses `molsyssuite@uibcdf_3.14` (Python 3.14); the required source range is Python 3.11 to 3.14.
-Qualification and public delivery remain tracked in [#30](https://github.com/uibcdf/dockingmt/issues/30);
+Qualification and public delivery remain tracked in [#30](https://github.com/uibcdf/bindingmt/issues/30);
 the badge retains the previously verified range until admission.
 
 ```bash
@@ -470,13 +478,13 @@ pytest --receptor=llm
 python devtools/devguide_index.py --check
 ```
 
-Saved records can be checked with `dockingmt.audit_result(record)`, which reports
+Saved records can be checked with `bindingmt.audit_result(record)`, which reports
 internal agreement, missing evidence and contradictions without running docking.
 See the [offline audit contract](devguide/validation/result_audit.md) and
 [executed notebook](devguide/validation/result_audit.ipynb).
 
 For a standalone scoring or rescoring pose, use
-`dockingmt.audit_pose(pose.to_dict())`. It checks current scores against the
+`bindingmt.audit_pose(pose.to_dict())`. It checks current scores against the
 retained evaluations, descriptors, execution settings and input evidence.
 See the [pose audit contract](devguide/validation/pose_audit.md) and
 [executed notebook](devguide/validation/pose_audit.ipynb) for its offline scope.
@@ -485,17 +493,17 @@ The experimental MolSysMT prepared-PDBQT input path and initial SDF acceptance
 are documented in [native format consumption](devguide/validation/native_molsysmt_formats.md)
 and its [executed 1IEP notebook](devguide/validation/native_molsysmt_formats.ipynb).
 
-`dockingmt.view(result, reference=reference)` displays a static reference or one
+`bindingmt.view(result, reference=reference)` displays a static reference or one
 reference frame per pose. Reusing a viewer replaces the displayed molecular
 scene, and loading failures propagate. See the [frame correspondence contract](devguide/validation/viewer_reference.md)
 and [executed notebook](devguide/validation/viewer_reference.ipynb).
 
-Use `dockingmt.evaluate_redocking(result, reference, rmsd_cutoff=cutoff)` for
+Use `bindingmt.evaluate_redocking(result, reference, rmsd_cutoff=cutoff)` for
 per-pose RMSD and first-N recovery with explicit units and retained comparison
 evidence. See the [evaluation contract](devguide/validation/redocking_evaluation.md)
 and [executed notebook](devguide/validation/redocking_evaluation.ipynb).
 
-Use `dockingmt.summarize_redocking(evaluations, failures=failures)` to summarize
+Use `bindingmt.summarize_redocking(evaluations, failures=failures)` to summarize
 compatible saved evaluations by caller case ID. It checks recorded policies,
 retains separate failures and reports recovery with explicit evaluated/submitted
 denominators. Its `any_returned` aggregate considers the complete returned set,

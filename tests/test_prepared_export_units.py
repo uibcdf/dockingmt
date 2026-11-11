@@ -7,13 +7,13 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_chemical_templates import snapshot
-from dmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
-from dmt_test_support.resource_fixtures import UnavailableResource
+import bindingmt as bmt
+from bmt_test_support.qualify_chemical_templates import snapshot
+from bmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
+from bmt_test_support.resource_fixtures import UnavailableResource
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 @pytest.mark.parametrize('preparation_unit', ['nm', 'angstrom', 'pm'])
 @pytest.mark.parametrize('export_unit', ['nm', 'angstrom', 'pm'])
 def test_readonly_export_and_one_ulp_edits_follow_actual_prepared_values(
@@ -48,7 +48,7 @@ def test_readonly_export_and_one_ulp_edits_follow_actual_prepared_values(
     assert snapshot(native) == original
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_native_coordinate_read_failure_keeps_original_exception(prepare, monkeypatch):
     source = msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(explicit_source('CO'), **CHARGE), **TYPING

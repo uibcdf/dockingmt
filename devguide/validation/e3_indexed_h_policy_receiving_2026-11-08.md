@@ -1,6 +1,6 @@
 # Receiving the explicit indexed-H policy in E3 — 2026-11-08
 
-Owner: [DockingMT #79](../archive/qualify_pose_comparison_and_clustering.md).
+Owner: [BindingMT #79](../archive/qualify_pose_comparison_and_clustering.md).
 Provider policy: [MolSysMT #645](https://github.com/uibcdf/molsysmt/issues/645).
 Registered before execution; current outcome: **normal FAIL at the historical
 PDBQT checksum gate; pm/fs unattempted**. The original prescription below and
@@ -21,7 +21,7 @@ The new export SHA-256 is
 `49f054d3fa258bcf965619d7edb4f154949512aa74a3d57a0876da19af8ee9e0`.
 It differs from the historical artifact in actual producer-version comments and
 three final written coordinate digits. Neither only-comment equality nor a
-causal explanation for rounding is claimed. [DockingMT #88](../archive/e3_source_replay_artifact_identity.md)
+causal explanation for rounding is claimed. [BindingMT #88](../archive/e3_source_replay_artifact_identity.md)
 owns the qualification-criterion correction. The [separate paired-control
 selection](e3_source_control_receiving_2026-11-08.md) preserves this entire FAIL
 and historical identity; it does not retry or relabel this campaign.
@@ -66,7 +66,7 @@ stored source/generated component text descriptors are already `string`.
 
 ## Actual source, data and finite budgets
 
-Use editable DockingMT `dfff57a34f0278fa6185e88df2098ba6d650e90c`, MolSysMT
+Use editable BindingMT `dfff57a34f0278fa6185e88df2098ba6d650e90c`, MolSysMT
 `2325038e8c68157f5c730693ffbb8535f0b45540`, rebuilt native SHA-256
 `5715bda28be19820e96c2b81e4734bf75e1a9f05dd660d9c7e2817bc6bcd79d3`.
 Capture complete current Python-source inventories, actual import/native origins,

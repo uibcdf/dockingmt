@@ -1,6 +1,6 @@
 # Named AutoDock type consumption
 
-DockingMT consumes valid native MolSysMT AutoDock4 assignments in ligand and
+BindingMT consumes valid native MolSysMT AutoDock4 assignments in ligand and
 receptor preparation. A caller can explicitly request assignment with
 `typing_options`, or supply a previously assigned native system. Chemical
 classification and graph/value binding remain public MolSysMT operations.
@@ -8,13 +8,13 @@ Since 2026-10-10, a valid named assignment or explicit `typing_options` is
 required. Untyped molecular inputs fail with an actionable error before PDBQT
 generation or Vina execution, including when provisional execution is allowed.
 No heuristic fallback or automatically chosen typing model remains.
-[DockingMT #43](https://github.com/uibcdf/dockingmt/issues/43) owns this adoption;
+[BindingMT #43](https://github.com/uibcdf/bindingmt/issues/43) owns this adoption;
 [MolSysMT #222](https://github.com/uibcdf/molsysmt/issues/222) owns the provider.
 
 ```python
-import dockingmt as dmt
+import bindingmt as bmt
 
-prepared = dmt.prepare_ligand(
+prepared = bmt.prepare_ligand(
     ligand_with_declared_chemistry,
     selection='all',
     hydrogen_options={
@@ -25,7 +25,7 @@ prepared = dmt.prepare_ligand(
         'typing_scheme': 'autodock4', 'method': 'chemical_environment',
     },
 )
-assessment = dmt.assess_preparation(prepared)
+assessment = bmt.assess_preparation(prepared)
 ```
 
 These explicit choices describe a bounded software workflow, not a recommended
@@ -44,7 +44,7 @@ complete chemical graph and all required H as indexed atoms. A named method does
 not infer protonation or silently materialize virtual H. Its rule coverage is
 bounded; it is not universal donor/acceptor chemistry or preparation validation.
 
-Public selection/extraction checks native assignment binding. DockingMT rejects
+Public selection/extraction checks native assignment binding. BindingMT rejects
 stale or unsupported named reports. Valid projected parent labels are retained;
 an amide N selected from its parent is not reclassified as an isolated fragment.
 A bare `atom_ff_type` column identifies no named scheme and is not adopted as
@@ -77,7 +77,7 @@ has no original input atom and maps to `None`. For flexible ligands, ROOT/BRANCH
 order composes the prepared/source maps explicitly. Counts, names and PDBQT
 serials do not infer identity.
 
-Both writers include `REMARK DOCKINGMT_ATOM_TYPES` with original scheme, rule
+Both writers include `REMARK BINDINGMT_ATOM_TYPES` with original scheme, rule
 version/software, evaluated/written counts and H policy. Before writing, they
 check saved labels and correspondence. Changed prepared labels, malformed or
 nonfinite evidence and inconsistent maps fail. These guards detect accidental

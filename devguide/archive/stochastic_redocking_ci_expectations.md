@@ -1,6 +1,6 @@
 ---
 summary: Portable evaluation CI assumes recovery from a low-budget stochastic search.
-issue: uibcdf/dockingmt#46
+issue: uibcdf/bindingmt#46
 status: resolved
 opened: 2026-10-07
 closed: 2026-10-07
@@ -17,7 +17,7 @@ supersedes: []
 
 ## What
 
-Scheduled matrix [37491745012](https://github.com/uibcdf/dockingmt/actions/runs/37491745012)
+Scheduled matrix [37491745012](https://github.com/uibcdf/bindingmt/actions/runs/37491745012)
 at `d419feeb70a09e9f27035fc5b759f38e1793fbeb` fails on macOS arm64 Python 3.13
 and 3.14 at `tests/test_redocking_evaluation.py:295`. Each cell has 886 passing
 tests and one false assertion that the first live 1IEP pose is recovered.
@@ -63,9 +63,9 @@ Installed delivery and recurring recovery remain with #30 and #21.
 ## Corrected checkpoint — 2026-10-07
 
 At `8741fb2e104814e6f1012e0cb7073689e710f982`, the installed consumer passes all
-986 tests without skips, and [required CI](https://github.com/uibcdf/dockingmt/actions/runs/37581673369)
+986 tests without skips, and [required CI](https://github.com/uibcdf/bindingmt/actions/runs/37581673369)
 passes 986 tests on each supported Linux Python minor. The
-[manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344)
+[manual matrix](https://github.com/uibcdf/bindingmt/actions/runs/37581760344)
 also passes all four Linux cells; both macOS jobs remain pending without a
 runner assigned at inspection. This report stays partial until those corrected
 platform controls actually execute and pass. Their state is not interpreted as
@@ -74,7 +74,7 @@ the [checkpoint](../validation/installed_integration_checkpoint_2026-10-07.md).
 
 ## Resolution — 2026-10-07, 06:57 UTC
 
-The same [manual matrix](https://github.com/uibcdf/dockingmt/actions/runs/37581760344)
+The same [manual matrix](https://github.com/uibcdf/bindingmt/actions/runs/37581760344)
 now completes successfully on producer
 `8741fb2e104814e6f1012e0cb7073689e710f982`. Both macOS arm64 cells actually run
 all 986 tests without skips: Python 3.13 in 197.41 s and Python 3.14 in 188.14 s,

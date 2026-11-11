@@ -1,7 +1,7 @@
 # Declaration ownership and file-I/O receiving
 
-Owners: [#97](https://github.com/uibcdf/dockingmt/issues/97),
-[#98](https://github.com/uibcdf/dockingmt/issues/98), broader #19/#28/#73.
+Owners: [#97](https://github.com/uibcdf/bindingmt/issues/97),
+[#98](https://github.com/uibcdf/bindingmt/issues/98), broader #19/#28/#73.
 Prospective registration 2026-11-09; baseline
 `9b077fabf41e19ffdfb945bc7aa3fb6c53265e0f`.
 

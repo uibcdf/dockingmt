@@ -1,6 +1,6 @@
 # Complete installed pose audit on the updated development cohort — 2026-11-10
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), with
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), with
 #30/#73 qualification and #50 custody. Status: both complete profiles and
 independent stored receiving pass; full/public/platform acceptance stays separate.
 Starting documentation checkpoint: 03ed7676. Unchanged actual consumer producer

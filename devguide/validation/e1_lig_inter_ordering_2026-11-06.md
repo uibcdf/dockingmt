@@ -1,6 +1,6 @@
 # E1 received-case interaction-component ordering — 2026-11-06
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
 Status at prescription: **prospective**. The
 [notebook](e1_lig_inter_ordering.ipynb) receives one finite study policy over
 the [existing native observations](e1_native_rescoring_2026-11-06.md).
@@ -57,7 +57,7 @@ Consume the received full18, prepared13 and mapped-read13 correspondence
 reports: complete axes and supplied identity candidates, one admitted candidate,
 complete supplied-map search, declared-graph profile/rule, state index 0 and
 their original producer digests. A null provider chemical-state label is valid
-here; it is distinct from DockingMT's declared partner-state label. Compare
+here; it is distinct from BindingMT's declared partner-state label. Compare
 digests only within their own contracts. Do not equate correspondence-graph
 digests with writer/mechanics chemical digests, recompute molecular identity,
 decode a molecular model locally or run another matcher.
@@ -72,9 +72,9 @@ do not relabel it as a new thirteen-atom typing calculation. These are checks
 of received mechanical evidence, not MM restoration or a fresh chemical audit.
 
 The native writer map binds `native.pdbqt`; actual scoring captured
-`dockingmt.pdbqt`. Keep their different hashes and use the already executed
+`bindingmt.pdbqt`. Keep their different hashes and use the already executed
 field/tree receiving plus the retained associations to join them. Never attach
-the native map's payload hash to the remark-bearing DockingMT text. Native tree
+the native map's payload hash to the remark-bearing BindingMT text. Native tree
 branch `(6,0)` and parsed written branch `(0,7)` belong to different axes.
 
 Require exact received method/version/component/kind/unit, both state labels,

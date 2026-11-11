@@ -1,6 +1,6 @@
 ---
 summary: Adopt distribution controls and the agreed first noarch Conda route.
-issue: uibcdf/dockingmt#47
+issue: uibcdf/bindingmt#47
 status: partial
 opened: 2026-10-07
 closed:
@@ -375,7 +375,7 @@ qualified wheel is not rewritten or rebuilt. This proposal stays partial.
 
 The first #60 implementation head `1c96052` omitted `_presentation.py` from
 `devtools/conda-build/resources.toml`. Its
-[distribution job](https://github.com/uibcdf/dockingmt/actions/runs/41689015547/job/126102325478)
+[distribution job](https://github.com/uibcdf/bindingmt/actions/runs/41689015547/job/126102325478)
 passes 23 controls and fails the complete source/resource inventory assertion.
 The previous 104-case source selection did not include this separate gate.
 
@@ -437,8 +437,8 @@ at delivery; configuring a gate is not executing it.
 
 Remaining: actual source-free production/development closure, successful exact
 candidate science/full compatibility, real plan/access, staged archive and all
-installed/public evidence. Python admission stays uibcdf/dockingmt#30; existing
-scientific native format integration stays uibcdf/dockingmt#33. No build, install
+installed/public evidence. Python admission stays uibcdf/bindingmt#30; existing
+scientific native format integration stays uibcdf/bindingmt#33. No build, install
 of science, environment update, tag, upload, promotion or installed dispatch is
 performed by this preparation. Public availability/access remains unknown.
 

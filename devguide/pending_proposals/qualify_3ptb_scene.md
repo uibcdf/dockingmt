@@ -1,6 +1,6 @@
 ---
 summary: Qualify the saved 3PTB human scene through MolSysViewer.
-issue: uibcdf/dockingmt#52
+issue: uibcdf/bindingmt#52
 status: partial
 opened: 2026-10-23
 closed:

@@ -1,6 +1,6 @@
 # Current 0.1.0 origin receiving and provider review — 2026-11-10
 
-Owner: [DockingMT #74](https://github.com/uibcdf/dockingmt/issues/74), with #73
+Owner: [BindingMT #74](https://github.com/uibcdf/bindingmt/issues/74), with #73
 milestone scope and #30/#47 qualification. Status: **partial; tag waits for
 provider review and the replacement candidate's complete receiving**.
 The [accepted dossier](../releases/0.1.0_current.md) and
@@ -17,7 +17,7 @@ eight applicable controls and retires; cloud main matches independently.
 All 81 effective source files, 66 original non-generated runtime files and
 three preparation archive populations retain their declared identities.
 
-[Run 42960218358](https://github.com/uibcdf/dockingmt/actions/runs/42960218358),
+[Run 42960218358](https://github.com/uibcdf/bindingmt/actions/runs/42960218358),
 attempt 1, uses that exact head. Build, policy and quality/DOM pass. Independent
 private reading authenticates build artifact **13828464142**, its original ZIP
 SHA-256 `bfe63329c2976c162093ff23a27f53b174152c69c1847b15276ecc5be410c737`,
@@ -127,7 +127,7 @@ No local test/controller or owned remote run remains active at this checkpoint.
 
 Owner reviews/integrates PyUnitWizard #147 and closes/archives #146 through its
 own protocol. Then receive the **actual merged provider commit**, update the
-exact source profile/context/recipe, explicitly freeze a replacement DockingMT
+exact source profile/context/recipe, explicitly freeze a replacement BindingMT
 candidate and run its original both-policy/full-installed Python 3.11–3.14
 checkpoint. New source/native/closure inputs keep their own identities; no old
 candidate PASS or hypothetical merge is substituted. Only complete acceptance
@@ -159,7 +159,7 @@ artifact identities and complete the original four-minor gate before tagging.
 
 Candidate **7b1139178ebad827e7b433cadbb34fc0f5467dad**, tree
 `aec3070f8484d8b7db1b3dfe43293bd1b1019eea`, executes
-[run 42971262503, attempt 1](https://github.com/uibcdf/dockingmt/actions/runs/42971262503).
+[run 42971262503, attempt 1](https://github.com/uibcdf/bindingmt/actions/runs/42971262503).
 Build, policy and quality/frontend controls pass. Fresh ordinary-installed
 Python 3.11 passes both original ten-case H5MSM policies with native SHA-256
 `699a622b4b54494843b11437efa6f6ff6e9c733704afa0e39e2fe9c2f534c3be`.
@@ -212,7 +212,7 @@ export validation follows before the replacement remote checkpoint.
 Explicit source **1030a29025914e01dff09e5fc606ec73b90f4cd9**, tree
 `5f0c98567ae06263c1a43b9a24c63f7c81675539`, passes all nine applicable checks
 on a fresh committed export, which is retired. The deliberate
-[run 42976065511, attempt 1](https://github.com/uibcdf/dockingmt/actions/runs/42976065511)
+[run 42976065511, attempt 1](https://github.com/uibcdf/bindingmt/actions/runs/42976065511)
 passes build (130375337060), quality/resources/frontend (130375477732) and policy
 (130375477996). The four installed cells remain pending; Python 3.11
 (130375676982) has passed both storage policies and is executing the original
@@ -220,7 +220,7 @@ complete selection. No terminal installed acceptance is claimed yet.
 
 Artifact 13835014036 is 156,717 bytes with API-verified ZIP SHA-256
 `a8bb1b352c39156a8c661790985bfe8662d049061ef2a55169c1248117580028`.
-Its single `dockingmt-0.1.0-py3-none-any.whl` has SHA-256
+Its single `bindingmt-0.1.0-py3-none-any.whl` has SHA-256
 `3b70094ee1d9103ceed19ee64214c0025662781acf8eb28eaeb4733f5c5a53ca`.
 Independent stored-byte receiving uses the existing component wheel guard,
 checks the actual candidate contract and all 67 runtime paths, metadata,
@@ -317,7 +317,7 @@ execution remain required before the fourth-cell/tag decision.
 
 The fresh committed export of recovery implementation
 **286f811cf4ee7bc131f3b661bc8eab949de028fd** passes all nine applicable checks
-and is retired. Exactly one [finite recovery run 43074858531](https://github.com/uibcdf/dockingmt/actions/runs/43074858531)
+and is retired. Exactly one [finite recovery run 43074858531](https://github.com/uibcdf/bindingmt/actions/runs/43074858531)
 is dispatched on that actual head; candidate and producer remain original.
 Terminal acceptance is pending. The receptor diagnostic is reported in
 [GH Run Receptor #83](https://github.com/uibcdf/gh-run-receptor/issues/83).
@@ -365,7 +365,7 @@ records the required source-only event and separately owned follow-up scopes.
 
 No automatic push workflow is observed for the tag's [skip ci] producer message;
 that absence is not a pass. Only the lightweight tag-specific conformance
-[43088048207](https://github.com/uibcdf/dockingmt/actions/runs/43088048207) is
+[43088048207](https://github.com/uibcdf/bindingmt/actions/runs/43088048207) is
 explicitly dispatched on 0.1.0. Its result is pending; earlier candidate source
 policy remains original evidence and installed/scientific matrices are not repeated.
 #74 retains final conformance receipt/report archival; broader #73 remains active.

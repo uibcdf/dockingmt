@@ -8,9 +8,9 @@ import pytest
 import pyunitwizard as puw
 from molsysmt._private.smonitor import StructuralInconsistencyError
 
-import dockingmt as dmt
-from dmt_test_support.qualify_named_types import declared_source
-from dockingmt.preparation._temporary_torsions import build_torsion_tree
+import bindingmt as bmt
+from bindingmt.preparation._temporary_torsions import build_torsion_tree
+from bmt_test_support.qualify_named_types import declared_source
 
 
 def _record(source):
@@ -109,12 +109,12 @@ def test_problem_retains_assigned_state_and_nonconsecutive_axes_after_transport(
             msm.convert(source, to_form=path)
             restored = msm.convert(path, to_form='molsysmt.MolSys')
         assert _record(restored) == before
-        problem = dmt.DockingProblem(
+        problem = bmt.DockingProblem(
             receptor=restored,
             partner=restored,
             receptor_selection=[0, 2, 5],
             partner_selection=[1, 3, 4],
-            search_domain=dmt.BoxRegion(
+            search_domain=bmt.BoxRegion(
                 center=puw.quantity([0, 0, 0], 'angstrom'),
                 size=puw.quantity([20, 20, 20], 'angstrom'),
             ),
@@ -136,7 +136,7 @@ def test_problem_retains_assigned_state_and_nonconsecutive_axes_after_transport(
             ],
         )
         # Mutating a provider copy must not edit either the original or the
-        # already extracted DockingMT input. Chemistry remains provider-owned.
+        # already extracted BindingMT input. Chemistry remains provider-owned.
         selected_before = _record(selected)
         restored.chemical_states.add_bonds([[2, 3]], chemical_state=assigned)
         assert _record(source) == before

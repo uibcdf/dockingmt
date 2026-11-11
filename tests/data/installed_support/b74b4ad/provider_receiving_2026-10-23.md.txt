@@ -1,9 +1,9 @@
 # Native ownership and template-stereo receiving — 2026-10-23
 
-Owners: [DockingMT #51](https://github.com/uibcdf/dockingmt/issues/51) for molecular
-variant ownership and [#49](https://github.com/uibcdf/dockingmt/issues/49) for the
+Owners: [BindingMT #51](https://github.com/uibcdf/bindingmt/issues/51) for molecular
+variant ownership and [#49](https://github.com/uibcdf/bindingmt/issues/49) for the
 broader provider boundary. This is a nonvisual continuation: the maintainer's
-[HTML-review deferral](https://github.com/uibcdf/dockingmt/issues/52#issuecomment-6370673086)
+[HTML-review deferral](https://github.com/uibcdf/bindingmt/issues/52#issuecomment-6370673086)
 remains in force. No browser observation or C6 acceptance follows from this work.
 
 ## What changes
@@ -18,7 +18,7 @@ this candidate contains native ownership/copy delivery
 
 ArgDigest `3d1ec53c374098016452abab74706e9d80df5462` and Viewer
 `a61b75bc994e3ad674c3e7eafe53bb6b2a989c5f` retain their previous pins. No public
-dependency floor, preparation default, score, molecular algorithm or DockingMT
+dependency floor, preparation default, score, molecular algorithm or BindingMT
 production module changes. Existing `msm.copy`, extraction, setters and composition
 remain the public provider routes. No shallow/deferred-copy optimization is selected.
 
@@ -69,8 +69,8 @@ The source is clean at the exact commit; Rust/cargo 1.98.1 uses the provider's
 unchanged release profile. No older extension is copied into the candidate.
 
 The new Python 3.14 receiver inherits retained dependencies read-only and installs
-this provider and the original DockingMT wheel normally into its own prefix.
-DockingMT `0.0.0+180.g1decee5` keeps original wheel SHA-256
+this provider and the original BindingMT wheel normally into its own prefix.
+BindingMT `0.0.0+180.g1decee5` keeps original wheel SHA-256
 `24cfe209935b9bcdef371590427dc74818f23eece6711171346c72402c02ba4e`.
 Ordinary package origins and `pip check` pass. The new provider's native bytes and
 software provenance are separate from both the original provider and scene.
@@ -124,10 +124,10 @@ the provider's safety gate. Broader format/bridge retirement remains under #33.
 
 ## Recovery and resource ownership
 
-Task root: `/tmp/dockingmt-provider-receiving-20261023`, under #50, review by
+Task root: `/tmp/bindingmt-provider-receiving-20261023`, under #50, review by
 2026-10-30. It retains exact source, built wheel, ordinary receiver, dependency
 strategy, runtime/native identities, source-free harness and original diagnostic/
-test evidence. The venv depends on `/tmp/dockingmt-human-20261020/environment`;
+test evidence. The venv depends on `/tmp/bindingmt-human-20261020/environment`;
 preserve that dependency and its existing review date while using the receiver.
 Original scientific and scene artifacts remain unchanged.
 

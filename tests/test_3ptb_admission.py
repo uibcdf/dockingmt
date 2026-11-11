@@ -9,8 +9,8 @@ import pytest
 import pyunitwizard as puw
 from vina import Vina
 
-import dockingmt as dmt
-from dmt_test_support.qualify_3ptb_admission import (
+import bindingmt as bmt
+from bmt_test_support.qualify_3ptb_admission import (
     DATA,
     DISULFIDES,
     OUTPUT,
@@ -82,7 +82,7 @@ def test_named_projection_and_torsion_arms_keep_source_fields(admission):
             )
             == record['ligand_full_source_indices']
         )
-        assert dmt.assess_preparation(ligand)['provisional_reason_codes'] == []
+        assert bmt.assess_preparation(ligand)['provisional_reason_codes'] == []
     np.testing.assert_array_equal(ligands['rigid'].charges, ligands['flexible'].charges)
     np.testing.assert_allclose(
         puw.get_value(ligands['rigid'].coordinates, to_unit='angstrom'),
@@ -141,8 +141,8 @@ def test_nondefault_units_reproduce_inputs_without_native_evaluation(
 
     for name in ('compute_vina_maps', 'score', 'optimize', 'dock'):
         monkeypatch.setattr(Vina, name, forbidden)
-    monkeypatch.setattr(dmt, 'score', forbidden)
-    monkeypatch.setattr(dmt, 'dock', forbidden)
+    monkeypatch.setattr(bmt, 'score', forbidden)
+    monkeypatch.setattr(bmt, 'dock', forbidden)
     with puw.context(
         standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'degrees']
     ):

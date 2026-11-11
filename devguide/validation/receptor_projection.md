@@ -1,6 +1,6 @@
 # Native receptor projection in production — 2026-10-24
 
-Owner: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49), related to
+Owner: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49), related to
 #5/#33 and delivered [MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223).
 `prepare_receptor` now delegates typed-H reduction and charge transfer to public
 `msm.build.merge_nonpolar_hydrogens`, as ligand preparation already does. Its local

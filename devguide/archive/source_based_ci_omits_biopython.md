@@ -1,6 +1,6 @@
 ---
 summary: Source-based CI omits Biopython needed by the scientific test stack.
-issue: uibcdf/dockingmt#11
+issue: uibcdf/bindingmt#11
 status: resolved
 opened: 2026-09-22
 closed: 2026-09-22

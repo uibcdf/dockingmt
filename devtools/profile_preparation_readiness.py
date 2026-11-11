@@ -16,7 +16,7 @@ from time import perf_counter
 
 import molsysmt as msm
 
-from dockingmt.preparation import prepare_ligand, prepare_receptor
+from bindingmt.preparation import prepare_ligand, prepare_receptor
 
 BASELINE = '559f7c33096d80983f44de4df6a0263f5f4ff7ca'
 
@@ -24,7 +24,7 @@ BASELINE = '559f7c33096d80983f44de4df6a0263f5f4ff7ca'
 def main():
     root = Path(__file__).resolve().parents[1]
     legacy_source = subprocess.check_output(
-        ['git', 'show', f'{BASELINE}:dockingmt/preparation/_molsys.py'],
+        ['git', 'show', f'{BASELINE}:bindingmt/preparation/_molsys.py'],
         cwd=root,
         text=True,
     )
@@ -42,7 +42,7 @@ def main():
         ('ligand', prepare_ligand, "group_name=='BNZ'"),
         ('receptor', prepare_receptor, "molecule_type=='protein'"),
     ):
-        module = importlib.import_module('dockingmt.preparation.' + role)
+        module = importlib.import_module('bindingmt.preparation.' + role)
         current = module.chemistry_evidence
 
         def readiness_only(molsys, **_kwargs):

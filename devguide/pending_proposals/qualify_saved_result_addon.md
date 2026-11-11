@@ -1,6 +1,6 @@
 ---
 summary: Complete and qualify the existing MolSysViewer saved-result explorer.
-issue: uibcdf/dockingmt#60
+issue: uibcdf/bindingmt#60
 status: partial
 opened: 2026-11-03
 closed:
@@ -114,7 +114,7 @@ for live frontend observation, which this public-artifact test does not replace.
 
 [Current receiving](../validation/player_notifications_receiving.md) adopts
 MolSysViewer `78ede79e`, delivered for #291, while keeping molecular-provider
-pins and DockingMT runtime unchanged. Thirteen actual player/widget guards
+pins and BindingMT runtime unchanged. Thirteen actual player/widget guards
 cover immediate Python navigation/playback notifications, duplicate suppression,
 lifecycle and failure boundaries. The old provider fails informatively; the new
 selection passes 98 tests. Explicit readback remains covered independently.
@@ -163,11 +163,11 @@ stays partial. The original source/kernel evidence below is not relabelled.
 
 ## What
 
-Complete the existing `molsysviewer_dockingmt` workspace as a faithful explorer
+Complete the existing `molsysviewer_bindingmt` workspace as a faithful explorer
 of saved results, then qualify its actual controls in live Jupyter. The human
 accepted this bounded plan after comparing the MolSysMT, ElastNetMT,
 PharmacophoreMT and TopoMT addons. Source references and the complete acceptance
-criteria are retained in [#60](https://github.com/uibcdf/dockingmt/issues/60).
+criteria are retained in [#60](https://github.com/uibcdf/bindingmt/issues/60).
 
 ## How
 
@@ -205,7 +205,7 @@ policy-inspection API in the test. The corrected test uses the documented
 
 ### Panel state and owned visuals — second slice
 
-Mounted widgets now refresh together after completed DockingMT actions, including
+Mounted widgets now refresh together after completed BindingMT actions, including
 Python adapter calls and context actions. Each widget publishes its own
 `explorer` or `domain` subrecord through public `set_state`, retaining the
 supported direct messages. Initial/reopened panels read current public state.
@@ -233,7 +233,7 @@ classes to check their reactive namespace, selection,
 domain visibility and cleanup. This is Python contract evidence, not an observed
 frontend/canvas session.
 
-The addon specification reports `dockingmt.__version__` instead of the former
+The addon specification reports `bindingmt.__version__` instead of the former
 hardcoded `0.1.0`; the existing contract test checks that identity.
 
 The final routine selection passes **148 tests**, zero skips, in 16.77 s with
@@ -242,7 +242,7 @@ cases, real reference/reload guards and the administrative distribution controls
 A separate **51-case** addon/state/reference selection passes in 12.44 s with
 the ordinary-installed qualified provider composition (28 legacy warnings).
 That selection imports this source addon with the retained providers; it does
-not qualify a new ordinary-installed DockingMT artifact. Ruff lint/format,
+not qualify a new ordinary-installed BindingMT artifact. Ruff lint/format,
 both panel ESM syntax checks, whitespace and generated indexes pass. Exact-head
 hosted results remain separately recorded on #60.
 
@@ -264,7 +264,7 @@ There is no polling, player replacement or private-field observer. Unrelated
 direct visibility edits are still read on mount/Refresh.
 
 The first implementation head `1c96052` has a failing distribution job in
-[CI 41689015547](https://github.com/uibcdf/dockingmt/actions/runs/41689015547/job/126102325478):
+[CI 41689015547](https://github.com/uibcdf/bindingmt/actions/runs/41689015547/job/126102325478):
 23 controls pass and the full-inventory guard detects the omitted
 `_presentation.py`. Its earlier 104-case selection did not cover that gate.
 The declared resource inventory now includes that module, `_scene.py` and
@@ -283,7 +283,7 @@ invalid selections, provider refusal and independent view state.
 
 ## What was refuted
 
-A new renderer or workspace scaffold is unnecessary: DockingMT already ships
+A new renderer or workspace scaffold is unnecessary: BindingMT already ships
 the addon entry point, workspace, widgets and adapters. Other scientific addons
 provide architectural examples, not new dependencies. Widget action tests and
 JavaScript syntax validation establish no live frontend/canvas acceptance.
@@ -292,7 +292,7 @@ inputs. No molecular reconstruction belongs in the presentation layer.
 
 ## Scope and exclusions
 
-All runtime changes are in the DockingMT-owned addon. MolSysViewer owns the
+All runtime changes are in the BindingMT-owned addon. MolSysViewer owns the
 generic host, lifecycle, transport and rendering; MolSysMT owns molecular
 conversion, selection, correspondence and coordinate work. No provider pins,
 package metadata, scientific algorithms, result schemas, historical receipts,

@@ -1,10 +1,10 @@
 # Original rigid geometry at experimental torsions in 5X72
 
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17),
-[#6](https://github.com/uibcdf/dockingmt/issues/6) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33) own this bounded follow-up to
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17),
+[#6](https://github.com/uibcdf/bindingmt/issues/6) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33) own this bounded follow-up to
 the [experimental-reference diagnostic](5x72_reference_workflow.md). The
-[prespecified protocol](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6090156888)
+[prespecified protocol](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6090156888)
 precedes every new fixture angle, conformer, distance, RMSD and score. The
 [driver](../../devtools/qualify_5x72_rigid.py),
 [raw archive](data/5x72_rigid/audit_2026-10-09.json.gz),
@@ -60,7 +60,7 @@ against the experimental heavy coordinates, using public MolSysMT and independen
 NumPy without further fitting or symmetry matching. Exceeding the earlier
 2.5 angstrom criterion would remain a measured outcome, not an admission failure.
 
-Public DockingMT ligand preparation uses the original named Gasteiger/AutoDock4
+Public BindingMT ligand preparation uses the original named Gasteiger/AutoDock4
 choices and two cuts. The original retained/source map, all 25 serial/name/
 group/chain/numerical-charge/type fields and native tree must remain equal.
 The existing public native writer binds the fitted geometry to either original
@@ -146,7 +146,7 @@ policy and 45 degrees under a degrees policy, with equal explicit radian values.
 That documentation finding is reported in
 [MolSysMT #357](https://github.com/uibcdf/molsysmt/issues/357), with the current
 origin prose inspected separately from the executed preserved runtime.
-DockingMT explicitly extracts radians and tests a degree policy; no behavior
+BindingMT explicitly extracts radians and tests a degree policy; no behavior
 workaround or provider change is needed for this experiment.
 
 The original local checkpoint records selected executed gates and the saved-result

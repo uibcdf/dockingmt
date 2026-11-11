@@ -7,13 +7,13 @@
    "source": [
     "# Human 3PTB workflow: installed preparation, search and evaluation\n",
     "\n",
-    "This bounded human workflow consumes public MolSysMT and DockingMT tools. The accepted 3PTB recipe retains the complete explicit state, source maps, charge/type reports and submitted bytes. It is a software/integration control, not an affinity estimate or validation of the preparation model.\n",
+    "This bounded human workflow consumes public MolSysMT and BindingMT tools. The accepted 3PTB recipe retains the complete explicit state, source maps, charge/type reports and submitted bytes. It is a software/integration control, not an affinity estimate or validation of the preparation model.\n",
     "\n",
     "**Stop boundary:** this notebook ends before visualization. We will discuss and plan visualization with the maintainer before implementing or running it.\n",
     "\n",
     "The original 24 searches / 167 poses and their positional evaluation stay immutable. A separate receiver adds optional declared-state symmetry measurements. One new search is registered in advance: rigid ligand, native box, seed 7, exhaustiveness 1, CPU 1, at most 9 poses. It tests the installed end-to-end route; no favorable outcome or similarity to historical stochastic output is required.\n",
     "\n",
-    "Run outside the source checkout using the verified receiving kernel. Set `DOCKINGMT_HUMAN_DATA_ROOT` to the source-free harness containing `devtools/` and `devguide/`; set `DOCKINGMT_HUMAN_OUTPUT` to a **new** output directory and `DOCKINGMT_EXPECTED_PREFIX` to the receiving prefix. The output directory is never overwritten."
+    "Run outside the source checkout using the verified receiving kernel. Set `BINDINGMT_HUMAN_DATA_ROOT` to the source-free harness containing `devtools/` and `devguide/`; set `BINDINGMT_HUMAN_OUTPUT` to a **new** output directory and `BINDINGMT_EXPECTED_PREFIX` to the receiving prefix. The output directory is never overwritten."
    ]
   },
   {
@@ -35,15 +35,15 @@
      "text": [
       "{\n",
       "  \"versions\": {\n",
-      "    \"dockingmt\": \"0.0.0+180.g1decee5\",\n",
+      "    \"bindingmt\": \"0.0.0+180.g1decee5\",\n",
       "    \"molsysmt\": \"0.23.0+78.gc35252d89\",\n",
       "    \"argdigest\": \"0.15.0+5.g3d1ec53\",\n",
       "    \"pyunitwizard\": \"0.28.1\",\n",
       "    \"vina\": \"1.2.7\",\n",
       "    \"rdkit\": \"2026.3.1\"\n",
       "  },\n",
-      "  \"dockingmt\": \"/tmp/dockingmt-human-20261020/receiving/lib/python3.14/site-packages/dockingmt/__init__.py\",\n",
-      "  \"molsysmt\": \"/tmp/dockingmt-human-20261020/environment/lib/python3.14/site-packages/molsysmt/__init__.py\"\n",
+      "  \"bindingmt\": \"/tmp/bindingmt-human-20261020/receiving/lib/python3.14/site-packages/bindingmt/__init__.py\",\n",
+      "  \"molsysmt\": \"/tmp/bindingmt-human-20261020/environment/lib/python3.14/site-packages/molsysmt/__init__.py\"\n",
       "}\n"
      ]
     }
@@ -60,14 +60,14 @@
     "import molsysmt as msm\n",
     "import numpy as np\n",
     "import pyunitwizard as puw\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "\n",
-    "root = Path(os.environ['DOCKINGMT_HUMAN_DATA_ROOT']).resolve()\n",
-    "prefix = Path(os.environ['DOCKINGMT_EXPECTED_PREFIX']).resolve()\n",
-    "output = Path(os.environ['DOCKINGMT_HUMAN_OUTPUT']).resolve()\n",
-    "assert Path(dmt.__file__).resolve().is_relative_to(prefix)\n",
-    "assert not (root / 'dockingmt').exists()\n",
-    "assert not (root / 'molsysviewer_dockingmt').exists()\n",
+    "root = Path(os.environ['BINDINGMT_HUMAN_DATA_ROOT']).resolve()\n",
+    "prefix = Path(os.environ['BINDINGMT_EXPECTED_PREFIX']).resolve()\n",
+    "output = Path(os.environ['BINDINGMT_HUMAN_OUTPUT']).resolve()\n",
+    "assert Path(bmt.__file__).resolve().is_relative_to(prefix)\n",
+    "assert not (root / 'bindingmt').exists()\n",
+    "assert not (root / 'molsysviewer_bindingmt').exists()\n",
     "output.mkdir(parents=True, exist_ok=False)\n",
     "sys.path.insert(0, str(root))  # Case recipe/data only; no scientific package sources.\n",
     "\n",
@@ -75,8 +75,8 @@
     "from devtools.qualify_3ptb_search import evaluate, execution_protocol\n",
     "\n",
     "versions = {name: metadata.version(name) for name in\n",
-    "            ['dockingmt', 'molsysmt', 'argdigest', 'pyunitwizard', 'vina', 'rdkit']}\n",
-    "print(json.dumps({'versions': versions, 'dockingmt': dmt.__file__,\n",
+    "            ['bindingmt', 'molsysmt', 'argdigest', 'pyunitwizard', 'vina', 'rdkit']}\n",
+    "print(json.dumps({'versions': versions, 'bindingmt': bmt.__file__,\n",
     "                  'molsysmt': msm.__file__}, indent=2))"
    ]
   },
@@ -248,7 +248,7 @@
     "\n",
     "The native 20 × 20 × 20 angstrom box is centered on the nine observed heavy atoms. The selected protocol is the first pre-existing registered row; no parameter is chosen after inspecting outcomes. Fresh stochastic output need not be byte-identical to the historical producer. Capture the actual submitted receptor/ligand bytes and native output.\n",
     "\n",
-    "If a prior attempt already produced the registered result before a later analysis failure, set `DOCKINGMT_HUMAN_RESTORE_FROM` to that exact saved result. The explicit recovery path verifies protocol and submitted preparation hashes, then restores it without another native search. Its receipt records zero new searches and the original source path."
+    "If a prior attempt already produced the registered result before a later analysis failure, set `BINDINGMT_HUMAN_RESTORE_FROM` to that exact saved result. The explicit recovery path verifies protocol and submitted preparation hashes, then restores it without another native search. Its receipt records zero new searches and the original source path."
    ]
   },
   {
@@ -268,7 +268,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "{'returned_poses': 5, 'new_native_searches': 0, 'result_path': '/tmp/dockingmt-human-20261020/human-recovered-output/new_result.json'}\n"
+      "{'returned_poses': 5, 'new_native_searches': 0, 'result_path': '/tmp/bindingmt-human-20261020/human-recovered-output/new_result.json'}\n"
      ]
     }
    ],
@@ -277,21 +277,21 @@
     "assert (row['arm'], row['domain'], row['protocol']['parameters']['seed'],\n",
     "        row['protocol']['parameters']['exhaustiveness']) == ('rigid', 'native', 7, 1)\n",
     "protocol = execution_protocol(row)\n",
-    "problem = dmt.DockingProblem(receptor, partners['rigid'], boxes['native'],\n",
+    "problem = bmt.DockingProblem(receptor, partners['rigid'], boxes['native'],\n",
     "    metadata={'case': '3PTB', 'purpose': 'installed_human_workflow_control'})\n",
-    "restore_from = os.environ.get('DOCKINGMT_HUMAN_RESTORE_FROM')\n",
+    "restore_from = os.environ.get('BINDINGMT_HUMAN_RESTORE_FROM')\n",
     "if restore_from:\n",
     "    original_result_path = Path(restore_from).resolve()\n",
-    "    result = dmt.DockingResult.from_dict(json.loads(original_result_path.read_text()))\n",
+    "    result = bmt.DockingResult.from_dict(json.loads(original_result_path.read_text()))\n",
     "    assert result.protocol_info == protocol.to_dict()\n",
     "    for role, prepared in [('receptor', receptor), ('partner', partners['rigid'])]:\n",
     "        assert result.provenance['backend_artifacts'][role]['sha256'] == hashlib.sha256(\n",
     "            prepared.to_pdbqt().encode()).hexdigest()\n",
     "    new_native_searches = 0\n",
     "else:\n",
-    "    result = dmt.dock(problem, protocol)\n",
+    "    result = bmt.dock(problem, protocol)\n",
     "    new_native_searches = 1\n",
-    "dmt.verify_captured_inputs(result.provenance['backend_artifacts'])\n",
+    "bmt.verify_captured_inputs(result.provenance['backend_artifacts'])\n",
     "result_record = result.to_dict()\n",
     "result_path = output / 'new_result.json'\n",
     "result_path.write_text(json.dumps(result_record, indent=2, allow_nan=False))\n",
@@ -469,7 +469,7 @@
     }
    ],
    "source": [
-    "restored = dmt.DockingResult.from_dict(json.loads(result_path.read_text()))\n",
+    "restored = bmt.DockingResult.from_dict(json.loads(result_path.read_text()))\n",
     "assert restored.to_dict() == result_record\n",
     "with puw.context(standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'degrees']):\n",
     "    received = evaluate(restored, stereo_context, boxes['native'], admission, 'rigid',\n",
@@ -523,8 +523,8 @@
     "previous = json.loads(gzip.decompress(old_path.read_bytes()))\n",
     "received_runs = []\n",
     "for saved, old in zip(searches['runs'], previous['runs'], strict=True):\n",
-    "    historical = dmt.DockingResult.from_dict(saved['result'])\n",
-    "    box = dmt.BoxRegion(puw.quantity(saved['backend_box']['center'], 'angstrom'),\n",
+    "    historical = bmt.DockingResult.from_dict(saved['result'])\n",
+    "    box = bmt.BoxRegion(puw.quantity(saved['backend_box']['center'], 'angstrom'),\n",
     "                        puw.quantity(saved['backend_box']['size'], 'angstrom'))\n",
     "    measured = evaluate(historical, stereo_context, box, admission, saved['arm'],\n",
     "                        symmetry_options=options)\n",
@@ -577,7 +577,7 @@
    "source": [
     "origins = {}\n",
     "for name, module in tuple(sys.modules.items()):\n",
-    "    if name == 'dockingmt' or name.startswith('dockingmt.'):\n",
+    "    if name == 'bindingmt' or name.startswith('bindingmt.'):\n",
     "        path = getattr(module, '__file__', None)\n",
     "        if path:\n",
     "            assert Path(path).resolve().is_relative_to(prefix), (name, path)\n",
@@ -598,7 +598,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "DockingMT installed receiver",
+   "display_name": "BindingMT installed receiver",
    "language": "python",
    "name": "python3"
   },

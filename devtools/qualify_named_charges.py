@@ -14,7 +14,7 @@ import numpy as np
 import pyunitwizard as puw
 from vina import Vina
 
-import dockingmt as dmt
+import bindingmt as bmt
 
 ROOT = Path(__file__).resolve().parents[1]
 PROVIDER_REVISION = '7894435e748bc55254b6c3d2b63ae82c101e5774'
@@ -44,13 +44,13 @@ def _case(
     before = _charges(assigned).copy()
     start = perf_counter()
     prepared = (
-        dmt.prepare_receptor(assigned, selection=selection)
+        bmt.prepare_receptor(assigned, selection=selection)
         if receptor
-        else dmt.prepare_ligand(
+        else bmt.prepare_ligand(
             assigned, selection=selection, active_torsion_bonds=active_bonds
         )
     )
-    report = dmt.audit_preparation_charges(prepared)
+    report = bmt.audit_preparation_charges(prepared)
     preparation_seconds = perf_counter() - start
     assert report['assessment'] == 'consistent'
     np.testing.assert_array_equal(_charges(assigned), before)
@@ -70,7 +70,7 @@ def _case(
     )
     engine = Vina(cpu=1, verbosity=0)
     if receptor:
-        with TemporaryDirectory(prefix='dockingmt-charge-') as directory:
+        with TemporaryDirectory(prefix='bindingmt-charge-') as directory:
             target = Path(directory) / 'receptor.pdbqt'
             target.write_text(text)
             engine.set_receptor(str(target))
@@ -78,7 +78,7 @@ def _case(
         engine.set_ligand_from_string(text)
     return {
         'audit': report,
-        'preparation_assessment': dmt.assess_preparation(prepared),
+        'preparation_assessment': bmt.assess_preparation(prepared),
         'pdbqt_sha256': hashlib.sha256(text.encode()).hexdigest(),
         'pdbqt_bytes': len(text.encode()),
         'assignment_seconds': assignment_seconds,
@@ -152,13 +152,13 @@ def qualify():
         'qualification': 'bounded_named_charge_consumption',
         'interpreter': sys.executable,
         'python': sys.version,
-        'dockingmt_module': str(Path(dmt.__file__).resolve()),
+        'bindingmt_module': str(Path(bmt.__file__).resolve()),
         'provider_module': str(Path(msm.__file__).resolve()),
         'qualified_provider_commit': PROVIDER_REVISION,
         'provider_source_sha256': proof,
         'distribution_versions': {
             name: metadata.version(name)
-            for name in ('dockingmt', 'molsysmt', 'vina', 'rdkit', 'openmm')
+            for name in ('bindingmt', 'molsysmt', 'vina', 'rdkit', 'openmm')
         },
         'version_limit': 'Provider reports retain actual distribution metadata. Exact tested source is identified independently by commit and file hashes.',
         'input_sha256': {
@@ -166,13 +166,13 @@ def qualify():
             '5x72_ligand_p59H.sdf': _digest(flexible),
             '1vii.pdb': _digest(receptor),
         },
-        'dockingmt_source_sha256': {
+        'bindingmt_source_sha256': {
             relative: _digest(ROOT / relative)
             for relative in (
-                'dockingmt/preparation/_molsys.py',
-                'dockingmt/preparation/ligand.py',
-                'dockingmt/preparation/receptor.py',
-                'dockingmt/preparation/charges.py',
+                'bindingmt/preparation/_molsys.py',
+                'bindingmt/preparation/ligand.py',
+                'bindingmt/preparation/receptor.py',
+                'bindingmt/preparation/charges.py',
                 'devtools/qualify_named_charges.py',
             )
         },

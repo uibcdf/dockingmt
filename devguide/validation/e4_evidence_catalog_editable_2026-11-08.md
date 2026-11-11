@@ -1,13 +1,13 @@
 # Receiving complete interaction catalogs on the editable workspace — 2026-11-08
 
-Owner: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
+Owner: [BindingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
 Provider correction: [MolSysMT #642](https://github.com/uibcdf/molsysmt/issues/642).
 Registered before execution; current outcome: **both complete editable profiles pass**.
 
 ## Development composition and unchanged question
 
 Use the maintainer-directed editable development route, not the historical
-interrupted wheel construction. DockingMT source is
+interrupted wheel construction. BindingMT source is
 `542c5c5853a64ed9472a3317449e900f33f9b952`; MolSysMT source is
 `2325038e8c68157f5c730693ffbb8535f0b45540`, whose rebuilt native SHA-256 is
 `5715bda28be19820e96c2b81e4734bf75e1a9f05dd660d9c7e2817bc6bcd79d3`.
@@ -40,7 +40,7 @@ First execute the entire normal-policy selection. Only if it passes, execute
 the entire pm/fs/coulomb selection with the identical worker and composition.
 Read the original and old failed carriers; retain complete native/typed witnesses.
 Invalidate the original hbonds structure 0, derive a detached carrier, bind the
-selected existing pose through public DockingMT, receive detached accessors and
+selected existing pose through public BindingMT, receive detached accessors and
 two query pages, and write/read one full H5MSM carrier. Require the original
 five-pose result, source geometry/state/maps/mechanics and complete analysis
 payloads to remain unchanged. The old failed carrier must now restore its exact

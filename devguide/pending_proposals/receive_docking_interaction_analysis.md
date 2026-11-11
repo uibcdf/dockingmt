@@ -1,6 +1,6 @@
 ---
 summary: Receive MolSysMT structured interactions and associate them with existing docking poses for E4.
-issue: uibcdf/dockingmt#80
+issue: uibcdf/bindingmt#80
 status: partial
 opened: 2026-11-06
 closed:
@@ -33,7 +33,7 @@ The maintainer reports #256 is being worked on; wait for its handoff while
 preserving E3's original lossless-reference and full-workflow requirements.
 
 [The local partial-carrier diagnostic correction #89](../archive/interaction_binding_partial_carrier_diagnostic.md)
-now gives DMT-E002 naming `molecular_system` for absent atom/frame counts or
+now gives BMT-E002 naming `molecular_system` for absent atom/frame counts or
 coordinates through both public binding routes. The original six source failures
 remain FAIL; complete affected binding/view guards pass 78 cases per normal and
 pm/fs policy, including existing valid/negative/provider-error/detachment cases.
@@ -170,7 +170,7 @@ warranted by this inspection; reuse delivered MolSysMT #252 and existing tools.
 
 MolSysMT owns assembly, chemical state/site recognition, molecular geometry,
 detection and molecular serialization. PharmacophoreMT owns pharmacophore model
-interpretation. MolSysViewer owns generic rendering/communication. DockingMT
+interpretation. MolSysViewer owns generic rendering/communication. BindingMT
 selects its scientific population, associates provider results with actual
 docking records and supplies docking-specific interpretation/filtering policy.
 
@@ -243,7 +243,7 @@ computation separately; the full E4 contract remains unproven.
 The route reuses the prepared native
 source's retained virtual H counts and MolSysMT's delivered fixed-state H tool;
 it does not infer missing chemistry or introduce a molecular reconstruction
-algorithm in DockingMT. Existing #49 obligations remain.
+algorithm in BindingMT. Existing #49 obligations remain.
 
 Selected detector signatures exist at the
 qualified pin, but current main has internal coordinate-delivery changes.

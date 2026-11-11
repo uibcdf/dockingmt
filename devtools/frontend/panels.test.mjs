@@ -50,7 +50,7 @@ async function mount(t, kind, state = examples[`${kind}_empty`], model = null) {
   const el = dom.window.document.querySelector('#panel');
   model ??= new Model(kind, state);
   const module = new SourceTextModule(sources[kind], {
-    context: dom.getInternalVMContext(), identifier: `dockingmt:${kind}`,
+    context: dom.getInternalVMContext(), identifier: `bindingmt:${kind}`,
   });
   await module.link(() => { throw new Error('Unexpected panel module import'); });
   await module.evaluate();

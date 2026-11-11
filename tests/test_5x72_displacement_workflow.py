@@ -12,8 +12,8 @@ import pandas as pd
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_5x72_displacement import (
+import bindingmt as bmt
+from bmt_test_support.qualify_5x72_displacement import (
     ARMS,
     OFFSETS,
     OUTPUT,
@@ -29,8 +29,8 @@ from dmt_test_support.qualify_5x72_displacement import (
     translated_point,
     xyz,
 )
-from dmt_test_support.qualify_5x72_occupancy import fixed_pair
-from dmt_test_support.qualify_5x72_reference import score_components
+from bmt_test_support.qualify_5x72_occupancy import fixed_pair
+from bmt_test_support.qualify_5x72_reference import score_components
 
 ARCHIVE_SHA = 'afb8bfa4092abc78f8cd2daf33da7248fe39fbd1856b23e24a192f4813fb72a8'
 JSON_SHA = '0bbf5990234cec5b739d7f32f00e035ada42d9bd3277932eab831c9f3545226c'
@@ -66,8 +66,8 @@ def test_public_translation_preserves_all39_geometry_and_saved_axes(
     def forbidden(*args, **kwargs):
         pytest.fail('Geometry qualification must not invoke scoring or search.')
 
-    monkeypatch.setattr(dmt, 'score', forbidden)
-    monkeypatch.setattr(dmt, 'dock', forbidden)
+    monkeypatch.setattr(bmt, 'score', forbidden)
+    monkeypatch.setattr(bmt, 'dock', forbidden)
     units = puw.context(standard_units=POLICY) if policy != 'current' else nullcontext()
     strings = (
         pd.option_context('future.infer_string', True)
@@ -102,7 +102,7 @@ def test_public_translation_preserves_all39_geometry_and_saved_axes(
                         prior['geometry']['heavy_positional_rmsd_angstrom'], abs=1e-10
                     )
                     for order, pose in poses.items():
-                        original = dmt.DockingPose.from_dict(prior['poses'][order])
+                        original = bmt.DockingPose.from_dict(prior['poses'][order])
                         np.testing.assert_allclose(
                             puw.get_value(pose.coordinates, to_unit='angstrom'),
                             puw.get_value(original.coordinates, to_unit='angstrom'),
@@ -152,7 +152,7 @@ def test_saved_score_admission_rejects_mapping_receptor_and_anchor_drift(
     before = deepcopy(point)
     with pytest.raises(AssertionError):
         assess_scores(
-            {o: dmt.DockingPose.from_dict(p) for o, p in point['poses'].items()},
+            {o: bmt.DockingPose.from_dict(p) for o, p in point['poses'].items()},
             case,
             receptors,
             point['fixed_scores'],
@@ -170,7 +170,7 @@ def test_live_fixed_score_slice_preserves_inputs_and_native_measurements(
     def forbidden(*args, **kwargs):
         pytest.fail('This fixed-score slice authorizes no search or optimization.')
 
-    monkeypatch.setattr(dmt, 'dock', forbidden)
+    monkeypatch.setattr(bmt, 'dock', forbidden)
     monkeypatch.setattr(vina.Vina, 'dock', forbidden)
     monkeypatch.setattr(vina.Vina, 'optimize', forbidden)
     with (
@@ -199,7 +199,7 @@ def test_live_fixed_score_slice_preserves_inputs_and_native_measurements(
                 assert result['scores_kcal_mol'] == score_components(
                     original['fixed_scores'][order][context]
                 )
-                assert dmt.verify_captured_inputs(result['artifacts'])
+                assert bmt.verify_captured_inputs(result['artifacts'])
             observed = selected_pair_distances(orders['native'], 'p69')
             np.testing.assert_allclose(
                 observed['rectangular_distances_angstrom'],
@@ -228,7 +228,7 @@ def test_all_saved_geometry_captures_components_and_matched_anchor_deltas(
         saved['consumer_source_sha256']['devtools/qualify_5x72_displacement.py']
         == PRODUCER_SHA
     )
-    assert load_contact()['schema'] == 'dockingmt.5x72_contact_audit@1'
+    assert load_contact()['schema'] == 'bindingmt.5x72_contact_audit@1'
     assert summarize(saved['points']) == saved['summaries']
     pairs = np.asarray(list(itertools.combinations(range(39), 2)))
     evaluations = 0
@@ -273,7 +273,7 @@ def test_all_saved_geometry_captures_components_and_matched_anchor_deltas(
             rmsd, abs=1e-10
         )
         assert geometry['within_original_2_5_angstrom_criterion'] == (rmsd <= 2.5)
-        poses = {o: dmt.DockingPose.from_dict(p) for o, p in point['poses'].items()}
+        poses = {o: bmt.DockingPose.from_dict(p) for o, p in point['poses'].items()}
         receptors = {
             c: r['pdbqt']
             for c, r in inputs[2][name]['preparation']['receptors'].items()

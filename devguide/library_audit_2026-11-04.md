@@ -1,6 +1,6 @@
 ---
-summary: Assess DockingMT technical correctness, scientific approach and improvement priorities
-issue: uibcdf/dockingmt#28
+summary: Assess BindingMT technical correctness, scientific approach and improvement priorities
+issue: uibcdf/bindingmt#28
 status: partial
 opened: 2026-11-04
 closed:
@@ -17,9 +17,9 @@ supersedes: []
 
 Requested by the maintainer on **2026-11-04**. Reviewed repository head:
 `07fc26920fcee0e00b204867a985820a8215b1cd`.
-Coordination: [DockingMT #28](https://github.com/uibcdf/dockingmt/issues/28).
-Scientific/profile follow-up belongs to [#33](https://github.com/uibcdf/dockingmt/issues/33),
-and evidence presentation to [#29](https://github.com/uibcdf/dockingmt/issues/29).
+Coordination: [BindingMT #28](https://github.com/uibcdf/bindingmt/issues/28).
+Scientific/profile follow-up belongs to [#33](https://github.com/uibcdf/bindingmt/issues/33),
+and evidence presentation to [#29](https://github.com/uibcdf/bindingmt/issues/29).
 This dated audit supports the existing [#28 work record](pending_proposals/review_extensibility_and_performance.md);
 it is not a second independently closable queue item. The requested review and
 its same-day methodological expansion are recorded here. This is a bounded
@@ -29,12 +29,12 @@ follow-up, not a new acceptance gate.
 
 ## What
 
-Assess whether DockingMT is technically sound, scientifically appropriate for its
+Assess whether BindingMT is technically sound, scientifically appropriate for its
 declared purpose, progressing in the right direction, and where improvement would
 provide the most value. This records the audit discussed with the maintainer;
 recommendations remain proposals rather than executed fixes or approved experiments.
 
-**Verdict:** DockingMT has a serious technical foundation and a sensible scientific
+**Verdict:** BindingMT has a serious technical foundation and a sensible scientific
 approach. Its strongest demonstrated contribution is traceable, inspectable docking
 within explicit supported profiles. General predictive performance is not yet
 established. The next emphasis should be usability, compatible public distribution
@@ -87,7 +87,7 @@ oracle, measure user effort or independently reproduce the complete benchmark.
 There was no new cross-platform, performance, security or browser audit.
 
 Relative links below are navigation aids. Historical source inspection is anchored
-to [the reviewed Git tree](https://github.com/uibcdf/dockingmt/tree/07fc26920fcee0e00b204867a985820a8215b1cd);
+to [the reviewed Git tree](https://github.com/uibcdf/bindingmt/tree/07fc26920fcee0e00b204867a985820a8215b1cd);
 experiment and artifact records retain their own older producers. Live provider
 issues and external documentation describe the context consulted on 2026-11-04,
 not immutable proof of later availability. Future revisions should append dated
@@ -146,10 +146,10 @@ scientific evidence, installed qualification and deferred visual acceptance.
 
 The inspected paths use public MolSysMT for molecular conversion, selection,
 coordinate modification, hydrogen projection, bond classification, native PDBQT
-export and geometry. DockingMT retains docking choices and orchestration.
+export and geometry. BindingMT retains docking choices and orchestration.
 
 The partial/external PDBQT pose-order verifier remains a bounded local exception
-under [#49](https://github.com/uibcdf/dockingmt/issues/49), pending the applicable
+under [#49](https://github.com/uibcdf/bindingmt/issues/49), pending the applicable
 [MolSysMT #521](https://github.com/uibcdf/molsysmt/issues/521) contract. Complete
 single-state known-source poses already use the provider reader; provider failures
 do not fall back to local parsing. See [prepared pose reading](validation/prepared_pose_reading.md).
@@ -190,7 +190,7 @@ broad benchmark of predictive accuracy, affinity or screening enrichment.
 
 ### A5. Preparation integrity and scoring relevance need clearer separation
 
-DockingMT's molecular preparation requires complete finite partial charges. That
+BindingMT's molecular preparation requires complete finite partial charges. That
 can be defended as an explicit representation/provenance policy. It must not be
 presented as proof of improved Vina predictions: Vina's documented scoring ignores
 user-supplied partial charges, and its documentation says charge assignment is not
@@ -214,7 +214,7 @@ chosen states, excluded receptor components and assessment limits clearly.
 
 Two concrete documentation inconsistencies were observed at the reviewed head:
 
-- [VinaProtocol](../dockingmt/core/protocol.py) still describes
+- [VinaProtocol](../bindingmt/core/protocol.py) still describes
   `allow_provisional_preparation` as permitting temporary zero-charge/heuristic
   typing generation. Those generation mechanisms have been removed; historical
   provisional-input inspection/opt-in has a different meaning.
@@ -255,7 +255,7 @@ the distinctions below; a full inventory of all 1,450 test oracles was not perfo
 
 | Check family | What is independently constrained | What remains shared or untested |
 | --- | --- | --- |
-| [External 1IEP PDBQT control](validation/1iep_external_pdbqt.md) | Upstream prepared inputs and direct Vina observations constrain adapter projection and normalization. | The reference engine is the same; this does not independently validate Vina physics or DockingMT's molecular preparation. |
+| [External 1IEP PDBQT control](validation/1iep_external_pdbqt.md) | Upstream prepared inputs and direct Vina observations constrain adapter projection and normalization. | The reference engine is the same; this does not independently validate Vina physics or BindingMT's molecular preparation. |
 | [5X72 workflow tests](../tests/test_5x72_root_order_workflow.py) and [1IEP conformer tests](../tests/test_1iep_conformer_workflow.py) | Explicit NumPy RMSD recomputation checks numerical geometry independently of the provider's RMSD implementation; reference/atom-map checks are retained separately. | The recomputation still consumes the declared map/reference. It cannot prove that the chosen chemical hypothesis or reference population is scientifically appropriate. |
 | [Evaluation controls](../tests/test_redocking_evaluation.py) | Known translations, permutations, malformed inputs and changed unit policies constrain correspondence and reporting behavior. | Synthetic geometry does not estimate experimental pose recovery. |
 | [Native-output capture](../tests/test_vina_output.py) | Captured actual Vina energy output is checked against retained/serialized values. | It validates transport and meaning preservation, not independent accuracy of native energies. |
@@ -294,7 +294,7 @@ pilot unless its sampling and size support a stronger inference.
 
 ## Scientific growth: questions and decision rules
 
-DockingMT can grow scientifically by improving knowledge of current workflows,
+BindingMT can grow scientifically by improving knowledge of current workflows,
 comparing explicit molecular hypotheses, and eventually testing information-guided
 protocols. These are research proposals, not promises of better prediction.
 
@@ -319,19 +319,19 @@ semantics and their own qualification.
 
 ### Ownership of scientific growth
 
-| Responsibility | Owner and DockingMT's role |
+| Responsibility | Owner and BindingMT's role |
 | --- | --- |
-| Molecular states, conformers, identity, transformations and general geometry/characterization | MolSysMT; DockingMT consumes explicit systems, reports and maps and organizes docking comparisons. |
-| Pharmacophoric features and reusable pattern operations | PharmacophoreMT; DockingMT specifies how an accepted protocol consumes them. |
-| Pocket/topographic descriptors | TopoMT; DockingMT records their use in domain selection or a supported protocol. |
-| Reusable flexibility models | ElastNetMT and the relevant molecular providers; DockingMT defines the docking question and comparison. |
-| Docking execution, supported backend semantics, ranking interpretation and study reports | DockingMT, using provider contracts and retaining scientific limitations. |
-| Generic viewer rendering and communication | MolSysViewer; DockingMT retains its docking-specific addon and presentation. |
+| Molecular states, conformers, identity, transformations and general geometry/characterization | MolSysMT; BindingMT consumes explicit systems, reports and maps and organizes docking comparisons. |
+| Pharmacophoric features and reusable pattern operations | PharmacophoreMT; BindingMT specifies how an accepted protocol consumes them. |
+| Pocket/topographic descriptors | TopoMT; BindingMT records their use in domain selection or a supported protocol. |
+| Reusable flexibility models | ElastNetMT and the relevant molecular providers; BindingMT defines the docking question and comparison. |
+| Docking execution, supported backend semantics, ranking interpretation and study reports | BindingMT, using provider contracts and retaining scientific limitations. |
+| Generic viewer rendering and communication | MolSysViewer; BindingMT retains its docking-specific addon and presentation. |
 
 These are responsibility boundaries, not a claim that every future provider tool
 already exists. Inventory existing APIs before proposing new capabilities and file
 missing reusable work in the owning repository. Do not expand the first release
-scope of a provider merely to satisfy a speculative DockingMT horizon.
+scope of a provider merely to satisfy a speculative BindingMT horizon.
 
 ## Proposed follow-up and acceptance criteria
 
@@ -346,7 +346,7 @@ register a new experiment, select a release, or reopen completed provider work.
 | 4 | Complement RMSD with molecular plausibility evidence. | Define useful stereo/geometry/clash checks and their interpretation; inventory existing MolSysMT tools and propose missing reusable capabilities there before integration. #33/#49. |
 | 5 | Publish a concise synthesis of existing and future validation. | Readers can distinguish software regression, scientific cases, independent complexes and evidence limits without pooling incompatible observations. #29. |
 
-For the proposed panel, choose complexes before observing DockingMT outcomes and
+For the proposed panel, choose complexes before observing BindingMT outcomes and
 include variation in flexibility and chemistry within the supported scope. Treat
 seeds as within-complex variability, not additional independent complexes. Distinguish
 bound-conformation rigid redocking from independent-conformer recovery, reusing
@@ -358,9 +358,9 @@ atom correspondence. It is not sufficient by itself to establish physical
 plausibility. [PoseBusters](https://posebusters.readthedocs.io/en/latest/) provides
 a primary documented precedent for complementary stereochemistry, bond geometry,
 clash and overlap checks. This is methodological inspiration, not an adopted
-dependency or a proposal to implement those molecular algorithms in DockingMT.
+dependency or a proposal to implement those molecular algorithms in BindingMT.
 General characterization belongs to MolSysMT; pharmacophore-specific needs belong
-to PharmacophoreMT. DockingMT owns docking interpretation and reporting.
+to PharmacophoreMT. BindingMT owns docking interpretation and reporting.
 
 ### Concrete work packets and completion evidence
 
@@ -498,7 +498,7 @@ addresses the discovery part of Q4/R6. It separates available MolSysMT coverage,
 correspondence, coordinate-CIP and geometry primitives from an unestablished
 complete rule-based assessment contract. The reusable missing capability is
 proposed in [MolSysMT #555](https://github.com/uibcdf/molsysmt/issues/555), with
-consumer ownership in DockingMT #33/#49. No local molecular validator, provider
+consumer ownership in BindingMT #33/#49. No local molecular validator, provider
 update, calculation or mandatory new dependency is introduced.
 
 These are partial dispositions, not closure of the scientific risks. Next work
@@ -570,7 +570,7 @@ admission and public/visual qualification remain open.
 
 ## Follow-up 7 — evidence publication decision, 2026-11-04
 
-[DMT-044](DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
+[BMT-044](DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
 and the [local evidence publication policy](validation/evidence_publication_policy.md)
 resolve #29's route/lifecycle decision: repository-first presentation linked from
 the root README, one authoritative evidence source and explicit reader, metadata,
@@ -693,7 +693,7 @@ The original thirteen controls reproduce twelve failures/one pass; the final
 module has fourteen cases. All 264 affected cases pass with the exact existing
 ArgDigest/MolSysMT/Viewer CI source pins, plus 21 DOM cases. Forty-four focused
 checks pass with routine providers. Fifteen broader failures with older routine
-provider clones are independently reproduced on the original DockingMT source;
+provider clones are independently reproduced on the original BindingMT source;
 the selected controlled composition succeeds without changing the scientific pins.
 These checks establish neither public/installed delivery nor visual C4/C6.
 
@@ -784,7 +784,7 @@ exit/counts, warning, skip reason, artifact integrity and wrapper rerun evidence
 The routine editable reporter and independent administrative/installed caller
 profiles retain their identities. Exact-head hosted receiving remains #28;
 preceding source 74bf2cc's four workflows pass independently. This tooling work
-adds no scientific population, public DockingMT qualification or visible C4/C6
+adds no scientific population, public BindingMT qualification or visible C4/C6
 acceptance. #19 stays partial for provider/tool/public receiving.
 
 ## Follow-up 18 — batch-outcome argument contracts, 2026-11-05

@@ -1,4 +1,4 @@
-# DockingMT contributor instructions
+# BindingMT contributor instructions
 
 ## Mandatory MolSysSuite instructions
 
@@ -16,17 +16,20 @@ reporting protocol. Keep repository-specific instructions below.
 
 ## MolSysSuite membership
 
-DockingMT is a native MolSysSuite scientific component, providing the molecular docking
-layer of the suite.
+BindingMT is a native MolSysSuite scientific component for molecular binding
+modelling and characterization: docking, fixed-identity complex prediction,
+refinement, binding free-energy calculation/prediction and interface studies.
+Current received profiles and future scope remain explicitly distinguished.
 
-Keep DockingMT-specific implementation, tests, releases and product issues here. Report
+Keep BindingMT-specific implementation, tests, releases and product issues here. Report
 suite-wide rules, shared tooling problems and cross-repository proposals in
 `uibcdf/molsyssuite`. When work here exposes a limitation in a sibling component, file the
 evidence in that provider component and cross-link it, as
 [`cross_component_feedback.md`](https://github.com/uibcdf/molsyssuite/blob/main/devguide/cross_component_feedback.md)
 requires.
 
-`devguide/` contains the frozen architectural and scientific seed of DockingMT. Treat
+`devguide/` contains BindingMT's maintained architectural/scientific design and
+the preserved BindingMT seed. Treat
 those documents as the living design authority.
 
 `GH_RUN_RECEPTOR_GUIDE.md` is the synchronized copy of the guide governing
@@ -42,7 +45,7 @@ Do not overdesign: the existence of a concept in `devguide/` does not authorize 
 until a concrete accepted workflow requires it.
 
 Start CI and maintenance workflows from the current MolSysSuite starter-kit patterns.
-Keep a local variation only when DockingMT has a measured need, document that reason and
+Keep a local variation only when BindingMT has a measured need, document that reason and
 link its removal condition. If the variation could help sibling components, propose it
 in `uibcdf/molsyssuite` instead of letting repositories drift independently. The current
 Conda test job is such a dependency-driven variation: it installs exact compatible
@@ -64,7 +67,7 @@ headroom interruption. Do not infer permission to use the whole
 machine from its available processor count. Hosted CI matrices keep their own
 declared execution policy.
 
-Scientific test helpers live in the unshipped `dmt_test_support` namespace;
+Scientific test helpers live in the unshipped `bmt_test_support` namespace;
 `devtools` keeps compatible source entry points. Keep installed-test helper
 imports in that namespace and update the exact helper/data SHA-256 declaration
 in `devtools/conda-build/resources.toml` when an input changes. Use MolSysSuite's
@@ -131,5 +134,5 @@ Read the guide for every shared tool touched by a change:
 ## Component qualification
 
 Track this member's source qualification and public-delivery evidence in
-`uibcdf/dockingmt#30`. The common Python/support
+`uibcdf/bindingmt#30`. The common Python/support
 requirements and actual component metadata retain their separate authority.

@@ -1,6 +1,6 @@
 # Isolated installed collection receiving — 2026-11-09
 
-Owner: [DockingMT #102](https://github.com/uibcdf/dockingmt/issues/102), within
+Owner: [BindingMT #102](https://github.com/uibcdf/bindingmt/issues/102), within
 installed qualification #47 and functional delivery #73.
 
 Starting source: `9375f3a8b96a651f8944c48105d56d33a0cf4c68`.
@@ -35,7 +35,7 @@ collection. Optional missing tools and full execution remain separate evidence.
 
 ## Delivered support boundary
 
-The 11 new `dmt_test_support/*_fixtures.py` modules (including
+The 11 new `bmt_test_support/*_fixtures.py` modules (including
 `molecular_fixtures.py`) own the shared original factories/declarations from
 source 9375f3a8. The source `tests/molecular_fixtures.py` remains a forwarding shim;
 source test modules retain explicit historical aliases. No test imports a sibling

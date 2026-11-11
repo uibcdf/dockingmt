@@ -1,4 +1,4 @@
-"""Native ligand reduction owns chemistry; DockingMT retains docking accounting."""
+"""Native ligand reduction owns chemistry; BindingMT retains docking accounting."""
 
 from math import fsum
 
@@ -7,11 +7,11 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.molecular_fixtures import declared_methanol
-from dmt_test_support.partial_charge_fixtures import METHANOL, atom_charges
-from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
-from dmt_test_support.qualify_named_types import CHARGE, TYPING
+import bindingmt as bmt
+from bmt_test_support.molecular_fixtures import declared_methanol
+from bmt_test_support.partial_charge_fixtures import METHANOL, atom_charges
+from bmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from bmt_test_support.qualify_named_types import CHARGE, TYPING
 
 
 @pytest.fixture
@@ -56,7 +56,7 @@ def test_preparation_consumes_native_projection_and_derived_molecular_values(
         monkeypatch.setattr(msm.build, name, forbidden)
     with puw.context(standard_units=[length_unit, 'fs', 'coulomb', 'kJ/mol']):
         policy = puw.configure.report()
-        prepared = dmt.prepare_ligand(source, selection='all')
+        prepared = bmt.prepare_ligand(source, selection='all')
         assert puw.configure.report() == policy
     assert len(calls) == 1
     expected = [
@@ -101,7 +101,7 @@ def test_preparation_consumes_native_projection_and_derived_molecular_values(
         derived['source_assignment'] == prepared.metadata['partial_charge_assignment']
     )
     assert prepared.metadata['projected_atom_type_assignment']['status'] == 'derived'
-    assert dmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
+    assert bmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
     assert [
         float(line[70:76])
         for line in prepared.to_pdbqt().splitlines()
@@ -124,15 +124,15 @@ def test_projection_failure_propagates_without_a_local_transform(source, monkeyp
 
     monkeypatch.setattr(msm.build, 'merge_nonpolar_hydrogens', refuse)
     with pytest.raises(RuntimeError) as raised:
-        dmt.prepare_ligand(source, selection='all')
+        bmt.prepare_ligand(source, selection='all')
     assert raised.value is failure
     assert snapshot(source) == before
     assert detached_record(source.molecular_mechanics.to_dict()) == mechanics
 
 
 def test_ligand_and_receptor_keep_independent_native_projections(source):
-    ligand = dmt.prepare_ligand(source, selection='all')
-    receptor = dmt.prepare_receptor(source, selection='all')
+    ligand = bmt.prepare_ligand(source, selection='all')
+    receptor = bmt.prepare_receptor(source, selection='all')
     assert ligand.n_atoms == receptor.n_atoms == 3
     assert ligand.charges == receptor.charges
     assert ligand.source_molsys is not receptor.source_molsys
@@ -165,7 +165,7 @@ def test_unassessed_virtual_inventory_is_not_repaired_or_assumed_zero(monkeypatc
     with pytest.raises(
         msm.StructuralInconsistencyError, match='known virtual explicit H'
     ):
-        dmt.prepare_ligand(raw, selection='all')
+        bmt.prepare_ligand(raw, selection='all')
     assert snapshot(raw) == before
     assert detached_record(raw.molecular_mechanics.to_dict()) == mechanics
 
@@ -176,7 +176,7 @@ def test_unassessed_inventory_rejects_before_engine_even_with_opt_in(
 ):
     import vina
 
-    from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
+    from bmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
 
     raw = msm.build.assign_autodock_atom_types(
         msm.build.assign_partial_charges(
@@ -184,10 +184,10 @@ def test_unassessed_inventory_rejects_before_engine_even_with_opt_in(
         ),
         **TYPING,
     )
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         receptor=MINIMAL_REC_PDBQT,
         partner=raw,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([10, 10, 10], 'angstrom')
         ),
     )
@@ -200,8 +200,8 @@ def test_unassessed_inventory_rejects_before_engine_even_with_opt_in(
     with pytest.raises(
         msm.StructuralInconsistencyError, match='known virtual explicit H'
     ):
-        dmt.dock(
+        bmt.dock(
             problem,
-            dmt.VinaProtocol(cpu=1, allow_provisional_preparation=allow_provisional),
+            bmt.VinaProtocol(cpu=1, allow_provisional_preparation=allow_provisional),
         )
     assert snapshot(raw) == before

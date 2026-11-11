@@ -7,7 +7,7 @@
    "source": [
     "# 1IEP named preparation: rigid and explicit flexible controls\n",
     "\n",
-    "Owning DockingMT issues: #17, #6 and #5. Original twelve searches are inspected, not rerun. The bound-like rigid starting conformer is a favorable control. Both preparations and the external receptor remain scientifically unassessed."
+    "Owning BindingMT issues: #17, #6 and #5. Original twelve searches are inspected, not rerun. The bound-like rigid starting conformer is a favorable control. Both preparations and the external receptor remain scientifically unassessed."
    ]
   },
   {
@@ -39,7 +39,7 @@
     "import numpy as np\n",
     "import molsysmt as msm\n",
     "import pyunitwizard as puw\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "root = next(p for p in [Path.cwd(), *Path.cwd().parents] if (p / 'pyproject.toml').exists())\n",
     "sys.path.insert(0, str(root))\n",
     "from devtools.qualify_1iep_flexibility import prepare_case\n",
@@ -96,7 +96,7 @@
     "    heavy = run['heavy_atom_metrics']\n",
     "    values = [row['heavy_atom_positional_rmsd_angstrom'] for row in heavy]\n",
     "    print(f\"{run['variant']:8s} {p['exhaustiveness']:6d} {p['seed']:4d} {len(heavy):5d} {values[0]:11.4f} {min(values):13.4f} {run['evaluation']['first_pose']['rmsd']:10.4f} {heavy[0]['vina_score_kcal_per_mol']:7.3f}\")\n",
-    "    assert dmt.verify_captured_inputs(run['result']['provenance']['backend_artifacts'])\n",
+    "    assert bmt.verify_captured_inputs(run['result']['provenance']['backend_artifacts'])\n",
     "print('RMSD: angstrom, positional, no alignment/symmetry correction; score: Vina kcal/mol.')"
    ]
   },
@@ -124,9 +124,9 @@
    "source": [
     "source, preparations, audit = prepare_case()\n",
     "run = next(r for r in record['redocking_runs'] if r['variant'] == 'flexible')\n",
-    "restored = dmt.DockingResult.from_dict(run['result'])\n",
+    "restored = bmt.DockingResult.from_dict(run['result'])\n",
     "with puw.context(standard_units=['pm', 'fs', 'K', 'mole', 'dalton', 'e', 'kJ/mol', 'radians']):\n",
-    "    observed = dmt.evaluate_redocking(restored, source, rmsd_cutoff=puw.quantity(250, 'pm'))\n",
+    "    observed = bmt.evaluate_redocking(restored, source, rmsd_cutoff=puw.quantity(250, 'pm'))\n",
     "assert observed['criterion'] == run['evaluation']['criterion']\n",
     "np.testing.assert_allclose([r['rmsd'] for r in observed['poses']], [r['rmsd'] for r in run['evaluation']['poses']], rtol=0, atol=1e-12)\n",
     "assert audit['source_unchanged']\n",
@@ -138,7 +138,7 @@
   "kernelspec": {
    "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
    "language": "python",
-   "name": "dockingmt-molsyssuite-314"
+   "name": "bindingmt-molsyssuite-314"
   },
   "language_info": {
    "codemirror_mode": {

@@ -1,6 +1,6 @@
 ---
 summary: Preparation/problem snapshots alias live mutable declarations.
-issue: uibcdf/dockingmt#97
+issue: uibcdf/bindingmt#97
 status: resolved
 opened: 2026-11-09
 closed: 2026-11-09

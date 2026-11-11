@@ -1,6 +1,6 @@
 ---
 summary: Add displaced-search-domain control to 1IEP validation
-issue: uibcdf/dockingmt#15
+issue: uibcdf/bindingmt#15
 status: resolved
 opened: 2026-09-26
 closed: 2026-09-26
@@ -24,7 +24,7 @@ deliberately wrong.
 
 Keep the pinned receptor, ligand, source map, seed, and Vina parameters fixed.
 Shift only the box center by 30 Å along x, confirm that every native ligand
-atom lies outside the new box, and store a separate complete DockingMT result
+atom lies outside the new box, and store a separate complete BindingMT result
 manifest. Report the control poses, scores, and source-referenced RMSDs beside
 the original run. Use the stated 2.5 Å cutoff to flag near-native poses.
 
@@ -47,7 +47,7 @@ geometry.
 
 ## Scope and exclusions
 
-DockingMT owns search-domain projection, protocol execution, pose normalization,
+BindingMT owns search-domain projection, protocol execution, pose normalization,
 and provenance. The pinned, externally prepared PDBQT chemistry remains
 unassessed; MolSysMT preparation capabilities are not duplicated here.
 

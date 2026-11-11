@@ -1,12 +1,12 @@
 # Experimental-reference score diagnostic for P59 and P69 in 5X72
 
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17),
-[#6](https://github.com/uibcdf/dockingmt/issues/6) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33) own this bounded follow-up to
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17),
+[#6](https://github.com/uibcdf/bindingmt/issues/6) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33) own this bounded follow-up to
 the [fixed-P69](5x72_occupancy_workflow.md) and
 [reciprocal fixed-P59](5x72_reciprocal_workflow.md) controls. The
-[prespecified plan](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6089648793)
-and [admission addendum](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6089744224)
+[prespecified plan](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6089648793)
+and [admission addendum](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6089744224)
 precede every new fixed evaluation and pair-distance measurement. The
 [driver](../../devtools/qualify_5x72_reference.py),
 [raw archive](data/5x72_reference/audit_2026-10-09.json.gz),
@@ -41,7 +41,7 @@ bonded to source N8; H28 on stereocenter C7 is a distinct, merged nonpolar H.
 After those checks, public `msm.copy` detaches the original source and public
 `msm.set` places all 39 independently verified reference coordinates on that
 axis. Original topology and chemical-state records remain exactly unchanged.
-The same public DockingMT ligand preparation uses Gasteiger-Marsili charges,
+The same public BindingMT ligand preparation uses Gasteiger-Marsili charges,
 AutoDock4 chemical-environment typing and cuts (6,7)/(17,18). The original
 retained/source map, all 25 serial/name/group/chain/charge/type fields and the
 native torsion-tree record must agree before either order is admitted. Public

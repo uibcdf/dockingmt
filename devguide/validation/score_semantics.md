@@ -1,6 +1,6 @@
 # Score semantics and ranking evidence
 
-DockingMT keeps finite numeric scores in `pose.scores`. A score's name does not
+BindingMT keeps finite numeric scores in `pose.scores`. A score's name does not
 declare its unit or establish comparability. Optional descriptors are supplied
 through `DockingPose(..., score_definitions=...)`, stored in
 `metadata['score_definitions']`, and exposed as independent validated snapshots
@@ -43,10 +43,10 @@ it must now meet this documented contract.
 ## Current Vina/Vinardo adapter
 
 The [upstream Vina 1.2.7 Python API](https://github.com/ccsb-scripps/AutoDock-Vina/blob/v1.2.7/build/python/vina/vina.py#L338-L358)
-defines the columns returned by `energies()`. DockingMT continues to retain its
+defines the columns returned by `energies()`. BindingMT continues to retain its
 existing first four columns with unchanged numeric values:
 
-| DockingMT name | Interpretation | Kind / conventional unit | Preference |
+| BindingMT name | Interpretation | Kind / conventional unit | Preference |
 | --- | --- | --- | --- |
 | `vina` or `vinardo` | Total docking score for the selected function | Empirical / kcal/mol | Lower |
 | `inter` | Intermolecular term | Empirical / kcal/mol | Unspecified |

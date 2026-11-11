@@ -11,16 +11,16 @@ import pytest
 import pyunitwizard as puw
 from argdigest import UnknownArgumentError
 
-import dockingmt as dmt
-from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
 
 def problem(label='ligand-control', partner=MINIMAL_LIG_PDBQT):
-    return dmt.DockingProblem(
+    return bmt.DockingProblem(
         MINIMAL_REC_PDBQT,
         partner,
-        dmt.BoxRegion(
+        bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([10, 10, 10], 'angstrom')
         ),
         metadata={
@@ -32,7 +32,7 @@ def problem(label='ligand-control', partner=MINIMAL_LIG_PDBQT):
     )
 
 
-class ControlBackend(dmt.DockingBackend):
+class ControlBackend(bmt.DockingBackend):
     name = 'control'
     capabilities = set()
     is_available = True
@@ -45,7 +45,7 @@ class ControlBackend(dmt.DockingBackend):
         self.calls.append(problem.metadata['ligand_id'])
         if problem.metadata['ligand_id'] == 'bad':
             raise self.fail if self.fail is not None else ValueError('control failure')
-        return dmt.DockingResult(
+        return bmt.DockingResult(
             [],
             problem_info=deepcopy(problem.to_dict()),
             protocol_info=protocol.to_dict(),
@@ -55,7 +55,7 @@ class ControlBackend(dmt.DockingBackend):
 def test_batch_is_lazy_ordered_and_uses_public_dock(monkeypatch):
     source_events = []
     backend = ControlBackend()
-    public = importlib.import_module('dockingmt.batch')
+    public = importlib.import_module('bindingmt.batch')
     calls = []
     original = public.dock
 
@@ -70,10 +70,10 @@ def test_batch_is_lazy_ordered_and_uses_public_dock(monkeypatch):
             source_events.append(label)
             yield problem(label)
 
-    stream = dmt.dock_many(source(), backend=backend)
+    stream = bmt.dock_many(source(), backend=backend)
     assert source_events == [] and backend.calls == []
     first = next(stream)
-    assert isinstance(first, dmt.DockingOutcome)
+    assert isinstance(first, bmt.DockingOutcome)
     assert first.index == 0 and first.status == 'success' and first.error is None
     assert first.backend == 'control'
     assert first.result.problem is calls[0]
@@ -88,7 +88,7 @@ def test_batch_is_lazy_ordered_and_uses_public_dock(monkeypatch):
 def test_recorded_failure_preserves_prior_results_and_next_item():
     backend = ControlBackend()
     items = [problem(label) for label in ('first', 'bad', 'third')]
-    stream = dmt.dock_many(items, backend=backend, on_error='record')
+    stream = bmt.dock_many(items, backend=backend, on_error='record')
     first = next(stream)
     before = first.to_dict()
     failed = next(stream)
@@ -117,7 +117,7 @@ def test_default_failure_propagates_original_and_stops_source():
             consumed.append(label)
             yield problem(label)
 
-    stream = dmt.dock_many(source(), backend=backend)
+    stream = bmt.dock_many(source(), backend=backend)
     first = next(stream)
     with pytest.raises(RuntimeError) as caught:
         next(stream)
@@ -129,7 +129,7 @@ def test_default_failure_propagates_original_and_stops_source():
 @pytest.mark.parametrize('policy', ['raise', 'record'])
 @pytest.mark.parametrize('error', [KeyboardInterrupt(), SystemExit(), MemoryError()])
 def test_control_and_resource_exceptions_propagate(policy, error):
-    stream = dmt.dock_many(
+    stream = bmt.dock_many(
         [problem('bad')], backend=ControlBackend(error), on_error=policy
     )
     with pytest.raises(type(error)) as caught:
@@ -149,7 +149,7 @@ def test_os_allocation_failure_stops_without_consuming_next_item(policy):
             yield problem(label)
 
     supplied = source()
-    stream = dmt.dock_many(supplied, backend=backend, on_error=policy)
+    stream = bmt.dock_many(supplied, backend=backend, on_error=policy)
     first = next(stream)
     before = first.to_dict()
     with pytest.raises(OSError) as caught:
@@ -167,7 +167,7 @@ def test_ordinary_os_failure_remains_recordable(error_number):
     error = OSError(error_number, 'controlled item failure')
     backend = ControlBackend(error)
     outcomes = list(
-        dmt.dock_many(
+        bmt.dock_many(
             [problem(label) for label in ('first', 'bad', 'third')],
             backend=backend,
             on_error='record',
@@ -186,21 +186,21 @@ def test_source_failure_is_not_an_item_failure_and_source_is_borrowed():
         raise error
 
     supplied = source()
-    stream = dmt.dock_many(supplied, backend=ControlBackend(), on_error='record')
+    stream = bmt.dock_many(supplied, backend=ControlBackend(), on_error='record')
     first = next(stream)
     with pytest.raises(RuntimeError) as caught:
         next(stream)
     assert caught.value is error and first.status == 'success'
 
     supplied = iter([problem('first'), problem('second')])
-    stream = dmt.dock_many(supplied, backend=ControlBackend())
+    stream = bmt.dock_many(supplied, backend=ControlBackend())
     next(stream)
     stream.close()
     assert next(supplied).metadata['ligand_id'] == 'second'
 
 
 def test_batch_does_not_retain_completed_result_history():
-    stream = dmt.dock_many(
+    stream = bmt.dock_many(
         (problem(str(i)) for i in range(8)), backend=ControlBackend()
     )
     first = next(stream)
@@ -214,7 +214,7 @@ def test_batch_does_not_retain_completed_result_history():
 @pytest.mark.parametrize('items', [None, 'file.pdbqt', {}, 3, problem()])
 def test_invalid_global_input_is_rejected_at_call(items):
     with pytest.raises(ArgumentError):
-        dmt.dock_many(items)
+        bmt.dock_many(items)
 
 
 @pytest.mark.parametrize(
@@ -222,31 +222,31 @@ def test_invalid_global_input_is_rejected_at_call(items):
 )
 def test_invalid_global_options_are_rejected_at_call(kwargs):
     with pytest.raises(ArgumentError):
-        dmt.dock_many([], **kwargs)
+        bmt.dock_many([], **kwargs)
 
 
 def test_unknown_keywords_are_rejected():
     with pytest.raises(UnknownArgumentError):
-        dmt.dock_many([], on_eror='record')
+        bmt.dock_many([], on_eror='record')
 
 
 def test_invalid_item_is_recorded_without_execution():
     backend = ControlBackend()
     outcomes = list(
-        dmt.dock_many([None, problem('valid')], backend=backend, on_error='record')
+        bmt.dock_many([None, problem('valid')], backend=backend, on_error='record')
     )
     assert [item.status for item in outcomes] == ['failure', 'success']
     assert outcomes[0].problem_info == {}
-    assert outcomes[0].error['code'] == 'DMT-E002'
+    assert outcomes[0].error['code'] == 'BMT-E002'
     assert backend.calls == ['valid']
 
 
 def test_snapshots_are_detached_and_inputs_settings_are_not_modified():
     supplied = problem()
-    protocol = dmt.VinaProtocol(seed=23)
+    protocol = bmt.VinaProtocol(seed=23)
     before_problem = deepcopy(supplied.to_dict())
     before_protocol = protocol.to_dict()
-    item = next(dmt.dock_many([supplied], protocol, backend=ControlBackend()))
+    item = next(bmt.dock_many([supplied], protocol, backend=ControlBackend()))
     assert (
         supplied.to_dict() == before_problem and protocol.to_dict() == before_protocol
     )
@@ -255,7 +255,7 @@ def test_snapshots_are_detached_and_inputs_settings_are_not_modified():
     declaration['metadata']['nested']['declaration'][0] = 99
     assert item.problem_info['metadata']['nested']['declaration'] == [1]
     exported = item.to_dict()
-    restored = dmt.DockingOutcome.from_dict(exported)
+    restored = bmt.DockingOutcome.from_dict(exported)
     exported['problem_info']['metadata']['nested']['declaration'][0] = 30
     assert restored.problem_info['metadata']['nested']['declaration'] == [1]
     assert restored.result.problem is None
@@ -263,7 +263,7 @@ def test_snapshots_are_detached_and_inputs_settings_are_not_modified():
 
 @pytest.mark.parametrize('scoring', ['vina', 'vinardo'])
 def test_native_batch_matches_individual_seeded_docking(scoring):
-    protocol = dmt.VinaProtocol(
+    protocol = bmt.VinaProtocol(
         seed=123,
         cpu=1,
         exhaustiveness=1,
@@ -272,8 +272,8 @@ def test_native_batch_matches_individual_seeded_docking(scoring):
         capture_backend_inputs=True,
     )
     items = [problem('first'), problem('second')]
-    individual = [dmt.dock(item, protocol) for item in items]
-    outcomes = list(dmt.dock_many(iter(items), protocol, backend='vina'))
+    individual = [bmt.dock(item, protocol) for item in items]
+    outcomes = list(bmt.dock_many(iter(items), protocol, backend='vina'))
     for index, (outcome, expected) in enumerate(zip(outcomes, individual)):
         actual = outcome.result.to_dict()
         reference = expected.to_dict()
@@ -283,7 +283,7 @@ def test_native_batch_matches_individual_seeded_docking(scoring):
             # The complete native info snapshot retains an invocation-local
             # staging path. Compare captured bytes/hashes, not temporary names.
             artifacts = record['provenance']['backend_artifacts']
-            assert dmt.verify_captured_inputs(artifacts)
+            assert bmt.verify_captured_inputs(artifacts)
             info = record['provenance']['backend_output']['engine_info']
             staged_receptor = info.pop('rigid_receptor')
             assert isinstance(staged_receptor, str)
@@ -295,16 +295,16 @@ def test_native_batch_matches_individual_seeded_docking(scoring):
             outcome.problem_info['metadata']['ligand_id']
             == items[index].metadata['ligand_id']
         )
-        assert dmt.audit_result(outcome.result.to_dict())['status'] == 'consistent'
+        assert bmt.audit_result(outcome.result.to_dict())['status'] == 'consistent'
         assert (
-            dmt.DockingOutcome.from_dict(outcome.to_dict()).to_dict()
+            bmt.DockingOutcome.from_dict(outcome.to_dict()).to_dict()
             == outcome.to_dict()
         )
 
 
 def test_empty_source_never_executes_backend():
     backend = ControlBackend()
-    assert list(dmt.dock_many([], backend=backend)) == []
+    assert list(bmt.dock_many([], backend=backend)) == []
     assert backend.calls == []
 
 
@@ -323,31 +323,31 @@ def test_automatic_preparation_is_rejected_before_backend_or_molecular_work(
     for name in ('get', 'convert', 'select', 'extract', 'copy', 'set'):
         monkeypatch.setattr(msm, name, forbidden)
     backend = ControlBackend()
-    outcome = next(dmt.dock_many([item], backend=backend, on_error='record'))
-    assert outcome.status == 'failure' and outcome.error['code'] == 'DMT-E002'
+    outcome = next(bmt.dock_many([item], backend=backend, on_error='record'))
+    assert outcome.status == 'failure' and outcome.error['code'] == 'BMT-E002'
     assert backend.calls == []
 
 
 def test_prepared_objects_are_accepted_without_preparation(monkeypatch):
     item = problem()
     coordinates = puw.quantity([[0, 0, 0]], 'angstrom')
-    receptor = dmt.PreparedReceptor(
+    receptor = bmt.PreparedReceptor(
         'prepared-receptor', ['C'], ['ALA'], [1], coordinates, ['C'], [0.0]
     )
-    ligand = dmt.PreparedLigand(
+    ligand = bmt.PreparedLigand(
         'prepared-ligand', ['C'], 'LIG', coordinates, ['C'], [0.0]
     )
-    item = dmt.DockingProblem(
+    item = bmt.DockingProblem(
         receptor, ligand, item.search_domain, metadata=item.metadata
     )
-    batch = importlib.import_module('dockingmt.batch')
+    batch = importlib.import_module('bindingmt.batch')
 
     def observed(problem, **kwargs):
         assert problem.receptor is receptor and problem.partner is ligand
-        return dmt.DockingResult([])
+        return bmt.DockingResult([])
 
     monkeypatch.setattr(batch, 'dock', observed)
-    outcome = next(dmt.dock_many([item], backend=ControlBackend()))
+    outcome = next(bmt.dock_many([item], backend=ControlBackend()))
     assert outcome.status == 'success'
     assert outcome.problem_info['partner']['value']['state_id'] == 'prepared-ligand'
 
@@ -365,11 +365,11 @@ def test_prepared_objects_are_accepted_without_preparation(monkeypatch):
     ],
 )
 def test_outcome_reader_rejects_malformed_or_contradictory_records(changes):
-    item = next(dmt.dock_many([problem()], backend=ControlBackend()))
+    item = next(bmt.dock_many([problem()], backend=ControlBackend()))
     record = item.to_dict()
     record.update(changes)
     with pytest.raises(ArgumentError):
-        dmt.DockingOutcome.from_dict(record)
+        bmt.DockingOutcome.from_dict(record)
 
 
 def test_failure_roundtrip_is_offline_detached_and_retains_catalog_code(monkeypatch):
@@ -377,7 +377,7 @@ def test_failure_roundtrip_is_offline_detached_and_retains_catalog_code(monkeypa
 
     error = ArgumentError(arg_name='control', reason='invalid item')
     outcome = next(
-        dmt.dock_many(
+        bmt.dock_many(
             [problem('bad')], backend=ControlBackend(error), on_error='record'
         )
     )
@@ -389,10 +389,10 @@ def test_failure_roundtrip_is_offline_detached_and_retains_catalog_code(monkeypa
 
     for name in ('get', 'convert', 'select', 'extract'):
         monkeypatch.setattr(msm, name, forbidden)
-    monkeypatch.setattr(dmt.VinaBackend, 'dock', forbidden)
-    restored = dmt.DockingOutcome.from_dict(saved)
+    monkeypatch.setattr(bmt.VinaBackend, 'dock', forbidden)
+    restored = bmt.DockingOutcome.from_dict(saved)
     assert restored.to_dict() == baseline
-    assert restored.error['code'] == 'DMT-E002'
+    assert restored.error['code'] == 'BMT-E002'
     saved['error']['message'] = 'changed'
     detached = restored.error
     detached['code'] = 'changed'
@@ -405,13 +405,13 @@ def test_native_missing_file_failure_does_not_contaminate_next_execution(tmp_pat
         problem('bad', tmp_path / 'missing.pdbqt'),
         problem('third'),
     ]
-    protocol = dmt.VinaProtocol(
+    protocol = bmt.VinaProtocol(
         seed=123, cpu=1, exhaustiveness=1, n_poses=1, capture_backend_inputs=True
     )
-    outcomes = list(dmt.dock_many(items, protocol, on_error='record'))
+    outcomes = list(bmt.dock_many(items, protocol, on_error='record'))
     assert [item.status for item in outcomes] == ['success', 'failure', 'success']
     assert outcomes[1].problem_info['metadata']['ligand_id'] == 'bad'
-    assert dmt.audit_result(outcomes[2].result.to_dict())['status'] == 'consistent'
+    assert bmt.audit_result(outcomes[2].result.to_dict())['status'] == 'consistent'
     first = outcomes[0].result.to_dict()
     third = outcomes[2].result.to_dict()
     assert first['poses'][0]['scores'] == third['poses'][0]['scores']
@@ -429,7 +429,7 @@ def test_iterator_does_not_retain_failed_execution_traceback():
             raise ValueError('temporary frame')
 
     backend = FailureBackend()
-    stream = dmt.dock_many([problem()], backend=backend, on_error='record')
+    stream = bmt.dock_many([problem()], backend=backend, on_error='record')
     failed = next(stream)
     assert failed.status == 'failure'
     assert backend.marker() is None
@@ -442,19 +442,19 @@ def test_batch_preserves_caller_unit_policy_and_unknown_state():
     item.metadata.pop('receptor_state_id')
     with puw.context(standard_units=['pm', 'fs', 'kJ/mol']):
         before = deepcopy(puw.configure.get_standard_units())
-        outcome = next(dmt.dock_many([item], backend=ControlBackend()))
+        outcome = next(bmt.dock_many([item], backend=ControlBackend()))
         assert puw.configure.get_standard_units() == before
         assert 'partner_state_id' not in outcome.problem_info['metadata']
         assert outcome.problem_info['search_domain'] == item.search_domain.to_dict()
 
 
 def test_custom_result_export_is_detached():
-    class SharedExport(dmt.DockingResult):
+    class SharedExport(bmt.DockingResult):
         def to_dict(self):
             return shared
 
     shared = {'schema_version': '1.0', 'poses': [], 'extension': {'value': [1]}}
-    outcome = dmt.DockingOutcome(0, result=SharedExport([]))
+    outcome = bmt.DockingOutcome(0, result=SharedExport([]))
     record = outcome.to_dict()
     record['result']['extension']['value'][0] = 10
     assert shared['extension']['value'] == [1]
@@ -469,7 +469,7 @@ def test_unavailable_selected_engine_is_recorded_without_fallback(monkeypatch):
         'is_installed',
         lambda name: False if name == 'vina' else installed(name),
     )
-    outcome = next(dmt.dock_many([problem()], backend='vina', on_error='record'))
+    outcome = next(bmt.dock_many([problem()], backend='vina', on_error='record'))
     assert outcome.status == 'failure'
-    assert outcome.error['code'] == 'DMT-E001'
+    assert outcome.error['code'] == 'BMT-E001'
     assert outcome.result is None

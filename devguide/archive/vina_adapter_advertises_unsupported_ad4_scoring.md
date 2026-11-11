@@ -1,6 +1,6 @@
 ---
 summary: Reject unsupported AD4 scoring before Vina execution
-issue: uibcdf/dockingmt#23
+issue: uibcdf/bindingmt#23
 status: resolved
 opened: 2026-10-02
 closed: 2026-10-03
@@ -18,7 +18,7 @@ supersedes: []
 ## What
 
 `VinaBackend` declared `scoring_ad4` and accepted the required capability while
-always invoking the Vina-map calculation path. DockingMT has no external map
+always invoking the Vina-map calculation path. BindingMT has no external map
 input or `load_maps` execution path. The local capability check therefore
 promised a scoring mode that the adapter could not execute.
 
@@ -32,7 +32,7 @@ Vina affinity maps cannot be computed using AD4. This is also explicit in the
 
 The bounded local fix removes `scoring_ad4` from the adapter's capabilities.
 AD4 protocol intent remains serializable but fails execution through
-`CapabilityMismatchError` (`DMT-E003`) before problem hooks, input preparation,
+`CapabilityMismatchError` (`BMT-E003`) before problem hooks, input preparation,
 temporary input staging, or provider imports. A non-Vina protocol is rejected
 before calling its validation hook. Capability diagnostics expose the protocol
 name and sorted requested, supported, and missing capability sets.
@@ -58,7 +58,7 @@ name and sorted requested, supported, and missing capability sets.
 
 ## Why
 
-Upstream engine capabilities and DockingMT adapter capabilities are different
+Upstream engine capabilities and BindingMT adapter capabilities are different
 contracts. Clients need an accurate execution decision before potentially
 expensive preparation or a provider failure. This fulfills the existing Core
 MVP capability gate rather than introducing a new scoring workflow.
@@ -72,7 +72,7 @@ intent; the execution boundary owns the unsupported-capability decision.
 
 ## Scope and exclusions
 
-Only DockingMT's capability declaration, rejection order, and diagnostics are
+Only BindingMT's capability declaration, rejection order, and diagnostics are
 changed. MolSysMT and MolSysViewer are not modified or coordinated. This does
 not generate, load, or validate external AD4 maps; qualify molecular preparation;
 or add new engines. Existing Vina/Vinardo software execution is guarded using
@@ -93,7 +93,7 @@ establish compatibility with CI's pinned dependency set.
 
 ## Hosted resolution (2026-10-03)
 
-[CI run 37107875583](https://github.com/uibcdf/dockingmt/actions/runs/37107875583)
+[CI run 37107875583](https://github.com/uibcdf/bindingmt/actions/runs/37107875583)
 qualified commit `ff64d84239dbadd030ac1ba5f82eb0a60b5517b4`. All four Linux
 lanes (Python 3.11, 3.12, 3.13 and 3.14) passed the ordinary installed-package
 import and metadata gate and all 414 tests, without skips. The test named in

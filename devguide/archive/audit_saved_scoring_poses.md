@@ -1,6 +1,6 @@
 ---
 summary: Audit saved pose scores and evaluation history without a live backend.
-issue: uibcdf/dockingmt#35
+issue: uibcdf/bindingmt#35
 status: resolved
 opened: 2026-10-03
 closed: 2026-10-03
@@ -55,7 +55,7 @@ existing result-audit behavior and retain an executed notebook and contract.
 
 ## Measured outcome — 2026-10-03
 
-Public `dockingmt.audit_pose(record)` is exported from both root and core APIs.
+Public `bindingmt.audit_pose(record)` is exported from both root and core APIs.
 The implementation shares pose payload/native descriptor checks with
 `audit_result`, byte checks with replay, and preparation declarations with
 `assess_preparation`. Molecular data is not interpreted here; optional-engine

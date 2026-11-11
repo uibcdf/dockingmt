@@ -42,7 +42,7 @@ def receiving(tmp_path, monkeypatch):
             (candidate / name).write_bytes((ROOT / name).read_bytes())
     (candidate / 'LICENSE').write_bytes((ROOT / 'LICENSE').read_bytes())
     (task / 'wheels').mkdir()
-    (task / 'wheels/dockingmt-0.1.0-py3-none-any.whl').write_bytes(b'original-wheel')
+    (task / 'wheels/bindingmt-0.1.0-py3-none-any.whl').write_bytes(b'original-wheel')
     (task / 'evidence').mkdir()
     receipt = {
         'candidate': recovery.CANDIDATE,
@@ -56,7 +56,7 @@ def receiving(tmp_path, monkeypatch):
     }
     receipt_path = task / 'evidence/build-receipt.json'
     receipt_path.write_text(json.dumps(receipt))
-    wheel_sha = recovery.digest(task / 'wheels/dockingmt-0.1.0-py3-none-any.whl')
+    wheel_sha = recovery.digest(task / 'wheels/bindingmt-0.1.0-py3-none-any.whl')
     monkeypatch.setattr(recovery, 'WHEEL_SHA256', wheel_sha)
     monkeypatch.setattr(recovery, 'RECEIPT_SHA256', recovery.digest(receipt_path))
     monkeypatch.setattr(recovery, 'sys', SimpleNamespace(version_info=(3, 13, 18)))
@@ -72,10 +72,10 @@ def receiving(tmp_path, monkeypatch):
     for key, value in {
         'GITHUB_ACTIONS': 'true',
         'RUNNER_ENVIRONMENT': 'github-hosted',
-        'GITHUB_REPOSITORY': 'uibcdf/dockingmt',
+        'GITHUB_REPOSITORY': 'uibcdf/bindingmt',
         'GITHUB_EVENT_NAME': 'workflow_dispatch',
-        'GITHUB_WORKFLOW_REF': 'uibcdf/dockingmt/.github/workflows/recover-current-0.1.0-python313.yml@refs/heads/main',
-        'DOCKINGMT_RECOVERY': 'current-010-python313-original-wheel',
+        'GITHUB_WORKFLOW_REF': 'uibcdf/bindingmt/.github/workflows/recover-current-0.1.0-python313.yml@refs/heads/main',
+        'BINDINGMT_RECOVERY': 'current-010-python313-original-wheel',
         'EXPECTED_PYTHON': '3.13',
         'EXPECTED_WHEEL_SHA256': wheel_sha,
         'GITHUB_SHA': 'b' * 40,
@@ -95,13 +95,13 @@ def test_original_file_and_unmodified_scientific_gates_are_admitted(receiving):
     [
         ('GITHUB_ACTIONS', 'false'),
         ('RUNNER_ENVIRONMENT', 'self-hosted'),
-        ('GITHUB_REPOSITORY', 'outside/dockingmt'),
+        ('GITHUB_REPOSITORY', 'outside/bindingmt'),
         ('GITHUB_EVENT_NAME', 'pull_request'),
         (
             'GITHUB_WORKFLOW_REF',
-            'uibcdf/dockingmt/.github/workflows/other.yml@refs/heads/main',
+            'uibcdf/bindingmt/.github/workflows/other.yml@refs/heads/main',
         ),
-        ('DOCKINGMT_RECOVERY', 'arbitrary'),
+        ('BINDINGMT_RECOVERY', 'arbitrary'),
         ('EXPECTED_PYTHON', '3.14'),
         ('EXPECTED_WHEEL_SHA256', '0' * 64),
         ('GITHUB_SHA', 'not-a-commit'),
@@ -130,7 +130,7 @@ def test_wrong_recovery_context_stops_before_git_or_execution(
         ('root', 'devtools/qualify_source_0_1_0.py', 'frozen profile'),
         (
             'task',
-            'wheels/dockingmt-0.1.0-py3-none-any.whl',
+            'wheels/bindingmt-0.1.0-py3-none-any.whl',
             'original receipt and wheel',
         ),
         ('task', 'evidence/build-receipt.json', 'original receipt and wheel'),

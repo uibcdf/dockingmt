@@ -1,17 +1,17 @@
 # Explicit ligand torsion policy
 
-DockingMT delegates chemical eligibility to public
+BindingMT delegates chemical eligibility to public
 `msm.topology.get_rotatable_bonds` and fragment partition to
 `msm.topology.get_rigid_fragments`. The named consumer policy
 `explicit_docking_cuts@1` decides which **caller-selected** cuts to accept and
 records provider disagreement. It chooses no automatic cuts: `None` or an empty
 `active_torsion_bonds` keeps the ligand rigid and calls neither operation.
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17) owns this policy;
-[#6](https://github.com/uibcdf/dockingmt/issues/6) owns active-cut adoption and
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17) owns this policy;
+[#6](https://github.com/uibcdf/bindingmt/issues/6) owns active-cut adoption and
 [MolSysMT #224](https://github.com/uibcdf/molsysmt/issues/224) owns classification.
 
 ```python
-import dockingmt as dmt
+import bindingmt as dmt
 
 prepared = dmt.prepare_ligand(
     ligand_with_declared_chemistry,
@@ -38,7 +38,7 @@ endpoints or the H-projected graph would lose chemical context. No local
 aromaticity, amide perception, ring detection or classifier fallback is used.
 Missing/partial/unsupported chemistry and provider failures propagate unchanged.
 
-| Provider result on a selected bond | DockingMT decision |
+| Provider result on a selected bond | BindingMT decision |
 | --- | --- |
 | No exclusions | Accept as `provider_candidate`. |
 | Restricted conjugation on C–O/S | Accept explicit ester/thioester cut as `explicit_override`. |
@@ -60,7 +60,7 @@ symmetry exceptions and automatic RDKit/Meeko equivalence are absent.
 
 Existing `torsion_policy='explicit_selected_bonds'` and selected-pair fields stay
 compatible. New finite JSON `torsion_selection`, schema
-`dockingmt.explicit_torsion_selection@1`, contains:
+`bindingmt.explicit_torsion_selection@1`, contains:
 
 - the complete original classification, evaluated scope, state, versioned
   criteria, exclusion bits/masks, software and attribution;
@@ -93,7 +93,7 @@ disagreement, omitted connecting atoms, nonmonotonic subsets and refusal control
 now protect its consumption. The former 2027-01-06 traversal exception is retired.
 The original 2026-10-06 measurements below retain their producer and observations.
 PDBQT/H/charge-preserving export remains separate under
-[MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223) and DockingMT #33.
+[MolSysMT #223](https://github.com/uibcdf/molsysmt/issues/223) and BindingMT #33.
 
 ## Qualification — 2026-10-06
 

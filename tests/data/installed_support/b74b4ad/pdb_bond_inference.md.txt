@@ -1,7 +1,7 @@
 # PDB reader connectivity policy and native alternatives
 
-Consumer tracking: DockingMT [#33](https://github.com/uibcdf/dockingmt/issues/33)
-and [#5](https://github.com/uibcdf/dockingmt/issues/5). Provider improvement:
+Consumer tracking: BindingMT [#33](https://github.com/uibcdf/bindingmt/issues/33)
+and [#5](https://github.com/uibcdf/bindingmt/issues/5). Provider improvement:
 MolSysMT [#304](https://github.com/uibcdf/molsysmt/issues/304), which requests an
 explicit native alternative while preserving OpenMM. The
 [executed notebook](pdb_bond_inference.ipynb),
@@ -10,7 +10,7 @@ explicit native alternative while preserving OpenMM. The
 
 ## Diagnosed hosted failure
 
-[CI run 37125369261](https://github.com/uibcdf/dockingmt/actions/runs/37125369261)
+[CI run 37125369261](https://github.com/uibcdf/bindingmt/actions/runs/37125369261)
 failed three tests in each Python 3.11–3.14 lane, with 519 passes. Local exact-source
 qualification had passed 522 tests. The two original-source coverage assertions
 and automatic redocking coverage assertion expected the graph obtained with
@@ -48,7 +48,7 @@ Direct `msm.convert(path, to_form='molsysmt.MolSys', get_missing_bonds=False)`
 currently discards the flag and infers bonds when OpenMM is available. Propagation
 of the policy through the direct file converter and meaningful engine-failure
 diagnostics are requested in #304. The handler control uses public provider APIs;
-DockingMT adds no parser or connectivity algorithm.
+BindingMT adds no parser or connectivity algorithm.
 
 ## Existing native foundation and unresolved differences
 
@@ -88,7 +88,7 @@ absent connectivity remains incomplete while supported heavy-atom inventories
 remain assessed. The blocked-import control checks that the actual provider
 attempt occurred, even if OpenMM had been imported earlier in the test session.
 
-OpenMM is a test-profile dependency, not a new DockingMT runtime requirement.
+OpenMM is a test-profile dependency, not a new BindingMT runtime requirement.
 Default preparation and the provisional Vina safeguard are unchanged. This is
 an explicit qualification of the existing reader profile. Its dependence can
 be reviewed when #304 delivers a qualified selectable native profile; removal
@@ -103,7 +103,7 @@ provider API is assumed implemented, and no provider checkout is edited.
 ## Reproduction and limits
 
 Use `molsyssuite@uibcdf_3.14` (Python 3.14.7, OpenMM 8.6.1, Vina 1.2.7), editable
-DockingMT and a read-only provider archive of
+BindingMT and a read-only provider archive of
 `e8e4fff22d0df0d26a3b91d80ea5a85c04981aef` on `PYTHONPATH`:
 
 ```bash

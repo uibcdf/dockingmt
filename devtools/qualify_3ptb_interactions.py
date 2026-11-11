@@ -115,7 +115,7 @@ def hosted():
 
 
 def task():
-    return Path(os.environ['RUNNER_TEMP']).resolve() / 'dockingmt-e4'
+    return Path(os.environ['RUNNER_TEMP']).resolve() / 'bindingmt-e4'
 
 
 def staged_inputs():
@@ -195,18 +195,18 @@ def wheel_contract(wheel, root):
         }
         if set(runtime) != required:
             raise ValueError(
-                'Consumer payload differs from the declared DockingMT inventory'
+                'Consumer payload differs from the declared BindingMT inventory'
             )
         for name, value in runtime.items():
-            if name != 'dockingmt/_version.py' and digest(root / name) != value:
+            if name != 'bindingmt/_version.py' and digest(root / name) != value:
                 raise ValueError('Consumer bytes differ from source: ' + name)
         meta_names = [n for n in names if n.endswith('.dist-info/METADATA')]
         if len(meta_names) != 1:
             raise ValueError('One distribution is required')
         prefix = meta_names[0].removesuffix('METADATA')
         message = BytesParser().parsebytes(archive.read(meta_names[0]))
-        if message['Name'] != 'dockingmt' or message['License-Expression'] != 'MIT':
-            raise ValueError('Wrong DockingMT metadata')
+        if message['Name'] != 'bindingmt' or message['License-Expression'] != 'MIT':
+            raise ValueError('Wrong BindingMT metadata')
         from packaging.specifiers import SpecifierSet
 
         if SpecifierSet(message['Requires-Python']) != SpecifierSet('>=3.11,<3.15'):
@@ -215,10 +215,10 @@ def wheel_contract(wheel, root):
         if headers['Root-Is-Purelib'] != 'true' or headers.get_all('Tag') != [
             'py3-none-any'
         ]:
-            raise ValueError('Unexpected DockingMT platform tag')
+            raise ValueError('Unexpected BindingMT platform tag')
         entries = configparser.ConfigParser()
         entries.read_string(archive.read(prefix + 'entry_points.txt').decode())
-        if entries['molsysviewer.addons']['dockingmt'] != 'molsysviewer_dockingmt':
+        if entries['molsysviewer.addons']['bindingmt'] != 'molsysviewer_bindingmt':
             raise ValueError('Wrong addon entry point')
         if archive.read(prefix + 'licenses/LICENSE') != (root / 'LICENSE').read_bytes():
             raise ValueError('License bytes differ')
@@ -276,7 +276,7 @@ def verify_consumer():
         or digest(task() / 'wheels' / proof['filename']) != proof['sha256']
     ):
         raise ValueError('Wrong source/archive binding')
-    dist = metadata.distribution('dockingmt')
+    dist = metadata.distribution('bindingmt')
     direct = json.loads(dist.read_text('direct_url.json') or '{}')
     if (
         dist.version != proof['version']
@@ -303,7 +303,7 @@ def artifact_monitor():
 
 
 def validate_association(association, original, registration, journal):
-    if association.get('schema') != 'dockingmt.3ptb_interaction_association@1':
+    if association.get('schema') != 'bindingmt.3ptb_interaction_association@1':
         raise ValueError('Wrong association schema')
     expected = {
         name: registration['inputs'][name]['sha256']
@@ -319,7 +319,7 @@ def validate_association(association, original, registration, journal):
     producer = {
         key: original['provenance'][key]
         for key in (
-            'dockingmt_version',
+            'bindingmt_version',
             'molsysmt_version',
             'backend',
             'backend_version',
@@ -429,9 +429,9 @@ def scientific_process(profile, reader=False):
     import vina
     from IPython.core.interactiveshell import InteractiveShell
 
-    import dockingmt as dmt
+    import bindingmt as bmt
 
-    for module in (dmt, msm, puw, vina):
+    for module in (bmt, msm, puw, vina):
         if (
             not Path(module.__file__)
             .resolve()
@@ -486,7 +486,7 @@ def scientific_process(profile, reader=False):
         setattr(owner, attribute, call)
 
     for name in ('dock', 'score', 'evaluate_redocking', 'view', 'show'):
-        forbid(dmt, name, 'dockingmt.' + name)
+        forbid(bmt, name, 'bindingmt.' + name)
     for name in (
         '__init__',
         'compute_vina_maps',
@@ -500,7 +500,7 @@ def scientific_process(profile, reader=False):
         forbid(msm, name, 'molsysmt.' + name)
     if reader:
         for name in ('prepare_receptor', 'prepare_ligand'):
-            forbid(dmt, name, 'dockingmt.' + name)
+            forbid(bmt, name, 'bindingmt.' + name)
         forbid(msm.build, 'add_missing_hydrogens', 'fixed_state_H')
         forbid(msm.interactions.hbonds, 'get_hbonds', 'hbonds')
         forbid(
@@ -702,15 +702,15 @@ def receive():
             )
             inputs = registration['inputs']
             for role, variable in {
-                'source': 'DOCKINGMT_3PTB_SOURCE',
-                'declarations': 'DOCKINGMT_3PTB_DECLARATIONS',
-                'result': 'DOCKINGMT_INTERACTIONS_RESULT',
-                'preparation': 'DOCKINGMT_INTERACTIONS_PREPARATION_NOTEBOOK',
+                'source': 'BINDINGMT_3PTB_SOURCE',
+                'declarations': 'BINDINGMT_3PTB_DECLARATIONS',
+                'result': 'BINDINGMT_INTERACTIONS_RESULT',
+                'preparation': 'BINDINGMT_INTERACTIONS_PREPARATION_NOTEBOOK',
             }.items():
                 env[variable] = str(task() / 'inputs' / inputs[role]['filename'])
                 env[variable + '_SHA256'] = inputs[role]['sha256']
-            env['DOCKINGMT_3PTB_OUTPUT'] = str(directory / 'preparation')
-            env['DOCKINGMT_INTERACTIONS_OUTPUT'] = str(directory / 'interactions')
+            env['BINDINGMT_3PTB_OUTPUT'] = str(directory / 'preparation')
+            env['BINDINGMT_INTERACTIONS_OUTPUT'] = str(directory / 'interactions')
             for operation, timeout in [('profile', 300), ('read', 120)]:
                 if available() < registration['hosted_RAM_reserve_bytes']:
                     raise ValueError('Hosted reserve unavailable; no automatic retry')

@@ -9,17 +9,17 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.molecular_fixtures import declared_methanol
-from dmt_test_support.partial_charge_fixtures import (
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bmt_test_support.molecular_fixtures import declared_methanol
+from bmt_test_support.partial_charge_fixtures import (
     METHANOL as METHANOL,
 )
-from dmt_test_support.partial_charge_fixtures import (
+from bmt_test_support.partial_charge_fixtures import (
     atom_charges as atom_charges,
 )
-from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
-from dmt_test_support.qualify_named_types import TYPING
-from dockingmt._private.smonitor import ArgumentError
+from bmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
+from bmt_test_support.qualify_named_types import TYPING
 
 
 @pytest.fixture
@@ -40,14 +40,14 @@ def written_charges(prepared):
     ]
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_named_charges_preserve_original_model_and_explicit_transfers(
     assigned, prepare
 ):
     before = atom_charges(assigned).copy()
     assignment = deepcopy(assigned.molecular_mechanics.partial_charge_assignment)
     prepared = prepare(assigned, selection='all')
-    report = dmt.audit_preparation_charges(prepared)
+    report = bmt.audit_preparation_charges(prepared)
     assert report['assessment'] == 'consistent'
     assert report['charge_unit'] == 'elementary_charge'
     assert report['matches_preparation_values'] is True
@@ -77,7 +77,7 @@ def test_named_charges_preserve_original_model_and_explicit_transfers(
         assigned.molecular_mechanics.partial_charge_assignment['status'] == 'assigned'
     )
     assert prepared.atom_types == ['C', 'OA', 'HD']
-    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == []
+    assert bmt.assess_preparation(prepared)['provisional_reason_codes'] == []
     assert report['pdbqt']['charges'] == written_charges(prepared)
     assert (
         abs(report['pdbqt']['rounding_difference'])
@@ -118,18 +118,18 @@ def test_forcefield_charges_do_not_supply_a_complete_typing_graph():
     with pytest.raises(
         ArgumentError, match='Named MolSysMT AutoDock4 types are required'
     ):
-        dmt.prepare_receptor(assigned, selection='all')
+        bmt.prepare_receptor(assigned, selection='all')
     with pytest.raises(
         msm.StructuralInconsistencyError, match='connectivity declared complete'
     ):
-        dmt.prepare_receptor(assigned, selection='all', typing_options=TYPING)
+        bmt.prepare_receptor(assigned, selection='all', typing_options=TYPING)
 
 
 def test_projected_inventory_retains_original_calculation_scope(assigned):
     before = atom_charges(assigned)
     projected = msm.extract(assigned, selection=[1, 5])
-    prepared = dmt.prepare_ligand(projected, selection='all')
-    report = dmt.audit_preparation_charges(prepared)
+    prepared = bmt.prepare_ligand(projected, selection='all')
+    report = bmt.audit_preparation_charges(prepared)
     assert report['assessment'] == 'consistent'
     assert report['partial_charge_assignment']['n_atoms'] == 6
     assert report['partial_charge_assignment']['total_charge'] == pytest.approx(
@@ -144,7 +144,7 @@ def test_projected_inventory_retains_original_calculation_scope(assigned):
 
 
 @pytest.mark.parametrize('mutation', ['charges', 'chemistry'])
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_provider_marks_stale_assignment_and_consumer_rejects(
     assigned, mutation, prepare
 ):
@@ -162,7 +162,7 @@ def test_coordinate_change_preserves_graph_charge_attribution(assigned):
     coords = msm.get(assigned, coordinates=True)
     msm.set(assigned, coordinates=coords + puw.quantity(1, 'nm'))
     assert (
-        dmt.audit_preparation_charges(dmt.prepare_ligand(assigned, selection='all'))[
+        bmt.audit_preparation_charges(bmt.prepare_ligand(assigned, selection='all'))[
             'assessment'
         ]
         == 'consistent'
@@ -177,21 +177,21 @@ def test_manual_charge_replacement_drops_named_attribution(assigned, monkeypatch
 
     monkeypatch.setattr(msm.physchem, 'get_partial_charges', forbid)
     monkeypatch.setattr(msm.build, 'assign_partial_charges', forbid)
-    prepared = dmt.prepare_ligand(assigned, selection='all')
-    report = dmt.audit_preparation_charges(prepared)
+    prepared = bmt.prepare_ligand(assigned, selection='all')
+    report = bmt.audit_preparation_charges(prepared)
     assert report['assessment'] == 'unassessed'
     assert report['partial_charge_assignment'] is None
     assert report['charge_projection'] is None
     assert report['total_charge'] == pytest.approx(0.6)
-    assert not prepared.to_pdbqt().startswith('REMARK DOCKINGMT_PARTIAL_CHARGES')
+    assert not prepared.to_pdbqt().startswith('REMARK BINDINGMT_PARTIAL_CHARGES')
 
 
 def test_nondefault_charge_units_do_not_change_consumed_values():
     source = declared_methanol()
     with puw.context(standard_units=['coulomb', 'pm']):
         assigned = msm.build.assign_partial_charges(source, method='gasteiger_marsili')
-        prepared = dmt.prepare_ligand(assigned, selection='all', typing_options=TYPING)
-        report = dmt.audit_preparation_charges(prepared)
+        prepared = bmt.prepare_ligand(assigned, selection='all', typing_options=TYPING)
+        report = bmt.audit_preparation_charges(prepared)
     assert prepared.charges == pytest.approx(
         [0.19000057917, -0.39963024356, 0.20962966439], abs=1e-10
     )
@@ -199,7 +199,7 @@ def test_nondefault_charge_units_do_not_change_consumed_values():
     assert report['pdbqt']['charges'] == [0.19, -0.4, 0.21]
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_changed_prepared_values_are_reported_and_not_exported_as_named(
     assigned, prepare
 ):
@@ -207,7 +207,7 @@ def test_changed_prepared_values_are_reported_and_not_exported_as_named(
     # Same total: conservation alone cannot detect exchanged atomic charges.
     prepared.charges[0] += 0.01
     prepared.charges[1] -= 0.01
-    report = dmt.audit_preparation_charges(prepared)
+    report = bmt.audit_preparation_charges(prepared)
     assert report['assessment'] == 'inconsistent'
     assert report['matches_preparation_values'] is False
     with pytest.raises(ArgumentError, match='no longer match'):
@@ -216,26 +216,26 @@ def test_changed_prepared_values_are_reported_and_not_exported_as_named(
 
 @pytest.mark.parametrize('charges', [[0], [float('nan')] * 3, [float('inf')] * 3])
 def test_audit_rejects_incomplete_or_nonfinite_values(assigned, charges):
-    prepared = dmt.prepare_ligand(assigned, selection='all')
+    prepared = bmt.prepare_ligand(assigned, selection='all')
     prepared.charges = charges
     with pytest.raises(ArgumentError, match='complete and finite'):
-        dmt.audit_preparation_charges(prepared)
+        bmt.audit_preparation_charges(prepared)
 
 
 def test_named_charge_and_type_reports_pass_default_real_vina(
     assigned,
 ):
-    prepared = dmt.prepare_ligand(assigned, selection='all')
-    problem = dmt.DockingProblem(
+    prepared = bmt.prepare_ligand(assigned, selection='all')
+    problem = bmt.DockingProblem(
         receptor=MINIMAL_REC_PDBQT,
         partner=prepared,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([10, 10, 10], 'angstrom')
         ),
     )
-    result = dmt.dock(
+    result = bmt.dock(
         problem,
-        dmt.VinaProtocol(
+        bmt.VinaProtocol(
             cpu=1,
             seed=17,
             n_poses=1,
@@ -243,7 +243,7 @@ def test_named_charge_and_type_reports_pass_default_real_vina(
             capture_backend_inputs=True,
         ),
     )
-    restored = dmt.DockingResult.from_dict(
+    restored = bmt.DockingResult.from_dict(
         json.loads(json.dumps(result.to_dict(), allow_nan=False))
     )
     metadata = restored.provenance['preparation']['partner']['metadata']
@@ -274,13 +274,13 @@ def test_flexible_sdf_charge_export_follows_verified_tree_order():
     )
     assigned = msm.build.assign_partial_charges(source, method='gasteiger_marsili')
     before = atom_charges(assigned).copy()
-    prepared = dmt.prepare_ligand(
+    prepared = bmt.prepare_ligand(
         assigned,
         selection='all',
         active_torsion_bonds=[(6, 7), (17, 18)],
         typing_options=TYPING,
     )
-    report = dmt.audit_preparation_charges(prepared)
+    report = bmt.audit_preparation_charges(prepared)
     expected = [
         7,
         8,
@@ -333,16 +333,16 @@ def test_flexible_sdf_charge_export_follows_verified_tree_order():
     ],
 )
 def test_audit_rejects_mutated_evidence_atomically(assigned, mutate):
-    prepared = dmt.prepare_ligand(assigned, selection='all')
+    prepared = bmt.prepare_ligand(assigned, selection='all')
     mutate(prepared.metadata)
     with pytest.raises(ArgumentError):
-        dmt.audit_preparation_charges(prepared)
+        bmt.audit_preparation_charges(prepared)
     with pytest.raises(ArgumentError):
         prepared.to_pdbqt()
 
 
 def test_charge_audit_reads_only_prepared_numeric_evidence(assigned, monkeypatch):
-    prepared = dmt.prepare_ligand(assigned, selection='all')
+    prepared = bmt.prepare_ligand(assigned, selection='all')
 
     def forbid(*args, **kwargs):
         raise AssertionError('Audit must not read molecular chemistry or render PDBQT.')
@@ -350,4 +350,4 @@ def test_charge_audit_reads_only_prepared_numeric_evidence(assigned, monkeypatch
     for name in ('get', 'convert', 'extract'):
         monkeypatch.setattr(msm, name, forbid)
     monkeypatch.setattr(prepared, 'to_pdbqt', forbid)
-    assert dmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
+    assert bmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'

@@ -8,9 +8,9 @@ from types import SimpleNamespace
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.profile_workflow import _sample, _summarize
-from dockingmt import BoxRegion, DockingProblem, VinaBackend, VinaProtocol
-from dockingmt._private.smonitor import CapabilityMismatchError
+from bindingmt import BoxRegion, DockingProblem, VinaBackend, VinaProtocol
+from bindingmt._private.smonitor import CapabilityMismatchError
+from bmt_test_support.profile_workflow import _sample, _summarize
 
 
 @pytest.fixture
@@ -23,7 +23,7 @@ def timed_native(monkeypatch, tmp_path):
         'is_installed',
         lambda name: True if name == 'vina' else available(name),
     )
-    engine = importlib.import_module('dockingmt.engines.vina')
+    engine = importlib.import_module('bindingmt.engines.vina')
     clock = SimpleNamespace(now=0.0, calls=0, fail=False, paths=[])
 
     def read_clock():

@@ -1,6 +1,6 @@
 ---
 summary: Diagnose saved P59 total-score preference versus positional recovery.
-issue: uibcdf/dockingmt#69
+issue: uibcdf/bindingmt#69
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-05
@@ -18,7 +18,7 @@ supersedes: []
 
 Follow #67's returned-set/first-pose recovery gap with a retrospective
 description of saved total scores and saved positional RMSD. The
-[issue prescription](https://github.com/uibcdf/dockingmt/issues/69) precedes
+[issue prescription](https://github.com/uibcdf/bindingmt/issues/69) precedes
 the new score-pairing calculations. Original experiments remain historical;
 other components' issues remain deferred.
 
@@ -82,7 +82,7 @@ hashes, joins, units/definitions/context, counts, ranks/positions, ties and
 missing observations with meaningful controls. Check mode recomputes numerical
 and text outputs and verifies figure hashes without importing molecular or
 plotting tools. Declare exact unshipped helper/data inputs through shared
-installed-test support. Follow DMT-044 publication and report/resource custody.
+installed-test support. Follow BMT-044 publication and report/resource custody.
 
 At prescription checkpoint 414ff0e, the new numerical diagnostic had not run.
 

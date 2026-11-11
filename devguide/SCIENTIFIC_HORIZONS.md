@@ -17,7 +17,7 @@ ElastNetMT      -> flexibility landscape
 MolSysMT        -> conformational landscape
                        |
                        v
-                  DockingMT
+                  BindingMT
                        |
                        v
                guided exploration
@@ -158,7 +158,7 @@ short MD or other refinement
 re-ranking
 ```
 
-DockingMT need not implement every physical method itself.
+BindingMT need not implement every physical method itself.
 
 ## 10. Uncertainty-aware docking
 
@@ -237,7 +237,7 @@ multiple fragment poses
 growth / linking hypotheses
 ```
 
-DockingMT need not become a molecule-generation package, but it can provide the structural/scoring layer consumed by design workflows.
+BindingMT need not become a molecule-generation package, but it can provide the structural/scoring layer consumed by design workflows.
 
 ## 17. Blind/global docking
 
@@ -256,7 +256,7 @@ Docking may need to consider multiple:
 
 Results should eventually permit state-aware aggregation rather than losing this information during preparation.
 
-## 19. Native DockingMT engine
+## 19. Native BindingMT engine
 
 A native engine is plausible if MolSysSuite integration suggests genuinely new algorithms.
 
@@ -282,7 +282,7 @@ Physics/structural models may contribute to:
 - energetic discrimination;
 - interpretability.
 
-DockingMT should allow composition rather than forcing an “AI versus physics” architecture.
+BindingMT should allow composition rather than forcing an “AI versus physics” architecture.
 
 ## 21. Adaptive search
 

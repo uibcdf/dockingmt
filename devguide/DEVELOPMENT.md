@@ -8,7 +8,7 @@ dependency solve or platform.
 
 ## What we are building
 
-DockingMT makes this scientific workflow inspectable and reproducible:
+BindingMT makes this scientific workflow inspectable and reproducible:
 
 ```text
 explicit receptor/ligand sources and states
@@ -51,10 +51,10 @@ The [real source map](ARCHITECTURE.md) distinguishes implemented modules from
 conceptual future packages. Public orchestration is in `dock.py`, `score.py`,
 `batch.py`, `evaluation.py` and `aggregation.py`; `core/` owns scientific
 records; `engines/` owns backend details; `preparation/` composes MolSysMT tools.
-`molsysviewer_dockingmt/` owns the addon.
+`molsysviewer_bindingmt/` owns the addon.
 
 [Runtime tests](../tests/) differ from [administrative tests](../devtools/tests/).
-[dmt_test_support](../dmt_test_support/) is unshipped scientific support, and
+[bmt_test_support](../bmt_test_support/) is unshipped scientific support, and
 [devtools](../devtools/) contains source entry points/operators.
 [Validation guides](validation/) and [data](validation/data/) preserve scientific
 prescriptions and observations. Notebooks can execute expensive science.
@@ -63,13 +63,13 @@ prescriptions and observations. Notebooks can execute expensive science.
 
 The reference routine workspace is **Linux x86_64 / Python 3.14**. Required source
 support spans **3.11–3.14**; actual platform/public admission remains
-[#30](https://github.com/uibcdf/dockingmt/issues/30). Another OS requires its own
+[#30](https://github.com/uibcdf/bindingmt/issues/30). Another OS requires its own
 qualification; a Linux environment/wheel does not prove macOS compatibility.
 
 Clone into a workspace of your choice:
 
 ```bash
-git clone https://github.com/uibcdf/dockingmt.git
+git clone https://github.com/uibcdf/bindingmt.git
 git clone https://github.com/uibcdf/molsyssuite.git
 ```
 
@@ -92,7 +92,7 @@ toolchain` check; it compiles C/Rust smoke programs and needs the same resource
 admission. The central batch installer expects the **complete eligible cohort**,
 not just these two clones. Inspect its `profile`/`sources` operations first.
 
-For a smaller DockingMT workspace, the central environment alone is not a full
+For a smaller BindingMT workspace, the central environment alone is not a full
 scientific installation: MolSysMT and the compatible ArgDigest source generation
 are also needed. The handoff records the controlled sources below. Return to
 the parent workspace directory first (`cd ..` from the `molsyssuite` clone above).
@@ -118,7 +118,7 @@ same installation policy. Select Vina and other optional dependencies from the
 accepted workflow/test recipe. Third-party resolution on the destination still
 needs qualification; these source pins are not an environment lock.
 
-Then, from the DockingMT checkout, connect the routine interpreter:
+Then, from the BindingMT checkout, connect the routine interpreter:
 
 ```bash
 python -m pip install --no-deps --editable .
@@ -136,7 +136,7 @@ the shared workspace and member recipes are not interchangeable locks.
 After admitting resources for provider imports, verify isolated origins:
 
 ```bash
-python -I -c 'import sys, dockingmt; print(sys.executable); print(dockingmt.__file__)'
+python -I -c 'import sys, bindingmt; print(sys.executable); print(bindingmt.__file__)'
 ```
 
 Record actual commits/origins and `pip check` outcomes. Do not hide unrelated

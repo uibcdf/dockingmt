@@ -1,7 +1,7 @@
 # Molecular plausibility: provider inventory — 2026-11-04
 
-Owners: [DockingMT #33](https://github.com/uibcdf/dockingmt/issues/33) and
-[#49](https://github.com/uibcdf/dockingmt/issues/49). Provider proposal:
+Owners: [BindingMT #33](https://github.com/uibcdf/bindingmt/issues/33) and
+[#49](https://github.com/uibcdf/bindingmt/issues/49). Provider proposal:
 [MolSysMT #555](https://github.com/uibcdf/molsysmt/issues/555).
 This supports audit R6/Q4 and the [proposed panel](scientific_panel_design_2026-11-04.md).
 
@@ -23,7 +23,7 @@ An available symbol is not qualified consumer behavior.
   as the latest API. In particular, chemical graph tools belong to
   `molsysmt.chemical_states` in the qualified source.
 
-The bounded suite-status check reported DockingMT clean/current and MolSysMT
+The bounded suite-status check reported BindingMT clean/current and MolSysMT
 behind; no merge, reset or reinstall occurred. An initial attempt to select the
 governance repository itself was rejected as unregistered; the corrected member
 selectors produced the status above. No sibling worktree was edited.
@@ -77,7 +77,7 @@ distorted angles/planes, stereo inversion, known excluded bonded pairs and true
 overlap, with empty/missing-chemistry/H cases, nondefault units and immutability.
 Exact thresholds, scope and implementation belong to the provider's scientific
 review. [PoseBusters checks](https://posebusters.readthedocs.io/en/latest/checks.html)
-are methodological precedent, not an automatic policy imported into DockingMT.
+are methodological precedent, not an automatic policy imported into BindingMT.
 
 ## Ownership and non-blocking boundaries
 
@@ -87,7 +87,7 @@ Issue #555 is a post-initial-release proposal, not an added gate for the frozen
 MolSysMT 1.0 scope. No PharmacophoreMT operation is needed for this first assessment;
 future pharmacophore work retains its own provider.
 
-DockingMT may select the evaluation policy, preserve provider reports and compare
+BindingMT may select the evaluation policy, preserve provider reports and compare
 docking outcomes. It must not implement generic molecular characterization.
 Unavailable plausibility checks remain visibly unassessed; they do not prevent
 source admission or separately scoped positional-RMSD research, but they prevent

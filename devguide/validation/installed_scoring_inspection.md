@@ -1,12 +1,12 @@
 # Inspect saved scoring evidence with an installed reader
 
-Owners: [DockingMT #75](https://github.com/uibcdf/dockingmt/issues/75) and
-[#77](https://github.com/uibcdf/dockingmt/issues/77), bounded follow-ups to the
+Owners: [BindingMT #75](https://github.com/uibcdf/bindingmt/issues/75) and
+[#77](https://github.com/uibcdf/bindingmt/issues/77), bounded follow-ups to the
 Extended E1 review under #73. The standalone
 [example](../../examples/inspect_saved_scoring.py) reads a caller-supplied
 DockingPose JSON file by default, or a DockingResult collection with an explicit
 record-kind choice. It uses existing public APIs. Copy it and your input to any
-directory with a compatible ordinary-installed DockingMT environment available.
+directory with a compatible ordinary-installed BindingMT environment available.
 
 ```bash
 python inspect_saved_scoring.py saved_pose.json --sha256 INDEPENDENT_EXPECTED_SHA256
@@ -45,7 +45,7 @@ captured inputs are present. It emits a compact JSON summary containing:
 - Every named score with its recorded method, component, kind, unit and advisory
   direction. Missing descriptors stay unknown; no units are guessed or values
   compared across methods.
-- Each evaluation's original DockingMT/MolSysMT/backend version labels,
+- Each evaluation's original BindingMT/MolSysMT/backend version labels,
   captured-input integrity/byte counts and recorded preparation assessments.
 
 Full contexts and captured bytes stay in the unchanged input rather than being
@@ -81,7 +81,7 @@ low priority, single native-library threads and monitored RAM headroom:
 | Wrong independently expected file hash | Exit 1 before JSON interpretation. |
 | Deliberately source-overlaid reader in an isolated negative child | Exit 1; the ordinary-installation boundary refuses it. |
 
-The positive reader uses retained Python **3.12.16**, ordinary private DockingMT
+The positive reader uses retained Python **3.12.16**, ordinary private BindingMT
 **0.1.0**, wheel SHA-256
 `fbe3591068d9633ae0066ab3dcd593508f7fc31d86eefad01975fd4e4bb71752`.
 It reuses the qualified [private minor composition](data/source_0_1_0_2026-11-05/source_minor_matrix.json)
@@ -93,7 +93,7 @@ installation recipe or a new full-suite qualification; public delivery stays
 #30/#47.
 
 Validation permits the required MolSysMT bootstrap import, then guards its
-molecular operations and DockingMT preparation/execution/reconstruction/render
+molecular operations and BindingMT preparation/execution/reconstruction/render
 calls, plus optional engine/Viewer/RDKit/OpenMM loads. No guarded work is
 attempted. The exact example runs without a source/data harness or SDK import;
 only the explicit input file is copied. All final input digests are independently

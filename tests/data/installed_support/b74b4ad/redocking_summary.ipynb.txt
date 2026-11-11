@@ -7,8 +7,8 @@
    "source": [
     "# Offline redocking collection controls\n",
     "\n",
-    "This notebook exercises public `dockingmt.summarize_redocking` over the retained\n",
-    "native evaluations from DockingMT #38. Original measurements, preparation limits\n",
+    "This notebook exercises public `bindingmt.summarize_redocking` over the retained\n",
+    "native evaluations from BindingMT #38. Original measurements, preparation limits\n",
     "and provider identities remain historical; **no new Vina run occurs here**.\n",
     "\n",
     "Keep 181L provisional preparation separate from the external/unassessed 1IEP\n",
@@ -16,7 +16,7 @@
     "shows denominator handling; it is not an observed runtime failure. These selected\n",
     "software controls do not establish a biological dataset success rate.\n",
     "\n",
-    "See [the contract](redocking_summary.md) and [owning issue #39](https://github.com/uibcdf/dockingmt/issues/39).\n",
+    "See [the contract](redocking_summary.md) and [owning issue #39](https://github.com/uibcdf/bindingmt/issues/39).\n",
     "Execution uses the requested `molsyssuite@uibcdf_3.14` interpreter."
    ]
   },
@@ -42,13 +42,13 @@
       "    \"path\": \"devguide/validation/data/redocking_evaluation/cases.json\",\n",
       "    \"sha256\": \"383a3b1c75d66881d59862b0ff3e0676e1116b71530b72fe1af7d4c326870e1a\",\n",
       "    \"size_bytes\": 174825,\n",
-      "    \"original_qualification\": \"dockingmt#38\",\n",
+      "    \"original_qualification\": \"bindingmt#38\",\n",
       "    \"fresh_engine_execution\": false\n",
       "  },\n",
       "  \"execution\": {\n",
       "    \"python\": \"3.14.7\",\n",
       "    \"interpreter\": \"/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\",\n",
-      "    \"dockingmt_version\": \"0.0.0+101.gbe39d74.dirty\",\n",
+      "    \"bindingmt_version\": \"0.0.0+101.gbe39d74.dirty\",\n",
       "    \"checkout_head\": \"308b406287dbd8df7f8eb7f5923bcb9ff5589f29\",\n",
       "    \"implementation_sha256\": \"d033c3a8bbfbd4e44ffa34eaee6901f5a30efe95fa3b45e60d5d849ad1945ae5\",\n",
       "    \"helper_sha256\": \"078a54303ca1f72e36e9de6f8ff97d2dc34b69c8c523fd306f39ec26d481c946\"\n",
@@ -66,7 +66,7 @@
     "\n",
     "assert \"molsyssuite@uibcdf_3.14\" in sys.executable\n",
     "assert sys.version_info[:2] == (3, 14)\n",
-    "root = next(path for path in (Path.cwd(), *Path.cwd().parents) if (path / \"dockingmt/aggregation.py\").is_file())\n",
+    "root = next(path for path in (Path.cwd(), *Path.cwd().parents) if (path / \"bindingmt/aggregation.py\").is_file())\n",
     "if str(root) not in sys.path:\n",
     "    sys.path.insert(0, str(root))\n",
     "from devtools.qualify_redocking_summary import qualify\n",
@@ -436,7 +436,7 @@
   "kernelspec": {
    "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
    "language": "python",
-   "name": "dockingmt-molsyssuite-314"
+   "name": "bindingmt-molsyssuite-314"
   },
   "language_info": {
    "codemirror_mode": {

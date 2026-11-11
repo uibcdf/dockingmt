@@ -1,6 +1,6 @@
 # Coordinate-free reference receiving on the development workspace — 2026-11-08
 
-Owners: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md)
+Owners: [BindingMT #33](../pending_proposals/validate_native_molsysmt_formats.md)
 and [#49](../pending_proposals/retire_general_molecular_operations.md).
 Registered before execution; current outcome: **all four complete development selections pass**.
 
@@ -13,7 +13,7 @@ controls and final live source/reference/caller checks. No partial reference or
 passing source test substitutes for the full selection. The three earlier
 failed whole selections and their unattempted members remain failed/unattempted.
 
-Use the maintainer-refreshed editable composition: DockingMT
+Use the maintainer-refreshed editable composition: BindingMT
 `c238513a1e76715a56abffb6528ba31bf913e226`, MolSysMT
 `2325038e8c68157f5c730693ffbb8535f0b45540`, native SHA-256
 `5715bda28be19820e96c2b81e4734bf75e1a9f05dd660d9c7e2817bc6bcd79d3`.
@@ -31,7 +31,7 @@ Only import/custody and honest development-receipt fields change. Preserve the
 literal original reference-construction/persistence/comparison/refusal assertion
 block, including the accepted provider-owned canonical text-storage contract.
 No local table normalization, comparator, molecular parser or template application
-is introduced. Stage the unchanged declared unshipped `dmt_test_support` through
+is introduced. Stage the unchanged declared unshipped `bmt_test_support` through
 SDK `95f693be10c9205ab9b912cb53453710a207bf45`; source/qualification hashes are
 caller context, and the absent artifact SHA-256 stays absent. Runtime imports
 remain actual editables, and helpers stay outside the runtime payload.

@@ -1,14 +1,14 @@
 # Binding existing interaction analyses to a selected pose
 
-Owner: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
+Owner: [BindingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
 The [saved-carrier receiving](e4_saved_carrier_receiving_2026-11-07.md) admits the
 underlying one-frame provider composition. This increment implements its
 docking-specific public association. Qualification of the new API on an actual
 installed artifact remains separate from that earlier receiving and the source
 boundary tests below. Whole E4, addon/canvas and public delivery remain open.
 
-Later source correction: [DockingMT #89](../archive/interaction_binding_partial_carrier_diagnostic.md)
-now reports absent carrier atom/frame counts or coordinate quantities as DMT-E002
+Later source correction: [BindingMT #89](../archive/interaction_binding_partial_carrier_diagnostic.md)
+now reports absent carrier atom/frame counts or coordinate quantities as BMT-E002
 for `molecular_system`, before scalar/unit extraction. Both public entry points
 pass the complete 78-case binding/view selection normal and pm/fs; the original
 six failures remain frozen. This is source admission through provider doubles,
@@ -75,7 +75,7 @@ geometry, frame authenticity or scientific validity of stored analyses.
 The binding validates a nonnegative integer position, nonempty unique integer
 map, map length/bounds, verified pose atom records, ordered mapped carrier atom
 labels/elements and physical mapped coordinates. Only the mapped pose atoms are
-coordinate-checked. The existing DockingMT atom-key bridge reads provider data;
+coordinate-checked. The existing BindingMT atom-key bridge reads provider data;
 its optional explicit axis is accounting, not a new molecular matcher. Existing
 [#49](../pending_proposals/retire_general_molecular_operations.md) provider/bridge work
 retains its separate scope.

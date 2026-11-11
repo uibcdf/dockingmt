@@ -1,6 +1,6 @@
 ---
 summary: Validate scientific record schema versions before reconstruction
-issue: uibcdf/dockingmt#27
+issue: uibcdf/bindingmt#27
 status: resolved
 opened: 2026-10-02
 closed: 2026-10-02
@@ -41,7 +41,7 @@ The five existing readers (`BoxRegion`, `DockingPose`, `DockingResult`,
 `DockingProblem`, and `VinaProtocol`) share a private admission validator.
 It accepts the explicit string `1.0` and interprets an absent field as legacy
 1.0. Explicit unsupported or malformed values are rejected through
-`ArgumentError` (`DMT-E002`), with record type, received version, and supported
+`ArgumentError` (`BMT-E002`), with record type, received version, and supported
 versions in structured fields. Non-mapping records also receive a local
 argument diagnostic. Supplied records are not modified or migrated.
 
@@ -50,7 +50,7 @@ check nested pose headers before copying their payloads. Problem reconstruction
 delegates nested box admission before reading molecular inputs. Opaque context
 and metadata dictionaries are retained rather than reinterpreted recursively.
 No readers were invented for prepared-object records that only export data.
-The accepted policy is recorded as DMT-030 in `devguide/DECISIONS.md`.
+The accepted policy is recorded as BMT-030 in `devguide/DECISIONS.md`.
 
 Public-reader guards cover unsupported versions before payload access,
 supported/legacy round trips and input preservation, malformed records, nested
@@ -85,11 +85,11 @@ migration or storage framework is unnecessary for initial version admission.
 
 ## Scope and exclusions
 
-Define supported-version admission for DockingMT's existing readers, with an
+Define supported-version admission for BindingMT's existing readers, with an
 explicit legacy rule for absent versions. Do not invent migrations for schemas
 that do not exist. General quantity interchange remains owned by PyUnitWizard.
 No MolSysMT or MolSysViewer change or coordination is needed. The broader review
-is [DockingMT #28](https://github.com/uibcdf/dockingmt/issues/28).
+is [BindingMT #28](https://github.com/uibcdf/bindingmt/issues/28).
 
 ## Acceptance criteria
 

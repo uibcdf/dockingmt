@@ -1,7 +1,7 @@
 # Prepared native ligand export receiving — 2026-10-24
 
-Owner: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49), related to
-[#33](https://github.com/uibcdf/dockingmt/issues/33). This checkpoint receives the
+Owner: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49), related to
+[#33](https://github.com/uibcdf/bindingmt/issues/33). This checkpoint receives the
 actual reduced system from production ligand preparation through the public
 native writer. It does **not** replace `PreparedLigand.to_pdbqt`, change a source
 pin or implement a molecular builder, serializer or completed-map rebinder.
@@ -34,7 +34,7 @@ affinity or chemical-preparation admission.
 ## Remaining presentation and final-byte contract
 
 Native small-molecule sources can correctly have no groups or chains. The native
-writer preserves that absence. The existing DockingMT writer instead emits its
+writer preserves that absence. The existing BindingMT writer instead emits its
 explicit LIG/A/1 presentation, occupancy 1.00/B-factor 0.00, and bounded original
 charge/type attribution remarks. Native short-name alignment and branch whitespace
 also differ; whitespace need not remain byte-identical. The meaningful fields,
@@ -50,8 +50,8 @@ Atom-level public hierarchy setters on the zero-group control fail with
 absent hierarchy. A builder round trip is not accepted without a provider contract
 preserving all required native domains and attribution.
 
-Prepending the existing `REMARK DOCKINGMT_PARTIAL_CHARGES` and
-`REMARK DOCKINGMT_ATOM_TYPES` lines to successful native output changes its hash
+Prepending the existing `REMARK BINDINGMT_PARTIAL_CHARGES` and
+`REMARK BINDINGMT_ATOM_TYPES` lines to successful native output changes its hash
 without changing atom records. The completed map still binds the original native
 payload. The controls demonstrate this mismatch; they neither repair the map nor
 claim the pose reader authenticates comments or necessarily rejects an added remark.
@@ -87,12 +87,12 @@ inspection of later `3502232d802ee2927f6b6f5d19f0ae045777ecb5` finds the native 
 and string adapter byte-identical; it does not qualify that later runtime. Later
 reader/composition namespaces and public `permute_atoms` need separate receiving.
 
-The ordinary unchanged DockingMT wheel remains producer
+The ordinary unchanged BindingMT wheel remains producer
 `16ff157e5b9d5b816e2315c650e0ff66c84329e9`, SHA-256
 `41274abc433c34e7fcdb3565a747a0fc4a291f895b175ac2e16edfdc55f7041e`.
 The intervening `2ffc2d5` adds only provider-delivery status documentation. This
 checkpoint changes tests/guidance, not package code or the original wheel. The
-source-free harness guards actual DockingMT imports in that receiver's prefix;
+source-free harness guards actual BindingMT imports in that receiver's prefix;
 all 58 package/addon Python files (excluding generated version metadata) also
 match the original wheel and current source byte-for-byte.
 Its producer must not be relabelled as this checkpoint's later commit.
@@ -107,7 +107,7 @@ the known-source pose reader for those actual bound bytes afterward. Receptor
 projection and receiving the now-delivered general permutation remain independent
 work under #49; all MVP development is not blocked on this request.
 
-The previous [ligand projection terminal handoff](https://github.com/uibcdf/dockingmt/issues/49#issuecomment-6388864917)
+The previous [ligand projection terminal handoff](https://github.com/uibcdf/bindingmt/issues/49#issuecomment-6388864917)
 remains 1,194 passing tests per Python 3.11–3.14 and 319 installed cases at its own
 producer. No registered 3PTB search is added and no historical scientific archive,
 scene, notebook or ordinary wheel is rewritten. HTML/C6 remains deferred under #52.

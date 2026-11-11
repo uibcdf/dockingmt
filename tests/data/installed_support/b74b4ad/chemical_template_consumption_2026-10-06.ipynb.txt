@@ -7,7 +7,7 @@
    "source": [
     "# Explicit chemical-template transfer — 2026-10-06\n",
     "\n",
-    "DockingMT #42 qualification with committed MolSysMT `5bd893c85fe8d211663b2b1f865f5f1d2c382a90`, ArgDigest 0.15.0 and the existing Python 3.14 CI viewer pin. Public operations preserve template history; the snapshot records public topology/structure domains and ChemicalStatesDict with fixed nm/ps units. H5MSM recovery is checked under pm/fs. Constructed 5X72 controls and original 181L BNZ do not establish docking readiness. Earlier notebook/JSON evidence remains unchanged. See [the contract](chemical_template_consumption.md)."
+    "BindingMT #42 qualification with committed MolSysMT `5bd893c85fe8d211663b2b1f865f5f1d2c382a90`, ArgDigest 0.15.0 and the existing Python 3.14 CI viewer pin. Public operations preserve template history; the snapshot records public topology/structure domains and ChemicalStatesDict with fixed nm/ps units. H5MSM recovery is checked under pm/fs. Constructed 5X72 controls and original 181L BNZ do not establish docking readiness. Earlier notebook/JSON evidence remains unchanged. See [the contract](chemical_template_consumption.md)."
    ]
   },
   {
@@ -338,7 +338,7 @@
    "source": [
     "## Retain native history and the preparation limit\n",
     "\n",
-    "MolSysMT retains template reports in ChemicalStates and H5MSM 0.5. Snapshot schema `dockingmt.chemical_template_snapshot@2` retains that history without loss authorization to MolSysDict 0.1. The recovered topology, chemistry, history and associations match exactly; the two empty component text columns acquire nullable string dtypes; structure values use an absolute `1e-12 nm` tolerance for unit conversion. Nonempty MolecularMechanics is outside H5MSM 0.5 support. DockingMT retains the report alongside its preparation record; the docking-result summary still does not certify template chemistry, named charges or AutoDock types."
+    "MolSysMT retains template reports in ChemicalStates and H5MSM 0.5. Snapshot schema `bindingmt.chemical_template_snapshot@2` retains that history without loss authorization to MolSysDict 0.1. The recovered topology, chemistry, history and associations match exactly; the two empty component text columns acquire nullable string dtypes; structure values use an absolute `1e-12 nm` tolerance for unit conversion. Nonempty MolecularMechanics is outside H5MSM 0.5 support. BindingMT retains the report alongside its preparation record; the docking-result summary still does not certify template chemistry, named charges or AutoDock types."
    ]
   },
   {
@@ -465,7 +465,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "H5MSM 0.5 dockingmt.chemical_template_snapshot@2 {'coordinates': 'nm', 'box': 'nm', 'time': 'ps'}\n",
+      "H5MSM 0.5 bindingmt.chemical_template_snapshot@2 {'coordinates': 'nm', 'box': 'nm', 'time': 'ps'}\n",
       "Retained preparation records: 2\n"
      ]
     }
@@ -484,7 +484,7 @@
   "kernelspec": {
    "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
    "language": "python",
-   "name": "dockingmt-molsyssuite-314"
+   "name": "bindingmt-molsyssuite-314"
   },
   "language_info": {
    "codemirror_mode": {

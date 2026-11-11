@@ -8,12 +8,12 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.audit_1iep_preparation import (
+import bindingmt as bmt
+from bmt_test_support.audit_1iep_preparation import (
     _compare_pdbqt,
     _compare_torsion_graphs,
 )
-from dmt_test_support.qualify_1iep_flexibility import CUTS, OUTPUT, prepare_case, redock
+from bmt_test_support.qualify_1iep_flexibility import CUTS, OUTPUT, prepare_case, redock
 
 
 @pytest.fixture(scope='module')
@@ -44,11 +44,11 @@ def test_only_selected_torsions_change_between_real_preparations(prepared_case):
             atol=1e-12,
         )
         assert ligand.atom_types.count('HD') == 3
-        charge = dmt.audit_preparation_charges(ligand)
+        charge = bmt.audit_preparation_charges(ligand)
         assert charge['total_charge'] == pytest.approx(1, abs=1e-10)
         assert len(charge['charge_projection']['transfers']) == 29
         assert charge['pdbqt']['total_charge'] == pytest.approx(0.999, abs=1e-10)
-        assert dmt.assess_preparation(ligand)['assessment'] == 'unassessed'
+        assert bmt.assess_preparation(ligand)['assessment'] == 'unassessed'
 
 
 def test_paired_preparation_preserves_nondefault_unit_policy(prepared_case):
@@ -92,7 +92,7 @@ def test_paired_preparation_preserves_nondefault_unit_policy(prepared_case):
 
 def assert_independent_geometry(run, source_xyz):
     """Every written-order pose uses the explicit original-source axis."""
-    restored = dmt.DockingResult.from_dict(run['result'])
+    restored = bmt.DockingResult.from_dict(run['result'])
     source_indices = run['pdbqt_to_source_atom_indices']
     heavy = run['heavy_pdbqt_indices']
     assert len(set(source_indices)) == 40
@@ -137,7 +137,7 @@ def test_default_vina_pairs_keep_maps_and_actual_geometry(prepared_case, variant
         run['result']['provenance']['preparation']['partner']['assessment']
         == 'unassessed'
     )
-    assert dmt.verify_captured_inputs(run['result']['provenance']['backend_artifacts'])
+    assert bmt.verify_captured_inputs(run['result']['provenance']['backend_artifacts'])
     xyz = puw.get_value(msm.get(source, coordinates=True), to_unit='angstrom')[0]
     assert_independent_geometry(run, xyz)
 
@@ -176,7 +176,7 @@ def test_retained_paired_matrix_keeps_original_geometry_and_input_bytes():
     source_xyz = puw.get_value(puw.quantity(xyz, 'nm'), to_unit='angstrom')
     for run in runs:
         artifacts = run['result']['provenance']['backend_artifacts']
-        assert dmt.verify_captured_inputs(artifacts)
+        assert bmt.verify_captured_inputs(artifacts)
         assert (
             artifacts['receptor']['sha256']
             == record['input_sha256']['1iep_receptor.pdbqt']

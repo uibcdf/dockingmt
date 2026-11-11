@@ -1,6 +1,6 @@
 ---
 summary: Select active ligand torsions for Vina preparation
-issue: uibcdf/dockingmt#6
+issue: uibcdf/bindingmt#6
 status: partial
 opened: 2026-09-22
 closed:
@@ -14,8 +14,8 @@ supersedes: []
 
 # Select active ligand torsions for Vina preparation
 
-**Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
-**Status:** Partial; DockingMT Core MVP work.
+**Reported:** 2026-09-22, from the MolSysMT–BindingMT Vina preparation and conversion review.
+**Status:** Partial; BindingMT Core MVP work.
 
 ## What
 
@@ -31,7 +31,7 @@ The present ligand preparator defaults to zero torsional degrees of freedom, whi
 
 ## What is measured and what is assumed
 
-**Inspected:** Inspected dockingmt/preparation/ligand.py; no flexible-ligand validation fixture was measured.
+**Inspected:** Inspected bindingmt/preparation/ligand.py; no flexible-ligand validation fixture was measured.
 **Assumed:** The proposed contract is useful for the stated consumer; quantitative impact and complete chemical coverage need representative validation.
 
 ## What was refuted
@@ -40,7 +40,7 @@ An unrecorded hard-coded torsion count was rejected because it cannot identify w
 
 ## Scope and exclusions
 
-Docking protocol choice and provenance remain in DockingMT. General
+Docking protocol choice and provenance remain in BindingMT. General
 rotatable-bond classification and rigid-fragment derivation belong in MolSysMT
 under molsysmt#224. The current local graph bridge is temporary. PDBQT
 ROOT/BRANCH serialization is also a temporary local implementation pending
@@ -53,13 +53,13 @@ MolSysMT's general PDBQT form in molsysmt#214.
 
 ## Dependencies and risks
 
-Related tracked work: uibcdf/dockingmt#3
+Related tracked work: uibcdf/bindingmt#3
 Cross-component implementation links: uibcdf/molsysmt#214, uibcdf/molsysmt#224.
 New functionality requires tests of scientific semantics and documentation appropriate to its public surface.
 
 ## 2026-09-22 progress
 
-DockingMT's current PDBQT writer emits a rigid ROOT block and no BRANCH records.
+BindingMT's current PDBQT writer emits a rigid ROOT block and no BRANCH records.
 It now rejects nonzero `torsion_dof` at preparation and export, rather than
 writing a misleading TORSDOF count. The rigid policy is recorded in prepared
 ligand metadata and therefore in Vina run provenance. This does not implement
@@ -71,7 +71,7 @@ open pending the provider capabilities in molsysmt#214 and molsysmt#224.
 `VinaProtocol(active_torsion_bonds=[...])` now passes explicit selected-ligand
 bond pairs into automatic MolSysMT ligand preparation. `prepare_ligand` accepts
 the same selection directly. The temporary graph bridge in
-`dockingmt/preparation/_temporary_torsions.py` consumes MolSysMT's public bond
+`bindingmt/preparation/_temporary_torsions.py` consumes MolSysMT's public bond
 pairs and orders, rejects non-single, ring, amide C–N, hydrogen, and terminal
 heavy-atom bonds, and derives a deterministic rigid-fragment tree. The PDBQT
 writer emits matching `ROOT`/`BRANCH` records and `TORSDOF`; it records the exact
@@ -110,15 +110,15 @@ trees match the published branch bonds, source-index rigid fragments, and
 MolSysMT covalent blocks; Vina accepts the native PDBQT. In 1S63 the published
 aryl–C≡N branch gives six Vina torsions versus five RDKit `Strict` torsions.
 Docking-specific handling of that difference and the ester case is tracked in
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17). The matrix
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17). The matrix
 exposed and guarded a separate four-character PDBQT atom-name defect, archived
-under [DockingMT #18](https://github.com/uibcdf/dockingmt/issues/18).
+under [BindingMT #18](https://github.com/uibcdf/bindingmt/issues/18).
 
 ## 2026-10-03 provider partition migration
 
 The final local partition now consumes public `msm.topology.get_rigid_fragments`
 on the complete structure-assigned graph, followed by explicit retained-axis
-membership projection and DockingMT ROOT orientation. All four original reference
+membership projection and BindingMT ROOT orientation. All four original reference
 cases preserve pre-migration atom permutations and PDBQT byte hashes. Thirteen
 new controls pass on Python 3.14.7, including nonmonotonic axes, ROOT ties,
 incomplete graph rejection and a structure-assigned chemical state distinct from
@@ -197,7 +197,7 @@ head requires fresh exact-head CI; this issue remains partial.
 
 ## Independent 5X72 ROOT-order challenge — 2026-10-09
 
-The [prespecified plan](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6080145389)
+The [prespecified plan](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6080145389)
 adds an independent complex after the 1IEP conformer controls. The
 [workflow](../validation/5x72_root_order_workflow.md), raw 24-cell/99-pose archive,
 executed saved-result notebook and `tests/test_5x72_root_order_workflow.py` retain

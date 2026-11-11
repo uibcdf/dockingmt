@@ -1,6 +1,6 @@
 ---
 summary: Saved protocol energy magnitudes bypass scalar admission through float coercion.
-issue: uibcdf/dockingmt#84
+issue: uibcdf/bindingmt#84
 status: resolved
 opened: 2026-11-08
 closed: 2026-11-08
@@ -22,7 +22,7 @@ scalar in the saved energy value/unit mapping before constructing its quantity.
 Booleans, text, vectors, complex values and arbitrary `__float__` objects cannot
 become accepted energy magnitudes. PyUnitWizard retains unit parsing/conversion;
 the existing constructor retains energy dimensionality, finite and nonnegative
-checks. Invalid unit construction carries DMT-E002/`energy_range` and its
+checks. Invalid unit construction carries BMT-E002/`energy_range` and its
 provider cause; invalid parameter containers name `parameters`. A resource
 MemoryError propagates with its original identity.
 
@@ -84,7 +84,7 @@ record and runs no molecular/backend work.
 Admit the component-owned saved numeric scalar without Boolean/text/vector/
 complex coercion. Keep physical units and conversion in PyUnitWizard and the
 existing constructor's finite/nonnegative/energy checks. Invalid parameter
-containers and quantity construction need DMT-E002 with the failing field and
+containers and quantity construction need BMT-E002 with the failing field and
 provider cause where applicable. Preserve valid and legacy defaults, supplied
 quantity/string inputs and caller policy. Do not introduce a new record codec.
 

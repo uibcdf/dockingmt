@@ -1,6 +1,6 @@
 # Installed interaction-view receiving — 2026-11-07
 
-Owner: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis.md)
+Owner: [BindingMT #80](../pending_proposals/receive_docking_interaction_analysis.md)
 and [#60](../pending_proposals/qualify_saved_result_addon.md).
 Registered before execution. Outcome at registration: **unexecuted**.
 
@@ -85,7 +85,7 @@ association. A duplicate frame-0 selection must not invent another pose or
 extra frame. One-frame views have no valid different-frame transition; the
 separate two-frame native regression provides actual callback-transition evidence.
 
-Retain a foreign provider visual, clear DockingMT through the public lifecycle
+Retain a foreign provider visual, clear BindingMT through the public lifecycle
 and verify that owned visuals disappear while foreign/scientific data survives.
 Re-enable and render the same binding into that same View through the public
 entry point, without assigning private or runtime association fields. Before

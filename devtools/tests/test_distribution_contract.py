@@ -1,4 +1,4 @@
-"""Exercise actual shared controls against DockingMT declaration regressions."""
+"""Exercise actual shared controls against BindingMT declaration regressions."""
 
 import hashlib
 import io
@@ -32,7 +32,7 @@ class TestDistributionContract(unittest.TestCase):
         cls.installed = load_sdk('installed_noarch')
 
     def setUp(self):
-        temp = tempfile.TemporaryDirectory(prefix='dockingmt-controls-')
+        temp = tempfile.TemporaryDirectory(prefix='bindingmt-controls-')
         self.addCleanup(temp.cleanup)
         self.root = Path(temp.name)
         for name in (
@@ -41,8 +41,8 @@ class TestDistributionContract(unittest.TestCase):
             'devtools/conda-build',
             'devtools/conda-envs',
             'devtools/dependency_routes.toml',
-            'dockingmt',
-            'molsysviewer_dockingmt',
+            'bindingmt',
+            'molsysviewer_bindingmt',
         ):
             source, target = ROOT / name, self.root / name
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -69,7 +69,7 @@ class TestDistributionContract(unittest.TestCase):
         entries[self.inventory['version_file']] = b'__version__ = "0.0.0"\n'
         entries['info/index.json'] = json.dumps(
             {
-                'name': 'dockingmt',
+                'name': 'bindingmt',
                 'version': '0.0.0',
                 'build': 'py_0',
                 'build_number': 0,
@@ -78,13 +78,13 @@ class TestDistributionContract(unittest.TestCase):
             }
         ).encode()
         entries['info/link.json'] = b'{"noarch": {"type": "python"}}'
-        entries['site-packages/dockingmt-0.0.0.dist-info/METADATA'] = (
-            b'Name: dockingmt\nVersion: 0.0.0\n'
+        entries['site-packages/bindingmt-0.0.0.dist-info/METADATA'] = (
+            b'Name: bindingmt\nVersion: 0.0.0\n'
         )
         return entries
 
     def validate(self, entries):
-        path = self.root / 'dockingmt-0.0.0-py_0.tar.bz2'
+        path = self.root / 'bindingmt-0.0.0-py_0.tar.bz2'
         with tarfile.open(path, 'w:bz2') as archive:
             for name, content in entries.items():
                 member = tarfile.TarInfo(name)
@@ -95,7 +95,10 @@ class TestDistributionContract(unittest.TestCase):
     def test_complete_core_addon_and_generated_version_inventory(self):
         expected = {
             'site-packages/' + str(p.relative_to(self.root))
-            for package in ('dockingmt', 'molsysviewer_dockingmt')
+            for package in (
+                'bindingmt',
+                'molsysviewer_bindingmt',
+            )
             for p in (self.root / package).rglob('*')
             if p.is_file()
         }
@@ -105,9 +108,9 @@ class TestDistributionContract(unittest.TestCase):
 
     def test_missing_addon_typing_and_core_files_fail(self):
         for p in (
-            'molsysviewer_dockingmt/addon.py',
-            'dockingmt/py.typed',
-            'dockingmt/__init__.py',
+            'molsysviewer_bindingmt/addon.py',
+            'bindingmt/py.typed',
+            'bindingmt/__init__.py',
         ):
             entries = self.payload()
             del entries['site-packages/' + p]
@@ -117,7 +120,7 @@ class TestDistributionContract(unittest.TestCase):
     def test_stale_embedded_and_distribution_versions_fail(self):
         for p in (
             self.inventory['version_file'],
-            'site-packages/dockingmt-0.0.0.dist-info/METADATA',
+            'site-packages/bindingmt-0.0.0.dist-info/METADATA',
         ):
             entries = self.payload()
             entries[p] = entries[p].replace(b'0.0.0', b'0.0.1')
@@ -125,14 +128,14 @@ class TestDistributionContract(unittest.TestCase):
                 self.validate(entries)
 
     def test_missing_source_resource_and_wrong_generated_target_fail(self):
-        (self.root / 'dockingmt/py.typed').unlink()
+        (self.root / 'bindingmt/py.typed').unlink()
         with self.assertRaises(ValueError):
             self.noarch.inspect_resources(self.root, RESOURCES)
-        (self.root / 'dockingmt/py.typed').touch()
+        (self.root / 'bindingmt/py.typed').touch()
         self.mutate(
             'pyproject.toml',
-            'file = "dockingmt/_version.py"',
-            'file = "dockingmt/wrong.py"',
+            'file = "bindingmt/_version.py"',
+            'file = "bindingmt/wrong.py"',
         )
         with self.assertRaises(ValueError):
             self.noarch.inspect_resources(self.root, RESOURCES)
@@ -172,9 +175,9 @@ class TestDistributionContract(unittest.TestCase):
     def test_namespace_discovery_excludes_sdk_and_tests(self):
         (self.root / '.molsyssuite/sdk/devtools').mkdir(parents=True)
         for name in (
-            'dockingmt-migration-2026-11-06/historical_snapshots/build/lib/dockingmt',
-            'dockingmt_backup/old',
-            'molsysviewer_dockingmt_backup/old',
+            'bindingmt-migration-2026-11-06/historical_snapshots/build/lib/bindingmt',
+            'bindingmt_backup/old',
+            'molsysviewer_bindingmt_backup/old',
         ):
             package = self.root / name
             package.mkdir(parents=True)
@@ -185,11 +188,17 @@ class TestDistributionContract(unittest.TestCase):
         packages = find_namespace_packages(
             where=str(self.root), include=discovery['include']
         )
-        self.assertIn('dockingmt.core', packages)
-        self.assertIn('molsysviewer_dockingmt', packages)
+        self.assertIn('bindingmt.core', packages)
+        self.assertIn('molsysviewer_bindingmt', packages)
         self.assertTrue(
             all(
-                p.split('.')[0] in {'dockingmt', 'molsysviewer_dockingmt'}
+                p.split('.')[0]
+                in {
+                    'bindingmt',
+                    'molsysviewer_bindingmt',
+                    'bindingmt',
+                    'molsysviewer_bindingmt',
+                }
                 for p in packages
             )
         )
@@ -341,7 +350,7 @@ class TestDistributionContract(unittest.TestCase):
                 names['Run tests with pytest-receptor'],
             )
             check = names['Check dependency routes and installed clone context']
-            self.assertLess(names['Install dockingmt'], check)
+            self.assertLess(names['Install bindingmt'], check)
             self.assertLess(check, names['Run tests with pytest-receptor'])
             install = steps[names['Install compatible scientific sibling sources']][
                 'run'

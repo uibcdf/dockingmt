@@ -1,6 +1,6 @@
 # Bounded E1 supplied-representation projection — 2026-11-06
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
 Status at prescription: **prospective**. This is molecular contract receiving
 on a development installation, not an administrative check or full E1 acceptance.
 The [notebook](e1_partial_projection.ipynb) uses public MolSysMT operations.
@@ -78,7 +78,7 @@ absence of those imports is not claimed.
 
 ## Environment, resources and failure policy
 
-Use the actual installed editable DockingMT and MolSysMT revisions recorded in
+Use the actual installed editable BindingMT and MolSysMT revisions recorded in
 the attempt registration, separately from the controlled ordinary-install pins.
 This receives that development composition only. The isolated import check
 passed before this prescription; it did not run molecular operations.
@@ -142,7 +142,7 @@ energy, preparation, H-generation, charge/type calculation, interaction detector
 or viewer is called by this inspected notebook route; the selected direct-entry
 counters do not claim to observe the provider's entire internal call graph.
 
-Runtime is editable DockingMT `0.0.0+295.g2fda623`, MolSysMT
+Runtime is editable BindingMT `0.0.0+295.g2fda623`, MolSysMT
 `0.23.0+513.g9e1f1b1ad`, ArgDigest `0.17.1+3.g0712641`, PyUnitWizard
 `0.29.1+6.gf82b618`, NumPy `2.5.4` and RDKit `2026.9.2`. These are the actual
 development versions, separate from the qualified controlled installation and
@@ -159,7 +159,7 @@ chemical authority and positive identity/projection controls, including the
 flexible and nonidentity export boundaries, before representative rescoring.
 
 The original admission record also retains nine-atom observed and eighteen-atom
-charged snapshots in legacy `dockingmt.chemical_template_snapshot@2` format.
+charged snapshots in legacy `bindingmt.chemical_template_snapshot@2` format.
 Those are distinct from the thirteen-atom prepared representation; they were
 not restored or consumed by this trial. A supported provider restoration and
 explicit transformation may be investigated as a source route. Their presence

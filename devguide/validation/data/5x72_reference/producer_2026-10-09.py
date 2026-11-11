@@ -15,6 +15,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+import dockingmt as dmt
 import molsysmt as msm
 import numpy as np
 import pandas as pd
@@ -22,7 +23,6 @@ import pyunitwizard as puw
 from molsysmt.form.string_pdbqt_text import get_torsion_tree
 from rdkit import Chem
 
-import dockingmt as dmt
 from devtools.qualify_5x72_occupancy import (
     DATA,
     ROOT,

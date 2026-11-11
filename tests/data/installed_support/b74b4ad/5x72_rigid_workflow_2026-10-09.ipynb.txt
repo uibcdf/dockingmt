@@ -122,7 +122,7 @@
     "import numpy as np\n",
     "import pandas as pd\n",
     "import pyunitwizard as puw\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "from devtools.qualify_5x72_rigid import OUTPUT,sha,load_archives,load_reference,compare_saved,score_components\n",
     "payload=OUTPUT.read_bytes();record=json.loads(gzip.decompress(payload))\n",
     "checkpoint=json.loads(OUTPUT.with_name('checkpoint_2026-10-09.json').read_text())\n",
@@ -391,11 +391,11 @@
     "with puw.context(standard_units=['pm','fs','K','mole','dalton','e','kJ/mol','degrees']):\n",
     "    for ligand,conformer in record['conformers'].items():\n",
     "        for order,contexts in conformer['fixed_scores'].items():\n",
-    "            original=dmt.DockingPose.from_dict(conformer['poses'][order])\n",
+    "            original=bmt.DockingPose.from_dict(conformer['poses'][order])\n",
     "            assert original.rank is None and original.scores=={}\n",
     "            for context,data in contexts.items():\n",
-    "                scored=dmt.DockingPose.from_dict(data);history=scored.metadata['scoring_history'][-1]\n",
-    "                assert dmt.verify_captured_inputs(history['backend_artifacts'])\n",
+    "                scored=bmt.DockingPose.from_dict(data);history=scored.metadata['scoring_history'][-1]\n",
+    "                assert bmt.verify_captured_inputs(history['backend_artifacts'])\n",
     "                assert history['operation']=='score' and len(history['scores'])==8\n",
     "                np.testing.assert_array_equal(puw.get_value(scored.coordinates,to_unit='angstrom'),puw.get_value(original.coordinates,to_unit='angstrom'))\n",
     "                contrast={key:value-score_components(references['references'][ligand]['fixed_scores'][order][context])[key] for key,value in history['scores'].items()}\n",
@@ -413,9 +413,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "DockingMT qualified Python3.14",
+   "display_name": "BindingMT qualified Python3.14",
    "language": "python",
-   "name": "dockingmt-rigid"
+   "name": "bindingmt-rigid"
   },
   "language_info": {
    "codemirror_mode": {

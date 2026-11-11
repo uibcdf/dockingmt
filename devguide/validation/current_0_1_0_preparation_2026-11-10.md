@@ -2,7 +2,7 @@
 
 Latest outcome and resumption: [origin receiving/provider review](current_0_1_0_origin_receiving_2026-11-10.md). The preparation populations below retain their original source/status.
 
-Owner: [DockingMT #74](https://github.com/uibcdf/dockingmt/issues/74), with
+Owner: [BindingMT #74](https://github.com/uibcdf/bindingmt/issues/74), with
 #73 milestone scope, #30/#47 qualification and #50 custody. Status: current
 original preparation frozen in 7a757ab0; first two hosted candidates
 unqualified; isolated SDK admission correction prepared below. Starting source 00415b15. This record
@@ -81,7 +81,7 @@ and original locked DOM controls retain their own exact-candidate jobs.
 Before each full installed selection, run the exact original ten-case P6 client
 program in fresh normal and pm/fs processes. Stage the unchanged public packet,
 manifest and program with the common installed-support mechanism. The unshipped
-`dmt_test_support.h5msm_client_oracle` keeps all three original function ASTs and
+`bmt_test_support.h5msm_client_oracle` keeps all three original function ASTs and
 the complete import set; verify these again against the original sealed oracle.
 No input, assertion, tolerance, typed map or unknown-report criterion changes.
 
@@ -147,7 +147,7 @@ evidence; the deliberate milestone's actual jobs must still execute.
 ## Workspace and next action
 
 The common bounded suite status refresh inspects all seven participating
-registered checkouts. Apart from this task/human migration backup in DockingMT,
+registered checkouts. Apart from this task/human migration backup in BindingMT,
 all inspected worktrees are clean. Source heads remain the selected profile;
 remote-ahead changes are explicitly preserved: MolSysMT eight, Viewer 81,
 PyUnitWizard thirteen and SMonitor four commits. ArgDigest/DepDigest are current.
@@ -178,9 +178,9 @@ passes its six applicable quality/index/resource/archive checks and retires.
 Cloud main independently matches. The original 244/seven-member archives and
 80-source snapshot retain that candidate; later corrections do not rewrite them.
 
-[Manual run 42956040456](https://github.com/uibcdf/dockingmt/actions/runs/42956040456),
+[Manual run 42956040456](https://github.com/uibcdf/bindingmt/actions/runs/42956040456),
 attempt 1, uses that exact head. Build and shared policy succeed. Private wheel
-`dockingmt-0.1.0-py3-none-any.whl` is 157,926 B, SHA-256
+`bindingmt-0.1.0-py3-none-any.whl` is 157,926 B, SHA-256
 `3e7aec46f1733dc3a53d7ab90ec7bf5add5ac2562e37d8a5ddf1b727f8d24158`.
 Independent stored reading authenticates build artifact 13826294093, its ZIP
 digest, all 67 source-derived payload paths, metadata/license/entry point,
@@ -251,7 +251,7 @@ and 81-source snapshot retain that identity. Final-15 passes 114 cases/26
 subtests and nine source controls. Fresh committed-02 export passes all seven
 applicable controls and retires. Cloud main independently matches.
 
-[Second manual run 42957582849](https://github.com/uibcdf/dockingmt/actions/runs/42957582849),
+[Second manual run 42957582849](https://github.com/uibcdf/bindingmt/actions/runs/42957582849),
 attempt 1, passes build, policy and actual quality/resource/DOM controls:
 **111 administrative tests and 23 DOM tests**. Private intended-version wheel
 is 157,926 B, SHA-256
@@ -280,7 +280,7 @@ then reports `noarch_conda` rather than the original missing dependency. QA tool
 were already installed under the candidate's `.molsyssuite-tools` directory,
 but the caller did not admit it. This is the same known diagnostic/coupling in
 [MolSysSuite #176](https://github.com/uibcdf/molsyssuite/issues/176#issuecomment-6787002349),
-now cross-linked/labeled for DockingMT. No provider source is edited or forked.
+now cross-linked/labeled for BindingMT. No provider source is edited or forked.
 
 Both storage policies fail at import before their case program/native guard is
 entered; no storage or product tests execute. Cancel the remaining three cells;
@@ -298,7 +298,7 @@ regression loads all three actual SDK helpers under `python -I -S` from the exac
 SDK checkout, copying only the declared QA packages' pure Python files into an
 owned temporary directory. It first proves global/site `yaml` is absent, then
 verifies SDK/QA origins with scientific imports blocked. Local administrative
-runs set `DOCKINGMT_INSTALLED_SDK_ROOT` to the pinned provider; hosted controls
+runs set `BINDINGMT_INSTALLED_SDK_ROOT` to the pinned provider; hosted controls
 use their already declared `.molsyssuite/installed-sdk` checkout. No environment
 installation or native/molecular execution is needed.
 

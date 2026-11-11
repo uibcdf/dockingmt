@@ -1,6 +1,6 @@
 ---
 summary: Use MolSysMT as the canonical molecular input for the Core MVP
-issue: uibcdf/dockingmt#9
+issue: uibcdf/bindingmt#9
 status: resolved
 opened: 2026-09-22
 closed: 2026-09-22
@@ -14,7 +14,7 @@ supersedes: []
 
 # Use MolSysMT as the canonical molecular input for the Core MVP
 
-**Reported:** 2026-09-22, from comparison with TopoMT and review of the DockingMT input pipeline.
+**Reported:** 2026-09-22, from comparison with TopoMT and review of the BindingMT input pipeline.
 **Status:** Resolved for the input-normalization scope; chemical preparation remains separately tracked.
 
 ## What
@@ -53,10 +53,10 @@ support belongs to MolSysMT (uibcdf/molsysmt#214).
 ## Evidence and follow-up from the implementation review
 
 - PDB 181L converts with a `lossy` report for `bond_order`; the direct-input
-  benchmark cannot establish complete ligand chemistry. DockingMT now retains
+  benchmark cannot establish complete ligand chemistry. BindingMT now retains
   conversion evidence and identifies placeholder charges and heuristic atom types.
 - A group-free RDKit benzene with embedded coordinates and Gasteiger charges
-  converts to MolSys, but `group_name` is absent. DockingMT temporarily supplies
+  converts to MolSys, but `group_name` is absent. BindingMT temporarily supplies
   a local PDBQT residue label after checking attribute availability. MolSysMT's
   raw `IndexError` for the absent attribute is tracked in uibcdf/molsysmt#233;
   remove the consumer guard once its general query contract is fixed.
@@ -65,11 +65,11 @@ support belongs to MolSysMT (uibcdf/molsysmt#214).
 - Prepared-object coordinates and source MolSys coordinates could diverge;
   `to_molecular_system()` now applies the current prepared coordinates.
 - The viewer rejects a supplied partner whose atom count differs from the pose.
-  DockingMT verifies Vina's returned PDBQT atom labels and rounded coordinates
+  BindingMT verifies Vina's returned PDBQT atom labels and rounded coordinates
   against the coordinate array and supplied PDBQT order. The local hydrogen
   reduction has an explicit retained-atom map and is used when constructing
   a pose or viewer complex from its source MolSys. General lossy exports and
-  other atom changes remain tracked in uibcdf/dockingmt#8 and
+  other atom changes remain tracked in uibcdf/bindingmt#8 and
   uibcdf/molsysmt#223. Remove the local mapping rule when the provider offers
   a validated general projection contract.
 - A redocking factory derives the search box from the same selected partner and
@@ -82,7 +82,7 @@ support belongs to MolSysMT (uibcdf/molsysmt#214).
 
 ## MolSysMT provider handoff
 
-The DockingMT implementation evidence was added to the owning MolSysMT issues:
+The BindingMT implementation evidence was added to the owning MolSysMT issues:
 
 | Temporary local behavior or limit | Provider issue | Removal condition |
 | --- | --- | --- |
@@ -97,7 +97,7 @@ The DockingMT implementation evidence was added to the owning MolSysMT issues:
 | In-memory snapshot deferred because H5MSM loses partial charges | uibcdf/molsysmt#234 | A validated H5MSM round-trip preserves the required chemistry or reports loss. |
 
 Vina execution, scoring, ranking, search-domain choice, and acceptance policy for
-provisional preparation remain DockingMT responsibilities.
+provisional preparation remain BindingMT responsibilities.
 
 ## Acceptance criteria
 
@@ -131,6 +131,6 @@ and `git diff --check` passed.
 
 The rigid PDBQT preparation is provisional: missing charges may still use zero
 placeholders, atom types are heuristic, and ligand torsions default to zero.
-These scientific limitations remain in uibcdf/dockingmt#5, #6, and #8, with
+These scientific limitations remain in uibcdf/bindingmt#5, #6, and #8, with
 provider work linked in the handoff table above. Passing this input-path guard
 does not establish chemically validated docking scores.

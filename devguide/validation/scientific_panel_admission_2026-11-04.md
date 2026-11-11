@@ -1,7 +1,7 @@
 # Two-candidate source admission: first observations — 2026-11-04
 
-Owner: [DockingMT #33](https://github.com/uibcdf/dockingmt/issues/33), with
-[#49](https://github.com/uibcdf/dockingmt/issues/49) owning molecular delegation.
+Owner: [BindingMT #33](https://github.com/uibcdf/bindingmt/issues/33), with
+[#49](https://github.com/uibcdf/bindingmt/issues/49) owning molecular delegation.
 Continuation of the [panel design](scientific_panel_design_2026-11-04.md) at
 `86ac5724ac70870d3892e8ef7b0be71afb1fee9a`.
 
@@ -101,7 +101,7 @@ the entire source axis; its selected `atom_indices` contain 45/16 atoms.
 
 No CIP calculation or complete chemical-readiness claim follows. Use the existing
 explicit provider template/assessment/application tools for the next hypothesis;
-do not fill missing charge, stereo or H fields in DockingMT.
+do not fill missing charge, stereo or H fields in BindingMT.
 
 ## Provider finding and interim boundary
 

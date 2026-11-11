@@ -1,12 +1,12 @@
 # Scientific evidence overview — 2026-11-04
 
-Owner: [DockingMT #29](https://github.com/uibcdf/dockingmt/issues/29), with
-[#33](https://github.com/uibcdf/dockingmt/issues/33) for scientific-profile
+Owner: [BindingMT #29](https://github.com/uibcdf/bindingmt/issues/29), with
+[#33](https://github.com/uibcdf/bindingmt/issues/33) for scientific-profile
 acceptance. Delivers presentation packet 5 from the
 [library audit](../library_audit_2026-11-04.md), reviewed for synthesis at
 `be1de30da4c1c5b319533d6b63fcfb2f2266d79c`.
 
-DockingMT has evidence for traceable software behavior and finite pose recovery,
+BindingMT has evidence for traceable software behavior and finite pose recovery,
 including adverse outcomes. It has no established general recovery probability,
 affinity accuracy or complete output-plausibility qualification. The newer panel
 remains in admission, with no search results. This page helps a reader distinguish
@@ -133,7 +133,7 @@ From the checkout, use the routine Python interpreter:
 
 ```bash
 python devguide/validation/data/evidence_synthesis_2026-11-04/build_summary.py --check
-python -m dmt_test_support.synthesize_5x72_controls --check
+python -m bmt_test_support.synthesize_5x72_controls --check
 ```
 
 The case-specific producer authenticates four exact source files, reads only saved
@@ -156,7 +156,7 @@ thresholds or erased failures. Physical quantities remain those of the saved
 schema; a future molecular calculation must use its owning provider.
 
 This is the initial repository presentation for the audit packet. The subsequent
-[DMT-044 decision](../DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
+[BMT-044 decision](../DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
 and [local publication policy](evidence_publication_policy.md) now resolve #29's
 audience, route and maintenance/lifecycle questions: repository-first presentation,
 with rendered documentation when a concrete site or reader need exists. The

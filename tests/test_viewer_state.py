@@ -5,8 +5,8 @@ from types import SimpleNamespace
 import pytest
 import pyunitwizard as puw
 
-from dockingmt import BoxRegion, DockingPose, DockingResult
-from molsysviewer_dockingmt import (
+from bindingmt import BoxRegion, DockingPose, DockingResult
+from molsysviewer_bindingmt import (
     clear_docking,
     on_context_action,
     on_disable,
@@ -16,10 +16,10 @@ from molsysviewer_dockingmt import (
     set_reference_visibility,
     set_search_domain_visibility,
 )
-from molsysviewer_dockingmt.export import build_docking_export_payload
-from molsysviewer_dockingmt.panels import DockingExplorerPanel, SearchDomainPanel
-from molsysviewer_dockingmt.runtime import ensure_runtime
-from molsysviewer_dockingmt.workbench import get_docking_summary_section
+from molsysviewer_bindingmt.export import build_docking_export_payload
+from molsysviewer_bindingmt.panels import DockingExplorerPanel, SearchDomainPanel
+from molsysviewer_bindingmt.runtime import ensure_runtime
+from molsysviewer_bindingmt.workbench import get_docking_summary_section
 
 
 class _Shape:
@@ -209,7 +209,7 @@ def test_absent_visual_rejects_visibility_change(state, which):
     event_count = len(runtime.event_log)
     with pytest.raises(RuntimeError) as caught:
         operation(view, True)
-    assert caught.value.code == 'DMT-E009'
+    assert caught.value.code == 'BMT-E009'
     assert len(runtime.event_log) == event_count
     action = 'toggle_search_domain' if which == 'domain' else 'toggle_reference'
     panels[0].handle_action(view, action, {})
@@ -268,7 +268,7 @@ def test_reused_tag_is_not_mistaken_for_owned_shape(state, box):
     replacement = view.shapes.add(tag=old.tag)
     with pytest.raises(RuntimeError) as caught:
         set_search_domain_visibility(view, False)
-    assert caught.value.code == 'DMT-E009'
+    assert caught.value.code == 'BMT-E009'
     clear_docking(view)
     assert view.shapes.get(old.tag) is replacement
     assert runtime.domain_layers == []
@@ -276,7 +276,7 @@ def test_reused_tag_is_not_mistaken_for_owned_shape(state, box):
 
 def test_render_refuses_unrelated_existing_tag_without_deletion(state, box):
     view, runtime, _, _ = state
-    unrelated = view.shapes.add(tag='dockingmt:search_domain')
+    unrelated = view.shapes.add(tag='bindingmt:search_domain')
     with pytest.raises(ValueError, match='already owned'):
         render_search_domain(view, box)
     assert view.shapes.get(unrelated.tag) is unrelated
@@ -343,7 +343,7 @@ def test_domain_panel_renders_explicitly_and_reports_missing_input(state, box):
     view, runtime, panels, states = state
     panels[1].handle_action(view, 'render_domain', {})
     assert states[1][-1]['status'] == 'error'
-    assert states[1][-1]['error_code'] == 'DMT-E009'
+    assert states[1][-1]['error_code'] == 'BMT-E009'
     runtime.search_domain = box
     panels[1].handle_action(view, 'render_domain', {})
     assert states[1][-1]['domain_available'] is True
@@ -400,12 +400,12 @@ def test_public_resolved_widgets_keep_separate_reactive_state_and_owned_cleanup(
         msm.systems['alanine dipeptide']['alanine_dipeptide.h5msm'],
         to_form='molsysmt.MolSys',
     )
-    msv.addons.register_module('molsysviewer_dockingmt')
+    msv.addons.register_module('molsysviewer_bindingmt')
     view = msv.MolSysView()
     widgets = []
     try:
         view.load(msm.extract(source, structure_indices=[0, 0]))
-        view.addons.enable('dockingmt')
+        view.addons.enable('bindingmt')
         runtime = ensure_runtime(view)
         # Only display metadata is bound here; real pose construction is guarded
         # separately in test_viewer_addon and test_viewer_reference.
@@ -416,23 +416,23 @@ def test_public_resolved_widgets_keep_separate_reactive_state_and_owned_cleanup(
             ]
         )
         for panel_id in ['explorer', 'domain']:
-            widget = view.addons.resolve_panel_widget('dockingmt', panel_id)
+            widget = view.addons.resolve_panel_widget('bindingmt', panel_id)
             widgets.append(widget)
             widget.on_mount(view)
-        assert set(view.widget.addon_states['dockingmt']) == {'explorer', 'domain'}
+        assert set(view.widget.addon_states['bindingmt']) == {'explorer', 'domain'}
         set_active_pose(view, 2)
-        state = view.widget.addon_states['dockingmt']
+        state = view.widget.addon_states['bindingmt']
         assert state['explorer']['active_index'] == 1
         render_search_domain(view, box)
-        state = view.widget.addon_states['dockingmt']
+        state = view.widget.addon_states['bindingmt']
         assert state['explorer']['domain_available'] is True
         assert state['domain']['length_unit'] == 'angstrom'
         assert state['domain']['visible'] is True
         set_search_domain_visibility(view, False)
-        assert view.widget.addon_states['dockingmt']['domain']['visible'] is False
+        assert view.widget.addon_states['bindingmt']['domain']['visible'] is False
         clear_docking(view)
-        assert view.widget.addon_states['dockingmt']['explorer']['poses'] == []
-        assert not view.shapes.contains('dockingmt:search_domain')
+        assert view.widget.addon_states['bindingmt']['explorer']['poses'] == []
+        assert not view.shapes.contains('bindingmt:search_domain')
     finally:
         for widget in widgets:
             widget.close()

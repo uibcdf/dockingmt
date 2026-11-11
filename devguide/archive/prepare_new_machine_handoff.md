@@ -1,6 +1,6 @@
 ---
 summary: Make the developer guide a coherent onboarding and new-machine handoff.
-issue: uibcdf/dockingmt#82
+issue: uibcdf/bindingmt#82
 status: resolved
 opened: 2026-11-06
 closed: 2026-11-06

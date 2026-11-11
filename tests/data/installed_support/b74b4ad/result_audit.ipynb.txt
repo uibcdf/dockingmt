@@ -46,7 +46,7 @@
     "from copy import deepcopy\n",
     "from pathlib import Path\n",
     "\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "\n",
     "root = next(path for path in [Path.cwd(), *Path.cwd().parents]\n",
     "            if (path / \"devguide/validation/data/audit/minimal_vina_result.json\").is_file())\n",
@@ -97,12 +97,12 @@
     }
    ],
    "source": [
-    "report = dmt.audit_result(record)\n",
+    "report = bmt.audit_result(record)\n",
     "assert report[\"status\"] == \"consistent\"\n",
     "assert json.loads(json.dumps(report, allow_nan=False)) == report\n",
     "print(json.dumps({\"status\": report[\"status\"],\n",
     "                  \"checks\": dict(Counter(check[\"status\"] for check in report[\"checks\"])),\n",
-    "                  \"captured_sizes_bytes\": dmt.verify_captured_inputs(record[\"provenance\"][\"backend_artifacts\"])}, indent=2))"
+    "                  \"captured_sizes_bytes\": bmt.verify_captured_inputs(record[\"provenance\"][\"backend_artifacts\"])}, indent=2))"
    ]
   },
   {
@@ -147,7 +147,7 @@
    "source": [
     "incomplete = deepcopy(record)\n",
     "del incomplete[\"provenance\"][\"backend_artifacts\"][\"partner\"][\"content_base64\"]\n",
-    "missing_report = dmt.audit_result(incomplete)\n",
+    "missing_report = bmt.audit_result(incomplete)\n",
     "assert missing_report[\"status\"] == \"incomplete\"\n",
     "print(json.dumps([check for check in missing_report[\"checks\"]\n",
     "                  if check[\"status\"] != \"consistent\"], indent=2))"
@@ -206,12 +206,12 @@
    "source": [
     "changed = deepcopy(record)\n",
     "changed[\"provenance\"][\"backend_artifacts\"][\"partner\"][\"content_base64\"] = base64.b64encode(b\"changed bytes\").decode()\n",
-    "changed_report = dmt.audit_result(changed)\n",
+    "changed_report = bmt.audit_result(changed)\n",
     "assert changed_report[\"status\"] == \"inconsistent\"\n",
-    "ranked = dmt.DockingResult.from_dict(record).rank_by(\"inter\", ascending=False).to_dict()\n",
-    "assert dmt.audit_result(ranked)[\"status\"] == \"consistent\"\n",
+    "ranked = bmt.DockingResult.from_dict(record).rank_by(\"inter\", ascending=False).to_dict()\n",
+    "assert bmt.audit_result(ranked)[\"status\"] == \"consistent\"\n",
     "ranked[\"provenance\"][\"ranking_policy\"][\"ascending\"] = True\n",
-    "stale_report = dmt.audit_result(ranked)\n",
+    "stale_report = bmt.audit_result(ranked)\n",
     "assert stale_report[\"status\"] == \"inconsistent\"\n",
     "print(json.dumps({\"changed_bytes\": [check for check in changed_report[\"checks\"] if check[\"status\"] == \"inconsistent\"],\n",
     "                  \"stale_policy\": [check for check in stale_report[\"checks\"] if check[\"status\"] == \"inconsistent\"]}, indent=2))"

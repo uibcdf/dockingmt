@@ -1,6 +1,6 @@
 # E2 named rigid preparation receiving — 2026-11-07
 
-Owner: [DockingMT #81](https://github.com/uibcdf/dockingmt/issues/81).
+Owner: [BindingMT #81](https://github.com/uibcdf/bindingmt/issues/81).
 Registration status: **prospective**. Qualification base: `782fe9e`.
 Custody: `.molsyssuite/e2-preparation-20261107`, reviewed under #50 on
 **2026-11-14**. This is the next bounded increment of the
@@ -50,7 +50,7 @@ Pass the named typed authority to public
 active_torsion_bonds=[])`. The chosen new model is rigid. It does not replace
 historical two-cut torsion models. MolSysMT owns nonpolar-H projection,
 mechanical derivation, chemical inspection and the molecular writer/reader.
-DockingMT owns its preparation and charge-consumption records.
+BindingMT owns its preparation and charge-consumption records.
 
 Receive, without inventing expected chemistry:
 

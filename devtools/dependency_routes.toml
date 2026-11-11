@@ -1,5 +1,5 @@
 schema = "molsyssuite.dependency-routes@3"
-reason = "Current DockingMT runtime-bearing test and immutable directory source contexts; optional Viewer remains integration-only."
+reason = "Current BindingMT runtime-bearing test and immutable directory source contexts; optional Viewer remains integration-only."
 
 [[recipes]]
 path = "devtools/conda-build/meta.yaml"
@@ -13,7 +13,7 @@ path = "devtools/conda-envs/test_env.yaml"
 kind = "runtime"
 purpose = "test"
 channel_priority = "strict"
-narrowing_reason = "Compatible test bootstrap floors, reviewed Pytest Receptor 1.2.2, DockingMT PEP 639 build tooling and Vina-declared setuptools/wheel requirements; exact runtime replacements remain contextual source evidence."
+narrowing_reason = "Compatible test bootstrap floors, reviewed Pytest Receptor 1.2.2, BindingMT PEP 639 build tooling and Vina-declared setuptools/wheel requirements; exact runtime replacements remain contextual source evidence."
 reason = "Original scientific bootstrap and optional backend/integration tools; strict priority is enforced by both source workflows."
 
 [[environments]]
@@ -22,7 +22,7 @@ kind = "runtime"
 purpose = "test"
 channel_priority = "strict"
 narrowing_reason = "Bounded E4 receiving selects qualified support versions, RDKit 2026.03.1 and Conda notebook tooling. This internal scientific test context does not change public runtime floors."
-reason = "DockingMT #80 normal/pm-fs hosted receiving after the local resource stop; same immutable sibling routes as ordinary CI, serial Python 3.14 only."
+reason = "BindingMT #80 normal/pm-fs hosted receiving after the local resource stop; same immutable sibling routes as ordinary CI, serial Python 3.14 only."
 
 [[source_routes]]
 id = "argdigest-source"
@@ -31,7 +31,7 @@ role = "required-runtime"
 url = "https://github.com/uibcdf/argdigest"
 commit = "07126411f108ee1ff607e9c9a0816109b2c9253e"
 install = "pip-no-deps-directory"
-reason = "Current source composition under dockingmt#100, received with development APIs and exact source identities. Directory installation and executed four-minor CI remain separate requirements; historical candidates retain their original contexts."
+reason = "Current source composition under bindingmt#100, received with development APIs and exact source identities. Directory installation and executed four-minor CI remain separate requirements; historical candidates retain their original contexts."
 
 [[source_routes]]
 id = "molsysmt-source"
@@ -40,7 +40,7 @@ role = "required-runtime"
 url = "https://github.com/uibcdf/molsysmt"
 commit = "efbe67e1c6042078144bce1db24aa80bb565dbd2"
 install = "pip-no-deps-directory"
-reason = "Current received MolSysMT efbe67e1 under dockingmt#100 includes the bounded public0.6/E3 and editable integration handoffs. Native bytes/build inputs are independently fingerprinted; hosted/native/public gates remain separate."
+reason = "Current received MolSysMT efbe67e1 under bindingmt#100 includes the bounded public0.6/E3 and editable integration handoffs. Native bytes/build inputs are independently fingerprinted; hosted/native/public gates remain separate."
 
 [[source_routes]]
 id = "viewer-base"
@@ -67,7 +67,7 @@ role = "required-runtime"
 url = "https://github.com/uibcdf/argdigest"
 commit = "3d1ec53c374098016452abab74706e9d80df5462"
 install = "pip-no-deps-directory"
-reason = "Original fixed E4 manual receiver source identity retained under dockingmt#80/#100; not the current ordinary-CI composition."
+reason = "Original fixed E4 manual receiver source identity retained under bindingmt#80/#100; not the current ordinary-CI composition."
 
 [[source_routes]]
 id = "e4-molsysmt-20261105"
@@ -76,7 +76,7 @@ role = "required-runtime"
 url = "https://github.com/uibcdf/molsysmt"
 commit = "00abb958fb93649131d5ce5fe5e12e90cf4900e9"
 install = "pip-no-deps-directory"
-reason = "Original fixed E4 manual receiver source identity retained under dockingmt#80/#100; not the current ordinary-CI composition."
+reason = "Original fixed E4 manual receiver source identity retained under bindingmt#80/#100; not the current ordinary-CI composition."
 
 [[source_routes]]
 id = "e4-viewer-20261105"
@@ -85,7 +85,7 @@ role = "integration"
 url = "https://github.com/uibcdf/molsysviewer"
 commit = "78ede79e2e345593db5bfe80d246d3f6c70bd005"
 install = "pip-no-deps-directory"
-reason = "Original fixed E4 manual receiver source identity retained under dockingmt#80/#100; not the current ordinary-CI composition."
+reason = "Original fixed E4 manual receiver source identity retained under bindingmt#80/#100; not the current ordinary-CI composition."
 
 [[contexts]]
 name = "ci-3.11"
@@ -93,7 +93,7 @@ environment = "devtools/conda-envs/test_env.yaml"
 python_minor = "3.11"
 sources = ["argdigest-source", "molsysmt-source", "viewer-base"]
 overlays = []
-reason = "Current Python 3.11 source selection under dockingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
+reason = "Current Python 3.11 source selection under bindingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
 
 [[contexts]]
 name = "ci-3.12"
@@ -101,7 +101,7 @@ environment = "devtools/conda-envs/test_env.yaml"
 python_minor = "3.12"
 sources = ["argdigest-source", "molsysmt-source", "viewer-base"]
 overlays = []
-reason = "Current Python 3.12 source selection under dockingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
+reason = "Current Python 3.12 source selection under bindingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
 
 [[contexts]]
 name = "ci-3.13"
@@ -109,7 +109,7 @@ environment = "devtools/conda-envs/test_env.yaml"
 python_minor = "3.13"
 sources = ["argdigest-source", "molsysmt-source", "viewer-base"]
 overlays = []
-reason = "Current Python 3.13 source selection under dockingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
+reason = "Current Python 3.13 source selection under bindingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
 
 [[contexts]]
 name = "ci-3.14"
@@ -117,7 +117,7 @@ environment = "devtools/conda-envs/test_env.yaml"
 python_minor = "3.14"
 sources = ["argdigest-source", "molsysmt-source", "viewer-py314"]
 overlays = []
-reason = "Current Python 3.14 source selection under dockingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
+reason = "Current Python 3.14 source selection under bindingmt#49; required directory sources supply omitted bootstrap providers, optional Viewer remains integration-only."
 
 [[contexts]]
 name = "e4-3.14"
@@ -125,7 +125,7 @@ environment = "devtools/conda-envs/e4_env.yaml"
 python_minor = "3.14"
 sources = ["e4-argdigest-20261105", "e4-molsysmt-20261105", "e4-viewer-20261105"]
 overlays = []
-reason = "DockingMT #80 finite normal/pm-fs receiving; fresh same-run installed consumer, no local restart, public package or other-platform/minor admission."
+reason = "BindingMT #80 finite normal/pm-fs receiving; fresh same-run installed consumer, no local restart, public package or other-platform/minor admission."
 
 [[workflows]]
 path = ".github/workflows/build_and_upload_conda_packages.yaml"
@@ -135,12 +135,12 @@ reason = "Manual candidate/staged or eligible reviewed release caller; shared pu
 [[workflows]]
 path = ".github/workflows/addon-frontend.yml"
 sha256 = "65cb8c3e16d2d6ffba131f7b3d5aa1184d803d4f0bd15d76b61758574721bb0d"
-reason = "DockingMT #60 addon-specific Node/jsdom DOM tests; standard-library AST extraction installs/imports no scientific member and preserves the existing Python routes."
+reason = "BindingMT #60 addon-specific Node/jsdom DOM tests; standard-library AST extraction installs/imports no scientific member and preserves the existing Python routes."
 
 [[workflows]]
 path = ".github/workflows/ci.yml"
-sha256 = "3acd02eabcab46850e0bc7b288eb4684e0d98deb4bbffc3a303a128af432aa40"
-reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under dockingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/dockingmt#22. Administrative selection includes the five isolated export resource guards (#72) and fixed-candidate hosted qualification controls (#74) and E4 hosted/source/association controls (#80); acquisition routes are unchanged."
+sha256 = "85c8aa3e26cad6ab2a44799e7a4fde59ea487d5834da3b305087d4b547fae2f2"
+reason = "Four Linux source science cells; MolSysMT #352 consumer adoption under bindingmt#49; Python 3.14 adds package coverage measurement/failed-test retention and separate trusted-main publication under uibcdf/bindingmt#22. Administrative selection includes the five isolated export resource guards (#72) and fixed-candidate hosted qualification controls (#74) and E4 hosted/source/association controls (#80); acquisition routes are unchanged."
 
 [[workflows]]
 path = ".github/workflows/conda_publication_governance.yaml"
@@ -149,8 +149,8 @@ reason = "Administrative no-build recipe/resources and immutable publisher contr
 
 [[workflows]]
 path = ".github/workflows/full-matrix.yml"
-sha256 = "787fbceb0452d37a0ab422a8a72506ee0ce732344406d37b65508fb821397deb"
-reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under dockingmt#49; directory preflight does not dispatch or change the matrix."
+sha256 = "20bd602f04abd3c9f0663932060608384bc298dcdcb551f7b30f84d0858bb7f1"
+reason = "Six-cell weekly/manual/daily conditional source science and recovery with MolSysMT #352 adoption under bindingmt#49; directory preflight does not dispatch or change the matrix."
 
 [[workflows]]
 path = ".github/workflows/molsyssuite-policy.yml"
@@ -169,13 +169,13 @@ reason = "Manual exact-file public dependency solve/installed scientific gate; n
 
 [[workflows]]
 path = ".github/workflows/qualify-source-0.1.0.yml"
-sha256 = "b73ed034236138ef8776ad39f3a8a84f13e97bc0292f3b1ecb963aacffb60286"
-reason = "DockingMT #74 manual hosted-only private 0.1.0 receiving for remaining 3.11/3.13 cells; exact candidate bootstrap and existing immutable directory provider contexts, shared installed runner/support. New private build population, no public Conda admission or publisher. Retire this bounded caller after the first-tag decision or replacement by a received common source-candidate route; suite #31 owns common dependency-route replacement."
+sha256 = "601109b98067075641a5cff58b7d5a97d21685f4c9abd0169ba9787a1d38dab1"
+reason = "BindingMT #74 manual hosted-only private 0.1.0 receiving for remaining 3.11/3.13 cells; exact candidate bootstrap and existing immutable directory provider contexts, shared installed runner/support. New private build population, no public Conda admission or publisher. Retire this bounded caller after the first-tag decision or replacement by a received common source-candidate route; suite #31 owns common dependency-route replacement."
 
 [[workflows]]
 path = ".github/workflows/qualify-3ptb-interactions.yml"
-sha256 = "6997e29a599a0317b587c5e31b95fe0bba23a688c3af69ea8df5acebc90165b4"
-reason = "DockingMT #80 manual hosted-only finite notebook receiving after a measured local RAM stop. Uses existing micromamba/read-only/failed-outcome retention patterns and immutable sibling routes. Normal and pm-fs are serial, each followed by a fresh saved reader; no publisher or full-suite claim. Retire after #80 receiving or replacement by an accepted common scientific receiver; suite #31 owns source-acquisition replacement."
+sha256 = "813e0cf9bbbedc7169d6d79a5b8188268de81e762227bef76a0f35da927d565c"
+reason = "BindingMT #80 manual hosted-only finite notebook receiving after a measured local RAM stop. Uses existing micromamba/read-only/failed-outcome retention patterns and immutable sibling routes. Normal and pm-fs are serial, each followed by a fresh saved reader; no publisher or full-suite claim. Retire after #80 receiving or replacement by an accepted common scientific receiver; suite #31 owns source-acquisition replacement."
 
 [[source_routes]]
 id = "source-010-argdigest"
@@ -184,7 +184,7 @@ role = "required-runtime"
 url = "https://github.com/uibcdf/argdigest"
 commit = "07126411f108ee1ff607e9c9a0816109b2c9253e"
 install = "pip-no-deps-directory"
-reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+reason = "Current source-only 0.1.0 candidate under bindingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
 
 [[source_routes]]
 id = "source-010-molsysmt"
@@ -193,7 +193,7 @@ role = "required-runtime"
 url = "https://github.com/uibcdf/molsysmt"
 commit = "9df62445e49a1e268cf4c13d1ebbdd06b2088674"
 install = "pip-no-deps-directory"
-reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+reason = "Current source-only 0.1.0 candidate under bindingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
 
 [[source_routes]]
 id = "source-010-molsysviewer"
@@ -202,7 +202,7 @@ role = "integration"
 url = "https://github.com/uibcdf/molsysviewer"
 commit = "1187fc187247aa2d20d01791856a541d50562bcb"
 install = "pip-no-deps-directory"
-reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+reason = "Current source-only 0.1.0 candidate under bindingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
 
 [[source_routes]]
 id = "source-010-pyunitwizard"
@@ -211,7 +211,7 @@ role = "required-runtime"
 url = "https://github.com/uibcdf/pyunitwizard"
 commit = "c81916e65ce61e905008e8931af3c0e527157251"
 install = "pip-no-deps-directory"
-reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+reason = "Current source-only 0.1.0 candidate under bindingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
 
 [[source_routes]]
 id = "source-010-smonitor"
@@ -220,7 +220,7 @@ role = "required-runtime"
 url = "https://github.com/uibcdf/smonitor"
 commit = "c1b6ce29c3729b99429b395a00c7866a759be406"
 install = "pip-no-deps-directory"
-reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+reason = "Current source-only 0.1.0 candidate under bindingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
 
 [[source_routes]]
 id = "source-010-depdigest"
@@ -229,7 +229,7 @@ role = "required-runtime"
 url = "https://github.com/uibcdf/depdigest"
 commit = "032d345becf8f8f574c24ede61ee62fcf0321de7"
 install = "pip-no-deps-directory"
-reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+reason = "Current source-only 0.1.0 candidate under bindingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
 
 [[contexts]]
 name = "source-010-3.11"
@@ -269,10 +269,10 @@ reason = "Current 0.1.0 milestone, exact same-run consumer wheel and six freshly
 
 [[workflows]]
 path = ".github/workflows/qualify-current-0.1.0.yml"
-sha256 = "a1b47476f4ce245e6d531104b96f2e274ad96271e5e57ac896859660a8137e08"
-reason = "DockingMT #74 explicit current 0.1.0 milestone checkpoint: one lightweight-tagged private wheel, serial fresh Linux 3.11-3.14 source/installed cells, six immutable development providers, shared SDK checks and retained original source wheels. No publisher or automatic trigger. Retire after the first-tag decision or a received common source-candidate route; suite #31 retains shared source-acquisition ownership."
+sha256 = "bebe78435ff2ae714b265d0c9c984583017f6fcec3863265b05b4f9909f14e43"
+reason = "BindingMT #74 explicit current 0.1.0 milestone checkpoint: one lightweight-tagged private wheel, serial fresh Linux 3.11-3.14 source/installed cells, six immutable development providers, shared SDK checks and retained original source wheels. No publisher or automatic trigger. Retire after the first-tag decision or a received common source-candidate route; suite #31 retains shared source-acquisition ownership."
 
 [[workflows]]
 path = ".github/workflows/recover-current-0.1.0-python313.yml"
-sha256 = "7a8221a242d3a48714b06b841569d70b648703299f1b3274a5800ce383cc46ea"
-reason = "DockingMT #74 finite recovery of unchanged 1030a29 and original artifact 13835014036 after the attempt-2 artifact-name failure. Only Python 3.13 repeats its original full/storage gates; original passing cells and producer remain attempt 1. Retain as historical after the 0.1.0 source event; suite #31 owns reusable acquisition mechanisms."
+sha256 = "9754c0817fd29a1a9cef5ed44204c4c39b047b4400dda713eb017761334679df"
+reason = "BindingMT #74 finite recovery of unchanged 1030a29 and original artifact 13835014036 after the attempt-2 artifact-name failure. Only Python 3.13 repeats its original full/storage gates; original passing cells and producer remain attempt 1. Retain as historical after the 0.1.0 source event; suite #31 owns reusable acquisition mechanisms."

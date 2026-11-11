@@ -35,7 +35,7 @@ def _pose_summary(pose, dmt):
                 'score_name': entry.get('score_name'),
                 'backend': entry.get('backend'),
                 'backend_version': entry.get('backend_version'),
-                'producer_dockingmt_version': entry.get('dockingmt_version'),
+                'producer_bindingmt_version': entry.get('bindingmt_version'),
                 'producer_molsysmt_version': entry.get('molsysmt_version'),
                 **_captured_summary(entry.get('backend_artifacts', {}), dmt),
                 'recorded_preparation_assessment': {
@@ -95,7 +95,7 @@ def _result_summary(result, dmt):
             'original_docking_producer': {
                 'backend': provenance.get('backend'),
                 'backend_version': provenance.get('backend_version'),
-                'producer_dockingmt_version': provenance.get('dockingmt_version'),
+                'producer_bindingmt_version': provenance.get('bindingmt_version'),
                 'producer_molsysmt_version': provenance.get('molsysmt_version'),
                 **_captured_summary(provenance.get('backend_artifacts', {}), dmt),
             },
@@ -138,14 +138,14 @@ def main():
 
     from smonitor.integrations import CatalogException
 
-    import dockingmt as dmt
+    import bindingmt as dmt
 
-    distribution = metadata.distribution('dockingmt')
+    distribution = metadata.distribution('bindingmt')
     installation = json.loads(distribution.read_text('direct_url.json') or '{}')
     if (
         installation.get('dir_info', {}).get('editable', False)
         or Path(dmt.__file__).resolve()
-        != Path(distribution.locate_file('dockingmt/__init__.py')).resolve()
+        != Path(distribution.locate_file('bindingmt/__init__.py')).resolve()
         or distribution.version != dmt.__version__
     ):
         parser.exit(1, 'Use an ordinary-installed reader without a source overlay.\n')
@@ -174,7 +174,7 @@ def main():
     except CatalogException as error:
         parser.exit(
             1,
-            f'DockingMT refused the saved record ({error.code}); inspect its schema and audit checks.\n',
+            f'BindingMT refused the saved record ({error.code}); inspect its schema and audit checks.\n',
         )
 
     if record != original:
@@ -185,7 +185,7 @@ def main():
             if args.record_kind == 'pose'
             else 'saved_scoring_collection_inspection'
         ),
-        'reader': {'dockingmt_version': dmt.__version__, 'ordinary_installed': True},
+        'reader': {'bindingmt_version': dmt.__version__, 'ordinary_installed': True},
         'input_sha256': actual,
         'audit': {
             'scope': audit['scope'],

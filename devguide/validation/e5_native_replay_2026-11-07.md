@@ -1,6 +1,6 @@
 # Whole installed 1IEP producer/replay receiving — 2026-11-07
 
-Owner: [DockingMT #83](../archive/qualify_independent_installed_reproduction.md).
+Owner: [BindingMT #83](../archive/qualify_independent_installed_reproduction.md).
 Registered before execution. Initial outcome: **unexecuted**.
 Current outcome: **partial; exact admission passes, both scientific attempts are resource-interrupted**.
 The final checkpoint below supersedes prospective next actions; no receiver search has run.
@@ -48,7 +48,7 @@ September manifest is manufactured; this is a new measured producer of the
 same pinned recipe, followed by whole replay of its actual retained records.
 
 The complete native budget remains **six searches**, with at most two public
-DockingMT dock calls, Vina initializations, receptor/ligand loads, grid creations
+BindingMT dock calls, Vina initializations, receptor/ligand loads, grid creations
 and native `dock` entries per successful producer/receiver cell. Run producer 2,
 then normal 2; pm/fs 2 requires a complete passing normal receiver and identical
 candidate/worker/SDK bytes. Source-free admission/adverse/reader cells permit
@@ -133,7 +133,7 @@ identity, not a hardcoded failed attempt number. No scientific budget is spent.
 complete independent installations and all 594 support inputs. `producer-01`
 fails in 3.990 s/169,144,320 sampled group-RSS bytes during observer setup: the
 worker names nonexistent `molsysviewer.View` instead of public `MolSysView`.
-All DockingMT/provider/helper/native counters are zero, all owned groups are
+All BindingMT/provider/helper/native counters are zero, all owned groups are
 terminal, and no resource interruption occurred. This is a task-worker error,
 not a product/provider defect or a spent native-search budget.
 

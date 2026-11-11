@@ -21,23 +21,23 @@ spec.loader.exec_module(caller)
 def archive(tmp_path):
     payload = b'__version__ = "0.1.0"\n'
     license_bytes = b'MIT fixture\n'
-    prefix = 'dockingmt-0.1.0.dist-info/'
+    prefix = 'bindingmt-0.1.0.dist-info/'
     files = {
-        'dockingmt/__init__.py': payload,
+        'bindingmt/__init__.py': payload,
         prefix + 'METADATA': (
-            b'Metadata-Version: 2.4\nName: dockingmt\nVersion: 0.1.0\n'
+            b'Metadata-Version: 2.4\nName: bindingmt\nVersion: 0.1.0\n'
             b'Requires-Python: >=3.11,<3.15\nLicense-Expression: MIT\n'
         ),
         prefix + 'WHEEL': b'Root-Is-Purelib: true\nTag: py3-none-any\n',
         prefix + 'entry_points.txt': (
-            b'[molsysviewer.addons]\ndockingmt = molsysviewer_dockingmt\n'
+            b'[molsysviewer.addons]\nbindingmt = molsysviewer_bindingmt\n'
         ),
         prefix + 'licenses/LICENSE': license_bytes,
     }
     frozen = {
         'archive_checks': {
             'runtime_sha256': {
-                'dockingmt/__init__.py': hashlib.sha256(payload).hexdigest()
+                'bindingmt/__init__.py': hashlib.sha256(payload).hexdigest()
             },
             'python_requires': '>=3.11,<3.15',
             'requires_dist': [],
@@ -66,11 +66,11 @@ def test_correct_fixture_contract(archive):
 )
 def test_corrupted_or_unshipped_inputs_are_rejected(archive, change):
     path, files, frozen = archive
-    prefix = 'dockingmt-0.1.0.dist-info/'
+    prefix = 'bindingmt-0.1.0.dist-info/'
     if change == 'runtime':
-        files['dockingmt/__init__.py'] += b'changed\n'
+        files['bindingmt/__init__.py'] += b'changed\n'
     elif change == 'extra-source':
-        files['dmt_test_support/__init__.py'] = b''
+        files['bmt_test_support/__init__.py'] = b''
     elif change == 'version':
         files[prefix + 'METADATA'] = files[prefix + 'METADATA'].replace(
             b'0.1.0', b'0.0.0'

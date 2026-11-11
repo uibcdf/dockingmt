@@ -1,6 +1,6 @@
 ---
 summary: E3's full historical PDBQT checksum conflates artifact identity with current-producer compatibility.
-issue: uibcdf/dockingmt#88
+issue: uibcdf/bindingmt#88
 status: resolved
 opened: 2026-11-08
 closed: 2026-11-09
@@ -74,7 +74,7 @@ scientific tolerance is justified.
 ## Scope and exclusions
 
 This is a correction to the registered qualification criterion, owned by
-DockingMT. Runtime and provider algorithms do not change. Full E3, MolSysMT #604,
+BindingMT. Runtime and provider algorithms do not change. Full E3, MolSysMT #604,
 legacy pose/frame admission, docking, public artifacts and visible acceptance
 retain their separate gates.
 

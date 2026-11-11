@@ -11,13 +11,13 @@ import pandas as pd
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_5x72_occupancy import (
+import bindingmt as bmt
+from bmt_test_support.qualify_5x72_occupancy import (
     atom_fields,
     fixed_pair,
     frozen_partner,
 )
-from dmt_test_support.qualify_5x72_reference import (
+from bmt_test_support.qualify_5x72_reference import (
     OUTPUT,
     chemical_axis,
     compare_saved,
@@ -41,7 +41,7 @@ def inputs():
 
 
 def assert_reference_evaluation(data, original, control, receptor):
-    scored = dmt.DockingPose.from_dict(data)
+    scored = bmt.DockingPose.from_dict(data)
     assert original.rank is None and original.scores == {} and scored.rank is None
     assert 'vina' not in scored.scores
     np.testing.assert_array_equal(
@@ -50,7 +50,7 @@ def assert_reference_evaluation(data, original, control, receptor):
     )
     history = scored.metadata['scoring_history'][-1]
     assert history['operation'] == 'score' and len(history['scores']) == 8
-    assert dmt.verify_captured_inputs(history['backend_artifacts'])
+    assert bmt.verify_captured_inputs(history['backend_artifacts'])
     assert history['backend_artifacts']['receptor']['sha256'] == sha(receptor.encode())
     text = base64.b64decode(
         history['backend_artifacts']['partner']['content_base64']
@@ -202,7 +202,7 @@ def test_saved_references_all_156_poses_and_552_indexed_distances(inputs):
                 ):
                     assert current[key] == pytest.approx(original[key], abs=1e-10)
             for order, current in poses.items():
-                original = dmt.DockingPose.from_dict(saved['poses'][order])
+                original = bmt.DockingPose.from_dict(saved['poses'][order])
                 indices = cases[name]['controls'][order]['heavy_pdbqt_indices']
                 np.testing.assert_allclose(
                     puw.get_value(original.coordinates, to_unit='angstrom')[indices],

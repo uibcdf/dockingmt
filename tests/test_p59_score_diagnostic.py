@@ -10,7 +10,7 @@ from pathlib import Path
 
 import pytest
 
-from dmt_test_support import p59_score_diagnostic as analysis
+from bmt_test_support import p59_score_diagnostic as analysis
 
 
 @pytest.fixture(scope='module')
@@ -255,7 +255,7 @@ def test_check_mode_needs_no_molecular_or_plotting_imports(tmp_path):
 import importlib.abc, runpy, sys
 class BlockScientific(importlib.abc.MetaPathFinder):
     def find_spec(self, fullname, path=None, target=None):
-        if fullname.split('.')[0] in {'dockingmt','molsysmt','vina','rdkit','openmm','pyunitwizard','numpy','matplotlib'}:
+        if fullname.split('.')[0] in {'bindingmt','molsysmt','vina','rdkit','openmm','pyunitwizard','numpy','matplotlib'}:
             raise AssertionError('Unexpected scientific/plotting import: ' + fullname)
 sys.meta_path.insert(0, BlockScientific())
 sys.argv = [sys.argv[1], '--check']

@@ -4,8 +4,8 @@ These fifteen unmodified example files come from
 [`ccsb-scripps/AutoDock-Vina` commit `3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645`](https://github.com/ccsb-scripps/AutoDock-Vina/tree/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/example).
 The upstream repository distributes them under Apache License 2.0; see its
 [`LICENSE`](https://github.com/ccsb-scripps/AutoDock-Vina/blob/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/LICENSE).
-They are reference inputs for DockingMT tests, not chemically validated ground
-truth. DockingMT does not depend on Meeko to read or compare them.
+They are reference inputs for BindingMT tests, not chemically validated ground
+truth. BindingMT does not depend on Meeko to read or compare them.
 The root `.gitattributes` keeps their upstream trailing spaces intact while
 allowing `git diff --check` to validate the surrounding source changes.
 

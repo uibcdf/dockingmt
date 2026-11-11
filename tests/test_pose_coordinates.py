@@ -7,8 +7,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 
 @pytest.fixture(autouse=True)
@@ -39,8 +39,8 @@ def test_constructor_rejects_invalid_values_before_float_coercion(values):
     with warnings.catch_warnings():
         warnings.simplefilter('error', np.exceptions.ComplexWarning)
         with pytest.raises(ArgumentError) as caught:
-            dmt.DockingPose(quantity)
-    assert caught.value.code == 'DMT-E002'
+            bmt.DockingPose(quantity)
+    assert caught.value.code == 'BMT-E002'
     assert caught.value.extra['arg_name'] == 'coordinates'
 
 
@@ -63,7 +63,7 @@ def test_saved_pose_rejects_invalid_values_before_quantity_construction(values):
     }
     before = deepcopy(record)
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingPose.from_dict(record)
+        bmt.DockingPose.from_dict(record)
     assert caught.value.extra['arg_name'] == 'coordinates'
     # NaN does not compare equal; compare preserved representations instead.
     assert repr(record) == repr(before)
@@ -72,16 +72,16 @@ def test_saved_pose_rejects_invalid_values_before_quantity_construction(values):
 def test_normalization_overflow_is_an_argument_error():
     quantity = puw.quantity([[1e308, 0, 0]], 'km')
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingPose(quantity)
+        bmt.DockingPose(quantity)
     assert caught.value.extra['arg_name'] == 'coordinates'
 
 
 @pytest.mark.parametrize('value', [np.nan, np.inf, -np.inf])
 def test_mutated_live_pose_cannot_export_invalid_coordinates(value):
-    pose = dmt.DockingPose(puw.quantity([[0.0, 1.0, 2.0]], 'angstrom'))
+    pose = bmt.DockingPose(puw.quantity([[0.0, 1.0, 2.0]], 'angstrom'))
     pose.coordinates[0, 0] = puw.quantity(value, 'nm')
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingResult([pose]).to_dict()
+        bmt.DockingResult([pose]).to_dict()
     assert caught.value.extra['arg_name'] == 'coordinates'
 
 
@@ -92,11 +92,11 @@ def test_valid_coordinates_convert_roundtrip_and_detach_under_caller_policy(dtyp
         policy = puw.configure.get_standard_units()
         incoming = puw.quantity(values, 'angstrom')
         input_unit = str(puw.get_unit(incoming))
-        pose = dmt.DockingPose(incoming, pose_id='valid')
+        pose = bmt.DockingPose(incoming, pose_id='valid')
         assert str(puw.get_unit(incoming)) == input_unit
         np.testing.assert_array_equal(puw.get_value(incoming), values)
         record = pose.to_dict()
-        restored = dmt.DockingPose.from_dict(record)
+        restored = bmt.DockingPose.from_dict(record)
         np.testing.assert_allclose(
             puw.get_value(restored.coordinates, to_unit='angstrom'), values
         )
@@ -110,6 +110,6 @@ def test_valid_coordinates_convert_roundtrip_and_detach_under_caller_policy(dtyp
 
 
 def test_explicit_shaped_empty_pose_remains_supported():
-    pose = dmt.DockingPose(puw.quantity(np.empty((0, 3)), 'angstrom'))
+    pose = bmt.DockingPose(puw.quantity(np.empty((0, 3)), 'angstrom'))
     assert pose.n_atoms == 0
     assert pose.to_dict()['coordinates']['value'] == []

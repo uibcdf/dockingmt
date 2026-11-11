@@ -1,6 +1,6 @@
 # E2 source-only admission prescription — 2026-11-07
 
-Owner: [DockingMT #81](https://github.com/uibcdf/dockingmt/issues/81), with
+Owner: [BindingMT #81](https://github.com/uibcdf/bindingmt/issues/81), with
 chemistry/provider scope in #33/#49 and resource custody in #50. Status at
 registration: **prospective**. Custody review: **2026-11-14**.
 
@@ -66,7 +66,7 @@ launch. Direct operation caps for the complete selection are:
 These are direct orchestration caps. Snapshot format conversions, getters and
 provider-internal SDF/stereo interpretation are not independently new cases or
 separately attributed top-level transformations. The existing unshipped
-`dmt_test_support.qualify_chemical_templates` inspection helper remains declared
+`bmt_test_support.qualify_chemical_templates` inspection helper remains declared
 through the shared installed-test support mechanism; its source/hash is frozen.
 Do not introduce a molecular codec or restore MM from inspection records.
 

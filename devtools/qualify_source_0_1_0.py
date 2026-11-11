@@ -1,7 +1,7 @@
 """Hosted-only caller for #74's fixed private source candidate, not a publisher.
 
 MolSysSuite owns dependency checks, installed import guards and test-support
-staging. This caller binds those operations to DockingMT's frozen 0.1.0 inputs.
+staging. This caller binds those operations to BindingMT's frozen 0.1.0 inputs.
 """
 
 import argparse
@@ -70,11 +70,11 @@ def wheel_payload(wheel, frozen):
             raise ValueError(
                 'Runtime payload differs from the frozen versioned candidate'
             )
-        prefix = 'dockingmt-0.1.0.dist-info/'
+        prefix = 'bindingmt-0.1.0.dist-info/'
         message = BytesParser().parsebytes(archive.read(prefix + 'METADATA'))
         expected = frozen['archive_checks']
         if (
-            message['Name'] != 'dockingmt'
+            message['Name'] != 'bindingmt'
             or message['Version'] != '0.1.0'
             or SpecifierSet(message['Requires-Python'])
             != SpecifierSet(expected['python_requires'])
@@ -87,7 +87,7 @@ def wheel_payload(wheel, frozen):
             )
         entry = configparser.ConfigParser()
         entry.read_string(archive.read(prefix + 'entry_points.txt').decode())
-        if entry['molsysviewer.addons']['dockingmt'] != 'molsysviewer_dockingmt':
+        if entry['molsysviewer.addons']['bindingmt'] != 'molsysviewer_bindingmt':
             raise ValueError('Wrong addon entry point')
         headers = BytesParser().parsebytes(archive.read(prefix + 'WHEEL'))
         if headers['Root-Is-Purelib'] != 'true' or headers.get_all('Tag') != [
@@ -161,7 +161,7 @@ def build():
         ],
         check=True,
     )
-    wheel = wheels / 'dockingmt-0.1.0-py3-none-any.whl'
+    wheel = wheels / 'bindingmt-0.1.0-py3-none-any.whl'
     runtime = wheel_payload(wheel, frozen_receipt())
     if git(candidate, 'status', '--porcelain', '--untracked-files=no'):
         raise ValueError('Building changed tracked candidate inputs')
@@ -215,7 +215,7 @@ def snapshot():
     prefix = Path(sys.prefix).resolve()
     site = Path(sysconfig.get_path('purelib')).resolve()
     runtime = {}
-    for name in ('dockingmt', *PROVIDERS):
+    for name in ('bindingmt', *PROVIDERS):
         dist = metadata.distribution(name)
         for member in dist.files or []:
             if '.dist-info/' in str(member) or str(member).endswith('.pyc'):
@@ -225,7 +225,7 @@ def snapshot():
                 raise ValueError('Installed payload escapes the fresh prefix')
             runtime[str(path.relative_to(prefix))] = digest(path)
     for name, module in list(sys.modules.items()):
-        if name.split('.')[0] in ('dockingmt', 'molsysviewer_dockingmt', *PROVIDERS):
+        if name.split('.')[0] in ('bindingmt', 'molsysviewer_bindingmt', *PROVIDERS):
             origin = getattr(module, '__file__', None)
             if origin is None:
                 continue
@@ -247,21 +247,21 @@ def receive():
     sdk = TASK / 'installed-sdk'
     if git(sdk, 'rev-parse', 'HEAD') != INSTALLED_SDK:
         raise ValueError('Wrong installed-test SDK')
-    wheel = TASK / 'wheels/dockingmt-0.1.0-py3-none-any.whl'
+    wheel = TASK / 'wheels/bindingmt-0.1.0-py3-none-any.whl'
     expected = os.environ['EXPECTED_WHEEL_SHA256']
     if digest(wheel) != expected:
         raise ValueError('Downloaded wheel differs from the same-run build output')
     runtime = wheel_payload(wheel, frozen_receipt())
-    dist = metadata.distribution('dockingmt')
+    dist = metadata.distribution('bindingmt')
     direct = json.loads(dist.read_text('direct_url.json'))
-    if metadata.version('dockingmt') != '0.1.0' or (
+    if metadata.version('bindingmt') != '0.1.0' or (
         direct.get('archive_info', {}).get('hashes', {}).get('sha256') != expected
     ):
         raise ValueError('Ordinary installation is not the qualified private wheel')
     for name, value in runtime.items():
         if digest(Path(dist.locate_file(name))) != value:
             raise ValueError('Installed consumer bytes differ from the qualified wheel')
-    for namespace in ('dockingmt', 'molsysviewer_dockingmt'):
+    for namespace in ('bindingmt', 'molsysviewer_bindingmt'):
         shutil.rmtree(candidate / namespace)
     # Shared SDK verifies the candidate's selected support files against Git.
     # Production source roots are absent; only its tests may enter the path.
@@ -273,12 +273,12 @@ def receive():
     from devtools.scripts.installed_noarch import run_tests
     from devtools.scripts.installed_test_support import check_unshipped_support
 
-    check_unshipped_support('dmt_test_support', list(runtime))
-    dmt = importlib.import_module('dockingmt')
-    addon = importlib.import_module('molsysviewer_dockingmt.addon')
-    if dmt.__version__ != '0.1.0' or addon.addon.version != '0.1.0':
+    check_unshipped_support('bmt_test_support', list(runtime))
+    bmt = importlib.import_module('bindingmt')
+    addon = importlib.import_module('molsysviewer_bindingmt.addon')
+    if bmt.__version__ != '0.1.0' or addon.addon.version != '0.1.0':
         raise ValueError('Runtime/addon version attribution differs')
-    if dmt.summarize_redocking({})['summarizer']['dockingmt_version'] != '0.1.0':
+    if bmt.summarize_redocking({})['summarizer']['bindingmt_version'] != '0.1.0':
         raise ValueError('Summary version attribution differs')
     before = snapshot()
     metadata_before = {
@@ -290,7 +290,7 @@ def receive():
     inventory = tomllib.loads(
         (candidate / 'devtools/conda-build/resources.toml').read_text()
     )
-    inventory['import_name'] = 'dockingmt'
+    inventory['import_name'] = 'bindingmt'
     evidence = TASK / 'evidence'
     inventory['installed_tests']['pytest_args'] += [
         '--junitxml=' + str(evidence / 'installed-tests.xml'),

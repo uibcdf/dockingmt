@@ -5,7 +5,7 @@ This repository implements the common issue-backed lifecycle defined by
 
 ## Identity and ownership
 
-Component-local work uses `uibcdf/dockingmt#<number>`. Suite-wide rules and coordinated
+Component-local work uses `uibcdf/bindingmt#<number>`. Suite-wide rules and coordinated
 changes use `uibcdf/molsyssuite`. Open the owning issue before creating a queued record.
 Every queued document has an issue, although an incoming issue may await triage without
 a document.

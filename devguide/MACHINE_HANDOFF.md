@@ -1,15 +1,34 @@
 # New-machine development handoff
 
-Owner: [DockingMT #82](https://github.com/uibcdf/dockingmt/issues/82).
+Owner: [BindingMT #82](https://github.com/uibcdf/bindingmt/issues/82).
 Checkpoint date: **2026-11-11**; original machine handoff: **2026-11-06**.
 The destination is another **machine**, using the
-same `uibcdf/dockingmt` repository, issue history and scientific producers.
+same `uibcdf/bindingmt` repository, issue history and scientific producers.
 The original migration preserves repository/issue/scientific identities; the
 separate source milestone is recorded below.
 
 Read [development/onboarding](DEVELOPMENT.md) for setup and code navigation.
 [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) owns the full product
 requirements; this file explains how to resume without recovering chat history.
+
+### BindingMT transition active — 2026-11-11
+
+The maintainer resumes work for [#108](pending_proposals/rename_bindingmt.md):
+BindingMT adopts one canonical repository/distribution/import identity,
+`bindingmt`, through the maintainer-directed clean rename without compatibility
+layers.
+Its accepted domain now includes docking, fixed-identity complex prediction,
+refinement, binding free-energy calculation and prediction, and interface
+characterization. [Vision](VISION.md), [scope](SCIENTIFIC_SCOPE.md),
+[model](SCIENTIFIC_MODEL.md) and [architecture](ARCHITECTURE.md) separate current
+Vina software/scientific profiles from future operations. #109/#110 remain
+separate provider proposals; no new engine or scientific campaign starts here.
+
+Next qualify the renamed payload and compatibility, preserve immutable 0.1.0/
+scientific inputs, receive the already-renamed GitHub repository and deliver MolI/MolSysSuite
+coordination issues. Central registry/policy/guide and consumer adoption are
+separate owner handoffs. The earlier pause below belongs to its dated checkpoint;
+original #33/#49 preparation decisions remain pending outside this increment.
 
 ### Terminal maps/history received in development — 2026-11-11
 
@@ -20,7 +39,7 @@ next prescribed step only after the discussion and maintainer resumption.
 original panel work after the immutable 0.1.0 source milestone. MolSysMT #558 is
 source-resolved; the clean editable provider is fast-forwarded to `aee7aa65` with
 unchanged native bytes/build inputs. The full eight-case selection
-passes both unit policies on DockingMT `7873ec4` / MolSysMT `aee7aa65`: exact
+passes both unit policies on BindingMT `7873ec4` / MolSysMT `aee7aa65`: exact
 mapped geometry, typed maps, explicit losses, intact source/history and native
 history persistence. All 625 support inputs retire; original failures and the
 pre-test wall interruption remain in the 129-member record. Next decide original
@@ -31,7 +50,7 @@ scientific and actual-canvas criteria retain their separate scope.
 
 ### Source milestone 0.1.0 delivered — 2026-11-11
 
-Published [lightweight tag **0.1.0**](https://github.com/uibcdf/dockingmt/tree/0.1.0)
+Published [lightweight tag **0.1.0**](https://github.com/uibcdf/bindingmt/tree/0.1.0)
 targets **1030a29025914e01dff09e5fc606ec73b90f4cd9**, tree
 `5f0c98567ae06263c1a43b9a24c63f7c81675539`; GitHub verifies a direct commit ref.
 [Source-event notice](https://github.com/uibcdf/molsyssuite/issues/189) records
@@ -46,7 +65,7 @@ support inputs. Three original cells/build/quality/policy stay attempt-1 evidenc
 Python 3.13 succeeds in run 43074858531/head 286f811 with the original candidate/
 file and unchanged scientific logic. Both failed pre-test attempts remain failed.
 
-The tag-specific [conformance check 43088048207](https://github.com/uibcdf/dockingmt/actions/runs/43088048207)
+The tag-specific [conformance check 43088048207](https://github.com/uibcdf/bindingmt/actions/runs/43088048207)
 passes on the exact tag target (job 130757511025); the [final receipt](validation/data/current_0_1_0_tag_policy_20261111.json)
 retains its separate conformance/lint/format scope. #74 is complete and its
 report is archived. The tag target stays immutable.
@@ -531,7 +550,7 @@ actual committed-source receiving precede direct `[skip ci]` publication.
 ### Current E3 receiving and provider handoff — 2026-11-09
 
 [E3 bounded comparison/clustering now received](validation/e3_saved_pose_study_2026-11-09.md)
-passes both complete normal/pm-fs profiles on DockingMT `ae0db98`, editable
+passes both complete normal/pm-fs profiles on BindingMT `ae0db98`, editable
 MolSysMT `efbe67e1` and unchanged native `5715bda2`. The original three P59 poses
 pass fixed-state/common-frame admission, reconstruction, strict heavy24/full25
 correspondence, two pairwise metrics, independent-reference RMSD and public
@@ -586,7 +605,7 @@ installed/scientific/platform/canvas and hosted gates remain partial; #256/#558
 and the native-build hold stay. No provider refresh/build, shared install,
 molecular operation, package publication or remote CI.
 
-Original filename `dockingmt-0.0.0+342.g841a34d-py3-none-any.whl`, 157,177 bytes,
+Original filename `bindingmt-0.0.0+342.g841a34d-py3-none-any.whl`, 157,177 bytes,
 SHA-256 `a50b21c25e0e254af321836f404f54553611e9d299ee3fdcfe2abe539889ac11`.
 Producer `841a34dd30e848adfb72087a27864253cbe2602d` remains the code/test source;
 this later qualification changes only docs/evidence. Actual MolSysMT `fab8cbccf`,
@@ -636,7 +655,7 @@ reference/preparation, browser/comm/canvas and public artifact/platform gates.
 ### Public exceptions and source-linked API #94 — 2026-11-09
 
 [Public exception access and API reference #94](validation/public_api_namespace_2026-11-09.md)
-now expose the same 13 local diagnostic classes through `dockingmt.exceptions`.
+now expose the same 13 local diagnostic classes through `bindingmt.exceptions`.
 The source-linked guide covers all 33 root exports, 13 model/extension classes,
 units/ownership/positions, work boundaries and explicit CPU use. Complete affected
 source selections pass 251 cases normal then pm/fs; two exact offline snippets
@@ -853,7 +872,7 @@ MolSysMT `fab8cbccf570a60205a3863aad19dd4b7cfb8d3a`, MolSysViewer
 `1187fc187247aa2d20d01791856a541d50562bcb` and unchanged native SHA `5715bda2`.
 No new detector/search, build/install, provider pull or shared-environment edit.
 Actual runtime origins, full Python inventories and build labels are separate:
-DockingMT's imported local stamp `0.0.0+297.g3b1853a` and distribution metadata
+BindingMT's imported local stamp `0.0.0+297.g3b1853a` and distribution metadata
 `0.0.0+295.g2fda623` do not identify mutable source `204f5f6c`.
 
 Every original molecular/action assertion and native test stays byte-identical.
@@ -926,7 +945,7 @@ No runtime/helper/pin edit, search/detector, browser/kernel or remote CI occurs.
 
 [The source correction](archive/interaction_binding_partial_carrier_diagnostic.md)
 checks absent successful atom/frame-count and coordinate returns before scalar
-or unit extraction. Both public binding routes now raise DMT-E002 naming
+or unit extraction. Both public binding routes now raise BMT-E002 naming
 `molecular_system` with an actionable reason. Real provider failures propagate;
 no geometry, map, frame or analysis is inferred or repaired.
 
@@ -1088,7 +1107,7 @@ No build/install, runtime/helper/data/pin change or CI dispatch occurs here.
 **Reinstallation received:** after the maintainer's editable reinstall, actual
 imports select the refreshed provider and new native SHA-256 `5715bda2` (full
 identity in the [receiving record](validation/provider_fix_artifact_admission_2026-11-08.md#rebuilt-editable-provider-receiving--2026-11-08)).
-`pip check` passes; 115 focused provider guards and 383 DockingMT source cases
+`pip check` passes; 115 focused provider guards and 383 BindingMT source cases
 pass without failures/errors/skips. These cover the four corrections and changed
 native wrapping/unwrap paths; provider controls include nondefault unit policies.
 The 383 consumer cases run once in this increment. Peak sampled group RSS is
@@ -1690,7 +1709,7 @@ attribution above supersedes only its historical independent next action.
 [MolSysMT #642](https://github.com/uibcdf/molsysmt/issues/642) is now source-resolved
 at `4d8af6c34cb6b3f9e22833771b246d8767ef85e9`. The owner receives complete
 catalog/code fidelity, including the original already-written failing carrier.
-This does not qualify DockingMT's installed client. The new
+This does not qualify BindingMT's installed client. The new
 [registered receiving/build record](validation/e4_evidence_catalog_fix_2026-11-07.md)
 keeps the earlier eight View cells and historical persistence failures unchanged.
 
@@ -1946,7 +1965,7 @@ This preceding source qualification retains its source-specific scope; installed
 receiving and the current next action are recorded above.
 
 `bind_interactions` and `PoseInteractions` are implemented in
-[`dockingmt/interactions.py`](../dockingmt/interactions.py). The
+[`bindingmt/interactions.py`](../bindingmt/interactions.py). The
 [public contract and source qualification](validation/pose_interaction_binding.md)
 describe explicit zero-based pose selection, ordered atom maps, known state/frame
 declarations, unit-bearing coordinate checks and detached complete result/carrier/
@@ -2105,7 +2124,7 @@ E4 checkpoint above supersedes its old next-action statements.
   Vina/Vinardo 1.2.7 method-local `lig_inter` reports. Both actual original poses,
   eight old/32 new scalar values, native controls and fresh saved receiving pass.
   Original `generation-01` stays failed; its later live checks stay unreceived.
-- **Versions:** [DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+- **Versions:** [BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
   retains the complete pre-stable functional objective and permits the 0.x.0
   increments actually needed for stabilization. Neither 0.9.0 nor illustrative
   0.23.0 is a required or selected last pre-1.0 release. Fixed 0.1.0 stays fixed.
@@ -2127,7 +2146,7 @@ E4 checkpoint above supersedes its old next-action statements.
   `1cbe49d31e1859e34b7cc71af1a8514fef9314401401b2b76b6a7e07dfc7ebaa`
   for P69 before Vina import. One public iterator returns success/refusal/success,
   with 3+2 original poses, two native searches and two original-rank-1 representatives.
-  DMT-E003 leaves native/writer counters unchanged. Native totals are
+  BMT-E003 leaves native/writer counters unchanged. Native totals are
   -11.462/-10.787 kcal/mol under the frozen caller-owned empirical policy.
   All five native columns, each run's own reference and original four scores,
   ranks and histories survive; equal fifth-column zeros do not establish a
@@ -2166,7 +2185,7 @@ E4 checkpoint above supersedes its old next-action statements.
   holds remain unchanged.
 - **E3 static provider boundary:** [Admission review](validation/e3_provider_admission_2026-11-07.md)
   and [inventory](validation/data/e3_provider_admission_2026-11-07.json) inspect
-  DockingMT `9bb313e`, with task-owned documentation changes and the original
+  BindingMT `9bb313e`, with task-owned documentation changes and the original
   untracked migration snapshot preserved.
   MolSysMT local `9e1f1b1ad8bf` stays clean, 52 commits behind fetched
   `82bfa1c82f1d48035679fa4630e81a2506b67bd6`; no checkout/pin change occurs.
@@ -2198,9 +2217,9 @@ E4 checkpoint above supersedes its old next-action statements.
 | Boundary | Evidence / disposition |
 | --- | --- |
 | Pre-handoff source | `8e65091a0002023527ed7d3d6754a50695d2e1bd`, committed/pushed before documentation work. The handoff documentation has its own later source identity. |
-| Exact-source CI | [42208588851](https://github.com/uibcdf/dockingmt/actions/runs/42208588851): terminal success, all seven jobs and one artifact, checked through published GH Run Receptor 1.4.0 and individual job facts. |
-| Other source gates | [Policy](https://github.com/uibcdf/dockingmt/actions/runs/42208589332), [publication controls](https://github.com/uibcdf/dockingmt/actions/runs/42208589352) and [DOM](https://github.com/uibcdf/dockingmt/actions/runs/42208588821) succeed. They qualify their own scope. |
-| E4 scientific producer | `5952053328aac6f737e22906e984c0f9eb938dd7`; [run 42206087852](https://github.com/uibcdf/dockingmt/actions/runs/42206087852) passes normal/pm-fs and two fresh saved readers. Its own CI 42205979421 passes 7/7. |
+| Exact-source CI | [42208588851](https://github.com/uibcdf/bindingmt/actions/runs/42208588851): terminal success, all seven jobs and one artifact, checked through published GH Run Receptor 1.4.0 and individual job facts. |
+| Other source gates | [Policy](https://github.com/uibcdf/bindingmt/actions/runs/42208589332), [publication controls](https://github.com/uibcdf/bindingmt/actions/runs/42208589352) and [DOM](https://github.com/uibcdf/bindingmt/actions/runs/42208588821) succeed. They qualify their own scope. |
+| E4 scientific producer | `5952053328aac6f737e22906e984c0f9eb938dd7`; [run 42206087852](https://github.com/uibcdf/bindingmt/actions/runs/42206087852) passes normal/pm-fs and two fresh saved readers. Its own CI 42205979421 passes 7/7. |
 | E4 observation | One original pose of one 3PTB case: 3 named H-bond observations and 2 typed hydrophobic proximities under both unit policies; translated controls 0/0 and analytic H-bond controls 1/0. Twelve detector calls total, zero in fresh readers. This is not biological validation or whole E4 acceptance. |
 | Earlier failures | Tooling absence, local RAM-reserve interruption and first hosted XYZ-getter refusal retain their own producers/diagnostics. The interrupted local final count is unknown; the first hosted final count is verified zero. |
 | Automation | The previous autonomous implementation goal was paused and cleared. This documentation task does not reactivate it. The interrupted continuation made only source/contract inspections, with no runtime patch or new scientific execution. |
@@ -2211,8 +2230,8 @@ The [E4 interpretation](validation/installed_3ptb_interactions.md) and
 retain actual methods, units, software, maps, scores, files and limits.
 Original data are not relabelled with the handoff documentation commit.
 A later head needs its own applicable gates; consult
-[#82](https://github.com/uibcdf/dockingmt/issues/82) and
-[#28](https://github.com/uibcdf/dockingmt/issues/28) for this handoff's
+[#82](https://github.com/uibcdf/bindingmt/issues/82) and
+[#28](https://github.com/uibcdf/bindingmt/issues/28) for this handoff's
 final source/CI rather than treating the pre-handoff result as its proof.
 
 ## Decisions to preserve
@@ -2225,7 +2244,7 @@ final source/CI rather than treating the pre-handoff result as its proof.
 | Saved records do not synthesize missing molecular state | Detached results retain provenance; supplied sources/maps/bytes need admission. [Recovery](validation/saved_human_case_recovery.md), [prepared recovery](validation/prepared_recovery.md). |
 | Named scores and comparison admission are conservative | Preserve original scores/history; equal labels do not establish comparability. [Score semantics](validation/score_semantics.md), [reference evidence](validation/scoring_reference.md). |
 | Scientific observations keep their original populations | Poses/seeds/complexes, failed/evaluated-empty/unevaluated and software/scientific/visual proofs differ. [Audit](library_audit_2026-11-04.md), [validation strategy](VALIDATION_STRATEGY.md). |
-| Core+Extended is accepted scope | DMT-045/046 select scope and pre-stabilization delivery; DMT-047 records score-reference evidence. [Decisions](DECISIONS.md), [release ladder](RELEASE_MILESTONES.md). |
+| Core+Extended is accepted scope | BMT-045/046 select scope and pre-stabilization delivery; BMT-047 records score-reference evidence. [Decisions](DECISIONS.md), [release ladder](RELEASE_MILESTONES.md). |
 
 The [roadmap](ROADMAP.md) preserves earlier checkpoint detail. Historical
 “next” instructions are not the current queue. The former entry-page chronology
@@ -2260,7 +2279,7 @@ dependency solve do not prove the required behavior is available.
 
 The continuation now has separate [E1 receiving](validation/e1_installed_receiving_2026-11-06.md)
 and [public-workflow records](validation/e1_public_composition_2026-11-06.md).
-Earlier receiving runtime source is DockingMT `2fda6238e6b1cb3742f5d30b8ed3af699f9ed748`
+Earlier receiving runtime source is BindingMT `2fda6238e6b1cb3742f5d30b8ed3af699f9ed748`
 with the separately identified development MolSysMT; private snapshots/wheels
 and Vina/Boost retain their exact identities and missing public-closure limits.
 Original qualified pins and scientific producers above remain unchanged.
@@ -2336,7 +2355,7 @@ records. Whole E1, public delivery, hosted gates and the E4 hold stay separate.
 | Live visualization | Schedule/observe actual controls, communication and canvas when the maintainer chooses. | #52/#60. Python/DOM success is separate; #291 notifications are already received in the qualified source/private combination. |
 
 The maintainer's provider-issue authorization permits reporting uncovered
-molecular needs in MolSysMT, not implementing them in DockingMT. Other deferred
+molecular needs in MolSysMT, not implementing them in BindingMT. Other deferred
 cross-component work and live observation do not resume automatically.
 
 ### Last unfinished E4 investigation
@@ -2389,9 +2408,9 @@ unique required artifacts. The narrow recent set includes:
 
 | Artifact | Identity / custody |
 | --- | --- |
-| First E4 hosted original ZIP | `dockingmt-e4-42203647830-1.zip`; SHA-256 `e4f12b46f1255141cefe621f9959c54c7432cb68ced49849ac35dddaed9a6700`. Failure and selected exports are in Git. |
-| Successful E4 hosted original ZIP | `dockingmt-e4-42206087852-1.zip`; SHA-256 `67af4078fd942b6c7cef1aadd61f5c2318f2ba4cef4c9439b2e9c9447959c690`. Full pip inspection, preparation bulk outputs and private wheel remain in this ZIP. |
-| Successful E4 consumer wheel | `dockingmt-0.0.0+293.g5952053-py3-none-any.whl`; SHA-256 `d5038470712a4c1203088b28f973be5466e95aca2781a4288bc02606c84ab88b`, also within that ZIP. |
+| First E4 hosted original ZIP | `bindingmt-e4-42203647830-1.zip`; SHA-256 `e4f12b46f1255141cefe621f9959c54c7432cb68ced49849ac35dddaed9a6700`. Failure and selected exports are in Git. |
+| Successful E4 hosted original ZIP | `bindingmt-e4-42206087852-1.zip`; SHA-256 `67af4078fd942b6c7cef1aadd61f5c2318f2ba4cef4c9439b2e9c9447959c690`. Full pip inspection, preparation bulk outputs and private wheel remain in this ZIP. |
+| Successful E4 consumer wheel | `bindingmt-0.0.0+293.g5952053-py3-none-any.whl`; SHA-256 `d5038470712a4c1203088b28f973be5466e95aca2781a4288bc02606c84ab88b`, also within that ZIP. |
 | Fixed private 0.1.0 populations | Follow [the dossier](releases/0.1.0.md) and its manifests. There are separate archive populations: preserve actual files/hashes and their distinct closures, not one invented universal lock. |
 | Older private qualification resources | Follow the existing [#50 inventory/dispositions](pending_proposals/review_temporary_resources.md) and linked manifests. They are not automatically included in the recent E4 set. |
 

@@ -1,9 +1,9 @@
 # Independent 5X72 ROOT-order challenge
 
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17) and
-[#6](https://github.com/uibcdf/dockingmt/issues/6) own this finite follow-up to
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17) and
+[#6](https://github.com/uibcdf/bindingmt/issues/6) own this finite follow-up to
 the [1IEP conformer challenge](1iep_conformer_workflow.md). The
-[prespecified plan](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6080145389)
+[prespecified plan](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6080145389)
 predates docking searches. The [driver](../../devtools/qualify_5x72_root_order.py),
 [raw observations](data/5x72_root_order/audit_2026-10-09.json.gz),
 [saved-result notebook](5x72_root_order_workflow_2026-10-09.ipynb),
@@ -90,7 +90,7 @@ Public MolSysMT `structure.get_rmsd` measures positional RMSD in this mapped
 population, with independent NumPy recomputation and the existing inclusive
 2.5 angstrom cutoff. Full 25-atom docking outputs remain unchanged. No experimental
 hydrogen coordinate is manufactured to satisfy the full-inventory public
-DockingMT evaluation contract. First-pose and returned-set recovery are separate
+BindingMT evaluation contract. First-pose and returned-set recovery are separate
 observations; scores retain kcal/mol units.
 
 ## Observations and interpretation — 2026-10-09

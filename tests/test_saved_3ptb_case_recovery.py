@@ -14,8 +14,8 @@ import molsysmt as msm
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support import recover_saved_3ptb_case as tool
+import bindingmt as bmt
+from bmt_test_support import recover_saved_3ptb_case as tool
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGINAL = ROOT / 'devguide/validation/data/human_3ptb'
@@ -36,7 +36,7 @@ def preserve_originals():
 
 @pytest.fixture
 def bundle():
-    with TemporaryDirectory(prefix='dockingmt-saved-case-test-') as directory:
+    with TemporaryDirectory(prefix='bindingmt-saved-case-test-') as directory:
         root = Path(directory) / 'relocated'
         shutil.copytree(ORIGINAL, root)
         yield root
@@ -80,7 +80,7 @@ def test_original_case_restores_five_poses_and_original_identity_without_molecul
     monkeypatch,
 ):
     for name in ('dock', 'score', 'prepare_ligand', 'prepare_receptor'):
-        monkeypatch.setattr(dmt, name, _forbidden)
+        monkeypatch.setattr(bmt, name, _forbidden)
     for name in ('get', 'select', 'convert', 'extract', 'copy'):
         monkeypatch.setattr(msm, name, _forbidden)
     with puw.context(standard_units=['pm', 'fs', 'coulomb', 'kJ/mol']):
@@ -92,8 +92,8 @@ def test_original_case_restores_five_poses_and_original_identity_without_molecul
     assert len(report['verified_files']) == 16
     assert report['status'] == report['result_audit']['status'] == 'consistent'
     assert report['original_producer'] == '1decee504b112cfd92026c52dcbe22449de30f4f'
-    assert report['original_versions']['dockingmt'] == '0.0.0+180.g1decee5'
-    assert report['verifier']['dockingmt_version'] == dmt.__version__
+    assert report['original_versions']['bindingmt'] == '0.0.0+180.g1decee5'
+    assert report['verifier']['bindingmt_version'] == bmt.__version__
     assert (
         report['new_searches']
         == report['new_preparations']
@@ -138,7 +138,7 @@ def test_changed_or_missing_member_rejects_before_result_reading(
         target.write_bytes(target.read_bytes() + b'changed')
     else:
         target.unlink()
-    monkeypatch.setattr(dmt.DockingResult, 'from_dict', _forbidden)
+    monkeypatch.setattr(bmt.DockingResult, 'from_dict', _forbidden)
     with pytest.raises(ValueError):
         tool.recover_saved_case(bundle, SOURCE)
 
@@ -239,7 +239,7 @@ def _command(bundle, report):
     return [
         sys.executable,
         '-m',
-        'dmt_test_support.recover_saved_3ptb_case',
+        'bmt_test_support.recover_saved_3ptb_case',
         '--bundle',
         str(bundle),
         '--source',

@@ -4,18 +4,18 @@ The later [private installed-wheel checkpoint](addon_installed_receiving.md)
 executes a separate companion profile in an independent receiver. This page and
 its linked original notebook/receipts retain the earlier source execution below.
 
-Owner: [DockingMT #60](https://github.com/uibcdf/dockingmt/issues/60).
+Owner: [BindingMT #60](https://github.com/uibcdf/bindingmt/issues/60).
 The maintainer cannot perform an interactive review at this checkpoint. The
 [new notebook](addon_3ptb_workflow_2026-11-03.ipynb) is prepared for that later
 review and has been executed through a real kernel without a browser.
 
 ## Executed scope — 2026-11-03
 
-All **five code cells** complete using DockingMT source `a667dc1` and the retained
+All **five code cells** complete using BindingMT source `a667dc1` and the retained
 ordinary-installed provider composition from
 [ChemicalStates receiving](../chemical_domain_receiving.md). The notebook checks
 actual module origins before molecular work. This is source-addon/kernel evidence,
-not a newly built or ordinary-installed DockingMT artifact.
+not a newly built or ordinary-installed BindingMT artifact.
 
 The public scene has five frames and 2,033 atoms: 2,011 receptor atoms, 13 pose
 atoms and nine observed reference atoms. All frame coordinates, five identity
@@ -43,7 +43,7 @@ The #58 verifier recovers the original five-pose record with `problem is None`.
 The original scene receiver is absent from its historical location; no replacement
 is presented as that original artifact. Instead this new notebook explicitly
 replays `devtools.qualify_3ptb_admission.admit`, the existing registered molecular
-hypothesis, through public MolSysMT and DockingMT tools.
+hypothesis, through public MolSysMT and BindingMT tools.
 
 Each attempt calls receptor preparation once and ligand preparation twice
 (the existing rigid/flexible admission recipe). Only the saved rigid/native
@@ -85,15 +85,15 @@ deletion of retained evidence.
 
 ## Reproduce when convenient
 
-Use a Python 3.14 kernel with this checkout as the DockingMT source and a compatible
+Use a Python 3.14 kernel with this checkout as the BindingMT source and a compatible
 controlled scientific prefix. The kernel needs the Jupyter tooling recorded in
 the receipt; these tools are development/execution dependencies, not new package
 runtime requirements. Set the following before starting the kernel:
 
 ```bash
-export DOCKINGMT_NOTEBOOK_ROOT="$PWD"
-export DOCKINGMT_EXPECTED_PROVIDER_PREFIX=/path/to/qualified/scientific/prefix
-export DOCKINGMT_ADDON_OUTPUT=/path/to/a/new/output/directory
+export BINDINGMT_NOTEBOOK_ROOT="$PWD"
+export BINDINGMT_EXPECTED_PROVIDER_PREFIX=/path/to/qualified/scientific/prefix
+export BINDINGMT_ADDON_OUTPUT=/path/to/a/new/output/directory
 ```
 
 Open `devguide/validation/addon_3ptb_workflow_2026-11-03.ipynb` from the checkout

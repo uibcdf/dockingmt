@@ -1,8 +1,8 @@
 # PEP 639 license metadata and private archive checks
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47).
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47).
 Coordination: [MolSysSuite #162](https://github.com/uibcdf/molsyssuite/issues/162).
-This is DockingMT's local packaging migration; it establishes no new suite rule
+This is BindingMT's local packaging migration; it establishes no new suite rule
 and changes no sibling source or project license.
 
 ## Source and build requirement

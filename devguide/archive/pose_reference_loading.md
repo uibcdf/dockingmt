@@ -1,6 +1,6 @@
 ---
 summary: Pair docking reference frames explicitly and expose viewer failures.
-issue: uibcdf/dockingmt#37
+issue: uibcdf/bindingmt#37
 status: resolved
 opened: 2026-10-03
 closed: 2026-10-03
@@ -36,14 +36,14 @@ Incorrect frame counts prevent meaningful pose/reference comparison.
 ## What was refuted
 
 Do not catch TypeError and retry without pairing or interpret **kwargs as advertised
-support. Do not duplicate molecular manipulation in DockingMT or migrate CI to an
+support. Do not duplicate molecular manipulation in BindingMT or migrate CI to an
 uncommitted provider tree.
 
 ## Scope and exclusions
 
-DockingMT adapter changes only. Provider handoff: uibcdf/molsysviewer#151.
+BindingMT adapter changes only. Provider handoff: uibcdf/molsysviewer#151.
 The legacy signature branch is temporary until published pairing support is
-qualified across supported profiles; review by 2026-11-03, owner DockingMT maintainers.
+qualified across supported profiles; review by 2026-11-03, owner BindingMT maintainers.
 No browser rendering certification, chemistry change or provider source edits.
 
 ## Acceptance criteria

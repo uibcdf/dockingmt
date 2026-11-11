@@ -1,6 +1,6 @@
 # Installed reconstruction and composition — 2026-11-09
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), with
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), with
 molecular delegation #49 and complete functional plan #73. Status: consumer correction and source-only provider delivery received; independent evidence reading passes. Full/public/source-context gates remain partial.
 
 ## Question and inputs
@@ -167,7 +167,7 @@ CI, metadata reinstall or native build is part of this checkpoint.
 ## Genuine new consumer wheel on the original provider cohort
 
 Committed producer `aeae47d50c5e90687c2558437cb22cf8f271ce85` builds private wheel
-`dockingmt-0.0.0+351.gaeae47d-py3-none-any.whl`,157821B, SHA256
+`bindingmt-0.0.0+351.gaeae47d-py3-none-any.whl`,157821B, SHA256
 `0b303ae371466a6736e8d194a89a54048f8bc51de3cd293cdc68c06050ae042b`.
 All 67 runtime paths, generated version, source payload, wheel RECORD, license,
 PEP610 archive identity, ordinary private pip installation/check and origins pass.

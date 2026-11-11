@@ -1,6 +1,6 @@
 # Docking addon DOM tests
 
-Owner: [DockingMT #60](https://github.com/uibcdf/dockingmt/issues/60).
+Owner: [BindingMT #60](https://github.com/uibcdf/bindingmt/issues/60).
 
 From the repository root, with Python 3.14 and Node 26 available:
 

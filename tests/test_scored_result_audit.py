@@ -7,8 +7,8 @@ from pathlib import Path
 
 import pytest
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 DATA = Path(__file__).resolve().parents[1] / 'devguide/validation/data/audit'
 
@@ -25,11 +25,11 @@ def scored_pose():
 
 @pytest.fixture
 def collection(scored_pose):
-    return dmt.DockingResult(poses=[dmt.DockingPose.from_dict(scored_pose)]).to_dict()
+    return bmt.DockingResult(poses=[bmt.DockingPose.from_dict(scored_pose)]).to_dict()
 
 
 def test_valid_scored_pose_collection_does_not_invent_docking_stage(collection):
-    report = dmt.audit_result(collection)
+    report = bmt.audit_result(collection)
     assert report['status'] == 'incomplete'  # Collection provenance is unavailable.
     assert not any(c['status'] == 'inconsistent' for c in report['checks'])
     checks = [c for c in report['checks'] if c['check'] == 'evaluation_value']
@@ -44,7 +44,7 @@ def test_valid_scored_pose_collection_does_not_invent_docking_stage(collection):
 )
 def test_known_malformed_history_is_not_ignored(docking_record, history):
     docking_record['poses'][0]['metadata']['scoring_history'] = history
-    report = dmt.audit_result(docking_record)
+    report = bmt.audit_result(docking_record)
     assert report['status'] == 'inconsistent'
     assert any(
         c['status'] == 'inconsistent'
@@ -54,9 +54,9 @@ def test_known_malformed_history_is_not_ignored(docking_record, history):
 
 
 def test_optional_empty_history_does_not_change_docking_only_report(docking_record):
-    before = dmt.audit_result(docking_record)
+    before = bmt.audit_result(docking_record)
     docking_record['poses'][0]['metadata']['scoring_history'] = []
-    assert dmt.audit_result(docking_record) == before
+    assert bmt.audit_result(docking_record) == before
 
 
 @pytest.mark.parametrize(
@@ -78,7 +78,7 @@ def test_scoring_contradictions_are_checked_inside_collection(collection, change
         pose['metadata']['scoring_history'][0]['backend_artifacts']['partner'][
             'sha256'
         ] = '0' * 64
-    assert dmt.audit_result(collection)['status'] == 'inconsistent'
+    assert bmt.audit_result(collection)['status'] == 'inconsistent'
 
 
 @pytest.mark.parametrize('change', ['history', 'capture'])
@@ -90,7 +90,7 @@ def test_missing_scoring_evidence_stays_incomplete(collection, change):
         del pose['metadata']['scoring_history'][0]['backend_artifacts']['partner'][
             'content_base64'
         ]
-    report = dmt.audit_result(collection)
+    report = bmt.audit_result(collection)
     assert report['status'] == 'incomplete'
     assert not any(c['status'] == 'inconsistent' for c in report['checks'])
 
@@ -99,7 +99,7 @@ def test_original_docking_score_cannot_be_relabelled_as_scoring(docking_record):
     docking_record['poses'][0]['metadata']['score_definitions']['vina']['context'][
         'stage'
     ] = 'scoring'
-    assert dmt.audit_result(docking_record)['status'] == 'inconsistent'
+    assert bmt.audit_result(docking_record)['status'] == 'inconsistent'
 
 
 def test_overlapping_docking_and_scoring_producers_are_inconsistent(
@@ -108,7 +108,7 @@ def test_overlapping_docking_and_scoring_producers_are_inconsistent(
     docking_record['poses'][0]['metadata']['scoring_history'] = [
         deepcopy(scored_pose['metadata']['scoring_history'][0])
     ]
-    report = dmt.audit_result(docking_record)
+    report = bmt.audit_result(docking_record)
     assert report['status'] == 'inconsistent'
     assert any(
         c['reason'] == 'docking_and_scoring_ownership_overlap' for c in report['checks']
@@ -132,19 +132,19 @@ def test_appended_stage_routes_additions_without_weakening_original_docking(
     pose['scores'].update(evaluation['scores'])
     pose['metadata']['score_definitions'].update(evaluation['score_definitions'])
     pose['metadata']['scoring_history'] = [evaluation]
-    assert dmt.audit_result(docking_record)['status'] == 'consistent'
+    assert bmt.audit_result(docking_record)['status'] == 'consistent'
     pose['scores']['vina'] += 1
-    assert dmt.audit_result(docking_record)['status'] == 'inconsistent'
+    assert bmt.audit_result(docking_record)['status'] == 'inconsistent'
 
 
 def test_audit_does_not_relax_score_comparison_context(scored_pose):
-    first = dmt.DockingPose.from_dict(scored_pose)
+    first = bmt.DockingPose.from_dict(scored_pose)
     changed = deepcopy(scored_pose)
     changed['metadata']['score_definitions']['vina']['context']['partner_sha256'] = (
         '0' * 64
     )
-    result = dmt.DockingResult(poses=[first, dmt.DockingPose.from_dict(changed)])
-    dmt.audit_result(result.to_dict())
+    result = bmt.DockingResult(poses=[first, bmt.DockingPose.from_dict(changed)])
+    bmt.audit_result(result.to_dict())
     with pytest.raises(ArgumentError):
         result.rank_by('vina')
 
@@ -175,10 +175,10 @@ def test_collection_audit_is_detached_and_does_no_external_work(
     monkeypatch.setattr(builtins, '__import__', guarded)
     monkeypatch.setattr(builtins, 'open', forbidden)
     before = deepcopy(collection)
-    report = dmt.audit_result(collection)
-    assert report == dmt.audit_result(collection)
+    report = bmt.audit_result(collection)
+    assert report == bmt.audit_result(collection)
     assert collection == before
     assert json.loads(json.dumps(report, allow_nan=False)) == report
     assert 'content_base64' not in json.dumps(report)
     report['checks'][0]['status'] = 'changed'
-    assert dmt.audit_result(collection)['checks'][0]['status'] != 'changed'
+    assert bmt.audit_result(collection)['checks'][0]['status'] != 'changed'

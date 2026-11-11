@@ -11,25 +11,25 @@ import pytest
 import pyunitwizard as puw
 from molsysmt._private.smonitor import FormatError
 
-import dockingmt as dmt
-from dmt_test_support.mapped_pose_fixtures import (
+import bindingmt as bmt
+from bindingmt.engines.vina import _verify_pose_atom_order
+from bmt_test_support.mapped_pose_fixtures import (
     _case as _case,
 )
-from dmt_test_support.mapped_pose_fixtures import (
+from bmt_test_support.mapped_pose_fixtures import (
     _export as _export,
 )
-from dmt_test_support.mapped_pose_fixtures import (
+from bmt_test_support.mapped_pose_fixtures import (
     _tree as _tree,
 )
-from dmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
-from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
-from dmt_test_support.qualify_named_types import (
+from bmt_test_support.pdbqt_fixtures import MINIMAL_REC_PDBQT
+from bmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from bmt_test_support.qualify_named_types import (
     CHARGE,
     HYDROGEN,
     TYPING,
 )
-from dmt_test_support.torsion_reference_fixtures import CASES, _source
-from dockingmt.engines.vina import _verify_pose_atom_order
+from bmt_test_support.torsion_reference_fixtures import CASES, _source
 
 DATA = Path(__file__).parent / 'data/vina_torsions'
 OFFSETS = np.array([[0, 0, 0], [10, -2, 1], [-5, 3, 2]])
@@ -270,7 +270,7 @@ def test_omitted_h_is_explicit_subsystem_not_projected_chemistry():
 
 
 @pytest.mark.parametrize('length_unit', ['angstrom', 'pm'])
-def test_real_dockingmt_vina_output_matches_native_pose_reader(
+def test_real_bindingmt_vina_output_matches_native_pose_reader(
     length_unit, monkeypatch, tmp_path
 ):
     import vina
@@ -289,17 +289,17 @@ def test_real_dockingmt_vina_output_matches_native_pose_reader(
 
     monkeypatch.setattr(vina, 'Vina', RecordedVina)
     with puw.context(standard_units=[length_unit, 'fs', 'coulomb', 'kJ/mol']):
-        problem = dmt.DockingProblem(
+        problem = bmt.DockingProblem(
             receptor='pdbqt_text:' + MINIMAL_REC_PDBQT,
             partner=text,
-            search_domain=dmt.BoxRegion(
+            search_domain=bmt.BoxRegion(
                 center=puw.quantity([0, 0, 0], 'angstrom'),
                 size=puw.quantity([16, 16, 16], 'angstrom'),
             ),
         )
-        result = dmt.dock(
+        result = bmt.dock(
             problem,
-            protocol=dmt.VinaProtocol(
+            protocol=bmt.VinaProtocol(
                 exhaustiveness=1, n_poses=2, seed=14, cpu=1, capture_backend_inputs=True
             ),
         )
@@ -357,9 +357,9 @@ def test_legacy_preparation_does_not_acquire_a_native_export_map():
     # Preserve this historical guard's selector. The prepared producer now uses
     # native writing too, but its explicit presentation still differs from the
     # independently exported default axis bound by this particular map.
-    prepared = dmt.prepare_ligand(reduced, selection='all')
+    prepared = bmt.prepare_ligand(reduced, selection='all')
     assert prepared.n_atoms == 3
-    assert dmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
+    assert bmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
     legacy = prepared.to_pdbqt()
     assert hashlib.sha256(legacy.encode()).hexdigest() != mapping['payload_sha256']
     with pytest.raises(FormatError, match='serial IDs'):

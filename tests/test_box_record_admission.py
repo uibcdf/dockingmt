@@ -6,8 +6,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dockingmt import BoxRegion
-from dockingmt._private.smonitor import ArgumentError
+from bindingmt import BoxRegion
+from bindingmt._private.smonitor import ArgumentError
 
 
 def _record():
@@ -44,7 +44,7 @@ def test_box_reader_rejects_invalid_vectors_before_coercion(field, value):
     before = repr(record)
     with pytest.raises(ArgumentError) as caught:
         BoxRegion.from_dict(record)
-    assert caught.value.code == 'DMT-E002'
+    assert caught.value.code == 'BMT-E002'
     assert caught.value.extra['arg_name'] == field
     assert record[field]['value'] is value
     assert repr(record) == before
@@ -96,7 +96,7 @@ def test_box_reader_preserves_local_unit_diagnostic_and_cause(field, unit):
     before = deepcopy(record)
     with pytest.raises(ArgumentError) as caught:
         BoxRegion.from_dict(record)
-    assert caught.value.code == 'DMT-E002'
+    assert caught.value.code == 'BMT-E002'
     assert caught.value.extra['arg_name'] == field
     assert caught.value.__cause__ is not None
     assert record == before

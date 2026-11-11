@@ -1,6 +1,6 @@
 # E4 saved-carrier receiving — registered 2026-11-07
 
-Owner: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
+Owner: [BindingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
 Current result: **bounded normal/pm-fs receiving and independent saved-record
 reading pass**. The initial client failure remains failed; whole E4, addon and
 canvas/public acceptance remain unproven. Original registration follows.
@@ -58,7 +58,7 @@ refusal controls and provider persistence. Full roundtrips use `InteractionsDict
 and H5MSM; diagnostic JSON is not a molecular restoration codec. Close every
 owned view on success and failure. Any public addon-registry clearing used for
 this isolated receiving process is explicit configuration, not a claim that the
-DockingMT addon or an ordinary user's existing registry was received unchanged.
+BindingMT addon or an ordinary user's existing registry was received unchanged.
 
 Original retained observations are 3 named H-bonds and 2 typed hydrophobic
 proximities; translated control is 0/0. These are previously computed baseline
@@ -71,7 +71,7 @@ route; addon API and actual canvas acceptance remain separate.
 Use routine Python 3.14 from `molsyssuite@uibcdf_3.14`, isolated `-I -S -B`.
 Reuse the existing 3,867-file private consumer/provider payload:
 
-- DockingMT source `a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe`, wheel SHA-256
+- BindingMT source `a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe`, wheel SHA-256
   `93d76f898575fb64b39520f33ceded25708270c8042c2a53c9a451acd834bcdd`.
 - Identified borrowed MolSysMT `9e1f1b1ad8bf09446374ab6f04ca7208e2717936` and
   auxiliary provider artifacts retain their actual versions/origins.

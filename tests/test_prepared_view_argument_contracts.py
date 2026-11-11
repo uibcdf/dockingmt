@@ -8,8 +8,8 @@ import pytest
 import pyunitwizard as puw
 from argdigest import UnknownArgumentError
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError, ViewerPosePositionError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError, ViewerPosePositionError
 
 pytestmark = pytest.mark.filterwarnings('error::RuntimeWarning')
 
@@ -29,7 +29,7 @@ def prepared_options(role):
     return values
 
 
-@pytest.mark.parametrize('model', [dmt.PreparedLigand, dmt.PreparedReceptor])
+@pytest.mark.parametrize('model', [bmt.PreparedLigand, bmt.PreparedReceptor])
 def test_prepared_unknown_keywords_use_argdigest(model):
     with pytest.raises(UnknownArgumentError):
         model(metdata={})
@@ -41,7 +41,7 @@ def test_prepared_state_identifier_is_required(role, state_id):
     options = prepared_options(role)
     options['state_id'] = state_id
     with pytest.raises(ArgumentError) as caught:
-        getattr(dmt, f'Prepared{role.title()}')(**options)
+        getattr(bmt, f'Prepared{role.title()}')(**options)
     assert caught.value.extra['arg_name'] == 'state_id'
 
 
@@ -50,7 +50,7 @@ def test_prepared_state_identifier_is_required(role, state_id):
 def test_prepared_metadata_refuses_accidental_coercion(role, metadata):
     options = prepared_options(role)
     with pytest.raises(ArgumentError) as caught:
-        getattr(dmt, f'Prepared{role.title()}')(**options, metadata=metadata)
+        getattr(bmt, f'Prepared{role.title()}')(**options, metadata=metadata)
     assert caught.value.extra['arg_name'] == 'metadata'
 
 
@@ -61,7 +61,7 @@ def test_prepared_columns_require_ordered_collections(role, argument, value):
     options = prepared_options(role)
     options[argument] = value
     with pytest.raises(ArgumentError) as caught:
-        getattr(dmt, f'Prepared{role.title()}')(**options)
+        getattr(bmt, f'Prepared{role.title()}')(**options)
     assert caught.value.extra['arg_name'] == argument
 
 
@@ -70,7 +70,7 @@ def test_required_receptor_groups_do_not_inherit_ligand_defaults(argument):
     options = prepared_options('receptor')
     options[argument] = None
     with pytest.raises(ArgumentError) as caught:
-        dmt.PreparedReceptor(**options)
+        bmt.PreparedReceptor(**options)
     assert caught.value.extra['arg_name'] == argument
 
 
@@ -81,7 +81,7 @@ def test_ligand_owned_fields_fail_before_constructor_access(argument, value):
     options = prepared_options('ligand')
     options[argument] = value
     with pytest.raises(ArgumentError) as caught:
-        dmt.PreparedLigand(**options)
+        bmt.PreparedLigand(**options)
     assert caught.value.extra['arg_name'] == argument
 
 
@@ -96,7 +96,7 @@ def test_inherited_prepared_declarations_preserve_opaque_provider_values(
 
     for operation in ('get', 'get_form', 'select', 'convert', 'set', 'copy'):
         monkeypatch.setattr(msm, operation, forbidden)
-    base = getattr(dmt, f'Prepared{role.title()}')
+    base = getattr(bmt, f'Prepared{role.title()}')
 
     class Extension(base):
         __module__ = 'consumer_extension.prepared'
@@ -135,13 +135,13 @@ def test_inherited_prepared_declarations_preserve_opaque_provider_values(
 @pytest.mark.parametrize('torsion_dof', [None, True, -1, 1.5])
 def test_ligand_torsion_count_refuses_invalid_scalars(torsion_dof):
     with pytest.raises(ArgumentError) as caught:
-        dmt.PreparedLigand(**prepared_options('ligand'), torsion_dof=torsion_dof)
+        bmt.PreparedLigand(**prepared_options('ligand'), torsion_dof=torsion_dof)
     assert caught.value.extra['arg_name'] == 'torsion_dof'
 
 
 def test_ligand_keeps_its_independent_tree_count_invariant():
     with pytest.raises(ArgumentError, match='matching ROOT/BRANCH tree'):
-        dmt.PreparedLigand(**prepared_options('ligand'), torsion_dof=1)
+        bmt.PreparedLigand(**prepared_options('ligand'), torsion_dof=1)
 
 
 @pytest.fixture
@@ -149,9 +149,9 @@ def view_calls(monkeypatch):
     import molsysmt as msm
     import molsysviewer as msv
 
-    from molsysviewer_dockingmt.adapters import complex, shapes
+    from molsysviewer_bindingmt.adapters import complex, shapes
 
-    addon = importlib.import_module('molsysviewer_dockingmt.addon')
+    addon = importlib.import_module('molsysviewer_bindingmt.addon')
     calls = []
     widget = object()
 
@@ -202,13 +202,13 @@ def test_invalid_owned_view_arguments_fail_before_scene_changes(
 ):
     calls, _ = view_calls
     with pytest.raises(ArgumentError) as caught:
-        dmt.view(**{argument: value})
+        bmt.view(**{argument: value})
     assert caught.value.extra['arg_name'] == argument
-    assert caught.value.extra['caller'] == 'dockingmt.view.view'
+    assert caught.value.extra['caller'] == 'bindingmt.view.view'
     assert calls == []
 
 
-@pytest.mark.parametrize('entry', [dmt.view, dmt.show])
+@pytest.mark.parametrize('entry', [bmt.view, bmt.show])
 def test_view_forwards_provider_options_without_digestion_or_bypass(entry, view_calls):
     calls, widget = view_calls
     opaque = object()
@@ -227,7 +227,7 @@ def test_existing_view_is_reused_with_optional_owned_defaults(view_calls):
     calls, _ = view_calls
     existing = object()
     assert (
-        dmt.view(view=existing, result=None, problem=None, search_domain=None)
+        bmt.view(view=existing, result=None, problem=None, search_domain=None)
         is existing
     )
     assert calls == [('enable', existing)]
@@ -235,11 +235,11 @@ def test_existing_view_is_reused_with_optional_owned_defaults(view_calls):
 
 def test_view_resolves_item_and_preserves_molecular_provider_values(view_calls):
     calls, widget = view_calls
-    poses = [dmt.DockingPose(puw.quantity([[0, 0, 0]], 'nm'), rank=9)]
-    result = dmt.DockingResult(poses)
+    poses = [bmt.DockingPose(puw.quantity([[0, 0, 0]], 'nm'), rank=9)]
+    result = bmt.DockingResult(poses)
     receptor, partner, reference = object(), object(), object()
     assert (
-        dmt.view(result, receptor=receptor, partner=partner, reference=reference)
+        bmt.view(result, receptor=receptor, partner=partner, reference=reference)
         is widget
     )
     kwargs = next(value for action, value in calls if action == 'result')
@@ -249,16 +249,16 @@ def test_view_resolves_item_and_preserves_molecular_provider_values(view_calls):
     assert kwargs['reference'] is reference
     calls.clear()
     with pytest.raises(ViewerPosePositionError):
-        dmt.view(result, pose_rank=2)
+        bmt.view(result, pose_rank=2)
     assert calls == []
 
 
 def test_view_position_is_collection_index_and_accepts_numpy_integer(view_calls):
     calls, _ = view_calls
-    result = dmt.DockingResult(
-        [dmt.DockingPose(puw.quantity([[0, 0, 0]], 'nm'), rank=rank) for rank in (9, 2)]
+    result = bmt.DockingResult(
+        [bmt.DockingPose(puw.quantity([[0, 0, 0]], 'nm'), rank=rank) for rank in (9, 2)]
     )
-    dmt.view(result, pose_rank=np.int64(2))
+    bmt.view(result, pose_rank=np.int64(2))
     position = next(value for action, value in calls if action == 'position')
     assert type(position) is int
     assert position == 2
@@ -267,7 +267,7 @@ def test_view_position_is_collection_index_and_accepts_numpy_integer(view_calls)
 def test_view_preserves_existing_duck_typed_item_route(view_calls):
     calls, _ = view_calls
     result = SimpleNamespace(poses=[], problem=None)
-    dmt.view(result)
+    bmt.view(result)
     assert (
         next(value for action, value in calls if action == 'result')['result'] is result
     )
@@ -276,7 +276,7 @@ def test_view_preserves_existing_duck_typed_item_route(view_calls):
 def test_view_rejects_conflicting_result_before_scene_changes(view_calls):
     calls, _ = view_calls
     with pytest.raises(ArgumentError):
-        dmt.view(dmt.DockingResult([]), result=dmt.DockingResult([]))
+        bmt.view(bmt.DockingResult([]), result=bmt.DockingResult([]))
     assert calls == []
 
 
@@ -291,6 +291,6 @@ def test_view_preserves_provider_factory_failure(view_calls, monkeypatch):
 
     monkeypatch.setattr(msv, 'new_view', refuse)
     with pytest.raises(ValueError) as caught:
-        dmt.view(height=object())
+        bmt.view(height=object())
     assert caught.value is failure
     assert calls == []

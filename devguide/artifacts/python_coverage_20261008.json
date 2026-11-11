@@ -1,7 +1,7 @@
 {
   "schema": "molsyssuite.coverage-producer-receiving@1",
   "issue": "uibcdf/molsyssuite#69",
-  "owner_issue": "uibcdf/dockingmt#22",
+  "owner_issue": "uibcdf/bindingmt#22",
   "date": "2026-10-08",
   "source_commit": "9db7074828083da03094eae091e84bb4ae6caa61",
   "local_checks": {
@@ -123,7 +123,7 @@
     },
     "artifact": {
       "id": 11561285389,
-      "name": "dockingmt-python-coverage-37799841269-1",
+      "name": "bindingmt-python-coverage-37799841269-1",
       "digest": "sha256:ad2e21e4fa4a6730cc4aaa2842e57ed2885c8da780ece40b03a7180ba0d33b73",
       "size_in_bytes": 11376,
       "workflow_run": {
@@ -150,12 +150,12 @@
     "source_files": 57
   },
   "service": {
-    "repository": "uibcdf/dockingmt",
+    "repository": "uibcdf/bindingmt",
     "observed_at": "2026-10-08T15:29:13.575540+00:00",
     "state": "complete-report-observed",
     "default_branch": "main",
-    "project_url": "https://app.codecov.io/gh/uibcdf/dockingmt",
-    "badge_url": "https://codecov.io/gh/uibcdf/dockingmt/branch/main/graph/badge.svg",
+    "project_url": "https://app.codecov.io/gh/uibcdf/bindingmt",
+    "badge_url": "https://codecov.io/gh/uibcdf/bindingmt/branch/main/graph/badge.svg",
     "badge_percentages": [
       "88%"
     ],
@@ -191,6 +191,6 @@
     "errors": {}
   },
   "accepted": true,
-  "scope": "Ordinary unfiltered Linux/Python 3.14 suite; Python packages dockingmt and molsysviewer_dockingmt with branches. Sibling package science/native/browser runtimes and separate campaigns excluded.",
+  "scope": "Ordinary unfiltered Linux/Python 3.14 suite; Python packages bindingmt and molsysviewer_bindingmt with branches. Sibling package science/native/browser runtimes and separate campaigns excluded.",
   "cadence": "Existing ordinary main CI; internal skip/doc commits may lag the last accepted report; full-matrix workflow does not publish this measurement."
 }

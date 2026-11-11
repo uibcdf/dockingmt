@@ -1,13 +1,13 @@
 # Terminal maps and history: finite development receiving
 
-Owners: [DockingMT #33](https://github.com/uibcdf/dockingmt/issues/33) and
-[#49](https://github.com/uibcdf/dockingmt/issues/49).
+Owners: [BindingMT #33](https://github.com/uibcdf/bindingmt/issues/33) and
+[#49](https://github.com/uibcdf/bindingmt/issues/49).
 Status: **received in development: 8/8 cases under each unit policy**.
-Prescription: [#33 registration](https://github.com/uibcdf/dockingmt/issues/33#issuecomment-6806162112).
+Prescription: [#33 registration](https://github.com/uibcdf/bindingmt/issues/33#issuecomment-6806162112).
 
 ## Received behavior
 
-DockingMT `7873ec4` passes the complete original eight-case selection under each
+BindingMT `7873ec4` passes the complete original eight-case selection under each
 caller policy, with zero failed/error/skipped cases. These are software controls,
 not sixteen independent scientific cases. Both journals contain exactly ten
 completion attempts (eight returns, two expected strict refusals), one small
@@ -19,7 +19,7 @@ peptide factory and one public covalent inference.
 | Original source, declared-only connectivity | 1514 atoms unchanged; both chains explicitly unassessed, no generated atoms. |
 | Original source, explicitly inferred connectivity | 1514 to 1516 atoms; generated output indices `[757, 1515]`; strict refusal before explicit intersection drops `b_factor` and `occupancy`. |
 | Geometry and source ownership | Mapped observed coordinates are exactly equal (maximum delta 0 nm); source snapshots remain unchanged. Generated coordinates retain provider `native_estimated_geometry` attribution. |
-| Consumer report boundary | DockingMT detached JSON transport retains arrays/fields without aliasing; provider map composition agrees. |
+| Consumer report boundary | BindingMT detached JSON transport retains arrays/fields without aliasing; provider map composition agrees. |
 | History/storage | Original operation axes remain intact after a subsequent no-op and public H5MSM 1.0 write/read; the live source history remains unchanged. |
 | Caller authority | Both explicit unit policies survive imports and every selected operation. Default provider return remains a native system. |
 
@@ -93,12 +93,12 @@ Fresh import and optional `return_report` capability admission pass without
 molecular operations. Distribution labels remain stale editable-install labels.
 
 The explicitly selected, unshipped
-[`terminal_completion_receiving.py`](../../dmt_test_support/terminal_completion_receiving.py)
+[`terminal_completion_receiving.py`](../../bmt_test_support/terminal_completion_receiving.py)
 contains six synthetic software cases and two original-input diagnostics per
 unit policy. Run synthetic controls first, and proceed to original input only on
 success. Check actual int64 correspondence/inverse/generated indices, source
 immutability, geometry (absolute tolerance 1e-15 nm, zero relative tolerance),
-strict refusal versus explicit attribute loss, DockingMT report detachment,
+strict refusal versus explicit attribute loss, BindingMT report detachment,
 provider map composition, default return and H5MSM 1.0 history persistence.
 Normal nm/ps/e and alternate pm/fs/coulomb caller policies are separate cells.
 
@@ -119,7 +119,7 @@ and one original-source covalent inference. Serial CPU 0, nice 10, native worker
 reserve and stop only owned work if threatened. No local native build, molecular
 download, docking, scoring or hosted CI is required for this receiving.
 
-Initial DockingMT `a1abb79` receives all six normal synthetic cases. A failed
+Initial BindingMT `a1abb79` receives all six normal synthetic cases. A failed
 pre-test staging attempt exposed the namespace already available from a source
 parent; bind only the consumer package instead. The subsequent original-stage
 attempt remains failed: two snapshot errors before original completion because

@@ -1,7 +1,7 @@
 # Current Core MVP acceptance map
 
-Owner: [#28](https://github.com/uibcdf/dockingmt/issues/28); workflow follow-up:
-[#4](https://github.com/uibcdf/dockingmt/issues/4). Scientific/installed qualification
+Owner: [#28](https://github.com/uibcdf/bindingmt/issues/28); workflow follow-up:
+[#4](https://github.com/uibcdf/bindingmt/issues/4). Scientific/installed qualification
 baseline: `8f1711621170c64f6256545e2d38b327cfdc9beb`, 2026-11-03.
 Later source changes add #61 offline any-returned summary counts and #63 finite
 real pose-coordinate admission/export. Their source checks are separate from the
@@ -96,7 +96,7 @@ private wheel is also distinct from a publicly admitted distribution.
 | T | [Declared installed support](validation/installed_support_receiving.md): isolated shared helper staging and 1,450 passing full installed tests on Linux/Python 3.14.8, with original private consumer/providers preserved. The first benchmark attribution failure and correction remain explicit. Installed-caller source adoption does not qualify staged/public files, the eight installed cells or C4/C6. |
 | U | [Complete installed 1IEP reconstruction](validation/e5_timed_replay_2026-11-07.md), [#83 resolved](archive/qualify_independent_installed_reproduction.md): newly identified stored reference/control pair independently replays normal/pm-fs with zero numerical drift, adverse/version controls and a six-criterion/missing-information audit. One externally prepared existing case; no new independent panel or public solve. |
 
-The V receiving uses original DockingMT wheel producer
+The V receiving uses original BindingMT wheel producer
 `50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9` / version `0.0.0+225.g50d8e33`,
 and separate qualification harness `1c343924b4a144058685796783d72c174b032651`.
 Its [manifest](validation/data/addon_player/manifest_2026-11-03.json) binds exact
@@ -104,7 +104,7 @@ consumer/provider archives, environment, 1,449 passing installed tests with zero
 skips, and kernel receipts. The 62 nongenerated runtime files equal reviewed
 source. Reusing that proof for this documentation review does not change its
 producer, interpreter/platform or scientific scope. Final-head hosted observations
-and recovery remain on [#60](https://github.com/uibcdf/dockingmt/issues/60);
+and recovery remain on [#60](https://github.com/uibcdf/bindingmt/issues/60);
 queued/in-progress lanes are not passing evidence.
 
 The later [#62 exact-input differential control](validation/vina_adapter_fidelity_2026-11-04.md)
@@ -123,7 +123,7 @@ the evidence keys above identify executed results and their limits.
 | Criterion | Current implementation / evidence | Remaining boundary and owner |
 | --- | --- | --- |
 | C0.1 Implementable concepts | Supported: problem, protocol, pose/result and box models; H/P/V. | Present profile only; no speculative ontology required (#28). |
-| C0.2 Isolated Vina | Supported: [backend](../dockingmt/engines/base.py), [Vina adapter](../dockingmt/engines/vina.py). | No second engine is needed to demonstrate this gate. |
+| C0.2 Isolated Vina | Supported: [backend](../bindingmt/engines/base.py), [Vina adapter](../bindingmt/engines/vina.py). | No second engine is needed to demonstrate this gate. |
 | C0.3 Files are not the model | Supported: independent problem/domain/result records; H/P/R. | PDBQT is a partial representation, not native chemistry (#33/#49). |
 | C0.4 Molecular identity | Supported for complete one-state sources: provider export/map/reader chain; C/P/V. | Partial/reference reading remains MolSysMT #521 under #49/#33. |
 | C0.5 Run provenance | Supported by original result and linked source/admission bundle; H/P/R. | Arbitrary prepared-source/replay coverage stays #4. |
@@ -139,10 +139,10 @@ the evidence keys above identify executed results and their limits.
 | C1.4 Preparation failures | Supported: missing Q/types, unknown H, conflicts and provider errors reject; P/C. | #5's unsafe placeholder mechanisms are resolved; scientific follow-up stays #33. |
 | C2.1 Multiple normalized poses | Supported: S has 167 poses; H/R/V retain the five-pose case; E adds two current-composition searches and nine full poses. | E has its own finite denominator; V remains a saved-case receiving. |
 | C2.2 Scores/ranks | Supported: named descriptors, ranking history and distinct position/rank; S/H/V. | No implicit rescoring, arbitrary score substitution or fabricated rank. |
-| C2.3 Reference RMSD | Supported: [evaluation API](../dockingmt/evaluation.py), original positional criterion and separate optional symmetry; S/H/G. | G verifies the public nine-atom route with preserved full poses; population/frame/correspondence remain explicit and no general recovery guarantee follows. |
+| C2.3 Reference RMSD | Supported: [evaluation API](../bindingmt/evaluation.py), original positional criterion and separate optional symmetry; S/H/G. | G verifies the public nine-atom route with preserved full poses; population/frame/correspondence remain explicit and no general recovery guarantee follows. |
 | C2.4 Molecular/receptor state | Supported: declared states and original frame retained; P/H/C/V. | State selection is not automatic chemical validation (#33). |
 | C2.5 Reconstructable run | Supported bounded record/byte/configuration recovery H/P/R and actual captured-input native replay U. | General prepared-source restoration, external chemistry and other backend/environment profiles remain #4/#33; U is no universal molecular codec or deterministic replay guarantee. |
-| C3.1 Backend-independent box | Supported: [BoxRegion](../dockingmt/core/search_domain.py), explicit/derived domains and physical units; D/S. | Rich domains and guidance remain future scope. |
+| C3.1 Backend-independent box | Supported: [BoxRegion](../bindingmt/core/search_domain.py), explicit/derived domains and physical units; D/S. | Rich domains and guidance remain future scope. |
 | C3.2 Common result model | Supported: local docking/redocking share DockingResult; S/H/R. | Original scientific arms retain separate labels and denominators. |
 | C3.3 Inspectable conversion | Supported: physical geometry, numerical backend projection and resolved calls; D/S/H. | Conversion records do not certify a richer domain's approximation. |
 | C4.1 Deterministic derivation | Supported: source/selection/frame/padding recipe and detached geometry binding; D. | Earlier missing-provenance finding is resolved by #55. |
@@ -156,7 +156,7 @@ the evidence keys above identify executed results and their limits.
 | C5.6 Score producer | Supported: named method/version/unit/context and input hashes; [score contract](validation/score_semantics.md), S/H/V. | Scores are not affinity measurements; unknown descriptors remain unknown. |
 | C6.1 Receptor/domain/pose | Python scene coordinates/identity and real widget state supported; V. | Browser rendering/controls are deferred; whole criterion is partial (#60/#52). |
 | C6.2 Optional reference | Explicit reference and original-frame coordinate/identity checks supported; V. | Actual visual comparison remains deferred (#60/#52). |
-| C6.3 No ad hoc conversion | Supported Python route: [dmt.view](../dockingmt/view.py), explicit inputs and provider-owned molecular composition; V. | End-to-end frontend observation remains required for C6 acceptance. |
+| C6.3 No ad hoc conversion | Supported Python route: [dmt.view](../bindingmt/view.py), explicit inputs and provider-owned molecular composition; V. | End-to-end frontend observation remains required for C6 acceptance. |
 
 ## Decisions for the active queue
 
@@ -177,7 +177,7 @@ the evidence keys above identify executed results and their limits.
 3. MolSysMT #521 remains an undelivered extension. Retain its bounded existing
    profile/refusal boundary; do not replace it locally. MolSysMT #256 is explicitly
    post-1.0 H5MSM 0.6 MolecularMechanics persistence, not a prerequisite for the
-   declared linked-bundle workflow or a reason to invent a DockingMT archive.
+   declared linked-bundle workflow or a reason to invent a BindingMT archive.
 4. #52/#60 remain partial for visible C4/C6. Resume that observation on the
    maintainer's decision. The [public readiness review](validation/public_candidate_readiness.md)
    verifies current registry/archive facts and candidate controls; required
@@ -187,7 +187,7 @@ the evidence keys above identify executed results and their limits.
 
 ## Existing Extended-MVP pieces
 
-The maintainer's [DMT-045 decision](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100)
+The maintainer's [BMT-045 decision](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100)
 requires both Core and Extended before 1.0.0. This map still assesses Core's
 35 criteria; the following existing pieces are not an acceptance map for E1–E5.
 Their complete workflows, including missing clustering/interaction and broader

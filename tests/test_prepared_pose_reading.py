@@ -10,20 +10,20 @@ import pytest
 import pyunitwizard as puw
 from molsysmt._private.smonitor import FormatError, StructuralInconsistencyError
 
-import dockingmt as dmt
-from dmt_test_support.flexible_reconstruction_fixtures import _manual
-from dmt_test_support.mapped_pose_fixtures import _case
-from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
-from dmt_test_support.qualify_chemical_templates import snapshot
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.engines.vina import _read_staged_poses
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.engines.vina import _read_staged_poses
+from bmt_test_support.flexible_reconstruction_fixtures import _manual
+from bmt_test_support.mapped_pose_fixtures import _case
+from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+from bmt_test_support.qualify_chemical_templates import snapshot
 
 
 def _problem(partner):
-    return dmt.DockingProblem(
+    return bmt.DockingProblem(
         receptor=MINIMAL_REC_PDBQT,
         partner=partner,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             center=puw.quantity([0, 0, 0], 'angstrom'),
             size=puw.quantity([16, 16, 16], 'angstrom'),
         ),
@@ -32,14 +32,14 @@ def _problem(partner):
 
 def _prepared(flexible=False):
     _, native, _, _, _, _ = _case('CCCCCC' if flexible else 'CO')
-    return dmt.prepare_ligand(
+    return bmt.prepare_ligand(
         native, selection='all', active_torsion_bonds=[(1, 2)] if flexible else None
     )
 
 
 def _stage(prepared, files):
-    return dmt.VinaBackend()._stage_inputs(
-        MINIMAL_REC_PDBQT, prepared, dmt.VinaProtocol(), files
+    return bmt.VinaBackend()._stage_inputs(
+        MINIMAL_REC_PDBQT, prepared, bmt.VinaProtocol(), files
     )
 
 
@@ -52,7 +52,7 @@ def _forbid(*args, **kwargs):
 def test_production_reader_uses_actual_export_once_and_preserves_written_axis(
     flexible, length_unit, monkeypatch
 ):
-    import dockingmt.engines.vina as adapter
+    import bindingmt.engines.vina as adapter
 
     prepared = _prepared(flexible)
     before = snapshot(prepared.source_molsys)
@@ -80,9 +80,9 @@ def test_production_reader_uses_actual_export_once_and_preserves_written_axis(
     monkeypatch.setattr(prepared, 'to_molecular_system', _forbid)
     with puw.context(standard_units=[length_unit, 'fs', 'coulomb', 'kJ/mol']):
         policy = puw.configure.report()
-        result = dmt.dock(
+        result = bmt.dock(
             _problem(prepared),
-            dmt.VinaProtocol(exhaustiveness=1, n_poses=2, seed=321, cpu=1),
+            bmt.VinaProtocol(exhaustiveness=1, n_poses=2, seed=321, cpu=1),
         )
         assert puw.configure.report() == policy
     assert len(exports) == len(reads) == 1
@@ -121,7 +121,7 @@ def test_production_reader_uses_actual_export_once_and_preserves_written_axis(
             source_ids[i] for i in order
         ]
     assert snapshot(prepared.source_molsys) == before
-    restored = dmt.DockingResult.from_dict(result.to_dict())
+    restored = bmt.DockingResult.from_dict(result.to_dict())
     assert restored.provenance['backend_output']['pose_reading'] == reading
 
 
@@ -138,9 +138,9 @@ def test_uncovered_profiles_remain_explicit_without_trying_known_source_reader(
         if kind == 'partial_source':
             partner.source_molsys = partner.to_molecular_system()
     monkeypatch.setattr(msm.form.string_pdbqt_text, 'read_poses', _forbid)
-    result = dmt.dock(
+    result = bmt.dock(
         _problem(partner),
-        dmt.VinaProtocol(exhaustiveness=1, n_poses=1, seed=321, cpu=1),
+        bmt.VinaProtocol(exhaustiveness=1, n_poses=1, seed=321, cpu=1),
     )
     assert result.provenance['backend_output']['pose_reading'] == {
         'method': 'legacy_pdbqt_order',
@@ -168,7 +168,7 @@ def test_native_numeric_coherence_accepts_permuted_array_and_refuses_disagreemen
         )
         raw = np.round(raw[:, prepared.pdbqt_atom_indices], 3)
         reordered = raw[:, ::-1].copy()
-        monkeypatch.setattr('dockingmt.engines.vina._pdbqt_atom_records', _forbid)
+        monkeypatch.setattr('bindingmt.engines.vina._pdbqt_atom_records', _forbid)
         actual, _ = _read_staged_poses(staged, staged['partner_string'], reordered)
         np.testing.assert_allclose(actual, raw, rtol=0, atol=1e-10)
         reordered[0, 0, 0] += 0.1
@@ -196,7 +196,7 @@ def test_native_reader_validates_later_pose_without_local_recovery(damage, monke
         text = 'MODEL 1\n' + payload + 'ENDMDL\nMODEL 2\n' + changed
         if damage != 'model':
             text += 'ENDMDL\n'
-        monkeypatch.setattr('dockingmt.engines.vina._pdbqt_atom_records', _forbid)
+        monkeypatch.setattr('bindingmt.engines.vina._pdbqt_atom_records', _forbid)
         with pytest.raises(FormatError):
             _read_staged_poses(staged, text, np.zeros((2, prepared.n_atoms, 3)))
     finally:
@@ -228,7 +228,7 @@ def test_changed_source_cannot_switch_a_staged_known_source_profile_to_legacy(
             0
         ].connectivity_completeness = 'partial'
         assert staged['pose_reading_mode'] == 'molsysmt_known_source'
-        monkeypatch.setattr('dockingmt.engines.vina._pdbqt_atom_records', _forbid)
+        monkeypatch.setattr('bindingmt.engines.vina._pdbqt_atom_records', _forbid)
         with pytest.raises(StructuralInconsistencyError, match='complete'):
             _read_staged_poses(staged, staged['partner_string'], np.zeros((1, 3, 3)))
     finally:
@@ -239,7 +239,7 @@ def test_changed_source_cannot_switch_a_staged_known_source_profile_to_legacy(
 def test_production_reader_failure_propagates_and_cleans_staging(monkeypatch):
     prepared = _prepared()
     captured = []
-    original = dmt.VinaBackend._stage_inputs
+    original = bmt.VinaBackend._stage_inputs
 
     def staged(self, *args):
         result = original(self, *args)
@@ -249,13 +249,13 @@ def test_production_reader_failure_propagates_and_cleans_staging(monkeypatch):
     def refuse(*args, **kwargs):
         raise RuntimeError('public pose reader refusal')
 
-    monkeypatch.setattr(dmt.VinaBackend, '_stage_inputs', staged)
+    monkeypatch.setattr(bmt.VinaBackend, '_stage_inputs', staged)
     monkeypatch.setattr(msm.form.string_pdbqt_text, 'read_poses', refuse)
-    monkeypatch.setattr('dockingmt.engines.vina._pdbqt_atom_records', _forbid)
+    monkeypatch.setattr('bindingmt.engines.vina._pdbqt_atom_records', _forbid)
     with pytest.raises(RuntimeError, match='public pose reader refusal'):
-        dmt.dock(
+        bmt.dock(
             _problem(prepared),
-            dmt.VinaProtocol(exhaustiveness=1, n_poses=1, cpu=1, seed=321),
+            bmt.VinaProtocol(exhaustiveness=1, n_poses=1, cpu=1, seed=321),
         )
     assert captured and all(not Path(path).exists() for path in captured[0])
 
@@ -278,10 +278,10 @@ def test_manual_values_bind_reader_to_the_actual_export_copy(monkeypatch):
         return read(item, source, mapping, **options)
 
     monkeypatch.setattr(msm.form.string_pdbqt_text, 'read_poses', observed)
-    monkeypatch.setattr('dockingmt.engines.vina._pdbqt_atom_records', _forbid)
-    result = dmt.dock(
+    monkeypatch.setattr('bindingmt.engines.vina._pdbqt_atom_records', _forbid)
+    result = bmt.dock(
         _problem(prepared),
-        dmt.VinaProtocol(exhaustiveness=1, n_poses=1, seed=321, cpu=1),
+        bmt.VinaProtocol(exhaustiveness=1, n_poses=1, seed=321, cpu=1),
     )
     assert len(seen) == 1 and result.poses
     assert snapshot(prepared.source_molsys) == before

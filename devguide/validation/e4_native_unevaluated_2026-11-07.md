@@ -1,6 +1,6 @@
 # Native unevaluated interaction-family receiving — 2026-11-07
 
-Owner: [DockingMT #80](https://github.com/uibcdf/dockingmt/issues/80).
+Owner: [BindingMT #80](https://github.com/uibcdf/bindingmt/issues/80).
 Registered before execution after the maintainer resumed the complete objective.
 Outcome at registration: **not executed**. Current bounded outcomes are recorded
 at the end of this prescription. This is a separate information-state

@@ -157,7 +157,7 @@ jobs:
     env:
       EXPECTED_PYTHON: ${{ matrix.python }}
       EXPECTED_WHEEL_SHA256: ${{ needs.build.outputs.wheel_sha256 }}
-      DOCKINGMT_SUITE_ROOT: ${{ github.workspace }}/.molsyssuite/current-0.1.0-hosted/dependency-sdk
+      BINDINGMT_SUITE_ROOT: ${{ github.workspace }}/.molsyssuite/current-0.1.0-hosted/dependency-sdk
       TMPDIR: ${{ github.workspace }}/.molsyssuite/current-0.1.0-hosted/tmp
       PIP_CACHE_DIR: ${{ github.workspace }}/.molsyssuite/current-0.1.0-hosted/pip-cache
     steps:
@@ -260,7 +260,7 @@ jobs:
           python -m pip install --no-deps --no-build-isolation --no-clean \
             "$task_root/smonitor" "$task_root/depdigest" "$task_root/argdigest" \
             "$task_root/pyunitwizard" "$task_root/molsysviewer" "$task_root/molsysmt"
-          python -m pip install --no-index --no-deps --no-compile "$task_root/wheels/dockingmt-0.1.0-py3-none-any.whl"
+          python -m pip install --no-index --no-deps --no-compile "$task_root/wheels/bindingmt-0.1.0-py3-none-any.whl"
           python -m pip install --target "$task_root/candidate/.molsyssuite-tools" PyYAML==6.0.3 Jinja2 packaging
           python -I -B devtools/qualify_current_0_1_0.py providers
       - name: Verify declared source context and complete installed bounds
@@ -290,7 +290,7 @@ jobs:
         shell: bash -l {0}
         env:
           PYTEST_ADDOPTS: >-
-            ${{ matrix.python == '3.14' && '--cov=dockingmt --cov=molsysviewer_dockingmt --cov-branch --cov-report=xml' || '' }}
+            ${{ matrix.python == '3.14' && '--cov=bindingmt --cov=molsysviewer_bindingmt --cov-branch --cov-report=xml' || '' }}
         run: |
           set -euo pipefail
           taskset -cp "$(python -c 'import os; print(min(os.sched_getaffinity(0)))')" $$

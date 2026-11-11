@@ -1,6 +1,6 @@
 ---
 summary: Describe seed and effort variability in frozen search results
-issue: uibcdf/dockingmt#67
+issue: uibcdf/bindingmt#67
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-05
@@ -20,7 +20,7 @@ Extend the existing scientific overview with a retrospective descriptive analysi
 of seed/effort variability and returned-pose ordering. The overview already
 reports first/any-returned recovery and RMSD ranges; this work adds resolution
 by recorded seed/effort and cumulative recovery over collection positions.
-This is the next proposed DockingMT-only task. Other components' issues remain
+This is the next proposed BindingMT-only task. Other components' issues remain
 deferred at the maintainer's request.
 
 ## Declared inputs and analysis units
@@ -34,7 +34,7 @@ Use the three exact archives already bound by
 - `5x72_root_order/audit_2026-10-09.json.gz`, retaining 24 searches in its own
   declared ROOT-order challenge.
 
-The [issue prescription](https://github.com/uibcdf/dockingmt/issues/67) records
+The [issue prescription](https://github.com/uibcdf/bindingmt/issues/67) records
 their exact SHA-256 values before the new summary calculation. Preserve original
 producer/input identities and the source/receiver distinction; archive bytes and
 historical reports remain unchanged.
@@ -74,7 +74,7 @@ an observed docking nonrecovery.
 Read saved records only. Molecular operations, RMSD measurement, search/scoring,
 preparation, atom matching and reranking are outside this work. No public API,
 provider capability, package release or visible C4/C6 acceptance is introduced.
-The existing DMT-044 evidence policy governs publication; #33 retains broader
+The existing BMT-044 evidence policy governs publication; #33 retains broader
 scientific-profile acceptance.
 
 ## Acceptance

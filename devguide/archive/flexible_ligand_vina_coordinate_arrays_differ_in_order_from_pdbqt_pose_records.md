@@ -1,6 +1,6 @@
 ---
 summary: Flexible-ligand Vina coordinate arrays differ in order from PDBQT pose records
-issue: uibcdf/dockingmt#12
+issue: uibcdf/bindingmt#12
 status: resolved
 opened: 2026-09-26
 closed: 2026-09-26
@@ -28,7 +28,7 @@ two coordinate multisets match exactly at 0.001 Å precision, but corresponding
 rows differ by up to 9.108 Å. The adapter currently compares rows and rejects
 the result.
 
-Use the verified PDBQT record order for DockingMT poses, and verify that each
+Use the verified PDBQT record order for BindingMT poses, and verify that each
 Vina coordinate array represents the same coordinate multiset as the records.
 Retain the existing atom-key and atom-count checks.
 
@@ -45,9 +45,9 @@ their relationship to Vina's coordinate array would discard an existing guard.
 
 ## Scope and exclusions
 
-Output pose interpretation in DockingMT's Vina adapter. DockingMT's own rigid
+Output pose interpretation in BindingMT's Vina adapter. BindingMT's own rigid
 ligand writer remains tracked by #6; generic PDBQT interpretation belongs to
-MolSysMT issues #223 and #226. This is distinct from archived DockingMT #8.
+MolSysMT issues #223 and #226. This is distinct from archived BindingMT #8.
 
 ## Acceptance criteria
 
@@ -55,13 +55,13 @@ MolSysMT issues #223 and #226. This is distinct from archived DockingMT #8.
   verified source PDBQT order.
 - Changed atom keys, missing/extra atoms or changed coordinates still fail.
 - The official externally prepared 1IEP pair reaches a result and its measured
-  outcome is documented without claiming that DockingMT prepared its chemistry.
+  outcome is documented without claiming that BindingMT prepared its chemistry.
 
 ## Resolution
 
 The adapter now checks ordered PDBQT atom keys against the input ligand and
 compares the PDBQT and Vina numeric coordinates as multisets at Vina's 0.001 Å
-output precision. DockingMT poses use the PDBQT record order, which carries
+output precision. BindingMT poses use the PDBQT record order, which carries
 the verified atom keys. The guard named above proves that a permuted numeric
 array produces the correct ordered pose and that a changed coordinate fails;
 `test_vina_atom_order_verifier_rejects_permuted_pose` continues to reject

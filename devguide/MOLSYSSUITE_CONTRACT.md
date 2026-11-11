@@ -2,7 +2,7 @@
 
 ## Purpose
 
-DockingMT is not an isolated docking package that happens to interoperate with MolSysSuite.
+BindingMT is not an isolated docking package that happens to interoperate with MolSysSuite.
 It should be born as a native MolSysSuite scientific component and inherit the suite's
 shared contracts from its first implementation.
 
@@ -42,14 +42,14 @@ framework in which those implementations participate.
        |      |      |      |                 |        |        |
    MolSysMT TopoMT Pharma  ElastNetMT     PyUnitWizard ArgDigest DepDigest
        |                                      |
- MolSysViewer / DockingMT / MolSys-AI       SMonitor
+ MolSysViewer / BindingMT / MolSys-AI       SMonitor
 ```
 
 This is conceptual rather than a Python import graph.
 
 ## 2. MolSysMT — molecular-system foundation
 
-DockingMT should use MolSysMT whenever a responsibility is general to molecular systems
+BindingMT should use MolSysMT whenever a responsibility is general to molecular systems
 rather than specific to docking.
 
 Expected MolSysMT-owned or MolSysMT-mediated concerns include:
@@ -64,16 +64,16 @@ Expected MolSysMT-owned or MolSysMT-mediated concerns include:
 - physical-quantity conventions through the suite infrastructure;
 - trajectories and conformational collections.
 
-DockingMT must not silently duplicate a missing general molecular capability merely
+BindingMT must not silently duplicate a missing general molecular capability merely
 because docking needs it.
 
-If DockingMT discovers that MolSysMT lacks a capability that scientifically belongs there,
+If BindingMT discovers that MolSysMT lacks a capability that scientifically belongs there,
 follow the MolSysSuite cross-component feedback contract: report the requirement to
-MolSysMT, cross-link any temporary DockingMT workaround, and state its removal condition.
+MolSysMT, cross-link any temporary BindingMT workaround, and state its removal condition.
 
-## 3. DockingMT — docking semantics
+## 3. BindingMT — docking semantics
 
-DockingMT owns concepts whose scientific meaning is specifically docking-related:
+BindingMT owns concepts whose scientific meaning is specifically docking-related:
 
 - `DockingProblem`;
 - `DockingProtocol`;
@@ -90,16 +90,16 @@ DockingMT owns concepts whose scientific meaning is specifically docking-related
 - docking-specific validation and analysis;
 - docking-specific provenance.
 
-DockingMT may compose MolSysMT operations while adding docking-specific meaning.
+BindingMT may compose MolSysMT operations while adding docking-specific meaning.
 
 For example:
 
 ```text
-DockingMT prepare_receptor_for_docking(...)
+BindingMT prepare_receptor_for_docking(...)
             |
             +-- MolSysMT: diagnose / repair / hydrogen handling / selections
             |
-            +-- DockingMT: choose docking-specific state and policy
+            +-- BindingMT: choose docking-specific state and policy
             |
             +-- backend adapter: produce backend-specific representation
 ```
@@ -124,7 +124,7 @@ Prefer MolSysMT capabilities when the operation is generally meaningful outside 
 
 ### Docking-specific preparation
 
-DockingMT owns the scientific intent that turns a molecular system/state into one suitable
+BindingMT owns the scientific intent that turns a molecular system/state into one suitable
 for a particular docking protocol.
 
 Examples include:
@@ -155,9 +155,9 @@ PDBQT generation is not the definition of scientific receptor/ligand preparation
 
 ## 5. PyUnitWizard contract
 
-DockingMT must not invent an independent unit framework.
+BindingMT must not invent an independent unit framework.
 
-> **Physical quantities in DockingMT's public scientific API follow the MolSysSuite
+> **Physical quantities in BindingMT's public scientific API follow the MolSysSuite
 > PyUnitWizard contract.**
 
 This applies at minimum to:
@@ -192,7 +192,7 @@ reported with energy-like conventions.
 
 ## 6. ArgDigest contract
 
-Public DockingMT API boundaries should follow the MolSysSuite ArgDigest model rather than
+Public BindingMT API boundaries should follow the MolSysSuite ArgDigest model rather than
 grow bespoke validation logic independently in every function.
 
 ArgDigest should provide, as appropriate:
@@ -204,12 +204,12 @@ ArgDigest should provide, as appropriate:
 - validation;
 - trusted internal delegation.
 
-Docking-specific digesters and domains remain owned by DockingMT unless they become
+Docking-specific digesters and domains remain owned by BindingMT unless they become
 genuinely suite-wide concepts.
 
 ## 7. DepDigest contract
 
-Optional docking engines and chemistry providers are an expected property of DockingMT.
+Optional docking engines and chemistry providers are an expected property of BindingMT.
 
 Use DepDigest for:
 
@@ -219,7 +219,7 @@ Use DepDigest for:
 - clear missing-dependency diagnostics;
 - architecture audits against accidental top-level imports.
 
-Do not scatter ad hoc `try/except ImportError` dependency management across DockingMT.
+Do not scatter ad hoc `try/except ImportError` dependency management across BindingMT.
 
 Potential optional providers/backends include:
 
@@ -255,30 +255,30 @@ users, tests and MolSys-AI/agents.
 
 ## 9. MolSysViewer ownership contract
 
-MolSysViewer owns visualization infrastructure, not DockingMT science.
+MolSysViewer owns visualization infrastructure, not BindingMT science.
 
 Following the MolSysViewer addon model, the docking addon should be shipped from the
-DockingMT repository/package rather than implemented in MolSysViewer core.
+BindingMT repository/package rather than implemented in MolSysViewer core.
 
 Conceptually:
 
 ```text
-DockingMT repository
+BindingMT repository
     |
-    +-- dockingmt/
+    +-- bindingmt/
     |
-    +-- molsysviewer_dockingmt/
+    +-- molsysviewer_bindingmt/
 ```
 
 The exact package layout is not frozen.
 
-DockingMT owns the scientific information. The addon translates that information into
+BindingMT owns the scientific information. The addon translates that information into
 viewer workspaces, overlays and interactions.
 
 ## 10. TopoMT, PharmacophoreMT and ElastNetMT
 
 These components are scientific peers, not implementation libraries hidden beneath
-DockingMT.
+BindingMT.
 
 They should integrate through scientific contracts:
 
@@ -288,14 +288,14 @@ PharmacophoreMT  -> Constraint / SearchGuidance / Score / Filter
 ElastNetMT       -> ReceptorFlexibility / SearchGuidance / receptor-state strategies
 ```
 
-Do not copy their algorithms or internal data models into DockingMT.
+Do not copy their algorithms or internal data models into BindingMT.
 
 If a cross-component contract needs to become stable across two or more repositories,
 the shared decision belongs in the MolSysSuite governance layer.
 
 ## 11. MolSys-AI / agent-first design
 
-DockingMT's scientific objects should be introspectable and diagnosable enough to be
+BindingMT's scientific objects should be introspectable and diagnosable enough to be
 safely consumed by agents.
 
 This does not mean designing the scientific API around natural-language commands.
@@ -309,19 +309,19 @@ It means providing:
 - deterministic identifiers;
 - machine-readable capability information.
 
-MolSys-AI should orchestrate DockingMT through the same scientific API used by humans.
+MolSys-AI should orchestrate BindingMT through the same scientific API used by humans.
 
 ## 12. Cross-component stewardship
 
 The MolSysSuite governance contract is normative:
 
-> **Do not silently fork sibling functionality into DockingMT.**
+> **Do not silently fork sibling functionality into BindingMT.**
 
 If a missing capability belongs to another component:
 
 1. identify the provider component;
 2. report the requirement there with concrete scientific/integration evidence;
-3. cross-link the DockingMT issue/workaround;
+3. cross-link the BindingMT issue/workaround;
 4. make any workaround explicit and temporary;
 5. state the condition for removing it.
 
@@ -347,9 +347,9 @@ or original scientific capability
 The invariant is ownership of the scientific abstraction, not ownership of every
 algorithm.
 
-## 14. Governance onboarding for DockingMT
+## 14. Governance onboarding for BindingMT
 
-When the DockingMT repository is created as a MolSysSuite component, its bootstrap should
+When the BindingMT repository is created as a MolSysSuite component, its bootstrap should
 include alignment with current suite governance, including:
 
 - registration in the authoritative suite registry when accepted;
@@ -360,5 +360,5 @@ include alignment with current suite governance, including:
 - required canonical infrastructure guides adopted by the component;
 - component-local scientific validation and development guides.
 
-DockingMT should not copy old policy from an incubating sibling if the central suite has a
+BindingMT should not copy old policy from an incubating sibling if the central suite has a
 newer accepted rule.

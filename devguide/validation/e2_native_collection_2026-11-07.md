@@ -9,7 +9,7 @@ The prospective registration below is preserved as a historical prescription;
 its presence does not mean the study is still unexecuted. Reusing its notebook
 executes new work and needs a new resource/population declaration.
 
-Owner: [DockingMT #81](https://github.com/uibcdf/dockingmt/issues/81).
+Owner: [BindingMT #81](https://github.com/uibcdf/bindingmt/issues/81).
 Registration status: **prospective**. Qualification base: `78b0664`.
 Custody: `.molsyssuite/e2-native-collection-20261107`, reviewed under #50 on
 **2026-11-14**. Preserve [the complete functional objective](../PRE_STABILIZATION_PLAN.md).
@@ -41,7 +41,7 @@ result-local pose IDs retain separate meanings.
 
 The control requests `constraints=[{'kind': 'e2_unsupported_intent_control'}]`.
 It is not a third compound, inactive, invalid chemical state or pharmacophore.
-It must produce `CapabilityMismatchError` / `DMT-E003` without native
+It must produce `CapabilityMismatchError` / `BMT-E003` without native
 initialization, maps or search. Preserve its error and the later outcome.
 
 ## Immutable source and prepared-input gate
@@ -240,7 +240,7 @@ outcomes; successful-empty results cannot clear the functional requirement.
 Both authorities and fresh named preparations match their admitted chemistry,
 geometry, mechanics and exact byte gates before Vina import. One public serial
 iterator returns success/refusal/success: P59 returns three poses, the explicit
-constraint control reports `DMT-E003` without any additional native or writer
+constraint control reports `BMT-E003` without any additional native or writer
 call, and P69 then returns two poses. No retries or extra searches occur.
 
 Two constructors, receptor/ligand bindings, maps, docking calls and existing

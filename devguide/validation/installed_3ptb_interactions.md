@@ -1,6 +1,6 @@
 # Installed 3PTB interaction workflow
 
-Owner: [DockingMT #80](https://github.com/uibcdf/dockingmt/issues/80).
+Owner: [BindingMT #80](https://github.com/uibcdf/bindingmt/issues/80).
 The [six-cell notebook](installed_3ptb_interactions.ipynb) composes existing public
 MolSysMT tools for one retained docking pose. **Bounded hosted receiving passes**
 for source `5952053`, normal/pm-fs profiles and independent saved readers. This
@@ -18,11 +18,11 @@ Use the five explicit inputs of the
 [preparation companion](installed_3ptb_preparation.md), plus:
 
 ```bash
-export DOCKINGMT_INTERACTIONS_PREPARATION_NOTEBOOK="installed_3ptb_preparation.ipynb"
-export DOCKINGMT_INTERACTIONS_PREPARATION_NOTEBOOK_SHA256="c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9"
-export DOCKINGMT_INTERACTIONS_RESULT="native_result_2026-10-20.json.gz"
-export DOCKINGMT_INTERACTIONS_RESULT_SHA256="4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249"
-export DOCKINGMT_INTERACTIONS_OUTPUT="new-interaction-output"
+export BINDINGMT_INTERACTIONS_PREPARATION_NOTEBOOK="installed_3ptb_preparation.ipynb"
+export BINDINGMT_INTERACTIONS_PREPARATION_NOTEBOOK_SHA256="c6c5a6660b8b5d46df01cde6960129a7bc65db81d551b3ad0a4d763fc0907da9"
+export BINDINGMT_INTERACTIONS_RESULT="native_result_2026-10-20.json.gz"
+export BINDINGMT_INTERACTIONS_RESULT_SHA256="4b1f51cdeb135fd6785a181f6bb09a0d0f631ec3d9de7c169c88703748924249"
+export BINDINGMT_INTERACTIONS_OUTPUT="new-interaction-output"
 ```
 
 The original [five-pose result](data/human_3ptb/native_result_2026-10-20.json.gz)
@@ -31,7 +31,7 @@ hashes come from the trusted original records, not a fresh self-approval hash.
 Use an ordinary installed scientific environment with IPython/Jupyter and
 `nbformat` plus its dependencies available. No repository/data harness or SDK
 import is required. The qualified installation here is private; these commands
-are not a public DockingMT installation/release claim.
+are not a public BindingMT installation/release claim.
 
 Run All replays the trusted preparation notebook once, then selects the first
 stored pose. It uses the known prepared native ligand source and checks the
@@ -106,7 +106,7 @@ contract correction, without a provider or molecular algorithm change.
 
 Source `988d8a1cd9cc069d2d44d3bd229cd1ff10fc780f`, notebook SHA-256
 `549d3216cc4f5ec810da95c0c292dafbe9b49f8eb9ca56f1647624b068ccee0a`, is
-registered before [run 42203647830](https://github.com/uibcdf/dockingmt/actions/runs/42203647830).
+registered before [run 42203647830](https://github.com/uibcdf/bindingmt/actions/runs/42203647830).
 The [durable receipt](data/interaction_hosted_receiving_2026-11-06.json)
 retains its same-run archive, exact source/inputs, Python 3.14.10 composition,
 original preparation outputs, final observer and nonpassing disposition.
@@ -142,7 +142,7 @@ failed producer is preserved without an automatic rerun.
 
 ## Completed bounded hosted receiving
 
-[Run 42206087852](https://github.com/uibcdf/dockingmt/actions/runs/42206087852)
+[Run 42206087852](https://github.com/uibcdf/bindingmt/actions/runs/42206087852)
 passes at `5952053328aac6f737e22906e984c0f9eb938dd7`, with the same qualified
 provider pins and Python 3.14.10. The [success record](data/interaction_hosted_success_2026-11-06.json)
 retains exact input/source/wheel identities, all four completed operations,

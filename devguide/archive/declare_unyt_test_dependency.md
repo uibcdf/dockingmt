@@ -1,6 +1,6 @@
 ---
 summary: Declare the alternate unit backend required by box-export tests
-issue: uibcdf/dockingmt#66
+issue: uibcdf/bindingmt#66
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-05
@@ -63,7 +63,7 @@ four-minor qualification remains pending and is not inferred from these checks.
 
 ## Hosted closure — 2026-11-05
 
-[CI 42079300841](https://github.com/uibcdf/dockingmt/actions/runs/42079300841)
+[CI 42079300841](https://github.com/uibcdf/bindingmt/actions/runs/42079300841)
 at exact source `d1435ff8662787afa29798fc0824ac30d9d0c6b6` completes successfully
 in all seven jobs. Published GH Run Receptor 1.4.0 and native run/job facts
 confirm successful dependency closure and test steps on Python 3.11, 3.12, 3.13

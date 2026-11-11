@@ -1,6 +1,6 @@
 ---
 summary: Inspect saved scoring collections through an explicit ordinary-installed example mode.
-issue: uibcdf/dockingmt#77
+issue: uibcdf/bindingmt#77
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-06

@@ -19,7 +19,7 @@ concurrency:
 
 env:
   CANDIDATE_SHA: 1030a29025914e01dff09e5fc606ec73b90f4cd9
-  DOCKINGMT_RECOVERY: current-010-python313-original-wheel
+  BINDINGMT_RECOVERY: current-010-python313-original-wheel
   OPENBLAS_NUM_THREADS: "1"
   OMP_NUM_THREADS: "1"
   OMP_THREAD_LIMIT: "1"
@@ -48,7 +48,7 @@ jobs:
     env:
       EXPECTED_PYTHON: ${{ matrix.python }}
       EXPECTED_WHEEL_SHA256: 3b70094ee1d9103ceed19ee64214c0025662781acf8eb28eaeb4733f5c5a53ca
-      DOCKINGMT_SUITE_ROOT: ${{ github.workspace }}/.molsyssuite/current-0.1.0-hosted/dependency-sdk
+      BINDINGMT_SUITE_ROOT: ${{ github.workspace }}/.molsyssuite/current-0.1.0-hosted/dependency-sdk
       TMPDIR: ${{ github.workspace }}/.molsyssuite/current-0.1.0-hosted/tmp
       PIP_CACHE_DIR: ${{ github.workspace }}/.molsyssuite/current-0.1.0-hosted/pip-cache
     steps:
@@ -160,7 +160,7 @@ jobs:
           python -m pip install --no-deps --no-build-isolation --no-clean \
             "$task_root/smonitor" "$task_root/depdigest" "$task_root/argdigest" \
             "$task_root/pyunitwizard" "$task_root/molsysviewer" "$task_root/molsysmt"
-          python -m pip install --no-index --no-deps --no-compile "$task_root/wheels/dockingmt-0.1.0-py3-none-any.whl"
+          python -m pip install --no-index --no-deps --no-compile "$task_root/wheels/bindingmt-0.1.0-py3-none-any.whl"
           python -m pip install --target "$task_root/candidate/.molsyssuite-tools" PyYAML==6.0.3 Jinja2 packaging
           python -I -B devtools/qualify_current_0_1_0.py providers
       - name: Verify declared source context and complete installed bounds
@@ -190,7 +190,7 @@ jobs:
         shell: bash -l {0}
         env:
           PYTEST_ADDOPTS: >-
-            ${{ matrix.python == '3.14' && '--cov=dockingmt --cov=molsysviewer_dockingmt --cov-branch --cov-report=xml' || '' }}
+            ${{ matrix.python == '3.14' && '--cov=bindingmt --cov=molsysviewer_bindingmt --cov-branch --cov-report=xml' || '' }}
         run: |
           set -euo pipefail
           taskset -cp "$(python -c 'import os; print(min(os.sched_getaffinity(0)))')" $$

@@ -1,4 +1,23 @@
-# DockingMT Development Guide
+# BindingMT Development Guide
+
+### BindingMT transition active — 2026-11-11
+
+The maintainer resumes work for [#108](pending_proposals/rename_bindingmt.md):
+BindingMT adopts one canonical repository/distribution/import identity,
+`bindingmt`, through the maintainer-directed clean rename without compatibility
+layers.
+Its accepted domain now includes docking, fixed-identity complex prediction,
+refinement, binding free-energy calculation and prediction, and interface
+characterization. [Vision](VISION.md), [scope](SCIENTIFIC_SCOPE.md),
+[model](SCIENTIFIC_MODEL.md) and [architecture](ARCHITECTURE.md) separate current
+Vina software/scientific profiles from future operations. #109/#110 remain
+separate provider proposals; no new engine or scientific campaign starts here.
+
+Next qualify the renamed payload and compatibility, preserve immutable 0.1.0/
+scientific inputs, receive the already-renamed GitHub repository and deliver MolI/MolSysSuite
+coordination issues. Central registry/policy/guide and consumer adoption are
+separate owner handoffs. The earlier pause below belongs to its dated checkpoint;
+original #33/#49 preparation decisions remain pending outside this increment.
 
 ### Terminal maps/history received in development — 2026-11-11
 
@@ -9,7 +28,7 @@ next prescribed step only after the discussion and maintainer resumption.
 original panel work after the immutable 0.1.0 source milestone. MolSysMT #558 is
 source-resolved; the clean editable provider is fast-forwarded to `aee7aa65` with
 unchanged native bytes/build inputs. The full eight-case selection
-passes both unit policies on DockingMT `7873ec4` / MolSysMT `aee7aa65`: exact
+passes both unit policies on BindingMT `7873ec4` / MolSysMT `aee7aa65`: exact
 mapped geometry, typed maps, explicit losses, intact source/history and native
 history persistence. All 625 support inputs retire; original failures and the
 pre-test wall interruption remain in the 129-member record. Next decide original
@@ -20,7 +39,7 @@ scientific and actual-canvas criteria retain their separate scope.
 
 ### Source milestone 0.1.0 delivered — 2026-11-11
 
-Published [lightweight tag **0.1.0**](https://github.com/uibcdf/dockingmt/tree/0.1.0)
+Published [lightweight tag **0.1.0**](https://github.com/uibcdf/bindingmt/tree/0.1.0)
 targets **1030a29025914e01dff09e5fc606ec73b90f4cd9**, tree
 `5f0c98567ae06263c1a43b9a24c63f7c81675539`; GitHub verifies a direct commit ref.
 [Source-event notice](https://github.com/uibcdf/molsyssuite/issues/189) records
@@ -35,7 +54,7 @@ support inputs. Three original cells/build/quality/policy stay attempt-1 evidenc
 Python 3.13 succeeds in run 43074858531/head 286f811 with the original candidate/
 file and unchanged scientific logic. Both failed pre-test attempts remain failed.
 
-The tag-specific [conformance check 43088048207](https://github.com/uibcdf/dockingmt/actions/runs/43088048207)
+The tag-specific [conformance check 43088048207](https://github.com/uibcdf/bindingmt/actions/runs/43088048207)
 passes on the exact tag target (job 130757511025); the [final receipt](validation/data/current_0_1_0_tag_policy_20261111.json)
 retains its separate conformance/lint/format scope. #74 is complete and its
 report is archived. The tag target stays immutable.
@@ -66,7 +85,7 @@ provider merge is claimed. #74/#50 custody review remains 2026-11-14; whole
 Core/Extended/public/platform/interactive gates retain their owners. Earlier
 dated next actions below remain historical.
 
-Start here when joining the project or continuing on another machine. DockingMT
+Start here when joining the project or continuing on another machine. BindingMT
 is the docking component of MolSysSuite: it owns docking problems, protocols,
 engine integration, result meaning and docking-specific exploration. AutoDock
 Vina is the first backend; its command-line vocabulary is not our scientific model.
@@ -258,7 +277,7 @@ The accepted product scope is **Core C0–C6 plus Extended E1–E5**, bounded sc
 qualification, independent reproducibility and public installation. Prospective
 **0.5.0** remains the functional planning milestone; stabilization uses as many
 ordinary **0.x.0** releases as verified progress requires, followed by the
-**1.0.0** stable-contract decision. [DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+**1.0.0** stable-contract decision. [BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
 records the open-ended version sequence. These are gates, not published versions. The separate
 fixed private 0.1.0 candidate has [its own dossier](releases/0.1.0.md).
 
@@ -280,10 +299,10 @@ retain their scope.
 
 Molecular inspection, characterization, state/identity, manipulation, geometry,
 matching and molecular interchange belong to **MolSysMT**. Reuse its public tools;
-request uncovered reusable needs in its repository. DockingMT must not fill those
+request uncovered reusable needs in its repository. BindingMT must not fill those
 gaps with a local parser, matcher, chemistry rule or geometric algorithm.
 
-MolSysViewer owns generic rendering/communication; DockingMT owns its addon and
+MolSysViewer owns generic rendering/communication; BindingMT owns its addon and
 docking interpretation. TopoMT, PharmacophoreMT and ElastNetMT retain their
 specialized domains. ArgDigest, DepDigest, SMonitor and PyUnitWizard own their
 shared boundary contracts. See the [suite contract](MOLSYSSUITE_CONTRACT.md) and
@@ -323,7 +342,7 @@ shared boundary contracts. See the [suite contract](MOLSYSSUITE_CONTRACT.md) and
 | Rationale/history | [Decisions](DECISIONS.md), [roadmap history](ROADMAP.md), [archive](archive/README.md), [original seed](FROZEN_SEED.md). |
 
 The former chronological entry page is preserved at
-[the pre-handoff source](https://github.com/uibcdf/dockingmt/blob/8e65091a0002023527ed7d3d6754a50695d2e1bd/devguide/README.md).
+[the pre-handoff source](https://github.com/uibcdf/bindingmt/blob/8e65091a0002023527ed7d3d6754a50695d2e1bd/devguide/README.md).
 Its linked technical records retain their stated producers. Current navigation
 does not become a new producer for old observations.
 

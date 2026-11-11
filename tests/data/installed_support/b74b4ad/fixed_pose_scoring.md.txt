@@ -1,6 +1,6 @@
 # Public fixed-pose scoring
 
-`dockingmt.score(problem, protocol=None, backend=None, pose=None,
+`bindingmt.score(problem, protocol=None, backend=None, pose=None,
 score_name='score')` evaluates one already prepared ligand conformation against
 a rigid receptor and returns a `DockingPose`. Vina/Vinardo call native
 `Vina.score()`: no search, randomization or local optimization occurs.
@@ -97,7 +97,7 @@ does not imply support for auditing a result assembled from several stages.
 ## Reproduction and limits
 
 Run `python -m pytest tests/test_scoring.py --receptor=llm` in
-`molsyssuite@uibcdf_3.14`, with DockingMT installed editable. Select the explicit
+`molsyssuite@uibcdf_3.14`, with BindingMT installed editable. Select the explicit
 Python 3.14 Conda kernel for notebook execution. Notebook/test source qualification
 uses the existing unchanged CI pins: MolSysMT
 `c19a47ada0c2279029abfa296cf915560610ad9a` and MolSysViewer

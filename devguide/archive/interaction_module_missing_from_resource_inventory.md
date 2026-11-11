@@ -1,6 +1,6 @@
 ---
 summary: The installed resource inventory omits the already-shipped interaction module.
-issue: uibcdf/dockingmt#93
+issue: uibcdf/bindingmt#93
 status: resolved
 opened: 2026-11-08
 closed: 2026-11-08
@@ -19,7 +19,7 @@ supersedes: []
 
 The real private wheel from producer `6310a97b7a900f31d37f84a476bc355a899282de`
 contains 66 runtime files, while its resource descriptor lists 65. The sole extra
-is the tracked public `dockingmt/interactions.py`; no module is missing from the
+is the tracked public `bindingmt/interactions.py`; no module is missing from the
 wheel. The private installed-record gate fails before installation. Wheel version
 `0.0.0+339.g6310a97`, SHA-256
 `13169bd91cc90a16bd3b8f60329856ee2cb1921a0dd69ebb598230f543e6fa92`.

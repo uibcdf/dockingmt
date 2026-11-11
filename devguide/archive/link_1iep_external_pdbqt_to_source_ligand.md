@@ -1,6 +1,6 @@
 ---
 summary: Link the 1IEP external PDBQT check to its source ligand
-issue: uibcdf/dockingmt#14
+issue: uibcdf/bindingmt#14
 status: resolved
 opened: 2026-09-26
 closed: 2026-09-26

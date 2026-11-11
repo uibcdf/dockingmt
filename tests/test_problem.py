@@ -6,12 +6,12 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.problem_fixtures import (
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.core.problem import DockingProblem
+from bindingmt.core.search_domain import BoxRegion
+from bmt_test_support.problem_fixtures import (
     _multi_structure_redocking_source as _multi_structure_redocking_source,
 )
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.core.problem import DockingProblem
-from dockingmt.core.search_domain import BoxRegion
 
 
 def test_docking_problem_construction():

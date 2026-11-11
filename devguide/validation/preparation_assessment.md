@@ -1,10 +1,10 @@
 # Public preparation assessment
 
-`dockingmt.assess_preparation(prepared)` exposes the preparation classification
+`bindingmt.assess_preparation(prepared)` exposes the preparation classification
 previously private to Vina. A workflow can inspect a prepared ligand or receptor
 before choosing its execution policy, retain the bounded report, and compare it
 with the report saved by the backend. It is also exported from
-`dockingmt.preparation`. The [executed notebook](preparation_assessment.ipynb)
+`bindingmt.preparation`. The [executed notebook](preparation_assessment.ipynb)
 demonstrates original 181L BNZ preparation and external-input inspection.
 
 ## Contract and ownership
@@ -39,7 +39,7 @@ Explicit zero charge values alone do not imply placeholders. A declaration of
 an external parameterization method does not certify that it was applied
 correctly. Missing evidence, externally supplied PDBQT and unknown source methods
 remain unassessed. Molecular coverage, template application and chemical
-validation belong to MolSysMT; this tool interprets DockingMT's declarations
+validation belong to MolSysMT; this tool interprets BindingMT's declarations
 under the existing preparation policy. It does not replace provider readiness
 reports or assess scoring compatibility.
 
@@ -56,8 +56,8 @@ their current reader behavior and outer schema `1.0`.
 The public function does not reject a provisional preparation merely for being
 provisional; the execution policy belongs to the consumer. Neither successful
 template transfer nor successful Vina execution upgrades the assessment.
-DockingMT [#4](https://github.com/uibcdf/dockingmt/issues/4) and
-[#5](https://github.com/uibcdf/dockingmt/issues/5) remain partial while validated
+BindingMT [#4](https://github.com/uibcdf/bindingmt/issues/4) and
+[#5](https://github.com/uibcdf/bindingmt/issues/5) remain partial while validated
 preparation decisions and parameterization are outstanding.
 
 ## Reproduction and guards
@@ -67,8 +67,8 @@ notebook asserts Python 3.14 and the requested Conda interpreter. Explicitly
 register/select that interpreter when executing through Jupyter:
 
 ```bash
-python -m ipykernel install --prefix=/tmp/dockingmt-assessment-kernel --name dockingmt-molsyssuite-314 --display-name "Python 3.14 (molsyssuite@uibcdf_3.14)"
-JUPYTER_PATH=/tmp/dockingmt-assessment-kernel/share/jupyter python -m jupyter nbconvert --execute --inplace devguide/validation/preparation_assessment.ipynb
+python -m ipykernel install --prefix=/tmp/bindingmt-assessment-kernel --name bindingmt-molsyssuite-314 --display-name "Python 3.14 (molsyssuite@uibcdf_3.14)"
+JUPYTER_PATH=/tmp/bindingmt-assessment-kernel/share/jupyter python -m jupyter nbconvert --execute --inplace devguide/validation/preparation_assessment.ipynb
 python -m pytest --receptor=llm tests/test_preparation_assessment.py
 ```
 

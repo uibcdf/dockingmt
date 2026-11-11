@@ -10,9 +10,9 @@ from types import SimpleNamespace
 import pytest
 import pyunitwizard as puw
 
-from dockingmt import BoxRegion, DockingProblem, VinaBackend
+from bindingmt import BoxRegion, DockingProblem, VinaBackend
 
-engine = importlib.import_module('dockingmt.engines.vina')
+engine = importlib.import_module('bindingmt.engines.vina')
 
 
 @pytest.mark.parametrize('branch', ['bytes', 'prepared', 'text'])
@@ -118,7 +118,7 @@ def test_cleanup_warns_after_attempting_all_paths(blocked_cleanup):
         engine._cleanup_staged_files(paths)
     assert attempted == paths
     diagnostic = caught[0].message
-    assert diagnostic.code == 'DMT-W003'
+    assert diagnostic.code == 'BMT-W003'
     assert diagnostic.extra['paths'] == [paths[0]]
     assert diagnostic.extra['failures'] == [
         {'path': paths[0], 'errno': errno.EACCES, 'error_type': 'PermissionError'}
@@ -134,7 +134,7 @@ def test_cleanup_honors_warning_errors_after_all_attempts(blocked_cleanup):
         warnings.simplefilter('error')
         with pytest.raises(Warning) as caught:
             engine._cleanup_staged_files(paths)
-    assert caught.value.code == 'DMT-W003'
+    assert caught.value.code == 'BMT-W003'
     assert attempted == paths
     assert not Path(paths[1]).exists()
 
@@ -152,7 +152,7 @@ def test_cleanup_keeps_primary_exception_under_warning_errors(blocked_cleanup):
     assert caught.value is primary
     assert attempted == paths
     assert len(primary.__notes__) == 1
-    assert 'DMT-W003' in primary.__notes__[0]
+    assert 'BMT-W003' in primary.__notes__[0]
     assert paths[0] in primary.__notes__[0]
 
 
@@ -234,5 +234,5 @@ def test_backend_finally_preserves_staging_error_and_caller_files(
     assert all(path.read_bytes() == content for path in files.values())
     assert warnings.filters == filters
     if cleanup_fails:
-        assert 'DMT-W003' in primary.__notes__[0]
+        assert 'BMT-W003' in primary.__notes__[0]
         assert allocated[0] in primary.__notes__[0]

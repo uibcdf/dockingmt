@@ -1,7 +1,7 @@
 # Native prepared-writer consumption — 2026-10-28
 
-Owner: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49), with
-[#33](https://github.com/uibcdf/dockingmt/issues/33). This follows
+Owner: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49), with
+[#33](https://github.com/uibcdf/bindingmt/issues/33). This follows
 [presentation receiving](pdbqt_presentation_receiving.md) at `fe9a48b` and consumes
 the already qualified MolSysMT `e395e52646dab2ecb480d3d67aa7254be99b8524`.
 ArgDigest/Viewer pins, source acquisition and public dependency metadata stay
@@ -45,7 +45,7 @@ provider operations; there is no consumer serializer or fallback.
 
 The existing prepared-name width diagnostic and torsion-count guard remain.
 Output atom fields, group labels, chain A, occupancy 1.00/B factor 0.00,
-three-decimal charges/coordinates, ROOT choices and DockingMT REMARKs are retained
+three-decimal charges/coordinates, ROOT choices and BindingMT REMARKs are retained
 for the covered profile. Native short-name alignment/branch whitespace and native
 provenance REMARKs change whole-payload bytes. A rigid receptor also gets the
 provider's terminal END record. Historical payloads, captured hashes and producer
@@ -60,7 +60,7 @@ The parent-label test continues to assert attribution, and a new end-to-end guar
 requires the native refusal before Vina is constructed. No topology knowledge is
 erased, branch invented or output patched to make it pass. The existing
 [MolSysMT #214 profile question](https://github.com/uibcdf/molsysmt/issues/214#issuecomment-6478224407)
-owns any future reusable extension. See [DMT-041](../DECISIONS.md#dmt-041--consume-native-prepared-pdbqt-writing-and-its-explicit-profile).
+owns any future reusable extension. See [BMT-041](../DECISIONS.md#dmt-041--consume-native-prepared-pdbqt-writing-and-its-explicit-profile).
 
 Source-free partial representations do not claim complete connectivity. They
 remain writable under the provider's partial-data contract, with their known
@@ -80,7 +80,7 @@ instead of assuming it is the last line before native END.
 Four independently captured before/after preparations (generated methanol,
 flexible generated pentanol, charge-only ligand and charge-only receptor) preserve
 all meaningful atom fields, full prepared charges, source/written maps, tree
-records and original DockingMT attribution. Whole-byte hashes differ as declared.
+records and original BindingMT attribution. Whole-byte hashes differ as declared.
 The compact [evidence manifest](data/prepared_writer_2026-10-28/manifest.json)
 retains comparisons, guard reports and source/provider identity. Full source,
 ordinary-installed and exact-head hosted gates have separate receipts under #49;
@@ -135,7 +135,7 @@ deferred HTML/C6 #52 retain their own acceptance. No package/Release is publishe
 
 ## Caller-unit native comparison correction — 2026-11-09
 
-[DockingMT#103](https://github.com/uibcdf/dockingmt/issues/103) and its
+[BindingMT#103](https://github.com/uibcdf/bindingmt/issues/103) and its
 [receiving record](installed_small_fixtures_2026-11-09.md) extend the original
 readonly contract to preparation/export unit cross-products. Canonical native
 sources are read through public `Structures.get_coordinates()` (owned nm data)

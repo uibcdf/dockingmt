@@ -7,14 +7,7 @@ import molsysmt as msm
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.molecular_fixtures import named_181l_pair
-from dmt_test_support.redocking_181l import (
-    _compare,
-    _summarize,
-    record_manifest,
-    replay_manifest,
-)
-from dockingmt import (
+from bindingmt import (
     BoxRegion,
     DockingPose,
     DockingProblem,
@@ -22,8 +15,15 @@ from dockingmt import (
     VinaProtocol,
     dock,
 )
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.engines.vina import VinaBackend
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.engines.vina import VinaBackend
+from bmt_test_support.molecular_fixtures import named_181l_pair
+from bmt_test_support.redocking_181l import (
+    _compare,
+    _summarize,
+    record_manifest,
+    replay_manifest,
+)
 
 
 def test_redocking_report_identifies_near_native_rank_and_failure():

@@ -1,6 +1,6 @@
 ---
 summary: Remaining sibling-test imports prevent isolated installed collection.
-issue: uibcdf/dockingmt#102
+issue: uibcdf/bindingmt#102
 status: resolved
 opened: 2026-11-09
 closed: 2026-11-09

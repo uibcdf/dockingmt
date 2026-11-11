@@ -1,9 +1,9 @@
 # Executed 3PTB molecular admission
 
-Owning issues: [#5](https://github.com/uibcdf/dockingmt/issues/5),
-[#6](https://github.com/uibcdf/dockingmt/issues/6),
-[#4](https://github.com/uibcdf/dockingmt/issues/4) and
-[#49](https://github.com/uibcdf/dockingmt/issues/49), all partial/open.
+Owning issues: [#5](https://github.com/uibcdf/bindingmt/issues/5),
+[#6](https://github.com/uibcdf/bindingmt/issues/6),
+[#4](https://github.com/uibcdf/bindingmt/issues/4) and
+[#49](https://github.com/uibcdf/bindingmt/issues/49), all partial/open.
 Executed on 2026-10-10. **Molecular preparation and native input parsing only:
 zero new fixed evaluations and zero 3PTB searches.**
 

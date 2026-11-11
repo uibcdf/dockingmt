@@ -63,7 +63,7 @@ Information that biases, prioritizes or adapts search without necessarily defini
 Translation/orientation of a docking partner relative to the receptor frame.
 
 ## Backend approximation
-An explicit conversion from a richer DockingMT concept to a simpler representation supported by a backend, such as a topographic pocket converted to a Vina box.
+An explicit conversion from a richer BindingMT concept to a simpler representation supported by a backend, such as a topographic pocket converted to a Vina box.
 
 
 ### SearchDomain naming

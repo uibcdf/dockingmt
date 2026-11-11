@@ -1,6 +1,6 @@
 ---
 summary: Summarize compatible redocking evaluations with explicit failure denominators.
-issue: uibcdf/dockingmt#39
+issue: uibcdf/bindingmt#39
 status: resolved
 opened: 2026-10-04
 closed: 2026-10-04

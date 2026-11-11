@@ -12,11 +12,11 @@ import pytest
 import pyunitwizard as puw
 from vina import Vina
 
-from dmt_test_support.flexible_ligand_fixtures import _ligand
-from dmt_test_support.molecular_fixtures import declared_methanol
-from dmt_test_support.partial_charge_fixtures import atom_charges
-from dmt_test_support.qualify_named_types import TYPING
-from dockingmt import prepare_ligand, prepare_receptor
+from bindingmt import prepare_ligand, prepare_receptor
+from bmt_test_support.flexible_ligand_fixtures import _ligand
+from bmt_test_support.molecular_fixtures import declared_methanol
+from bmt_test_support.partial_charge_fixtures import atom_charges
+from bmt_test_support.qualify_named_types import TYPING
 
 
 def _atoms(payload):
@@ -177,6 +177,6 @@ def test_native_writer_preserves_declared_flexible_prepared_axis():
     Vina(cpu=1, verbosity=0).set_ligand_from_string(payload)
     assert msm.get(prepared.source_molsys, element='atom', atom_id=True) == before_ids
     # RDKit's native source has no groups. The serializer preserves that absence;
-    # it does not invent DockingMT's explicit LIG/1 presentation metadata.
+    # it does not invent BindingMT's explicit LIG/1 presentation metadata.
     assert all(line[17:26].strip() == '' for line in atoms)
     assert prepared.group_names == ['LIG'] * 6

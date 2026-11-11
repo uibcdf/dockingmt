@@ -3,16 +3,16 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.audit_1iep_preparation import _pdbqt_torsion_graph
-from dmt_test_support.flexible_ligand_fixtures import (
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.core.problem import DockingProblem
+from bindingmt.core.protocol import VinaProtocol
+from bindingmt.core.search_domain import BoxRegion
+from bindingmt.engines.vina import VinaBackend
+from bindingmt.preparation import prepare_ligand
+from bmt_test_support.audit_1iep_preparation import _pdbqt_torsion_graph
+from bmt_test_support.flexible_ligand_fixtures import (
     _ligand as _ligand,
 )
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.core.problem import DockingProblem
-from dockingmt.core.protocol import VinaProtocol
-from dockingmt.core.search_domain import BoxRegion
-from dockingmt.engines.vina import VinaBackend
-from dockingmt.preparation import prepare_ligand
 
 
 def test_explicit_torsion_writes_one_valid_branch_and_tracks_atom_order():

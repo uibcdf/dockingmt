@@ -1,6 +1,6 @@
 # E1 private installed workflow receiving — 2026-11-06
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
 Status at prescription: **prospective**. This receives the installed consumer
 route for the [five complete poses](e1_comparison_admission_2026-11-06.md),
 [native scoring contract](e1_native_rescoring_2026-11-06.md) and
@@ -9,14 +9,14 @@ It does not select a release or claim a public dependency closure.
 
 ## Question and actual installation boundary
 
-Can a private installed DockingMT artifact execute the received five-pose,
+Can a private installed BindingMT artifact execute the received five-pose,
 two-method fixed-scoring workflow, preserve its records and admit the same
 explicit interaction-component study through a fresh installed JSON reader?
 This is same-case integration receiving. Previously inspected numbers are
 regression expectations, not blinded predictions or independent energy accuracy.
 
 Six private Python wheels have been built from exact local source snapshots:
-DockingMT, ArgDigest, PyUnitWizard, DepDigest, SMonitor and Ackredit. Original
+BindingMT, ArgDigest, PyUnitWizard, DepDigest, SMonitor and Ackredit. Original
 checkouts, tags and environments remain untouched. Retain actual source/tree,
 build-input, wheel metadata/payload and installed-file identities.
 
@@ -58,7 +58,7 @@ retain their original producers.
 
 The five plain Python cells of the
 [scoring notebook](e1_installed_rescoring.ipynb) reuse the received protocol:
-unchanged receptor and five exact `dockingmt.pdbqt` inputs; common 24-angstrom
+unchanged receptor and five exact `bindingmt.pdbqt` inputs; common 24-angstrom
 box; CPU 1, seed 7; Vina and Vinardo; one explicit pm/fs/coulomb/kJ-per-mol
 caller policy; captured inputs and timings. Public MolSysMT converts/extracts
 only the written coordinates needed to bind each score-free pose to its input.
@@ -127,7 +127,7 @@ controls and resource/diagnostic records. Wheels and private target remain in
 task custody. Repository evidence uses exact transport/decoded hashes. Review
 custody on **2026-11-13**.
 
-A pass receives this private **DockingMT-installed** workflow with a borrowed
+A pass receives this private **BindingMT-installed** workflow with a borrowed
 MolSysMT snapshot and binary dependencies. It does not certify a fully installed
 provider set, autonomous/public closure, another platform/minor, molecular or
 energy accuracy, historical prepared-H identity, total/common-reference ordering,
@@ -145,7 +145,7 @@ the checker, not a demonstrated defect in either provider. Counts are not yet
 initialized; the frozen cell order establishes zero probes/evaluations.
 Resource interruption and termination signal are both absent.
 
-Before attempt 02, retain the shared checker for the owning DockingMT/addon
+Before attempt 02, retain the shared checker for the owning BindingMT/addon
 roots. The complete origin/payload check still covers every provider. Admit
 only the specifically inspected generated `pyunitwizard.main` module after
 binding both compatibility functions' source filenames and globals to the
@@ -174,12 +174,12 @@ registered `-I -S` processes.
 
 The [original build receipt](data/e1_installed_2026-11-06/installation/preparation.json.gz)
 retains all seven source commits/trees/inventories, six successful wheels and
-the unsuccessful MolSysMT build. In particular, DockingMT is built from clean
+the unsuccessful MolSysMT build. In particular, BindingMT is built from clean
 runtime source `2fda6238e6b1cb3742f5d30b8ed3af699f9ed748` in a separate clone,
 not from uncommitted working documentation. Its private wheel is
-`dockingmt-0.0.0+295.g2fda623-py3-none-any.whl`, SHA-256
+`bindingmt-0.0.0+295.g2fda623-py3-none-any.whl`, SHA-256
 `90616ebc80185dd8a0d16d2e608ac9df762e61887208fb1de57159ce2cf7251c`.
-All 63 declared DockingMT payload resources match the wheel and installed target.
+All 63 declared BindingMT payload resources match the wheel and installed target.
 This version/file is private evidence, not a release or public artifact.
 
 The [pre-execution composition amendment](data/e1_installed_2026-11-06/installation/preparation-amendment.json.gz)
@@ -216,7 +216,7 @@ Cumulative new empirical work is ten evaluations/eighty values; the failed
 guard attempt computed none. Original source-native and historical populations
 retain their bytes, producer identities and separate denominators. Private
 payload, borrowed original MolSysMT snapshot, engine paths, routine Conda
-metadata and DockingMT runtime source remain unchanged.
+metadata and BindingMT runtime source remain unchanged.
 
 ## Reading and reproduction
 

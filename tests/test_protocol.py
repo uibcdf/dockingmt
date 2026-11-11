@@ -4,10 +4,10 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.core.problem import DockingProblem
-from dockingmt.core.protocol import VinaProtocol
-from dockingmt.core.search_domain import BoxRegion
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.core.problem import DockingProblem
+from bindingmt.core.protocol import VinaProtocol
+from bindingmt.core.search_domain import BoxRegion
 
 
 def test_vina_protocol_defaults():
@@ -140,7 +140,7 @@ def test_protocol_reader_rejects_invalid_saved_energy_without_coercion(value):
     record = {'parameters': {'energy_range': {'value': value, 'unit': 'kcal/mol'}}}
     with pytest.raises(ArgumentError) as caught:
         VinaProtocol.from_dict(record)
-    assert caught.value.code == 'DMT-E002'
+    assert caught.value.code == 'BMT-E002'
     assert caught.value.extra['arg_name'] == 'energy_range'
     assert record['parameters']['energy_range']['value'] is value
 
@@ -177,7 +177,7 @@ def test_protocol_reader_wraps_invalid_energy_units(unit):
     before = deepcopy(record)
     with pytest.raises(ArgumentError) as caught:
         VinaProtocol.from_dict(record)
-    assert caught.value.code == 'DMT-E002'
+    assert caught.value.code == 'BMT-E002'
     assert caught.value.extra['arg_name'] == 'energy_range'
     assert caught.value.__cause__ is not None
     assert record == before

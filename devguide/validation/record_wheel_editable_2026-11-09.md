@@ -1,7 +1,7 @@
 # Current private wheel with editable siblings
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47);
-component source/public qualification: [#30](https://github.com/uibcdf/dockingmt/issues/30).
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47);
+component source/public qualification: [#30](https://github.com/uibcdf/bindingmt/issues/30).
 Registered source producer: `841a34dd30e848adfb72087a27864253cbe2602d`.
 This checkpoint receives #94's public exception namespace and #95's audit
 resource correction in a genuine installed consumer. Prior wheels/receipts retain
@@ -73,7 +73,7 @@ runtime, tests, descriptors and the 594 support inputs retain their producer byt
 | --- | --- |
 | Source producer | `841a34dd30e848adfb72087a27864253cbe2602d` |
 | Version | `0.0.0+342.g841a34d` |
-| Original filename | `dockingmt-0.0.0+342.g841a34d-py3-none-any.whl` |
+| Original filename | `bindingmt-0.0.0+342.g841a34d-py3-none-any.whl` |
 | Wheel bytes | 157,177 |
 | SHA-256 | `a50b21c25e0e254af321836f404f54553611e9d299ee3fdcfe2abe539889ac11` |
 | Complete runtime inventory | 67 paths, including generated version, `exceptions.py`, both Python namespaces and typing markers |
@@ -120,7 +120,7 @@ from the already imported reporting plugin; native JUnit, Receptor and exit
 status agree. Caller unit form/parser/standard units remain unchanged.
 
 The pilot confirms all **13 exact public exception aliases** from the installed
-module and catches a real DMT-E002 coordinate-admission failure through that
+module and catches a real BMT-E002 coordinate-admission failure through that
 namespace. The complete union then receives the actual corrected audit/input
 handlers and all original ordinary diagnostics, legacy digests, snapshots and
 record/score/interaction-binding controls from the installed production code.
@@ -128,10 +128,10 @@ No molecular call, actual viewer construction or optional-engine import occurs.
 
 Four registered shared-validator refusals pass: source-core path, source-addon
 path, appended package path and omitted addon import root. The source-addon
-trigger is refused at the first invalid core import (`dockingmt._version`),
+trigger is refused at the first invalid core import (`bindingmt._version`),
 not an isolated addon-only failure. Both positive installed import roots are
 independently verified from the actual payload, including loaded
-`dockingmt.exceptions` and `dockingmt.interactions`.
+`bindingmt.exceptions` and `bindingmt.interactions`.
 
 Each shared support sidecar verifies **seven checks**, **30 helpers/564 data
 files**, **71,403,583 staged bytes**, and complete resource/import retirement.

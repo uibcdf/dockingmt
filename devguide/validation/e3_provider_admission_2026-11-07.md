@@ -1,6 +1,6 @@
 # E3 provider and saved-population admission — 2026-11-07
 
-Owner: [DockingMT #79](https://github.com/uibcdf/dockingmt/issues/79), with
+Owner: [BindingMT #79](https://github.com/uibcdf/bindingmt/issues/79), with
 [MolSysMT #604](https://github.com/uibcdf/molsysmt/issues/604). Consumer starting
 source: `9bb313e15487a107d8d9cc95b9ae440c1d114b5a`.
 Classification: **static source and saved-record inspection; E3 is blocked on
@@ -24,8 +24,8 @@ common-frame, rigid25 and complete E3 acceptance stay open.
 
 ## Inspected state and preserved sources
 
-The bounded canonical `suite_status.py` refresh inspects DockingMT and MolSysMT.
-DockingMT is current at `9bb313e`; its original migration snapshot remains
+The bounded canonical `suite_status.py` refresh inspects BindingMT and MolSysMT.
+BindingMT is current at `9bb313e`; its original migration snapshot remains
 untracked and unstaged. MolSysMT's clean local
 `9e1f1b1ad8bf09446374ab6f04ca7208e2717936` is 52 commits behind fetched main
 `82bfa1c82f1d48035679fa4630e81a2506b67bd6`. Preserve that checkout. The command's
@@ -51,7 +51,7 @@ clustering composition. A filename search of 3,455 `molsysmt/` paths finds no
 supported composition is absent. The remaining requirement is the provider's
 supported contract: #604 is open with zero comments at inspection and has
 supplied no accepted composition. Do not implement a matrix, correspondence
-algorithm or clustering loop in DockingMT while waiting.
+algorithm or clustering loop in BindingMT while waiting.
 
 ## Actual candidate population and reference gap
 

@@ -10,8 +10,8 @@ import pandas as pd
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_5x72_contact import (
+import bindingmt as bmt
+from bmt_test_support.qualify_5x72_contact import (
     OUTPUT,
     PAIR_CLASSES,
     PROTEIN_COUNT,
@@ -39,8 +39,8 @@ def test_public_cross_system_distances_use_captured_axis_without_scoring(
     def forbidden(*args, **kwargs):
         raise AssertionError('Saved-input geometry must not invoke search or scoring.')
 
-    monkeypatch.setattr(dmt, 'score', forbidden)
-    monkeypatch.setattr(dmt, 'dock', forbidden)
+    monkeypatch.setattr(bmt, 'score', forbidden)
+    monkeypatch.setattr(bmt, 'dock', forbidden)
     units = puw.context(standard_units=UNITS) if policy != 'current' else nullcontext()
     strings = (
         pd.option_context('future.infer_string', True)
@@ -116,7 +116,7 @@ def test_saved_admission_refuses_mapping_and_receptor_drift(inputs, drift):
 
 
 def test_occupied_prefix_drift_is_rejected_before_any_distance(inputs, monkeypatch):
-    from dmt_test_support import qualify_5x72_contact as driver
+    from bmt_test_support import qualify_5x72_contact as driver
 
     altered = deepcopy(inputs)
     text = altered[2]['p59']['preparation']['receptors']['occupied']['pdbqt']
@@ -182,7 +182,7 @@ def test_saved_all_distances_original_captures_and_proximity_populations_are_com
                     atol=1e-10,
                 )
                 for artifacts in entry['root_input_identities'].values():
-                    assert dmt.verify_captured_inputs(artifacts)
+                    assert bmt.verify_captured_inputs(artifacts)
                 assert (
                     sum(
                         g['all']['pairs']

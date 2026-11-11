@@ -1,7 +1,7 @@
 # Offline recovery of the saved 3PTB human case
 
-Owning issue: [DockingMT #58](https://github.com/uibcdf/dockingmt/issues/58),
-a bounded follow-up under [#4](https://github.com/uibcdf/dockingmt/issues/4).
+Owning issue: [BindingMT #58](https://github.com/uibcdf/bindingmt/issues/58),
+a bounded follow-up under [#4](https://github.com/uibcdf/bindingmt/issues/4).
 
 ## Supported operation
 
@@ -12,7 +12,7 @@ It reads evidence files and existing result records, with no molecular parsing,
 preparation, energy evaluation, search or viewer call. It is not a new package API
 or a general archive format.
 
-From a checkout with the qualified DockingMT consumer available:
+From a checkout with the qualified BindingMT consumer available:
 
 ```bash
 python -m devtools.recover_saved_3ptb_case \

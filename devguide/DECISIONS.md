@@ -6,21 +6,21 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-001 — AutoDock Vina is the initial reference engine
+## BMT-001 — AutoDock Vina is the initial reference engine
 
 **Status:** Accepted
 
 **Decision:** Begin canonical docking implementation with AutoDock Vina.
 
-**Reason:** It provides an established reference point for protein–small-molecule docking and lets us validate DockingMT's scientific architecture without first inventing a new engine.
+**Reason:** It provides an established reference point for protein–small-molecule docking and lets us validate BindingMT's scientific architecture without first inventing a new engine.
 
-**Does not imply:** DockingMT is a Vina wrapper or that Vina defines its concepts.
+**Does not imply:** BindingMT is a Vina wrapper or that Vina defines its concepts.
 
 **Revisit when:** A different backend is required for a validated scientific workflow or Vina blocks the Core MVP.
 
 ---
 
-## DMT-002 — DockingMT will not model a search domain as a Vina box
+## BMT-002 — BindingMT will not model a search domain as a Vina box
 
 **Status:** Accepted
 
@@ -30,7 +30,7 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-003 — Sampling, scoring, refinement and ranking remain distinct
+## BMT-003 — Sampling, scoring, refinement and ranking remain distinct
 
 **Status:** Accepted
 
@@ -38,17 +38,17 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-004 — Do not rewrite Vina in Rust for the MVP
+## BMT-004 — Do not rewrite Vina in Rust for the MVP
 
 **Status:** Accepted
 
 **Reason:** A language rewrite does not advance the initial scientific objective. Native high-performance code should follow a concrete algorithmic/performance need.
 
-**Revisit when:** DockingMT develops native algorithms or profiling identifies a justified kernel.
+**Revisit when:** BindingMT develops native algorithms or profiling identifies a justified kernel.
 
 ---
 
-## DMT-005 — Preparation is part of the scientific protocol
+## BMT-005 — Preparation is part of the scientific protocol
 
 **Status:** Accepted
 
@@ -58,7 +58,7 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-006 — Molecular states must remain identifiable
+## BMT-006 — Molecular states must remain identifiable
 
 **Status:** Accepted
 
@@ -66,7 +66,7 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-007 — Search domain, constraints and search guidance are distinct concepts
+## BMT-007 — Search domain, constraints and search guidance are distinct concepts
 
 **Status:** Accepted
 
@@ -74,7 +74,7 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-008 — One protocol may use multiple backends
+## BMT-008 — One protocol may use multiple backends
 
 **Status:** Accepted
 
@@ -82,15 +82,15 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-009 — DockingResult is not a file
+## BMT-009 — DockingResult is not a file
 
 **Status:** Accepted
 
-**Decision:** Backend files are interchange/serialization details. The scientific result is structured DockingMT data.
+**Decision:** Backend files are interchange/serialization details. The scientific result is structured BindingMT data.
 
 ---
 
-## DMT-010 — Scores are plural and semantically named
+## BMT-010 — Scores are plural and semantically named
 
 **Status:** Accepted
 
@@ -98,7 +98,7 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-011 — Run and campaign are different conceptual levels
+## BMT-011 — Run and campaign are different conceptual levels
 
 **Status:** Accepted
 
@@ -106,7 +106,7 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-012 — MolSysSuite integration uses scientific contracts
+## BMT-012 — MolSysSuite integration uses scientific contracts
 
 **Status:** Accepted
 
@@ -114,7 +114,7 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-013 — Redocking is the primary Core MVP scientific gate
+## BMT-013 — Redocking is the primary Core MVP scientific gate
 
 **Status:** Accepted
 
@@ -122,7 +122,7 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-014 — Core MVP and Extended MVP are separate
+## BMT-014 — Core MVP and Extended MVP are separate
 
 **Status:** Accepted
 
@@ -130,7 +130,7 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-015 — Difficult future chemistry is an architectural stress test
+## BMT-015 — Difficult future chemistry is an architectural stress test
 
 **Status:** Accepted
 
@@ -138,7 +138,7 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-016 — Long-term direction: molecular-landscape-aware docking
+## BMT-016 — Long-term direction: molecular-landscape-aware docking
 
 **Status:** Directional, not implementation commitment
 
@@ -148,58 +148,58 @@ Each decision may be revisited when evidence justifies it.
 
 ---
 
-## DMT-017 — DockingMT is a native MolSysSuite component
+## BMT-017 — BindingMT is a native MolSysSuite component
 
 **Status:** Accepted
 
-**Decision:** DockingMT inherits suite governance, shared infrastructure and scientific
+**Decision:** BindingMT inherits suite governance, shared infrastructure and scientific
 integration philosophy from its first implementation.
 
 ---
 
-## DMT-018 — Third-party tools are providers, not the scientific model
+## BMT-018 — Third-party tools are providers, not the scientific model
 
 **Status:** Accepted
 
 **Decision:** RDKit, PDBFixer, Meeko, Vina and future external libraries may implement
-capabilities behind MolSysSuite/DockingMT contracts. Their concepts do not define the
-public DockingMT ontology.
+capabilities behind MolSysSuite/BindingMT contracts. Their concepts do not define the
+public BindingMT ontology.
 
 ---
 
-## DMT-019 — General molecular preparation should be composed with MolSysMT
+## BMT-019 — General molecular preparation should be composed with MolSysMT
 
 **Status:** Accepted
 
-**Decision:** DockingMT owns docking-specific preparation semantics. General molecular
+**Decision:** BindingMT owns docking-specific preparation semantics. General molecular
 operations should use MolSysMT where appropriate; backend-specific preparation remains
 inside provider/backend adapters.
 
 **Reason:** This preserves one coordinated, traceable MolSysSuite workflow instead of
-recreating glue code inside DockingMT.
+recreating glue code inside BindingMT.
 
 ---
 
-## DMT-020 — PyUnitWizard is the DockingMT physical-quantity layer
+## BMT-020 — PyUnitWizard is the BindingMT physical-quantity layer
 
 **Status:** Accepted
 
-**Decision:** DockingMT does not define an independent unit system. Public physical
+**Decision:** BindingMT does not define an independent unit system. Public physical
 quantities follow the current MolSysSuite PyUnitWizard contract.
 
 ---
 
-## DMT-021 — Shared infrastructure contracts are inherited
+## BMT-021 — Shared infrastructure contracts are inherited
 
 **Status:** Accepted
 
-**Decision:** DockingMT should use ArgDigest for public-boundary contracts, DepDigest for
+**Decision:** BindingMT should use ArgDigest for public-boundary contracts, DepDigest for
 optional providers/dependencies and SMonitor for structured diagnostics according to
 current MolSysSuite policy.
 
 ---
 
-## DMT-022 — Scientific defaults must be explicit
+## BMT-022 — Scientific defaults must be explicit
 
 **Status:** Accepted
 
@@ -208,7 +208,7 @@ protocol/run and must be inspectable and version-aware.
 
 ---
 
-## DMT-023 — Do not silently fork sibling capabilities
+## BMT-023 — Do not silently fork sibling capabilities
 
 **Status:** Accepted
 
@@ -217,16 +217,16 @@ that provider. Any local workaround is explicit, cross-linked and temporary.
 
 ---
 
-## DMT-024 — The MolSysViewer docking addon is owned by DockingMT
+## BMT-024 — The MolSysViewer docking addon is owned by BindingMT
 
 **Status:** Accepted
 
 **Decision:** MolSysViewer provides addon infrastructure; the docking-specific addon is
-distributed from DockingMT.
+distributed from BindingMT.
 
 ---
 
-## DMT-025 — Horizons do not authorize speculative implementation
+## BMT-025 — Horizons do not authorize speculative implementation
 
 **Status:** Accepted
 
@@ -237,7 +237,7 @@ workflow requires them.
 
 ---
 
-## DMT-026 — Backend/engine and executor are distinct concepts
+## BMT-026 — Backend/engine and executor are distinct concepts
 
 **Status:** Accepted
 
@@ -252,11 +252,11 @@ not build generic execution infrastructure prematurely.
 
 ---
 
-## DMT-027 — Scientific objects require versioned persistent representations
+## BMT-027 — Scientific objects require versioned persistent representations
 
 **Status:** Accepted
 
-**Decision:** Core DockingMT scientific objects should be serializable through stable,
+**Decision:** Core BindingMT scientific objects should be serializable through stable,
 versioned, machine-readable representations. No storage technology is frozen at this
 stage.
 
@@ -266,7 +266,7 @@ long-lived scientific results must not depend on live backend objects.
 
 ---
 
-## DMT-028 — Backend support does not imply backend redistribution
+## BMT-028 — Backend support does not imply backend redistribution
 
 **Status:** Accepted
 
@@ -277,24 +277,24 @@ automatically.
 
 ---
 
-## DMT-029 — Native MVP preparation uses MolSysMT and DockingMT
+## BMT-029 — Native MVP preparation uses MolSysMT and BindingMT
 
 **Status:** Accepted
 
 **Decision:** Develop the molecular preparation capabilities needed by the Core MVP
-through MolSysMT and DockingMT. Meeko is not an MVP runtime or installation dependency.
-DockingMT may use independently published prepared inputs as fixed validation evidence;
+through MolSysMT and BindingMT. Meeko is not an MVP runtime or installation dependency.
+BindingMT may use independently published prepared inputs as fixed validation evidence;
 their chemistry is recorded as unassessed unless a separate validation establishes it.
 
 **Reason:** General molecular operations belong in MolSysMT, while docking-specific
-projection and backend policy belong in DockingMT. If a required MolSysMT capability is
-missing, track it in MolSysMT and keep any DockingMT implementation explicitly temporary,
-with a removal condition. See [issue #5](https://github.com/uibcdf/dockingmt/issues/5)
+projection and backend policy belong in BindingMT. If a required MolSysMT capability is
+missing, track it in MolSysMT and keep any BindingMT implementation explicitly temporary,
+with a removal condition. See [issue #5](https://github.com/uibcdf/bindingmt/issues/5)
 and the [1IEP preparation audit](validation/1iep_preparation_audit.md).
 
 ---
 
-## DMT-030 — Readers validate scientific schema versions before reconstruction
+## BMT-030 — Readers validate scientific schema versions before reconstruction
 
 **Status:** Accepted, 2026-10-02
 
@@ -306,7 +306,7 @@ nested pose and domain records. Readers do not modify the supplied version field
 
 **Reason:** Version fields cannot protect future evolution if readers silently
 ignore them and relabel unfamiliar records. This corrects
-[issue #27](https://github.com/uibcdf/dockingmt/issues/27) while preserving
+[issue #27](https://github.com/uibcdf/bindingmt/issues/27) while preserving
 the current unversioned input path.
 
 **Implementation note:** The current readers share a small private admission
@@ -319,7 +319,7 @@ or a different supported-version set.
 
 ---
 
-## DMT-031 — Describe score meaning and retain scalar ranking evidence
+## BMT-031 — Describe score meaning and retain scalar ranking evidence
 
 **Status:** Accepted, 2026-10-03
 
@@ -335,7 +335,7 @@ evidence without a live engine. Unannotated legacy scores retain unknown meaning
 they may still be ranked explicitly, but cannot silently join a described collection.
 Equal descriptors do not establish scientific comparability or physical energies.
 
-**Implementation:** [Issue #31](https://github.com/uibcdf/dockingmt/issues/31) and
+**Implementation:** [Issue #31](https://github.com/uibcdf/bindingmt/issues/31) and
 the [score/ranking contract](validation/score_semantics.md). Initial backend order,
 legacy policy-only evidence and explicit rankings remain distinguishable. This
 does not introduce a scoring engine, protocol-stage executor or campaign model.
@@ -345,7 +345,7 @@ requires a new comparison policy, quantity boundary or identity contract.
 
 ---
 
-## DMT-032 — Audit saved-result evidence without a live molecular system
+## BMT-032 — Audit saved-result evidence without a live molecular system
 
 **Status:** Accepted, 2026-10-03
 
@@ -358,7 +358,7 @@ evidence and contradictions; no legacy semantics or scientific validity is infer
 analysis, without introducing engine execution, molecular preparation, campaign
 management or new provider responsibilities.
 
-**Implementation:** [Issue #32](https://github.com/uibcdf/dockingmt/issues/32),
+**Implementation:** [Issue #32](https://github.com/uibcdf/bindingmt/issues/32),
 the [audit contract](validation/result_audit.md), a retained native software control
 and an executed notebook. Unassessed preparation remains unassessed.
 
@@ -367,7 +367,7 @@ record crosscheck or stronger evidence than internal agreement.
 
 ---
 
-## DMT-033 — Score a prepared fixed conformation independently of search
+## BMT-033 — Score a prepared fixed conformation independently of search
 
 **Status:** Accepted, 2026-10-03
 
@@ -383,7 +383,7 @@ method outputs without pose optimization, score overwrites or implicit ranking.
 This workflow can advance while provider parameterization work remains with
 MolSysMT's owners.
 
-**Implementation:** [Issue #34](https://github.com/uibcdf/dockingmt/issues/34),
+**Implementation:** [Issue #34](https://github.com/uibcdf/bindingmt/issues/34),
 the [contract](validation/fixed_pose_scoring.md), real-engine guards and an
 executed notebook. Optional prior poses must match prepared geometry and known
 states. Unknown identity stays unknown. Method components are those returned
@@ -396,7 +396,7 @@ automatic pose-to-PDBQT reconstruction or scientific preparation qualification.
 
 ---
 
-## DMT-034 — Audit standalone scoring evaluations offline
+## BMT-034 — Audit standalone scoring evaluations offline
 
 **Status:** Accepted, 2026-10-03
 
@@ -407,12 +407,12 @@ scores, retained declarations and known states. New scoring records retain an
 independent evaluation name and backend box; older records remain readable
 with incomplete evidence.
 
-**Reason:** The concrete fixed-pose workflow of DMT-033 saves multiple evaluations
+**Reason:** The concrete fixed-pose workflow of BMT-033 saves multiple evaluations
 whose evidence belongs to the pose rather than a docking result's provenance.
 Core C5 needs a reusable audit before downstream analysis without rerunning a
 backend or requiring molecular/provider changes.
 
-**Implementation:** [Issue #35](https://github.com/uibcdf/dockingmt/issues/35),
+**Implementation:** [Issue #35](https://github.com/uibcdf/bindingmt/issues/35),
 the [contract](validation/pose_audit.md), retained native control, an executed
 notebook and fresh-engine/offline tests. Internal agreement establishes neither
 chemical validity nor agreement of stored coordinates with captured inputs.
@@ -424,7 +424,7 @@ generic stage framework, new ranking policy or provider implementation.
 
 ---
 
-## DMT-035 — Execute prepared problems incrementally with explicit outcomes
+## BMT-035 — Execute prepared problems incrementally with explicit outcomes
 
 **Status:** Accepted, 2026-10-03
 
@@ -439,7 +439,7 @@ Source failures, memory exhaustion and process-control exceptions propagate.
 preserved earlier outcomes and explicit failure handling while maintaining the
 distinction between a scientific result and a collection of executions.
 
-**Implementation:** [Issue #36](https://github.com/uibcdf/dockingmt/issues/36),
+**Implementation:** [Issue #36](https://github.com/uibcdf/bindingmt/issues/36),
 the [contract](validation/incremental_docking.md), native Vina/Vinardo equivalence
 and lifecycle tests, and an executed notebook. Inputs/protocol/backend are
 borrowed; result ownership remains that of an individual docking call. Index
@@ -450,7 +450,7 @@ or measured backend reuse requires a new boundary. This block completes neither
 scientific screening qualification nor cross-ligand ranking. General molecular
 operations remain with MolSysMT and visualization with MolSysViewer.
 
-## DMT-036 — Pair pose/reference frames explicitly and expose viewer failures
+## BMT-036 — Pair pose/reference frames explicitly and expose viewer failures
 
 **Status:** Accepted, 2026-10-03
 
@@ -465,7 +465,7 @@ publish result state only after successful completion.
 **Reason:** A missing reference must not be mistaken for a successful overlay,
 and existing reference trajectories must not be multiplied or silently truncated.
 
-**Implementation:** [Issue #37](https://github.com/uibcdf/dockingmt/issues/37),
+**Implementation:** [Issue #37](https://github.com/uibcdf/bindingmt/issues/37),
 [contract and source evidence](validation/viewer_reference.md), executed
 notebook and `tests/test_viewer_reference.py`. Count rejection precedes scene
 replacement; later failures may leave a partially changed scene. No transaction,
@@ -473,10 +473,10 @@ alignment, chemistry assignment or browser rendering certification is claimed.
 
 **Revisit when:** [MolSysViewer #151](https://github.com/uibcdf/molsysviewer/issues/151)
 delivers published explicit pairing support qualified for every supported
-provider profile. Remove the bounded legacy signature branch then; DockingMT
+provider profile. Remove the bounded legacy signature branch then; BindingMT
 maintainers review it by 2026-11-03. CI source pins remain unchanged.
 
-## DMT-037 — Evaluate redocking with explicit comparison evidence
+## BMT-037 — Evaluate redocking with explicit comparison evidence
 
 **Status:** Accepted, 2026-10-03
 
@@ -492,7 +492,7 @@ reference geometry, actual pose hashes, preparation and execution context.
 the scientific comparison choices required to interpret pose recovery. Thresholds,
 atom scope, alignment/symmetry and ordering must remain inspectable after saving.
 
-**Implementation:** [Issue #38](https://github.com/uibcdf/dockingmt/issues/38),
+**Implementation:** [Issue #38](https://github.com/uibcdf/bindingmt/issues/38),
 [contract](validation/redocking_evaluation.md), independent geometric controls
 and an executed native Vina notebook. 181L is explicitly provisional; external
 1IEP remains unassessed. Its prepared-input 40-atom metric differs from the
@@ -503,7 +503,7 @@ provides qualified chemically constrained symmetry correspondence, or an accepte
 multi-case workflow requires aggregation. No symmetry/graph/RMSD algorithm,
 automatic alignment, dataset success rate or preparation validation is claimed.
 
-## DMT-038 — Summarize compatible saved redocking cases with explicit denominators
+## BMT-038 — Summarize compatible saved redocking cases with explicit denominators
 
 **Status:** Accepted, 2026-10-04.
 
@@ -521,7 +521,7 @@ Fractions explicitly name evaluated and submitted denominators. Empty/all-failur
 collections infer no policy. Full preparation/protocol equality is a bounded,
 conservative first profile, rather than an inferred common chemical scheme.
 
-**Evidence:** [Owning issue #39](https://github.com/uibcdf/dockingmt/issues/39),
+**Evidence:** [Owning issue #39](https://github.com/uibcdf/bindingmt/issues/39),
 [contract](validation/redocking_summary.md), independent analytical/admission
 controls and an executed offline notebook over retained native evaluations.
 Positive/displaced-domain software controls are separate from a labelled failure
@@ -537,7 +537,7 @@ arguments, exact compatibility and top-N values are unchanged. Historical output
 may omit this new field; absence is not nonrecovery. This distinguishes returned
 coverage from ordering without inferring internal search sampling or model accuracy.
 
-## DMT-039 — Preserve named charges and audit consumer conservation
+## BMT-039 — Preserve named charges and audit consumer conservation
 
 **Status:** Accepted, 2026-10-04.
 
@@ -553,7 +553,7 @@ selection, hydrogen transfers and decimal rounding. Charge assignment/chemistry
 remain MolSysMT operations, with no implicit model or private validator import.
 A named charge model does not validate the remaining heuristic AutoDock types.
 
-**Evidence:** [Issue #40](https://github.com/uibcdf/dockingmt/issues/40),
+**Evidence:** [Issue #40](https://github.com/uibcdf/bindingmt/issues/40),
 [contract](validation/named_partial_charges.md), executed notebook and public
 provider controls from source `7894435e748bc55254b6c3d2b63ae82c101e5774`.
 
@@ -564,7 +564,7 @@ provenance. Retain #5's default protection until named typing (#222) and scoring
 compatibility satisfy their own scientific criteria. No AD4 or H5MSM mechanics
 attribution support is inferred.
 
-## DMT-040 — Delegate explicit H and charge stages at ligand preparation
+## BMT-040 — Delegate explicit H and charge stages at ligand preparation
 
 **Status:** Accepted, 2026-10-04; original BNZ acceptance remains partial.
 
@@ -581,7 +581,7 @@ identity before engine execution. Existing calls retain their behavior. Metadata
 composition is consumer orchestration; molecular construction and validity stay
 provider-owned. Template application reports remain separate pending #298.
 
-**Evidence:** [Issue #41](https://github.com/uibcdf/dockingmt/issues/41),
+**Evidence:** [Issue #41](https://github.com/uibcdf/bindingmt/issues/41),
 [contract](validation/ligand_preparation_stages.md), polar/idempotence/negative
 controls and executed notebook on the existing qualified source pin.
 
@@ -592,13 +592,13 @@ refinement; typing/export/scoring qualification remains separately open.
 
 ---
 
-## DMT-041 — Consume native prepared PDBQT writing and its explicit profile
+## BMT-041 — Consume native prepared PDBQT writing and its explicit profile
 
 **Status:** Adopted for the qualified native writer profile, 2026-10-28; wider
 format/scientific acceptance stays partial under #49/#33/#5.
 
 **Decision:** Both prepared roles use public MolSysMT construction, setters,
-AutoDock label decoding and PDBQT writing. DockingMT retains presentation and
+AutoDock label decoding and PDBQT writing. BindingMT retains presentation and
 explicit ROOT/cut choices. Preserve native source identity and truthful original/
 derived attribution, and verify actual written order from the completed map.
 Keep source-free partial objects supported without circular writer/reader bootstraps.
@@ -619,7 +619,7 @@ accepted workflow requires it. Engine map/pose-reader adoption remains next.
 
 ---
 
-## DMT-042 — Read complete-source poses against their actual native export
+## BMT-042 — Read complete-source poses against their actual native export
 
 **Status:** Adopted for one complete source chemical state, 2026-10-28;
 remaining profiles and wider scientific acceptance stay partial under #49/#33/#5.
@@ -646,7 +646,7 @@ and exact-head hosted receipts under #49. HTML/C6 remains deferred.
 
 ---
 
-## DMT-043 — Admit an explicit preparation profile with linked source evidence
+## BMT-043 — Admit an explicit preparation profile with linked source evidence
 
 **Status:** Accepted for the bounded software/representation profile, 2026-10-29;
 scientific model and remaining input profiles stay partial under #33.
@@ -661,7 +661,7 @@ changes; format admission is not experimental state or affinity validation.
 Keep original input identity, decisions, transformations and execution linked in
 the existing case bundle. An already prepared/native input may truthfully lack
 an original-file fingerprint. Do not invent that identity or implement native
-molecular persistence in DockingMT; #4 owns the remaining consumer workflow and
+molecular persistence in BindingMT; #4 owns the remaining consumer workflow and
 MolSysMT owns molecular storage. The pilot-inspired notebook composes APIs and
 records scientific intent rather than duplicating provider operations.
 
@@ -683,7 +683,7 @@ implicit parameter calculation or broad support claim follows from this decision
 
 ---
 
-## DMT-044 — Publish evidence through a staged repository-first route
+## BMT-044 — Publish evidence through a staged repository-first route
 
 **Status:** Accepted for the current collection, 2026-11-04; #29 resolves this
 publication/organization decision, not scientific or public-package acceptance.
@@ -718,12 +718,12 @@ Provider-owned molecular tools and their pending receiving remain separate.
 
 ---
 
-## DMT-045 — Require Core and Extended MVP for 1.0.0
+## BMT-045 — Require Core and Extended MVP for 1.0.0
 
 **Status:** Accepted by the maintainer, 2026-11-05; tracked in
-[DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
+[BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73).
 
-**Decision:** DockingMT 1.0.0 includes both Core C0–C6 and Extended E1–E5.
+**Decision:** BindingMT 1.0.0 includes both Core C0–C6 and Extended E1–E5.
 Release readiness requires their complete accepted workflows within the declared
 scientific profile, reproducible public delivery, applicable platform/minor
 qualification, stable documented API/records and explicit scientific limits.
@@ -744,7 +744,7 @@ Release, package or publication authorization.
 
 **Ownership:** Reuse existing scoring, ranking, batch and evaluation APIs.
 Inspect and receive general molecular capabilities from MolSysMT; specialized
-capabilities remain with their providers. DockingMT owns docking-specific
+capabilities remain with their providers. BindingMT owns docking-specific
 orchestration, interpretation and evidence. Each missing capability still needs
 a concrete accepted workflow and owning contract before implementation. Existing
 provider-issue and visual-observation deferrals remain in force.
@@ -756,17 +756,17 @@ retain their separate horizons.
 
 ---
 
-## DMT-046 — Deliver the complete functional objective before stabilization
+## BMT-046 — Deliver the complete functional objective before stabilization
 
 **Status:** Accepted by the maintainer, 2026-11-06; tracked in
-[DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
+[BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73).
 
 **Decision:** Deliver the complete Core C0–C6 and Extended E1–E5 objective,
 bounded scientific qualification, independent reproducibility and public
 installation in the appropriate pre-1.0 functional release. The existing
 ladder's prospective **0.5.0** is that target; 0.9.0 stabilization and the
 subsequent 1.0.0 stable-release decision retain separate acceptance. This refines
-delivery order without reducing DMT-045's scope or asserting any completed gate.
+delivery order without reducing BMT-045's scope or asserting any completed gate.
 
 **Implementation:** The [maintained requirement/evidence plan](PRE_STABILIZATION_PLAN.md)
 maps the entire objective to acceptance and owners. #78 starts concrete
@@ -782,10 +782,10 @@ delivered surface afterwards; do not label functional delivery as 1.0.0.
 
 ---
 
-## DMT-047 — Record the executed fixed-score reference convention
+## BMT-047 — Record the executed fixed-score reference convention
 
 **Status:** Accepted implementation scope under the maintainer's E1 objective,
-2026-11-06; tracked in [#78](https://github.com/uibcdf/dockingmt/issues/78).
+2026-11-06; tracked in [#78](https://github.com/uibcdf/bindingmt/issues/78).
 
 **Decision:** Newly emitted Vina/Vinardo fixed-pose evaluations explicitly record
 `native_current_conformation` as their reference policy and bind its quantity to
@@ -809,10 +809,10 @@ the current slice does not add one or complete E1.
 
 ---
 
-## DMT-048 — Let pre-1.0 versions follow verified progress
+## BMT-048 — Let pre-1.0 versions follow verified progress
 
 **Status:** Accepted by the maintainer, 2026-11-07; tracked in
-[#73](https://github.com/uibcdf/dockingmt/issues/73).
+[#73](https://github.com/uibcdf/bindingmt/issues/73).
 
 **Decision:** Keep the complete Core C0–C6 plus Extended E1–E5 functional,
 scientific, independent-reproduction and public-delivery objective before the
@@ -822,8 +822,8 @@ the actual work requires. There is no mandatory `0.9.0` final pre-1.0 release;
 functional milestone is planning context, not a deadline that can waive a gate.
 Reviewed increments and evidence determine concrete version identities.
 
-**Relationship:** This amends the numeric stabilization assumption in DMT-046
-and the original release ladder, preserving DMT-045's complete scope, actual
+**Relationship:** This amends the numeric stabilization assumption in BMT-046
+and the original release ladder, preserving BMT-045's complete scope, actual
 candidate/publication gates, the fixed private `0.1.0` candidate `905abc9`, and
 all original producers. Later scientific horizons still need concrete accepted
 workflows and provider contracts before implementation.

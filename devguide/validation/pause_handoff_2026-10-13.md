@@ -45,7 +45,7 @@ principle guides this boundary; no private pilot content is included here.
 
 Before using the retained receiving prefix, verify its availability, ordinary
 import origins, `pip check`, wheel SHA-256 and exact provider/native identities.
-Run outside the DockingMT checkout and avoid an editable-source overlay. If the
+Run outside the BindingMT checkout and avoid an editable-source overlay. If the
 prefix has disappeared or changed, recreate from the exact recorded inputs and
 qualify the new receiver. A rebuild is a new producer; it cannot inherit the
 original wheel's bytes, digest or receiving evidence by assertion.
@@ -61,14 +61,14 @@ original wheel's bytes, digest or receiving evidence by assertion.
 
 ## Open work keeps its owner
 
-[#49](https://github.com/uibcdf/dockingmt/issues/49) remains partial for general
+[#49](https://github.com/uibcdf/bindingmt/issues/49) remains partial for general
 molecular projection/export correspondence, native ensembles/permutation and
 symmetry. Its existing MolSysMT provider issues own those reusable operations;
-do not fill them with molecular routines in DockingMT. No missing PharmacophoreMT
+do not fill them with molecular routines in BindingMT. No missing PharmacophoreMT
 operation was established by this closeout.
 
-[#30](https://github.com/uibcdf/dockingmt/issues/30) and
-[#47](https://github.com/uibcdf/dockingmt/issues/47) retain public file/channel/pair
+[#30](https://github.com/uibcdf/bindingmt/issues/30) and
+[#47](https://github.com/uibcdf/bindingmt/issues/47) retain public file/channel/pair
 admission, complete installed scientific qualification and untested platform or
 browser boundaries. The bounded wheel result does not close those issues.
 Broader chemical/scoring validity and biological comparisons need informative
@@ -84,21 +84,21 @@ not close unrelated provider or suite work.
 
 ## Temporary resources retained for resumption
 
-Under [DockingMT #50](https://github.com/uibcdf/dockingmt/issues/50), the closeout
+Under [BindingMT #50](https://github.com/uibcdf/bindingmt/issues/50), the closeout
 explicitly retains these task-owned resources for the next human handoff/recovery.
 Review by **2026-10-20**; extend the documented retention or remove only the owned
 prefixes after preserving still-required evidence and the original artifact bytes.
 There is no scheduled cleanup or automatic deletion.
 
-- `/tmp/dockingmt-compatibility-20261013`: qualified Python 3.14.8 candidate
+- `/tmp/bindingmt-compatibility-20261013`: qualified Python 3.14.8 candidate
   environment, exact detached provider sources/native build and diagnostic/terminal
   evidence. These also supply the receiving environment's inherited dependencies.
-- `/tmp/dockingmt-pre-human-20261013`: the original 121,060-byte wheel under
+- `/tmp/bindingmt-pre-human-20261013`: the original 121,060-byte wheel under
   `wheels/`, receiving prefix `receiving/`, source-free `harness/`, complete CI
   bundles and qualification logs/scripts. Keep the environment dependency above
   while using this receiver.
-- `/tmp/dockingmt-provider739-dependency-sdk`: exact shared SDK used by these
-  controls; `/tmp/dockingmt-pause-20261013`: closing administrative/CI evidence.
+- `/tmp/bindingmt-provider739-dependency-sdk`: exact shared SDK used by these
+  controls; `/tmp/bindingmt-pause-20261013`: closing administrative/CI evidence.
 
 The qualification tests/watchers have completed; no task-owned scientific process
 or Jupyter kernel needs to remain active for this handoff. Caller IPC sockets,

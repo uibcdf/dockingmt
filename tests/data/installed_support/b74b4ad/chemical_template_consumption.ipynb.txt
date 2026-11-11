@@ -5,9 +5,9 @@
    "id": "f314080c",
    "metadata": {},
    "source": [
-    "# Explicit chemical-template transfer into DockingMT\n",
+    "# Explicit chemical-template transfer into BindingMT\n",
     "\n",
-    "Source qualification for DockingMT #4/#5/#33 and MolSysMT #298. All molecular\n",
+    "Source qualification for BindingMT #4/#5/#33 and MolSysMT #298. All molecular\n",
     "operations use public MolSysMT tools. The 5X72 absent-field controls are deliberately\n",
     "constructed; original SDF representation mismatches remain unassessed. The 181L\n",
     "BNZ source is original heavy-only input. Successful transfer does not certify\n",
@@ -38,7 +38,7 @@
       "{\n",
       "  \"python\": \"3.14.7\",\n",
       "  \"interpreter\": \"/home/diego/Myopt/miniconda3/envs/molsyssuite@uibcdf_3.14/bin/python\",\n",
-      "  \"provider_import\": \"/tmp/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/__init__.py\",\n",
+      "  \"provider_import\": \"/tmp/bindingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/__init__.py\",\n",
       "  \"reference_source\": \"c19a47ada0c2279029abfa296cf915560610ad9a\"\n",
       "}\n"
      ]
@@ -95,7 +95,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "WARNING: /tmp/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
+      "WARNING: /tmp/bindingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
       "  values = series.fillna(\"\").astype(str).to_numpy(dtype=np.str_)\n",
       "\n"
      ]
@@ -104,7 +104,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "WARNING: /tmp/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
+      "WARNING: /tmp/bindingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
       "  values = series.fillna(\"\").astype(str).to_numpy(dtype=np.str_)\n",
       "\n"
      ]
@@ -113,7 +113,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "WARNING: /tmp/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
+      "WARNING: /tmp/bindingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
       "  values = series.fillna(\"\").astype(str).to_numpy(dtype=np.str_)\n",
       "\n"
      ]
@@ -122,7 +122,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "WARNING: /tmp/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
+      "WARNING: /tmp/bindingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
       "  values = series.fillna(\"\").astype(str).to_numpy(dtype=np.str_)\n",
       "\n"
      ]
@@ -131,7 +131,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "WARNING: /tmp/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
+      "WARNING: /tmp/bindingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
       "  values = series.fillna(\"\").astype(str).to_numpy(dtype=np.str_)\n",
       "\n"
      ]
@@ -140,7 +140,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "WARNING: /tmp/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
+      "WARNING: /tmp/bindingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
       "  values = series.fillna(\"\").astype(str).to_numpy(dtype=np.str_)\n",
       "\n"
      ]
@@ -149,7 +149,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "WARNING: /tmp/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
+      "WARNING: /tmp/bindingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
       "  values = series.fillna(\"\").astype(str).to_numpy(dtype=np.str_)\n",
       "\n"
      ]
@@ -158,7 +158,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "WARNING: /tmp/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
+      "WARNING: /tmp/bindingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
       "  values = series.fillna(\"\").astype(str).to_numpy(dtype=np.str_)\n",
       "\n"
      ]
@@ -167,7 +167,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "WARNING: /tmp/dockingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
+      "WARNING: /tmp/bindingmt-template-provider-c19a47ada0c2279029abfa296cf915560610ad9a/molsysmt/native/chemical_states_dict.py:35: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`\n",
       "  values = series.fillna(\"\").astype(str).to_numpy(dtype=np.str_)\n",
       "\n"
      ]
@@ -536,7 +536,7 @@
   "kernelspec": {
    "display_name": "Python 3.14 (molsyssuite@uibcdf_3.14)",
    "language": "python",
-   "name": "dockingmt-molsyssuite-314"
+   "name": "bindingmt-molsyssuite-314"
   },
   "language_info": {
    "codemirror_mode": {

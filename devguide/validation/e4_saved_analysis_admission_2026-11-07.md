@@ -1,6 +1,6 @@
 # Saved E4 analysis: prospective consumer admission
 
-Owner: [DockingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
+Owner: [BindingMT #80](../pending_proposals/receive_docking_interaction_analysis.md).
 Subsequent receiving: [the separate saved-carrier selection](e4_saved_carrier_receiving_2026-11-07.md)
 now passes normal/pm-fs and independent saved-record reading. The same-carrier
 baseline is received; general projection and the consumer/addon API remain open.
@@ -31,7 +31,7 @@ These are read-only local Git observations without a new fetch or pin change.
 Signature inspection does not qualify a different artifact or the new composition.
 
 The prospective baseline uses the existing private consumer payload (3867 files,
-DockingMT source `a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe`, MolSysMT source
+BindingMT source `a7422dfb9f8c3b1c8ede3d852e202dc33e4beefe`, MolSysMT source
 `9e1f1b1ad8bf09446374ab6f04ca7208e2717936`) plus a new task-owned transport
 overlay of the existing private Viewer wheel from `78ede79e` (641 files, wheel
 SHA-256 `3d31a4d9edb7ed0e72fadcd81b3952196795218f55776478a7625b79e47e9e2a`).

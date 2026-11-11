@@ -1,6 +1,6 @@
 # E3 current-producer paired source control — 2026-11-08
 
-Owners: [DockingMT #88](https://github.com/uibcdf/dockingmt/issues/88) for the
+Owners: [BindingMT #88](https://github.com/uibcdf/bindingmt/issues/88) for the
 qualification criterion and [#79](../archive/qualify_pose_comparison_and_clustering.md)
 for the reference prerequisite. Registered before execution; outcome **normal
 FAIL at prepared-native H5MSM persistence; pm/fs unattempted**. The prescription
@@ -131,7 +131,7 @@ the #645 insertion's typed history/identity/flag and conservative chemistry gate
 
 ## Composition, controls and budget
 
-Use DockingMT `dfff57a34f0278fa6185e88df2098ba6d650e90c`, editable MolSysMT
+Use BindingMT `dfff57a34f0278fa6185e88df2098ba6d650e90c`, editable MolSysMT
 `2325038e8c68157f5c730693ffbb8535f0b45540`, native SHA-256
 `5715bda28be19820e96c2b81e4734bf75e1a9f05dd660d9c7e2817bc6bcd79d3`,
 and the unchanged SDK `95f693be10c9205ab9b912cb53453710a207bf45` support route.

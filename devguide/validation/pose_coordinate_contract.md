@@ -1,7 +1,7 @@
 # Finite real pose-coordinate records
 
-Owner: [#63](https://github.com/uibcdf/dockingmt/issues/63); public-boundary review:
-[#19](https://github.com/uibcdf/dockingmt/issues/19). DockingPose coordinates are
+Owner: [#63](https://github.com/uibcdf/bindingmt/issues/63); public-boundary review:
+[#19](https://github.com/uibcdf/bindingmt/issues/19). DockingPose coordinates are
 finite real length quantities of shape `(N, 3)`, stored in nanometers. This is
 result-schema admission, not molecular geometry, identity, plausibility or repair.
 
@@ -11,7 +11,7 @@ Construction checks numerical contents before float conversion and rejects
 normalization overflow. Complex arrays, including zero-imaginary complex dtype,
 boolean arrays and nonnumeric data are not coordinates. Deserialization checks
 scalar types before NumPy/quantity factories can erase mixed boolean or numeric-
-string types. Invalid data raises DMT-E002 for `coordinates`.
+string types. Invalid data raises BMT-E002 for `coordinates`.
 
 Snapshot export also checks current numerical contents: mutating a live quantity
 to NaN/infinity cannot produce a new valid record. Validation adds no coordinate
@@ -55,7 +55,7 @@ commits are documentation-only; its clean local source is preserved.
 
 The last limitation reproduces with PyUnitWizard alone and belongs to
 [PyUnitWizard #137](https://github.com/uibcdf/pyunitwizard/issues/137), related to
-#19/MolSysSuite #127. DockingMT retains the provider cause and adds no local alias,
+#19/MolSysSuite #127. BindingMT retains the provider cause and adds no local alias,
 forced quantity-form switch or fallback. This does not imply that Astropy itself
 promises a built-in calorie or invalidate the passing length profiles.
 

@@ -1,8 +1,8 @@
 # P59 total-score preference versus positional recovery — 2026-11-05
 
-Owner: [DockingMT #69](https://github.com/uibcdf/dockingmt/issues/69), following
+Owner: [BindingMT #69](https://github.com/uibcdf/bindingmt/issues/69), following
 audit E6/Q2 and [#67's saved-search analysis](saved_search_variability_2026-11-05.md).
-The [prescription at 414ff0e](https://github.com/uibcdf/dockingmt/blob/414ff0e4e0a3932261b7eeb36c10594deb4ba4f9/devguide/pending_proposals/diagnose_p59_score_preference.md)
+The [prescription at 414ff0e](https://github.com/uibcdf/bindingmt/blob/414ff0e4e0a3932261b7eeb36c10594deb4ba4f9/devguide/pending_proposals/diagnose_p59_score_preference.md)
 precedes the new score-pairing calculation. This is retrospective description of
 the previously observed P59 ordering gap, with no new docking experiment.
 
@@ -155,7 +155,7 @@ C4/C6 gates remain separate.
 From the checkout, run the standard-library check:
 
 ```bash
-python -m dmt_test_support.p59_score_diagnostic --check
+python -m bmt_test_support.p59_score_diagnostic --check
 ```
 
 It authenticates both frozen inputs, recomputes JSON/Markdown/CSV and verifies
@@ -167,7 +167,7 @@ rendering identity. Explicit regeneration of derived outputs additionally uses
 Matplotlib:
 
 ```bash
-python -m dmt_test_support.p59_score_diagnostic
+python -m bmt_test_support.p59_score_diagnostic
 ```
 
 The [new guards](../../tests/test_p59_score_diagnostic.py) exercise byte/join
@@ -182,7 +182,7 @@ The 29 new guards and 20 existing #67 controls pass together (49 tests) with
 the owner root excluded from Python paths through shared support's 585-file declaration. Four
 shared integrity checks pass; staged resources and imports retire, with the
 owner absent from Python paths. This is bounded working-tree helper receiving,
-with published Pytest Receptor 1.2.2 on Python 3.14, not an installed DockingMT
+with published Pytest Receptor 1.2.2 on Python 3.14, not an installed BindingMT
 artifact or full installed matrix. Another 24 reporting/distribution/support
 administrative controls pass. Exact-head hosted observation remains #28.
 Ruff, generated indexes, both earlier synthesis/check modes and shared

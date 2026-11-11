@@ -26,13 +26,13 @@ def admit(root, task, candidate_sha):
     expected = {
         'GITHUB_ACTIONS': 'true',
         'RUNNER_ENVIRONMENT': 'github-hosted',
-        'GITHUB_REPOSITORY': 'uibcdf/dockingmt',
+        'GITHUB_REPOSITORY': 'uibcdf/bindingmt',
         'GITHUB_EVENT_NAME': 'workflow_dispatch',
         'GITHUB_WORKFLOW_REF': (
-            'uibcdf/dockingmt/.github/workflows/'
+            'uibcdf/bindingmt/.github/workflows/'
             'recover-current-0.1.0-python313.yml@refs/heads/main'
         ),
-        'DOCKINGMT_RECOVERY': 'current-010-python313-original-wheel',
+        'BINDINGMT_RECOVERY': 'current-010-python313-original-wheel',
         'EXPECTED_PYTHON': '3.13',
         'EXPECTED_WHEEL_SHA256': WHEEL_SHA256,
     }
@@ -71,7 +71,7 @@ def admit(root, task, candidate_sha):
         if (candidate / name).read_bytes() != (root / name).read_bytes():
             raise ValueError('Recovery changed a frozen profile or wheel guard')
     receipt_path = task / 'evidence/build-receipt.json'
-    wheel = task / 'wheels/dockingmt-0.1.0-py3-none-any.whl'
+    wheel = task / 'wheels/bindingmt-0.1.0-py3-none-any.whl'
     if digest(receipt_path) != RECEIPT_SHA256 or digest(wheel) != WHEEL_SHA256:
         raise ValueError('Recovery must consume the original receipt and wheel bytes')
     receipt = json.loads(receipt_path.read_text())

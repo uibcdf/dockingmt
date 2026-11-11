@@ -1,7 +1,7 @@
 # 1IEP ROOT order with a fixed first atom
 
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17) and
-[#6](https://github.com/uibcdf/dockingmt/issues/6) own this finite follow-up to
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17) and
+[#6](https://github.com/uibcdf/bindingmt/issues/6) own this finite follow-up to
 the [rooted-representation experiment](1iep_representation_workflow.md).
 The [driver](../../devtools/qualify_1iep_root_order.py),
 [original six-search archive](data/1iep_root_order/audit_2026-10-07.json.gz),

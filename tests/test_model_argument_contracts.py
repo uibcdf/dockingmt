@@ -7,8 +7,8 @@ import pytest
 import pyunitwizard as puw
 from argdigest import UnknownArgumentError
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 pytestmark = pytest.mark.filterwarnings('error::RuntimeWarning')
 
@@ -20,11 +20,11 @@ def coordinates():
 
 @pytest.fixture
 def box():
-    return dmt.BoxRegion(center='[0, 0, 0] nm', lengths='[1, 1, 1] nm')
+    return bmt.BoxRegion(center='[0, 0, 0] nm', lengths='[1, 1, 1] nm')
 
 
 @pytest.mark.parametrize(
-    'model', [dmt.DockingPose, dmt.DockingResult, dmt.DockingProblem]
+    'model', [bmt.DockingPose, bmt.DockingResult, bmt.DockingProblem]
 )
 def test_model_constructor_unknown_keywords_use_argdigest(model):
     with pytest.raises(UnknownArgumentError):
@@ -34,15 +34,15 @@ def test_model_constructor_unknown_keywords_use_argdigest(model):
 @pytest.mark.parametrize(
     'factory',
     [
-        dmt.DockingPose.from_dict,
-        dmt.DockingResult.from_dict,
-        dmt.DockingProblem.from_dict,
-        dmt.DockingProblem.for_redocking,
-        dmt.VinaProtocol.from_dict,
-        dmt.BoxRegion.from_dict,
-        dmt.BoxRegion.from_points,
-        dmt.BoxRegion.from_bounds,
-        dmt.BoxRegion.from_selection,
+        bmt.DockingPose.from_dict,
+        bmt.DockingResult.from_dict,
+        bmt.DockingProblem.from_dict,
+        bmt.DockingProblem.for_redocking,
+        bmt.VinaProtocol.from_dict,
+        bmt.BoxRegion.from_dict,
+        bmt.BoxRegion.from_points,
+        bmt.BoxRegion.from_bounds,
+        bmt.BoxRegion.from_selection,
     ],
 )
 def test_model_factory_unknown_keywords_use_argdigest(factory):
@@ -56,26 +56,26 @@ def test_model_factory_unknown_keywords_use_argdigest(factory):
 @pytest.mark.parametrize('invalid', [True, 1.5, []])
 def test_pose_rejects_invalid_declared_fields(argument, invalid, coordinates):
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingPose(coordinates, **{argument: invalid})
+        bmt.DockingPose(coordinates, **{argument: invalid})
     assert caught.value.extra['arg_name'] == argument
 
 
 @pytest.mark.parametrize('rank', [0, -1, '2'])
 def test_pose_rank_is_optional_positive_integer(rank, coordinates):
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingPose(coordinates, rank=rank)
+        bmt.DockingPose(coordinates, rank=rank)
     assert caught.value.extra['arg_name'] == 'rank'
 
 
 def test_pose_optional_scores_do_not_relax_with_scores(coordinates):
-    class ExtensionPose(dmt.DockingPose):
+    class ExtensionPose(bmt.DockingPose):
         __module__ = 'consumer_extension.models'
 
     class OverridePose(ExtensionPose):
         def __init__(self, coordinates, **kwargs):
             super().__init__(coordinates, **kwargs)
 
-    for model in (dmt.DockingPose, ExtensionPose, OverridePose):
+    for model in (bmt.DockingPose, ExtensionPose, OverridePose):
         pose = model(coordinates, scores=None, rank=np.int64(2))
         assert pose.scores == {}
         assert type(pose.rank) is int
@@ -90,47 +90,47 @@ def test_pose_optional_scores_do_not_relax_with_scores(coordinates):
 
 
 def test_result_optional_problem_does_not_relax_dock(coordinates):
-    class ExtensionResult(dmt.DockingResult):
+    class ExtensionResult(bmt.DockingResult):
         __module__ = 'consumer_extension.models'
 
-    for model in (dmt.DockingResult, ExtensionResult):
-        result = model((pose for pose in [dmt.DockingPose(coordinates)]), problem=None)
+    for model in (bmt.DockingResult, ExtensionResult):
+        result = model((pose for pose in [bmt.DockingPose(coordinates)]), problem=None)
         assert len(result) == 1
         assert result.problem is None
         with pytest.raises(ArgumentError) as caught:
             model([], problem='invalid')
         assert caught.value.extra['arg_name'] == 'problem'
     with pytest.raises(ArgumentError) as caught:
-        dmt.dock(None)
+        bmt.dock(None)
     assert caught.value.extra['arg_name'] == 'problem'
 
 
 @pytest.mark.parametrize('poses', [None, 'pose', {}, [object()], [None]])
 def test_result_requires_pose_collection(poses):
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingResult(poses)
+        bmt.DockingResult(poses)
     assert caught.value.extra['arg_name'] == 'poses'
 
 
 @pytest.mark.parametrize('argument', ['problem_info', 'protocol_info', 'provenance'])
 def test_result_optional_records_require_mappings(argument):
-    assert getattr(dmt.DockingResult([], **{argument: None}), argument) == {}
+    assert getattr(bmt.DockingResult([], **{argument: None}), argument) == {}
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingResult([], **{argument: [('seed', 2)]})
+        bmt.DockingResult([], **{argument: [('seed', 2)]})
     assert caught.value.extra['arg_name'] == argument
 
 
 def test_inherited_factories_preserve_units_and_detached_snapshots(coordinates, box):
-    class ExtensionPose(dmt.DockingPose):
+    class ExtensionPose(bmt.DockingPose):
         __module__ = 'consumer_extension.models'
 
-    class ExtensionResult(dmt.DockingResult):
+    class ExtensionResult(bmt.DockingResult):
         __module__ = 'consumer_extension.models'
 
-    class ExtensionBox(dmt.BoxRegion):
+    class ExtensionBox(bmt.BoxRegion):
         __module__ = 'consumer_extension.models'
 
-    class ExtensionProtocol(dmt.VinaProtocol):
+    class ExtensionProtocol(bmt.VinaProtocol):
         __module__ = 'consumer_extension.models'
 
     original_values = puw.get_value(coordinates).copy()
@@ -141,7 +141,7 @@ def test_inherited_factories_preserve_units_and_detached_snapshots(coordinates, 
             (ExtensionPose, pose.to_dict()),
             (ExtensionResult, result.to_dict()),
             (ExtensionBox, box.to_dict()),
-            (ExtensionProtocol, dmt.VinaProtocol().to_dict()),
+            (ExtensionProtocol, bmt.VinaProtocol().to_dict()),
         ):
             original = deepcopy(record)
             restored = model.from_dict(data=record)
@@ -172,12 +172,12 @@ def test_problem_local_options_fail_before_molecular_operations(
     kwargs = {'receptor': object(), 'partner': object(), 'search_domain': box}
     kwargs[argument] = object()
     with pytest.raises(ArgumentError) as caught:
-        dmt.DockingProblem(**kwargs)
+        bmt.DockingProblem(**kwargs)
     assert caught.value.extra['arg_name'] == argument
 
 
 def test_problem_inherited_constructor_and_factory_preserve_optional_inputs(box):
-    class ExtensionProblem(dmt.DockingProblem):
+    class ExtensionProblem(bmt.DockingProblem):
         __module__ = 'consumer_extension.models'
 
     problem = ExtensionProblem('rec.pdbqt', 'lig.pdbqt', box)
@@ -191,7 +191,7 @@ def test_problem_inherited_constructor_and_factory_preserve_optional_inputs(box)
 
 
 @pytest.mark.parametrize(
-    'factory', [dmt.BoxRegion.from_selection, dmt.DockingProblem.for_redocking]
+    'factory', [bmt.BoxRegion.from_selection, bmt.DockingProblem.for_redocking]
 )
 def test_molecular_factories_reject_invalid_padding_before_provider_work(
     factory, monkeypatch
@@ -205,7 +205,7 @@ def test_molecular_factories_reject_invalid_padding_before_provider_work(
         monkeypatch.setattr(msm, operation, forbidden)
     source = (
         {'molecular_system': object()}
-        if factory == dmt.BoxRegion.from_selection
+        if factory == bmt.BoxRegion.from_selection
         else {
             'complex_system': object(),
             'receptor_selection': 'all',
@@ -223,7 +223,7 @@ def test_selection_factory_preserves_provider_values_and_exception(
 ):
     import molsysmt as msm
 
-    class ExtensionBox(dmt.BoxRegion):
+    class ExtensionBox(bmt.BoxRegion):
         __module__ = 'consumer_extension.models'
 
     source = object()

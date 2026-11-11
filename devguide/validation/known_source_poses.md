@@ -5,9 +5,9 @@ The subsequent [permutation receiving](flexible_reconstruction.md) adopts provid
 The earlier qualification below retains provider `128a0bbb`, original artifact
 identities and its historical public spelling. Production parsing is still separate.
 
-Owners: [DockingMT #49](https://github.com/uibcdf/dockingmt/issues/49) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33). This qualifies the native
-projection → mapped export → actual DockingMT/Vina output → public known-source
+Owners: [BindingMT #49](https://github.com/uibcdf/bindingmt/issues/49) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33). This qualifies the native
+projection → mapped export → actual BindingMT/Vina output → public known-source
 reader workflow. Production `VinaBackend` still uses its existing PDBQT parser;
 its prepared-input serializers do not yet produce the reader's completed maps.
 The test makes that remaining boundary explicit instead of fabricating a map.
@@ -54,11 +54,11 @@ geometries. The reader retains the staged source's chemical-state tables and
 rounded coordinates. This does not claim untreated native SDF is already ready
 for charge assignment or projection, nor certify original published chemistry.
 
-Two real DockingMT/Vina software controls, under angstrom and pm/fs/coulomb
+Two real BindingMT/Vina software controls, under angstrom and pm/fs/coulomb
 policies, submit the public native payload with its completed map. They capture
 the actual ensemble returned to the existing adapter, then read it publicly
 against the known reduced source. Mapped coordinates agree with every normalized
-DockingMT pose within `1e-10 angstrom`. Input/export and output/reader hashes bind
+BindingMT pose within `1e-10 angstrom`. Input/export and output/reader hashes bind
 the actual bytes. Vina's numeric-array comparison stays an engine-boundary guard;
 scores/ranks retain their existing producer and are not inferred by the reader.
 These synthetic receptor/hexane controls are not biological redocking, registered
@@ -108,7 +108,7 @@ with the same in-process import guard (272 other cases deselected). The installe
 profile covers 273 distinct cases across the two runs. Overlapping focused/source
 counts are not summed, and the earlier 272-case run is not relabelled.
 
-The ordinary installed producer remains DockingMT
+The ordinary installed producer remains BindingMT
 `173319a71b17b70bc6d13ecc68eb413edfd08640`, wheel SHA-256
 `81e12debc9c3c32c1fae7cf9cdade32f593af79ef4a73859a4850a6caaa4147f`.
 This task changes tests/guidance, not runtime package code; the original wheel and

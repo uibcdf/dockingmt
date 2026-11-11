@@ -1,6 +1,6 @@
 # Installed batch execution and refusal boundaries — 2026-11-10
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47), with
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47), with
 resource custody #50 and complete functional delivery #73. Status: all admitted installed selections and independent readers pass; wider
 distribution remains partial. Source checkpoint `958f16a15ebaaef8c641a6c77924d3b55de92456`.
 

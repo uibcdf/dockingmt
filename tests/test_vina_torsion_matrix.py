@@ -5,27 +5,27 @@ import pytest
 from rdkit import Chem
 from rdkit.Chem import Lipinski, rdMolDescriptors
 
-from dmt_test_support.audit_1iep_preparation import _pdbqt_torsion_graph
-from dmt_test_support.qualify_named_types import CHARGE, HYDROGEN, TYPING
-from dmt_test_support.torsion_reference_fixtures import (
+from bindingmt.preparation import prepare_ligand
+from bmt_test_support.audit_1iep_preparation import _pdbqt_torsion_graph
+from bmt_test_support.qualify_named_types import CHARGE, HYDROGEN, TYPING
+from bmt_test_support.torsion_reference_fixtures import (
     CASES as CASES,
 )
-from dmt_test_support.torsion_reference_fixtures import (
+from bmt_test_support.torsion_reference_fixtures import (
     FIXTURES as FIXTURES,
 )
-from dmt_test_support.torsion_reference_fixtures import (
+from bmt_test_support.torsion_reference_fixtures import (
     _atom_map as _atom_map,
 )
-from dmt_test_support.torsion_reference_fixtures import (
+from bmt_test_support.torsion_reference_fixtures import (
     _reference as _reference,
 )
-from dmt_test_support.torsion_reference_fixtures import (
+from bmt_test_support.torsion_reference_fixtures import (
     _source as _source,
 )
-from dmt_test_support.torsion_reference_fixtures import (
+from bmt_test_support.torsion_reference_fixtures import (
     _source_graph as _source_graph,
 )
-from dockingmt.preparation import prepare_ligand
 
 # Filename, source SHA-256, reference SHA-256, branch count, RDKit Strict,
 # RDKit NonStrict, reference-only hydrogen count, fragment sizes.
@@ -120,7 +120,7 @@ def test_pinned_vina_torsion_tree_matches_source_fragments(
     )
     if case_name == '1s63_ligand':
         nitrile_axis = frozenset((26, 27))
-        assert nitrile_axis in reference_bonds  # Aryl–C≡N, dockingmt#17.
+        assert nitrile_axis in reference_bonds  # Aryl–C≡N, bindingmt#17.
         rdkit_candidates = {
             frozenset(pair)
             for pair in heavy_source.GetSubstructMatches(Lipinski.RotatableBondSmarts)

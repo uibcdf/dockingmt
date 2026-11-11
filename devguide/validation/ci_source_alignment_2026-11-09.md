@@ -1,6 +1,6 @@
 # Current CI source-context alignment
 
-Owner: [DockingMT #100](https://github.com/uibcdf/dockingmt/issues/100).
+Owner: [BindingMT #100](https://github.com/uibcdf/bindingmt/issues/100).
 Registered 2026-11-09; baseline `9a40e385d951b0521f6509de6b127083b78be61c`.
 The next source CI checkpoint must distinguish current received development
 sources from original manual scientific/candidate contexts. Updating declarations

@@ -15,10 +15,10 @@ import molsysmt as msm
 import pyunitwizard as puw
 from vina import Vina
 
-import dockingmt as dmt
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 from devtools.qualify_chemical_templates import load_5x72, record_digest, snapshot
 from devtools.qualify_named_types import CHARGE, TYPING, declared_source
-from dockingmt._private.smonitor import ArgumentError
 
 ROOT = Path(__file__).resolve().parents[1]
 PROVIDER_REVISION = '5bd893c85fe8d211663b2b1f865f5f1d2c382a90'
@@ -32,7 +32,7 @@ def _digest(path):
 
 def _observe(source, bonds):
     before = record_digest(snapshot(source))
-    prepared = dmt.prepare_ligand(source, selection='all', active_torsion_bonds=bonds)
+    prepared = bmt.prepare_ligand(source, selection='all', active_torsion_bonds=bonds)
     assert record_digest(snapshot(source)) == before
     text = prepared.to_pdbqt()
     Vina(cpu=1, verbosity=0).set_ligand_from_string(text)
@@ -43,7 +43,7 @@ def _observe(source, bonds):
         'pdbqt': text,
         'pdbqt_sha256': hashlib.sha256(text.encode()).hexdigest(),
         'vina_parser_admitted': True,
-        'preparation_assessment': dmt.assess_preparation(prepared),
+        'preparation_assessment': bmt.assess_preparation(prepared),
     }
 
 
@@ -163,7 +163,7 @@ def qualify():
         source = declared_source(smiles)
         before = record_digest(snapshot(source))
         try:
-            dmt.prepare_ligand(source, selection='all', active_torsion_bonds=[bond])
+            bmt.prepare_ligand(source, selection='all', active_torsion_bonds=[bond])
         except ArgumentError as exc:
             rejections[smiles] = {'exception': type(exc).__name__, 'message': str(exc)}
         else:
@@ -180,16 +180,16 @@ def qualify():
         0
     ].mean(axis=0)
     with puw.context(standard_units=['pm', 'fs']):
-        problem = dmt.DockingProblem(
+        problem = bmt.DockingProblem(
             receptor=receptor_path,
             partner=typed,
-            search_domain=dmt.BoxRegion(
+            search_domain=bmt.BoxRegion(
                 puw.quantity(center, 'angstrom'), puw.quantity([20, 20, 20], 'angstrom')
             ),
         )
-        result = dmt.dock(
+        result = bmt.dock(
             problem,
-            dmt.VinaProtocol(
+            bmt.VinaProtocol(
                 cpu=1,
                 seed=17,
                 exhaustiveness=1,
@@ -198,7 +198,7 @@ def qualify():
                 capture_backend_inputs=True,
             ),
         )
-    restored = dmt.DockingResult.from_dict(
+    restored = bmt.DockingResult.from_dict(
         json.loads(json.dumps(result.to_dict(), allow_nan=False))
     )
     assert len(restored.poses) == 1
@@ -212,17 +212,17 @@ def qualify():
         == restored.poses[0].metadata['selected_atom_indices']
     )
     assert record_digest(snapshot(typed)) == before
-    captured = dmt.verify_captured_inputs(restored.provenance['backend_artifacts'])
+    captured = bmt.verify_captured_inputs(restored.provenance['backend_artifacts'])
     profile = (
         ROOT
         / 'devguide/validation/data/chemical_templates/source_profile_2026-10-06.json'
     )
     return {
-        'schema': 'dockingmt.explicit_torsion_policy_qualification@1',
+        'schema': 'bindingmt.explicit_torsion_policy_qualification@1',
         'date': '2026-10-06',
         'python': sys.version,
         'interpreter': sys.executable,
-        'dockingmt_base_commit': subprocess.check_output(
+        'bindingmt_base_commit': subprocess.check_output(
             ['git', '-C', str(ROOT), 'rev-parse', 'HEAD'], text=True
         ).strip(),
         'qualified_provider_commit': PROVIDER_REVISION,
@@ -247,8 +247,8 @@ def qualify():
         'consumer_implementation_sha256': {
             p: _digest(ROOT / p)
             for p in (
-                'dockingmt/preparation/_temporary_torsions.py',
-                'dockingmt/preparation/ligand.py',
+                'bindingmt/preparation/_temporary_torsions.py',
+                'bindingmt/preparation/ligand.py',
                 'devtools/qualify_torsion_policy.py',
             )
         },

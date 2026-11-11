@@ -7,7 +7,7 @@
    "source": [
     "# Explicit docking torsion policy — 2026-10-06\n",
     "\n",
-    "DockingMT #17/#6 adopts public MolSysMT #224 classification before H projection. Selected cuts remain caller decisions; provider exclusions are preserved even when an explicit docking exception is accepted. This notebook tests software contracts, not rotational barriers or predictive accuracy. Earlier fragment/type receipts remain intact."
+    "BindingMT #17/#6 adopts public MolSysMT #224 classification before H projection. Selected cuts remain caller decisions; provider exclusions are preserved even when an explicit docking exception is accepted. This notebook tests software contracts, not rotational barriers or predictive accuracy. Earlier fragment/type receipts remain intact."
    ]
   },
   {
@@ -124,7 +124,7 @@
     "sys.path.insert(0, str(root))\n",
     "import json\n",
     "import pandas as pd\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "from devtools.qualify_torsion_policy import qualify, save\n",
     "record = qualify()\n",
     "save(record)\n",
@@ -441,7 +441,7 @@
    "source": [
     "## Prepared and written atom axes\n",
     "\n",
-    "The complete selected source graph is evaluated before nonpolar-H projection. Source bond positions and IDs remain separate. ROOT/BRANCH orientation belongs to DockingMT; every written atom maps to the recorded source axis. The 1S63 reference-only H remains excluded from source-index comparison."
+    "The complete selected source graph is evaluated before nonpolar-H projection. Source bond positions and IDs remain separate. ROOT/BRANCH orientation belongs to BindingMT; every written atom maps to the recorded source axis. The 1S63 reference-only H remains excluded from source-index comparison."
    ]
   },
   {
@@ -736,9 +736,9 @@
    ],
    "source": [
     "saved=record['default_vina_result']\n",
-    "restored=dmt.DockingResult.from_dict(json.loads(json.dumps(saved,allow_nan=False)))\n",
+    "restored=bmt.DockingResult.from_dict(json.loads(json.dumps(saved,allow_nan=False)))\n",
     "assert len(restored.poses)==1\n",
-    "assert dmt.verify_captured_inputs(restored.provenance['backend_artifacts'])==record['verified_captured_bytes']\n",
+    "assert bmt.verify_captured_inputs(restored.provenance['backend_artifacts'])==record['verified_captured_bytes']\n",
     "selection=restored.provenance['preparation']['partner']['metadata']['torsion_selection']\n",
     "assert selection['pdbqt_to_source_atom_indices']==restored.poses[0].metadata['selected_atom_indices']\n",
     "print('poses:',len(restored.poses))\n",
@@ -844,9 +844,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "DockingMT qualification (MolSysSuite 3.14)",
+   "display_name": "BindingMT qualification (MolSysSuite 3.14)",
    "language": "python",
-   "name": "dockingmt-molsyssuite-314"
+   "name": "bindingmt-molsyssuite-314"
   },
   "language_info": {
    "codemirror_mode": {

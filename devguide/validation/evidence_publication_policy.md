@@ -1,7 +1,7 @@
 # Scientific evidence organization and publication
 
-Owner: [DockingMT #29](https://github.com/uibcdf/dockingmt/issues/29).
-Decision: [DMT-044](../DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route),
+Owner: [BindingMT #29](https://github.com/uibcdf/bindingmt/issues/29).
+Decision: [BMT-044](../DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route),
 accepted 2026-11-04. This local presentation decision follows existing suite
 reporting, disclosure and qualification rules; it creates no shared suite policy.
 
@@ -39,7 +39,7 @@ count, automatic site migration or hosting service is selected.
 | Strategy and scientific claims | `VALIDATION_STRATEGY.md`, audit, scope/model | Questions, admission and limits; not measured outcomes. |
 | Case prescription/interpretation | `validation/<case>.md` and owning issue | Declared population, hypotheses, controls, decisions and interpretation. |
 | Original producers/observations | Linked scripts/notebooks and `validation/data/<case>/` | Original input bytes, producer identity, outputs, warnings/failures and custody. |
-| Software/artifact qualification | `tests/`, `dmt_test_support/`, CI/installed receipts | Correctness/integration evidence; test counts are not independent molecular cases. |
+| Software/artifact qualification | `tests/`, `bmt_test_support/`, CI/installed receipts | Correctness/integration evidence; test counts are not independent molecular cases. |
 | Derived scientific overview | Dated overview plus frozen-input producer/summary manifest | Reader presentation; never a replacement molecular record or new producer for old outcomes. |
 | Performance measurements | [Profiling](workflow_profiling.md), [result export](result_export.md) and their records | Defined time/memory/hardware/composition; not scientific accuracy. |
 | Public/visual acceptance | Public readiness and #30/#47, #52/#60 | Actual delivery/interaction gates, separate from private composition and model suitability. |
@@ -80,7 +80,7 @@ without claiming a pooled recovery probability, affinity or physical validity.
 ## Maintenance, reruns and retention
 
 The contributor changing a case maintains its record/interpretation and affected
-presentation; the owning issue carries unresolved work. DockingMT maintainers
+presentation; the owning issue carries unresolved work. BindingMT maintainers
 review claims/composition, and the release maintainer owns separate delivery gates.
 No new permanent benchmark-service role is created.
 

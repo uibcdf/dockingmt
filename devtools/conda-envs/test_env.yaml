@@ -4,7 +4,7 @@ channels:
 dependencies:
   - python >=3.11,<3.15
   - pip
-  # DockingMT's PEP 639 build floor; also required by Vina Python metadata.
+  # BindingMT's PEP 639 build floor; also required by Vina Python metadata.
   - setuptools >=77.0.3
   - wheel
   - pytest

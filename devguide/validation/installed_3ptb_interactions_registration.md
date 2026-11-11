@@ -1,6 +1,6 @@
 # Registered 3PTB interaction receiving — 2026-11-06
 
-Owner: [DockingMT #80](https://github.com/uibcdf/dockingmt/issues/80), under
+Owner: [BindingMT #80](https://github.com/uibcdf/bindingmt/issues/80), under
 #73's complete functional objective. Status at registration: **prospective**.
 The [clean notebook](installed_3ptb_interactions.ipynb) contains six code cells.
 Its code and the unchanged preparation companion are committed and their exact
@@ -9,7 +9,7 @@ warnings, refusals and amendments remain separate from this prescription.
 
 ## Actual artifacts and inputs
 
-Use the retained ordinary private Python 3.12.16 installation with DockingMT
+Use the retained ordinary private Python 3.12.16 installation with BindingMT
 0.1.0 producer `905abc9698cf9d4add78a52d57dab707859a148d`, wheel SHA-256
 `fbe3591068d9633ae0066ab3dcd593508f7fc31d86eefad01975fd4e4bb71752`.
 This borrows the existing installation read-only; it does not move that fixed
@@ -107,8 +107,8 @@ the complete E4/functional-release audit retain their own requirements. No
 ## Dated receiving disposition
 
 The original producer is `45b15e885b3f0a1cfc7e314bf0ad439860819290`.
-[Registration before execution](https://github.com/uibcdf/dockingmt/issues/80#issuecomment-6681363545)
-and the [isolated-tooling amendment](https://github.com/uibcdf/dockingmt/issues/80#issuecomment-6681518737)
+[Registration before execution](https://github.com/uibcdf/bindingmt/issues/80#issuecomment-6681363545)
+and the [isolated-tooling amendment](https://github.com/uibcdf/bindingmt/issues/80#issuecomment-6681518737)
 retain their original chronology. The normal attempt stops before notebook cells
 for missing nbformat. The amended attempt is terminated by the RAM-reserve guard
 without a final observer/association; pm/fs is not attempted. Final counters

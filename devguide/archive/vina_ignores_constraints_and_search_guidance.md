@@ -1,6 +1,6 @@
 ---
 summary: Reject unsupported constraints and guidance before Vina execution
-issue: uibcdf/dockingmt#26
+issue: uibcdf/bindingmt#26
 status: resolved
 opened: 2026-10-02
 closed: 2026-10-02
@@ -44,9 +44,9 @@ either scientific intent field. The probe forbids MolSysMT `get`, `select`,
 ## Guarded correction (2026-10-02)
 
 The Vina protocol and backend share a private admission check. Nonempty list or
-dictionary requests fail through `CapabilityMismatchError` (`DMT-E003`), exposing
+dictionary requests fail through `CapabilityMismatchError` (`BMT-E003`), exposing
 the unsupported fields, offending argument, protocol, and engine. Invalid
-containers fail through `ArgumentError` (`DMT-E002`). The backend checks before
+containers fail through `ArgumentError` (`BMT-E002`). The backend checks before
 the protocol validation hook, so overriding that hook cannot silently enable
 unsupported intent. Empty lists/dictionaries and default unconstrained requests
 remain valid. Other backends are not given a universal empty-intent restriction.
@@ -91,7 +91,7 @@ Reject unsupported nonempty intent before domain projection, preparation, stagin
 and engine execution. This does not implement constraints, pharmacophore parsing,
 guidance algorithms, or a generic protocol framework. No MolSysMT or MolSysViewer
 change or coordination is needed. The broader architecture review is
-[DockingMT #28](https://github.com/uibcdf/dockingmt/issues/28).
+[BindingMT #28](https://github.com/uibcdf/bindingmt/issues/28).
 
 ## Acceptance criteria
 

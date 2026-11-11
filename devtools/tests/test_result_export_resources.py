@@ -45,21 +45,21 @@ else:
     assert len(result['record_sha256']) == 64
     assert ('python_peak_bytes' in result) is memory
 assert tracemalloc.is_tracing() is caller_owned, 'benchmark changed caller tracing ownership'
-assert not any(n.split('.')[0] in ('dockingmt', 'molsysmt', 'numpy', 'vina', 'pyunitwizard') for n in sys.modules)
+assert not any(n.split('.')[0] in ('bindingmt', 'molsysmt', 'numpy', 'vina', 'pyunitwizard') for n in sys.modules)
 tracemalloc.stop()
 """
 
 
 class TestResultExportResources(unittest.TestCase):
     def run_case(self, *, caller_owned, failure, memory=True):
-        with tempfile.TemporaryDirectory(prefix='dockingmt-tracing-test-') as directory:
+        with tempfile.TemporaryDirectory(prefix='bindingmt-tracing-test-') as directory:
             result = subprocess.run(
                 [
                     sys.executable,
                     '-S',
                     '-c',
                     CHILD,
-                    str(ROOT / 'dmt_test_support/benchmark_result_export.py'),
+                    str(ROOT / 'bmt_test_support/benchmark_result_export.py'),
                     str(caller_owned).lower(),
                     str(failure).lower(),
                     str(memory).lower(),

@@ -4,16 +4,16 @@ import molsysmt as msm
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.molecular_fixtures import named_181l_pair
-from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
-from dockingmt._private.smonitor import ArgumentError, CapabilityMismatchError
-from dockingmt.core.problem import DockingProblem
-from dockingmt.core.protocol import DockingProtocol, VinaProtocol
-from dockingmt.core.results import DockingResult
-from dockingmt.core.search_domain import BoxRegion
-from dockingmt.dock import dock
-from dockingmt.engines.vina import VinaBackend, _verify_pose_atom_order, _vina_box
-from dockingmt.preparation import assess_preparation, prepare_ligand, prepare_receptor
+from bindingmt._private.smonitor import ArgumentError, CapabilityMismatchError
+from bindingmt.core.problem import DockingProblem
+from bindingmt.core.protocol import DockingProtocol, VinaProtocol
+from bindingmt.core.results import DockingResult
+from bindingmt.core.search_domain import BoxRegion
+from bindingmt.dock import dock
+from bindingmt.engines.vina import VinaBackend, _verify_pose_atom_order, _vina_box
+from bindingmt.preparation import assess_preparation, prepare_ligand, prepare_receptor
+from bmt_test_support.molecular_fixtures import named_181l_pair
+from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
 
 class DummyCustomProtocol(DockingProtocol):
@@ -188,7 +188,7 @@ def test_dock_top_level_api():
 
     protocol = VinaProtocol(exhaustiveness=1, n_poses=1, seed=42)
 
-    # Calling top-level dockingmt.dock
+    # Calling top-level bindingmt.dock
     result = dock(problem, protocol=protocol, backend='vina')
     assert isinstance(result, DockingResult)
     assert len(result) >= 1
@@ -212,7 +212,7 @@ def test_dock_invalid_backend():
 
 
 def test_rdkit_ligand_with_explicit_hydrogens_has_pose_source_map():
-    from dmt_test_support.qualify_named_types import TYPING
+    from bmt_test_support.qualify_named_types import TYPING
 
     backend = VinaBackend()
     if not backend.is_available:
@@ -281,7 +281,7 @@ def test_rdkit_ligand_with_explicit_hydrogens_has_pose_source_map():
             atom_type=True,
         )
     )
-    from molsysviewer_dockingmt.adapters.complex import build_docking_complex_system
+    from molsysviewer_bindingmt.adapters.complex import build_docking_complex_system
 
     complex_pose = build_docking_complex_system(
         problem.receptor_molsys, result.poses, partner=problem.partner_molsys
@@ -292,7 +292,7 @@ def test_rdkit_ligand_with_explicit_hydrogens_has_pose_source_map():
 
 
 def test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs():
-    from dmt_test_support.qualify_named_types import TYPING, explicit_source
+    from bmt_test_support.qualify_named_types import TYPING, explicit_source
 
     backend = VinaBackend()
     if not backend.is_available:

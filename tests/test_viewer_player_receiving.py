@@ -6,8 +6,8 @@ from copy import deepcopy
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from molsysviewer_dockingmt import ensure_runtime, render_search_domain
+import bindingmt as bmt
+from molsysviewer_bindingmt import ensure_runtime, render_search_domain
 
 
 @contextmanager
@@ -19,16 +19,16 @@ def _live_panels(monkeypatch):
     panels = []
     try:
         assert view.player.n_structures == 3
-        view.addons.enable('dockingmt')
+        view.addons.enable('bindingmt')
         runtime = ensure_runtime(view)
         # Controlled presentation records, not a redocking/geometry experiment.
-        runtime.result = dmt.DockingResult(
+        runtime.result = bmt.DockingResult(
             [
-                dmt.DockingPose(
+                bmt.DockingPose(
                     puw.quantity([[0, 0, 0]], 'angstrom'), pose_id='seventh', rank=7
                 ),
-                dmt.DockingPose(puw.quantity([[1, 0, 0]], 'angstrom')),
-                dmt.DockingPose(
+                bmt.DockingPose(puw.quantity([[1, 0, 0]], 'angstrom')),
+                bmt.DockingPose(
                     puw.quantity([[2, 0, 0]], 'angstrom'),
                     pose_id='first',
                     rank=1,
@@ -38,14 +38,14 @@ def _live_panels(monkeypatch):
         )
         render_search_domain(
             view,
-            dmt.BoxRegion(
+            bmt.BoxRegion(
                 center=puw.quantity([0, 0, 0], 'angstrom'),
                 lengths=puw.quantity([10, 10, 10], 'angstrom'),
             ),
         )
         published = {'explorer': [], 'domain': []}
         for name in published:
-            panel = view.addons.resolve_panel_widget('dockingmt', name)
+            panel = view.addons.resolve_panel_widget('bindingmt', name)
             panels.append(panel)
             original = panel.push_state
 
@@ -68,9 +68,9 @@ def live_panels(monkeypatch):
     def forbidden(*args, **kwargs):
         pytest.fail('Player/panel synchronization must not compute docking or RMSD.')
 
-    monkeypatch.setattr(dmt, 'dock', forbidden)
-    monkeypatch.setattr(dmt, 'score', forbidden)
-    monkeypatch.setattr(dmt.DockingResult, 'get_rmsds', forbidden)
+    monkeypatch.setattr(bmt, 'dock', forbidden)
+    monkeypatch.setattr(bmt, 'score', forbidden)
+    monkeypatch.setattr(bmt.DockingResult, 'get_rmsds', forbidden)
     with _live_panels(monkeypatch) as state:
         yield state
 

@@ -9,16 +9,16 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
-from dmt_test_support.problem_fixtures import _multi_structure_redocking_source
-from dmt_test_support.qualify_chemical_templates import snapshot
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+from bmt_test_support.problem_fixtures import _multi_structure_redocking_source
+from bmt_test_support.qualify_chemical_templates import snapshot
 
 
 def _box():
     source, _ = _multi_structure_redocking_source()
-    return dmt.BoxRegion.from_selection(
+    return bmt.BoxRegion.from_selection(
         source,
         selection=[2, 3],
         structure_indices=1,
@@ -43,14 +43,14 @@ def test_selection_recipe_retains_actual_axes_and_detaches_source_and_records(
     monkeypatch.setattr(msm, 'select', selected)
     with puw.context(standard_units=[unit, 'fs', 'coulomb', 'kJ/mol']):
         policy = puw.configure.report()
-        box = dmt.BoxRegion.from_selection(
+        box = bmt.BoxRegion.from_selection(
             source,
             selection=indices,
             structure_indices=1,
             padding=puw.quantity(2, 'angstrom'),
         )
         saved = box.to_dict()
-        recovered = dmt.BoxRegion.from_dict(json.loads(json.dumps(saved)))
+        recovered = bmt.BoxRegion.from_dict(json.loads(json.dumps(saved)))
         assert recovered.to_dict() == saved
         assert puw.configure.report() == policy
     recipe = box.derivation
@@ -88,7 +88,7 @@ def test_selection_recipe_retains_actual_axes_and_detaches_source_and_records(
 
 def test_multiple_requested_frames_keep_the_existing_first_returned_policy():
     source, coordinates = _multi_structure_redocking_source()
-    box = dmt.BoxRegion.from_selection(
+    box = bmt.BoxRegion.from_selection(
         source,
         selection=[2, 3],
         structure_indices=[1, 0],
@@ -112,7 +112,7 @@ def test_redocking_records_original_source_not_the_reindexed_temporary_view(kind
     if kind == 'file':
         source = msm.systems['alanine dipeptide']['alanine_dipeptide.h5msm']
         frame = 0
-    problem = dmt.DockingProblem.for_redocking(
+    problem = bmt.DockingProblem.for_redocking(
         source,
         receptor_selection=[0, 1],
         partner_selection=[2, 3],
@@ -135,16 +135,16 @@ def test_redocking_records_original_source_not_the_reindexed_temporary_view(kind
     )
     assert recipe['source']['fingerprint'] == expected
     saved = problem.to_dict()
-    restored = dmt.DockingProblem.from_dict(saved, receptor=source, partner=source)
+    restored = bmt.DockingProblem.from_dict(saved, receptor=source, partner=source)
     assert restored.search_domain.to_dict() == saved['search_domain']
 
 
 def test_explicit_and_legacy_boxes_keep_absent_derivation():
-    box = dmt.BoxRegion(puw.quantity([0, 0, 0], 'nm'), puw.quantity([2, 2, 2], 'nm'))
+    box = bmt.BoxRegion(puw.quantity([0, 0, 0], 'nm'), puw.quantity([2, 2, 2], 'nm'))
     assert box.derivation is None
     saved = box.to_dict()
     assert 'derivation' not in saved
-    assert dmt.BoxRegion.from_dict(saved).to_dict() == saved
+    assert bmt.BoxRegion.from_dict(saved).to_dict() == saved
 
 
 @pytest.mark.parametrize(
@@ -186,7 +186,7 @@ def test_malformed_or_changed_geometry_binding_is_rejected(damage):
     else:
         recipe['box']['center'][0] = float('nan')
     with pytest.raises(ArgumentError, match='derivation'):
-        dmt.BoxRegion.from_dict(saved)
+        bmt.BoxRegion.from_dict(saved)
 
 
 def test_mutated_live_geometry_cannot_retain_old_derivation():
@@ -213,7 +213,7 @@ def test_file_change_during_construction_is_not_silently_bound(tmp_path, monkeyp
 
     monkeypatch.setattr(msm, 'get', changed)
     with pytest.raises(ArgumentError, match='Source bytes changed'):
-        dmt.BoxRegion.from_selection(
+        bmt.BoxRegion.from_selection(
             source, selection=[2, 3], padding=puw.quantity(2, 'angstrom')
         )
 
@@ -226,7 +226,7 @@ def test_provider_selection_failure_propagates_without_geometry_fallback(monkeyp
 
     monkeypatch.setattr(msm, 'select', refuse)
     with pytest.raises(RuntimeError, match='provider selection refusal'):
-        dmt.BoxRegion.from_selection(source)
+        bmt.BoxRegion.from_selection(source)
 
 
 def test_backend_result_keeps_recipe_alongside_actual_projection_without_native_search(
@@ -267,11 +267,11 @@ def test_backend_result_keeps_recipe_alongside_actual_projection_without_native_
 
     monkeypatch.setattr(vina, 'Vina', FakeVina)
     box = _box()
-    result = dmt.dock(
-        dmt.DockingProblem(
+    result = bmt.dock(
+        bmt.DockingProblem(
             receptor=MINIMAL_REC_PDBQT, partner=MINIMAL_LIG_PDBQT, search_domain=box
         ),
-        dmt.VinaProtocol(exhaustiveness=1, n_poses=1, cpu=1),
+        bmt.VinaProtocol(exhaustiveness=1, n_poses=1, cpu=1),
     )
     saved = result.to_dict()
     recipe = box.derivation
@@ -282,21 +282,21 @@ def test_backend_result_keeps_recipe_alongside_actual_projection_without_native_
     expected = box.to_backend_box(unit='angstrom')
     np.testing.assert_allclose(backend['center'], expected['center'], rtol=0, atol=1e-6)
     assert (
-        dmt.DockingResult.from_dict(saved).provenance['search_domain']['derivation']
+        bmt.DockingResult.from_dict(saved).provenance['search_domain']['derivation']
         == recipe
     )
 
 
 def test_literal_input_records_actual_bytes_without_inventing_native_identity():
     text = 'pdbqt_text:' + MINIMAL_LIG_PDBQT
-    box = dmt.BoxRegion.from_selection(text, padding=puw.quantity(2, 'angstrom'))
+    box = bmt.BoxRegion.from_selection(text, padding=puw.quantity(2, 'angstrom'))
     assert box.derivation['source']['form'] == 'string:pdbqt_text'
     assert box.derivation['source']['fingerprint'] == {
         'kind': 'literal',
         'sha256': hashlib.sha256(text.encode()).hexdigest(),
     }
     assert box.derivation['structure_chemical_state'] is None
-    assert dmt.BoxRegion.from_dict(box.to_dict()).to_dict() == box.to_dict()
+    assert bmt.BoxRegion.from_dict(box.to_dict()).to_dict() == box.to_dict()
 
 
 def test_redocking_preserves_absent_padding_on_a_nonflat_source():
@@ -312,7 +312,7 @@ def test_redocking_preserves_absent_padding_on_a_nonflat_source():
             [[[0.0, 0, 0], [1.0, 0, 0], [0, 1.0, 0], [0, 0, 1.0]]], 'nm'
         ),
     )
-    problem = dmt.DockingProblem.for_redocking(
+    problem = bmt.DockingProblem.for_redocking(
         source, receptor_selection=[0], partner_selection=[1, 2, 3], padding=None
     )
     assert problem.search_domain.derivation['padding'] is None

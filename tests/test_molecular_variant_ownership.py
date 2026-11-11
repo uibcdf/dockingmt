@@ -8,16 +8,16 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.molecular_fixtures import declared_methanol
-from dmt_test_support.partial_charge_fixtures import atom_charges
-from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
-from dmt_test_support.qualify_named_types import CHARGE, TYPING
-from dmt_test_support.resource_fixtures import (
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.core.results import _molecular_atom_keys
+from bmt_test_support.molecular_fixtures import declared_methanol
+from bmt_test_support.partial_charge_fixtures import atom_charges
+from bmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from bmt_test_support.qualify_named_types import CHARGE, TYPING
+from bmt_test_support.resource_fixtures import (
     UnavailableResource as UnavailableResource,
 )
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.core.results import _molecular_atom_keys
 
 
 @pytest.fixture(params=[False, True], ids=['default', 'pm-coulomb'])
@@ -38,7 +38,7 @@ def source(unit_policy):
     return msm.build.assign_autodock_atom_types(charged, **TYPING)
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_prepared_variants_keep_independent_molecular_domains(source, prepare):
     original = snapshot(source)
     original_mechanics = detached_record(source.molecular_mechanics.to_dict())
@@ -87,13 +87,13 @@ def test_prepared_variants_keep_independent_molecular_domains(source, prepare):
 
 
 def test_reconstructed_poses_are_independent_of_each_other_and_retained_result(source):
-    prepared = dmt.prepare_ligand(source, selection='all')
+    prepared = bmt.prepare_ligand(source, selection='all')
     metadata = {
         'pose_atom_order': 'verified_pdbqt_order',
         'source_atom_keys': _molecular_atom_keys(prepared.source_molsys),
     }
     poses = [
-        dmt.DockingPose(
+        bmt.DockingPose(
             prepared.coordinates + puw.quantity(shift, 'angstrom'),
             scores={'control': float(shift)},
             rank=index + 1,
@@ -101,7 +101,7 @@ def test_reconstructed_poses_are_independent_of_each_other_and_retained_result(s
         )
         for index, shift in enumerate([0, 2])
     ]
-    result = dmt.DockingResult(poses)
+    result = bmt.DockingResult(poses)
     original_result = result.to_dict()
     original_preparation = deepcopy(prepared.to_dict())
     original_source = snapshot(prepared.source_molsys)
@@ -136,7 +136,7 @@ def test_reconstructed_poses_are_independent_of_each_other_and_retained_result(s
     assert result.to_dict() == original_result
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_failed_native_copy_does_not_publish_or_mutate_prepared_variants(
     source, prepare
 ):

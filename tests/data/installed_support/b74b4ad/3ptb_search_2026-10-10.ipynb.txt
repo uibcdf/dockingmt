@@ -274,7 +274,7 @@
     "import pandas as pd\n",
     "import molsysmt as msm\n",
     "import pyunitwizard as puw\n",
-    "import dockingmt as dmt\n",
+    "import bindingmt as bmt\n",
     "\n",
     "root = next(p for p in (Path.cwd(), *Path.cwd().parents) if (p/'devtools/qualify_3ptb_search.py').is_file())\n",
     "sys.path.insert(0, str(root))\n",
@@ -348,7 +348,7 @@
     }
    ],
    "source": [
-    "with TemporaryDirectory(prefix='dockingmt-3ptb-search-notebook-source-') as directory:\n",
+    "with TemporaryDirectory(prefix='bindingmt-3ptb-search-notebook-source-') as directory:\n",
     "    plain = Path(directory)/'3PTB.pdb'\n",
     "    with plain.open('wb') as output:\n",
     "        subprocess.run(['gzip','-dc',str(DATA/'3PTB.pdb.gz')], stdout=output, check=True)\n",
@@ -368,7 +368,7 @@
    "source": [
     "## Verify every saved returned pose under another unit policy\n",
     "\n",
-    "The helper selects the admitted nine observed identities, verifies original IDs/names/elements/residue identities, builds a heavy-only pose result, and calls public `dockingmt.evaluate_redocking`. Its positional RMSD is supplied by MolSysMT. The full thirteen-atom result and all five native energy components stay untouched. No general atom matcher or molecular geometry implementation is introduced downstream."
+    "The helper selects the admitted nine observed identities, verifies original IDs/names/elements/residue identities, builds a heavy-only pose result, and calls public `bindingmt.evaluate_redocking`. Its positional RMSD is supplied by MolSysMT. The full thirteen-atom result and all five native energy components stay untouched. No general atom matcher or molecular geometry implementation is introduced downstream."
    ]
   },
   {
@@ -829,8 +829,8 @@
     "run_rows = []\n",
     "with puw.context(standard_units=['pm','fs','K','mole','dalton','e','kJ/mol','degrees']):\n",
     "    for raw, measured in zip(searches['runs'], received['runs'], strict=True):\n",
-    "        result = dmt.DockingResult.from_dict(raw['result'])\n",
-    "        dmt.verify_captured_inputs(result.provenance['backend_artifacts'])\n",
+    "        result = bmt.DockingResult.from_dict(raw['result'])\n",
+    "        bmt.verify_captured_inputs(result.provenance['backend_artifacts'])\n",
     "        assert result.protocol_info == execution_protocol(raw).to_dict()\n",
     "        for role in ('receptor','partner'):\n",
     "            assert result.provenance['backend_artifacts'][role]['sha256'] == raw[f'{role}_pdbqt_sha256']\n",
@@ -3562,7 +3562,7 @@
    "source": [
     "## Human execution entry point and interpretation\n",
     "\n",
-    "The complete public-API composition is inspectable in `devtools/qualify_3ptb_search.py`: prepare once, authenticate the exact prior admission, project only the preparation-intent argument, construct `DockingProblem`, call `dockingmt.dock`, preserve every attempt/result, and evaluate each retained heavy identity through the public evaluator. To conduct a separate replication, restore the unchanged PDB with `gzip -dc` and run `python -m devtools.qualify_3ptb_search 3PTB.pdb --output /tmp/new-3ptb-replication.json.gz`. Use a new path and preserve its new producer identity. This notebook defaults to replaying evidence and does not repeat the registered searches.\n",
+    "The complete public-API composition is inspectable in `devtools/qualify_3ptb_search.py`: prepare once, authenticate the exact prior admission, project only the preparation-intent argument, construct `DockingProblem`, call `bindingmt.dock`, preserve every attempt/result, and evaluate each retained heavy identity through the public evaluator. To conduct a separate replication, restore the unchanged PDB with `gzip -dc` and run `python -m devtools.qualify_3ptb_search 3PTB.pdb --output /tmp/new-3ptb-replication.json.gz`. Use a new path and preserve its new producer identity. This notebook defaults to replaying evidence and does not repeat the registered searches.\n",
     "\n",
     "Both native-box arms have near-reference rank 1 in all six planned rows; the displaced-domain control has none among any returned poses. Most first-pose source-identity RMSDs are close to the declared 2 Å boundary, and the best returned RMSD may be lower. No post-outcome symmetry normalization or threshold adjustment is applied. ROOT orientation differs between arms, so this finite result does not isolate torsional flexibility as a mechanism.\n",
     "\n",
@@ -3572,9 +3572,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "DockingMT qualified Python 3.14",
+   "display_name": "BindingMT qualified Python 3.14",
    "language": "python",
-   "name": "dockingmt-3ptb-search"
+   "name": "bindingmt-3ptb-search"
   },
   "language_info": {
    "codemirror_mode": {

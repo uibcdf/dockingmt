@@ -13,7 +13,7 @@ dist/
 docs/_build/
 
 # Versioningit generated file
-dockingmt/_version.py
+bindingmt/_version.py
 
 # Administrative SDK and isolated parser tools
 .molsyssuite/

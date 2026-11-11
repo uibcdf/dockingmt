@@ -1,6 +1,6 @@
 ---
 summary: Select molecular states and record preparation decisions for docking
-issue: uibcdf/dockingmt#4
+issue: uibcdf/bindingmt#4
 status: partial
 opened: 2026-09-22
 closed:
@@ -14,15 +14,15 @@ supersedes: []
 
 # Select molecular states and record preparation decisions for docking
 
-**Reported:** 2026-09-22, from the MolSysMT–DockingMT Vina preparation and conversion review.
-**Status:** Partial; DockingMT Core MVP work.
+**Reported:** 2026-09-22, from the MolSysMT–BindingMT Vina preparation and conversion review.
+**Status:** Partial; BindingMT Core MVP work.
 
 ## Installed public nine-atom evaluation delivered — 2026-11-03
 
 [The registered evaluation](../validation/installed_3ptb_evaluation.md) completes
 seven exact cells in normal and pm/fs kernels, preserving all 5+4 full original
 poses. Provider selection/getters/extraction verify the declared nine-atom axis;
-fresh public coordinate-only DockingMT records avoid private metadata slicing
+fresh public coordinate-only BindingMT records avoid private metadata slicing
 and fabricated verified maps. Public evaluation/summary use MolSysMT RMSD and
 the registered <=2 Å positional criterion, without fit/symmetry or reranking.
 Full-population mismatch refuses before geometry. Native first/closest is about
@@ -138,7 +138,7 @@ scoring acceptance is explicitly retained in #33. #33 remains partial for that
 question and remaining input/reader profiles; #4 remains partial for general
 prepared-source/replay persistence. Native prepared inputs retain honest absent
 file fingerprints, with source binding established by the case bundle. No new
-molecular operation or snapshot is implemented downstream. DMT-043 records the
+molecular operation or snapshot is implemented downstream. BMT-043 records the
 bounded decision; visible C4/C6 remains deferred.
 
 ## Current acceptance audit — 2026-10-28
@@ -189,7 +189,7 @@ Selection and provenance for the initial protein–small-molecule workflow; chem
 
 ## Dependencies and risks
 
-Related tracked work: uibcdf/dockingmt#3
+Related tracked work: uibcdf/bindingmt#3
 Cross-component implementation links: uibcdf/molsysmt#217, uibcdf/molsysmt#218, uibcdf/molsysmt#220, uibcdf/molsysmt#221, uibcdf/molsysmt#222, uibcdf/molsysmt#223, uibcdf/molsysmt#229, uibcdf/molsysmt#230.
 New functionality requires tests of scientific semantics and documentation appropriate to its public surface.
 
@@ -235,7 +235,7 @@ uses the chosen structure for receptor and ligand extraction and the search box.
 A two-structure regression test gives the second structure a different position
 and chemical-state ID, then checks the selected coordinates, box containment,
 recorded state, and reconstruction. Single-structure input still selects index
-0 by default. This resolves the ambiguity within DockingMT; the broader issue
+0 by default. This resolves the ambiguity within BindingMT; the broader issue
 remains partial until validated preparation methods and their decisions can be
 recorded through the provider workflow.
 
@@ -265,7 +265,7 @@ is retained in the validation record. Ruff, indexes and diff checks pass.
 
 ## 2026-10-03 public preparation assessment
 
-`dockingmt.assess_preparation` now exposes the existing provisional preparation
+`bindingmt.assess_preparation` now exposes the existing provisional preparation
 classification before engine execution. Vina consumes the public operation and
 retains its bounded, detached `assessment_report` with stable reason codes and
 declared charge/type sources, preserving the existing provenance fields and
@@ -284,7 +284,7 @@ parameterization or scoring compatibility.
 ## 2026-10-04 explicit fixed-state H/charge stages
 
 The [bounded consumer contract](../validation/ligand_preparation_stages.md),
-tracked by dockingmt#41, adds opt-in provider option mappings to existing public
+tracked by bindingmt#41, adds opt-in provider option mappings to existing public
 `prepare_ligand`. MolSysMT H addition precedes named charges, defaults to strict
 attribute preservation and retains original reports/credit and composed input,
 expanded, prepared and written correspondence. Generated H has no original input

@@ -1,6 +1,6 @@
 ---
 summary: Report all-returned pose recovery independently of requested top-N.
-issue: uibcdf/dockingmt#61
+issue: uibcdf/bindingmt#61
 status: resolved
 opened: 2026-11-04
 closed: 2026-11-04
@@ -40,7 +40,7 @@ motivation, not a new calculation or evidence that one physical cause is known.
 
 Top-5 is not any-returned recovery when more poses exist. Failed cases are not
 observed nonrecovery, and no evaluated policy exists in an all-failure collection.
-No molecular provider gap is filled in DockingMT.
+No molecular provider gap is filled in BindingMT.
 
 ## Scope and exclusions
 
@@ -54,7 +54,7 @@ describes returned poses, not every internal Vina sample or predictive accuracy.
 Controls cover recovery beyond every requested N, positive/negative/empty/failure
 denominators, null-policy cases, detachment, fresh offline reading and unchanged
 compatibility. Relevant summary/evaluation tests and administrative gates pass.
-The public contract and DMT-038 document the additive field and scientific limits.
+The public contract and BMT-038 document the additive field and scientific limits.
 
 ## Initial source evidence
 
@@ -77,7 +77,7 @@ LegacyH5MSMWarning and one StructuralAttributeDropWarning. The source extension
 does not qualify a new installed/public artifact or molecular/scientific model.
 No original record, provider pin, dependency or installed receiver is changed.
 
-[The public contract](../validation/redocking_summary.md), DMT-038 and README
+[The public contract](../validation/redocking_summary.md), BMT-038 and README
 describe the additive schema-1.0 field and historical-absence semantics. Core
 status now names its original scientific/installed baseline separately from this
 source change. Administrative/committed-export checks and exact-source hosted

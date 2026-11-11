@@ -1,6 +1,6 @@
 ---
 summary: Complete the MolSysSuite governance baseline omitted from the initial seed.
-issue: uibcdf/dockingmt#1
+issue: uibcdf/bindingmt#1
 status: resolved
 opened: 2026-09-21
 closed: 2026-09-22
@@ -24,7 +24,7 @@ seed.
 
 Adopt the current central starter-kit surfaces selectively, preserving the frozen
 scientific documents and existing flat package layout. Register and synchronize every
-guide implied by DockingMT's declared shared-tool dependencies.
+guide implied by BindingMT's declared shared-tool dependencies.
 
 ## Why
 
@@ -53,7 +53,7 @@ remains tracked centrally by `uibcdf/molsyssuite#31`.
 
 ## Resolution
 
-DockingMT now carries the canonical identity badges, six registered read-only guides,
+BindingMT now carries the canonical identity badges, six registered read-only guides,
 the pinned MolSysSuite policy caller, the shared issue-backed reporting lifecycle and
 local guards for these surfaces. The CI retains the common quality job and uses one
 Conda/Mamba test topology on Python 3.11, 3.12 and 3.13. Exact compatible ArgDigest,

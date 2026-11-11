@@ -1,8 +1,8 @@
 # Saved-search seed, effort and ordering observations — 2026-11-05
 
-Owner: [DockingMT #67](https://github.com/uibcdf/dockingmt/issues/67).
+Owner: [BindingMT #67](https://github.com/uibcdf/bindingmt/issues/67).
 This is a retrospective descriptive analysis of frozen records, supporting
-audit E5/E6/Q2. The [prescription at d1435ff](https://github.com/uibcdf/dockingmt/blob/d1435ff8662787afa29798fc0824ac30d9d0c6b6/devguide/pending_proposals/describe_saved_search_variability.md)
+audit E5/E6/Q2. The [prescription at d1435ff](https://github.com/uibcdf/bindingmt/blob/d1435ff8662787afa29798fc0824ac30d9d0c6b6/devguide/pending_proposals/describe_saved_search_variability.md)
 precedes this new calculation; the original experiments remain historical.
 
 The principal observation is an ordering gap in 5X72 P59: at effort 8, both
@@ -47,7 +47,7 @@ with the separate 167/99 populations retained in every interpretation.
 
 ## Methods and controls
 
-The case-specific [reader](../../dmt_test_support/saved_search_variability.py)
+The case-specific [reader](../../bmt_test_support/saved_search_variability.py)
 uses saved numerical observations. It performs no molecular import, preparation,
 selection, correspondence calculation, RMSD measurement, search, scoring or
 reranking. Any future molecular operation remains provider-owned.
@@ -157,7 +157,7 @@ of recovered poses alone does not uniquely diagnose inadequate search.
 From the checkout, verification reads saved records and checks committed outputs:
 
 ```bash
-python -m dmt_test_support.saved_search_variability --check
+python -m bmt_test_support.saved_search_variability --check
 ```
 
 This recomputes the numerical JSON and run table, verifies original input and
@@ -170,7 +170,7 @@ An explicit write run regenerates only these derived outputs and requires
 Matplotlib (the retained rendering uses 3.11.2):
 
 ```bash
-python -m dmt_test_support.saved_search_variability
+python -m bmt_test_support.saved_search_variability
 ```
 
 The [20 controls](../../tests/test_saved_search_variability.py) cover fixed
@@ -187,7 +187,7 @@ with the owner root excluded from Python paths, using shared support's 578-file 
 Only the helper namespace is bound; the owner is absent from Python paths.
 Four shared integrity checks pass, and the staged resources and imports are
 retired. This is bounded helper/test receiving of the working tree, not a new
-installed DockingMT artifact or full installed-matrix qualification.
+installed BindingMT artifact or full installed-matrix qualification.
 
 Another 24 reporting, distribution and installed-support administrative controls
 pass with the accepted dependency SDK selected explicitly. Ruff, generated
@@ -199,7 +199,7 @@ No new scientific campaign, runtime API, public artifact or provider capability
 is qualified here. #33 retains independent-complex panel acceptance; its
 provider-dependent admission remains deferred. Any next experiment needs its
 own declared question, inputs, preparation, metric and budget. Preserve these
-historical outcomes when providers or DockingMT advance.
+historical outcomes when providers or BindingMT advance.
 
 The subsequent [#69 P59 diagnostic](p59_score_diagnostic_2026-11-05.md) reuses
 this unchanged numerical projection, binding it to the original archive before

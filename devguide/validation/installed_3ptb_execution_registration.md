@@ -1,7 +1,7 @@
 # Prospective installed 3PTB two-search demonstration
 
-Owner: [#4](https://github.com/uibcdf/dockingmt/issues/4), preparation coordination
-[#33](https://github.com/uibcdf/dockingmt/issues/33). Registered before execution
+Owner: [#4](https://github.com/uibcdf/bindingmt/issues/4), preparation coordination
+[#33](https://github.com/uibcdf/bindingmt/issues/33). Registered before execution
 on 2026-11-03. This document fixes a new workflow demonstration; it is not the
 original 24-search benchmark, the original five-pose human result, or a new
 scientific recovery/affinity experiment.

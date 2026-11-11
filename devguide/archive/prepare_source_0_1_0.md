@@ -1,6 +1,6 @@
 ---
 summary: Prepare the fixed 0.1.0 source milestone with truthful version, payload and gate evidence.
-issue: uibcdf/dockingmt#74
+issue: uibcdf/bindingmt#74
 status: resolved
 opened: 2026-11-05
 closed: 2026-11-11
@@ -16,7 +16,7 @@ supersedes: []
 
 ## Source milestone 0.1.0 delivered — 2026-11-11
 
-Published [lightweight tag **0.1.0**](https://github.com/uibcdf/dockingmt/tree/0.1.0)
+Published [lightweight tag **0.1.0**](https://github.com/uibcdf/bindingmt/tree/0.1.0)
 targets **1030a29025914e01dff09e5fc606ec73b90f4cd9**, tree
 `5f0c98567ae06263c1a43b9a24c63f7c81675539`; GitHub verifies a direct commit ref.
 [Source-event notice](https://github.com/uibcdf/molsyssuite/issues/189) records
@@ -31,7 +31,7 @@ support inputs. Three original cells/build/quality/policy stay attempt-1 evidenc
 Python 3.13 succeeds in run 43074858531/head 286f811 with the original candidate/
 file and unchanged scientific logic. Both failed pre-test attempts remain failed.
 
-The tag-specific [conformance check 43088048207](https://github.com/uibcdf/dockingmt/actions/runs/43088048207)
+The tag-specific [conformance check 43088048207](https://github.com/uibcdf/bindingmt/actions/runs/43088048207)
 passes on the exact tag target (job 130757511025); the [final receipt](../validation/data/current_0_1_0_tag_policy_20261111.json)
 retains its separate conformance/lint/format scope. #74 is complete and its
 report is archived. The tag target stays immutable.

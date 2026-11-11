@@ -9,18 +9,18 @@ import pytest
 import pyunitwizard as puw
 from molsysmt._private.smonitor import StructuralInconsistencyError
 
-from dmt_test_support.flexible_ligand_fixtures import _ligand
-from dmt_test_support.qualify_chemical_templates import snapshot
-from dmt_test_support.qualify_named_types import CHARGE, HYDROGEN, TYPING
-from dmt_test_support.torsion_reference_fixtures import (
+from bindingmt._private.smonitor import ArgumentError
+from bindingmt.preparation import prepare_ligand
+from bindingmt.preparation._temporary_torsions import build_torsion_tree
+from bmt_test_support.flexible_ligand_fixtures import _ligand
+from bmt_test_support.qualify_chemical_templates import snapshot
+from bmt_test_support.qualify_named_types import CHARGE, HYDROGEN, TYPING
+from bmt_test_support.torsion_reference_fixtures import (
     _atom_map,
     _reference,
     _source,
     _source_graph,
 )
-from dockingmt._private.smonitor import ArgumentError
-from dockingmt.preparation import prepare_ligand
-from dockingmt.preparation._temporary_torsions import build_torsion_tree
 
 BASELINE_PATH = (
     Path(__file__).parents[1] / 'devguide/validation/data/fragments/legacy_trees.json'
@@ -113,7 +113,7 @@ def test_original_matrix_preserves_tree_and_consumes_provider(case, monkeypatch)
     # Historical writer bytes stay in the immutable baseline; named typing adds
     # attribution and may change labels/H. Current compatibility is checked on
     # original source identities, branch endpoints and fragments below.
-    assert b'REMARK DOCKINGMT_ATOM_TYPES' in content
+    assert b'REMARK BINDINGMT_ATOM_TYPES' in content
 
     reference = _reference(case['case'], case['reference_pdbqt_sha256'])
     _, reference_atoms, _ = _atom_map(reference, molecule)

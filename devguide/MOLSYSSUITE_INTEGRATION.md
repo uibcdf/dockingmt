@@ -9,7 +9,7 @@ contracts.**
 > **MolSysSuite integration should happen through shared scientific concepts, not
 unnecessary hard coupling to sibling internals.**
 
-The components mature at different rates. DockingMT should define stable integration contracts while allowing adapters to evolve.
+The components mature at different rates. BindingMT should define stable integration contracts while allowing adapters to evolve.
 
 ## Conceptual map
 
@@ -18,7 +18,7 @@ The components mature at different rates. DockingMT should define stable integra
                           |
                           v
                   +---------------+
-       TopoMT --> |   DockingMT   | <-- PharmacophoreMT
+       TopoMT --> |   BindingMT   | <-- PharmacophoreMT
                   +---------------+
                           ^
                           |
@@ -41,7 +41,7 @@ PharmacophoreMT -> chemical interaction landscape
 ElastNetMT      -> flexibility landscape
                        |
                        v
-                  DockingMT
+                  BindingMT
                        |
                        v
                 pose landscape
@@ -63,7 +63,7 @@ Expected roles:
 - unit conventions;
 - trajectory/ensemble access in the future.
 
-DockingMT should prefer MolSysMT-native molecular concepts at its MolSysSuite-facing boundary while keeping backend conversion internal.
+BindingMT should prefer MolSysMT-native molecular concepts at its MolSysSuite-facing boundary while keeping backend conversion internal.
 
 ## TopoMT
 
@@ -98,7 +98,7 @@ SearchGuidance
 
 A future native engine may use this information directly.
 
-DockingMT must not encode TopoMT's evolving internal representation into its core.
+BindingMT must not encode TopoMT's evolving internal representation into its core.
 
 ## PharmacophoreMT
 
@@ -131,17 +131,17 @@ Potential roles:
 
 ## MolSysViewer
 
-Visualization should consume DockingMT scientific objects rather than become a storage layer for docking information.
+Visualization should consume BindingMT scientific objects rather than become a storage layer for docking information.
 
 See `MOLSYSVIEWER_INTEGRATION.md`.
 
 ## MolSys-AI
 
-Structured DockingMT objects should eventually allow natural-language/agentic composition and analysis. AI integration must operate on scientific objects and provenance rather than screen-scraping or scene interpretation.
+Structured BindingMT objects should eventually allow natural-language/agentic composition and analysis. AI integration must operate on scientific objects and provenance rather than screen-scraping or scene interpretation.
 
 ## Cross-package rule
 
-An evolving package may provide an adapter when its scientific model stabilizes. DockingMT's core should not need to change because an upstream package changes its internal class hierarchy.
+An evolving package may provide an adapter when its scientific model stabilizes. BindingMT's core should not need to change because an upstream package changes its internal class hierarchy.
 
 ## Integration tests
 
@@ -149,7 +149,7 @@ Maintain small cross-package scientific workflows rather than testing only objec
 
 ## Shared infrastructure
 
-DockingMT must use the current suite-wide contracts rather than invent local equivalents:
+BindingMT must use the current suite-wide contracts rather than invent local equivalents:
 
 - PyUnitWizard — physical quantities and dimensional safety;
 - ArgDigest — public argument contracts and normalization;
@@ -160,7 +160,7 @@ See `MOLSYSSUITE_CONTRACT.md`.
 
 ## Cross-component stewardship
 
-If DockingMT discovers a missing capability that belongs to MolSysMT or another suite
+If BindingMT discovers a missing capability that belongs to MolSysMT or another suite
 component, follow the central MolSysSuite cross-component feedback policy rather than
 silently copying or reimplementing sibling functionality.
 

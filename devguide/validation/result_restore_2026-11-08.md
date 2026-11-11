@@ -1,6 +1,6 @@
 # Bounded result restoration profile — 2026-11-08
 
-Owner: [DockingMT #28](../pending_proposals/review_extensibility_and_performance.md).
+Owner: [BindingMT #28](../pending_proposals/review_extensibility_and_performance.md).
 Execution base: `cadb16b146555faae0e0c87e1221e787797f2306`.
 Status: **bounded source profile received; #28 remains partial**. The original
 prescription below was registered before execution (comments 6731206101 and
@@ -12,7 +12,7 @@ original identities; this measures another operation.
 Does `DockingResult.from_dict` spend material time/memory copying complete pose
 records twice, once through its whole-result snapshot and once through each
 pose reader? First measure the unchanged runtime. Reuse the existing unshipped
-`dmt_test_support.benchmark_result_export._synthetic_result` builder without
+`bmt_test_support.benchmark_result_export._synthetic_result` builder without
 changing its helper, data or molecular definitions. These are deterministic
 serialization fixtures, not molecular systems or scientific cases.
 

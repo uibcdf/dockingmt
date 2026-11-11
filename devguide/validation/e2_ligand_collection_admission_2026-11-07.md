@@ -1,6 +1,6 @@
 # Prospective E2 ligand-collection admission — 2026-11-07
 
-Owner: [DockingMT #81](https://github.com/uibcdf/dockingmt/issues/81), under
+Owner: [BindingMT #81](https://github.com/uibcdf/bindingmt/issues/81), under
 the [small-collection contract](../archive/qualify_small_ligand_collection.md)
 and E2 in the [functional plan](../PRE_STABILIZATION_PLAN.md).
 
@@ -47,7 +47,7 @@ All paths below are relative to the repository root. The existing
 unmodified files to AutoDock-Vina commit
 `3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645`, under
 [Apache License 2.0](https://github.com/ccsb-scripps/AutoDock-Vina/blob/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/LICENSE).
-DockingMT's root license does not replace that attribution. These upstream
+BindingMT's root license does not replace that attribution. These upstream
 examples are reference inputs, not chemically validated ground truth.
 
 The exact upstream directory below `example/` is
@@ -114,7 +114,7 @@ rather than relabeling this joint-domain case.
 The next useful increment is admission of these two exact sources, before any
 new energy or search. The reviewed MolSysMT checkout is
 `9e1f1b1ad8bf09446374ab6f04ca7208e2717936`; a future receiving must seal its
-actual provider, optional RDKit, DockingMT and support-artifact identities. An
+actual provider, optional RDKit, BindingMT and support-artifact identities. An
 installed snapshot and historical helper are not interchangeable producers.
 
 Use the public supported composition, with each intermediate retained as a
@@ -179,7 +179,7 @@ cause is reviewed; it does not authorize repair or substitution.
 | H treatment | Retain the 15 indexed source H; no H generation proposed | Compatibility with virtual/implicit-H declarations pending |
 | Named charges/types | Fresh explicit Gasteiger-Marsili / AutoDock4 chemical-environment assignments if a later preparation is registered | No current assignments or claims of historical mechanics restored |
 | Torsion policy | Minimal rigid `active_torsion_bonds=[]` proposed for functional admission; historical two-cut policy remains historical | Must be fixed before preparation; no current prepared object |
-| Projection/export | Provider/DockingMT maps, merged-H accounting, finite charges/types, tree and actual PDBQT bytes/capture hash | All current preparation evidence pending |
+| Projection/export | Provider/BindingMT maps, merged-H accounting, finite charges/types, tree and actual PDBQT bytes/capture hash | All current preparation evidence pending |
 | Receptor/domain | Fixed external protein-only bytes / pinned joint domain | Custody identified; actual native capture pending |
 
 Named charges and types, if later registered, use public
@@ -273,7 +273,7 @@ evidence and immutable custody. The two-source admission alone closes none of
 those later gates. The independent scientific panel, E3/E4/E5, public delivery
 and functional pre-stable delivery, open-ended 0.x stabilization and 1.0.0
 readiness retain their own scope and evidence requirements under
-[DMT-048](../DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress).
+[BMT-048](../DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress).
 
 #81 owns this collection workflow. #33/#49 retain chemistry/provider integration
 ownership; #6/#17 retain the historical 5X72 scientific questions. Closed #36

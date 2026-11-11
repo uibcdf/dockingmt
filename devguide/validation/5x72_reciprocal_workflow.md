@@ -1,10 +1,10 @@
 # Fixed-P59 reciprocal control for P69 in 5X72
 
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17),
-[#6](https://github.com/uibcdf/dockingmt/issues/6) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33) own this bounded reciprocal
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17),
+[#6](https://github.com/uibcdf/bindingmt/issues/6) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33) own this bounded reciprocal
 of the [fixed-P69 control](5x72_occupancy_workflow.md). The
-[prespecified protocol](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6088973811)
+[prespecified protocol](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6088973811)
 precedes every new search and fixed evaluation. The
 [driver](../../devtools/qualify_5x72_reciprocal.py),
 [raw archive](data/5x72_reciprocal/audit_2026-10-09.json.gz),
@@ -29,7 +29,7 @@ reference: the independent heavy SDF and named PDB instance supply that referenc
 The existing finite occupancy helper now accepts either explicitly named 5X72
 companion and searched ligand; original defaults stay fixed P69/search P59.
 It reuses public MolSysMT fixed-state H addition, named charge/type assignment,
-prepared native composition and rigid/tree writing, plus DockingMT preparation,
+prepared native composition and rigid/tree writing, plus BindingMT preparation,
 search, fixed scoring and source-mapped measurement. No molecular writer,
 merger or matching algorithm is duplicated in the reciprocal driver.
 
@@ -168,7 +168,7 @@ new reciprocal helper digests separately. Historical producer Git blobs and
 separately preserved generated version/native bytes remain their own identities;
 the old archives, checkpoints and notebooks are unchanged.
 
-The refreshed bounded inventory reports clean/current DockingMT and clean
+The refreshed bounded inventory reports clean/current BindingMT and clean
 MolSysMT/ArgDigest/Viewer worktrees behind origin by 24/3/67 commits. They are
 explicitly preserved. Newer provider heads, new builds, full installed-artifact
 qualification and public/platform admission are not claimed. Portable guards use
@@ -182,7 +182,7 @@ recovery probability or convergence. #17/#6/#33 remain partial/open.
 
 ## Current-policy guard correction — 2026-10-09
 
-The original [CI 37990568260](https://github.com/uibcdf/dockingmt/actions/runs/37990568260)
+The original [CI 37990568260](https://github.com/uibcdf/bindingmt/actions/runs/37990568260)
 fails one reciprocal guard in each minor: 1,020 pass and the forced
 `future.infer_string=False` case raises `assignment destination is read-only`
 in the pinned provider's PDB COMPND name restoration. The guard unintentionally

@@ -1,6 +1,6 @@
 # Installed saved-result inspection
 
-Owner: [DockingMT #4](https://github.com/uibcdf/dockingmt/issues/4), following the
+Owner: [BindingMT #4](https://github.com/uibcdf/bindingmt/issues/4), following the
 [human workflow review](../human_workflow_review.md). The maintained
 [notebook](installed_result_inspection.ipynb) reads and inspects a caller-supplied
 DockingResult JSON record using existing public APIs. It requires no repository
@@ -8,14 +8,14 @@ imports, developer tools, data harness or molecular reconstruction.
 
 ## Use the notebook
 
-Select an ordinary-installed DockingMT Python environment satisfying its declared
+Select an ordinary-installed BindingMT Python environment satisfying its declared
 dependencies, with Jupyter tooling available to the kernel. Work in a directory
 of your choice with the notebook and your result file. Before starting Jupyter,
 set the two explicit inputs:
 
 ```bash
-export DOCKINGMT_RESULT_PATH="saved_result.json.gz"
-export DOCKINGMT_RESULT_SHA256="DIGEST_FROM_YOUR_TRUSTED_SOURCE"
+export BINDINGMT_RESULT_PATH="saved_result.json.gz"
+export BINDINGMT_RESULT_SHA256="DIGEST_FROM_YOUR_TRUSTED_SOURCE"
 jupyter lab
 ```
 
@@ -58,7 +58,7 @@ matrix. Existing package/admission work remains #30/#47.
    score-unit inference occurs; zero and unknown values are preserved.
 5. Refuse an unsupported schema and, when captures exist, a changed partner digest
    on detached copies. Catch the public SMonitor exception base and check its
-   structured diagnostic fields, without importing private DockingMT exceptions.
+   structured diagnostic fields, without importing private BindingMT exceptions.
 6. Repeat reading under a pm/fs/kJ policy and restore the caller's policy.
 7. Verify independent `to_dict` / `from_dict` roundtrip and unchanged input.
 8. Emit a compact receipt distinguishing recorded producer from current reader.
@@ -93,7 +93,7 @@ Both real-kernel profiles complete all **eight exact formatted source cells**:
 
 Execution starts outside the repository with no source/data harness or SDK in
 the configured kernel path. Only task Jupyter tooling supplements the independent
-scientific prefix. The original DockingMT wheel is reused: producer
+scientific prefix. The original BindingMT wheel is reused: producer
 `50d8e33f4ccb3354a8d27aea9fa9010c1b13e9a9`, version `0.0.0+225.g50d8e33`,
 SHA-256 `5a923951f5e1bec31f41329b7e62fc9a398286bfba10b6951e984c87b0676c98`.
 Its 63 payload files and loaded core/support/provider origins are checked before
@@ -108,7 +108,7 @@ members of the original case bundle; the [forensic recovery operation](saved_hum
 retains its stronger separate scope.
 
 Validation-only pre/post cells surround unchanged user cells. Required MolSysMT
-bootstrap import is recorded; its public molecular operations and DockingMT
+bootstrap import is recorded; its public molecular operations and BindingMT
 preparation/execution/RMSD/reconstruction/rendering calls are guarded afterward.
 No guarded operation is attempted. Developer-tool, optional engine, Viewer,
 RDKit and OpenMM imports remain blocked/absent during the receiving profiles.

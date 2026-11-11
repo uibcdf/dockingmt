@@ -9,8 +9,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_1iep_conformers import (
+import bindingmt as bmt
+from bmt_test_support.qualify_1iep_conformers import (
     BASELINE,
     BASELINE_SHA256,
     OUTPUT,
@@ -20,8 +20,8 @@ from dmt_test_support.qualify_1iep_conformers import (
     score_observation,
     xyz,
 )
-from dmt_test_support.qualify_1iep_representation import fixed_score, observe, sha
-from dmt_test_support.qualify_1iep_root_order import (
+from bmt_test_support.qualify_1iep_representation import fixed_score, observe, sha
+from bmt_test_support.qualify_1iep_root_order import (
     load_baseline as load_representation,
 )
 
@@ -33,9 +33,9 @@ def cases():
 
 def assert_metrics(run, reference_xyz, control):
     """Independently measure every saved pose against the ORIGINAL reference."""
-    result = dmt.DockingResult.from_dict(run['result'])
+    result = bmt.DockingResult.from_dict(run['result'])
     artifacts = result.provenance['backend_artifacts']
-    assert dmt.verify_captured_inputs(artifacts)
+    assert bmt.verify_captured_inputs(artifacts)
     assert artifacts['partner']['sha256'] == control['sha256']
     assert (
         base64.b64decode(artifacts['partner']['content_base64'])
@@ -116,7 +116,7 @@ def test_current_provider_version_annotations_do_not_require_historical_metadata
             remarks = [
                 json.loads(line.split(' ', 2)[2])
                 for line in control['pdbqt'].splitlines()
-                if line.startswith('REMARK DOCKINGMT_')
+                if line.startswith('REMARK BINDINGMT_')
             ]
             assert len(remarks) == 2
             assert all(remark['software']['molsysmt'] == '1.0.0' for remark in remarks)
@@ -138,7 +138,7 @@ def test_same_perturbed_geometry_scores_equally_for_both_written_orders(cases):
     )
     for order, pose in scores.items():
         history = pose['metadata']['scoring_history'][0]
-        assert dmt.verify_captured_inputs(history['backend_artifacts'])
+        assert bmt.verify_captured_inputs(history['backend_artifacts'])
         assert (
             history['backend_artifacts']['partner']['sha256']
             == case['controls'][order]['sha256']

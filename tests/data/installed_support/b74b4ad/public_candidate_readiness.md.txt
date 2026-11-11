@@ -1,7 +1,7 @@
 # Public dependency and candidate readiness
 
-Owners: [#47](https://github.com/uibcdf/dockingmt/issues/47) and qualification
-[#30](https://github.com/uibcdf/dockingmt/issues/30). Reviewed runtime/source
+Owners: [#47](https://github.com/uibcdf/bindingmt/issues/47) and qualification
+[#30](https://github.com/uibcdf/bindingmt/issues/30). Reviewed runtime/source
 baseline: `45fef6bc570c987922d64484780f0e9cf1a4f0b0`, 2026-11-03.
 The installed scientific workflow is delivered for its controlled profile;
 this review checks the separate public package boundary and prepares controls.
@@ -27,7 +27,7 @@ solve or qualify a clean dependency closure or another platform/minor.
 | Provider | Main-indexed version selected | Inspected file/profile | Actual disposition |
 | --- | --- | --- | --- |
 | MolSysMT | 0.23.0 | Linux ABI3 build 0, Python >=3.11,<3.15 | Required `read_poses` and public `chemical_states` namespace absent. |
-| MolSysViewer | 0.24.0 | Noarch build 1 | AddonPanelWidget and on/off-frame callbacks are present; installed DockingMT pairing remains unqualified. |
+| MolSysViewer | 0.24.0 | Noarch build 1 | AddonPanelWidget and on/off-frame callbacks are present; installed BindingMT pairing remains unqualified. |
 | ArgDigest | 0.17.0 | Noarch build 0 | Public decorator declaration present; this newer composition is not the controlled source pin. |
 | DepDigest | 0.15.1 | Noarch build 0 | Public decorator/lazy registry declarations present; full closure remains untested. |
 | PyUnitWizard | 0.29.0 | Noarch build 0 | Session/context/fast-track declarations present; full closure remains untested. |
@@ -41,15 +41,15 @@ records remain local, and their verified obsolete downloads are retired; final
 conclusions use the independently indexed files above. Do not turn a metadata
 summary into a current-public-availability or compatibility claim.
 
-Queried PyPI JSON endpoints return 404 for DockingMT and all six providers.
-The DockingMT Conda package endpoint also returns 404 and no DockingMT record
+Queried PyPI JSON endpoints return 404 for BindingMT and all six providers.
+The BindingMT Conda package endpoint also returns 404 and no BindingMT record
 appears in the three queried main indexes. These bounded observations are not
 the candidate-specific all-label coordinate-absence gate required at publication.
 Do not advertise a public pip installation route from private wheel success.
 
 ## Concrete MolSysMT delivery boundary
 
-Current DockingMT consumes:
+Current BindingMT consumes:
 
 - `molsysmt.form.string_pdbqt_text.read_poses` in the Vina receiving adapter;
 - `molsysmt.chemical_states.get_rotatable_bonds`, `get_covalent_blocks` and
@@ -76,7 +76,7 @@ reader/graph fallback or silently choose an unrelated public version.
 
 [Provider handoff on MolSysMT #334](https://github.com/uibcdf/molsysmt/issues/334#issuecomment-6620139147)
 requests a disposition for the future public artifact without expanding the
-frozen initial 1.0 scope or adding DockingMT as its release gate. A later additive
+frozen initial 1.0 scope or adding BindingMT as its release gate. A later additive
 release is a valid owner choice. Preserve existing staged/public bytes; no
 overwrite, forced release or new molecular implementation is requested.
 

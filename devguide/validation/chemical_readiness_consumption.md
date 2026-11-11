@@ -1,10 +1,10 @@
 # Consuming stored chemical readiness evidence
 
-DockingMT preparation now consumes public
+BindingMT preparation now consumes public
 `msm.physchem.get_chemical_readiness`, implemented by MolSysMT
 [#217](https://github.com/uibcdf/molsysmt/issues/217). Consumer ownership remains
-under DockingMT [#5](https://github.com/uibcdf/dockingmt/issues/5) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33). The
+under BindingMT [#5](https://github.com/uibcdf/bindingmt/issues/5) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33). The
 [executed notebook](chemical_readiness_consumption.ipynb) preserves examples and
 the [raw preparation profile](data/readiness/preparation_profile.json).
 
@@ -43,7 +43,7 @@ hydrogen inventory nor an instruction to add H atoms. The summary has no univers
 `ready` flag. Provider failures propagate; there is no fallback audit.
 
 Caffeine illustrates the distinction: its SDF has formal charges and complete
-connectivity, while current DockingMT preparation still uses zero-placeholder
+connectivity, while current BindingMT preparation still uses zero-placeholder
 partial charges and heuristic AutoDock types. The default Vina rejection remains
 in force. Explicit exploratory opt-in remains provisional, and its saved-result
 provenance retains the coverage summary. External prepared PDBQT remains unassessed.
@@ -66,7 +66,7 @@ read-only `git archive` of the exact provider commit under `/tmp`, selected thro
 The notebook and benchmark record the imported path and SHA-256 of the audit
 implementation (`62b715f2dc63dbee6e4bfd79437b1ed61e82e144e80ef35c88b4878bc9747540`).
 
-Development uses `molsyssuite@uibcdf_3.14`, Python 3.14.7 and Vina 1.2.7; DockingMT
+Development uses `molsyssuite@uibcdf_3.14`, Python 3.14.7 and Vina 1.2.7; BindingMT
 remains installed editable. Seven new consumer cases cover both preparators,
 pre-projection counts, compact JSON serialization, incomplete PDB chemistry,
 detached summaries/source immutability, structure-assigned partial formal charges,

@@ -9,8 +9,8 @@ import pytest
 import pyunitwizard as puw
 from vina import Vina
 
-from dmt_test_support.molecular_fixtures import named_181l_pair
-from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from bmt_test_support.molecular_fixtures import named_181l_pair
+from bmt_test_support.qualify_chemical_templates import detached_record, snapshot
 
 
 @pytest.fixture(scope='module')

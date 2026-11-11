@@ -7,11 +7,10 @@ from contextlib import nullcontext
 from copy import deepcopy
 from pathlib import Path
 
+import dockingmt as dmt
 import smonitor
 from smonitor.handlers.memory import MemoryHandler
 from smonitor.integrations import CatalogException
-
-import dockingmt as dmt
 
 
 class ProviderFailure(CatalogException):

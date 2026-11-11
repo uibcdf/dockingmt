@@ -1,6 +1,6 @@
 # E1 public-workflow and acceptance review — 2026-11-06
 
-Owner: [DockingMT #78](https://github.com/uibcdf/dockingmt/issues/78).
+Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
 This is a static API/evidence review of unchanged runtime
 `2fda6238e6b1cb3742f5d30b8ed3af699f9ed748`, following the
 [private installed receiving](e1_installed_receiving_2026-11-06.md).
@@ -27,15 +27,15 @@ that a user can execute the missing route.
 
 ## What the public surface already provides
 
-The [scoring entry point](../../dockingmt/score.py) evaluates one prepared
+The [scoring entry point](../../bindingmt/score.py) evaluates one prepared
 conformation and returns a detached pose. The
-[adapter](../../dockingmt/engines/_vina_scoring.py) rejects geometry/state/name
+[adapter](../../bindingmt/engines/_vina_scoring.py) rejects geometry/state/name
 conflicts before native setup and retains actual submitted inputs, settings,
 references, prior scores and new histories. Two calls and a serial loop suffice
 when each original pose already has a matching prepared problem. No additional
 batch API is established as necessary by this review.
 
-The public [pose/result operations](../../dockingmt/core/results.py) supply
+The public [pose/result operations](../../bindingmt/core/results.py) supply
 reconstruction, persistence and conservative ranking. Their boundaries matter:
 
 - `to_molecular_system(source)` requires a verified map and delegates copying,
@@ -77,7 +77,7 @@ Receive one maintained example of the following actual user task under #78:
    separate study report rather than pose ranks.
 
 Prefer an existing supported public composition. If this concrete task reveals
-a repeated missing DockingMT record/admission operation, design only that small
+a repeated missing BindingMT record/admission operation, design only that small
 operation with its inputs, outputs, refusals and persistence contract. Molecular
 tools remain provider-owned. Do not turn the finite notebook reader into a
 generic API by removing its trusted roots or hard-coded case checks, or require

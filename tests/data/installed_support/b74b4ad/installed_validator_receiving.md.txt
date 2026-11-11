@@ -1,12 +1,12 @@
 # Installed import-root validator receiving — 2026-11-04
 
-Owner: [DockingMT #47](https://github.com/uibcdf/dockingmt/issues/47);
-qualification coordination: [#30](https://github.com/uibcdf/dockingmt/issues/30).
+Owner: [BindingMT #47](https://github.com/uibcdf/bindingmt/issues/47);
+qualification coordination: [#30](https://github.com/uibcdf/bindingmt/issues/30).
 Shared operation: [MolSysSuite #110](https://github.com/uibcdf/molsyssuite/issues/110).
 
 The shared verifier from `95f693be10c9205ab9b912cb53453710a207bf45`
-passes bounded receiving against the retained actual private DockingMT wheel.
-It infers both `dockingmt` and `molsysviewer_dockingmt` from the existing resource
+passes bounded receiving against the retained actual private BindingMT wheel.
+It infers both `bindingmt` and `molsysviewer_bindingmt` from the existing resource
 inventory, clears inherited pytest source paths and rejects loaded source
 modules or contaminated package search paths. No local replacement is added.
 

@@ -1,15 +1,15 @@
 # Public exception namespace and API reference
 
-Owners: [DockingMT #94](https://github.com/uibcdf/dockingmt/issues/94),
-[#28](https://github.com/uibcdf/dockingmt/issues/28) and
-[#19](https://github.com/uibcdf/dockingmt/issues/19).
+Owners: [BindingMT #94](https://github.com/uibcdf/bindingmt/issues/94),
+[#28](https://github.com/uibcdf/bindingmt/issues/28) and
+[#19](https://github.com/uibcdf/bindingmt/issues/19).
 Registered task: 2026-11-08; completed source receiving: 2026-11-09.
 Execution base: `457eb090f0e36b6d2b34e1b7d90cbab4d43a4c00`, with frozen
 additive source/test inputs. No molecular or engine calculation is required.
 
 ## Delivered behavior
 
-`dockingmt.exceptions` exposes explicit aliases to the existing 13 local catalog
+`bindingmt.exceptions` exposes explicit aliases to the existing 13 local catalog
 exception classes. Root import exposes the module and adds it to `__all__`.
 Class identities, implementation paths, inheritance, codes, context, causes and
 provider/native behavior remain intact. No new class, diagnostic registration,
@@ -36,14 +36,14 @@ neither rebuilt nor relabelled by this increment.
 
 [The public consumer guard](../../tests/test_public_exceptions.py) contains
 12 cases. Seven actual record/protocol/domain/outcome/aggregation/dock failures
-are caught through public `ArgumentError`, preserving DMT-E002 and field context.
-A refused viewer position preserves its local/native hierarchy and DMT-E007
+are caught through public `ArgumentError`, preserving BMT-E002 and field context.
+A refused viewer position preserves its local/native hierarchy and BMT-E007
 before viewer construction. A unit-provider ValueError retains its exact cause;
 MemoryError, KeyboardInterrupt and SystemExit retain exact identity. Controls
 inject failures rather than exhausting memory or invoking a molecular engine.
 
 The original source without the namespace records **12 failures/zero passes**,
-all missing `dockingmt.exceptions`. Final complete selections pass **251 normal,
+all missing `bindingmt.exceptions`. Final complete selections pass **251 normal,
 then 251 pm/fs**, zero failures/errors/skips/deselections, using unchanged old
 tests and the same final new guard. The selection is:
 
@@ -102,7 +102,7 @@ outcomes and exact aliases. It removes only the new root import/export and
 recovers the original executable AST. The private implementation stays byte
 identical. Removing only the new runtime member recovers the complete original
 resource descriptor, including every support hash. The reader imports no
-DockingMT/molecular package and replays no tests or snippets.
+BindingMT/molecular package and replays no tests or snippets.
 
 | Evidence | Members | Manifest SHA-256 |
 | --- | --- | --- |

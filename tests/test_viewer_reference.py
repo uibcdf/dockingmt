@@ -7,9 +7,9 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dockingmt.core import DockingPose, DockingResult
-from dockingmt.core.results import _molecular_atom_keys
-from molsysviewer_dockingmt import (
+from bindingmt.core import DockingPose, DockingResult
+from bindingmt.core.results import _molecular_atom_keys
+from molsysviewer_bindingmt import (
     build_docking_complex_system,
     build_docking_reference_system,
     ensure_runtime,
@@ -81,7 +81,7 @@ def test_mismatched_reference_rejected_before_scene_changes(example):
     target = SimpleNamespace(load=lambda *args, **kwargs: calls.append(kwargs))
     with pytest.raises(ValueError) as caught:
         render_docking_result(target, result, receptor, partner, reference)
-    assert caught.value.code == 'DMT-E005'
+    assert caught.value.code == 'BMT-E005'
     assert caught.value.extra['role'] == 'reference'
     assert caught.value.extra['expected'] == [1, 3]
     assert caught.value.extra['observed'] == 2
@@ -95,7 +95,7 @@ def test_multiframe_receptor_is_not_silently_truncated(example):
     receptor = msm.extract(receptor, structure_indices=[0, 0])
     with pytest.raises(ValueError) as caught:
         build_docking_complex_system(receptor, result.poses, partner)
-    assert caught.value.code == 'DMT-E005'
+    assert caught.value.code == 'BMT-E005'
     assert caught.value.extra['role'] == 'receptor'
     assert caught.value.extra['observed'] == 2
 
@@ -106,7 +106,7 @@ def test_multiframe_reconstructed_pose_is_rejected(example):
     pose = SimpleNamespace(to_molecular_system=lambda source: trajectory)
     with pytest.raises(ValueError) as caught:
         build_docking_complex_system(receptor, [pose], partner)
-    assert caught.value.code == 'DMT-E005'
+    assert caught.value.code == 'BMT-E005'
     assert caught.value.extra['role'] == 'reconstructed pose'
     assert caught.value.extra['observed'] == 2
 
@@ -242,8 +242,8 @@ def test_real_viewer_reference_regions_frames_visibility_and_reload(
 def test_reload_without_optional_inputs_releases_old_reference_and_domain(example):
     import molsysviewer as msv
 
-    from dockingmt import BoxRegion
-    from molsysviewer_dockingmt import render_search_domain
+    from bindingmt import BoxRegion
+    from molsysviewer_bindingmt import render_search_domain
 
     receptor, partner, result = example
     target = msv.MolSysView()
@@ -257,7 +257,7 @@ def test_reload_without_optional_inputs_releases_old_reference_and_domain(exampl
             ),
         )
         assert target.regions.contains('reference_ligand')
-        assert target.shapes.contains('dockingmt:search_domain')
+        assert target.shapes.contains('bindingmt:search_domain')
         render_docking_result(target, result, receptor, partner)
         runtime = ensure_runtime(target)
         assert runtime.reference is None
@@ -265,6 +265,6 @@ def test_reload_without_optional_inputs_releases_old_reference_and_domain(exampl
         assert runtime.search_domain is None
         assert runtime.domain_layers == []
         assert not target.regions.contains('reference_ligand')
-        assert not target.shapes.contains('dockingmt:search_domain')
+        assert not target.shapes.contains('bindingmt:search_domain')
     finally:
         target.close()

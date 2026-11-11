@@ -8,8 +8,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 DATA = Path(__file__).resolve().parents[1] / 'devguide/validation/data/audit'
 KINDS = ['standalone', 'docking', 'scored_collection']
@@ -22,10 +22,10 @@ def _records(kind):
     )
     record = json.loads((DATA / filename).read_text())
     if kind == 'standalone':
-        return record, record, dmt.audit_pose
+        return record, record, bmt.audit_pose
     if kind == 'scored_collection':
-        record = dmt.DockingResult([dmt.DockingPose.from_dict(record)]).to_dict()
-    return record, record['poses'][0], dmt.audit_result
+        record = bmt.DockingResult([bmt.DockingPose.from_dict(record)]).to_dict()
+    return record, record['poses'][0], bmt.audit_result
 
 
 @pytest.mark.parametrize('kind', KINDS)
@@ -42,7 +42,7 @@ def test_invalid_current_rank_is_reported_without_coercion(kind, rank):
     )
     assert repr(record) == before
     with pytest.raises(ArgumentError):
-        dmt.DockingPose.from_dict(pose)
+        bmt.DockingPose.from_dict(pose)
 
 
 @pytest.mark.parametrize('kind', KINDS)
@@ -60,7 +60,7 @@ def test_invalid_current_identity_is_bounded_and_field_specific(kind, field, val
     )
     assert repr(record) == before
     with pytest.raises(ArgumentError):
-        dmt.DockingPose.from_dict(pose)
+        bmt.DockingPose.from_dict(pose)
 
 
 @pytest.mark.parametrize(
@@ -85,7 +85,7 @@ def test_malformed_history_is_rejected_before_relational_comparison(field, value
     assert report['status'] == 'inconsistent'
     assert repr(record) == before
     with pytest.raises(ArgumentError):
-        dmt.DockingResult.from_dict(record)
+        bmt.DockingResult.from_dict(record)
 
 
 @pytest.mark.parametrize('field', IDS)
@@ -103,13 +103,13 @@ def test_numpy_integral_rank_preserves_the_valid_report(kind):
     baseline = audit(record)
     pose['rank'] = np.int64(pose['rank'])
     assert audit(record) == baseline
-    assert type(dmt.DockingPose.from_dict(pose).rank) is int
+    assert type(bmt.DockingPose.from_dict(pose).rank) is int
 
 
 @pytest.mark.parametrize('collection', [False, True])
 @pytest.mark.parametrize('field', ['rank', *IDS])
 def test_unknown_optional_declarations_remain_unknown(collection, field):
-    pose = dmt.DockingPose(
+    pose = bmt.DockingPose(
         puw.quantity([[1, 2, 3]], 'nm'),
         rank=1,
         pose_id='pose',
@@ -118,11 +118,11 @@ def test_unknown_optional_declarations_remain_unknown(collection, field):
     )
     setattr(pose, field, None)
     wire = pose.to_dict()
-    record = dmt.DockingResult([pose]).to_dict() if collection else wire
+    record = bmt.DockingResult([pose]).to_dict() if collection else wire
     before = deepcopy(record)
-    report = (dmt.audit_result if collection else dmt.audit_pose)(record)
+    report = (bmt.audit_result if collection else bmt.audit_pose)(record)
     assert report['status'] == 'incomplete'
-    assert dmt.DockingPose.from_dict(wire).to_dict()[field] is None
+    assert bmt.DockingPose.from_dict(wire).to_dict()[field] is None
     assert record == before
 
 
@@ -131,12 +131,12 @@ def test_unknown_optional_declarations_remain_unknown(collection, field):
 def test_existing_string_content_admission_is_not_tightened(field, value):
     _, pose, _ = _records('standalone')
     pose[field] = value
-    assert dmt.DockingPose.from_dict(pose).to_dict()[field] == value
+    assert bmt.DockingPose.from_dict(pose).to_dict()[field] == value
 
 
 def test_unknown_historical_identity_and_rank_are_not_invented():
     record, _, audit = _records('docking')
-    record = dmt.DockingResult.from_dict(record).to_dict()
+    record = bmt.DockingResult.from_dict(record).to_dict()
     pose = record['poses'][0]
     history = record['provenance']['ranking_history'][-1]
     for field in ['rank', *IDS]:
@@ -145,7 +145,7 @@ def test_unknown_historical_identity_and_rank_are_not_invented():
         pose[field] = None
     before = deepcopy(record)
     assert audit(record)['status'] == 'incomplete'
-    assert dmt.DockingResult.from_dict(record).to_dict() == record
+    assert bmt.DockingResult.from_dict(record).to_dict() == record
     assert record == before
 
 

@@ -1,6 +1,6 @@
 # Panel receptor-state reference receiving — 2026-11-08
 
-Owner: [DockingMT #33](../pending_proposals/validate_native_molsysmt_formats.md),
+Owner: [BindingMT #33](../pending_proposals/validate_native_molsysmt_formats.md),
 with [#49](../pending_proposals/retire_general_molecular_operations.md).
 Starting consumer checkpoint: `b014b2598a1194eaee51c139e105e00ee259758a`.
 Original execution status: **three whole reference selections FAIL; no receptor or docking
@@ -267,7 +267,7 @@ recovered canonical `string`. Require exact equality of their values, null masks
 and every other column field; every other component, chemical, history, topology
 and structural-count field remains exact. Preserve and publish every descriptor
 change; no native object/table, saved snapshot, matcher or codec is normalized
-in DockingMT. These are bounded receiving assertions on provider-produced records.
+in BindingMT. These are bounded receiving assertions on provider-produced records.
 
 The original strict-annotation selections remain FAIL. The new acceptance is
 the full declared coordinate-free chemical reference with the provider's named

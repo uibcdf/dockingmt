@@ -1,11 +1,11 @@
 # Source-free installed 1IEP replay — 2026-11-07
 
-Owner: [DockingMT #83](../archive/qualify_independent_installed_reproduction.md).
+Owner: [BindingMT #83](../archive/qualify_independent_installed_reproduction.md).
 Registered before execution. Initial outcome: **unexecuted**.
 
 ## Source admission and actual retained inputs
 
-The existing `dmt_test_support.validate_1iep_pdbqt._source_revision` assumes its
+The existing `bmt_test_support.validate_1iep_pdbqt._source_revision` assumes its
 staging parent contains both the runtime package and a Git checkout. It therefore
 cannot identify the actually imported installed core. Reuse the already received
 `redocking_181l` attribution for imported runtime/helper bytes and optional shared
@@ -136,7 +136,7 @@ exit status agree, with zero skips; actual local Pytest Receptor version is 1.2.
 Two added parameterized guards cover relocation/no Git and helper-byte mutation.
 Real molecular calls and Vina import stay forbidden. No runtime/core/addon file
 changes; the support declaration updates only
-`dmt_test_support/validate_1iep_pdbqt.py` to SHA-256
+`bmt_test_support/validate_1iep_pdbqt.py` to SHA-256
 `f94d01106ebc9df99a0c6032d4092577b2139271a8614823f2faeeddd41ff1a7`.
 Thirty helper/564 historical data targets and all original producers remain.
 

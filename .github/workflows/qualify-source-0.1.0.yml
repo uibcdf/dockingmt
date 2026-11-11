@@ -75,7 +75,7 @@ jobs:
       CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER: /usr/bin/gcc
       EXPECTED_WHEEL_SHA256: ${{ needs.build.outputs.wheel_sha256 }}
       EXPECTED_PYTHON: ${{ matrix.python }}
-      DOCKINGMT_SUITE_ROOT: ${{ github.workspace }}/.molsyssuite/source-0.1.0-hosted/dependency-sdk
+      BINDINGMT_SUITE_ROOT: ${{ github.workspace }}/.molsyssuite/source-0.1.0-hosted/dependency-sdk
     steps:
       - uses: actions/checkout@v6
         with:
@@ -145,7 +145,7 @@ jobs:
           python -m pip install --no-deps --no-clean \
             "$task_root/argdigest" "$task_root/molsysmt" "$task_root/molsysviewer"
           python -m pip install --no-index --no-deps --no-compile \
-            "$task_root/wheels/dockingmt-0.1.0-py3-none-any.whl"
+            "$task_root/wheels/bindingmt-0.1.0-py3-none-any.whl"
           python -m pip install --target "$task_root/candidate/.molsyssuite-tools" \
             "PyYAML==6.0.3" "Jinja2>=3,<4" "packaging>=24"
       - name: Verify the declared source context and actual dependency bounds

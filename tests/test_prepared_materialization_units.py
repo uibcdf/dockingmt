@@ -7,9 +7,9 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_chemical_templates import snapshot
-from dmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
+import bindingmt as bmt
+from bmt_test_support.qualify_chemical_templates import snapshot
+from bmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
 
 
 def prepared_control(prepare):
@@ -17,12 +17,12 @@ def prepared_control(prepare):
         msm.build.assign_partial_charges(explicit_source('CCCCCC'), **CHARGE), **TYPING
     )
     options = (
-        {'active_torsion_bonds': [(1, 2)]} if prepare is dmt.prepare_ligand else {}
+        {'active_torsion_bonds': [(1, 2)]} if prepare is bmt.prepare_ligand else {}
     )
     return prepare(source, selection='all', **options)
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 @pytest.mark.parametrize('preparation_unit', ['nm', 'angstrom', 'pm'])
 @pytest.mark.parametrize('reconstruction_unit', ['nm', 'angstrom', 'pm'])
 def test_native_copy_preserves_unchanged_bits_and_transports_explicit_edits(
@@ -69,7 +69,7 @@ def test_native_copy_preserves_unchanged_bits_and_transports_explicit_edits(
     assert snapshot(source) == original and snapshot(returned) == original
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 @pytest.mark.parametrize('operation', ['copy', 'read', 'set'])
 def test_native_materialization_keeps_provider_failure_identity(
     prepare, operation, monkeypatch

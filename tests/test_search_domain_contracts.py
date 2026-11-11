@@ -3,8 +3,8 @@ import pytest
 import pyunitwizard as puw
 from argdigest import UnknownArgumentError
 
-from dockingmt import BoxRegion
-from dockingmt._private.smonitor import ArgumentError
+from bindingmt import BoxRegion
+from bindingmt._private.smonitor import ArgumentError
 
 
 @pytest.mark.parametrize('argument', ['center', 'lengths', 'size'])
@@ -17,7 +17,7 @@ def test_box_rejects_nonfinite_geometry(argument, invalid):
     kwargs[argument] = puw.quantity([1, invalid, 1], 'nm')
     with pytest.raises(ArgumentError) as caught:
         BoxRegion(**kwargs)
-    assert caught.value.code == 'DMT-E002'
+    assert caught.value.code == 'BMT-E002'
     assert caught.value.extra['arg_name'] == argument
 
 

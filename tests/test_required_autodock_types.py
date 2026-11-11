@@ -6,14 +6,14 @@ import molsysmt as msm
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
-from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
-from dmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
+from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+from bmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from bmt_test_support.qualify_named_types import CHARGE, TYPING, explicit_source
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 @pytest.mark.parametrize(
     'input_kind', ['untyped', 'charged', 'bare_column', 'native_bare_column']
 )
@@ -66,9 +66,9 @@ def test_automatic_vina_cannot_bypass_missing_types(
     source = explicit_source('CN')
     inputs = {'receptor': MINIMAL_REC_PDBQT, 'partner': MINIMAL_LIG_PDBQT}
     inputs[role] = source
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         **inputs,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([10, 10, 10], 'angstrom')
         ),
     )
@@ -81,14 +81,14 @@ def test_automatic_vina_cannot_bypass_missing_types(
     with pytest.raises(
         ArgumentError, match='Named MolSysMT AutoDock4 types are required'
     ):
-        dmt.dock(
+        bmt.dock(
             problem,
-            dmt.VinaProtocol(cpu=1, allow_provisional_preparation=allow_provisional),
+            bmt.VinaProtocol(cpu=1, allow_provisional_preparation=allow_provisional),
         )
     assert snapshot(source) == before
 
 
-@pytest.mark.parametrize('prepare', [dmt.prepare_ligand, dmt.prepare_receptor])
+@pytest.mark.parametrize('prepare', [bmt.prepare_ligand, bmt.prepare_receptor])
 def test_explicit_provider_choice_succeeds_without_charge_or_h_calculation(
     prepare, monkeypatch
 ):
@@ -120,5 +120,5 @@ def test_explicit_provider_choice_succeeds_without_charge_or_h_calculation(
     assert prepared.atom_types == ['C', 'NA', 'HD', 'HD']
     assert prepared.metadata['atom_type_source'] == 'molsysmt_named_autodock4'
     assert prepared.metadata['charge_source'] == 'source_partial_charge'
-    assert dmt.assess_preparation(prepared)['provisional_reason_codes'] == []
+    assert bmt.assess_preparation(prepared)['provisional_reason_codes'] == []
     assert snapshot(source) == before

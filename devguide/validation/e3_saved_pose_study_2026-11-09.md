@@ -1,6 +1,6 @@
 # E3 saved-pose comparison and clustering
 
-Owner: [DockingMT #79](https://github.com/uibcdf/dockingmt/issues/79).
+Owner: [BindingMT #79](https://github.com/uibcdf/bindingmt/issues/79).
 Prospective registration: 2026-11-09, issue comment 6746958468; source
 `ae0db98560f66ac6be7a933fb053f6e1e9917d99`, editable MolSysMT
 `efbe67e1c6042078144bce1db24aa80bb565dbd2`, unchanged native SHA-256
@@ -152,7 +152,7 @@ No scientific record or original matrix digest is rewritten.
 
 This receives **#79's bounded existing-P59 workflow**, alongside the unchanged
 complete analytic/adverse geometry receiving and final public-0.6 reference
-prerequisite. No new DockingMT runtime/helper/test or provider algorithm is
+prerequisite. No new BindingMT runtime/helper/test or provider algorithm is
 needed: consumer selection/provenance orchestrates supported public tools.
 Preserve both failed whole normal selections, the setup failure, all old E3
 failures, initial weaker reference seals and distinct original producers.

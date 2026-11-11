@@ -1,6 +1,6 @@
 ---
 summary: E3 reference readback omits explicit mechanical parameters and assignment evidence.
-issue: uibcdf/dockingmt#96
+issue: uibcdf/bindingmt#96
 status: resolved
 opened: 2026-11-09
 closed: 2026-11-09

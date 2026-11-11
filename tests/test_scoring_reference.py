@@ -10,8 +10,8 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import ArgumentError
+import bindingmt as bmt
+from bindingmt._private.smonitor import ArgumentError
 
 
 @pytest.fixture
@@ -48,7 +48,7 @@ def record(legacy_record):
 
 def test_legacy_reference_stays_uninterpreted(legacy_record):
     before = deepcopy(legacy_record)
-    report = dmt.audit_pose(legacy_record)
+    report = bmt.audit_pose(legacy_record)
     assert report['status'] == 'consistent'
     # Canonical report retained by #76; new optional evidence must not relabel it.
     encoded = json.dumps(report, sort_keys=True, separators=(',', ':'), allow_nan=False)
@@ -59,11 +59,11 @@ def test_legacy_reference_stays_uninterpreted(legacy_record):
 
 
 def test_explicit_reference_matches_component_and_collection_path(record):
-    report = dmt.audit_pose(record)
+    report = bmt.audit_pose(record)
     assert report['status'] == 'consistent'
     assert any(check['check'] == 'reference_energy_value' for check in report['checks'])
-    collection = dmt.DockingResult([dmt.DockingPose.from_dict(record)]).to_dict()
-    result = dmt.audit_result(collection)
+    collection = bmt.DockingResult([bmt.DockingPose.from_dict(record)]).to_dict()
+    result = bmt.audit_result(collection)
     assert result['status'] == 'incomplete'  # Collection provenance is absent.
     checks = [
         check
@@ -99,13 +99,13 @@ def test_reference_contradictions_are_not_silently_accepted(record, change):
                 record['metadata']['score_definitions'],
             ):
                 definitions[name]['context']['reference_energy_policy'] = 'other'
-    assert dmt.audit_pose(record)['status'] == 'inconsistent'
+    assert bmt.audit_pose(record)['status'] == 'inconsistent'
 
 
 @pytest.mark.parametrize('value', [True, '0', float('nan'), float('inf'), [0]])
 def test_reference_quantity_requires_finite_real_wire_value(record, value):
     record['metadata']['scoring_history'][0]['reference_energy']['value'] = value
-    assert dmt.audit_pose(record)['status'] == 'inconsistent'
+    assert bmt.audit_pose(record)['status'] == 'inconsistent'
 
 
 @pytest.mark.parametrize('field', ['policy', 'score_name'])
@@ -113,7 +113,7 @@ def test_reference_declaration_rejects_non_scalar_mapping_fields(record, field):
     record['metadata']['scoring_history'][0]['reference_energy'][field] = np.array(
         ['first', 'second']
     )
-    report = dmt.audit_pose(record)
+    report = bmt.audit_pose(record)
     assert report['status'] == 'inconsistent'
     assert any(
         check['reason'] == 'invalid_reference_declaration' for check in report['checks']
@@ -138,7 +138,7 @@ def test_absent_reference_evidence_remains_incomplete(record, missing):
                 del definitions[name]['context']['reference_energy_policy']
     else:
         del entry['reference_energy'][missing]
-    assert dmt.audit_pose(record)['status'] == 'incomplete'
+    assert bmt.audit_pose(record)['status'] == 'incomplete'
 
 
 def test_reference_energy_conversion_keeps_application_policy(record):
@@ -153,7 +153,7 @@ def test_reference_energy_conversion_keeps_application_policy(record):
     before = deepcopy(record)
     with puw.context(standard_units=['pm', 'fs', 'kJ/mol']):
         policy = puw.configure.report()
-        assert dmt.audit_pose(record)['status'] == 'consistent'
+        assert bmt.audit_pose(record)['status'] == 'consistent'
         assert puw.configure.report() == policy
     assert record == before
 
@@ -184,21 +184,21 @@ def test_reference_report_is_detached_and_does_not_request_external_work(
     monkeypatch.setattr(builtins, '__import__', guarded)
     monkeypatch.setattr(builtins, 'open', forbidden)
     before = deepcopy(record)
-    report = dmt.audit_pose(record)
-    assert report == dmt.audit_pose(record)
+    report = bmt.audit_pose(record)
+    assert report == bmt.audit_pose(record)
     assert (
         record == before and json.loads(json.dumps(report, allow_nan=False)) == report
     )
     report['checks'][0]['status'] = 'changed'
-    assert dmt.audit_pose(record)['checks'][0]['status'] != 'changed'
+    assert bmt.audit_pose(record)['checks'][0]['status'] != 'changed'
 
 
 def test_reference_declaration_does_not_relax_comparison_contexts(record):
-    first = dmt.DockingPose.from_dict(record)
+    first = bmt.DockingPose.from_dict(record)
     other = deepcopy(record)
     other['metadata']['score_definitions']['vina']['context']['partner_sha256'] = (
         '0' * 64
     )
-    result = dmt.DockingResult([first, dmt.DockingPose.from_dict(other)])
+    result = bmt.DockingResult([first, bmt.DockingPose.from_dict(other)])
     with pytest.raises(ArgumentError):
         result.rank_by('vina')

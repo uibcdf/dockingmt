@@ -7,13 +7,13 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.molecular_fixtures import declared_methanol
-from dmt_test_support.partial_charge_fixtures import METHANOL, atom_charges
-from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT
-from dmt_test_support.qualify_181l_receptor import prepare_case
-from dmt_test_support.qualify_chemical_templates import detached_record, snapshot
-from dmt_test_support.qualify_named_types import CHARGE, TYPING
+import bindingmt as bmt
+from bmt_test_support.molecular_fixtures import declared_methanol
+from bmt_test_support.partial_charge_fixtures import METHANOL, atom_charges
+from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT
+from bmt_test_support.qualify_181l_receptor import prepare_case
+from bmt_test_support.qualify_chemical_templates import detached_record, snapshot
+from bmt_test_support.qualify_named_types import CHARGE, TYPING
 
 
 @pytest.fixture
@@ -57,7 +57,7 @@ def test_receptor_consumes_native_projection_and_actual_derived_values(
         monkeypatch.setattr(msm.build, name, forbidden)
     with puw.context(standard_units=[length_unit, 'fs', 'coulomb', 'kJ/mol']):
         policy = puw.configure.report()
-        prepared = dmt.prepare_receptor(source, selection='all')
+        prepared = bmt.prepare_receptor(source, selection='all')
         assert puw.configure.report() == policy
     assert len(calls) == 1
     expected = [fsum(original[[0, 2, 3, 4]]), original[1], original[5]]
@@ -96,7 +96,7 @@ def test_receptor_consumes_native_projection_and_actual_derived_values(
         derived['source_assignment'] == prepared.metadata['partial_charge_assignment']
     )
     assert prepared.metadata['projected_atom_type_assignment']['status'] == 'derived'
-    assert dmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
+    assert bmt.audit_preparation_charges(prepared)['assessment'] == 'consistent'
     calls[0]['report']['output_to_source_atom_indices'][0] = 999
     assert projection['output_to_source_atom_indices'] == [0, 1, 5]
     assert snapshot(source) == before
@@ -114,7 +114,7 @@ def test_receptor_projection_failure_propagates_without_local_fallback(
 
     monkeypatch.setattr(msm.build, 'merge_nonpolar_hydrogens', refuse)
     with pytest.raises(RuntimeError) as raised:
-        dmt.prepare_receptor(source, selection='all')
+        bmt.prepare_receptor(source, selection='all')
     assert raised.value is failure
     assert snapshot(source) == before
 
@@ -135,7 +135,7 @@ def test_receptor_unknown_inventory_is_not_assumed_zero_or_repaired():
     with pytest.raises(
         msm.StructuralInconsistencyError, match='known virtual explicit H'
     ):
-        dmt.prepare_receptor(source, selection='all')
+        bmt.prepare_receptor(source, selection='all')
     assert snapshot(source) == before
 
 
@@ -147,11 +147,11 @@ def test_receptor_unknown_inventory_rejects_before_engine(
 
     source = _unassessed()
     before = snapshot(source)
-    problem = dmt.DockingProblem(
+    problem = bmt.DockingProblem(
         receptor=source,
         receptor_selection='all',
         partner='pdbqt_text:' + MINIMAL_LIG_PDBQT,
-        search_domain=dmt.BoxRegion(
+        search_domain=bmt.BoxRegion(
             puw.quantity([0, 0, 0], 'angstrom'), puw.quantity([10, 10, 10], 'angstrom')
         ),
     )
@@ -163,9 +163,9 @@ def test_receptor_unknown_inventory_rejects_before_engine(
     with pytest.raises(
         msm.StructuralInconsistencyError, match='known virtual explicit H'
     ):
-        dmt.dock(
+        bmt.dock(
             problem,
-            dmt.VinaProtocol(cpu=1, allow_provisional_preparation=allow_provisional),
+            bmt.VinaProtocol(cpu=1, allow_provisional_preparation=allow_provisional),
         )
     assert snapshot(source) == before
 
@@ -205,4 +205,4 @@ def test_declared_181l_protein_consumes_actual_public_projection(monkeypatch):
         prepared.metadata['projected_partial_charge_assignment']['source_assignment']
         == (prepared.metadata['partial_charge_assignment'])
     )
-    assert dmt.assess_preparation(prepared)['assessment'] == 'unassessed'
+    assert bmt.assess_preparation(prepared)['assessment'] == 'unassessed'

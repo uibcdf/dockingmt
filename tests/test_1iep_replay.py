@@ -7,9 +7,9 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-from dmt_test_support.replay_1iep_pdbqt import _compare_run, _decode_source
-from dmt_test_support.validate_1iep_pdbqt import INPUT_SHA256, UPSTREAM_COMMIT
-from dockingmt import DockingPose, DockingResult
+from bindingmt import DockingPose, DockingResult
+from bmt_test_support.replay_1iep_pdbqt import _compare_run, _decode_source
+from bmt_test_support.validate_1iep_pdbqt import INPUT_SHA256, UPSTREAM_COMMIT
 
 
 @pytest.mark.parametrize(
@@ -18,7 +18,7 @@ from dockingmt import DockingPose, DockingResult
 def test_installed_1iep_attribution_tracks_actual_helpers_without_git(
     monkeypatch, tmp_path, changed_helper
 ):
-    from dmt_test_support import redocking_181l, validate_1iep_pdbqt
+    from bmt_test_support import redocking_181l, validate_1iep_pdbqt
 
     def forbidden(*args, **kwargs):
         raise AssertionError('Installed source attribution must not query Git.')
@@ -26,8 +26,8 @@ def test_installed_1iep_attribution_tracks_actual_helpers_without_git(
     monkeypatch.setattr(redocking_181l.subprocess, 'run', forbidden)
     identities = []
     for name in ('producer', 'receiver'):
-        package = tmp_path / name / 'runtime' / 'dockingmt'
-        helpers = tmp_path / name / 'support' / 'dmt_test_support'
+        package = tmp_path / name / 'runtime' / 'bindingmt'
+        helpers = tmp_path / name / 'support' / 'bmt_test_support'
         package.mkdir(parents=True)
         helpers.mkdir(parents=True)
         (package / '__init__.py').write_text('# imported runtime\n')
@@ -39,7 +39,7 @@ def test_installed_1iep_attribution_tracks_actual_helpers_without_git(
             (helpers / helper).write_text('# retained ' + helper + '\n')
         monkeypatch.setattr(
             redocking_181l,
-            'dockingmt',
+            'bindingmt',
             SimpleNamespace(__file__=str(package / '__init__.py')),
         )
         monkeypatch.setattr(
@@ -53,7 +53,7 @@ def test_installed_1iep_attribution_tracks_actual_helpers_without_git(
     assert first == second
     assert first['git_head'] is None and first['worktree_dirty'] is None
     assert first['shared_checkout'] is False
-    assert first['code_scope'] == 'imported_dockingmt_core_redocking_and_1iep_helpers'
+    assert first['code_scope'] == 'imported_bindingmt_core_redocking_and_1iep_helpers'
 
     (helpers / changed_helper).write_text('# changed receiving helper\n')
     changed = validate_1iep_pdbqt._source_revision()
@@ -86,7 +86,7 @@ def _result(*, score=-7.0, x=0.0, protocol=None, pose=True):
             'backend_artifacts': {'receptor': 'same', 'partner': 'same'},
             'backend_box': {'center': [1, 2, 3]},
             'backend_version': '1.2.7',
-            'dockingmt_version': 'test',
+            'bindingmt_version': 'test',
             'molsysmt_version': 'test',
         },
     )

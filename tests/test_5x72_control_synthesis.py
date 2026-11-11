@@ -8,7 +8,7 @@ from pathlib import Path
 
 import pytest
 
-from dmt_test_support import synthesize_5x72_controls as synthesis
+from bmt_test_support import synthesize_5x72_controls as synthesis
 
 
 @pytest.fixture(scope='module')
@@ -212,7 +212,7 @@ def test_check_mode_has_no_scientific_imports(tmp_path):
 import importlib.abc, runpy, sys
 class BlockScientific(importlib.abc.MetaPathFinder):
     def find_spec(self, fullname, path=None, target=None):
-        if fullname.split('.')[0] in {'dockingmt','molsysmt','vina','rdkit','openmm','pyunitwizard','numpy','matplotlib'}:
+        if fullname.split('.')[0] in {'bindingmt','molsysmt','vina','rdkit','openmm','pyunitwizard','numpy','matplotlib'}:
             raise AssertionError('Unexpected scientific import: ' + fullname)
 sys.meta_path.insert(0, BlockScientific())
 sys.argv = [sys.argv[1], '--check']

@@ -8,7 +8,7 @@ import molsysmt as msm
 import numpy as np
 import pyunitwizard as puw
 
-import dockingmt as dmt
+import bindingmt as bmt
 
 SOURCE = (
     Path(__file__).resolve().parents[1]
@@ -49,10 +49,10 @@ def test_compressed_source_matches_plain_truth_and_public_docking_selection(tmp_
             assert msm.get(compressed, element=element, **{field: True}) == msm.get(
                 reference, element=element, **{field: True}
             )
-        problem = dmt.DockingProblem(
+        problem = bmt.DockingProblem(
             compressed,
             compressed,
-            search_domain=dmt.BoxRegion(
+            search_domain=bmt.BoxRegion(
                 puw.quantity([0, 0, 0], 'angstrom'),
                 puw.quantity([20, 20, 20], 'angstrom'),
             ),

@@ -1,8 +1,8 @@
 # Native preparation audit: 1IEP
 
-This audit compares DockingMT's native MolSysMT-based preparation with the aligned
+This audit compares BindingMT's native MolSysMT-based preparation with the aligned
 PDBQT files published in the [AutoDock Vina basic-docking example](https://github.com/ccsb-scripps/AutoDock-Vina/blob/3c65c0b3e6c2c1d183f6a175ecb65e3c5ba91645/docs/source/docking_basic.rst).
-It identifies the chemistry still needed for [DockingMT #5](https://github.com/uibcdf/dockingmt/issues/5).
+It identifies the chemistry still needed for [BindingMT #5](https://github.com/uibcdf/bindingmt/issues/5).
 The published PDBQT is a comparison input, not an independently validated chemical
 ground truth. No Meeko package is used or installed by this audit.
 A smaller, CI-local comparison across 1IEP, 1S63, and both 5X72 stereoisomers
@@ -25,7 +25,7 @@ python -m devtools.audit_1iep_preparation --source-receptor /tmp/1iep_receptorH.
 
 The script converts both sources to `molsysmt.MolSys`, selects the receptor protein,
 uses `molsysmt.build.get_missing_bonds` to recover two source hydrogen bonds, then
-calls DockingMT's public preparation functions. It also maps the seven published
+calls BindingMT's public preparation functions. It also maps the seven published
 `BRANCH` bonds back to source-ligand atom indices and requests those bonds explicitly
 for a second, flexible native projection. This tests the writer with a known selection;
 it does not infer a general torsion policy. The coordinate comparison is exact at
@@ -51,7 +51,7 @@ evaluated after removing explicit hydrogens.
 With the seven reference-mapped source bonds explicitly selected, the native
 flexible ligand contains the same 40 coordinate-matched atoms and emits seven
 branches with `TORSDOF 7`. Its charges and four atom-type disagreements remain
-as shown above. The flexible projection passed Vina's ligand parser. DockingMT's
+as shown above. The flexible projection passed Vina's ligand parser. BindingMT's
 temporary rigid-fragment bridge is linked to
 [MolSysMT #224](https://github.com/uibcdf/molsysmt/issues/224) and will be removed
 when the provider operation can supply the same verified fragment and atom map.
@@ -63,7 +63,7 @@ selection policies, because the seven input bonds came from the published PDBQT.
 
 The native ligand omits 29 nonpolar hydrogens. The native receptor omits 1,710
 hydrogens under its polar-hydrogen policy. MolSysMT recovered the absent `HB2`–`CB`
-bond in SER 438 and `C`–`HC` bond in GLN 498; there was no need for a DockingMT
+bond in SER 438 and `C`–`HC` bond in GLN 498; there was no need for a BindingMT
 bond-inference implementation. The source receptor still lacks bond-order information.
 
 The charge differences are distances to the published file, not charge-model accuracy
@@ -77,9 +77,9 @@ as a chemical-policy gap; it does not affect this reference-selected tree compar
 MolSysMT [#221](https://github.com/uibcdf/molsysmt/issues/221),
 [#222](https://github.com/uibcdf/molsysmt/issues/222), and
 [#224](https://github.com/uibcdf/molsysmt/issues/224) track reusable charge assignment,
-AutoDock typing, and torsion classification respectively. DockingMT's PDBQT
+AutoDock typing, and torsion classification respectively. BindingMT's PDBQT
 projection is temporary until MolSysMT [#214](https://github.com/uibcdf/molsysmt/issues/214)
-provides the general PDBQT form. DockingMT owns Vina safety policy. Its default
+provides the general PDBQT form. BindingMT owns Vina safety policy. Its default
 Vina path rejects provisional native preparation; an explicit exploratory opt-in
 remains available. This audit does not resolve
-[DockingMT #5](https://github.com/uibcdf/dockingmt/issues/5).
+[BindingMT #5](https://github.com/uibcdf/bindingmt/issues/5).

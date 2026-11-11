@@ -1,11 +1,11 @@
 # Fixed-P69 control for P59 in 5X72
 
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17),
-[#6](https://github.com/uibcdf/dockingmt/issues/6) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33) own this bounded follow-up
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17),
+[#6](https://github.com/uibcdf/bindingmt/issues/6) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33) own this bounded follow-up
 to the [independent ROOT-order challenge](5x72_root_order_workflow.md).
-The [prespecified protocol](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6087357069)
-and [pre-search addendum](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6088303810)
+The [prespecified protocol](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6087357069)
+and [pre-search addendum](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6088303810)
 precede all 24 new searches. The
 [driver](../../devtools/qualify_5x72_occupancy.py),
 [raw observations](data/5x72_occupancy/audit_2026-10-09.json.gz),
@@ -31,7 +31,7 @@ Public MolSysMT fixed-chemical-state H addition uses RDKit `addCoords=True`,
 indexed identity and S stereocenter remain unchanged. These H positions are
 generated local geometry, not an experimental reference or environmental
 refinement. Named Gasteiger-Marsili charges and AutoDock4 chemical-environment
-types feed existing DockingMT rigid preparation. It retains 24 heavy atoms and
+types feed existing BindingMT rigid preparation. It retains 24 heavy atoms and
 polar H29; fourteen nonpolar H charges are merged. Charge consistency and parser
 admission do not establish readiness; preparation stays unassessed.
 
@@ -58,7 +58,7 @@ Two provider findings are issue-backed; no sibling source is edited:
 - [MolSysMT #353](https://github.com/uibcdf/molsysmt/issues/353): `add` preserves
   chain indices but erases chain IDs. For these two one-chain fixtures only, the
   caller checks both A input IDs and the two output indices, then declares
-  `['A','A']` through public `msm.set`. DockingMT #17/#33 own this bounded restoration;
+  `['A','A']` through public `msm.set`. BindingMT #17/#33 own this bounded restoration;
   MolSysMT owns the fix. Review at the next provider qualification or issue closure,
   and remove it when add retains these IDs and the guard passes unaided. Both new
   arms preserve the original chain IDs; this does not define general identity repair.
@@ -81,7 +81,7 @@ inclusive <=2.5 angstrom, without alignment or symmetry correction. There is no
 experimental H reference. First-ranked and any-returned recovery are distinct.
 
 Every new pose is evaluated unchanged against **both** new receptor arms through
-public `dockingmt.score`: **156 fixed-pose evaluations**, no search or optimization.
+public `bindingmt.score`: **156 fixed-pose evaluations**, no search or optimization.
 Public MolSysMT writes the saved coordinates with the original exact serial axis
 and two-torsion tree; types, charges, atom order and tree remain checked. Original
 rank, identity, geometry and prior docking scores stay detached and unchanged.
@@ -156,7 +156,7 @@ need its own prespecified protocol. #17/#6/#33 remain partial/open.
 
 ## Portable dataframe annotation correction — 2026-10-09
 
-The first hosted [CI 37985766306](https://github.com/uibcdf/dockingmt/actions/runs/37985766306)
+The first hosted [CI 37985766306](https://github.com/uibcdf/bindingmt/actions/runs/37985766306)
 fails during setup of three new guards at the historical snapshot comparison.
 Pandas 3.0.6 annotates the chemical-state component-name/type columns as `str`,
 where the original Pandas 2.3.3 producer captured `object`. Enabling

@@ -85,10 +85,9 @@ def git(root, *arguments):
 
 
 def environment():
+    import dockingmt
     import molsysmt
     import vina
-
-    import dockingmt
 
     assert Path(dockingmt.__file__).resolve().parent == ROOT / 'dockingmt'
     assert vina.__version__ == '1.2.7'
@@ -205,10 +204,9 @@ def run_route(route, output, expected_head):
             'environment': actual_environment,
         },
     )
+    import dockingmt as dmt
     import pyunitwizard as puw
     import vina
-
-    import dockingmt as dmt
 
     calls, native = [], {}
     original = vina.Vina

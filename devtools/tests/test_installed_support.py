@@ -42,18 +42,18 @@ def test_support_namespace_is_unshipped_by_actual_package_discovery():
     project = tomllib.loads((ROOT / 'pyproject.toml').read_text())
     discovery = project['tool']['setuptools']['packages']['find']
     packages = find_namespace_packages(where=str(ROOT), include=discovery['include'])
-    assert 'dockingmt' in packages and 'molsysviewer_dockingmt' in packages
-    assert not any(name.startswith('dmt_test_support') for name in packages)
+    assert 'bindingmt' in packages and 'molsysviewer_bindingmt' in packages
+    assert not any(name.startswith('bmt_test_support') for name in packages)
     inventory = tomllib.loads(
         (ROOT / 'devtools/conda-build/resources.toml').read_text()
     )
-    assert not any('dmt_test_support' in path for path in inventory['required_paths'])
+    assert not any('bmt_test_support' in path for path in inventory['required_paths'])
 
 
 def test_legacy_helper_import_delegates_without_scientific_dependencies():
     # This administrative control runs without the scientific dependency set.
     legacy = importlib.import_module('devtools.recover_saved_3ptb_case')
-    current = importlib.import_module('dmt_test_support.recover_saved_3ptb_case')
+    current = importlib.import_module('bmt_test_support.recover_saved_3ptb_case')
     assert legacy._fingerprint is current._fingerprint
 
 
@@ -76,7 +76,7 @@ def test_legacy_script_entry_point_keeps_help_outside_the_clone(tmp_path):
 def test_shared_pdbqt_fixtures_keep_their_original_literal_bytes():
     import hashlib
 
-    from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+    from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
     assert (
         hashlib.sha256(MINIMAL_REC_PDBQT.encode()).hexdigest()
@@ -91,9 +91,9 @@ def test_shared_pdbqt_fixtures_keep_their_original_literal_bytes():
 def test_shared_pdbqt_fixture_import_has_no_engine_or_sibling_test_dependency(tmp_path):
     code = """import sys
 sys.path.insert(0, sys.argv[1])
-from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
+from bmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 assert MINIMAL_REC_PDBQT.startswith('ATOM') and MINIMAL_LIG_PDBQT.startswith('ROOT')
-assert not any(name == 'test_engines' or name.split('.')[0] in {'dockingmt', 'molsysmt', 'molsysviewer', 'vina', 'rdkit', 'openmm'} for name in sys.modules)
+assert not any(name == 'test_engines' or name.split('.')[0] in {'bindingmt', 'molsysmt', 'molsysviewer', 'vina', 'rdkit', 'openmm'} for name in sys.modules)
 """
     result = subprocess.run(
         [sys.executable, '-I', '-B', '-c', code, str(ROOT)],

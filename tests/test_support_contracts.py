@@ -10,8 +10,8 @@ import pyunitwizard as puw
 import smonitor
 from packaging.requirements import Requirement
 
-import dockingmt as dmt
-from dockingmt._private.smonitor import (
+import bindingmt as bmt
+from bindingmt._private.smonitor import (
     ArgumentError,
     BackendApproximationWarning,
     CapabilityMismatchError,
@@ -28,7 +28,7 @@ from dockingmt._private.smonitor import (
     ViewerStructureCountError,
     warn,
 )
-from dockingmt._private.smonitor.catalog import CATALOG, CODES
+from bindingmt._private.smonitor.catalog import CATALOG, CODES
 
 
 @pytest.mark.parametrize('profile', ['user', 'dev', 'qa', 'agent', 'debug'])
@@ -101,7 +101,7 @@ def test_warning_emission_preserves_fields_and_python_filters():
                 warn(BackendApproximationWarning(domain_type='sphere', engine='vina'))
     finally:
         manager.remove_handler(handler)
-    matching = [event for event in events if event.get('code') == 'DMT-W001']
+    matching = [event for event in events if event.get('code') == 'BMT-W001']
     assert matching
     assert matching[-1]['extra']['domain_type'] == 'sphere'
     assert matching[-1]['extra']['engine'] == 'vina'
@@ -123,18 +123,18 @@ def test_missing_optional_dependency_has_local_code_and_install_advice(
     )
     with pytest.raises(LibraryNotFoundError) as caught:
         if library == 'molsysviewer':
-            dmt.view()
+            bmt.view()
         else:
-            problem = dmt.DockingProblem(
+            problem = bmt.DockingProblem(
                 receptor='rec.pdbqt',
                 partner='lig.pdbqt',
-                search_domain=dmt.BoxRegion(
+                search_domain=bmt.BoxRegion(
                     center=puw.quantity([0, 0, 0], 'nm'),
                     size=puw.quantity([1, 1, 1], 'nm'),
                 ),
             )
-            getattr(dmt.VinaBackend(), operation)(problem)
-    assert caught.value.code == 'DMT-E001'
+            getattr(bmt.VinaBackend(), operation)(problem)
+    assert caught.value.code == 'BMT-E001'
     assert caught.value.extra['library'] == library
     if library == 'vina':
         assert 'pip install vina' in str(caught.value)
@@ -144,9 +144,9 @@ def test_missing_optional_dependency_has_local_code_and_install_advice(
 
 
 def test_optional_dependency_inventory_is_complete():
-    info = depdigest.get_info('dockingmt', format='dict')
+    info = depdigest.get_info('bindingmt', format='dict')
     dependencies = {entry['library']: entry for entry in info['dependencies']}
-    requirements = [Requirement(value) for value in requires('dockingmt')]
+    requirements = [Requirement(value) for value in requires('bindingmt')]
     hard = {
         item.name
         for item in requirements
@@ -171,7 +171,7 @@ def test_optional_dependency_inventory_is_complete():
     ['molsysmt', 'molsysviewer', 'argdigest', 'depdigest', 'smonitor', 'pyunitwizard'],
 )
 def test_suite_dependency_installation_routes_match_actual_distribution(library):
-    info = depdigest.get_info('dockingmt', format='dict')
+    info = depdigest.get_info('bindingmt', format='dict')
     entry = next(item for item in info['dependencies'] if item['library'] == library)
     assert entry['package_name'] == {'pypi': None, 'conda': library}
     assert entry['install']['pypi'] is None

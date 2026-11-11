@@ -1,6 +1,6 @@
 ---
 summary: Score prepared fixed conformations independently of docking and preserve prior evaluations.
-issue: uibcdf/dockingmt#34
+issue: uibcdf/bindingmt#34
 status: resolved
 opened: 2026-10-03
 closed: 2026-10-03
@@ -66,7 +66,7 @@ components, explicit units, preparation assessment and detached evaluation
 history survive JSON pose roundtrips. No optimizer or search API is called.
 
 The full local gate passes 595 tests without skips in 123.85 seconds on Python
-3.14.7, Vina 1.2.7 and editable DockingMT in `molsyssuite@uibcdf_3.14`. The 31 new
+3.14.7, Vina 1.2.7 and editable BindingMT in `molsyssuite@uibcdf_3.14`. The 31 new
 behavior cases include native engine comparisons, flexible original 1IEP input,
 exact byte snapshots, default provisional rejection, non-default quantity policy,
 legacy adapter compatibility and cleanup on geometry/native/output failures.
@@ -75,7 +75,7 @@ and diff checks pass. All four notebook code cells execute successfully with the
 explicit Conda kernel and their retained outputs contain no errors.
 
 The [contract](../validation/fixed_pose_scoring.md),
-[notebook](../validation/fixed_pose_scoring.ipynb) and DMT-033 record the accepted
+[notebook](../validation/fixed_pose_scoring.ipynb) and BMT-033 record the accepted
 bounds. Qualification uses the unchanged CI provider/viewer source pins, preserving
 live sibling worktrees. This resolves the bounded prepared-input scoring operation,
 not chemical qualification, generic rescoring result audits, future methods or

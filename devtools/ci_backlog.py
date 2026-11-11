@@ -28,7 +28,7 @@ def api_json(path: str, token: str) -> dict:
         headers={
             'Accept': 'application/vnd.github+json',
             'Authorization': f'Bearer {token}',
-            'User-Agent': 'dockingmt-ci-backlog',
+            'User-Agent': 'bindingmt-ci-backlog',
         },
     )
     with urlopen(request, timeout=20) as response:

@@ -1,10 +1,10 @@
 # Prespecified positional sensitivity in 5X72
 
-[DockingMT #17](https://github.com/uibcdf/dockingmt/issues/17),
-[#6](https://github.com/uibcdf/dockingmt/issues/6) and
-[#33](https://github.com/uibcdf/dockingmt/issues/33) own this follow-up to the
+[BindingMT #17](https://github.com/uibcdf/bindingmt/issues/17),
+[#6](https://github.com/uibcdf/bindingmt/issues/6) and
+[#33](https://github.com/uibcdf/bindingmt/issues/33) own this follow-up to the
 [saved-input distance diagnostic](5x72_contact_workflow.md). The
-[prescription](https://github.com/uibcdf/dockingmt/issues/17#issuecomment-6094392354)
+[prescription](https://github.com/uibcdf/bindingmt/issues/17#issuecomment-6094392354)
 precedes the original observations. The [driver](../../devtools/qualify_5x72_displacement.py),
 [original producer](data/5x72_displacement/producer_2026-10-09.py.txt),
 [raw archive](data/5x72_displacement/audit_2026-10-09.json.gz),
@@ -26,7 +26,7 @@ on another experiment. This receiving step adds no generalized campaign framewor
 or agent orchestration, and promotes no constructed point to a scientific candidate.
 
 The original producer uses public MolSysMT `copy/set/structure.translate`, native
-PDBQT conversion and `structure.get_distances/get_rmsd`. DockingMT owns fixed-score
+PDBQT conversion and `structure.get_distances/get_rmsd`. BindingMT owns fixed-score
 execution, explicit ROOT/cut choices, captured inputs and score history. NumPy
 independently checks outputs; it never constructs the molecular transformation.
 No molecular reader, translation, distance kernel, charge model or pharmacophore

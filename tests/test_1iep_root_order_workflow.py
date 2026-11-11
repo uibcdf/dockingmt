@@ -8,9 +8,9 @@ import numpy as np
 import pytest
 import pyunitwizard as puw
 
-import dockingmt as dmt
-from dmt_test_support.qualify_1iep_representation import fixed_score, observe, sha
-from dmt_test_support.qualify_1iep_root_order import (
+import bindingmt as bmt
+from bmt_test_support.qualify_1iep_representation import fixed_score, observe, sha
+from bmt_test_support.qualify_1iep_root_order import (
     OUTPUT,
     VARIANT,
     comparison_rows,
@@ -76,7 +76,7 @@ def test_fixed_conformation_scoring_preserves_geometry_and_components(prepared_c
         'n_poses',
         'energy_range',
     ]
-    assert dmt.verify_captured_inputs(history['backend_artifacts'])
+    assert bmt.verify_captured_inputs(history['backend_artifacts'])
     assert history['backend_artifacts']['partner']['sha256'] == control['sha256']
     written = [
         [float(line[start : start + 8]) for start in (30, 38, 46)]
@@ -85,7 +85,7 @@ def test_fixed_conformation_scoring_preserves_geometry_and_components(prepared_c
     ]
     np.testing.assert_allclose(
         puw.get_value(
-            dmt.DockingPose.from_dict(scored).coordinates, to_unit='angstrom'
+            bmt.DockingPose.from_dict(scored).coordinates, to_unit='angstrom'
         ),
         written,
         rtol=0,
@@ -94,10 +94,10 @@ def test_fixed_conformation_scoring_preserves_geometry_and_components(prepared_c
 
 
 def assert_observed_geometry(run, xyz, control):
-    result = dmt.DockingResult.from_dict(run['result'])
+    result = bmt.DockingResult.from_dict(run['result'])
     assert result.poses
     artifacts = result.provenance['backend_artifacts']
-    assert dmt.verify_captured_inputs(artifacts)
+    assert bmt.verify_captured_inputs(artifacts)
     assert artifacts['partner']['sha256'] == control['sha256']
     assert (
         run['pdbqt_to_source_atom_indices'] == control['pdbqt_to_source_atom_indices']

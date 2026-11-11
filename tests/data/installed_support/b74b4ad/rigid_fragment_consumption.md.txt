@@ -11,9 +11,9 @@ The original 2026-10-03 qualification is retained below. The subsequent
 eligibility and preserves the original byte hashes/maps. Retained-axis
 connectivity stays separately tracked in MolSysMT #348.
 
-DockingMT now delegates the final rigid-fragment partition to
-`msm.topology.get_rigid_fragments`. Issues [#6](https://github.com/uibcdf/dockingmt/issues/6)
-and [#33](https://github.com/uibcdf/dockingmt/issues/33) own this migration.
+BindingMT now delegates the final rigid-fragment partition to
+`msm.topology.get_rigid_fragments`. Issues [#6](https://github.com/uibcdf/bindingmt/issues/6)
+and [#33](https://github.com/uibcdf/bindingmt/issues/33) own this migration.
 The [executed notebook](rigid_fragment_consumption.ipynb) retains the four-case
 comparison and explicit atom maps. This qualifies software correspondence for
 selected cuts; charges, types and automatic chemical torsion eligibility remain
@@ -22,14 +22,14 @@ unqualified.
 ## Contract and ownership
 
 The provider receives the complete selected ligand before hydrogen projection,
-with `chemical_state='structure', structure_indices=0`. DockingMT translates
+with `chemical_state='structure', structure_indices=0`. BindingMT translates
 selected atom pairs to bond identifiers obtained through public `msm.get`.
 It projects the provider's source-index memberships onto its retained atom axis,
 then chooses ROOT and branch orientation. Partitioning makes no molecular copy.
 Sorting projected memberships by retained index preserves ROOT tie breaking,
 branch endpoints and serialization order even for a nonmonotonic retained axis.
 
-Partial or unavailable connectivity fails at the provider boundary. DockingMT
+Partial or unavailable connectivity fails at the provider boundary. BindingMT
 propagates that diagnostic without computing a fallback partition. PDBQT's
 BRANCH records alone cannot qualify a complete chemical graph for this operation.
 The existing local checks for connected retained atoms and individually eligible
@@ -39,7 +39,7 @@ bond controls have not been replaced by a provider chemical policy.
 ## Retained comparisons
 
 The [pre-migration fixture](data/fragments/legacy_trees.json) was captured from
-DockingMT `be39d74b5d437b958d0dde16e284453ecc7eef28` before changing the partition.
+BindingMT `be39d74b5d437b958d0dde16e284453ecc7eef28` before changing the partition.
 It retains original SDF/reference PDBQT digests, active atom pairs, retained atom
 indices, PDBQT permutations and generated PDBQT byte digests. These bytes reflect
 the existing provisional preparation; they are not scientific ground truth.
@@ -71,14 +71,14 @@ installed editable via `python -m pip install --no-deps --editable .`. After the
 maintainer installed Vina 1.2.7, the 43 fragment, flexible-ligand and native-format
 tests pass without skips in 30.37 s, including real Vina execution and pose mapping.
 The preceding implementation's
-[hosted CI](https://github.com/uibcdf/dockingmt/actions/runs/37114604512) passed
+[hosted CI](https://github.com/uibcdf/bindingmt/actions/runs/37114604512) passed
 all four required Python jobs; that is separate from this migration's evidence.
 
 ## Remaining removal conditions
 
 The final local fragment partition has been retired. Chemical eligibility remains
-under MolSysMT #224 and DockingMT #17; selected cuts and ROOT decisions stay in
-DockingMT. Temporary PDBQT writers, atom parsers and chemical preparation heuristics
+under MolSysMT #224 and BindingMT #17; selected cuts and ROOT decisions stay in
+BindingMT. Temporary PDBQT writers, atom parsers and chemical preparation heuristics
 retain their [separate qualification conditions](native_molsysmt_formats.md).
 Issues #6 and #33 therefore remain partial.
 
