@@ -47,11 +47,17 @@ values and the existing tuple/list contract. Eleven focused editable regressions
 pass with the retained private Vina overlay. A new immutable guide input is
 added; all 622 earlier inputs and staged targets remain unchanged.
 
-Freeze the corrected candidate and repeat the original four-minor/both-policy/
-full-installed checkpoint before the lightweight `0.1.0` tag and source-event
-notice. #74 owns receiving; #50 custody review remains 2026-11-14. Exact failed-run
-and focused evidence is retained in the current origin checkpoint. No public
-package or GitHub Release is selected.
+Corrected candidate **1030a29025914e01dff09e5fc606ec73b90f4cd9** is frozen.
+Local controls pass 122 administrative cases/26 subtests and a fresh committed
+export; eleven focused editable cases also pass. Deliberate
+[run 42976065511](https://github.com/uibcdf/dockingmt/actions/runs/42976065511)
+passes build, quality/frontend and policy. Its four installed minor cells are
+pending; Python 3.11 has passed both storage policies and is running the full
+selection. The same-run private wheel is independently checked against all
+67 versioned runtime paths and source/metadata inputs. Later evidence commits
+do not move this candidate. Receive all four terminal cells before the
+lightweight `0.1.0` tag and source-event notice. #74 owns receiving; #50 custody
+review remains 2026-11-14. No public package or GitHub Release is selected.
 
 ### Current CI and private installed input checkpoint — 2026-11-10
 

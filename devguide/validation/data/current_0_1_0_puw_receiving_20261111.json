@@ -314,5 +314,46 @@
       "administrative"
     ],
     "scope": "Current corrected source, ordinary governance included; scientific imports forbidden"
+  },
+  "corrected_checkpoint": {
+    "candidate": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+    "tree": "5f0c98567ae06263c1a43b9a24c63f7c81675539",
+    "run_id": 42976065511,
+    "run_attempt": 1,
+    "run_url": "https://github.com/uibcdf/dockingmt/actions/runs/42976065511",
+    "build": "success",
+    "quality_frontend": "success",
+    "policy": "success",
+    "installed": "pending four terminal cells; Python 3.11 complete selection running after both storage policies pass",
+    "build_receiving": {
+      "candidate": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+      "tree": "5f0c98567ae06263c1a43b9a24c63f7c81675539",
+      "run": 42976065511,
+      "attempt": 1,
+      "artifact": 13835014036,
+      "zip_sha256": "a8bb1b352c39156a8c661790985bfe8662d049061ef2a55169c1248117580028",
+      "wheel_sha256": "3b70094ee1d9103ceed19ee64214c0025662781acf8eb28eaeb4733f5c5a53ca",
+      "runtime_files": 67,
+      "source_payload_and_metadata": "PASS",
+      "installed_gate": "pending",
+      "scope": "Stored bytes checked with existing component wheel guard; no install, build or scientific execution"
+    },
+    "fresh_committed_export": {
+      "source_commit": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+      "checks": [
+        "ruff-check",
+        "ruff-format",
+        "index",
+        "resources",
+        "contract",
+        "archive-and-qualified-bytes",
+        "correction-archives-and-qualified-bytes",
+        "sdk-admission-archives-and-qualified-bytes",
+        "received-pyunitwizard-source-bytes"
+      ],
+      "export_retired": true
+    },
+    "owner_comment": 6789349139,
+    "tag_created": false
   }
 }

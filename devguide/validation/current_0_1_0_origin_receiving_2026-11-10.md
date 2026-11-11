@@ -205,3 +205,26 @@ Corrected-source local controls pass **122 administrative cases and 26 subtests*
 with scientific imports forbidden, plus Ruff, guide indexes, shared resource/Conda
 contract checks and historical/current input hashes. Fresh committed-source
 export validation follows before the replacement remote checkpoint.
+
+
+## Corrected candidate checkpoint running — 2026-11-11
+
+Explicit source **1030a29025914e01dff09e5fc606ec73b90f4cd9**, tree
+`5f0c98567ae06263c1a43b9a24c63f7c81675539`, passes all nine applicable checks
+on a fresh committed export, which is retired. The deliberate
+[run 42976065511, attempt 1](https://github.com/uibcdf/dockingmt/actions/runs/42976065511)
+passes build (130375337060), quality/resources/frontend (130375477732) and policy
+(130375477996). The four installed cells remain pending; Python 3.11
+(130375676982) has passed both storage policies and is executing the original
+complete selection. No terminal installed acceptance is claimed yet.
+
+Artifact 13835014036 is 156,717 bytes with API-verified ZIP SHA-256
+`a8bb1b352c39156a8c661790985bfe8662d049061ef2a55169c1248117580028`.
+Its single `dockingmt-0.1.0-py3-none-any.whl` has SHA-256
+`3b70094ee1d9103ceed19ee64214c0025662781acf8eb28eaeb4733f5c5a53ca`.
+Independent stored-byte receiving uses the existing component wheel guard,
+checks the actual candidate contract and all 67 runtime paths, metadata,
+license and addon entry point, with scientific imports forbidden. It performs
+no build, install or scientific operation. Later evidence commits preserve
+this candidate and original run; final four-minor receipt and tag/notice
+closeout remain the next action.
