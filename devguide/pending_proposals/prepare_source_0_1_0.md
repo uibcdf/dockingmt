@@ -25,13 +25,20 @@ context now select that exact provider; the other five source pins stay fixed.
 The refreshed shared workspace is preserved, including its separately updated
 SMonitor checkout; it is not substituted for the frozen qualification cohort.
 
-The provider source also includes its reviewed 0.29.2 conversion corrections.
-Freeze a replacement DockingMT candidate and run the original serial Linux/
-Python 3.11–3.14 checkpoint with both storage policies and the full installed
-selection. Old candidate results remain historical. The lightweight `0.1.0`
-tag still requires those actual gates and its source-event notice. #74 owns
-receiving; #50 custody review remains 2026-11-14. No local native build or new
-public package/GitHub Release follows from this source receipt.
+The first replacement candidate, 7b113917, reaches the full installed Python
+3.11 selection in run 42971262503: both original ten-case storage policies pass,
+but two DockingMT checks fail (2656 passed, two failed). The other minors are
+cancelled. The ordinary-CI baseline now selects its own declared contexts; the
+quickstart compares restoration with the JSON-loaded mapping, preserving native
+values and the existing tuple/list contract. Eleven focused editable regressions
+pass with the retained private Vina overlay. A new immutable guide input is
+added; all 622 earlier inputs and staged targets remain unchanged.
+
+Freeze the corrected candidate and repeat the original four-minor/both-policy/
+full-installed checkpoint before the lightweight `0.1.0` tag and source-event
+notice. #74 owns receiving; #50 custody review remains 2026-11-14. Exact failed-run
+and focused evidence is retained in the current origin checkpoint. No public
+package or GitHub Release is selected.
 
 ## Origin receiving and provider review — 2026-11-10
 

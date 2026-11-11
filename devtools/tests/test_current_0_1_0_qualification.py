@@ -19,6 +19,20 @@ import yaml
 from versioningit import get_version
 
 ROOT = Path(__file__).resolve().parents[2]
+
+
+def test_current_quickstart_matches_its_frozen_installed_input():
+    name = 'tests/data/guides/quickstart_0_1_0_20261111.md'
+    frozen = (ROOT / name).read_bytes()
+    assert (ROOT / 'QUICKSTART.md').read_bytes() == frozen
+    support = tomllib.loads((ROOT / 'devtools/conda-build/resources.toml').read_text())[
+        'installed_tests'
+    ]['support']['files']
+    row = next(row for row in support if row['source'] == name)
+    assert row['target'] == name
+    assert row['sha256'] == hashlib.sha256(frozen).hexdigest()
+
+
 spec = importlib.util.spec_from_file_location(
     'current_source_qualification', ROOT / 'devtools/qualify_current_0_1_0.py'
 )

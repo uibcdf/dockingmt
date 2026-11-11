@@ -29,7 +29,16 @@ def test_ci_covers_supported_lanes_and_common_quality_gates():
     inventory = tomllib.loads(
         (ROOT / 'devtools/dependency_routes.toml').read_text(encoding='utf-8')
     )
-    for source in inventory['source_routes']:
+    sources = {row['id']: row for row in inventory['source_routes']}
+    contexts = {row['name']: row for row in inventory['contexts']}
+    selected = {
+        source_id
+        for minor in ('3.11', '3.12', '3.13', '3.14')
+        for source_id in contexts[f'ci-{minor}']['sources']
+    }
+    assert selected
+    for source_id in selected:
+        source = sources[source_id]
         assert f'repository: uibcdf/{source["name"]}' in workflow
         checkout = source.get('checkout_ref', source['commit'])
         assert f'ref: "{checkout}"' in workflow

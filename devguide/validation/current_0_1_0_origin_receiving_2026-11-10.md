@@ -153,3 +153,55 @@ monitored 13 GiB reserve; extensive receiving stays on declared hosted runners.
 Private receiving records: `.molsyssuite/current-0.1.0-puw-receiving-20261111`.
 Next explicitly freeze the replacement candidate, record its actual run/source/
 artifact identities and complete the original four-minor gate before tagging.
+
+
+## First complete installed attempt and correction — 2026-11-11
+
+Candidate **7b1139178ebad827e7b433cadbb34fc0f5467dad**, tree
+`aec3070f8484d8b7db1b3dfe43293bd1b1019eea`, executes
+[run 42971262503, attempt 1](https://github.com/uibcdf/dockingmt/actions/runs/42971262503).
+Build, policy and quality/frontend controls pass. Fresh ordinary-installed
+Python 3.11 passes both original ten-case H5MSM policies with native SHA-256
+`699a622b4b54494843b11437efa6f6ff6e9c733704afa0e39e2fe9c2f534c3be`.
+The original complete selection executes 2658 cases: **2656 pass, two fail,
+zero errors/skips**, with 154 warnings. Python 3.12–3.14 are deliberately
+cancelled before correction. The candidate remains unqualified.
+
+[The compact receipt](data/current_0_1_0_puw_receiving_20261111.json) retains
+original run/artifact/payload/provider identities, reported counts, explicit
+reading limits and the bounded local diagnosis. The 64,916,783-byte original
+Python 3.11 artifact is retained privately after verifying its API SHA-256
+`4511ecbf0d7182db165e760ce21a806c30a0a378f72c1d410d4e78e826c0c222`.
+No failed result is relabelled passing.
+
+The governance baseline erroneously required every historical and milestone
+source in ordinary CI. It now checks all four ordinary-CI contexts and their
+exact selected checkout refs; the independent lane-specific tests remain.
+The quickstart's only record difference is native `engine_info.weights`:
+JSON turns its tuple into a list. Saving and restoration preserve all values;
+the audit is consistent. Compare `restored.to_dict()` with `restored_record`,
+the JSON-loaded mapping, while preserving the runtime's Python-rich metadata
+contract. Existing output refusal and exact whole-record equality remain.
+
+The corrected public guide is frozen as
+`tests/data/guides/quickstart_0_1_0_20261111.md` with SHA-256
+`fc8765220c5f465e0d55a2a3c83f09191f54050abec6ba02552b1b31a83f5a30`;
+the installed test reads that declared path. A source guard binds its bytes
+to the public guide and support declaration. The former guide and its
+`QUICKSTART.md` staged target remain intact; support adds row 623 without
+changing the earlier 622 declarations. Eleven focused editable tests pass,
+including the original tiny quickstart and output refusal, result restoration
+and serialization controls. Local execution borrows the existing private Vina/
+Boost overlay because Vina is absent from the shared environment; no shared
+installation or local native build occurs. One CPU/nice 10, single native
+workers and a monitored 13 GiB reserve cover all descendants; peak observed
+group RSS is 484,196,352 bytes and no resource interruption occurs.
+
+Next freeze the corrected candidate after applicable local/fresh-export gates
+and run the original serial four-minor/both-policy/full-installed checkpoint.
+The `0.1.0` lightweight tag, public package and GitHub Release do not exist.
+
+Corrected-source local controls pass **122 administrative cases and 26 subtests**,
+with scientific imports forbidden, plus Ruff, guide indexes, shared resource/Conda
+contract checks and historical/current input hashes. Fresh committed-source
+export validation follows before the replacement remote checkpoint.

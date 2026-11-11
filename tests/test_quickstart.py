@@ -10,7 +10,9 @@ from dmt_test_support.pdbqt_fixtures import MINIMAL_LIG_PDBQT, MINIMAL_REC_PDBQT
 
 
 def test_prepared_input_quickstart_saves_and_restores_original_tiny_result(tmp_path):
-    source = Path(__file__).resolve().parents[1] / 'QUICKSTART.md'
+    source = (
+        Path(__file__).resolve().parent / 'data/guides/quickstart_0_1_0_20261111.md'
+    )
     text = source.read_text()
     assert text.count('```python\n') == 1
     code = text.split('```python\n')[1].split('```')[0]

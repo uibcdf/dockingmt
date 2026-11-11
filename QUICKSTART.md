@@ -53,13 +53,15 @@ with output.open('x') as stream:
     json.dump(record, stream, indent=2, allow_nan=False)
 restored_record = json.loads(output.read_text())
 restored = dmt.DockingResult.from_dict(restored_record)
-assert restored.to_dict() == record
+assert restored.to_dict() == restored_record
 print('Audit:', dmt.audit_result(restored_record)['status'])
 ```
 
 `dock` performs the calculation. Saving, restoring and auditing these mappings
 do not rerun it. An existing output is refused before execution, and exclusive
 output mode also preserves a file created concurrently.
+Compare a restored result with the mapping read from JSON: JSON represents
+Python tuples, including native engine weights, as lists.
 An internally consistent audit checks the recorded information; scoring-model
 accuracy, chemical suitability and producer authenticity have separate evidence.
 Vina scores retain their method and conventional energy units, rather than an

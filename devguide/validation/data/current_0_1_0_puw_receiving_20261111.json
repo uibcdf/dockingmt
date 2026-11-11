@@ -1,0 +1,318 @@
+{
+  "owner": "uibcdf/dockingmt#74",
+  "candidate": "7b1139178ebad827e7b433cadbb34fc0f5467dad",
+  "tree": "aec3070f8484d8b7db1b3dfe43293bd1b1019eea",
+  "run_id": 42971262503,
+  "run_attempt": 1,
+  "run_url": "https://github.com/uibcdf/dockingmt/actions/runs/42971262503",
+  "artifact": {
+    "id": 13834800883,
+    "bytes": 64916783,
+    "sha256": "4511ecbf0d7182db165e760ce21a806c30a0a378f72c1d410d4e78e826c0c222"
+  },
+  "wheel_sha256": "e29abcb70be5f2ab2625ab58d64a43c91fcd22fd373f70d0334fed0c46f9224f",
+  "python": "3.11.18",
+  "completed_gate": false,
+  "pytest_exit": 1,
+  "junit": {
+    "tests": 2658,
+    "failures": 2,
+    "errors": 0,
+    "skipped": 0
+  },
+  "receptor_final": {
+    "artifact_policy": {
+      "dropped_records": 0,
+      "max_bytes": 52428800,
+      "truncated": false
+    },
+    "complete": true,
+    "counts": {
+      "collected": 2658,
+      "deselected": 0,
+      "errors": 0,
+      "executed": 2658,
+      "failed": 2,
+      "not_executed": 0,
+      "passed": 2656,
+      "reruns": 0,
+      "skipped": 0,
+      "subtests": {},
+      "warnings": 154,
+      "xfailed": 0,
+      "xpassed": 0
+    },
+    "duration": 762.818937365,
+    "exitstatus": 1,
+    "extensions": {
+      "dropped": 0,
+      "incomplete": false,
+      "recorded": 838
+    },
+    "integrity": {
+      "algorithm": "sha256",
+      "digest": "afba2061c0cc316631424fa4b5b1b2b91756d5ea0985739cad56c41738d8bed8",
+      "records": 8967
+    },
+    "invalid_selections": [],
+    "note": "",
+    "outcome": "FAIL",
+    "root_causes": 2,
+    "run_id": "20ca4f5b262e4d22be7e805f3b1b2b9c",
+    "schema": "pytest-receptor.events@1",
+    "stop_reason": "",
+    "type": "session_finish"
+  },
+  "support_rows": 622,
+  "runtime_payload_unchanged": true,
+  "storage": {
+    "normal": {
+      "profile": "normal",
+      "completed_gate": true,
+      "pytest_exit": 0,
+      "native_sha256": "699a622b4b54494843b11437efa6f6ff6e9c733704afa0e39e2fe9c2f534c3be",
+      "native_calls": [
+        {
+          "n_atoms": 1,
+          "pairs": [],
+          "result": [
+            0
+          ]
+        },
+        {
+          "n_atoms": 1,
+          "pairs": [],
+          "result": [
+            0
+          ]
+        }
+      ],
+      "receptor_final": {
+        "artifact_policy": {
+          "dropped_records": 0,
+          "max_bytes": 52428800,
+          "truncated": false
+        },
+        "complete": true,
+        "counts": {
+          "collected": 10,
+          "deselected": 0,
+          "errors": 0,
+          "executed": 10,
+          "failed": 0,
+          "not_executed": 0,
+          "passed": 10,
+          "reruns": 0,
+          "skipped": 0,
+          "subtests": {},
+          "warnings": 2,
+          "xfailed": 0,
+          "xpassed": 0
+        },
+        "duration": 3.174902262000046,
+        "exitstatus": 0,
+        "extensions": {
+          "dropped": 0,
+          "incomplete": false,
+          "recorded": 7
+        },
+        "integrity": {
+          "algorithm": "sha256",
+          "digest": "08fea4041fb320791d95dddaad5e4601c485a10576a24b471572780341b8f5c6",
+          "records": 38
+        },
+        "invalid_selections": [],
+        "note": "",
+        "outcome": "PASS",
+        "root_causes": 0,
+        "run_id": "8d607c7551fe4074acbe15a0f62b00f8",
+        "schema": "pytest-receptor.events@1",
+        "stop_reason": "",
+        "type": "session_finish"
+      }
+    },
+    "pm_fs": {
+      "profile": "pm_fs",
+      "completed_gate": true,
+      "pytest_exit": 0,
+      "native_sha256": "699a622b4b54494843b11437efa6f6ff6e9c733704afa0e39e2fe9c2f534c3be",
+      "native_calls": [
+        {
+          "n_atoms": 1,
+          "pairs": [],
+          "result": [
+            0
+          ]
+        },
+        {
+          "n_atoms": 1,
+          "pairs": [],
+          "result": [
+            0
+          ]
+        }
+      ],
+      "receptor_final": {
+        "artifact_policy": {
+          "dropped_records": 0,
+          "max_bytes": 52428800,
+          "truncated": false
+        },
+        "complete": true,
+        "counts": {
+          "collected": 10,
+          "deselected": 0,
+          "errors": 0,
+          "executed": 10,
+          "failed": 0,
+          "not_executed": 0,
+          "passed": 10,
+          "reruns": 0,
+          "skipped": 0,
+          "subtests": {},
+          "warnings": 2,
+          "xfailed": 0,
+          "xpassed": 0
+        },
+        "duration": 3.5452849189999824,
+        "exitstatus": 0,
+        "extensions": {
+          "dropped": 0,
+          "incomplete": false,
+          "recorded": 7
+        },
+        "integrity": {
+          "algorithm": "sha256",
+          "digest": "ae12f605b04fb8297c032c958c1675a15745eb856ad18588485daba6e144bc44",
+          "records": 38
+        },
+        "invalid_selections": [],
+        "note": "",
+        "outcome": "PASS",
+        "root_causes": 0,
+        "run_id": "3f4417bd12644645b93742cda89c23c9",
+        "schema": "pytest-receptor.events@1",
+        "stop_reason": "",
+        "type": "session_finish"
+      }
+    }
+  },
+  "provider_sources": {
+    "argdigest": {
+      "source": "07126411f108ee1ff607e9c9a0816109b2c9253e",
+      "version": "0.17.1+3.g0712641",
+      "wheel_sha256": "0bc95d31c7cbb0c55e7368cfc66929dd571f38b7de546a01a97868475dee4d4c",
+      "native_sha256": {}
+    },
+    "molsysmt": {
+      "source": "9df62445e49a1e268cf4c13d1ebbdd06b2088674",
+      "version": "0.23.0+860.g9df62445e",
+      "wheel_sha256": "670eec9273eee267a05ea0067cd082b76258cc984b2fa995d26616428e6a5696",
+      "native_sha256": {
+        "lib/python3.11/site-packages/molsysmt/_rust.abi3.so": "699a622b4b54494843b11437efa6f6ff6e9c733704afa0e39e2fe9c2f534c3be"
+      }
+    },
+    "molsysviewer": {
+      "source": "1187fc187247aa2d20d01791856a541d50562bcb",
+      "version": "0.24.0+316.g1187fc18",
+      "wheel_sha256": "06b78299a1f3b572a034bf3936268e9b3679ae52f38fdb027e0669da0bb4a07f",
+      "native_sha256": {}
+    },
+    "pyunitwizard": {
+      "source": "c81916e65ce61e905008e8931af3c0e527157251",
+      "version": "0.29.3",
+      "wheel_sha256": "2fdffc60f08afc621534a841c6213ed89a84024d6963fb0d5845a8df0c37797d",
+      "native_sha256": {}
+    },
+    "smonitor": {
+      "source": "c1b6ce29c3729b99429b395a00c7866a759be406",
+      "version": "0.22.1+1.gc1b6ce2",
+      "wheel_sha256": "469e874a7195d05ae87467248ad02ce2d5fed17fd6f0d861b98fdbf58829b3c2",
+      "native_sha256": {}
+    },
+    "depdigest": {
+      "source": "032d345becf8f8f574c24ede61ee62fcf0321de7",
+      "version": "0.15.2+2.g032d345",
+      "wheel_sha256": "1dcd218fc81c9df1d740f5e68ff503703e48ee3b0c563ba7542d2a8669aaf3b4",
+      "native_sha256": {}
+    }
+  },
+  "other_minors": "cancelled; no pass claimed",
+  "reading_scope": "Artifact API digest/size verified and original receipts inspected; full independent wheel/support/JSONL authentication remains pending, no installed acceptance claimed",
+  "diagnostic": [
+    {
+      "path": "/provenance/backend_output/engine_info/weights",
+      "original": "(-0.035579, -0.005156, 0.840245, -0.035069, -0.587439, 50, 0.05846)",
+      "restored": "[-0.035579, -0.005156, 0.840245, -0.035069, -0.587439, 50, 0.05846]",
+      "types": [
+        "tuple",
+        "list"
+      ]
+    }
+  ],
+  "focused_regression": {
+    "passed": 11,
+    "exit": 0,
+    "scope": "Editable Python 3.14 with existing private Vina/Boost overlay and archive-verified Pytest Receptor 1.2.2; no shared installation or fresh ordinary-installed qualification",
+    "resources": {
+      "process_started": true,
+      "exit_code": 0,
+      "resource_interruption": null,
+      "termination_signal": null,
+      "elapsed_seconds": 6.26103781000711,
+      "minimum_available_bytes": 53471571968,
+      "sampled_peak_group_rss_bytes": 484196352,
+      "samples": 61,
+      "policy": {
+        "cpu": 0,
+        "nice": 10,
+        "workers": 1,
+        "available_reserve_bytes": 13958643712,
+        "group_rss_limit_bytes": 1073741824,
+        "address_space_bytes": 2147483648,
+        "cpu_seconds": 45,
+        "wall_seconds": 60
+      },
+      "remaining_live_owned_pids": [],
+      "group_terminal": true
+    }
+  },
+  "custody": {
+    "private_directory": ".molsyssuite/current-0.1.0-puw-receiving-20261111",
+    "review": "2026-11-14",
+    "owner_issue": "uibcdf/dockingmt#50"
+  },
+  "local_administrative": {
+    "counts": {
+      "collected": 122,
+      "deselected": 0,
+      "errors": 0,
+      "executed": 122,
+      "failed": 0,
+      "not_executed": 0,
+      "passed": 122,
+      "reruns": 0,
+      "skipped": 0,
+      "subtests": {
+        "passed": 26
+      },
+      "warnings": 0,
+      "xfailed": 0,
+      "xpassed": 0
+    },
+    "checks": [
+      "ruff-check",
+      "ruff-format",
+      "index",
+      "resources",
+      "contract",
+      "diff",
+      "archive-and-qualified-bytes",
+      "correction-archives-and-qualified-bytes",
+      "sdk-admission-archives-and-qualified-bytes",
+      "received-pyunitwizard-source-bytes",
+      "administrative"
+    ],
+    "scope": "Current corrected source, ordinary governance included; scientific imports forbidden"
+  }
+}

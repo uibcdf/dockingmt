@@ -3202,3 +3202,8 @@ sha256 = "73e8d385c763ebf4c85bcb86099b3785a69445c57c0ff3b30ec44283c8bf22fe"
 source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/producer/oracle.py.txt.gz"
 target = "tests/data/h5msm_client/original-oracle.py.gz"
 sha256 = "1ecd7380ef107089ef8fb40b5a1f0be3b3b25d6fa2e420cf10b10e08d734b94d"
+
+[[installed_tests.support.files]]
+source = "tests/data/guides/quickstart_0_1_0_20261111.md"
+target = "tests/data/guides/quickstart_0_1_0_20261111.md"
+sha256 = "fc8765220c5f465e0d55a2a3c83f09191f54050abec6ba02552b1b31a83f5a30"
