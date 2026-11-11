@@ -123,6 +123,12 @@ objects, stable ties and recorded ranking evidence. It validates score
 descriptors and states; it does not prove chemical comparability. The explicit
 direction controls ordering. Its attached problem remains borrowed/reused.
 
+`compare_scores` additionally validates supplied preparations and correspondence
+through MolSysMT. Its [54-case installed software controls](validation/installed_score_comparison_2026-11-10.md)
+exercise method/reference compatibility, units, direction, grouping, ties and
+refusals with explicitly synthetic molecular seams. Passing those controls is
+separate from validating a real molecular comparison or its scientific meaning.
+
 `result.reconstruct_problem(...)` is an explicit molecular operation; it can
 read/convert supplied or retained source inputs and attaches the problem only
 after validation. `DockingProblem.from_dict` also resolves molecular inputs.

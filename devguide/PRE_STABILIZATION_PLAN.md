@@ -5,6 +5,32 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Explicit H5MSM 1.0 client receiving](validation/h5msm_v10_client_receiving_2026-11-10.md)
+passes ten cases per unit policy: original 0.6 files migrate to new 1.0 roots
+with source provenance intact, followed by typed/map/edit/unknown-report controls.
+The maintainer updates development MolSysMT to 9df62445; product/Rust matches
+05865fbb and actual local ABI3 is 2dbcf13d. Its separate bounded admission passes;
+reference 4ffb82e4 has not been received; local compilation provenance is unassessed.
+The provider also formally accepts the earlier fourteen 0.6 P5 cases in their
+original 5e7d65a6/5715bda context; historical evidence is not relabelled.
+
+[Complete installed score comparison](validation/installed_score_comparison_2026-11-10.md)
+passes all 54 original cases per unit policy on the unchanged actual 37a61e6
+wheel/current development cohort. No actual molecular/native/viewer operation
+runs in comparison; all 606 shared support inputs retire. Independent combined
+304/14-member records authenticate five sessions/68 files and inspect 22 generic
+HDF roots without test/molecular/Rust replay. P6 admits only four final-pair
+one-atom topology calls. No failed attempt or resource interruption occurs.
+
+No agent shared update/install, runtime/test/helper edit, native build, new
+package/publication or remote CI occurs. The human source update stays explicit;
+all earlier cohorts retain their own identities. Full #30/#47/#73, default/
+complete-format/native/candidate/platform/public/interactive gates remain.
+Custody #73/#47/#256/#50 review stays 2026-11-14. Next review/register the complete
+original pose-audit module on this updated cohort, retaining tiny fresh scores,
+CPU 1/seed/input bounds and original producer/fixture assertions. Earlier next
+actions below are historical; use this checkpoint for current resumption.
+
 [Finite H5MSM P5 client receiving](validation/h5msm_p5_client_receiving_2026-11-10.md)
 now passes all seven cases under normal and pm/fs policies: packet readbacks,
 explicit atom/structure `[2, 0]` correspondence, selective coordinate-edit analysis

@@ -14,6 +14,29 @@ supersedes: []
 
 # Consolidate versioned milestones
 
+## Explicit 1.0 and installed comparison received — 2026-11-10
+
+MolSysMT formally accepts the fourteen original 0.6 P5 cases at 9df62445.
+The maintainer updates the shared development checkout; actual local native
+2dbcf13d is distinct from reference 4ffb82e4. [New explicit-1.0 receiving](../validation/h5msm_v10_client_receiving_2026-11-10.md)
+passes ten cases per unit policy with its own ABI/import/map admission, original
+0.6 provenance, typed persistence, selective invalidation and unknown-report
+refusals. Only the two bounded topology calls per whole profile are admitted;
+general native/default/format/candidate qualification remains separate.
+
+[Installed score comparison](../validation/installed_score_comparison_2026-11-10.md)
+passes all 54 original cases per policy on the genuine unchanged wheel/current
+development cohort; molecular seams remain synthetic. Combined 304/14-member
+evidence verifies five complete sessions/68 source identities without test or
+molecular/Rust replay, with generic read-only HDF root inspection. No failed
+attempt/resource interruption, agent shared update/install, runtime/test/helper
+edit, native build, package publication or remote CI occurs.
+
+Next review/register complete pose-audit receiving on the updated cohort with
+the original tiny fresh scores. Keep #30/#47/#73 broader gates, #256's default/
+candidate/format scope and #50 custody review 2026-11-14. Existing #79/#88/#96
+acceptance and old source/native/scientific identities remain unchanged.
+
 ## Finite P5 client controls received — 2026-11-10
 
 [Independent client receiving](../validation/h5msm_p5_client_receiving_2026-11-10.md)

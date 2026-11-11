@@ -14,6 +14,28 @@ supersedes: []
 
 # Distribution control adoption
 
+## Current development-cohort installed comparison — 2026-11-10
+
+[The complete 54-case installed comparison](../validation/installed_score_comparison_2026-11-10.md)
+passes under normal and pm/fs policies on the same genuine 37a61e6 consumer,
+with actual installed roots, all 67 files and all 606 support rows/retirement.
+The maintainer updates shared MolSysMT to 9df62445/local native 2dbcf13d; this
+new actual source/native cohort is frozen and received separately from earlier
+0c6f9c7/5715bda records. All comparison molecular seams stay synthetic and actual
+native/molecular/viewer calls remain zero. No dependency-floor/public claim follows.
+
+[Explicit H5MSM 1.0 client receiving](../validation/h5msm_v10_client_receiving_2026-11-10.md)
+separately passes ten cases per policy on an isolated copy of this development
+composition, preserving 0.6 source provenance and existing P5 controls. Combined
+304/14-member records authenticate five sessions/68 source identities and retain
+the formally accepted earlier 0.6 profile. Reference 4ffb82e4 and native build
+provenance remain unreceived/unassessed; no general native/default/candidate gate.
+
+This issue stays partial for full scientific installed/public Conda/closure/eight
+OS-minor lanes. Next inspect/register whole pose-audit receiving with original
+tiny native scores on this updated cohort. No agent shared install/native build,
+new package/publication or remote CI. Custody review remains 2026-11-14.
+
 ## Separate finite H5MSM client receiving — 2026-11-10
 
 [P5 client evidence](../validation/h5msm_p5_client_receiving_2026-11-10.md) receives

@@ -335,3 +335,20 @@ edits. Before push, require six checks on a fresh actual committed export and
 retain its exact documentation commit/export-retirement receipt separately from
 consumer producer 37a61e6 and provider source 5e7d65a6. Skipped remote CI remains
 missing evidence; these structural checks do not qualify a public package.
+
+
+## Provider acceptance and separate 1.0 receiving — 2026-11-10
+
+MolSysMT's [9df62445 acceptance](https://github.com/uibcdf/molsysmt/blob/9df62445e49a1e268cf4c13d1ebbdd06b2088674/devtools/data/docking_h5msm_p5_client_receiving_256_20261110.json)
+accepts the fourteen final experimental-0.6 P5 cases in their exact 5e7d65a6/
+5715bda scope. It verifies both manifests and eleven selected compressed/decoded
+members, without a full archive reauthentication or molecular replay. Existing
+#79/#88/#96 stay closed. Original failed attempts and source/native identities
+retain their historical scope after the maintainer's later shared update.
+
+[Separate explicit-1.0 receiving](h5msm_v10_client_receiving_2026-11-10.md) now
+passes ten cases per policy on source 9df62445 and actual local binary 2dbcf13d,
+including source-preserving migration/root provenance and the same P5 controls.
+This is a new composition/population, not a new label for these 0.6 files or
+provider-reference 4ffb82e4 acceptance. Default/schema/native/candidate/public
+qualification remains separately owned by MolSysMT.

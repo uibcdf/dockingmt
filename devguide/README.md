@@ -24,6 +24,18 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Explicit H5MSM 1.0 receiving](validation/h5msm_v10_client_receiving_2026-11-10.md)
+now passes ten cases per policy on development source 9df62445/local binary
+2dbcf13d, with original 0.6 provenance and all P5 persistence/edit/refusal controls.
+MolSysMT formally accepts the earlier fourteen 0.6 cases in their original
+composition. The [complete installed score-comparison module](validation/installed_score_comparison_2026-11-10.md)
+also passes all 54 cases per policy, with no actual molecular/native/viewer work.
+Independent 304/14-member evidence keeps the populations separate and authenticates
+actual paths, digests, typed data, source protection and support retirement.
+Reference binary 4ffb82e4, general native/default/candidate/public/platform gates
+retain their own scope. Next review/register whole pose-audit receiving on the
+updated development cohort; custody review stays 2026-11-14.
+
 [Finite P5 client receiving](validation/h5msm_p5_client_receiving_2026-11-10.md)
 now passes seven cases per unit policy: exact packet readbacks, prepared axis
 reordering/persistence, selective post-read edit invalidation and unknown-report
