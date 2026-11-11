@@ -1,7 +1,7 @@
 # Core and Extended delivery before stabilization
 
 Owner: [BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73).
-Accepted maintainer objective: 2026-11-06, [BMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
+Accepted maintainer objective: 2026-11-06, [BMT-046](DECISIONS.md#bmt-046--deliver-the-complete-functional-objective-before-stabilization).
 Status: **active for BindingMT identity/scope transition; completion unproven**.
 Inspected starting source: `530a4cf`.
 
@@ -826,7 +826,7 @@ qualification, independent reproducibility and public installation as the
 prospective **0.5.0** functional milestone in the existing
 [release ladder](RELEASE_MILESTONES.md). Then stabilize the accepted surface across the
 ordinary 0.x.0 releases actually needed; reserve 1.0.0 for the subsequent
-stable-release decision. [BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+stable-release decision. [BMT-048](DECISIONS.md#bmt-048--let-pre-10-versions-follow-verified-progress)
 removes a mandatory 0.9.0 endpoint; 0.23.0 is illustrative, not selected. This identifies
 the development target, not a selected candidate, completed gate, tag or package.
 Earlier milestones may consolidate genuinely qualified subsets. The separate

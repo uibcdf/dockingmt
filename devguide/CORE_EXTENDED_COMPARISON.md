@@ -8,7 +8,7 @@ qualification records. This comparison changes no gate or acceptance decision.
 It accompanies the [prospective version ladder](RELEASE_MILESTONES.md).
 After this reminder, the maintainer explicitly selected **Core plus Extended
 for 1.0.0** on 2026-11-05; see
-[BMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100).
+[BMT-045](DECISIONS.md#bmt-045--require-core-and-extended-mvp-for-100).
 The definitions and evidence distinctions below remain unchanged.
 
 On 2026-11-06 the maintainer requests the complete functional objective in an
@@ -16,7 +16,7 @@ appropriate 0.x.0 release, leaving 1.0.0 until after stabilization. The current
 ladder targets **0.5.0** for that delivery; the
 [pre-stabilization plan](PRE_STABILIZATION_PLAN.md) maps all requirements to
 evidence and owners. Under
-[BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress),
+[BMT-048](DECISIONS.md#bmt-048--let-pre-10-versions-follow-verified-progress),
 stabilization then spans the further reviewed **0.x.0** milestones needed by the
 actual increments; there is no mandatory `0.9.0` release or predetermined last
 minor. `0.23.0` is an illustration, not a selected BindingMT release. These

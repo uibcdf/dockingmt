@@ -81,3 +81,17 @@ selection active despite process affinity. Those tests now explicitly request
 `cpu=1`; the API default remains documented and its wider scheduling risk is
 owned by #28. Do not infer a new runtime CPU policy or a passing interrupted
 selection from this correction.
+
+The corrected ten-module group passes all 260 cases on source `a6f0ff95`, with
+zero skips/failures and 5 provider warnings. The next scientific group exceeds
+its task-local 1 GiB RSS budget (sampled 1,200,123,904 bytes) and is stopped by
+the supervisor, preserving over 53 GiB available memory. Its incomplete stream
+does not qualify any complete selection. Do not automatically restart that
+scientific group; the full ordinary/scientific gate remains missing under #28.
+Continue the applicable bounded identity/API/records/addon and administrative
+controls as a separate targeted selection, with explicit exclusions.
+
+Final presentation cleanup also corrects BMT decision anchors and the component
+label in the synthetic methanol fixture's title header. Coordinates, topology,
+chemical annotations and original numerical observations are unchanged. Its
+declared support hash follows the changed title bytes.

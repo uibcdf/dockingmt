@@ -1,7 +1,7 @@
 # Scientific evidence organization and publication
 
 Owner: [BindingMT #29](https://github.com/uibcdf/bindingmt/issues/29).
-Decision: [BMT-044](../DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route),
+Decision: [BMT-044](../DECISIONS.md#bmt-044--publish-evidence-through-a-staged-repository-first-route),
 accepted 2026-11-04. This local presentation decision follows existing suite
 reporting, disclosure and qualification rules; it creates no shared suite policy.
 

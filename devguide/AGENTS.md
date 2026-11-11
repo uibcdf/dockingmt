@@ -19,7 +19,7 @@ action. Retain resource/custody information when needed. A fresh contributor
 must be able to resume from these files without recovering the conversation.
 
 For scientific/performance evidence and its presentation, follow
-[BMT-044](DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
+[BMT-044](DECISIONS.md#bmt-044--publish-evidence-through-a-staged-repository-first-route)
 and [the local evidence publication policy](validation/evidence_publication_policy.md).
 When changing the scientific overview or its declared inputs, regenerate its
 derived outputs and run the documented `build_summary.py --check`. Keep frozen

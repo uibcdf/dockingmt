@@ -187,7 +187,7 @@ the evidence keys above identify executed results and their limits.
 
 ## Existing Extended-MVP pieces
 
-The maintainer's [BMT-045 decision](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100)
+The maintainer's [BMT-045 decision](DECISIONS.md#bmt-045--require-core-and-extended-mvp-for-100)
 requires both Core and Extended before 1.0.0. This map still assesses Core's
 35 criteria; the following existing pieces are not an acceptance map for E1–E5.
 Their complete workflows, including missing clustering/interaction and broader

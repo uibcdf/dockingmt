@@ -60,7 +60,7 @@ The parent-label test continues to assert attribution, and a new end-to-end guar
 requires the native refusal before Vina is constructed. No topology knowledge is
 erased, branch invented or output patched to make it pass. The existing
 [MolSysMT #214 profile question](https://github.com/uibcdf/molsysmt/issues/214#issuecomment-6478224407)
-owns any future reusable extension. See [BMT-041](../DECISIONS.md#dmt-041--consume-native-prepared-pdbqt-writing-and-its-explicit-profile).
+owns any future reusable extension. See [BMT-041](../DECISIONS.md#bmt-041--consume-native-prepared-pdbqt-writing-and-its-explicit-profile).
 
 Source-free partial representations do not claim complete connectivity. They
 remain writable under the provider's partial-data contract, with their known

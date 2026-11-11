@@ -16,7 +16,7 @@ supersedes: []
 
 ## Resolution — 2026-11-04
 
-[BMT-044](../DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
+[BMT-044](../DECISIONS.md#bmt-044--publish-evidence-through-a-staged-repository-first-route)
 selects a staged repository-first route: the maintained scientific overview and
 original records remain in Git, with a root README entry. There is no main
 documentation site/build in the inspected checkout; rendered user documentation

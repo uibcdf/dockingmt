@@ -2124,7 +2124,7 @@ E4 checkpoint above supersedes its old next-action statements.
   Vina/Vinardo 1.2.7 method-local `lig_inter` reports. Both actual original poses,
   eight old/32 new scalar values, native controls and fresh saved receiving pass.
   Original `generation-01` stays failed; its later live checks stay unreceived.
-- **Versions:** [BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+- **Versions:** [BMT-048](DECISIONS.md#bmt-048--let-pre-10-versions-follow-verified-progress)
   retains the complete pre-stable functional objective and permits the 0.x.0
   increments actually needed for stabilization. Neither 0.9.0 nor illustrative
   0.23.0 is a required or selected last pre-1.0 release. Fixed 0.1.0 stays fixed.

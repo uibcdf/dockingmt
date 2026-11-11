@@ -1,7 +1,7 @@
 # Fixed-pose scoring reference evidence
 
 Owner: [BindingMT #78](https://github.com/uibcdf/bindingmt/issues/78).
-Decision: [BMT-047](../DECISIONS.md#dmt-047--record-the-executed-fixed-score-reference-convention).
+Decision: [BMT-047](../DECISIONS.md#bmt-047--record-the-executed-fixed-score-reference-convention).
 This is one implementation slice of the [complete pre-stabilization plan](../PRE_STABILIZATION_PLAN.md).
 
 ## Executed native convention

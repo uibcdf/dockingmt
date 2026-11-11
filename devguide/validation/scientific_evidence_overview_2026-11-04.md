@@ -156,7 +156,7 @@ thresholds or erased failures. Physical quantities remain those of the saved
 schema; a future molecular calculation must use its owning provider.
 
 This is the initial repository presentation for the audit packet. The subsequent
-[BMT-044 decision](../DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
+[BMT-044 decision](../DECISIONS.md#bmt-044--publish-evidence-through-a-staged-repository-first-route)
 and [local publication policy](evidence_publication_policy.md) now resolve #29's
 audience, route and maintenance/lifecycle questions: repository-first presentation,
 with rendered documentation when a concrete site or reader need exists. The

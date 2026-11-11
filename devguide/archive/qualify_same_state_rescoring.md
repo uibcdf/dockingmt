@@ -681,7 +681,7 @@ needed to review these assertions.
 The next independent implementation work is #81's distinct-ligand study
 admission and explicit study comparison, preserving this same-state profile.
 Whole E1 and Core+Extended completion remain governed by #73. The maintainer's
-open-ended 0.x stabilization clarification is [BMT-048](../DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress).
+open-ended 0.x stabilization clarification is [BMT-048](../DECISIONS.md#bmt-048--let-pre-10-versions-follow-verified-progress).
 
 
 ## Closeout local qualification — 2026-11-07

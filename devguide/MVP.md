@@ -9,7 +9,7 @@ Redocking is the primary end-to-end scientific validation workflow.
 ## Release 1.0.0 target
 
 Maintainer decision, 2026-11-05:
-[BMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100) requires
+[BMT-045](DECISIONS.md#bmt-045--require-core-and-extended-mvp-for-100) requires
 **both Core MVP (C0–C6) and Extended MVP (E1–E5)** before 1.0.0. Acceptance is
 based on complete executed workflows within the declared scientific scope,
 together with the public-delivery, reproducibility and stability requirements in
@@ -19,7 +19,7 @@ definitions below are unchanged.
 
 The 2026-11-06 execution objective places complete functional delivery at
 prospective **0.5.0 before stabilization**, with 1.0.0 reserved for the later
-stable-release decision. [BMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization)
+stable-release decision. [BMT-046](DECISIONS.md#bmt-046--deliver-the-complete-functional-objective-before-stabilization)
 and the [requirement/evidence plan](PRE_STABILIZATION_PLAN.md) preserve all gate
 definitions and scientific/public/reproducibility obligations.
 

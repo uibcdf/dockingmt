@@ -13,9 +13,9 @@ functional milestone, followed by stabilization across the further 0.x.0
 milestones the actual work needs and the later 1.0.0 decision. Stabilization
 has no compulsory 0.9.0 release or predetermined final minor. For example,
 0.23.0 remains a possible illustration, not a selected version or release.
-[BMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100),
-[BMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization),
-[BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+[BMT-045](DECISIONS.md#bmt-045--require-core-and-extended-mvp-for-100),
+[BMT-046](DECISIONS.md#bmt-046--deliver-the-complete-functional-objective-before-stabilization),
+[BMT-048](DECISIONS.md#bmt-048--let-pre-10-versions-follow-verified-progress)
 and the [maintained release ladder](RELEASE_MILESTONES.md) own that scope. It remains
 incomplete; an implemented API, a passing helper or one qualified workflow does
 not accept the complete objective. Moving development to another machine does

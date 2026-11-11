@@ -273,7 +273,7 @@ evidence and immutable custody. The two-source admission alone closes none of
 those later gates. The independent scientific panel, E3/E4/E5, public delivery
 and functional pre-stable delivery, open-ended 0.x stabilization and 1.0.0
 readiness retain their own scope and evidence requirements under
-[BMT-048](../DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress).
+[BMT-048](../DECISIONS.md#bmt-048--let-pre-10-versions-follow-verified-progress).
 
 #81 owns this collection workflow. #33/#49 retain chemistry/provider integration
 ownership; #6/#17 retain the historical 5X72 scientific questions. Closed #36

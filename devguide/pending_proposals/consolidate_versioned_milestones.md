@@ -145,7 +145,7 @@ repeat, stable H5MSM 1.0 acceptance, package release or remote CI follows.
 The maintainer requests the full previously described Core-plus-Extended outcome
 in an appropriate 0.x.0 release before stabilization. The existing ladder places
 functional delivery at prospective **0.5.0**; 0.9.0 stabilization and 1.0.0 follow.
-[BMT-046](../DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization)
+[BMT-046](../DECISIONS.md#bmt-046--deliver-the-complete-functional-objective-before-stabilization)
 and the [complete requirement/evidence plan](../PRE_STABILIZATION_PLAN.md) preserve
 all capabilities, scientific/reproducibility/public delivery and resource limits.
 No selected candidate, tag, package or gate acceptance follows from this plan.
@@ -164,7 +164,7 @@ defines source, public-package, accepted-Core, scientific and stabilization
 milestones with prospective numeric identities and concrete evidence.
 The maintainer requests a [Core/Extended comparison](../CORE_EXTENDED_COMPARISON.md)
 and then explicitly selects **Core plus Extended for 1.0.0** on 2026-11-05.
-[BMT-045](../DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100) records
+[BMT-045](../DECISIONS.md#bmt-045--require-core-and-extended-mvp-for-100) records
 the accepted scope. Both C0–C6 and E1–E5 are release prerequisites; intermediate
 numeric identities and actual candidate/tag selection remain prospective.
 

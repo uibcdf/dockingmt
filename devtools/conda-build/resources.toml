@@ -2852,7 +2852,7 @@ sha256 = "dd74cc5613878b48a222e1e3151bba0acc47f8800d99e4faaf79eb6d8b084755"
 [[installed_tests.support.files]]
 source = "tests/data/charges/methanol.sdf"
 target = "tests/data/charges/methanol.sdf"
-sha256 = "b3bbaddb2f1dbc2626bd97e66f1f01aa709e7e6db5130ecef7bf78a85ab0bdd3"
+sha256 = "cf168a91a72e57b5d4d72c16aa645d6a5077e88f1b6f929db351737586682af2"
 
 [[installed_tests.support.files]]
 source = "tests/data/vina_torsions/1iep_ligand.pdbqt"

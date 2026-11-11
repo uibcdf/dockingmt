@@ -857,7 +857,7 @@ qualification remain unproven. No manual CI; skipped hosted evidence is not PASS
 The accepted target is complete **Core C0–C6 plus Extended E1–E5**, bounded
 scientific qualification, independent reproduction and public installation at
 prospective **0.5.0**. Stabilization spans the ordinary 0.x.0 releases actually
-needed, followed by the 1.0.0 readiness decision; [BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+needed, followed by the 1.0.0 readiness decision; [BMT-048](DECISIONS.md#bmt-048--let-pre-10-versions-follow-verified-progress)
 removes a mandatory 0.9.0 endpoint.
 The [full evidence map](PRE_STABILIZATION_PLAN.md),
 [Core acceptance map](CORE_MVP_STATUS.md) and
@@ -1030,7 +1030,7 @@ scientific, `0.5.0` accepted-Extended and `0.9.0` stabilization milestones befor
 selected candidates. The maintainer has accepted **Core plus Extended for
 1.0.0**: C0–C6 and E1–E5 must all pass within the declared scientific scope,
 with public delivery, reproducibility and stable documented API/records.
-[BMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100) records the
+[BMT-045](DECISIONS.md#bmt-045--require-core-and-extended-mvp-for-100) records the
 decision; the [capability comparison](CORE_EXTENDED_COMPARISON.md) provides
 definitions and present implementation/acceptance. Next
 prepare the first source-candidate decision after

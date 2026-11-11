@@ -7,7 +7,7 @@ unexecuted gates. The [operational roadmap](ROADMAP.md#current-operational-plan)
 [scientific MVP](MVP.md) and [Core acceptance map](CORE_MVP_STATUS.md) retain their
 own authority. Existing scientific producers and package identities remain intact.
 The maintainer has accepted **Core plus Extended MVP for 1.0.0** under
-[BMT-045](DECISIONS.md#dmt-045--require-core-and-extended-mvp-for-100).
+[BMT-045](DECISIONS.md#bmt-045--require-core-and-extended-mvp-for-100).
 That target scope is settled; intermediate numeric identities and actual release
 candidates remain prospective.
 
@@ -17,8 +17,8 @@ afterwards. Stabilization can span as many further reviewed **0.x.0** milestones
 as the actual work requires. There is no mandatory `0.9.0` release or fixed
 upper minor before 1.0.0. A possible `0.23.0` illustrates that open sequence;
 it is not a selected BindingMT version, candidate or release.
-[BMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization)
-and [BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress),
+[BMT-046](DECISIONS.md#bmt-046--deliver-the-complete-functional-objective-before-stabilization)
+and [BMT-048](DECISIONS.md#bmt-048--let-pre-10-versions-follow-verified-progress),
 together with the [requirement/evidence plan](PRE_STABILIZATION_PLAN.md), preserve
 every Core, Extended, scientific, reproducibility and public-delivery obligation.
 

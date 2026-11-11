@@ -277,7 +277,7 @@ The accepted product scope is **Core C0–C6 plus Extended E1–E5**, bounded sc
 qualification, independent reproducibility and public installation. Prospective
 **0.5.0** remains the functional planning milestone; stabilization uses as many
 ordinary **0.x.0** releases as verified progress requires, followed by the
-**1.0.0** stable-contract decision. [BMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress)
+**1.0.0** stable-contract decision. [BMT-048](DECISIONS.md#bmt-048--let-pre-10-versions-follow-verified-progress)
 records the open-ended version sequence. These are gates, not published versions. The separate
 fixed private 0.1.0 candidate has [its own dossier](releases/0.1.0.md).
 

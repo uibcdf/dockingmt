@@ -570,7 +570,7 @@ admission and public/visual qualification remain open.
 
 ## Follow-up 7 — evidence publication decision, 2026-11-04
 
-[BMT-044](DECISIONS.md#dmt-044--publish-evidence-through-a-staged-repository-first-route)
+[BMT-044](DECISIONS.md#bmt-044--publish-evidence-through-a-staged-repository-first-route)
 and the [local evidence publication policy](validation/evidence_publication_policy.md)
 resolve #29's route/lifecycle decision: repository-first presentation linked from
 the root README, one authoritative evidence source and explicit reader, metadata,
