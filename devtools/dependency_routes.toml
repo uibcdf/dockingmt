@@ -209,7 +209,7 @@ id = "source-010-pyunitwizard"
 name = "pyunitwizard"
 role = "required-runtime"
 url = "https://github.com/uibcdf/pyunitwizard"
-commit = "f82b618ea88c151a9b43009228126b1cf7fda65c"
+commit = "c81916e65ce61e905008e8931af3c0e527157251"
 install = "pip-no-deps-directory"
 reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
 
@@ -269,5 +269,5 @@ reason = "Current 0.1.0 milestone, exact same-run consumer wheel and six freshly
 
 [[workflows]]
 path = ".github/workflows/qualify-current-0.1.0.yml"
-sha256 = "0efc02906cf6a0239d17839cea7cd1fc3f89a5b954f7a23a34d2a59658f233f1"
+sha256 = "09f6fcba87ddb863bbd61986570fea34c9b25ae8f8cd888786793b4f4433836b"
 reason = "DockingMT #74 explicit current 0.1.0 milestone checkpoint: one lightweight-tagged private wheel, serial fresh Linux 3.11-3.14 source/installed cells, six immutable development providers, shared SDK checks and retained original source wheels. No publisher or automatic trigger. Retire after the first-tag decision or a received common source-candidate route; suite #31 retains shared source-acquisition ownership."

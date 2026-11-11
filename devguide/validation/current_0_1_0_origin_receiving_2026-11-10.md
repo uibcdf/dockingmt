@@ -134,3 +134,22 @@ candidate PASS or hypothetical merge is substituted. Only complete acceptance
 admits the lightweight `0.1.0` tag and its required source-event notice. Public
 packages, additional platforms, interactive canvas and whole Core/Extended/
 scientific acceptance retain their separate owners.
+
+## Development provider received — 2026-11-11
+
+PR #147 is merged, with additional fresh-interpreter guards from its owner;
+#146 is archived upstream. The maintainer's installed development source is
+c81916e65ce61e905008e8931af3c0e527157251, a clean descendant of merge f1b6464.
+Fresh isolated import in the actual Conda interpreter verifies editable source,
+version 0.29.2+7.gc81916e, creator file/spec identity and package parent. The
+0.29.3 publication is separate and is not a prerequisite for source receiving.
+
+Review also identifies the intervening 0.29.2 length-rounding/conversion and
+probe-cost corrections, so the changed provider gets the original complete
+both-policy/full-installed checkpoint rather than inherited numerical acceptance.
+Only the current profile/checkout/context changes; historical sources and all
+622 support inputs remain fixed. Local source checks use one CPU/nice 10 and
+monitored 13 GiB reserve; extensive receiving stays on declared hosted runners.
+Private receiving records: `.molsyssuite/current-0.1.0-puw-receiving-20261111`.
+Next explicitly freeze the replacement candidate, record its actual run/source/
+artifact identities and complete the original four-minor gate before tagging.

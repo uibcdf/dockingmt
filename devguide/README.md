@@ -1,5 +1,24 @@
 # DockingMT Development Guide
 
+### PyUnitWizard fix received — 2026-11-11
+
+PyUnitWizard #147 is merged as f1b6464; the current clean development checkout
+and editable distribution are **c81916e65ce61e905008e8931af3c0e527157251**,
+observed version `0.29.2+7.gc81916e`. A fresh interpreter verifies the real
+creator file/spec for `pyunitwizard.main`. No package publication or reinstall
+is needed for this development route. The source profile, checkout and declared
+context now select that exact provider; the other five source pins stay fixed.
+The refreshed shared workspace is preserved, including its separately updated
+SMonitor checkout; it is not substituted for the frozen qualification cohort.
+
+The provider source also includes its reviewed 0.29.2 conversion corrections.
+Freeze a replacement DockingMT candidate and run the original serial Linux/
+Python 3.11–3.14 checkpoint with both storage policies and the full installed
+selection. Old candidate results remain historical. The lightweight `0.1.0`
+tag still requires those actual gates and its source-event notice. #74 owns
+receiving; #50 custody review remains 2026-11-14. No local native build or new
+public package/GitHub Release follows from this source receipt.
+
 [The current 0.1.0 origin checkpoint](validation/current_0_1_0_origin_receiving_2026-11-10.md)
 receives ten passing normal-policy storage cases on candidate 9aee16b7 and a
 fresh authenticated native build, then preserves the failed final origin gate
