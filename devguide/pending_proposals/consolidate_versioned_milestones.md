@@ -14,6 +14,18 @@ supersedes: []
 
 # Consolidate versioned milestones
 
+## First source milestone delivered — 2026-11-11
+
+The maintainer-selected lightweight [0.1.0 tag](../releases/0.1.0_current.md)
+targets exact qualified 1030a29, with all four original-file installed minors
+received and central source-only notice #189 delivered. The 0.1.0 record keeps
+its pre-test failures, actual later recovery identity, unchanged producer and
+explicit scientific/public limits. No package or GitHub Release is published.
+This closes the source-event part of #74; its tag conformance/report audit remains.
+The full #73 objective stays partial/active: continue original #33/#49 panel
+admission and the separately owned public/platform/browser gates. Future 0.x
+versions follow accepted progress; no 0.9 endpoint or whole-plan completion follows.
+
 ## Current 0.1.0 source checkpoint prepared — 2026-11-10
 
 [Current preparation](../validation/current_0_1_0_preparation_2026-11-10.md)

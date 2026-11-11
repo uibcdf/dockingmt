@@ -6,34 +6,33 @@ The roadmap defines direction and gates, not dates.
 
 Work is **active after the maintainer's resumption**.
 
-### Four-minor 0.1.0 qualification received — 2026-11-11
+### Source milestone 0.1.0 delivered — 2026-11-11
 
-Exact candidate **1030a29025914e01dff09e5fc606ec73b90f4cd9**, tree
-`5f0c98567ae06263c1a43b9a24c63f7c81675539`, is qualified for its declared
-source-assisted Linux x86_64/Python 3.11–3.14 profile. [Terminal receiving](validation/data/current_0_1_0_terminal_20261111.json)
-authenticates the same complete **2658 passing cases per minor**, zero
-failures/errors/skips, 154 warnings, and both ten-case storage policies.
-One original 0.1.0 wheel, all 67 consumer files, six provider wheel/native
-payloads, 4508 unchanged installed entries and 623 retired support inputs bind
-to original JSONL/JUnit and closure/collection hashes. PyUnitWizard c81916e is
-received as 0.29.3; no shared package reinstall or source update is required.
+Published [lightweight tag **0.1.0**](https://github.com/uibcdf/dockingmt/tree/0.1.0)
+targets **1030a29025914e01dff09e5fc606ec73b90f4cd9**, tree
+`5f0c98567ae06263c1a43b9a24c63f7c81675539`; GitHub verifies a direct commit ref.
+[Source-event notice](https://github.com/uibcdf/molsyssuite/issues/189) records
+this delivery. No package or GitHub Release accompanies the source event.
 
-Three installed cells and build/quality/policy remain original attempt-1
-successes in run 42976065511. Python 3.13 succeeds in [finite recovery
-43074858531](https://github.com/uibcdf/dockingmt/actions/runs/43074858531),
-qualification head 286f811, preserving the exact original candidate/file and
-scientific logic. Both failed pre-test attempts remain recorded. Recovery
-controls pass 142 local cases/26 subtests; earlier candidate controls and fresh
-committed exports retain their identities. Later evidence commits do not move
-the candidate. Next create the maintainer-selected **lightweight `0.1.0` tag**
-and record the source-event notice; no package or GitHub Release is selected.
+[Terminal receiving](validation/data/current_0_1_0_terminal_20261111.json)
+authenticates the same **2658 passing cases per Python 3.11–3.14 minor**, zero
+failures/errors/skips, 154 warnings, plus both ten-case storage policies.
+All cells consume the same original 0.1.0 wheel with 67 consumer paths, six
+provider wheel/native payloads, 4508 unchanged installed entries and 623 retired
+support inputs. Three original cells/build/quality/policy stay attempt-1 evidence;
+Python 3.13 succeeds in run 43074858531/head 286f811 with the original candidate/
+file and unchanged scientific logic. Both failed pre-test attempts remain failed.
 
-#74 owns source closeout; #50 custody review remains 2026-11-14. Whole Core/
-Extended (#73), public package/platform (#30/#47), independent science and actual
-canvas acceptance retain their existing owners and limits. Resume the accepted
-#33/#49 scientific-panel admission next, preserving provider maps/decisions and
-the maintainer's browser scheduling. Earlier checkpoint entries below are dated
-history; no completed scientific workflow is repeated for this source milestone.
+The tag-specific [conformance check 43088048207](https://github.com/uibcdf/dockingmt/actions/runs/43088048207)
+is separately queued; skipped automatic tag CI is not labelled passing. #74
+retains that final audit and report archive. The tag target stays immutable.
+#50 custody review is 2026-11-14; no owned local calculation remains active.
+
+The complete #73 objective remains active. Resume #33/#49's original scientific
+panel/state/environment/terminal admission and provider #558 maps/history next.
+Public package/platform #30/#47, independent science and actual canvas acceptance
+retain their criteria/owners and the maintainer's scheduling. Earlier checkpoint
+entries below are dated history; no completed scientific workflow is repeated.
 
 [The current 0.1.0 origin checkpoint](validation/current_0_1_0_origin_receiving_2026-11-10.md)
 receives ten passing normal-policy storage cases on candidate 9aee16b7 and a

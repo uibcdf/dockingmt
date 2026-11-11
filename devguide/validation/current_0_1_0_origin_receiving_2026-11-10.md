@@ -352,3 +352,20 @@ independent scientific accuracy, actual canvas work or whole Core/Extended.
 The maintainer-selected lightweight 0.1.0 target is the exact qualified
 candidate; later documentation/recovery commits do not move that target.
 Actual tag creation and release-specific notice remain the closeout action.
+
+
+## Source event delivered — 2026-11-11
+
+The maintainer-selected **lightweight 0.1.0 tag** is pushed and independently
+verified through GitHub's Git ref API as `refs/tags/0.1.0`, object type `commit`,
+SHA 1030a29025914e01dff09e5fc606ec73b90f4cd9. It names the qualified candidate,
+not a later evidence commit. No annotated tag, package or GitHub Release is
+created. [MolSysSuite #189](https://github.com/uibcdf/molsyssuite/issues/189)
+records the required source-only event and separately owned follow-up scopes.
+
+No automatic push workflow is observed for the tag's [skip ci] producer message;
+that absence is not a pass. Only the lightweight tag-specific conformance
+[43088048207](https://github.com/uibcdf/dockingmt/actions/runs/43088048207) is
+explicitly dispatched on 0.1.0. Its result is pending; earlier candidate source
+policy remains original evidence and installed/scientific matrices are not repeated.
+#74 retains final conformance receipt/report archival; broader #73 remains active.

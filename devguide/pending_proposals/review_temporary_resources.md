@@ -14,6 +14,19 @@ supersedes: []
 
 # Temporary-resource review — 2026-11-05
 
+## Source 0.1.0 closeout custody — 2026-11-11
+
+Keep `.molsyssuite/current-0.1.0-puw-receiving-20261111` under #74/#50 until the
+2026-11-14 review: original API-digest-verified artifact ZIPs, decoded provider
+wheels/receipts and JSONL/JUnit, original failed attempts, bounded reader/
+source-export records and the published-reporter dependency. Four installed
+cells and every owned local reader are terminal; no local resource interruption
+or native-build restart occurs. The tag-specific read-only conformance run is
+separately tracked under #74. Managed source exports are retired. Preserve the
+human migration backup, shared environments and historical native holds.
+Retirement requires verified receipt/owner/dependency references; source-event
+publication alone does not authorize deleting the original qualification bytes.
+
 ## CI/private installed custody increment — 2026-11-09
 
 Retain `.molsyssuite/ci-alignment-20261109` and

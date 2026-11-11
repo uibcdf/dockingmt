@@ -5,7 +5,7 @@
   "tree": "5f0c98567ae06263c1a43b9a24c63f7c81675539",
   "run_id": 42976065511,
   "run_url": "https://github.com/uibcdf/dockingmt/actions/runs/42976065511",
-  "status": "qualified; tag pending",
+  "status": "source tag published; post-tag conformance pending",
   "platform": "linux-x86_64",
   "source_profile_sha256": "37ff280b5adb6134cae12f46f3639239f76ce0ded1d0abf8d152e98976a5d184",
   "profile": {
@@ -730,7 +730,12 @@
     "name": "0.1.0",
     "kind": "lightweight",
     "target": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
-    "created": false
+    "created": true,
+    "published": true,
+    "remote_ref": "refs/tags/0.1.0",
+    "remote_object_type": "commit",
+    "remote_sha": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+    "url": "https://github.com/uibcdf/dockingmt/tree/0.1.0"
   },
   "package_publication": false,
   "github_release": false,
@@ -877,5 +882,17 @@
     "installed_3_11_3_12_3_14": "Original attempt-1 same-wheel successes retained; not rerun or relabelled.",
     "installed_3_13": "New successful run 43074858531/head 286f811 admits the same original candidate/file and unchanged scientific helper AST outside admission.",
     "failed_attempts": "Original Conda download timeout and attempt-2 artifact-name failure remain failed pre-test populations."
+  },
+  "source_event_notice": {
+    "issue": "uibcdf/molsyssuite#189",
+    "url": "https://github.com/uibcdf/molsyssuite/issues/189",
+    "date": "2026-11-11"
+  },
+  "post_tag_conformance": {
+    "run_id": 43088048207,
+    "url": "https://github.com/uibcdf/dockingmt/actions/runs/43088048207",
+    "source": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+    "status": "queued",
+    "note": "Tag push carries the original [skip ci] producer message; omitted automatic CI is not passing evidence. Only the lightweight tag conformance is dispatched; installed/scientific matrices are not repeated."
   }
 }

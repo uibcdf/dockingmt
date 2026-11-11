@@ -22,6 +22,16 @@ and [DMT-048](DECISIONS.md#dmt-048--let-pre-10-versions-follow-verified-progress
 together with the [requirement/evidence plan](PRE_STABILIZATION_PLAN.md), preserve
 every Core, Extended, scientific, reproducibility and public-delivery obligation.
 
+## Delivered source checkpoint — 2026-11-11
+
+[Lightweight 0.1.0](releases/0.1.0_current.md) fixes qualified source 1030a29.
+The same consumer wheel passes the full 2658-case collection per supported
+Python minor on Linux x86_64, plus both storage policies. Central source notice
+is [MolSysSuite #189](https://github.com/uibcdf/molsyssuite/issues/189). This
+source-only delivery publishes no package or GitHub Release. Broader Core/
+Extended, science, public-platform and stability criteria remain prospective;
+the future ladder below is not a fixed minor-count schedule.
+
 ## Why consolidate intermediate versions
 
 DockingMT has meaningful software, workflow and scientific checkpoints worth
