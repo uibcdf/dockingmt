@@ -3207,3 +3207,13 @@ sha256 = "1ecd7380ef107089ef8fb40b5a1f0be3b3b25d6fa2e420cf10b10e08d734b94d"
 source = "tests/data/guides/quickstart_0_1_0_20261111.md"
 target = "tests/data/guides/quickstart_0_1_0_20261111.md"
 sha256 = "fc8765220c5f465e0d55a2a3c83f09191f54050abec6ba02552b1b31a83f5a30"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/terminal_completion_receiving.py"
+target = "dmt_test_support/terminal_completion_receiving.py"
+sha256 = "91219efb174403c2fd1e8041d9c6713c1f633178f2f25809a74d0dfa3d26b72a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/panel_admission_2026-11-04/1HSG.pdb.gz"
+target = "devguide/validation/data/panel_admission_2026-11-04/1HSG.pdb.gz"
+sha256 = "eef33be911e35b27f49b1ce97cde422ef4bb792af452959dd0c662957f7c2b3a"

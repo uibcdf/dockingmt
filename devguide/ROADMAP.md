@@ -6,6 +6,17 @@ The roadmap defines direction and gates, not dates.
 
 Work is **active after the maintainer's resumption**.
 
+### Terminal maps/history receiving registered — 2026-11-11
+
+[#33/#49 receiving](validation/panel_terminal_receiving_2026-11-11.md) resumes the
+original panel work after the immutable 0.1.0 source milestone. MolSysMT #558 is
+source-resolved; the clean editable provider is fast-forwarded to `aee7aa65` with
+unchanged native bytes/build inputs. Import admission passes; six synthetic and
+two original-input controls under both unit policies are registered, not yet
+executed. Next run these bounded controls before panel chemistry/environment
+admission. Original scientific results and tag-specific policy evidence retain
+their separate scope.
+
 ### Source milestone 0.1.0 delivered — 2026-11-11
 
 Published [lightweight tag **0.1.0**](https://github.com/uibcdf/dockingmt/tree/0.1.0)

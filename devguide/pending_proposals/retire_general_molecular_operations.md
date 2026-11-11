@@ -14,6 +14,17 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
+## Terminal maps/history receiving registered — 2026-11-11
+
+[#33/#49 receiving](../validation/panel_terminal_receiving_2026-11-11.md) resumes the
+original panel work after the immutable 0.1.0 source milestone. MolSysMT #558 is
+source-resolved; the clean editable provider is fast-forwarded to `aee7aa65` with
+unchanged native bytes/build inputs. Import admission passes; six synthetic and
+two original-input controls under both unit policies are registered, not yet
+executed. Next run these bounded controls before panel chemistry/environment
+admission. Original scientific results and tag-specific policy evidence retain
+their separate scope.
+
 ## Complete provider-owned references received in development — 2026-11-08
 
 [Both original reference workflows](../validation/panel_references_editable_2026-11-08.md)
