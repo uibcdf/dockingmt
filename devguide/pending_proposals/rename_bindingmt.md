@@ -95,3 +95,12 @@ Final presentation cleanup also corrects BMT decision anchors and the component
 label in the synthetic methanol fixture's title header. Coordinates, topology,
 chemical annotations and original numerical observations are unchanged. Its
 declared support hash follows the changed title bytes.
+
+Later targeted controls expose a missing `unyt` test backend in the new private
+receiver and an over-renamed schema expectation for the authenticated historical
+P59 input. Complete previously reviewed unyt/SymPy/mpmath wheels are received
+only in that private prefix. The original prior projection is frozen at its
+unchanged SHA-256; its full schema/producer identity remains authenticated rather
+than relabelled. Canonical current text/figure presentations are regenerated with
+zero molecular imports/operations and identical saved numerical observations.
+The support declaration now has 626 inputs, including that frozen original.

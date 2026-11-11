@@ -129,7 +129,8 @@ def test_join_uses_run_keys_when_archive_and_projection_order_change(documents, 
 
 
 @pytest.mark.parametrize(
-    'damage', ['missing', 'duplicate', 'result_digest', 'archive_binding']
+    'damage',
+    ['missing', 'duplicate', 'result_digest', 'archive_binding', 'schema', 'producer'],
 )
 def test_incomplete_or_unbound_records_are_not_silently_selected(damage, documents):
     archive, projection = copy.deepcopy(documents)
@@ -139,6 +140,10 @@ def test_incomplete_or_unbound_records_are_not_silently_selected(damage, documen
         archive['new_runs'][0] = copy.deepcopy(archive['new_runs'][1])
     elif damage == 'result_digest':
         archive['new_runs'][0]['result']['poses'][0]['scores']['vina'] += 1.0
+    elif damage == 'schema':
+        projection['schema'] = 'unrecognized.saved_search_variability@1'
+    elif damage == 'producer':
+        projection['analysis_producer']['module'] = 'another_producer.py'
     else:
         projection['inputs']['root_order']['sha256'] = '0' * 64
     with pytest.raises(ValueError):

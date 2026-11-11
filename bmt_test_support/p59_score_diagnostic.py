@@ -24,10 +24,11 @@ INPUTS = {
         '2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e',
     ),
     'projection': (
-        'saved_search_variability_2026-11-05/summary.json',
+        'saved_search_variability_2026-11-05/frozen_20261105_summary.json',
         '0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc',
     ),
 }
+PRIOR_IDENTITY_SHA = '05df8f441795110375326a50cd0138cf84dac2e119175d51a3d97981ee387b84'
 PRIOR_MODULE_SHA = '91ef4d7a591ff0d9904d5d26be93e9b1bad6116bbeba004325ea3974664064a5'
 SEEDS = (7, 42, 2026)
 EFFORTS = (1, 8)
@@ -272,7 +273,8 @@ def describe_run(run, numerical, archive_index, projection_index):
 
 def build(archive, projection):
     require(
-        projection['schema'] == 'bindingmt.saved_search_variability@1'
+        record_digest({key: projection[key] for key in ('schema', 'analysis_producer')})
+        == PRIOR_IDENTITY_SHA
         and projection['analysis_producer']['sha256'] == PRIOR_MODULE_SHA,
         'Changed prior projection identity',
     )

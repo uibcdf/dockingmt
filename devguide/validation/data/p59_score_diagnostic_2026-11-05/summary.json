@@ -1,8 +1,8 @@
 {
   "analysis_producer": {
-    "module": "dmt_test_support/p59_score_diagnostic.py",
+    "module": "bmt_test_support/p59_score_diagnostic.py",
     "prescription_commit": "414ff0e4e0a3932261b7eeb36c10594deb4ba4f9",
-    "sha256": "dbbd67c354fe81d77e5c4be451fb9a868a1ac8beeb3e30e832917897295d4b78"
+    "sha256": "5fa109ce728bdda173716f59d913798111022ec1c562f83b7a40784fa354317f"
   },
   "date": "2026-11-05",
   "inputs": {
@@ -11,7 +11,7 @@
       "sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e"
     },
     "projection": {
-      "path": "saved_search_variability_2026-11-05/summary.json",
+      "path": "saved_search_variability_2026-11-05/frozen_20261105_summary.json",
       "sha256": "0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc"
     }
   },
@@ -25,7 +25,7 @@
     "consumer_source_record_sha256": "83df1b2d396c40be4c2c3cfb601adaf4bc3e93737faedb387fff524ddbacacb3",
     "qualified_provider_commit": "5bd893c85fe8d211663b2b1f865f5f1d2c382a90"
   },
-  "owner": "uibcdf/dockingmt#69",
+  "owner": "uibcdf/bindingmt#69",
   "population": {
     "archive_runs": 24,
     "nonselected_p69_runs": 12,
@@ -3395,5 +3395,5 @@
       }
     }
   ],
-  "schema": "dockingmt.p59_score_diagnostic@1"
+  "schema": "bindingmt.p59_score_diagnostic@1"
 }

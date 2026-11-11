@@ -22,7 +22,7 @@ from bmt_test_support.qualify_chemical_templates import snapshot
 
 
 def _save(name, data):
-    output = Path(os.environ['DMT_TERMINAL_OUTPUT'])
+    output = Path(os.environ['BINDINGMT_TERMINAL_OUTPUT'])
     output.mkdir(parents=True, exist_ok=True)
     with (output / (name + '.json')).open('x') as stream:
         json.dump(detached_provider_report(data), stream, indent=2, allow_nan=False)
@@ -30,7 +30,7 @@ def _save(name, data):
 
 
 def _journal(kind, **data):
-    path = Path(os.environ['DMT_TERMINAL_OUTPUT']) / 'calls.jsonl'
+    path = Path(os.environ['BINDINGMT_TERMINAL_OUTPUT']) / 'calls.jsonl'
     existing = (
         [json.loads(line) for line in path.read_text().splitlines()]
         if path.exists()

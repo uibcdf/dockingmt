@@ -1,16 +1,16 @@
 {
   "analysis_producer": {
-    "module": "dmt_test_support/saved_search_variability.py",
+    "module": "bmt_test_support/saved_search_variability.py",
     "prescription_source_commit": "d1435ff8662787afa29798fc0824ac30d9d0c6b6",
-    "sha256": "91ef4d7a591ff0d9904d5d26be93e9b1bad6116bbeba004325ea3974664064a5"
+    "sha256": "f13a4889b709e0b78d5aaf953911cf1ac3dfecae7a3876669ecfebddc46a42f4"
   },
   "files": {
-    "effort_differences.png": "1d0a5c84edf78f07a71d46eaa004d50c466a9c1518907cf24173e15b6ea44225",
-    "effort_differences.svg": "3a9070cf35ba251906071d1f764f3d66c02b259dc26f84de3b09b6e0d2a36e64",
+    "effort_differences.png": "305eccf936eeb743d75e0a9f78b18d089461a6df67571faf708fe8d897c8f857",
+    "effort_differences.svg": "644e435caaafd6c00e3cced86432a4a2b933b1a627b6f82a0f70be5f27901d55",
     "runs.md": "6381733ba4c59af71cf179cfb2e2fd2a91b07aac1a4cd366a13179189d101111",
-    "summary.json": "0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc",
-    "top_n.png": "a5f89048c16b1485bf62681e33874352fecb85ec70630d9406eba7fe2346a025",
-    "top_n.svg": "2ad0fda33561fa82de76d82ba1e337e027d869c0a78ba73fcf469eca494c9804"
+    "summary.json": "0856b2b812afd0e724c988bd7d5abeb7d5db25bcc0c9a29848b7c78e78110d73",
+    "top_n.png": "d88b799c68b5e1f98e1e4c7112085559954225f0e83a1ef71b0c394840981854",
+    "top_n.svg": "2d9b375ac5edca0920cb768cc1426971141e72a3d7ab16018cacaca9163c3c7f"
   },
   "inputs": {
     "receiving": {

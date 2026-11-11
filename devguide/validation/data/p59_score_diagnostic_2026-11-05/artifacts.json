@@ -1,15 +1,15 @@
 {
   "analysis_producer": {
-    "module": "dmt_test_support/p59_score_diagnostic.py",
+    "module": "bmt_test_support/p59_score_diagnostic.py",
     "prescription_commit": "414ff0e4e0a3932261b7eeb36c10594deb4ba4f9",
-    "sha256": "dbbd67c354fe81d77e5c4be451fb9a868a1ac8beeb3e30e832917897295d4b78"
+    "sha256": "5fa109ce728bdda173716f59d913798111022ec1c562f83b7a40784fa354317f"
   },
   "files": {
     "poses.csv": "816ff7d373f01c4ceed3291e625a73ada7752bd01820f802335e85eeeaad748e",
     "runs.md": "06db15fbd831861fdfbd150ba0abbfc6a8e2a6f1659b4fa293714a6a0d96d47f",
-    "score_rmsd.png": "9ef4c4d83731406b82dfe4aee84c5c735f71f3d050e7fe40801ee0a4e7e6dcf8",
-    "score_rmsd.svg": "7e433ad8e04c326b0332da2a1f92c2b5e9ac2620623d5fc113da8501bc909630",
-    "summary.json": "436c224048abba465f29bcee379f049b8b65ab6f16718a3b6a7193384a6668ab"
+    "score_rmsd.png": "a59b7c7c2d633be46e546cba3357d566cfbb26ccad79a1d28dd95cb2499bde6b",
+    "score_rmsd.svg": "6183f58166d25b1cf34454014bcbb779606c46cad491b0fdcd1d02e1bc7a23c5",
+    "summary.json": "9d31bd34ba291309b2982de19637bba7a3f1a489165e6a8c589ec0044813479d"
   },
   "inputs": {
     "archive": {
@@ -17,7 +17,7 @@
       "sha256": "2129d7eed2b73bcf90737b2a6c722e3b8e9269abeba0ca3b1444df51f046634e"
     },
     "projection": {
-      "path": "saved_search_variability_2026-11-05/summary.json",
+      "path": "saved_search_variability_2026-11-05/frozen_20261105_summary.json",
       "sha256": "0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc"
     }
   },

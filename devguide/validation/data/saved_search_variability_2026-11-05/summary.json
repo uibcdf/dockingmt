@@ -1,8 +1,8 @@
 {
   "analysis_producer": {
-    "module": "dmt_test_support/saved_search_variability.py",
+    "module": "bmt_test_support/saved_search_variability.py",
     "prescription_source_commit": "d1435ff8662787afa29798fc0824ac30d9d0c6b6",
-    "sha256": "91ef4d7a591ff0d9904d5d26be93e9b1bad6116bbeba004325ea3974664064a5"
+    "sha256": "f13a4889b709e0b78d5aaf953911cf1ac3dfecae7a3876669ecfebddc46a42f4"
   },
   "arm_effort_groups": [
     {
@@ -1396,7 +1396,7 @@
       "qualified_provider_commit": "739395d7ea31bec5c3f77cdcb1135ecf7e7c9bac"
     }
   },
-  "owner": "uibcdf/dockingmt#67",
+  "owner": "uibcdf/bindingmt#67",
   "runs": [
     {
       "arm": "rigid/native",
@@ -6909,7 +6909,7 @@
       }
     }
   ],
-  "schema": "dockingmt.saved_search_variability@1",
+  "schema": "bindingmt.saved_search_variability@1",
   "within_seed_effort_comparisons": [
     {
       "arm": "rigid/native",

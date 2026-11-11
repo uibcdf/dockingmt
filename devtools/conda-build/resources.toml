@@ -2952,17 +2952,17 @@ sha256 = "f13a4889b709e0b78d5aaf953911cf1ac3dfecae7a3876669ecfebddc46a42f4"
 [[installed_tests.support.files]]
 source = "devguide/validation/data/saved_search_variability_2026-11-05/artifacts.json"
 target = "devguide/validation/data/saved_search_variability_2026-11-05/artifacts.json"
-sha256 = "1e21b780225ad79751229abe1b053fe65ab67d1a8335d27c69cb4cb23df4aa90"
+sha256 = "24b6a649ecc67dcf8eace34440f1317f2b694a25e2ed943560d0ecd8c0a31f93"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/saved_search_variability_2026-11-05/effort_differences.png"
 target = "devguide/validation/data/saved_search_variability_2026-11-05/effort_differences.png"
-sha256 = "1d0a5c84edf78f07a71d46eaa004d50c466a9c1518907cf24173e15b6ea44225"
+sha256 = "305eccf936eeb743d75e0a9f78b18d089461a6df67571faf708fe8d897c8f857"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/saved_search_variability_2026-11-05/effort_differences.svg"
 target = "devguide/validation/data/saved_search_variability_2026-11-05/effort_differences.svg"
-sha256 = "3a9070cf35ba251906071d1f764f3d66c02b259dc26f84de3b09b6e0d2a36e64"
+sha256 = "644e435caaafd6c00e3cced86432a4a2b933b1a627b6f82a0f70be5f27901d55"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/saved_search_variability_2026-11-05/runs.md"
@@ -2972,27 +2972,27 @@ sha256 = "6381733ba4c59af71cf179cfb2e2fd2a91b07aac1a4cd366a13179189d101111"
 [[installed_tests.support.files]]
 source = "devguide/validation/data/saved_search_variability_2026-11-05/summary.json"
 target = "devguide/validation/data/saved_search_variability_2026-11-05/summary.json"
-sha256 = "0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc"
+sha256 = "0856b2b812afd0e724c988bd7d5abeb7d5db25bcc0c9a29848b7c78e78110d73"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/saved_search_variability_2026-11-05/top_n.png"
 target = "devguide/validation/data/saved_search_variability_2026-11-05/top_n.png"
-sha256 = "a5f89048c16b1485bf62681e33874352fecb85ec70630d9406eba7fe2346a025"
+sha256 = "d88b799c68b5e1f98e1e4c7112085559954225f0e83a1ef71b0c394840981854"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/saved_search_variability_2026-11-05/top_n.svg"
 target = "devguide/validation/data/saved_search_variability_2026-11-05/top_n.svg"
-sha256 = "2ad0fda33561fa82de76d82ba1e337e027d869c0a78ba73fcf469eca494c9804"
+sha256 = "2d9b375ac5edca0920cb768cc1426971141e72a3d7ab16018cacaca9163c3c7f"
 
 [[installed_tests.support.files]]
 source = "bmt_test_support/p59_score_diagnostic.py"
 target = "bmt_test_support/p59_score_diagnostic.py"
-sha256 = "b478ed6e8ec36b2c8295c0c7ff450b5f19852cadbdda64f6e6e44b99219280e6"
+sha256 = "5fa109ce728bdda173716f59d913798111022ec1c562f83b7a40784fa354317f"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/artifacts.json"
 target = "devguide/validation/data/p59_score_diagnostic_2026-11-05/artifacts.json"
-sha256 = "53dea848d900d4286c6531928695e6260f5166a4f764e7eef4bb84cc9f6882a1"
+sha256 = "2a03fd7cd02ae15ea48772e673984c098fd9089c263a324177e53386bfc86b6a"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/poses.csv"
@@ -3007,17 +3007,17 @@ sha256 = "06db15fbd831861fdfbd150ba0abbfc6a8e2a6f1659b4fa293714a6a0d96d47f"
 [[installed_tests.support.files]]
 source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/score_rmsd.png"
 target = "devguide/validation/data/p59_score_diagnostic_2026-11-05/score_rmsd.png"
-sha256 = "9ef4c4d83731406b82dfe4aee84c5c735f71f3d050e7fe40801ee0a4e7e6dcf8"
+sha256 = "a59b7c7c2d633be46e546cba3357d566cfbb26ccad79a1d28dd95cb2499bde6b"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/score_rmsd.svg"
 target = "devguide/validation/data/p59_score_diagnostic_2026-11-05/score_rmsd.svg"
-sha256 = "7e433ad8e04c326b0332da2a1f92c2b5e9ac2620623d5fc113da8501bc909630"
+sha256 = "6183f58166d25b1cf34454014bcbb779606c46cad491b0fdcd1d02e1bc7a23c5"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/p59_score_diagnostic_2026-11-05/summary.json"
 target = "devguide/validation/data/p59_score_diagnostic_2026-11-05/summary.json"
-sha256 = "436c224048abba465f29bcee379f049b8b65ab6f16718a3b6a7193384a6668ab"
+sha256 = "9d31bd34ba291309b2982de19637bba7a3f1a489165e6a8c589ec0044813479d"
 
 [[installed_tests.support.files]]
 source = "bmt_test_support/synthesize_5x72_controls.py"
@@ -3212,9 +3212,14 @@ sha256 = "407c3d0f6aa650cf9a00fb113b473cf2bb49de9a0bcb31828eebdadefe12c78c"
 [[installed_tests.support.files]]
 source = "bmt_test_support/terminal_completion_receiving.py"
 target = "bmt_test_support/terminal_completion_receiving.py"
-sha256 = "1aa6c2ba7deee02f30ea2a1b8668938e2e4bf8a70eb4ebe96fd52685484a7601"
+sha256 = "a593f22647115477318b8543cb5b8a074c2da8bdfc7b7e5e16d40b15c2e13107"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/panel_admission_2026-11-04/1HSG.pdb.gz"
 target = "devguide/validation/data/panel_admission_2026-11-04/1HSG.pdb.gz"
 sha256 = "eef33be911e35b27f49b1ce97cde422ef4bb792af452959dd0c662957f7c2b3a"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/saved_search_variability_2026-11-05/frozen_20261105_summary.json"
+target = "devguide/validation/data/saved_search_variability_2026-11-05/frozen_20261105_summary.json"
+sha256 = "0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc"
