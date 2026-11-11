@@ -599,7 +599,12 @@
     "local_admin_passed": 142,
     "local_subtests_passed": 26,
     "new_recovery_cases": 20,
-    "remote": "pending",
-    "scope": "Only hosted admission changes; entire other helper AST, all five scientific shell steps, frozen wheel guard/profile, original selection and producer bytes are preserved."
+    "remote": "dispatched; terminal receiving pending",
+    "scope": "Only hosted admission changes; entire other helper AST, all five scientific shell steps, frozen wheel guard/profile, original selection and producer bytes are preserved.",
+    "implementation": "286f811cf4ee7bc131f3b661bc8eab949de028fd",
+    "run_id": 43074858531,
+    "run_attempt": 1,
+    "run_url": "https://github.com/uibcdf/dockingmt/actions/runs/43074858531",
+    "diagnostic_issue": "uibcdf/gh-run-receptor#83"
   }
 }

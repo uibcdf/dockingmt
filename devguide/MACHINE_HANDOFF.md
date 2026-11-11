@@ -65,7 +65,7 @@ and artifact 13835014036, checking the original wheel/receipt hashes, source
 profile and unchanged scientific helper AST outside hosted admission. Actual
 candidate, producer and later qualification identities stay separate. All five
 original scientific shell steps and six source pins are preserved; 142 local
-administrative cases/26 subtests pass. Remote recovery remains pending.
+administrative cases/26 subtests pass. [Recovery run 43074858531](https://github.com/uibcdf/dockingmt/actions/runs/43074858531) uses qualification head 286f811; terminal receiving remains pending.
 
 The original three passing cells/build remain attempt-1 evidence. Receive the
 fourth cell before the lightweight `0.1.0` tag and source-event notice. #74 owns

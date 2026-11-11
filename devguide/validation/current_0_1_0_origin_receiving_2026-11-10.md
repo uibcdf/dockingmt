@@ -314,3 +314,10 @@ it is not a general recovery framework or a public runtime API. Retain its
 historical source after the first-tag decision; suite #31 owns reusable source
 acquisition. Applicable local checks pass; fresh export and actual recovery
 execution remain required before the fourth-cell/tag decision.
+
+The fresh committed export of recovery implementation
+**286f811cf4ee7bc131f3b661bc8eab949de028fd** passes all nine applicable checks
+and is retired. Exactly one [finite recovery run 43074858531](https://github.com/uibcdf/dockingmt/actions/runs/43074858531)
+is dispatched on that actual head; candidate and producer remain original.
+Terminal acceptance is pending. The receptor diagnostic is reported in
+[GH Run Receptor #83](https://github.com/uibcdf/gh-run-receptor/issues/83).
