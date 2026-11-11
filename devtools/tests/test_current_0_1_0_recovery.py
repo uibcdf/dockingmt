@@ -32,14 +32,20 @@ def receiving(tmp_path, monkeypatch):
     )
     assert hashlib.sha256(original).hexdigest() == recovery.HELPER_SHA256
     (candidate / 'devtools/qualify_current_0_1_0.py').write_bytes(original)
+    # The positive fixture represents the immutable original workflow. Current
+    # canonical callers intentionally differ and must fail this frozen gate.
+    (root / 'devtools/qualify_current_0_1_0.py').write_bytes(original)
+    frozen = ROOT / 'devtools/tests/data/source_0_1_0_original_1030a29'
+    manifest = json.loads((frozen / 'manifest.json').read_text())
+    assert manifest['source_commit'] == recovery.CANDIDATE
     for name in [
-        'devtools/qualify_current_0_1_0.py',
         'devtools/qualify_source_0_1_0.py',
         'devtools/source_0_1_0_current.toml',
     ]:
-        (root / name).write_bytes((ROOT / name).read_bytes())
-        if name != 'devtools/qualify_current_0_1_0.py':
-            (candidate / name).write_bytes((ROOT / name).read_bytes())
+        payload = gzip.decompress((frozen / (Path(name).name + '.gz')).read_bytes())
+        assert hashlib.sha256(payload).hexdigest() == manifest['files'][name]['sha256']
+        (root / name).write_bytes(payload)
+        (candidate / name).write_bytes(payload)
     (candidate / 'LICENSE').write_bytes((ROOT / 'LICENSE').read_bytes())
     (task / 'wheels').mkdir()
     (task / 'wheels/bindingmt-0.1.0-py3-none-any.whl').write_bytes(b'original-wheel')
@@ -88,6 +94,14 @@ def test_original_file_and_unmodified_scientific_gates_are_admitted(receiving):
     root, task, _, calls = receiving
     recovery.admit(root, task, recovery.CANDIDATE)
     assert len(calls) == 1
+
+
+def test_current_canonical_caller_does_not_relabel_the_original_wheel(receiving):
+    root, task, _, _ = receiving
+    name = 'devtools/qualify_current_0_1_0.py'
+    (root / name).write_bytes((ROOT / name).read_bytes())
+    with pytest.raises(ValueError, match='outside admission'):
+        recovery.admit(root, task, recovery.CANDIDATE)
 
 
 @pytest.mark.parametrize(

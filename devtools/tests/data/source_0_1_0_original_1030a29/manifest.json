@@ -1,0 +1,14 @@
+{
+  "source_commit": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+  "purpose": "Immutable original profile/guard inputs for administrative original-file recovery controls. Never a current BindingMT runtime or compatibility package.",
+  "files": {
+    "devtools/qualify_source_0_1_0.py": {
+      "sha256": "1300451f05dbdf27d8f041d0446e81b515c00fcf0c3ddba8ebc059188b007436",
+      "archive_sha256": "9d91ce12822163b6b93eceb8a739ced0873600ac1f672373163a71e4db4d4e05"
+    },
+    "devtools/source_0_1_0_current.toml": {
+      "sha256": "37ff280b5adb6134cae12f46f3639239f76ce0ded1d0abf8d152e98976a5d184",
+      "archive_sha256": "8ff2c1c19c7c43a4c9a39371d1d1eb9b278e2cea07619351bf1776258a97a92e"
+    }
+  }
+}

@@ -114,3 +114,11 @@ actual staged, unshipped helper file; the source-only reporting CLI child opts
 out of the installed worker's safe-path environment while runtime import-origin
 checks stay isolated. These are qualification/support corrections, not public
 compatibility packages or renamed historical measurements.
+
+Administrative recovery controls use immutable original profile/caller fixtures
+for their positive case. The original-wheel gate deliberately rejects today's
+renamed qualifier body; a new negative control protects that distinction. No
+normalization, relaxed original-file check or rebranding of the 0.1.0 wheel is
+introduced. The initial source/admin attempt also lacked the exact SDK path in
+its task harness; that environment declaration is corrected before repeating
+the complete administrative selection.
