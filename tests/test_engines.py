@@ -186,7 +186,7 @@ def test_dock_top_level_api():
         search_domain=box,
     )
 
-    protocol = VinaProtocol(exhaustiveness=1, n_poses=1, seed=42)
+    protocol = VinaProtocol(exhaustiveness=1, n_poses=1, seed=42, cpu=1)
 
     # Calling top-level bindingmt.dock
     result = dock(problem, protocol=protocol, backend='vina')
@@ -346,6 +346,7 @@ def test_vina_rejects_provisional_chemistry_from_automatic_and_prepared_inputs()
             exhaustiveness=1,
             n_poses=1,
             seed=42,
+            cpu=1,
             allow_provisional_preparation=True,
         ),
     )

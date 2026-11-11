@@ -73,3 +73,11 @@ its summaries without molecular operations. Raw scientific observations and
 producer identities remain unchanged; current administrative presentation owner,
 schema and producer hashes follow BindingMT. Complete the full ordinary test
 selection as smaller serial groups, then deliver the two coordination issues.
+
+A subsequent ten-module attempt is also incomplete after native SIGABRT at the
+top-level API control, with no observed reserve/RSS interruption. Inspection
+found several pre-existing native tests left Vina's `cpu=0` automatic thread
+selection active despite process affinity. Those tests now explicitly request
+`cpu=1`; the API default remains documented and its wider scheduling risk is
+owned by #28. Do not infer a new runtime CPU policy or a passing interrupted
+selection from this correction.

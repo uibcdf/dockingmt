@@ -132,7 +132,7 @@ def test_pinned_vina_torsion_tree_matches_source_fragments(
     except ImportError:
         pass  # Vina is an optional runtime dependency; graph checks still run.
     else:
-        vina.Vina(verbosity=0).set_ligand_from_string(native.decode())
+        vina.Vina(cpu=1, verbosity=0).set_ligand_from_string(native.decode())
 
 
 def test_5x72_pair_has_same_connectivity_and_opposite_stereochemistry():

@@ -68,6 +68,7 @@ def test_redocking_benchmark_181l():
         n_poses=5,
         energy_range=puw.quantity(3.0, 'kcal/mol'),
         seed=42,
+        cpu=1,
     )
 
     # Execution
