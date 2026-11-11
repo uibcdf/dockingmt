@@ -4,8 +4,26 @@ The roadmap defines direction and gates, not dates.
 
 ## Current operational plan
 
-The **BindingMT identity/scope increment is delivered**; central receiving and
-the original accepted development plan retain the separate next steps below.
+Current work is the **#111 design review before implementation**. The delivered
+identity/scope increment and original accepted plan retain their separate owners.
+
+### Binding-site design under review — 2026-11-11
+
+The maintainer commissions [#111](pending_proposals/binding_site_public_contract.md)
+as a design exercise and requests presentation before implementation.
+[The review draft](binding_site_design.md) proposes one immutable contextual
+BindingSite, explicit views/evidence/applications, a portable record without
+mandatory reverse dependencies, and an existing-BoxRegion projection preserving
+site provenance. Names, schema, source/context guarantees and callable profiles
+remain proposed. Source/contract inspection covers MolSysMT, TopoMT,
+PharmacophoreMT, MolSysViewer and PeptideMT; it is not runtime receiving or
+cross-owner agreement.
+
+Next review the explicit decisions with the maintainer, then coordinate the
+shared meanings needed for a small implementation/consumer receiving increment.
+This checkpoint implements no scientific/runtime API, changes no provider or
+installed environment, and resumes no interrupted scientific selection.
+The original #73 objective and #28/#33/#49/#60 limits retain their owners.
 
 ### BindingMT identity and scope delivered — 2026-11-11
 

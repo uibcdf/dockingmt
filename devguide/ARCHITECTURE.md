@@ -29,6 +29,15 @@ See [the identity/scope decision](archive/rename_bindingmt.md). New
 integrations remain reviewed independently under #109/#110. Generic chemistry,
 numerical methods, recording and scheduling keep their suite/platform owners.
 
+## Binding-site contract study (draft)
+
+[#111](pending_proposals/binding_site_public_contract.md) is a maintainer-requested
+[design review](binding_site_design.md) before implementation. It proposes a
+contextual declaration independent of SearchDomain, with explicit representations
+and applications. Proposed classes, schema and integration behavior are absent
+from the current source map; sibling review/adoption and implementation remain
+separate steps.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the

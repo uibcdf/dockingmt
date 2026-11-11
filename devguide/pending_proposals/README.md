@@ -4,6 +4,10 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 <!-- generated: devguide_index -->
 
+### Active (1)
+
+- [`binding_site_public_contract.md`](binding_site_public_contract.md) — [#111](https://github.com/uibcdf/bindingmt/issues/111) — Review the contextual binding-site model and cross-component public contract before implementation. *(active, inspected)*
+
 ### Partial (15)
 
 - [`adopt_python_distribution_controls.md`](adopt_python_distribution_controls.md) — [#47](https://github.com/uibcdf/bindingmt/issues/47) — Adopt distribution controls and the agreed first noarch Conda route. *(partial, measured)*
