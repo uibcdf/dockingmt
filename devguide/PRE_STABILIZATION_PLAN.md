@@ -5,6 +5,28 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Complete installed pose audit](validation/installed_pose_audit_2026-11-10.md)
+now passes all 48 original cases per policy on unchanged consumer 37a61e6 and
+updated development source/native 9df62445/2dbcf13d. Each policy retains two tiny
+Vina/Vinardo score calls, CPU 1/seed 17 and original four/two-atom inputs, plus
+two bounded two-atom topology calls. All sixteen saved scores and the 404-check
+internal audit pass; no new search or independent molecular case is added.
+
+Independent 165/26-member records authenticate paired tests, exact submitted
+inputs/native components, 68 source files and all 606 support declarations/
+retirement without replay. Two stored-reader witness failures remain preserved;
+the final reader respects unloaded optional addons and the existing nm pose
+contract. All test groups terminate without resource interruption. Native build
+provenance remains unassessed; reference 4ffb82e4 is not received.
+
+Next review/register the whole original batch module on this cohort, preserving
+its three tiny native cases and CPU/seed/input/resource bounds. Full #30/#47/#73,
+public/platform/interactive gates and existing holds remain. Custody review is
+2026-11-14. The [archive-tag review](RELEASE_MILESTONES.md#development-checkpoint-tags--review-2026-11-10)
+identifies a useful historical-marker route and its policy-caller/publisher
+prerequisites; no tag, package, Release or automatic remote CI is created.
+Earlier dated next actions below retain their historical scope.
+
 [Explicit H5MSM 1.0 client receiving](validation/h5msm_v10_client_receiving_2026-11-10.md)
 passes ten cases per unit policy: original 0.6 files migrate to new 1.0 roots
 with source provenance intact, followed by typed/map/edit/unknown-report controls.

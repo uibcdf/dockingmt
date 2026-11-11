@@ -14,6 +14,22 @@ supersedes: []
 
 # Distribution control adoption
 
+## Updated-cohort installed pose audit — 2026-11-10
+
+[Whole original pose-audit receiving](../validation/installed_pose_audit_2026-11-10.md)
+passes 48 cases per policy on unchanged installed consumer 37a61e6 and actual
+updated 9df62445/2dbcf13d cohort. Exact payload/engine/source/support controls and
+the original two small score calls per policy pass. The core is actually loaded;
+addon payload is authenticated without claiming a new eager addon import.
+
+Independent 165/26-member evidence retains two failed stored-reader witnesses
+and the successful correction/audit without scientific replay. Actual nm pose
+serialization and caller-policy preservation remain separate. No implementation/
+test/helper change, native build/shared install, tag, package or remote CI.
+#47 stays partial for broader installed/scientific/public/platform closure.
+Next register whole original batch receiving with its unchanged three native
+cases and resource bounds. #50 custody review remains 2026-11-14.
+
 ## Current development-cohort installed comparison — 2026-11-10
 
 [The complete 54-case installed comparison](../validation/installed_score_comparison_2026-11-10.md)

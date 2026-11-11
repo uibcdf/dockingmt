@@ -24,6 +24,15 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Complete installed pose audit](validation/installed_pose_audit_2026-11-10.md)
+passes 48 original cases per unit policy on the updated development cohort,
+including the original bounded Vina/Vinardo score case. Independent 165/26-member
+records preserve both reader-witness failures and authenticate the final outcome
+without replay. Next review/register the original batch module; custody review
+stays 2026-11-14. [Archive tags](RELEASE_MILESTONES.md#development-checkpoint-tags--review-2026-11-10)
+can preserve a reviewed checkpoint once their policy/publisher prerequisites
+are received; none is created by this increment.
+
 [Explicit H5MSM 1.0 receiving](validation/h5msm_v10_client_receiving_2026-11-10.md)
 now passes ten cases per policy on development source 9df62445/local binary
 2dbcf13d, with original 0.6 provenance and all P5 persistence/edit/refusal controls.

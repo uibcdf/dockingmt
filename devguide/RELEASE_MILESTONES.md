@@ -108,6 +108,30 @@ arrives first, the source and package milestones can be consolidated instead.
 An archive tag has a different historical purpose and is not this version ladder;
 this repository's older policy caller has not adopted the archive-tag capability.
 
+### Development checkpoint tags — review 2026-11-10
+
+The maintainer asks whether useful progress should also have a tag without a
+package or GitHub Release. An annotated `archive/<description>` is the suitable
+historical marker for a finite development checkpoint. Choose a completed,
+reviewable block, record its exact commit, purpose, owning #73 issue, passing
+evidence and remaining limits, then keep the marker immutable. Do not add a tag
+for every incremental commit. The current 03ed7676 H5MSM 1.0/comparison checkpoint
+is a possible preserved commit; no name or tag publication is selected here.
+
+Before the first archive push, adopt policy-v1.5.7 or a compatible newer caller
+and change the unconditional policy trigger from `tags: ["*"]` to
+`tags: ["**"]`. Inspect publisher/version routes and demonstrate refusal of an
+archive identity before registry writes, as the suite release policy requires.
+The inspected Conda publisher runs on `release: released` or explicit dispatch,
+not tag push. Archive conformance must still execute; a tag is not a route for
+silently dispatching the deferred full scientific CI. Prepare its actual event
+and validation checkpoint deliberately before publishing it.
+
+This proposal does not create a tag, Release or package, move the fixed private
+0.1.0 candidate, select a numeric version, or claim whole-product qualification.
+Archive preparation belongs to existing #73; a future canonical X.Y.Z source tag
+keeps the distinct exact-candidate and release-notice requirements below.
+
 Preparation is now concrete under [#74](https://github.com/uibcdf/dockingmt/issues/74):
 the [0.1.0 candidate dossier](releases/0.1.0.md) fixes source `905abc9`, records
 the private version/payload check and separates pending source/closure/gate

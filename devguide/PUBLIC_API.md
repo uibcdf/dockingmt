@@ -202,6 +202,12 @@ are actually imported/validated and all 606 support inputs retire. This software
 gate performs no actual molecular, engine or Viewer operation; earlier live
 controls retain their separate evidence and original producer identities.
 
+The [complete installed pose audit on the updated development cohort](validation/installed_pose_audit_2026-11-10.md)
+passes all 48 original cases per unit policy, including its two bounded fresh
+score calls. Saved pose coordinates retain the explicit nm contract; the caller's
+unit policy stays unchanged. Internal consistency is separate from authenticating
+an old producer or validating physical scores. Unused addons stay unimported.
+
 `evaluate_redocking` requires `rmsd_cutoff` and an explicit reference population;
 its `top_n` windows follow current collection order, independently of recorded
 rank. Selection/frame/symmetry choices affect the question being measured.

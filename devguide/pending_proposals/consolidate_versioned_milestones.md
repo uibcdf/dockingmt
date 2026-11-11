@@ -14,6 +14,27 @@ supersedes: []
 
 # Consolidate versioned milestones
 
+## Whole pose audit and archive-marker review — 2026-11-10
+
+[Complete pose audit](../validation/installed_pose_audit_2026-11-10.md) passes all
+48 original cases under both unit policies on actual installed 37a61e6/current
+9df62445/2dbcf13d. The original two tiny scores per policy and strict input/seed/
+CPU limits are retained; 165/26-member independent evidence preserves both
+stored-reader witness failures and the successful correction. No new scientific
+case, full-goal acceptance or reference-binary provenance is inferred.
+
+The maintainer asks about tags without package or GitHub Release publication.
+[The milestone review](../RELEASE_MILESTONES.md#development-checkpoint-tags--review-2026-11-10)
+recommends an immutable annotated archive marker for a completed checkpoint,
+with exact commit/purpose/owner/evidence. The older policy caller must first
+adopt archive support, all-tag triggers and verified publisher refusal behavior.
+No tag name, version, publication or CI dispatch is selected here; the fixed
+private 0.1.0 candidate remains unchanged.
+
+Next review/register original whole-batch receiving; archive-route preparation
+stays with this existing issue. Full Core/Extended, scientific/public/platform/
+interactive acceptance remains active and unproven. Custody review: 2026-11-14.
+
 ## Explicit 1.0 and installed comparison received — 2026-11-10
 
 MolSysMT formally accepts the fourteen original 0.6 P5 cases at 9df62445.
