@@ -14,6 +14,23 @@ supersedes: []
 
 # Review extensibility and performance
 
+## BindingMT identity receiving and remaining full gate — 2026-11-11
+
+[#108 receiving](../validation/data/bindingmt_identity_scope_receiving_2026-11-11.json)
+qualifies 1,805 unique selected installed cases, separately 137 source/admin and
+23 DOM controls. The full ordinary gate is **incomplete**: an initial CPU-limited
+attempt and native abort remain incomplete, and the next corrected scientific
+group is stopped at its task-local 1 GiB RSS limit (sampled 1,200,123,904 bytes).
+Available memory remains above 53 GiB; this is an owned-budget interruption, not
+evidence of system exhaustion. No heavy automatic restart occurs. Plan the next
+full receiving under an explicitly reviewed resource strategy; partial calls
+and passing targeted groups do not clear this backlog or exact-head hosted CI.
+
+Native regression cases now request `cpu=1` explicitly, including the previous
+default-thread API control. Process affinity alone did not prevent Vina's
+automatic thread creation. The public `cpu=0` default remains documented;
+runtime scheduling/default-policy changes retain their separate design owner.
+
 ## Current private installed API receiving — 2026-11-09
 
 [The new genuine private wheel](../validation/record_wheel_editable_2026-11-09.md)

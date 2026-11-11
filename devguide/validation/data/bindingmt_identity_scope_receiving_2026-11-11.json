@@ -1,0 +1,561 @@
+{
+  "schema": "bindingmt.identity_scope_receiving@1",
+  "owner": "uibcdf/bindingmt#108",
+  "date": "2026-11-11",
+  "candidate": {
+    "source_commit": "89e4bfb61e4057da5ce8216796d3a27df014227d",
+    "wheel": "bindingmt-0.1.0+15.g89e4bfb-py3-none-any.whl",
+    "sha256": "c73da11f53fa6e527a112211c008523166cbb4f37a1c090d1b69cd4818ed6a14",
+    "version": "0.1.0+15.g89e4bfb"
+  },
+  "runtime_roots": [
+    "bindingmt",
+    "molsysviewer_bindingmt"
+  ],
+  "runtime_paths": 67,
+  "public_package_or_release": false,
+  "scope": "Linux/Python 3.14 private installed identity/API/records/addon and bounded existing native regression. Shared editable providers; no new scientific campaign.",
+  "targeted_modules": 54,
+  "targeted_unique_cases": 1650,
+  "targeted_and_native_unique_cases": 1805,
+  "runs": [
+    {
+      "attempt": "targeted-g0-01",
+      "source_commit": "f211e17aa180c8ca6074613b458b00bff32d7265",
+      "wheel_sha256": "078fbe2d7697e6dc72869dfdf52ab7c12d07c215027245e2dc4a2bdeae2ab011",
+      "selected_modules": [
+        "tests/test_argument_contracts.py",
+        "tests/test_audit_coordinate_records.py",
+        "tests/test_audit_pose_identity_records.py",
+        "tests/test_audit_resource_errors.py",
+        "tests/test_backend_contracts.py",
+        "tests/test_bindingmt_identity.py",
+        "tests/test_bootstrap.py",
+        "tests/test_box_record_admission.py"
+      ],
+      "counts": {
+        "collected": 363,
+        "deselected": 0,
+        "errors": 0,
+        "executed": 363,
+        "failed": 0,
+        "not_executed": 0,
+        "passed": 363,
+        "reruns": 0,
+        "skipped": 0,
+        "subtests": {},
+        "warnings": 0,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "elapsed_seconds": 17.77674595999997,
+      "minimum_available_bytes": 58772631552,
+      "sampled_peak_group_rss_bytes": 202596352,
+      "support_inputs": 625,
+      "support_retired": true,
+      "runtime_paths_unchanged": 67,
+      "resource_interruption": null,
+      "group_terminal": true,
+      "events_sha256": "076ff4fc39a223225ca82966ce64c6098698b017602e0f202d9ff4cd274aaf57"
+    },
+    {
+      "attempt": "targeted-g1-02",
+      "source_commit": "974a4ffd20806df83d2019c9215bbcf942c33e74",
+      "wheel_sha256": "18194acf312631c60d1e2df39efe5a0954fdbb053b2b608438307a8041b5a39a",
+      "selected_modules": [
+        "tests/test_ci_backlog.py",
+        "tests/test_compressed_molecular_input.py",
+        "tests/test_core_helper_contracts.py",
+        "tests/test_declaration_snapshots.py",
+        "tests/test_governance_baseline.py",
+        "tests/test_input_resource_errors.py",
+        "tests/test_interaction_binding.py",
+        "tests/test_model_argument_contracts.py"
+      ],
+      "counts": {
+        "collected": 350,
+        "deselected": 0,
+        "errors": 0,
+        "executed": 350,
+        "failed": 0,
+        "not_executed": 0,
+        "passed": 350,
+        "reruns": 0,
+        "skipped": 0,
+        "subtests": {},
+        "warnings": 0,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "elapsed_seconds": 13.993157338001765,
+      "minimum_available_bytes": 58633576448,
+      "sampled_peak_group_rss_bytes": 250036224,
+      "support_inputs": 626,
+      "support_retired": true,
+      "runtime_paths_unchanged": 67,
+      "resource_interruption": null,
+      "group_terminal": true,
+      "events_sha256": "0051d80d1db11a9805251e1e55efd8e3c6bb9d60ace9d3654c5de25d8bef6de5"
+    },
+    {
+      "attempt": "targeted-g2-02",
+      "source_commit": "974a4ffd20806df83d2019c9215bbcf942c33e74",
+      "wheel_sha256": "18194acf312631c60d1e2df39efe5a0954fdbb053b2b608438307a8041b5a39a",
+      "selected_modules": [
+        "tests/test_molecular_delegation.py",
+        "tests/test_molecular_variant_ownership.py",
+        "tests/test_outcome_argument_contracts.py",
+        "tests/test_p59_score_diagnostic.py",
+        "tests/test_pdbqt_presentation_receiving.py",
+        "tests/test_pose_coordinates.py",
+        "tests/test_pose_record_admission.py",
+        "tests/test_problem.py"
+      ],
+      "counts": {
+        "collected": 175,
+        "deselected": 0,
+        "errors": 0,
+        "executed": 175,
+        "failed": 0,
+        "not_executed": 0,
+        "passed": 175,
+        "reruns": 0,
+        "skipped": 0,
+        "subtests": {},
+        "warnings": 8,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "elapsed_seconds": 54.215606769023,
+      "minimum_available_bytes": 58223972352,
+      "sampled_peak_group_rss_bytes": 766763008,
+      "support_inputs": 626,
+      "support_retired": true,
+      "runtime_paths_unchanged": 67,
+      "resource_interruption": null,
+      "group_terminal": true,
+      "events_sha256": "0e34035bca8427afc930412dca5e770eb41263332f9728d9740f1b14e867698e"
+    },
+    {
+      "attempt": "targeted-g3-02",
+      "source_commit": "89e4bfb61e4057da5ce8216796d3a27df014227d",
+      "wheel_sha256": "c73da11f53fa6e527a112211c008523166cbb4f37a1c090d1b69cd4818ed6a14",
+      "selected_modules": [
+        "tests/test_protocol.py",
+        "tests/test_public_exceptions.py",
+        "tests/test_quickstart.py",
+        "tests/test_reporting_protocol.py",
+        "tests/test_result_audit.py",
+        "tests/test_result_contracts.py",
+        "tests/test_result_export_benchmark.py",
+        "tests/test_result_record_admission.py"
+      ],
+      "counts": {
+        "collected": 218,
+        "deselected": 0,
+        "errors": 0,
+        "executed": 218,
+        "failed": 0,
+        "not_executed": 0,
+        "passed": 218,
+        "reruns": 0,
+        "skipped": 0,
+        "subtests": {},
+        "warnings": 0,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "elapsed_seconds": 11.722924534988124,
+      "minimum_available_bytes": 58379329536,
+      "sampled_peak_group_rss_bytes": 477229056,
+      "support_inputs": 627,
+      "support_retired": true,
+      "runtime_paths_unchanged": 67,
+      "resource_interruption": null,
+      "group_terminal": true,
+      "events_sha256": "53a2def5999b4c162f3c58c9de497e63189a7eb31e821d8a29bd1d5707c4eba8"
+    },
+    {
+      "attempt": "targeted-g4-02",
+      "source_commit": "89e4bfb61e4057da5ce8216796d3a27df014227d",
+      "wheel_sha256": "c73da11f53fa6e527a112211c008523166cbb4f37a1c090d1b69cd4818ed6a14",
+      "selected_modules": [
+        "tests/test_result_restore_contracts.py",
+        "tests/test_results.py",
+        "tests/test_rigid_fragment_consumption.py",
+        "tests/test_saved_3ptb_case_recovery.py",
+        "tests/test_saved_search_variability.py",
+        "tests/test_score_comparison.py",
+        "tests/test_score_semantics.py",
+        "tests/test_scored_result_audit.py"
+      ],
+      "counts": {
+        "collected": 198,
+        "deselected": 0,
+        "errors": 0,
+        "executed": 198,
+        "failed": 0,
+        "not_executed": 0,
+        "passed": 198,
+        "reruns": 0,
+        "skipped": 0,
+        "subtests": {},
+        "warnings": 0,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "elapsed_seconds": 103.61602582299383,
+      "minimum_available_bytes": 57878781952,
+      "sampled_peak_group_rss_bytes": 851476480,
+      "support_inputs": 627,
+      "support_retired": true,
+      "runtime_paths_unchanged": 67,
+      "resource_interruption": null,
+      "group_terminal": true,
+      "events_sha256": "5f3b9f9ec34b8cdbce3a40b138e1052fe184ad27d4053eaee7bafd6ddf29b9d6"
+    },
+    {
+      "attempt": "targeted-g5-01",
+      "source_commit": "974a4ffd20806df83d2019c9215bbcf942c33e74",
+      "wheel_sha256": "18194acf312631c60d1e2df39efe5a0954fdbb053b2b608438307a8041b5a39a",
+      "selected_modules": [
+        "tests/test_scoring_reference.py",
+        "tests/test_search_domain.py",
+        "tests/test_search_domain_contracts.py",
+        "tests/test_serialization_contracts.py",
+        "tests/test_source_fingerprint_io.py",
+        "tests/test_support_contracts.py",
+        "tests/test_symmetry_evaluation.py",
+        "tests/test_viewer_addon.py"
+      ],
+      "counts": {
+        "collected": 227,
+        "deselected": 0,
+        "errors": 0,
+        "executed": 227,
+        "failed": 0,
+        "not_executed": 0,
+        "passed": 227,
+        "reruns": 0,
+        "skipped": 0,
+        "subtests": {},
+        "warnings": 9,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "elapsed_seconds": 24.14090880099684,
+      "minimum_available_bytes": 58082324480,
+      "sampled_peak_group_rss_bytes": 512339968,
+      "support_inputs": 626,
+      "support_retired": true,
+      "runtime_paths_unchanged": 67,
+      "resource_interruption": null,
+      "group_terminal": true,
+      "events_sha256": "86c197c7c4a3bb32d4bcad4ac797c96790e5189e5c013c5c73f0a0fadb1d885d"
+    },
+    {
+      "attempt": "targeted-g6-01",
+      "source_commit": "974a4ffd20806df83d2019c9215bbcf942c33e74",
+      "wheel_sha256": "18194acf312631c60d1e2df39efe5a0954fdbb053b2b608438307a8041b5a39a",
+      "selected_modules": [
+        "tests/test_viewer_frontend_contract.py",
+        "tests/test_viewer_interactions.py",
+        "tests/test_viewer_player_receiving.py",
+        "tests/test_viewer_presentation.py",
+        "tests/test_viewer_reference.py",
+        "tests/test_viewer_state.py"
+      ],
+      "counts": {
+        "collected": 119,
+        "deselected": 0,
+        "errors": 0,
+        "executed": 119,
+        "failed": 0,
+        "not_executed": 0,
+        "passed": 119,
+        "reruns": 0,
+        "skipped": 0,
+        "subtests": {},
+        "warnings": 38,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "elapsed_seconds": 24.856066194013692,
+      "minimum_available_bytes": 58273222656,
+      "sampled_peak_group_rss_bytes": 494030848,
+      "support_inputs": 626,
+      "support_retired": true,
+      "runtime_paths_unchanged": 67,
+      "resource_interruption": null,
+      "group_terminal": true,
+      "events_sha256": "b2aa8f59ee77155e2a9b979fa3a2e50c6298d92b5a2eb902b4d0614b2ee0f654"
+    },
+    {
+      "attempt": "final-g0-02",
+      "source_commit": "a6f0ff95d78d25390cfafcf817ba01b3c761a600",
+      "wheel_sha256": "ff37afa3f41f799873b42355da81fcc8839e937441673f3498c1652797ae7977",
+      "selected_modules": [
+        "tests/test_181l_receptor_workflow.py",
+        "tests/test_5x72_control_synthesis.py",
+        "tests/test_batch.py",
+        "tests/test_engines.py",
+        "tests/test_named_autodock_types.py",
+        "tests/test_preparation.py",
+        "tests/test_public_exceptions.py",
+        "tests/test_result_contracts.py",
+        "tests/test_scoring_reference.py",
+        "tests/test_viewer_presentation.py"
+      ],
+      "counts": {
+        "collected": 260,
+        "deselected": 0,
+        "errors": 0,
+        "executed": 260,
+        "failed": 0,
+        "not_executed": 0,
+        "passed": 260,
+        "reruns": 0,
+        "skipped": 0,
+        "subtests": {},
+        "warnings": 5,
+        "xfailed": 0,
+        "xpassed": 0
+      },
+      "elapsed_seconds": 126.29768393398263,
+      "minimum_available_bytes": 58035109888,
+      "sampled_peak_group_rss_bytes": 801701888,
+      "support_inputs": 625,
+      "support_retired": true,
+      "runtime_paths_unchanged": 67,
+      "resource_interruption": null,
+      "group_terminal": true,
+      "events_sha256": "0902938edb96221d018328775a20bdcd55e4fa7faaf16078212d7e3b9552fa37"
+    }
+  ],
+  "dom": {
+    "exit_code": 0,
+    "node_version": "v26.3.1",
+    "node_sha256": "0b52710a27133a3baf45f0d1f10689ab874f50e5821d8e611486d17e20bcacdd",
+    "jsdom_version": "30.1.3",
+    "counts": {
+      "tests": 23,
+      "pass": 23,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "inputs": {
+      "devtools/frontend/package-lock.json": "f53f4e022bf22f8a91ae9983999fd2e887d497fc4a91b885a98a49a0bc3b7745",
+      "devtools/frontend/panels.test.mjs": "1cff801bad7022dedaff4dfddea6b17ac67fb150ebf9fc77014d928c1cc85418",
+      "devtools/frontend/extract_panels.py": "0198fa924f9931e3221ee7de461d656ab855f6b5d3ef219ba17f0e9a6f92f94e",
+      "molsysviewer_bindingmt/panels/explorer.py": "085df414656906dd569bde4b93661c5e26a069b60abdc099180e6dea688d746e",
+      "molsysviewer_bindingmt/panels/domain.py": "d697aba117b7bb0fac082e6e5c5715adbde71beb6e78e30b7253753dad1fa97d"
+    },
+    "scope": "Cached exact Node26, locked development dependencies and current shipped ESM DOM tests; no browser/comm/canvas or scientific execution."
+  },
+  "provider_cohort": {
+    "sources": [
+      {
+        "component": "argdigest",
+        "source": "07126411f108ee1ff607e9c9a0816109b2c9253e",
+        "tracked_dirty": false
+      },
+      {
+        "component": "depdigest",
+        "source": "032d345becf8f8f574c24ede61ee62fcf0321de7",
+        "tracked_dirty": false
+      },
+      {
+        "component": "molsysmt",
+        "source": "aee7aa65da56e896d1cb2d655bf73736f6453a43",
+        "tracked_dirty": false
+      },
+      {
+        "component": "molsysviewer",
+        "source": "1187fc187247aa2d20d01791856a541d50562bcb",
+        "tracked_dirty": false
+      },
+      {
+        "component": "pyunitwizard",
+        "source": "c81916e65ce61e905008e8931af3c0e527157251",
+        "tracked_dirty": false
+      },
+      {
+        "component": "smonitor",
+        "source": "c401281af15f7ca3dd72099cac493bdf475cbff6",
+        "tracked_dirty": false
+      }
+    ],
+    "native_sha256": "2dbcf13d148cb3ae13a5908707fcdd61c75a2de5027e50c566ce07de81bdb038"
+  },
+  "retained_failed_or_incomplete_attempts": [
+    {
+      "attempt": "build-prefix-01",
+      "exit_code": 1,
+      "resource_interruption": null,
+      "group_terminal": true
+    },
+    {
+      "attempt": "installed-pilot-01",
+      "exit_code": 1,
+      "resource_interruption": null,
+      "group_terminal": true
+    },
+    {
+      "attempt": "frontend-01",
+      "exit_code": 1,
+      "resource_interruption": null,
+      "group_terminal": true
+    },
+    {
+      "attempt": "full-g0-01",
+      "exit_code": -9,
+      "resource_interruption": null,
+      "group_terminal": true
+    },
+    {
+      "attempt": "final-g0-01",
+      "exit_code": -6,
+      "resource_interruption": null,
+      "group_terminal": true
+    },
+    {
+      "attempt": "final-g1-01",
+      "exit_code": -15,
+      "resource_interruption": "owned_group_RSS_limit",
+      "group_terminal": true
+    },
+    {
+      "attempt": "targeted-g1-01",
+      "exit_code": 1,
+      "resource_interruption": null,
+      "group_terminal": true
+    },
+    {
+      "attempt": "targeted-g2-01",
+      "exit_code": 1,
+      "resource_interruption": null,
+      "group_terminal": true
+    },
+    {
+      "attempt": "targeted-g3-01",
+      "exit_code": 1,
+      "resource_interruption": null,
+      "group_terminal": true
+    },
+    {
+      "attempt": "targeted-g4-01",
+      "exit_code": 1,
+      "resource_interruption": null,
+      "group_terminal": true
+    },
+    {
+      "attempt": "source-admin-final-01",
+      "exit_code": 1,
+      "resource_interruption": null,
+      "group_terminal": true
+    }
+  ],
+  "full_ordinary_gate": "INCOMPLETE: the next scientific group was stopped at the task-local 1 GiB RSS budget; no automatic scientific restart. Owner #28.",
+  "limits": [
+    "No complete ordinary/scientific suite or new general scientific-accuracy claim.",
+    "No canonical member-policy conformance: central registry/admission receiving remains a MolSysSuite owner handoff.",
+    "No exact-head remote CI, other Python minors/platforms, public package delivery or live browser/comm/canvas qualification.",
+    "Interpreter-shutdown widget cleanup emits unraisable errors after some successful runs; follow-up #60."
+  ],
+  "custody": {
+    "owner": "uibcdf/bindingmt#50",
+    "review_date": "2026-11-14",
+    "automatic_deletion": false
+  },
+  "candidate_equivalence": [
+    {
+      "source_commit": "662d4cb1992ed94897430808ba51572f5797057d",
+      "wheel_sha256": "1d1abe5d2f3b4d4e654a3252bf2a0a1bd320f0b49ad87a7ea3d9174908371e46",
+      "identical_runtime_inputs": 66,
+      "different_runtime_inputs": [
+        "bindingmt/_version.py"
+      ]
+    },
+    {
+      "source_commit": "974a4ffd20806df83d2019c9215bbcf942c33e74",
+      "wheel_sha256": "18194acf312631c60d1e2df39efe5a0954fdbb053b2b608438307a8041b5a39a",
+      "identical_runtime_inputs": 66,
+      "different_runtime_inputs": [
+        "bindingmt/_version.py"
+      ]
+    },
+    {
+      "source_commit": "a6f0ff95d78d25390cfafcf817ba01b3c761a600",
+      "wheel_sha256": "ff37afa3f41f799873b42355da81fcc8839e937441673f3498c1652797ae7977",
+      "identical_runtime_inputs": 66,
+      "different_runtime_inputs": [
+        "bindingmt/_version.py"
+      ]
+    },
+    {
+      "source_commit": "ad242e50629b53e12c84b456fe5f7a8f2afcb9a1",
+      "wheel_sha256": "f46937b72334be71b68f6d5e6b2a23d60741af15b62b86eefa584430f84f9304",
+      "identical_runtime_inputs": 66,
+      "different_runtime_inputs": [
+        "bindingmt/_version.py"
+      ]
+    },
+    {
+      "source_commit": "f211e17aa180c8ca6074613b458b00bff32d7265",
+      "wheel_sha256": "078fbe2d7697e6dc72869dfdf52ab7c12d07c215027245e2dc4a2bdeae2ab011",
+      "identical_runtime_inputs": 66,
+      "different_runtime_inputs": [
+        "bindingmt/_version.py"
+      ]
+    }
+  ],
+  "final_declared_support_inputs": 627,
+  "source_admin": {
+    "source_commit": "b6ce40a00fa7599797bfd114791ddb1360a7914c",
+    "counts": {
+      "collected": 137,
+      "deselected": 0,
+      "errors": 0,
+      "executed": 137,
+      "failed": 0,
+      "not_executed": 0,
+      "passed": 137,
+      "reruns": 0,
+      "skipped": 0,
+      "subtests": {
+        "passed": 26
+      },
+      "warnings": 0,
+      "xfailed": 0,
+      "xpassed": 0
+    },
+    "elapsed_seconds": 12.029675555997528,
+    "sampled_peak_group_rss_bytes": 151519232,
+    "minimum_available_bytes": 58819653632,
+    "scope": "All devtools/tests with the exact declared SDKs; source-only administrative evidence."
+  },
+  "workspace_quality": [
+    {
+      "check": "ruff",
+      "exit_code": 0
+    },
+    {
+      "check": "format",
+      "exit_code": 0
+    },
+    {
+      "check": "indexes",
+      "exit_code": 0
+    },
+    {
+      "check": "resources",
+      "exit_code": 0
+    },
+    {
+      "check": "contract",
+      "exit_code": 0
+    }
+  ]
+}

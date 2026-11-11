@@ -14,6 +14,18 @@ supersedes: []
 
 # Temporary-resource review — 2026-11-05
 
+## BindingMT transition custody — 2026-11-11
+
+[#108](rename_bindingmt.md) retains its private candidate history, rejected
+contaminated-build attempt/cache, failed and incomplete test records, exact
+cached tool/native/unit payload receipts, outside-source receiver, and final
+verification records for review on **2026-11-14**. Three support staging trees
+matching the canonical namespace are retained after abrupt exits; exact attempt
+attribution remains a local owner-review question. Do not delete by prefix/age.
+The private unit/native/test-tool receiving changes no shared dependency set.
+Every owned execution group is terminal; original human migration files,
+historical artifacts and sibling worktrees remain untouched.
+
 ## Source 0.1.0 closeout custody — 2026-11-11
 
 Keep `.molsyssuite/current-0.1.0-puw-receiving-20261111` under #74/#50 until the

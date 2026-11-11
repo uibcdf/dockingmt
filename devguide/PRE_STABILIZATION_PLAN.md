@@ -5,24 +5,27 @@ Accepted maintainer objective: 2026-11-06, [BMT-046](DECISIONS.md#bmt-046--deliv
 Status: **active for BindingMT identity/scope transition; completion unproven**.
 Inspected starting source: `530a4cf`.
 
-### BindingMT transition active — 2026-11-11
+### BindingMT identity and scope received locally — 2026-11-11
 
-The maintainer resumes work for [#108](pending_proposals/rename_bindingmt.md):
-BindingMT adopts one canonical repository/distribution/import identity,
-`bindingmt`, through the maintainer-directed clean rename without compatibility
-layers.
-Its accepted domain now includes docking, fixed-identity complex prediction,
-refinement, binding free-energy calculation and prediction, and interface
-characterization. [Vision](VISION.md), [scope](SCIENTIFIC_SCOPE.md),
-[model](SCIENTIFIC_MODEL.md) and [architecture](ARCHITECTURE.md) separate current
-Vina software/scientific profiles from future operations. #109/#110 remain
-separate provider proposals; no new engine or scientific campaign starts here.
+[#108](pending_proposals/rename_bindingmt.md) implements the clean canonical
+repository/distribution/import `bindingmt`, addon `molsysviewer_bindingmt` /
+`bindingmt`, and unshipped `bmt_test_support`; no compatibility package is kept.
+[Vision](VISION.md), [scope](SCIENTIFIC_SCOPE.md), [model](SCIENTIFIC_MODEL.md)
+and [architecture](ARCHITECTURE.md) include docking, fixed-identity complex
+prediction, refinement, binding free-energy calculation and prediction, and
+interface characterization, with implemented and future profiles distinguished.
 
-Next qualify the renamed payload and compatibility, preserve immutable 0.1.0/
-scientific inputs, receive the already-renamed GitHub repository and deliver MolI/MolSysSuite
-coordination issues. Central registry/policy/guide and consumer adoption are
-separate owner handoffs. The earlier pause below belongs to its dated checkpoint;
-original #33/#49 preparation decisions remain pending outside this increment.
+[Receiving](validation/data/bindingmt_identity_scope_receiving_2026-11-11.json)
+records 1,805 unique selected installed cases, 137 source/admin cases and 23 DOM
+cases passing. The full ordinary/scientific gate remains incomplete after an
+owned-memory interruption; do not restart that heavy selection automatically.
+Public/minor/platform/browser and exact-head remote evidence retain their owners.
+
+Next publish the checkpoint and the two requested MolI/MolSysSuite coordination
+issues, then archive #108. Canonical registry/policy, guides, development profile,
+labels and consumer adoption remain central owner handoffs. Original #33/#49
+state/environment/terminal decisions and separate #109/#110 proposals remain;
+no new provider or campaign is commissioned. The 0.1.0 source tag is immutable.
 
 ### Terminal maps/history received in development — 2026-11-11
 

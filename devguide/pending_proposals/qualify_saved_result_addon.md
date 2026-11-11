@@ -15,6 +15,22 @@ supersedes: []
 
 # Saved-result addon explorer
 
+## Canonical BindingMT addon receiving — 2026-11-11
+
+[#108](rename_bindingmt.md) receives `molsysviewer_bindingmt`, addon/workspace
+`bindingmt`, canonical state/CSS identifiers and current public exceptions with
+the existing Python result/frame/interaction controls and **23/23 DOM cases**
+on exact Node 26.3.1 / jsdom 30.1.3. Production ESM input hashes remain recorded.
+This does not receive the deferred real browser/comm/canvas workflow.
+
+Some successful installed widget runs emit unraisable interpreter-shutdown
+errors after pytest completes: `Widget.__del__` calls the addon's `close` /
+`_detach`, then decorated provider `unobserve` attempts an import after
+`sys.meta_path` becomes `None`. No failure/skip is hidden in the test outcomes.
+Keep this lifecycle diagnosis open here; determine explicit test/widget cleanup
+and provider responsibilities before attributing a provider defect. Do not
+suppress the error or infer browser acceptance from a zero process exit.
+
 ## Current editable interaction-view receiving — 2026-11-08
 
 [All eight original Python/native cells](../validation/e4_view_editable_2026-11-08.md)

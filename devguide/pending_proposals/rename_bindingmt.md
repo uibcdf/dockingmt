@@ -122,3 +122,41 @@ normalization, relaxed original-file check or rebranding of the 0.1.0 wheel is
 introduced. The initial source/admin attempt also lacked the exact SDK path in
 its task harness; that environment declaration is corrected before repeating
 the complete administrative selection.
+
+## Completed component receiving — 2026-11-11
+
+[Path-free receiving record](../validation/data/bindingmt_identity_scope_receiving_2026-11-11.json)
+records seven complete installed groups: **1,650 unique cases** in 54 selected
+modules, no failures/errors/skips. The separately completed native ten-module
+group brings the union to **1,805 unique cases**. Counts are deduplicated by
+pytest node; earlier pilots and partial attempts are not added. All **137**
+source/admin controls pass separately. **23/23** DOM cases pass using exact
+Node 26.3.1 / jsdom 30.1.3 and unchanged production ESM inputs.
+
+The final runtime candidate is source
+`89e4bfb61e4057da5ce8216796d3a27df014227d`, private wheel
+`bindingmt-0.1.0+15.g89e4bfb-py3-none-any.whl`, SHA-256
+`c73da11f53fa6e527a112211c008523166cbb4f37a1c090d1b69cd4818ed6a14`.
+All receiving candidates have 66 identical runtime inputs; only generated
+version bytes differ. The subsequent `b6ce40a` increment changes administrative
+fixtures/tests and this record only. Installed origins, 67 unchanged runtime
+paths and retirement of each run's 625/626/627 declared support inputs pass.
+The final declaration contains 627 inputs; helpers remain unshipped.
+
+Actual source providers/native identity and complete cached Vina/Boost,
+published reporter and unit-backend wheel identities are recorded separately.
+The shared editable identity was replaced without solving/changing dependencies;
+pip check passes. Every owned group is terminal. Resource interruptions, the
+rejected stale build cache and source-shadowed receiver, sandbox DOM attempt,
+missing unit backend and original failing controls remain retained failures.
+
+The full ordinary/scientific gate remains incomplete after the owned-RSS
+interruption; no heavy scientific restart occurs. Canonical member-policy
+registry/admission, exact-head hosted CI, other minors/platforms, public delivery
+and real browser/comm/canvas remain unreceived. Some successful widget runs emit
+unraisable interpreter-shutdown cleanup errors; #60 owns diagnosis. These limits
+do not turn future domain concepts into implemented or qualified capabilities.
+
+Next publish this component checkpoint and the two maintainer-requested
+coordination issues, archive this decision and close #108. Central receiving
+remains separately owned; the source-only 0.1.0 tag stays immutable.
