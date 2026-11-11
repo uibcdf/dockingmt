@@ -29,24 +29,24 @@ resuming; earlier dated "next" statements below retain their historical scope.
 
 ### Current CI and private installed input checkpoint — 2026-11-10
 
-[The current 0.1.0 SDK admission correction](validation/current_0_1_0_preparation_2026-11-10.md#isolated-sdk-admission-and-first-error-propagation)
-retains both cancelled/unqualified candidates. Second source b25cdbd7 passes
-build, policy, 111 hosted administrative cases and 23 DOM tests. Python 3.11
-constructs all six exact providers, records its actual Rust 1.97.1/native bytes,
-and passes source/bounds/pip checks, then stops before tests: private QA tools
-are installed but omitted from the isolated SDK path. MolSysSuite #176 receives
-this existing masked-diagnostic issue; it is not a MolSysMT product failure.
+[The current 0.1.0 origin checkpoint](validation/current_0_1_0_origin_receiving_2026-11-10.md)
+receives ten passing normal-policy storage cases on candidate 9aee16b7 and a
+fresh authenticated native build, then preserves the failed final origin gate
+for PyUnitWizard's fileless virtual compatibility module. Run 42960218358 stays
+cancelled/unqualified; pm/fs and product tests do not execute. Final local
+116-case/26-subtest and fresh committed-export controls pass.
 
-Both receivers now admit the same clean SDK and owned QA directory. All five
-login-shell steps stop on their first error. The actual SDK imports under
-`python -I -S` with only declared private pure-Python QA copies and blocked
-scientific imports. Local controls pass 116 cases/26 subtests, preserving the
-initial fixture-global failure. Source pins, 622 inputs, runtime and original
-scientific assertions stay unchanged. Next freeze the corrected candidate after
-source/export controls and receive its deliberate four-minor checkpoint before
-any lightweight tag. No local native rebuild, canonical tag, package or Release;
-#74/#50 review 2026-11-14. Whole Core/Extended/public/platform/interactive gates
-retain their owners. Earlier dated next actions below remain historical.
+Provider [PyUnitWizard #146/PR #147](https://github.com/uibcdf/pyunitwizard/pull/147)
+now holds the maintainer-selected review route; MolSysSuite #184 receives the
+advance impact notice. Head cf29f39d passes complete routine Linux/Python 3.14
+CI (1025 passed/21 conditional skips/one expected warning) and eight focused
+metadata/API/negative-origin cases after the preserved two-failure witness.
+The shared sibling checkout is unchanged. Next receive the actual owner-merged
+reference, update the source pin and freeze a replacement before the original
+four-minor/both-policy/full-installed checkpoint. No tag/package/Release or
+provider merge is claimed. #74/#50 custody review remains 2026-11-14; whole
+Core/Extended/public/platform/interactive gates retain their owners. Earlier
+dated next actions below remain historical.
 
 The maintainer accepts [the current 0.1.0 source milestone](releases/0.1.0_current.md):
 a usable public workflow, reliable execution, provenance/storage, fresh source

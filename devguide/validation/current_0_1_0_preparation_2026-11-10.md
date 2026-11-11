@@ -1,5 +1,7 @@
 # Current 0.1.0 checkpoint preparation — 2026-11-10
 
+Latest outcome and resumption: [origin receiving/provider review](current_0_1_0_origin_receiving_2026-11-10.md). The preparation populations below retain their original source/status.
+
 Owner: [DockingMT #74](https://github.com/uibcdf/dockingmt/issues/74), with
 #73 milestone scope, #30/#47 qualification and #50 custody. Status: current
 original preparation frozen in 7a757ab0; first two hosted candidates

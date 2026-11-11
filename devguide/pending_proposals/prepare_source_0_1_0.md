@@ -8,11 +8,32 @@ verification: measured
 area: [releases, distribution, provenance]
 guard: devtools/tests/test_current_0_1_0_qualification.py
 normative: https://github.com/uibcdf/molsyssuite/blob/main/devguide/release_version_policy.md
-blocked_by: []
+blocked_by: [uibcdf/pyunitwizard#146]
 supersedes: []
 ---
 
 # Prepare the 0.1.0 source milestone
+
+## Origin receiving and provider review — 2026-11-10
+
+[The current 0.1.0 origin checkpoint](../validation/current_0_1_0_origin_receiving_2026-11-10.md)
+receives ten passing normal-policy storage cases on candidate 9aee16b7 and a
+fresh authenticated native build, then preserves the failed final origin gate
+for PyUnitWizard's fileless virtual compatibility module. Run 42960218358 stays
+cancelled/unqualified; pm/fs and product tests do not execute. Final local
+116-case/26-subtest and fresh committed-export controls pass.
+
+Provider [PyUnitWizard #146/PR #147](https://github.com/uibcdf/pyunitwizard/pull/147)
+now holds the maintainer-selected review route; MolSysSuite #184 receives the
+advance impact notice. Head cf29f39d passes complete routine Linux/Python 3.14
+CI (1025 passed/21 conditional skips/one expected warning) and eight focused
+metadata/API/negative-origin cases after the preserved two-failure witness.
+The shared sibling checkout is unchanged. Next receive the actual owner-merged
+reference, update the source pin and freeze a replacement before the original
+four-minor/both-policy/full-installed checkpoint. No tag/package/Release or
+provider merge is claimed. #74/#50 custody review remains 2026-11-14; whole
+Core/Extended/public/platform/interactive gates retain their owners. Earlier
+dated next actions below remain historical.
 
 ## Isolated SDK continuation — 2026-11-10
 

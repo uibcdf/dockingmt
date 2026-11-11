@@ -1,0 +1,136 @@
+# Current 0.1.0 origin receiving and provider review — 2026-11-10
+
+Owner: [DockingMT #74](https://github.com/uibcdf/dockingmt/issues/74), with #73
+milestone scope and #30/#47 qualification. Status: **partial; tag waits for
+provider review and the replacement candidate's complete receiving**.
+The [accepted dossier](../releases/0.1.0_current.md) and
+[earlier preparation/corrections](current_0_1_0_preparation_2026-11-10.md)
+retain their original source populations. No canonical tag, package or GitHub
+Release is delivered by this record.
+
+## Exact current consumer attempt
+
+Explicit candidate **9aee16b79abecd038d38085f6ddfba507d090681**, tree
+`fec25b5e526996d020ecdfed9048b0b2df852ef3`, passes final-18's 116 administrative
+cases/26 subtests and ten source controls. Fresh committed-03 export passes
+eight applicable controls and retires; cloud main matches independently.
+All 81 effective source files, 66 original non-generated runtime files and
+three preparation archive populations retain their declared identities.
+
+[Run 42960218358](https://github.com/uibcdf/dockingmt/actions/runs/42960218358),
+attempt 1, uses that exact head. Build, policy and quality/DOM pass. Independent
+private reading authenticates build artifact **13828464142**, its original ZIP
+SHA-256 `bfe63329c2976c162093ff23a27f53b174152c69c1847b15276ecc5be410c737`,
+all 67 source-derived runtime paths, metadata/license/entry point and source/tree/
+version/run/attempt. The private `0.1.0` wheel is 157,926 B, SHA-256
+`36649e08926c73aa4ebe1063981cb615cdb64fea328fe0a04227602e89024e0c`.
+This is construction/payload evidence, not complete installed acceptance.
+
+Python 3.11 successfully constructs all six exact providers and records their
+original wheels, source/Cargo/native/compiler identities. Source context,
+dependency bounds and pip closure pass. Fresh MolSysMT native SHA-256 is
+`699a622b4b54494843b11437efa6f6ff6e9c733704afa0e39e2fe9c2f534c3be`,
+with Rust/Cargo 1.97.1 and system GCC 15.2.0. Its equality to the preceding
+observed build is not a general bitwise-reproducibility claim.
+
+The **ten original normal-policy storage cases pass**, zero failures/errors/
+skips, with two retained assertion-rewriting warnings for preimported Receptor
+and SMonitor. The unchanged original program/packet checks explicit 1.0 roots,
+0.6 provenance, typed readback, reordering/structure selection, selective edit
+invalidation and unknown-report transport/refusal. No new molecular case,
+preparation, search or detector is added. The entry guard permits at most the
+two registered one-atom/zero-bond topology calls; a final observed call count
+is unavailable because the complete receipt is not reached.
+
+## Complete gate remains unqualified
+
+After these cases, the SDK's loaded-origin checker raises:
+
+```text
+ContractError: loaded runtime import has no valid origin: pyunitwizard.main
+```
+
+PyUnitWizard f82b618 creates this compatibility alias dynamically, without file/
+spec metadata identifying its initializer. It is present even when the caller
+uses the modern API. Actual fetched main 9f59894 has identical initializer bytes,
+SHA-256 `39eeae626315034598a55db948e160fbc09b0213d48d8649b07933563b86fdfc`.
+The shared checker correctly refuses an origin it cannot verify; it is neither
+forked, relaxed nor fed a consumer-generated origin declaration.
+
+The exception occurs while constructing the final receipt's keyword values.
+No final storage receipt or late native-count/support-retirement/payload check
+is available. Preserve that limitation; ten passing assertion cases do not
+qualify the complete gate. Strict shell propagation prevents pm/fs and the
+product suite from running. Remaining cells are deliberately cancelled and
+GitHub's terminal conclusion is **cancelled**, retaining the failed 3.11 job.
+Interrupted 3.12 setup and unexecuted 3.13/3.14 are not passing evidence or
+headroom interruptions.
+
+Original 3.11 artifact **13828209273**, 63,726,132 B, ZIP SHA-256
+`f7f4806ac66bd0f6c9a8eaa1597fa169c34a197c2c48c56a3edff5205810a645`,
+retains normal-case JSONL/JUnit/program/packet/outputs and six provider wheels/
+receipts. The original ZIP remains private; the repository record receives the
+bounded case data and sanitized source facts without replay.
+
+## Provider-owned correction and selected PR route
+
+Report: [PyUnitWizard #146](https://github.com/uibcdf/pyunitwizard/issues/146).
+Advance shared-provider impact: [MolSysSuite #184](https://github.com/uibcdf/molsyssuite/issues/184).
+The maintainer explicitly selects a PR for owner review; no direct provider-main
+change is made. [PR #147](https://github.com/uibcdf/pyunitwizard/pull/147), head
+**cf29f39d767d0972a764b21eaacf7f73dd43af09**, base
+**9f59894e0d803abbfba84cc84bf9111c51bb3f7d**, declares the real initializer
+through file/spec/package metadata. Existing lazy forwarding/function identity
+and one-time deprecation behavior retain their tests. The active issue-backed
+provider record remains for owner review/archive closeout.
+
+A bounded private target installs the original retained PyUnitWizard wheel,
+using borrowed dependencies without claiming full prefix/closure qualification.
+The actual shared checker and Python source/spec introspection produce **two
+failed/six passed** before the patch and **eight passed** afterward. Both keep
+one expected deprecation warning; all five original API test ASTs remain equal.
+The negative outside-origin case continues to reject foreign metadata. Package
+files are unchanged within each test attempt; only the explicit initializer
+patch differs between populations. The named molecular and attribution imports are blocked; PyUnitWizard and
+its dependencies supply the API fixture. No quantity calculation or molecular/
+MolSysMT operation is performed.
+
+The reviewable two-file patch applies to the current base. Ruff runs with the
+provider's original configuration/layout, including its existing late-import
+exception; no new exception is introduced. Nine reporting tests and generated
+indexes pass in the isolated branch. Shared `../pyunitwizard` stays clean at
+its original source. Local probes use the same CPU 0/nice 10/one-worker,
+1 GiB group/2 GiB address-space and monitored 13 GiB reserve; all groups terminate
+without resource interruption. The original red failure remains a failure.
+
+Before PR creation, complete routine [CI 42963652083](https://github.com/uibcdf/pyunitwizard/actions/runs/42963652083),
+attempt 1, passes at exact cf29f39d: Linux/Python **3.14.10**, observed provider
+**0.29.2+3.gcf29f39**, ArgDigest **0.14.0**, **1,025 passed/21 skipped/one expected
+deprecation warning**, 34.12 s. Dependency/import/style and both coverage/test-
+result upload steps succeed. Skips include provisional Ackredit APIs and absent
+sibling repositories; two additional groups are not expanded in the bounded
+console report. This is its full declared routine selection, not all optional/
+platform or PR merge-ref acceptance. Native GitHub steps and the original console
+report are retained; this workflow publishes no GitHub JUnit/JSONL artifact,
+so no independent complete all-case artifact verification is claimed.
+
+## Retention and next action
+
+Original case data, source/native/build identities, provider patch/license/test
+inputs and red/green JSONL/JUnit/resource receipts remain in the private task
+`.molsyssuite/current-0.1.0-preparation-20261110`. Public GitHub run/job/source
+links above support the reported observations. The additional bounded public
+archive and independent stored reading of this origin-review population are
+**pending**, not completed acceptance evidence. Preserve the original ZIPs,
+job-only captures and isolated provider branch under #74/#50; review 2026-11-14.
+No local test/controller or owned remote run remains active at this checkpoint.
+
+Owner reviews/integrates PyUnitWizard #147 and closes/archives #146 through its
+own protocol. Then receive the **actual merged provider commit**, update the
+exact source profile/context/recipe, explicitly freeze a replacement DockingMT
+candidate and run its original both-policy/full-installed Python 3.11–3.14
+checkpoint. New source/native/closure inputs keep their own identities; no old
+candidate PASS or hypothetical merge is substituted. Only complete acceptance
+admits the lightweight `0.1.0` tag and its required source-event notice. Public
+packages, additional platforms, interactive canvas and whole Core/Extended/
+scientific acceptance retain their separate owners.
