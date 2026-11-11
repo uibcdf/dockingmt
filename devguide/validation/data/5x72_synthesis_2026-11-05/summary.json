@@ -43,13 +43,13 @@
     "Original source-proof flags are retained, not reverified or upgraded.",
     "No molecular operation, geometry measurement, search, scoring, optimization or reranking."
   ],
-  "owner": "uibcdf/dockingmt#70",
+  "owner": "uibcdf/bindingmt#70",
   "presentation_producer": {
-    "module": "dmt_test_support/synthesize_5x72_controls.py",
+    "module": "bmt_test_support/synthesize_5x72_controls.py",
     "scope": "retrospective saved-record projection; not an original scientific producer",
-    "sha256": "73fc9ad74db3616efce2d99460bc0e9175aac98db6980794124dc62f19ae0023"
+    "sha256": "2816c42e0dbc46dd5bfae03e01eb0b6fda3924d152722490a099b32e7fe9ddbd"
   },
-  "schema": "dockingmt.5x72_control_synthesis@1",
+  "schema": "bindingmt.5x72_control_synthesis@1",
   "score_modes": {
     "docking": {
       "provider_call": "Vina.energies",

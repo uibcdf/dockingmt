@@ -3027,12 +3027,12 @@ sha256 = "2816c42e0dbc46dd5bfae03e01eb0b6fda3924d152722490a099b32e7fe9ddbd"
 [[installed_tests.support.files]]
 source = "devguide/validation/data/5x72_synthesis_2026-11-05/manifest.json"
 target = "devguide/validation/data/5x72_synthesis_2026-11-05/manifest.json"
-sha256 = "da7be1e83ce80160474947d7a7d5d52e1bc88d83c3c6c593cfdeb36adf484bcc"
+sha256 = "9ee1d8a52436fc2545cd923041ccc0cdc3addbd64de027b1d6a57f15b6c6fc0c"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/5x72_synthesis_2026-11-05/summary.json"
 target = "devguide/validation/data/5x72_synthesis_2026-11-05/summary.json"
-sha256 = "64b2d10a6c2b1ac9913d7fdb528789c666c3ba8a6a180723687b28939389570c"
+sha256 = "fee6b63a454395ab66c070319fd5c1090d31889d40589652cdc7db1c15f56a43"
 
 [[installed_tests.support.files]]
 source = "devguide/validation/data/5x72_synthesis_2026-11-05/tables.md"

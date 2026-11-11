@@ -1,6 +1,6 @@
 {
   "files": {
-    "summary.json": "64b2d10a6c2b1ac9913d7fdb528789c666c3ba8a6a180723687b28939389570c",
+    "summary.json": "fee6b63a454395ab66c070319fd5c1090d31889d40589652cdc7db1c15f56a43",
     "tables.md": "3882136a53122e5b992ec064eb2c8b6860abd77dc18cb7798509942f85d22dcd"
   },
   "inputs": {
@@ -41,8 +41,8 @@
     }
   },
   "presentation_producer": {
-    "module": "dmt_test_support/synthesize_5x72_controls.py",
+    "module": "bmt_test_support/synthesize_5x72_controls.py",
     "scope": "retrospective saved-record projection; not an original scientific producer",
-    "sha256": "73fc9ad74db3616efce2d99460bc0e9175aac98db6980794124dc62f19ae0023"
+    "sha256": "2816c42e0dbc46dd5bfae03e01eb0b6fda3924d152722490a099b32e7fe9ddbd"
   }
 }

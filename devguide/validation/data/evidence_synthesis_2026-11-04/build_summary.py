@@ -142,8 +142,8 @@ def build(data):
         assert report['first_pose']['n_atoms'] == 9
         rows.append(stratum('installed_saved_3ptb', name, [sample(report)], 2.0, 9))
     return {
-        'schema': 'dockingmt.scientific_evidence_summary@1',
-        'owner': 'uibcdf/dockingmt#29',
+        'schema': 'bindingmt.scientific_evidence_summary@1',
+        'owner': 'uibcdf/bindingmt#29',
         'date': '2026-11-04',
         'inputs': {k: {'path': v[0], 'sha256': v[1]} for k, v in INPUTS.items()},
         'strata': rows,

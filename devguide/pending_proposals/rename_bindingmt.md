@@ -63,5 +63,13 @@ guides, environment, dependency and consumer receiving actions. These are
 separate owner handoffs; component delivery does not claim completed central
 adoption or a public package/release.
 
-Current status: the canonical clean rename and conceptual design are implemented;
-finish qualifying the final payload and deliver the two coordination issues.
+Current status: canonical clean identity and domain are implemented. The renamed
+private wheel has exactly 67 runtime paths. Shared editable replacement passes
+pip check; 74 installed core controls and 48 real-Vina/dependency/viewer controls
+pass, and 23 Node26 DOM cases pass. A wider 29-module attempt is incomplete after
+signal 9 near its 120 s CPU budget, with no available-memory reserve interruption.
+It retains one stale derived-presentation failure, now corrected by regenerating
+its summaries without molecular operations. Raw scientific observations and
+producer identities remain unchanged; current administrative presentation owner,
+schema and producer hashes follow BindingMT. Complete the full ordinary test
+selection as smaller serial groups, then deliver the two coordination issues.
