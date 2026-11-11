@@ -1,0 +1,71 @@
+# DockingMT quickstart
+
+This source milestone supports a declared small-molecule state, a rigid receptor
+and an explicit physical search box. Start with prepared PDBQT inputs. For raw
+molecular inputs, first follow the [explicit preparation walkthrough](devguide/validation/installed_3ptb_preparation.md)
+and retain its state, hydrogen, charge, typing and torsion choices. Supplied
+PDBQT retains its own torsion tree and has an unassessed chemistry declaration.
+
+For installation use the [current source composition and receiving route](devguide/releases/0.1.0_source_install.md).
+The source dossier links the exact candidate, qualification and availability;
+a public Conda package is a separate milestone. The [development guide](devguide/DEVELOPMENT.md) describes
+the editable group-of-repositories route.
+
+Put `receptor.pdbqt` and `ligand.pdbqt` in your working directory. The example
+uses a small 10 angstrom box around the origin and a short execution for checking
+the workflow; choose the box and search effort for your actual case. The state
+identifiers below are caller declarations for the prepared inputs. Use identifiers
+from your own preparation records. One engine CPU is explicit; resource
+allocation remains the execution environment's responsibility.
+
+```python
+import json
+from pathlib import Path
+
+import dockingmt as dmt
+import pyunitwizard as puw
+
+output = Path('result.json')
+if output.exists() or output.is_symlink():
+    raise FileExistsError(f'Choose a new result filename: {output}')
+
+problem = dmt.DockingProblem(
+    receptor='receptor.pdbqt',
+    partner='ligand.pdbqt',
+    search_domain=dmt.BoxRegion(
+        center=puw.quantity([0, 0, 0], 'angstrom'),
+        size=puw.quantity([10, 10, 10], 'angstrom'),
+    ),
+    metadata={
+        'receptor_state_id': 'receptor-state-01',
+        'partner_state_id': 'ligand-state-01',
+    },
+)
+protocol = dmt.VinaProtocol(
+    cpu=1, seed=123, exhaustiveness=1, n_poses=2, capture_backend_inputs=True
+)
+result = dmt.dock(problem, protocol)
+for pose in result.poses:
+    print(pose.rank, pose.scores)
+
+record = result.to_dict()
+with output.open('x') as stream:
+    json.dump(record, stream, indent=2, allow_nan=False)
+restored_record = json.loads(output.read_text())
+restored = dmt.DockingResult.from_dict(restored_record)
+assert restored.to_dict() == record
+print('Audit:', dmt.audit_result(restored_record)['status'])
+```
+
+`dock` performs the calculation. Saving, restoring and auditing these mappings
+do not rerun it. An existing output is refused before execution, and exclusive
+output mode also preserves a file created concurrently.
+An internally consistent audit checks the recorded information; scoring-model
+accuracy, chemical suitability and producer authenticity have separate evidence.
+Vina scores retain their method and conventional energy units, rather than an
+experimental binding-affinity interpretation.
+
+Continue with [named rescoring](devguide/validation/same_state_rescoring_workflow.md),
+[serial collections](devguide/validation/e2_native_collection_2026-11-07.md#short-reviewed-public-route)
+or the [public API reference](devguide/PUBLIC_API.md). Each linked workflow states
+its supported inputs and qualified composition.

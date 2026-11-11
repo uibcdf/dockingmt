@@ -14,6 +14,24 @@ supersedes: []
 
 # Distribution control adoption
 
+## Current source candidate route prepared — 2026-11-10
+
+[Current 0.1.0 preparation](../validation/current_0_1_0_preparation_2026-11-10.md)
+adds one reviewed manual same-wheel/four-minor profile with six exact directory
+sources, fresh native build admission/provenance, complete installed selection
+and original H5MSM 1.0 receiving under both policies. The short public quickstart
+and its frozen input/outside-checkout case are prepared; 622 shared support rows
+keep helpers/data outside runtime. The unchanged P6 program/packet and all three
+observation-oracle function ASTs retain their original identity and criteria.
+
+66 local administrative cases/five subtests and independent 244/7-member
+preparation records pass, with two early guard failures preserved. This is not
+yet a new 0.1.0 wheel, fresh native/installed gate or public solve. Next freeze the
+candidate after final source/export checks and execute the deliberate checkpoint
+under #74. Ordinary/frozen routes, public minima and old 905abc9 artifacts stay
+unchanged. No local native restart/shared install/tag/package/Release; #47/#30
+remain partial and #50 review stays 2026-11-14.
+
 ## Complete current batch and current 0.1.0 plan — 2026-11-10
 
 [Whole batch receiving](../validation/installed_batch_current_2026-11-10.md)

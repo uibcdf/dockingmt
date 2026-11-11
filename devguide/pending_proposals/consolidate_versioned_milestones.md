@@ -14,6 +14,18 @@ supersedes: []
 
 # Consolidate versioned milestones
 
+## Current 0.1.0 source checkpoint prepared — 2026-11-10
+
+[Current preparation](../validation/current_0_1_0_preparation_2026-11-10.md)
+delivers the short public workflow, frozen guide/integration case and exact
+six-source same-wheel/four-minor manual checkpoint under #74. Local 66-case/
+five-subtest controls pass with initial guard failures retained. Candidate
+freeze, actual fresh native/full installed validation and source/tag event
+remain pending; a prepared route is not a passing release. Incoming provider
+changes and old 905abc9 evidence retain separate identities. Next freeze after
+final source/export checks and execute the deliberate milestone checkpoint.
+No local native restart, tag, Release or package; broader goals stay active.
+
 ## Maintainer accepts current 0.1.0 preparation — 2026-11-10
 
 [The accepted current plan](../releases/0.1.0_current.md) requires a complete

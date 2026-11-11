@@ -176,3 +176,98 @@ reason = "DockingMT #74 manual hosted-only private 0.1.0 receiving for remaining
 path = ".github/workflows/qualify-3ptb-interactions.yml"
 sha256 = "6997e29a599a0317b587c5e31b95fe0bba23a688c3af69ea8df5acebc90165b4"
 reason = "DockingMT #80 manual hosted-only finite notebook receiving after a measured local RAM stop. Uses existing micromamba/read-only/failed-outcome retention patterns and immutable sibling routes. Normal and pm-fs are serial, each followed by a fresh saved reader; no publisher or full-suite claim. Retire after #80 receiving or replacement by an accepted common scientific receiver; suite #31 owns source-acquisition replacement."
+
+[[source_routes]]
+id = "source-010-argdigest"
+name = "argdigest"
+role = "required-runtime"
+url = "https://github.com/uibcdf/argdigest"
+commit = "07126411f108ee1ff607e9c9a0816109b2c9253e"
+install = "pip-no-deps-directory"
+reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+
+[[source_routes]]
+id = "source-010-molsysmt"
+name = "molsysmt"
+role = "required-runtime"
+url = "https://github.com/uibcdf/molsysmt"
+commit = "9df62445e49a1e268cf4c13d1ebbdd06b2088674"
+install = "pip-no-deps-directory"
+reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+
+[[source_routes]]
+id = "source-010-molsysviewer"
+name = "molsysviewer"
+role = "integration"
+url = "https://github.com/uibcdf/molsysviewer"
+commit = "1187fc187247aa2d20d01791856a541d50562bcb"
+install = "pip-no-deps-directory"
+reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+
+[[source_routes]]
+id = "source-010-pyunitwizard"
+name = "pyunitwizard"
+role = "required-runtime"
+url = "https://github.com/uibcdf/pyunitwizard"
+commit = "f82b618ea88c151a9b43009228126b1cf7fda65c"
+install = "pip-no-deps-directory"
+reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+
+[[source_routes]]
+id = "source-010-smonitor"
+name = "smonitor"
+role = "required-runtime"
+url = "https://github.com/uibcdf/smonitor"
+commit = "c1b6ce29c3729b99429b395a00c7866a759be406"
+install = "pip-no-deps-directory"
+reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+
+[[source_routes]]
+id = "source-010-depdigest"
+name = "depdigest"
+role = "required-runtime"
+url = "https://github.com/uibcdf/depdigest"
+commit = "032d345becf8f8f574c24ede61ee62fcf0321de7"
+install = "pip-no-deps-directory"
+reason = "Current source-only 0.1.0 candidate under dockingmt#74: fresh exact directory source and native build receiving. Distinct from ordinary CI, historical 905abc9 and public dependency admission."
+
+[[contexts]]
+name = "source-010-3.11"
+environment = "devtools/conda-envs/test_env.yaml"
+python_minor = "3.11"
+sources = ["source-010-argdigest", "source-010-molsysmt", "source-010-molsysviewer", "source-010-pyunitwizard", "source-010-smonitor", "source-010-depdigest"]
+overlays = ["smonitor", "depdigest", "pyunitwizard"]
+overlay_reason = "The shared bootstrap supplies its channel baselines; this candidate intentionally replaces these three with exact reviewed development sources for the received current APIs. Preserve bootstrap and actual final source identities separately and verify every final dependency bound before tests. This changes no public package minimum."
+reason = "Current 0.1.0 milestone, exact same-run consumer wheel and six freshly directory-installed development sources; observed clean closure/native build identities and full installed selection. Public Conda/platform admission is separate."
+
+[[contexts]]
+name = "source-010-3.12"
+environment = "devtools/conda-envs/test_env.yaml"
+python_minor = "3.12"
+sources = ["source-010-argdigest", "source-010-molsysmt", "source-010-molsysviewer", "source-010-pyunitwizard", "source-010-smonitor", "source-010-depdigest"]
+overlays = ["smonitor", "depdigest", "pyunitwizard"]
+overlay_reason = "The shared bootstrap supplies its channel baselines; this candidate intentionally replaces these three with exact reviewed development sources for the received current APIs. Preserve bootstrap and actual final source identities separately and verify every final dependency bound before tests. This changes no public package minimum."
+reason = "Current 0.1.0 milestone, exact same-run consumer wheel and six freshly directory-installed development sources; observed clean closure/native build identities and full installed selection. Public Conda/platform admission is separate."
+
+[[contexts]]
+name = "source-010-3.13"
+environment = "devtools/conda-envs/test_env.yaml"
+python_minor = "3.13"
+sources = ["source-010-argdigest", "source-010-molsysmt", "source-010-molsysviewer", "source-010-pyunitwizard", "source-010-smonitor", "source-010-depdigest"]
+overlays = ["smonitor", "depdigest", "pyunitwizard"]
+overlay_reason = "The shared bootstrap supplies its channel baselines; this candidate intentionally replaces these three with exact reviewed development sources for the received current APIs. Preserve bootstrap and actual final source identities separately and verify every final dependency bound before tests. This changes no public package minimum."
+reason = "Current 0.1.0 milestone, exact same-run consumer wheel and six freshly directory-installed development sources; observed clean closure/native build identities and full installed selection. Public Conda/platform admission is separate."
+
+[[contexts]]
+name = "source-010-3.14"
+environment = "devtools/conda-envs/test_env.yaml"
+python_minor = "3.14"
+sources = ["source-010-argdigest", "source-010-molsysmt", "source-010-molsysviewer", "source-010-pyunitwizard", "source-010-smonitor", "source-010-depdigest"]
+overlays = ["smonitor", "depdigest", "pyunitwizard"]
+overlay_reason = "The shared bootstrap supplies its channel baselines; this candidate intentionally replaces these three with exact reviewed development sources for the received current APIs. Preserve bootstrap and actual final source identities separately and verify every final dependency bound before tests. This changes no public package minimum."
+reason = "Current 0.1.0 milestone, exact same-run consumer wheel and six freshly directory-installed development sources; observed clean closure/native build identities and full installed selection. Public Conda/platform admission is separate."
+
+[[workflows]]
+path = ".github/workflows/qualify-current-0.1.0.yml"
+sha256 = "0f696257ed4a3b564c681c6d3e665452911c09970190948db2127d2f7720b8b0"
+reason = "DockingMT #74 explicit current 0.1.0 milestone checkpoint: one lightweight-tagged private wheel, serial fresh Linux 3.11-3.14 source/installed cells, six immutable development providers, shared SDK checks and retained original source wheels. No publisher or automatic trigger. Retire after the first-tag decision or a received common source-candidate route; suite #31 retains shared source-acquisition ownership."

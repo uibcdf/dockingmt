@@ -118,7 +118,12 @@ def test_hosted_route_has_no_publisher_and_consumes_same_run_build():
     assert all(s['with']['persist-credentials'] is False for s in checkouts)
     assert len([s for s in checkouts if s['with'].get('ref') == caller.CANDIDATE]) == 1
     routes = tomllib.loads((ROOT / 'devtools/dependency_routes.toml').read_text())
-    expected = {'uibcdf/' + s['name']: s['commit'] for s in routes['source_routes']}
+    context = next(row for row in routes['contexts'] if row['name'] == 'e4-3.14')
+    sources = {row['id']: row for row in routes['source_routes']}
+    expected = {
+        'uibcdf/' + sources[key]['name']: sources[key]['commit']
+        for key in context['sources']
+    }
     actual = {
         s['with']['repository']: s['with']['ref']
         for s in checkouts

@@ -1,0 +1,14 @@
+version = "0.1.0"
+owner = "uibcdf/dockingmt#74"
+dependency_sdk = "738fe8dd731abb99dac421b0bb2acc8564110180"
+installed_sdk = "95f693be10c9205ab9b912cb53453710a207bf45"
+python_minors = ["3.11", "3.12", "3.13", "3.14"]
+platform = "linux-x86_64"
+
+[sources]
+argdigest = "07126411f108ee1ff607e9c9a0816109b2c9253e"
+molsysmt = "9df62445e49a1e268cf4c13d1ebbdd06b2088674"
+molsysviewer = "1187fc187247aa2d20d01791856a541d50562bcb"
+pyunitwizard = "f82b618ea88c151a9b43009228126b1cf7fda65c"
+smonitor = "c1b6ce29c3729b99429b395a00c7866a759be406"
+depdigest = "032d345becf8f8f574c24ede61ee62fcf0321de7"

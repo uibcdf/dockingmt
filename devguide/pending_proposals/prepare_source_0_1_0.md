@@ -14,6 +14,25 @@ supersedes: []
 
 # Prepare the 0.1.0 source milestone
 
+## Current source checkpoint prepared — 2026-11-10
+
+[The current preparation](../validation/current_0_1_0_preparation_2026-11-10.md)
+adds a frozen public quickstart/outside-checkout test, 622 support inputs, exact
+six-source recipe and one manual same-wheel Linux/Python3.11–3.14 checkpoint.
+Source pre-admission requires clean directories and absent native files; original
+source wheels, Cargo/compiler/native hashes, actual installed origins, full
+selection and shared support/closure are retained. A private lightweight tag
+receives the intended version without publishing it. Ordinary and fixed old
+receivers stay historical.
+
+66 administrative cases/five subtests and applicable source/resource controls
+pass locally. Preserve the two failed declaration/count attempts and their
+missing intermediate-source-snapshot limit. Fresh native/source reconstruction,
+full installed gates and the new quickstart native case remain unexecuted.
+Next freeze the candidate explicitly after final export checks and execute the
+deliberate checkpoint; no tag, Release/package or held local rebuild follows
+from administrative success. #74 stays partial; #50 review 2026-11-14.
+
 ## Accepted current-candidate continuation — 2026-11-10
 
 The maintainer approves [six concrete current 0.1.0 goals](../releases/0.1.0_current.md)

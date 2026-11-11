@@ -3122,3 +3122,83 @@ sha256 = "35af019d85ab34b7c6f63d81defd193c4ed5c3c36e1cf74d3a17c73a0cfdcbfc"
 source = "dmt_test_support/native_ligand_export_fixtures.py"
 target = "dmt_test_support/native_ligand_export_fixtures.py"
 sha256 = "347e47946c99040ab0d8a9b71b9e6a20968b7645e7de5292f72318b6d984b2ea"
+
+[[installed_tests.support.files]]
+source = "tests/data/guides/quickstart_0_1_0_20261110.md"
+target = "QUICKSTART.md"
+sha256 = "ad73516e63e8cb99599f63a80dd6f026574f6602b65b7cceee994097b98b411e"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/producer/client_cases.py.txt.gz"
+target = "tests/data/h5msm_client/client_cases.py.gz"
+sha256 = "e5dee4a10dfe16d681b19762aadf71e44792b24e76cf36a27d0b12d629b9c5e0"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/packet/README.md.gz"
+target = "tests/data/h5msm_client/packet/README.md.gz"
+sha256 = "e7f756318acb546432c29d41d860a50b284402acb0dc35edd31f41a8556c7dfe"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/packet/complete-expected.json.gz"
+target = "tests/data/h5msm_client/packet/complete-expected.json.gz"
+sha256 = "dcd81d4af1d6cf7bfb634cce23ec190476998cc641bc237119bf31dc4bb43639"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/packet/complete-pdbqt.json.gz"
+target = "tests/data/h5msm_client/packet/complete-pdbqt.json.gz"
+sha256 = "0957d377c0accee30028e983dc1697d212dbb58238ab1320c6eaece68c2ddc17"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/packet/complete.h5msm.gz"
+target = "tests/data/h5msm_client/packet/complete.h5msm.gz"
+sha256 = "934cd0ae159c9b0b9d19f490c4975370ded05993c7f57194439b4b35e8abc13f"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/packet/manifest.json.gz"
+target = "tests/data/h5msm_client/packet/manifest.json.gz"
+sha256 = "43f024f9e9954e0e1581b8d0977ed39f7771bbd4b7e7ab71449fd77a9999ea23"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/packet/merged-expected.json.gz"
+target = "tests/data/h5msm_client/packet/merged-expected.json.gz"
+sha256 = "3a12bae790f9cd70fdfe9472e273508e3ab64229b70d60e4c6dd7930fe320422"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/packet/merged-pdbqt.json.gz"
+target = "tests/data/h5msm_client/packet/merged-pdbqt.json.gz"
+sha256 = "4140323cf59624b10f50911da740392ade5e737b340192a9361ecabecb78ab8b"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/packet/merged.h5msm.gz"
+target = "tests/data/h5msm_client/packet/merged.h5msm.gz"
+sha256 = "fbe5b6f138c7d0d8ff35abde3000daf65df9225fecb4d86d7e2d865125793291"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/packet/projected-expected.json.gz"
+target = "tests/data/h5msm_client/packet/projected-expected.json.gz"
+sha256 = "31e8531ecf81dd7da4e0acf23949ee7f66d3ae79fd4cb4a9c150df3ec1b5a969"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/packet/projected-pdbqt.json.gz"
+target = "tests/data/h5msm_client/packet/projected-pdbqt.json.gz"
+sha256 = "1583f1a58a5a77873cbe2714f8805956d618466de0bb79e9669c75d9a4c9f6ae"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/packet/projected.h5msm.gz"
+target = "tests/data/h5msm_client/packet/projected.h5msm.gz"
+sha256 = "a2f294d7487dd978e24591b358c45a636f63d3d39ae10885710c646e66cc3d7b"
+
+[[installed_tests.support.files]]
+source = "dmt_test_support/h5msm_client_oracle.py"
+target = "dmt_test_support/h5msm_client_oracle.py"
+sha256 = "eee5f07e6b4606632a8cccb36d6d7f818dde9dec2cdeedbf87ec9811dbba5525"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/manifest.json"
+target = "tests/data/h5msm_client/primary-manifest.json"
+sha256 = "73e8d385c763ebf4c85bcb86099b3785a69445c57c0ff3b30ec44283c8bf22fe"
+
+[[installed_tests.support.files]]
+source = "devguide/validation/data/h5msm_v10_and_comparison_2026-11-10/producer/oracle.py.txt.gz"
+target = "tests/data/h5msm_client/original-oracle.py.gz"
+sha256 = "1ecd7380ef107089ef8fb40b5a1f0be3b3b25d6fa2e420cf10b10e08d734b94d"

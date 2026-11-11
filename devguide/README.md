@@ -24,6 +24,14 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Current source-candidate preparation](validation/current_0_1_0_preparation_2026-11-10.md)
+provides the [quickstart](../QUICKSTART.md), [source recipe](releases/0.1.0_source_install.md)
+and deliberate same-wheel/four-minor checkpoint with six fixed source providers.
+66 administrative cases/five subtests pass; the new workflow's actual fresh
+native/full-installed gates remain pending. Next freeze the candidate after
+source/export checks and execute that milestone checkpoint. No tag or package
+exists from preparation alone; custody review is 2026-11-14.
+
 Current target: [prepare a new 0.1.0 source candidate](releases/0.1.0_current.md)
 with the six accepted goals and a lightweight canonical tag. The old 905abc9
 candidate stays historical; no tag, Release or package is published yet.

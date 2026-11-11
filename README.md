@@ -23,6 +23,11 @@ uses the local source checkouts; the qualified installation scope is described b
 
 ## Start here
 
+Use the [short prepared-input quickstart](QUICKSTART.md) for execution, score
+inspection, saving, restoration and audit through the public API. The current
+[source-only 0.1.0 milestone](devguide/releases/0.1.0_current.md) records its exact
+candidate, qualification and availability through the owning issue.
+
 The current supported starting profile is one explicitly declared small-molecule
 state and a rigid protein, with a physical search box and Vina. Molecular
 preparation and characterization use MolSysMT. The installed walkthroughs below
@@ -152,8 +157,9 @@ index is used for the receptor, ligand and box.
 MolSysMT conversion report for each molecular input.
 File-backed inputs also carry a SHA-256 fingerprint; reconstruction refuses a
 file whose contents have changed. In-memory inputs still require the original
-objects for reconstruction while [MolSysMT mechanics persistence](https://github.com/uibcdf/molsysmt/issues/256)
-is unresolved.
+objects for reconstruction. [Explicit H5MSM 1.0 client receiving](devguide/validation/h5msm_v10_client_receiving_2026-11-10.md)
+now covers the supported native storage profile; a DockingProblem dictionary
+still stores declarations rather than a complete native molecular snapshot.
 
 For `DockingProblem(...)`, inputs with multiple structures require
 `receptor_structure_index` and `partner_structure_index` as applicable. The Vina
