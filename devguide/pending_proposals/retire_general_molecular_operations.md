@@ -14,16 +14,23 @@ supersedes: []
 
 # General molecular operations belong to their provider
 
-## Terminal maps/history receiving registered — 2026-11-11
+## Terminal maps/history received in development — 2026-11-11
+
+**Work paused at the maintainer's request after this checkpoint.** Resume the
+next prescribed step only after the discussion and maintainer resumption.
 
 [#33/#49 receiving](../validation/panel_terminal_receiving_2026-11-11.md) resumes the
 original panel work after the immutable 0.1.0 source milestone. MolSysMT #558 is
 source-resolved; the clean editable provider is fast-forwarded to `aee7aa65` with
-unchanged native bytes/build inputs. Normal synthetic controls pass 6/6; the original-stage attempt exposed
-consumer snapshot/selection errors and remains failed. The corrected complete
-eight-case selection must pass both unit policies before panel chemistry/environment
-admission. Original scientific results and tag-specific policy evidence retain
-their separate scope.
+unchanged native bytes/build inputs. The full eight-case selection
+passes both unit policies on DockingMT `7873ec4` / MolSysMT `aee7aa65`: exact
+mapped geometry, typed maps, explicit losses, intact source/history and native
+history persistence. All 625 support inputs retire; original failures and the
+pre-test wall interruption remain in the 129-member record. Next decide original
+panel chemical-state, terminal/truncation and environment prescriptions before
+provider-only preparation. Zero new receptors/searches are admitted. Tag 0.1.0
+conformance now passes on its immutable target; #74 is archived. Other artifact,
+scientific and actual-canvas criteria retain their separate scope.
 
 ## Complete provider-owned references received in development — 2026-11-08
 

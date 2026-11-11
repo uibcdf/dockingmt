@@ -1,0 +1,105 @@
+{
+  "schema": "dockingmt.source-tag-policy@1",
+  "owner": "uibcdf/dockingmt#74",
+  "recorded_date": "2026-11-11",
+  "tag": "0.1.0",
+  "tag_kind": "lightweight",
+  "run": {
+    "conclusion": "success",
+    "created_at": "2026-11-11T19:31:50Z",
+    "event": "workflow_dispatch",
+    "head_branch": "0.1.0",
+    "head_sha": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+    "html_url": "https://github.com/uibcdf/dockingmt/actions/runs/43088048207",
+    "id": 43088048207,
+    "path": ".github/workflows/molsyssuite-policy.yml",
+    "run_attempt": 1,
+    "status": "completed",
+    "updated_at": "2026-11-11T19:50:00Z"
+  },
+  "jobs": [
+    {
+      "id": 130757511025,
+      "name": "policy / conformance",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 43088048207,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Check out member repository",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Set up policy Python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Check out MolSysSuite policy",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Check repository conformance",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Install the policy Ruff version",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Check Python lint and imports",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Check Python formatting",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8
+        },
+        {
+          "name": "Post Check out MolSysSuite policy",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Post Set up policy Python",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        },
+        {
+          "name": "Post Check out member repository",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17
+        }
+      ]
+    }
+  ],
+  "scope": "Tag-specific conformance, lint and formatting only. Original four-minor installed evidence remains bound to its own candidate/wheel/providers. No package, GitHub Release or whole Core/Extended acceptance is inferred."
+}

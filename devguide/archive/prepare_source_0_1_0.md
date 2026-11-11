@@ -1,9 +1,9 @@
 ---
 summary: Prepare the fixed 0.1.0 source milestone with truthful version, payload and gate evidence.
 issue: uibcdf/dockingmt#74
-status: partial
+status: resolved
 opened: 2026-11-05
-closed:
+closed: 2026-11-11
 verification: measured
 area: [releases, distribution, provenance]
 guard: devtools/tests/test_current_0_1_0_qualification.py
@@ -32,8 +32,9 @@ Python 3.13 succeeds in run 43074858531/head 286f811 with the original candidate
 file and unchanged scientific logic. Both failed pre-test attempts remain failed.
 
 The tag-specific [conformance check 43088048207](https://github.com/uibcdf/dockingmt/actions/runs/43088048207)
-is separately queued; skipped automatic tag CI is not labelled passing. #74
-retains that final audit and report archive. The tag target stays immutable.
+passes on the exact tag target (job 130757511025); the [final receipt](../validation/data/current_0_1_0_tag_policy_20261111.json)
+retains its separate conformance/lint/format scope. #74 is complete and its
+report is archived. The tag target stays immutable.
 #50 custody review is 2026-11-14; no owned local calculation remains active.
 
 The complete #73 objective remains active. Resume #33/#49's original scientific

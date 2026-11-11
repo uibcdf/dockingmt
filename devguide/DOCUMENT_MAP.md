@@ -15,7 +15,7 @@ making a bounded contribution.
 | [DEVELOPMENT.md](DEVELOPMENT.md) | How do I reconstruct the development setup, locate code and choose the appropriate checks? |
 | [MACHINE_HANDOFF.md](MACHINE_HANDOFF.md) | What is the verified checkpoint, what remains, and which local resources need custody when moving to another machine? |
 | [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) | What evidence is required for the complete Core-plus-Extended functional objective before stabilization? |
-| [validation/panel_terminal_receiving_2026-11-11.md](validation/panel_terminal_receiving_2026-11-11.md) | Which finite controls receive MolSysMT #558 maps/history before original panel preparation? |
+| [validation/panel_terminal_receiving_2026-11-11.md](validation/panel_terminal_receiving_2026-11-11.md) | Which original eight-case controls pass both unit policies for #558 maps/history, with which failed attempts and remaining preparation decisions? |
 | [ROADMAP.md](ROADMAP.md#current-operational-plan) | What is the current work queue, distinct from checkpoint history? |
 | [CORE_MVP_STATUS.md](CORE_MVP_STATUS.md) | Which of the 35 Core criteria have evidence, with which limits and owners? |
 | [CORE_EXTENDED_COMPARISON.md](CORE_EXTENDED_COMPARISON.md) | What do Core C0–C6 and Extended E1–E5 include, and which pieces already exist? |

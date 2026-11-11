@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (82)
+### Resolved (83)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/dockingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_coordinate_record_admission.md`](audit_coordinate_record_admission.md) — [#90](https://github.com/uibcdf/dockingmt/issues/90) — Offline coordinate audits disagree with the existing pose-record admission. *(resolved, reproduced)*
@@ -52,6 +52,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`pose_coordinate_record_admission.md`](pose_coordinate_record_admission.md) — [#86](https://github.com/uibcdf/dockingmt/issues/86) — Pose records reject their empty output and leak coordinate field/unit errors. *(resolved, measured)*
 - [`pose_reference_loading.md`](pose_reference_loading.md) — [#37](https://github.com/uibcdf/dockingmt/issues/37) — Pair docking reference frames explicitly and expose viewer failures. *(resolved, measured)*
 - [`prepare_new_machine_handoff.md`](prepare_new_machine_handoff.md) — [#82](https://github.com/uibcdf/dockingmt/issues/82) — Make the developer guide a coherent onboarding and new-machine handoff. *(resolved, measured)*
+- [`prepare_source_0_1_0.md`](prepare_source_0_1_0.md) — [#74](https://github.com/uibcdf/dockingmt/issues/74) — Prepare the fixed 0.1.0 source milestone with truthful version, payload and gate evidence. *(resolved, measured)*
 - [`prepared_export_unit_copy.md`](prepared_export_unit_copy.md) — [#103](https://github.com/uibcdf/dockingmt/issues/103) — Caller length-unit changes falsely require copying unchanged native preparations. *(resolved, reproduced)*
 - [`prepared_materialization_unit_roundtrip.md`](prepared_materialization_unit_roundtrip.md) — [#104](https://github.com/uibcdf/dockingmt/issues/104) — Unchanged native materialization reassigns coordinates and changes canonical bits. *(resolved, reproduced)*
 - [`protocol_energy_record_coerces_invalid_values.md`](protocol_energy_record_coerces_invalid_values.md) — [#84](https://github.com/uibcdf/dockingmt/issues/84) — Saved protocol energy magnitudes bypass scalar admission through float coercion. *(resolved, measured)*

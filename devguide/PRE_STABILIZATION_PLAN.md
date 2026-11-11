@@ -2,19 +2,26 @@
 
 Owner: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliver-the-complete-functional-objective-before-stabilization).
-Status: **active after maintainer resumption; completion unproven**.
+Status: **paused at maintainer request; completion unproven**.
 Inspected starting source: `530a4cf`.
 
-### Terminal maps/history receiving registered — 2026-11-11
+### Terminal maps/history received in development — 2026-11-11
+
+**Work paused at the maintainer's request after this checkpoint.** Resume the
+next prescribed step only after the discussion and maintainer resumption.
 
 [#33/#49 receiving](validation/panel_terminal_receiving_2026-11-11.md) resumes the
 original panel work after the immutable 0.1.0 source milestone. MolSysMT #558 is
 source-resolved; the clean editable provider is fast-forwarded to `aee7aa65` with
-unchanged native bytes/build inputs. Normal synthetic controls pass 6/6; the original-stage attempt exposed
-consumer snapshot/selection errors and remains failed. The corrected complete
-eight-case selection must pass both unit policies before panel chemistry/environment
-admission. Original scientific results and tag-specific policy evidence retain
-their separate scope.
+unchanged native bytes/build inputs. The full eight-case selection
+passes both unit policies on DockingMT `7873ec4` / MolSysMT `aee7aa65`: exact
+mapped geometry, typed maps, explicit losses, intact source/history and native
+history persistence. All 625 support inputs retire; original failures and the
+pre-test wall interruption remain in the 129-member record. Next decide original
+panel chemical-state, terminal/truncation and environment prescriptions before
+provider-only preparation. Zero new receptors/searches are admitted. Tag 0.1.0
+conformance now passes on its immutable target; #74 is archived. Other artifact,
+scientific and actual-canvas criteria retain their separate scope.
 
 ### Source milestone 0.1.0 delivered — 2026-11-11
 
@@ -34,8 +41,9 @@ Python 3.13 succeeds in run 43074858531/head 286f811 with the original candidate
 file and unchanged scientific logic. Both failed pre-test attempts remain failed.
 
 The tag-specific [conformance check 43088048207](https://github.com/uibcdf/dockingmt/actions/runs/43088048207)
-is separately queued; skipped automatic tag CI is not labelled passing. #74
-retains that final audit and report archive. The tag target stays immutable.
+passes on the exact tag target (job 130757511025); the [final receipt](validation/data/current_0_1_0_tag_policy_20261111.json)
+retains its separate conformance/lint/format scope. #74 is complete and its
+report is archived. The tag target stays immutable.
 #50 custody review is 2026-11-14; no owned local calculation remains active.
 
 The complete #73 objective remains active. Resume #33/#49's original scientific
