@@ -1,0 +1,591 @@
+{
+  "owner": "uibcdf/dockingmt#74",
+  "version": "0.1.0",
+  "candidate": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+  "tree": "5f0c98567ae06263c1a43b9a24c63f7c81675539",
+  "run_id": 42976065511,
+  "run_url": "https://github.com/uibcdf/dockingmt/actions/runs/42976065511",
+  "status": "partial; fourth minor pending",
+  "platform": "linux-x86_64",
+  "source_profile_sha256": "37ff280b5adb6134cae12f46f3639239f76ce0ded1d0abf8d152e98976a5d184",
+  "profile": {
+    "version": "0.1.0",
+    "owner": "uibcdf/dockingmt#74",
+    "dependency_sdk": "738fe8dd731abb99dac421b0bb2acc8564110180",
+    "installed_sdk": "95f693be10c9205ab9b912cb53453710a207bf45",
+    "python_minors": [
+      "3.11",
+      "3.12",
+      "3.13",
+      "3.14"
+    ],
+    "platform": "linux-x86_64",
+    "sources": {
+      "argdigest": "07126411f108ee1ff607e9c9a0816109b2c9253e",
+      "molsysmt": "9df62445e49a1e268cf4c13d1ebbdd06b2088674",
+      "molsysviewer": "1187fc187247aa2d20d01791856a541d50562bcb",
+      "pyunitwizard": "c81916e65ce61e905008e8931af3c0e527157251",
+      "smonitor": "c1b6ce29c3729b99429b395a00c7866a759be406",
+      "depdigest": "032d345becf8f8f574c24ede61ee62fcf0321de7"
+    }
+  },
+  "build": {
+    "candidate": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+    "tree": "5f0c98567ae06263c1a43b9a24c63f7c81675539",
+    "run": 42976065511,
+    "attempt": 1,
+    "artifact": 13835014036,
+    "zip_sha256": "a8bb1b352c39156a8c661790985bfe8662d049061ef2a55169c1248117580028",
+    "wheel_sha256": "3b70094ee1d9103ceed19ee64214c0025662781acf8eb28eaeb4733f5c5a53ca",
+    "runtime_files": 67,
+    "source_payload_and_metadata": "PASS",
+    "installed_gate": "pending",
+    "scope": "Stored bytes checked with existing component wheel guard; no install, build or scientific execution"
+  },
+  "source_controls": {
+    "local_administrative_cases": 122,
+    "local_administrative_subtests": 26,
+    "local_focused_editable_cases": 11,
+    "hosted_build": "success",
+    "hosted_quality_resources_frontend": "success",
+    "hosted_policy": "success",
+    "fresh_candidate_export": "passed; source 1030a29025914e01dff09e5fc606ec73b90f4cd9; committed-06"
+  },
+  "cells": {
+    "3.11": {
+      "candidate": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+      "run_id": 42976065511,
+      "attempt": 1,
+      "minor": "3.11",
+      "python": "3.11.18",
+      "artifact_id": 13836481959,
+      "artifact_sha256": "485548a5314d37e95500bdb1c2a85030f765ef6df17905dd48c75e0e5d14b03c",
+      "wheel_sha256": "3b70094ee1d9103ceed19ee64214c0025662781acf8eb28eaeb4733f5c5a53ca",
+      "complete_installed": {
+        "receptor_counts": {
+          "collected": 2658,
+          "deselected": 0,
+          "errors": 0,
+          "executed": 2658,
+          "failed": 0,
+          "not_executed": 0,
+          "passed": 2658,
+          "reruns": 0,
+          "skipped": 0,
+          "subtests": {},
+          "warnings": 154,
+          "xfailed": 0,
+          "xpassed": 0
+        },
+        "junit": {
+          "tests": 2658,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "duration": 672.751157762,
+        "artifact_policy": {
+          "dropped_records": 0,
+          "max_bytes": 52428800,
+          "truncated": false
+        }
+      },
+      "selected": 2658,
+      "quickstart_included": true,
+      "support_rows": 623,
+      "storage": {
+        "normal": {
+          "receptor_counts": {
+            "collected": 10,
+            "deselected": 0,
+            "errors": 0,
+            "executed": 10,
+            "failed": 0,
+            "not_executed": 0,
+            "passed": 10,
+            "reruns": 0,
+            "skipped": 0,
+            "subtests": {},
+            "warnings": 2,
+            "xfailed": 0,
+            "xpassed": 0
+          },
+          "junit": {
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "duration": 2.702395047999971,
+          "artifact_policy": {
+            "dropped_records": 0,
+            "max_bytes": 52428800,
+            "truncated": false
+          }
+        },
+        "pm_fs": {
+          "receptor_counts": {
+            "collected": 10,
+            "deselected": 0,
+            "errors": 0,
+            "executed": 10,
+            "failed": 0,
+            "not_executed": 0,
+            "passed": 10,
+            "reruns": 0,
+            "skipped": 0,
+            "subtests": {},
+            "warnings": 2,
+            "xfailed": 0,
+            "xpassed": 0
+          },
+          "junit": {
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "duration": 2.752901989999998,
+          "artifact_policy": {
+            "dropped_records": 0,
+            "max_bytes": 52428800,
+            "truncated": false
+          }
+        }
+      },
+      "providers": {
+        "argdigest": {
+          "source": "07126411f108ee1ff607e9c9a0816109b2c9253e",
+          "version": "0.17.1+3.g0712641",
+          "wheel_sha256": "4329bd942eeed449f46e68b8f7927cbc5b88afe8cc95560c6fd59e5d43ddefbf",
+          "native_sha256": {}
+        },
+        "molsysmt": {
+          "source": "9df62445e49a1e268cf4c13d1ebbdd06b2088674",
+          "version": "0.23.0+860.g9df62445e",
+          "wheel_sha256": "acc5f3487ebf16b87aee94970f5726cbdf22aa92048733e41a113b1fb3384737",
+          "native_sha256": {
+            "lib/python3.11/site-packages/molsysmt/_rust.abi3.so": "699a622b4b54494843b11437efa6f6ff6e9c733704afa0e39e2fe9c2f534c3be"
+          }
+        },
+        "molsysviewer": {
+          "source": "1187fc187247aa2d20d01791856a541d50562bcb",
+          "version": "0.24.0+316.g1187fc18",
+          "wheel_sha256": "0b7531a8399d28d87181a5bd2b72a8aaead5b09b39ea529da55fe282fee8e0b1",
+          "native_sha256": {}
+        },
+        "pyunitwizard": {
+          "source": "c81916e65ce61e905008e8931af3c0e527157251",
+          "version": "0.29.3",
+          "wheel_sha256": "a864148caf65a0d79e7ac28b592331012ba641d694914367afdbc9cf215243f8",
+          "native_sha256": {}
+        },
+        "smonitor": {
+          "source": "c1b6ce29c3729b99429b395a00c7866a759be406",
+          "version": "0.22.1+1.gc1b6ce2",
+          "wheel_sha256": "b3292d11763aa4b49f872b090fa6d66cf673c6913882ca37749765487be0c075",
+          "native_sha256": {}
+        },
+        "depdigest": {
+          "source": "032d345becf8f8f574c24ede61ee62fcf0321de7",
+          "version": "0.15.2+2.g032d345",
+          "wheel_sha256": "7978d4b4fef2cf81cb14262c79e2f6284ae1a7c367546a8ede72a0c92e8edcdd",
+          "native_sha256": {}
+        }
+      },
+      "runtime_entries": 4508,
+      "consumer_runtime_files": 67,
+      "stored_reader_runtime_imports": [],
+      "scope": "Original artifact/receipt/JSONL/JUnit/hash receiving; no test, scientific operation or rebuild replay",
+      "outcome": "PASS",
+      "original_input_sha256": {
+        "collection.json": "d82f9a59c371cdd9ef514fcf5e4616d56e46824fbaa23f4e09765c9256bcc395",
+        "conda-explicit.txt": "0fa922ad8b7081ca1d1d750a3b9b626f0788a945c2f43b01f9b7114363ae3bf4",
+        "conda-list.json": "2e96e542970d3ff8f74a27663044e7247f31048b328fd05bc658d4e3b5373d34",
+        "pip-inspect.json": "6dec9b881f250462659042e77496f872c544706a6e31da5cbd7e98821a53e992",
+        "installed-receipt.json": "868cb7a1fddefa542358e394924f1d0848877dcc8df9c63f690a0ffae0319b75",
+        "provider-build-receipt.json": "a4222e5914c7a7511f23d76dd2d560913cfdaf9adc1b2cfa19570a4d4fcebdf9",
+        "source-admission.json": "a4b6b72ab489f3fad2b33b3ff0efe061b28a47a6a0a63b84cb1eab4b09504623",
+        "events.jsonl": "f0af86370680a69517a50ff8a642c23fa0a02f80597894fb408a1c963e234ca2",
+        "installed-tests.xml": "83cedb9dd6b157efe61d0aa52e4a4642444d1a59f14870afd9358dec7dbed588",
+        "support.json": "7e0b9d2b77a766d221d534a4d1647bbaebf5bf65261179d77d16a113b08e7f5c"
+      },
+      "status": "passed"
+    },
+    "3.12": {
+      "candidate": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+      "run_id": 42976065511,
+      "attempt": 1,
+      "minor": "3.12",
+      "python": "3.12.16",
+      "artifact_id": 13836563019,
+      "artifact_sha256": "836f72f480cdbf574ddcd46bb5a1b01ddd30a1c048ce54e1fcb29d47301cc8ea",
+      "wheel_sha256": "3b70094ee1d9103ceed19ee64214c0025662781acf8eb28eaeb4733f5c5a53ca",
+      "complete_installed": {
+        "receptor_counts": {
+          "collected": 2658,
+          "deselected": 0,
+          "errors": 0,
+          "executed": 2658,
+          "failed": 0,
+          "not_executed": 0,
+          "passed": 2658,
+          "reruns": 0,
+          "skipped": 0,
+          "subtests": {},
+          "warnings": 154,
+          "xfailed": 0,
+          "xpassed": 0
+        },
+        "junit": {
+          "tests": 2658,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "duration": 500.789210408,
+        "artifact_policy": {
+          "dropped_records": 0,
+          "max_bytes": 52428800,
+          "truncated": false
+        }
+      },
+      "selected": 2658,
+      "quickstart_included": true,
+      "support_rows": 623,
+      "storage": {
+        "normal": {
+          "receptor_counts": {
+            "collected": 10,
+            "deselected": 0,
+            "errors": 0,
+            "executed": 10,
+            "failed": 0,
+            "not_executed": 0,
+            "passed": 10,
+            "reruns": 0,
+            "skipped": 0,
+            "subtests": {},
+            "warnings": 2,
+            "xfailed": 0,
+            "xpassed": 0
+          },
+          "junit": {
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "duration": 2.019017208999969,
+          "artifact_policy": {
+            "dropped_records": 0,
+            "max_bytes": 52428800,
+            "truncated": false
+          }
+        },
+        "pm_fs": {
+          "receptor_counts": {
+            "collected": 10,
+            "deselected": 0,
+            "errors": 0,
+            "executed": 10,
+            "failed": 0,
+            "not_executed": 0,
+            "passed": 10,
+            "reruns": 0,
+            "skipped": 0,
+            "subtests": {},
+            "warnings": 2,
+            "xfailed": 0,
+            "xpassed": 0
+          },
+          "junit": {
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "duration": 10.14593024100003,
+          "artifact_policy": {
+            "dropped_records": 0,
+            "max_bytes": 52428800,
+            "truncated": false
+          }
+        }
+      },
+      "providers": {
+        "argdigest": {
+          "source": "07126411f108ee1ff607e9c9a0816109b2c9253e",
+          "version": "0.17.1+3.g0712641",
+          "wheel_sha256": "a5a69c364285e478c5b04c893736ca04538fd3b9f1bf7d8e1281c8a76c29894b",
+          "native_sha256": {}
+        },
+        "molsysmt": {
+          "source": "9df62445e49a1e268cf4c13d1ebbdd06b2088674",
+          "version": "0.23.0+860.g9df62445e",
+          "wheel_sha256": "1328ce796b4b79dda8b932037f042d1e3e8718249d8146fc82c244d442380842",
+          "native_sha256": {
+            "lib/python3.12/site-packages/molsysmt/_rust.abi3.so": "699a622b4b54494843b11437efa6f6ff6e9c733704afa0e39e2fe9c2f534c3be"
+          }
+        },
+        "molsysviewer": {
+          "source": "1187fc187247aa2d20d01791856a541d50562bcb",
+          "version": "0.24.0+316.g1187fc18",
+          "wheel_sha256": "6c301de6bfa1de90bd929a47c4c14d31c53ae056a021a7c7950265d370cd794b",
+          "native_sha256": {}
+        },
+        "pyunitwizard": {
+          "source": "c81916e65ce61e905008e8931af3c0e527157251",
+          "version": "0.29.3",
+          "wheel_sha256": "ca345b79d180122f3b2a36e915916fbadf51a4a2490ad0e1e3c82b5534b33f23",
+          "native_sha256": {}
+        },
+        "smonitor": {
+          "source": "c1b6ce29c3729b99429b395a00c7866a759be406",
+          "version": "0.22.1+1.gc1b6ce2",
+          "wheel_sha256": "d82e73f79242165bf2ca7377b093b6271a90cda4a504bfc42cb33d38f4493b23",
+          "native_sha256": {}
+        },
+        "depdigest": {
+          "source": "032d345becf8f8f574c24ede61ee62fcf0321de7",
+          "version": "0.15.2+2.g032d345",
+          "wheel_sha256": "7023a47c2ca0ac90da104872b586808914713f53a126742b0d3c6efb62b14344",
+          "native_sha256": {}
+        }
+      },
+      "runtime_entries": 4508,
+      "consumer_runtime_files": 67,
+      "stored_reader_runtime_imports": [],
+      "scope": "Original artifact/receipt/JSONL/JUnit/hash receiving; no test, scientific operation or rebuild replay",
+      "outcome": "PASS",
+      "original_input_sha256": {
+        "collection.json": "d82f9a59c371cdd9ef514fcf5e4616d56e46824fbaa23f4e09765c9256bcc395",
+        "conda-explicit.txt": "6651de2eeb15e2c9da12d6cf14b6d8c4be35121f851fd165c72f9df415466983",
+        "conda-list.json": "b46c0630f5a6e4d1e7a71817ccb72520df8b1cd730accc4ff3def52dc5fc34be",
+        "pip-inspect.json": "f674ddf13274d22ed406b3cdb44917c704605f7ea06681fade241ac136a682e1",
+        "installed-receipt.json": "a5e86f19bf7f33abb8325b7735f5526f7f21ae006d77e714d2592524891f2456",
+        "provider-build-receipt.json": "0da8cd40e4c9cbc47711172f1268b11cce326f3d37e3b72eeb67163c8ec80bd9",
+        "source-admission.json": "6c95ac899afc517ae8ffd3300957fab7a7d00367654601604996effa45857eca",
+        "events.jsonl": "0c3d41ff247a7c09eb3a5fbf6549e0706f68fd0815f887aa4a07640637e5721f",
+        "installed-tests.xml": "098dc3a317b1948252f27f535615e56bd467492efd7ea59cc8496f5354286e19",
+        "support.json": "8aea784bfef8748ecce8bad23f769123aadf5c7b051dc7bb3c29eb3523e6e603"
+      },
+      "status": "passed"
+    },
+    "3.13": {
+      "status": "pending",
+      "attempt": 2,
+      "job_id": 130629684966,
+      "reason": "Original attempt timed out downloading Conda archives before provider construction/tests; failed-job-only recovery requested."
+    },
+    "3.14": {
+      "candidate": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+      "run_id": 42976065511,
+      "attempt": 1,
+      "minor": "3.14",
+      "python": "3.14.10",
+      "artifact_id": 13838156509,
+      "artifact_sha256": "53ae2d30cbdffdbffa2b5847661123ad3ea4a200633729f322fcb7cb8c096473",
+      "wheel_sha256": "3b70094ee1d9103ceed19ee64214c0025662781acf8eb28eaeb4733f5c5a53ca",
+      "complete_installed": {
+        "receptor_counts": {
+          "collected": 2658,
+          "deselected": 0,
+          "errors": 0,
+          "executed": 2658,
+          "failed": 0,
+          "not_executed": 0,
+          "passed": 2658,
+          "reruns": 0,
+          "skipped": 0,
+          "subtests": {},
+          "warnings": 154,
+          "xfailed": 0,
+          "xpassed": 0
+        },
+        "junit": {
+          "tests": 2658,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0
+        },
+        "duration": 445.73564130799997,
+        "artifact_policy": {
+          "dropped_records": 0,
+          "max_bytes": 52428800,
+          "truncated": false
+        }
+      },
+      "selected": 2658,
+      "quickstart_included": true,
+      "support_rows": 623,
+      "storage": {
+        "normal": {
+          "receptor_counts": {
+            "collected": 10,
+            "deselected": 0,
+            "errors": 0,
+            "executed": 10,
+            "failed": 0,
+            "not_executed": 0,
+            "passed": 10,
+            "reruns": 0,
+            "skipped": 0,
+            "subtests": {},
+            "warnings": 2,
+            "xfailed": 0,
+            "xpassed": 0
+          },
+          "junit": {
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "duration": 1.9534080939999967,
+          "artifact_policy": {
+            "dropped_records": 0,
+            "max_bytes": 52428800,
+            "truncated": false
+          }
+        },
+        "pm_fs": {
+          "receptor_counts": {
+            "collected": 10,
+            "deselected": 0,
+            "errors": 0,
+            "executed": 10,
+            "failed": 0,
+            "not_executed": 0,
+            "passed": 10,
+            "reruns": 0,
+            "skipped": 0,
+            "subtests": {},
+            "warnings": 2,
+            "xfailed": 0,
+            "xpassed": 0
+          },
+          "junit": {
+            "tests": 10,
+            "failures": 0,
+            "errors": 0,
+            "skipped": 0
+          },
+          "duration": 1.9519178180000267,
+          "artifact_policy": {
+            "dropped_records": 0,
+            "max_bytes": 52428800,
+            "truncated": false
+          }
+        }
+      },
+      "providers": {
+        "argdigest": {
+          "source": "07126411f108ee1ff607e9c9a0816109b2c9253e",
+          "version": "0.17.1+3.g0712641",
+          "wheel_sha256": "80c2b5e071a09c387ed4b0d9a827ce862e81e8cd7f7df081dc61b0a41153892a",
+          "native_sha256": {}
+        },
+        "molsysmt": {
+          "source": "9df62445e49a1e268cf4c13d1ebbdd06b2088674",
+          "version": "0.23.0+860.g9df62445e",
+          "wheel_sha256": "4b8402b9755d82d38117e971d5a1f7afda5c7e3d8972b6570e66b82653af5d9e",
+          "native_sha256": {
+            "lib/python3.14/site-packages/molsysmt/_rust.abi3.so": "699a622b4b54494843b11437efa6f6ff6e9c733704afa0e39e2fe9c2f534c3be"
+          }
+        },
+        "molsysviewer": {
+          "source": "1187fc187247aa2d20d01791856a541d50562bcb",
+          "version": "0.24.0+316.g1187fc18",
+          "wheel_sha256": "f70b6a2bc8484465188039a211a4f6c80d78a1dcde30d4b6c6867040230a01a2",
+          "native_sha256": {}
+        },
+        "pyunitwizard": {
+          "source": "c81916e65ce61e905008e8931af3c0e527157251",
+          "version": "0.29.3",
+          "wheel_sha256": "9c38597547f6779c80f975911f858fd794735046f85d2bcae819014ee43f5680",
+          "native_sha256": {}
+        },
+        "smonitor": {
+          "source": "c1b6ce29c3729b99429b395a00c7866a759be406",
+          "version": "0.22.1+1.gc1b6ce2",
+          "wheel_sha256": "0656db064f8f10470a5db619e65464f75b0366a9bfbdd0711177f5a0c134bf7b",
+          "native_sha256": {}
+        },
+        "depdigest": {
+          "source": "032d345becf8f8f574c24ede61ee62fcf0321de7",
+          "version": "0.15.2+2.g032d345",
+          "wheel_sha256": "5c4015e08c78bf30ed263fbf2f29cc5264be3a292a749717176ef68ea2f289b0",
+          "native_sha256": {}
+        }
+      },
+      "runtime_entries": 4508,
+      "consumer_runtime_files": 67,
+      "stored_reader_runtime_imports": [],
+      "scope": "Original artifact/receipt/JSONL/JUnit/hash receiving; no test, scientific operation or rebuild replay",
+      "outcome": "PASS",
+      "original_input_sha256": {
+        "collection.json": "d82f9a59c371cdd9ef514fcf5e4616d56e46824fbaa23f4e09765c9256bcc395",
+        "conda-explicit.txt": "e85e46d21a1e9ca89623f0a44f7c80db7add565a64de4eee4835e246eedd769e",
+        "conda-list.json": "8e0b6733c842d73aeda2b1ea7e5d387e6899fb2585b153d33331f78f000a70c8",
+        "pip-inspect.json": "022ac7897910aa1467708e9e1f58904ebd8352d21f60970c1a47a8488c53fde6",
+        "installed-receipt.json": "b36defaae67289f508e0ca83112ac993a83a799c64789e2582c0dbcecffd2d85",
+        "provider-build-receipt.json": "f1da75153bec2476223b517d2895c5343b7f164721725c616884c5554dba2da9",
+        "source-admission.json": "b034d59b1ff90da2be609ae89f5d7c5d6cf6df971388140c0105ca2dbead618a",
+        "events.jsonl": "da38c421ef15eb2f1d77d6a74665497eb19ae7b8efcd7055ff993ebe65b83f75",
+        "installed-tests.xml": "93610e533f4470a34832a1a563c81da783b28d4b6f590e97e4285c92f419b8e3",
+        "support.json": "b039a0a81902d45687d282048e139a6f753ff738193713aa9695290168eb5ed0"
+      },
+      "status": "passed"
+    }
+  },
+  "same_full_collection_across_received_cells": true,
+  "original_3_13_failure": {
+    "attempt": 1,
+    "job_id": 130375676929,
+    "artifact": {
+      "id": 13836354770,
+      "name": "current-source-0.1.0-py3.13-42976065511-1",
+      "size_in_bytes": 6129,
+      "url": "https://api.github.com/repos/uibcdf/dockingmt/actions/artifacts/13836354770",
+      "archive_download_url": "https://api.github.com/repos/uibcdf/dockingmt/actions/artifacts/13836354770/zip",
+      "expired": false,
+      "created_at": "2026-11-11T07:32:01Z",
+      "expires_at": "2026-11-25T07:32:01Z",
+      "updated_at": "2026-11-11T07:32:01Z",
+      "digest": "sha256:68f9d5b6a722a2afe2d469eeef13ff823798a9e3bcf14d98916148ae29dec0d9",
+      "workflow_run": {
+        "id": 42976065511,
+        "repository_id": 1380446251,
+        "head_repository_id": 1380446251,
+        "head_branch": "main",
+        "head_sha": "1030a29025914e01dff09e5fc606ec73b90f4cd9"
+      }
+    },
+    "download_sha256": "68f9d5b6a722a2afe2d469eeef13ff823798a9e3bcf14d98916148ae29dec0d9",
+    "primary_failure": "libmamba archive download timeout (28), before provider construction/tests",
+    "secondary_failure": "setup-micromamba cleanup ENOENT",
+    "diagnostic_followup": "https://github.com/uibcdf/gh-run-receptor/issues/81#issuecomment-6800342840",
+    "recovery": "Only failed job requested; original successful build and three minor cells remain attempt 1."
+  },
+  "tag": {
+    "name": "0.1.0",
+    "kind": "lightweight",
+    "target": "1030a29025914e01dff09e5fc606ec73b90f4cd9",
+    "created": false
+  },
+  "package_publication": false,
+  "github_release": false,
+  "limits": [
+    "Software/source-assisted Linux x86_64 qualification only; no public Conda or broader platform admission.",
+    "One consumer wheel is shared; provider wheels and resolved closures are recorded separately per minor.",
+    "Fresh native hashes/build provenance do not certify the older shared binary, reference 4ffb82e4 or general provider scientific/format acceptance.",
+    "Counts describe software checks, not independent scientific cases; existing scientific producers and failures are preserved."
+  ],
+  "custody": {
+    "private_directory": ".molsyssuite/current-0.1.0-puw-receiving-20261111",
+    "owner_issue": "uibcdf/dockingmt#50",
+    "review": "2026-11-14",
+    "original_artifact_expiry": "2026-11-25"
+  }
+}

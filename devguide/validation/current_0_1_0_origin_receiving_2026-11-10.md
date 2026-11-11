@@ -228,3 +228,41 @@ license and addon entry point, with scientific imports forbidden. It performs
 no build, install or scientific operation. Later evidence commits preserve
 this candidate and original run; final four-minor receipt and tag/notice
 closeout remain the next action.
+
+
+## Three original installed cells received; fourth recovery queued — 2026-11-11
+
+[Terminal receiving](data/current_0_1_0_terminal_20261111.json) authenticates
+original attempt-1 artifacts for candidate 1030a29025914e01dff09e5fc606ec73b90f4cd9.
+Each of Python 3.11.18, 3.12.16 and 3.14.10 passes the **same 2658-case full
+collection**, zero failures/errors/skips, with 154 warnings, plus both original
+ten-case storage policies (two warnings each). Original JUnit and complete
+JSONL integrity/counts agree. The corrected quickstart executes in every full
+selection. Counts are software checks, not independent molecular cases.
+
+Each cell verifies the same intended-version wheel, all 67 consumer paths,
+six exact ordinary-installed provider wheel/native payloads, 4508 unchanged
+installed entries and 623 support declarations/retirement. Actual closure,
+collection, support, source admission, receipts and reporter input hashes are
+retained per original API-digest-verified artifact. All three freshly compiled
+MolSysMT extensions have SHA-256 699a622b4b54494843b11437efa6f6ff6e9c733704afa0e39e2fe9c2f534c3be;
+PyUnitWizard c81916e is observed as 0.29.3. This does not certify the older shared
+binary, reference 4ffb82e4, a bitwise build guarantee or broader provider science.
+Stored reading uses one CPU/nice 10 and the existing monitored reserve; no
+scientific test, preparation/search or native build is replayed locally.
+
+Original Python 3.13 job 130375676929 fails before provider construction/tests:
+libmamba archive downloads time out (error 28), followed by a separate cleanup
+ENOENT. Its 6129-byte artifact 13836354770 and exact failed logs are retained;
+the API SHA-256 is 68f9d5b6a722a2afe2d469eeef13ff823798a9e3bcf14d98916148ae29dec0d9.
+Only failed-job recovery is requested for run 42976065511, attempt 2, job
+130629684966. It is queued without an assigned runner. No passing cell or
+consumer build is claimed as newly executed. The primary diagnostic omitted
+by GH Run Receptor 1.4.0 is added to existing [provider #81](https://github.com/uibcdf/gh-run-receptor/issues/81#issuecomment-6800342840).
+
+The refreshed bounded workspace inspection preserves clean source pins and the
+human migration backup; PyUnitWizard is five commits behind its current main
+but remains deliberately frozen at the qualified c81916e. Central/tool checkouts
+are untouched. #74 owns the fourth terminal receiving and tag/notice closeout;
+#50 custody review remains 2026-11-14. No tag, package or GitHub Release is
+created while this required minor remains unreceived.

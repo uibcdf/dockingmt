@@ -25,17 +25,23 @@ values and the existing tuple/list contract. Eleven focused editable regressions
 pass with the retained private Vina overlay. A new immutable guide input is
 added; all 622 earlier inputs and staged targets remain unchanged.
 
-Corrected candidate **1030a29025914e01dff09e5fc606ec73b90f4cd9** is frozen.
-Local controls pass 122 administrative cases/26 subtests and a fresh committed
-export; eleven focused editable cases also pass. Deliberate
-[run 42976065511](https://github.com/uibcdf/dockingmt/actions/runs/42976065511)
-passes build, quality/frontend and policy. Its four installed minor cells are
-pending; Python 3.11 has passed both storage policies and is running the full
-selection. The same-run private wheel is independently checked against all
-67 versioned runtime paths and source/metadata inputs. Later evidence commits
-do not move this candidate. Receive all four terminal cells before the
-lightweight `0.1.0` tag and source-event notice. #74 owns receiving; #50 custody
-review remains 2026-11-14. No public package or GitHub Release is selected.
+Corrected candidate **1030a29025914e01dff09e5fc606ec73b90f4cd9** stays frozen.
+[Run 42976065511](https://github.com/uibcdf/dockingmt/actions/runs/42976065511)
+passes build, quality/frontend, policy and ordinary-installed Python **3.11,
+3.12 and 3.14**. [Original artifact receiving](validation/data/current_0_1_0_terminal_20261111.json)
+authenticates all three: each passes the same complete 2658-case selection and
+two ten-case storage policies, with zero failures/errors/skips. The same wheel,
+67 consumer files, six provider payloads, 4508 unchanged installed entries,
+623 retired support inputs, JSONL integrity and JUnit agree. Warnings remain.
+
+Python 3.13 originally times out downloading Conda archives before provider
+construction/tests. Only that failed job is retried in attempt 2; it is queued
+without a runner. Original successful cells/build stay attempt-1 evidence.
+The primary timeout and secondary cleanup error are retained; GH Run Receptor
+#81 receives the diagnostic omission. Receive the fourth cell before the
+lightweight `0.1.0` tag and source-event notice. Later evidence commits do not
+move the candidate. #74 owns receiving; #50 custody review is 2026-11-14.
+No package or GitHub Release is selected.
 
 [The current 0.1.0 origin checkpoint](validation/current_0_1_0_origin_receiving_2026-11-10.md)
 receives ten passing normal-policy storage cases on candidate 9aee16b7 and a
