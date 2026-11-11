@@ -24,6 +24,17 @@ Use the [document map](DOCUMENT_MAP.md) for a particular question. Read historic
 records when relevant; incorporation does not require reading every notebook or
 replaying every experiment.
 
+[Finite P5 client receiving](validation/h5msm_p5_client_receiving_2026-11-10.md)
+now passes seven cases per unit policy: exact packet readbacks, prepared axis
+reordering/persistence, selective post-read edit invalidation and unknown-report
+transport versus projection/export refusal. Independent 365/21-member records
+retain source/native identities, typed evidence, all failed attempts and the
+bounded floating-point edit criterion. Shared sources/environment and prior
+E3 acceptance remain intact. This is experimental 0.6 evidence on a deliberately
+bounded isolated composition; stable 1.0/public/platform gates remain separate.
+Next register the complete installed score-comparison module on the existing
+37a61e6 wheel; review retained custody on 2026-11-14.
+
 [The complete original offline union](validation/installed_offline_union_2026-11-10.md)
 now passes 1,287 cases per unit policy on that actual new wheel, keeping four
 native exclusions. Independent 291/14-member evidence verifies original case/AST

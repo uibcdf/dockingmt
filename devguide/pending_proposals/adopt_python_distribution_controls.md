@@ -14,6 +14,23 @@ supersedes: []
 
 # Distribution control adoption
 
+## Separate finite H5MSM client receiving — 2026-11-10
+
+[P5 client evidence](../validation/h5msm_p5_client_receiving_2026-11-10.md) receives
+all seven registered cases per unit policy using the same actual 37a61e6 consumer
+installation and an explicitly isolated newer MolSysMT storage source. Original
+provider/consumer artifacts and shared cohort remain intact; source 5e7d65a6 plus
+guarded original 5715bda native bytes is a separate bounded composition, not an
+update to this issue's old 0c6f9c7 private-installed baseline. Changed neighbors
+remain blocked. No new package, shared install or general native qualification.
+
+Independent 365/21-member records preserve typed packet data, maps/edits/refusals,
+real bounded topology calls and all failed qualifiers. #256/#73 own stable-format
+follow-up; #30/#47 retain full installed/public/closure/eight OS-minor requirements.
+Next review/register all 54 original `test_score_comparison.py` cases on the
+retained actual wheel and its original cohort. No automatic source refresh,
+native-build restart or remote CI; custody review remains 2026-11-14.
+
 ## Complete original offline union on the new wheel — 2026-11-10
 
 [Whole installed receiving](../validation/installed_offline_union_2026-11-10.md)

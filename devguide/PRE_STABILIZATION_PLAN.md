@@ -5,6 +5,28 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
+[Finite H5MSM P5 client receiving](validation/h5msm_p5_client_receiving_2026-11-10.md)
+now passes all seven cases under normal and pm/fs policies: packet readbacks,
+explicit atom/structure `[2, 0]` correspondence, selective coordinate-edit analysis
+invalidation and unknown-report transport/projection-export refusals. Original
+9b077fab/#79/#88/#96 stays accepted. Isolated provider source 5e7d65a6 uses original
+5715bda bytes with only two bounded one-atom topology calls per policy; changed
+neighbors/other kernels remain blocked. This is distinct from provider 4ffb82e4
+and stable H5MSM 1.0 acceptance.
+
+Independent 365/21-member evidence retains actual typed/maps/refusal/native records,
+all failed attempts and the corrected stored-reader physical edit criterion.
+Other fields remain exact; the maximum cross-policy edited-coordinate delta is
+4.44e-16 nm within the registered 1e-15 nm criterion. No shared source/environment,
+runtime/test/helper input change, preparation/docking, native build, resource
+interruption, remote CI or publication occurs. Custody #73/#256/#50 review stays
+2026-11-14; broader #30/#47/#73 and public/platform/interactive gates remain.
+
+Next review/register the complete original `tests/test_score_comparison.py`
+installed selection on retained actual 37a61e6 wheel/original 0c6f9c7 cohort.
+Stable-format repeats wait for an exact owner-delivered 1.0 composition; no repeat
+of completed E3 calculations follows. Earlier next actions below are historical.
+
 [The complete original offline union](validation/installed_offline_union_2026-11-10.md)
 now passes all 1,287 cases under each caller unit policy on the same actual
 37a61e6 private wheel, retaining four native exclusions and zero failures/errors/

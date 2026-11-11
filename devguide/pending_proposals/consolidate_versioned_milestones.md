@@ -14,6 +14,27 @@ supersedes: []
 
 # Consolidate versioned milestones
 
+## Finite P5 client controls received — 2026-11-10
+
+[Independent client receiving](../validation/h5msm_p5_client_receiving_2026-11-10.md)
+passes seven cases per normal/pm-fs policy on the same exact provider packet.
+All three additional #256 questions pass: explicit axis transformation and full
+typed persistence, selective restored-coordinate invalidation, and unknown-report
+transport with projection/export refusal. Direct state/bond/maps/parameter checks
+and immutable source protection pass; original #79/#88/#96 remains closed.
+
+The isolated composition is exact 5e7d65a6 Python with original 5715bda native
+bytes, admitting only two unchanged one-atom topology calls per accepted profile.
+It does not receive provider 4ffb82e4, changed neighbors or stable H5MSM 1.0.
+Independent 365/21-member evidence preserves every failed prefix/missing field,
+actual native maps/refusals, producer strings and the registered physical edit
+tolerance. No shared update, runtime/test/helper input edit, native build,
+preparation/docking replay, resource interruption, release or remote CI occurs.
+
+Return to #47's installed score-comparison ledger next; repeat this finite P5
+profile only when an exact stable composition is delivered. Keep #73/#256/#50
+custody review on 2026-11-14 and full product/public/platform/interactive gates.
+
 ## Installed offline union and finite provider review — 2026-11-10
 
 [Complete current-wheel receiving](../validation/installed_offline_union_2026-11-10.md)

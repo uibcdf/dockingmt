@@ -3,7 +3,9 @@
 Provider owner: [MolSysMT #256](https://github.com/uibcdf/molsysmt/issues/256).
 Consumer coordination: [DockingMT #73](https://github.com/uibcdf/dockingmt/issues/73),
 with #30/#47 for separate installed/public qualification. Status: existing
-evidence reviewed; three additional client controls proposed, **not executed**.
+evidence reviewed; the three additional controls are now received in the
+[finite client execution](h5msm_p5_client_receiving_2026-11-10.md). The review below
+retains its original pre-execution prescription; stable 1.0 remains unreceived.
 This record does not reopen resolved DockingMT #79/#88/#96.
 
 ## Inspected immutable handoff
@@ -91,3 +93,18 @@ reading old accepted records is distinct from rerunning scientific calculations.
 Keep 0.5/experimental-0.6 and stable-1.0 observations separate. No header-only
 relabel, stable/default acceptance or installed/platform/public release is
 performed by this review.
+
+
+## Receiving addendum — 2026-11-10
+
+The linked final client execution passes seven cases per normal/pm-fs policy,
+including the three proposed boundaries and all packet readbacks. It uses actual
+isolated 5e7d65a6 Python sources with original qualified 5715bda native bytes;
+only two bounded unchanged one-atom topology calls per profile are admitted.
+Changed neighbors remain forbidden. Original typed oracles, producer identities,
+source protection, direct maps/dtypes, selective invalidation and eight final-pair
+unknown-report refusals verify. Independent 365/21-member records retain all failed
+attempts and the finite edited-coordinate floating-point limit. No shared install,
+provider/runtime fix, new preparation/docking or stable-format acceptance occurs.
+Existing #79/#88/#96 acceptance remains closed; repeat against an exact stable
+1.0 composition when delivered. Resume the separate installed API ledger under #47.
