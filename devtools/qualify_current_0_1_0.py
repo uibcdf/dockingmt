@@ -394,13 +394,19 @@ def snapshot():
     return result
 
 
+def admit_installed_sdk(candidate):
+    sdk = TASK / 'installed-sdk'
+    if git(sdk, 'rev-parse', 'HEAD') != profile()['installed_sdk'] or git(
+        sdk, 'status', '--porcelain'
+    ):
+        raise ValueError('Use the clean pinned installed-test SDK')
+    sys.path[:0] = [str(sdk), str(candidate / '.molsyssuite-tools')]
+
+
 def storage(policy):
     """Repeat the unchanged ten-case explicit-1.0 client program on fresh bytes."""
     candidate = require_hosted()
-    sdk = TASK / 'installed-sdk'
-    if git(sdk, 'rev-parse', 'HEAD') != profile()['installed_sdk']:
-        raise ValueError('Wrong shared installed-support SDK')
-    sys.path.insert(0, str(sdk))
+    admit_installed_sdk(candidate)
     import pytest
     from devtools.scripts.installed_imports import check_installed_imports
     from devtools.scripts.installed_test_support import staged_support
@@ -612,11 +618,7 @@ def receive():
         raise ValueError('Wrong Python minor for this declared cell')
     if not sys.flags.isolated or Path.cwd().resolve().is_relative_to(ROOT):
         raise ValueError('Use isolated Python outside qualification/source roots')
-    sdk = TASK / 'installed-sdk'
-    if git(sdk, 'rev-parse', 'HEAD') != profile()['installed_sdk'] or git(
-        sdk, 'status', '--porcelain'
-    ):
-        raise ValueError('Use the clean pinned installed-test SDK')
+    admit_installed_sdk(candidate)
     wheel = TASK / 'wheels/dockingmt-0.1.0-py3-none-any.whl'
     if digest(wheel) != os.environ['EXPECTED_WHEEL_SHA256']:
         raise ValueError('Installed qualification must consume the same-run wheel')
@@ -638,7 +640,6 @@ def receive():
             raise ValueError('Installed wheel payload changed: ' + name)
     for namespace in ['dockingmt', 'molsysviewer_dockingmt']:
         shutil.rmtree(candidate / namespace)
-    sys.path.insert(0, str(sdk))
     from devtools.scripts.installed_imports import check_installed_imports
     from devtools.scripts.installed_noarch import run_tests
 

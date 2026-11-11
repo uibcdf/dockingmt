@@ -6,13 +6,34 @@ opened: 2026-11-05
 closed:
 verification: measured
 area: [releases, distribution, provenance]
-guard: devtools/tests/test_source_0_1_0_qualification.py
+guard: devtools/tests/test_current_0_1_0_qualification.py
 normative: https://github.com/uibcdf/molsyssuite/blob/main/devguide/release_version_policy.md
 blocked_by: []
 supersedes: []
 ---
 
 # Prepare the 0.1.0 source milestone
+
+## Isolated SDK continuation — 2026-11-10
+
+[The current 0.1.0 SDK admission correction](../validation/current_0_1_0_preparation_2026-11-10.md#isolated-sdk-admission-and-first-error-propagation)
+retains both cancelled/unqualified candidates. Second source b25cdbd7 passes
+build, policy, 111 hosted administrative cases and 23 DOM tests. Python 3.11
+constructs all six exact providers, records its actual Rust 1.97.1/native bytes,
+and passes source/bounds/pip checks, then stops before tests: private QA tools
+are installed but omitted from the isolated SDK path. MolSysSuite #176 receives
+this existing masked-diagnostic issue; it is not a MolSysMT product failure.
+
+Both receivers now admit the same clean SDK and owned QA directory. All five
+login-shell steps stop on their first error. The actual SDK imports under
+`python -I -S` with only declared private pure-Python QA copies and blocked
+scientific imports. Local controls pass 116 cases/26 subtests, preserving the
+initial fixture-global failure. Source pins, 622 inputs, runtime and original
+scientific assertions stay unchanged. Next freeze the corrected candidate after
+source/export controls and receive its deliberate four-minor checkpoint before
+any lightweight tag. No local native rebuild, canonical tag, package or Release;
+#74/#50 review 2026-11-14. Whole Core/Extended/public/platform/interactive gates
+retain their owners. Earlier dated next actions below remain historical.
 
 ## First current checkpoint and correction — 2026-11-10
 

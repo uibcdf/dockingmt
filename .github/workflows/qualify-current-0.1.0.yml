@@ -247,6 +247,7 @@ jobs:
       - name: Build and install the exact sibling sources and same-run consumer
         shell: bash -l {0}
         run: |
+          set -euo pipefail
           taskset -cp "$(python -c 'import os; print(min(os.sched_getaffinity(0)))')" $$
           renice -n 10 -p $$
           ulimit -v 5242880
@@ -262,6 +263,7 @@ jobs:
       - name: Verify declared source context and complete installed bounds
         shell: bash -l {0}
         run: |
+          set -euo pipefail
           task_root="$GITHUB_WORKSPACE/.molsyssuite/current-0.1.0-hosted"
           python "$task_root/candidate/devtools/check_dependency_routes.py" --context source-010-${{ matrix.python }} \
             --source-root source-010-argdigest="$task_root/argdigest" \
@@ -275,6 +277,7 @@ jobs:
       - name: Receive the original explicit H5MSM 1.0 client under both policies
         shell: bash -l {0}
         run: |
+          set -euo pipefail
           taskset -cp "$(python -c 'import os; print(min(os.sched_getaffinity(0)))')" $$
           renice -n 10 -p $$
           ulimit -v 5242880
@@ -286,6 +289,7 @@ jobs:
           PYTEST_ADDOPTS: >-
             ${{ matrix.python == '3.14' && '--cov=dockingmt --cov=molsysviewer_dockingmt --cov-branch --cov-report=xml' || '' }}
         run: |
+          set -euo pipefail
           taskset -cp "$(python -c 'import os; print(min(os.sched_getaffinity(0)))')" $$
           renice -n 10 -p $$
           ulimit -v 5242880
@@ -299,6 +303,7 @@ jobs:
         if: ${{ always() && steps.environment.outcome == 'success' }}
         shell: bash -l {0}
         run: |
+          set -euo pipefail
           evidence="$GITHUB_WORKSPACE/.molsyssuite/current-0.1.0-hosted/evidence"
           mkdir -p "$evidence"
           python -m pip inspect > "$evidence/pip-inspect.json"

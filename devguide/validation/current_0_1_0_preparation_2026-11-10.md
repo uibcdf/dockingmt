@@ -2,8 +2,8 @@
 
 Owner: [DockingMT #74](https://github.com/uibcdf/dockingmt/issues/74), with
 #73 milestone scope, #30/#47 qualification and #50 custody. Status: current
-original preparation frozen in 7a757ab0; first hosted candidate unqualified;
-consumer corrections prepared below. Starting source 00415b15. This record
+original preparation frozen in 7a757ab0; first two hosted candidates
+unqualified; isolated SDK admission correction prepared below. Starting source 00415b15. This record
 describes preparation/correction, not a passing release gate or published
 tag/package/GitHub Release.
 
@@ -240,3 +240,101 @@ selection and exact provider commits. It needs its own complete executed gates;
 these failed/cancelled observations and old green jobs are not substitutes.
 No local native rebuild/shared install, canonical tag, package, Release or
 central source-event notice is created by this correction.
+
+## Isolated SDK admission and first-error propagation
+
+The first correction is fixed in **b25cdbd710957bdf258e9daa98d5380ad38a8ea5**,
+tree `fbdfd8d9866d521400a848c3fdf06c752df24199`; its 165/seven-member archives
+and 81-source snapshot retain that identity. Final-15 passes 114 cases/26
+subtests and nine source controls. Fresh committed-02 export passes all seven
+applicable controls and retires. Cloud main independently matches.
+
+[Second manual run 42957582849](https://github.com/uibcdf/dockingmt/actions/runs/42957582849),
+attempt 1, passes build, policy and actual quality/resource/DOM controls:
+**111 administrative tests and 23 DOM tests**. Private intended-version wheel
+is 157,926 B, SHA-256
+`cb51b8cb00ad8e6eb2420b43fd07bb2e1404d56757a33cb736c72026120e8075`.
+Independent reading verifies original artifact 13828300174, its ZIP SHA-256
+`89cb9617b2a6150208c0dccd94704d520da41a1b8b10716ebc7805c37d16b7bb`,
+all 67 source-derived payload paths, metadata and exact producer/run/attempt.
+These are new bytes and retain their own candidate; no earlier wheel is relabelled.
+
+Python 3.11 passes fresh construction, all six original-wheel/native/compiler
+receipts, source-context/bounds and pip closure. The compiler observations are
+Rust/Cargo **1.97.1** in the provider checkout and system GCC **15.2.0**.
+MolSysMT native SHA-256 is
+`699a622b4b54494843b11437efa6f6ff6e9c733704afa0e39e2fe9c2f534c3be`;
+actual `rust/Cargo.lock` SHA-256 is
+`9dcd71e4171834ca0471bbd0640842085eeef9c37103eb5d7a6342f03d1ed3cc`.
+Original artifact 13828380945 retains all six wheels and observations,
+63,461,422 B, ZIP SHA-256
+`3707688c43761a0cf50bd85213d001c0e20a97c1915cc0235556dcfa1d9ae7d2`.
+This establishes that construction boundary only, not scientific acceptance or
+bitwise equality to the earlier shared/reference binaries.
+
+Before any storage case, the isolated receiver imports the SDK's loaded-origin
+checker. Its transitive `noarch_conda` import cannot see `yaml`; a broad fallback
+then reports `noarch_conda` rather than the original missing dependency. QA tools
+were already installed under the candidate's `.molsyssuite-tools` directory,
+but the caller did not admit it. This is the same known diagnostic/coupling in
+[MolSysSuite #176](https://github.com/uibcdf/molsyssuite/issues/176#issuecomment-6787002349),
+now cross-linked/labeled for DockingMT. No provider source is edited or forked.
+
+Both storage policies fail at import before their case program/native guard is
+entered; no storage or product tests execute. Cancel the remaining three cells;
+GitHub preserves terminal **cancelled**, with one failed installed job and three
+successful build/policy/quality jobs. The interrupted 3.12 artifact records only
+partial setup/closure and has no successful gate; 3.13/3.14 never qualify. This
+is an invalid-candidate stop, not a headroom interruption. Original artifacts,
+job-only logs and exact native construction receipts remain private through
+#74/#50 custody review 2026-11-14.
+
+The correction unifies clean pinned-SDK and private-QA admission for storage
+and the full installed receiver. No runtime provider or installed-prefix path
+is added as a substitute, and scientific imports remain installed-only. A real
+regression loads all three actual SDK helpers under `python -I -S` from the exact
+SDK checkout, copying only the declared QA packages' pure Python files into an
+owned temporary directory. It first proves global/site `yaml` is absent, then
+verifies SDK/QA origins with scientific imports blocked. Local administrative
+runs set `DOCKINGMT_INSTALLED_SDK_ROOT` to the pinned provider; hosted controls
+use their already declared `.molsyssuite/installed-sdk` checkout. No environment
+installation or native/molecular execution is needed.
+
+Also add explicit `set -euo pipefail` to all five login-shell steps. The previous
+shell contract could continue from normal-profile failure into pm/fs. A bounded
+behavioral regression executes the actual first-line contract followed by a
+failing command and verifies that each next marker command is unreachable.
+It runs no workflow body, installation or scientific operation. Source pins,
+622 support inputs, frozen guide, runtime and original scientific assertions
+remain unchanged; this increment corrects the qualification controller only.
+
+Final-16 preserves one failure in the new isolated regression's initial test
+harness: the extracted production profile function needs its unchanged VERSION
+global. Supplying that fixture global fixes the harness. Final-17 passes
+**116 cases plus 26 subtests**, zero failures/errors/skips/warnings/scientific
+imports, with original resource limits/reserve and no interruptions. Its real
+SDK import and shell behavior guards run before hosted construction through the
+quality prerequisite. Failed intermediate uncommitted trees retain their stated
+snapshot limitation; they are not independent scientific red/green evidence.
+
+A [separate SDK-admission archive](data/current_source_0_1_0_sdk_admission_2026-11-10/manifest.json)
+retains these controls, sanitized second-run facts, exact source/native/build
+receipts, four changed qualification files and an 81-file effective hash map
+against the immutable b25cdbd7 baseline: **73 members**, 121,270 stored B/
+803,901 decoded B, manifest SHA-256
+`f8ee952a9ac49f4db16f29af00f75581a2ff95085f175266d9610c878074d4a8`.
+The [seven-member reader companion](data/current_source_0_1_0_sdk_admission_reader_2026-11-10/manifest.json)
+has manifest SHA-256
+`6f4c3444cf29ff190dc55c519a4d4a3fee664b0bb85c808034fad0b6c6fae3f7`.
+The stored reader verifies every blob, four new/77 unchanged source files,
+66 original runtime files and original Receptor/JUnit/resource observations,
+without test/build/scientific replay. Final source/fresh-export controls bind
+all three archive populations to their own sources and this effective snapshot.
+The previous source/evidence populations remain immutable.
+
+After final documentation/source checks and fresh actual committed export,
+freeze the next candidate explicitly and run its deliberate checkpoint. Full
+storage/product installed receiving and the actual source/tag/notice remain
+pending; current native provenance is not transferred into scientific PASS.
+No shared-prefix install, local native-build restart, canonical tag, registry
+publication or GitHub Release occurs in this correction.

@@ -5,23 +5,24 @@ Accepted maintainer objective: 2026-11-06, [DMT-046](DECISIONS.md#dmt-046--deliv
 Status: **active after maintainer resumption; completion unproven**.
 Inspected starting source: `530a4cf`.
 
-[The first current 0.1.0 checkpoint](validation/current_0_1_0_preparation_2026-11-10.md#first-hosted-attempt-and-consumer-corrections)
-fixes candidate 7a757ab0 and receives its private 0.1.0 payload, build and policy
-jobs. Run 42956040456 remains cancelled after two consumer qualification failures:
-a historical route guard selected unrelated new sources, and the native receipt
-looked for `Cargo.lock` outside `rust/`. No storage/product test executed. The
-remaining cells were cancelled deliberately; this is not a resource interruption.
+[The current 0.1.0 SDK admission correction](validation/current_0_1_0_preparation_2026-11-10.md#isolated-sdk-admission-and-first-error-propagation)
+retains both cancelled/unqualified candidates. Second source b25cdbd7 passes
+build, policy, 111 hosted administrative cases and 23 DOM tests. Python 3.11
+constructs all six exact providers, records its actual Rust 1.97.1/native bytes,
+and passes source/bounds/pip checks, then stops before tests: private QA tools
+are installed but omitted from the isolated SDK path. MolSysSuite #176 receives
+this existing masked-diagnostic issue; it is not a MolSysMT product failure.
 
-The focused corrections preserve source pins, all 622 support inputs, frozen
-guide and original product assertions. Native tool versions are now observed
-inside the provider checkout; policy/quality gate the serial installed matrix.
-114 local administrative cases and 26 subtests pass, with scientific imports
-blocked; initial workflow-registration failures remain retained. Next freeze the
-corrected candidate after source/export checks, run the deliberate checkpoint
-and authenticate its own artifacts before a lightweight tag. No local native
-rebuild, tag, package or Release exists. #74/#50 review remains 2026-11-14;
-public/platform/interactive and whole Core/Extended gates retain their owners.
-Earlier dated next actions below remain historical.
+Both receivers now admit the same clean SDK and owned QA directory. All five
+login-shell steps stop on their first error. The actual SDK imports under
+`python -I -S` with only declared private pure-Python QA copies and blocked
+scientific imports. Local controls pass 116 cases/26 subtests, preserving the
+initial fixture-global failure. Source pins, 622 inputs, runtime and original
+scientific assertions stay unchanged. Next freeze the corrected candidate after
+source/export controls and receive its deliberate four-minor checkpoint before
+any lightweight tag. No local native rebuild, canonical tag, package or Release;
+#74/#50 review 2026-11-14. Whole Core/Extended/public/platform/interactive gates
+retain their owners. Earlier dated next actions below remain historical.
 
 The maintainer accepts [the current 0.1.0 source milestone](releases/0.1.0_current.md):
 a usable public workflow, reliable execution, provenance/storage, fresh source

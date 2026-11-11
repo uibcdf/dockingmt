@@ -6,6 +6,7 @@ import hashlib
 import importlib.util
 import json
 import os
+import shutil
 import subprocess
 import sys
 import tomllib
@@ -211,6 +212,101 @@ def test_milestone_workflow_bytes_remain_registered():
     path = '.github/workflows/qualify-current-0.1.0.yml'
     row = next(row for row in inventory['workflows'] if row['path'] == path)
     assert row['sha256'] == hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+
+
+def test_login_shell_stops_before_the_next_command_when_a_gate_fails(tmp_path):
+    steps = [
+        step
+        for step in document()['jobs']['installed']['steps']
+        if step.get('shell') == 'bash -l {0}'
+    ]
+    assert len(steps) == 5
+    for number, step in enumerate(steps):
+        prefix = step['run'].splitlines()[0]
+        assert prefix == 'set -euo pipefail'
+        script = tmp_path / f'gate-{number}.sh'
+        marker = tmp_path / f'unreachable-{number}'
+        script.write_text(prefix + '\nfalse\nprintf unreachable > "$1"\n')
+        result = subprocess.run(
+            ['bash', '--noprofile', '--norc', '-l', str(script), str(marker)],
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+        assert result.returncode != 0
+        assert not marker.exists()
+
+
+def test_real_sdk_imports_with_only_its_owned_private_qa_dependencies(tmp_path):
+    sdk = Path(
+        os.environ.get(
+            'DOCKINGMT_INSTALLED_SDK_ROOT', ROOT / '.molsyssuite/installed-sdk'
+        )
+    ).resolve()
+    assert sdk.is_dir(), 'Supply the exact installed-support SDK checkout'
+    (tmp_path / 'installed-sdk').symlink_to(sdk, target_is_directory=True)
+    candidate = tmp_path / 'candidate'
+    tools = candidate / '.molsyssuite-tools'
+    tools.mkdir(parents=True)
+    for name in ['yaml', 'jinja2', 'markupsafe', 'packaging']:
+        module = importlib.import_module(name)
+        shutil.copytree(
+            Path(module.__file__).parent,
+            tools / name,
+            ignore=shutil.ignore_patterns('__pycache__', '*.so', '*.pyd'),
+        )
+    functions = ast.Module(
+        body=[
+            node
+            for node in ast.parse(Path(caller.__file__).read_text()).body
+            if isinstance(node, ast.FunctionDef)
+            and node.name in {'git', 'profile', 'admit_installed_sdk'}
+        ],
+        type_ignores=[],
+    )
+    assert len(functions.body) == 3
+    script = (
+        'import importlib,importlib.abc,importlib.util,json,re,subprocess,sys,tomllib\n'
+        'from pathlib import Path\n'
+        'TASK=Path(sys.argv[1]); candidate=TASK/"candidate"; PROFILE=Path(sys.argv[2])\n'
+        f'VERSION={caller.VERSION!r}\n'
+        'assert sys.flags.isolated and sys.flags.no_site\n'
+        'assert importlib.util.find_spec("yaml") is None\n'
+        'blocked=[]\n'
+        'class Block(importlib.abc.MetaPathFinder):\n'
+        ' def find_spec(self,fullname,path=None,target=None):\n'
+        '  if fullname.split(".")[0] in {"dockingmt","molsysmt","molsysviewer","vina","rdkit","openmm"}:\n'
+        '   blocked.append(fullname); raise AssertionError(fullname)\n'
+        'sys.meta_path.insert(0,Block())\n'
+        + ast.unparse(functions)
+        + '\nadmit_installed_sdk(candidate)\n'
+        'for name in ["installed_imports","installed_test_support","installed_noarch"]:\n'
+        ' module=importlib.import_module("devtools.scripts."+name)\n'
+        ' assert Path(module.__file__).resolve().is_relative_to((TASK/"installed-sdk").resolve())\n'
+        'for name in ["yaml","jinja2","markupsafe","packaging"]:\n'
+        ' module=importlib.import_module(name)\n'
+        ' assert Path(module.__file__).resolve().is_relative_to(candidate/".molsyssuite-tools")\n'
+        'assert not blocked\n'
+        'print("real-sdk-private-tools: PASS")\n'
+    )
+    result = subprocess.run(
+        [
+            sys.executable,
+            '-I',
+            '-S',
+            '-B',
+            '-c',
+            script,
+            str(tmp_path),
+            str(caller.PROFILE),
+        ],
+        cwd=tmp_path,
+        capture_output=True,
+        text=True,
+        timeout=20,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert result.stdout.strip() == 'real-sdk-private-tools: PASS'
 
 
 def test_provider_receipt_observes_the_native_project_lock_and_toolchain(
