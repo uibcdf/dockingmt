@@ -1,5 +1,5 @@
 ---
-summary: Prepare revision 2 of the binding-interface design with analysis-level outcomes, explicit assurance/check contracts, the concrete PISA contact-footprint route and independently qualified consumer profiles.
+summary: Track the shared BindingInterface revision-2 review and await owner feedback on analysis outcomes, public guarantees, PISA footprints and independent consumer profiles.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
@@ -22,7 +22,10 @@ specify the same detailed repository-document/public-post route used for #111.
 The [maintained design](../binding_interface_design.md) now has revision 2,
 corrected after all three favorable follow-up responses. Revision 1 and its
 public post remain the immutable reviewed baseline at `204f812`; the revised
-document is prepared for the maintainer's next sharing/review round.
+document at `5aa21b1` is now shared in the
+[second review post](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6834362774).
+The maintainer requests waiting for feedback before advancing #112's implementation
+plan. No implementation or scientific execution is part of this sharing checkpoint.
 
 The working result `BindingInterface` composes a binding question, participants/
 grouping, contexts, available owner observations, site/footprint relationships,
@@ -96,7 +99,7 @@ are not completed cross-owner adoption.
 ## Scope and exclusions
 
 This increment delivers the corrected second design and synchronized navigation/
-current checkpoint, ready for renewed collaborator review. The first public post
+current checkpoint, followed by its reviewed public response. The first public post
 and all six owner contributions remain intact. It does not select a final class/schema or
 implement runtime APIs, adapters, calculations, scientific fixtures or tests.
 The candidate PISA route is a proposed receiving input, not executed integration.
@@ -109,9 +112,9 @@ full-suite resource hold and human untracked migration files.
 - The detailed document addresses each original contribution, with explicit
   ownership, record/reference/lifecycle semantics, ordinary workflow, symbolic
   examples, acceptance controls and remaining decisions.
-- Revision 1 remains linked from its original post; revision 2 is committed and
-  ready to share by exact source. No new review post or owner acceptance is
-  implied by preparing this revision.
+- Revision 1 remains linked from its original post; revision 2 is shared by exact
+  source in its own review post. Verify the posted body and preserved original
+  contributions; publication does not establish owner acceptance.
 - The original issue request and owner contributions remain intact; #112 stays
   open. Local indexes/navigation and current resumption state point to this work.
 - Applicable documentation/resource checks pass after final edits in the workspace
@@ -120,7 +123,8 @@ full-suite resource hold and human untracked migration files.
   receipt remains revision-1 evidence. No runtime/scientific or exact-head hosted
   pass is implied.
 
-Next share revision 2 for renewed review, identify MolSysMT's still-pending
+Await the second review's feedback before advancing the implementation plan.
+Then identify MolSysMT's still-pending
 facts/checks/preconditions and confirm the exact supplied PISA source/footprint
 profile. Record accepted/
 deferred decisions and their owner/revisit condition before a bounded
@@ -150,3 +154,8 @@ evidence and revision-2 inputs/check receipts under
 review on 2026-11-14. Fresh exports use managed
 temporary storage and are retired after checking; preserve previous evidence,
 human migration files and sibling state. No new environment or engine is created.
+
+The reviewed second-round response, public readback and status-checkpoint receipts
+are retained in `.molsyssuite/binding-interface-r2-review-post-112-20261112/` under
+the same custody review. The public design reference remains the exact `5aa21b1`
+proposal; the later status update adds only the publication/waiting handoff.

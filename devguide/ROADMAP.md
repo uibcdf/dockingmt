@@ -23,12 +23,12 @@ The roadmap defines direction and gates, not dates.
 
 ## Current operational plan
 
-Current work is the **#112 corrected second design, ready for renewed review**. The next
+Current work is the **#112 second review shared; awaiting owner feedback**. The next
 #111 implementation step remains P0a's local contract and the first B1/B2 slice;
 the interface discussion is not a global prerequisite. The delivered identity/
 scope increment and original accepted plan retain their separate owners.
 
-### BindingInterface second design ready for review — 2026-11-12
+### BindingInterface second review shared; awaiting feedback — 2026-11-12
 
 [#112](pending_proposals/binding_interface_public_contract.md) now has a
 [corrected second design](binding_interface_design.md), incorporating all three
@@ -38,12 +38,15 @@ PISA participant-contact footprint, and adds actual grouping/independent consume
 controls. Native and symbolic examples remain review material, not executed
 BindingMT receiving.
 
-Next share revision 2 for renewed owner review, resolve the pending molecular
-facts and confirm the supplied frozen PISA input/operation and admitted guarantees.
+Revision 2 at `5aa21b1` is shared in the
+[second review post](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6834362774).
+Await owner feedback before advancing #112's implementation plan. The review
+asks for concrete first-profile blockers, later extensions and pending molecular
+facts/guarantees; no new scientific work is launched while waiting.
 #111's P0a/data-core route remains independently useful; no new runtime class,
 schema freeze, scientific execution or interrupted-suite restart is delivered.
 The first #112 post remains revision-1 history. The owning record retains the
-revision-2 source/check custody and its pending sharing/review step.
+revision-2 source/check custody and the active feedback step.
 
 ### BindingSite work plan reviewed — 2026-11-11
 

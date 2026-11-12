@@ -6,7 +6,7 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 ### Active (2)
 
-- [`binding_interface_public_contract.md`](binding_interface_public_contract.md) — [#112](https://github.com/uibcdf/bindingmt/issues/112) — Prepare revision 2 of the binding-interface design with analysis-level outcomes, explicit assurance/check contracts, the concrete PISA contact-footprint route and independently qualified consumer profiles. *(active, inspected)*
+- [`binding_interface_public_contract.md`](binding_interface_public_contract.md) — [#112](https://github.com/uibcdf/bindingmt/issues/112) — Track the shared BindingInterface revision-2 review and await owner feedback on analysis outcomes, public guarantees, PISA footprints and independent consumer profiles. *(active, inspected)*
 - [`binding_site_public_contract.md`](binding_site_public_contract.md) — [#111](https://github.com/uibcdf/bindingmt/issues/111) — Review the BindingSite work plan with operation-specific prerequisites, explicit selection/import work, structural and check/use controls, and evidenced core/application/receiving milestones. *(active, inspected)*
 
 ### Partial (15)

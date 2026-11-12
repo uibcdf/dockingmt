@@ -8,6 +8,11 @@ proposal; the issue carries the first delivery and owner responses.
 The [owning record](pending_proposals/binding_interface_public_contract.md)
 tracks scope, evidence and the next action.
 
+Revision 2 was shared from exact source `5aa21b1aaf27ee7708e5a7bb4fe58bd0300d49f0`
+in the [second review post](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6834362774).
+The current step is awaiting owner feedback before advancing the implementation
+plan; this checkpoint updates review state, not the proposed scientific contract.
+
 The design incorporates the [TopoMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6812846154),
 [PeptideMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6813153779)
 and [PharmacophoreMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6814109974)
@@ -991,7 +996,7 @@ consumer adoption is demonstrated here. Documentation syntax/reference/resource
 checks retain their limited scope. Native hypotheses, coordinates and quantities
 in the symbolic examples have not been generated or measured.
 
-Next share this corrected second design for renewed owner review. Resolve the
+The second design is shared; await the requested feedback. Then resolve the
 finite public guarantee/intake facts and confirm the exact supplied PISA profile;
 obtain concrete native/consumer inputs for their independent increments. Record
 accepted/deferred decisions with their owner/revisit condition before preparing
