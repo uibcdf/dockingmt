@@ -1,5 +1,24 @@
 # New-machine development handoff
 
+## Central identity and guide receiving — 2026-11-11
+
+MolSysSuite #190 publishes the continuing BindingMT registry at
+`bb641488bc22b262549f795857d6ede529b14ca1` and immutable
+`policy-v1.5.12` (annotated tag object
+`7294f684dbaf3f0267c6e978937475d3deb8f633`). The component caller now uses
+that snapshot; earlier policy tags and the existing 0.1.0 source tag remain
+unchanged. Registered guide copies are received through the official central
+synchronizer from their published owners. Central governance has executed;
+these documentary/source checks do not qualify this component's scientific,
+installed/public, browser or full Python/platform gates.
+
+The current #111 scientific design work and all original receiving/interruption
+identities retain their owners. This incremental checkpoint uses `[skip ci]`;
+no automatic manual remote CI or scientific run is dispatched. Owner-controlled
+exact-source hosted conformance remains explicitly pending at the next agreed
+checkpoint under #30 / MolSysSuite #190. Retain that missing evidence rather
+than treating the skipped push as passing.
+
 Owner: [BindingMT #82](https://github.com/uibcdf/bindingmt/issues/82).
 Checkpoint date: **2026-11-11**; original machine handoff: **2026-11-06**.
 The destination is another **machine**, using the
