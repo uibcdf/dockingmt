@@ -1,5 +1,5 @@
 ---
-summary: Record the BindingInterface implementation plan after favorable second-round reviews, with independent data, PISA, molecular and native/consumer receiving increments and exact acceptance controls.
+summary: Review and correct the BindingInterface work plan with derived-footprint persistence, crossed historical/current-use states, nonempty overlapping-group controls and deterministic source/local ordering.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
@@ -29,6 +29,9 @@ The maintainer requests their evaluation and a written
 [implementation/work plan](../binding_interface_implementation_plan.md), as for
 BindingSite. The preceding feedback wait ends for this planning step. This
 checkpoint delivers that plan, not runtime implementation or scientific execution.
+The maintainer then requests correction after reviewing the initial plan at
+`dd089db`. Work-plan revision 2 records the four corrections below; the second
+scientific design remains the design authority and runtime work remains pending.
 
 The working result `BindingInterface` composes a binding question, participants/
 grouping, contexts, available owner observations, site/footprint relationships,
@@ -75,6 +78,21 @@ unknown requests, confirmed failure metadata and strict incomplete-ZIP refusal.
 The design now omits the unnecessary context-policy argument in the data-only
 example and sharpens external absence versus internal ZIP incompleteness.
 
+The reviewed work plan now requires the derived footprint's own public save/read
+and independent core readback, including positive and evaluated-empty results.
+Crossed controls separate original outcome, current asset access and current-use
+assessment; saved `match` receipts remain scoped historical evidence rather than
+automatic guarantees after reading or editing a source. Default core read does
+not discover assets or recheck molecular correspondence.
+
+The real PISA empty/nonempty combination remains a native receiving control.
+A separately attributed authored aggregation control adds two nonempty groups
+with overlap and repeated contributors, exact expected union and a nonidentity
+source-to-local map. Canonical source indices ascend within their named source
+axis; local indices align position by position instead of being sorted
+independently. This control qualifies local aggregation only, without modifying
+or borrowing scientific authority from original PISA fixtures.
+
 Initial preservation and the selected correspondence profile can be qualified
 independently of unqualified `current_finding`, later chemistry or neutral native
 Topography. Local input/default/version choices still require an actual decision
@@ -108,6 +126,10 @@ are not completed cross-owner adoption.
 - Creating an independently editable copy of TopoMT's canonical relation registry.
 - Treating live handles, matching indices/counts or content hashes as universal
   molecular-source verification.
+- Treating a saved historical `match` as a fresh current-use check, or successful
+  asset access as the outcome of the original scientific calculation.
+- Qualifying overlapping nonempty-group aggregation from an empty-plus-nonempty
+  fixture, or independently sorting source/local correspondence vectors.
 - Treating repeated evidence as increased weights, alternatives as simultaneous
   constraints, or same-candidate consistency as independent validation.
 - Freezing every future owner profile before useful data-only work or making
@@ -115,10 +137,12 @@ are not completed cross-owner adoption.
 
 ## Scope and exclusions
 
-This increment delivers the written plan and synchronized navigation/current
-checkpoint after the second-round feedback. Both design-review posts and original
-owner contributions remain intact. It does not freeze a class/shared schema or
-implement runtime APIs, adapters, calculations, scientific fixtures or tests.
+This increment delivers the corrected second work-plan revision and synchronized
+navigation/current checkpoint after review of the initial plan. Both design-review
+posts and original owner contributions remain intact; the existing plan-delivery
+comment is updated to the exact corrected source, retaining the initial plan link.
+It does not freeze a class/shared schema or implement runtime APIs, adapters,
+calculations, scientific fixtures or tests.
 The candidate PISA route is a proposed receiving input, not executed integration.
 No sibling worktree, synchronized guide, installed environment, package/tag/release
 or manual remote CI changes are commissioned. Preserve the existing scientific
@@ -135,11 +159,14 @@ full-suite resource hold and human untracked migration files.
   receiving or component adoption.
 - The original issue request and owner contributions remain intact; #112 stays
   open. Local indexes/navigation and current resumption state point to this work.
+- The plan requires persistence of actual derived footprints, crossed scientific/
+  asset/current-assessment states, historical-check readback, a meaningful authored
+  nonempty-overlap control and deterministic source/local correspondence ordering.
 - Applicable documentation/resource checks pass after final edits in the workspace
   and a fresh committed-source export. Their exact source/results are retained
-  in the revision-2 task receipt and maintainer handoff; the original post's
-  receipt remains revision-1 evidence. No runtime/scientific or exact-head hosted
-  pass is implied.
+  in the work-plan-review task receipt and maintainer handoff; previous design
+  and initial-plan receipts retain their original scope. No runtime/scientific
+  or exact-head hosted pass is implied.
 
 Next close the minimal P0a local data contract, then deliver the first real
 D1/D2 declaration/analysis-summary replay slice when implementation proceeds.
@@ -183,3 +210,10 @@ receipts are retained at `.molsyssuite/binding-interface-plan-112-20261112/`
 under the same #50 custody review. The exact plan delivery retains its final
 committed-source identity and documentation-only gate outcomes. Original
 scientific fixtures and producer identities remain unchanged.
+
+The work-plan-review correction, final documentation/resource check receipts and
+edited plan-delivery readback are retained at
+`.molsyssuite/binding-interface-plan-review-112-20261112/` under the same #50
+custody review on 2026-11-14. The immutable `dd089db` source preserves initial-plan
+history; the updated public comment points to the reviewed plan's exact commit.
+No new scientific fixture or runtime receiving is produced by this correction.

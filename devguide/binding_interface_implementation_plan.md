@@ -1,17 +1,21 @@
 # BindingInterface implementation and work plan
 
 Owner: [BindingMT #112](https://github.com/uibcdf/bindingmt/issues/112).
-Recorded: 2026-11-12. Work-plan revision **1**.
-Status: **maintainer-requested plan; runtime implementation pending**.
+Recorded and reviewed: 2026-11-12. Work-plan revision **2**.
+Status: **reviewed implementation plan; runtime implementation pending**.
 This plan turns the [reviewed second design](binding_interface_design.md) into
 bounded, independently useful implementation and receiving increments. It is
 the interface counterpart of the [BindingSite work plan](binding_site_implementation_plan.md),
 not a package version, shared-schema freeze or release schedule.
 
 The maintainer requests evaluation of the three second-round responses and a
-written plan before implementation. That request ends the preceding wait for
-feedback for planning purposes. This increment changes documentation only; it
-does not execute the proposed APIs or new molecular calculations.
+written plan before implementation, then correction after reviewing that plan.
+The [initial work plan at `dd089db`](https://github.com/uibcdf/bindingmt/blob/dd089dbb096c1b8b1fa20c55317cf8d47a769de2/devguide/binding_interface_implementation_plan.md)
+remains the historical baseline. This second work-plan revision adds persistence
+of the derived footprint, crossed outcome/availability/current-use controls,
+meaningful overlapping-group coverage and deterministic membership/map ordering.
+It does not change scientific-design revision 2 or execute the proposed APIs or
+new molecular calculations.
 
 ## 1. Assessment of the second review and starting evidence
 
@@ -36,7 +40,7 @@ preparing a bounded implementation plan:
 
 These are favorable design reviews, not frozen public signatures, implemented
 compatibility or component adoption. MolSysMT has no reply in the complete
-11-comment #112 review baseline inspected for this plan; the finite molecular
+12-comment #112 baseline inspected for this work-plan review; the finite molecular
 fact/check agreement remains an operation-specific item.
 
 TopoMT's fixed receiving inputs exist at
@@ -91,7 +95,7 @@ entry gate requiring outputs from an API that has not been written.
 | F5: context-policy applicability | Proposed default: no context policy for preservation; ordinary examples omit it and summary says `not_required`, never `match`. An explicitly supplied `require_match` is retained as a request with visible non-applicability, not a performed match. Correspondence normalizes to effective `require_match`. | Close exact defaults/admission in P0a; negative controls prove no inferred check. Additional trust policies remain unsupported initially. |
 | F6: identity/version | Exact declaration, owner analysis/run, finding and observation references; faithful copy/read identity; immutable parents and original claim associations. Explicit experimental format/version admission. | Local decision before D1/D2; API-emitted round trips supply later evidence. No legacy missing-version admission inherited automatically. |
 | F7: contact requests | Require a nonempty ordered unique selection from initially supported `other-bonds`/`h-bonds`; a combination means union of their mapped endpoint memberships with separate per-group provenance. Reject duplicate/unknown names; additional known owner groups remain explicitly unsupported until admitted. | BindingMT/TopoMT profile, including known-empty, mixed-group, empty-request and unknown-group controls. |
-| F8: footprint result | Detached unique source-index membership plus complete contact/participant provenance, coverage and value state. Known empty is a valid evaluated-empty footprint, not a positive region or implicit site. | Exact source endpoints independently checked in T1; optional later site construction requires its own admission. |
+| F8: footprint result | Detached unique original-source indices in ascending order within the identified source atom axis; target-local indices align position by position through the qualified map, without independent sorting. Preserve all contributing contacts/groups, coverage and value state. The actual result has public save/read support; known empty remains evaluated-empty, not a positive region or implicit site. | Close the concrete result/persistence surface before T1 code; exact endpoints, aligned maps, complete contributors and independent saved-footprint readback qualify T1. Optional later site construction needs its own admission. |
 | F9: failure and recovery | Preserve owner `execution_status="failed"`, `failure_stage="analysis"` and diagnostic references. External absence may remain reference-only; an internally incomplete/corrupt native ZIP fails owner recovery. | TopoMT facts are supplied; T0 tests actual metadata and owner-reader outcomes. Current parser errors never relabel original science. |
 
 Optional site links are exact references. No initial live BindingSite object,
@@ -213,10 +217,13 @@ The core must preserve:
 
 - Question, participants/grouping, explicit declared/inferred status and exact
   source/context references without requiring coordinates or optional providers.
-- Analysis outcome independently of findings: completed nonempty, completed zero,
-  no supplied analysis, original failure and unresolved/reference-only evidence.
-- Separate native-asset availability and current application assessment. Wrong
-  current context does not rewrite a preserved original outcome.
+- Analysis presence and original outcome independently of findings: no supplied
+  analysis, supplied analysis with unresolved outcome, completed nonempty,
+  completed zero and confirmed original failure retain their distinct meanings.
+- Native-asset availability/recovery and current application assessment as
+  separate axes. A reference-only carrier can retain a known original outcome;
+  wrong current context does not rewrite it. Unknown original outcome stays
+  unknown even when an asset is present or has a valid checksum.
 - Detached ownership and a useful actual `summary()` identifying the question,
   original analysis/outcome, available findings/footprints, coverage, checks and
   remaining limitations. Summary performs no detection, lookup or recovery.
@@ -260,8 +267,40 @@ Exercise two distinct missing-data boundaries:
 
 | Boundary | Required outcome |
 | --- | --- |
-| External native artifact referenced by an admitted BindingMT record is absent | Core record remains readable/reference-only; explicit recovery/application needing the asset refuses its absence. |
+| External native artifact referenced by an admitted BindingMT record is absent | Default read performs no availability probe. Core evidence remains readable, including a sufficient saved footprint; explicit recovery/application needing the absent asset refuses, retaining the reference and original outcome. |
 | A native TopoMT ZIP lacks an internal manifest-declared artifact or has corrupt/unsafe data | Owner recovery fails. No partially recovered native result, completed-empty analysis or unknown-success downgrade. |
+
+### 7.1 Crossed states and historical checks
+
+Record original scientific outcome, asset-check/recovery result and current-use
+assessment separately, with their own authority/context. A saved check receipt
+retains its original scope and time; reading it does not perform that check on a
+new live system. Ordinary summary distinguishes that historical receipt from
+an assessment of the current application, without silently rewriting either.
+Default core read neither finds assets nor checks source correspondence.
+
+Use crossed controls rather than testing each dimension only in isolation:
+
+| Preserved evidence and present condition | Required read/recovery/use behavior |
+| --- | --- |
+| Completed-zero analysis; external native asset has since disappeared | Core read preserves completed zero and its original authority. Only an explicit availability/recovery operation discovers the absence; required recovery refuses. Neither a positive footprint nor original calculation failure is invented. |
+| Confirmed original failed capture; capture is available and integrity checks pass | Preserve original failure, stage and diagnostic references. Successful access to the capture is not a successful scientific ProviderOutput. |
+| Completed nonempty analysis; a proposed current source contradicts the saved context | Core preservation succeeds; the affected correspondence/application refuses with its actual cause. The original analysis remains completed. |
+| Saved `match` for context C0; a relevant source edit yields C1 before fresh-process read/use | Read retains the scoped C0 receipt as history, not a current C1 guarantee. Explicit stronger use reassesses its required facts or refuses; it does not reuse a label as proof. |
+| Known original outcome; referenced native ZIP is internally incomplete/corrupt | Core evidence and original outcome remain inspectable. Explicit native recovery fails without a partial native result; no current parser error is relabelled as original scientific failure. |
+| No supplied analysis; a plausible asset happens to exist nearby | Preserve no-analysis status. No automatic file discovery, detector call or inferred outcome. |
+
+An unresolved external reference can therefore coexist with a known original
+outcome. Conversely, accessible bytes need not establish that outcome. Biological
+support remains a separate scientific interpretation, unaffected by successful
+I/O or matching. Inspect original and recovered records to prove these axes and
+their historical receipts survive copy/save/read without unwanted I/O.
+
+At D1/D2, admitted declared carriers and historical check metadata exercise
+faithful storage, no lookup and no inferred active assessment under their actual
+declared authority. Actual owner recovery and molecular refusal are qualified
+later in T0/C/T1 with those implementations and inputs. The crossed matrix does
+not make native recovery or molecular checking a new prerequisite for D2.
 
 **Exit:** real API-emitted declarations and all analysis outcomes survive
 copy/save/read/revision with original contexts, producer/quantity meanings and
@@ -289,6 +328,15 @@ A relevant coordinate/chemistry/member edit between checks and application needs
 reassessment or refusal. An unaffected historical observation remains on its
 own context under its actual dependency guarantees. No generic observer or
 atomic behavior under concurrent edits is promised.
+
+A stored `match` is evidence about its checked source/context, coverage and
+preconditions, not a persistent guarantee for an arbitrary recovered handle.
+On a new use, check the admitted facts again or demonstrate the admitted unchanged
+immutable-input closure explicitly. A default read has no active molecular-use
+assessment. Retain historical source/local maps as historical maps; do not apply
+them to a changed target merely because they round-tripped. Edit controls change
+facts relevant to the admitted profile; unrelated evidence keeps its own actual
+dependencies rather than being invalidated wholesale.
 
 `current_finding` remains unsupported until its full producer input/query and
 lifetime facts are independently qualified. Footprint positions alone are
@@ -372,19 +420,28 @@ the actual consuming source/artifact identities and observations during receivin
 
 Use a real public path:
 
-`recover original PISA analysis → compose A | B → summary → save/read → project A's selected reported-contact footprint`
+`recover original PISA analysis → compose A | B → summary → characterization save/read → project A's selected reported-contact footprint → footprint save/read → independent core inspection`
 
 Add B as a companion control. Select the original mapped contact endpoints on
 the named participant; combined `interface.atom_indices` does not itself give
 A's footprint. Retain the exact original run/record, chosen groups, contact-row/
 endpoint-to-member provenance, source/local maps, coverage and derivation.
 Return detached unique membership while retaining all contributing observations.
+For this first profile, canonical membership is ascending original-source atom
+index within the identified source axis. A corresponding local-index vector
+follows that source order through the qualified map; never sort the vectors
+independently. Retain original owner contact occurrence/order, requested group
+order and each member's complete contributor list separately. Canonical membership
+does not erase repeated observations or make reordered requests identical records.
+Unmapped/ambiguous endpoints refuse this complete projection profile; generated
+or many-to-one mappings need their own admission rather than an arbitrary choice.
 
 | Request/control | Required outcome |
 | --- | --- |
 | Existing interface, `other-bonds`, A/B | Exact corresponding source arrays above, original group/contact identities and qualified correspondence. |
 | Existing interface, known `h-bonds` with zero contacts | Evaluated-empty footprint under that known criterion; preserve completion/coverage and source assessment. No positive region/site fabricated. |
-| Explicit `h-bonds` + `other-bonds` combination | Union of mapped endpoints with each selected group's separate provenance/empty status; membership agrees with `other-bonds` for this fixture. No implicit selection of other groups or extra evidence. |
+| Explicit `h-bonds` + `other-bonds` combination | Union of mapped endpoints with each selected group's separate provenance/empty status; membership agrees with `other-bonds` for this fixture. This exercises empty plus nonempty composition, not two nonempty overlapping groups. |
+| Two nonempty overlapping mapped-endpoint groups, separately authored as a local aggregation control | Exact deduplicated source membership, aligned nonidentity local map and every contributor survive; see section 10.3. This supplements rather than replaces native PISA receiving. |
 | Empty requested group list, duplicate names or unknown name | Actionable invalid-request outcome, not evaluated-empty evidence. Known but unimplemented group capability remains unsupported. |
 | Completed zero-interface analysis | Analysis remains inspectable; no positive finding exists for a footprint. Distinct from an existing finding with zero contacts. |
 | No supplied analysis or confirmed original failure | Preserve their respective scientific states and references, not a completed-empty projection. |
@@ -397,11 +454,78 @@ output fields. The proposed two-group contract includes explicit endpoint union
 and separate group provenance. A later scope change needs an explicit recorded
 disposition, not an unannounced reduction to one-group-only behavior.
 
+### 10.3 Nonempty overlap, ordering and complete contributors
+
+The frozen PISA `h-bonds` population is empty, so its combination with
+`other-bonds` cannot detect every union/deduplication defect. Add a small authored
+control at the already mapped endpoint-aggregation boundary used by the real T1
+implementation. The following are test-local group/contact IDs, not additional
+admitted public contact names or a recovered PISA result:
+
+```text
+g1: c1 -> source 7; c2 -> source 2; c5 -> source 7
+g2: c3 -> source 2; c4 -> source 11
+source_to_local: {2: 6, 7: 1, 11: 4}
+expected_source_members: [2, 7, 11]
+expected_aligned_local_members: [6, 1, 4]
+```
+
+| Source member | Required contributors |
+| --- | --- |
+| 2 | g1/c2 and g2/c3 |
+| 7 | g1/c1 and g1/c5 |
+| 11 | g2/c4 |
+
+Keep the expected membership, aligned map and contribution table independently
+authored. Compare them with actual aggregation output; do not derive expectations
+with the implementation under test. Reverse group/contact iteration order as a
+companion control: canonical source membership and aligned local map stay the
+same, while requested order and original occurrence provenance remain faithful.
+Retaining c1 and c5 does not create additional independent support or weights.
+
+Give this control its own synthetic producer/authority and exact input identity.
+Never edit the frozen native ZIPs/ProviderRun, attach their run identity to these
+authored observations or present this as native PISA acquisition/correspondence
+evidence. It tests local aggregation/order/provenance only, through the same
+owned aggregation boundary used by public T1. The actual public PISA workflow
+and owner-supplied endpoints remain independently required.
+
+### 10.4 Persist and independently read the resulting footprint
+
+T1 is incomplete if only the parent characterization is saved. Once the actual
+footprint kind is admitted, extend the D2 public persistence contract to that
+result and exercise its own emitted save/read path. Settle the exact carrier and
+methods under F8 before T1 code; no placeholder type is needed in D2 beforehand.
+
+Preserve the footprint's exact parent/analysis/run/finding/participant references,
+criterion and requested groups, ordered source membership, aligned local maps,
+complete contact/endpoint contributors, coverage/value state and any retained
+quantities.
+Retain the scope/preconditions of historical correspondence receipts. Verify
+positive A/B and evaluated-empty footprints, not only a manually written dict or
+the parent analysis. Failed/invalid requests must not leave a successful result.
+
+In an independent process read and inspect those saved footprint records with
+the normal BindingMT core dependencies, without TopoMT/PharmacophoreMT recovery,
+PISA, network access or automatic external-asset lookup. Isolate optional imports
+for the check without uninstalling or changing the shared environment. Enough
+saved core data supports membership/provenance inspection even when the native
+artifact cannot be recovered; it does not certify applicability to a new source.
+Native decoding and new molecular use retain their explicit owner/check needs.
+
+Apply section 7.1's historical/current-use controls to an actual emitted saved
+footprint. A stored C0 `match` survives as historical evidence after a relevant
+C1 edit; fresh read does not endorse C1, and explicit correspondence use checks
+the required facts or refuses. No original evidence or source artifact changes.
+
 **Exit:** the complete positive/empty/failure public workflow, companion B and
-adverse controls pass with actual emitted and recovered records under ordinary
-and pm/fs unit policies. Shared quantities retain independent reader handshakes.
-Replay needs neither PISA nor its resources/server, and credits no new original
-analysis. Provider tests alone are not this cross-component receiving evidence.
+adverse controls pass with actual characterization and derived-footprint emitted
+records, saved readback and independent core inspection under ordinary and pm/fs
+unit policies. The overlapping-group aggregation control additionally proves
+canonical ordering, aligned maps and complete contributors within its stated
+synthetic scope. Shared quantities retain independent reader handshakes. Replay
+needs neither PISA nor its resources/server, and credits no new original analysis.
+Provider tests alone are not this cross-component receiving evidence.
 
 ## 11. H0/H1: native grouping, pharmacophoric construction and replay
 
@@ -509,8 +633,8 @@ automatic qualification/adoption of the other entity or every consumer.
 
 | Milestone | Required delivery/evidence | Scope that can remain pending |
 | --- | --- | --- |
-| M1: data core | P0a/D1/D2: useful declaration/analysis summary, immutable revision and actual safe emitted/read records. | Foreign recovery, molecular applicability, H/P adoption and later providers. |
-| M2: first PISA application | T0/C/T1: full saved analysis intake, exact A/B/group controls, ordinary summary/records and admitted assurance/refusal boundaries. | Native Topography, `current_finding` beyond its actual qualification, H/P profiles and richer geometry. |
+| M1: data core | P0a/D1/D2: useful declaration/analysis summary, immutable revision, safe emitted/read records and crossed data-only state-preservation/no-lookup controls. | Actual foreign recovery/molecular checking, H/P adoption and later providers. |
+| M2: first PISA application | T0/C/T1: full saved analysis intake, exact A/B/group controls, supplemental nonempty-overlap aggregation control, canonical membership/aligned maps, actual saved footprints with independent core readback and historical/current-use refusals. | Native Topography, `current_finding` beyond its actual qualification, H/P profiles and richer geometry. |
 | M3: independent native/consumer receiving | H0/H1 and each admitted P control close with concrete inputs, actual public outputs and owner-native readback. | Other chemical/modal/ensemble/provider profiles and general scientific campaigns. |
 
 Useful M1/M2 checkpoints do not require M3 to finish simultaneously. A closes
@@ -587,9 +711,12 @@ In parallel coordinate P0m/P0s for their exercised boundaries, confirm the froze
 TopoMT carrier/contact policy and receive the promised H/P inputs. Then implement
 the explicit T0 adapter and C/T1 exact reported-contact route. Retain actual public
 summary/save/read and known-empty/invalid/missing/corrupt/contradictory controls.
+Include the derived footprint's own save/read, crossed historical/current-use
+controls and the separately attributed nonempty-overlap aggregation control.
 Do not mark these increments complete from this document or owner expectations.
 
-The delivered checkpoint here is the written plan after evaluating all three
-second-round replies. The next development receipt should name closed local
-decisions, actual owning agreements/input handoffs or a real implemented/tested
+The delivered checkpoint here is work-plan revision 2 after the maintainer's
+review of the initial plan and all three second-round replies. The next
+development receipt should name closed local decisions, actual owning
+agreements/input handoffs or a real implemented/tested
 slice, keeping planning, implementation, receiving and adoption distinct.

@@ -67,6 +67,10 @@ explicit optional PISA intake, qualified contact footprints and independent
 native/consumer receiving. Proposed local contracts, owner facts and real
 executed evidence remain separate; the source map still has no runtime
 BindingInterface implementation from this planning increment.
+Work-plan revision 2 additionally requires the derived footprint's own persistence,
+historical versus current-use checks, nonempty-overlap aggregation coverage and
+canonical source membership with aligned local maps. These are acceptance
+requirements, with runtime qualification still pending.
 
 ## Current source map
 

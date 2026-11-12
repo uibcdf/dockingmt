@@ -24,26 +24,31 @@ Accepted maintainer objective: 2026-11-06, [BMT-046](DECISIONS.md#bmt-046--deliv
 Status: **active; #112 implementation plan recorded, local P0a next; runtime pending**.
 Inspected starting source: `530a4cf`.
 
-### BindingInterface implementation plan recorded — 2026-11-12
+### BindingInterface work plan reviewed — 2026-11-12
 
-[#112](pending_proposals/binding_interface_public_contract.md) now has a
-[corrected second design](binding_interface_design.md), incorporating all three
-favorable follow-ups on revision 1. It separates analysis outcomes from findings,
-exposes proposed guarantees and a fact/check/precondition matrix, fixes the
-PISA participant-contact footprint, and adds actual grouping/independent consumer
-controls. Native and symbolic examples remain review material, not executed
-BindingMT receiving.
+[#112](pending_proposals/binding_interface_public_contract.md) retains the
+[second scientific design](binding_interface_design.md), supported by all three
+second-round replies. The [implementation/work plan](binding_interface_implementation_plan.md)
+now has reviewed revision 2 after the maintainer's request to correct the initial
+plan at `dd089db`. The data core, scoped molecular facts, saved PISA receiving
+and independent native/consumer increments retain their bounded dependency order.
 
-All three second-round replies are favorable and support the
-[written implementation/work plan](binding_interface_implementation_plan.md).
-It records minimal local decisions, D1/D2 data core, C molecular facts, T0/T1
-saved PISA receiving, independent H0/H1/P profiles and exact acceptance controls.
-Next close P0a and deliver the first declaration/analysis-summary round trip;
-coordinate each molecular/owner prerequisite for the operation that needs it.
-#111's P0a/data-core route remains independently useful; no new runtime class,
-schema freeze, scientific execution or interrupted-suite restart is delivered.
-The first #112 post remains revision-1 history. The owning record retains the
-design/plan source/check custody and the next concrete implementation boundary.
+The review requires the derived footprint's own public save/read and independent
+core inspection; crossed original-outcome/asset/current-use controls; historical
+`match` receipts distinguished from fresh guarantees; and a separately attributed
+nonempty-overlap aggregation control. Unique original-source indices have canonical
+ascending order, with local vectors aligned through the qualified map rather
+than independently sorted. Original PISA fixtures/producer identities stay intact;
+the authored aggregation example is planned local evidence, not native receiving.
+
+Next close P0a and deliver the first D1/D2 declaration/analysis-summary round trip,
+then qualify the actual T0/C/T1 operations including saved-footprint readback.
+Coordinate each owner/input prerequisite for the operation that needs it.
+#111's P0a/data-core route remains independently useful. Runtime implementation,
+scientific receiving, shared-schema freezing and the held full-suite execution
+remain pending. The owning record retains exact documentation/source/publication
+receipts and the existing plan-delivery comment links the corrected source while
+preserving the initial-plan history.
 
 ### BindingSite work plan reviewed — 2026-11-11
 
