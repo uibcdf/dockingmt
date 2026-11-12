@@ -1,5 +1,5 @@
 ---
-summary: Incorporate BindingMT's native contact and SASA/burial catalogue into work-plan revision 3, retaining prior receiving obligations and preparing the requested fourth coverage review.
+summary: Deliver reviewed BindingInterface work-plan revision 4 after preserving revision 3 and auditing the complete native catalogue proposal, with finite admissions, staged calculations and retained receiving obligations.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
@@ -38,8 +38,10 @@ at `a13b9b2725bd8a4edd851441d1a5a53720e0f3ea` extends the calculation roadmap.
 The maintainer requests a careful third work-plan revision, then a complete
 post/proposal reread and fourth revision after checking omissions/improvements.
 Revision 3 records BindingMT's native catalogue and N0/N1/N2 work, with contacts
-as the first ordinary numerical milestone and SASA/burial next. This third-revision
-checkpoint precedes the requested final coverage review.
+as the first ordinary numerical milestone and SASA/burial next. That third revision
+is preserved at `66d8ba9`. The second complete reading produces maintained revision
+4 and the [coverage/review record](../binding_interface_plan_review.md), mapping
+all 15 proposal sections, 16 candidate entries and 17 independent controls.
 
 The working result `BindingInterface` composes a binding question, participants/
 grouping, contexts, available owner observations, site/footprint relationships,
@@ -70,7 +72,7 @@ footprint, keeping the 28 contact/20 buried-atom populations distinct. Public
 assurance requests and a fact → owner operation/revision → check → precondition
 → failure matrix make the remaining admission decisions reviewable.
 
-The ordinary example is now binary A | B with analysis-aware input and inspection.
+The saved-composition example is binary A | B with analysis-aware input and inspection.
 Effective grouping uses an owner-supported native subset, with an unrelated D
 control and original analysis/occurrence correspondence. Native PharmacophoreMT
 receiving and PeptideMT K/N, native/derived and comparison specifications retain
@@ -112,6 +114,14 @@ quantity/attribution contracts and independently useful milestones. PISA T0/T1,
 H0/H1, consumer P and initial BindingSite work retain their separate obligations.
 Finite shared agreements belong in MolSysSuite #195; TopoMT #197 retains its
 contribution/review disposition. Neither notice establishes implemented adoption.
+
+The fourth review adds the finite per-calculation N0 record and operation-specific
+facts, explicit native request admission, actual sparse/dense fallback/resource
+receiving, stable surface-context invariants, signed numerical/quantity distinctions
+and produced ordinary/expert acceptance workflows. It also restores exact existing
+provider/resource/synthetic issue destinations and corrects #190's historical
+identity role versus #195's new scientific coordination. The information model
+stays scientific-design revision 2; none of these requirements is a runtime pass.
 
 Initial preservation and the selected correspondence profile can be qualified
 independently of unqualified `current_finding`, later chemistry or neutral native
@@ -157,8 +167,9 @@ are not completed cross-owner adoption.
 
 ## Scope and exclusions
 
-This increment delivers third-revision native planning and synchronized navigation/
-current checkpoints, before the requested fourth review. Both design-review posts
+This increment delivers native work-plan revision 4 after the preserved third
+revision and complete second reading, with synchronized navigation/current
+checkpoints and a detailed review record. Both design-review posts
 and original owner contributions remain intact. Update the existing plan-delivery
 comment when the final fourth revision is published, retaining earlier source links.
 It does not freeze a class/shared schema or implement runtime APIs, adapters,
@@ -185,17 +196,16 @@ full-suite resource hold and human untracked migration files.
 - The native catalogue, calculation/composition boundary, N0/N1/N2 owner contracts,
   independent reference controls and ordinary milestones are explicit. Native
   calculation operates without PISA/TopoMT; no catalogue-wide global gate is added.
-- After preserving revision 3, reread the entire TopoMT contribution and record
-  the fourth review's coverage, omissions, corrections and remaining admissions.
+- The preserved third revision and fourth review expose the entire contribution's
+  disposition, identified gaps, corrections and remaining actual admissions.
 - Applicable documentation/resource checks pass after final edits in the workspace
   and a fresh committed-source export. Their exact source/results are retained
   in the work-plan-review task receipt and maintainer handoff; previous design
   and initial-plan receipts retain their original scope. No runtime/scientific
   or exact-head hosted pass is implied.
 
-Next finish the requested complete reread/fourth revision. Thereafter close P0a
-and deliver the first real D1/D2 declaration/analysis-summary slice. Close the
-contact portion of N0/C for N1, then the surface facts for N2, before their actual
+Next close P0a and deliver the first real D1/D2 declaration/analysis-summary slice.
+Close the contact portion of N0/C for N1, then the surface facts for N2, before their actual
 implementation/receiving. Coordinate finite P0m/P0s facts through #195, preserve
 the supplied PISA branch and receive H/P inputs independently. Record accepted/
 deferred decisions with owner/revisit conditions; no universal receipt or all-

@@ -30,29 +30,30 @@ Read [development/onboarding](DEVELOPMENT.md) for setup and code navigation.
 [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) owns the full product
 requirements; this file explains how to resume without recovering chat history.
 
-### BindingInterface native work plan, revision 3 — 2026-11-12
+### BindingInterface native work plan reviewed, revision 4 — 2026-11-12
 
-[#112](pending_proposals/binding_interface_public_contract.md) now records the
-[native catalogue and implementation plan](binding_interface_implementation_plan.md)
-after TopoMT's complete `a13b9b2` contribution. BindingMT leads the domain
-characterization and public workflow; MolSysMT keeps molecular kernels/resources;
-TopoMT enrichment and saved PISA are separate optional routes. Ordinary numerical
-priority is native contacts/atom-residue footprints, then SASA and both side
-burial contributions, after the useful data/context slice.
+[#112](pending_proposals/binding_interface_public_contract.md) has the
+[fourth implementation-plan revision](binding_interface_implementation_plan.md),
+prepared after preserving revision 3 at `66d8ba9` and rereading the complete
+TopoMT `a13b9b2` proposal. The [review record](binding_interface_plan_review.md)
+maps all 15 source sections, 16 catalogue entries and 17 independent controls,
+with the gaps and fourth-revision corrections recorded separately.
 
-The plan preserves explicit calculation versus composition, actual owner calls
-without invented foreign receipts, independent contact/surface references,
-source/local ordering, derived-footprint persistence and historical/current-use
-controls. Later catalogue families have individual admission triggers. T0/T1,
-H0/H1 and consumer P obligations remain pending with their own evidence.
-MolSysSuite #195 coordinates finite shared agreements; TopoMT #197 owns its
-contribution review. Initial BindingSite work remains independent.
+Ordinary numerical priority is the useful data/context slice, native contacts
+and both participant footprints, then SASA/burial. Explicit calculation and
+supplied-evidence composition share an inspectable result model while retaining
+their execution boundaries. N0 now closes per-operation scientific/public/tool
+facts, request/default behavior, stable contexts, actual fallback/resources,
+quantity/outcome meanings and ordinary/expert receiving artifacts. Source inspection
+and a complete checklist remain separate from profile admission and runtime passes.
 
-Next preserve this third revision, reread the entire source post/proposal and
-complete the maintainer-requested fourth coverage review before code. Runtime,
-new molecular receiving, package/tag/release and the held full-suite restart are
-not delivered. The owning record retains source/check/publication custody and
-the already recorded legacy documentation-tool scope during #82/#175 migration.
+Next close P0a and deliver D1/D2, then the selected N0/C facts for N1 and N2.
+PISA T0/T1, H0/H1 and consumer P obligations remain pending on their independent
+branches; later catalogue rows have their own admission triggers. #111 remains
+independent, #195 coordinates finite shared science and TopoMT #197 its contribution
+review. Exact documentation/source/publication receipts retain #50 custody. No
+runtime/native calculation, environment migration, package/tag/release, manual
+remote CI or restart of the held scientific suite is delivered by this plan.
 
 ### BindingSite work plan reviewed — 2026-11-11
 

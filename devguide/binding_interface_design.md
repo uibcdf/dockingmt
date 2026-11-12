@@ -540,14 +540,23 @@ selects none and commissions no scientific execution.
 
 ## 12. Proposed public surface and ordinary workflow
 
-The first localized operation composes already supplied observations on a chosen
-native molecular context. It resolves admitted selections through MolSysMT,
-records actual checks and refuses unsupported required guarantees. It does not
-run missing detectors or infer a biological association.
+Two explicit routes share the result model. The current work plan's first
+ordinary numerical route requests admitted native contacts on a chosen MolSys
+context, followed by surfaces/burial under their own profile. Its exact public
+spelling/defaults remain N0 decisions. Supplied-evidence composition separately
+resolves admitted selections/references, records actual checks and refuses
+unsupported required guarantees without calculating missing observations.
+
+The native user workflow is molecular context + participants + admitted profile
+-> actual calculation -> concise/expert inspection -> result/footprint save/read.
+The work plan records the required produced artifacts and limitations for that
+workflow. Summary, copying and saved reading calculate nothing. The code example
+below retains the explicit saved-provider composition route; it is not a new
+automatic PISA dependency or the numerical priority of the native programme.
 
 ### 12.1 Binary recovery, composition and inspection
 
-Start the ordinary localized example with A | B. The TopoMT reader below exists
+The supplied-evidence localized example uses A | B. The TopoMT reader below exists
 at the pinned source; the BindingMT operations are proposed syntax and have not
 been executed. `system` is the complete unchanged original source, ordinarily
 a native MolSys; `chosen_structure` and the state must agree with the saved
