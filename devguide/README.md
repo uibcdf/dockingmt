@@ -1,6 +1,6 @@
 # BindingMT Development Guide
 
-### Binding-site proposal revision 2 audited for owner review — 2026-11-11
+### BindingSite work plan recorded — 2026-11-11
 
 [#111](pending_proposals/binding_site_public_contract.md) now has a
 [second design draft](binding_site_design.md), incorporating PeptideMT,
@@ -23,9 +23,16 @@ native hypotheses and observed input/enforcement boundaries. Three synthetic
 JSON specimens make partial maps and center-only records reviewable; only their
 shared quantity payload is authored/read through an existing provider codec.
 
-Next obtain the affected owners' review of revision 2's concrete records,
-structural scopes and B/C guarantees. Keep shared acceptance and implemented
-receiving distinct, and the small core independent of later dynamic/engine work.
+All three follow-up reviews are favorable at design level. The maintainer
+authorized proceeding and requested a [detailed work plan](binding_site_implementation_plan.md)
+before implementation. It records P0 owner/profile decisions, B1/B2 data core,
+C1/C2 projections, T/H/P receiving, acceptance controls and resource/checkpoint
+discipline. This checkpoint implements no new runtime API.
+
+Next deliver the finite MolSysMT/central coordination requests and obtain the
+offered consumer inputs. Close the local data-only contract and start B1/B2
+while operation-specific molecular guarantees are agreed. Shared acceptance,
+implemented receiving and each owner's adoption remain separate outcomes.
 Documentation gates and a fresh committed-source export are the applicable
 verification; no runtime, scientific or exact-head remote pass is claimed.
 No provider/environment change or interrupted scientific rerun is commissioned.

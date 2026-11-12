@@ -13,6 +13,12 @@ had the right architecture but left examples, definition/evidence identity and
 consumer reference behavior underspecified. This audited edition corrects those
 gaps while preserving the useful small core and the maintainer's ensemble scope.
 
+The subsequent TopoMT, PeptideMT and PharmacophoreMT responses each consider
+their original requests addressed at design level and recommend bounded B/C
+increments. The [implementation/work plan](binding_site_implementation_plan.md)
+records their remaining agreements and offered inputs. No receiving pass is
+inferred from those positive reviews.
+
 ## 1. Request-by-request disposition
 
 | Contribution/request | Revision-2 coverage and correction | Remaining acceptance |

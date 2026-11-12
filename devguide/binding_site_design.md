@@ -28,6 +28,9 @@ identify what the three contributions cover, what this edition corrects and what
 still needs implemented receiving or owner agreement. The [initial second draft](https://github.com/uibcdf/bindingmt/blob/54cfab985fd79c9e10922d412b068048412f1d0a/devguide/binding_site_design.md)
 remains an immutable comparison baseline. This audit refines revision 2 rather
 than declaring a final shared contract.
+The subsequent favorable component reviews and authorized work order are tracked
+in the [implementation/work plan](binding_site_implementation_plan.md). Its
+per-increment acceptance keeps owner agreement and executed receiving distinct.
 
 ## 1. Design decision proposed
 
@@ -496,6 +499,7 @@ site.resolve_region(
 site.to_search_domain(
     molecular_system=None, *, method, view=None, structure_index=None,
     chemical_state=None, expansion=None, padding=None,
+    assurance_scope="placed_geometry",
     context_policy="require_match",
 ) -> BoxRegion
 ```
@@ -519,6 +523,13 @@ Domain construction reads the supplied MolSys only when the view needs it. A
 sufficient saved box/sphere can be applied without a molecular lookup, under
 its recorded placement conditions. `padding=None` is suitable only when no
 padding is requested; enclosing projections require a length quantity.
+
+The proposed `assurance_scope` makes the guarantee requested by a consumer
+explicit, separately from the `context_policy` used for checks/trust. The first
+profile can support `placed_geometry` while refusing `current_finding` when its
+required profile/evidence is unavailable. The work plan's P0 closes the exact
+admitted public mechanism and diagnostics before implementation; this signature
+is a sketch, not a delivered operation or shared schema freeze.
 
 | Surface | Proposed behavior |
 | --- | --- |

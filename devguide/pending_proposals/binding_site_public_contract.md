@@ -1,5 +1,5 @@
 ---
-summary: Audit revision 2 against all three owner contributions and review concrete binding-site records and consumer handoffs before implementation.
+summary: Record the detailed BindingSite work plan after favorable owner reviews, with P0 agreements and independently qualified core/projection/receiving increments.
 issue: uibcdf/bindingmt#111
 status: active
 opened: 2026-11-11
@@ -12,7 +12,7 @@ blocked_by: []
 supersedes: []
 ---
 
-# Binding-site public contract: design before implementation
+# Binding-site public contract: reviewed design and implementation plan
 
 ## What
 
@@ -30,6 +30,13 @@ correction of gaps and an update of the existing #111 delivery comment before
 circulating the proposal. The [audit and worked handoffs](../binding_site_review.md)
 trace every request, three synthetic JSON specimens and the still-open executed
 receiving/owner decisions. The main proposal remains revision 2, audited edition.
+
+The three follow-up responses support the design and bounded B/C work. The
+maintainer authorized proceeding and then requested a detailed written plan
+before implementation. The [work plan](../binding_site_implementation_plan.md)
+records P0 decisions/requests, B1/B2 core, C1/C2 projections, T/H/P receiving,
+ownership, dependencies, exit criteria and execution discipline. This checkpoint
+records that plan; all runtime increments remain pending.
 
 ## How
 
@@ -68,6 +75,10 @@ region projections, BindingMT ownership of its TopoMT receiving profile and
 observable export/execution/enforcement facts. It adds acyclic S0→H→S1 native
 hypothesis association and public owner-IO sketches without a reverse dependency.
 
+The current public sketch also exposes the proposed `assurance_scope` separately
+from `context_policy`, as TopoMT requested. P0 settles the admitted mechanism and
+profile checks. This is a documented API decision proposal, not a new callable.
+
 ## Why
 
 SearchDomain currently requires center, volume and box approximation. It cannot
@@ -95,47 +106,47 @@ coordinate storage or stale reuse.
 
 ## Scope and exclusions
 
-This increment delivers documentation and owner-review material only, including
-three new synthetic documentation specimens and a manifest. Runtime code,
+This checkpoint delivers the written plan and synchronized development state.
+The preceding audit retains its three synthetic documentation specimens/manifest.
+Runtime code,
 scientific/installed-test helpers and fixtures/resources, synchronized guides,
 sibling worktrees, scientific evidence and installed environments remain unchanged.
 No model/engine/scientific execution or manual remote CI is commissioned.
-One small synthetic QuantityRecord is authored/read using the current shared
-codec; it is not a new molecular calculation or receiving implementation.
+The preceding audit authored/read one small synthetic QuantityRecord; its
+limited codec evidence remains separate from the still-pending implementation.
 Existing #28/#33/#49/#60 and central identity adoption retain their own scopes.
 
 ## Acceptance and next step
 
-Present the audited revision 2 and request-by-request disposition for affected
-owner review. The three favorable contributions are incorporated into the draft;
-revised meanings and concrete cases still need owner agreement. After disposition,
-agree the exercised shared meanings and register the
-central agreement/adoption route. Only then implement
-independently closable core/application/receiving increments and add meaningful
-guards for those actual operations. #111 remains open; this draft does not
-complete its implementation acceptance.
+Next execute P0: the finite MolSysMT/central coordination requests, explicit
+assurance decision and offered T/H/P inputs. Close the local data-only contract
+and advance B1/B2 while the operation-specific molecular guarantees are agreed.
+Implemented projections use those agreed guarantees; each receiving case has
+its own concrete acceptance. Register real guards as operations are delivered.
+#111 remains open; favorable reviews and this written plan do not complete its
+runtime implementation or establish component adoption.
 
 ## Documentation evidence and custody
 
 Applicable documentation gates are Ruff, formatting, generated report indexes,
 shared installed-resource declaration validation and the Conda publication
 contract, in the workspace and on a fresh committed export after final edits.
-Task-local inspection also checks the revised document's Python-sketch syntax,
+Task-local inspection also checks the design/review/plan documents' Python-sketch syntax,
 JSON-fragment/specimen syntax, specimen digests, the shared quantity handshake
 and relative file/anchor targets. These checks do not execute
 the proposed API, validate a released wire schema or audit every external URL.
 The #111 delivery retains the exact committed-source receipt and gate outcomes.
 No new BindingMT runtime, scientific or exact-head remote test pass is claimed.
 
-The preceding revision-2 workspace run passed all six selected documentation
-checks. This audited edition repeats the checks after final edits, including
-the new worked examples and shared quantity payload.
+The preceding audited revision passed its six selected documentation checks.
+This plan checkpoint repeats applicable checks after final edits, including
+the new plan's relative targets and unchanged worked examples/quantity payload.
 Final committed-export confirmation and the exact source identity are recorded
 in the #111 delivery; a documentation gate is not a receiving implementation.
 
-The audited edition's inspection, public review snapshots and check receipts
-are retained at `.molsyssuite/binding-site-audit-111-20261111/`, preserving the
-preceding `.molsyssuite/binding-site-design-v2-111-20261111/` evidence, under #50 for
+The plan's public-response snapshots and check receipts are retained at
+`.molsyssuite/binding-site-plan-111-20261111/`. Preserve the preceding audit/
+design task evidence under #50 for
 review on 2026-11-14. Temporary committed exports are owner-controlled and
 retired after checking. Human migration files, earlier evidence and sibling
 worktrees are preserved. The existing scientific full-suite resource hold is

@@ -44,6 +44,9 @@ The [contribution audit and receiving sketches](binding_site_review.md) make
 the proposed source/view/claim references, native consumer associations and
 effective-input boundaries concrete. Its synthetic JSON specimens are design
 material, not runtime schema/adapter qualification or new installed resources.
+The [implementation/work plan](binding_site_implementation_plan.md) records the
+authorized next increments and their admission/receiving dependencies. It is
+planning evidence; the source map below still contains no BindingSite runtime.
 
 ## Current source map
 
