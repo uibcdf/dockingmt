@@ -74,6 +74,16 @@ implementation roadmap. Local review remains in
 [TopoMT #197](https://github.com/uibcdf/topomt/issues/197); finite shared agreements
 belong in [MolSysSuite #195](https://github.com/uibcdf/molsyssuite/issues/195).
 
+During final fourth-revision readback, the later
+[TopoMT clarification](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6837860911)
+and [proposal revision 2 at `0400821`](https://github.com/uibcdf/topomt/blob/04008217e6a568213c05d037ebeb6d543ca24803/devguide/binding_interface_native_catalogue_plan.md)
+add independent regional physicochemistry under
+[TopoMT #198](https://github.com/uibcdf/topomt/issues/198). This fourth revision
+receives that clarification as well. Scientific question and actual support,
+rather than exclusive ownership of a chemical descriptor name, separate molecular,
+regional and association-specific characterization. Native contact/surface
+priority and the numerical independence from TopoMT remain unchanged.
+
 The maintainer commissions careful planning revisions here. Native profile/default
 admission, owner agreement, code, numerical receiving and consumer adoption remain
 separate pending work. This does not make every catalogue candidate a #112,
@@ -92,8 +102,9 @@ contact groups, source/local maps, checks, preconditions and refusal causes.
 Preserve the design's ownership and scientific distinctions:
 
 - BindingMT owns the binding question/characterization and its interpretation.
-  TopoMT keeps canonical topographic associations/realizations and provider
-  meanings; MolSysMT keeps molecular facts/maps/analyses; PharmacophoreMT keeps
+  TopoMT keeps canonical topographic associations/realizations, regional
+  physicochemical observations and provider meanings; MolSysMT keeps molecular
+  facts/maps/analyses and generic chemical tools; PharmacophoreMT keeps
   native feature, hypothesis and matching semantics.
 - Native calculation means BindingMT composes public MolSysMT operations for a
   binding question. It does not mean another contact/surface kernel, a native
@@ -441,10 +452,11 @@ do not acquire numerical equivalence by sharing a name.
 | `solvent_accessibility` | Atomic/aggregated SASA with explicit output and occluder populations, probe and radius model. | N2 using public MolSysMT SASA. |
 | `interface_burial` | Both participant SASA losses, total loss, optional mean-side convention and mapped contributions. | N2 after the owner composition/decomposition contract closes. |
 | `chemical_interactions` | Family-specific admitted chemical observations, retaining chemistry, effective state, recognition coverage and original occurrences. | Each selected MolSysMT family needs its own native receiving; distance alone admits no chemical classification. |
-| `physicochemical_partition` | Explicit chemical-class counts or area contributions over a named membership/measure. | Owner classifications plus BindingMT aggregation; admit class overlap/additivity and fraction denominators first. |
+| `physicochemical_partition` | Explicit chemical-class counts or area contributions over a named membership/measure. | Owner classifications plus BindingMT association-specific aggregation or qualified TopoMT regional observations; admit scope, overlap/additivity and denominators first. |
 | `buried_unsatisfied_polar_sites` | Buried recognition sites lacking an evaluated partner under a stated chemical/environment criterion. | Require qualified burial, complete recognition chemistry and evaluated partner coverage; unavailable analysis is not negative evidence. |
 | `interaction_network` | Residue/group edges and scoped connectivity descriptors derived from explicit observations. | Admit edge definitions, multiplicity and comparison policy; no automatic affinity prediction. |
 | `topographic_organization` | Supported patches, gaps, concavities, cavities, channels or accessibility related to the binding question. | Optional qualified TopoMT support/context/relations; existing #60/#61/#62 gates apply. |
+| `topographic_physicochemistry` | Spatial chemical character on an identified topographic support, including eligible region-facing contributions and chemical patches. | Independent TopoMT #198 capability; BindingMT receives qualified references when useful, while MolSysMT retains generic chemical tools. Not a native N1/N2 prerequisite. |
 | `geometric_complementarity` | An explicit fit/orientation/separation measure on admitted geometric supports. | Later TopoMT-supported surface model, numerical reference and comparison-eligibility profile. |
 | `pose_comparison` | Differences between compatible contact/surface/topographic observations. | Exact observable, correspondence, coverage and normalization; distinguish poses of one pair from different partners. |
 | `ensemble_statistics` | Per-structure observations and later contact/burial persistence summaries. | Sampling, structure correspondence and weighting qualification; frame frequency is not automatically a thermodynamic population. |
@@ -760,6 +772,39 @@ establishes no general scientific advantage. The methods bibliography begins wit
 original PISA/model comparison, [Krissinel and Henrick (2007)](https://doi.org/10.1016/j.jmb.2007.05.022).
 Each new admitted descriptor still needs its own primary-method/resource review;
 these citations do not qualify the complete future catalogue.
+
+#### Optional regional physicochemistry and association-specific use
+
+TopoMT can characterize the chemical character presented by its own pocket,
+wall, channel, protrusion or supported interface without a selected partner.
+MolSysMT supplies molecular chemistry/state/annotations and generic tools;
+TopoMT relates them to its actual support, distributions and chemical patches.
+BindingMT can reuse those qualified observations for a specified association,
+occupancy/burial/interaction question or directly compose MolSysMT without a
+topographic analysis. Neither layer exclusively owns every chemical aggregate.
+
+Regional receiving retains the actual support, mapped populations, effective
+state/classification model, radius/probe/environment, weighting, coverage and
+provenance. Atom-count, unique-group and area-weighted fractions remain distinct;
+whole-atom SASA is not a regional wall-facing area. A residue-scale approximation
+does not establish atom-specific polarity/recognition. Equal global fractions
+can hide different spatial layouts; retain distributions where they are claimed.
+Unqualified historical helper/renderer scores are not automatically admitted APIs.
+
+An unavailable chemical annotation can coexist with valid geometry, including
+synthetic DUM geometry without established chemical meaning. It is not zero
+polarity or a new primary feature class. Annotation-only changes preserve the
+existing geometric classification when its input dependencies are unchanged;
+atom/radius/probe/coordinate changes reassess the affected geometry/use.
+
+When this optional profile is selected, receive real public owner outputs and
+save/read with exact references, not copied mutable regional records. Its controls
+include mixed chemical atoms within one residue, equal fractions with different
+spatial layouts, correct support/denominators/coverage and persisted positive/
+empty/unknown results with honest historical checks/attribution. Keep authored
+mapping controls distinct from actual chemical receiving. TopoMT #198 owns its
+standalone implementation and guards; these later controls do not block N1/N2
+or require a new regional registry, reverse import or mandatory TopoMT dependency.
 
 
 ## 10. T0: explicit optional saved-PISA analysis intake

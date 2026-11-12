@@ -1,5 +1,5 @@
 ---
-summary: Deliver reviewed BindingInterface work-plan revision 4 after preserving revision 3 and auditing the complete native catalogue proposal, with finite admissions, staged calculations and retained receiving obligations.
+summary: Deliver reviewed BindingInterface work-plan revision 4 after preserving revision 3, auditing both catalogue editions and clarifying native calculation versus standalone regional physicochemistry and retained receiving obligations.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
@@ -41,7 +41,10 @@ Revision 3 records BindingMT's native catalogue and N0/N1/N2 work, with contacts
 as the first ordinary numerical milestone and SASA/burial next. That third revision
 is preserved at `66d8ba9`. The second complete reading produces maintained revision
 4 and the [coverage/review record](../binding_interface_plan_review.md), mapping
-all 15 proposal sections, 16 candidate entries and 17 independent controls.
+all 15 proposal sections, the original 16 candidate entries and 17 independent
+controls. Final readback then receives TopoMT's regional-physicochemistry
+clarification and catalogue edition 2 at `0400821`, adding a seventeenth entry
+within revision 4; TopoMT #198 owns that standalone capability.
 
 The working result `BindingInterface` composes a binding question, participants/
 grouping, contexts, available owner observations, site/footprint relationships,
@@ -122,6 +125,14 @@ and produced ordinary/expert acceptance workflows. It also restores exact existi
 provider/resource/synthetic issue destinations and corrects #190's historical
 identity role versus #195's new scientific coordination. The information model
 stays scientific-design revision 2; none of these requirements is a runtime pass.
+
+The late clarification adds R9's complementary regional/association-specific
+chemical scopes and qualified regional receiving. MolSysMT keeps generic chemical
+tools; TopoMT describes chemistry on its actual supports independently of a partner;
+BindingMT characterizes a specified association and may reuse those results or
+work directly from molecular tools. No exclusive chemical-descriptor ownership or
+new mandatory TopoMT dependency is introduced. The initial fourth-revision source
+at `065523d` remains preserved before this clarification's final receiving.
 
 Initial preservation and the selected correspondence profile can be qualified
 independently of unqualified `current_finding`, later chemistry or neutral native

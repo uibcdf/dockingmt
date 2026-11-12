@@ -84,7 +84,9 @@ universal framework or rewrite numerical engines without a measured need.
 
 - MolSysMT owns molecular representations, chemistry, preparation, selections,
   transformations, formats, maps and general interaction analysis.
-- TopoMT owns topography; specialized suite components retain pharmacophore,
+- TopoMT owns topography and physicochemical observations on its own supported
+  spatial regions; BindingMT consumes them for association-specific questions
+  or directly composes MolSysMT. Specialized suite components retain pharmacophore,
   elastic-network, visualization and numerical responsibilities.
 - BindingMT owns binding-domain scientific operations and provider adaptation,
   composing public tools and reporting missing owner capabilities.

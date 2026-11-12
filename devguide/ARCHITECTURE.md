@@ -78,6 +78,10 @@ MolSysMT tools. BindingMT owns its domain catalogue and composed results; TopoMT
 enrichment and PISA receiving remain optional branches. The
 [two-pass plan review](binding_interface_plan_review.md) records complete source
 coverage and the fourth-revision corrections. No runtime is delivered.
+The later TopoMT #198 clarification adds optional regional physicochemistry on
+TopoMT's own supports, independent of a binding partner. BindingMT retains its
+association-specific questions and can reuse those observations or directly
+compose MolSysMT; chemical descriptor names do not assign exclusive ownership.
 
 ## Current source map
 

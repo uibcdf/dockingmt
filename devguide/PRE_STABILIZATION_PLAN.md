@@ -30,8 +30,11 @@ Inspected starting source: `530a4cf`.
 [fourth implementation-plan revision](binding_interface_implementation_plan.md),
 prepared after preserving revision 3 at `66d8ba9` and rereading the complete
 TopoMT `a13b9b2` proposal. The [review record](binding_interface_plan_review.md)
-maps all 15 source sections, 16 catalogue entries and 17 independent controls,
-with the gaps and fourth-revision corrections recorded separately.
+maps all 15 source sections, 17 catalogue entries and 17 independent controls,
+with the gaps and fourth-revision corrections recorded separately. It also receives
+TopoMT's later `0400821` regional-physicochemistry clarification: TopoMT #198
+owns chemistry on its own supports; BindingMT keeps association-specific analysis
+and optional qualified reuse, without a mandatory topographic calculation.
 
 Ordinary numerical priority is the useful data/context slice, native contacts
 and both participant footprints, then SASA/burial. Explicit calculation and

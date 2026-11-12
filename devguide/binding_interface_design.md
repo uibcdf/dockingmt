@@ -109,7 +109,7 @@ process, states, conditions and method, not intrinsically to a geometric patch.
 | Concern | Authority |
 | --- | --- |
 | Binding question, characterization, interpretation and links to sites/applications | BindingMT |
-| Topographic associations/realizations, support, classification and evaluations | TopoMT |
+| Topographic associations/realizations, support, regional physicochemical observations, classification and evaluations | TopoMT |
 | Molecular representation, chemistry, selections, correspondence, contacts and surface observables | MolSysMT |
 | Pharmacophoric construction, hypotheses and matching | PharmacophoreMT |
 | Permitted information, comparison, aggregation and scientific selection policy | Consuming researcher/component |
@@ -124,6 +124,15 @@ A BindingMT question can precede any topographic analysis. Its declared relation
 does not register or promote a TopoMT association. Linking later owner evidence
 creates an explicit association with that evidence, preserving authority and
 identity. Shared interpretation is agreed before freezing that boundary.
+
+TopoMT's regional physicochemistry can describe its own pocket/wall/channel or
+supported interface without selecting a binding partner. MolSysMT keeps generic
+chemistry/annotations; BindingMT interprets qualified regional observations for a
+specified association or directly composes molecular tools. Descriptor names do
+not create exclusive ownership across these different questions/supports. The
+work plan receives [TopoMT's clarification](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6837860911)
+and tracks optional regional receiving under TopoMT #198 separately from native
+contact/surface qualification and the unchanged information model.
 
 No shared package, molecular snapshot engine, generic graph service or universal
 execution/provenance framework is proposed.
