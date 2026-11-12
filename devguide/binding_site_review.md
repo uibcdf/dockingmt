@@ -16,8 +16,10 @@ gaps while preserving the useful small core and the maintainer's ensemble scope.
 The subsequent TopoMT, PeptideMT and PharmacophoreMT responses each consider
 their original requests addressed at design level and recommend bounded B/C
 increments. The [implementation/work plan](binding_site_implementation_plan.md)
-records their remaining agreements and offered inputs. No receiving pass is
-inferred from those positive reviews.
+records their remaining agreements and offered inputs. Its reviewed sequence
+assigns the local core, selection/foreign adapters, actual application checks
+and first consumer cases explicit work and milestones. No receiving pass is
+inferred from those positive reviews or this planning refinement.
 
 ## 1. Request-by-request disposition
 

@@ -1,7 +1,8 @@
 # BindingSite implementation and work plan
 
 Owner: [BindingMT #111](https://github.com/uibcdf/bindingmt/issues/111).
-Recorded: 2026-11-11. Status: **maintainer-requested work plan; implementation pending**.
+Recorded: 2026-11-11. Work-plan revision **2, reviewed**.
+Status: **maintainer-requested work plan; implementation pending**.
 This plan turns the [audited design](binding_site_design.md) and its
 [worked handoffs](binding_site_review.md) into independently reviewable increments.
 It records work order and acceptance, not a release schedule or an implemented API.
@@ -12,9 +13,27 @@ Existing development authorization remains in force; the plan adds no recurring
 permission round. Cross-owner agreements are required for the particular shared
 meanings exercised, rather than approval from every possible future consumer.
 
+This review refines the [initial work plan](https://github.com/uibcdf/bindingmt/blob/5694f55c98056cf017924fed4349f1006c686b1c/devguide/binding_site_implementation_plan.md).
+It is a work-plan revision, not a package or wire-schema version change. The
+architecture and owner boundaries remain appropriate; the corrections make the
+implementation order and completion conditions more precise:
+
+- Separate local contract decisions, molecular agreements, shared coordination
+  and each consumer's inputs; they are not one all-or-nothing prerequisite.
+- Decide identity/version invariants before the first constructors, then obtain
+  emitted-record/replay evidence after implementation, avoiding a circular gate.
+- Give `from_selection` and the optional TopoMT import adapter explicit work.
+- Separate offline geometric derivation from placement on the actual molecular
+  problem; require checks at the boundary where the input is used.
+- Add structural-scope, repeated-structure and dependency-change controls, plus
+  explicit milestones and a shared closeout that does not certify untested owners.
+
 ## 1. Starting point and useful outcomes
 
-The reviewed source is BindingMT `c299cd5cfacd737f785d65814da026f63bdbb777`.
+The design reviewed by the owners is BindingMT
+`c299cd5cfacd737f785d65814da026f63bdbb777`. This work-plan review starts from
+`5694f55c98056cf017924fed4349f1006c686b1c`; inspection of its existing
+DockingProblem normalization grounds the input/lifetime controls below.
 The follow-up responses are favorable at design level:
 
 - [TopoMT](https://github.com/uibcdf/bindingmt/issues/111#issuecomment-6814170065)
@@ -86,8 +105,8 @@ implicit meanings of an array of realizations.
 | --- | --- | --- |
 | D1: requested assurance | Expose a public `assurance_scope`, initially `placed_geometry`; keep `context_policy` separate. A requested `current_finding` guarantee needs its own qualified evidence or an explicit refusal. | BindingMT API decision, reviewed with TopoMT and affected consumers. |
 | D2: minimal molecular checks | Name the public MolSysMT facts, checks and caller preconditions required by each operation. A matching ID/count or map-range check does not authenticate a source. | Focused MolSysMT agreement; no universal receipt/observer prerequisite. |
-| D3: identity and revision | Exact record/definition/view references; derived declarations retain parents. Revising a claim creates an explicit interpretation, preserving old observation associations. | BindingMT record invariants and consumer replay controls. |
-| D4: first portable profile | Close the actual data-only envelope, quantity fields and admission/compatibility rules before promising its version. Proposed `@1` names are not already frozen formats. | Concrete emitted records, applicable cross-owner review and MolSysSuite shared disposition. |
+| D3: identity and revision | Decide exact record/definition/view references and revision/parent semantics before B1. Revising a claim creates an explicit interpretation, preserving old observation associations. | Local semantic decision first; actual emitted-record and replay controls in B1/B2. |
+| D4: first portable profile | Decide the minimal envelope, quantity fields, compatibility and experimental/frozen status before B1/B2. Proposed `@1` names are not already frozen formats. | Candidate examples support the decision; implemented emission/replay supplies later evidence. Agree exercised shared meanings before freezing that boundary. |
 | D5: initial projections | Admit specified molecular membership views and selected elementary geometry operations. Geometric-to-molecular selection requires its own membership rule. | BindingMT/MolSysMT profile; PharmacophoreMT owns recognition selection. |
 | D6: source/structure/state scope | Keep original and target-local axes and associations explicit. State-dependent membership cannot be reinterpreted by overriding a selector. | MolSysMT facts and nonidentity-map tests. |
 | D7: observed information use | Distinguish requested, resolved and exported/submitted data from observed execution and qualified enforcement. | BindingMT export seam and PeptideMT case P specification. |
@@ -112,39 +131,73 @@ not silently become a weaker one or launch an original detector automatically.
 
 ```mermaid
 flowchart TD
-    P0[P0: profile decisions and owner coordination] --> C1[C1: molecular resolution]
-    B1[B1: declarations and inspection] --> B2[B2: identity and persistence]
+    P0a[P0a: local contract decisions] --> B1[B1: declarations and inspection]
+    P0a --> B2[B2: identity and persistence]
+    P0m[P0m: minimal molecular agreement] --> C1[C1: molecular resolution]
+    B1 --> B2
     B2 --> C1
-    C1 --> C2[C2: explicit domain application]
-    C2 --> T[T: saved TopoMT receiving]
-    C1 --> H[H: native pharmacophore receiving]
-    C1 --> P[P: effective information inputs]
-    T --> A[A: shared receiving closeout]
+    B2 --> C2[C2: geometric derivation and domain application]
+    C1 -->|molecular inputs and placement| C2
+    B2 --> T0[T0: optional TopoMT import adapter]
+    IT[TopoMT record and profile agreement] --> T0
+    T0 --> T1[T1: saved TopoMT receiving]
+    C2 --> T1
+    IH[PharmacophoreMT source and policy] --> H[H: native pharmacophore receiving]
+    C1 --> H
+    IP[PeptideMT information policy] --> P[P: effective information inputs]
+    C1 --> P
+    T1 --> A[A: agreed first-profile closeout]
     H --> A
     P --> A
 ```
 
-B1/B2 can advance while P0 owner details are resolved, once their local data-only
-contract is closed. C1/C2 must use agreed guarantees for the operations they
-exercise. T/H/P need not finish together; one consumer's availability is not a
-prerequisite for every useful core operation.
+P0 is a coordination umbrella, not a single barrier. B1/B2 need the local data
+contract P0a; they do not wait for T/H/P assets or a universal MolSysMT receipt.
+C1 needs P0m for its actual operations. Offline geometry work in C2 can start
+after B2 and the assurance decision; molecular placement still needs its own
+qualified facts and the corresponding C1 work. T0 needs its exercised TopoMT
+profile, not PharmacophoreMT or PeptideMT readiness.
+
+Shared coordination P0s runs across these tracks. It records the agreements
+before their shared boundaries are frozen; it does not impose whole-suite
+adoption before a local implementation checkpoint. T1/H/P need not finish
+together. The arrows describe required input for a complete increment, not
+permission to publish partial enforcement or a callable stub.
 
 | Increment | Status at this checkpoint | Completion condition |
 | --- | --- | --- |
-| P0 | Next: requests/agreements not yet delivered | D1–D8 have explicit dispositions for the first operation; owner inputs and remaining limits are tracked. |
-| B1 | Pending | Useful public declarations/inspection with meaningful focused tests. |
+| P0a | Next: local decisions to close | Minimal public operations, identity/version rules, source/structural scope, quantity fields and failure semantics are explicit before B1/B2; later execution evidence is not a precondition for writing the first implementation. |
+| P0m | Pending request/agreement | D2/D5/D6 identify actual public molecular facts, checks and preconditions for each admitted operation. |
+| P0s | Pending central coordination | Shared agreements/adoption records are linked; stabilization is limited to the meanings exercised, with remaining owners explicit. |
+| P0t/h/p | Inputs offered, not yet received | Each consumer supplies its relevant source/policy/expected observations; a missing H/P input does not block C1 or T0. |
+| B1 | Pending P0a | Useful public declarations/inspection with meaningful focused tests. |
 | B2 | Pending | Immutable revision and faithful, safe, versioned persistence. |
 | C1 | Pending molecular agreement | A qualified direct region projection on a chosen MolSys structure. |
-| C2 | Pending C1/profile decisions | Existing BoxRegion integration with scoped assurance and normal record propagation. |
-| T | Provider input selection pending | One complete public saved-provider workflow and its refusal controls. |
+| C2 | Pending B2/assurance contract; molecular use also needs C1 | Offline geometry and actual problem placement retain distinct checks; normal record propagation and admission are qualified before the public application is received. |
+| T0 | Pending B2/TopoMT profile and input | A real optional public import adapter preserves the received record without rerunning or reinterpreting it. |
+| T1 | Pending T0/C2/owner input | One complete public saved-provider workflow and its refusal controls. |
 | H | Offered source/policy pending | One bounded native hypothesis and association workflow with owner controls. |
 | P | Offered consumer specification pending | Supplied/absent effective-input controls with declared information origins. |
-| A | Pending implemented evidence | Exact shared disposition and independently recorded consumer adoption. |
+| A | Pending agreed first-profile evidence | Close the declared initial scope with exact shared disposition; record each consumer's implemented/received/adopted state separately. |
 
 ## 5. P0: coordinate the finite contract and inputs
 
 BindingMT owns the handoff and follows up on its consumer evidence. The provider
 owns its public API, scientific semantics and acceptance.
+
+P0a records the smallest local contract in the design/owning issue: proposed
+signatures and return meanings, required versus optional fields, identity and
+revision rules, unit/shape conventions, structural scopes, unknown/empty states
+and schema compatibility. Candidate records are adequate design inputs here;
+API-emitted records are the subsequent B1/B2 acceptance evidence. Do not make
+the first constructor depend on tests that can exist only after that constructor.
+Close the local decisions needed for the first data slice, especially D3/D4.
+Application-specific assurance details and foreign receiving terms can remain
+explicitly pending until their own entry condition; they are not extra B1 gates.
+
+P0m/P0s and input requests P0t/h/p proceed for their respective boundaries.
+An owner-specific change needs that owner's disposition before its profile is
+claimed as agreed; an unanswered consumer example does not freeze unrelated work.
 
 ### P0.1 MolSysMT agreement
 
@@ -181,6 +234,13 @@ structure 0. Keep related MolSysMT #624 in its own broader scope.
 Record offered, received, admitted and qualified as different states. Do not
 substitute arbitrary scientific choices for an owner's promised input.
 
+Each input handoff identifies the source/producer versions, artifact names and
+hashes, source/index/structure/state/frame associations, intended public route,
+limits and independent expected observations. Availability or a label alone is
+not admission. If an input is delayed, advance ready local increments and record
+the missing owner item; do not guess its scientific policy, weaken assurance,
+silently fork the provider or poll indefinitely.
+
 ### P0.3 Central coordination
 
 Search MolSysSuite for an existing binding-site agreement issue; open or update
@@ -203,8 +263,9 @@ Deliver a public BindingSite entry point with a small actual implementation:
   Manual hypotheses carry unknown support when no evidence is supplied.
 - Elementary sphere/axis-aligned box declarations with explicit units and frame.
   Rich supports can remain owner references with honest unavailable operations.
-- Public definition/evidence fields and immutable operations; ordinary users do
-  not assemble the whole record. Properties and inspection return detached data.
+- Public definition/evidence construction and immutable ownership; ordinary
+  users do not assemble the whole record. Revision operations land in B2 using
+  the identity semantics already decided in P0a. Properties return detached data.
 - Definition/evidence/application scopes and structure-independent versus
   explicit-structure scope remain distinct. Inspection reports prerequisites
   without computing geometry, fetching artifacts or executing optional engines.
@@ -218,6 +279,12 @@ is consumed; source availability alone is not public package compatibility.
 Expected code areas are `bindingmt/core/`, public exports, owned argument
 contracts/diagnostics and focused tests. The exact module split is an
 implementation choice; the plan is not a mandate for one class per view.
+
+Start with one complete declaration/inspection slice, then complete its B2
+round trip before expanding every convenience factory. Owner-backed
+`from_selection`/resolution belongs to C1; B1 does not fake a molecular adapter
+with a caller label or borrowed mutable handle. Publish documentation only for
+the callable surface actually delivered, with later operations clearly pending.
 
 **Exit:** a researcher can construct, inspect and understand a useful declaration
 through the public API. Independent tests cover unresolved annotations, empty
@@ -252,6 +319,15 @@ persistence and native-system custody remain explicit. Future incompatible wire
 changes require a version/admission decision; do not silently reinterpret an
 already admitted format identifier.
 
+Explicitly admit the initial structural-scope profile: independent definitions,
+selected structure references and their source/occurrence maps. Scope of a
+definition, scope of evidence and scope of an application are separate. Exercise
+round trips with original positions `[2, 0, 2]`; repeated delivery is not extra
+evidence. Where realization/ensemble payloads are not yet supported, preserve
+permitted owner references or refuse required semantics rather than claiming
+full ensemble support because a field exists. No dynamic detector is needed
+for these data-level controls.
+
 **Exit:** real API-emitted records survive save/read and immutable revision;
 malformed/tampered/unsupported records fail honestly; no user or owner artifact
 is overwritten or silently upgraded. The illustrative review JSON is not used
@@ -262,6 +338,19 @@ as proof that the implementation emitted those records.
 Implement the agreed `resolve_region` profile against public MolSysMT operations.
 The ordinary input is a native MolSys; read only the explicitly relevant
 structure/state data, without copying its trajectory into each declaration.
+
+Assign the public entry routes explicitly. `from_selection` delegates the
+declared syntax/element/state/structure request and retains resolved membership;
+`resolve` derives a new declaration when addressing/context changes;
+`resolve_region` exports the admitted consumer projection. Final spellings stay
+with the accepted API contract; do not leave these routes implied between B1
+and receiving or ship parallel aliases without a distinct user need.
+
+Admit and document the actual selection subset. An inventory selection can be
+coordinate-independent; a spatial/state-dependent selection needs the relevant
+explicit context. Do not implement a competing MolSysMT parser, silently combine
+trajectory selections into one membership or select a default structure from
+a multi-structure input. Tests cover these distinctions through owner operations.
 
 The detached projection records the exact site/definition/view reference,
 original/current axes and maps, requested/resolved/exported entries, effective
@@ -288,6 +377,14 @@ not copied into a successful report as authored assertions.
 Implement the accepted public assurance request and first placed-geometry
 profile. Return existing BoxRegion, preserving its current behavior.
 
+Treat two boundaries separately. First derive geometry from a self-contained
+box/sphere or other admitted payload; that work can start after B2 without a
+molecular map. Then establish its placement/applicability for an actual problem.
+A record's declared coordinate frame is not evidence that a target shares it.
+The public domain application is received only when its required problem/export
+admission and recipe propagation work; offline geometric success cannot bypass
+those checks or discard provenance by returning an unqualified plain box.
+
 - Select one eligible view explicitly when choices differ. Apply declared
   method, structure, expansion and length-valued padding; preserve effective
   choices, exclusions and approximation losses.
@@ -302,6 +399,20 @@ profile. Return existing BoxRegion, preserving its current behavior.
   original declaration/view/context, request, output and limitations through
   normal problem/result records. Existing strict box recipes stay unchanged.
 
+Check against the molecular input actually used by the problem/export, retaining
+its normalization maps. Existing DockingProblem normalization extracts one
+selected structure; source structure 2 can therefore be local problem structure
+0. Compare that declared relationship rather than numeric index equality.
+The existing file/text fingerprint helper is not a native-MolSys mutation
+receipt; do not assume it supplies the new guarantees.
+
+State the check/use lifetime. Reuse/transfer checks and the final export boundary
+must cover the facts required by the selected scope. If those facts change
+between projection and use, reassess or refuse before backend work. A qualified
+captured input and an unchanged-live-input precondition have different scopes;
+record which is used. Do not add a generic mutation observer or promise atomic
+behavior under concurrent source edits. Historical declarations remain readable.
+
 **Exit:** ordinary problem/result round trips preserve the derivation; the
 problem's chosen molecular structure agrees with the application. Historical
 geometry stays readable when a detector-input change outside lining invalidates
@@ -309,7 +420,29 @@ the stronger applicability claim. No automatic detector rerun occurs.
 
 ## 10. T: one complete saved TopoMT receiving workflow
 
-Choose the owner-admitted record from P0 and pin source/input identities:
+T has two explicit deliverables. **T0 implements the optional public import
+adapter** (proposed `BindingSite.from_topomt`); **T1 qualifies the complete saved
+workflow**. T1 cannot assume an adapter exists merely because C1/C2 are complete.
+
+T0 consumes current public ProviderRecord/ProviderRun output and preserves native
+run/finding IDs, source context, index/role meaning, geometry availability,
+attributed measurements and original bibliography. It creates a binding-domain
+declaration with appropriately unknown support, not another execution of the
+topographic method. Original fields with unqualified conventions stay opaque;
+use the owner's attributed measurements for interpreted quantities.
+
+Use the existing DepDigest guard and lazy import only on the selected TopoMT
+adapter route. Reading a saved BindingSite or inspecting an owner reference
+needs no TopoMT or original engine. Unsupported
+geometry/map operations remain explicit; the first adapter is not a plugin
+framework, new topographic engine or mandatory reverse dependency.
+
+**T0 exit:** an admitted public record is imported, inspected and saved/read
+without owner-output mutation or new engine credit; center-only/unavailable-map
+and unsupported-required cases retain correct meaning. T0 can proceed after B2
+and its TopoMT profile agreement while unrelated H/P inputs are pending.
+
+For T1, choose the owner-admitted record and pin source/input identities:
 
 `saved output → public TopoMT recovery → BindingMT import/inspection → save/read → domain projection → problem/result persistence`
 
@@ -323,7 +456,7 @@ Preserve original run/finding IDs, index spaces, roles, producer versions,
 measurement definitions/units, bibliography and support availability. The new
 projection retains its own provenance, with no new original-engine credit.
 
-**Exit:** one positive complete public route plus incompatible-context,
+**T1 exit:** one positive complete public route plus incompatible-context,
 unavailable-map versus evaluated-empty, center-only and stronger-assurance
 refusal controls. Replaying requires no original scientific engine. Success
 qualifies this profile, not every provider or native DFND.
@@ -343,6 +476,11 @@ Use native capture/projection and native JSON readers/writers. The current first
 capture profile admits at most 256 **total source atoms**, 64 features and 2 MiB
 of sealed observation. Selecting fewer atoms does not bypass it. Mapped extraction
 or larger-source persistence needs its own owner qualification.
+
+Reading the BindingSite association can preserve a native-H reference without
+PharmacophoreMT. Decoding that artifact uses its admitted owner reader; an absent
+reader or artifact leaves a reference-only record, not a recovered hypothesis.
+Neither route launches recognition or fetches missing assets automatically.
 
 Save S0 and native H, then a new S1 association referencing their exact artifacts,
 view/projection, recognition policy, coverage, producer and original attribution.
@@ -390,17 +528,52 @@ certification or a choice of target-specific region/scientific parameters.
 | --- | --- | --- |
 | Annotation without geometry | Addresses/roles/unknowns survive; geometry operations explain missing prerequisites. | B1/B2 |
 | Immutability and meaning | Source data and old observation associations remain unchanged after derivation/reinterpretation. | B1/B2 |
+| Structural scope and coverage | Definition/evidence/application scopes remain distinct; `[2, 0, 2]` retains occurrence maps without duplicate evidence; admitted observed/evaluated-empty/unevaluated records stay distinct. Unsupported richer series remain explicit. | B1/B2/C1 |
 | Quantity integrity | Equivalent physical values under ordinary and pm/fs policies; finite shape/dimension/bool/extent admission; wrong field/unit records refuse. | B1/B2/C |
+| Frames and transforms | An admitted owner-backed rigid transform preserves membership associations and transforms eligible geometry consistently; absent frame proof or unsupported orientation refuses without dropping axes. | C1/C2 |
 | Persistence failures | Existing good file is preserved; invalid/unknown required formats refuse; optional owner data survive without execution. | B2 |
 | Molecular correspondence | Original numbering/insertion, nonidentity atom/group/structure maps, removed/generated entries and partial scope are independently checked. | C1 |
 | Chemistry scope | Effective target state is forwarded; missing or contradictory associations refuse; coordinates alone prove no chemistry. | C1/H |
+| Selection semantics | Native inventory selection is distinguished from structural/spatial selection; multiple structures need an explicit admitted policy, not an accidental union/default. | C1 |
 | Domain propagation | Original site/view/request/output/limitations remain in ordinary problem/result records alongside unchanged old recipes. | C2/T |
+| Offline geometry versus placement | A valid saved box/sphere can supply geometric work without a molecular map; acceptance on a current problem still requires its placement facts and recipe checks. | B2/C2 |
 | Assurance request | Stronger guarantee is not weakened; changed detector input outside lining does not certify a current finding. | C2/T |
-| Provider quantities/support | Equal lining or labels do not equate supports; original measurements and center-only limits survive. | T |
+| Check/use input and local axes | Validate the actual selected/exported input, including source structure 2 → local problem structure 0; a relevant edit between projection and use is reassessed/refused under the declared lifetime. | C2 |
+| Dependency-specific changes | Coordinate edits do not erase topology-only annotation history; affected geometric/chemical/finding applications are reassessed, while unrelated saved evidence remains unchanged. No external observer is presumed. | B2/C1/C2/H |
+| Provider quantities/support | The explicit T0 adapter preserves native meanings; equal lining or labels do not equate supports; center-only and unavailable-map limits survive. | T0/T1 |
 | Native pharmacophore meaning | Regional, recognition and retained populations differ explicitly; zero-weight essential and exclusion veto remain native. | H |
 | Saved association | S0/H/S1 references replay without recognition or cycles; unavailable H is reference-only; unrelated S2 does not retarget it. | H |
 | Effective information inputs | Supplied and independent absent requests obey the consumer's origin policy at the final export boundary. | P |
-| Fresh reader | Required core installation only; no original optional engines/models/GPU/network or automatic artifact fetch. | B2/T/H |
+| Fresh reader | Core record reading uses declared core dependencies; foreign-artifact decoding uses its declared owner reader or remains reference-only. No original optional engines/models/GPU/network or automatic artifact fetch. | B2/T/H |
+
+The matrix is an assertion map, not permission to implement every future
+variant. Test the first admitted profiles and explicit refusal/preservation at
+their boundaries. For example, a box with unsupported orientation must not lose
+its axes and become an axis-aligned box silently. Geometry on two admitted
+structures may differ while the source membership definition remains the same.
+Data-level coverage controls need no new dynamic detection campaign.
+
+### 13.1 Useful milestones and A closeout
+
+| Milestone | Required evidence | What can remain pending |
+| --- | --- | --- |
+| M1: data core | P0a and B1/B2: real public declarations, inspection, immutable revision and portable round trips with focused tests. | Molecular operations, foreign adapters and consumer adoption; unsupported operations are documented. |
+| M2: first molecular application | P0m plus C1/C2 for the admitted MolSys/view/assurance profile, including normal problem/result propagation and refusal controls. | Other molecular profiles, rich geometry, T1/H/P receiving and later engines. |
+| M3: agreed initial receiving | T0/T1, H and P meet the declared first-profile controls with exact owner inputs and source identities. | Every other provider, native DFND, dynamic methods, broad receptor capture and whole-suite adoption. |
+
+A records shared acceptance for the exercised boundary, the M1–M3 evidence and
+each consumer's actual implementation/receiving/adoption state. A consumer's
+adoption may remain a named owning follow-up; our successful test or its stated
+intent cannot be recorded as completed adoption. No milestone is a tag, package
+release or general scientific qualification.
+
+Close #111 only when its accepted implementation/receiving and handoff scope is
+evidenced. If an agreed initial case remains unavailable, keep that work pending
+or obtain an explicit maintainer scope decision with an owning follow-up and
+revisit condition. Do not silently remove it to declare completion. M1/M2 can
+still be useful delivered checkpoints while that case is pending.
+
+### 13.2 Evidence and focused validation
 
 For every implemented increment retain exact BindingMT/provider sources,
 relevant native identity, input/output artifact hashes, actual commands/selection,
@@ -418,12 +591,27 @@ also need their focused `pytest --receptor=llm` selection, with complete selecte
 results. Documentation, syntax checks and synthetic specimens do not qualify
 new runtime behavior. Broaden testing when changes or failures justify it.
 
+Each increment's completion record names the delivered callable/profile,
+actual test selection and outcomes, exact source/artifact identities, owning
+agreement/receiving links, unsupported scope and next action. Syntax/collection
+success alone is not executed acceptance. Distinguish the new feature controls,
+focused old-API regression checks and the separately owned full-suite backlog.
+
 ## 14. Execution, checkpoint and publication discipline
 
 Routine development uses the declared Python 3.14 Conda environment; metadata
 and release support retain Python 3.11–3.14. Verify the selected interpreter,
 dependency health and actual editable origins before runtime qualification.
 Do not replace sibling source/native state merely to simplify a test.
+
+For new shipped modules/exports, include the focused import/resource and
+dependency-closure checks appropriate to the actual installation route. A
+source pytest pass alone does not establish installed payload availability or
+another interpreter/platform. Keep test helpers in unshipped `bmt_test_support`;
+when an installed selection consumes changed helper/data inputs, update their
+exact `devtools/conda-build/resources.toml` declaration. Freeze live guides used
+as test fixtures at immutable paths; keep historical producer/input identities.
+These obligations do not require a new package build for every source edit.
 
 Keep local qualification serial, on one allowed logical CPU at low priority,
 with native/build workers limited to one. Check RAM/CPU/swap/pressure/scheduler
@@ -459,13 +647,20 @@ calculation is commissioned by this implementation plan.
 
 ## 16. Next actionable checkpoint
 
-Start P0 with the explicit assurance proposal and a finite MolSysMT review
-request. Register the shared coordination topic and ask for the offered T/H/P
-inputs through their owning issue routes. Close the local B1/B2 data contract
-and begin those useful operations while the molecular/consumer details are
-being agreed. Do not mark C/T/H/P complete from authored examples or owner intent.
+Start P0a by recording the minimal B1/B2 signatures, fields, identity/revision,
+structural-scope and version/admission decisions in the design/owning issue.
+Use the candidate examples to make those decisions; emitted-record qualification
+follows implementation. Then complete the first B1/B2 declaration/replay slice.
 
-The plan itself is the delivered checkpoint here. Its next update should name
-the actual coordination issues/owner responses or the first implemented/tested
-increment, preserving this starting disposition rather than reconstructing it
-from conversation history.
+Deliver the finite P0m MolSysMT request, register P0s shared coordination and ask
+for the offered T/H/P inputs through their owner routes without waiting for B1/B2
+to finish. Each operation proceeds when its own facts/profile are ready; no
+unrelated missing consumer asset becomes a global barrier. T0 must be implemented
+explicitly before claiming T1. Do not mark C/T/H/P complete from authored examples
+or owner intent.
+
+The reviewed plan is the delivered checkpoint here. The next development
+checkpoint should identify the local contract decisions, actual coordination
+issues/owner responses or first implemented/tested slice. Further requested
+planning refinements remain planning evidence. Preserve these dispositions so a
+new contributor can resume without reconstructing conversation history.

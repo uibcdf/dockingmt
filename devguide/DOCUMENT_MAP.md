@@ -10,7 +10,7 @@ making a bounded contribution.
 
 | Document | Primary question |
 | --- | --- |
-| [binding_site_implementation_plan.md](binding_site_implementation_plan.md) | What is the detailed #111 work order, who owns each agreement/input, what does each increment deliver, and which checks establish its completion? |
+| [binding_site_implementation_plan.md](binding_site_implementation_plan.md) | What is the reviewed #111 work order, which local decisions and owner inputs does each operation need, and what evidence closes the data-core, application and receiving milestones? |
 | [binding_site_design.md](binding_site_design.md) | Which revision-2 definition/structural-realization/ensemble model, public API, record/projection semantics and cross-component decisions are proposed before #111 implementation? |
 | [binding_site_review.md](binding_site_review.md) | How does the audited second draft address every PeptideMT, PharmacophoreMT and TopoMT contribution, which concrete specimens/workflows can be reviewed, and what remains unqualified? |
 | [archive/rename_bindingmt.md](archive/rename_bindingmt.md) | Which canonical identity/domain is received, what was tested, and which owners receive the remaining central adoption? |

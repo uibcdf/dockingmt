@@ -30,7 +30,7 @@ Read [development/onboarding](DEVELOPMENT.md) for setup and code navigation.
 [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) owns the full product
 requirements; this file explains how to resume without recovering chat history.
 
-### BindingSite work plan recorded — 2026-11-11
+### BindingSite work plan reviewed — 2026-11-11
 
 [#111](pending_proposals/binding_site_public_contract.md) now has a
 [second design draft](binding_site_design.md), incorporating PeptideMT,
@@ -55,14 +55,18 @@ shared quantity payload is authored/read through an existing provider codec.
 
 All three follow-up reviews are favorable at design level. The maintainer
 authorized proceeding and requested a [detailed work plan](binding_site_implementation_plan.md)
-before implementation. It records P0 owner/profile decisions, B1/B2 data core,
-C1/C2 projections, T/H/P receiving, acceptance controls and resource/checkpoint
-discipline. This checkpoint implements no new runtime API.
+before implementation. Its reviewed second version separates local decisions
+from operation-specific agreements and consumer inputs. It gives selection
+resolution and the TopoMT import adapter explicit work, distinguishes offline
+geometry from placement on the actual problem, and adds structural-scope and
+check/use controls. M1/M2/M3 identify useful core, application and receiving
+milestones. This checkpoint implements no new runtime API.
 
-Next deliver the finite MolSysMT/central coordination requests and obtain the
-offered consumer inputs. Close the local data-only contract and start B1/B2
-while operation-specific molecular guarantees are agreed. Shared acceptance,
-implemented receiving and each owner's adoption remain separate outcomes.
+Next close P0a's minimal local contract and deliver the first B1/B2 declaration/
+replay slice. Coordinate P0m/P0s and the offered T/H/P inputs for their respective
+operations while that core advances. Shared acceptance, implemented receiving
+and each owner's adoption remain separate outcomes; missing first-profile cases
+stay pending unless the maintainer explicitly changes their scope.
 Documentation gates and a fresh committed-source export are the applicable
 verification; no runtime, scientific or exact-head remote pass is claimed.
 No provider/environment change or interrupted scientific rerun is commissioned.

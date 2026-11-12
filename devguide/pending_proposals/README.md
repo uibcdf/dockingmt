@@ -6,7 +6,7 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 ### Active (1)
 
-- [`binding_site_public_contract.md`](binding_site_public_contract.md) — [#111](https://github.com/uibcdf/bindingmt/issues/111) — Record the detailed BindingSite work plan after favorable owner reviews, with P0 agreements and independently qualified core/projection/receiving increments. *(active, inspected)*
+- [`binding_site_public_contract.md`](binding_site_public_contract.md) — [#111](https://github.com/uibcdf/bindingmt/issues/111) — Review the BindingSite work plan with operation-specific prerequisites, explicit selection/import work, structural and check/use controls, and evidenced core/application/receiving milestones. *(active, inspected)*
 
 ### Partial (15)
 

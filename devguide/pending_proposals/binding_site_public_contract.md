@@ -1,5 +1,5 @@
 ---
-summary: Record the detailed BindingSite work plan after favorable owner reviews, with P0 agreements and independently qualified core/projection/receiving increments.
+summary: Review the BindingSite work plan with operation-specific prerequisites, explicit selection/import work, structural and check/use controls, and evidenced core/application/receiving milestones.
 issue: uibcdf/bindingmt#111
 status: active
 opened: 2026-11-11
@@ -12,7 +12,7 @@ blocked_by: []
 supersedes: []
 ---
 
-# Binding-site public contract: reviewed design and implementation plan
+# Binding-site public contract: audited design and reviewed implementation plan
 
 ## What
 
@@ -35,8 +35,17 @@ The three follow-up responses support the design and bounded B/C work. The
 maintainer authorized proceeding and then requested a detailed written plan
 before implementation. The [work plan](../binding_site_implementation_plan.md)
 records P0 decisions/requests, B1/B2 core, C1/C2 projections, T/H/P receiving,
-ownership, dependencies, exit criteria and execution discipline. This checkpoint
-records that plan; all runtime increments remain pending.
+ownership, dependencies, exit criteria and execution discipline.
+
+At the maintainer's request, a second review improves that work plan. P0a's local
+contract, P0m's molecular agreement, P0s's shared coordination and each consumer's
+inputs now have operation-specific dependencies. Identity/version decisions
+precede construction; actual emitted-record evidence follows it. Selection and
+the T0 foreign import adapter have explicit work, followed by T1 receiving.
+Structural-scope, actual normalized-input and check/use controls are explicit.
+M1/M2/M3 distinguish useful core, application and initial receiving delivery;
+missing agreed cases cannot silently disappear at closeout. These are planning
+corrections; all runtime increments remain pending.
 
 ## How
 
@@ -76,8 +85,15 @@ observable export/execution/enforcement facts. It adds acyclic S0→H→S1 nativ
 hypothesis association and public owner-IO sketches without a reverse dependency.
 
 The current public sketch also exposes the proposed `assurance_scope` separately
-from `context_policy`, as TopoMT requested. P0 settles the admitted mechanism and
-profile checks. This is a documented API decision proposal, not a new callable.
+from `context_policy`, as TopoMT requested. The admitted mechanism and checks
+are settled before C2; that decision does not block unrelated data construction.
+Offline geometry and placement on an actual molecular problem retain distinct
+conditions. Source inspection at BindingMT `5694f55` shows that DockingProblem
+normalizes a selected source structure into a one-structure input. The plan
+therefore checks the actual consumed input and source/local relationship,
+including original structure 2 becoming local structure 0. Existing file/text
+fingerprints are not native-MolSys mutation receipts. These observations motivate
+future acceptance controls, not a claim of a delivered runtime fix.
 
 ## Why
 
@@ -103,10 +119,15 @@ coordinate storage or stale reuse.
   or native interaction invalidation as an observer for independent site records.
 - Requiring whole-library molecular collection machinery, all rich geometry,
   every future engine or live browser acceptance before a useful initial profile.
+- Treating every P0 decision/consumer asset as one global core prerequisite,
+  or requiring API-emitted evidence before implementing the first constructor.
+- Assuming import/selection adapters appear implicitly in later receiving, or
+  that valid offline geometry proves placement on the actual normalized input.
 
 ## Scope and exclusions
 
-This checkpoint delivers the written plan and synchronized development state.
+This checkpoint delivers the reviewed written plan and synchronized development
+state.
 The preceding audit retains its three synthetic documentation specimens/manifest.
 Runtime code,
 scientific/installed-test helpers and fixtures/resources, synchronized guides,
@@ -118,11 +139,13 @@ Existing #28/#33/#49/#60 and central identity adoption retain their own scopes.
 
 ## Acceptance and next step
 
-Next execute P0: the finite MolSysMT/central coordination requests, explicit
-assurance decision and offered T/H/P inputs. Close the local data-only contract
-and advance B1/B2 while the operation-specific molecular guarantees are agreed.
-Implemented projections use those agreed guarantees; each receiving case has
-its own concrete acceptance. Register real guards as operations are delivered.
+Next close P0a's minimal local data contract, then complete the first B1/B2
+declaration/replay slice. Deliver the finite P0m MolSysMT request, register P0s
+shared coordination and request the offered T/H/P inputs for their respective
+operations while the core advances. Implemented projections use their agreed
+guarantees; T0 implements the import adapter before T1 can qualify its workflow.
+Each initial receiving case keeps its concrete acceptance. Register real guards
+as operations are delivered; scope changes need an explicit maintainer disposition.
 #111 remains open; favorable reviews and this written plan do not complete its
 runtime implementation or establish component adoption.
 
@@ -138,14 +161,16 @@ the proposed API, validate a released wire schema or audit every external URL.
 The #111 delivery retains the exact committed-source receipt and gate outcomes.
 No new BindingMT runtime, scientific or exact-head remote test pass is claimed.
 
-The preceding audited revision passed its six selected documentation checks.
-This plan checkpoint repeats applicable checks after final edits, including
-the new plan's relative targets and unchanged worked examples/quantity payload.
+The preceding audited revision and initial plan passed their six selected
+documentation checks. This review repeats applicable checks after final edits,
+including the reviewed plan's relative targets and unchanged worked examples/
+quantity payload.
 Final committed-export confirmation and the exact source identity are recorded
 in the #111 delivery; a documentation gate is not a receiving implementation.
 
-The plan's public-response snapshots and check receipts are retained at
-`.molsyssuite/binding-site-plan-111-20261111/`. Preserve the preceding audit/
+The initial plan's public-response snapshots and check receipts are retained at
+`.molsyssuite/binding-site-plan-111-20261111/`; this review's records are under
+`.molsyssuite/binding-site-plan-review-111-20261111/`. Preserve the preceding audit/
 design task evidence under #50 for
 review on 2026-11-14. Temporary committed exports are owner-controlled and
 retired after checking. Human migration files, earlier evidence and sibling
