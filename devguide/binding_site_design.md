@@ -1,6 +1,6 @@
 # Binding-site declarations and applications: design for review
 
-Revision **2**, 2026-11-11. Owner: [BindingMT #111](https://github.com/uibcdf/bindingmt/issues/111).
+Revision **2, audited edition**, 2026-11-11. Owner: [BindingMT #111](https://github.com/uibcdf/bindingmt/issues/111).
 Status: **maintainer-review draft; no runtime implementation or frozen schema**.
 The maintainer commissioned this design before implementation. Names and examples
 below are proposed API sketches, not currently executable public operations.
@@ -23,6 +23,11 @@ The maintainer's subsequent review also changes the structural model: ordinary
 work uses a `molsysmt.MolSys`; site definitions need not own copied coordinates,
 and may be structure-independent, structure-scoped or realized across an ensemble.
 Sections 11–14 identify dispositions, admission examples and remaining decisions.
+The [point-by-point audit and worked receiving examples](binding_site_review.md)
+identify what the three contributions cover, what this edition corrects and what
+still needs implemented receiving or owner agreement. The [initial second draft](https://github.com/uibcdf/bindingmt/blob/54cfab985fd79c9e10922d412b068048412f1d0a/devguide/binding_site_design.md)
+remains an immutable comparison baseline. This audit refines revision 2 rather
+than declaring a final shared contract.
 
 ## 1. Design decision proposed
 
@@ -134,6 +139,24 @@ relationship; they are not interchangeable exact realizations. Adding a view
 requires its role, dependencies and relationship to existing evidence. Views
 from incompatible frames cannot be silently attached as equivalent alternatives.
 
+A definition reference is `(record content reference, definition key)`, and a
+view reference adds its local view key. It never means “the latest record with
+this name”. The whole declaration's content reference is distinct from its
+scientific interpretation. A new view creates a new declaration with a
+`representation_derivation` parent link; changing the claim/criterion records a
+`definition_revision`. Neither edge proves equivalence between physical sites.
+Existing realizations or hypotheses keep their old exact references. An optional
+explicit new association can reuse unchanged information without rewriting the
+old record. No extra global site-identity registry or semantic hash is required.
+
+An evidence observation retains its original source, scope and original claim
+association. A definition revision must not retarget an old relative
+`claim_ref="definition"` silently. Carry the old association as a historical
+reference to the parent record; citing that observation for a revised claim
+creates an explicit new interpretation/association. It creates no new measurement
+or stronger support. This also avoids making a saved native hypothesis depend
+on future view additions.
+
 ### 3.1 Small relationship vocabulary
 
 Relationships refer to immutable record/view identities, not display labels.
@@ -150,6 +173,12 @@ assert scientific equivalence merely by existing.
 coverage is an attribute of `covers`; unknown coverage is never rewritten as
 complete. Enclosure can be claimed only by an operation qualified to establish
 it, not by importing similarly named provider fields.
+Relations identify their direction and domain: covering source annotation
+entries, covering resolved molecular members and covering spatial support are
+different assertions. Atom-map completeness is not spatial coverage. An
+enclosure of points must name those points; it cannot claim to enclose the full
+original pocket when that support is unavailable. Every relation retains its
+source/target record/view references and structural scope.
 
 For composite declarations, retain a separate composition discriminator:
 `grouping` associates components without constructing geometry; `union` declares
@@ -335,6 +364,23 @@ or certify upstream dependency coverage. The problem/execution boundary retains
 and checks this policy. Plain BoxRegion and existing box recipes keep their
 current admission rules.
 
+For a fresh projection from a supplied MolSys, record that the geometry was
+computed on that supplied structure; this does not verify an old finding or a
+complete source snapshot. For reuse/transfer, a live object handle, unchanged
+label, matching count or artifact digest alone is insufficient to establish
+molecular correspondence. A conditional unchanged-input precondition is recorded
+as caller trust, separately from performed checks. Where a required identity/map
+guarantee is unavailable, `require_match` returns missing proof; it cannot be
+made to pass by relabelling that missing proof as a successful check.
+
+State policy also has scope. A topology-only membership can be resolved on a
+structure-associated state without changing its membership claim. If membership
+or evidence depended on another chemical state, overriding `chemical_state`
+does not reinterpret it: require explicit owner-supported reevaluation/remapping
+or refuse. The adapter forwards target-local structure/state selectors and
+retains original→target associations. In a captured `[2, 0]` source, original
+structure 2 is local structure 0; passing 2 to the captured system would be wrong.
+
 ### 4.2 Small context examples for owner review
 
 - **Match within scope:** a source annotation uses author residue IDs `12`,
@@ -462,7 +508,7 @@ an implicit evaluation over a trajectory. Spatial selections require an explicit
 scope and an owner-supported result; a geometry-dependent expression is never
 silently declared structure-independent.
 
-`resolve_region()` returns a detached, versioned projection record, not another
+`resolve_region()` returns a detached, JSON-ready versioned projection record, not another
 scientific object hierarchy. The initial molecular projection resolves one
 structure when required; a series profile must preserve individual results and
 coverage. `chemical_state=None` does not inherit an optional consumer's default:
@@ -610,6 +656,8 @@ print(revised.describe())
 `with_evidence()` atomically adds the observation and its explicit association
 with the current claim/participants/views. Revising the claim retains the old
 record as a parent and distinguishes a new interpretation from a new observation.
+The revised example's explicit `evidence_refs` requests a new association with
+that observation; the previous association remains bound to the parent claim.
 The source annotation still establishes only its reported membership. Adding an
 enclosing view cannot strengthen it into biological binding support. Omitted
 evidence leaves the default manual hypothesis with unknown support. No general
@@ -650,6 +698,14 @@ The input selection handed to a consumer is auditable here. The consumer still
 records what its final export/execution actually uses; an exported subset is not
 proof that every entry influenced a result. No complete molecular snapshot or
 chemical verification is required merely to inspect the original declaration.
+
+The first `site_region_projection@1` profile admits molecular membership views.
+It does not quietly turn a sphere, surface or provider volume into atom/group
+membership. Such a projection needs a separately qualified geometric membership
+rule (atom centers, complete chemical participants, any/all group members or
+another explicitly defined rule), boundary/PBC conventions and owner operations.
+Until that rule is admitted, preserve the geometry and report this particular
+projection as unsupported. A search-box enclosure cannot substitute for it.
 
 ### Capturing an ensemble without a second trajectory store
 
@@ -726,6 +782,13 @@ actual enforcement, omissions and information role. A projected request that
 strengthens broad membership needs an explicit user/protocol choice.
 
 ### 8.1 Effective inputs and information roles
+
+State the observation boundary: “actually used” means observed consumption by a
+particular resolution/projection/export operation, not inferred scientific
+influence inside an external program. Keep planned, exported/submitted,
+execution-observed and enforcement-qualified facts distinct. An adapter can
+demonstrate the exact submitted payload without proving every internal provider
+decision; an unavailable execution/enforcement receipt remains unknown.
 
 Each receiving application retains **requested → resolved → actually used**
 membership, with maps, unresolved causes, explicit expansion/filtering and partial
@@ -991,8 +1054,8 @@ owning issue, with a proposed narrow operation and consumer acceptance case.
 
 ### 11.1 TopoMT ProviderRecord receiving profile
 
-Propose a small versioned receiving profile, `topomt.provider_record@1` within
-the BindingMT adapter contract. This is a proposed consumer profile name, not
+Propose a small versioned receiving profile, `bindingmt.topomt_provider_receiving@1`
+within the BindingMT adapter contract. This is a proposed consumer profile name, not
 a new TopoMT public schema or an assertion of native DFND delivery.
 
 | Admission item | Required receiving behavior |
@@ -1003,6 +1066,14 @@ a new TopoMT public schema or an assertion of native DFND delivery.
 | Geometry/support | Preserve available public geometries or typed owner references, supported recovery operations and unavailable causes. Do not infer extent from a center or volume from lining atoms. |
 | Measurements | Use attributed `record.measurements`; retain definition, units, uncertainty/maturity when supplied, parameters and original attribution. Raw fields keep native conventions. Provider volume, DFND region volume and a new box volume are different measurements. |
 | Replay and dependencies | Retain content/recovery references to original ProviderRun artifacts and reported input/query coverage. Save/read credits no new engine execution; artifact replay alone need not reconstruct all parsed support. |
+
+Minimum admission requires the original record/run identity and kind, membership
+role/index convention, declared context/limitations and valid known quantities.
+Mapping, support or chemistry may be explicitly unavailable without invalidating
+an otherwise readable declaration. In contrast, a contradictory run association,
+malformed known geometry, wrong quantity dimension or unsupported required
+profile must not be reported as a successful receiving result. Preserve the
+original owner output; do not repair it by inventing a map, extent or unit.
 
 Native DFND receiving additionally needs input/query/support identity, probe,
 radius model and region definition. A support key alone is insufficient.
@@ -1072,6 +1143,30 @@ feature/hypothesis associations, coverage and declared correspondence. They do
 not deliver clustering, occupancy/kinetic interpretation, dynamic scoring or a
 pharmacophore trajectory format. Review that extension with its owner before
 freezing the ensemble receiving profile.
+
+### 11.3 Saved native hypotheses and references
+
+An association record can refer to both an exact site record/view/projection and
+an exact native PharmacophoreMT artifact. It need not add fields to the native
+schema or require PharmacophoreMT to import BindingMT. The worked public route
+uses the existing `with_evidence()` operation for an owner-hypothesis reference;
+its declared use is annotation, with unknown biological support and no active
+constraint. A later consumer separately chooses evaluation/guidance/enforcement.
+
+Save site S0, derive/save native hypothesis H through its owner, then create a
+new declaration S1 referencing S0 and H. Keep their exact artifact digests and
+source/structure/state/selection association. H may optionally refer to S0 through
+an owner-supported metadata route; it must not require the future S1 digest.
+This directed construction avoids circular content hashes. Subsequent unrelated
+view S2 leaves H's old association intact, without searching for a “latest site”.
+
+Saving/reading S1 preserves the association even if H's bytes are unavailable.
+Describe its availability honestly. Interpreting or applying H requires the
+native owner reader and its schema/unit/profile/applicability checks; unknown
+owner semantics may be retained as a reference but cannot become an enforced
+request. Native essential status, weights and exclusions are preserved through
+that reader, not decoded into a competing BindingMT matcher. File digests check
+stored content consistency, not authentic preparation or scientific validity.
 
 ## 12. Delivery sequence and acceptance
 
@@ -1232,3 +1327,11 @@ explicitly remains prospective; it motivates compatible ensemble references,
 not an assertion of delivered dynamic pharmacophores. The three linked review
 comments and the maintainer's structural-scope feedback are design inputs, not
 new scientific measurements or cross-owner implementation acceptance.
+
+The audited edition adds the linked request-by-request review, public-call
+sketches inspected against current owner source, and three authored JSON
+specimens. One synthetic point quantity is sealed/read through PyUnitWizard at
+`c81916e65ce61e905008e8931af3c0e527157251`, with an explicit field and nm/pm unit
+handshake; its module/content digests are in the example manifest. This limited
+codec operation does not execute BindingMT's proposed API, parse a real provider
+run, perform molecular recognition or qualify a cross-component workflow.

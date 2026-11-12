@@ -1,0 +1,116 @@
+{
+  "review_status": "proposed_example_not_runtime_output",
+  "scope": "Full proposed small declaration envelope; no coordinates or scientific evaluation.",
+  "record": {
+    "schema": "bindingmt.binding_site@1",
+    "site_id": "example-annotation-1",
+    "name": "Synthetic source annotation",
+    "annotation_refs": [
+      {
+        "owner": "caller",
+        "id": "annotation-A",
+        "revision": "r1"
+      }
+    ],
+    "context": {
+      "sources": [
+        {
+          "key": "host",
+          "owner": "caller",
+          "id": "system-A",
+          "revision": "r1"
+        }
+      ],
+      "participants": [
+        {
+          "key": "host",
+          "source_ref": "host",
+          "role": "region_host"
+        }
+      ],
+      "structure_scope": {
+        "kind": "independent"
+      },
+      "structure_state": {
+        "state": "not_required"
+      },
+      "frame": {
+        "state": "unavailable",
+        "cause": "coordinate_free_annotation"
+      },
+      "binding": {
+        "kind": "declared",
+        "verified_source": false
+      }
+    },
+    "views": [
+      {
+        "key": "membership",
+        "kind": "group_membership",
+        "role": "annotated_members",
+        "context_ref": "host",
+        "structure_scope": {
+          "kind": "independent"
+        },
+        "availability": {
+          "state": "payload"
+        },
+        "payload": {
+          "address_space": "author_residue",
+          "entries": [
+            {
+              "chain": "A",
+              "id": "12",
+              "insertion_code": ""
+            },
+            {
+              "chain": "A",
+              "id": "12",
+              "insertion_code": "A"
+            },
+            {
+              "chain": "A",
+              "id": "15",
+              "insertion_code": ""
+            }
+          ],
+          "resolution": {
+            "state": "unresolved",
+            "cause": "no_correspondence_supplied"
+          }
+        },
+        "dependencies": [],
+        "provenance": {
+          "kind": "caller_declaration"
+        }
+      }
+    ],
+    "definition": {
+      "key": "definition",
+      "claim": "Candidate association region; partner unknown",
+      "criterion": {
+        "kind": "annotation_membership",
+        "rule": "exact_listed_entries"
+      },
+      "participants": [
+        "host"
+      ],
+      "views": [
+        "membership"
+      ],
+      "evidence_refs": [],
+      "binding_support": "unknown"
+    },
+    "evidence": [],
+    "view_relations": [],
+    "composition": null,
+    "realizations": [],
+    "realization_coverage": {
+      "state": "not_requested"
+    },
+    "derivation": {
+      "parents": []
+    },
+    "extensions": {}
+  }
+}

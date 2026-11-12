@@ -1,0 +1,194 @@
+{
+  "review_status": "proposed_example_not_runtime_output",
+  "scope": "Synthetic geometry preserving the center-only distinction; no real provider run, pocket extent or volume is asserted.",
+  "record": {
+    "schema": "bindingmt.binding_site@1",
+    "site_id": "example-center-1",
+    "name": "Synthetic center-only owner finding",
+    "annotation_refs": [
+      {
+        "owner": "topomt",
+        "provider": "synthetic-review-provider",
+        "run_id": "example-run-A",
+        "source_id": "feature-1",
+        "record_kind": "site",
+        "producer_version": {
+          "state": "not_executed"
+        }
+      }
+    ],
+    "context": {
+      "sources": [
+        {
+          "key": "host",
+          "owner": "caller",
+          "id": "system-A",
+          "revision": "r1"
+        }
+      ],
+      "participants": [
+        {
+          "key": "host",
+          "source_ref": "host",
+          "role": "region_host"
+        }
+      ],
+      "structure_scope": {
+        "kind": "explicit",
+        "source_structure_indices": [
+          2
+        ]
+      },
+      "structure_state": {
+        "state": "not_required"
+      },
+      "frame": {
+        "state": "declared",
+        "key": "example-cartesian-frame",
+        "image_convention": "single_image"
+      },
+      "binding": {
+        "kind": "declared",
+        "verified_source": false
+      }
+    },
+    "views": [
+      {
+        "key": "predicted_center",
+        "kind": "points",
+        "role": "provider_predicted_center",
+        "context_ref": "host",
+        "structure_scope": {
+          "kind": "explicit",
+          "source_structure_indices": [
+            2
+          ]
+        },
+        "availability": {
+          "state": "payload"
+        },
+        "payload": {
+          "points": {
+            "manifest": {
+              "format": "qrec/0.3",
+              "field": "views.predicted_center.points",
+              "unit": "nanometer",
+              "si": {
+                "factor": 1e-09,
+                "offset": 0.0,
+                "exponents": {
+                  "m": 1
+                }
+              },
+              "dtype": "float64",
+              "shape": [
+                1,
+                3
+              ],
+              "blocks": [
+                3
+              ]
+            },
+            "values": [
+              [
+                1.0,
+                2.0,
+                3.0
+              ]
+            ],
+            "block_digests": [
+              "blake2b-128:6c26c870dcd734b855371250a28a1015"
+            ],
+            "digest": "blake2b-128:6f608a66af3f224d6fe4ff4de3be7d4a"
+          }
+        },
+        "dependencies": [
+          {
+            "kind": "owner_input_query",
+            "coverage": "unknown"
+          }
+        ],
+        "provenance": {
+          "owner": "topomt",
+          "provider": "synthetic-review-provider",
+          "run_id": "example-run-A",
+          "source_id": "feature-1",
+          "record_kind": "site",
+          "producer_version": {
+            "state": "not_executed"
+          }
+        }
+      },
+      {
+        "key": "membership",
+        "kind": "atom_membership",
+        "role": "provider_membership",
+        "context_ref": "host",
+        "structure_scope": {
+          "kind": "explicit",
+          "source_structure_indices": [
+            2
+          ]
+        },
+        "availability": {
+          "state": "unavailable",
+          "cause": "atom_mapping_unavailable"
+        },
+        "payload": null,
+        "dependencies": [],
+        "provenance": {
+          "owner": "topomt",
+          "provider": "synthetic-review-provider",
+          "run_id": "example-run-A",
+          "source_id": "feature-1",
+          "record_kind": "site",
+          "producer_version": {
+            "state": "not_executed"
+          }
+        }
+      }
+    ],
+    "definition": {
+      "key": "definition",
+      "claim": "Candidate region motivated by a center-only finding; support unknown",
+      "criterion": {
+        "kind": "topographic_finding_reference",
+        "reference": {
+          "owner": "topomt",
+          "provider": "synthetic-review-provider",
+          "run_id": "example-run-A",
+          "source_id": "feature-1",
+          "record_kind": "site",
+          "producer_version": {
+            "state": "not_executed"
+          }
+        }
+      },
+      "participants": [
+        "host"
+      ],
+      "views": [
+        "predicted_center"
+      ],
+      "evidence_refs": [],
+      "binding_support": "unknown"
+    },
+    "evidence": [],
+    "view_relations": [],
+    "composition": null,
+    "realizations": [],
+    "realization_coverage": {
+      "state": "not_requested"
+    },
+    "derivation": {
+      "parents": []
+    },
+    "extensions": {
+      "bindingmt.design_review": {
+        "synthetic": true,
+        "models_case": "P2Rank-style center with unavailable atom mapping",
+        "scientific_executions": 0
+      }
+    }
+  }
+}

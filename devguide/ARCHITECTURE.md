@@ -40,6 +40,11 @@ effective inputs explicit. Proposed classes, schema and integration behavior are
 from the current source map; sibling review/adoption and implementation remain
 separate steps.
 
+The [contribution audit and receiving sketches](binding_site_review.md) make
+the proposed source/view/claim references, native consumer associations and
+effective-input boundaries concrete. Its synthetic JSON specimens are design
+material, not runtime schema/adapter qualification or new installed resources.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the

@@ -11,7 +11,7 @@ Read [development/onboarding](DEVELOPMENT.md) for setup and code navigation.
 [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) owns the full product
 requirements; this file explains how to resume without recovering chat history.
 
-### Binding-site proposal revision 2 under review — 2026-11-11
+### Binding-site proposal revision 2 audited for owner review — 2026-11-11
 
 [#111](pending_proposals/binding_site_public_contract.md) now has a
 [second design draft](binding_site_design.md), incorporating PeptideMT,
@@ -27,9 +27,16 @@ associations, extraction/iteration and named-analysis invalidation. This does no
 provide an external-site observer or runtime/ensemble receiving. Names, profiles
 and field spellings remain draft; favorable comments are not shared acceptance.
 
-Next refine revision 2 with the maintainer, then obtain affected-owner review of
-the concrete records, structural scopes and guarantees needed for B/C. Keep a
-small useful core independent of all later engines or dynamic profiles.
+A [point-by-point audit and worked handoffs](binding_site_review.md) trace all
+three contributions. The audited edition clarifies immutable claim/evidence
+references, target-local states, molecular versus geometric projection, saved
+native hypotheses and observed input/enforcement boundaries. Three synthetic
+JSON specimens make partial maps and center-only records reviewable; only their
+shared quantity payload is authored/read through an existing provider codec.
+
+Next obtain the affected owners' review of revision 2's concrete records,
+structural scopes and B/C guarantees. Keep shared acceptance and implemented
+receiving distinct, and the small core independent of later dynamic/engine work.
 Documentation gates and a fresh committed-source export are the applicable
 verification; no runtime, scientific or exact-head remote pass is claimed.
 No provider/environment change or interrupted scientific rerun is commissioned.

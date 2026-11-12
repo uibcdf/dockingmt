@@ -6,7 +6,7 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 ### Active (1)
 
-- [`binding_site_public_contract.md`](binding_site_public_contract.md) — [#111](https://github.com/uibcdf/bindingmt/issues/111) — Review revision 2 of the binding-site definition, structural-realization and consumer contract before implementation. *(active, inspected)*
+- [`binding_site_public_contract.md`](binding_site_public_contract.md) — [#111](https://github.com/uibcdf/bindingmt/issues/111) — Audit revision 2 against all three owner contributions and review concrete binding-site records and consumer handoffs before implementation. *(active, inspected)*
 
 ### Partial (15)
 

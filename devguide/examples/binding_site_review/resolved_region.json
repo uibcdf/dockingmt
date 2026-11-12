@@ -1,0 +1,173 @@
+{
+  "review_status": "proposed_example_not_runtime_output",
+  "scope": "Expected partial projection after implementation; maps/outcomes are authored acceptance data, not observed BindingMT checks.",
+  "record": {
+    "schema": "bindingmt.site_region_projection@1",
+    "site_ref": {
+      "uri": "annotation.json",
+      "sha256": "16e94ab82e75f5be964e7539a8d760ebb0407b12ad60eb6cff4444a160bf5875",
+      "pointer": "/record"
+    },
+    "definition_key": "definition",
+    "view_key": "membership",
+    "context": {
+      "binding": {
+        "kind": "caller_declared_correspondence",
+        "assurance_scope": "declared_membership_projection",
+        "verified_source": false,
+        "current_finding": "not_claimed"
+      },
+      "source_occurrence": "system-A/r1",
+      "target_occurrence": "system-A/extracted-and-permuted-example",
+      "source_n_atoms": 6,
+      "target_n_atoms": 5,
+      "source_n_groups": 3,
+      "target_n_groups": 2,
+      "source_structure_index": 2,
+      "target_structure_index": 0,
+      "requested_chemical_state": "structure",
+      "effective_target_chemical_state": 0,
+      "chemical_state_association": {
+        "state": "declared",
+        "verification": "not_performed_by_this_document"
+      },
+      "frame": {
+        "key": "example-cartesian-frame",
+        "verification": "declared"
+      },
+      "target_atom_to_source_atom": [
+        2,
+        3,
+        0,
+        1,
+        null
+      ],
+      "source_group_to_target_group": [
+        0,
+        1,
+        null
+      ]
+    },
+    "membership": {
+      "role": "annotated_members",
+      "requested": {
+        "address_space": "author_residue",
+        "entries": [
+          {
+            "chain": "A",
+            "id": "12",
+            "insertion_code": ""
+          },
+          {
+            "chain": "A",
+            "id": "12",
+            "insertion_code": "A"
+          },
+          {
+            "chain": "A",
+            "id": "15",
+            "insertion_code": ""
+          }
+        ],
+        "source_group_indices": [
+          0,
+          1,
+          2
+        ]
+      },
+      "resolved": {
+        "target_group_indices": [
+          0,
+          1
+        ],
+        "target_atom_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "entry_to_target_atoms": [
+          {
+            "requested_position": 0,
+            "atom_indices": [
+              2,
+              3
+            ]
+          },
+          {
+            "requested_position": 1,
+            "atom_indices": [
+              0,
+              1,
+              4
+            ]
+          }
+        ]
+      },
+      "exported": {
+        "target_atom_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "order_policy": "ascending_target_atom_index"
+      },
+      "unresolved": [
+        {
+          "requested_position": 2,
+          "cause": "removed_by_extraction"
+        }
+      ],
+      "generated": [
+        {
+          "target_atom_index": 4,
+          "included_by": "explicit_all_atoms_expansion_on_target_group",
+          "source_member": null,
+          "inherited_evidence": false,
+          "confidence": "unknown"
+        }
+      ],
+      "coverage": {
+        "state": "partial",
+        "requested_positions": 3,
+        "resolved_positions": [
+          0,
+          1
+        ],
+        "changed_meaning": "mapped_target_groups_only"
+      }
+    },
+    "parameters": {
+      "expansion": "all_atoms",
+      "coverage_policy": "allow_partial",
+      "context_policy": "require_match"
+    },
+    "checks": [
+      {
+        "check": "declared_map_axes_and_ranges",
+        "outcome": "match",
+        "scope": "authored_synthetic_map_only",
+        "trust_precondition": "supplied_correspondence_and_unchanged_inputs"
+      },
+      {
+        "check": "authenticated_molecular_identity",
+        "outcome": "not_required",
+        "scope": "not_claimed"
+      },
+      {
+        "check": "chemical_recognition_applicability",
+        "outcome": "not_required",
+        "scope": "membership_projection_only"
+      }
+    ],
+    "information_role": "candidate_region_annotation",
+    "enforcement": "none",
+    "losses": [
+      "source group 15 is unavailable",
+      "target atom 4 has no inherited source evidence"
+    ]
+  }
+}
