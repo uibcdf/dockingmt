@@ -37,7 +37,7 @@ executed receiving and consumer adoption remain distinct.
 
 ## 1. Design decision proposed
 
-The related [BindingInterface first design](binding_interface_design.md) under
+The related [BindingInterface second design](binding_interface_design.md) under
 #112 composes participant associations, observations and site references. It
 does not make Interface a BindingSite subtype or require that discussion to
 finish before the useful declaration core. Its shared boundaries remain review

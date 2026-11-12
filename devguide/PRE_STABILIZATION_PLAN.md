@@ -21,23 +21,25 @@ than treating the skipped push as passing.
 
 Owner: [BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [BMT-046](DECISIONS.md#bmt-046--deliver-the-complete-functional-objective-before-stabilization).
-Status: **active; #112 first design for owner review; #111 P0a/runtime pending**.
+Status: **active; #112 second design ready for renewed review; #111 P0a/runtime pending**.
 Inspected starting source: `530a4cf`.
 
-### BindingInterface first design for owner review — 2026-11-12
+### BindingInterface second design ready for review — 2026-11-12
 
 [#112](pending_proposals/binding_interface_public_contract.md) now has a
-[detailed first design](binding_interface_design.md), covering owner composition,
-question/observation identity, contextual applicability, participant grouping,
-site/footprint relationships and effective information use. Public API sketches,
-symbolic examples, contribution coverage and a bounded saved-PISA receiving
-proposal make the open decisions reviewable. This is design evidence only.
+[corrected second design](binding_interface_design.md), incorporating all three
+favorable follow-ups on revision 1. It separates analysis outcomes from findings,
+exposes proposed guarantees and a fact/check/precondition matrix, fixes the
+PISA participant-contact footprint, and adds actual grouping/independent consumer
+controls. Native and symbolic examples remain review material, not executed
+BindingMT receiving.
 
-Next receive TopoMT, MolSysMT, PeptideMT and PharmacophoreMT review, settle the
-minimal public guarantees and choose an owner-admitted saved input/operation.
+Next share revision 2 for renewed owner review, resolve the pending molecular
+facts and confirm the supplied frozen PISA input/operation and admitted guarantees.
 #111's P0a/data-core route remains independently useful; no new runtime class,
 schema freeze, scientific execution or interrupted-suite restart is delivered.
-The #112 post retains the exact published document and documentation-check receipt.
+The first #112 post remains revision-1 history. The owning record retains the
+revision-2 source/check custody and its pending sharing/review step.
 
 ### BindingSite work plan reviewed — 2026-11-11
 

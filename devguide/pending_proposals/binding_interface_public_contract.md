@@ -1,5 +1,5 @@
 ---
-summary: Review a first binding-interface characterization design by composition, with exact owner references, contextual evidence, application controls and a bounded saved-data receiving proposal.
+summary: Prepare revision 2 of the binding-interface design with analysis-level outcomes, explicit assurance/check contracts, the concrete PISA contact-footprint route and independently qualified consumer profiles.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
@@ -12,15 +12,17 @@ blocked_by: []
 supersedes: []
 ---
 
-# Binding-interface characterization: first design for owner review
+# Binding-interface characterization: second design for owner review
 
 ## What
 
 The maintainer requests a report on #112, a first response/design draft, review
 and improvement of that draft, and publication in the owning issue. They then
 specify the same detailed repository-document/public-post route used for #111.
-The [first design](../binding_interface_design.md) is the maintained proposal;
-the issue post links its exact published source for review by the other owners.
+The [maintained design](../binding_interface_design.md) now has revision 2,
+corrected after all three favorable follow-up responses. Revision 1 and its
+public post remain the immutable reviewed baseline at `204f812`; the revised
+document is prepared for the maintainer's next sharing/review round.
 
 The working result `BindingInterface` composes a binding question, participants/
 grouping, contexts, available owner observations, site/footprint relationships,
@@ -44,6 +46,20 @@ preserving native repeated/alternative pharmacophoric evidence. It adds safe
 persistence/quantity boundaries, a contribution-coverage matrix, open owner
 decisions and a candidate saved original PISA receiving route.
 
+Revision 2 makes analysis evidence separate from individual findings, including
+completed zero-interface output, no supplied analysis and original failure. It
+names the exact saved PISA source/bundles and participant reported-contact
+footprint, keeping the 28 contact/20 buried-atom populations distinct. Public
+assurance requests and a fact → owner operation/revision → check → precondition
+→ failure matrix make the remaining admission decisions reviewable.
+
+The ordinary example is now binary A | B with analysis-aware input and inspection.
+Effective grouping uses an owner-supported native subset, with an unrelated D
+control and original analysis/occurrence correspondence. Native PharmacophoreMT
+receiving and PeptideMT K/N, native/derived and comparison specifications retain
+their own requirements and independent increments. All new spellings and profile
+choices remain proposed; no stronger guarantee is claimed from source inspection.
+
 All examples are authored design material. There is no new measured quantity,
 API-emitted record, native hypothesis or molecular calculation. Missing required
 proof, contradiction and unsupported capability do not become successful empty
@@ -58,9 +74,10 @@ a question/criterion, potentially with multiple sites, observations and structur
 realizations. Consumers need that contextual coherence and faithful inspection
 without owning competing copied geometry or losing evidence through projections.
 
-The three contributions support this direction while retaining unresolved public
-contract, owner handshake and receiving decisions. Source availability, saved
-provider records and favorable comments are not completed cross-owner adoption.
+The three original contributions and follow-up reviews support this direction
+while retaining unresolved public contract, owner handshake and receiving
+decisions. Source availability, saved provider records and favorable comments
+are not completed cross-owner adoption.
 
 ## What was refuted
 
@@ -78,8 +95,9 @@ provider records and favorable comments are not completed cross-owner adoption.
 
 ## Scope and exclusions
 
-This increment delivers a reviewed detailed design, navigation/current checkpoint
-and a linked public review post. It does not select a final class/schema or
+This increment delivers the corrected second design and synchronized navigation/
+current checkpoint, ready for renewed collaborator review. The first public post
+and all six owner contributions remain intact. It does not select a final class/schema or
 implement runtime APIs, adapters, calculations, scientific fixtures or tests.
 The candidate PISA route is a proposed receiving input, not executed integration.
 No sibling worktree, synchronized guide, installed environment, package/tag/release
@@ -91,16 +109,20 @@ full-suite resource hold and human untracked migration files.
 - The detailed document addresses each original contribution, with explicit
   ownership, record/reference/lifecycle semantics, ordinary workflow, symbolic
   examples, acceptance controls and remaining decisions.
-- The issue post links an immutable published document revision and requests
-  owner suggestions without claiming shared acceptance or implemented receiving.
+- Revision 1 remains linked from its original post; revision 2 is committed and
+  ready to share by exact source. No new review post or owner acceptance is
+  implied by preparing this revision.
 - The original issue request and owner contributions remain intact; #112 stays
   open. Local indexes/navigation and current resumption state point to this work.
 - Applicable documentation/resource checks pass after final edits in the workspace
   and a fresh committed-source export. Their exact source/results are retained
-  in the delivery; no runtime/scientific or exact-head hosted pass is implied.
+  in the revision-2 task receipt and maintainer handoff; the original post's
+  receipt remains revision-1 evidence. No runtime/scientific or exact-head hosted
+  pass is implied.
 
-Next receive owner review, identify MolSysMT's finite facts/checks/preconditions
-and select one source-pinned saved input/downstream operation. Record accepted/
+Next share revision 2 for renewed review, identify MolSysMT's still-pending
+facts/checks/preconditions and confirm the exact supplied PISA source/footprint
+profile. Record accepted/
 deferred decisions and their owner/revisit condition before a bounded
 implementation plan. The independent #111 data-core route remains pending at
 P0a and is not globally blocked by this discussion. Real guards are added only
@@ -114,9 +136,17 @@ the workspace and a fresh committed export. Syntax/relative-link checks do not
 execute the proposed API or validate a released interchange schema. Existing
 #111 synthetic specimens remain unchanged review material.
 
+Concurrent official guide receiving at `4812aca` / `03db9f7` is preserved through
+the fast-forward to the published upstream head. Its common inventory rule and
+PyUnitWizard 0.29.5 guidance are owner deliveries, separate from this design
+increment. Documentation gates do not qualify new provider concurrency behavior,
+public artifacts or exact-head hosted conformance.
+
 Public input snapshots, the reviewed chat-post draft, final publication payload,
 bounded check receipts and readback verification are retained under
 `.molsyssuite/binding-interface-draft-112-20261112/`. Retain this required review
-evidence for the #50 custody review on 2026-11-14. Fresh exports use managed
+evidence and revision-2 inputs/check receipts under
+`.molsyssuite/binding-interface-design-r2-112-20261112/` for the #50 custody
+review on 2026-11-14. Fresh exports use managed
 temporary storage and are retired after checking; preserve previous evidence,
 human migration files and sibling state. No new environment or engine is created.

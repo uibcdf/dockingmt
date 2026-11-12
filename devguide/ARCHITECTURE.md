@@ -51,11 +51,13 @@ planning evidence; the source map below still contains no BindingSite runtime.
 ## Binding-interface characterization study (draft)
 
 [#112](pending_proposals/binding_interface_public_contract.md) has a
-[first detailed design](binding_interface_design.md) for a binding-domain result
+[second detailed design](binding_interface_design.md) for a binding-domain result
 composing owner associations/observations, site hypotheses and application
 receipts. It distinguishes participants/grouping, exact contexts and immutable
-evidence without a second molecular or topographic registry. Its symbolic
-records and API sketches are review proposals. No BindingInterface runtime,
+evidence without a second molecular or topographic registry. Revision 2 makes
+analysis-level outcomes, public assurance/fact checks, the saved PISA footprint
+and effective grouped native projections explicit. Its symbolic records and API
+sketches are review proposals. No BindingInterface runtime,
 shared schema freeze or consumer receiving is implemented by this document.
 The useful #111 core remains independent unless a concrete incompatibility arises.
 
