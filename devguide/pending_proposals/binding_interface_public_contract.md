@@ -1,5 +1,5 @@
 ---
-summary: Track the shared BindingInterface revision-2 review and await owner feedback on analysis outcomes, public guarantees, PISA footprints and independent consumer profiles.
+summary: Record the BindingInterface implementation plan after favorable second-round reviews, with independent data, PISA, molecular and native/consumer receiving increments and exact acceptance controls.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
@@ -12,7 +12,7 @@ blocked_by: []
 supersedes: []
 ---
 
-# Binding-interface characterization: second design for owner review
+# Binding-interface characterization: reviewed design and implementation plan
 
 ## What
 
@@ -24,8 +24,11 @@ corrected after all three favorable follow-up responses. Revision 1 and its
 public post remain the immutable reviewed baseline at `204f812`; the revised
 document at `5aa21b1` is now shared in the
 [second review post](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6834362774).
-The maintainer requests waiting for feedback before advancing #112's implementation
-plan. No implementation or scientific execution is part of this sharing checkpoint.
+The three second-round replies are now received and favorable at design level.
+The maintainer requests their evaluation and a written
+[implementation/work plan](../binding_interface_implementation_plan.md), as for
+BindingSite. The preceding feedback wait ends for this planning step. This
+checkpoint delivers that plan, not runtime implementation or scientific execution.
 
 The working result `BindingInterface` composes a binding question, participants/
 grouping, contexts, available owner observations, site/footprint relationships,
@@ -63,6 +66,20 @@ receiving and PeptideMT K/N, native/derived and comparison specifications retain
 their own requirements and independent increments. All new spellings and profile
 choices remain proposed; no stronger guarantee is claimed from source inspection.
 
+The plan evaluates the three new replies individually and records proposed
+first-profile decisions, local versus operation-specific prerequisites, D1/D2
+data core, C molecular facts, T0/T1 PISA intake/footprints, H0/H1 native grouping/
+hypothesis receiving and P consumer controls. Its supplied expectations include
+the exact A/B `other-bonds` source vectors, known-empty `h-bonds`, invalid empty/
+unknown requests, confirmed failure metadata and strict incomplete-ZIP refusal.
+The design now omits the unnecessary context-policy argument in the data-only
+example and sharpens external absence versus internal ZIP incompleteness.
+
+Initial preservation and the selected correspondence profile can be qualified
+independently of unqualified `current_finding`, later chemistry or neutral native
+Topography. Local input/default/version choices still require an actual decision
+record before code; no source inspection or owner expectation is a runtime pass.
+
 All examples are authored design material. There is no new measured quantity,
 API-emitted record, native hypothesis or molecular calculation. Missing required
 proof, contradiction and unsupported capability do not become successful empty
@@ -98,9 +115,9 @@ are not completed cross-owner adoption.
 
 ## Scope and exclusions
 
-This increment delivers the corrected second design and synchronized navigation/
-current checkpoint, followed by its reviewed public response. The first public post
-and all six owner contributions remain intact. It does not select a final class/schema or
+This increment delivers the written plan and synchronized navigation/current
+checkpoint after the second-round feedback. Both design-review posts and original
+owner contributions remain intact. It does not freeze a class/shared schema or
 implement runtime APIs, adapters, calculations, scientific fixtures or tests.
 The candidate PISA route is a proposed receiving input, not executed integration.
 No sibling worktree, synchronized guide, installed environment, package/tag/release
@@ -112,9 +129,10 @@ full-suite resource hold and human untracked migration files.
 - The detailed document addresses each original contribution, with explicit
   ownership, record/reference/lifecycle semantics, ordinary workflow, symbolic
   examples, acceptance controls and remaining decisions.
-- Revision 1 remains linked from its original post; revision 2 is shared by exact
-  source in its own review post. Verify the posted body and preserved original
-  contributions; publication does not establish owner acceptance.
+- Revision 1 and revision 2 remain linked from their original review posts. The
+  new plan delivery links its exact published source and evidence limits while
+  preserving the original issue and contributions; publication is not runtime
+  receiving or component adoption.
 - The original issue request and owner contributions remain intact; #112 stays
   open. Local indexes/navigation and current resumption state point to this work.
 - Applicable documentation/resource checks pass after final edits in the workspace
@@ -123,12 +141,12 @@ full-suite resource hold and human untracked migration files.
   receipt remains revision-1 evidence. No runtime/scientific or exact-head hosted
   pass is implied.
 
-Await the second review's feedback before advancing the implementation plan.
-Then identify MolSysMT's still-pending
-facts/checks/preconditions and confirm the exact supplied PISA source/footprint
-profile. Record accepted/
-deferred decisions and their owner/revisit condition before a bounded
-implementation plan. The independent #111 data-core route remains pending at
+Next close the minimal P0a local data contract, then deliver the first real
+D1/D2 declaration/analysis-summary replay slice when implementation proceeds.
+Coordinate finite P0m/P0s facts and the supplied PISA profile for their actual
+operations, and receive native/consumer inputs independently. Record accepted/
+deferred decisions with owner/revisit conditions; no universal receipt or all-
+consumer prerequisite blocks the core. The independent #111 route remains at
 P0a and is not globally blocked by this discussion. Real guards are added only
 when the corresponding runtime operations and meaningful tests exist.
 
@@ -159,3 +177,9 @@ The reviewed second-round response, public readback and status-checkpoint receip
 are retained in `.molsyssuite/binding-interface-r2-review-post-112-20261112/` under
 the same custody review. The public design reference remains the exact `5aa21b1`
 proposal; the later status update adds only the publication/waiting handoff.
+
+The implementation-plan inputs, source inspection and final check/publication
+receipts are retained at `.molsyssuite/binding-interface-plan-112-20261112/`
+under the same #50 custody review. The exact plan delivery retains its final
+committed-source identity and documentation-only gate outcomes. Original
+scientific fixtures and producer identities remain unchanged.

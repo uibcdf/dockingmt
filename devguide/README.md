@@ -1,6 +1,6 @@
 # BindingMT Development Guide
 
-### BindingInterface second review shared; awaiting feedback — 2026-11-12
+### BindingInterface implementation plan recorded — 2026-11-12
 
 [#112](pending_proposals/binding_interface_public_contract.md) now has a
 [corrected second design](binding_interface_design.md), incorporating all three
@@ -10,15 +10,16 @@ PISA participant-contact footprint, and adds actual grouping/independent consume
 controls. Native and symbolic examples remain review material, not executed
 BindingMT receiving.
 
-Revision 2 at `5aa21b1` is shared in the
-[second review post](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6834362774).
-Await owner feedback before advancing #112's implementation plan. The review
-asks for concrete first-profile blockers, later extensions and pending molecular
-facts/guarantees; no new scientific work is launched while waiting.
+All three second-round replies are favorable and support the
+[written implementation/work plan](binding_interface_implementation_plan.md).
+It records minimal local decisions, D1/D2 data core, C molecular facts, T0/T1
+saved PISA receiving, independent H0/H1/P profiles and exact acceptance controls.
+Next close P0a and deliver the first declaration/analysis-summary round trip;
+coordinate each molecular/owner prerequisite for the operation that needs it.
 #111's P0a/data-core route remains independently useful; no new runtime class,
 schema freeze, scientific execution or interrupted-suite restart is delivered.
 The first #112 post remains revision-1 history. The owning record retains the
-revision-2 source/check custody and the active feedback step.
+design/plan source/check custody and the next concrete implementation boundary.
 
 ### BindingSite work plan reviewed — 2026-11-11
 

@@ -640,8 +640,12 @@ Source-only 0.1.0 and historical scientific inputs/producers remain immutable.
 Native DFND/rich geometry, dynamic/ensemble operations, broad receptor capture
 and new provider execution advance through separately qualified profiles. The
 [BindingInterface discussion #112](https://github.com/uibcdf/bindingmt/issues/112)
-now has a [second detailed design](binding_interface_design.md). It does not
-commission a new class and need not block the useful BindingSite core.
+now has a [second detailed design](binding_interface_design.md) and its own
+[implementation/work plan](binding_interface_implementation_plan.md). Its initial
+data/PISA route preserves optional site references without requiring a live
+BindingSite type; a later footprint-to-site convenience records its actual #111
+dependency. Neither complete interface receiving nor all later profiles block
+the useful BindingSite core. This checkpoint commissions no runtime class.
 HADDOCK3 #109 and Boltz-2 #110 retain their separate adapter work. No molecular
 preparation, binding campaign, GPU/model acquisition or new affinity/free-energy
 calculation is commissioned by this implementation plan.

@@ -10,8 +10,10 @@ tracks scope, evidence and the next action.
 
 Revision 2 was shared from exact source `5aa21b1aaf27ee7708e5a7bb4fe58bd0300d49f0`
 in the [second review post](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6834362774).
-The current step is awaiting owner feedback before advancing the implementation
-plan; this checkpoint updates review state, not the proposed scientific contract.
+The [implementation/work plan](binding_interface_implementation_plan.md) now
+records evaluation of the three favorable second-round replies and the proposed
+bounded increments. This is planning evidence; runtime implementation and
+executed receiving remain pending.
 
 The design incorporates the [TopoMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6812846154),
 [PeptideMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6813153779)
@@ -386,7 +388,7 @@ and any still-unnamed owner accessor remain pending MolSysMT/owner agreement.
 
 | Required fact | Public operation/source | Actual check to qualify | Caller precondition | Unavailable or contradictory outcome |
 | --- | --- | --- | --- | --- |
-| Saved evidence integrity | `topomt.provider_output.ProviderRun.load`, TopoMT `3a8ee979` | Owner checks archive members, artifact hashes and run identity. | The selected bundle is the intended original evidence; integrity alone authenticates no molecular meaning. | Corrupt evidence refuses recovery; an absent artifact remains an explicit reference. |
+| Saved evidence integrity | `topomt.provider_output.ProviderRun.load`, TopoMT `3a8ee979` | Owner checks archive members, artifact hashes and run identity. | The selected bundle is the intended original evidence; integrity alone authenticates no molecular meaning. | Missing internal manifest-declared artifacts or corrupt ZIP data refuse native recovery. An unavailable external asset may leave an admitted BindingMT reference-only record; it is not a partially recovered native result. |
 | Source-bound PISA recovery/outcome | `tmt.load_provider_output(bundle, molecular_system=original_source)`, TopoMT `3a8ee979` | Owner reader checks its supported saved source/context and supplied-assembly policy, preserving completed-empty output. | Supply the complete unchanged original source; do not override saved selection/frame/reference chemistry. | Missing/contradictory context refuses claimed recovery. Failure capture remains failure evidence through its owner route. |
 | Participant selection and axes | `msm.select`/`msm.get`, candidate MolSysMT `ff25f120` | Resolve admitted selection on the chosen structure/state; inspect actual membership and relevant axes. | Caller source association is retained with its actual authority; matching labels/counts are not proof. | Unresolved declaration remains readable; a required selection/axis mismatch refuses projection. |
 | Source/local atom and structure correspondence | Maps from the actual qualified MolSysMT conversion/extraction operation; exact accessor/profile still to agree | Independently check nonidentity maps, original 2 → local 0, unmapped/generated entries and ordering. | Retain owner report/source identities; declare any caller map without upgrading its authority. | Missing required map gives missing proof; contradictory map refuses. No numeric-identity assumption. |
@@ -615,11 +617,13 @@ declaration = bmt.characterize_interface(
     grouping=(("A",), ("B",)),
     analyses={},
     assurance_scope="preserved_evidence",
-    context_policy="require_match",
 )
 ```
 
-This records no supplied analysis and unknown support. Completed-zero analysis
+This records no supplied analysis and unknown support. No context-match policy
+is requested; inspection must show molecular checks as `not_required`, not a
+performed `match`. The work plan records the proposed explicit-policy admission
+rule before implementation. Completed-zero analysis
 instead supplies its actual analysis carrier/reference. The same ordinary
 construction can later express `(A+B) | C` with explicit groups and the scoped
 observation policy in section 11.1; it does not reinterpret A | B or silently
@@ -996,10 +1000,12 @@ consumer adoption is demonstrated here. Documentation syntax/reference/resource
 checks retain their limited scope. Native hypotheses, coordinates and quantities
 in the symbolic examples have not been generated or measured.
 
-The second design is shared; await the requested feedback. Then resolve the
-finite public guarantee/intake facts and confirm the exact supplied PISA profile;
-obtain concrete native/consumer inputs for their independent increments. Record
-accepted/deferred decisions with their owner/revisit condition before preparing
-a bounded implementation plan. The useful
+All three second-round replies support preparing the
+[bounded implementation/work plan](binding_interface_implementation_plan.md).
+It records the supplied exact contact/empty/failure controls, these persistence
+and declaration-example clarifications, proposed first-profile decisions and
+independent receiving increments. Next close the minimal local data contract,
+coordinate the actual molecular/profile prerequisites and obtain the promised
+native/consumer inputs. The useful
 BindingSite core under #111 remains independent unless a concrete incompatibility
 is identified and explicitly resolved.

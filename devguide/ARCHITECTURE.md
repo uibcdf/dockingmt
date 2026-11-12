@@ -61,6 +61,13 @@ sketches are review proposals. No BindingInterface runtime,
 shared schema freeze or consumer receiving is implemented by this document.
 The useful #111 core remains independent unless a concrete incompatibility arises.
 
+The [implementation/work plan](binding_interface_implementation_plan.md) evaluates
+the favorable second-round responses and records the first data/analysis core,
+explicit optional PISA intake, qualified contact footprints and independent
+native/consumer receiving. Proposed local contracts, owner facts and real
+executed evidence remain separate; the source map still has no runtime
+BindingInterface implementation from this planning increment.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the
