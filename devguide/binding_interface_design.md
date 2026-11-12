@@ -12,8 +12,11 @@ Revision 2 was shared from exact source `5aa21b1aaf27ee7708e5a7bb4fe58bd0300d49f
 in the [second review post](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6834362774).
 The [implementation/work plan](binding_interface_implementation_plan.md) now
 records evaluation of the three favorable second-round replies and the proposed
-bounded increments. This is planning evidence; runtime implementation and
-executed receiving remain pending.
+bounded increments. Its later native catalogue extension records ordinary contact
+calculation followed by surfaces/burial, preserving this scientific information
+model and the separate saved-PISA receiving branch. The sketches below retain
+their supplied-evidence execution boundary. This is planning evidence; runtime
+implementation and executed receiving remain pending.
 
 The design incorporates the [TopoMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6812846154),
 [PeptideMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6813153779)
@@ -61,8 +64,11 @@ The minimum useful workflow is:
 
 `explicit question/context + supplied analysis evidence/findings → characterization → inspection → save/read → one qualified footprint or comparison`
 
-Composition does not run missing detectors. Optional later calculations require
-an explicit operation/profile and keep their numerical owners. A declaration
+Composition does not run missing detectors. The current work plan adds a separate
+explicit native calculation request using public molecular tools, returning this
+same inspectable result model. Its first numerical route is contacts, followed by
+surfaces/burial; names/defaults and each profile remain admission decisions.
+Calculation retains its numerical owners. A declaration
 with no supplied analysis or other evidence retains unknown support. Completed
 analysis with zero findings has its own preserved outcome, not that no-evidence
 state. An inferred association retains the criterion and evidence supplied
@@ -826,15 +832,18 @@ dropping them at closeout.
    rows are not global data-only prerequisites.
 2. Deliver useful data-only declaration/inspection/copy/revision/persistence,
    with real emitted records and focused tests when implementation is authorized.
-3. Receive one source-pinned saved owner result through public recovery,
+3. Close the actual native contact/context/tool profile and deliver explicit
+   public calculation, characterization, inspection and saved replay without
+   PISA/TopoMT. Qualify surfaces/burial next under its own molecular contract.
+4. Receive one source-pinned saved owner result through public recovery,
    BindingMT composition, inspection and save/read, followed by one available
    footprint or comparison and its refusal controls.
-4. Expand to further consumer profiles only with their own owner inputs and
+5. Expand to further consumer profiles only with their own owner inputs and
    meaningful qualification; record shared agreement/adoption separately.
 
-### 16.1 First proposed profile: saved PISA and a participant contact footprint
+### 16.1 Saved PISA profile and a participant contact footprint
 
-TopoMT has now supplied the concrete first candidate in its
+TopoMT supplied the concrete saved-provider candidate in its
 [follow-up](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6817022945),
 supported by PeptideMT. Use the frozen
 [PISA inputs/results/protocol](https://github.com/uibcdf/topomt/tree/3a8ee979db8de6f6345de74558a878bb96ba3234/tests/data/original_local/pisa)
@@ -902,6 +911,8 @@ promotion or universal support for all multimolecular profiles.
 | Increment | Independently useful outcome | What it does not wait for |
 | --- | --- | --- |
 | Data core | Explicit declaration/analysis identity, inspection and faithful versioned persistence with real emitted records/tests. | Universal molecular receipts, every owner adapter or all consumer profiles. |
+| Native contacts | Public calculation-to-characterization round trip, exact atom/residue contacts and both footprints, independent saved replay. | PISA, TopoMT, surface/chemical recognition or every future molecular profile. |
+| Native surfaces/burial | Both participant SASA losses, mapped contributions, explicit area convention and independent numerical/readback controls. | All chemical/topographic/ensemble/energy families; its own radius/context/tool admission remains required. |
 | PISA receiving | One complete saved positive/empty/failure and participant-footprint route with exact supported guarantees/refusals. | Neutral native Topography promotion, dynamic methods or the native pharmacophoric route. |
 | Native pharmacophoric receiving | The section 11.1/11.2 compatible native input/subset/site-map/persistence and constraint controls. | PISA being converted into native interactions or a general interface-to-pharmacophore algorithm. |
 | Consumer controls | Section 11.3's admitted K/N/native-derived/comparison specifications at the actual public export boundary. | Every later provider, target-specific parameter selection or a blind-benchmark claim. |

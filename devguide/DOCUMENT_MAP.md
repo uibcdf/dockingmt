@@ -10,7 +10,7 @@ making a bounded contribution.
 
 | Document | Primary question |
 | --- | --- |
-| [binding_interface_implementation_plan.md](binding_interface_implementation_plan.md) | What is the reviewed #112 work order, including derived-footprint persistence, historical/current-use controls, nonempty group overlap, aligned source/local ordering and independent receiving milestones? |
+| [binding_interface_implementation_plan.md](binding_interface_implementation_plan.md) | What is #112's native calculation catalogue and staged contact/SASA/burial plan, with explicit owner contracts, independent controls and retained PISA/native-consumer receiving? |
 | [binding_interface_design.md](binding_interface_design.md) | How does revision 2 address the #112 follow-ups through analysis-level outcomes, public assurance/fact checks, the exact PISA footprint and independent native/consumer profiles? |
 | [binding_site_implementation_plan.md](binding_site_implementation_plan.md) | What is the reviewed #111 work order, which local decisions and owner inputs does each operation need, and what evidence closes the data-core, application and receiving milestones? |
 | [binding_site_design.md](binding_site_design.md) | Which revision-2 definition/structural-realization/ensemble model, public API, record/projection semantics and cross-component decisions are proposed before #111 implementation? |

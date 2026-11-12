@@ -1,21 +1,23 @@
 # BindingInterface implementation and work plan
 
 Owner: [BindingMT #112](https://github.com/uibcdf/bindingmt/issues/112).
-Recorded and reviewed: 2026-11-12. Work-plan revision **2**.
-Status: **reviewed implementation plan; runtime implementation pending**.
+Recorded and reviewed: 2026-11-12. Work-plan revision **3**.
+Status: **native calculation track incorporated; final coverage review pending**.
 This plan turns the [reviewed second design](binding_interface_design.md) into
 bounded, independently useful implementation and receiving increments. It is
 the interface counterpart of the [BindingSite work plan](binding_site_implementation_plan.md),
 not a package version, shared-schema freeze or release schedule.
 
-The maintainer requests evaluation of the three second-round responses and a
-written plan before implementation, then correction after reviewing that plan.
+The maintainer requests a third revision incorporating TopoMT's native catalogue,
+followed by a fresh reading of the complete proposal and a fourth revision.
 The [initial work plan at `dd089db`](https://github.com/uibcdf/bindingmt/blob/dd089dbb096c1b8b1fa20c55317cf8d47a769de2/devguide/binding_interface_implementation_plan.md)
-remains the historical baseline. This second work-plan revision adds persistence
-of the derived footprint, crossed outcome/availability/current-use controls,
-meaningful overlapping-group coverage and deterministic membership/map ordering.
-It does not change scientific-design revision 2 or execute the proposed APIs or
-new molecular calculations.
+remains the historical baseline. [Work-plan revision 2 at `d69315d`](https://github.com/uibcdf/bindingmt/blob/d69315dfebc49ddd8c2da1999955edc078fd8893/devguide/binding_interface_implementation_plan.md)
+supplies derived-footprint persistence, crossed outcome/availability/current-use
+controls, overlapping-group coverage and deterministic membership/map ordering.
+This revision retains them and adds the ordinary native contacts and surface
+calculation route. The scientific information model remains design revision 2;
+the calculation roadmap is extended explicitly rather than inferred from its
+old PISA example. This increment executes no proposed API or molecular calculation.
 
 ## 1. Assessment of the second review and starting evidence
 
@@ -40,7 +42,7 @@ preparing a bounded implementation plan:
 
 These are favorable design reviews, not frozen public signatures, implemented
 compatibility or component adoption. MolSysMT has no reply in the complete
-12-comment #112 baseline inspected for this work-plan review; the finite molecular
+13-comment #112 baseline inspected for this work-plan review; the finite molecular
 fact/check agreement remains an operation-specific item.
 
 TopoMT's fixed receiving inputs exist at
@@ -51,11 +53,32 @@ native pharmacophoric and PeptideMT specifications are offered, with exact
 execution inputs still to receive/select. Refresh actual source/native closure
 before executed receiving. These identities are not public dependency floors.
 
+### 1.1 Native catalogue contribution and planning disposition
+
+The [new TopoMT post](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6836773833)
+and its [complete proposal at `a13b9b2`](https://github.com/uibcdf/topomt/blob/a13b9b2725bd8a4edd851441d1a5a53720e0f3ea/devguide/binding_interface_native_catalogue_plan.md)
+extend the numerical roadmap while retaining the favorable model assessment.
+BindingMT leads binding-domain characterization; the first ordinary numerical
+milestone is native contacts, followed by surfaces/burial. PISA becomes a separate
+optional interoperability/comparison branch, with its previous obligations intact.
+The maintained catalogue and work order below are BindingMT's planning authority;
+TopoMT's dated contribution retains its identity rather than a second editable
+implementation roadmap. Local review remains in
+[TopoMT #197](https://github.com/uibcdf/topomt/issues/197); finite shared agreements
+belong in [MolSysSuite #195](https://github.com/uibcdf/molsyssuite/issues/195).
+
+The maintainer commissions careful planning revisions here. Native profile/default
+admission, owner agreement, code, numerical receiving and consumer adoption remain
+separate pending work. This does not make every catalogue candidate a #112,
+BindingSite, stabilization or release gate.
+
 ## 2. Useful outcomes and preserved boundaries
 
-The first ordinary user must be able to declare a binding question, inspect
-available analysis/evidence and limitations, save/read it, and explicitly derive
-one qualified participant footprint from a recovered saved PISA analysis.
+The first ordinary user must be able to declare a binding question, request an
+admitted native contact calculation, inspect its characterization/limitations,
+and save/read both the characterization and its participant footprints without
+PISA or TopoMT. The next numerical milestone adds accessible surfaces and burial.
+Composing supplied analyses and receiving saved PISA remain useful explicit routes.
 Expert inspection exposes exact owner/run/record/occurrence references, selected
 contact groups, source/local maps, checks, preconditions and refusal causes.
 
@@ -65,6 +88,9 @@ Preserve the design's ownership and scientific distinctions:
   TopoMT keeps canonical topographic associations/realizations and provider
   meanings; MolSysMT keeps molecular facts/maps/analyses; PharmacophoreMT keeps
   native feature, hypothesis and matching semantics.
+- Native calculation means BindingMT composes public MolSysMT operations for a
+  binding question. It does not mean another contact/surface kernel, a native
+  Topography promotion or a fabricated MolSysMT typed-analysis receipt.
 - Analysis outcome, artifact availability, current correspondence/applicability
   and biological support are separate dimensions. Completed zero, no supplied
   analysis, original failure, missing proof and contradiction stay distinct.
@@ -94,13 +120,17 @@ entry gate requiring outputs from an API that has not been written.
 | F4: admitted assurances | Declaration/composition defaults to `preserved_evidence`; the first current-context PISA footprint requires/defaults to its qualified `molecular_correspondence` profile and explicit source. Supplying a molecular handle alone does not upgrade preservation. Initially refuse unqualified `current_finding` explicitly. | BindingMT/affected owners agree meanings; C/T record only the scopes actually qualified. |
 | F5: context-policy applicability | Proposed default: no context policy for preservation; ordinary examples omit it and summary says `not_required`, never `match`. An explicitly supplied `require_match` is retained as a request with visible non-applicability, not a performed match. Correspondence normalizes to effective `require_match`. | Close exact defaults/admission in P0a; negative controls prove no inferred check. Additional trust policies remain unsupported initially. |
 | F6: identity/version | Exact declaration, owner analysis/run, finding and observation references; faithful copy/read identity; immutable parents and original claim associations. Explicit experimental format/version admission. | Local decision before D1/D2; API-emitted round trips supply later evidence. No legacy missing-version admission inherited automatically. |
-| F7: contact requests | Require a nonempty ordered unique selection from initially supported `other-bonds`/`h-bonds`; a combination means union of their mapped endpoint memberships with separate per-group provenance. Reject duplicate/unknown names; additional known owner groups remain explicitly unsupported until admitted. | BindingMT/TopoMT profile, including known-empty, mixed-group, empty-request and unknown-group controls. |
-| F8: footprint result | Detached unique original-source indices in ascending order within the identified source atom axis; target-local indices align position by position through the qualified map, without independent sorting. Preserve all contributing contacts/groups, coverage and value state. The actual result has public save/read support; known empty remains evaluated-empty, not a positive region or implicit site. | Close the concrete result/persistence surface before T1 code; exact endpoints, aligned maps, complete contributors and independent saved-footprint readback qualify T1. Optional later site construction needs its own admission. |
+| F7: PISA contact requests | Require a nonempty ordered unique selection from initially supported `other-bonds`/`h-bonds`; a combination means union of their mapped endpoint memberships with separate per-group provenance. These owner labels do not define native geometric contact criteria. Reject duplicate/unknown names; additional known owner groups remain explicitly unsupported until admitted. | BindingMT/TopoMT profile, including known-empty, mixed-group, empty-request and unknown-group controls. |
+| F8: footprint result | Detached unique original-source indices in ascending order within the identified source atom axis; target-local indices align position by position through the qualified map, without independent sorting. Preserve all contributing contacts/groups, coverage and value state. The actual result has public save/read support; known empty remains evaluated-empty, not a positive region or implicit site. | Close the concrete result/persistence surface before N1/T1 code; exact endpoints, aligned maps, complete contributors and independent saved-footprint readback qualify each actual route. Optional later site construction needs its own admission. |
 | F9: failure and recovery | Preserve owner `execution_status="failed"`, `failure_stage="analysis"` and diagnostic references. External absence may remain reference-only; an internally incomplete/corrupt native ZIP fails owner recovery. | TopoMT facts are supplied; T0 tests actual metadata and owner-reader outcomes. Current parser errors never relabel original science. |
+| F10: explicit native execution | A separate explicit calculation request invokes selected public molecular tools and returns the same inspectable result model. Composition, summary, copying and core reading calculate nothing. Bind actual entry-point names/defaults before code; a concise routine call and composable expert operations are both required. | BindingMT N0; no speculative public export is added by this plan. |
+| F11: initial molecular profile | Two resolved nonempty disjoint participant populations on one explicit Cartesian structure; fixed admitted chemistry, no inter-participant covalent link, implicit reconstruction, completion, relaxation or alignment. Surface occluders are exactly A union B. | BindingMT/MolSysMT close the actual selections, maps, required facts, radius/H rules and refusal contract for N1/N2 separately. |
+| F12: definition and execution record | Distinguish observable definition/version, algorithm/backend/version, parameters and scientific resources. BindingMT owns its composed calculation record and references actual owner calls/results; raw arrays do not acquire invented foreign analysis IDs. | N0 records the selected per-entry contract; source/native closure and actual emitted/read records qualify it. |
+| F13: burial definition | Retain both participant SASA losses, their sum and an explicitly named optional mean-side convention. Fixed geometry/chemistry/radii/probe and exact output/occluder populations are required. | N2 closes the public owner composition or concrete reusable gap, numerical tolerances and mapped contribution contract before code. |
 
 Optional site links are exact references. No initial live BindingSite object,
 site projection or mandatory #111 implementation dependency is required for the
-data/PISA profile. Explicit native recovery remains the owner's public operation,
+data/native/PISA profiles. Explicit native recovery remains the owner's public operation,
 not a hidden side effect of summary, read or composition.
 
 ## 4. Dependency order and current status
@@ -111,6 +141,12 @@ flowchart TD
     D1 --> D2[D2: identity and persistence]
     D2 --> C[C: scoped molecular facts]
     P0m[P0m: finite molecular agreement] --> C
+    D2 --> N0[N0: selected native profile decisions]
+    N0 --> N1[N1: native contacts and footprints]
+    C --> N1
+    N0 --> N2[N2: native surfaces and burial]
+    C --> N2
+    N1 -. priority .-> N2
     D2 --> T0[T0: saved PISA intake]
     IT[Fixed TopoMT inputs and profile] --> T0
     T0 --> T1[T1: contact footprint receiving]
@@ -123,6 +159,8 @@ flowchart TD
     C --> P
     IP[Consumer specification and export seam] --> P
     T1 --> A[A: agreed closeout and handoffs]
+    N1 --> A
+    N2 --> A
     H1 --> A
     P --> A
 ```
@@ -130,12 +168,17 @@ flowchart TD
 P0 is an umbrella, not a global barrier. D1/D2 need the minimal local decisions,
 not every foreign input or molecular guarantee. T0 needs its TopoMT profile and
 owner recovery boundary; T1 closes the molecular rows needed by its footprint.
+N0 closes each selected native profile's own facts; the surface contract does
+not block N1. The dashed N1-to-N2 edge records delivery priority, not a claim that
+geometric contacts are a numerical prerequisite for SASA. Each operation closes
+its actual data/context/tool prerequisites; native contacts do not wait for PISA,
+chemical recognition, PharmacophoreMT or neutral Topography adoption.
 H/P can advance independently with their own sources and public seams. Shared
 coordination runs alongside the work and precedes freezing exercised shared
 meanings; whole-suite adoption is not a local-core entry condition. C's prerequisites
 are the rows needed by the actual operation, not every possible molecular fact.
 Arrows into A collect dispositions/evidence for the agreed scope; they do not
-make every later consumer profile a prerequisite for a useful M1/M2 checkpoint.
+make every later consumer profile a prerequisite for a useful data/native checkpoint.
 
 | Increment | Current state | Completion boundary |
 | --- | --- | --- |
@@ -145,6 +188,8 @@ make every later consumer profile a prerequisite for a useful M1/M2 checkpoint.
 | P0h/P0p | Specifications offered | Receive exact native inputs/expected outcomes and actual consumer export boundary; do not guess scientific choices. |
 | D1/D2 | Runtime pending | Useful public declarations/summary and faithful immutable safe persistence. |
 | C | Pending operation-specific facts | Required checks, map/state/frame scope, lifetime and refusal implemented and tested. |
+| N0/N1 | First ordinary native numerical milestone planned | Admitted public calculation, exact contacts/atom-residue footprints, independent reference controls and saved replay without PISA/TopoMT. |
+| N2 | Next numerical milestone planned | Public owner SASA composition, both side losses and mapped contributions, convergence and honest readback/refusal. |
 | T0/T1 | Runtime pending | Actual saved analysis intake and exact participant-contact footprint/replay, including adverse controls. |
 | H0/H1 | Inputs and runtime pending | Effective grouping, native construction, observation/site correspondence and native saved replay. |
 | P | Input/seam and runtime pending | Actual K/N payloads, native/derived-context and comparison controls under a declared policy. |
@@ -188,7 +233,9 @@ search helps discovery, not an absence claim. Report concrete provider gaps in
 their owner with consumer evidence and link the local workaround/removal condition.
 MolSysMT #624 and TopoMT #60/#61/#62 retain their broader separate scopes.
 
-Coordinate exercised compatibility/ownership in MolSysSuite; identity adoption
+Coordinate exercised native definitions/maps/quantities/attribution and receiving
+in [MolSysSuite #195](https://github.com/uibcdf/molsyssuite/issues/195); record each
+actual owner decision and consumer state there. Identity adoption
 under #190 is a separate topic. Check participating worktrees through the suite's
 registered status route before coordinated changes, preserving dirty/human work.
 This plan changes no sibling source, environment or native extension.
@@ -205,6 +252,12 @@ PharmacophoreMT supplies a native source/analyses and expected grouping/reuse/
 alternative/refusal outcomes. PeptideMT supplies K/N/native-derived/comparison
 specifications and the actual export seam. Missing choices remain owned pending
 items, not invented molecular preparation, site or threshold selections.
+
+Native controls use separately authored small molecular inputs and independent
+geometric/analytic expectations, acquired through public MolSysMT construction.
+Freeze exact populations, parameter/resource identities, unit policies and
+tolerances before interpreting outputs. An owner artifact reused as an input
+does not make its PISA answer the definition of a native expected result.
 
 ## 6. D1: declaration, analysis outcomes and ordinary inspection
 
@@ -316,12 +369,18 @@ to public MolSysMT operations. Keep performed checks, coverage/authority and
 caller unchanged-input preconditions separate. Unknown required proof refuses
 the stronger use; do not mark it checked because an ID or shape matches.
 
-The first footprint uses the complete matching original source and saved owner
+The saved PISA footprint uses the complete matching original source and saved owner
 selection/frame/reference-state context. No overriding that reader context to
 transfer a finding. Nonidentity atom/structure maps and original 2 → local 0
 belong to separately identified native/derived controls when the frozen PISA
 source does not itself exercise them. Do not alter the frozen source and claim
 the same saved source-bound recovery.
+
+Native N1/N2 instead check their actual selected molecular input, output and
+environment populations. Preserve original/local atom and structure maps,
+chemistry/radius policies and effective frame/image. Eligibility follows the
+selected native profile, without imposing PISA's complete-source recovery rules
+on every independent calculation or weakening either route's requirements.
 
 Check the actual selected/exported input at use, retaining normalization maps.
 A relevant coordinate/chemistry/member edit between checks and application needs
@@ -347,7 +406,237 @@ in the public result, including `not_required` in a preservation-only request.
 their actual diagnoses; nonidentity/source-local and relevant-edit controls pass
 under the admitted profile without changing historical evidence.
 
-## 9. T0: explicit optional saved-PISA analysis intake
+## 9. N0/N1/N2: native characterization catalogue and calculations
+
+### 9.1 BindingMT catalogue and staged admission
+
+This is the maintained BindingMT catalogue. Entry identifiers are descriptive,
+independent of display order and not frozen callable names. Separate observable
+definition/version from algorithm/backend/version, effective parameters and
+scientific resources. A change of meaning needs a new definition version and an
+explicit compatibility decision; two algorithms targeting the same observable
+do not acquire numerical equivalence by sharing a name.
+
+| Candidate entry | Scientific meaning and owner boundary | Planned admission / later trigger |
+| --- | --- | --- |
+| `atomic_contacts` | Exact inter-participant atom pairs, distances and counts under an explicit geometric predicate; public MolSysMT geometry. | N1 first native calculation. |
+| `residue_contacts` | Unique residue/group-pair reduction and participant populations, retaining atom witnesses and MolSysMT grouping. | N1 with an admitted reduction/count policy. |
+| `contact_footprints` | Each participant's unique contacted atoms/residues and all contact contributors. | N1; public independent footprint persistence required. |
+| `steric_overlaps` | Radius-model-dependent overlap witnesses and summaries, distinct from a contact cutoff. | Later geometric profile once radii and independent controls are admitted; no quality verdict. |
+| `solvent_accessibility` | Atomic/aggregated SASA with explicit output and occluder populations, probe and radius model. | N2 using public MolSysMT SASA. |
+| `interface_burial` | Both participant SASA losses, total loss, optional mean-side convention and mapped contributions. | N2 after the owner composition/decomposition contract closes. |
+| `chemical_interactions` | Family-specific admitted chemical observations, retaining chemistry, effective state, recognition coverage and original occurrences. | Each selected MolSysMT family needs its own native receiving; distance alone admits no chemical classification. |
+| `physicochemical_partition` | Explicit chemical-class counts or area contributions over a named membership/measure. | Owner classifications plus BindingMT aggregation; admit class overlap/additivity and fraction denominators first. |
+| `buried_unsatisfied_polar_sites` | Buried recognition sites lacking an evaluated partner under a stated chemical/environment criterion. | Require qualified burial, complete recognition chemistry and evaluated partner coverage; unavailable analysis is not negative evidence. |
+| `interaction_network` | Residue/group edges and scoped connectivity descriptors derived from explicit observations. | Admit edge definitions, multiplicity and comparison policy; no automatic affinity prediction. |
+| `topographic_organization` | Supported patches, gaps, concavities, cavities, channels or accessibility related to the binding question. | Optional qualified TopoMT support/context/relations; existing #60/#61/#62 gates apply. |
+| `geometric_complementarity` | An explicit fit/orientation/separation measure on admitted geometric supports. | Later TopoMT-supported surface model, numerical reference and comparison-eligibility profile. |
+| `pose_comparison` | Differences between compatible contact/surface/topographic observations. | Exact observable, correspondence, coverage and normalization; distinguish poses of one pair from different partners. |
+| `ensemble_statistics` | Per-structure observations and later contact/burial persistence summaries. | Sampling, structure correspondence and weighting qualification; frame frequency is not automatically a thermodynamic population. |
+| `energetic_observables` | A specified energy or thermodynamic endpoint under an admitted method/model. | Separate process, states, conditions, uncertainty/convergence and method-owner receiving. |
+| `assembly_inference` | A stated model's assembly or biological-interface inference. | Separate future decision and predictive validation; descriptive contact/area evidence does not admit it. |
+
+BindingMT owns these binding-domain definitions/compositions; molecular and
+topographic numerical kernels/resources keep their respective owners. Selected
+N0/N1/N2 work is bounded below. Other rows remain explicit candidates in #112,
+with the trigger above; create an independently closable issue or bounded #112
+part when selected. Their presence here requires no placeholder code or global
+plugin/schema framework, and does not turn them all into initial delivery gates.
+
+### 9.2 N0: public request, context and exact owner route
+
+Close F10/F11/F12 for contacts before N1 and F13's additional surface facts before
+N2. Ordinary users request a small named calculation set through one concise
+operation and inspect/save the returned characterization. Experts can compose
+operations and inspect definitions, parameters, original owner outputs, maps,
+contributions, checks and limitations. Neither route requires manually building
+a persistence record. Keep calculation explicit and composition faithful.
+
+The first native profile uses one chosen Cartesian structure and two resolved,
+nonempty, disjoint participant populations A/B. Require admitted reference
+chemistry and explicit hydrogen/radius policies where relevant. Exclude
+inter-participant covalent links. Preserve the coordinates; perform no implicit
+completion, relaxation, alignment, crystal expansion or periodic reconstruction.
+For N2 the environment is exactly A union B. Solvent, cofactors, metals, ions and
+other chains require explicit inclusion/interpretation under a supported profile,
+never silent stripping or inferred experimental conditions. Missing required
+radii or unsupported chemistry refuses the affected calculation, not zero area.
+
+Retain resolved effective selections, source occurrences, original/local atom
+and structure maps, state/frame/image, effective parameters and check coverage.
+Required missing/contradictory facts refuse the requested operation. A raw owner
+array/pair result does not certify those facts or become an invented owner-native
+Interactions/analysis object. BindingMT records its actual composed calculation,
+producer and child calls; owner analysis references are present only where real.
+
+Record requested versus required/optional observations, evaluated coverage and
+per-child outcomes. A failed required child cannot yield an apparently complete
+successful characterization. Preserve genuinely completed children and their
+attribution; an admitted partial result exposes each omission and its application/
+comparison limits. Unknown, unrequested, undefined, unsupported and failed values
+remain distinct from a computed zero. No single quality/validity scalar replaces
+these facts.
+
+Inspected MolSysMT baseline `ff25f120243319ca9515009b4971e24a2eb0dc22`:
+
+| Public operation | Starting capability / admission boundary |
+| --- | --- |
+| [`structure.get_contacts`](https://github.com/uibcdf/molsysmt/blob/ff25f120243319ca9515009b4971e24a2eb0dc22/molsysmt/structure/get_contacts.py) | Geometric map/pairs and explicit endpoint/index controls; pair output still retains a resident Boolean map. It does not itself return a complete typed scientific receipt. |
+| [`structure.get_distances`](https://github.com/uibcdf/molsysmt/blob/ff25f120243319ca9515009b4971e24a2eb0dc22/molsysmt/structure/get_distances.py) | Public exact endpoint-distance route; close the paired/index/frame contract if used to retain contact distances. |
+| [`structure.get_neighbors`](https://github.com/uibcdf/molsysmt/blob/ff25f120243319ca9515009b4971e24a2eb0dc22/molsysmt/structure/get_neighbors.py) | Candidate public CSR neighbor route with distances; qualify eligibility, threshold and source/local index semantics before selecting it for a larger population. |
+| [`physchem.get_sasa`](https://github.com/uibcdf/molsysmt/blob/ff25f120243319ca9515009b4971e24a2eb0dc22/molsysmt/physchem/get_sasa.py) | Shrake-Rupley native surface route with probe/sampling/periodic controls. Selection filters output while every input atom remains an occluder. |
+| [`physchem.get_area_buried`](https://github.com/uibcdf/molsysmt/blob/ff25f120243319ca9515009b4971e24a2eb0dc22/molsysmt/physchem/get_area_buried.py) | Rose tabulated residue descriptor; not the conformational interface burial needed here. Tabulated surface descriptors likewise do not substitute for SASA. |
+
+These are inspected sources, not minimum dependency versions, installed/native
+qualification or accepted public call recipes. Refresh exact source/native/import
+origins before receiving. Use existing public tools if sufficient; hand a concrete
+generic molecular/decomposition gap to MolSysMT before a consumer workaround.
+Keep the actual exercised agreement and owner disposition in MolSysSuite #195.
+
+### 9.3 N1: native contacts, residue reduction and participant footprints
+
+Request the selected geometric criterion on the actual A/B populations, with an
+explicit distance cutoff, inclusion/tolerance, Cartesian policy and index/frame
+semantics. Do not inherit generic owner defaults as an unstated scientific
+definition. Preserve pairs and distances; state whether counts mean unique
+cross-participant pairs, directed occurrences, contacted atoms or unique
+residue/group pairs. A chemical interaction or radius overlap remains distinct.
+
+Grouping selects the consumed pairs: internal participant observations and
+unrelated C-D contacts cannot enter an A-B characterization. Repeated selections
+or copied observations cannot create extra atoms/independent evidence; retain
+meaningful request/delivery multiplicity separately. Derive residue/group results
+through owner correspondence and an admitted aggregation policy, preserving all
+atom witnesses and contributor identities.
+
+Return detached participant footprints under F8's canonical source order and
+position-aligned local maps, retaining every contributor and exact parent/criterion.
+Two nonempty participants with no contacts yield completed evaluated-zero analysis
+and empty footprints. Empty/unresolved required participants, unsupported criteria
+or a failed numerical child retain their different outcomes. No positive site,
+continuous patch, biological association or binding strength is fabricated.
+
+Before a cell, estimate map/output/child working memory, including pair boxing and
+coordinate preparation. Select bounded inputs; admit a public owner neighbor route
+where its semantics and resource behavior are qualified. Do not duplicate a search
+kernel in BindingMT or equate a provider allowance with RSS/reserved system RAM.
+Larger-system performance needs its own measured evidence.
+
+**Exit:** actual public native calculation -> characterization -> ordinary/expert
+inspection -> public save/read, plus the positive/empty footprint's own save/read
+and independent core inspection. The native calculation runs with PISA/TopoMT
+unavailable in task-owned isolation. Exact independent contacts/distances,
+atom/residue membership/maps/contributors, unit-policy and refusal controls pass.
+Data preservation does not claim broad chemical recognition or native Topography.
+
+### 9.4 N2: native SASA, both side losses and mapped burial
+
+For fixed coordinates, chemistry, radii, probe and surface policy:
+
+```text
+L_A = SASA_A(A) - SASA_A(A union B)
+L_B = SASA_B(B) - SASA_B(A union B)
+total_burial = L_A + L_B
+mean_side_area = (L_A + L_B) / 2
+```
+
+Subscripts identify output populations; parentheses identify all occluders.
+Retain both side losses without assuming equality. The sum and optional named
+mean-side convention are distinct reports. Preserve per-atom losses and their
+residue/group reductions; contributions must sum to their own side and total
+within the admitted numerical tolerance. Any positive-area membership threshold
+is explicit and distinct from the geometric contact criterion.
+
+Use owner-supported construction of A, B and A union B with exact original maps,
+coordinates, chemistry and radius assignments retained. These isolated inputs
+are counterfactual calculation contexts, not relaxed unbound molecular states.
+Selecting A's output from A+B leaves B as an occluder and does not compute SASA_A(A).
+Never silently cap bonds, add H, change protonation or retarget a state. Close the
+exact public extraction/SASA composition, or the reusable MolSysMT decomposition
+gap, before advertising a new owner API or duplicating a numerical operation.
+
+Record probe/radii identities, sample points/resolution and convergence controls.
+Rigid rotation preserves a sampled estimate only within its justified tolerance;
+convergence is not universally monotonic. Diagnose unexpected negative losses
+rather than silently clamping inconsistent or numerically unresolved values.
+An unknown radius/failed child does not become successful zero burial.
+
+Later environment-aware burial can compare A+C with A+B+C under another admitted
+definition. Pairwise contributions in a multimolecular assembly need not add up
+to a joint measure; geometric nonadditivity does not establish cooperativity.
+Area contributions and contact counts are not energetic hot spots.
+
+**Exit:** the real public owner composition yields both side losses, atomic/group
+contributions, explicit total/mean conventions and numerical error/convergence limits.
+Analytic references, environment/output-selection controls, missing-radius/refusal,
+normal/pm-fs quantities and independent persisted readback pass. Native surface
+receiving is separate from source inspection or agreement to use a known method.
+
+### 9.5 Independent native receiving controls
+
+Freeze inputs, exact criteria, numerical tolerances and independent expectations
+before interpreting outputs. This table describes future meaningful guards,
+not tests delivered by a Markdown document or reasons to run a scientific suite now.
+
+| Control | Independently justified required result |
+| --- | --- |
+| Geometric contact reference | Hand-specified coordinates give exact inside/on/outside-cutoff pairs and distances, with exact source membership and declared boundary behavior. |
+| Participant exchange | Under the admitted symmetric predicate, unique total contacts remain equal and participant footprints exchange through their maps; do not extend this to directional chemical roles. |
+| Separated populations | Evaluated-zero contacts; zero burial only where the surface assumptions establish no cross-occlusion. Preserve completed-empty evidence. |
+| One sphere | SASA matches `4*pi*(radius + probe_radius)**2` within the admitted error under the supported atomic/radius construction. |
+| Two spheres | Analytic cap, containment and separation controls qualify the surface recipe independently of PISA. |
+| Surface aggregation | Atomic/group contributions sum to each side and declared total/mean; fixed-sample added occluders cannot increase an atom's accessible fraction. |
+| Sampling and rotation | A declared sampling sequence bounds error against independent references; no assumed universal monotonic convergence or exact rotational invariance. |
+| Output versus environment | Output selection keeps full occlusion; isolated-input construction changes occluders deliberately while preserving source/maps/chemistry/radii. |
+| Grouping/completeness | Actual consumed pairs exclude unrelated/internal observations; chemical profiles separately retain complete recognition participants. |
+| Outcome distinctions | Completed no-contact, no analysis, unrequested, missing chemistry/radii, undefined, unsupported and failed calculations retain causes rather than fabricated zeros. |
+| Maps/multiplicity | Reordering/extraction, original structure 2 -> local 0 and repeated delivery retain actual correspondence without extra independent support. |
+| Footprint persistence | Actual positive/empty footprint records retain source order, aligned maps, every contributor and exact parents through independent core readback. |
+| Crossed states | Completed zero with an unavailable asset, accessible failed evidence and historical C0 match/current C1 contradiction retain distinct outcomes; default read performs no discovery/reassessment. |
+| Relevant edits | Geometry/chemistry/member/frame changes reassess the affected use; unchanged footprint positions do not verify an entire original calculation. |
+| Units and admission | Ordinary and pm/fs policies preserve physical distances/areas, definition/producer identities and reader field/dimensionality checks; tampered/malformed records refuse. |
+| Optional dependencies | Real native contacts/surface calculation succeeds without PISA/TopoMT; optional enrichment/recovery retains explicit dependency routes. |
+| Attribution | Actual completed branches, evaluated-empty, enclosing workflows, reuse, optional absence/failure and fresh readers preserve reached methods without inventing a new originating execution. |
+
+### 9.6 Resources, attribution and later characterization families
+
+Radii, chemical classifications, parameter sets and numerical reference resources
+remain versioned in their molecular/specialist owner's normal data route. Retain
+scientific meaning, units, supported chemistry, source/version/digest and acquisition
+terms. Native baseline resources come independently of a PISA installation. Do
+not copy competing tables into BindingMT/TopoMT to cover an unresolved owner gap.
+
+Use existing argument, optional-dependency, diagnostic and quantity tools, plus
+the admitted optional Ackredit integration. Retain offline bibliography, method
+and implementation versions and only scientific methods actually reached,
+including genuinely completed child operations. Executing an implementation of
+a published algorithm does not claim execution of its reference program. Core
+save/read and reuse preserve original attribution without new calculation credit.
+Provider source API presence is not proof of its attribution boundary; report
+actual gaps with consumer evidence and qualify real presence/absence/failure.
+
+Later chemical partitions state the measured population, classification overlap,
+additivity policy and fraction denominator; zero denominator is undefined where
+appropriate. Native interaction/recognition receiving preserves complete chemistry,
+actual state and relation occurrences. A network retains edge definitions and
+multiplicity; unavailable recognition cannot establish an unsatisfied polar site.
+Topographic enrichment retains its exact support/context, classification and
+owner gates. Equal coordinates or atom sets do not equate a contact footprint
+with a cavity wall; an interface needs neither a cavity nor two DFND banks.
+
+Comparisons state definitions, intentionally differing inputs, correspondence,
+coverage, frames and normalization. Ensembles require sampling/weights; energy
+and assembly-inference endpoints retain separate models and predictive evidence.
+PISA remains a useful optional provider/comparator under its original resource/
+licence and source boundaries. Match input/chemistry/radii/surface conventions
+before comparison, classify definition/numerical/domain/execution/defect differences,
+and independently justify any accuracy/scope/usability/reproducibility/resource
+improvement. Similar units do not transfer a PISA score's name or interpretation.
+No general superiority, new campaign, DFND case or original-provider run follows
+from this plan; TopoMT's existing synthetic sequence remains independently owned.
+
+
+## 10. T0: explicit optional saved-PISA analysis intake
 
 Implement the actual optional TopoMT adapter used by public composition. Guard
 and lazily import TopoMT through existing DepDigest integration on that route.
@@ -383,9 +672,9 @@ mutation, optional-engine execution or new original-engine credit.
 Create incomplete/corrupt archive controls only as named derived test variants in
 owned temporary storage; never modify the frozen owner inputs or their hashes.
 
-## 10. T1: exact PISA participant-contact footprint and complete replay
+## 11. T1: exact PISA participant-contact footprint and complete replay
 
-### 10.1 Frozen inputs and independent expectations
+### 11.1 Frozen inputs and independent expectations
 
 Use [TopoMT's frozen PISA fixture directory](https://github.com/uibcdf/topomt/tree/3a8ee979db8de6f6345de74558a878bb96ba3234/tests/data/original_local/pisa)
 at `3a8ee979db8de6f6345de74558a878bb96ba3234`, retaining `protocol.json` and
@@ -416,7 +705,7 @@ full functional site or biological/energy accuracy is inferred.
 These are owner-supplied expected outputs, not a passed BindingMT test. Verify
 the actual consuming source/artifact identities and observations during receiving.
 
-### 10.2 Public projection and required controls
+### 11.2 Public projection and required controls
 
 Use a real public path:
 
@@ -441,7 +730,7 @@ or many-to-one mappings need their own admission rather than an arbitrary choice
 | Existing interface, `other-bonds`, A/B | Exact corresponding source arrays above, original group/contact identities and qualified correspondence. |
 | Existing interface, known `h-bonds` with zero contacts | Evaluated-empty footprint under that known criterion; preserve completion/coverage and source assessment. No positive region/site fabricated. |
 | Explicit `h-bonds` + `other-bonds` combination | Union of mapped endpoints with each selected group's separate provenance/empty status; membership agrees with `other-bonds` for this fixture. This exercises empty plus nonempty composition, not two nonempty overlapping groups. |
-| Two nonempty overlapping mapped-endpoint groups, separately authored as a local aggregation control | Exact deduplicated source membership, aligned nonidentity local map and every contributor survive; see section 10.3. This supplements rather than replaces native PISA receiving. |
+| Two nonempty overlapping mapped-endpoint groups, separately authored as a local aggregation control | Exact deduplicated source membership, aligned nonidentity local map and every contributor survive; see section 11.3. This supplements rather than replaces native PISA receiving. |
 | Empty requested group list, duplicate names or unknown name | Actionable invalid-request outcome, not evaluated-empty evidence. Known but unimplemented group capability remains unsupported. |
 | Completed zero-interface analysis | Analysis remains inspectable; no positive finding exists for a footprint. Distinct from an existing finding with zero contacts. |
 | No supplied analysis or confirmed original failure | Preserve their respective scientific states and references, not a completed-empty projection. |
@@ -454,7 +743,7 @@ output fields. The proposed two-group contract includes explicit endpoint union
 and separate group provenance. A later scope change needs an explicit recorded
 disposition, not an unannounced reduction to one-group-only behavior.
 
-### 10.3 Nonempty overlap, ordering and complete contributors
+### 11.3 Nonempty overlap, ordering and complete contributors
 
 The frozen PISA `h-bonds` population is empty, so its combination with
 `other-bonds` cannot detect every union/deduplication defect. Add a small authored
@@ -490,7 +779,7 @@ evidence. It tests local aggregation/order/provenance only, through the same
 owned aggregation boundary used by public T1. The actual public PISA workflow
 and owner-supplied endpoints remain independently required.
 
-### 10.4 Persist and independently read the resulting footprint
+### 11.4 Persist and independently read the resulting footprint
 
 T1 is incomplete if only the parent characterization is saved. Once the actual
 footprint kind is admitted, extend the D2 public persistence contract to that
@@ -527,7 +816,7 @@ synthetic scope. Shared quantities retain independent reader handshakes. Replay
 needs neither PISA nor its resources/server, and credits no new original analysis.
 Provider tests alone are not this cross-component receiving evidence.
 
-## 11. H0/H1: native grouping, pharmacophoric construction and replay
+## 12. H0/H1: native grouping, pharmacophoric construction and replay
 
 Receive the promised exact native source/analysis inputs and expectations before
 executing this independent profile. Do not convert PISA counts into native
@@ -577,7 +866,7 @@ with intact original analysis/correspondence and whole chemical participants.
 **H1 exit:** actual native public construction, inspection, persistence and
 I0/H0/I1 readback preserve all stated native meanings and refusal boundaries.
 
-## 12. P: consumer information, native/derived context and comparisons
+## 13. P: consumer information, native/derived context and comparisons
 
 Receive the actual consumer inputs/export seam, not just a statement of intent.
 Use real public operations when implemented; a manually authored expected payload
@@ -611,7 +900,7 @@ consumer control and its limits. Exact MDM2–p53 sites, thresholds and provider
 configurations remain separate scientific decisions, not choices made by this
 plan. Consumer adoption is recorded separately from our successful test.
 
-## 13. Relationship to BindingSite and local reusable work
+## 14. Relationship to BindingSite and local reusable work
 
 Both #111 and #112 preserve context, quantities, immutable references and safe
 persistence. Reuse existing owned helpers where they actually fit. A small local
@@ -629,20 +918,30 @@ The H/P inputs or evidence may be reusable across plans, but receiving receipts
 must name the actual public entry point and scope. One profile's pass is not
 automatic qualification/adoption of the other entity or every consumer.
 
-## 14. Milestones, acceptance evidence and closeout
+## 15. Milestones, acceptance evidence and closeout
 
 | Milestone | Required delivery/evidence | Scope that can remain pending |
 | --- | --- | --- |
 | M1: data core | P0a/D1/D2: useful declaration/analysis summary, immutable revision, safe emitted/read records and crossed data-only state-preservation/no-lookup controls. | Actual foreign recovery/molecular checking, H/P adoption and later providers. |
+| MN1: first ordinary native calculation | N0/C/N1: public native contacts, atom/residue evidence and both participant footprints, ordinary/expert inspection, actual save/read and independent controls with PISA/TopoMT unavailable. | Surfaces, chemical recognition, optional external receiving and topographic enrichment. |
+| MN2: native surfaces/burial | N0/C/N2: exact owner composition, both side losses, mapped contributions and explicit area convention, numerical convergence, ordinary/pm-fs and independent readback/refusal. | Later environment-aware, chemical, ensemble, energetic and predictive profiles. |
 | M2: first PISA application | T0/C/T1: full saved analysis intake, exact A/B/group controls, supplemental nonempty-overlap aggregation control, canonical membership/aligned maps, actual saved footprints with independent core readback and historical/current-use refusals. | Native Topography, `current_finding` beyond its actual qualification, H/P profiles and richer geometry. |
 | M3: independent native/consumer receiving | H0/H1 and each admitted P control close with concrete inputs, actual public outputs and owner-native readback. | Other chemical/modal/ensemble/provider profiles and general scientific campaigns. |
 
-Useful M1/M2 checkpoints do not require M3 to finish simultaneously. A closes
+M1 -> MN1 -> MN2 records ordinary delivery priority; N2's numerical prerequisites
+remain its actual data/context/surface facts rather than a required contact result.
+M2 retains its earlier identity as optional-provider receiving, not the preferred
+native route. Native milestones do not require M2/M3 to finish simultaneously.
+N0/N1/N2 are the selected native programme, with MN1 independently deliverable;
+the later catalogue rows remain candidates with their own admission triggers.
+A closes
 the declared implementation/receiving scope, shared-boundary disposition and
 actual consumer state. Preserve agreed initial obligations: independent does not
 mean silently optional. If an agreed H/P case remains required, execute it or
 obtain an explicit maintainer scope decision with an owning follow-up and revisit
 condition; do not remove it to declare #112 complete.
+The same disposition rule applies to selected native work and the retained T0/T1
+obligations. Changed priority records pending owners and evidence, not cancellation.
 
 Close #112 only when its agreed scope is actually evidenced, following the report
 lifecycle. A successful local test or favorable owner intent does not mean every
@@ -661,10 +960,14 @@ only after they exist and protect the failure mechanism. Cover the new behavior
 and focused existing record/BoxRegion/problem/result compatibility where affected;
 syntax, collection or an adapter's presence alone is not executed acceptance.
 
-## 15. Execution, installed boundaries and checkpoints
+## 16. Execution, installed boundaries and checkpoints
 
-Routine source development uses the declared Python 3.14 Conda environment and
-editable participating clones; source support retains Python 3.11–3.14. Verify
+Routine source development follows the common qualified Python 3.14 workspace
+and editable-clone route; source support retains Python 3.11–3.14. New Linux
+development environments use `molsyssuite_dev@3.14` under the received common
+guide. Preserve legacy `molsyssuite@uibcdf_3.14` identities and already recorded
+scope during MolSysSuite #175/#82's controlled migration/shared-prefix pause.
+This document creates, renames, repairs or reinstalls no environment. Verify
 interpreter, dependency health and actual import origins before runtime receiving.
 Record source/native closure before scientific/native calls. Source availability
 does not qualify a public package, and a pull does not rebuild a changed extension.
@@ -700,23 +1003,26 @@ no recurring permission round is added. Batch hosted validation at explicit
 authorized checkpoints. Skipped CI is not a pass; #30/MolSysSuite #190 keep their
 exact-head hosted scope. This plan triggers no manual remote CI, tag or release.
 
-## 16. Next actionable checkpoint
+## 17. Next actionable checkpoint
 
 Close P0a's minimal local question/intake/identity/version/default/refusal decisions
 and implement the first complete D1/D2 declaration/analysis-summary round trip
 when implementation proceeds. It can advance independently of future native
 profiles and unresolved molecular facts not required by that data slice.
 
-In parallel coordinate P0m/P0s for their exercised boundaries, confirm the frozen
-TopoMT carrier/contact policy and receive the promised H/P inputs. Then implement
-the explicit T0 adapter and C/T1 exact reported-contact route. Retain actual public
-summary/save/read and known-empty/invalid/missing/corrupt/contradictory controls.
-Include the derived footprint's own save/read, crossed historical/current-use
-controls and the separately attributed nonempty-overlap aggregation control.
-Do not mark these increments complete from this document or owner expectations.
+Close the contact portion of N0 and C, record finite native agreements in
+MolSysSuite #195, then deliver N1 as the first ordinary native numerical route.
+Follow with N2 after its radius/environment/public surface contract closes.
+Record exact admitted requests, required/optional observations, owner calls,
+resource envelope, actual guarantees and failure policy before runtime work.
 
-The delivered checkpoint here is work-plan revision 2 after the maintainer's
-review of the initial plan and all three second-round replies. The next
-development receipt should name closed local decisions, actual owning
-agreements/input handoffs or a real implemented/tested
-slice, keeping planning, implementation, receiving and adoption distinct.
+Keep the explicit T0/C/T1 PISA route, complete footprint persistence/adverse
+controls and promised H/P inputs on their independent owning branches. No source
+inspection, owner expectation or document marks those increments complete.
+Initial BindingSite work and TopoMT's current synthetic sequence remain independent.
+
+The delivered checkpoint here is work-plan revision 3's native extension. The
+maintainer requests a fresh complete post/proposal read and a fourth revision
+before this planning task ends. Preserve this third revision as an inspectable
+source checkpoint; record the final coverage/omission review and any corrections
+before code, scientific receiving or new adoption claims.

@@ -30,31 +30,29 @@ Read [development/onboarding](DEVELOPMENT.md) for setup and code navigation.
 [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) owns the full product
 requirements; this file explains how to resume without recovering chat history.
 
-### BindingInterface work plan reviewed — 2026-11-12
+### BindingInterface native work plan, revision 3 — 2026-11-12
 
-[#112](pending_proposals/binding_interface_public_contract.md) retains the
-[second scientific design](binding_interface_design.md), supported by all three
-second-round replies. The [implementation/work plan](binding_interface_implementation_plan.md)
-now has reviewed revision 2 after the maintainer's request to correct the initial
-plan at `dd089db`. The data core, scoped molecular facts, saved PISA receiving
-and independent native/consumer increments retain their bounded dependency order.
+[#112](pending_proposals/binding_interface_public_contract.md) now records the
+[native catalogue and implementation plan](binding_interface_implementation_plan.md)
+after TopoMT's complete `a13b9b2` contribution. BindingMT leads the domain
+characterization and public workflow; MolSysMT keeps molecular kernels/resources;
+TopoMT enrichment and saved PISA are separate optional routes. Ordinary numerical
+priority is native contacts/atom-residue footprints, then SASA and both side
+burial contributions, after the useful data/context slice.
 
-The review requires the derived footprint's own public save/read and independent
-core inspection; crossed original-outcome/asset/current-use controls; historical
-`match` receipts distinguished from fresh guarantees; and a separately attributed
-nonempty-overlap aggregation control. Unique original-source indices have canonical
-ascending order, with local vectors aligned through the qualified map rather
-than independently sorted. Original PISA fixtures/producer identities stay intact;
-the authored aggregation example is planned local evidence, not native receiving.
+The plan preserves explicit calculation versus composition, actual owner calls
+without invented foreign receipts, independent contact/surface references,
+source/local ordering, derived-footprint persistence and historical/current-use
+controls. Later catalogue families have individual admission triggers. T0/T1,
+H0/H1 and consumer P obligations remain pending with their own evidence.
+MolSysSuite #195 coordinates finite shared agreements; TopoMT #197 owns its
+contribution review. Initial BindingSite work remains independent.
 
-Next close P0a and deliver the first D1/D2 declaration/analysis-summary round trip,
-then qualify the actual T0/C/T1 operations including saved-footprint readback.
-Coordinate each owner/input prerequisite for the operation that needs it.
-#111's P0a/data-core route remains independently useful. Runtime implementation,
-scientific receiving, shared-schema freezing and the held full-suite execution
-remain pending. The owning record retains exact documentation/source/publication
-receipts and the existing plan-delivery comment links the corrected source while
-preserving the initial-plan history.
+Next preserve this third revision, reread the entire source post/proposal and
+complete the maintainer-requested fourth coverage review before code. Runtime,
+new molecular receiving, package/tag/release and the held full-suite restart are
+not delivered. The owning record retains source/check/publication custody and
+the already recorded legacy documentation-tool scope during #82/#175 migration.
 
 ### BindingSite work plan reviewed — 2026-11-11
 

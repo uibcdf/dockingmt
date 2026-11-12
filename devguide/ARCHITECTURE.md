@@ -72,6 +72,12 @@ historical versus current-use checks, nonempty-overlap aggregation coverage and
 canonical source membership with aligned local maps. These are acceptance
 requirements, with runtime qualification still pending.
 
+The native extension in work-plan revision 3 makes explicit contact calculation
+the first ordinary numerical route, followed by SASA/burial through public
+MolSysMT tools. BindingMT owns its domain catalogue and composed results; TopoMT
+enrichment and PISA receiving remain optional branches. The maintainer requests
+a fourth coverage review before this planning task ends. No runtime is delivered.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the

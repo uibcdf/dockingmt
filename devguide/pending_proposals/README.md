@@ -6,7 +6,7 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 ### Active (2)
 
-- [`binding_interface_public_contract.md`](binding_interface_public_contract.md) — [#112](https://github.com/uibcdf/bindingmt/issues/112) — Review and correct the BindingInterface work plan with derived-footprint persistence, crossed historical/current-use states, nonempty overlapping-group controls and deterministic source/local ordering. *(active, inspected)*
+- [`binding_interface_public_contract.md`](binding_interface_public_contract.md) — [#112](https://github.com/uibcdf/bindingmt/issues/112) — Incorporate BindingMT's native contact and SASA/burial catalogue into work-plan revision 3, retaining prior receiving obligations and preparing the requested fourth coverage review. *(active, inspected)*
 - [`binding_site_public_contract.md`](binding_site_public_contract.md) — [#111](https://github.com/uibcdf/bindingmt/issues/111) — Review the BindingSite work plan with operation-specific prerequisites, explicit selection/import work, structural and check/use controls, and evidenced core/application/receiving milestones. *(active, inspected)*
 
 ### Partial (15)

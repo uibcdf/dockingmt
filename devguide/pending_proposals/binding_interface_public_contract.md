@@ -1,5 +1,5 @@
 ---
-summary: Review and correct the BindingInterface work plan with derived-footprint persistence, crossed historical/current-use states, nonempty overlapping-group controls and deterministic source/local ordering.
+summary: Incorporate BindingMT's native contact and SASA/burial catalogue into work-plan revision 3, retaining prior receiving obligations and preparing the requested fourth coverage review.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
@@ -32,6 +32,14 @@ checkpoint delivers that plan, not runtime implementation or scientific executio
 The maintainer then requests correction after reviewing the initial plan at
 `dd089db`. Work-plan revision 2 records the four corrections below; the second
 scientific design remains the design authority and runtime work remains pending.
+
+TopoMT's [native catalogue contribution](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6836773833)
+at `a13b9b2725bd8a4edd851441d1a5a53720e0f3ea` extends the calculation roadmap.
+The maintainer requests a careful third work-plan revision, then a complete
+post/proposal reread and fourth revision after checking omissions/improvements.
+Revision 3 records BindingMT's native catalogue and N0/N1/N2 work, with contacts
+as the first ordinary numerical milestone and SASA/burial next. This third-revision
+checkpoint precedes the requested final coverage review.
 
 The working result `BindingInterface` composes a binding question, participants/
 grouping, contexts, available owner observations, site/footprint relationships,
@@ -93,6 +101,18 @@ axis; local indices align position by position instead of being sorted
 independently. This control qualifies local aggregation only, without modifying
 or borrowing scientific authority from original PISA fixtures.
 
+The native extension makes explicit calculation and supplied-evidence composition
+two routes to the same inspectable result model. MolSysMT retains generic molecular
+kernels/resources; BindingMT owns the binding-domain catalogue/composition and
+records actual child calls without inventing foreign typed-analysis receipts.
+The catalogue retains all proposed future families with operation-specific
+admission triggers. Initial contacts and surfaces have exact molecular scope,
+independent reference controls, derived-footprint persistence, resource limits,
+quantity/attribution contracts and independently useful milestones. PISA T0/T1,
+H0/H1, consumer P and initial BindingSite work retain their separate obligations.
+Finite shared agreements belong in MolSysSuite #195; TopoMT #197 retains its
+contribution/review disposition. Neither notice establishes implemented adoption.
+
 Initial preservation and the selected correspondence profile can be qualified
 independently of unqualified `current_finding`, later chemistry or neutral native
 Topography. Local input/default/version choices still require an actual decision
@@ -137,10 +157,10 @@ are not completed cross-owner adoption.
 
 ## Scope and exclusions
 
-This increment delivers the corrected second work-plan revision and synchronized
-navigation/current checkpoint after review of the initial plan. Both design-review
-posts and original owner contributions remain intact; the existing plan-delivery
-comment is updated to the exact corrected source, retaining the initial plan link.
+This increment delivers third-revision native planning and synchronized navigation/
+current checkpoints, before the requested fourth review. Both design-review posts
+and original owner contributions remain intact. Update the existing plan-delivery
+comment when the final fourth revision is published, retaining earlier source links.
 It does not freeze a class/shared schema or implement runtime APIs, adapters,
 calculations, scientific fixtures or tests.
 The candidate PISA route is a proposed receiving input, not executed integration.
@@ -162,16 +182,22 @@ full-suite resource hold and human untracked migration files.
 - The plan requires persistence of actual derived footprints, crossed scientific/
   asset/current-assessment states, historical-check readback, a meaningful authored
   nonempty-overlap control and deterministic source/local correspondence ordering.
+- The native catalogue, calculation/composition boundary, N0/N1/N2 owner contracts,
+  independent reference controls and ordinary milestones are explicit. Native
+  calculation operates without PISA/TopoMT; no catalogue-wide global gate is added.
+- After preserving revision 3, reread the entire TopoMT contribution and record
+  the fourth review's coverage, omissions, corrections and remaining admissions.
 - Applicable documentation/resource checks pass after final edits in the workspace
   and a fresh committed-source export. Their exact source/results are retained
   in the work-plan-review task receipt and maintainer handoff; previous design
   and initial-plan receipts retain their original scope. No runtime/scientific
   or exact-head hosted pass is implied.
 
-Next close the minimal P0a local data contract, then deliver the first real
-D1/D2 declaration/analysis-summary replay slice when implementation proceeds.
-Coordinate finite P0m/P0s facts and the supplied PISA profile for their actual
-operations, and receive native/consumer inputs independently. Record accepted/
+Next finish the requested complete reread/fourth revision. Thereafter close P0a
+and deliver the first real D1/D2 declaration/analysis-summary slice. Close the
+contact portion of N0/C for N1, then the surface facts for N2, before their actual
+implementation/receiving. Coordinate finite P0m/P0s facts through #195, preserve
+the supplied PISA branch and receive H/P inputs independently. Record accepted/
 deferred decisions with owner/revisit conditions; no universal receipt or all-
 consumer prerequisite blocks the core. The independent #111 route remains at
 P0a and is not globally blocked by this discussion. Real guards are added only
@@ -217,3 +243,11 @@ edited plan-delivery readback are retained at
 custody review on 2026-11-14. The immutable `dd089db` source preserves initial-plan
 history; the updated public comment points to the reviewed plan's exact commit.
 No new scientific fixture or runtime receiving is produced by this correction.
+
+The native third/fourth-revision input snapshots, review dispositions, bounded
+documentation/resource receipts and final public readback are retained under
+`.molsyssuite/binding-interface-native-plan-r3-r4-112-20261112/` for the same #50
+custody review on 2026-11-14. Official common-guide receiving at `1cd1f68` is
+preserved. Documentation gates reuse only the unchanged legacy interpreter's
+already recorded documentation scope during the #82/#175 migration; there is no
+prefix replacement, installation, native rebuild or claim of a new environment.
