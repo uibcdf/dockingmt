@@ -10,7 +10,7 @@ making a bounded contribution.
 
 | Document | Primary question |
 | --- | --- |
-| [binding_site_design.md](binding_site_design.md) | Which contextual binding-site model, public API, record/projection semantics and cross-component decisions are proposed before #111 implementation? |
+| [binding_site_design.md](binding_site_design.md) | Which revision-2 definition/structural-realization/ensemble model, public API, record/projection semantics and cross-component decisions are proposed before #111 implementation? |
 | [archive/rename_bindingmt.md](archive/rename_bindingmt.md) | Which canonical identity/domain is received, what was tested, and which owners receive the remaining central adoption? |
 | [README.md](README.md) | Where should a new developer start? |
 | [PUBLIC_API.md](PUBLIC_API.md) | Which public operations/methods/errors exist, what work do they perform and which unit/ownership contracts apply? |

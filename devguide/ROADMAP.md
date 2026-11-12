@@ -7,22 +7,28 @@ The roadmap defines direction and gates, not dates.
 Current work is the **#111 design review before implementation**. The delivered
 identity/scope increment and original accepted plan retain their separate owners.
 
-### Binding-site design under review — 2026-11-11
+### Binding-site proposal revision 2 under review — 2026-11-11
 
-The maintainer commissions [#111](pending_proposals/binding_site_public_contract.md)
-as a design exercise and requests presentation before implementation.
-[The review draft](binding_site_design.md) proposes one immutable contextual
-BindingSite, explicit views/evidence/applications, a portable record without
-mandatory reverse dependencies, and an existing-BoxRegion projection preserving
-site provenance. Names, schema, source/context guarantees and callable profiles
-remain proposed. Source/contract inspection covers MolSysMT, TopoMT,
-PharmacophoreMT, MolSysViewer and PeptideMT; it is not runtime receiving or
-cross-owner agreement.
+[#111](pending_proposals/binding_site_public_contract.md) now has a
+[second design draft](binding_site_design.md), incorporating PeptideMT,
+PharmacophoreMT and TopoMT contributions plus the maintainer's structural-scope
+review. A definition can be structure-independent, structure-scoped or have
+attributed realizations across an ensemble. Ordinary coordinates remain in the
+native MolSys; site-owned geometry and optional captures have explicit custody.
+The proposed API adds definition/evidence revision and direct region projection,
+with scoped context checks and actual application-input accounting.
 
-Next review the explicit decisions with the maintainer, then coordinate the
-shared meanings needed for a small implementation/consumer receiving increment.
-This checkpoint implements no scientific/runtime API, changes no provider or
-installed environment, and resumes no interrupted scientific selection.
+MolSysMT `aee7aa65` was re-inspected for native domains, structure/state
+associations, extraction/iteration and named-analysis invalidation. This does not
+provide an external-site observer or runtime/ensemble receiving. Names, profiles
+and field spellings remain draft; favorable comments are not shared acceptance.
+
+Next refine revision 2 with the maintainer, then obtain affected-owner review of
+the concrete records, structural scopes and guarantees needed for B/C. Keep a
+small useful core independent of all later engines or dynamic profiles.
+Documentation gates and a fresh committed-source export are the applicable
+verification; no runtime, scientific or exact-head remote pass is claimed.
+No provider/environment change or interrupted scientific rerun is commissioned.
 The original #73 objective and #28/#33/#49/#60 limits retain their owners.
 
 ### BindingMT identity and scope delivered — 2026-11-11

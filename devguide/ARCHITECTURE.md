@@ -32,9 +32,11 @@ numerical methods, recording and scheduling keep their suite/platform owners.
 ## Binding-site contract study (draft)
 
 [#111](pending_proposals/binding_site_public_contract.md) is a maintainer-requested
-[design review](binding_site_design.md) before implementation. It proposes a
-contextual declaration independent of SearchDomain, with explicit representations
-and applications. Proposed classes, schema and integration behavior are absent
+[revision-2 design review](binding_site_design.md) before implementation. It proposes
+a declaration independent of SearchDomain, with structural scope, per-structure
+realizations and ensemble associations. Ordinary coordinates remain MolSys-owned;
+direct region/domain applications keep context checks, scientific evidence and
+effective inputs explicit. Proposed classes, schema and integration behavior are absent
 from the current source map; sibling review/adoption and implementation remain
 separate steps.
 
