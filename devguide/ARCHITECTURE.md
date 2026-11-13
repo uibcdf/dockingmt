@@ -104,6 +104,12 @@ construction evidence; unknown historical order remains unknown. The optional
 new-construction choice is attributed to the caller. This is persisted reference
 bookkeeping, without molecular correspondence inference or a new numerical kernel.
 
+Offline aggregation admits the original schema-1.0 evaluator's single explicit
+historical or current version key, preserves its complete mapping/digest and
+keeps exact policy equality. It adds no producer alias to current evaluator
+output and performs no molecular operation; [#113](archive/redocking_summary_receiving_controls.md)
+records the original frozen evidence and bounded receiving.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the

@@ -440,3 +440,14 @@ custody in `.molsyssuite/interface-json-order-114-20261112/`, review 2026-11-14.
 Next receive exact PeptideMT P inputs, execute admitted controls and record #195
 shared/consumer disposition; #112 remains open. This increment triggers no manual
 remote CI, tag or release and does not change installed/public/platform gates.
+
+
+The finite P handoff is now published in
+[PeptideMT #60](https://github.com/uibcdf/peptidemt/issues/60); the
+[local receiving ledger](../binding_interface_peptide_receiving.md) records exact
+pending owner data/seams, operation-specific map/chemistry/environment limits and
+independent consumer-adoption gates. No P case is counted as supplied/executed.
+Independent [#113](../archive/redocking_summary_receiving_controls.md) now passes
+97 complete summary controls per policy and preserved historical saved readback;
+its interrupted extra evaluator selection remains outside that pass under #30.
+#112 and #195 remain open for their actual implementation/shared/adoption evidence.

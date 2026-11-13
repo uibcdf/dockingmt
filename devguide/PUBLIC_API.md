@@ -69,6 +69,13 @@ see [the source correction](validation/audit_resource_errors_2026-11-09.md).
 mapping**, such as `record['provenance']['backend_artifacts']`, rather than the
 whole result. Missing captures remain missing evidence.
 
+`summarize_redocking` preserves original evaluator identity when receiving
+historical schema-1.0 evidence. Exactly one version key is required: original
+`dockingmt_version` or current `bindingmt_version`; both together, a missing
+recognized version or an invalid value refuse. Cohorts compare the entire original mapping without translating producer
+names. The current summarizer has its own identity and earns no originating
+measurement credit. See the [#113 evidence](archive/redocking_summary_receiving_controls.md).
+
 ## Interface declarations and experimental persistence
 
 The [implemented first data profile](binding_interface_data_core.md) documents

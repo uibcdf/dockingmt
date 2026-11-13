@@ -112,6 +112,26 @@ an all-failure collection has zero coverage. These are observations in the
 selected submissions, not certified dataset success rates, independent samples,
 confidence intervals, predictive accuracy or a chemical preparation qualification.
 
+## Original evaluator identities — 2026-11-13
+
+The [#113 correction](../archive/redocking_summary_receiving_controls.md) admits
+original schema-1.0 reports with exactly one evaluator version key: historical
+`dockingmt_version` or current `bindingmt_version`, plus the required MolSysMT
+version/method. The original evaluator mapping is preserved without renaming or
+claiming a new measurement. Missing, ambiguous or invalid version fields refuse.
+Exact cohort equality includes the original key and value: historical/current
+producer declarations are not aliases, even with equal version text. Current
+`evaluate_redocking` continues to emit its current evaluator identity.
+
+The executing aggregation has its own `summarizer.bindingmt_version`, separate
+from historical evaluator/engine versions. New receiving retains the frozen
+source bytes and original per-case digests, while the independent translated
+coordinate control allows only bounded floating roundoff. The complete summary
+module passes 97 cases per normal/pm-fs policy; independent unyt/pm-fs saved
+readback performs no molecular/engine work. Original notebook/summary populations
+below retain their historical identities. See #113 for exact sources, the
+interrupted additional evaluator attempt and the separate #30/full-suite limits.
+
 ## Detached evidence and reproducibility
 
 The any-returned extension is tracked in

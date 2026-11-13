@@ -177,7 +177,9 @@ def test_any_returned_recovery_can_occur_beyond_every_requested_top_n():
         'fraction_of_submitted': 1,
     }
     assert summary['cases'][0]['closest_pose']['position'] == 6
-    assert summary['cases'][0]['first_pose']['rmsd'] == 9
+    assert summary['cases'][0]['first_pose']['rmsd'] == pytest.approx(
+        9, rel=16 * np.finfo(np.float64).eps, abs=0
+    )
     assert summary['cases'][0]['evaluation_sha256'] == digest(report)
     assert report == before
     summary['any_returned']['n_recovered'] = 99
@@ -507,12 +509,13 @@ assert 'vina' not in sys.modules and 'molsysviewer' not in sys.modules and 'meek
 
 
 def test_retained_native_reports_show_positive_and_displaced_controls():
-    reports = json.loads(
-        (
-            Path(__file__).parents[1]
-            / 'devguide/validation/data/redocking_evaluation/cases.json'
-        ).read_text()
+    source = (
+        Path(__file__).parents[1]
+        / 'devguide/validation/data/redocking_evaluation/cases.json'
     )
+    original = source.read_bytes()
+    reports = json.loads(original)
+    before = deepcopy(reports)
     with pytest.raises(ArgumentError, match='Incompatible'):
         bmt.summarize_redocking(reports)
     selected = {key: reports[key] for key in ('1iep_external', '1iep_displaced_domain')}
@@ -527,3 +530,49 @@ def test_retained_native_reports_show_positive_and_displaced_controls():
         for entry in summary['top_n']
     )
     assert summary['policy']['preparation']['partner']['assessment'] == 'unassessed'
+    historical = reports['1iep_external']['evaluator']
+    assert historical['dockingmt_version'] == '0.0.0+101.gbe39d74.dirty'
+    assert 'bindingmt_version' not in historical
+    assert summary['policy']['evaluator'] == historical
+    assert summary['summarizer']['bindingmt_version'] == bmt.__version__
+    for case in summary['cases'][:2]:
+        assert case['evaluation_sha256'] == digest(selected[case['case_id']])
+    assert reports == before and source.read_bytes() == original
+
+
+def test_historical_and_current_evaluator_declarations_are_not_aliased():
+    current = make_report()
+    historical_control = deepcopy(current)
+    # Authored identity adversary, not a newly emitted historical observation.
+    historical_control['evaluator']['dockingmt_version'] = historical_control[
+        'evaluator'
+    ].pop('bindingmt_version')
+    alone = bmt.summarize_redocking({'historical_control': historical_control})
+    assert alone['policy']['evaluator'] == historical_control['evaluator']
+    with pytest.raises(ArgumentError, match='Incompatible'):
+        bmt.summarize_redocking(
+            {'current': current, 'historical_control': historical_control}
+        )
+
+
+@pytest.mark.parametrize(
+    'evaluator',
+    [
+        {'bindingmt_version': 'same', 'dockingmt_version': 'same'},
+        {},
+        {'bindingmt_version': ''},
+        {'bindingmt_version': None},
+        {'dockingmt_version': ' '},
+        {'dockingmt_version': 1},
+        {'unrecognized_version': 'same'},
+    ],
+)
+def test_evaluator_identity_is_unambiguous_and_nonempty(evaluator):
+    report = make_report()
+    report['evaluator'] = {
+        'molsysmt_version': report['evaluator']['molsysmt_version'],
+        'rmsd_function': 'molsysmt.structure.get_rmsd',
+        **evaluator,
+    }
+    with pytest.raises(ArgumentError, match='evaluator declarations'):
+        bmt.summarize_redocking({'identity_adversary': report})

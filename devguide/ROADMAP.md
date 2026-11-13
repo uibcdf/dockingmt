@@ -28,6 +28,31 @@ Current work is the **#112 native contacts/surfaces and bounded ionic H0/H1 deli
 the interface discussion is not a global prerequisite. The delivered identity/
 scope increment and original accepted plan retain their separate owners.
 
+### PeptideMT handoff and historical summary receiving — 2026-11-13
+
+[PeptideMT #60](https://github.com/uibcdf/peptidemt/issues/60) now owns the offered
+P1/P2/P3 input/expectation package. The [P receiving ledger](binding_interface_peptide_receiving.md)
+records current callable/map/environment limits, native/derived and sequence-role
+requirements, complete-system contribution views and outstanding K/N/comparison
+seams. Exact cases are not yet supplied; no consumer P execution/adoption is claimed.
+
+The independently closable [summary defect #113](archive/redocking_summary_receiving_controls.md)
+is resolved: original evaluator identity and bytes survive schema-1.0 receiving,
+producer ambiguity/mixed identities refuse, and the analytical RMSD assertion
+admits physical roundoff without changing recovery decisions. **97 complete
+summary controls pass per policy**, normal and pm/fs, with eight new identity
+controls. Saved summaries cold-read under unyt/pm-fs without molecular/engine
+work or new originating uses. One additional broader evaluator selection hit its
+task RSS cap and was stopped; its pending qualification remains under #30, with
+no automatic restart. No full-suite or hosted pass is inferred.
+
+Next receive PeptideMT #60's immutable cases and actual consumer seams, admit each
+profile against the ledger and record shared/consumer disposition under #195.
+While waiting, independent #111 work remains available. PyUnitWizard #156 retains
+native unyt construction; later PHMT comparison work needs its own source receiving.
+PISA T0/T1 remains deferred optional interoperability. Exact receipts retain #50
+custody in `.molsyssuite/interface-p-and-summary-112-113-20261113/`.
+
 ### Native record order and historical compatibility — 2026-11-13
 
 [BindingMT #114 is resolved](archive/interface_json_object_order.md): contact,

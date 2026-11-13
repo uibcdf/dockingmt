@@ -364,3 +364,17 @@ cold readers inspect 13 sorted records; an actual old reader refuses 0.5. The
 source/native/fixture identity and resource/export evidence remain in the owning
 report. The next accepted step is exact PeptideMT P receiving and #195 disposition;
 #156, conditional H-R1, #111/#30 and deferred PISA retain their owners/gates.
+
+## PeptideMT finite input handoff — 2026-11-13
+
+[PeptideMT #60](https://github.com/uibcdf/peptidemt/issues/60) owns delivery or an
+explicit supplied/unsupported/deferred disposition for P1/P2/P3. The
+[receiving ledger](binding_interface_peptide_receiving.md) binds the accepted cases
+to current source-map/generated-member and selected-A-union-B environment limits,
+exact owner inputs/expectations and actual export/result seams. K/N/comparison
+obligations remain outstanding, and no authored fake payload proves consumer
+adoption. Small saved/synthetic cases suffice; no new scientific campaign is
+commissioned. P is waiting on concrete owner delivery, not another general
+architecture round. Shared acceptance stays under #195. The independent
+[#113 summary correction](archive/redocking_summary_receiving_controls.md) does
+not supply P evidence or close #112; its extra evaluator interruption is preserved.

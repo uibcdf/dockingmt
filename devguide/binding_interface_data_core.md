@@ -119,7 +119,7 @@ Broader exploratory selections remain failed, not relabelled as this passing
 selection. Four pre-existing backend cases initially lacked `unyt`; after the maintainer
 installed it, the complete core-helper selection passes in both policies.
 Two existing summary controls fail: frozen producer vocabulary and exact pm/fs
-floating equality; [#113](pending_bugs/redocking_summary_receiving_controls.md)
+floating equality; [#113](archive/redocking_summary_receiving_controls.md)
 records reproduction on unchanged `630f6d6`, original inputs and separate ownership.
 Final failure controls also exercise write, flush/allocation and close errors,
 preserving the exact original exception and protecting existing files. The first

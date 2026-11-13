@@ -4,7 +4,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 
 <!-- generated: devguide_index -->
 
-### Resolved (85)
+### Resolved (86)
 
 - [`add_displaced_search_domain_control_to_1iep_validation.md`](add_displaced_search_domain_control_to_1iep_validation.md) — [#15](https://github.com/uibcdf/bindingmt/issues/15) — Add displaced-search-domain control to 1IEP validation *(resolved, measured)*
 - [`audit_coordinate_record_admission.md`](audit_coordinate_record_admission.md) — [#90](https://github.com/uibcdf/bindingmt/issues/90) — Offline coordinate audits disagree with the existing pose-record admission. *(resolved, reproduced)*
@@ -66,6 +66,7 @@ Permanent resolved, withdrawn and superseded records. Archive, never delete.
 - [`qualify_small_ligand_collection.md`](qualify_small_ligand_collection.md) — [#81](https://github.com/uibcdf/bindingmt/issues/81) — Qualify a bounded multi-ligand study with isolated outcomes and explicit comparison policy. *(resolved, measured)*
 - [`receptor_pdbqt_atom_name_overflow.md`](receptor_pdbqt_atom_name_overflow.md) — [#44](https://github.com/uibcdf/bindingmt/issues/44) — Reject receptor atom names that overflow fixed PDBQT columns *(resolved, measured)*
 - [`recover_saved_human_case.md`](recover_saved_human_case.md) — [#58](https://github.com/uibcdf/bindingmt/issues/58) — Recover the saved 3PTB human result from verified linked evidence *(resolved, measured)*
+- [`redocking_summary_receiving_controls.md`](redocking_summary_receiving_controls.md) — [#113](https://github.com/uibcdf/bindingmt/issues/113) — Existing summary controls fail on frozen producer fields and pm/fs floating equality. *(resolved, measured)*
 - [`reject_changed_prepared_recovery.md`](reject_changed_prepared_recovery.md) — [#57](https://github.com/uibcdf/bindingmt/issues/57) — Reject changed prepared inputs during saved-result recovery *(resolved, measured)*
 - [`reject_invalid_pose_coordinate_values.md`](reject_invalid_pose_coordinate_values.md) — [#63](https://github.com/uibcdf/bindingmt/issues/63) — Reject invalid pose-coordinate values before coercion and export. *(resolved, measured)*
 - [`rename_bindingmt.md`](rename_bindingmt.md) — [#108](https://github.com/uibcdf/bindingmt/issues/108) — Adopt BindingMT as the canonical component identity and expand its molecular binding domain. *(resolved, measured)*

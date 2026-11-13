@@ -171,13 +171,20 @@ def _validate_evaluation(report, case_id):
             )
         requested.append(entry['requested'])
     context, evaluator = report.get('context'), report.get('evaluator')
+    # Original schema-1.0 reports retain their actual pre-rename producer key.
+    # Do not translate it or equate it with the current evaluator identity.
+    producer_fields = (
+        {'bindingmt_version', 'dockingmt_version'} & evaluator.keys()
+        if isinstance(evaluator, dict)
+        else set()
+    )
     if (
         not isinstance(context, dict)
         or not isinstance(evaluator, dict)
         or not {'backend', 'backend_version', 'protocol_info', 'preparation'}
         <= context.keys()
-        or not {'bindingmt_version', 'molsysmt_version', 'rmsd_function'}
-        <= evaluator.keys()
+        or len(producer_fields) != 1
+        or not {'molsysmt_version', 'rmsd_function'} <= evaluator.keys()
         or not isinstance(context['protocol_info'], dict)
         or context['preparation'] is not None
         and not isinstance(context['preparation'], dict)
@@ -188,7 +195,7 @@ def _validate_evaluation(report, case_id):
         )
         or any(
             not isinstance(evaluator[field], str) or not evaluator[field].strip()
-            for field in ('bindingmt_version', 'molsysmt_version', 'rmsd_function')
+            for field in (*producer_fields, 'molsysmt_version', 'rmsd_function')
         )
         or evaluator['rmsd_function'] != 'molsysmt.structure.get_rmsd'
     ):
@@ -252,6 +259,10 @@ def summarize_redocking(
     backend/version, protocol and preparation declarations. This conservative
     admission does not certify scientific comparability; unknowns stay unknown.
     Different inputs, references and search domains remain case-specific.
+
+    Original schema-1.0 evaluator metadata may use the historical producer key
+    ``dockingmt_version`` instead of ``bindingmt_version``. Require exactly one;
+    preserve its identity/value and compare the complete mapping without aliases.
 
     Count empty results as evaluated/nonrecovered. Failed cases have unknown
     recovery, separate from observed nonrecovery. Fractions explicitly name
