@@ -41,6 +41,12 @@ energy or binding prediction. Pint source receiving is finite; unyt native
 construction remains pending at its unit provider. PISA is deferred optional
 interoperability/comparison under the maintainer's native priority.
 
+The [H-R2 continuation](binding_interface_characterization_annotation.md) associates
+actual contact/surface evidence at participant level while preserving native
+hypothesis references and query semantics. It introduces no feature detection,
+site importance, burial-membership threshold or energetic interpretation. Relevant
+source mismatches refuse annotation; stored checks retain their historical scope.
+
 ## Scientific distinctions and applicability
 
 Physical docking and joint complex prediction receive different inputs and make

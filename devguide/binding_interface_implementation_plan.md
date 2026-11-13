@@ -1145,7 +1145,11 @@ and other observations remain useful. This case becomes required when that
 regional conversion profile is admitted; it is not a silent extra prerequisite
 for the initial native-observation H0/H1 route.
 
-**H-R2: characterization evidence versus query semantics.** When retaining contact,
+**H-R2: characterization evidence versus query semantics.** The finite
+[implemented annotation profile](binding_interface_characterization_annotation.md)
+receives native contact/surface evidence with unchanged query files/decisions and
+participant-level witness references. Broader policies retain the scope below.
+When retaining contact,
 accessibility or burial evidence alongside a hypothesis, preserve definitions,
 units, source/context, coverage and contributor relationships. Annotation alone
 changes no essential flag, weight, direction, tolerance or exclusion. Exercise
@@ -1159,8 +1163,9 @@ Use the [existing native semantics at `ecd1694`](https://github.com/uibcdf/pharm
 as the review baseline, then refresh actual source/native inputs before receiving.
 The small native input package is now received with actual grouping, repeated
 evidence, alternative/refusal and saved-reference controls under the ionic contract.
-Regional H-R1 remains conditional; H-R2 annotation controls remain independently
-pending. This does not qualify every native hypothesis family.
+Regional H-R1 remains conditional. The [H-R2 annotation profile](binding_interface_characterization_annotation.md) is
+now source-received for native contact/surface evidence; broader interpretations
+remain independently pending. This does not qualify every native hypothesis family.
 
 ## 13. P: consumer information, native/derived context and comparisons
 
@@ -1372,7 +1377,7 @@ receiving remains distinct from installed/public or shared-consumer acceptance.
 Record shared/consumer disposition separately in MolSysSuite #195.
 
 Keep deferred T0/C/T1 PISA persistence/adverse controls on their own branch.
-The finite delivered H0/H1 ionic slice, remaining H-R2 and exact P inputs retain
+The finite delivered H0/H1 ionic and H-R2 annotation slices and exact P inputs retain
 their own owner contracts. Source inspection or owner expectation does not
 complete an unexecuted branch.
 Initial BindingSite work and TopoMT's current synthetic sequence remain independent.
@@ -1381,8 +1386,11 @@ The work order remains revision 4 after preserving revision 3 and
 rereading the full post/proposal. The [review record](binding_interface_plan_review.md)
 maps every proposal section, all catalogue families and independent controls,
 records the corrections and distinguishes planned/deferred/qualified scope.
-Next receive PyUnitWizard #156 for unyt native construction and complete H-R2/P
-controls under the maintainer native-first disposition. T0/T1 stays deferred
+The selected H-R2 annotation is source-received. Next correct
+[BindingMT #114](pending_bugs/interface_json_object_order.md), the native JSON
+object-order dependency discovered during receiving. Preserve the own writer/
+reader pass separately from that unqualified transformation. Receive PyUnitWizard
+#156 for unyt native construction and complete P controls under the maintainer native-first disposition. T0/T1 stays deferred
 optional interoperability. Remaining H/P inputs and later application choices
 retain the owners and gates in the
 [readiness ledger](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme).

@@ -86,6 +86,15 @@ codec. Complete observations stay in the full MolSys and H5MSM. Core 0.4 reading
 is independent of native recovery and optional scientific imports. PISA is now
 explicitly deferred interoperability, not the next automatic native increment.
 
+The [H-R2 annotation profile](binding_interface_characterization_annotation.md)
+composes existing complete core records in an optional BindingMT namespace.
+`interface_annotations.py` validates identity axes/criterion/contributor references
+offline and delegates current molecular checks through existing public MolSysMT
+admission. `with_characterizations` creates a new record and accesses no native
+query object/file; observed construction and caller-declared curated references
+retain separate authority. Query semantics and original native assets stay with
+their owners. No generic molecular matcher or persistence schema is duplicated.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the

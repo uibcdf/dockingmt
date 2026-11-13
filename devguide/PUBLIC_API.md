@@ -115,6 +115,19 @@ PharmacophoreMT is lazy through DepDigest and the uibcdf Conda route, not a hard
 startup dependency. Pint nm/pm receiving is finite; native unyt construction is
 pending PyUnitWizard #156, while unyt core saved reading is independently exercised.
 
+The [H-R2 annotation profile](binding_interface_characterization_annotation.md)
+adds `with_characterizations(molecular_system, *, characterizations, participant,
+query_ref=None)` to native ionic results. It returns a new immutable record with
+its immediate parent, original contact/surface records and exact participant atomic
+witnesses; `characterizations` exposes detached evidence. Current source/group/
+state/radius/geometry checks precede composition, while saved checks stay historical.
+An optional caller-declared saved query reference performs no native recovery or
+context upgrade. The operation touches no query parameters/files, adds no feature
+or binding interpretation and needs no PharmacophoreMT import. Core read validates
+the optional namespaced annotation/embedded records offline without molecular work.
+The first profile requires whole binary-side targets and identity source axes;
+other mappings/partial composite-side annotation need separate admission.
+
 ## Units, positions and ownership
 
 Pass physical quantities with their units, for example

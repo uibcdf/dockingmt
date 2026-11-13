@@ -227,7 +227,8 @@ construction control and affected policies; do not silently retain an xfail afte
 owner repair. Additional chemical families require their own definition/receiving,
 not reclassification of geometric contacts. Receive the remaining exact PeptideMT
 P cases, distinguish local consumer use from provider-team adoption, and record
-finite shared disposition under MolSysSuite #195. Regional H-R1 is conditional;
-H-R2 still needs its explicit before/after characterization-annotation control.
+finite shared disposition under MolSysSuite #195. Regional H-R1 is conditional.
+The subsequent [H-R2 annotation profile](binding_interface_characterization_annotation.md)
+now supplies the finite before/after native contact/surface controls.
 PISA T0/T1 remains deferred optional work under the maintainer disposition;
 #111, complete H/P obligations and #30 retain separate gates. #112 stays open.

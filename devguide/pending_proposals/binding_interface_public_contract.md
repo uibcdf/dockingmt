@@ -1,5 +1,5 @@
 ---
-summary: Deliver native contacts, SASA/burial and bounded ionic H0/H1; PISA deferred, unyt construction and remaining consumer controls pending.
+summary: Deliver native contacts, surfaces, ionic H0/H1 and H-R2 annotation; PISA deferred, unyt/P and shared receiving pending.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
@@ -119,6 +119,19 @@ views/references, not a competing native molecular codec. Receiving reports
 [PyUnitWizard #156](https://github.com/uibcdf/pyunitwizard/issues/156).
 Source, native and saved-read evidence remains bounded; regional/remaining H/P,
 #111/#30/#195 and broad chemistry are not declared complete.
+
+## H-R2 native characterization annotation receiving
+
+The [H-R2 contract](../binding_interface_characterization_annotation.md) now
+implements participant evidence composition alongside original query references,
+with offline typed record/witness validation and explicit current source facts.
+`with_characterizations` changes no query parameters or native files. Actual
+before/after independent decisions, constraints/direction/tolerance, native/core
+persistence and cold saved readers qualify the finite contact/surface profile.
+Source receiving reports 304 passes/1 strict owner xfail per policy. P, #195 and
+broader H-R1/interpretation retain their scopes; PISA remains deferred optional.
+Exact source/runtime/native/concurrent-work and final export receipts retain #50
+custody under `.molsyssuite/interface-characterization-annotation-112-20261112/`.
 
 ## How
 
@@ -412,3 +425,9 @@ readers, resource and workspace/fresh committed-export receipts at
 the separate missing-angle-standard diagnostic improvement. Matching qualification
 uses the explicit complete application policy including radians; the initial
 length/time-only attempt remains preserved rather than relabelled successful.
+
+[BindingMT #114](../pending_bugs/interface_json_object_order.md) now owns the
+independently reproduced contact-record dependency on JSON object key order.
+The actual own-writer H-R2 save/read pass does not qualify arbitrary JSON sorting.
+Correct this native persistence limit before widening cross-component record use;
+no MolSysMT workaround, frozen producer rewrite or silent closure is implied.

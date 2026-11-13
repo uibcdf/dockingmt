@@ -336,3 +336,19 @@ construction remains pending PyUnitWizard #156. Regional H-R1 is conditional,
 H-R2 and P keep their explicit controls, and actual shared/consumer adoption,
 installed/public and #30 remain separate. The planning ledger above retains
 its original prerequisite obligations rather than declaring all branches closed.
+
+## 10. H-R2 source annotation receiving — 2026-11-12
+
+The [H-R2 contract](binding_interface_characterization_annotation.md) receives
+participant-level contact/surface evidence through `with_characterizations`, with
+original records/definitions/units, exact witnesses and historical source checks.
+Native query files and before/after constraints/decisions stay unchanged. Actual
+core/native persistence, cold no-recognition reading, directed constraints,
+source/mapping/frame and tamper controls pass in the finite Pint profile.
+
+The source selection reports 304 passes/1 strict owner xfail per policy; #156's
+unyt native construction remains pending. Concurrent unrelated provider tests/docs
+are explicitly preserved while runtime content/heads/native bytes are checked.
+H-R1 is conditional; P and #195 shared adoption, #111/#30, broader semantics and
+installed/public/platform evidence keep their separate owners/gates. PISA remains
+deferred optional interoperability under the maintainer's native priority.

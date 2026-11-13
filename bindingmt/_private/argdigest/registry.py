@@ -638,6 +638,8 @@ def digest_coordinate_tolerance(coordinate_tolerance, caller=None):
 
 
 ARGUMENT_DIGESTERS = {
+    'characterizations': _mapping('characterizations'),
+    'query_ref': _optional_mapping('query_ref'),
     'analysis_names': _provider_owned,
     'max_source_atoms': _integer('max_source_atoms', minimum=1),
     'max_native_occurrences': _integer('max_native_occurrences', minimum=1),

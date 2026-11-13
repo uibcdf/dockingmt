@@ -384,6 +384,10 @@ def _validate(record):
         for reference in record['site_refs']:
             validate_site_reference(reference, observations)
     _extensions(record['extensions'])
+    if 'bindingmt.interface_characterizations' in record['extensions']:
+        from bindingmt._private.interface_annotations import KEY, validate_annotation
+
+        validate_annotation(record['extensions'][KEY], record)
     derivation = record['derivation']
     _fields(derivation, {'parents', 'reason'}, set(), 'derivation')
     parents = derivation['parents']
@@ -477,6 +481,25 @@ class BindingInterface(_InterfaceRecordIO):
         from bindingmt.chemical_interfaces import link_pharmacophore
 
         return link_pharmacophore(self, hypothesis, hypothesis_ref, participant)
+
+    @property
+    def characterizations(self):
+        """Detached original participant evidence; saved checks remain historical."""
+        from bindingmt._private.interface_annotations import KEY
+
+        annotation = self.to_dict()['extensions'].get(KEY)
+        return {} if annotation is None else annotation['characterizations']
+
+    @arg_digest(config='bindingmt._argdigest')
+    def with_characterizations(
+        self, molecular_system, *, characterizations, participant, query_ref=None
+    ):
+        """Associate contact/surface evidence on checked source facts; touch no query."""
+        from bindingmt._private.interface_annotations import with_characterizations
+
+        return with_characterizations(
+            self, molecular_system, characterizations, participant, query_ref
+        )
 
     @property
     def contact_calculation(self):
@@ -616,6 +639,15 @@ class BindingInterface(_InterfaceRecordIO):
             }
             if calculation
             else None,
+            'characterizations': {
+                label: {
+                    'record_id': entry['record_id'],
+                    'definition': entry['definition'],
+                    'current_assessment': 'not_performed',
+                    'scope': 'participant_evidence',
+                }
+                for label, entry in self.characterizations.items()
+            },
             'native_interactions': {
                 name: {
                     'occurrence_count': len(view['observations']),

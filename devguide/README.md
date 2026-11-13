@@ -1,5 +1,30 @@
 # BindingMT Development Guide
 
+### H-R2: characterization evidence alongside native queries — 2026-11-12
+
+`BindingInterface.with_characterizations` now composes actual native contact and
+surface/burial evidence with the native ionic result and optional saved hypothesis
+references. The [H-R2 contract/evidence](binding_interface_characterization_annotation.md)
+records current source/group/state/radius/geometry checks, exact atomic witnesses,
+original criteria/units/provenance and explicit participant-level scope. A new
+immutable record preserves historical checks and leaves native query files,
+parameters, constraints and evaluation policy untouched. No feature membership,
+importance or affinity is inferred. Core 0.4's optional namespaced annotation
+needs no native/optional-provider access on read.
+
+Receiving reports **304 passed, 1 xfailed per policy**, normal Pint and pm/fs
+with the matching operation's angle standard; the new module has 33 passes.
+The existing unyt construction gap remains PyUnitWizard #156. Real before/after
+query decisions, explicit direction/tolerance, core/native persistence and cold
+readers pass. Runtime/source/native evidence and preserved concurrent provider
+work retain #50 custody under
+`.molsyssuite/interface-characterization-annotation-112-20261112/`.
+
+Next correct [native JSON object-order persistence #114](pending_bugs/interface_json_object_order.md),
+then receive exact PeptideMT P inputs and #195 disposition. H-R1 remains conditional.
+PISA is deferred optional interoperability. #112/#111/#30 and installed/public/
+platform qualification keep their own gates; no prefix/build/held-suite restart.
+
 ### Native ionic grouping and PharmacophoreMT integration — 2026-11-12
 
 The maintainer selects native chemical characterization after contacts/surfaces.
@@ -22,7 +47,8 @@ native construction under unyt remains pending, with no local alias/fallback.
 Exact source/native identities, all attempts and serial resource/export receipts
 retain #50 custody in `.molsyssuite/interface-native-chemistry-112-20261112/`.
 
-Next receive the owner correction, remaining H-R2/P controls and #195 disposition.
+H-R2 is subsequently source-received; the owner correction, P controls and #195
+disposition retain their own gates.
 #112 stays open. Broader chemistry, #111 and #30 retain their own gates; no shared-
 prefix repair, native build, hosted dispatch or held-suite restart is implied.
 

@@ -10,6 +10,7 @@ making a bounded contribution.
 
 | Document | Primary question |
 | --- | --- |
+| [binding_interface_characterization_annotation.md](binding_interface_characterization_annotation.md) | How do contact/surface observations accompany native query references without changing query constraints, and which source/units/contributors/readback facts are qualified? |
 | [binding_interface_native_interactions.md](binding_interface_native_interactions.md) | How do native ionic grouping, observed-participant pharmacophore construction and exact saved site references work, and which unyt/provider/consumer controls remain pending? |
 | [binding_interface_burial.md](binding_interface_burial.md) | Which fixed-input SASA/burial profile is implemented, how are both side losses/contributions retained, and what source, numerical and offline-read evidence qualifies it? |
 | [binding_interface_contacts.md](binding_interface_contacts.md) | Which native contact profile is actually implemented through MolSysMT, which exact axes/units/limits are admitted and how do independent footprints survive readback? |
