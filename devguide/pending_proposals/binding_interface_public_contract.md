@@ -1,5 +1,5 @@
 ---
-summary: Deliver bounded native contacts and fixed-input SASA/burial through MolSysMT with typed persistence; foreign/consumer receiving remains pending.
+summary: Deliver native contacts, SASA/burial and bounded ionic H0/H1; PISA deferred, unyt construction and remaining consumer controls pending.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
@@ -105,6 +105,20 @@ policy, including 51 new surface controls, plus actual positive/zero fresh-proce
 molecular-call-free readback. Exact source/native identities and all original
 attempts retain their stated scope; no new provider kernel or editing workaround
 was needed. T0/T1, H/P and broader shared/installed acceptance remain pending.
+
+## Maintainer native continuation and actual ionic/H0/H1 receiving
+
+The maintainer prioritizes native chemistry and PharmacophoreMT integration.
+PISA T0/T1 is deferred optional interoperability/comparison, with its previous
+obligations preserved and priority revisited after the native/consumer slice or
+an actual external-result workflow. The [finite ionic contract](../binding_interface_native_interactions.md)
+receives exact cb6af716 inputs through actual public owner operations and new
+BindingMT grouping/construction/association entry points. Core 0.4 stores binding
+views/references, not a competing native molecular codec. Receiving reports
+271 passed/1 xfailed per unit policy; unyt construction is pending at
+[PyUnitWizard #156](https://github.com/uibcdf/pyunitwizard/issues/156).
+Source, native and saved-read evidence remains bounded; regional/remaining H/P,
+#111/#30/#195 and broad chemistry are not declared complete.
 
 ## How
 
@@ -296,8 +310,9 @@ full-suite resource hold and human untracked migration files.
   and initial-plan receipts retain their original scope. No runtime/scientific
   or exact-head hosted pass is implied.
 
-N2 is now source-received under its own explicit admission. Next execute T0/T1
-intake/persistence/refusal under its independent frozen contract. Exact
+N2 and the bounded native ionic H0/H1 slice are source-received under their
+explicit admissions. Next receive the unyt owner correction and remaining H/P
+controls; T0/T1 remains deferred optional interoperability. Exact
 H/P inputs and #111 remain separately owned. #112 stays open; #30 and #195 retain
 installed/public, broader source and actual cross-owner adoption requirements.
 The contact contract records exact commands, counts, native/source identity,
@@ -387,3 +402,13 @@ The N2 surface admission, actual clean source/native snapshots, final normal/pm-
 cells, analytical/software-adversity controls and public/fresh-reader/export
 receipts are retained at `.molsyssuite/interface-sasa-burial-112-20261112/` for
 #50 review 2026-11-14. No helper/input producer was rewritten; #112 remains open.
+
+The native ionic/H0/H1 task retains actual final source/test/provider/native
+hashes, all attempts, the owner defect reproducer, native/core assets and cold
+readers, resource and workspace/fresh committed-export receipts at
+`.molsyssuite/interface-native-chemistry-112-20261112/` for #50 review 2026-11-14.
+
+[PharmacophoreMT #202](https://github.com/uibcdf/pharmacophoremt/issues/202) receives
+the separate missing-angle-standard diagnostic improvement. Matching qualification
+uses the explicit complete application policy including radians; the initial
+length/time-only attempt remains preserved rather than relabelled successful.

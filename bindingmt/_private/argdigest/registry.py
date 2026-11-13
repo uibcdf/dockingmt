@@ -638,6 +638,14 @@ def digest_coordinate_tolerance(coordinate_tolerance, caller=None):
 
 
 ARGUMENT_DIGESTERS = {
+    'analysis_names': _provider_owned,
+    'max_source_atoms': _integer('max_source_atoms', minimum=1),
+    'max_native_occurrences': _integer('max_native_occurrences', minimum=1),
+    'interface': _provider_owned,
+    'radius': _provider_owned,
+    'duplicate_policy': _optional_string('duplicate_policy'),
+    'hypothesis': _provider_owned,
+    'hypothesis_ref': _mapping('hypothesis_ref'),
     'probe_radius': _provider_owned,
     'n_sphere_points': _integer('n_sphere_points', minimum=1),
     'hydrogen_policy': _optional_string('hydrogen_policy'),

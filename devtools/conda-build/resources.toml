@@ -3228,3 +3228,48 @@ sha256 = "0d88030650a768c14e9940b2c58dd21c16465550518cedd5f64c557e3e7369fc"
 source = "devguide/validation/data/human_3ptb/producer_contract_2026-10-20.json"
 target = "devguide/validation/data/human_3ptb/producer_contract_2026-10-20.json"
 sha256 = "7858e3a4f1bf22164dac772e6132163d9ab6bb74b58ea22604af755270830cef"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_native_handoff/cb6af716/LICENSE"
+target = "tests/data/interface_native_handoff/cb6af716/LICENSE"
+sha256 = "679fc9cdca180caca3804d7b90333da0e34cdc89c04d8a91b2f6ddfe552bbbb0"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_native_handoff/cb6af716/README.md"
+target = "tests/data/interface_native_handoff/cb6af716/README.md"
+sha256 = "d01c2e4176f7a60d890f296fde3f3a13cf4db9cf92706a17ded121fa7799f7c2"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_native_handoff/cb6af716/alternative.h5msm"
+target = "tests/data/interface_native_handoff/cb6af716/alternative.h5msm"
+sha256 = "388e141d11e67f498d00736dab08d3f0ad385f8a3c3faa949c883e8fbb4384f5"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_native_handoff/cb6af716/alternative.json"
+target = "tests/data/interface_native_handoff/cb6af716/alternative.json"
+sha256 = "6e34cc243a2aa4025ecdd27a46a5cafac2e310cdfef4e08302dd0f029f787643"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_native_handoff/cb6af716/excluded.json"
+target = "tests/data/interface_native_handoff/cb6af716/excluded.json"
+sha256 = "fe41c7ecd0857de357141246ad6ca7e19fe1d7e154f342d8e4094c3816f2caab"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_native_handoff/cb6af716/manifest.json"
+target = "tests/data/interface_native_handoff/cb6af716/manifest.json"
+sha256 = "3921ab7c124466ab537855d7eb82d91e4861eabbce8e1d3fa9c09524c5e6f595"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_native_handoff/cb6af716/primary.json"
+target = "tests/data/interface_native_handoff/cb6af716/primary.json"
+sha256 = "16eb2005df6e4b3f1323eee21f72ddf339ca9148dcbdb3fa40b319dadd8fcbb7"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_native_handoff/cb6af716/source.h5msm"
+target = "tests/data/interface_native_handoff/cb6af716/source.h5msm"
+sha256 = "75ed110abb15515ed33806cdd03d9958eb231b3fbe2427dec0ffbc70aa287d1b"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_native_handoff/cb6af716/zero_essential.json"
+target = "tests/data/interface_native_handoff/cb6af716/zero_essential.json"
+sha256 = "10c219e2edb0755b4c14c50958191564b8e55529701f894b984c01858792edd5"

@@ -10,6 +10,7 @@ making a bounded contribution.
 
 | Document | Primary question |
 | --- | --- |
+| [binding_interface_native_interactions.md](binding_interface_native_interactions.md) | How do native ionic grouping, observed-participant pharmacophore construction and exact saved site references work, and which unyt/provider/consumer controls remain pending? |
 | [binding_interface_burial.md](binding_interface_burial.md) | Which fixed-input SASA/burial profile is implemented, how are both side losses/contributions retained, and what source, numerical and offline-read evidence qualifies it? |
 | [binding_interface_contacts.md](binding_interface_contacts.md) | Which native contact profile is actually implemented through MolSysMT, which exact axes/units/limits are admitted and how do independent footprints survive readback? |
 | [binding_interface_data_core.md](binding_interface_data_core.md) | What first interface API/experimental record is implemented, which P0a decisions are closed and what actual source evidence/limits apply? |

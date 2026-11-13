@@ -319,3 +319,20 @@ recorded owner-feedback and bounded execution routes, preserve attempts and
 independent work, and refuse unsupported stronger behavior rather than silently
 weakening the scientific meaning. A complete plan provides that route; it cannot
 guarantee defect-free execution or replace actual receiving evidence.
+
+## 9. Maintainer native continuation and finite ionic receiving — 2026-11-12
+
+The maintainer confirms the native route after MN1/MN2. T0/T1 stays deferred
+optional interoperability/comparison under #112, with original evidence/controls
+preserved and priority revisited after this native/consumer slice or a concrete
+external-result workflow. The current next action is not automatic PISA import.
+
+PharmacophoreMT cb6af716 now supplies exact H0/H1 inputs/expectations. The
+[native ionic contract](binding_interface_native_interactions.md) receives a
+bounded identity-axis Cartesian profile through actual BindingMT entry points,
+owner queries/construction, I0/H0/I1 site references and independent saved readers.
+It reports 271 passes and one strict expected owner failure per policy; unyt
+construction remains pending PyUnitWizard #156. Regional H-R1 is conditional,
+H-R2 and P keep their explicit controls, and actual shared/consumer adoption,
+installed/public and #30 remain separate. The planning ledger above retains
+its original prerequisite obligations rather than declaring all branches closed.

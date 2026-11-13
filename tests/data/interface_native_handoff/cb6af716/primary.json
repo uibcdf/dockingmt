@@ -1,0 +1,1330 @@
+{
+    "schema": "pharmacophoremt.native@1",
+    "software": "pharmacophoremt",
+    "version": "0.5.0+7.g35559b3",
+    "name": null,
+    "description": null,
+    "score": null,
+    "ref_mol": null,
+    "ref_struct": 0,
+    "metadata": {
+        "method": "common_frame_pharmacophore_composition@1",
+        "producer": {
+            "pharmacophoremt": "0.5.0+7.g35559b3"
+        },
+        "policy": {
+            "duplicate_policy": "same_participant",
+            "common_frame": "caller_declared",
+            "weight_aggregation": "not_performed",
+            "geometry_averaging": false,
+            "representation_atol_nm": 1e-12,
+            "representation_atol_dimensionless": 1e-12
+        },
+        "source_context": {
+            "source_id": null,
+            "source_atom_indices": [
+                0,
+                1,
+                2,
+                3
+            ],
+            "source_structure_indices": [
+                0
+            ],
+            "structure_index": 0,
+            "ligand_atom_indices": [
+                2
+            ],
+            "chemical_state_index": 0
+        },
+        "components": [
+            {
+                "label": "ionic_031",
+                "name": "ionic_031",
+                "description": null,
+                "score": null,
+                "ref_mol": null,
+                "ref_struct": 0,
+                "metadata": {
+                    "method": "observed_interactions",
+                    "interaction_method": "molsysmt.interactions.ionic.get_ionic_interactions",
+                    "producer": {
+                        "pharmacophoremt": "0.5.0+7.g35559b3"
+                    },
+                    "source_id": null,
+                    "source_atom_indices": [
+                        0,
+                        1,
+                        2,
+                        3
+                    ],
+                    "source_structure_indices": [
+                        0
+                    ],
+                    "evaluated_structure_indices": [
+                        0
+                    ],
+                    "structure_index": 0,
+                    "ligand_atom_indices": [
+                        2
+                    ],
+                    "software": {
+                        "molsysmt": "0.23.0+904.gff25f1202"
+                    },
+                    "parameters": {
+                        "method": "minimum_distance",
+                        "distance_threshold": {
+                            "value": 0.31,
+                            "unit": "nm"
+                        },
+                        "distance_comparison": "less_than_or_equal",
+                        "cutoff_roundoff": "one_float64_ulp",
+                        "charge_source": "chemical_states.formal_charge",
+                        "participant_definition": "formal_charge",
+                        "recognition_rule_version": "formal_charge_centers@1",
+                        "chemical_state_index": 0,
+                        "charge_evidence": {
+                            "kind": "formal_charge",
+                            "connectivity_completeness": "complete",
+                            "assume_complete_connectivity": false,
+                            "chemical_state_provenance_index": null
+                        },
+                        "pbc": false,
+                        "image_policy": "whole_participants_anchor_relative_mic",
+                        "pbc_policy": "mic_when_box_available",
+                        "recognition_scope": "full_source_chemical_state",
+                        "intramolecular": "included",
+                        "exclude_direct_covalent": true,
+                        "profile": "native",
+                        "method_definition": "molsysmt.ionic.minimum_distance.native@1",
+                        "attribution": {
+                            "schema": "molsysmt.scientific_attribution@1",
+                            "target": "molsysmt.interactions.ionic.get_ionic_interactions",
+                            "items": [
+                                {
+                                    "id": "software:molsysmt:0.23.0+904.gff25f1202",
+                                    "type": "software",
+                                    "title": "MolSysMT",
+                                    "authors": [
+                                        "Prada-Gracia, Diego",
+                                        "Moreno-Vargas, Liliana M."
+                                    ],
+                                    "doi": "10.5281/zenodo.1298752",
+                                    "url": "https://github.com/uibcdf/molsysmt",
+                                    "version": "0.23.0+904.gff25f1202",
+                                    "roles": [
+                                        "executed_software"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "execution_records": [
+                        {
+                            "structure_indices": [
+                                0
+                            ],
+                            "details": {
+                                "memory_policy": "numeric_working_estimates@1",
+                                "execution": "eager",
+                                "execution_chunks": 1
+                            }
+                        }
+                    ],
+                    "ionic_feature_inventory": {
+                        "definition": "classical_atomic_formal@1",
+                        "features": [
+                            {
+                                "kind": "positive charge",
+                                "atom_indices": [
+                                    2
+                                ],
+                                "geometry_atom_indices": [
+                                    2
+                                ],
+                                "center": {
+                                    "manifest": {
+                                        "format": "qrec/0.3",
+                                        "field": null,
+                                        "unit": "nanometer",
+                                        "si": {
+                                            "factor": 1e-09,
+                                            "offset": 0.0,
+                                            "exponents": {
+                                                "m": 1
+                                            }
+                                        },
+                                        "dtype": "float64",
+                                        "shape": [
+                                            3
+                                        ],
+                                        "blocks": [
+                                            3
+                                        ]
+                                    },
+                                    "values": [
+                                        0.0,
+                                        0.25,
+                                        0.0
+                                    ],
+                                    "block_digests": [
+                                        "blake2b-128:1d784baa97bfce13435a41e276e17374"
+                                    ],
+                                    "digest": "blake2b-128:b97ee2f70a97805408ecfbf30bbea6e0"
+                                },
+                                "direction": null,
+                                "normal": null,
+                                "charge": {
+                                    "manifest": {
+                                        "format": "qrec/0.3",
+                                        "field": null,
+                                        "unit": "elementary_charge",
+                                        "si": {
+                                            "factor": 1.602176634e-19,
+                                            "offset": 0.0,
+                                            "exponents": {
+                                                "A": 1,
+                                                "s": 1
+                                            }
+                                        },
+                                        "dtype": "float64",
+                                        "shape": [],
+                                        "blocks": [
+                                            1
+                                        ]
+                                    },
+                                    "values": 1.0,
+                                    "block_digests": [
+                                        "blake2b-128:cce003cb82d6981ca8f4f85e79904fc4"
+                                    ],
+                                    "digest": "blake2b-128:2f11cc9c91df3a9e332ee6e80cd95f59"
+                                }
+                            }
+                        ],
+                        "recognition": {
+                            "formal_charge": {
+                                "atom_indices": [
+                                    2
+                                ],
+                                "atom_offsets": [
+                                    0,
+                                    1
+                                ],
+                                "geometry_atom_indices": [
+                                    2
+                                ],
+                                "geometry_atom_offsets": [
+                                    0,
+                                    1
+                                ],
+                                "charges": {
+                                    "manifest": {
+                                        "format": "qrec/0.3",
+                                        "field": null,
+                                        "unit": "elementary_charge",
+                                        "si": {
+                                            "factor": 1.602176634e-19,
+                                            "offset": 0.0,
+                                            "exponents": {
+                                                "A": 1,
+                                                "s": 1
+                                            }
+                                        },
+                                        "dtype": "float64",
+                                        "shape": [
+                                            1
+                                        ],
+                                        "blocks": [
+                                            1
+                                        ]
+                                    },
+                                    "values": [
+                                        1.0
+                                    ],
+                                    "block_digests": [
+                                        "blake2b-128:cce003cb82d6981ca8f4f85e79904fc4"
+                                    ],
+                                    "digest": "blake2b-128:86b31fab42bfdd0bf71b92960913fade"
+                                },
+                                "center_types": [
+                                    "formal_charge_atom"
+                                ],
+                                "n_atoms": 4,
+                                "source_atom_indices": [
+                                    0,
+                                    1,
+                                    2,
+                                    3
+                                ],
+                                "selection_atom_indices": [
+                                    2
+                                ],
+                                "examined_atom_indices": [
+                                    0,
+                                    1,
+                                    2,
+                                    3
+                                ],
+                                "chemical_state_index": 0,
+                                "charge_source": "chemical_states.formal_charge",
+                                "definition": "formal_charge",
+                                "rule_version": "formal_charge_centers@1",
+                                "evidence": {
+                                    "kind": "formal_charge",
+                                    "connectivity_completeness": "complete",
+                                    "assume_complete_connectivity": false,
+                                    "chemical_state_provenance_index": null
+                                },
+                                "software": {
+                                    "molsysmt": "0.23.0+904.gff25f1202"
+                                }
+                            },
+                            "charge_geometry": {
+                                "method": "molsysmt.structure.get_center",
+                                "weighting": "uniform",
+                                "centers": {
+                                    "manifest": {
+                                        "format": "qrec/0.3",
+                                        "field": null,
+                                        "unit": "nanometer",
+                                        "si": {
+                                            "factor": 1e-09,
+                                            "offset": 0.0,
+                                            "exponents": {
+                                                "m": 1
+                                            }
+                                        },
+                                        "dtype": "float64",
+                                        "shape": [
+                                            1,
+                                            1,
+                                            3
+                                        ],
+                                        "blocks": [
+                                            3
+                                        ]
+                                    },
+                                    "values": [
+                                        [
+                                            [
+                                                0.0,
+                                                0.25,
+                                                0.0
+                                            ]
+                                        ]
+                                    ],
+                                    "block_digests": [
+                                        "blake2b-128:1d784baa97bfce13435a41e276e17374"
+                                    ],
+                                    "digest": "blake2b-128:0b279dc9d5b2ba3356851e8327c8657d"
+                                }
+                            }
+                        },
+                        "selected_atom_indices": [
+                            2
+                        ],
+                        "structure_index": 0,
+                        "chemical_state": 0
+                    }
+                },
+                "n_sites": 1
+            },
+            {
+                "label": "ionic_035",
+                "name": "ionic_035",
+                "description": null,
+                "score": null,
+                "ref_mol": null,
+                "ref_struct": 0,
+                "metadata": {
+                    "method": "observed_interactions",
+                    "interaction_method": "molsysmt.interactions.ionic.get_ionic_interactions",
+                    "producer": {
+                        "pharmacophoremt": "0.5.0+7.g35559b3"
+                    },
+                    "source_id": null,
+                    "source_atom_indices": [
+                        0,
+                        1,
+                        2,
+                        3
+                    ],
+                    "source_structure_indices": [
+                        0
+                    ],
+                    "evaluated_structure_indices": [
+                        0
+                    ],
+                    "structure_index": 0,
+                    "ligand_atom_indices": [
+                        2
+                    ],
+                    "software": {
+                        "molsysmt": "0.23.0+904.gff25f1202"
+                    },
+                    "parameters": {
+                        "method": "minimum_distance",
+                        "distance_threshold": {
+                            "value": 0.35,
+                            "unit": "nm"
+                        },
+                        "distance_comparison": "less_than_or_equal",
+                        "cutoff_roundoff": "one_float64_ulp",
+                        "charge_source": "chemical_states.formal_charge",
+                        "participant_definition": "formal_charge",
+                        "recognition_rule_version": "formal_charge_centers@1",
+                        "chemical_state_index": 0,
+                        "charge_evidence": {
+                            "kind": "formal_charge",
+                            "connectivity_completeness": "complete",
+                            "assume_complete_connectivity": false,
+                            "chemical_state_provenance_index": null
+                        },
+                        "pbc": false,
+                        "image_policy": "whole_participants_anchor_relative_mic",
+                        "pbc_policy": "mic_when_box_available",
+                        "recognition_scope": "full_source_chemical_state",
+                        "intramolecular": "included",
+                        "exclude_direct_covalent": true,
+                        "profile": "native",
+                        "method_definition": "molsysmt.ionic.minimum_distance.native@1",
+                        "attribution": {
+                            "schema": "molsysmt.scientific_attribution@1",
+                            "target": "molsysmt.interactions.ionic.get_ionic_interactions",
+                            "items": [
+                                {
+                                    "id": "software:molsysmt:0.23.0+904.gff25f1202",
+                                    "type": "software",
+                                    "title": "MolSysMT",
+                                    "authors": [
+                                        "Prada-Gracia, Diego",
+                                        "Moreno-Vargas, Liliana M."
+                                    ],
+                                    "doi": "10.5281/zenodo.1298752",
+                                    "url": "https://github.com/uibcdf/molsysmt",
+                                    "version": "0.23.0+904.gff25f1202",
+                                    "roles": [
+                                        "executed_software"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "execution_records": [
+                        {
+                            "structure_indices": [
+                                0
+                            ],
+                            "details": {
+                                "memory_policy": "numeric_working_estimates@1",
+                                "execution": "eager",
+                                "execution_chunks": 1
+                            }
+                        }
+                    ],
+                    "ionic_feature_inventory": {
+                        "definition": "classical_atomic_formal@1",
+                        "features": [
+                            {
+                                "kind": "positive charge",
+                                "atom_indices": [
+                                    2
+                                ],
+                                "geometry_atom_indices": [
+                                    2
+                                ],
+                                "center": {
+                                    "manifest": {
+                                        "format": "qrec/0.3",
+                                        "field": null,
+                                        "unit": "nanometer",
+                                        "si": {
+                                            "factor": 1e-09,
+                                            "offset": 0.0,
+                                            "exponents": {
+                                                "m": 1
+                                            }
+                                        },
+                                        "dtype": "float64",
+                                        "shape": [
+                                            3
+                                        ],
+                                        "blocks": [
+                                            3
+                                        ]
+                                    },
+                                    "values": [
+                                        0.0,
+                                        0.25,
+                                        0.0
+                                    ],
+                                    "block_digests": [
+                                        "blake2b-128:1d784baa97bfce13435a41e276e17374"
+                                    ],
+                                    "digest": "blake2b-128:b97ee2f70a97805408ecfbf30bbea6e0"
+                                },
+                                "direction": null,
+                                "normal": null,
+                                "charge": {
+                                    "manifest": {
+                                        "format": "qrec/0.3",
+                                        "field": null,
+                                        "unit": "elementary_charge",
+                                        "si": {
+                                            "factor": 1.602176634e-19,
+                                            "offset": 0.0,
+                                            "exponents": {
+                                                "A": 1,
+                                                "s": 1
+                                            }
+                                        },
+                                        "dtype": "float64",
+                                        "shape": [],
+                                        "blocks": [
+                                            1
+                                        ]
+                                    },
+                                    "values": 1.0,
+                                    "block_digests": [
+                                        "blake2b-128:cce003cb82d6981ca8f4f85e79904fc4"
+                                    ],
+                                    "digest": "blake2b-128:2f11cc9c91df3a9e332ee6e80cd95f59"
+                                }
+                            }
+                        ],
+                        "recognition": {
+                            "formal_charge": {
+                                "atom_indices": [
+                                    2
+                                ],
+                                "atom_offsets": [
+                                    0,
+                                    1
+                                ],
+                                "geometry_atom_indices": [
+                                    2
+                                ],
+                                "geometry_atom_offsets": [
+                                    0,
+                                    1
+                                ],
+                                "charges": {
+                                    "manifest": {
+                                        "format": "qrec/0.3",
+                                        "field": null,
+                                        "unit": "elementary_charge",
+                                        "si": {
+                                            "factor": 1.602176634e-19,
+                                            "offset": 0.0,
+                                            "exponents": {
+                                                "A": 1,
+                                                "s": 1
+                                            }
+                                        },
+                                        "dtype": "float64",
+                                        "shape": [
+                                            1
+                                        ],
+                                        "blocks": [
+                                            1
+                                        ]
+                                    },
+                                    "values": [
+                                        1.0
+                                    ],
+                                    "block_digests": [
+                                        "blake2b-128:cce003cb82d6981ca8f4f85e79904fc4"
+                                    ],
+                                    "digest": "blake2b-128:86b31fab42bfdd0bf71b92960913fade"
+                                },
+                                "center_types": [
+                                    "formal_charge_atom"
+                                ],
+                                "n_atoms": 4,
+                                "source_atom_indices": [
+                                    0,
+                                    1,
+                                    2,
+                                    3
+                                ],
+                                "selection_atom_indices": [
+                                    2
+                                ],
+                                "examined_atom_indices": [
+                                    0,
+                                    1,
+                                    2,
+                                    3
+                                ],
+                                "chemical_state_index": 0,
+                                "charge_source": "chemical_states.formal_charge",
+                                "definition": "formal_charge",
+                                "rule_version": "formal_charge_centers@1",
+                                "evidence": {
+                                    "kind": "formal_charge",
+                                    "connectivity_completeness": "complete",
+                                    "assume_complete_connectivity": false,
+                                    "chemical_state_provenance_index": null
+                                },
+                                "software": {
+                                    "molsysmt": "0.23.0+904.gff25f1202"
+                                }
+                            },
+                            "charge_geometry": {
+                                "method": "molsysmt.structure.get_center",
+                                "weighting": "uniform",
+                                "centers": {
+                                    "manifest": {
+                                        "format": "qrec/0.3",
+                                        "field": null,
+                                        "unit": "nanometer",
+                                        "si": {
+                                            "factor": 1e-09,
+                                            "offset": 0.0,
+                                            "exponents": {
+                                                "m": 1
+                                            }
+                                        },
+                                        "dtype": "float64",
+                                        "shape": [
+                                            1,
+                                            1,
+                                            3
+                                        ],
+                                        "blocks": [
+                                            3
+                                        ]
+                                    },
+                                    "values": [
+                                        [
+                                            [
+                                                0.0,
+                                                0.25,
+                                                0.0
+                                            ]
+                                        ]
+                                    ],
+                                    "block_digests": [
+                                        "blake2b-128:1d784baa97bfce13435a41e276e17374"
+                                    ],
+                                    "digest": "blake2b-128:0b279dc9d5b2ba3356851e8327c8657d"
+                                }
+                            }
+                        },
+                        "selected_atom_indices": [
+                            2
+                        ],
+                        "structure_index": 0,
+                        "chemical_state": 0
+                    }
+                },
+                "n_sites": 1
+            },
+            {
+                "label": "ionic_empty",
+                "name": "ionic_empty",
+                "description": null,
+                "score": null,
+                "ref_mol": null,
+                "ref_struct": 0,
+                "metadata": {
+                    "method": "observed_interactions",
+                    "interaction_method": "molsysmt.interactions.ionic.get_ionic_interactions",
+                    "producer": {
+                        "pharmacophoremt": "0.5.0+7.g35559b3"
+                    },
+                    "source_id": null,
+                    "source_atom_indices": [
+                        0,
+                        1,
+                        2,
+                        3
+                    ],
+                    "source_structure_indices": [
+                        0
+                    ],
+                    "evaluated_structure_indices": [
+                        0
+                    ],
+                    "structure_index": 0,
+                    "ligand_atom_indices": [
+                        2
+                    ],
+                    "software": {
+                        "molsysmt": "0.23.0+904.gff25f1202"
+                    },
+                    "parameters": {
+                        "method": "minimum_distance",
+                        "distance_threshold": {
+                            "value": 0.01,
+                            "unit": "nm"
+                        },
+                        "distance_comparison": "less_than_or_equal",
+                        "cutoff_roundoff": "one_float64_ulp",
+                        "charge_source": "chemical_states.formal_charge",
+                        "participant_definition": "formal_charge",
+                        "recognition_rule_version": "formal_charge_centers@1",
+                        "chemical_state_index": 0,
+                        "charge_evidence": {
+                            "kind": "formal_charge",
+                            "connectivity_completeness": "complete",
+                            "assume_complete_connectivity": false,
+                            "chemical_state_provenance_index": null
+                        },
+                        "pbc": false,
+                        "image_policy": "whole_participants_anchor_relative_mic",
+                        "pbc_policy": "mic_when_box_available",
+                        "recognition_scope": "full_source_chemical_state",
+                        "intramolecular": "included",
+                        "exclude_direct_covalent": true,
+                        "profile": "native",
+                        "method_definition": "molsysmt.ionic.minimum_distance.native@1",
+                        "attribution": {
+                            "schema": "molsysmt.scientific_attribution@1",
+                            "target": "molsysmt.interactions.ionic.get_ionic_interactions",
+                            "items": [
+                                {
+                                    "id": "software:molsysmt:0.23.0+904.gff25f1202",
+                                    "type": "software",
+                                    "title": "MolSysMT",
+                                    "authors": [
+                                        "Prada-Gracia, Diego",
+                                        "Moreno-Vargas, Liliana M."
+                                    ],
+                                    "doi": "10.5281/zenodo.1298752",
+                                    "url": "https://github.com/uibcdf/molsysmt",
+                                    "version": "0.23.0+904.gff25f1202",
+                                    "roles": [
+                                        "executed_software"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    "execution_records": [
+                        {
+                            "structure_indices": [
+                                0
+                            ],
+                            "details": {
+                                "memory_policy": "numeric_working_estimates@1",
+                                "execution": "eager",
+                                "execution_chunks": 1
+                            }
+                        }
+                    ]
+                },
+                "n_sites": 0
+            }
+        ],
+        "site_map": [
+            {
+                "component": "ionic_031",
+                "component_site_index": 0,
+                "site_index": 0,
+                "action": "added"
+            },
+            {
+                "component": "ionic_035",
+                "component_site_index": 0,
+                "site_index": 0,
+                "action": "reused"
+            }
+        ],
+        "interaction_collection": {
+            "method": "named_native_interaction_collection@1",
+            "chemical_state_index": 0,
+            "cation_mapping": "exact",
+            "analyses": [
+                {
+                    "label": "ionic_031",
+                    "n_observations": 1,
+                    "evaluated_structure_indices": [
+                        0
+                    ]
+                },
+                {
+                    "label": "ionic_035",
+                    "n_observations": 1,
+                    "evaluated_structure_indices": [
+                        0
+                    ]
+                },
+                {
+                    "label": "ionic_empty",
+                    "n_observations": 0,
+                    "evaluated_structure_indices": [
+                        0
+                    ]
+                }
+            ]
+        }
+    },
+    "units": {
+        "length": "nm",
+        "direction": "dimensionless"
+    },
+    "interaction_sites": [
+        {
+            "features": [
+                "positive charge"
+            ],
+            "essential": true,
+            "weight": 1.0,
+            "shape": {
+                "type": "sphere",
+                "center": [
+                    0.0,
+                    0.25,
+                    0.0
+                ],
+                "radius": 0.02
+            },
+            "metadata": {
+                "atom_indices": [
+                    2
+                ],
+                "source_atom_indices": [
+                    2
+                ],
+                "structure_index": 0,
+                "observations": [
+                    {
+                        "occurrence_index": 1,
+                        "relation_index": 1,
+                        "relation": {
+                            "interaction_type": "ionic_contact",
+                            "participants": [
+                                {
+                                    "role": "positive",
+                                    "atom_indices": [
+                                        2
+                                    ]
+                                },
+                                {
+                                    "role": "negative",
+                                    "atom_indices": [
+                                        0
+                                    ]
+                                }
+                            ]
+                        },
+                        "evidence": "formal_charge_geometric_proximity",
+                        "measurements": {
+                            "distance": {
+                                "manifest": {
+                                    "format": "qrec/0.3",
+                                    "field": null,
+                                    "unit": "nanometer",
+                                    "si": {
+                                        "factor": 1e-09,
+                                        "offset": 0.0,
+                                        "exponents": {
+                                            "m": 1
+                                        }
+                                    },
+                                    "dtype": "float64",
+                                    "shape": [],
+                                    "blocks": [
+                                        1
+                                    ]
+                                },
+                                "values": 0.25,
+                                "block_digests": [
+                                    "blake2b-128:090eaa3b22a852b4144a4440472750d8"
+                                ],
+                                "digest": "blake2b-128:eb143a275b85270178fdeee140d52cc5"
+                            },
+                            "negative_charge": {
+                                "manifest": {
+                                    "format": "qrec/0.3",
+                                    "field": null,
+                                    "unit": "elementary_charge",
+                                    "si": {
+                                        "factor": 1.602176634e-19,
+                                        "offset": 0.0,
+                                        "exponents": {
+                                            "A": 1,
+                                            "s": 1
+                                        }
+                                    },
+                                    "dtype": "float64",
+                                    "shape": [],
+                                    "blocks": [
+                                        1
+                                    ]
+                                },
+                                "values": -1.0,
+                                "block_digests": [
+                                    "blake2b-128:38dd973c2f67a9ec9d4f0558209abc37"
+                                ],
+                                "digest": "blake2b-128:7118f91094aedb22173eee62de25f2cb"
+                            },
+                            "positive_charge": {
+                                "manifest": {
+                                    "format": "qrec/0.3",
+                                    "field": null,
+                                    "unit": "elementary_charge",
+                                    "si": {
+                                        "factor": 1.602176634e-19,
+                                        "offset": 0.0,
+                                        "exponents": {
+                                            "A": 1,
+                                            "s": 1
+                                        }
+                                    },
+                                    "dtype": "float64",
+                                    "shape": [],
+                                    "blocks": [
+                                        1
+                                    ]
+                                },
+                                "values": 1.0,
+                                "block_digests": [
+                                    "blake2b-128:cce003cb82d6981ca8f4f85e79904fc4"
+                                ],
+                                "digest": "blake2b-128:2f11cc9c91df3a9e332ee6e80cd95f59"
+                            }
+                        },
+                        "component": "ionic_031"
+                    },
+                    {
+                        "occurrence_index": 1,
+                        "relation_index": 1,
+                        "relation": {
+                            "interaction_type": "ionic_contact",
+                            "participants": [
+                                {
+                                    "role": "positive",
+                                    "atom_indices": [
+                                        2
+                                    ]
+                                },
+                                {
+                                    "role": "negative",
+                                    "atom_indices": [
+                                        0
+                                    ]
+                                }
+                            ]
+                        },
+                        "evidence": "formal_charge_geometric_proximity",
+                        "measurements": {
+                            "distance": {
+                                "manifest": {
+                                    "format": "qrec/0.3",
+                                    "field": null,
+                                    "unit": "nanometer",
+                                    "si": {
+                                        "factor": 1e-09,
+                                        "offset": 0.0,
+                                        "exponents": {
+                                            "m": 1
+                                        }
+                                    },
+                                    "dtype": "float64",
+                                    "shape": [],
+                                    "blocks": [
+                                        1
+                                    ]
+                                },
+                                "values": 0.25,
+                                "block_digests": [
+                                    "blake2b-128:090eaa3b22a852b4144a4440472750d8"
+                                ],
+                                "digest": "blake2b-128:eb143a275b85270178fdeee140d52cc5"
+                            },
+                            "negative_charge": {
+                                "manifest": {
+                                    "format": "qrec/0.3",
+                                    "field": null,
+                                    "unit": "elementary_charge",
+                                    "si": {
+                                        "factor": 1.602176634e-19,
+                                        "offset": 0.0,
+                                        "exponents": {
+                                            "A": 1,
+                                            "s": 1
+                                        }
+                                    },
+                                    "dtype": "float64",
+                                    "shape": [],
+                                    "blocks": [
+                                        1
+                                    ]
+                                },
+                                "values": -1.0,
+                                "block_digests": [
+                                    "blake2b-128:38dd973c2f67a9ec9d4f0558209abc37"
+                                ],
+                                "digest": "blake2b-128:7118f91094aedb22173eee62de25f2cb"
+                            },
+                            "positive_charge": {
+                                "manifest": {
+                                    "format": "qrec/0.3",
+                                    "field": null,
+                                    "unit": "elementary_charge",
+                                    "si": {
+                                        "factor": 1.602176634e-19,
+                                        "offset": 0.0,
+                                        "exponents": {
+                                            "A": 1,
+                                            "s": 1
+                                        }
+                                    },
+                                    "dtype": "float64",
+                                    "shape": [],
+                                    "blocks": [
+                                        1
+                                    ]
+                                },
+                                "values": 1.0,
+                                "block_digests": [
+                                    "blake2b-128:cce003cb82d6981ca8f4f85e79904fc4"
+                                ],
+                                "digest": "blake2b-128:2f11cc9c91df3a9e332ee6e80cd95f59"
+                            }
+                        },
+                        "component": "ionic_035"
+                    }
+                ],
+                "geometry_atom_indices": [
+                    2
+                ],
+                "source_geometry_atom_indices": [
+                    2
+                ],
+                "charge": {
+                    "manifest": {
+                        "format": "qrec/0.3",
+                        "field": null,
+                        "unit": "elementary_charge",
+                        "si": {
+                            "factor": 1.602176634e-19,
+                            "offset": 0.0,
+                            "exponents": {
+                                "A": 1,
+                                "s": 1
+                            }
+                        },
+                        "dtype": "float64",
+                        "shape": [],
+                        "blocks": [
+                            1
+                        ]
+                    },
+                    "values": 1.0,
+                    "block_digests": [
+                        "blake2b-128:cce003cb82d6981ca8f4f85e79904fc4"
+                    ],
+                    "digest": "blake2b-128:2f11cc9c91df3a9e332ee6e80cd95f59"
+                },
+                "chemical_state_index": 0,
+                "definition": "classical_atomic_formal@1",
+                "recognition_rule_version": "formal_charge_centers@1",
+                "geometry_method": "molsysmt.structure.get_center",
+                "geometry_weighting": "uniform",
+                "composition_contributions": [
+                    {
+                        "component": "ionic_031",
+                        "component_site_index": 0,
+                        "metadata": {
+                            "atom_indices": [
+                                2
+                            ],
+                            "source_atom_indices": [
+                                2
+                            ],
+                            "structure_index": 0,
+                            "observations": [
+                                {
+                                    "occurrence_index": 1,
+                                    "relation_index": 1,
+                                    "relation": {
+                                        "interaction_type": "ionic_contact",
+                                        "participants": [
+                                            {
+                                                "role": "positive",
+                                                "atom_indices": [
+                                                    2
+                                                ]
+                                            },
+                                            {
+                                                "role": "negative",
+                                                "atom_indices": [
+                                                    0
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "evidence": "formal_charge_geometric_proximity",
+                                    "measurements": {
+                                        "distance": {
+                                            "manifest": {
+                                                "format": "qrec/0.3",
+                                                "field": null,
+                                                "unit": "nanometer",
+                                                "si": {
+                                                    "factor": 1e-09,
+                                                    "offset": 0.0,
+                                                    "exponents": {
+                                                        "m": 1
+                                                    }
+                                                },
+                                                "dtype": "float64",
+                                                "shape": [],
+                                                "blocks": [
+                                                    1
+                                                ]
+                                            },
+                                            "values": 0.25,
+                                            "block_digests": [
+                                                "blake2b-128:090eaa3b22a852b4144a4440472750d8"
+                                            ],
+                                            "digest": "blake2b-128:eb143a275b85270178fdeee140d52cc5"
+                                        },
+                                        "negative_charge": {
+                                            "manifest": {
+                                                "format": "qrec/0.3",
+                                                "field": null,
+                                                "unit": "elementary_charge",
+                                                "si": {
+                                                    "factor": 1.602176634e-19,
+                                                    "offset": 0.0,
+                                                    "exponents": {
+                                                        "A": 1,
+                                                        "s": 1
+                                                    }
+                                                },
+                                                "dtype": "float64",
+                                                "shape": [],
+                                                "blocks": [
+                                                    1
+                                                ]
+                                            },
+                                            "values": -1.0,
+                                            "block_digests": [
+                                                "blake2b-128:38dd973c2f67a9ec9d4f0558209abc37"
+                                            ],
+                                            "digest": "blake2b-128:7118f91094aedb22173eee62de25f2cb"
+                                        },
+                                        "positive_charge": {
+                                            "manifest": {
+                                                "format": "qrec/0.3",
+                                                "field": null,
+                                                "unit": "elementary_charge",
+                                                "si": {
+                                                    "factor": 1.602176634e-19,
+                                                    "offset": 0.0,
+                                                    "exponents": {
+                                                        "A": 1,
+                                                        "s": 1
+                                                    }
+                                                },
+                                                "dtype": "float64",
+                                                "shape": [],
+                                                "blocks": [
+                                                    1
+                                                ]
+                                            },
+                                            "values": 1.0,
+                                            "block_digests": [
+                                                "blake2b-128:cce003cb82d6981ca8f4f85e79904fc4"
+                                            ],
+                                            "digest": "blake2b-128:2f11cc9c91df3a9e332ee6e80cd95f59"
+                                        }
+                                    }
+                                }
+                            ],
+                            "geometry_atom_indices": [
+                                2
+                            ],
+                            "source_geometry_atom_indices": [
+                                2
+                            ],
+                            "charge": {
+                                "manifest": {
+                                    "format": "qrec/0.3",
+                                    "field": null,
+                                    "unit": "elementary_charge",
+                                    "si": {
+                                        "factor": 1.602176634e-19,
+                                        "offset": 0.0,
+                                        "exponents": {
+                                            "A": 1,
+                                            "s": 1
+                                        }
+                                    },
+                                    "dtype": "float64",
+                                    "shape": [],
+                                    "blocks": [
+                                        1
+                                    ]
+                                },
+                                "values": 1.0,
+                                "block_digests": [
+                                    "blake2b-128:cce003cb82d6981ca8f4f85e79904fc4"
+                                ],
+                                "digest": "blake2b-128:2f11cc9c91df3a9e332ee6e80cd95f59"
+                            },
+                            "chemical_state_index": 0,
+                            "definition": "classical_atomic_formal@1",
+                            "recognition_rule_version": "formal_charge_centers@1",
+                            "geometry_method": "molsysmt.structure.get_center",
+                            "geometry_weighting": "uniform"
+                        }
+                    },
+                    {
+                        "component": "ionic_035",
+                        "component_site_index": 0,
+                        "metadata": {
+                            "atom_indices": [
+                                2
+                            ],
+                            "source_atom_indices": [
+                                2
+                            ],
+                            "structure_index": 0,
+                            "observations": [
+                                {
+                                    "occurrence_index": 1,
+                                    "relation_index": 1,
+                                    "relation": {
+                                        "interaction_type": "ionic_contact",
+                                        "participants": [
+                                            {
+                                                "role": "positive",
+                                                "atom_indices": [
+                                                    2
+                                                ]
+                                            },
+                                            {
+                                                "role": "negative",
+                                                "atom_indices": [
+                                                    0
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "evidence": "formal_charge_geometric_proximity",
+                                    "measurements": {
+                                        "distance": {
+                                            "manifest": {
+                                                "format": "qrec/0.3",
+                                                "field": null,
+                                                "unit": "nanometer",
+                                                "si": {
+                                                    "factor": 1e-09,
+                                                    "offset": 0.0,
+                                                    "exponents": {
+                                                        "m": 1
+                                                    }
+                                                },
+                                                "dtype": "float64",
+                                                "shape": [],
+                                                "blocks": [
+                                                    1
+                                                ]
+                                            },
+                                            "values": 0.25,
+                                            "block_digests": [
+                                                "blake2b-128:090eaa3b22a852b4144a4440472750d8"
+                                            ],
+                                            "digest": "blake2b-128:eb143a275b85270178fdeee140d52cc5"
+                                        },
+                                        "negative_charge": {
+                                            "manifest": {
+                                                "format": "qrec/0.3",
+                                                "field": null,
+                                                "unit": "elementary_charge",
+                                                "si": {
+                                                    "factor": 1.602176634e-19,
+                                                    "offset": 0.0,
+                                                    "exponents": {
+                                                        "A": 1,
+                                                        "s": 1
+                                                    }
+                                                },
+                                                "dtype": "float64",
+                                                "shape": [],
+                                                "blocks": [
+                                                    1
+                                                ]
+                                            },
+                                            "values": -1.0,
+                                            "block_digests": [
+                                                "blake2b-128:38dd973c2f67a9ec9d4f0558209abc37"
+                                            ],
+                                            "digest": "blake2b-128:7118f91094aedb22173eee62de25f2cb"
+                                        },
+                                        "positive_charge": {
+                                            "manifest": {
+                                                "format": "qrec/0.3",
+                                                "field": null,
+                                                "unit": "elementary_charge",
+                                                "si": {
+                                                    "factor": 1.602176634e-19,
+                                                    "offset": 0.0,
+                                                    "exponents": {
+                                                        "A": 1,
+                                                        "s": 1
+                                                    }
+                                                },
+                                                "dtype": "float64",
+                                                "shape": [],
+                                                "blocks": [
+                                                    1
+                                                ]
+                                            },
+                                            "values": 1.0,
+                                            "block_digests": [
+                                                "blake2b-128:cce003cb82d6981ca8f4f85e79904fc4"
+                                            ],
+                                            "digest": "blake2b-128:2f11cc9c91df3a9e332ee6e80cd95f59"
+                                        }
+                                    }
+                                }
+                            ],
+                            "geometry_atom_indices": [
+                                2
+                            ],
+                            "source_geometry_atom_indices": [
+                                2
+                            ],
+                            "charge": {
+                                "manifest": {
+                                    "format": "qrec/0.3",
+                                    "field": null,
+                                    "unit": "elementary_charge",
+                                    "si": {
+                                        "factor": 1.602176634e-19,
+                                        "offset": 0.0,
+                                        "exponents": {
+                                            "A": 1,
+                                            "s": 1
+                                        }
+                                    },
+                                    "dtype": "float64",
+                                    "shape": [],
+                                    "blocks": [
+                                        1
+                                    ]
+                                },
+                                "values": 1.0,
+                                "block_digests": [
+                                    "blake2b-128:cce003cb82d6981ca8f4f85e79904fc4"
+                                ],
+                                "digest": "blake2b-128:2f11cc9c91df3a9e332ee6e80cd95f59"
+                            },
+                            "chemical_state_index": 0,
+                            "definition": "classical_atomic_formal@1",
+                            "recognition_rule_version": "formal_charge_centers@1",
+                            "geometry_method": "molsysmt.structure.get_center",
+                            "geometry_weighting": "uniform"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

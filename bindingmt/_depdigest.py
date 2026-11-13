@@ -33,6 +33,12 @@ LIBRARIES = {
         'conda': 'smonitor',
         'channel': 'uibcdf',
     },
+    'pharmacophoremt': {
+        'type': 'soft',
+        'pypi': None,
+        'conda': 'pharmacophoremt',
+        'channel': 'uibcdf',
+    },
     'vina': {'type': 'soft', 'pypi': 'vina', 'conda': 'vina'},
     'molsysviewer': {
         'type': 'soft',

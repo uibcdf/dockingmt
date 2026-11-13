@@ -71,6 +71,16 @@ native pharmacophoric and PeptideMT specifications are offered, with exact
 execution inputs still to receive/select. Refresh actual source/native closure
 before executed receiving. These identities are not public dependency floors.
 
+### Maintainer continuation disposition — 2026-11-12
+
+After MN1/MN2, the maintainer confirms native chemical characterization and
+PharmacophoreMT integration as the next work. T0/T1 stays **deferred optional
+interoperability/comparison**, retaining its frozen inputs, owner adapter and
+acceptance obligations. Revisit its priority after the selected native/consumer
+slice or a concrete external-result workflow; it is not an automatic next step.
+The [finite ionic/H0/H1 admission](binding_interface_native_interactions.md) owns
+actual implementation/receiving; richer chemistry remains separately admitted.
+
 ### 1.1 Native catalogue contribution and planning disposition
 
 The [new TopoMT post](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6836773833)
@@ -240,7 +250,7 @@ make every later consumer profile a prerequisite for a useful data/native checkp
 | C | Selected Cartesian contact facts/maps received | Exact public calls, tested source/frame/maps and caller preconditions are in the contact contract. Foreign/current-finding assurances remain unqualified. |
 | N0/N1 | First bounded native source profile implemented and received | Actual MolSysMT contacts/distances, group witnesses and independent positive/empty footprints, without PISA/TopoMT. Larger profiles and installed/public receiving remain separate. |
 | N2 | Next numerical milestone planned | Public owner SASA composition, both side losses and mapped contributions, convergence and honest readback/refusal. |
-| T0/T1 | Runtime pending | Actual saved analysis intake and exact participant-contact footprint/replay, including adverse controls. |
+| T0/T1 | Deferred optional interoperability by maintainer; runtime pending | Actual saved analysis intake and exact participant-contact footprint/replay, including adverse controls. |
 | H0/H1 | Inputs and runtime pending | Effective grouping, native construction, observation/site correspondence and native saved replay. |
 | P | Input/seam and runtime pending | Actual K/N payloads, native/derived-context and comparison controls under a declared policy. |
 | A | Evidence pending | Declared acceptance scope, exact evidence, shared disposition and per-consumer follow-ups are recorded honestly. |
@@ -1061,8 +1071,10 @@ Provider tests alone are not this cross-component receiving evidence.
 
 ## 12. H0/H1: native grouping, pharmacophoric construction and replay
 
-Receive the promised exact native source/analysis inputs and expectations before
-executing this independent profile. Do not convert PISA counts into native
+The [PharmacophoreMT delivery](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6842068716)
+at cb6af716 supplies exact native inputs/expectations. The selected ionic slice
+is implemented under the [native interaction contract](binding_interface_native_interactions.md);
+broader H controls retain the scope below. Do not convert PISA counts into native
 Interactions or require this route before the useful data/native milestones.
 
 H0 uses the admitted MolSysMT native query to select actual observations for
@@ -1145,9 +1157,10 @@ their distinct meanings.
 
 Use the [existing native semantics at `ecd1694`](https://github.com/uibcdf/pharmacophoremt/blob/ecd16946d64dd5cdc64132b026aaf12be2c0ef3a/devguide/native_constraint_semantics.md)
 as the review baseline, then refresh actual source/native inputs before receiving.
-The promised small H specification still needs exact native inputs and expected
-grouping, repeated compatible evidence, alternative/refusal and saved-reference
-outcomes. Proposed cases or source inspection are not a received native hypothesis.
+The small native input package is now received with actual grouping, repeated
+evidence, alternative/refusal and saved-reference controls under the ionic contract.
+Regional H-R1 remains conditional; H-R2 annotation controls remain independently
+pending. This does not qualify every native hypothesis family.
 
 ## 13. P: consumer information, native/derived context and comparisons
 
@@ -1358,17 +1371,20 @@ controls, normal/pm-fs and independent offline readback. Exact source/native
 receiving remains distinct from installed/public or shared-consumer acceptance.
 Record shared/consumer disposition separately in MolSysSuite #195.
 
-Keep the explicit T0/C/T1 PISA route, complete footprint persistence/adverse
-controls and promised H/P inputs on their independent owning branches. No source
-inspection, owner expectation or document marks those increments complete.
+Keep deferred T0/C/T1 PISA persistence/adverse controls on their own branch.
+The finite delivered H0/H1 ionic slice, remaining H-R2 and exact P inputs retain
+their own owner contracts. Source inspection or owner expectation does not
+complete an unexecuted branch.
 Initial BindingSite work and TopoMT's current synthetic sequence remain independent.
 
 The work order remains revision 4 after preserving revision 3 and
 rereading the full post/proposal. The [review record](binding_interface_plan_review.md)
 maps every proposal section, all catalogue families and independent controls,
 records the corrections and distinguishes planned/deferred/qualified scope.
-Next execute T0/T1 intake/persistence/refusal with its own frozen admission. Exact H/P inputs,
-T0/T1 and later application choices remain with the owners and gates in the
+Next receive PyUnitWizard #156 for unyt native construction and complete H-R2/P
+controls under the maintainer native-first disposition. T0/T1 stays deferred
+optional interoperability. Remaining H/P inputs and later application choices
+retain the owners and gates in the
 [readiness ledger](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme).
 No source-only profile closes provider adoption, hosted/platform acceptance or
 all of #112. Preserve the separate exploratory failures under #113 and the

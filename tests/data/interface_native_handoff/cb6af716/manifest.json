@@ -1,0 +1,134 @@
+{
+  "test_case": "phmt-binding-interface-native-handoff-v1",
+  "scope": "authored analytical owner inputs; not BindingMT records or adoption",
+  "participants": {
+    "A": [
+      0
+    ],
+    "B": [
+      1
+    ],
+    "C": [
+      2
+    ],
+    "D": [
+      3
+    ]
+  },
+  "grouping": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "C"
+    ]
+  ],
+  "coordinates_nm": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0.2,
+      0,
+      0
+    ],
+    [
+      0,
+      0.25,
+      0
+    ],
+    [
+      0,
+      0.45,
+      0
+    ]
+  ],
+  "expected_original_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "expected_scoped_pairs": [
+    [
+      0,
+      2
+    ]
+  ],
+  "structure_index": 0,
+  "chemical_state": 0,
+  "atom_map_profile": "identity; no nonidentity/chemical-state transfer qualified",
+  "analysis_site_links": [
+    {
+      "source": "source.h5msm",
+      "analysis": "ionic_031",
+      "relation": 1,
+      "occurrence": 1,
+      "hypothesis": "primary.json",
+      "site": 0
+    },
+    {
+      "source": "source.h5msm",
+      "analysis": "ionic_035",
+      "relation": 1,
+      "occurrence": 1,
+      "hypothesis": "primary.json",
+      "site": 0
+    }
+  ],
+  "expected_primary": {
+    "sites": 1,
+    "kind": "positive charge",
+    "weight": 1,
+    "essential": true
+  },
+  "artifacts": {
+    "alternative.h5msm": {
+      "path": "alternative.h5msm",
+      "sha256": "388e141d11e67f498d00736dab08d3f0ad385f8a3c3faa949c883e8fbb4384f5",
+      "bytes": 278248
+    },
+    "alternative.json": {
+      "path": "alternative.json",
+      "sha256": "6e34cc243a2aa4025ecdd27a46a5cafac2e310cdfef4e08302dd0f029f787643",
+      "bytes": 63775
+    },
+    "excluded.json": {
+      "path": "excluded.json",
+      "sha256": "fe41c7ecd0857de357141246ad6ca7e19fe1d7e154f342d8e4094c3816f2caab",
+      "bytes": 64191
+    },
+    "primary.json": {
+      "path": "primary.json",
+      "sha256": "16eb2005df6e4b3f1323eee21f72ddf339ca9148dcbdb3fa40b319dadd8fcbb7",
+      "bytes": 63784
+    },
+    "source.h5msm": {
+      "path": "source.h5msm",
+      "sha256": "75ed110abb15515ed33806cdd03d9958eb231b3fbe2427dec0ffbc70aa287d1b",
+      "bytes": 278248
+    },
+    "zero_essential.json": {
+      "path": "zero_essential.json",
+      "sha256": "10c219e2edb0755b4c14c50958191564b8e55529701f894b984c01858792edd5",
+      "bytes": 105264
+    }
+  },
+  "producer": {
+    "pharmacophoremt": "0.5.0+7.g35559b3",
+    "molsysmt": "0.23.0+904.gff25f1202",
+    "pyunitwizard": "0.29.5+2.gcc51c8e"
+  },
+  "license": "Newly authored synthetic controls; repository license applies"
+}

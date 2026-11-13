@@ -1,5 +1,5 @@
 schema = "molsyssuite.dependency-routes@3"
-reason = "Current BindingMT runtime-bearing test and immutable directory source contexts; optional Viewer remains integration-only."
+reason = "Current BindingMT runtime-bearing test and immutable directory source contexts; optional Viewer and PharmacophoreMT remain integration-only."
 
 [[recipes]]
 path = "devtools/conda-build/meta.yaml"

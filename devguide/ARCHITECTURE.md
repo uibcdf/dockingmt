@@ -77,6 +77,15 @@ Full chemical correspondence, PISA/H and #111 keep separate gates.
 TopoMT #198 regional enrichment remains optional. Source receiving is distinct
 from installed/public/native-build qualification and cross-owner adoption.
 
+The [native ionic integration](binding_interface_native_interactions.md) delegates
+strict grouped observation views and whole-charge-center checks to MolSysMT, and
+observed-participant hypotheses to optional PharmacophoreMT. `chemical_interfaces.py`
+composes their scientific outputs and qualified site/contributor references;
+`interface_ionic.py` validates only the portable binding view, not a new molecular
+codec. Complete observations stay in the full MolSys and H5MSM. Core 0.4 reading
+is independent of native recovery and optional scientific imports. PISA is now
+explicitly deferred interoperability, not the next automatic native increment.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the

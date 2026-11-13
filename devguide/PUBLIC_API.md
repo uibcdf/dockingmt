@@ -100,6 +100,21 @@ safe offline copy/save/read. One completed surface-result reference also represe
 an evaluated zero; it is not a positive interface finding. A surface record has
 no contact calculation; contact projection requires a separate contact result.
 
+The [native ionic/H0/H1 profile](binding_interface_native_interactions.md) adds
+`characterize_interface_interactions` over explicitly named full MolSysMT analyses
+and a binary participant grouping, including composite sides. It delegates whole-
+center checks and strict observation queries; `interaction_analyses` and summary
+retain positive/empty coverage, original occurrences, criteria and producer data.
+`build_interface_pharmacophore` explicitly rechecks the unchanged full source and
+uses PharmacophoreMT for an observed participant with explicit radius/duplicate
+policy. `with_pharmacophore(hypothesis=..., hypothesis_ref=..., participant=...)`
+creates a new associated record with exact original context/site/contributor links.
+Core format 0.4 remains experimental and does no asset lookup on read; full
+molecular analyses and hypotheses retain their owner-native persistence. Optional
+PharmacophoreMT is lazy through DepDigest and the uibcdf Conda route, not a hard
+startup dependency. Pint nm/pm receiving is finite; native unyt construction is
+pending PyUnitWizard #156, while unyt core saved reading is independently exercised.
+
 ## Units, positions and ownership
 
 Pass physical quantities with their units, for example

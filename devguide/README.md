@@ -1,5 +1,31 @@
 # BindingMT Development Guide
 
+### Native ionic grouping and PharmacophoreMT integration — 2026-11-12
+
+The maintainer selects native chemical characterization after contacts/surfaces.
+[The H0/H1 contract and evidence](binding_interface_native_interactions.md) now
+bind public `characterize_interface_interactions`, `build_interface_pharmacophore`
+and `BindingInterface.with_pharmacophore` to actual owner queries/construction.
+MolSysMT owns recognition, strict grouped observation selection and full native
+persistence; PharmacophoreMT owns hypotheses, composition, evaluation and IO.
+Experimental core 0.4 preserves original occurrence/contributor/site references
+and leaves native assets under caller/owner custody. No detector/parser/kernel
+is duplicated. PISA T0/T1 is explicitly deferred optional interoperability, with
+its original obligations intact and priority revisited after the native/consumer slice.
+
+Receiving reports **271 passed, 1 xfailed per policy**, normal and pm/fs; the new
+module contributes 33 passes and one strict pending unyt case under
+[PyUnitWizard #156](https://github.com/uibcdf/pyunitwizard/issues/156).
+Pint construction and independent core/native saved readers are qualified only
+for this finite source profile. Core read under unyt/pm-fs needs no recognition;
+native construction under unyt remains pending, with no local alias/fallback.
+Exact source/native identities, all attempts and serial resource/export receipts
+retain #50 custody in `.molsyssuite/interface-native-chemistry-112-20261112/`.
+
+Next receive the owner correction, remaining H-R2/P controls and #195 disposition.
+#112 stays open. Broader chemistry, #111 and #30 retain their own gates; no shared-
+prefix repair, native build, hosted dispatch or held-suite restart is implied.
+
 ### Native SASA and both-side burial delivered through MolSysMT — 2026-11-12
 
 [#112](pending_proposals/binding_interface_public_contract.md) now delivers
@@ -18,8 +44,7 @@ all attempts and monitored CPU-one/resource/export receipts retain #50 custody i
 `.molsyssuite/interface-sasa-burial-112-20261112/`. No provider tool gap was needed
 for this admitted composition; independent MolSysMT #739 retains its own report.
 
-Next: separately admitted T0/T1 PISA intake/persistence/refusal, exact H/P receiving
-and #195 shared disposition. #112 stays open; #111 and #30 keep their own gates.
+The later maintainer disposition prioritizes native H/P work; PISA is deferred optional interoperability. #112 stays open; #111 and #30 keep their own gates.
 No shared-prefix change, native build, installed/public qualification, hosted CI,
 large-system claim or automatic held-suite restart accompanies this increment.
 

@@ -37,6 +37,10 @@ from .core import (
     verify_captured_inputs,
 )
 from .dock import dock
+from .chemical_interfaces import (
+    characterize_interface_interactions,
+    build_interface_pharmacophore,
+)
 from .contacts import calculate_interface_contacts
 from .burial import calculate_interface_burial
 from .batch import dock_many
@@ -57,6 +61,8 @@ from .preparation import (
 from .view import show, view
 
 __all__ = [
+    'characterize_interface_interactions',
+    'build_interface_pharmacophore',
     'ContactFootprint',
     'calculate_interface_contacts',
     'calculate_interface_burial',

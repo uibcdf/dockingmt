@@ -189,3 +189,10 @@ receive exact H/P inputs and record shared native-contract disposition under
 MolSysSuite #195. Those obligations, #111 and #30 keep their own owners/evidence.
 This finite N2 source milestone leaves #112 open and implements no environment-
 aware, energetic, ensemble or predictive profile.
+
+## Later maintainer priority disposition — 2026-11-12
+
+The [native ionic/H0/H1 continuation](binding_interface_native_interactions.md)
+now has priority after N2. The earlier next-T0/T1 sentence above is superseded:
+PISA stays deferred optional interoperability/comparison with its original
+obligations preserved. Remaining native/consumer gates keep their own scope.

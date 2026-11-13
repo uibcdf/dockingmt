@@ -118,12 +118,14 @@ def _analysis(value, version):
         'failure',
         'extensions',
         'calculation',
+        'native_observation',
     }
     _fields(value, required, optional, 'analyses')
     _require(_text(value['owner']), 'analyses', 'Name the declared originating owner.')
     _reference(value['reference'], 'analyses')
     _require(
-        value['authority'] in ('caller_declared', 'bindingmt_calculated'),
+        value['authority']
+        in ('caller_declared', 'bindingmt_calculated', 'molsysmt_native'),
         'analyses',
         'Use declared evidence or the admitted BindingMT native calculation profile.',
     )
@@ -137,6 +139,11 @@ def _analysis(value, version):
             and 'calculation' in value,
             'analyses',
             'A native calculation needs experimental 0.2/0.3 and its complete record.',
+        )
+        _require(
+            'native_observation' not in value,
+            'analyses',
+            'Use one explicit analysis authority.',
         )
         surface = version == '0.3'
         validator = interface_burial if surface else interface_contacts
@@ -164,9 +171,32 @@ def _analysis(value, version):
             'analyses',
             'Retain exact contact occurrences or the completed surface-result reference.',
         )
+    elif value['authority'] == 'molsysmt_native':
+        from bindingmt._private.interface_ionic import (
+            finding_refs,
+            validate_observation,
+        )
+
+        _require(
+            version == '0.4'
+            and value['owner'] == 'molsysmt'
+            and value['outcome'] == 'completed'
+            and 'native_observation' in value
+            and 'calculation' not in value,
+            'analyses',
+            'Require the complete experimental native observation profile.',
+        )
+        observation = value['native_observation']
+        validate_observation(observation)
+        _require(
+            value['reference'] == {'analysis_label': observation['analysis_label']}
+            and value['finding_refs'] == finding_refs(observation),
+            'analyses',
+            'Preserve every original analysis-qualified occurrence reference.',
+        )
     else:
         _require(
-            'calculation' not in value,
+            'calculation' not in value and 'native_observation' not in value,
             'analyses',
             'Declared evidence cannot impersonate native calculation.',
         )
@@ -226,6 +256,19 @@ def _analysis(value, version):
             'original_claim',
             'The native calculation must retain its original endpoints/context.',
         )
+    if value['authority'] == 'molsysmt_native':
+        context = value['native_observation']['context']
+        _require(
+            original['participants']
+            == {
+                name: {'source_id': context['source_id'], 'source_atom_indices': axis}
+                for name, axis in context['participants'].items()
+            }
+            and original['grouping'] == context['grouping']
+            and original['contexts'].get('native_interactions') == context,
+            'original_claim',
+            'Preserve the native scope and original molecular context.',
+        )
     refs = value.get('context_refs', [])
     _require(
         isinstance(refs, list), 'analyses', 'Use a list of original context names.'
@@ -266,10 +309,10 @@ def _validate(record):
     _fields(record, required, set(), 'record')
     _require(
         record['format'] == _FORMAT
-        and record['format_version'] in (_VERSION, '0.2', '0.3')
+        and record['format_version'] in (_VERSION, '0.2', '0.3', '0.4')
         and record['experimental'] is True,
         'format_version',
-        'Explicit experimental bindingmt.binding_interface version 0.1, 0.2 or 0.3 is required.',
+        'Explicit experimental bindingmt.binding_interface version 0.1, 0.2, 0.3 or 0.4 is required.',
     )
     _require(_text(record['record_id']), 'record_id', 'Use a nonempty record identity.')
     _claim(
@@ -298,10 +341,36 @@ def _validate(record):
         a['authority'] == 'bindingmt_calculated' for a in record['analyses'].values()
     )
     _require(
-        native_count <= 1 and (record['format_version'] == '0.1' or native_count == 1),
+        native_count <= 1
+        and (record['format_version'] in ('0.1', '0.4') or native_count == 1),
         'analyses',
         'Experimental 0.2/0.3 admits exactly one corresponding native calculation.',
     )
+    observations = {
+        name: a['native_observation']
+        for name, a in record['analyses'].items()
+        if a['authority'] == 'molsysmt_native'
+    }
+    _require(
+        not observations or record['format_version'] == '0.4',
+        'analyses',
+        'Native observation views require experimental 0.4.',
+    )
+    if record['format_version'] == '0.4':
+        _require(
+            bool(observations)
+            and len(observations) == len(record['analyses'])
+            and native_count == 0
+            and all(
+                name == view['analysis_label'] for name, view in observations.items()
+            )
+            and all(
+                view['context'] == next(iter(observations.values()))['context']
+                for view in observations.values()
+            ),
+            'analyses',
+            'Preserve a named common-context native ionic collection.',
+        )
     _require(
         isinstance(record['site_refs'], list),
         'site_refs',
@@ -309,6 +378,11 @@ def _validate(record):
     )
     for reference in record['site_refs']:
         _reference(reference, 'site_refs')
+    if observations:
+        from bindingmt._private.interface_ionic import validate_site_reference
+
+        for reference in record['site_refs']:
+            validate_site_reference(reference, observations)
     _extensions(record['extensions'])
     derivation = record['derivation']
     _fields(derivation, {'parents', 'reason'}, set(), 'derivation')
@@ -348,7 +422,7 @@ class BindingInterface(_InterfaceRecordIO):
         _require(
             experimental is True,
             'experimental',
-            'Opt in with experimental=True to admit interface format 0.1/0.2/0.3.',
+            'Opt in with experimental=True to admit interface format 0.1/0.2/0.3/0.4.',
         )
         _validate(record)
         snapshot = json_copy(record, 'record')
@@ -387,6 +461,22 @@ class BindingInterface(_InterfaceRecordIO):
         record['derivation'] = {'parents': [self.record_id], 'reason': reason}
         record['content_sha256'] = _digest(record)
         return type(self)(record, experimental=True)
+
+    @property
+    def interaction_analyses(self):
+        """Detached scoped native observation references; not a native analysis codec."""
+        return {
+            name: value['native_observation']
+            for name, value in self.analyses.items()
+            if value['authority'] == 'molsysmt_native'
+        }
+
+    @arg_digest(config='bindingmt._argdigest')
+    def with_pharmacophore(self, *, hypothesis, hypothesis_ref, participant):
+        """Associate exact saved native hypothesis/site references in a new record."""
+        from bindingmt.chemical_interfaces import link_pharmacophore
+
+        return link_pharmacophore(self, hypothesis, hypothesis_ref, participant)
 
     @property
     def contact_calculation(self):
@@ -466,6 +556,14 @@ class BindingInterface(_InterfaceRecordIO):
         record = self.to_dict()
         calculation = self.contact_calculation
         surface = self.surface_calculation
+        observations = self.interaction_analyses
+        native_context = (
+            (calculation or surface)['context']
+            if calculation or surface
+            else next(iter(observations.values()))['context']
+            if observations
+            else None
+        )
         criterion = None
         if calculation:
             from bindingmt._private.interface_contacts import (
@@ -499,10 +597,8 @@ class BindingInterface(_InterfaceRecordIO):
             'requested_context_policy': record['context_policy'],
             'context_policy_applicability': 'not_applicable',
             'molecular_correspondence': 'not_required',
-            'calculation_checks': (calculation or surface)['context'][
-                'performed_checks'
-            ]
-            if calculation or surface
+            'calculation_checks': native_context['performed_checks']
+            if native_context
             else [],
             'current_assessment': 'not_performed',
             'asset_access': 'not_checked',
@@ -520,6 +616,16 @@ class BindingInterface(_InterfaceRecordIO):
             }
             if calculation
             else None,
+            'native_interactions': {
+                name: {
+                    'occurrence_count': len(view['observations']),
+                    'original_count': view['original_count'],
+                    'evaluated_structure_indices': view['evaluated_structure_indices'],
+                    'definition': view['definition'],
+                }
+                for name, view in observations.items()
+            }
+            or None,
             'native_surface': {
                 'definition': surface['definition'],
                 'burial_usable': surface['numerical']['burial_usable'],
@@ -534,11 +640,13 @@ class BindingInterface(_InterfaceRecordIO):
             if surface
             else None,
             'limitations': [
-                'MolSysMT geometric calculation; intended identity/state remains caller admitted.'
+                'Native ionic evidence under caller-admitted unchanged full-source context.'
+                if observations
+                else 'MolSysMT geometric calculation; intended identity/state remains caller admitted.'
                 if calculation or surface
                 else 'Caller-declared evidence; no owner verification, molecular checking or binding inference.',
                 'Saved native evidence is historical; no current molecular match or binding strength is inferred.'
-                if calculation or surface
+                if calculation or surface or observations
                 else 'Native calculation, recovery and footprint projection are not implemented by this profile.',
             ],
         }
@@ -590,7 +698,8 @@ def characterize_interface(
         )
         _require(
             analysis.get('authority', 'caller_declared') == 'caller_declared'
-            and 'calculation' not in analysis,
+            and 'calculation' not in analysis
+            and 'native_observation' not in analysis,
             'analyses',
             'Use the explicit contact/burial entry points for new native work or read a complete saved record.',
         )
