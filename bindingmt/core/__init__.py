@@ -9,8 +9,10 @@ from .problem import DockingProblem
 from .protocol import DockingProtocol, VinaProtocol
 from .results import DockingPose, DockingResult
 from .search_domain import BoxRegion, SearchDomain
+from .site import BindingSite
 
 __all__ = [
+    'BindingSite',
     'ContactFootprint',
     'BindingInterface',
     'characterize_interface',

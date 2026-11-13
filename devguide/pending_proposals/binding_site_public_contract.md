@@ -4,9 +4,9 @@ issue: uibcdf/bindingmt#111
 status: active
 opened: 2026-11-11
 closed:
-verification: inspected
+verification: reproduced
 area: [architecture, public-api, interoperability]
-guard:
+guard: tests/test_binding_site.py
 normative:
 blocked_by: []
 supersedes: []
@@ -176,3 +176,23 @@ review on 2026-11-14. Temporary committed exports are owner-controlled and
 retired after checking. Human migration files, earlier evidence and sibling
 worktrees are preserved. The existing scientific full-suite resource hold is
 not restarted by this documentation increment.
+
+
+## First implemented declaration/persistence slice — 2026-11-13
+
+[The admitted data-core contract](../binding_site_data_core.md) selects the local
+P0a decisions for coordinate-free source-residue and unevaluated-definition
+factories, with immutable original-evidence associations, explicit structural
+references and experimental 0.1 save/read. It records actual public source
+receiving: 59 new controls and 257 complete selected passes per normal/pm-fs
+policy, plus six original/six sorted records read cold under unyt/pm-fs without
+molecular/optional tools or new originating uses. The proposed shared `@1`, other
+B1 factories, molecular/application and consumer profiles are not frozen/delivered
+by that result. #111 remains active.
+
+Next admit atom/group declarations and C1's bounded owner facts/preconditions.
+Exact inputs, attempts, source/provider/native/resource and final committed-export/
+public readback receipts retain #50 custody in
+`.molsyssuite/site-data-core-111-20261113/`, review 2026-11-14. No original review
+fixture/helper/resource producer is rewritten, prefix/native rebuild performed,
+held evaluator restarted or hosted/installed/public/platform pass claimed.

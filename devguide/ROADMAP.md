@@ -23,10 +23,35 @@ The roadmap defines direction and gates, not dates.
 
 ## Current operational plan
 
-Current work is the **#112 native contacts/surfaces and bounded ionic H0/H1 delivered; H-R2 source-received; #114 persistence resolved; P/shared receiving and unyt provider correction next**. The next
-#111 implementation step remains P0a's local contract and the first B1/B2 slice;
-the interface discussion is not a global prerequisite. The delivered identity/
-scope increment and original accepted plan retain their separate owners.
+Current work is **#111's first coordinate-free BindingSite B1/B2 profile delivered;
+atom/group declarations and bounded C1 resolution admission next**. #112 has native
+contact/surface/ionic/H-R2 source receiving and resolved #113/#114; its P cases await
+PeptideMT #60, with shared disposition and unyt construction separately owned.
+Neither interface nor all-consumer receiving is a global BindingSite prerequisite.
+
+### BindingSite first declaration/persistence profile — 2026-11-13
+
+[#111](pending_proposals/binding_site_public_contract.md) now delivers public
+`BindingSite.from_residues` and `from_definition`, detached inspection, immutable
+`with_definition`/`with_evidence` and exclusive save/read/copy. The
+[data-core contract](binding_site_data_core.md) records experimental 0.1,
+coordinate-free addresses, separate definition/evidence scopes and exact original
+claim references. Missing, declared-empty and unresolved membership stay distinct;
+structures `[2,0,2]` retain occurrences without claiming evaluated realizations.
+Binding support stays unknown; no molecular lookup or coordinate copy occurs.
+
+**257 complete selected controls pass per policy**, normal and pm/fs, including
+59 new site cases. A cold unyt/pm-fs reader restores six original/six sorted records
+without molecular/optional tools or new originating uses. Exact source/provider/
+resource/export receipts retain #50 custody in
+`.molsyssuite/site-data-core-111-20261113/`. No hosted/installed/public/platform or
+consumer adoption is claimed. The prior evaluator interruption remains under #30.
+
+Next admit atom/group declarations and C1's bounded MolSysMT resolution contract.
+The remaining B1 geometry and C1/C2/T/H/P steps retain their gates; #111 stays open.
+PeptideMT #60 has no supplied cases yet; #112 native work remains independent.
+PISA stays deferred optional interoperability, and no held suite/prefix/build is
+restarted. The package/source tag remains 0.1.0.
 
 ### PeptideMT handoff and historical summary receiving — 2026-11-13
 

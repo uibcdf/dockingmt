@@ -21,8 +21,32 @@ than treating the skipped push as passing.
 
 Owner: [BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [BMT-046](DECISIONS.md#bmt-046--deliver-the-complete-functional-objective-before-stabilization).
-Status: **active; #112 bounded native contacts/surfaces and ionic H0/H1 delivered; H-R2 source-received; #114 persistence resolved; P/shared receiving and unyt provider correction next**.
+Status: **active; #111 first coordinate-free B1/B2 delivered; atom/group declarations and C1 admission next; #112 P/shared receiving awaits owner input**.
 Inspected starting source: `530a4cf`.
+
+### BindingSite first declaration/persistence profile — 2026-11-13
+
+[#111](pending_proposals/binding_site_public_contract.md) now delivers public
+`BindingSite.from_residues` and `from_definition`, detached inspection, immutable
+`with_definition`/`with_evidence` and exclusive save/read/copy. The
+[data-core contract](binding_site_data_core.md) records experimental 0.1,
+coordinate-free addresses, separate definition/evidence scopes and exact original
+claim references. Missing, declared-empty and unresolved membership stay distinct;
+structures `[2,0,2]` retain occurrences without claiming evaluated realizations.
+Binding support stays unknown; no molecular lookup or coordinate copy occurs.
+
+**257 complete selected controls pass per policy**, normal and pm/fs, including
+59 new site cases. A cold unyt/pm-fs reader restores six original/six sorted records
+without molecular/optional tools or new originating uses. Exact source/provider/
+resource/export receipts retain #50 custody in
+`.molsyssuite/site-data-core-111-20261113/`. No hosted/installed/public/platform or
+consumer adoption is claimed. The prior evaluator interruption remains under #30.
+
+Next admit atom/group declarations and C1's bounded MolSysMT resolution contract.
+The remaining B1 geometry and C1/C2/T/H/P steps retain their gates; #111 stays open.
+PeptideMT #60 has no supplied cases yet; #112 native work remains independent.
+PISA stays deferred optional interoperability, and no held suite/prefix/build is
+restarted. The package/source tag remains 0.1.0.
 
 ### PeptideMT handoff and historical summary receiving — 2026-11-13
 

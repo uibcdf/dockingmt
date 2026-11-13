@@ -431,6 +431,11 @@ def _provider_owned(value):
     return value
 
 
+def _declaration_value(value):
+    """Keep site record admission at its owning public declaration boundary."""
+    return value
+
+
 def digest_selection(selection, caller=None, native_factory=None, native_helper=None):
     if caller_is_one_of(native_helper, _RMSD_HELPERS):
         # MolSysMT owns selection values, including its handling of None.
@@ -638,6 +643,17 @@ def digest_coordinate_tolerance(coordinate_tolerance, caller=None):
 
 
 ARGUMENT_DIGESTERS = {
+    'source': _mapping('source'),
+    'address_space': _optional_string('address_space'),
+    'residues': _declaration_value,
+    'role': _optional_string('role'),
+    'chemical_state_indices': _declaration_value,
+    'claim': _optional_string('claim'),
+    'criterion': _mapping('criterion'),
+    'evidence_refs': _declaration_value,
+    'key': _optional_string('key'),
+    'observation': _mapping('observation'),
+    'attribution': _mapping('attribution'),
     'characterizations': _mapping('characterizations'),
     'query_ref': _optional_mapping('query_ref'),
     'analysis_names': _provider_owned,

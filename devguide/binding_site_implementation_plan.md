@@ -2,13 +2,13 @@
 
 Owner: [BindingMT #111](https://github.com/uibcdf/bindingmt/issues/111).
 Recorded: 2026-11-11. Work-plan revision **2, reviewed**.
-Status: **maintainer-requested work plan; implementation pending**.
+Status: **first coordinate-free B1/B2 profile implemented; remaining profiles pending**.
 This plan turns the [audited design](binding_site_design.md) and its
 [worked handoffs](binding_site_review.md) into independently reviewable increments.
 It records work order and acceptance, not a release schedule or an implemented API.
 
 The maintainer authorized proceeding and then requested that the detailed plan
-be recorded before implementation. This checkpoint changes documentation only.
+be recorded before implementation. The original plan checkpoint was documentation only; the dated source increment below records actual implementation.
 Existing development authorization remains in force; the plan adds no recurring
 permission round. Cross-owner agreements are required for the particular shared
 meanings exercised, rather than approval from every possible future consumer.
@@ -166,12 +166,12 @@ permission to publish partial enforcement or a callable stub.
 
 | Increment | Status at this checkpoint | Completion condition |
 | --- | --- | --- |
-| P0a | Next: local decisions to close | Minimal public operations, identity/version rules, source/structural scope, quantity fields and failure semantics are explicit before B1/B2; later execution evidence is not a precondition for writing the first implementation. |
+| P0a | First declaration-profile decisions closed; other profiles pending | Minimal public operations, identity/version rules, source/structural scope, quantity fields and failure semantics are explicit before B1/B2; later execution evidence is not a precondition for writing the first implementation. |
 | P0m | Pending request/agreement | D2/D5/D6 identify actual public molecular facts, checks and preconditions for each admitted operation. |
 | P0s | Pending central coordination | Shared agreements/adoption records are linked; stabilization is limited to the meanings exercised, with remaining owners explicit. |
 | P0t/h/p | Inputs offered, not yet received | Each consumer supplies its relevant source/policy/expected observations; a missing H/P input does not block C1 or T0. |
-| B1 | Pending P0a | Useful public declarations/inspection with meaningful focused tests. |
-| B2 | Pending | Immutable revision and faithful, safe, versioned persistence. |
+| B1 | First residue-annotation/definition slice delivered; other factories pending | Useful public declarations/inspection with meaningful focused tests. |
+| B2 | Experimental 0.1 declaration round trip delivered; richer profiles pending | Immutable revision and faithful, safe, versioned persistence. |
 | C1 | Pending molecular agreement | A qualified direct region projection on a chosen MolSys structure. |
 | C2 | Pending B2/assurance contract; molecular use also needs C1 | Offline geometry and actual problem placement retain distinct checks; normal record propagation and admission are qualified before the public application is received. |
 | T0 | Pending B2/TopoMT profile and input | A real optional public import adapter preserves the received record without rerunning or reinterpreting it. |
@@ -669,3 +669,26 @@ checkpoint should identify the local contract decisions, actual coordination
 issues/owner responses or first implemented/tested slice. Further requested
 planning refinements remain planning evidence. Preserve these dispositions so a
 new contributor can resume without reconstructing conversation history.
+
+## First coordinate-free B1/B2 source checkpoint — 2026-11-13
+
+The [admitted data profile](binding_site_data_core.md) closes local D3/D4 and the
+subset of source/scope/failure decisions needed by its two factories. It delivers
+useful coordinate-free residue annotations and unevaluated definitions, inspection,
+immutable explicit evidence/claim revision and versioned exclusive save/read.
+The proposed `@1` remains unfrozen; the actual wire is experimental 0.1. Public
+`read` is selected consistently with other binding records. No geometry quantity
+or molecular/source applicability profile is silently admitted.
+
+The source population passes 257 cases per normal/pm-fs policy, including 59 new
+site cases; independent unyt/pm-fs cold read preserves original claims/observations
+and repeated source occurrence references without molecular work. These are
+new API-emitted records, not the authored review specimens. Source/provider/
+resource/export limits are in the contract. The status table distinguishes
+this delivered first slice from the broader pending B1/B2 work.
+Broader B1/B2 and M1, C1/C2/T/H/P/shared/consumer acceptance remain pending.
+
+Next admit atom/group declarations and the finite MolSysMT C1 facts/checks/
+preconditions, reusing applicable #734 owner facts. Coordinate/chemistry/selection/
+map operations remain provider owned. #111 stays open; no universal observer,
+new molecular serializer or whole-suite gate is invented by this increment.

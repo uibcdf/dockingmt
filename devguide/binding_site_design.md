@@ -1,9 +1,11 @@
 # Binding-site declarations and applications: design for review
 
 Revision **2, audited edition**, 2026-11-11. Owner: [BindingMT #111](https://github.com/uibcdf/bindingmt/issues/111).
-Status: **maintainer-review draft; no runtime implementation or frozen schema**.
-The maintainer commissioned this design before implementation. Names and examples
-below are proposed API sketches, not currently executable public operations.
+Status: **audited design; selected first data profile implemented, wider API/schema still proposed**.
+The maintainer commissioned this design before implementation. The dated
+[first data-core contract](binding_site_data_core.md) now records the exact
+coordinate-free public subset and experimental 0.1 wire profile. Other names and
+examples below remain design sketches rather than fully delivered operations.
 The [owning record](pending_proposals/binding_site_public_contract.md) tracks
 disposition, evidence and the next step. Other components have not accepted this
 proposal merely because their existing contracts are referenced here.

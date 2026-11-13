@@ -1,4 +1,4 @@
-"""Shared offline persistence for BindingMT interface records and footprints."""
+"""Shared offline persistence for BindingMT binding records and footprints."""
 
 import hashlib
 import json

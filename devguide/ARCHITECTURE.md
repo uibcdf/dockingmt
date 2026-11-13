@@ -110,6 +110,15 @@ keeps exact policy equality. It adds no producer alias to current evaluator
 output and performs no molecular operation; [#113](archive/redocking_summary_receiving_controls.md)
 records the original frozen evidence and bounded receiving.
 
+The [first BindingSite profile](binding_site_data_core.md) separates undevaluated
+criteria, source-addressed annotations and attributed observations without a MolSys
+handle or coordinate copy. `site_records.py` validates only the owned declarative
+wire profile; `core/site.py` provides immutable public construction/inspection/
+revision. Existing local record IO and finite-JSON helpers are reused. New claim
+interpretations cite old observations explicitly and preserve their original exact
+claim refs; no self-referential digest or new observation credit is introduced.
+MolSysMT continues to own all later source resolution/manipulation and geometry.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the

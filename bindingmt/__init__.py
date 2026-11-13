@@ -21,6 +21,7 @@ ensure_configured(PACKAGE_ROOT)
 from . import exceptions
 
 from .core import (
+    BindingSite,
     ContactFootprint,
     BindingInterface,
     BoxRegion,
@@ -61,6 +62,7 @@ from .preparation import (
 from .view import show, view
 
 __all__ = [
+    'BindingSite',
     'characterize_interface_interactions',
     'build_interface_pharmacophore',
     'ContactFootprint',

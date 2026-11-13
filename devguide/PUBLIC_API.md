@@ -76,6 +76,33 @@ recognized version or an invalid value refuse. Cohorts compare the entire origin
 names. The current summarizer has its own identity and earns no originating
 measurement credit. See the [#113 evidence](archive/redocking_summary_receiving_controls.md).
 
+## Coordinate-free BindingSite declarations
+
+The [first site profile](binding_site_data_core.md) delivers
+`BindingSite.from_residues(source=..., address_space="author_residue", residues=...)`
+and `from_definition(source=..., claim=..., criterion=...)`. It requires no MolSys,
+coordinates or selection. String residue IDs, chain/insertion unknown versus empty,
+source revision and declared structural scope retain their own meanings.
+`structure_indices` names source positions; optional `chemical_state_indices`
+aligns declared states, including unknowns. No molecular check or detector is run.
+
+`inspect()` and detached `definition`, `views`, `context`, `evidence` expose
+not-supplied/declared-empty/unresolved membership and unknown binding support.
+`with_evidence` adds an attributed source annotation with its exact original
+claim reference. `with_definition` records a new immutable interpretation and
+cites no previous observation unless `evidence_refs` explicitly asks for it.
+The original observations and claim refs stay unchanged. Criterion/annotation
+parameters are finite declared data; they gain no physical interpretation or
+owner-method execution merely by being stored.
+
+`record_id`/`site_id` identify the immutable declaration; copy/read preserve it,
+while derivations create a new identity with an exact parent/reason. `definition_ref`
+includes record ID, content SHA-256 and definition key. Experimental 0.1
+`from_dict`/`read` need `experimental=True`; `save` exclusively creates. Version
+0.1 is separate from the package/source tag 0.1.0. Optional namespaced data require
+`required=False`; unavailable required semantics refuse. Atom/group/geometry,
+molecular resolution, domain placement and optional owner receiving remain pending.
+
 ## Interface declarations and experimental persistence
 
 The [implemented first data profile](binding_interface_data_core.md) documents
