@@ -119,6 +119,13 @@ interpretations cite old observations explicitly and preserve their original exa
 claim refs; no self-referential digest or new observation credit is introduced.
 MolSysMT continues to own all later source resolution/manipulation and geometry.
 
+The [source-index membership profile](binding_site_membership.md) extends the
+same site validation/lifecycle with explicit atom/group axis semantics. Local
+normalization transports ordered declared integers, without selecting, expanding
+groups, matching molecular identity or deriving coordinates. New wire 0.2 is
+admitted separately from the actual old 0.1 profile. C1 owner facts are requested
+under MolSysMT #746; no successful native projection is fabricated from labels.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the

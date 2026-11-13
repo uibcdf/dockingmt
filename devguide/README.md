@@ -1,5 +1,30 @@
 # BindingMT Development Guide
 
+### BindingSite atom/group declarations and C1 owner request — 2026-11-13
+
+[#111](pending_proposals/binding_site_public_contract.md) adds public
+`BindingSite.from_atoms` / `from_groups`, preserving ordered source index spaces,
+explicit source/structure/state scope and unknown binding support without a
+molecular query. The [membership contract](binding_site_membership.md) admits
+experimental 0.2 for these views; existing residue/criterion factories and actual
+old files keep 0.1. Evidence revisions retain original claim/observation refs.
+
+**321 complete selected cases pass per policy**, normal and pm/fs, including
+64 new membership controls. A cold unyt/pm-fs reader restores 20 original/sorted
+records without molecular/optional tools or new originating uses. The actual old
+reader refuses 0.2 before molecular work. Five new frozen compatibility inputs
+have exact support hashes; original scientific inputs/producers are unchanged.
+
+C1's finite source/map/group/structure/state review is now requested in
+[MolSysMT #746](https://github.com/uibcdf/molsysmt/issues/746), reusing applicable
+#734 facts without claiming that interface review closes this site profile.
+Next receive that disposition and implement actual native-MolSys resolution;
+geometry/C2/T/H/P keep their gates. #111 stays open, #30's earlier evaluator hold
+is not restarted, and PeptideMT #60 is still awaiting input. Source/provider/
+resource/export receipts retain #50 custody in
+`.molsyssuite/site-membership-111-20261113/`. No hosted/public/platform or consumer
+adoption, prefix rebuild or new package/tag is claimed.
+
 ### BindingSite first declaration/persistence profile — 2026-11-13
 
 [#111](pending_proposals/binding_site_public_contract.md) now delivers public

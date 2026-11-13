@@ -3298,3 +3298,28 @@ sha256 = "2427839121edb9d2b758b78ef72139b1a23bfc4ed62aa6aef3a695e536b8c709"
 source = "tests/data/interface_order_compat/original_04/manifest.json"
 target = "tests/data/interface_order_compat/original_04/manifest.json"
 sha256 = "5ac3baebd53d4762040cba283607822e3578980a040ed94c88753a33879d220b"
+
+[[installed_tests.support.files]]
+source = "tests/data/site_membership_compat/bb3dbfc/README.md"
+target = "tests/data/site_membership_compat/bb3dbfc/README.md"
+sha256 = "047a8cee5d3e45643caf1258a88a07c3651bcd6b308e0b3e81878e055d74db03"
+
+[[installed_tests.support.files]]
+source = "tests/data/site_membership_compat/bb3dbfc/S0.json"
+target = "tests/data/site_membership_compat/bb3dbfc/S0.json"
+sha256 = "4667c68d632337bb44303d68e250694b1343e04ef8f024eb6c4dd8a5c1c31b70"
+
+[[installed_tests.support.files]]
+source = "tests/data/site_membership_compat/bb3dbfc/S3.json"
+target = "tests/data/site_membership_compat/bb3dbfc/S3.json"
+sha256 = "64f89b0d8426707a0b0417edfc7221e2374fca33c5c85300a50675d298324d1f"
+
+[[installed_tests.support.files]]
+source = "tests/data/site_membership_compat/bb3dbfc/manifest.json"
+target = "tests/data/site_membership_compat/bb3dbfc/manifest.json"
+sha256 = "bf151c3d9892889d321d748527f8fbd13240e0c521b9b6e5175bf144f8db4ce4"
+
+[[installed_tests.support.files]]
+source = "tests/data/site_membership_compat/bb3dbfc/rule.json"
+target = "tests/data/site_membership_compat/bb3dbfc/rule.json"
+sha256 = "3f4cba4bc0afb849a7b44a0dbed7ac2c58c5296e5e63e1ea79d7ad6ba50e0751"

@@ -45,7 +45,8 @@ the T0 foreign import adapter have explicit work, followed by T1 receiving.
 Structural-scope, actual normalized-input and check/use controls are explicit.
 M1/M2/M3 distinguish useful core, application and initial receiving delivery;
 missing agreed cases cannot silently disappear at closeout. These are planning
-corrections; all runtime increments remain pending.
+corrections. Runtime was pending at that plan-review checkpoint; the dated
+delivery entries below record the subsequently implemented profiles.
 
 ## How
 
@@ -196,3 +197,23 @@ public readback receipts retain #50 custody in
 `.molsyssuite/site-data-core-111-20261113/`, review 2026-11-14. No original review
 fixture/helper/resource producer is rewritten, prefix/native rebuild performed,
 held evaluator restarted or hosted/installed/public/platform pass claimed.
+
+
+## Source-index declaration increment — 2026-11-13
+
+[The atom/group profile](../binding_site_membership.md) now receives actual public
+source membership construction/inspection/revision/save/read with no molecular
+query. New wire 0.2 and unchanged old 0.1 have explicit admission and actual
+old-reader refusal. The new 64-control module and complete affected selection
+report 321 passes per normal/pm-fs policy, with independent 20-record unyt/pm-fs
+cold read and zero originating uses. Five new compatibility support inputs retain
+actual original file/producer identities and exact resource declarations.
+
+The finite C1 molecular-fact review is requested in
+[MolSysMT #746](https://github.com/uibcdf/molsysmt/issues/746). No owner acceptance,
+source authentication, group expansion or native projection is claimed by these
+declarations. Next receive that profile and implement C1; independent B1 geometry
+retains its own gate. Exact attempts/source/native/support/resource/publication
+receipts retain #50 custody in `.molsyssuite/site-membership-111-20261113/`, review
+2026-11-14. #111 stays active; hosted/installed/public/platform/shared/consumer
+and the prior #30 evaluator hold remain separate.

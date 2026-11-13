@@ -2,10 +2,10 @@
 
 Owner: [BindingMT #111](https://github.com/uibcdf/bindingmt/issues/111).
 Recorded: 2026-11-11. Work-plan revision **2, reviewed**.
-Status: **first coordinate-free B1/B2 profile implemented; remaining profiles pending**.
+Status: **residue/criterion and atom/group declaration profiles implemented; C1 owner review requested**.
 This plan turns the [audited design](binding_site_design.md) and its
 [worked handoffs](binding_site_review.md) into independently reviewable increments.
-It records work order and acceptance, not a release schedule or an implemented API.
+It records work order and acceptance; only the dated delivered profiles below are implemented.
 
 The maintainer authorized proceeding and then requested that the detailed plan
 be recorded before implementation. The original plan checkpoint was documentation only; the dated source increment below records actual implementation.
@@ -167,11 +167,11 @@ permission to publish partial enforcement or a callable stub.
 | Increment | Status at this checkpoint | Completion condition |
 | --- | --- | --- |
 | P0a | First declaration-profile decisions closed; other profiles pending | Minimal public operations, identity/version rules, source/structural scope, quantity fields and failure semantics are explicit before B1/B2; later execution evidence is not a precondition for writing the first implementation. |
-| P0m | Pending request/agreement | D2/D5/D6 identify actual public molecular facts, checks and preconditions for each admitted operation. |
+| P0m | Requested in MolSysMT #746; owner disposition pending | D2/D5/D6 identify actual public molecular facts, checks and preconditions for each admitted operation. |
 | P0s | Pending central coordination | Shared agreements/adoption records are linked; stabilization is limited to the meanings exercised, with remaining owners explicit. |
 | P0t/h/p | Inputs offered, not yet received | Each consumer supplies its relevant source/policy/expected observations; a missing H/P input does not block C1 or T0. |
-| B1 | First residue-annotation/definition slice delivered; other factories pending | Useful public declarations/inspection with meaningful focused tests. |
-| B2 | Experimental 0.1 declaration round trip delivered; richer profiles pending | Immutable revision and faithful, safe, versioned persistence. |
+| B1 | Residue/criterion and atom/group declarations delivered; geometry pending | Useful public declarations/inspection with meaningful focused tests. |
+| B2 | Experimental 0.1/0.2 declared profiles received; richer profiles pending | Immutable revision and faithful, safe, versioned persistence. |
 | C1 | Pending molecular agreement | A qualified direct region projection on a chosen MolSys structure. |
 | C2 | Pending B2/assurance contract; molecular use also needs C1 | Offline geometry and actual problem placement retain distinct checks; normal record propagation and admission are qualified before the public application is received. |
 | T0 | Pending B2/TopoMT profile and input | A real optional public import adapter preserves the received record without rerunning or reinterpreting it. |
@@ -652,23 +652,23 @@ calculation is commissioned by this implementation plan.
 
 ## 16. Next actionable checkpoint
 
-Start P0a by recording the minimal B1/B2 signatures, fields, identity/revision,
-structural-scope and version/admission decisions in the design/owning issue.
-Use the candidate examples to make those decisions; emitted-record qualification
-follows implementation. Then complete the first B1/B2 declaration/replay slice.
+The first [residue/criterion profile](binding_site_data_core.md) and subsequent
+[atom/group declarations](binding_site_membership.md) now have local P0a decisions
+and actual public B1/B2 receiving. New source-index membership uses experimental
+0.2; original residue/criterion records remain 0.1 and unchanged/readable.
 
-Deliver the finite P0m MolSysMT request, register P0s shared coordination and ask
-for the offered T/H/P inputs through their owner routes without waiting for B1/B2
-to finish. Each operation proceeds when its own facts/profile are ready; no
-unrelated missing consumer asset becomes a global barrier. T0 must be implemented
-explicitly before claiming T1. Do not mark C/T/H/P complete from authored examples
-or owner intent.
+Receive [MolSysMT #746](https://github.com/uibcdf/molsysmt/issues/746)'s finite C1
+facts/checks/preconditions, reusing the applicable #734 offer. Then implement
+actual native-MolSys region projection with original/current maps, explicit group
+expansion, structure/state forwarding and honest missing/contradictory/partial
+outcomes. Range checks or labels alone are not authenticated source identity.
+No resolution stub or fake successful report is delivered by declarations.
 
-The reviewed plan is the delivered checkpoint here. The next development
-checkpoint should identify the local contract decisions, actual coordination
-issues/owner responses or first implemented/tested slice. Further requested
-planning refinements remain planning evidence. Preserve these dispositions so a
-new contributor can resume without reconstructing conversation history.
+Independent geometry work and its local decisions can proceed through B1/C2's
+own prerequisites. T/H/P still need their owner inputs/profiles and actual public
+receiving. Preserve separate shared coordination/adoption and #30 installed/
+public/platform/full-suite evidence; no unavailable consumer becomes a global
+barrier and no original evaluator interruption is automatically restarted.
 
 ## First coordinate-free B1/B2 source checkpoint — 2026-11-13
 
@@ -692,3 +692,17 @@ Next admit atom/group declarations and the finite MolSysMT C1 facts/checks/
 preconditions, reusing applicable #734 owner facts. Coordinate/chemistry/selection/
 map operations remain provider owned. #111 stays open; no universal observer,
 new molecular serializer or whole-suite gate is invented by this increment.
+
+## Source-index declarations and C1 request — 2026-11-13
+
+The [new membership contract](binding_site_membership.md) receives `from_atoms`
+and `from_groups` with genuine integer normalization, preserved source order,
+explicit element/index spaces and no MolSys lookup or group expansion. It adds
+64 new controls to 321 selected passes per normal/pm-fs policy; actual old-reader
+refusal and 20-record unyt/pm-fs cold reading qualify the declared wire boundary.
+New frozen compatibility files retain original producers and exact support hashes.
+
+P0m is now requested under MolSysMT #746; its existing-operation review is not a
+new general molecular framework or an executed owner agreement. The first native
+resolution implementation waits for its admitted facts, while independent B1
+geometry/other owner inputs retain their own prerequisites. #111 remains active.

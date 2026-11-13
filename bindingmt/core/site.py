@@ -10,6 +10,7 @@ from bindingmt._private.interface_records import _digest, _InterfaceRecordIO, _r
 from bindingmt._private.serialization import json_copy
 from bindingmt._private.site_records import (
     capability,
+    membership_payload,
     residue_records,
     scope_record,
     sequence,
@@ -66,7 +67,7 @@ class BindingSite(_InterfaceRecordIO):
     @arg_digest(config='bindingmt._argdigest')
     def __init__(self, record, *, experimental=False):
         _require(
-            experimental is True, 'experimental', 'Opt in to experimental site 0.1.'
+            experimental is True, 'experimental', 'Opt in to experimental site 0.1/0.2.'
         )
         snapshot = json_copy(record, 'record')
         validate(snapshot)
@@ -156,6 +157,93 @@ class BindingSite(_InterfaceRecordIO):
         record = json_copy(record, 'definition')
         record['content_sha256'] = _digest(record)
         return cls(record, experimental=True)
+
+    @classmethod
+    def _from_members(
+        cls, source, indices, element, name, role, structures, states, extensions
+    ):
+        source = source_record(source)
+        _require(text(role), 'role', 'Declare a membership role string.')
+        capability(role == 'declared_members', 'site membership role')
+        views = [
+            {
+                'key': 'membership',
+                'kind': 'molecular_membership',
+                'role': role,
+                'scope': scope_record(source['id'], structures, states),
+                'payload': membership_payload(indices, element),
+            }
+        ]
+        record = _record(
+            source,
+            'Candidate association region; binding support unknown',
+            {
+                'kind': 'explicit_source_membership',
+                'rule': 'exact_listed_indices',
+                'element': element,
+            },
+            name,
+            structures,
+            states,
+            extensions,
+            views,
+        )
+        record['format_version'] = '0.2'
+        record = json_copy(record, 'record')
+        record['content_sha256'] = _digest(record)
+        return cls(record, experimental=True)
+
+    @classmethod
+    @signal(tags=['api', 'site', 'declaration'])
+    @arg_digest(config='bindingmt._argdigest')
+    def from_atoms(
+        cls,
+        *,
+        source,
+        atom_indices,
+        name=None,
+        role='declared_members',
+        structure_indices=None,
+        chemical_state_indices=None,
+        extensions=None,
+    ):
+        """Declare source atom indices; no source bound or geometry is checked."""
+        return cls._from_members(
+            source,
+            atom_indices,
+            'atom',
+            name,
+            role,
+            structure_indices,
+            chemical_state_indices,
+            extensions,
+        )
+
+    @classmethod
+    @signal(tags=['api', 'site', 'declaration'])
+    @arg_digest(config='bindingmt._argdigest')
+    def from_groups(
+        cls,
+        *,
+        source,
+        group_indices,
+        name=None,
+        role='declared_members',
+        structure_indices=None,
+        chemical_state_indices=None,
+        extensions=None,
+    ):
+        """Declare source group indices; no residue-ID parsing or atom expansion."""
+        return cls._from_members(
+            source,
+            group_indices,
+            'group',
+            name,
+            role,
+            structure_indices,
+            chemical_state_indices,
+            extensions,
+        )
 
     @property
     def site_id(self):
@@ -254,21 +342,38 @@ class BindingSite(_InterfaceRecordIO):
     def inspect(self):
         """Report declared meaning and missing prerequisites without resolving sources."""
         record = self.to_dict()
-        entries = record['views'][0]['payload']['entries'] if record['views'] else None
+        payload = record['views'][0]['payload'] if record['views'] else None
+        molecular = (
+            payload is not None and record['views'][0]['kind'] == 'molecular_membership'
+        )
+        entries = (
+            None
+            if payload is None
+            else payload['source_indices']
+            if molecular
+            else payload['entries']
+        )
+        membership = {
+            'state': 'not_supplied'
+            if entries is None
+            else 'declared_empty'
+            if not entries
+            else 'declared'
+            if molecular
+            else 'unresolved',
+            'entry_count': None if entries is None else len(entries),
+        }
+        if molecular:
+            membership.update(
+                element=payload['element'], index_space=payload['index_space']
+            )
         return {
             'record_id': self.record_id,
             'name': record['name'],
             'definition_ref': self.definition_ref,
             'source': record['context']['source'],
             'definition_scope': record['definition']['scope'],
-            'membership': {
-                'state': 'not_supplied'
-                if entries is None
-                else 'declared_empty'
-                if not entries
-                else 'unresolved',
-                'entry_count': None if entries is None else len(entries),
-            },
+            'membership': membership,
             'binding_support': 'unknown',
             'evidence_count': len(record['evidence']),
             'current_evidence_refs': record['definition']['evidence_refs'],

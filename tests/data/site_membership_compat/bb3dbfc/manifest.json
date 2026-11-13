@@ -1,0 +1,40 @@
+{
+  "scope": "Exact previously emitted experimental 0.1 site records; no regeneration, upgrade or producer rewrite",
+  "qualified_source_commit": "bb3dbfce1a0a5c0e3d928d5257e21eca8e03a031",
+  "production_base_commit": "4e4191339b2e64619549d5a59f346b52127ae248",
+  "records": {
+    "S0.json": {
+      "sha256": "4667c68d632337bb44303d68e250694b1343e04ef8f024eb6c4dd8a5c1c31b70",
+      "record_id": "cd6fafa2-52be-4d76-925e-aecd11a57f2a",
+      "content_sha256": "cd5fbfb021292f7b6e85e50453bd940ee60abd1e2cd6c039be1a0149cf465336",
+      "original_task_path": ".molsyssuite/site-data-core-111-20261113/workflow-producer-01/S0.json",
+      "original_producer": {
+        "library": "bindingmt",
+        "bindingmt_version": "0.1.0+19.g0ab5102",
+        "operation": "declaration"
+      }
+    },
+    "S3.json": {
+      "sha256": "64f89b0d8426707a0b0417edfc7221e2374fca33c5c85300a50675d298324d1f",
+      "record_id": "1d7daa17-36aa-4520-8b2d-6aed2fc0aa8e",
+      "content_sha256": "87b588fde01a754c904f269be9847eba9b2b23637e199aaec4e48afbd1bc332f",
+      "original_task_path": ".molsyssuite/site-data-core-111-20261113/workflow-producer-01/S3.json",
+      "original_producer": {
+        "library": "bindingmt",
+        "bindingmt_version": "0.1.0+19.g0ab5102",
+        "operation": "definition_revision"
+      }
+    },
+    "rule.json": {
+      "sha256": "3f4cba4bc0afb849a7b44a0dbed7ac2c58c5296e5e63e1ea79d7ad6ba50e0751",
+      "record_id": "9d6f69b4-0485-407e-9db7-b44b9407fb40",
+      "content_sha256": "98029019f9ff9e49af4924227734be7ef2d792a607e561f20dfab996cb48ca7d",
+      "original_task_path": ".molsyssuite/site-data-core-111-20261113/workflow-producer-01/rule.json",
+      "original_producer": {
+        "library": "bindingmt",
+        "bindingmt_version": "0.1.0+19.g0ab5102",
+        "operation": "declaration"
+      }
+    }
+  }
+}

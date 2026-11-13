@@ -2,6 +2,9 @@
 
 import re
 from collections.abc import Mapping
+from numbers import Integral
+
+import numpy as np
 
 from bindingmt._private.interface_records import _digest, _require
 from bindingmt._private.serialization import json_copy
@@ -139,6 +142,38 @@ def residue_records(residues):
     return json_copy(entries, 'residues')
 
 
+def membership_payload(indices, element):
+    """Portable source indices, without a selection, bound check or atom expansion."""
+    _require(text(element), 'element', 'Declare a molecular element string.')
+    capability(element in ('atom', 'group'), 'site membership element')
+    field = f'{element}_indices'
+    _require(
+        isinstance(indices, (list, tuple))
+        or isinstance(indices, np.ndarray)
+        and indices.ndim == 1
+        and indices.dtype.kind in ('i', 'u'),
+        field,
+        'Use an ordered list, tuple or one-dimensional integer array.',
+    )
+    values = list(indices)
+    _require(
+        all(
+            isinstance(i, Integral) and not isinstance(i, (bool, np.bool_)) and i >= 0
+            for i in values
+        ),
+        field,
+        'Source membership requires nonnegative integer indices without coercion.',
+    )
+    values = [int(i) for i in values]
+    _require(len(set(values)) == len(values), field, 'Preserve unique source indices.')
+    return {
+        'element': element,
+        'index_space': f'source_{element}_index',
+        'source_indices': values,
+        'resolution': {'state': 'declared', 'cause': 'source_not_checked'},
+    }
+
+
 def reference(value, current_id, *, definition=False):
     fields = {'record_id', 'content_sha256'} | (
         {'definition_key'} if definition else set()
@@ -178,10 +213,10 @@ def validate(record):
     )
     _require(
         record['format'] == 'bindingmt.binding_site'
-        and record['format_version'] == '0.1'
+        and record['format_version'] in ('0.1', '0.2')
         and record['experimental'] is True,
         'format_version',
-        'Explicit experimental bindingmt.binding_site version 0.1 is required.',
+        'Explicit experimental bindingmt.binding_site version 0.1 or 0.2 is required.',
     )
     _require(
         text(record['record_id']), 'record_id', 'Declare a nonempty record identity.'
@@ -203,12 +238,28 @@ def validate(record):
     _require(
         isinstance(views, list) and len(views) <= 1,
         'views',
-        'Admit one annotation view or none.',
+        'Admit one source view or an unevaluated definition.',
+    )
+    _require(
+        record['format_version'] != '0.2' or len(views) == 1,
+        'views',
+        'Experimental 0.2 requires one explicit molecular-membership view.',
     )
     for view in views:
         keys(view, {'key', 'kind', 'role', 'scope', 'payload'}, 'view')
-        capability(view['kind'] == 'residue_annotation', 'site view kind')
-        capability(view['role'] == 'annotated_members', 'site view role')
+        capability(
+            view['kind'] in ('residue_annotation', 'molecular_membership'),
+            'site view kind',
+        )
+        _require(
+            (record['format_version'] == '0.1' and view['kind'] == 'residue_annotation')
+            or (
+                record['format_version'] == '0.2'
+                and view['kind'] == 'molecular_membership'
+            ),
+            'format_version',
+            'Residue annotations require 0.1; source-index membership requires 0.2.',
+        )
         _require(
             view['key'] == 'membership',
             'views',
@@ -216,6 +267,21 @@ def validate(record):
         )
         validate_scope(view['scope'], source_id)
         payload = view['payload']
+        if view['kind'] == 'molecular_membership':
+            capability(view['role'] == 'declared_members', 'site view role')
+            keys(
+                payload,
+                {'element', 'index_space', 'source_indices', 'resolution'},
+                'payload',
+            )
+            _require(
+                payload
+                == membership_payload(payload['source_indices'], payload['element']),
+                'membership',
+                'Preserve element, original source index space, order and declared resolution.',
+            )
+            continue
+        capability(view['role'] == 'annotated_members', 'site view role')
         keys(payload, {'address_space', 'entries', 'resolution'}, 'payload')
         capability(
             payload['address_space'] == 'author_residue', 'site residue address space'

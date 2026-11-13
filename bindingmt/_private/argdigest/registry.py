@@ -643,6 +643,8 @@ def digest_coordinate_tolerance(coordinate_tolerance, caller=None):
 
 
 ARGUMENT_DIGESTERS = {
+    'atom_indices': _declaration_value,
+    'group_indices': _declaration_value,
     'source': _mapping('source'),
     'address_space': _optional_string('address_space'),
     'residues': _declaration_value,

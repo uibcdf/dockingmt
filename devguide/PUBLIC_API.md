@@ -100,8 +100,14 @@ while derivations create a new identity with an exact parent/reason. `definition
 includes record ID, content SHA-256 and definition key. Experimental 0.1
 `from_dict`/`read` need `experimental=True`; `save` exclusively creates. Version
 0.1 is separate from the package/source tag 0.1.0. Optional namespaced data require
-`required=False`; unavailable required semantics refuse. Atom/group/geometry,
-molecular resolution, domain placement and optional owner receiving remain pending.
+`required=False`; unavailable required semantics refuse. The subsequent
+[membership profile](binding_site_membership.md) adds `from_atoms(source=...,
+atom_indices=...)` and `from_groups(source=..., group_indices=...)` with ordered
+nonnegative unique source indices. Lists, tuples and one-dimensional NumPy integer
+arrays are admitted; no selection, source-bound check or group-to-atom expansion
+occurs. These factories emit experimental 0.2 and report `declared` membership;
+old 0.1 factories/records stay unchanged and readable. Geometry, molecular
+resolution, domain placement and optional owner receiving remain pending.
 
 ## Interface declarations and experimental persistence
 

@@ -189,3 +189,13 @@ restricted public facts already received under #734 where applicable; no univers
 receipt or observer is a new prerequisite. Molecular resolution/application,
 physical geometry and T/H/P adapters keep their own implemented/received/adopted
 gates. #111 stays open, and #112/PeptideMT #60 retain their independent work.
+
+
+## Subsequent source-index profile — 2026-11-13
+
+[Atom/group declarations](binding_site_membership.md) now have their own admitted
+experimental 0.2 views. This article's original residue/criterion 0.1 factories,
+producer identities, 257-case population and cold-read outputs retain their exact
+original scope. Actual old 0.1 files are frozen unchanged for compatibility; the
+new receiving independently reports 321 cases per policy. C1's concrete owner
+review is requested in MolSysMT #746, with no molecular projection claimed yet.
