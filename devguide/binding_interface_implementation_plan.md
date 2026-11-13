@@ -2,7 +2,7 @@
 
 Owner: [BindingMT #112](https://github.com/uibcdf/bindingmt/issues/112).
 Recorded and reviewed: 2026-11-12. Work-plan revision **4**.
-Status: **P0a/D1/D2 first data profile implemented; N0/C contact admission next**.
+Status: **first native Cartesian contact/footprint source profile delivered; N2 admission next**.
 This plan turns the [reviewed second design](binding_interface_design.md) into
 bounded, independently useful implementation and receiving increments. It is
 the interface counterpart of the [BindingSite work plan](binding_site_implementation_plan.md),
@@ -33,7 +33,9 @@ identifies what can start and which finite decisions/inputs still precede use.
 
 The [first implemented data profile](binding_interface_data_core.md) closes P0a
 for declaration/persistence, with actual public APIs and bounded source receiving.
-The remaining numerical, typed-provider and consumer profiles keep their gates.
+The [native contact admission/receiving](binding_interface_contacts.md) now closes
+the selected N0/C/N1 source profile, including independent footprints. Surface,
+typed-provider, installed/public and consumer profiles keep their gates.
 
 ## 1. Assessment of the second review and starting evidence
 
@@ -155,7 +157,8 @@ Preserve the design's ownership and scientific distinctions:
 
 The [data-profile admission](binding_interface_data_core.md#p0a-decisions-closed-for-this-slice)
 now fixes the first F1-F6 spellings/defaults and declaration-only identity/format
-contract. The table retains the programme decisions: foreign adapters, footprint
+contract. The contact profile additionally closes the selected F8/F10-F12 public
+call, maps, resource and footprint surface. The table retains programme decisions: foreign adapters, footprint
 results, quantities and native execution still need their own admission. Do not
 infer those later capabilities from the implemented first slice.
 
@@ -230,12 +233,12 @@ make every later consumer profile a prerequisite for a useful data/native checkp
 | Increment | Current state | Completion boundary |
 | --- | --- | --- |
 | P0a | Closed for the first declaration/persistence profile | Actual question/intake/identity/version/default/refusal contract is in the data-profile admission. Later profiles close their own choices. |
-| P0m/P0s | Restricted MolSysMT #734 offer received; client/shared receiving pending | Bind the supplied facts/preconditions to actual selected local profiles and record #195 agreements/adoption. |
+| P0m/P0s | Restricted #734 offer and first local native contact source receiving delivered | Actual shared/consumer-wide acceptance and remaining surface facts stay under #195 and their owners. |
 | P0t | Fixed artifacts and expectations supplied | Confirm input hashes, carrier/group/participant interpretation and exact first public contract. Not executed client receiving. |
 | P0h/P0p | Case outlines received; exact inputs/seams pending | Receive/admit the H and P specifications and independently expected outputs; do not invent fixtures or scientific choices from favorable review. |
 | D1/D2 | First experimental data profile implemented and source-tested | Actual declaration/summary, copy/reinterpretation, content integrity and exclusive save/read. No molecular/foreign adapter receiving is inferred. |
-| C | Pending operation-specific facts | Required checks, map/state/frame scope, lifetime and refusal implemented and tested. |
-| N0/N1 | First ordinary native numerical milestone planned | Admitted public calculation, exact contacts/atom-residue footprints, independent reference controls and saved replay without PISA/TopoMT. |
+| C | Selected Cartesian contact facts/maps received | Exact public calls, tested source/frame/maps and caller preconditions are in the contact contract. Foreign/current-finding assurances remain unqualified. |
+| N0/N1 | First bounded native source profile implemented and received | Actual MolSysMT contacts/distances, group witnesses and independent positive/empty footprints, without PISA/TopoMT. Larger profiles and installed/public receiving remain separate. |
 | N2 | Next numerical milestone planned | Public owner SASA composition, both side losses and mapped contributions, convergence and honest readback/refusal. |
 | T0/T1 | Runtime pending | Actual saved analysis intake and exact participant-contact footprint/replay, including adverse controls. |
 | H0/H1 | Inputs and runtime pending | Effective grouping, native construction, observation/site correspondence and native saved replay. |
@@ -623,6 +626,12 @@ Handwritten records and source signatures help decide admission, but never count
 as API emission, actual checks or received owner/native compatibility.
 
 ### 9.3 N1: native contacts, residue reduction and participant footprints
+
+The first bounded [contact profile](binding_interface_contacts.md) now delivers
+this source milestone using real MolSysMT operations, sealed quantities and
+independent positive/empty footprint persistence. The requirements below retain
+their scientific meaning and scope; no large-input/provider-wide qualification
+is inferred from the tiny native controls.
 
 Request the selected geometric criterion on the actual A/B populations, with an
 explicit distance cutoff, inclusion/tolerance, Cartesian policy and index/frame
@@ -1340,13 +1349,11 @@ receiver opt-in. Its [contract/evidence](binding_interface_data_core.md) records
 actual declared outcomes, summary, copy/revision, integrity and exclusive save/read.
 This source increment implements no numerical calculation or typed owner recovery.
 
-Close the contact portion of N0 and C, record finite native agreements in
-MolSysSuite #195, then deliver N1 as the first ordinary native numerical route.
-Use the restricted owner offer in section 5.4 for actual N0/C admission; it does
-not require a new general molecular operation for the first profile. Follow with
-N2 after its local radius/environment/application acceptance closes.
-Record exact admitted requests, required/optional observations, owner calls,
-resource envelope, actual guarantees and failure policy before runtime work.
+The contact portion of N0/C and the first N1 source route are now delivered under
+the [contact-profile contract](binding_interface_contacts.md). Next close N2's
+radius/H/environment/probe/sampling and numerical acceptance, then compose the
+actual MolSysMT SASA operations. Record shared/consumer disposition separately in
+MolSysSuite #195; the local source pass does not imply owner-wide adoption.
 
 Keep the explicit T0/C/T1 PISA route, complete footprint persistence/adverse
 controls and promised H/P inputs on their independent owning branches. No source
@@ -1357,7 +1364,7 @@ The work order remains revision 4 after preserving revision 3 and
 rereading the full post/proposal. The [review record](binding_interface_plan_review.md)
 maps every proposal section, all catalogue families and independent controls,
 records the corrections and distinguishes planned/deferred/qualified scope.
-Next close contact-specific N0/C choices and implement N1. Exact H/P inputs,
+Next close surface-specific N0/C choices and implement N2. Exact H/P inputs,
 T0/T1 and later application choices remain with the owners and gates in the
 [readiness ledger](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme).
 No source-only profile closes provider adoption, hosted/platform acceptance or

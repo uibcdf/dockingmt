@@ -638,6 +638,14 @@ def digest_coordinate_tolerance(coordinate_tolerance, caller=None):
 
 
 ARGUMENT_DIGESTERS = {
+    'cutoff': _provider_owned,
+    'source_id': _optional_string('source_id'),
+    'source_structure_index': _integer(
+        'source_structure_index', minimum=0, optional=True
+    ),
+    'max_dense_pairs': _integer('max_dense_pairs', minimum=1),
+    'atom_map': _optional_mapping('atom_map'),
+    'participant': _optional_string('participant'),
     'question': _mapping('question'),
     'participants': _mapping('participants'),
     'grouping': _provider_owned,

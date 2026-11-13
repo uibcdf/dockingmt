@@ -1,12 +1,12 @@
 ---
-summary: Deliver the first experimental BindingInterface declaration, analysis-summary and immutable persistence profile; native contact admission remains next.
+summary: Deliver bounded native contacts/distances through MolSysMT and independent source-mapped footprint persistence; surface/foreign/consumer receiving remains pending.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
 closed:
 verification: reproduced
 area: [architecture, public-api, interoperability]
-guard: tests/test_binding_interface.py
+guard: tests/test_interface_contacts.py
 normative:
 blocked_by: []
 supersedes: []
@@ -74,6 +74,25 @@ claim/context, copy/revision, explicit experimental 0.1 admission, content diges
 and exclusive save/read. Actual emitted records and fresh reader evidence now
 exist; numerical/typed-owner/consumer receiving remains pending. Work-plan revision
 4 and scientific-design revision 2 retain their scope.
+
+## First native Cartesian contact source implementation
+
+The maintainer explicitly requires generic molecular manipulation/characterization/
+inspection and all contacts to remain MolSysMT-owned. The
+[contact-profile contract](../binding_interface_contacts.md) records N0/C admission
+before code and actual N1 receiving. `calculate_interface_contacts` invokes public
+MolSysMT form/selection/count/group/state/map and contact/distance tools; BindingMT
+composes the domain result, group witnesses and independent `ContactFootprint`.
+The first 0.2 native record and 0.1 footprint preserve source ordering/aligned maps,
+all contributors, original contexts and exact quantity handshakes. Declaration
+0.1 behavior remains intact through shared private offline I/O.
+
+187 cases per normal/pm-fs source policy plus six actual native result/footprint
+records and fresh molecular-call-free readback qualify this bounded milestone.
+The actual historical local native SHA `2dbcf13d` is recorded separately from the
+owner reference `4ffb82e4`; no new builder/native-source attribution is invented.
+Original failures remain retained. MolSysMT #739 receives the independent group-
+setter defect; no downstream molecular-editing or geometry workaround is added.
 
 ## How
 
@@ -224,10 +243,11 @@ are not completed cross-owner adoption.
 
 ## Scope and exclusions
 
-This increment implements only the first P0a/D1/D2 data profile and its public
-exports, focused tests and documentation. It preserves existing design/plan posts
-and original owner contributions. It introduces no native calculation, foreign
-adapter, molecular preparation, shared schema freeze or new scientific input.
+This increment implements the selected N0/C/N1 Cartesian contact source profile,
+independent footprints and their public exports/tests/documentation. It preserves existing design/plan posts
+and original owner contributions. It introduces no foreign adapter, molecular preparation, stable shared-schema
+freeze or new real-system scientific campaign. Tiny authored native controls have
+their own exact software receiving scope.
 The candidate PISA route is a proposed receiving input, not executed integration.
 No sibling worktree, synchronized guide, installed environment, package/tag/release
 or manual remote CI changes are commissioned. Preserve the existing scientific
@@ -264,11 +284,12 @@ full-suite resource hold and human untracked migration files.
   and initial-plan receipts retain their original scope. No runtime/scientific
   or exact-head hosted pass is implied.
 
-Next close contact-specific N0/C application/default/call/resource facts using
-the received MolSysMT #734 offer, then deliver N1 and its actual footprint
-persistence. N2, T0/T1, H/P inputs and #111 remain separately owned. The first
-source profile does not close #112. The data-profile contract records executed
-normal/pm-fs gates and the independently reproduced pre-existing #113 failures.
+Next close N2-specific surface application/default/radius/H/environment/probe/
+sampling and numerical acceptance, then compose actual MolSysMT SASA. T0/T1,
+H/P inputs and #111 remain separately owned. #112 stays open; #30 and #195 retain
+installed/public, broader source and actual cross-owner adoption requirements.
+The contact contract records exact commands, counts, native/source identity,
+conversion versus membership semantics and all original failed attempts.
 
 ## Documentation evidence and custody
 
@@ -341,3 +362,11 @@ cache guard and receives three fresh-process policy controls. The independent
 unyt fast-track ndarray defect is reported to
 [PyUnitWizard #155](https://github.com/uibcdf/pyunitwizard/issues/155); this data
 profile uses no such calculation and introduces no provider workaround.
+
+The native contact admission, actual provider/source/native snapshots, original
+failures, independent group-setter witness, final normal/pm-fs source cells and
+public/fresh-reader/export receipts are retained at
+`.molsyssuite/interface-native-contacts-112-20261112/` for #50 review 2026-11-14.
+Source/provider receiving is bounded to actual operations/bytes, not an installed
+package, hosted conformance or full scientific/large-system claim. The original
+shared-prefix/full-suite hold remains; no sibling/native state was changed.

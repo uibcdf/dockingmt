@@ -21,6 +21,7 @@ ensure_configured(PACKAGE_ROOT)
 from . import exceptions
 
 from .core import (
+    ContactFootprint,
     BindingInterface,
     BoxRegion,
     DockingPose,
@@ -36,6 +37,7 @@ from .core import (
     verify_captured_inputs,
 )
 from .dock import dock
+from .contacts import calculate_interface_contacts
 from .batch import dock_many
 from .score import score
 from .evaluation import evaluate_redocking
@@ -54,6 +56,8 @@ from .preparation import (
 from .view import show, view
 
 __all__ = [
+    'ContactFootprint',
+    'calculate_interface_contacts',
     'BindingInterface',
     'characterize_interface',
     'exceptions',

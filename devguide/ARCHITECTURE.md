@@ -50,22 +50,28 @@ planning evidence; the source map below still contains no BindingSite runtime.
 
 ## Binding-interface characterization
 
-[#112](pending_proposals/binding_interface_public_contract.md) now implements the
-[first data profile](binding_interface_data_core.md) in `core/interface.py`.
-Root exports `characterize_interface` and immutable `BindingInterface` compose
-caller-declared questions/participants and analysis-level evidence. Original claim
-scope, distinct analysis outcomes, safe persistence and revisions are explicit.
-The experimental 0.1 format requires receiver opt-in and preserves content integrity.
+[#112](pending_proposals/binding_interface_public_contract.md) now has both the
+[first data profile](binding_interface_data_core.md) and the
+[native Cartesian contact profile](binding_interface_contacts.md). `contacts.py`
+uses public MolSysMT tools for all molecular selection/inspection/map validation
+and contact/distance computation. BindingMT owns the binding question, selected
+profile, contextual result/attribution and atomic-to-group witness aggregation.
+No generic molecular representation, parser, matcher or geometry kernel is copied.
+
+`BindingInterface` preserves declared evidence and typed native calculation.
+`ContactFootprint` independently preserves source-ordered members/aligned local
+maps and all contributors. Both share private offline I/O, immutable copy/read
+identity and experimental admission; native calculations use 0.2 while declarations
+retain 0.1. Known physical fields use PyUnitWizard sealed records. Saved checks
+remain historical and a revised interpretation preserves original calculation scope.
 
 The [second scientific design](binding_interface_design.md),
 [work-plan revision 4](binding_interface_implementation_plan.md) and
-[collaborator dispositions/readiness](binding_interface_plan_review.md) own the
-broader native/foreign/consumer programme. Numerical contacts/surfaces, molecular
-correspondence, typed PISA/H intake and footprint projection remain pending; the
-data result preserves declarations without running those operations. MolSysMT
-owns generic molecular tools; TopoMT #198 owns independent regional chemistry.
-Optional specialist enrichment does not block the next native contact profile.
-#111 remains independent.
+[collaborator dispositions/readiness](binding_interface_plan_review.md) retain
+surface, typed-provider and consumer obligations. N2's actual molecular surface
+contract is next; full chemical correspondence, PISA/H and #111 keep separate gates.
+TopoMT #198 regional enrichment remains optional. Source receiving is distinct
+from installed/public/native-build qualification and cross-owner adoption.
 
 ## Current source map
 
@@ -77,7 +83,8 @@ authoritative when this navigation map changes.
 | Area | Current source | Responsibility |
 | --- | --- | --- |
 | Scientific declarations and records | [`core/problem.py`](../bindingmt/core/problem.py), [`protocol.py`](../bindingmt/core/protocol.py), [`search_domain.py`](../bindingmt/core/search_domain.py), [`results.py`](../bindingmt/core/results.py), [`outcome.py`](../bindingmt/core/outcome.py) | Problems, resolved Vina protocol, physical search domains, poses/results and per-item batch outcomes. |
-| Interface data core | [`core/interface.py`](../bindingmt/core/interface.py) | Experimental declarations/analysis summaries, immutable identity/reinterpretation and exclusive core JSON persistence; no molecular or foreign recovery. |
+| Native binding contacts | [`contacts.py`](../bindingmt/contacts.py), [`core/contact_footprint.py`](../bindingmt/core/contact_footprint.py) | Compose actual public MolSysMT contacts/distances and inspect/save/read independent participant footprints. |
+| Interface data core | [`core/interface.py`](../bindingmt/core/interface.py) | Declared/native analysis records, immutable identity/reinterpretation and offline core JSON persistence; explicit native work is in contacts.py. |
 | Record admission and provenance | [`core/audit.py`](../bindingmt/core/audit.py), [`pose_audit.py`](../bindingmt/core/pose_audit.py), [`_scores.py`](../bindingmt/core/_scores.py), [`_private/artifacts.py`](../bindingmt/_private/artifacts.py) | Internal consistency, named score/ranking evidence and captured backend-input identity. These do not certify chemistry or reconstruct missing molecular sources. |
 | Public orchestration | [`dock.py`](../bindingmt/dock.py), [`score.py`](../bindingmt/score.py), [`batch.py`](../bindingmt/batch.py), [`evaluation.py`](../bindingmt/evaluation.py), [`aggregation.py`](../bindingmt/aggregation.py) | Docking/fixed scoring, serial prepared-problem execution and explicitly delimited reference-recovery evaluation/aggregation. |
 | Existing interaction association | [`interactions.py`](../bindingmt/interactions.py) | `bind_interactions`/`PoseInteractions` bind one explicitly selected pose to an admitted one-frame carrier. Source controls and [bounded installed normal/pm-fs receiving](validation/e4_pose_binding_installed_2026-11-07.md) pass, preserving full original results/provider analyses and full-carrier persistence. [Empty-source native unevaluated coverage](validation/e4_native_unevaluated_2026-11-07.md) also passes. Positive-source persistence awaits [client receiving of the published #642 source fix](validation/e4_evidence_catalog_fix_2026-11-07.md); exact native construction is held after an owned-memory stop. The [view route](validation/pose_interaction_view.md) has separate source/DOM controls and [passing exact-candidate receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md): eight real-provider View/native cells normal/pm-fs plus independent record checks. Actual canvas/public delivery remain unproven. |

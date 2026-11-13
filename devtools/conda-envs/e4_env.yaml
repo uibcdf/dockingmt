@@ -12,7 +12,8 @@ dependencies:
   - pytest-receptor ==1.2.2
   - smonitor ==0.22.1
   - depdigest ==0.15.2
-  - pyunitwizard ==0.29.0
+  # Current source floor; historical E4 receipts retain their original 0.29.0 manifest.
+  - pyunitwizard >=0.29.3
   # Explicit alternate unit backend exercised by the public box-export tests.
   - unyt
   - numpy

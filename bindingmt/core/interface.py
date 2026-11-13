@@ -1,40 +1,24 @@
-"""Experimental declaration-only binding-interface evidence and persistence.
+"""Immutable declared/native interface evidence and offline persistence.
 
-No molecular source, foreign artifact or scientific result is recovered here.
-All analysis descriptors in this first profile have caller-declared authority.
+Only explicit calculation entry points perform molecular work. Stored native
+records retain original execution context without authenticating their producer.
 """
 
 from __future__ import annotations
 
-import hashlib
 import json
-import os
 from collections.abc import Mapping
 from dataclasses import dataclass
-from pathlib import Path
 from uuid import uuid4
 
 from argdigest import arg_digest
 
+from bindingmt._private.interface_records import _digest, _InterfaceRecordIO, _require
 from bindingmt._private.serialization import json_copy
-from bindingmt._private.smonitor import ArgumentError, signal
+from bindingmt._private.smonitor import signal
 
 _FORMAT = 'bindingmt.binding_interface'
 _VERSION = '0.1'
-
-
-def _digest(record):
-    content = {key: value for key, value in record.items() if key != 'content_sha256'}
-    return hashlib.sha256(
-        json.dumps(
-            content, sort_keys=True, separators=(',', ':'), allow_nan=False
-        ).encode()
-    ).hexdigest()
-
-
-def _require(condition, field, reason):
-    if not condition:
-        raise ArgumentError(arg_name=field, reason=reason)
 
 
 def _text(value):
@@ -116,7 +100,7 @@ def _extensions(value):
     )
 
 
-def _analysis(value):
+def _analysis(value, version):
     required = {
         'owner',
         'reference',
@@ -133,15 +117,48 @@ def _analysis(value):
         'historical_checks',
         'failure',
         'extensions',
+        'calculation',
     }
     _fields(value, required, optional, 'analyses')
     _require(_text(value['owner']), 'analyses', 'Name the declared originating owner.')
     _reference(value['reference'], 'analyses')
     _require(
-        value['authority'] == 'caller_declared',
+        value['authority'] in ('caller_declared', 'bindingmt_calculated'),
         'analyses',
-        'This profile admits caller-declared evidence only, not owner verification.',
+        'Use declared evidence or the admitted BindingMT native calculation profile.',
     )
+    if value['authority'] == 'bindingmt_calculated':
+        from bindingmt._private.interface_contacts import validate_calculation
+
+        _require(
+            version == '0.2'
+            and value['owner'] == 'bindingmt'
+            and value['outcome'] == 'completed'
+            and 'calculation' in value,
+            'analyses',
+            'A native calculation needs experimental 0.2 and its complete record.',
+        )
+        validate_calculation(value['calculation'])
+        _require(
+            value['reference'] == {'analysis_id': value['calculation']['analysis_id']},
+            'analyses',
+            'Preserve the exact composed analysis reference.',
+        )
+        expected = [
+            {'analysis_id': value['calculation']['analysis_id'], 'contact_index': i}
+            for i in range(len(value['calculation']['local_pairs']))
+        ]
+        _require(
+            value['finding_refs'] == expected,
+            'analyses',
+            'Findings must retain every calculated contact occurrence.',
+        )
+    else:
+        _require(
+            'calculation' not in value,
+            'analyses',
+            'Declared evidence cannot impersonate native calculation.',
+        )
     outcome = value['outcome']
     _require(
         outcome in ('unknown', 'completed', 'failed'),
@@ -182,6 +199,22 @@ def _analysis(value):
         'original_claim',
     )
     _claim(**original)
+    if value['authority'] == 'bindingmt_calculated':
+        calculation = value['calculation']
+        expected_participants = {
+            name: {
+                'source_id': calculation['context']['source_id'],
+                'source_atom_indices': member['source_atom_indices'],
+            }
+            for name, member in calculation['participants'].items()
+        }
+        _require(
+            original['participants'] == expected_participants
+            and original['grouping'] == [[name] for name in expected_participants]
+            and original['contexts'].get('calculation') == calculation['context'],
+            'original_claim',
+            'The native calculation must retain its original endpoints/context.',
+        )
     refs = value.get('context_refs', [])
     _require(
         isinstance(refs, list), 'analyses', 'Use a list of original context names.'
@@ -222,10 +255,10 @@ def _validate(record):
     _fields(record, required, set(), 'record')
     _require(
         record['format'] == _FORMAT
-        and record['format_version'] == _VERSION
+        and record['format_version'] in (_VERSION, '0.2')
         and record['experimental'] is True,
         'format_version',
-        'Explicit experimental bindingmt.binding_interface version 0.1 is required.',
+        'Explicit experimental bindingmt.binding_interface version 0.1 or 0.2 is required.',
     )
     _require(_text(record['record_id']), 'record_id', 'Use a nonempty record identity.')
     _claim(
@@ -249,7 +282,15 @@ def _validate(record):
     _require(isinstance(record['analyses'], Mapping), 'analyses', 'Use named analyses.')
     for name, analysis in record['analyses'].items():
         _require(_text(name), 'analyses', 'Use nonempty local analysis names.')
-        _analysis(analysis)
+        _analysis(analysis, record['format_version'])
+    native_count = sum(
+        a['authority'] == 'bindingmt_calculated' for a in record['analyses'].values()
+    )
+    _require(
+        native_count <= 1 and (record['format_version'] != '0.2' or native_count == 1),
+        'analyses',
+        'Experimental 0.2 admits exactly one native contact calculation.',
+    )
     _require(
         isinstance(record['site_refs'], list),
         'site_refs',
@@ -281,11 +322,11 @@ def _validate(record):
 
 
 @dataclass(frozen=True, init=False, repr=False)
-class BindingInterface:
-    """Immutable experimental declaration; accessors return detached snapshots.
+class BindingInterface(_InterfaceRecordIO):
+    """Immutable experimental interface evidence; accessors return detached snapshots.
 
     Use ``characterize_interface`` to declare, or ``from_dict/read`` with
-    ``experimental=True`` to admit a saved 0.1 record explicitly. The format is
+    ``experimental=True`` to admit a saved 0.1/0.2 record explicitly. The format is
     not a stable interchange promise. No provider object is accepted by this profile.
     """
 
@@ -296,7 +337,7 @@ class BindingInterface:
         _require(
             experimental is True,
             'experimental',
-            'Opt in with experimental=True to admit interface format 0.1.',
+            'Opt in with experimental=True to admit interface format 0.1/0.2.',
         )
         _validate(record)
         snapshot = json_copy(record, 'record')
@@ -308,10 +349,6 @@ class BindingInterface:
         object.__setattr__(
             self, '_json', json.dumps(snapshot, allow_nan=False, ensure_ascii=True)
         )
-
-    @property
-    def record_id(self):
-        return self.to_dict()['record_id']
 
     @property
     def question(self):
@@ -329,19 +366,6 @@ class BindingInterface:
     def analyses(self):
         return self.to_dict()['analyses']
 
-    def to_dict(self):
-        """Return a detached finite JSON record; resolve no external references."""
-        return json.loads(self._json)
-
-    @classmethod
-    @arg_digest(config='bindingmt._argdigest')
-    def from_dict(cls, record, *, experimental=False):
-        return cls(record, experimental=experimental)
-
-    def copy(self):
-        """Faithful detached copy, preserving declaration and original evidence identity."""
-        return type(self)(self.to_dict(), experimental=True)
-
     @arg_digest(config='bindingmt._argdigest')
     def revise(self, *, question, reason):
         """Reinterpret the question; retain each analysis's original claim/context."""
@@ -353,9 +377,54 @@ class BindingInterface:
         record['content_sha256'] = _digest(record)
         return type(self)(record, experimental=True)
 
+    @property
+    def contact_calculation(self):
+        """Detached typed native evidence, or None when no such analysis was supplied."""
+        return next(
+            (
+                a['calculation']
+                for a in self.analyses.values()
+                if a['authority'] == 'bindingmt_calculated'
+            ),
+            None,
+        )
+
+    @arg_digest(config='bindingmt._argdigest')
+    def project_footprint(self, *, participant):
+        """Project saved atomic witnesses; perform no molecular operation or new detection."""
+        from bindingmt._private.interface_contacts import footprint_payload
+        from bindingmt.core.contact_footprint import ContactFootprint
+
+        calculation = self.contact_calculation
+        _require(
+            calculation is not None,
+            'participant',
+            'No native contact calculation is available.',
+        )
+        record = {
+            'format': 'bindingmt.contact_footprint',
+            'format_version': '0.1',
+            'experimental': True,
+            'record_id': str(uuid4()),
+            'parent_record_id': self.record_id,
+            'calculation': calculation,
+            'footprint': footprint_payload(calculation, participant),
+        }
+        record['content_sha256'] = _digest(record)
+        return ContactFootprint(record, experimental=True)
+
     def summary(self):
         """Inspect declared outcomes; saved checks remain history, never active checks."""
         record = self.to_dict()
+        calculation = self.contact_calculation
+        criterion = None
+        if calculation:
+            from bindingmt._private.interface_contacts import (
+                CUTOFF_FIELD,
+                length_values,
+            )
+
+            criterion = f'distance <= {float(length_values(calculation["cutoff"], CUTOFF_FIELD))!r} nm'
         return {
             'record_id': record['record_id'],
             'question': record['question'],
@@ -381,65 +450,34 @@ class BindingInterface:
             'requested_context_policy': record['context_policy'],
             'context_policy_applicability': 'not_applicable',
             'molecular_correspondence': 'not_required',
+            'calculation_checks': calculation['context']['performed_checks']
+            if calculation
+            else [],
             'current_assessment': 'not_performed',
             'asset_access': 'not_checked',
-            'available_projections': [],
+            'available_projections': list(calculation['participants'])
+            if calculation
+            else [],
+            'native_contacts': {
+                'atomic_pair_count': len(calculation['local_pairs']),
+                'group_pair_count': len(calculation['group_pairs'])
+                if calculation['group_coverage'] == 'complete'
+                else None,
+                'group_coverage': calculation['group_coverage'],
+                'definition': calculation['definition'],
+                'criterion': criterion,
+            }
+            if calculation
+            else None,
             'limitations': [
-                'Caller-declared evidence; no owner verification, molecular checking or binding inference.',
-                'Native calculation, recovery and footprint projection are not implemented by this profile.',
+                'MolSysMT geometric calculation; intended identity/state remains caller admitted.'
+                if calculation
+                else 'Caller-declared evidence; no owner verification, molecular checking or binding inference.',
+                'Saved native evidence is historical; no current molecular match or binding strength is inferred.'
+                if calculation
+                else 'Native calculation, recovery and footprint projection are not implemented by this profile.',
             ],
         }
-
-    @arg_digest(config='bindingmt._argdigest')
-    def save(self, path):
-        """Exclusively create a JSON file; preserve existing files on every failure.
-
-        A failed new-file write is removed only if its inode is still ours.
-        Filesystem exceptions propagate without becoming scientific outcomes.
-        """
-        payload = self._json + '\n'
-        target = Path(path)
-        stream = target.open('x', encoding='utf-8')
-        owned = None
-        try:
-            owned = os.fstat(stream.fileno())
-            stream.write(payload)
-            stream.flush()
-            stream.close()
-        except BaseException:
-            try:
-                stream.close()
-            except BaseException:
-                pass  # A secondary close failure must preserve the original error.
-            if owned is not None:
-                try:
-                    current = target.lstat()
-                    if (current.st_dev, current.st_ino) == (owned.st_dev, owned.st_ino):
-                        target.unlink()
-                except OSError:
-                    pass  # Preserve the original failure; never remove a replacement.
-            raise
-
-    @classmethod
-    @arg_digest(config='bindingmt._argdigest')
-    def read(cls, path, *, experimental=False):
-        """Read only this core JSON; never locate assets, import owners or restore policy."""
-        _require(experimental is True, 'experimental', 'Opt in with experimental=True.')
-
-        def unique_object(pairs):
-            result = {}
-            for name, value in pairs:
-                _require(
-                    name not in result,
-                    'record',
-                    'Duplicate JSON object keys are invalid.',
-                )
-                result[name] = value
-            return result
-
-        with Path(path).open(encoding='utf-8') as stream:
-            record = json.load(stream, object_pairs_hook=unique_object)
-        return cls(record, experimental=True)
 
 
 @signal(tags=['api', 'interface', 'declaration'])
@@ -485,6 +523,12 @@ def characterize_interface(
     for analysis in declared.values():
         _require(
             isinstance(analysis, Mapping), 'analyses', 'Use declared analysis mappings.'
+        )
+        _require(
+            analysis.get('authority', 'caller_declared') == 'caller_declared'
+            and 'calculation' not in analysis,
+            'analyses',
+            'Use calculate_interface_contacts for new native work or read a complete saved record.',
         )
         analysis.setdefault('authority', 'caller_declared')
         analysis.setdefault('original_claim', original)

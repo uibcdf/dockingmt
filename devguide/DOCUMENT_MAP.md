@@ -10,6 +10,7 @@ making a bounded contribution.
 
 | Document | Primary question |
 | --- | --- |
+| [binding_interface_contacts.md](binding_interface_contacts.md) | Which native contact profile is actually implemented through MolSysMT, which exact axes/units/limits are admitted and how do independent footprints survive readback? |
 | [binding_interface_data_core.md](binding_interface_data_core.md) | What first interface API/experimental record is implemented, which P0a decisions are closed and what actual source evidence/limits apply? |
 | [binding_interface_implementation_plan.md](binding_interface_implementation_plan.md) | What is #112's staged data/contact/SASA/burial plan, with the received molecular offer, finite H/P cases and retained PISA/consumer obligations? |
 | [binding_interface_plan_review.md](binding_interface_plan_review.md) | Where are the complete source review, final collaborator dispositions and readiness ledger distinguishing an actionable plan from pending inputs/decisions/runtime evidence? |

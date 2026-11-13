@@ -8,7 +8,9 @@ Current resumption references are the
 [final collaborator dispositions](#7-final-collaborator-round-and-recorded-contributions)
 and the [implementation-readiness ledger](#8-sufficiency-for-the-agreed-implementation-programme).
 
-The subsequent [first data-profile implementation](binding_interface_data_core.md)
+The subsequent [native contact source profile](binding_interface_contacts.md)
+now also delivers selected N0/C/N1 and independent footprints. The
+[first data-profile implementation](binding_interface_data_core.md)
 now delivers the bounded P0a/D1/D2 source slice. This review retains the original
 planning conclusions; the new contract/evidence owns actual runtime scope.
 
@@ -280,8 +282,9 @@ component perspectives support proceeding; no new general architecture round
 is required by their feedback.
 
 Completeness of the route is different from every gate already being passed.
-The table preserves the planning admission ledger. P0a/D1/D2 now have actual
-first-profile source evidence in the data contract; later rows remain pending:
+The table preserves the planning admission ledger. P0a/D1/D2 and the selected
+N0/C/N1 now have source evidence in their data/contact contracts. Other profiles
+and shared/installed/public acceptance remain pending:
 
 | Increment / entry | Available basis | Before execution / evidence owner |
 | --- | --- | --- |
@@ -295,10 +298,10 @@ first-profile source evidence in the data contract; later rows remain pending:
 | Optional regional enrichment | TopoMT #198 owns its standalone regional scientific/public profile and controls. | Receive a supported public owner result and independent persistence when ready. This does not block native N1/N2 or qualify every topographic family. |
 | Execution and delivery | Resource limits, source/native evidence requirements and separate component/public/platform gates are recorded. | Verify the actually qualified workspace/closure before runtime work, monitor bounded owned cells, and retain failures/interruptions. #30 keeps source/public-delivery scope; no scientific full-suite or shared-prefix restart is implied. |
 
-The first P0a/D1/D2 slice is now source-received under the
-[data-profile contract](binding_interface_data_core.md). Next close the contact
-portion of N0/C using the available offer, then implement N1; follow with N2 under
-its own application acceptance. H/P inputs and optional enrichment can progress
+P0a/D1/D2 and the selected N0/C/N1 profile are now source-received under the
+[data](binding_interface_data_core.md) and [contact](binding_interface_contacts.md)
+contracts. Next close N2 under its own application acceptance; installed/public
+and shared/consumer adoption retain their own scope. H/P inputs and optional enrichment can progress
 through their actual prerequisites independently. Do not wait for every later
 catalogue family to exist before this delivery.
 

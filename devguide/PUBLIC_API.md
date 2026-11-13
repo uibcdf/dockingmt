@@ -4,14 +4,16 @@ Canonical import and distribution: `bindingmt`. Component base diagnostics are
 `BindingMTException` and `BindingMTViewerError`; viewer imports use
 `molsysviewer_bindingmt`. [Scientific scope](SCIENTIFIC_SCOPE.md) distinguishes
 these implemented operations from accepted future complex prediction, refinement,
-binding free-energy calculation/prediction and numerical interface characterization.
-The first interface declaration/persistence profile is implemented separately below. Future
-operations are not advertised as implemented exports by the naming transition.
+binding free-energy calculation/prediction and broader interface characterization.
+The declaration/persistence and first native Cartesian contact profiles are
+delivered under their own explicit scope. Future operations are not advertised
+as implemented exports by the naming transition.
 
 ## Choose an operation
 
 | Need | Public route | Work performed |
 | --- | --- | --- |
+| Calculate native Cartesian contacts | `calculate_interface_contacts` -> `BindingInterface`; `project_footprint` -> `ContactFootprint` | Use public MolSysMT selection/inspection/maps/contact/distance operations; retain exact atom/group witnesses and independent positive/empty footprint persistence. Explicit cutoff/structure/source and a bounded dense profile are required. |
 | Declare/preserve an interface question | `characterize_interface` → `BindingInterface` | Compose caller-declared participants/analysis outcomes; inspect/copy/revise and exclusively save/read experimental core JSON. No molecular or provider execution. |
 | Read saved observations | `DockingPose.from_dict`, `DockingResult.from_dict`, `DockingOutcome.from_dict` | Validate and restore records without reconstructing a molecular problem or running an engine. |
 | Inspect available evidence | `audit_pose`, `audit_result`, `verify_captured_inputs` | Cross-check supplied mappings/captured bytes offline. An internally consistent record is not authenticated provenance or chemical validation. |
@@ -77,7 +79,12 @@ no assets or molecular correspondence. `copy()` preserves identity;
 while retaining original analysis claims. `save(path)` exclusively creates;
 `BindingInterface.read(path, experimental=True)` and `from_dict` require explicit
 experimental opt-in and validate content integrity. Stronger assurances, typed
-provider carriers, physical observable fields and projections remain unsupported.
+provider carriers and richer physical/projection profiles remain unsupported by that
+declaration operation. The separate [native contact profile](binding_interface_contacts.md)
+implements actual Cartesian calculation, sealed cutoff/distances and positive/empty
+footprints. `contact_calculation` exposes detached expert evidence. Native result
+records use experimental 0.2; `ContactFootprint` uses 0.1 and has its own copy/save/read.
+Both readers preserve history without molecular operations or current-use reassessment.
 The format version 0.1 is separate from the package's 0.1.0 tag.
 
 ## Units, positions and ownership

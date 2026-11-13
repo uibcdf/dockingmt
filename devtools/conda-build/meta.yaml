@@ -20,7 +20,7 @@ requirements:
     - depdigest
     - molsysmt
     - numpy
-    - pyunitwizard
+    - pyunitwizard >=0.29.3
     - smonitor
 test:
   imports:

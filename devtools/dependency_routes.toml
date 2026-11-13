@@ -13,7 +13,7 @@ path = "devtools/conda-envs/test_env.yaml"
 kind = "runtime"
 purpose = "test"
 channel_priority = "strict"
-narrowing_reason = "Compatible test bootstrap floors, reviewed Pytest Receptor 1.2.2, BindingMT PEP 639 build tooling and Vina-declared setuptools/wheel requirements; exact runtime replacements remain contextual source evidence."
+narrowing_reason = "Compatible test bootstrap floors, reviewed PyUnitWizard 0.29.3 sealed-quantity/cutoff/origin baseline, Pytest Receptor 1.2.2, BindingMT PEP 639 build tooling and Vina-declared setuptools/wheel requirements; exact runtime replacements remain contextual source evidence."
 reason = "Original scientific bootstrap and optional backend/integration tools; strict priority is enforced by both source workflows."
 
 [[environments]]
@@ -21,7 +21,7 @@ path = "devtools/conda-envs/e4_env.yaml"
 kind = "runtime"
 purpose = "test"
 channel_priority = "strict"
-narrowing_reason = "Bounded E4 receiving selects qualified support versions, RDKit 2026.03.1 and Conda notebook tooling. This internal scientific test context does not change public runtime floors."
+narrowing_reason = "Current source requires PyUnitWizard >=0.29.3; original E4 0.29.0 receipts retain their exact historical consumer/manifest. Other qualified E4 support versions, RDKit 2026.03.1 and Conda notebook tooling remain unchanged; this live declaration supplies no new scientific receiving."
 reason = "BindingMT #80 normal/pm-fs hosted receiving after the local resource stop; same immutable sibling routes as ordinary CI, serial Python 3.14 only."
 
 [[source_routes]]

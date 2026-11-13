@@ -7,6 +7,10 @@ This is the implementation admission for the first slice of
 information model remains revision 2; later numerical/owner profiles retain their
 own admission. The experimental record version is not the package/tag version.
 
+The subsequent [native contact profile](binding_interface_contacts.md) adds the
+separate calculation entry point, experimental 0.2 result and independent
+footprints. The original data-only 0.1 contract/evidence below remains preserved.
+
 ## Public workflow
 
 ```python
@@ -153,8 +157,7 @@ new installed package, hosted CI, provider/native scientific or platform claim.
 
 ## Next increment
 
-Close N0/C's actual contact call/default/index/resource contract using the received
-MolSysMT #734 offer, then deliver N1's public numerical contact/footprint route.
-N2 surface acceptance follows independently. T0/T1 and H/P inputs/receiving remain
+The contact portion of N0/C and the first N1 source route are now delivered under
+the contact-profile contract. Next close N2 surface acceptance independently. T0/T1 and H/P inputs/receiving remain
 pending under their recorded owners. #111 stays independent. No tag/release or
 closure of #112 is implied by this first source delivery.

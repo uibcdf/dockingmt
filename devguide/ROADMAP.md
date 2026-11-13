@@ -23,41 +23,42 @@ The roadmap defines direction and gates, not dates.
 
 ## Current operational plan
 
-Current work is the **#112 first data profile delivered; contact-specific N0/C next**. The next
+Current work is the **#112 native Cartesian contact source profile delivered; N2 surface admission next**. The next
 #111 implementation step remains P0a's local contract and the first B1/B2 slice;
 the interface discussion is not a global prerequisite. The delivered identity/
 scope increment and original accepted plan retain their separate owners.
 
-### BindingInterface first data profile implemented — 2026-11-12
+### Native Cartesian contacts delivered through MolSysMT — 2026-11-12
 
 [#112](pending_proposals/binding_interface_public_contract.md) now delivers
-`characterize_interface` and immutable `BindingInterface`: declaration and
-analysis-summary, original claim/context preservation, copy/reinterpretation,
-content integrity and exclusive save/read with explicit experimental 0.1 admission.
-The [implemented contract and evidence](binding_interface_data_core.md) own actual
-public spellings and limits. Work-plan revision 4/scientific-design revision 2
-retain native/foreign/consumer obligations and the final collaborator dispositions.
+`calculate_interface_contacts` -> `BindingInterface`, plus independent
+`ContactFootprint` persistence. The [contact-profile admission/evidence](binding_interface_contacts.md)
+records exact public calls, checked facts/caller preconditions, source/local maps,
+sealed units and the explicit dense candidate budget. MolSysMT performs selection,
+inspection, map normalization, contacts and distances. BindingMT composes the
+binding-domain result and preserves all atomic/group witnesses; it has no molecular
+selection parser, coordinate matcher or numerical contact/distance kernel.
 
-The final bounded source selection passes **158 cases per policy**, normal and
-pm/fs, including 50 interface and three fresh-process unit-bootstrap controls.
-Six actual public records also pass fresh reader receiving with molecular work
-forbidden and optional owners absent. PyUnitWizard bootstrap follows inspected
-MolSysMT and the provider guide, including retaining an already built Pint cache.
-The maintainer supplied `unyt`; its formerly missing backend controls now execute.
+Final source receiving passes **187 cases per unit policy**, normal and pm/fs,
+including **29 new native-contact controls** and the original data/core/bootstrap
+selection. Six actual positive/empty result/footprint records pass fresh-process
+readback with molecular operations forbidden and optional scientific providers
+unavailable. Native format 0.2 and footprint 0.1 remain experimental; declaration
+0.1 behavior is preserved. Raw distance-conversion roundoff has a separate explicit
+verification bound; owner contact membership/criterion is unchanged.
 
-Original exploratory failures remain preserved. Two summary-control defects are
-reproduced on unchanged `630f6d6` and owned by
-[#113](pending_bugs/redocking_summary_receiving_controls.md); frozen producer bytes
-remain intact. Applicable final documentation/resource gates run in the workspace
-and a fresh committed export. Receipts retain #50 custody under
-`.molsyssuite/interface-data-core-112-20261112/`. This source profile does not
-qualify a new installed/public package, hosted CI or molecular/native science.
+The tested molecular source is `ff25f120`, with actual historical native bytes
+`2dbcf13d`; neither their builder identity nor the different owner reference ABI
+is newly qualified. Exact source/file/native identities, original failures,
+resource outcomes and final documentation/export gates retain #50 custody under
+`.molsyssuite/interface-native-contacts-112-20261112/`. MolSysMT #739 owns the
+independent nullable group-setter defect; no downstream editing workaround is added.
 
-Next close contact-specific N0/C defaults, exact calls/maps and resource/refusal
-contracts using the received MolSysMT #734 offer, then implement N1. N2, T0/T1,
-H/P inputs/adoption and #111 remain independently owned. #195 coordinates actual
-shared agreements; #30 retains broader qualification. No automatic scientific
-full-suite restart or shared-prefix repair/migration is authorized by this increment.
+Next close N2's own radius/H/environment/probe/sampling/acceptance contract and
+compose MolSysMT SASA. T0/T1, H/P inputs/adoption, #111 and #30/#195 remain separately
+owned. This source milestone does not close #112 or qualify an installed/public
+package, hosted matrix, large-input performance or the whole scientific objective.
+No shared-prefix repair/build or automatic held-suite restart is authorized.
 
 ### BindingSite work plan reviewed — 2026-11-11
 
