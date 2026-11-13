@@ -206,10 +206,9 @@ qualification remain separate.
 
 H-R2 is source-received for the selected participant-level native contact/surface
 annotation. Regional H-R1 is conditional on its separate accepted workflow.
-First correct [BindingMT #114](pending_bugs/interface_json_object_order.md), the
-independently reproduced native JSON object-order dependency. The measured own
-writer/reader path above remains qualified; arbitrary external key sorting is
-not covered by that pass. Then receive remaining exact PeptideMT P inputs and
+The subsequent [BindingMT #114 correction](archive/interface_json_object_order.md)
+separately qualifies sorted/reversed objects and new ionic order records; see the
+compatibility checkpoint below. Receive remaining exact PeptideMT P inputs and
 execute their admitted public controls; record shared/consumer disposition under MolSysSuite #195 rather than
 claiming adoption from these local results. PyUnitWizard #156 and PharmacophoreMT
 #202 remain with their owners. PISA T0/T1 stays deferred optional interoperability;
@@ -219,3 +218,25 @@ After source receiving, PharmacophoreMT committed its previously preserved test/
 documentation work as 878864e. Its full diff from tested c2ad4e6 changes only tests/
 devguide, with identical runtime Python bytes. Both identities and their complete
 measured diff are retained; no runtime or imported version metadata was replaced.
+
+## JSON ordering and historical compatibility — 2026-11-13
+
+The [#114 resolution](archive/interface_json_object_order.md) extends the original
+own-writer receiving above to sorted/reversed JSON objects. New ionic collections
+use experimental record 0.5 with explicit `context.analysis_names`. Actual old
+0.4 I0/I1/I2 remain unchanged/readable; a saved construction supplies known order,
+while bare I0 reports `interaction_analysis_order is None`. New construction from
+unknown-order history must supply explicit `analysis_names`; that new choice is
+attributed to the caller rather than the old producer. Known order cannot be
+overridden. The actual old decoder refuses new 0.5 records before molecular work.
+The package's 0.1.0 source tag is unchanged.
+
+Contact/surface orientation and nested annotations use original ordered operation
+axes. The new 30-control module plus complete directly affected source modules
+report 229 passes/1 strict PyUnitWizard #156 xfail per policy, normal and pm/fs
+with radians. Actual core/native cold readers inspect 13 sorted records under
+unyt/pm-fs without recognition; original witnesses, lists, maps, quantities,
+producers, historical checks and native query files remain intact. See #114 for
+the selected population, exact source/native/fixture/resource identities and
+remaining qualification limits. The older counts/producers above remain the
+original receiving populations, not silently rewritten evidence.

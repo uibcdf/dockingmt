@@ -20,7 +20,7 @@ checkpoint under #30 / MolSysSuite #190. Retain that missing evidence rather
 than treating the skipped push as passing.
 
 Owner: [BindingMT #82](https://github.com/uibcdf/bindingmt/issues/82).
-Checkpoint date: **2026-11-12**; original machine handoff: **2026-11-06**.
+Checkpoint date: **2026-11-13**; original machine handoff: **2026-11-06**.
 The destination is another **machine**, using the
 same `uibcdf/bindingmt` repository, issue history and scientific producers.
 The original migration preserves repository/issue/scientific identities; the
@@ -29,6 +29,31 @@ separate source milestone is recorded below.
 Read [development/onboarding](DEVELOPMENT.md) for setup and code navigation.
 [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) owns the full product
 requirements; this file explains how to resume without recovering chat history.
+
+### Native record order and historical compatibility — 2026-11-13
+
+[BindingMT #114 is resolved](archive/interface_json_object_order.md): contact,
+footprint, surface and nested annotation readers retain explicit scientific axes
+when JSON objects are sorted or reversed. New ionic record **0.5** saves ordered
+analysis labels; actual 0.4 records remain unchanged/readable. Bare old I0 exposes
+unknown original order and requires a declared order for new construction.
+The package/source tag remains 0.1.0; these are experimental record versions.
+
+Final selected receiving: **229 passed, 1 strict xfailed per policy**, normal
+Pint and pm/fs with explicit radians, including **30 new order controls**. Both
+cold readers inspect 13 sorted records under unyt/pm-fs without molecular work;
+the actual old decoder refuses 0.5. The 105 unaffected redocking/result/helper
+cases from the earlier H-R2 selection are outside this rerun. PyUnitWizard #156
+still owns native unyt construction. Source/provider/native and resource receipts
+retain #50 custody in `.molsyssuite/interface-json-order-114-20261112/`.
+Later uncommitted PharmacophoreMT runtime work is preserved separately; these
+results qualify the recorded 296cc8f source, not subsequent owner edits.
+
+Next receive exact PeptideMT P inputs and execute their admitted public controls,
+with shared/consumer disposition under MolSysSuite #195. Regional H-R1 remains
+conditional and PISA T0/T1 deferred optional interoperability. #112 stays open;
+#111, #30 and installed/public/platform/hosted evidence retain their own gates.
+The shared-prefix/native-build/held-suite pause remains in force.
 
 ### H-R2: characterization evidence alongside native queries — 2026-11-12
 
@@ -50,8 +75,9 @@ readers pass. Runtime/source/native evidence and preserved concurrent provider
 work retain #50 custody under
 `.molsyssuite/interface-characterization-annotation-112-20261112/`.
 
-Next correct [native JSON object-order persistence #114](pending_bugs/interface_json_object_order.md),
-then receive exact PeptideMT P inputs and #195 disposition. H-R1 remains conditional.
+The subsequent [#114 resolution](archive/interface_json_object_order.md) qualifies
+sorted/reversed JSON separately; the current checkpoint above resumes P/#195.
+H-R1 remains conditional.
 PISA is deferred optional interoperability. #112/#111/#30 and installed/public/
 platform qualification keep their own gates; no prefix/build/held-suite restart.
 

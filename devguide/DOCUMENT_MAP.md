@@ -10,6 +10,7 @@ making a bounded contribution.
 
 | Document | Primary question |
 | --- | --- |
+| [archive/interface_json_object_order.md](archive/interface_json_object_order.md) | How do saved axes survive sorted/reversed JSON, what changes in ionic record 0.5, how are actual 0.4 records read, and what exact regression/cold-reader evidence qualifies #114? |
 | [binding_interface_characterization_annotation.md](binding_interface_characterization_annotation.md) | How do contact/surface observations accompany native query references without changing query constraints, and which source/units/contributors/readback facts are qualified? |
 | [binding_interface_native_interactions.md](binding_interface_native_interactions.md) | How do native ionic grouping, observed-participant pharmacophore construction and exact saved site references work, and which unyt/provider/consumer controls remain pending? |
 | [binding_interface_burial.md](binding_interface_burial.md) | Which fixed-input SASA/burial profile is implemented, how are both side losses/contributions retained, and what source, numerical and offline-read evidence qualifies it? |

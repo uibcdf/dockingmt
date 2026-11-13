@@ -109,11 +109,22 @@ retain positive/empty coverage, original occurrences, criteria and producer data
 uses PharmacophoreMT for an observed participant with explicit radius/duplicate
 policy. `with_pharmacophore(hypothesis=..., hypothesis_ref=..., participant=...)`
 creates a new associated record with exact original context/site/contributor links.
-Core format 0.4 remains experimental and does no asset lookup on read; full
+New ionic records use experimental **0.5**, with explicit ordered
+`context.analysis_names`; reading does no asset lookup. Full
 molecular analyses and hypotheses retain their owner-native persistence. Optional
 PharmacophoreMT is lazy through DepDigest and the uibcdf Conda route, not a hard
 startup dependency. Pint nm/pm receiving is finite; native unyt construction is
 pending PyUnitWizard #156, while unyt core saved reading is independently exercised.
+
+[Order/compatibility #114](archive/interface_json_object_order.md) keeps JSON
+object order irrelevant to contact/surface orientation and native analysis identity.
+`interaction_analysis_order` returns the saved explicit order, or `None` for an
+old 0.4 collection without original ordering evidence. Original 0.4 records stay
+readable without rewriting. `build_interface_pharmacophore(..., analysis_names=...)`
+requires that explicit exact-cover order for new construction from such an old
+collection and marks it caller supplied; saved known order cannot be overridden.
+An actual old 0.4 reader refuses 0.5. Contact 0.2/surface 0.3/footprint 0.1 retain
+their formats and recover orientation only from original ordered operation axes.
 
 The [H-R2 annotation profile](binding_interface_characterization_annotation.md)
 adds `with_characterizations(molecular_system, *, characterizations, participant,

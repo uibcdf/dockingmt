@@ -7,7 +7,9 @@ import numpy as np
 import pyunitwizard as puw
 
 from bindingmt._private.interface_burial import RADII_FIELD
+from bindingmt._private.interface_burial import participant_order as surface_order
 from bindingmt._private.interface_contacts import length_values
+from bindingmt._private.interface_contacts import participant_order as contact_order
 from bindingmt._private.interface_context import _geometry_digest, source_metadata
 from bindingmt._private.interface_records import _digest, _require
 from bindingmt._private.serialization import json_copy
@@ -23,7 +25,7 @@ def _context(record):
         if a['authority'] == 'molsysmt_native'
     ]
     _require(
-        record['format_version'] == '0.4' and bool(views),
+        record['format_version'] in ('0.4', '0.5') and bool(views),
         'characterizations',
         'Use the admitted native ionic recipient profile.',
     )
@@ -95,7 +97,11 @@ def _evidence(record, context, participant):
             'characterizations',
             'Inconsistent burial is inspectable but not admitted as usable annotation.',
         )
-    side = list(members).index(participant)
+    side = (
+        contact_order(calculation).index(participant)
+        if contact
+        else surface_order(calculation).index(participant)
+    )
     witnesses = []
     for position, (local, source) in enumerate(
         zip(target['local_atom_indices'], target['source_atom_indices'])
@@ -207,7 +213,12 @@ def validate_annotation(annotation, record):
 
 def _check_source(msm, molecular_system, calculation, context):
     members = calculation['participants']
-    axes = [p['local_atom_indices'] for p in members.values()]
+    names = (
+        surface_order(calculation)
+        if 'numerical' in calculation
+        else contact_order(calculation)
+    )
+    axes = [members[name]['local_atom_indices'] for name in names]
     _, groups, state, _ = source_metadata(
         msm,
         molecular_system,
@@ -218,7 +229,7 @@ def _check_source(msm, molecular_system, calculation, context):
         None,
     )
     _require(
-        groups == [p['group_indices'] for p in members.values()]
+        groups == [members[name]['group_indices'] for name in names]
         and state == context['chemical_state_index'],
         'molecular_system',
         'Current group/state correspondence differs from the characterization.',

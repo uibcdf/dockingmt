@@ -17,6 +17,7 @@ from bindingmt._private.interface_ionic import (
     finding_refs,
     quantity_record,
     quantity_values,
+    validate_analysis_order,
 )
 from bindingmt._private.interface_records import _digest, _require
 from bindingmt._private.serialization import json_copy
@@ -142,6 +143,7 @@ def _scope(
     geometry = _geometry_digest(msm, molecular_system, list(range(count)), frame)
     context = {
         'profile': DEFINITION,
+        'analysis_names': list(analysis_names),
         'source_id': source_id,
         'n_atoms': int(count),
         'n_structures': int(frames),
@@ -308,7 +310,7 @@ def characterize_interface_interactions(
         contexts={'native_interactions': context},
     )
     record = declared.to_dict()
-    record['format_version'] = '0.4'
+    record['format_version'] = '0.5'
     record['analyses'] = {
         name: {
             'owner': 'molsysmt',
@@ -329,7 +331,7 @@ def characterize_interface_interactions(
     return BindingInterface(record, experimental=True)
 
 
-def _recheck(interface, molecular_system):
+def _recheck(interface, molecular_system, *, analysis_names=None, require_order=False):
     _require(
         isinstance(interface, BindingInterface)
         and bool(interface.interaction_analyses),
@@ -338,15 +340,33 @@ def _recheck(interface, molecular_system):
     )
     views = interface.interaction_analyses
     context = next(iter(views.values()))['context']
+    order = interface.interaction_analysis_order
+    if analysis_names is not None:
+        if isinstance(analysis_names, tuple):
+            analysis_names = list(analysis_names)
+        validate_analysis_order(analysis_names, views)
+        _require(
+            order is None or analysis_names == order,
+            'analysis_names',
+            'An explicit request cannot replace a known saved analysis order.',
+        )
+        order = analysis_names
+    _require(
+        not require_order or order is not None,
+        'analysis_names',
+        'This old 0.4 record lacks saved order; explicitly supply analysis_names for new construction.',
+    )
     _, current, selected = _scope(
         molecular_system,
         participants=context['participants'],
         grouping=context['grouping'],
-        analysis_names=list(views),
+        analysis_names=sorted(views) if order is None else order,
         structure_index=context['structure_index'],
         source_id=context['source_id'],
         **context['limits'],
     )
+    if interface.to_dict()['format_version'] == '0.4':
+        next(iter(current.values()))['context'].pop('analysis_names')
     _require(
         current == views,
         'molecular_system',
@@ -378,12 +398,20 @@ def _hypothesis_digest(model):
 @arg_digest(config='bindingmt._argdigest')
 @dep_digest('pharmacophoremt')
 def build_interface_pharmacophore(
-    interface, molecular_system, *, participant, radius, duplicate_policy
+    interface,
+    molecular_system,
+    *,
+    participant,
+    radius,
+    duplicate_policy,
+    analysis_names=None,
 ):
     """Build an observed-participant hypothesis through PharmacophoreMT explicitly."""
     from pharmacophoremt.modeler import from_interaction_collection
 
-    context, selected = _recheck(interface, molecular_system)
+    context, selected = _recheck(
+        interface, molecular_system, analysis_names=analysis_names, require_order=True
+    )
     _require(
         participant in context['participants'],
         'participant',
@@ -407,6 +435,9 @@ def build_interface_pharmacophore(
         'participant': participant,
         'context_sha256': _digest(context),
         'analysis_names': list(selected),
+        'analysis_order_authority': 'saved'
+        if interface.interaction_analysis_order is not None
+        else 'caller_explicit',
         'radius': quantity_record(
             puw.ensure_quantity(
                 radius, dimensionality={'[L]': 1}, to_unit='nm', standardized=False
@@ -416,7 +447,9 @@ def build_interface_pharmacophore(
         'duplicate_policy': duplicate_policy,
         'native_sites_sha256': _hypothesis_digest(model),
     }
-    _recheck(interface, molecular_system)
+    _recheck(
+        interface, molecular_system, analysis_names=list(selected), require_order=True
+    )
     return model
 
 
@@ -440,7 +473,12 @@ def link_pharmacophore(interface, hypothesis, hypothesis_ref, participant):
         and marker.get('record_id') == interface.record_id
         and marker.get('participant') == participant
         and marker.get('context_sha256') == _digest(context)
-        and marker.get('analysis_names') == list(views),
+        and (
+            marker.get('analysis_names') == interface.interaction_analysis_order
+            if interface.interaction_analysis_order is not None
+            else marker.get('analysis_order_authority') == 'caller_explicit'
+            and validate_analysis_order(marker.get('analysis_names'), views) is not None
+        ),
         'hypothesis',
         'The hypothesis must retain this exact original characterization context.',
     )

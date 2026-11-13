@@ -7,7 +7,7 @@ import pyunitwizard as puw
 from pyunitwizard.record import QuantityRecord
 
 from bindingmt._private.interface_contacts import length_record, length_values
-from bindingmt._private.interface_records import _require
+from bindingmt._private.interface_records import _names_on_axes, _require
 
 DEFINITION = 'bindingmt.cartesian_sasa_burial@1'
 PROBE_FIELD = 'bindingmt.burial.probe_radius'
@@ -63,6 +63,22 @@ def _same(actual, expected, field):
         and np.allclose(actual, expected, rtol=VERIFICATION_RTOL, atol=0),
         field,
         'Stored areas disagree with their admitted arithmetic.',
+    )
+
+
+def participant_order(calculation):
+    """Read isolated-side order from explicit saved SASA operation axes."""
+    calls = calculation.get('calls')
+    _require(
+        isinstance(calls, list)
+        and len(calls) >= 2
+        and all(isinstance(c, Mapping) for c in calls[:2]),
+        'calls',
+        'Preserve the isolated public SASA operation axes.',
+    )
+    return _names_on_axes(
+        calculation.get('participants'),
+        [c.get('input_atom_indices') for c in calls[:2]],
     )
 
 
@@ -127,7 +143,8 @@ def validate_calculation(value):
         'Preserve two named sides.',
     )
     axes, originals, statuses, sums = [], [], {}, []
-    for name, side in participants.items():
+    for name in participant_order(value):
+        side = participants[name]
         _require(
             isinstance(name, str)
             and bool(name)

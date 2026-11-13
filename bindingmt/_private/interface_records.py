@@ -3,6 +3,7 @@
 import hashlib
 import json
 import os
+from collections.abc import Mapping
 from pathlib import Path
 
 from argdigest import arg_digest
@@ -22,6 +23,42 @@ def _digest(record):
 def _require(condition, field, reason):
     if not condition:
         raise ArgumentError(arg_name=field, reason=reason)
+
+
+def _names_on_axes(participants, axes):
+    """Resolve persisted labels on explicit ordered axes, never object-key order."""
+    _require(
+        isinstance(participants, Mapping)
+        and len(participants) == 2
+        and isinstance(axes, list)
+        and len(axes) == 2,
+        'participants',
+        'Preserve two named endpoints and explicit operation axes.',
+    )
+    names = []
+    for axis in axes:
+        _require(
+            isinstance(axis, list)
+            and bool(axis)
+            and all(type(i) is int and i >= 0 for i in axis),
+            'participants',
+            'Preserve explicit nonempty operation axes.',
+        )
+        matches = [
+            name
+            for name, member in participants.items()
+            if isinstance(member, Mapping) and member.get('local_atom_indices') == axis
+        ]
+        _require(
+            len(matches) == 1,
+            'participants',
+            'Each ordered operation axis must identify exactly one endpoint.',
+        )
+        names.append(matches[0])
+    _require(
+        len(set(names)) == 2, 'participants', 'Ordered endpoints must be distinct.'
+    )
+    return names
 
 
 class _InterfaceRecordIO:

@@ -82,7 +82,8 @@ strict grouped observation views and whole-charge-center checks to MolSysMT, and
 observed-participant hypotheses to optional PharmacophoreMT. `chemical_interfaces.py`
 composes their scientific outputs and qualified site/contributor references;
 `interface_ionic.py` validates only the portable binding view, not a new molecular
-codec. Complete observations stay in the full MolSys and H5MSM. Core 0.4 reading
+codec. Complete observations stay in the full MolSys and H5MSM. Experimental
+ionic 0.5 saves explicit analysis order; original 0.4 stays readable. Reading
 is independent of native recovery and optional scientific imports. PISA is now
 explicitly deferred interoperability, not the next automatic native increment.
 
@@ -94,6 +95,14 @@ admission. `with_characterizations` creates a new record and accesses no native
 query object/file; observed construction and caller-declared curated references
 retain separate authority. Query semantics and original native assets stay with
 their owners. No generic molecular matcher or persistence schema is duplicated.
+
+The [#114 persistence correction](archive/interface_json_object_order.md) treats
+label mappings as unordered. Contact/surface orientation comes from persisted
+public-operation axes, resolved bijectively against participant local axes.
+Ionic analysis order is an explicit list in new 0.5 records or actual older
+construction evidence; unknown historical order remains unknown. The optional
+new-construction choice is attributed to the caller. This is persisted reference
+bookkeeping, without molecular correspondence inference or a new numerical kernel.
 
 ## Current source map
 

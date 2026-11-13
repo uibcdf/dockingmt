@@ -6,7 +6,7 @@ import numpy as np
 import pyunitwizard as puw
 from pyunitwizard.record import QuantityRecord
 
-from bindingmt._private.interface_records import _require
+from bindingmt._private.interface_records import _names_on_axes, _require
 
 DEFINITION = 'bindingmt.cartesian_atomic_contacts@1'
 CUTOFF_FIELD = 'bindingmt.contacts.cutoff'
@@ -49,6 +49,24 @@ def length_values(record, field):
 
 def _indices(values):
     return isinstance(values, list) and all(type(v) is int and v >= 0 for v in values)
+
+
+def participant_order(calculation):
+    """Read the endpoint order from saved public contact-call axes."""
+    calls = calculation.get('calls')
+    _require(
+        isinstance(calls, list)
+        and bool(calls)
+        and isinstance(calls[0], Mapping)
+        and isinstance(calls[0].get('options'), Mapping),
+        'calls',
+        'Preserve the explicit contact operation axes.',
+    )
+    options = calls[0]['options']
+    return _names_on_axes(
+        calculation.get('participants'),
+        [options.get('selection'), options.get('selection_2')],
+    )
 
 
 def validate_calculation(value):
@@ -111,7 +129,9 @@ def validate_calculation(value):
     source_axes = []
     mappings = []
     groups = []
-    for name, participant in participants.items():
+    names = participant_order(value)
+    for name in names:
+        participant = participants[name]
         _require(
             isinstance(name, str) and bool(name), 'participants', 'Use named endpoints.'
         )
@@ -230,7 +250,7 @@ def validate_calculation(value):
             'calls',
             'Unsupported execution profile.',
         )
-        endpoints = list(participants.values())
+        endpoints = [participants[name] for name in names]
         _require(
             options.get('selection') == endpoints[0]['local_atom_indices']
             and options.get('selection_2') == endpoints[1]['local_atom_indices']
@@ -267,7 +287,7 @@ def validate_calculation(value):
 
 def footprint_payload(calculation, participant):
     """Reduce actual pair evidence, preserving canonical source/aligned local axes."""
-    names = list(calculation['participants'])
+    names = participant_order(calculation)
     _require(
         participant in names, 'participant', 'Select a calculated participant name.'
     )

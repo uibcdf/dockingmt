@@ -178,7 +178,7 @@ def _analysis(value, version):
         )
 
         _require(
-            version == '0.4'
+            version in ('0.4', '0.5')
             and value['owner'] == 'molsysmt'
             and value['outcome'] == 'completed'
             and 'native_observation' in value
@@ -245,9 +245,11 @@ def _analysis(value, version):
         expected_participants = {
             name: {
                 'source_id': calculation['context']['source_id'],
-                'source_atom_indices': member['source_atom_indices'],
+                'source_atom_indices': calculation['participants'][name][
+                    'source_atom_indices'
+                ],
             }
-            for name, member in calculation['participants'].items()
+            for name in validator.participant_order(calculation)
         }
         _require(
             original['participants'] == expected_participants
@@ -309,10 +311,10 @@ def _validate(record):
     _fields(record, required, set(), 'record')
     _require(
         record['format'] == _FORMAT
-        and record['format_version'] in (_VERSION, '0.2', '0.3', '0.4')
+        and record['format_version'] in (_VERSION, '0.2', '0.3', '0.4', '0.5')
         and record['experimental'] is True,
         'format_version',
-        'Explicit experimental bindingmt.binding_interface version 0.1, 0.2, 0.3 or 0.4 is required.',
+        'Explicit experimental bindingmt.binding_interface version 0.1, 0.2, 0.3, 0.4 or 0.5 is required.',
     )
     _require(_text(record['record_id']), 'record_id', 'Use a nonempty record identity.')
     _claim(
@@ -342,7 +344,7 @@ def _validate(record):
     )
     _require(
         native_count <= 1
-        and (record['format_version'] in ('0.1', '0.4') or native_count == 1),
+        and (record['format_version'] in ('0.1', '0.4', '0.5') or native_count == 1),
         'analyses',
         'Experimental 0.2/0.3 admits exactly one corresponding native calculation.',
     )
@@ -352,11 +354,11 @@ def _validate(record):
         if a['authority'] == 'molsysmt_native'
     }
     _require(
-        not observations or record['format_version'] == '0.4',
+        not observations or record['format_version'] in ('0.4', '0.5'),
         'analyses',
-        'Native observation views require experimental 0.4.',
+        'Native observation views require experimental 0.4/0.5.',
     )
-    if record['format_version'] == '0.4':
+    if record['format_version'] in ('0.4', '0.5'):
         _require(
             bool(observations)
             and len(observations) == len(record['analyses'])
@@ -371,6 +373,18 @@ def _validate(record):
             'analyses',
             'Preserve a named common-context native ionic collection.',
         )
+    if record['format_version'] == '0.4':
+        context = next(iter(observations.values()))['context']
+        _require(
+            'analysis_names' not in context,
+            'format_version',
+            'Explicit native analysis order requires experimental 0.5.',
+        )
+    if record['format_version'] == '0.5':
+        from bindingmt._private.interface_ionic import validate_analysis_order
+
+        context = next(iter(observations.values()))['context']
+        validate_analysis_order(context.get('analysis_names'), observations)
     _require(
         isinstance(record['site_refs'], list),
         'site_refs',
@@ -379,10 +393,14 @@ def _validate(record):
     for reference in record['site_refs']:
         _reference(reference, 'site_refs')
     if observations:
-        from bindingmt._private.interface_ionic import validate_site_reference
+        from bindingmt._private.interface_ionic import (
+            analysis_order,
+            validate_site_reference,
+        )
 
+        order = analysis_order(record)
         for reference in record['site_refs']:
-            validate_site_reference(reference, observations)
+            validate_site_reference(reference, observations, order)
     _extensions(record['extensions'])
     if 'bindingmt.interface_characterizations' in record['extensions']:
         from bindingmt._private.interface_annotations import KEY, validate_annotation
@@ -426,7 +444,7 @@ class BindingInterface(_InterfaceRecordIO):
         _require(
             experimental is True,
             'experimental',
-            'Opt in with experimental=True to admit interface format 0.1/0.2/0.3/0.4.',
+            'Opt in with experimental=True to admit interface format 0.1/0.2/0.3/0.4/0.5.',
         )
         _validate(record)
         snapshot = json_copy(record, 'record')
@@ -474,6 +492,13 @@ class BindingInterface(_InterfaceRecordIO):
             for name, value in self.analyses.items()
             if value['authority'] == 'molsysmt_native'
         }
+
+    @property
+    def interaction_analysis_order(self):
+        """Explicit saved native order, or None where an old record lacks evidence."""
+        from bindingmt._private.interface_ionic import analysis_order
+
+        return analysis_order(self.to_dict()) if self.interaction_analyses else None
 
     @arg_digest(config='bindingmt._argdigest')
     def with_pharmacophore(self, *, hypothesis, hypothesis_ref, participant):
@@ -534,15 +559,17 @@ class BindingInterface(_InterfaceRecordIO):
         """Named side/sum/half-sum quantities; signed raw values are never clamped."""
         import pyunitwizard as puw
 
-        from bindingmt._private.interface_burial import area_values
+        from bindingmt._private.interface_burial import area_values, participant_order
 
         calculation = self.surface_calculation
         if calculation is None:
             return None
         return {
             'sides': {
-                name: puw.quantity(area_values(side['side_loss']), 'nm**2')
-                for name, side in calculation['participants'].items()
+                name: puw.quantity(
+                    area_values(calculation['participants'][name]['side_loss']), 'nm**2'
+                )
+                for name in participant_order(calculation)
             },
             **{
                 name: puw.quantity(area_values(value), 'nm**2')
@@ -592,6 +619,7 @@ class BindingInterface(_InterfaceRecordIO):
             from bindingmt._private.interface_contacts import (
                 CUTOFF_FIELD,
                 length_values,
+                participant_order,
             )
 
             criterion = f'distance <= {float(length_values(calculation["cutoff"], CUTOFF_FIELD))!r} nm'
@@ -625,7 +653,7 @@ class BindingInterface(_InterfaceRecordIO):
             else [],
             'current_assessment': 'not_performed',
             'asset_access': 'not_checked',
-            'available_projections': list(calculation['participants'])
+            'available_projections': participant_order(calculation)
             if calculation
             else [],
             'native_contacts': {
@@ -648,6 +676,7 @@ class BindingInterface(_InterfaceRecordIO):
                 }
                 for label, entry in self.characterizations.items()
             },
+            'native_analysis_order': self.interaction_analysis_order,
             'native_interactions': {
                 name: {
                     'occurrence_count': len(view['observations']),

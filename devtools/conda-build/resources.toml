@@ -3273,3 +3273,28 @@ sha256 = "75ed110abb15515ed33806cdd03d9958eb231b3fbe2427dec0ffbc70aa287d1b"
 source = "tests/data/interface_native_handoff/cb6af716/zero_essential.json"
 target = "tests/data/interface_native_handoff/cb6af716/zero_essential.json"
 sha256 = "10c219e2edb0755b4c14c50958191564b8e55529701f894b984c01858792edd5"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_order_compat/original_04/I0.json"
+target = "tests/data/interface_order_compat/original_04/I0.json"
+sha256 = "76316bf0c5b54bcf5da42527d3969d81d3103d8f572720d855956d8c10a2a579"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_order_compat/original_04/I1.json"
+target = "tests/data/interface_order_compat/original_04/I1.json"
+sha256 = "1ade4c8d22d1c31688ada63b8ddbfeaccf503f67d5ab529931dd34ffd44fdd3b"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_order_compat/original_04/I2.json"
+target = "tests/data/interface_order_compat/original_04/I2.json"
+sha256 = "47bed9a768f0a8c59d35bd0567108eb3fe07b05f1c3b5ca9ed6626f9f8536124"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_order_compat/original_04/README.md"
+target = "tests/data/interface_order_compat/original_04/README.md"
+sha256 = "2427839121edb9d2b758b78ef72139b1a23bfc4ed62aa6aef3a695e536b8c709"
+
+[[installed_tests.support.files]]
+source = "tests/data/interface_order_compat/original_04/manifest.json"
+target = "tests/data/interface_order_compat/original_04/manifest.json"
+sha256 = "5ac3baebd53d4762040cba283607822e3578980a040ed94c88753a33879d220b"

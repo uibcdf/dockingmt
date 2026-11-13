@@ -1,0 +1,26 @@
+{
+  "scope": "Exact original API-emitted BindingMT 0.4 records; no regeneration, migration or producer rewrite",
+  "records": {
+    "I0.json": {
+      "sha256": "76316bf0c5b54bcf5da42527d3969d81d3103d8f572720d855956d8c10a2a579",
+      "receiving_source": "f55929de8970caaa6f95d34bee70d69dea06756e",
+      "original_task_path": ".molsyssuite/interface-native-chemistry-112-20261112/workflow-producer-02/positive-I0.json",
+      "record_id": "5958c942-c51d-4f55-a0d9-20393f129eeb",
+      "content_sha256": "ea584087e8cce37c68dc40724c0edf58370465274da16d9383ebb4860ea829e4"
+    },
+    "I1.json": {
+      "sha256": "1ade4c8d22d1c31688ada63b8ddbfeaccf503f67d5ab529931dd34ffd44fdd3b",
+      "receiving_source": "f55929de8970caaa6f95d34bee70d69dea06756e",
+      "original_task_path": ".molsyssuite/interface-native-chemistry-112-20261112/workflow-producer-02/positive-I1.json",
+      "record_id": "25cd0c88-d677-4408-bd23-52a2c9e453f4",
+      "content_sha256": "830b53e2660b024d67aee21c5b1afda3cf00683d60d39411726a49dfc8e74b41"
+    },
+    "I2.json": {
+      "sha256": "47bed9a768f0a8c59d35bd0567108eb3fe07b05f1c3b5ca9ed6626f9f8536124",
+      "receiving_source": "dad9cdf0ae8d710bf70c5deb70d554fcb5701f57",
+      "original_task_path": ".molsyssuite/interface-characterization-annotation-112-20261112/workflow-producer-01/positive-I2.json",
+      "record_id": "bfd93808-8a7b-454a-ab83-7ed9f74ab20a",
+      "content_sha256": "303b62207fc812ea6d1a7fa9e68ecf66521e3c1fe16d26ee24c5daec6d7e7430"
+    }
+  }
+}

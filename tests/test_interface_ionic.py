@@ -122,7 +122,7 @@ def test_real_native_detection_then_binding_scope_without_an_external_provider(
 
 def test_frozen_positive_empty_and_native_carrier_roundtrip(source, tmp_path):
     interface = characterize(source)
-    assert interface.to_dict()['format_version'] == '0.4'
+    assert interface.to_dict()['format_version'] == '0.5'
     assert interface.summary()['native_interactions']['ionic_empty'] == {
         'occurrence_count': 0,
         'original_count': 0,

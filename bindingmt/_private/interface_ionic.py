@@ -277,7 +277,51 @@ def validate_observation(value):
     json_copy(value, 'native_observation')
 
 
-def validate_site_reference(reference, observations):
+def validate_analysis_order(order, observations):
+    _require(
+        isinstance(order, list)
+        and bool(order)
+        and all(isinstance(name, str) for name in order)
+        and len(set(order)) == len(order)
+        and set(order) == set(observations),
+        'analysis_names',
+        'Preserve an explicit unique ordered exact cover of native analysis labels.',
+    )
+    return order
+
+
+def analysis_order(record):
+    """Use explicit saved lists; never infer old request order from object keys."""
+    observations = {
+        name: a['native_observation']
+        for name, a in record['analyses'].items()
+        if a['authority'] == 'molsysmt_native'
+    }
+    if not observations:
+        return None
+    context = next(iter(observations.values()))['context']
+    order = context.get('analysis_names')
+    if order is not None:
+        validate_analysis_order(order, observations)
+    for reference in record['site_refs']:
+        _require(
+            isinstance(reference, Mapping)
+            and isinstance(reference.get('construction'), Mapping),
+            'site_refs',
+            'Preserve an explicit native construction record.',
+        )
+        candidate = reference['construction'].get('analysis_names')
+        validate_analysis_order(candidate, observations)
+        _require(
+            order is None or candidate == order,
+            'analysis_names',
+            'Saved construction orders contradict each other or the native context.',
+        )
+        order = candidate
+    return order
+
+
+def validate_site_reference(reference, observations, order=None):
     _require(
         isinstance(reference, Mapping)
         and set(reference)
@@ -303,7 +347,7 @@ def validate_site_reference(reference, observations):
         and marker.get('participant') == reference['participant']
         and reference['participant'] in context['participants']
         and marker.get('context_sha256') == _digest(context)
-        and marker.get('analysis_names') == list(observations)
+        and marker.get('analysis_names') == order
         and marker.get('duplicate_policy') in ('same_participant', 'keep'),
         'site_refs',
         'Preserve the exact original construction context.',

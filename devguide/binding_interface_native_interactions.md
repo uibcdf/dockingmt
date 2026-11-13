@@ -232,3 +232,25 @@ The subsequent [H-R2 annotation profile](binding_interface_characterization_anno
 now supplies the finite before/after native contact/surface controls.
 PISA T0/T1 remains deferred optional work under the maintainer disposition;
 #111, complete H/P obligations and #30 retain separate gates. #112 stays open.
+
+## JSON ordering and historical compatibility — 2026-11-13
+
+The [#114 resolution](archive/interface_json_object_order.md) extends the original
+own-writer receiving above to sorted/reversed JSON objects. New ionic collections
+use experimental record 0.5 with explicit `context.analysis_names`. Actual old
+0.4 I0/I1/I2 remain unchanged/readable; a saved construction supplies known order,
+while bare I0 reports `interaction_analysis_order is None`. New construction from
+unknown-order history must supply explicit `analysis_names`; that new choice is
+attributed to the caller rather than the old producer. Known order cannot be
+overridden. The actual old decoder refuses new 0.5 records before molecular work.
+The package's 0.1.0 source tag is unchanged.
+
+Contact/surface orientation and nested annotations use original ordered operation
+axes. The new 30-control module plus complete directly affected source modules
+report 229 passes/1 strict PyUnitWizard #156 xfail per policy, normal and pm/fs
+with radians. Actual core/native cold readers inspect 13 sorted records under
+unyt/pm-fs without recognition; original witnesses, lists, maps, quantities,
+producers, historical checks and native query files remain intact. See #114 for
+the selected population, exact source/native/fixture/resource identities and
+remaining qualification limits. The older counts/producers above remain the
+original receiving populations, not silently rewritten evidence.

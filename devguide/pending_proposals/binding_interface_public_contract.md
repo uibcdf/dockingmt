@@ -426,8 +426,17 @@ the separate missing-angle-standard diagnostic improvement. Matching qualificati
 uses the explicit complete application policy including radians; the initial
 length/time-only attempt remains preserved rather than relabelled successful.
 
-[BindingMT #114](../pending_bugs/interface_json_object_order.md) now owns the
-independently reproduced contact-record dependency on JSON object key order.
-The actual own-writer H-R2 save/read pass does not qualify arbitrary JSON sorting.
-Correct this native persistence limit before widening cross-component record use;
-no MolSysMT workaround, frozen producer rewrite or silent closure is implied.
+[BindingMT #114 is source-resolved](../archive/interface_json_object_order.md).
+Its 30 new controls and complete directly affected modules report 229 passes/1
+strict PyUnitWizard #156 xfail per policy. Sorted/reversed objects retain explicit
+contact/surface axes, native analysis order and nested H-R2 evidence. New ionic
+record 0.5 declares analysis order; actual 0.4 records stay unchanged/readable,
+unknown old order stays unknown, and the actual old decoder refuses 0.5. Two cold
+readers inspect 13 sorted records under unyt/pm-fs without molecular work. The
+105 unrelated redocking/result/helper cases from the earlier H-R2 population are
+outside this rerun. No provider workaround or old producer rewrite occurs.
+Exact evidence and bounded workspace/fresh committed-export checks retain #50
+custody in `.molsyssuite/interface-json-order-114-20261112/`, review 2026-11-14.
+Next receive exact PeptideMT P inputs, execute admitted controls and record #195
+shared/consumer disposition; #112 remains open. This increment triggers no manual
+remote CI, tag or release and does not change installed/public/platform gates.

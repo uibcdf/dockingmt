@@ -1386,11 +1386,13 @@ The work order remains revision 4 after preserving revision 3 and
 rereading the full post/proposal. The [review record](binding_interface_plan_review.md)
 maps every proposal section, all catalogue families and independent controls,
 records the corrections and distinguishes planned/deferred/qualified scope.
-The selected H-R2 annotation is source-received. Next correct
-[BindingMT #114](pending_bugs/interface_json_object_order.md), the native JSON
-object-order dependency discovered during receiving. Preserve the own writer/
-reader pass separately from that unqualified transformation. Receive PyUnitWizard
-#156 for unyt native construction and complete P controls under the maintainer native-first disposition. T0/T1 stays deferred
+The selected H-R2 annotation is source-received. The subsequent
+[BindingMT #114 resolution](archive/interface_json_object_order.md) independently
+qualifies sorted/reversed JSON and actual old 0.4 compatibility, with explicit
+new ionic record 0.5 ordering. Its 229 passes/1 strict owner xfail per policy
+cover the directly affected modules; the prior 105 unrelated result/helper cases
+are outside this selection. Complete exact P controls and record #195 disposition.
+Receive PyUnitWizard #156 for unyt native construction under the maintainer native-first disposition. T0/T1 stays deferred
 optional interoperability. Remaining H/P inputs and later application choices
 retain the owners and gates in the
 [readiness ledger](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme).

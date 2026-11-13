@@ -352,3 +352,15 @@ are explicitly preserved while runtime content/heads/native bytes are checked.
 H-R1 is conditional; P and #195 shared adoption, #111/#30, broader semantics and
 installed/public/platform evidence keep their separate owners/gates. PISA remains
 deferred optional interoperability under the maintainer's native priority.
+
+## 11. Native persistence order receiving — 2026-11-13
+
+[#114 is resolved](archive/interface_json_object_order.md) with explicit saved
+contact/surface axes, new ionic order record 0.5, original 0.4 compatibility and
+no molecular matching on read. Thirty new controls plus the complete directly
+affected modules report 229 passes/1 strict owner xfail per policy. Two independent
+cold readers inspect 13 sorted records; an actual old reader refuses 0.5. The
+105 unrelated cases in the preceding H-R2 selection are not rerun. Exact scope,
+source/native/fixture identity and resource/export evidence remain in the owning
+report. The next accepted step is exact PeptideMT P receiving and #195 disposition;
+#156, conditional H-R1, #111/#30 and deferred PISA retain their owners/gates.
