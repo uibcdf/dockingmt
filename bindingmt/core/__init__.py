@@ -1,6 +1,7 @@
 """Core scientific data model and abstractions of BindingMT."""
 
 from .audit import audit_result, verify_captured_inputs
+from .interface import BindingInterface, characterize_interface
 from .outcome import DockingOutcome
 from .pose_audit import audit_pose
 from .problem import DockingProblem
@@ -9,6 +10,8 @@ from .results import DockingPose, DockingResult
 from .search_domain import BoxRegion, SearchDomain
 
 __all__ = [
+    'BindingInterface',
+    'characterize_interface',
     'DockingOutcome',
     'audit_pose',
     'audit_result',

@@ -1,42 +1,35 @@
 # BindingMT Development Guide
 
-### BindingInterface collaborator contributions recorded — 2026-11-12
+### BindingInterface first data profile implemented — 2026-11-12
 
-[#112](pending_proposals/binding_interface_public_contract.md) retains
-[work-plan revision 4](binding_interface_implementation_plan.md), scientific-design
-revision 2 and the full 15-section/17-entry/17-control review. The
-[final collaborator dispositions](binding_interface_plan_review.md#7-final-collaborator-round-and-recorded-contributions)
-record TopoMT, PharmacophoreMT and PeptideMT support for bounded implementation
-from exact source `a3d8476`, without another general design round. Their additions
-are now finite receiving cases: partial-region/full-feature correspondence and
-query-semantics preservation for H; native/complete derivatives, sequence/group
-maps and complete-calculation contribution views for P. Exact H/P inputs and
-export/result seams remain offered work, not delivered fixtures or runtime passes.
+[#112](pending_proposals/binding_interface_public_contract.md) now delivers
+`characterize_interface` and immutable `BindingInterface`: declaration and
+analysis-summary, original claim/context preservation, copy/reinterpretation,
+content integrity and exclusive save/read with explicit experimental 0.1 admission.
+The [implemented contract and evidence](binding_interface_data_core.md) own actual
+public spellings and limits. Work-plan revision 4/scientific-design revision 2
+retain native/foreign/consumer obligations and the final collaborator dispositions.
 
-Closed MolSysMT #734 publishes the restricted contact/distance/map and native
-bundled-element-vdW SASA offer at `04bf561`. Its owner reports 104 selected source
-passes, including 16 new controls; the
-[received contract and limits](binding_interface_implementation_plan.md#54-restricted-molsysmt-operation-offer-received)
-are the N0/C basis, not BindingMT defaults or client/native qualification.
-MolSysSuite #195 remains partial for finite agreements and actual adoption.
-TopoMT #197 retains contribution review and #198 independent regional chemistry;
-optional enrichment does not block native contacts/surfaces.
+The final bounded source selection passes **158 cases per policy**, normal and
+pm/fs, including 50 interface and three fresh-process unit-bootstrap controls.
+Six actual public records also pass fresh reader receiving with molecular work
+forbidden and optional owners absent. PyUnitWizard bootstrap follows inspected
+MolSysMT and the provider guide, including retaining an already built Pint cache.
+The maintainer supplied `unyt`; its formerly missing backend controls now execute.
 
-The [readiness ledger](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme)
-finds the agreed route sufficient to proceed. Next close local P0a and produce
-the first D1/D2 declaration/analysis-summary and persistence slice, then close the
-contact portion of N0/C and deliver N1, followed by N2 under its own surface
-acceptance. PISA T0/T1 and H/P obligations progress independently; admitted cases
-close with actual evidence or explicit maintainer rescoping/follow-up. Later
-catalogue families and #111 keep their own admission triggers and work routes.
+Original exploratory failures remain preserved. Two summary-control defects are
+reproduced on unchanged `630f6d6` and owned by
+[#113](pending_bugs/redocking_summary_receiving_controls.md); frozen producer bytes
+remain intact. Applicable final documentation/resource gates run in the workspace
+and a fresh committed export. Receipts retain #50 custody under
+`.molsyssuite/interface-data-core-112-20261112/`. This source profile does not
+qualify a new installed/public package, hosted CI or molecular/native science.
 
-Documentation-only checks cover Ruff, formatting, indexes, proposal/reference
-inspection, shared resources and the Conda contract in the workspace and a fresh
-committed export. Exact input/check/publication receipts retain #50 custody under
-`.molsyssuite/binding-interface-collaborator-disposition-112-20261112/`. No runtime,
-scientific or exact-head hosted pass is claimed. The shared-prefix/full-suite hold
-remains in force; no environment migration, package/tag/release or manual remote
-CI is part of this checkpoint.
+Next close contact-specific N0/C defaults, exact calls/maps and resource/refusal
+contracts using the received MolSysMT #734 offer, then implement N1. N2, T0/T1,
+H/P inputs/adoption and #111 remain independently owned. #195 coordinates actual
+shared agreements; #30 retains broader qualification. No automatic scientific
+full-suite restart or shared-prefix repair/migration is authorized by this increment.
 
 ### BindingSite work plan reviewed — 2026-11-11
 

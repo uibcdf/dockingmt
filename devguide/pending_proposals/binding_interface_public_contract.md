@@ -1,12 +1,12 @@
 ---
-summary: Record final collaborator support, finite H/P receiving cases, the restricted MolSysMT operation offer and an actionable readiness ledger within BindingInterface work-plan revision 4.
+summary: Deliver the first experimental BindingInterface declaration, analysis-summary and immutable persistence profile; native contact admission remains next.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
 closed:
-verification: inspected
+verification: reproduced
 area: [architecture, public-api, interoperability]
-guard:
+guard: tests/test_binding_interface.py
 normative:
 blocked_by: []
 supersedes: []
@@ -63,6 +63,17 @@ The working result `BindingInterface` composes a binding question, participants/
 grouping, contexts, available owner observations, site/footprint relationships,
 applicability and interpretation. This is a proposed scientific result, not a
 new canonical topographic registry, accepted class or implementation commission.
+
+## First source implementation
+
+The maintainer authorizes development. The
+[first data-profile contract](../binding_interface_data_core.md) closes P0a for
+D1/D2 and records actual `characterize_interface`/`BindingInterface` behavior:
+caller-declared analysis states, detached immutable records, preserved original
+claim/context, copy/revision, explicit experimental 0.1 admission, content digest
+and exclusive save/read. Actual emitted records and fresh reader evidence now
+exist; numerical/typed-owner/consumer receiving remains pending. Work-plan revision
+4 and scientific-design revision 2 retain their scope.
 
 ## How
 
@@ -173,8 +184,9 @@ the actual call/source/native closure, application criterion/defaults, supported
 facts/preconditions and client evidence. MolSysSuite #195 remains partial for
 agreements and actual adoption; fixture parameters are not application defaults.
 
-All examples are authored design material. There is no new measured quantity,
-API-emitted record, native hypothesis or molecular calculation. Missing required
+The earlier design examples remain authored review material. The first data
+profile now supplies API-emitted records; it produces no new physical quantity,
+native hypothesis or molecular calculation. Missing required
 proof, contradiction and unsupported capability do not become successful empty
 measurements. No universal receipt, mutable-source observer or scientific quality
 score is assumed.
@@ -212,13 +224,10 @@ are not completed cross-owner adoption.
 
 ## Scope and exclusions
 
-This increment records the final collaborator responses, finite H/P acceptance
-details, available molecular owner offer and readiness ledger within work-plan
-revision 4, with synchronized navigation/current checkpoints. Existing public
-design/plan posts and original owner contributions remain intact; this increment
-is published as repository documentation, without a new issue comment or closure.
-It does not freeze a class/shared schema or implement runtime APIs, adapters,
-calculations, scientific fixtures or tests.
+This increment implements only the first P0a/D1/D2 data profile and its public
+exports, focused tests and documentation. It preserves existing design/plan posts
+and original owner contributions. It introduces no native calculation, foreign
+adapter, molecular preparation, shared schema freeze or new scientific input.
 The candidate PISA route is a proposed receiving input, not executed integration.
 No sibling worktree, synchronized guide, installed environment, package/tag/release
 or manual remote CI changes are commissioned. Preserve the existing scientific
@@ -255,17 +264,11 @@ full-suite resource hold and human untracked migration files.
   and initial-plan receipts retain their original scope. No runtime/scientific
   or exact-head hosted pass is implied.
 
-Next close P0a and deliver the first real D1/D2 declaration/analysis-summary slice.
-Use the published #734 offer to close the contact portion of N0/C for N1, then
-the surface facts for N2, before their actual implementation/receiving. Coordinate
-finite application agreements and client evidence through #195, preserve the
-supplied PISA branch and receive H/P inputs independently. Record accepted/deferred
-decisions with owner/revisit conditions; no universal receipt or all-consumer
-prerequisite blocks the core. The independent #111 route remains at P0a and is
-not globally blocked by this discussion. Real guards are added only when the
-corresponding runtime operations and meaningful tests exist. Selected obligations
-close with actual evidence or explicit maintainer rescoping, never favorable
-review alone. Later catalogue families retain their separate admission triggers.
+Next close contact-specific N0/C application/default/call/resource facts using
+the received MolSysMT #734 offer, then deliver N1 and its actual footprint
+persistence. N2, T0/T1, H/P inputs and #111 remain separately owned. The first
+source profile does not close #112. The data-profile contract records executed
+normal/pm-fs gates and the independently reproduced pre-existing #113 failures.
 
 ## Documentation evidence and custody
 
@@ -323,3 +326,18 @@ retained under
 same #50 custody review on 2026-11-14. The unchanged legacy documentation-only
 route retains its recorded scope and the #82/#175 shared-prefix pause. No native
 client/scientific run or exact-head hosted evidence is produced by these checks.
+
+The first data-core implementation, read-only environment preflight, public
+emission/fresh reader, original failures/baseline witnesses and final bounded
+source/doc/resource receipts are retained under
+`.molsyssuite/interface-data-core-112-20261112/` for #50 review 2026-11-14.
+See the data-profile contract for exact counts/limits. No new installed or
+exact-head hosted acceptance is implied; original missing-`unyt` attempts and the subsequent maintainer installation remain
+visible; #113 keeps the independently reproduced summary defects.
+
+The maintainer-directed unit integration review compares MolSysMT/MolSysViewer
+and the synchronized PyUnitWizard guide. BindingMT adopts the already-loaded-Pint
+cache guard and receives three fresh-process policy controls. The independent
+unyt fast-track ndarray defect is reported to
+[PyUnitWizard #155](https://github.com/uibcdf/pyunitwizard/issues/155); this data
+profile uses no such calculation and introduces no provider workaround.

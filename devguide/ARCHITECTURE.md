@@ -48,48 +48,24 @@ The [implementation/work plan](binding_site_implementation_plan.md) records the
 authorized next increments and their admission/receiving dependencies. It is
 planning evidence; the source map below still contains no BindingSite runtime.
 
-## Binding-interface characterization study (draft)
+## Binding-interface characterization
 
-[#112](pending_proposals/binding_interface_public_contract.md) has a
-[second detailed design](binding_interface_design.md) for a binding-domain result
-composing owner associations/observations, site hypotheses and application
-receipts. It distinguishes participants/grouping, exact contexts and immutable
-evidence without a second molecular or topographic registry. Revision 2 makes
-analysis-level outcomes, public assurance/fact checks, the saved PISA footprint
-and effective grouped native projections explicit. Its symbolic records and API
-sketches are review proposals. No BindingInterface runtime,
-shared schema freeze or consumer receiving is implemented by this document.
-The useful #111 core remains independent unless a concrete incompatibility arises.
+[#112](pending_proposals/binding_interface_public_contract.md) now implements the
+[first data profile](binding_interface_data_core.md) in `core/interface.py`.
+Root exports `characterize_interface` and immutable `BindingInterface` compose
+caller-declared questions/participants and analysis-level evidence. Original claim
+scope, distinct analysis outcomes, safe persistence and revisions are explicit.
+The experimental 0.1 format requires receiver opt-in and preserves content integrity.
 
-The [implementation/work plan](binding_interface_implementation_plan.md) evaluates
-the favorable second-round responses and records the first data/analysis core,
-explicit optional PISA intake, qualified contact footprints and independent
-native/consumer receiving. Proposed local contracts, owner facts and real
-executed evidence remain separate; the source map still has no runtime
-BindingInterface implementation from this planning increment.
-Work-plan revision 2 additionally requires the derived footprint's own persistence,
-historical versus current-use checks, nonempty-overlap aggregation coverage and
-canonical source membership with aligned local maps. These are acceptance
-requirements, with runtime qualification still pending.
-
-The native extension in reviewed work-plan revision 4 makes explicit contact calculation
-the first ordinary numerical route, followed by SASA/burial through public
-MolSysMT tools. BindingMT owns its domain catalogue and composed results; TopoMT
-enrichment and PISA receiving remain optional branches. The
-[two-pass plan review](binding_interface_plan_review.md) records complete source
-coverage and the fourth-revision corrections. No runtime is delivered.
-The later TopoMT #198 clarification adds optional regional physicochemistry on
-TopoMT's own supports, independent of a binding partner. BindingMT retains its
-association-specific questions and can reuse those observations or directly
-compose MolSysMT; chemical descriptor names do not assign exclusive ownership.
-
-The [final collaborator disposition and readiness ledger](binding_interface_plan_review.md#7-final-collaborator-round-and-recorded-contributions)
-record support for proceeding within revision 4, bounded pharmacophoric/peptide
-receiving refinements and the restricted molecular offer now published under
-closed MolSysMT #734. Local API/scientific choices, exact H/P inputs and actual
-client result/persistence qualification remain admission work. The agreed route
-is sufficient to start P0a/D1/D2, then native N1/N2 under their own prerequisites;
-no runtime or further general design revision is delivered by this checkpoint.
+The [second scientific design](binding_interface_design.md),
+[work-plan revision 4](binding_interface_implementation_plan.md) and
+[collaborator dispositions/readiness](binding_interface_plan_review.md) own the
+broader native/foreign/consumer programme. Numerical contacts/surfaces, molecular
+correspondence, typed PISA/H intake and footprint projection remain pending; the
+data result preserves declarations without running those operations. MolSysMT
+owns generic molecular tools; TopoMT #198 owns independent regional chemistry.
+Optional specialist enrichment does not block the next native contact profile.
+#111 remains independent.
 
 ## Current source map
 
@@ -101,6 +77,7 @@ authoritative when this navigation map changes.
 | Area | Current source | Responsibility |
 | --- | --- | --- |
 | Scientific declarations and records | [`core/problem.py`](../bindingmt/core/problem.py), [`protocol.py`](../bindingmt/core/protocol.py), [`search_domain.py`](../bindingmt/core/search_domain.py), [`results.py`](../bindingmt/core/results.py), [`outcome.py`](../bindingmt/core/outcome.py) | Problems, resolved Vina protocol, physical search domains, poses/results and per-item batch outcomes. |
+| Interface data core | [`core/interface.py`](../bindingmt/core/interface.py) | Experimental declarations/analysis summaries, immutable identity/reinterpretation and exclusive core JSON persistence; no molecular or foreign recovery. |
 | Record admission and provenance | [`core/audit.py`](../bindingmt/core/audit.py), [`pose_audit.py`](../bindingmt/core/pose_audit.py), [`_scores.py`](../bindingmt/core/_scores.py), [`_private/artifacts.py`](../bindingmt/_private/artifacts.py) | Internal consistency, named score/ranking evidence and captured backend-input identity. These do not certify chemistry or reconstruct missing molecular sources. |
 | Public orchestration | [`dock.py`](../bindingmt/dock.py), [`score.py`](../bindingmt/score.py), [`batch.py`](../bindingmt/batch.py), [`evaluation.py`](../bindingmt/evaluation.py), [`aggregation.py`](../bindingmt/aggregation.py) | Docking/fixed scoring, serial prepared-problem execution and explicitly delimited reference-recovery evaluation/aggregation. |
 | Existing interaction association | [`interactions.py`](../bindingmt/interactions.py) | `bind_interactions`/`PoseInteractions` bind one explicitly selected pose to an admitted one-frame carrier. Source controls and [bounded installed normal/pm-fs receiving](validation/e4_pose_binding_installed_2026-11-07.md) pass, preserving full original results/provider analyses and full-carrier persistence. [Empty-source native unevaluated coverage](validation/e4_native_unevaluated_2026-11-07.md) also passes. Positive-source persistence awaits [client receiving of the published #642 source fix](validation/e4_evidence_catalog_fix_2026-11-07.md); exact native construction is held after an owned-memory stop. The [view route](validation/pose_interaction_view.md) has separate source/DOM controls and [passing exact-candidate receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md): eight real-provider View/native cells normal/pm-fs plus independent record checks. Actual canvas/public delivery remain unproven. |

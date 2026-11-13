@@ -1,11 +1,27 @@
 """Admission policy shared by BindingMT's existing scientific record readers."""
 
 from collections.abc import Mapping
+from math import isfinite
 from typing import Any
 
 from bindingmt._private.smonitor import ArgumentError
 
 SCHEMA_VERSION = '1.0'
+
+
+def json_copy(value, argument):
+    """Detach finite JSON without coercing keys, arrays or arbitrary objects."""
+    if isinstance(value, Mapping):
+        if any(not isinstance(key, str) for key in value):
+            raise ArgumentError(arg_name=argument, reason='JSON keys must be strings.')
+        return {key: json_copy(item, argument) for key, item in value.items()}
+    if isinstance(value, list):
+        return [json_copy(item, argument) for item in value]
+    if value is None or type(value) in (str, bool, int):
+        return value
+    if type(value) is float and isfinite(value):
+        return value
+    raise ArgumentError(arg_name=argument, reason='Supply finite JSON values.')
 
 
 def validate_schema_version(record: Any, record_type: str) -> None:

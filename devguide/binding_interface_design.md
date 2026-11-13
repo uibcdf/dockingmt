@@ -1,7 +1,10 @@
 # Binding-interface characterization: second design for review
 
 Revision **2**, 2026-11-12. Owner: [BindingMT #112](https://github.com/uibcdf/bindingmt/issues/112).
-Status: **review draft; no runtime implementation or frozen schema**.
+Status: **scientific design; first data-only runtime profile delivered separately**.
+The [implemented first data profile](binding_interface_data_core.md) owns the actual
+public spellings and experimental persistence. Numerical and typed-provider
+sketches below remain proposals, without a stable schema freeze.
 The maintainer requests a corrected second design after the three component
 follow-ups, ready for another review round. This is the maintained detailed
 proposal; the issue carries the first delivery and owner responses.

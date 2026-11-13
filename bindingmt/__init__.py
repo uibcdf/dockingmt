@@ -21,6 +21,7 @@ ensure_configured(PACKAGE_ROOT)
 from . import exceptions
 
 from .core import (
+    BindingInterface,
     BoxRegion,
     DockingPose,
     DockingProblem,
@@ -31,6 +32,7 @@ from .core import (
     VinaProtocol,
     audit_result,
     audit_pose,
+    characterize_interface,
     verify_captured_inputs,
 )
 from .dock import dock
@@ -52,6 +54,8 @@ from .preparation import (
 from .view import show, view
 
 __all__ = [
+    'BindingInterface',
+    'characterize_interface',
     'exceptions',
     'PoseInteractions',
     'bind_interactions',

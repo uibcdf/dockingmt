@@ -638,6 +638,19 @@ def digest_coordinate_tolerance(coordinate_tolerance, caller=None):
 
 
 ARGUMENT_DIGESTERS = {
+    'question': _mapping('question'),
+    'participants': _mapping('participants'),
+    'grouping': _provider_owned,
+    'analyses': _optional_mapping('analyses'),
+    'contexts': _optional_mapping('contexts'),
+    'site_refs': _provider_owned,
+    'claim_status': _optional_string('claim_status'),
+    'assurance_scope': _optional_string('assurance_scope'),
+    'context_policy': _optional_string('context_policy'),
+    'extensions': _optional_mapping('extensions'),
+    'experimental': _boolean('experimental'),
+    'path': _provider_owned,
+    'reason': _optional_string('reason'),
     'unit': digest_backend_unit,
     'index': digest_outcome_index,
     'error': digest_outcome_error,

@@ -2,7 +2,7 @@
 
 Owner: [BindingMT #112](https://github.com/uibcdf/bindingmt/issues/112).
 Recorded and reviewed: 2026-11-12. Work-plan revision **4**.
-Status: **final collaborator round supported; local admission and runtime pending**.
+Status: **P0a/D1/D2 first data profile implemented; N0/C contact admission next**.
 This plan turns the [reviewed second design](binding_interface_design.md) into
 bounded, independently useful implementation and receiving increments. It is
 the interface counterpart of the [BindingSite work plan](binding_site_implementation_plan.md),
@@ -30,6 +30,10 @@ are recorded below. Their acceptance details remain within revision 4; they
 request no further general design iteration. The
 [readiness assessment](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme)
 identifies what can start and which finite decisions/inputs still precede use.
+
+The [first implemented data profile](binding_interface_data_core.md) closes P0a
+for declaration/persistence, with actual public APIs and bounded source receiving.
+The remaining numerical, typed-provider and consumer profiles keep their gates.
 
 ## 1. Assessment of the second review and starting evidence
 
@@ -149,10 +153,11 @@ Preserve the design's ownership and scientific distinctions:
 
 ## 3. First-profile decisions to record
 
-These are proposed local resolutions, not delivered public callables. Close the
-decisions needed by the first data slice before construction; actual emitted-
-record tests and native receiving follow implementation. Do not create a circular
-entry gate requiring outputs from an API that has not been written.
+The [data-profile admission](binding_interface_data_core.md#p0a-decisions-closed-for-this-slice)
+now fixes the first F1-F6 spellings/defaults and declaration-only identity/format
+contract. The table retains the programme decisions: foreign adapters, footprint
+results, quantities and native execution still need their own admission. Do not
+infer those later capabilities from the implemented first slice.
 
 | Decision | Proposed first resolution | Closure/evidence owner |
 | --- | --- | --- |
@@ -224,11 +229,11 @@ make every later consumer profile a prerequisite for a useful data/native checkp
 
 | Increment | Current state | Completion boundary |
 | --- | --- | --- |
-| P0a | Local decisions next | Actual minimal question/intake/identity/version/default/refusal contract recorded before the first slice. |
+| P0a | Closed for the first declaration/persistence profile | Actual question/intake/identity/version/default/refusal contract is in the data-profile admission. Later profiles close their own choices. |
 | P0m/P0s | Restricted MolSysMT #734 offer received; client/shared receiving pending | Bind the supplied facts/preconditions to actual selected local profiles and record #195 agreements/adoption. |
 | P0t | Fixed artifacts and expectations supplied | Confirm input hashes, carrier/group/participant interpretation and exact first public contract. Not executed client receiving. |
 | P0h/P0p | Case outlines received; exact inputs/seams pending | Receive/admit the H and P specifications and independently expected outputs; do not invent fixtures or scientific choices from favorable review. |
-| D1/D2 | Runtime pending | Useful public declarations/summary and faithful immutable safe persistence. |
+| D1/D2 | First experimental data profile implemented and source-tested | Actual declaration/summary, copy/reinterpretation, content integrity and exclusive save/read. No molecular/foreign adapter receiving is inferred. |
 | C | Pending operation-specific facts | Required checks, map/state/frame scope, lifetime and refusal implemented and tested. |
 | N0/N1 | First ordinary native numerical milestone planned | Admitted public calculation, exact contacts/atom-residue footprints, independent reference controls and saved replay without PISA/TopoMT. |
 | N2 | Next numerical milestone planned | Public owner SASA composition, both side losses and mapped contributions, convergence and honest readback/refusal. |
@@ -1329,10 +1334,11 @@ This plan triggers no manual remote CI, tag or release.
 
 ## 17. Next actionable checkpoint
 
-Close P0a's minimal local question/intake/identity/version/default/refusal decisions
-and implement the first complete D1/D2 declaration/analysis-summary round trip
-when implementation proceeds. It can advance independently of future native
-profiles and unresolved molecular facts not required by that data slice.
+The first P0a/D1/D2 data profile is delivered through `characterize_interface`
+and immutable `BindingInterface`, with experimental 0.1 records and explicit
+receiver opt-in. Its [contract/evidence](binding_interface_data_core.md) records
+actual declared outcomes, summary, copy/revision, integrity and exclusive save/read.
+This source increment implements no numerical calculation or typed owner recovery.
 
 Close the contact portion of N0 and C, record finite native agreements in
 MolSysSuite #195, then deliver N1 as the first ordinary native numerical route.
@@ -1347,16 +1353,14 @@ controls and promised H/P inputs on their independent owning branches. No source
 inspection, owner expectation or document marks those increments complete.
 Initial BindingSite work and TopoMT's current synthetic sequence remain independent.
 
-The delivered checkpoint is work-plan revision 4 after preserving revision 3 and
+The work order remains revision 4 after preserving revision 3 and
 rereading the full post/proposal. The [review record](binding_interface_plan_review.md)
 maps every proposal section, all catalogue families and independent controls,
 records the corrections and distinguishes planned/deferred/qualified scope.
-Next close actual P0a and operation-specific admission/input decisions, or deliver
-an implemented/tested slice when runtime work proceeds. No planning checklist
-substitutes for owner agreement, execution, source/native receiving or adoption.
-The final collaborator dispositions and H/P refinements are now recorded within
-revision 4. The provider offer is published; concrete local defaults, exact H/P
-inputs and execution evidence remain planned work with the owners and gates in
-the [readiness ledger](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme).
-Start with local P0a and the first D1/D2 slice, without another general design
-round or an invented prerequisite that every later profile be complete.
+Next close contact-specific N0/C choices and implement N1. Exact H/P inputs,
+T0/T1 and later application choices remain with the owners and gates in the
+[readiness ledger](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme).
+No source-only profile closes provider adoption, hosted/platform acceptance or
+all of #112. Preserve the separate exploratory failures under #113 and the
+original missing-`unyt` attempts (resolved by the maintainer installation); no shared-prefix repair is authorized
+by this increment.

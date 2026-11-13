@@ -6,7 +6,6 @@ import hashlib
 import json
 from collections.abc import Mapping
 from copy import deepcopy
-from math import isfinite
 from numbers import Integral
 from typing import Any
 
@@ -15,6 +14,7 @@ import pyunitwizard as puw
 import smonitor
 from argdigest import arg_digest
 
+from bindingmt._private.serialization import json_copy as _json_copy
 from bindingmt._private.smonitor import ArgumentError
 from bindingmt.core.results import (
     DockingPose,
@@ -22,21 +22,6 @@ from bindingmt.core.results import (
     _atom_key,
     _molecular_atom_keys,
 )
-
-
-def _json_copy(value, argument):
-    """Require finite JSON without coercing keys, arrays or arbitrary objects."""
-    if isinstance(value, Mapping):
-        if any(not isinstance(key, str) for key in value):
-            raise ArgumentError(arg_name=argument, reason='JSON keys must be strings.')
-        return {key: _json_copy(item, argument) for key, item in value.items()}
-    if isinstance(value, list):
-        return [_json_copy(item, argument) for item in value]
-    if value is None or type(value) in (str, bool, int):
-        return value
-    if type(value) is float and isfinite(value):
-        return value
-    raise ArgumentError(arg_name=argument, reason='Supply finite JSON values.')
 
 
 def _coordinates_record(coordinates, argument):

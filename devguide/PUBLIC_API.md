@@ -4,13 +4,15 @@ Canonical import and distribution: `bindingmt`. Component base diagnostics are
 `BindingMTException` and `BindingMTViewerError`; viewer imports use
 `molsysviewer_bindingmt`. [Scientific scope](SCIENTIFIC_SCOPE.md) distinguishes
 these implemented operations from accepted future complex prediction, refinement,
-binding free-energy calculation/prediction and interface characterization. Future
+binding free-energy calculation/prediction and numerical interface characterization.
+The first interface declaration/persistence profile is implemented separately below. Future
 operations are not advertised as implemented exports by the naming transition.
 
 ## Choose an operation
 
 | Need | Public route | Work performed |
 | --- | --- | --- |
+| Declare/preserve an interface question | `characterize_interface` → `BindingInterface` | Compose caller-declared participants/analysis outcomes; inspect/copy/revise and exclusively save/read experimental core JSON. No molecular or provider execution. |
 | Read saved observations | `DockingPose.from_dict`, `DockingResult.from_dict`, `DockingOutcome.from_dict` | Validate and restore records without reconstructing a molecular problem or running an engine. |
 | Inspect available evidence | `audit_pose`, `audit_result`, `verify_captured_inputs` | Cross-check supplied mappings/captured bytes offline. An internally consistent record is not authenticated provenance or chemical validation. |
 | Change a result's order | `DockingResult.rank_by` | Stable ordering of existing scores, with ranking history; no new score or search. |
@@ -64,6 +66,19 @@ see [the source correction](validation/audit_resource_errors_2026-11-09.md).
 `verify_captured_inputs` takes the **artifacts
 mapping**, such as `record['provenance']['backend_artifacts']`, rather than the
 whole result. Missing captures remain missing evidence.
+
+## Interface declarations and experimental persistence
+
+The [implemented first data profile](binding_interface_data_core.md) documents
+required question/participants/grouping, original analysis outcomes/authority,
+immutable identity/parents and the exact versioned record. `summary()` resolves
+no assets or molecular correspondence. `copy()` preserves identity;
+`revise(question=..., reason=...)` creates an interpretation with a new identity
+while retaining original analysis claims. `save(path)` exclusively creates;
+`BindingInterface.read(path, experimental=True)` and `from_dict` require explicit
+experimental opt-in and validate content integrity. Stronger assurances, typed
+provider carriers, physical observable fields and projections remain unsupported.
+The format version 0.1 is separate from the package's 0.1.0 tag.
 
 ## Units, positions and ownership
 

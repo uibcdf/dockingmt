@@ -8,6 +8,10 @@ Current resumption references are the
 [final collaborator dispositions](#7-final-collaborator-round-and-recorded-contributions)
 and the [implementation-readiness ledger](#8-sufficiency-for-the-agreed-implementation-programme).
 
+The subsequent [first data-profile implementation](binding_interface_data_core.md)
+now delivers the bounded P0a/D1/D2 source slice. This review retains the original
+planning conclusions; the new contract/evidence owns actual runtime scope.
+
 ## 1. Sources, sequence and conclusion
 
 The maintainer requests two actual passes: write revision 3, preserve it, then
@@ -276,7 +280,8 @@ component perspectives support proceeding; no new general architecture round
 is required by their feedback.
 
 Completeness of the route is different from every gate already being passed.
-The remaining decisions are the intended first work, with explicit owners:
+The table preserves the planning admission ledger. P0a/D1/D2 now have actual
+first-profile source evidence in the data contract; later rows remain pending:
 
 | Increment / entry | Available basis | Before execution / evidence owner |
 | --- | --- | --- |
@@ -290,7 +295,8 @@ The remaining decisions are the intended first work, with explicit owners:
 | Optional regional enrichment | TopoMT #198 owns its standalone regional scientific/public profile and controls. | Receive a supported public owner result and independent persistence when ready. This does not block native N1/N2 or qualify every topographic family. |
 | Execution and delivery | Resource limits, source/native evidence requirements and separate component/public/platform gates are recorded. | Verify the actually qualified workspace/closure before runtime work, monitor bounded owned cells, and retain failures/interruptions. #30 keeps source/public-delivery scope; no scientific full-suite or shared-prefix restart is implied. |
 
-The next useful action is P0a and the first actual D1/D2 slice. Close the contact
+The first P0a/D1/D2 slice is now source-received under the
+[data-profile contract](binding_interface_data_core.md). Next close the contact
 portion of N0/C using the available offer, then implement N1; follow with N2 under
 its own application acceptance. H/P inputs and optional enrichment can progress
 through their actual prerequisites independently. Do not wait for every later

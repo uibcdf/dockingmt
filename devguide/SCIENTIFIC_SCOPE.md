@@ -23,6 +23,11 @@ provider proposals retain their commissioning, owners and evidence requirements.
 No new engine, molecular campaign, weights download or native calculation is
 part of the naming/conceptual transition.
 
+The [first interface data profile](binding_interface_data_core.md) now preserves
+caller-declared questions and analysis outcomes through immutable core JSON.
+This source capability is distinct from numerical interface characterization,
+which remains planned; it runs no molecular method.
+
 ## Scientific distinctions and applicability
 
 Physical docking and joint complex prediction receive different inputs and make

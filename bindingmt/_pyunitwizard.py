@@ -24,7 +24,10 @@ STANDARD_UNITS = [
 # Only when nobody has decided yet. An active policy belongs to whoever set it:
 # another suite library, or the user.
 if not pyunitwizard.configure.has_active_policy():
-    pyunitwizard.configure.set_pint_registry_cache(True)
+    # An application may already have built Pint without choosing standards.
+    # Match MolSysMT and the provider guide: do not change a live registry cache.
+    if 'pint' not in pyunitwizard.configure.report()['loaded_libraries']:
+        pyunitwizard.configure.set_pint_registry_cache(True)
     pyunitwizard.configure.set_default_form('pint')
     pyunitwizard.configure.set_default_parser('pint')
     pyunitwizard.configure.set_standard_units(STANDARD_UNITS, provenance='bindingmt')
