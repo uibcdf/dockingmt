@@ -1349,11 +1349,14 @@ receiver opt-in. Its [contract/evidence](binding_interface_data_core.md) records
 actual declared outcomes, summary, copy/revision, integrity and exclusive save/read.
 This source increment implements no numerical calculation or typed owner recovery.
 
-The contact portion of N0/C and the first N1 source route are now delivered under
-the [contact-profile contract](binding_interface_contacts.md). Next close N2's
-radius/H/environment/probe/sampling and numerical acceptance, then compose the
-actual MolSysMT SASA operations. Record shared/consumer disposition separately in
-MolSysSuite #195; the local source pass does not imply owner-wide adoption.
+The contact portion of N0/C and first N1 source route are delivered under the
+[contact contract](binding_interface_contacts.md). Surface-specific N0/C admission
+and bounded N2 are now delivered under the [burial contract](binding_interface_burial.md):
+three actual public MolSysMT contexts, mapped both-side losses/contributions,
+explicit sum/mean convention, signed numerical assessment, analytic sampling
+controls, normal/pm-fs and independent offline readback. Exact source/native
+receiving remains distinct from installed/public or shared-consumer acceptance.
+Record shared/consumer disposition separately in MolSysSuite #195.
 
 Keep the explicit T0/C/T1 PISA route, complete footprint persistence/adverse
 controls and promised H/P inputs on their independent owning branches. No source
@@ -1364,7 +1367,7 @@ The work order remains revision 4 after preserving revision 3 and
 rereading the full post/proposal. The [review record](binding_interface_plan_review.md)
 maps every proposal section, all catalogue families and independent controls,
 records the corrections and distinguishes planned/deferred/qualified scope.
-Next close surface-specific N0/C choices and implement N2. Exact H/P inputs,
+Next execute T0/T1 intake/persistence/refusal with its own frozen admission. Exact H/P inputs,
 T0/T1 and later application choices remain with the owners and gates in the
 [readiness ledger](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme).
 No source-only profile closes provider adoption, hosted/platform acceptance or

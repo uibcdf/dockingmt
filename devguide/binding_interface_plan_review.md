@@ -283,7 +283,7 @@ is required by their feedback.
 
 Completeness of the route is different from every gate already being passed.
 The table preserves the planning admission ledger. P0a/D1/D2 and the selected
-N0/C/N1 now have source evidence in their data/contact contracts. Other profiles
+N0/C/N1/N2 now have source evidence in their data/contact/surface contracts. Other profiles
 and shared/installed/public acceptance remain pending:
 
 | Increment / entry | Available basis | Before execution / evidence owner |
@@ -298,9 +298,10 @@ and shared/installed/public acceptance remain pending:
 | Optional regional enrichment | TopoMT #198 owns its standalone regional scientific/public profile and controls. | Receive a supported public owner result and independent persistence when ready. This does not block native N1/N2 or qualify every topographic family. |
 | Execution and delivery | Resource limits, source/native evidence requirements and separate component/public/platform gates are recorded. | Verify the actually qualified workspace/closure before runtime work, monitor bounded owned cells, and retain failures/interruptions. #30 keeps source/public-delivery scope; no scientific full-suite or shared-prefix restart is implied. |
 
-P0a/D1/D2 and the selected N0/C/N1 profile are now source-received under the
+P0a/D1/D2 and the selected N0/C/N1/N2 profiles are now source-received under the
 [data](binding_interface_data_core.md) and [contact](binding_interface_contacts.md)
-contracts. Next close N2 under its own application acceptance; installed/public
+contracts and the [N2 burial contract](binding_interface_burial.md). Next receive
+T0/T1 and exact H/P inputs; installed/public
 and shared/consumer adoption retain their own scope. H/P inputs and optional enrichment can progress
 through their actual prerequisites independently. Do not wait for every later
 catalogue family to exist before this delivery.

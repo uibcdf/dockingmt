@@ -38,6 +38,7 @@ from .core import (
 )
 from .dock import dock
 from .contacts import calculate_interface_contacts
+from .burial import calculate_interface_burial
 from .batch import dock_many
 from .score import score
 from .evaluation import evaluate_redocking
@@ -58,6 +59,7 @@ from .view import show, view
 __all__ = [
     'ContactFootprint',
     'calculate_interface_contacts',
+    'calculate_interface_burial',
     'BindingInterface',
     'characterize_interface',
     'exceptions',

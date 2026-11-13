@@ -30,6 +30,29 @@ Read [development/onboarding](DEVELOPMENT.md) for setup and code navigation.
 [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) owns the full product
 requirements; this file explains how to resume without recovering chat history.
 
+### Native SASA and both-side burial delivered through MolSysMT — 2026-11-12
+
+[#112](pending_proposals/binding_interface_public_contract.md) now delivers
+`calculate_interface_burial` -> immutable `BindingInterface`, composing three
+public MolSysMT SASA contexts. The [N2 contract/evidence](binding_interface_burial.md)
+records supplied-H/element-vdW/Cartesian admission, explicit probe/sampling, both
+side losses, atomic/group witnesses, total versus mean-side convention and a
+bounded serial route. `burial_areas` offers quantities; `surface_calculation`
+offers detached expert evidence. Signed losses and numerical usability remain
+explicit. The current reader admits experimental 0.3 surface records and earlier 0.1/0.2 evidence.
+
+Final source receiving passes **238 cases per unit policy**, normal and pm/fs,
+including **51 new burial controls**. Actual positive/zero save/read succeeds in a
+fresh process with molecular calls forbidden. Exact clean source/native identities,
+all attempts and monitored CPU-one/resource/export receipts retain #50 custody in
+`.molsyssuite/interface-sasa-burial-112-20261112/`. No provider tool gap was needed
+for this admitted composition; independent MolSysMT #739 retains its own report.
+
+Next: separately admitted T0/T1 PISA intake/persistence/refusal, exact H/P receiving
+and #195 shared disposition. #112 stays open; #111 and #30 keep their own gates.
+No shared-prefix change, native build, installed/public qualification, hosted CI,
+large-system claim or automatic held-suite restart accompanies this increment.
+
 ### Native Cartesian contacts delivered through MolSysMT — 2026-11-12
 
 [#112](pending_proposals/binding_interface_public_contract.md) now delivers
@@ -56,8 +79,7 @@ resource outcomes and final documentation/export gates retain #50 custody under
 `.molsyssuite/interface-native-contacts-112-20261112/`. MolSysMT #739 owns the
 independent nullable group-setter defect; no downstream editing workaround is added.
 
-Next close N2's own radius/H/environment/probe/sampling/acceptance contract and
-compose MolSysMT SASA. T0/T1, H/P inputs/adoption, #111 and #30/#195 remain separately
+That contact-only checkpoint is superseded by the N2 surface milestone above. T0/T1, H/P inputs/adoption, #111 and #30/#195 remain separately
 owned. This source milestone does not close #112 or qualify an installed/public
 package, hosted matrix, large-input performance or the whole scientific objective.
 No shared-prefix repair/build or automatic held-suite restart is authorized.

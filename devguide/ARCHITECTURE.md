@@ -61,15 +61,19 @@ No generic molecular representation, parser, matcher or geometry kernel is copie
 `BindingInterface` preserves declared evidence and typed native calculation.
 `ContactFootprint` independently preserves source-ordered members/aligned local
 maps and all contributors. Both share private offline I/O, immutable copy/read
-identity and experimental admission; native calculations use 0.2 while declarations
+identity and experimental admission; contacts use 0.2, surfaces use 0.3 while declarations
 retain 0.1. Known physical fields use PyUnitWizard sealed records. Saved checks
 remain historical and a revised interpretation preserves original calculation scope.
 
 The [second scientific design](binding_interface_design.md),
 [work-plan revision 4](binding_interface_implementation_plan.md) and
 [collaborator dispositions/readiness](binding_interface_plan_review.md) retain
-surface, typed-provider and consumer obligations. N2's actual molecular surface
-contract is next; full chemical correspondence, PISA/H and #111 keep separate gates.
+typed-provider and consumer obligations. The [N2 contract](binding_interface_burial.md)
+now binds `burial.py` to public MolSysMT extraction/comparison/radii/SASA. It owns
+no molecular kernel; experimental 0.3 retains typed signed contributions and
+separate numerical usability. Shared `interface_context` performs only binding
+admission/delegated queries and original-axis metadata for contacts and surfaces.
+Full chemical correspondence, PISA/H and #111 keep separate gates.
 TopoMT #198 regional enrichment remains optional. Source receiving is distinct
 from installed/public/native-build qualification and cross-owner adoption.
 
@@ -84,7 +88,7 @@ authoritative when this navigation map changes.
 | --- | --- | --- |
 | Scientific declarations and records | [`core/problem.py`](../bindingmt/core/problem.py), [`protocol.py`](../bindingmt/core/protocol.py), [`search_domain.py`](../bindingmt/core/search_domain.py), [`results.py`](../bindingmt/core/results.py), [`outcome.py`](../bindingmt/core/outcome.py) | Problems, resolved Vina protocol, physical search domains, poses/results and per-item batch outcomes. |
 | Native binding contacts | [`contacts.py`](../bindingmt/contacts.py), [`core/contact_footprint.py`](../bindingmt/core/contact_footprint.py) | Compose actual public MolSysMT contacts/distances and inspect/save/read independent participant footprints. |
-| Interface data core | [`core/interface.py`](../bindingmt/core/interface.py) | Declared/native analysis records, immutable identity/reinterpretation and offline core JSON persistence; explicit native work is in contacts.py. |
+| Interface data core | [`core/interface.py`](../bindingmt/core/interface.py) | Declared/native analysis records, immutable identity/reinterpretation and offline core JSON persistence; explicit native work is in contacts.py and burial.py. |
 | Record admission and provenance | [`core/audit.py`](../bindingmt/core/audit.py), [`pose_audit.py`](../bindingmt/core/pose_audit.py), [`_scores.py`](../bindingmt/core/_scores.py), [`_private/artifacts.py`](../bindingmt/_private/artifacts.py) | Internal consistency, named score/ranking evidence and captured backend-input identity. These do not certify chemistry or reconstruct missing molecular sources. |
 | Public orchestration | [`dock.py`](../bindingmt/dock.py), [`score.py`](../bindingmt/score.py), [`batch.py`](../bindingmt/batch.py), [`evaluation.py`](../bindingmt/evaluation.py), [`aggregation.py`](../bindingmt/aggregation.py) | Docking/fixed scoring, serial prepared-problem execution and explicitly delimited reference-recovery evaluation/aggregation. |
 | Existing interaction association | [`interactions.py`](../bindingmt/interactions.py) | `bind_interactions`/`PoseInteractions` bind one explicitly selected pose to an admitted one-frame carrier. Source controls and [bounded installed normal/pm-fs receiving](validation/e4_pose_binding_installed_2026-11-07.md) pass, preserving full original results/provider analyses and full-carrier persistence. [Empty-source native unevaluated coverage](validation/e4_native_unevaluated_2026-11-07.md) also passes. Positive-source persistence awaits [client receiving of the published #642 source fix](validation/e4_evidence_catalog_fix_2026-11-07.md); exact native construction is held after an owned-memory stop. The [view route](validation/pose_interaction_view.md) has separate source/DOM controls and [passing exact-candidate receiving](validation/e4_pose_interaction_view_installed_2026-11-07.md): eight real-provider View/native cells normal/pm-fs plus independent record checks. Actual canvas/public delivery remain unproven. |

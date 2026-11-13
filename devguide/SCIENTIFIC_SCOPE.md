@@ -15,7 +15,7 @@ component, broader than a docking method or any initial provider.
 | Complex refinement | Transform a declared complex through an explicit physical or model-based protocol, preserving correspondence and changes. | Accepted domain; provider-specific design/qualification pending. HADDOCK3 [#109](https://github.com/uibcdf/bindingmt/issues/109) proposes a physical docking/refinement route. |
 | Binding free-energy calculation | Estimate a declared binding thermodynamic quantity with a physical/statistical method, states, conditions, units and available uncertainty/convergence evidence. Absolute and relative binding questions belong here. | Accepted future capability; no provider, implementation or scientific profile qualified. |
 | Binding free-energy prediction | Predict a defined binding free-energy endpoint using an applicable model, retaining domain limitations, conditions, scale and supplied uncertainty. | Accepted future capability; not implied by structural confidence or generic affinity output. |
-| Binding-interface characterization | Investigate contacts, geometry/topography, physicochemical organization and changes at a declared interface through explicit native calculations and composition of owner-provided molecular analyses. | The first Cartesian contact/footprint source profile is implemented through MolSysMT under #112. SASA/burial and richer profiles remain pending; source receiving is not broad scientific or public-package qualification. |
+| Binding-interface characterization | Investigate contacts, geometry/topography, physicochemical organization and changes at a declared interface through explicit native calculations and composition of owner-provided molecular analyses. | The first Cartesian contact/footprint source profile is implemented through MolSysMT under #112. The fixed-input SASA/burial source profile is also implemented; richer profiles remain pending; source receiving is not broad scientific or public-package qualification. |
 
 Future domain acceptance neither implements an operation nor makes it a new
 automatic release/1.0 gate. The existing Core/Extended objective and separate
@@ -27,7 +27,9 @@ The [first interface data profile](binding_interface_data_core.md) now preserves
 caller-declared questions and analysis outcomes through immutable core JSON.
 The [native contact profile](binding_interface_contacts.md) now adds actual
 MolSysMT Cartesian cutoff contacts/distances, group witnesses and participant
-footprints. Broader surface/chemical/energetic characterization remains planned;
+footprints. The [SASA/burial profile](binding_interface_burial.md) adds both side
+losses with supplied H, element-vdW radii and an explicit probe/density. Broader
+environment-aware/chemical/energetic characterization remains planned;
 contact geometry is not binding strength or biological association evidence.
 
 ## Scientific distinctions and applicability

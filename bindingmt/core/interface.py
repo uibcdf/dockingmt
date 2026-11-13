@@ -128,30 +128,41 @@ def _analysis(value, version):
         'Use declared evidence or the admitted BindingMT native calculation profile.',
     )
     if value['authority'] == 'bindingmt_calculated':
-        from bindingmt._private.interface_contacts import validate_calculation
+        from bindingmt._private import interface_burial, interface_contacts
 
         _require(
-            version == '0.2'
+            version in ('0.2', '0.3')
             and value['owner'] == 'bindingmt'
             and value['outcome'] == 'completed'
             and 'calculation' in value,
             'analyses',
-            'A native calculation needs experimental 0.2 and its complete record.',
+            'A native calculation needs experimental 0.2/0.3 and its complete record.',
         )
-        validate_calculation(value['calculation'])
+        surface = version == '0.3'
+        validator = interface_burial if surface else interface_contacts
+        validator.validate_calculation(value['calculation'])
         _require(
             value['reference'] == {'analysis_id': value['calculation']['analysis_id']},
             'analyses',
             'Preserve the exact composed analysis reference.',
         )
-        expected = [
-            {'analysis_id': value['calculation']['analysis_id'], 'contact_index': i}
-            for i in range(len(value['calculation']['local_pairs']))
-        ]
+        expected = (
+            [
+                {
+                    'analysis_id': value['calculation']['analysis_id'],
+                    'result_kind': 'sasa_burial',
+                }
+            ]
+            if surface
+            else [
+                {'analysis_id': value['calculation']['analysis_id'], 'contact_index': i}
+                for i in range(len(value['calculation']['local_pairs']))
+            ]
+        )
         _require(
             value['finding_refs'] == expected,
             'analyses',
-            'Findings must retain every calculated contact occurrence.',
+            'Retain exact contact occurrences or the completed surface-result reference.',
         )
     else:
         _require(
@@ -255,10 +266,10 @@ def _validate(record):
     _fields(record, required, set(), 'record')
     _require(
         record['format'] == _FORMAT
-        and record['format_version'] in (_VERSION, '0.2')
+        and record['format_version'] in (_VERSION, '0.2', '0.3')
         and record['experimental'] is True,
         'format_version',
-        'Explicit experimental bindingmt.binding_interface version 0.1 or 0.2 is required.',
+        'Explicit experimental bindingmt.binding_interface version 0.1, 0.2 or 0.3 is required.',
     )
     _require(_text(record['record_id']), 'record_id', 'Use a nonempty record identity.')
     _claim(
@@ -287,9 +298,9 @@ def _validate(record):
         a['authority'] == 'bindingmt_calculated' for a in record['analyses'].values()
     )
     _require(
-        native_count <= 1 and (record['format_version'] != '0.2' or native_count == 1),
+        native_count <= 1 and (record['format_version'] == '0.1' or native_count == 1),
         'analyses',
-        'Experimental 0.2 admits exactly one native contact calculation.',
+        'Experimental 0.2/0.3 admits exactly one corresponding native calculation.',
     )
     _require(
         isinstance(record['site_refs'], list),
@@ -337,7 +348,7 @@ class BindingInterface(_InterfaceRecordIO):
         _require(
             experimental is True,
             'experimental',
-            'Opt in with experimental=True to admit interface format 0.1/0.2.',
+            'Opt in with experimental=True to admit interface format 0.1/0.2/0.3.',
         )
         _validate(record)
         snapshot = json_copy(record, 'record')
@@ -385,9 +396,46 @@ class BindingInterface(_InterfaceRecordIO):
                 a['calculation']
                 for a in self.analyses.values()
                 if a['authority'] == 'bindingmt_calculated'
+                and a['calculation']['definition']
+                == 'bindingmt.cartesian_atomic_contacts@1'
             ),
             None,
         )
+
+    @property
+    def surface_calculation(self):
+        """Detached original surface evidence, without reassessing any source asset."""
+        return next(
+            (
+                a['calculation']
+                for a in self.analyses.values()
+                if a['authority'] == 'bindingmt_calculated'
+                and a['calculation']['definition']
+                == 'bindingmt.cartesian_sasa_burial@1'
+            ),
+            None,
+        )
+
+    @property
+    def burial_areas(self):
+        """Named side/sum/half-sum quantities; signed raw values are never clamped."""
+        import pyunitwizard as puw
+
+        from bindingmt._private.interface_burial import area_values
+
+        calculation = self.surface_calculation
+        if calculation is None:
+            return None
+        return {
+            'sides': {
+                name: puw.quantity(area_values(side['side_loss']), 'nm**2')
+                for name, side in calculation['participants'].items()
+            },
+            **{
+                name: puw.quantity(area_values(value), 'nm**2')
+                for name, value in calculation['totals'].items()
+            },
+        }
 
     @arg_digest(config='bindingmt._argdigest')
     def project_footprint(self, *, participant):
@@ -417,6 +465,7 @@ class BindingInterface(_InterfaceRecordIO):
         """Inspect declared outcomes; saved checks remain history, never active checks."""
         record = self.to_dict()
         calculation = self.contact_calculation
+        surface = self.surface_calculation
         criterion = None
         if calculation:
             from bindingmt._private.interface_contacts import (
@@ -450,8 +499,10 @@ class BindingInterface(_InterfaceRecordIO):
             'requested_context_policy': record['context_policy'],
             'context_policy_applicability': 'not_applicable',
             'molecular_correspondence': 'not_required',
-            'calculation_checks': calculation['context']['performed_checks']
-            if calculation
+            'calculation_checks': (calculation or surface)['context'][
+                'performed_checks'
+            ]
+            if calculation or surface
             else [],
             'current_assessment': 'not_performed',
             'asset_access': 'not_checked',
@@ -469,12 +520,25 @@ class BindingInterface(_InterfaceRecordIO):
             }
             if calculation
             else None,
+            'native_surface': {
+                'definition': surface['definition'],
+                'burial_usable': surface['numerical']['burial_usable'],
+                'result_count': 1,
+                'positive_interface_finding': 'not_assessed',
+                'area_conventions': ['side_losses', 'total_sum', 'mean_side_half_sum'],
+                'group_coverage': {
+                    name: p['group_coverage']
+                    for name, p in surface['participants'].items()
+                },
+            }
+            if surface
+            else None,
             'limitations': [
                 'MolSysMT geometric calculation; intended identity/state remains caller admitted.'
-                if calculation
+                if calculation or surface
                 else 'Caller-declared evidence; no owner verification, molecular checking or binding inference.',
                 'Saved native evidence is historical; no current molecular match or binding strength is inferred.'
-                if calculation
+                if calculation or surface
                 else 'Native calculation, recovery and footprint projection are not implemented by this profile.',
             ],
         }
@@ -528,7 +592,7 @@ def characterize_interface(
             analysis.get('authority', 'caller_declared') == 'caller_declared'
             and 'calculation' not in analysis,
             'analyses',
-            'Use calculate_interface_contacts for new native work or read a complete saved record.',
+            'Use the explicit contact/burial entry points for new native work or read a complete saved record.',
         )
         analysis.setdefault('authority', 'caller_declared')
         analysis.setdefault('original_claim', original)

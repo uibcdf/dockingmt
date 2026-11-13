@@ -1,5 +1,5 @@
 ---
-summary: Deliver bounded native contacts/distances through MolSysMT and independent source-mapped footprint persistence; surface/foreign/consumer receiving remains pending.
+summary: Deliver bounded native contacts and fixed-input SASA/burial through MolSysMT with typed persistence; foreign/consumer receiving remains pending.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
@@ -93,6 +93,18 @@ The actual historical local native SHA `2dbcf13d` is recorded separately from th
 owner reference `4ffb82e4`; no new builder/native-source attribution is invented.
 Original failures remain retained. MolSysMT #739 receives the independent group-
 setter defect; no downstream molecular-editing or geometry workaround is added.
+
+## First native SASA and burial source implementation
+
+The [N2 admission/evidence](../binding_interface_burial.md) binds the actual public
+MolSysMT extraction/comparison/radii/SASA route and source/local structure maps.
+`calculate_interface_burial` composes both side losses, atomic/group contributions,
+explicit total/mean conventions and signed numerical assessment. Experimental
+0.3 preserves prior readers. Final receiving passes 238 cases per normal/pm-fs
+policy, including 51 new surface controls, plus actual positive/zero fresh-process
+molecular-call-free readback. Exact source/native identities and all original
+attempts retain their stated scope; no new provider kernel or editing workaround
+was needed. T0/T1, H/P and broader shared/installed acceptance remain pending.
 
 ## How
 
@@ -284,8 +296,8 @@ full-suite resource hold and human untracked migration files.
   and initial-plan receipts retain their original scope. No runtime/scientific
   or exact-head hosted pass is implied.
 
-Next close N2-specific surface application/default/radius/H/environment/probe/
-sampling and numerical acceptance, then compose actual MolSysMT SASA. T0/T1,
+N2 is now source-received under its own explicit admission. Next execute T0/T1
+intake/persistence/refusal under its independent frozen contract. Exact
 H/P inputs and #111 remain separately owned. #112 stays open; #30 and #195 retain
 installed/public, broader source and actual cross-owner adoption requirements.
 The contact contract records exact commands, counts, native/source identity,
@@ -370,3 +382,8 @@ public/fresh-reader/export receipts are retained at
 Source/provider receiving is bounded to actual operations/bytes, not an installed
 package, hosted conformance or full scientific/large-system claim. The original
 shared-prefix/full-suite hold remains; no sibling/native state was changed.
+
+The N2 surface admission, actual clean source/native snapshots, final normal/pm-fs
+cells, analytical/software-adversity controls and public/fresh-reader/export
+receipts are retained at `.molsyssuite/interface-sasa-burial-112-20261112/` for
+#50 review 2026-11-14. No helper/input producer was rewritten; #112 remains open.

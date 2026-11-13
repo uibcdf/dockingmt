@@ -87,6 +87,19 @@ records use experimental 0.2; `ContactFootprint` uses 0.1 and has its own copy/s
 Both readers preserve history without molecular operations or current-use reassessment.
 The format version 0.1 is separate from the package's 0.1.0 tag.
 
+The [native SASA/burial profile](binding_interface_burial.md) adds
+`calculate_interface_burial` with explicit probe, sample density and supplied-H
+policy. MolSysMT extracts/calculates A, B and A+B at fixed coordinates; BindingMT
+composes both side losses and mapped atomic/group contributions. `burial_areas`
+returns quantities under `sides`, `total` and `mean_side` (half the sum).
+`surface_calculation` exposes detached expert evidence; summary reports numerical
+usability and partial group coverage. Preserve signed values and inspect
+`burial_usable`; this result infers no binding strength or positive-area footprint.
+Its experimental 0.3 record has independent source/quantity/projection checks and
+safe offline copy/save/read. One completed surface-result reference also represents
+an evaluated zero; it is not a positive interface finding. A surface record has
+no contact calculation; contact projection requires a separate contact result.
+
 ## Units, positions and ownership
 
 Pass physical quantities with their units, for example
