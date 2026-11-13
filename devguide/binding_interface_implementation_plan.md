@@ -2,7 +2,7 @@
 
 Owner: [BindingMT #112](https://github.com/uibcdf/bindingmt/issues/112).
 Recorded and reviewed: 2026-11-12. Work-plan revision **4**.
-Status: **native implementation plan reviewed; runtime and profile admission pending**.
+Status: **final collaborator round supported; local admission and runtime pending**.
 This plan turns the [reviewed second design](binding_interface_design.md) into
 bounded, independently useful implementation and receiving increments. It is
 the interface counterpart of the [BindingSite work plan](binding_site_implementation_plan.md),
@@ -25,6 +25,11 @@ was preserved before a second complete post/proposal reading. The
 source sections, catalogue entries and independent controls, identified gaps and
 the corrections below. This fourth revision is the maintained work order;
 favorable planning evidence is still separate from actual scientific receiving.
+The final TopoMT, PharmacophoreMT and PeptideMT responses to source `a3d8476`
+are recorded below. Their acceptance details remain within revision 4; they
+request no further general design iteration. The
+[readiness assessment](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme)
+identifies what can start and which finite decisions/inputs still precede use.
 
 ## 1. Assessment of the second review and starting evidence
 
@@ -48,9 +53,9 @@ preparing a bounded implementation plan:
   molecular match.
 
 These are favorable design reviews, not frozen public signatures, implemented
-compatibility or component adoption. MolSysMT has no reply in the complete
-13-comment #112 baseline inspected for this work-plan review; the finite molecular
-fact/check agreement remains an operation-specific item.
+compatibility or component adoption. The subsequent bounded MolSysMT offer under
+#734 is now published and recorded in section 5.4. Actual client admission,
+source/native receiving and operation-specific application choices remain separate.
 
 TopoMT's fixed receiving inputs exist at
 `3a8ee979db8de6f6345de74558a878bb96ba3234`. Its expectations below are owner-
@@ -88,6 +93,25 @@ The maintainer commissions careful planning revisions here. Native profile/defau
 admission, owner agreement, code, numerical receiving and consumer adoption remain
 separate pending work. This does not make every catalogue candidate a #112,
 BindingSite, stabilization or release gate.
+
+### 1.2 Final collaborator responses and recorded disposition
+
+All three responses review work-plan revision 4 at
+`a3d84764672849cb9517802eb9640fa5860b7a02`, its completeness review and the
+regional-physicochemistry clarification. They support implementation and identify
+no conceptual blocker requiring another general design round:
+
+| Component response | Recorded disposition | Concrete remaining contribution |
+| --- | --- | --- |
+| [TopoMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6838730972) | Closes its current design-feedback round, confirms complementary ownership and native contact/surface independence. | Existing #197 handoff, #198 regional data/public readback and regional chemical/support controls; #60/#61/#62 retain their own scope. |
+| [PharmacophoreMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6838729596) | Supports revision 4 and the retained H0/H1 obligations; adds two nonblocking consumer refinements. | Section 12.1 records regional annotation/recognized feature/query-site distinctions and evidence/query-semantic controls. Exact small native H inputs remain to receive. |
+| [PeptideMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6838743888) | Supports closing this planning round and progressing through finite admissions. | Section 13.1 records native/derived, sequence/original/local-group and full-system contribution-view cases. Exact inputs and export/result seams remain to receive/admit. |
+
+These are planning dispositions, not executed interoperability or acceptance of
+every public field/default. The input outlines are received; their exact fixtures
+are still offered work. Record selected-case admissions and any explicit deferral
+with owner/revisit conditions. H/P and optional regional refinements do not become
+new entry gates for D1/D2 or native N1/N2. #112 remains open for its agreed delivery.
 
 ## 2. Useful outcomes and preserved boundaries
 
@@ -201,9 +225,9 @@ make every later consumer profile a prerequisite for a useful data/native checkp
 | Increment | Current state | Completion boundary |
 | --- | --- | --- |
 | P0a | Local decisions next | Actual minimal question/intake/identity/version/default/refusal contract recorded before the first slice. |
-| P0m/P0s | Finite agreement/coordination pending | Named molecular facts/checks/preconditions and exercised shared meanings have owning dispositions. |
+| P0m/P0s | Restricted MolSysMT #734 offer received; client/shared receiving pending | Bind the supplied facts/preconditions to actual selected local profiles and record #195 agreements/adoption. |
 | P0t | Fixed artifacts and expectations supplied | Confirm input hashes, carrier/group/participant interpretation and exact first public contract. Not executed client receiving. |
-| P0h/P0p | Specifications offered | Receive exact native inputs/expected outcomes and actual consumer export boundary; do not guess scientific choices. |
+| P0h/P0p | Case outlines received; exact inputs/seams pending | Receive/admit the H and P specifications and independently expected outputs; do not invent fixtures or scientific choices from favorable review. |
 | D1/D2 | Runtime pending | Useful public declarations/summary and faithful immutable safe persistence. |
 | C | Pending operation-specific facts | Required checks, map/state/frame scope, lifetime and refusal implemented and tested. |
 | N0/N1 | First ordinary native numerical milestone planned | Admitted public calculation, exact contacts/atom-residue footprints, independent reference controls and saved replay without PISA/TopoMT. |
@@ -276,6 +300,37 @@ geometric/analytic expectations, acquired through public MolSysMT construction.
 Freeze exact populations, parameter/resource identities, unit policies and
 tolerances before interpreting outputs. An owner artifact reused as an input
 does not make its PISA answer the definition of a native expected result.
+
+### 5.4 Restricted MolSysMT operation offer received
+
+[MolSysMT #734](https://github.com/uibcdf/molsysmt/issues/734) is closed for its
+finite owner review. Its [contract at `04bf561`](https://github.com/uibcdf/molsysmt/blob/04bf56131fd0cea94359e1f0f9307d0f0e36b3cb/devguide/native_interface_contacts_sasa_contract.md)
+and [source receiving receipt](https://github.com/uibcdf/molsysmt/blob/04bf56131fd0cea94359e1f0f9307d0f0e36b3cb/devtools/data/native_interface_handoff_receiving_734_20261112.json)
+offer existing operations for the restricted first Cartesian contacts and
+bundled-element-vdW SASA profile. No new generic operation gap is established
+for that profile; client code should compose the supplied public route.
+
+| Supplied boundary | Facts to preserve in the local profile |
+| --- | --- |
+| Contacts/distances | The explicit all-cross-pairs mode is `pairs=False`; pair-output representation is a separate option. The predicate includes equality without silently added tolerance. Input-system atom indices, requested axes and original-source labels remain distinct. |
+| Extraction/correspondence | Extraction sorts retained source atoms. Public permutation and map composition recover admitted local order, with aligned source-sorted footprints, explicit source structure 2 -> local 0 and retained state association. Checked map consistency does not authenticate arbitrary foreign molecular assets. |
+| Native surface contexts | Extract A, B and A union B from one admitted source structure, retaining actual maps/geometry/chemistry/radii. Output selection preserves all input occluders. The actual radius route is the bundled element-vdW table; arbitrary radius arrays or ProtOr selectors are not `get_sasa` arguments. |
+| Consumer choices/limits | BindingMT chooses cutoff, probe/sampling, numerical/convergence and positive-loss criteria, result fields/persistence and use guarantees. Fixture values/tolerances are not scientific application defaults. Alternate radii, periodic/GPU/covalent/large-input profiles need their own agreement. |
+
+The provider reports 104 selected source cases, including 16 new controls, with
+zero warnings/skips, and retains failed pilot/launcher attempts in the receipt.
+The reviewed runtime source is `501e02b40e409ad08fda2885a143e8fda6897dbd`;
+the critical operation files match the inspected `ff25f120` baseline. The reported
+unchanged native SHA-256 is
+`4ffb82e4250a1862fff17dbe7725fb8f0770d613ffef2648370389a66983d345`.
+Those are owner evidence, not measurements or installed acceptance in this checkout.
+Verify actual source/import/native identity and admitted conditions before client
+execution; this recording reinstalls or rebuilds nothing.
+
+Accept the restricted offer as the basis for N0/C, then qualify BindingMT's actual
+composition and saved results. MolSysSuite #195 remains partial for client/shared
+agreements and receiving; the closed provider issue is no longer a reason to wait
+for an unspecified new tool. D1/D2 needs neither those molecular calls nor H/P inputs.
 
 ## 6. D1: declaration, analysis outcomes and ordinary inspection
 
@@ -527,6 +582,9 @@ qualification or accepted public call recipes. Refresh exact source/native/impor
 origins before receiving. Use existing public tools if sufficient; hand a concrete
 generic molecular/decomposition gap to MolSysMT before a consumer workaround.
 Keep the actual exercised agreement and owner disposition in MolSysSuite #195.
+The source table above preserves the inspected starting point. Section 5.4 now
+supplies an owner-reviewed restricted call route; use it for the first bounded
+receiving before selecting a separately qualified neighbor/alternate profile.
 
 #### N0 admission record for each selected calculation
 
@@ -991,7 +1049,7 @@ Provider tests alone are not this cross-component receiving evidence.
 
 Receive the promised exact native source/analysis inputs and expectations before
 executing this independent profile. Do not convert PISA counts into native
-Interactions or require this route before the useful data/PISA milestone.
+Interactions or require this route before the useful data/native milestones.
 
 H0 uses the admitted MolSysMT native query to select actual observations for
 `(A+B) | C`, with internal A–B and unrelated C–D retained separately. The proposed
@@ -1037,6 +1095,46 @@ with intact original analysis/correspondence and whole chemical participants.
 **H1 exit:** actual native public construction, inspection, persistence and
 I0/H0/I1 readback preserve all stated native meanings and refusal boundaries.
 
+### 12.1 PharmacophoreMT consumer refinements
+
+The [final PharmacophoreMT response](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6838729596)
+supports this programme and adds the following receiving details. They refine
+selected H applications, with no new global registry or molecular recognition
+engine and no prerequisite for the first data/contact/surface delivery.
+
+**H-R1: regional annotation, recognized feature and hypothesis site.** When a
+regional-to-pharmacophoric path is selected, use an admitted prepared source
+containing a complete aromatic ring or donor-H participant and a regional support
+intersecting only part of it. Preserve the actual support/contributing atoms,
+complete recognition context, exact owner inventory/result and scoped typed-feature
+reference. Distinct features may share atoms; atom membership alone does not
+identify a typed feature or a query site. Selecting recognition context performs
+no chemical repair or hydrogen addition.
+
+Admit the participation rule explicitly: atom intersection, whole-participant
+containment or a qualified center/surface criterion need not select the same
+features. Retain the decision and reason to keep, omit or refuse each projection.
+Unavailable recognition may prevent that conversion while the regional geometry
+and other observations remain useful. This case becomes required when that
+regional conversion profile is admitted; it is not a silent extra prerequisite
+for the initial native-observation H0/H1 route.
+
+**H-R2: characterization evidence versus query semantics.** When retaining contact,
+accessibility or burial evidence alongside a hypothesis, preserve definitions,
+units, source/context, coverage and contributor relationships. Annotation alone
+changes no essential flag, weight, direction, tolerance or exclusion. Exercise
+before/after annotation and native save/read against independent expected query
+fields and decisions. An explicit owner-supported construction/curation policy
+may use such evidence, recording its choices, reasons and assumptions. Contact
+criteria, burial-membership thresholds and pharmacophore matching tolerances keep
+their distinct meanings.
+
+Use the [existing native semantics at `ecd1694`](https://github.com/uibcdf/pharmacophoremt/blob/ecd16946d64dd5cdc64132b026aaf12be2c0ef3a/devguide/native_constraint_semantics.md)
+as the review baseline, then refresh actual source/native inputs before receiving.
+The promised small H specification still needs exact native inputs and expected
+grouping, repeated compatible evidence, alternative/refusal and saved-reference
+outcomes. Proposed cases or source inspection are not a received native hypothesis.
+
 ## 13. P: consumer information, native/derived context and comparisons
 
 Receive the actual consumer inputs/export seam, not just a statement of intent.
@@ -1070,6 +1168,58 @@ human knowledge still prevent a blind-benchmark claim from these controls.
 consumer control and its limits. Exact MDM2–p53 sites, thresholds and provider
 configurations remain separate scientific decisions, not choices made by this
 plan. Consumer adoption is recorded separately from our successful test.
+
+### 13.1 PeptideMT receiving cases
+
+The [final PeptideMT response](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6838743888)
+offers three small cases within P. They retain K/N and comparison obligations,
+reuse planned maps/contributions/persistence and select no new site, threshold,
+provider run, molecular kernel or ranking policy.
+
+**P1: native representation and chemically complete derivative.** Receive a native
+prediction and a separately prepared derivative, with retained/removed/generated
+maps and changes to existing coordinates. Where its own facts are admitted, a
+reduced representation can support geometric contacts while a particular surface
+or recognition profile remains unavailable; required missing correspondence still
+refuses the affected use. Preserve completed native observations on their original
+context and label recalculated observations as derivative results. Generated atoms
+gain no fabricated original identity or inherited prediction confidence. Moving
+retained atoms reassesses affected geometry; missing reevaluation is unavailable,
+not zero or silently current. Original confidence stays with the original producer.
+
+**P2: sequence, original residues and local groups.** Receive extraction/capping
+with nonidentity correspondence between sequence-relative positions, original
+chain/residue addresses and local molecular groups. Keep mappings and scientific
+sequence interpretation aligned through reorder/save/read. Generated terminal
+groups retain their chemical role/provenance without becoming extra amino-acid
+positions or acquiring deposited identities. Generation history and chemical role
+are separate axes: a generated H on a core residue is not automatically a cap.
+MolSysMT owns construction, chemistry and molecular correspondence; PeptideMT owns
+its scientific sequence interpretation and receives the needed public maps.
+
+**P3: full-system calculation and declared contribution views.** Preserve the
+complete admitted chemistry, participants and occluders, then inspect explicit
+subsets such as peptide core and terminal modifications through the actual
+atom/group contributions. Record the reporting selection, coverage, denominator
+and partition/overlap policy. Independently expected sums apply to the admitted
+additive decomposition within that same calculation; they do not assert general
+additivity of burial across different molecular systems.
+
+A reporting view changes no original participants/occluders or numerical inputs
+and silently calculates no smaller system. A covalently attached cap remains
+part of its participant, not another molecular side. Caps are neither automatically
+excluded nor assigned an unfavorable interpretation. A requested recalculation
+after changing chemistry or population needs its own explicit context and method;
+the complete selected chemistry remains the original scientific endpoint.
+
+### 13.2 Case admission and evidence boundary
+
+The case outlines are received; exact owner-supported inputs, expectation files
+and actual public export/result seams are still to receive/admit. At P admission,
+record which cases/fields apply and any explicit deferred case with owner/revisit
+conditions. Once admitted, preserve their positive/empty/unavailable controls and
+real emitted/public saved readback; a handwritten expected payload is no proof
+of actual export or calculation. These consumer cases do not delay D1/D2/N1.
 
 ## 14. Relationship to BindingSite and local reusable work
 
@@ -1186,7 +1336,9 @@ profiles and unresolved molecular facts not required by that data slice.
 
 Close the contact portion of N0 and C, record finite native agreements in
 MolSysSuite #195, then deliver N1 as the first ordinary native numerical route.
-Follow with N2 after its radius/environment/public surface contract closes.
+Use the restricted owner offer in section 5.4 for actual N0/C admission; it does
+not require a new general molecular operation for the first profile. Follow with
+N2 after its local radius/environment/application acceptance closes.
 Record exact admitted requests, required/optional observations, owner calls,
 resource envelope, actual guarantees and failure policy before runtime work.
 
@@ -1202,3 +1354,9 @@ records the corrections and distinguishes planned/deferred/qualified scope.
 Next close actual P0a and operation-specific admission/input decisions, or deliver
 an implemented/tested slice when runtime work proceeds. No planning checklist
 substitutes for owner agreement, execution, source/native receiving or adoption.
+The final collaborator dispositions and H/P refinements are now recorded within
+revision 4. The provider offer is published; concrete local defaults, exact H/P
+inputs and execution evidence remain planned work with the owners and gates in
+the [readiness ledger](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme).
+Start with local P0a and the first D1/D2 slice, without another general design
+round or an invented prerequisite that every later profile be complete.

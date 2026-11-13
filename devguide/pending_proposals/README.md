@@ -6,7 +6,7 @@ Open proposals following [`reporting_protocol.md`](../reporting_protocol.md).
 
 ### Active (2)
 
-- [`binding_interface_public_contract.md`](binding_interface_public_contract.md) — [#112](https://github.com/uibcdf/bindingmt/issues/112) — Deliver reviewed BindingInterface work-plan revision 4 after preserving revision 3, auditing both catalogue editions and clarifying native calculation versus standalone regional physicochemistry and retained receiving obligations. *(active, inspected)*
+- [`binding_interface_public_contract.md`](binding_interface_public_contract.md) — [#112](https://github.com/uibcdf/bindingmt/issues/112) — Record final collaborator support, finite H/P receiving cases, the restricted MolSysMT operation offer and an actionable readiness ledger within BindingInterface work-plan revision 4. *(active, inspected)*
 - [`binding_site_public_contract.md`](binding_site_public_contract.md) — [#111](https://github.com/uibcdf/bindingmt/issues/111) — Review the BindingSite work plan with operation-specific prerequisites, explicit selection/import work, structural and check/use controls, and evidenced core/application/receiving milestones. *(active, inspected)*
 
 ### Partial (15)

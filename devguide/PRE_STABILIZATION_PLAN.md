@@ -24,33 +24,43 @@ Accepted maintainer objective: 2026-11-06, [BMT-046](DECISIONS.md#bmt-046--deliv
 Status: **active; #112 implementation plan recorded, local P0a next; runtime pending**.
 Inspected starting source: `530a4cf`.
 
-### BindingInterface native work plan reviewed, revision 4 — 2026-11-12
+### BindingInterface collaborator contributions recorded — 2026-11-12
 
-[#112](pending_proposals/binding_interface_public_contract.md) has the
-[fourth implementation-plan revision](binding_interface_implementation_plan.md),
-prepared after preserving revision 3 at `66d8ba9` and rereading the complete
-TopoMT `a13b9b2` proposal. The [review record](binding_interface_plan_review.md)
-maps all 15 source sections, 17 catalogue entries and 17 independent controls,
-with the gaps and fourth-revision corrections recorded separately. It also receives
-TopoMT's later `0400821` regional-physicochemistry clarification: TopoMT #198
-owns chemistry on its own supports; BindingMT keeps association-specific analysis
-and optional qualified reuse, without a mandatory topographic calculation.
+[#112](pending_proposals/binding_interface_public_contract.md) retains
+[work-plan revision 4](binding_interface_implementation_plan.md), scientific-design
+revision 2 and the full 15-section/17-entry/17-control review. The
+[final collaborator dispositions](binding_interface_plan_review.md#7-final-collaborator-round-and-recorded-contributions)
+record TopoMT, PharmacophoreMT and PeptideMT support for bounded implementation
+from exact source `a3d8476`, without another general design round. Their additions
+are now finite receiving cases: partial-region/full-feature correspondence and
+query-semantics preservation for H; native/complete derivatives, sequence/group
+maps and complete-calculation contribution views for P. Exact H/P inputs and
+export/result seams remain offered work, not delivered fixtures or runtime passes.
 
-Ordinary numerical priority is the useful data/context slice, native contacts
-and both participant footprints, then SASA/burial. Explicit calculation and
-supplied-evidence composition share an inspectable result model while retaining
-their execution boundaries. N0 now closes per-operation scientific/public/tool
-facts, request/default behavior, stable contexts, actual fallback/resources,
-quantity/outcome meanings and ordinary/expert receiving artifacts. Source inspection
-and a complete checklist remain separate from profile admission and runtime passes.
+Closed MolSysMT #734 publishes the restricted contact/distance/map and native
+bundled-element-vdW SASA offer at `04bf561`. Its owner reports 104 selected source
+passes, including 16 new controls; the
+[received contract and limits](binding_interface_implementation_plan.md#54-restricted-molsysmt-operation-offer-received)
+are the N0/C basis, not BindingMT defaults or client/native qualification.
+MolSysSuite #195 remains partial for finite agreements and actual adoption.
+TopoMT #197 retains contribution review and #198 independent regional chemistry;
+optional enrichment does not block native contacts/surfaces.
 
-Next close P0a and deliver D1/D2, then the selected N0/C facts for N1 and N2.
-PISA T0/T1, H0/H1 and consumer P obligations remain pending on their independent
-branches; later catalogue rows have their own admission triggers. #111 remains
-independent, #195 coordinates finite shared science and TopoMT #197 its contribution
-review. Exact documentation/source/publication receipts retain #50 custody. No
-runtime/native calculation, environment migration, package/tag/release, manual
-remote CI or restart of the held scientific suite is delivered by this plan.
+The [readiness ledger](binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme)
+finds the agreed route sufficient to proceed. Next close local P0a and produce
+the first D1/D2 declaration/analysis-summary and persistence slice, then close the
+contact portion of N0/C and deliver N1, followed by N2 under its own surface
+acceptance. PISA T0/T1 and H/P obligations progress independently; admitted cases
+close with actual evidence or explicit maintainer rescoping/follow-up. Later
+catalogue families and #111 keep their own admission triggers and work routes.
+
+Documentation-only checks cover Ruff, formatting, indexes, proposal/reference
+inspection, shared resources and the Conda contract in the workspace and a fresh
+committed export. Exact input/check/publication receipts retain #50 custody under
+`.molsyssuite/binding-interface-collaborator-disposition-112-20261112/`. No runtime,
+scientific or exact-head hosted pass is claimed. The shared-prefix/full-suite hold
+remains in force; no environment migration, package/tag/release or manual remote
+CI is part of this checkpoint.
 
 ### BindingSite work plan reviewed — 2026-11-11
 

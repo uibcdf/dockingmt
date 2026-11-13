@@ -83,6 +83,14 @@ TopoMT's own supports, independent of a binding partner. BindingMT retains its
 association-specific questions and can reuse those observations or directly
 compose MolSysMT; chemical descriptor names do not assign exclusive ownership.
 
+The [final collaborator disposition and readiness ledger](binding_interface_plan_review.md#7-final-collaborator-round-and-recorded-contributions)
+record support for proceeding within revision 4, bounded pharmacophoric/peptide
+receiving refinements and the restricted molecular offer now published under
+closed MolSysMT #734. Local API/scientific choices, exact H/P inputs and actual
+client result/persistence qualification remain admission work. The agreed route
+is sufficient to start P0a/D1/D2, then native N1/N2 under their own prerequisites;
+no runtime or further general design revision is delivered by this checkpoint.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the

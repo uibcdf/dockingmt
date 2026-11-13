@@ -18,6 +18,13 @@ model and the separate saved-PISA receiving branch. The sketches below retain
 their supplied-evidence execution boundary. This is planning evidence; runtime
 implementation and executed receiving remain pending.
 
+The final collaborator round supports proceeding within work-plan revision 4.
+Its [recorded contributions and readiness ledger](binding_interface_plan_review.md#7-final-collaborator-round-and-recorded-contributions)
+add finite H/P receiving details and the restricted MolSysMT offer, distinguishing
+available inputs/contracts from decisions and actual client evidence still due.
+This scientific information model remains revision 2; public spellings below
+stay proposed until the corresponding implementation admission.
+
 The design incorporates the [TopoMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6812846154),
 [PeptideMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6813153779)
 and [PharmacophoreMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6814109974)

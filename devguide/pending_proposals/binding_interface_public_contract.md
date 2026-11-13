@@ -1,5 +1,5 @@
 ---
-summary: Deliver reviewed BindingInterface work-plan revision 4 after preserving revision 3, auditing both catalogue editions and clarifying native calculation versus standalone regional physicochemistry and retained receiving obligations.
+summary: Record final collaborator support, finite H/P receiving cases, the restricted MolSysMT operation offer and an actionable readiness ledger within BindingInterface work-plan revision 4.
 issue: uibcdf/bindingmt#112
 status: active
 opened: 2026-11-12
@@ -45,6 +45,19 @@ all 15 proposal sections, the original 16 candidate entries and 17 independent
 controls. Final readback then receives TopoMT's regional-physicochemistry
 clarification and catalogue edition 2 at `0400821`, adding a seventeenth entry
 within revision 4; TopoMT #198 owns that standalone capability.
+
+The final [TopoMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6838730972),
+[PharmacophoreMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6838729596)
+and [PeptideMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6838743888)
+responses review the published revision 4 at `a3d8476` and support bounded
+implementation without another general design round. At the maintainer's
+request, their contributions and finite acceptance details are now preserved in
+the [review/disposition record](../binding_interface_plan_review.md#7-final-collaborator-round-and-recorded-contributions)
+and the maintained plan. Its
+[readiness ledger](../binding_interface_plan_review.md#8-sufficiency-for-the-agreed-implementation-programme)
+finds the agreed implementation route sufficient while identifying actual local
+decisions, incoming inputs and receiving evidence still required. Work-plan
+revision 4 and scientific-design revision 2 remain unchanged in scope/version.
 
 The working result `BindingInterface` composes a binding question, participants/
 grouping, contexts, available owner observations, site/footprint relationships,
@@ -139,6 +152,27 @@ independently of unqualified `current_finding`, later chemistry or neutral nativ
 Topography. Local input/default/version choices still require an actual decision
 record before code; no source inspection or owner expectation is a runtime pass.
 
+The final collaborator disposition adds H-R1's partial-region/full-feature
+correspondence and explicit participation policy when that conversion is selected,
+and H-R2's separation of attributed characterization evidence from native query
+flags/parameters. It records P1 native/complete-derivative provenance, P2 original/
+local/sequence maps with chemical role distinct from generation history, and P3
+contribution views retaining complete calculation participants/occluders. Inputs
+and exact export/result seams are still offered, not received fixtures. Record
+their applicability or explicit owner/revisit deferral at admission; these cases
+do not become global prerequisites for first data/contact delivery.
+
+Closed [MolSysMT #734](https://github.com/uibcdf/molsysmt/issues/734) now publishes
+the restricted contact/distance/map and native bundled-element-vdW SASA
+[contract](https://github.com/uibcdf/molsysmt/blob/04bf56131fd0cea94359e1f0f9307d0f0e36b3cb/devguide/native_interface_contacts_sasa_contract.md)
+and [owner receipt](https://github.com/uibcdf/molsysmt/blob/04bf56131fd0cea94359e1f0f9307d0f0e36b3cb/devtools/data/native_interface_handoff_receiving_734_20261112.json).
+Their 104 selected passing source cases, including 16 new controls, establish the
+bounded owner offer, not BindingMT integration or this environment's qualification.
+No new generic molecular kernel is required by that offer. N0/C must still bind
+the actual call/source/native closure, application criterion/defaults, supported
+facts/preconditions and client evidence. MolSysSuite #195 remains partial for
+agreements and actual adoption; fixture parameters are not application defaults.
+
 All examples are authored design material. There is no new measured quantity,
 API-emitted record, native hypothesis or molecular calculation. Missing required
 proof, contradiction and unsupported capability do not become successful empty
@@ -178,11 +212,11 @@ are not completed cross-owner adoption.
 
 ## Scope and exclusions
 
-This increment delivers native work-plan revision 4 after the preserved third
-revision and complete second reading, with synchronized navigation/current
-checkpoints and a detailed review record. Both design-review posts
-and original owner contributions remain intact. Update the existing plan-delivery
-comment when the final fourth revision is published, retaining earlier source links.
+This increment records the final collaborator responses, finite H/P acceptance
+details, available molecular owner offer and readiness ledger within work-plan
+revision 4, with synchronized navigation/current checkpoints. Existing public
+design/plan posts and original owner contributions remain intact; this increment
+is published as repository documentation, without a new issue comment or closure.
 It does not freeze a class/shared schema or implement runtime APIs, adapters,
 calculations, scientific fixtures or tests.
 The candidate PISA route is a proposed receiving input, not executed integration.
@@ -209,20 +243,29 @@ full-suite resource hold and human untracked migration files.
   calculation operates without PISA/TopoMT; no catalogue-wide global gate is added.
 - The preserved third revision and fourth review expose the entire contribution's
   disposition, identified gaps, corrections and remaining actual admissions.
+- The final three favorable responses are attributed to exact comments. H-R1/H-R2
+  and P1/P2/P3 have bounded admission/receiving obligations; offered inputs remain
+  distinguished from actual fixtures. TopoMT #198 is optional regional receiving.
+- The readiness ledger identifies owners and first actions for every selected
+  branch. MolSysMT #734 is a received restricted offer, with actual client
+  adoption pending under #195; it is not an unresolved generic-kernel request.
 - Applicable documentation/resource checks pass after final edits in the workspace
   and a fresh committed-source export. Their exact source/results are retained
-  in the work-plan-review task receipt and maintainer handoff; previous design
+  in the collaborator-disposition task receipt and maintainer handoff; previous design
   and initial-plan receipts retain their original scope. No runtime/scientific
   or exact-head hosted pass is implied.
 
 Next close P0a and deliver the first real D1/D2 declaration/analysis-summary slice.
-Close the contact portion of N0/C for N1, then the surface facts for N2, before their actual
-implementation/receiving. Coordinate finite P0m/P0s facts through #195, preserve
-the supplied PISA branch and receive H/P inputs independently. Record accepted/
-deferred decisions with owner/revisit conditions; no universal receipt or all-
-consumer prerequisite blocks the core. The independent #111 route remains at
-P0a and is not globally blocked by this discussion. Real guards are added only
-when the corresponding runtime operations and meaningful tests exist.
+Use the published #734 offer to close the contact portion of N0/C for N1, then
+the surface facts for N2, before their actual implementation/receiving. Coordinate
+finite application agreements and client evidence through #195, preserve the
+supplied PISA branch and receive H/P inputs independently. Record accepted/deferred
+decisions with owner/revisit conditions; no universal receipt or all-consumer
+prerequisite blocks the core. The independent #111 route remains at P0a and is
+not globally blocked by this discussion. Real guards are added only when the
+corresponding runtime operations and meaningful tests exist. Selected obligations
+close with actual evidence or explicit maintainer rescoping, never favorable
+review alone. Later catalogue families retain their separate admission triggers.
 
 ## Documentation evidence and custody
 
@@ -272,3 +315,11 @@ custody review on 2026-11-14. Official common-guide receiving at `1cd1f68` is
 preserved. Documentation gates reuse only the unchanged legacy interpreter's
 already recorded documentation scope during the #82/#175 migration; there is no
 prefix replacement, installation, native rebuild or claim of a new environment.
+
+The final collaborator snapshots, restricted #734 contract/receipt, completeness
+assessment, bounded documentation/resource checks and publication readback are
+retained under
+`.molsyssuite/binding-interface-collaborator-disposition-112-20261112/` for the
+same #50 custody review on 2026-11-14. The unchanged legacy documentation-only
+route retains its recorded scope and the #82/#175 shared-prefix pause. No native
+client/scientific run or exact-head hosted evidence is produced by these checks.

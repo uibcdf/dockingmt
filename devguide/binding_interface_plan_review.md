@@ -4,6 +4,9 @@ Owner: [BindingMT #112](https://github.com/uibcdf/bindingmt/issues/112).
 Reviewed: 2026-11-12. Scope: **planning completeness and implementation readiness**;
 no native calculation, API emission, scientific qualification or adoption is
 delivered by this review.
+Current resumption references are the
+[final collaborator dispositions](#7-final-collaborator-round-and-recorded-contributions)
+and the [implementation-readiness ledger](#8-sufficiency-for-the-agreed-implementation-programme).
 
 ## 1. Sources, sequence and conclusion
 
@@ -158,6 +161,8 @@ new prerequisites for native contacts or surfaces.
   source commits are not public dependency floors or native binary qualification.
 - Agree exercised shared facts in MolSysSuite #195. A source signature, TopoMT's
   review or this local plan is not an acceptance message from another owner.
+  MolSysMT's restricted owner offer is now published under closed #734; section
+  7.2 records its evidence and the remaining client admission/receiving boundary.
 - Report observed or reasonably suspected reusable molecular gaps in MolSysMT,
   stating the consumer evidence and remaining uncertainty. Reuse owning work;
   preserve the complete-inventory rule before absence claims from searches.
@@ -172,3 +177,135 @@ Exact receipts and source/public readback are retained under
 review on 2026-11-14. Source and installed/public/platform/hosted qualification
 remain distinct. The scientific full-suite hold and shared-prefix pause persist;
 this review changes no environment, runtime, frozen scientific producer or release.
+
+## 7. Final collaborator round and recorded contributions
+
+The following responses explicitly review revision 4 at
+`a3d84764672849cb9517802eb9640fa5860b7a02`. All support progressing to bounded
+implementation, identify no conceptual blocker and request no further general
+design iteration. This checkpoint preserves revision 4 and records their finite
+acceptance details; it does not reinterpret planning approval as executed adoption.
+
+| Perspective and exact response | Assessment | Recorded contribution / receiving owner |
+| --- | --- | --- |
+| [TopoMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6838730972) | Closes its current design-feedback round and confirms the molecular/regional/binding-specific ownership and native priority. | #197 retains review/handoff; #198 supplies a future supported regional public result/readback with exact support/state/model/weights/coverage. Mixed atoms within one residue, equal fractions/different layouts and valid geometry/unknown chemistry remain its scoped controls. #60/#61/#62 are not qualified by this response. |
+| [PharmacophoreMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6838729596) | Supports revision 4, preserved H0/H1 obligations and independent native contact/surface delivery. | Distinguish regional annotation, recognized typed feature and hypothesis site; preserve partial-region/full-feature correspondence and explicit participation policy. Keep characterization evidence separate from query flags/parameters unless an admitted owner construction/curation policy changes them. |
+| [PeptideMT](https://github.com/uibcdf/bindingmt/issues/112#issuecomment-6838743888) | Supports closing the planning round and proceeding through finite admissions. | Receive native/complete-derivative contexts, sequence/original/local-group maps and complete-system contribution views. Existing K/N and comparison obligations remain unchanged. Exact inputs/seams are still offered work. |
+
+### 7.1 Acceptance details and scope
+
+The [H receiving refinements](binding_interface_implementation_plan.md#121-pharmacophoremt-consumer-refinements)
+record two distinct controls:
+
+- **H-R1:** an admitted prepared source has a complete ring or donor-H participant
+  while a regional support intersects only part. Preserve original support atoms,
+  complete recognition context, owner inventory/result and scoped feature identity.
+  Atom intersection, complete containment and qualified center/surface selection
+  are different policies. Retain the explicit keep/omit/refuse decision without
+  chemical repair, automatic H addition or a new global feature registry. Unknown
+  chemistry can limit this conversion while useful geometry survives.
+- **H-R2:** retain contact/accessibility/burial definitions, units, context, coverage
+  and contributions alongside the hypothesis. Without explicit owner-supported
+  construction/curation, annotation changes no essential flag, weight, direction,
+  tolerance or exclusion. Actual before/after and native saved readback preserve
+  the query fields/decisions; contact/burial criteria are not matching tolerances.
+
+H-R1 becomes an obligation when the regional conversion profile is selected;
+it does not silently broaden the initial native-observation H0/H1 entry gate.
+H-R2 applies when the corresponding characterization evidence is retained.
+The small native H specification must still deliver actual inputs, repeated
+compatible observations, alternative/refusal cases and saved-reference expectations.
+
+The [P receiving cases](binding_interface_implementation_plan.md#131-peptidemt-receiving-cases)
+record:
+
+- **P1:** native prediction and a separately prepared complete derivative, including
+  removed/generated and moved-existing members. Admit geometric eligibility per
+  operation, preserve original observation/confidence context and mark missing
+  reevaluation unavailable. Generated atoms gain no fabricated source identity or
+  inherited native confidence.
+- **P2:** sequence-relative positions, original chain/residue addresses and local
+  molecular groups retain nonidentity maps through extraction/capping/reorder and
+  save/read. Chemical role and generation history are separate axes; generated H
+  on a core residue is not automatically a cap. Generated terminal groups do not
+  become extra sequence positions or acquire deposited identities. MolSysMT owns
+  construction/chemistry/maps; PeptideMT owns its sequence interpretation.
+- **P3:** preserve complete admitted chemistry and its participants/occluders, then
+  inspect declared core/terminal contribution views. Views keep the calculation
+  context, selection/coverage/denominator and partition/overlap policy. Additive
+  sums apply within the admitted fixed calculation. Reporting removes no atoms,
+  creates no extra side for a covalent cap and silently recalculates no smaller
+  system. Caps receive no automatic exclusion or unfavorable ranking meaning.
+
+These are received case outlines and proposed acceptance details, not actual
+fixtures or executed public receiving. At profile admission record exact inputs,
+independent expected outcomes and applicable/deferred cases with owner/revisit
+conditions. Once admitted, do not silently omit a case to declare completion.
+They require neither new molecular kernels nor a ranking engine and do not delay
+the first D1/D2/N1 delivery. Original K/N, comparison, PISA and native H obligations
+remain separately tracked.
+
+### 7.2 Molecular owner offer and current boundary
+
+Closed [MolSysMT #734](https://github.com/uibcdf/molsysmt/issues/734) now publishes
+the [restricted operation contract](https://github.com/uibcdf/molsysmt/blob/04bf56131fd0cea94359e1f0f9307d0f0e36b3cb/devguide/native_interface_contacts_sasa_contract.md)
+and [receiving receipt](https://github.com/uibcdf/molsysmt/blob/04bf56131fd0cea94359e1f0f9307d0f0e36b3cb/devtools/data/native_interface_handoff_receiving_734_20261112.json)
+at `04bf56131fd0cea94359e1f0f9307d0f0e36b3cb`. The selected contact/distance,
+extraction/permutation/map and bundled-element-vdW native surface operations cover
+the first restricted Cartesian profile. Its source tests report 104 passes,
+including 16 new controls, without warnings/skips; original failed attempts remain
+in the receipt. No new runtime operation or kernel was introduced.
+
+The owner offer resolves the previously open request for that bounded operation
+route. It does not choose BindingMT scientific defaults, authenticate arbitrary
+foreign assets, test this checkout's installed/native closure or implement its
+result/persistence. The contract separates actual checked facts from caller
+preconditions and fixture parameters/tolerances from application choices.
+Use it as the [N0/C admission basis](binding_interface_implementation_plan.md#54-restricted-molsysmt-operation-offer-received),
+refresh actual source/native/import identities and receive the composed client
+profile. MolSysSuite #195 remains partial for actual agreements/adoption and
+client milestone evidence, not an undefined need for a new molecular kernel.
+
+## 8. Sufficiency for the agreed implementation programme
+
+**Assessment:** revision 4 is sufficiently complete as an implementation route
+for the agreed BindingInterface programme. The scientific model, ownership,
+dependency order, useful ordinary/expert outcomes, finite receiving cases,
+persistence, adverse controls and closeout evidence are stated. The three
+component perspectives support proceeding; no new general architecture round
+is required by their feedback.
+
+Completeness of the route is different from every gate already being passed.
+The remaining decisions are the intended first work, with explicit owners:
+
+| Increment / entry | Available basis | Before execution / evidence owner |
+| --- | --- | --- |
+| P0a / D1 | Reviewed local question, participant/grouping, declared analysis/outcome and result responsibilities. | BindingMT closes actual public fields/defaults, immutable identity/parents and refusal surface in the first implementation increment. No foreign/native/H/P prerequisite is added. |
+| D2 | Safe exclusive save/read, explicit experimental admission, quantities, detached ownership, historical checks and crossed outcomes. | BindingMT chooses the concrete record/version and produces actual public declarations/analysis-summary round trips and I/O/refusal guards. Handwritten examples are not the output evidence. |
+| N0/C -> N1 | Published #734 contacts/distances/maps offer and independent expected populations. | BindingMT binds the actual public call recipe, source/native/import closure, cutoff/boundary, fields, checked facts/preconditions and resource/failure policy; then qualifies the real contact/footprint round trip without PISA/TopoMT. |
+| N0/C -> N2 | Published #734 fixed-input three-context native SASA/radius offer. | BindingMT chooses supported chemistry/H/radius/environment/probe/sampling and numerical acceptance, proves common input/maps and receives both side losses/contributions. A membership threshold is needed only for an admitted burial-derived footprint. N2 does not require a prior contact result. |
+| T0/T1 | Frozen PISA sources/bundles, owner carrier/reader boundary and exact positive/empty/failure expectations. | BindingMT implements actual optional intake, qualified footprint persistence/readback and adverse controls. This independent branch remains an obligation under its agreed scope. |
+| H0/H1 and selected regional H | Native semantics baseline and received consumer case outlines. | PharmacophoreMT/BindingMT receive exact prepared native inputs and expected occurrences/site maps; admit the selected conversion/participation/curation policies and execute actual saved receiving. Regional H-R1 is conditional on selecting that path. |
+| P and admitted P1/P2/P3 | Concrete native/derived, sequence/group and contribution-view outlines, alongside K/N/comparison controls. | PeptideMT/BindingMT receive exact inputs, maps/roles and actual export/result seams; record independent expectations, applicability and explicit deferrals. Reporting views preserve the original calculation. |
+| Optional regional enrichment | TopoMT #198 owns its standalone regional scientific/public profile and controls. | Receive a supported public owner result and independent persistence when ready. This does not block native N1/N2 or qualify every topographic family. |
+| Execution and delivery | Resource limits, source/native evidence requirements and separate component/public/platform gates are recorded. | Verify the actually qualified workspace/closure before runtime work, monitor bounded owned cells, and retain failures/interruptions. #30 keeps source/public-delivery scope; no scientific full-suite or shared-prefix restart is implied. |
+
+The next useful action is P0a and the first actual D1/D2 slice. Close the contact
+portion of N0/C using the available offer, then implement N1; follow with N2 under
+its own application acceptance. H/P inputs and optional enrichment can progress
+through their actual prerequisites independently. Do not wait for every later
+catalogue family to exist before this delivery.
+
+Completion requires actual emitted and independently read results, all admitted
+positive/empty/unavailable/refusal and unit-policy controls, honest method/context/
+map/coverage preservation and independently addressable guards. Selected native
+N0/N1/N2 and previously agreed T/H/P obligations close by evidence or explicit
+maintainer rescoping with owning follow-up/revisit conditions. The catalogue's
+unselected energy, ensemble and predictive families keep their own later triggers;
+this assessment is not a claim that every future BindingMT capability is specified.
+
+Runtime may expose concrete defects, provider gaps or resource limits. Use the
+recorded owner-feedback and bounded execution routes, preserve attempts and
+independent work, and refuse unsupported stronger behavior rather than silently
+weakening the scientific meaning. A complete plan provides that route; it cannot
+guarantee defect-free execution or replace actual receiving evidence.
