@@ -2,7 +2,7 @@
 
 Owner: [BindingMT #111](https://github.com/uibcdf/bindingmt/issues/111).
 Recorded: 2026-11-11. Work-plan revision **2, reviewed**.
-Status: **residue/criterion and atom/group declaration profiles implemented; C1 owner review requested**.
+Status: **admitted static/single-view M1 source-received including geometry; C1 owner review pending**.
 This plan turns the [audited design](binding_site_design.md) and its
 [worked handoffs](binding_site_review.md) into independently reviewable increments.
 It records work order and acceptance; only the dated delivered profiles below are implemented.
@@ -166,14 +166,14 @@ permission to publish partial enforcement or a callable stub.
 
 | Increment | Status at this checkpoint | Completion condition |
 | --- | --- | --- |
-| P0a | First declaration-profile decisions closed; other profiles pending | Minimal public operations, identity/version rules, source/structural scope, quantity fields and failure semantics are explicit before B1/B2; later execution evidence is not a precondition for writing the first implementation. |
+| P0a | Static membership/criterion/geometry decisions closed; richer profiles pending | Minimal public operations, identity/version rules, source/structural scope, quantity fields and failure semantics are explicit before B1/B2; later execution evidence is not a precondition for writing the first implementation. |
 | P0m | Requested in MolSysMT #746; owner disposition pending | D2/D5/D6 identify actual public molecular facts, checks and preconditions for each admitted operation. |
 | P0s | Pending central coordination | Shared agreements/adoption records are linked; stabilization is limited to the meanings exercised, with remaining owners explicit. |
 | P0t/h/p | Inputs offered, not yet received | Each consumer supplies its relevant source/policy/expected observations; a missing H/P input does not block C1 or T0. |
-| B1 | Residue/criterion and atom/group declarations delivered; geometry pending | Useful public declarations/inspection with meaningful focused tests. |
-| B2 | Experimental 0.1/0.2 declared profiles received; richer profiles pending | Immutable revision and faithful, safe, versioned persistence. |
+| B1 | Six static-profile factories/inspection delivered; richer views pending | Useful public declarations/inspection with meaningful focused tests. |
+| B2 | Static 0.1/0.2/0.3 source-received; richer profiles pending | Immutable revision and faithful, safe, versioned persistence. |
 | C1 | Pending molecular agreement | A qualified direct region projection on a chosen MolSys structure. |
-| C2 | Pending B2/assurance contract; molecular use also needs C1 | Offline geometry and actual problem placement retain distinct checks; normal record propagation and admission are qualified before the public application is received. |
+| C2 | Static B2 available; derivation/assurance contract pending, molecular use also needs C1 | Offline geometry and actual problem placement retain distinct checks; normal record propagation and admission are qualified before the public application is received. |
 | T0 | Pending B2/TopoMT profile and input | A real optional public import adapter preserves the received record without rerunning or reinterpreting it. |
 | T1 | Pending T0/C2/owner input | One complete public saved-provider workflow and its refusal controls. |
 | H | Offered source/policy pending | One bounded native hypothesis and association workflow with owner controls. |
@@ -261,7 +261,8 @@ Deliver a public BindingSite entry point with a small actual implementation:
   information, roles and source/index spaces.
 - Pure definition/criterion construction without manufactured empty membership.
   Manual hypotheses carry unknown support when no evidence is supplied.
-- Elementary sphere/axis-aligned box declarations with explicit units and frame.
+- Elementary sphere/box declarations with explicit units and frame, preserving
+  admitted orientation. The first profile defaults to axis-aligned boxes.
   Rich supports can remain owner references with honest unavailable operations.
 - Public definition/evidence construction and immutable ownership; ordinary
   users do not assemble the whole record. Revision operations land in B2 using
@@ -652,10 +653,12 @@ calculation is commissioned by this implementation plan.
 
 ## 16. Next actionable checkpoint
 
-The first [residue/criterion profile](binding_site_data_core.md) and subsequent
-[atom/group declarations](binding_site_membership.md) now have local P0a decisions
-and actual public B1/B2 receiving. New source-index membership uses experimental
-0.2; original residue/criterion records remain 0.1 and unchanged/readable.
+The [residue/criterion](binding_site_data_core.md), [atom/group](binding_site_membership.md)
+and [sphere/box geometry](binding_site_geometry.md) profiles have local P0a
+contracts and actual public B1/B2 source receiving. Their separate experimental
+0.1/0.2/0.3 records retain their original identities/bytes. M1's admitted
+static/single-view data core is source-received; multi-view/ensemble operations
+and the broader plan remain pending.
 
 Receive [MolSysMT #746](https://github.com/uibcdf/molsysmt/issues/746)'s finite C1
 facts/checks/preconditions, reusing the applicable #734 offer. Then implement
@@ -664,11 +667,12 @@ expansion, structure/state forwarding and honest missing/contradictory/partial
 outcomes. Range checks or labels alone are not authenticated source identity.
 No resolution stub or fake successful report is delivered by declarations.
 
-Independent geometry work and its local decisions can proceed through B1/C2's
-own prerequisites. T/H/P still need their owner inputs/profiles and actual public
-receiving. Preserve separate shared coordination/adoption and #30 installed/
-public/platform/full-suite evidence; no unavailable consumer becomes a global
-barrier and no original evaluator interruption is automatically restarted.
+Static geometry permits the next independent C2 local derivation/assurance design;
+its full public application still needs the actual problem placement/check-use
+profile. T/H/P need their owner inputs/profiles and actual public receiving.
+Preserve separate shared coordination/adoption and #30 installed/public/platform/
+full-suite evidence; no unavailable consumer becomes a global barrier and no
+original evaluator interruption is automatically restarted. #111 stays active.
 
 ## First coordinate-free B1/B2 source checkpoint — 2026-11-13
 
@@ -706,3 +710,23 @@ P0m is now requested under MolSysMT #746; its existing-operation review is not a
 new general molecular framework or an executed owner agreement. The first native
 resolution implementation waits for its admitted facts, while independent B1
 geometry/other owner inputs retain their own prerequisites. #111 remains active.
+
+## Static geometry and bounded M1 source receiving — 2026-11-13
+
+[The geometry contract](binding_site_geometry.md) completes the admitted six-factory
+static data profile with explicit sphere and oriented-box declarations, sealed
+quantities, frame/scope admission, detached inspection and 0.3 persistence.
+The prior 0.1/0.2 factories/outputs stay unchanged. 473 complete selected cases
+pass per normal/pm-fs policy, including 72 new geometry and two saved-box resource
+controls; 16 original/sorted files cold-read under unyt/pm-fs, and the actual
+earlier reader refuses new 0.3. All data-only paths preserve old claims and avoid
+molecular work/new originating credit. [#115](archive/length_quantity_oserror.md)
+also fixes original OS-error propagation at the reused quantity/box-reader boundary.
+
+This meets M1 for the admitted static/single-view profiles, not the whole B1/B2
+catalogue, molecular applicability, shared acceptance or consumer adoption.
+C1 awaits #746; C2 offline derivation/assurance and actual placement remain
+separate next work. Rich/ensemble views and T/H/P still retain their own gates.
+Exact source/resource/frozen-input/gate/publication receipts remain under #50 in
+`.molsyssuite/site-geometry-111-20261113/`, review 2026-11-14. No hosted/full-suite/
+installed/public-platform evidence, new package/tag or restarted evaluator is claimed.

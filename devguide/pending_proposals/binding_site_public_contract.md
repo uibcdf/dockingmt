@@ -217,3 +217,27 @@ retains its own gate. Exact attempts/source/native/support/resource/publication
 receipts retain #50 custody in `.molsyssuite/site-membership-111-20261113/`, review
 2026-11-14. #111 stays active; hosted/installed/public/platform/shared/consumer
 and the prior #30 evaluator hold remain separate.
+
+
+## Static geometry declaration and bounded M1 increment — 2026-11-13
+
+[The elementary geometry profile](../binding_site_geometry.md) now receives
+`from_sphere` and `from_box`, explicit quantities/frame/scope, preserved box
+orientation, detached inspection and immutable experimental 0.3 persistence.
+Earlier 0.1/0.2 factories and original outputs remain unchanged/readable.
+473 complete selected controls pass per normal/pm-fs policy, including 72 new
+geometry and two saved-box OS-error controls; 16 original/sorted records cold-read
+under unyt/pm-fs, and the actual previous reader refuses new 0.3 before molecular
+work. [#115](../archive/length_quantity_oserror.md) preserves original OS/resource
+exceptions at reused shared length and saved-box boundaries.
+
+M1's admitted static/single-view data profiles are source-received. This is not
+completion of the full catalogue, molecular application, shared agreement or
+consumer adoption. C1 still awaits MolSysMT #746; next settle C2's offline
+geometric derivation/assurance separately from actual problem placement. T/H/P
+retain owner-input and actual receiving gates; #111 remains active.
+Exact attempts, original producer/support identities, source/provider/resource
+hashes and workspace/committed-export/publication receipts retain #50 custody in
+`.molsyssuite/site-geometry-111-20261113/`, review 2026-11-14. The earlier evaluator
+hold, installed/public/platform/hosted evidence and immutable 0.1.0 tag remain
+unchanged. No prefix/native rebuild or consumer adoption is claimed.

@@ -191,7 +191,7 @@ def _ensure_length_quantity(val: Any, name: str, caller: str | None = None) -> A
             standardized=False,
             caller=caller,
         )
-    except MemoryError:
+    except (MemoryError, OSError):
         raise
     except Exception as exc:
         raise ArgumentError(
@@ -295,7 +295,7 @@ def _box_vector_from_record(record, name):
         with np.errstate(over='raise', invalid='raise'):
             numeric = np.asarray(values, dtype=float)
         return puw.quantity(numeric, record['unit'])
-    except MemoryError:
+    except (MemoryError, OSError):
         raise
     except Exception as exc:
         raise ArgumentError(

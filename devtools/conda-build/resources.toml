@@ -3323,3 +3323,28 @@ sha256 = "bf151c3d9892889d321d748527f8fbd13240e0c521b9b6e5175bf144f8db4ce4"
 source = "tests/data/site_membership_compat/bb3dbfc/rule.json"
 target = "tests/data/site_membership_compat/bb3dbfc/rule.json"
 sha256 = "3f4cba4bc0afb849a7b44a0dbed7ac2c58c5296e5e63e1ea79d7ad6ba50e0751"
+
+[[installed_tests.support.files]]
+source = "tests/data/site_geometry_compat/e1e6a33/README.md"
+target = "tests/data/site_geometry_compat/e1e6a33/README.md"
+sha256 = "ee6be4f956a04d181c4e9ea0c71afe5a7d6f8d769decc4699374cead5a9bfb69"
+
+[[installed_tests.support.files]]
+source = "tests/data/site_geometry_compat/e1e6a33/atoms.json"
+target = "tests/data/site_geometry_compat/e1e6a33/atoms.json"
+sha256 = "c082f4e214d307113eaeab67e2d60327a65d957ff4d742f1c165f01fc01598f2"
+
+[[installed_tests.support.files]]
+source = "tests/data/site_geometry_compat/e1e6a33/cited.json"
+target = "tests/data/site_geometry_compat/e1e6a33/cited.json"
+sha256 = "e42a519e9b7fd6785f0f3cba48841c559970c4a62e2f06737fae067fb8a279d4"
+
+[[installed_tests.support.files]]
+source = "tests/data/site_geometry_compat/e1e6a33/groups.json"
+target = "tests/data/site_geometry_compat/e1e6a33/groups.json"
+sha256 = "61f4dde5d4b74e202e6c23c0f2701c92e1bb49b8f223e4bf84e56bbb36520200"
+
+[[installed_tests.support.files]]
+source = "tests/data/site_geometry_compat/e1e6a33/manifest.json"
+target = "tests/data/site_geometry_compat/e1e6a33/manifest.json"
+sha256 = "3b50e043c6e09b43ca8a128c34a5091f07803f63c57a38982f1cf5b88b6a6c77"

@@ -1,0 +1,40 @@
+{
+  "scope": "Exact previously emitted BindingSite 0.2 source declarations; no regeneration or producer rewrite",
+  "qualified_source_commit": "e1e6a337dbf487d1b2e36809cc72ea46a7639f60",
+  "production_base_commit": "bb3dbfce1a0a5c0e3d928d5257e21eca8e03a031",
+  "records": {
+    "atoms.json": {
+      "sha256": "c082f4e214d307113eaeab67e2d60327a65d957ff4d742f1c165f01fc01598f2",
+      "record_id": "88761c93-bde2-4be2-add0-d96cf56b55ee",
+      "content_sha256": "00f63b7f058d8f3d8a46bb0a7d75842f52f546b76d0c1adb629181567d8fb828",
+      "original_producer": {
+        "library": "bindingmt",
+        "bindingmt_version": "0.1.0+19.g0ab5102",
+        "operation": "declaration"
+      },
+      "original_task_path": ".molsyssuite/site-membership-111-20261113/workflow-producer-01/atoms.json"
+    },
+    "groups.json": {
+      "sha256": "61f4dde5d4b74e202e6c23c0f2701c92e1bb49b8f223e4bf84e56bbb36520200",
+      "record_id": "e240da61-35b7-4c44-b352-2955b1b0b231",
+      "content_sha256": "9e7bce18f3104374ecd401a2e2c2d493b88319c3327c9f629c3558d7d56732c5",
+      "original_producer": {
+        "library": "bindingmt",
+        "bindingmt_version": "0.1.0+19.g0ab5102",
+        "operation": "declaration"
+      },
+      "original_task_path": ".molsyssuite/site-membership-111-20261113/workflow-producer-01/groups.json"
+    },
+    "cited.json": {
+      "sha256": "e42a519e9b7fd6785f0f3cba48841c559970c4a62e2f06737fae067fb8a279d4",
+      "record_id": "b9bb2a83-d368-4008-98e6-45e0ca767874",
+      "content_sha256": "6b72f5daaafe7a980a0e5b22ea4bfb1ac8fbcdc2c6638047aaef9befbc46b430",
+      "original_producer": {
+        "library": "bindingmt",
+        "bindingmt_version": "0.1.0+19.g0ab5102",
+        "operation": "definition_revision"
+      },
+      "original_task_path": ".molsyssuite/site-membership-111-20261113/workflow-producer-01/cited.json"
+    }
+  }
+}

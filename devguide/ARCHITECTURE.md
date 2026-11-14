@@ -126,6 +126,14 @@ groups, matching molecular identity or deriving coordinates. New wire 0.2 is
 admitted separately from the actual old 0.1 profile. C1 owner facts are requested
 under MolSysMT #746; no successful native projection is fabricated from labels.
 
+The [elementary geometry profile](binding_site_geometry.md) adds explicit sealed
+length quantities and an owned dimensionless orientation kind through the same
+public site lifecycle. `_private/site_geometry.py` validates only declared
+sphere/box data and reuses existing length admission plus PyUnitWizard's public
+QuantityRecord codec. It implements no molecular transform, selector, frame
+alignment or numerical geometry kernel. Geometry 0.3 and earlier profiles retain
+separate admission; molecular resolution and actual placement remain C1/C2 work.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the
@@ -137,6 +145,7 @@ authoritative when this navigation map changes.
 | --- | --- | --- |
 | Scientific declarations and records | [`core/problem.py`](../bindingmt/core/problem.py), [`protocol.py`](../bindingmt/core/protocol.py), [`search_domain.py`](../bindingmt/core/search_domain.py), [`results.py`](../bindingmt/core/results.py), [`outcome.py`](../bindingmt/core/outcome.py) | Problems, resolved Vina protocol, physical search domains, poses/results and per-item batch outcomes. |
 | Native binding contacts | [`contacts.py`](../bindingmt/contacts.py), [`core/contact_footprint.py`](../bindingmt/core/contact_footprint.py) | Compose actual public MolSysMT contacts/distances and inspect/save/read independent participant footprints. |
+| BindingSite declarations | [`core/site.py`](../bindingmt/core/site.py), [`_private/site_records.py`](../bindingmt/_private/site_records.py), [`_private/site_geometry.py`](../bindingmt/_private/site_geometry.py) | Coordinate-free membership/criteria, explicit elementary geometry and immutable offline versioned records; later molecular work remains MolSysMT-owned. |
 | Interface data core | [`core/interface.py`](../bindingmt/core/interface.py) | Declared/native analysis records, immutable identity/reinterpretation and offline core JSON persistence; explicit native work is in contacts.py and burial.py. |
 | Record admission and provenance | [`core/audit.py`](../bindingmt/core/audit.py), [`pose_audit.py`](../bindingmt/core/pose_audit.py), [`_scores.py`](../bindingmt/core/_scores.py), [`_private/artifacts.py`](../bindingmt/_private/artifacts.py) | Internal consistency, named score/ranking evidence and captured backend-input identity. These do not certify chemistry or reconstruct missing molecular sources. |
 | Public orchestration | [`dock.py`](../bindingmt/dock.py), [`score.py`](../bindingmt/score.py), [`batch.py`](../bindingmt/batch.py), [`evaluation.py`](../bindingmt/evaluation.py), [`aggregation.py`](../bindingmt/aggregation.py) | Docking/fixed scoring, serial prepared-problem execution and explicitly delimited reference-recovery evaluation/aggregation. |

@@ -163,3 +163,18 @@ def test_box_reader_preserves_quantity_construction_memory_failure(monkeypatch):
     with pytest.raises(MemoryError) as caught:
         BoxRegion.from_dict(record)
     assert caught.value is error
+
+
+@pytest.mark.parametrize(
+    'error', [OSError(12, 'authored OS fault'), PermissionError('authored IO fault')]
+)
+def test_box_reader_preserves_quantity_construction_os_failure(monkeypatch, error):
+    record = _record()
+
+    def interrupted(*args, **kwargs):
+        raise error
+
+    monkeypatch.setattr(puw, 'quantity', interrupted)
+    with pytest.raises(type(error)) as caught:
+        BoxRegion.from_dict(record)
+    assert caught.value is error

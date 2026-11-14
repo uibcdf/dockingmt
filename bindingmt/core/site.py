@@ -67,7 +67,9 @@ class BindingSite(_InterfaceRecordIO):
     @arg_digest(config='bindingmt._argdigest')
     def __init__(self, record, *, experimental=False):
         _require(
-            experimental is True, 'experimental', 'Opt in to experimental site 0.1/0.2.'
+            experimental is True,
+            'experimental',
+            'Opt in to experimental site 0.1/0.2/0.3.',
         )
         snapshot = json_copy(record, 'record')
         validate(snapshot)
@@ -249,6 +251,127 @@ class BindingSite(_InterfaceRecordIO):
     def site_id(self):
         return self.record_id
 
+    @classmethod
+    def _from_geometry(
+        cls,
+        source,
+        kind,
+        center,
+        frame,
+        name,
+        role,
+        structures,
+        states,
+        extensions,
+        *,
+        radius=None,
+        lengths=None,
+        axes=None,
+    ):
+        from bindingmt._private.site_geometry import geometry_payload
+
+        source = source_record(source)
+        _require(text(role), 'role', 'Declare a geometry role string.')
+        capability(role == 'declared_geometry', 'site geometry role')
+        views = [
+            {
+                'key': 'geometry',
+                'kind': kind,
+                'role': role,
+                'scope': scope_record(source['id'], structures, states),
+                'payload': geometry_payload(
+                    kind, center, frame, radius=radius, lengths=lengths, axes=axes
+                ),
+            }
+        ]
+        record = _record(
+            source,
+            'Candidate association region; binding support unknown',
+            {'kind': 'explicit_geometric_support', 'shape': kind},
+            name,
+            structures,
+            states,
+            extensions,
+            views,
+        )
+        record['format_version'] = '0.3'
+        record = json_copy(record, 'record')
+        record['content_sha256'] = _digest(record)
+        return cls(record, experimental=True)
+
+    @classmethod
+    @signal(tags=['api', 'site', 'geometry'])
+    @arg_digest(config='bindingmt._argdigest')
+    def from_sphere(
+        cls,
+        *,
+        source,
+        center,
+        radius,
+        frame,
+        name=None,
+        role='declared_geometry',
+        structure_indices=None,
+        chemical_state_indices=None,
+        extensions=None,
+    ):
+        """Declare a positive-radius sphere in a stated single-image Cartesian frame."""
+        return cls._from_geometry(
+            source,
+            'sphere',
+            center,
+            frame,
+            name,
+            role,
+            structure_indices,
+            chemical_state_indices,
+            extensions,
+            radius=radius,
+        )
+
+    @classmethod
+    @signal(tags=['api', 'site', 'geometry'])
+    @arg_digest(config='bindingmt._argdigest')
+    def from_box(
+        cls,
+        *,
+        source,
+        center,
+        lengths,
+        frame,
+        axes=None,
+        name=None,
+        role='declared_geometry',
+        structure_indices=None,
+        chemical_state_indices=None,
+        extensions=None,
+    ):
+        """Declare full positive edge lengths and preserve optional oriented local axes."""
+        return cls._from_geometry(
+            source,
+            'box',
+            center,
+            frame,
+            name,
+            role,
+            structure_indices,
+            chemical_state_indices,
+            extensions,
+            lengths=lengths,
+            axes=axes,
+        )
+
+    @property
+    def geometry(self):
+        """Detached physical quantities/axes, without molecular lookup or placement."""
+        from bindingmt._private.site_geometry import public_geometry
+
+        record = self.to_dict()
+        if not record['views'] or record['views'][0]['kind'] not in ('sphere', 'box'):
+            return None
+        view = record['views'][0]
+        return public_geometry(view['kind'], view['payload'])
+
     @property
     def context(self):
         return self.to_dict()['context']
@@ -346,9 +469,13 @@ class BindingSite(_InterfaceRecordIO):
         molecular = (
             payload is not None and record['views'][0]['kind'] == 'molecular_membership'
         )
+        geometric = payload is not None and record['views'][0]['kind'] in (
+            'sphere',
+            'box',
+        )
         entries = (
             None
-            if payload is None
+            if payload is None or geometric
             else payload['source_indices']
             if molecular
             else payload['entries']
@@ -367,7 +494,7 @@ class BindingSite(_InterfaceRecordIO):
             membership.update(
                 element=payload['element'], index_space=payload['index_space']
             )
-        return {
+        report = {
             'record_id': self.record_id,
             'name': record['name'],
             'definition_ref': self.definition_ref,
@@ -388,11 +515,24 @@ class BindingSite(_InterfaceRecordIO):
                 'domain_placement': False,
             },
         }
+        if geometric:
+            report['geometry'] = {
+                'state': 'declared',
+                'kind': record['views'][0]['kind'],
+                'frame': payload['frame'],
+                'placement_assurance': 'not_assessed',
+            }
+        return report
 
     def describe(self):
         report = self.inspect()
+        representation = (
+            f'{report["geometry"]["kind"]} geometry in frame {report["geometry"]["frame"]["id"]}'
+            if 'geometry' in report
+            else f'{report["membership"]["state"]} membership'
+        )
         return (
-            f'BindingSite {report["name"] or report["record_id"]}: {report["membership"]["state"]} '
-            f'membership; {report["evidence_count"]} attributed observations. '
+            f'BindingSite {report["name"] or report["record_id"]}: {representation}; '
+            f'{report["evidence_count"]} attributed observations. '
             'Binding support is unknown; molecular resolution is not performed.'
         )

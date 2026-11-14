@@ -30,6 +30,35 @@ Read [development/onboarding](DEVELOPMENT.md) for setup and code navigation.
 [PRE_STABILIZATION_PLAN.md](PRE_STABILIZATION_PLAN.md) owns the full product
 requirements; this file explains how to resume without recovering chat history.
 
+### BindingSite geometry and static data-core checkpoint — 2026-11-13
+
+[#111](pending_proposals/binding_site_public_contract.md) now adds public
+`BindingSite.from_sphere` and `from_box` with explicit length quantities and
+Cartesian frame, preserving optional right-handed box orientation. The
+[geometry contract](binding_site_geometry.md) admits experimental 0.3, detached
+quantity inspection, one source-structure occurrence and immutable versioned
+save/read. Actual 0.1/0.2 factories and files remain unchanged/readable. Geometry
+supplies no molecular membership, placement assurance or binding-support finding.
+
+**473 complete selected cases pass per policy**, normal and pm/fs: 436 core plus
+37 argument/bootstrap controls, including 72 new geometry and two saved-box
+OS-error controls. A fresh unyt/pm-fs reader checks 16 original/sorted files;
+the actual earlier decoder refuses new 0.3 before molecular work. No optional
+engine/molecular calls or originating uses occur. Five new compatibility inputs
+retain original 0.2 bytes/producers and exact installed-test support hashes.
+[Resource exception #115](archive/length_quantity_oserror.md) preserves original
+OS/resource exceptions in shared length admission and saved-box reading.
+
+M1's admitted static/single-view data profiles are source-received; broader
+multi-view/ensemble and molecular/application/owner receiving remain pending.
+Next receive [MolSysMT #746](https://github.com/uibcdf/molsysmt/issues/746)'s finite
+C1 disposition and settle the C2 offline derivation/assurance profile separately
+from molecular placement. PeptideMT #60 still awaits cases; #111 stays active.
+Exact source/provider/resource/export/publication receipts retain #50 custody in
+`.molsyssuite/site-geometry-111-20261113/`, review 2026-11-14. No new interruption,
+held-evaluator restart, prefix/native rebuild, hosted/installed/public/platform
+or consumer-adoption pass is claimed. The immutable source tag stays 0.1.0.
+
 ### BindingSite atom/group declarations and C1 owner request — 2026-11-13
 
 [#111](pending_proposals/binding_site_public_contract.md) adds public

@@ -643,6 +643,8 @@ def digest_coordinate_tolerance(coordinate_tolerance, caller=None):
 
 
 ARGUMENT_DIGESTERS = {
+    'frame': _mapping('frame'),
+    'axes': _declaration_value,
     'atom_indices': _declaration_value,
     'group_indices': _declaration_value,
     'source': _mapping('source'),

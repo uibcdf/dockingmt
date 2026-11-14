@@ -21,8 +21,37 @@ than treating the skipped push as passing.
 
 Owner: [BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [BMT-046](DECISIONS.md#bmt-046--deliver-the-complete-functional-objective-before-stabilization).
-Status: **active; #111 residue/criterion and atom/group profiles delivered; C1 owner review requested in MolSysMT #746; #112 P/shared receiving awaits input**.
+Status: **active; #111 admitted static/single-view M1 source-received including geometry; C1 owner review awaits MolSysMT #746; #112 P/shared receiving awaits input**.
 Inspected starting source: `530a4cf`.
+
+### BindingSite geometry and static data-core checkpoint — 2026-11-13
+
+[#111](pending_proposals/binding_site_public_contract.md) now adds public
+`BindingSite.from_sphere` and `from_box` with explicit length quantities and
+Cartesian frame, preserving optional right-handed box orientation. The
+[geometry contract](binding_site_geometry.md) admits experimental 0.3, detached
+quantity inspection, one source-structure occurrence and immutable versioned
+save/read. Actual 0.1/0.2 factories and files remain unchanged/readable. Geometry
+supplies no molecular membership, placement assurance or binding-support finding.
+
+**473 complete selected cases pass per policy**, normal and pm/fs: 436 core plus
+37 argument/bootstrap controls, including 72 new geometry and two saved-box
+OS-error controls. A fresh unyt/pm-fs reader checks 16 original/sorted files;
+the actual earlier decoder refuses new 0.3 before molecular work. No optional
+engine/molecular calls or originating uses occur. Five new compatibility inputs
+retain original 0.2 bytes/producers and exact installed-test support hashes.
+[Resource exception #115](archive/length_quantity_oserror.md) preserves original
+OS/resource exceptions in shared length admission and saved-box reading.
+
+M1's admitted static/single-view data profiles are source-received; broader
+multi-view/ensemble and molecular/application/owner receiving remain pending.
+Next receive [MolSysMT #746](https://github.com/uibcdf/molsysmt/issues/746)'s finite
+C1 disposition and settle the C2 offline derivation/assurance profile separately
+from molecular placement. PeptideMT #60 still awaits cases; #111 stays active.
+Exact source/provider/resource/export/publication receipts retain #50 custody in
+`.molsyssuite/site-geometry-111-20261113/`, review 2026-11-14. No new interruption,
+held-evaluator restart, prefix/native rebuild, hosted/installed/public/platform
+or consumer-adoption pass is claimed. The immutable source tag stays 0.1.0.
 
 ### BindingSite atom/group declarations and C1 owner request — 2026-11-13
 

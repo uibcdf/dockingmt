@@ -18,6 +18,7 @@ as implemented exports by the naming transition.
 | Read saved observations | `DockingPose.from_dict`, `DockingResult.from_dict`, `DockingOutcome.from_dict` | Validate and restore records without reconstructing a molecular problem or running an engine. |
 | Inspect available evidence | `audit_pose`, `audit_result`, `verify_captured_inputs` | Cross-check supplied mappings/captured bytes offline. An internally consistent record is not authenticated provenance or chemical validation. |
 | Change a result's order | `DockingResult.rank_by` | Stable ordering of existing scores, with ranking history; no new score or search. |
+| Declare/preserve a binding-site hypothesis | `BindingSite.from_residues`, `from_definition`, `from_atoms`, `from_groups`, `from_sphere`, `from_box` | Detached declarations, explicit source/scope/frame and versioned persistence; no molecular resolution or domain placement. |
 | Describe a physical region | `BoxRegion` | Quantity-aware box construction. `from_selection` additionally reads a molecular system through MolSysMT. |
 | Declare molecular inputs | `DockingProblem`, `DockingProblem.for_redocking` | Resolve supported inputs/selections/states through MolSysMT. This can read/convert molecular data. |
 | Make explicit preparations | `prepare_receptor`, `prepare_ligand` | Molecular preparation and export using provider tools; choices remain explicit and case-dependent. |
@@ -76,7 +77,7 @@ recognized version or an invalid value refuse. Cohorts compare the entire origin
 names. The current summarizer has its own identity and earns no originating
 measurement credit. See the [#113 evidence](archive/redocking_summary_receiving_controls.md).
 
-## Coordinate-free BindingSite declarations
+## BindingSite declarations and elementary geometry
 
 The [first site profile](binding_site_data_core.md) delivers
 `BindingSite.from_residues(source=..., address_space="author_residue", residues=...)`
@@ -106,8 +107,22 @@ atom_indices=...)` and `from_groups(source=..., group_indices=...)` with ordered
 nonnegative unique source indices. Lists, tuples and one-dimensional NumPy integer
 arrays are admitted; no selection, source-bound check or group-to-atom expansion
 occurs. These factories emit experimental 0.2 and report `declared` membership;
-old 0.1 factories/records stay unchanged and readable. Geometry, molecular
-resolution, domain placement and optional owner receiving remain pending.
+old 0.1 factories/records stay unchanged and readable.
+
+The [geometry profile](binding_site_geometry.md) adds
+`from_sphere(source=..., center=..., radius=..., frame=...)` and
+`from_box(source=..., center=..., lengths=..., frame=..., axes=None)`. Supply
+explicit finite lengths; radius/full box lengths must be positive. The explicit
+Cartesian frame admits `pbc=False`; optional box axes retain right-handed local
+row-basis orientation. One saved geometry is independent or refers to at most one
+source-structure occurrence. The detached `geometry` property returns quantities
+in nm using the active quantity form, plus frame/axes; it is None for the earlier
+nongeneric views. These factories emit experimental 0.3; old factories retain
+their own 0.1/0.2 profiles. Geometry membership stays not supplied, binding support
+unknown and placement not assessed. Molecular resolution, domain placement,
+ensemble operations and optional owner receiving remain pending. Shared length
+admission and saved-box reading preserve original OS/resource failures; see
+[#115](archive/length_quantity_oserror.md).
 
 ## Interface declarations and experimental persistence
 

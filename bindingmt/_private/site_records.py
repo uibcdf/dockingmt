@@ -213,10 +213,10 @@ def validate(record):
     )
     _require(
         record['format'] == 'bindingmt.binding_site'
-        and record['format_version'] in ('0.1', '0.2')
+        and record['format_version'] in ('0.1', '0.2', '0.3')
         and record['experimental'] is True,
         'format_version',
-        'Explicit experimental bindingmt.binding_site version 0.1 or 0.2 is required.',
+        'Explicit experimental bindingmt.binding_site version 0.1, 0.2 or 0.3 is required.',
     )
     _require(
         text(record['record_id']), 'record_id', 'Declare a nonempty record identity.'
@@ -241,14 +241,15 @@ def validate(record):
         'Admit one source view or an unevaluated definition.',
     )
     _require(
-        record['format_version'] != '0.2' or len(views) == 1,
+        record['format_version'] not in ('0.2', '0.3') or len(views) == 1,
         'views',
-        'Experimental 0.2 requires one explicit molecular-membership view.',
+        'Experimental 0.2/0.3 requires one explicit membership or geometry view.',
     )
     for view in views:
         keys(view, {'key', 'kind', 'role', 'scope', 'payload'}, 'view')
         capability(
-            view['kind'] in ('residue_annotation', 'molecular_membership'),
+            view['kind']
+            in ('residue_annotation', 'molecular_membership', 'sphere', 'box'),
             'site view kind',
         )
         _require(
@@ -256,17 +257,27 @@ def validate(record):
             or (
                 record['format_version'] == '0.2'
                 and view['kind'] == 'molecular_membership'
+            )
+            or (
+                record['format_version'] == '0.3' and view['kind'] in ('sphere', 'box')
             ),
             'format_version',
-            'Residue annotations require 0.1; source-index membership requires 0.2.',
+            'Residues require 0.1, source-index membership 0.2 and geometry 0.3.',
         )
         _require(
-            view['key'] == 'membership',
+            view['key']
+            == ('geometry' if record['format_version'] == '0.3' else 'membership'),
             'views',
-            'Use the admitted membership view key.',
+            'Use the admitted membership/geometry view key.',
         )
         validate_scope(view['scope'], source_id)
         payload = view['payload']
+        if record['format_version'] == '0.3':
+            from bindingmt._private.site_geometry import validate_geometry
+
+            capability(view['role'] == 'declared_geometry', 'site geometry role')
+            validate_geometry(view['kind'], payload, view['scope'])
+            continue
         if view['kind'] == 'molecular_membership':
             capability(view['role'] == 'declared_members', 'site view role')
             keys(
