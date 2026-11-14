@@ -2,7 +2,7 @@
 
 Owner: [BindingMT #111](https://github.com/uibcdf/bindingmt/issues/111).
 Recorded: 2026-11-11. Work-plan revision **2, reviewed**.
-Status: **admitted static/single-view M1 source-received including geometry; C1 owner review pending**.
+Status: **admitted static M1 and internal C2 geometry source-received; C1/public placement pending**.
 This plan turns the [audited design](binding_site_design.md) and its
 [worked handoffs](binding_site_review.md) into independently reviewable increments.
 It records work order and acceptance; only the dated delivered profiles below are implemented.
@@ -173,7 +173,7 @@ permission to publish partial enforcement or a callable stub.
 | B1 | Six static-profile factories/inspection delivered; richer views pending | Useful public declarations/inspection with meaningful focused tests. |
 | B2 | Static 0.1/0.2/0.3 source-received; richer profiles pending | Immutable revision and faithful, safe, versioned persistence. |
 | C1 | Pending molecular agreement | A qualified direct region projection on a chosen MolSys structure. |
-| C2 | Static B2 available; derivation/assurance contract pending, molecular use also needs C1 | Offline geometry and actual problem placement retain distinct checks; normal record propagation and admission are qualified before the public application is received. |
+| C2 | Internal static geometry/recipe received; public placement/assurance pending, molecular use also needs C1 | Offline geometry and actual problem placement retain distinct checks; normal record propagation and admission are qualified before the public application is received. |
 | T0 | Pending B2/TopoMT profile and input | A real optional public import adapter preserves the received record without rerunning or reinterpreting it. |
 | T1 | Pending T0/C2/owner input | One complete public saved-provider workflow and its refusal controls. |
 | H | Offered source/policy pending | One bounded native hypothesis and association workflow with owner controls. |
@@ -418,6 +418,12 @@ behavior under concurrent source edits. Historical declarations remain readable.
 problem's chosen molecular structure agrees with the application. Historical
 geometry stays readable when a detector-input change outside lining invalidates
 the stronger applicability claim. No automatic detector rerun occurs.
+
+The [dated internal C2 geometry profile](binding_site_domain_geometry.md) now
+implements the offline substep and preserves its recipe through ordinary records.
+It refuses all backend use pending placement and adds no public application stub.
+The public C2 exit and stronger assurances above remain pending; internal
+geometric success is not M2 completion.
 
 ## 10. T: one complete saved TopoMT receiving workflow
 
@@ -667,9 +673,12 @@ expansion, structure/state forwarding and honest missing/contradictory/partial
 outcomes. Range checks or labels alone are not authenticated source identity.
 No resolution stub or fake successful report is delivered by declarations.
 
-Static geometry permits the next independent C2 local derivation/assurance design;
-its full public application still needs the actual problem placement/check-use
-profile. T/H/P need their owner inputs/profiles and actual public receiving.
+The [internal C2 offline geometry substep](binding_site_domain_geometry.md) is now
+source-received. Its full public application still needs the actual problem
+placement/assurance/check-use profile. Independently fix the reproduced
+[OS ENOMEM normalization defect #116](pending_bugs/molecular_input_os_resource_error.md)
+before relying on that molecular failure boundary. T/H/P need their owner
+inputs/profiles and actual public receiving.
 Preserve separate shared coordination/adoption and #30 installed/public/platform/
 full-suite evidence; no unavailable consumer becomes a global barrier and no
 original evaluator interruption is automatically restarted. #111 stays active.
@@ -730,3 +739,24 @@ separate next work. Rich/ensemble views and T/H/P still retain their own gates.
 Exact source/resource/frozen-input/gate/publication receipts remain under #50 in
 `.molsyssuite/site-geometry-111-20261113/`, review 2026-11-14. No hosted/full-suite/
 installed/public-platform evidence, new package/tag or restarted evaluator is claimed.
+
+## Internal C2 geometry source receiving — 2026-11-13
+
+[The offline domain geometry contract](binding_site_domain_geometry.md) records
+real sphere/axis-aligned-box derivation, source/evidence/quantity custody,
+experimental local recipe admission, independent recomputation and explicit
+unplaced backend refusal. No public application stub, molecular placement or M2
+completion is claimed. 557 complete selected cases pass per normal/pm-fs policy,
+including 62 new controls and the full existing 22-case domain module. Eighteen
+original/sorted files cold-read with intact provenance/units and no originating
+uses; the actual preceding reader refuses new recipes. Seven exact support
+entries retain five original site outputs and their producer/source manifest.
+
+A separate authored normalization ENOMEM probe is reported as
+[#116](pending_bugs/molecular_input_os_resource_error.md), without changing that
+implementation or reopening #92/#115. C1 awaits #746 and public C2 needs its
+actual normalized-input/assurance/lifetime qualification. The complete earlier
+evaluator hold, shared/consumer/installed/public/platform/hosted gates, original
+scientific producers, prefix/native bytes and source tag remain unchanged.
+Raw attempts, gates/export/publication receipts retain #50 custody in
+`.molsyssuite/site-domain-geometry-111-20261113/`, review 2026-11-14.

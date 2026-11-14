@@ -155,3 +155,12 @@ factories, detached inspection, immutable revision and versioned persistence.
 Broader multi-view/ensemble operations and C1/C2/T/H/P/shared acceptance remain
 pending. Next receive #746's finite owner disposition and settle the admitted
 C2 offline derivation/assurance profile separately from molecular placement.
+
+## Subsequent internal C2 checkpoint — 2026-11-13
+
+The [offline domain-geometry increment](binding_site_domain_geometry.md) now
+implements the separate geometric substep, retaining this profile's exact site/
+claim/quantity references in a locally versioned recipe. Backend export remains
+unavailable while placement is unassessed; no public application stub is added.
+Its distinct 557-case-per-policy receiving and saved/old-reader controls do not
+rewrite the original 473-case population above or complete C1/public C2/M2.

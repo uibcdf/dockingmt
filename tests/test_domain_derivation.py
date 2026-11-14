@@ -232,7 +232,10 @@ def test_provider_selection_failure_propagates_without_geometry_fallback(monkeyp
 def test_backend_result_keeps_recipe_alongside_actual_projection_without_native_search(
     monkeypatch,
 ):
-    import vina
+    import sys
+    from types import SimpleNamespace
+
+    from depdigest.core import checker
 
     calls = []
 
@@ -265,7 +268,18 @@ def test_backend_result_keeps_recipe_alongside_actual_projection_without_native_
         def info(self):
             return {'weights': [1.0], 'box_spacing': 0.375}
 
-    monkeypatch.setattr(vina, 'Vina', FakeVina)
+    # This is an orchestration control with an authored stand-in, not a Vina run.
+    available = checker.is_installed
+    monkeypatch.setattr(
+        checker,
+        'is_installed',
+        lambda name: True if name == 'vina' else available(name),
+    )
+    monkeypatch.setitem(
+        sys.modules,
+        'vina',
+        SimpleNamespace(Vina=FakeVina, __version__='authored-software-control'),
+    )
     box = _box()
     result = bmt.dock(
         bmt.DockingProblem(

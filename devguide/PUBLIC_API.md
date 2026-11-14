@@ -124,6 +124,14 @@ ensemble operations and optional owner receiving remain pending. Shared length
 admission and saved-box reading preserve original OS/resource failures; see
 [#115](archive/length_quantity_oserror.md).
 
+The subsequent [C2 offline geometry substep](binding_site_domain_geometry.md)
+is internal. Ordinary BoxRegion records can preserve its experimental 0.1 recipe
+with the complete original site, request and quantities; unassessed placement
+refuses numerical backend export. Plain boxes and selection recipes keep their
+existing behavior. No public `BindingSite.to_search_domain` or successful molecular
+placement is delivered by this substep; that route still requires its actual
+input/assurance/check-use receiving.
+
 ## Interface declarations and experimental persistence
 
 The [implemented first data profile](binding_interface_data_core.md) documents

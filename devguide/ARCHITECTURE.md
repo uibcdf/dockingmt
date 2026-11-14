@@ -134,6 +134,15 @@ QuantityRecord codec. It implements no molecular transform, selector, frame
 alignment or numerical geometry kernel. Geometry 0.3 and earlier profiles retain
 separate admission; molecular resolution and actual placement remain C1/C2 work.
 
+The [internal C2 geometry slice](binding_site_domain_geometry.md) lives in
+`_private/site_domain_geometry.py`. It derives only declared sphere/axis-aligned
+box data and retains the whole original site in a separate experimental local
+recipe. BoxRegion dispatches that exact discriminator to its independent reader,
+recomputes retained quantities/output and refuses backend export while placement
+is unassessed. Strict old selection recipes are unchanged. This is an implemented
+private substep, not a public application stub, new molecular kernel or source
+identity/placement framework.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the

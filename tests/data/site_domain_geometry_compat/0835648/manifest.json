@@ -1,0 +1,66 @@
+{
+  "qualified_source_commit": "08356484a6e30ab173fb0b123ae9c6b8b652f30b",
+  "production_base_commit": "e1e6a337dbf487d1b2e36809cc72ea46a7639f60",
+  "records": {
+    "sphere": {
+      "path": "sphere.json",
+      "sha256": "18eac6372a70739caeeba916d3c31cd5ded3c5dc2dee60c81a94557eaccee38e",
+      "record_id": "1f092622-a3f5-42d4-bd4b-eb3feefd7027",
+      "content_sha256": "06860d6b71f27b9ad58d5216caa2ad480065f7b7706a4878d458be91bc44f841",
+      "original_producer": {
+        "library": "bindingmt",
+        "bindingmt_version": "0.1.0+19.g0ab5102",
+        "operation": "declaration"
+      },
+      "original_receipt": ".molsyssuite/site-geometry-111-20261113/workflow-producer-01/sphere.json"
+    },
+    "box": {
+      "path": "box.json",
+      "sha256": "94ca0f5422ace4849fbe87ce27502abe597317e32d3865a14a29a4ab8f70349b",
+      "record_id": "bccf7a6c-f45a-40e0-908e-f52ad41f5d81",
+      "content_sha256": "cc1b7cf15bf4d9fb92d2454199b7bfc33b005946ad061ad7eb2ead9e504a5e05",
+      "original_producer": {
+        "library": "bindingmt",
+        "bindingmt_version": "0.1.0+19.g0ab5102",
+        "operation": "declaration"
+      },
+      "original_receipt": ".molsyssuite/site-geometry-111-20261113/workflow-producer-01/box.json"
+    },
+    "oriented": {
+      "path": "oriented.json",
+      "sha256": "3b61239facc7268f3650725b3ee82bf0ce6352a0671f61428ae3e26f5a80987f",
+      "record_id": "e93f65d4-7e4c-432b-ab3c-82754229fe9a",
+      "content_sha256": "59d750dd257d67d1e21f2643c04e0b1e7a6b4a18e5e62a1f0590baf547dd1b06",
+      "original_producer": {
+        "library": "bindingmt",
+        "bindingmt_version": "0.1.0+19.g0ab5102",
+        "operation": "declaration"
+      },
+      "original_receipt": ".molsyssuite/site-geometry-111-20261113/workflow-producer-01/oriented.json"
+    },
+    "annotated": {
+      "path": "annotated.json",
+      "sha256": "d0a1c2a9b629c0408c0778d1263accab133a144eef87c45f307830505e401a0c",
+      "record_id": "ba9c6e60-5d06-4151-9964-c5828daf1f38",
+      "content_sha256": "af269ac2c09629d6a3bbddae836158133ba42e0349ee909520f8053f0bbb8ac6",
+      "original_producer": {
+        "library": "bindingmt",
+        "bindingmt_version": "0.1.0+19.g0ab5102",
+        "operation": "evidence_addition"
+      },
+      "original_receipt": ".molsyssuite/site-geometry-111-20261113/workflow-producer-01/annotated.json"
+    },
+    "revised": {
+      "path": "revised.json",
+      "sha256": "f0d226ecf2e1bba7065787b2b579f4107f9b94058f8c49ebcb31c16bcb987a20",
+      "record_id": "b5e3aa5e-d4bb-496d-8d6c-92d15e2e6558",
+      "content_sha256": "9d39be2ab6a247b3bdd902167d551d4220632d57819b9f8686498fd71b155d5c",
+      "original_producer": {
+        "library": "bindingmt",
+        "bindingmt_version": "0.1.0+19.g0ab5102",
+        "operation": "definition_revision"
+      },
+      "original_receipt": ".molsyssuite/site-geometry-111-20261113/workflow-producer-01/revised.json"
+    }
+  }
+}

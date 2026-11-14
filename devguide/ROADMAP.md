@@ -23,11 +23,39 @@ The roadmap defines direction and gates, not dates.
 
 ## Current operational plan
 
-Current work is **#111's admitted static/single-view data core source-received,
-including sphere/oriented-box geometry; C1 facts await MolSysMT #746**. #112 has native
+Current work is **#111's static M1 and internal C2 geometry source-received;
+C1 facts await MolSysMT #746 and public placement remains pending**. #112 has native
 contact/surface/ionic/H-R2 source receiving and resolved #113/#114; its P cases await
 PeptideMT #60, with shared disposition and unyt construction separately owned.
 Neither interface nor all-consumer receiving is a global BindingSite prerequisite.
+
+### BindingSite offline C2 geometry receiving — 2026-11-13
+
+[#111](pending_proposals/binding_site_public_contract.md) now implements the
+[internal domain-geometry substep](binding_site_domain_geometry.md): sphere
+enclosure and axis-aligned box derivation with explicit scalar padding, complete
+original site/claim references, sealed physical outputs and honest loss/assurance
+states. Existing BoxRegion records preserve this experimental local recipe;
+backend export refuses while placement is not assessed. No public
+`to_search_domain` stub or molecular-placement success is advertised.
+
+**557 complete selected cases pass per policy**, normal and pm/fs (520 core plus
+37 arguments), including 62 new controls and the complete existing 22-case domain
+module. Eighteen original/sorted files read cold under unyt/pm-fs without molecular
+operations, optional engines or new originating uses. The actual previous reader
+refuses new recipes. Seven support entries preserve five original 0.3 outputs
+and their exact producer/source manifest. No new resource interruption occurs.
+
+M1 stays source-received for its admitted static profiles; this internal slice
+is not M2. Next fix [#116](pending_bugs/molecular_input_os_resource_error.md)'s
+separately reproduced ENOMEM wrapper, receive MolSysMT #746's finite C1 facts,
+and qualify the public C2 placement/assurance and normalized-input check/use
+profile. PeptideMT #60 still awaits inputs. #111/#112 remain active; prior #30
+holds and installed/public/platform/hosted/consumer acceptance retain their scope.
+Task receipts keep #50 custody in
+`.molsyssuite/site-domain-geometry-111-20261113/`, review 2026-11-14.
+The immutable 0.1.0 tag, shared prefix/native binary and original scientific
+inputs/producers are unchanged.
 
 ### BindingSite geometry and static data-core checkpoint — 2026-11-13
 

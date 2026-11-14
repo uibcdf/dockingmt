@@ -241,3 +241,27 @@ hashes and workspace/committed-export/publication receipts retain #50 custody in
 `.molsyssuite/site-geometry-111-20261113/`, review 2026-11-14. The earlier evaluator
 hold, installed/public/platform/hosted evidence and immutable 0.1.0 tag remain
 unchanged. No prefix/native rebuild or consumer adoption is claimed.
+
+
+## Internal C2 offline derivation increment — 2026-11-13
+
+[The independent geometry recipe](../binding_site_domain_geometry.md) implements
+sphere enclosure and axis-aligned box enlargement with sealed padding/output,
+complete original site/evidence references, exact retained-input recomputation
+and explicit unassessed placement. BoxRegion preserves the separate experimental
+0.1 recipe and refuses numerical backend use; no public `to_search_domain` stub
+or molecular applicability is claimed. Existing strict selection recipes remain
+unchanged. 557 complete selected cases pass per normal/pm-fs policy, including
+62 new controls; 18 files cold-read with original units/claims and zero molecular
+operations/optional engines/originating uses. The actual older decoder refuses
+new recipes; seven exact support entries preserve original 0.3 outputs/producers.
+
+M1's admitted profiles stay received; M2 remains pending. The separate authored
+ENOMEM normalization finding is owned by
+[#116](../pending_bugs/molecular_input_os_resource_error.md). Next correct that
+boundary, receive MolSysMT #746's C1 facts and qualify actual public C2 placement/
+assurance/lifetime; T/H/P/shared/consumer gates remain active. Exact source,
+resources, final workspace/committed-export/publication receipts retain #50
+custody in `.molsyssuite/site-domain-geometry-111-20261113/`, review 2026-11-14.
+No prefix/native build, original scientific input/producer change, new tag/package,
+held-evaluator restart or hosted/installed/public/platform pass is claimed.

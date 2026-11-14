@@ -3348,3 +3348,38 @@ sha256 = "61f4dde5d4b74e202e6c23c0f2701c92e1bb49b8f223e4bf84e56bbb36520200"
 source = "tests/data/site_geometry_compat/e1e6a33/manifest.json"
 target = "tests/data/site_geometry_compat/e1e6a33/manifest.json"
 sha256 = "3b50e043c6e09b43ca8a128c34a5091f07803f63c57a38982f1cf5b88b6a6c77"
+
+[[test-support.files]]
+path = "tests/data/site_domain_geometry_compat/0835648/README.md"
+sha256 = "737827b3163eae7cd33cf0fa075a65c5df22f8729ef4e3361e0b8d9fe0242637"
+stage-as = "tests/data/site_domain_geometry_compat/0835648/README.md"
+
+[[test-support.files]]
+path = "tests/data/site_domain_geometry_compat/0835648/annotated.json"
+sha256 = "d0a1c2a9b629c0408c0778d1263accab133a144eef87c45f307830505e401a0c"
+stage-as = "tests/data/site_domain_geometry_compat/0835648/annotated.json"
+
+[[test-support.files]]
+path = "tests/data/site_domain_geometry_compat/0835648/box.json"
+sha256 = "94ca0f5422ace4849fbe87ce27502abe597317e32d3865a14a29a4ab8f70349b"
+stage-as = "tests/data/site_domain_geometry_compat/0835648/box.json"
+
+[[test-support.files]]
+path = "tests/data/site_domain_geometry_compat/0835648/manifest.json"
+sha256 = "410b81fda5f4d0fad542ea6e3ed61c2c4987e613dd69b6016401a22d73c80823"
+stage-as = "tests/data/site_domain_geometry_compat/0835648/manifest.json"
+
+[[test-support.files]]
+path = "tests/data/site_domain_geometry_compat/0835648/oriented.json"
+sha256 = "3b61239facc7268f3650725b3ee82bf0ce6352a0671f61428ae3e26f5a80987f"
+stage-as = "tests/data/site_domain_geometry_compat/0835648/oriented.json"
+
+[[test-support.files]]
+path = "tests/data/site_domain_geometry_compat/0835648/revised.json"
+sha256 = "f0d226ecf2e1bba7065787b2b579f4107f9b94058f8c49ebcb31c16bcb987a20"
+stage-as = "tests/data/site_domain_geometry_compat/0835648/revised.json"
+
+[[test-support.files]]
+path = "tests/data/site_domain_geometry_compat/0835648/sphere.json"
+sha256 = "18eac6372a70739caeeba916d3c31cd5ded3c5dc2dee60c81a94557eaccee38e"
+stage-as = "tests/data/site_domain_geometry_compat/0835648/sphere.json"
