@@ -199,3 +199,11 @@ producer identities, 257-case population and cold-read outputs retain their exac
 original scope. Actual old 0.1 files are frozen unchanged for compatibility; the
 new receiving independently reports 321 cases per policy. C1's concrete owner
 review is requested in MolSysMT #746, with no molecular projection claimed yet.
+
+## Subsequent finite molecular review — 2026-11-14
+
+[The MolSysMT #746 offer](binding_site_molecular_contract_receiving.md) is now
+reviewed for the first declared-membership profile. Provider disposition is
+complete, while client source/native receiving and public C1 projection remain
+pending. The original declaration/persistence populations and producer identities
+above remain unchanged; owner review is not retroactive molecular qualification.

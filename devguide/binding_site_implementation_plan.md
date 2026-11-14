@@ -2,7 +2,7 @@
 
 Owner: [BindingMT #111](https://github.com/uibcdf/bindingmt/issues/111).
 Recorded: 2026-11-11. Work-plan revision **2, reviewed**.
-Status: **admitted static M1 and internal C2 geometry source-received; C1/public placement pending**.
+Status: **admitted M1/internal C2 received; #116 corrected and finite C1 owner offer reviewed; client molecular/public placement pending**.
 This plan turns the [audited design](binding_site_design.md) and its
 [worked handoffs](binding_site_review.md) into independently reviewable increments.
 It records work order and acceptance; only the dated delivered profiles below are implemented.
@@ -167,12 +167,12 @@ permission to publish partial enforcement or a callable stub.
 | Increment | Status at this checkpoint | Completion condition |
 | --- | --- | --- |
 | P0a | Static membership/criterion/geometry decisions closed; richer profiles pending | Minimal public operations, identity/version rules, source/structural scope, quantity fields and failure semantics are explicit before B1/B2; later execution evidence is not a precondition for writing the first implementation. |
-| P0m | Requested in MolSysMT #746; owner disposition pending | D2/D5/D6 identify actual public molecular facts, checks and preconditions for each admitted operation. |
+| P0m | Finite MolSysMT #746 disposition reviewed; actual client receiving pending | D2/D5/D6 identify actual public molecular facts, checks and preconditions for each admitted operation. |
 | P0s | Pending central coordination | Shared agreements/adoption records are linked; stabilization is limited to the meanings exercised, with remaining owners explicit. |
 | P0t/h/p | Inputs offered, not yet received | Each consumer supplies its relevant source/policy/expected observations; a missing H/P input does not block C1 or T0. |
 | B1 | Six static-profile factories/inspection delivered; richer views pending | Useful public declarations/inspection with meaningful focused tests. |
 | B2 | Static 0.1/0.2/0.3 source-received; richer profiles pending | Immutable revision and faithful, safe, versioned persistence. |
-| C1 | Pending molecular agreement | A qualified direct region projection on a chosen MolSys structure. |
+| C1 | Owner facts reviewed; client source/native qualification and implementation pending | A qualified direct region projection on a chosen MolSys structure. |
 | C2 | Internal static geometry/recipe received; public placement/assurance pending, molecular use also needs C1 | Offline geometry and actual problem placement retain distinct checks; normal record propagation and admission are qualified before the public application is received. |
 | T0 | Pending B2/TopoMT profile and input | A real optional public import adapter preserves the received record without rerunning or reinterpreting it. |
 | T1 | Pending T0/C2/owner input | One complete public saved-provider workflow and its refusal controls. |
@@ -666,19 +666,22 @@ contracts and actual public B1/B2 source receiving. Their separate experimental
 static/single-view data core is source-received; multi-view/ensemble operations
 and the broader plan remain pending.
 
-Receive [MolSysMT #746](https://github.com/uibcdf/molsysmt/issues/746)'s finite C1
-facts/checks/preconditions, reusing the applicable #734 offer. Then implement
-actual native-MolSys region projection with original/current maps, explicit group
-expansion, structure/state forwarding and honest missing/contradictory/partial
-outcomes. Range checks or labels alone are not authenticated source identity.
-No resolution stub or fake successful report is delivered by declarations.
+The [finite MolSysMT #746 owner offer](binding_site_molecular_contract_receiving.md)
+is reviewed. Receive the actual compatible development source/native combination
+with a small bounded profile, then implement native-MolSys region projection
+using public owner facts, checked atom directions, explicit group expansion,
+structure-occurrence/state relations and honest missing/contradictory/partial
+outcomes. Preserve known extraction ordering/maps and distinguish empty groups
+from unknown parentage. Counts or labels alone never authenticate common origin.
+No resolution stub is delivered by contract review.
 
 The [internal C2 offline geometry substep](binding_site_domain_geometry.md) is now
 source-received. Its full public application still needs the actual problem
-placement/assurance/check-use profile. Independently fix the reproduced
-[OS ENOMEM normalization defect #116](pending_bugs/molecular_input_os_resource_error.md)
-before relying on that molecular failure boundary. T/H/P need their owner
-inputs/profiles and actual public receiving.
+placement/assurance/check-use profile. The independent
+[OS ENOMEM normalization defect #116](archive/molecular_input_os_resource_error.md)
+is now source-corrected with explicit smaller receiving and the broader native
+resource interruption retained under #30. T/H/P need their owner inputs/profiles
+and actual public receiving.
 Preserve separate shared coordination/adoption and #30 installed/public/platform/
 full-suite evidence; no unavailable consumer becomes a global barrier and no
 original evaluator interruption is automatically restarted. #111 stays active.
@@ -753,10 +756,26 @@ uses; the actual preceding reader refuses new recipes. Seven exact support
 entries retain five original site outputs and their producer/source manifest.
 
 A separate authored normalization ENOMEM probe is reported as
-[#116](pending_bugs/molecular_input_os_resource_error.md), without changing that
+[#116](archive/molecular_input_os_resource_error.md), without changing that
 implementation or reopening #92/#115. C1 awaits #746 and public C2 needs its
 actual normalized-input/assurance/lifetime qualification. The complete earlier
 evaluator hold, shared/consumer/installed/public/platform/hosted gates, original
 scientific producers, prefix/native bytes and source tag remain unchanged.
 Raw attempts, gates/export/publication receipts retain #50 custody in
 `.molsyssuite/site-domain-geometry-111-20261113/`, review 2026-11-14.
+
+## ENOMEM correction and finite P0m owner disposition — 2026-11-14
+
+[The #116 archive](archive/molecular_input_os_resource_error.md) records one narrow
+conditional OS-resource passthrough, 135 new guards, original 27-failure/263-pass
+receiving and final 500-pass normal/pm-fs software selections. The broader native
+498-case selection hit its owned RSS threshold and stays unqualified under #30;
+it is not restarted or relabeled by the smaller receiving. No source/value/map/
+state behavior, scientific producer, shared prefix/native build or public tag changes.
+
+[The actual #746 response review](binding_site_molecular_contract_receiving.md)
+selects the finite owner offer and #750 bounds correction. P0m's provider review
+is complete, while actual client source/native receiving, public C1 projection
+and C2/M2 application remain pending. Exact owner source/guard/receipt blobs,
+source/hash/resource/gate/export/publication receipts retain #50 custody in
+`.molsyssuite/molecular-input-enomem-116-20261114/`, review 2026-11-21.

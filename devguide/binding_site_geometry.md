@@ -71,7 +71,8 @@ while retaining malformed physical-input diagnostics. Both authored probes
 observed the former ArgumentError wrapping. This is a local reusable-boundary
 correction, not a provider defect or actual system memory-pressure event.
 
-C1 owner review remains [MolSysMT #746](https://github.com/uibcdf/molsysmt/issues/746).
+The finite [MolSysMT #746 offer is reviewed](binding_site_molecular_contract_receiving.md);
+actual client C1 receiving remains pending.
 Offline physical declaration alone supplies no placed-geometry/current-finding
 assurance. C2 must preserve derivation and verify the actual consumed problem
 input before its public application can be received. Shared/consumer/installed/
@@ -164,3 +165,12 @@ claim/quantity references in a locally versioned recipe. Backend export remains
 unavailable while placement is unassessed; no public application stub is added.
 Its distinct 557-case-per-policy receiving and saved/old-reader controls do not
 rewrite the original 473-case population above or complete C1/public C2/M2.
+
+## Molecular-offer review and resource correction — 2026-11-14
+
+[The finite owner offer](binding_site_molecular_contract_receiving.md) is reviewed;
+[normalization #116](archive/molecular_input_os_resource_error.md) is source-corrected
+with its own 500-case software receiving and explicit broader native resource
+interruption. These do not change the original geometry populations, supply
+molecular placement or complete public C2/M2. Next qualify the actual client
+source/native profile and implement its real region result.

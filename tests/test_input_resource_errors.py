@@ -148,6 +148,30 @@ def test_valid_molecular_admission_retains_axes_state_and_sources(monkeypatch, r
     assert calls[: len(STEPS)] == list(STEPS)
 
 
+@pytest.mark.parametrize('route', ['receptor', 'partner', 'redocking'])
+@pytest.mark.parametrize('step', STEPS)
+@pytest.mark.parametrize(
+    'error_number', [errno.ENOMEM, errno.ENOSPC, errno.ENOENT, errno.EACCES, None]
+)
+def test_molecular_admission_preserves_enomem_and_ordinary_os_diagnostics(
+    monkeypatch, route, step, error_number
+):
+    failure = OSError(error_number, 'injected provider OS failure')
+    source, _, calls = _provider(monkeypatch, step, failure)
+    expected = OSError if error_number == errno.ENOMEM else ArgumentError
+    with pytest.raises(expected) as caught:
+        _construct(route, source)
+    if error_number == errno.ENOMEM:
+        assert caught.value is failure
+    else:
+        assert caught.value.__cause__ is failure
+        assert caught.value.code == 'BMT-E002'
+        assert caught.value.extra['arg_name'] == (
+            'partner' if route == 'redocking' else route
+        )
+    assert calls == list(STEPS[: STEPS.index(step) + 1])
+
+
 @pytest.mark.parametrize('error_type', ERRORS)
 @pytest.mark.parametrize(
     'boundary,field',

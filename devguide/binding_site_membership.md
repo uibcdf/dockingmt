@@ -1,7 +1,7 @@
 # BindingSite source-index membership profile
 
 Owner: BindingMT #111. Admission: 2026-11-13 before implementation.
-Status: atom/group declaration profile source-received; C1 owner review pending.
+Status: atom/group declarations source-received; finite C1 offer reviewed, client molecular receiving pending.
 
 ## Ordinary declaration and scope
 
@@ -49,7 +49,8 @@ installed-test support declarations. No original fixture or producer is rewritte
 
 ## C1 owner agreement before molecular resolution
 
-C1 owner review is requested in [MolSysMT #746](https://github.com/uibcdf/molsysmt/issues/746).
+The finite owner disposition is now [reviewed for C1](binding_site_molecular_contract_receiving.md), following
+[MolSysMT #746](https://github.com/uibcdf/molsysmt/issues/746).
 C1 needs its own public molecular facts/checks/preconditions. Existing #734 covers
 the restricted contact/SASA profile; it does not by itself certify site resolution.
 Inspection of public `select`, `get`, `extract`, `permute_atoms` and
@@ -152,3 +153,11 @@ retain #50 custody in `.molsyssuite/site-membership-111-20261113/`, review
 bind C1 to actual owner calls/facts/preconditions. Geometry and C2/T/H/P remain
 separate profiles; missing owner acceptance does not block independent B1 work.
 PeptideMT #60 still awaits the separate interface P package.
+
+## Finite owner disposition reviewed — 2026-11-14
+
+[The reviewed offer](binding_site_molecular_contract_receiving.md) supplies the
+requested public group/map/occurrence/state facts and #750 bounds correction.
+The provider request is resolved. Actual client source/native receiving and
+public C1 implementation remain pending; the original 321-case declaration
+population above is unchanged and is not molecular qualification.

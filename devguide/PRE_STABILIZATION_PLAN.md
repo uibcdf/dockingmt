@@ -21,8 +21,36 @@ than treating the skipped push as passing.
 
 Owner: [BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [BMT-046](DECISIONS.md#bmt-046--deliver-the-complete-functional-objective-before-stabilization).
-Status: **active; #111 admitted static M1/internal C2 geometry source-received; public placement and C1 owner review remain pending; #112 P/shared receiving awaits input**.
+Status: **active; #116 corrected and C1 owner offer reviewed; admitted M1/internal C2 remain received; actual molecular receiving/public placement and #112 P/shared receiving remain pending**.
 Inspected starting source: `530a4cf`.
+
+### ENOMEM correction and reviewed C1 owner offer — 2026-11-14
+
+[#116](archive/molecular_input_os_resource_error.md) now preserves the original
+OS ENOMEM object through molecular input normalization. Other OS/input failures
+retain field-local diagnostics and causes. The runtime delta is one errno import
+and one conditional bare raise; source/selection/state/value behavior is unchanged.
+135 new controls cover three public routes and nine stages: the original runtime
+has 27 failures/263 passes in the 290-case resource module. Final smaller complete
+selections pass **500 cases per policy**, normal and pm/fs (463 software plus 37
+arguments). The broader 498-case native problem selection was RSS-interrupted,
+remains unqualified under #30 and is not automatically restarted. Earlier
+scientific/evaluator holds and original fixtures/producers remain intact.
+
+[MolSysMT #746](https://github.com/uibcdf/molsysmt/issues/746#issuecomment-6871608700)
+is resolved by its finite owner disposition, including the #750 bounds fix.
+[BindingMT's review](binding_site_molecular_contract_receiving.md) records exact
+source/guard/receipt identities, entry-aligned groups, extraction ordering,
+atom maps, structure-occurrence relations, effective states and caller guarantees.
+The provider review is complete; actual client source/native receiving and C1
+implementation remain pending. Next receive the updated development combination
+with a small registered profile, then implement the public native region result.
+M1/internal C2 remain delivered within their prior scope; public C2/M2 and
+T/H/P/shared/consumer/installed/public/platform/hosted evidence remain separate.
+Task receipts keep #50 custody in
+`.molsyssuite/molecular-input-enomem-116-20261114/`, review 2026-11-21.
+No prefix install, native rebuild, new tag/package or manual remote CI is made
+by this source correction. The 0.1.0 tag and prior evidence are preserved.
 
 ### BindingSite offline C2 geometry receiving — 2026-11-13
 
@@ -42,7 +70,7 @@ refuses new recipes. Seven support entries preserve five original 0.3 outputs
 and their exact producer/source manifest. No new resource interruption occurs.
 
 M1 stays source-received for its admitted static profiles; this internal slice
-is not M2. Next fix [#116](pending_bugs/molecular_input_os_resource_error.md)'s
+is not M2. Next fix [#116](archive/molecular_input_os_resource_error.md)'s
 separately reproduced ENOMEM wrapper, receive MolSysMT #746's finite C1 facts,
 and qualify the public C2 placement/assurance and normalized-input check/use
 profile. PeptideMT #60 still awaits inputs. #111/#112 remain active; prior #30

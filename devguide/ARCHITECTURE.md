@@ -143,6 +143,15 @@ is unassessed. Strict old selection recipes are unchanged. This is an implemente
 private substep, not a public application stub, new molecular kernel or source
 identity/placement framework.
 
+The [#116 normalization correction](archive/molecular_input_os_resource_error.md)
+uses the same narrow ENOMEM passthrough as the existing scoring input boundary.
+It changes no molecular algorithm, general exception framework or input identity.
+The [reviewed C1 provider offer](binding_site_molecular_contract_receiving.md)
+identifies owner-supplied public facts versus caller preconditions; atom maps,
+group-entry correspondence and structure-occurrence relations remain distinct.
+Provider review completion is separate from actual client source/native receiving
+and public BindingSite projection implementation.
+
 ## Current source map
 
 The following paths are implemented entry points, reviewed for the

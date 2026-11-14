@@ -132,6 +132,14 @@ existing behavior. No public `BindingSite.to_search_domain` or successful molecu
 placement is delivered by this substep; that route still requires its actual
 input/assurance/check-use receiving.
 
+Molecular input normalization propagates the original `MemoryError` and
+`OSError(errno.ENOMEM)` rather than calling them invalid input. Other OS/provider
+failures keep their field-local diagnosis and original cause; see
+[#116's source correction and qualification limits](archive/molecular_input_os_resource_error.md).
+The [reviewed MolSysMT #746 offer](binding_site_molecular_contract_receiving.md)
+supplies finite public facts for future site resolution; it does not add a
+`resolve_region` callable or qualify current molecular placement in this checkpoint.
+
 ## Interface declarations and experimental persistence
 
 The [implemented first data profile](binding_interface_data_core.md) documents

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import errno
 import hashlib
 from copy import deepcopy
 from numbers import Integral
@@ -171,6 +172,8 @@ def _normalize_input(
     except MemoryError:
         raise
     except Exception as exc:
+        if isinstance(exc, OSError) and exc.errno == errno.ENOMEM:
+            raise
         raise ArgumentError(
             arg_name=name,
             reason=f'Cannot select a MolSysMT molecular system: {exc}',

@@ -258,10 +258,31 @@ new recipes; seven exact support entries preserve original 0.3 outputs/producers
 
 M1's admitted profiles stay received; M2 remains pending. The separate authored
 ENOMEM normalization finding is owned by
-[#116](../pending_bugs/molecular_input_os_resource_error.md). Next correct that
+[#116](../archive/molecular_input_os_resource_error.md). Next correct that
 boundary, receive MolSysMT #746's C1 facts and qualify actual public C2 placement/
 assurance/lifetime; T/H/P/shared/consumer gates remain active. Exact source,
 resources, final workspace/committed-export/publication receipts retain #50
 custody in `.molsyssuite/site-domain-geometry-111-20261113/`, review 2026-11-14.
 No prefix/native build, original scientific input/producer change, new tag/package,
 held-evaluator restart or hosted/installed/public/platform pass is claimed.
+
+
+## Reviewed molecular offer and normalization correction — 2026-11-14
+
+[The finite C1 offer review](../binding_site_molecular_contract_receiving.md)
+receives MolSysMT #746's disposition and #750 bounds fix at exact source
+27ba3d4c8d63a6a40a2d77f0190309ff15f4deef. It records source/query/group/map/
+occurrence/state facts and the caller's asset/check-use preconditions. Provider
+review is complete; actual client source/native qualification and public
+`resolve_region` remain pending, independently of the delivered static M1/internal C2.
+
+[The #116 correction](../archive/molecular_input_os_resource_error.md) preserves
+original ENOMEM with a one-branch runtime change and 135 new controls. Original
+receiving has 27 failures/263 passes; final smaller complete software selections
+pass 500 cases per normal/pm-fs policy. A broader 498-case native selection was
+RSS-interrupted, remains unqualified under #30 and is not automatically restarted.
+Next receive the authorized updated development combination through a small
+registered profile and implement the real C1 result. C2/M2, T/H/P/shared/consumer/
+installed/public/platform/hosted evidence and original scientific producers retain
+their scope. #111 stays active. Exact evidence retains #50 custody in
+`.molsyssuite/molecular-input-enomem-116-20261114/`, review 2026-11-21.

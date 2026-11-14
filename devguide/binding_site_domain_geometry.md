@@ -8,7 +8,7 @@ Base: `08356484a6e30ab173fb0b123ae9c6b8b652f30b`.
 ## Work commissioned and public boundary
 
 Implement the offline geometric substep of the accepted C2 plan, independently
-of the still-pending MolSysMT #746 molecular-facts disposition. The private
+of actual client molecular receiving of the [reviewed MolSysMT #746 offer](binding_site_molecular_contract_receiving.md). The private
 `derive_geometry_box` operation consumes an actual BindingSite and returns an
 existing BoxRegion with a complete, independently validated offline derivation.
 No public `to_search_domain` stub or molecular application is advertised. Its
@@ -173,8 +173,17 @@ task's publication/closeout receipts. No hosted/installed/public/platform or
 consumer-adoption pass, new package/tag/release or scientific campaign is claimed.
 
 The separate authored normalization probe reproduces an OS ENOMEM wrapper;
-[BindingMT #116](pending_bugs/molecular_input_os_resource_error.md) owns that
+[BindingMT #116](archive/molecular_input_os_resource_error.md) owns that
 follow-up. It changes no C2 input or receiving result. Next fix that admitted
 resource path, receive #746's finite C1 facts, and settle/qualify the public C2
 placement/assurance and actual normalized-input check/use lifetime. This internal
 geometry delivery is not M2 completion and does not add a public application stub.
+
+## Current molecular/resource disposition — 2026-11-14
+
+[MolSysMT #746's finite offer is reviewed](binding_site_molecular_contract_receiving.md),
+and [#116's normalization fix](archive/molecular_input_os_resource_error.md)
+has separate source-only software receiving. The dated owner-wait and next-fix
+statements above retain their original 2026-11-13 scope. Actual client source/
+native qualification and public C1/C2/M2 still need their real operations and
+placement/check-use evidence; the 557-case geometry population is unchanged.
