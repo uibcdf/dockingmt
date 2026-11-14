@@ -1,7 +1,7 @@
 # BindingSite source-index membership profile
 
 Owner: BindingMT #111. Admission: 2026-11-13 before implementation.
-Status: atom/group declarations source-received; finite C1 offer reviewed, client molecular receiving pending.
+Status: declarations and finite molecular facts client-received; actual public C1 projection pending.
 
 ## Ordinary declaration and scope
 
@@ -161,3 +161,11 @@ requested public group/map/occurrence/state facts and #750 bounds correction.
 The provider request is resolved. Actual client source/native receiving and
 public C1 implementation remain pending; the original 321-case declaration
 population above is unchanged and is not molecular qualification.
+
+## Finite owner modules received in the client environment — 2026-11-14
+
+[The follow-up source receiving](binding_site_molecular_contract_receiving.md)
+passes the 18-case owner contract and 18-case bounds modules on the updated
+MolSysMT source with the unchanged native file. The original declaration
+populations retain their source identities. Public C1 projection/coverage and
+M2 are still pending; reviewed/received owner facts are not a delivered callable.

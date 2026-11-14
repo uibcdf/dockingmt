@@ -72,7 +72,7 @@ observed the former ArgumentError wrapping. This is a local reusable-boundary
 correction, not a provider defect or actual system memory-pressure event.
 
 The finite [MolSysMT #746 offer is reviewed](binding_site_molecular_contract_receiving.md);
-actual client C1 receiving remains pending.
+the finite owner facts are now client-received; actual public C1 projection remains pending.
 Offline physical declaration alone supplies no placed-geometry/current-finding
 assurance. C2 must preserve derivation and verify the actual consumed problem
 input before its public application can be received. Shared/consumer/installed/

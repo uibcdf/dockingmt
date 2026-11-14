@@ -2,7 +2,7 @@
 
 Owner: [BindingMT #111](https://github.com/uibcdf/bindingmt/issues/111).
 Recorded: 2026-11-11. Work-plan revision **2, reviewed**.
-Status: **admitted M1/internal C2 received; #116 corrected and finite C1 owner offer reviewed; client molecular/public placement pending**.
+Status: **admitted M1/internal C2 received; #116 corrected and finite C1 facts client-received; public C1/placement pending**.
 This plan turns the [audited design](binding_site_design.md) and its
 [worked handoffs](binding_site_review.md) into independently reviewable increments.
 It records work order and acceptance; only the dated delivered profiles below are implemented.
@@ -167,12 +167,12 @@ permission to publish partial enforcement or a callable stub.
 | Increment | Status at this checkpoint | Completion condition |
 | --- | --- | --- |
 | P0a | Static membership/criterion/geometry decisions closed; richer profiles pending | Minimal public operations, identity/version rules, source/structural scope, quantity fields and failure semantics are explicit before B1/B2; later execution evidence is not a precondition for writing the first implementation. |
-| P0m | Finite MolSysMT #746 disposition reviewed; actual client receiving pending | D2/D5/D6 identify actual public molecular facts, checks and preconditions for each admitted operation. |
+| P0m | Finite #746 facts reviewed and small owner modules received in client environment | D2/D5/D6 identify actual public molecular facts, checks and preconditions for each admitted operation. |
 | P0s | Pending central coordination | Shared agreements/adoption records are linked; stabilization is limited to the meanings exercised, with remaining owners explicit. |
 | P0t/h/p | Inputs offered, not yet received | Each consumer supplies its relevant source/policy/expected observations; a missing H/P input does not block C1 or T0. |
 | B1 | Six static-profile factories/inspection delivered; richer views pending | Useful public declarations/inspection with meaningful focused tests. |
 | B2 | Static 0.1/0.2/0.3 source-received; richer profiles pending | Immutable revision and faithful, safe, versioned persistence. |
-| C1 | Owner facts reviewed; client source/native qualification and implementation pending | A qualified direct region projection on a chosen MolSys structure. |
+| C1 | Finite source/native facts client-received; actual public projection/qualification pending | A qualified direct region projection on a chosen MolSys structure. |
 | C2 | Internal static geometry/recipe received; public placement/assurance pending, molecular use also needs C1 | Offline geometry and actual problem placement retain distinct checks; normal record propagation and admission are qualified before the public application is received. |
 | T0 | Pending B2/TopoMT profile and input | A real optional public import adapter preserves the received record without rerunning or reinterpreting it. |
 | T1 | Pending T0/C2/owner input | One complete public saved-provider workflow and its refusal controls. |
@@ -667,9 +667,9 @@ static/single-view data core is source-received; multi-view/ensemble operations
 and the broader plan remain pending.
 
 The [finite MolSysMT #746 owner offer](binding_site_molecular_contract_receiving.md)
-is reviewed. Receive the actual compatible development source/native combination
-with a small bounded profile, then implement native-MolSys region projection
-using public owner facts, checked atom directions, explicit group expansion,
+is reviewed and its small owner modules pass in the actual client environment
+with source 27ba3d4c8 and the existing native file. Implement the real public
+native-MolSys region projection using checked atom directions, explicit group expansion,
 structure-occurrence/state relations and honest missing/contradictory/partial
 outcomes. Preserve known extraction ordering/maps and distinguish empty groups
 from unknown parentage. Counts or labels alone never authenticate common origin.
@@ -779,3 +779,20 @@ is complete, while actual client source/native receiving, public C1 projection
 and C2/M2 application remain pending. Exact owner source/guard/receipt blobs,
 source/hash/resource/gate/export/publication receipts retain #50 custody in
 `.molsyssuite/molecular-input-enomem-116-20261114/`, review 2026-11-21.
+
+## Finite native facts received after source update — 2026-11-14
+
+[The actual client receiving](binding_site_molecular_contract_receiving.md)
+fast-forwards the authorized clean MolSysMT checkout to the reviewed 27ba3d4c8
+source without changing its native file. Exact owner modules pass 18 membership/
+map/state/persistence cases and 18 selection-bounds cases. The same complete
+500-case normal/pm-fs software selection also passes on this new source closure.
+No provider test or scientific input/producer is rewritten, native build/prefix
+install performed, or held native498/evaluator population replayed.
+
+P0m's finite exercised facts are ready. Public `resolve_region`, its actual
+output/coverage/map/occurrence/state receiving and C2/M2 application remain next
+work; these owner-module controls do not implement that consumer operation.
+Full suite/native ABI/build authenticity, installed/public/platform/final-pair and
+shared/consumer adoption stay separate. Exact receipts remain under #50 in
+`.molsyssuite/site-molecular-owner-746-20261114/`, review 2026-11-21.

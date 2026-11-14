@@ -149,8 +149,9 @@ It changes no molecular algorithm, general exception framework or input identity
 The [reviewed C1 provider offer](binding_site_molecular_contract_receiving.md)
 identifies owner-supplied public facts versus caller preconditions; atom maps,
 group-entry correspondence and structure-occurrence relations remain distinct.
-Provider review completion is separate from actual client source/native receiving
-and public BindingSite projection implementation.
+The finite owner modules now pass in the client source/native context; that
+receiving remains separate from public BindingSite projection implementation
+and broader build/installed/platform qualification.
 
 ## Current source map
 

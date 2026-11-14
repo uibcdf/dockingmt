@@ -1,8 +1,8 @@
 # BindingSite finite molecular contract receiving
 
 Owner: [BindingMT #111](https://github.com/uibcdf/bindingmt/issues/111).
-Review: 2026-11-14. Status: owner disposition reviewed and selected for C1;
-actual client source/native receiving and `resolve_region` remain pending.
+Review/receiving: 2026-11-14. Status: finite owner facts received in the client
+development process; public `resolve_region` and C1/M2 remain pending.
 
 ## Delivered owner offer
 
@@ -47,22 +47,20 @@ Missing proof, observed contradiction, unknown/empty membership, incomplete
 coverage and unsupported profiles keep their separate meanings. The owner offer
 does not establish a current finding or stronger C2 placement guarantee.
 
-## Client state and next admission
+## Review starting point
 
-At this review the development source is still MolSysMT
+At the initial read-only review the development source was MolSysMT
 `ff25f120243319ca9515009b4971e24a2eb0dc22`, with historical on-disk native
 SHA-256 `2dbcf13d148cb3ae13a5908707fcdd61c75a2de5027e50c566ce07de81bdb038`.
 It differs from the owner's recorded source/native combination. A digest
 difference alone is not a demonstrated incompatibility; do not claim owner-pair
 qualification or require a rebuild merely from that difference.
 
-Next inspect the participating worktrees through official MolSysSuite tooling,
-advance the authorized clean development checkout with a fast-forward update,
-retain its exact source/native identities and execute a small bounded receiving
-of the offered operations. Do not rebuild/install/copy native files automatically.
-Then implement and qualify the actual public C1 result against independent
-entry/map/state/coverage expectations. No `resolve_region` stub is shipped by
-this review, and P0m review completion is not C1/M2 or consumer adoption.
+The planned next step was a bounded official worktree inspection, an authorized
+clean fast-forward source update and a small receiving of the offered operations.
+The executed result below supersedes that next action. No native rebuild/install
+was inferred from the digest difference. Provider review alone did not deliver
+`resolve_region` or establish public/client application adoption.
 
 [BindingMT #116](archive/molecular_input_os_resource_error.md) separately corrects
 native-input ENOMEM translation. Its 500-case-per-policy software receiving uses
@@ -76,3 +74,82 @@ are retained as private source evidence under
 read-only owner inputs, not regenerated scientific observations or shipped test
 fixtures. Raw attempts and this review keep #50 custody, review 2026-11-21;
 earlier evidence remains preserved with its existing review status.
+
+## Actual client receiving after fast-forward — 2026-11-14
+
+Official six-member status inspection preserved every sibling worktree and
+fetched advance. The authorized clean MolSysMT `main` was fast-forwarded from
+ff25f120 to **27ba3d4c8d63a6a40a2d77f0190309ff15f4deef**, exactly the reviewed
+owner source. Its worktree stays clean, and pyproject/root/test instructions are
+unchanged across the source update; the synchronized common guide is received
+through the published owner changes. Other runtime providers stay at the prior
+recorded source commits. The native file remains unchanged at SHA-256
+`2dbcf13d148cb3ae13a5908707fcdd61c75a2de5027e50c566ce07de81bdb038`.
+No source build, installation, native replacement or environment repair occurred.
+A separate fresh-process origin probe verifies that the actual imported extension
+and mapped shared object are that exact checkout file/hash. This binds runtime
+origin, not builder/source authenticity or the whole native ABI.
+
+Two complete owner-authored modules pass in the actual BindingMT development
+process, with package import origins and before/after source/native bytes checked:
+
+- **18 membership/map/state cases**, including explicit entry order, group
+  expansion, source-sorted extraction, nonidentity atom directions, group
+  relationships, `[2,0,2]` occurrence/state tables, H5MSM readback under nm/ps and
+  pm/fs, unknown/empty/missing/contradictory/generated-member controls. Exact
+  published guard Git blob: `991f943b2f17d0cfab2dc53cc4ba542117ad636b`.
+- **18 #750 selection-bounds cases**, covering native and H5MSM inputs, negative/
+  out-of-range structures, numeric/all/expression selection and valid repeated
+  structure scope with preserved numeric atom order. Exact published guard Git
+  blob: `58e2018284a7139472e8904f0112a1b4b67bcb6d`.
+
+These exact copied assertions run without editing the provider or its tests.
+The owner modules are distinct bounded controls, not two independent full suites
+or proof of BindingMT's unimplemented projection. Their success with the existing
+native file establishes only the operations exercised; it does not authenticate
+its build/source origin or certify every native ABI/package/platform combination.
+The differing reference native digest therefore did not require a new binary for
+this measured profile.
+
+The same **500 complete BindingMT software controls pass per policy**, normal
+and pm/fs, after the provider update: 463 resource/helper/serialization/offline-
+domain plus 37 argument/bootstrap cases. This is a new receiving population on
+the updated source, not a rewrite or sum of #116's original-source evidence.
+The old 498-case native-problem interruption and earlier evaluator hold are
+preserved, neither retried nor replaced by these small profiles.
+
+All cells are serial, CPU 0/nice 10/one native worker, with a monitored 13 GiB
+available reserve, 512 MiB group RSS stop threshold, 2 GiB address space and
+45 CPU/120 wall seconds. The new profile's observed group peak is below 301 MiB;
+all owned groups terminate without a resource interruption. Temporary H5MSM
+outputs are small authored transport controls, retained under task custody.
+Original scientific fixtures/producers and earlier native artifacts are intact.
+No original optional engine, new model, GPU, docking/search or scientific campaign
+is run. The source tag 0.1.0 and package publication state are unchanged.
+
+Private receipts live in `.molsyssuite/site-molecular-owner-746-20261114/`:
+preflight, official status/disposition, before/after source pull and native hashes,
+exact copied guards, actual import origins, per-cell source snapshots/XML/resource
+outcomes and final documentation/committed-export/publication readback. The six
+applicable documentation/resource checks run after final edits in the workspace
+and fresh committed export; the export is retired. #50 reviews this task on
+2026-11-21. No original held selection is automatically restarted.
+
+## Next implementation boundary
+
+The finite P0m dependency is ready for the admitted operations. Implement the
+real public C1 native atom/group region projection and its detached versioned
+result through the existing owner operations. Retain the original source as the
+caller's explicit asset association and consistent-input precondition; a separate
+derived target needs checked atom maps and explicit structure-occurrence/group
+correspondence, never an inferred identity map. Group expansion policy, effective
+state and source/local indices must remain explicit. Default complete coverage
+refuses missing members; an admitted partial result preserves omissions and its
+weaker guarantee. No generated member inherits original evidence/confidence.
+
+Qualify the actual BindingMT callable, independent expected outputs and saved
+projection before claiming C1. Current-finding/placement guarantees, public C2/M2,
+foreign conversions, broader source/native/installed/platform/final-pair receiving,
+shared agreements and actual consumer adoption retain their separate gates.
+No public `resolve_region` stub or local molecular algorithm is added by this
+receiving increment.

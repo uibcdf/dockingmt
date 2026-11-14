@@ -286,3 +286,24 @@ registered profile and implement the real C1 result. C2/M2, T/H/P/shared/consume
 installed/public/platform/hosted evidence and original scientific producers retain
 their scope. #111 stays active. Exact evidence retains #50 custody in
 `.molsyssuite/molecular-input-enomem-116-20261114/`, review 2026-11-21.
+
+
+## Finite client receiving of #746/#750 — 2026-11-14
+
+[The exact client receipt](../binding_site_molecular_contract_receiving.md)
+records the authorized clean MolSysMT source update to 27ba3d4c8 and unchanged
+native file. Its two complete owner-authored modules pass 18 membership/map/
+state/H5MSM and 18 selection-bounds cases, followed by 500 complete BindingMT
+software controls per normal/pm-fs policy on the updated source. Package origins
+and source/native/input bytes are checked; no native replacement/rebuild or
+prefix install is needed for this measured profile.
+
+The finite P0m facts are received. Next implement/qualify actual public C1
+native region output with explicit map/group/occurrence/state/coverage and caller
+preconditions. Public C2/M2, richer profiles, T/H/P/shared/consumer and installed/
+public/platform/final-pair gates remain pending. No public C1 stub, full-suite or
+native-build authenticity claim is made. The old 498-case native interruption
+and earlier evaluator hold are preserved and not automatically rerun. #111 stays
+active. Exact source/frozen-guard/XML/resource/gate/export/publication receipts
+retain #50 custody in `.molsyssuite/site-molecular-owner-746-20261114/`, review
+2026-11-21; the new small task has no resource interruption.

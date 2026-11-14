@@ -21,8 +21,36 @@ than treating the skipped push as passing.
 
 Owner: [BindingMT #73](https://github.com/uibcdf/bindingmt/issues/73).
 Accepted maintainer objective: 2026-11-06, [BMT-046](DECISIONS.md#bmt-046--deliver-the-complete-functional-objective-before-stabilization).
-Status: **active; #116 corrected and C1 owner offer reviewed; admitted M1/internal C2 remain received; actual molecular receiving/public placement and #112 P/shared receiving remain pending**.
+Status: **active; #116 corrected and finite C1 facts client-received; admitted M1/internal C2 remain received; public C1/C2/M2 and #112 P/shared receiving remain pending**.
 Inspected starting source: `530a4cf`.
+
+### Finite C1 facts received in the client environment — 2026-11-14
+
+[MolSysMT #746's finite offer](binding_site_molecular_contract_receiving.md) now
+passes its actual client-environment receiving. The authorized clean development
+checkout was fast-forwarded to **27ba3d4c8d63a6a40a2d77f0190309ff15f4deef**.
+The existing native file stays unchanged at its recorded 2dbcf13d SHA-256;
+no installation, source build or native replacement was needed for these controls.
+Both complete owner modules pass: **18 membership/map/state/H5MSM cases** and
+**18 native/H5MSM selection-bounds cases**. Their exact published assertions,
+actual package origins and before/after source/native bytes are retained.
+
+The complete lower-resource **500 BindingMT software cases pass per policy**,
+normal and pm/fs, again on the updated provider source. These are distinct
+receiving populations, not independent full suites or a rewrite of #116's
+original-source evidence. The source/native operations exercised are received;
+public C1 implementation/qualification and C2/M2 remain pending. Next implement
+`resolve_region` with original/target axes, explicit group expansion, occurrence/
+state relations, coverage and the declared source/check-use preconditions.
+
+This new task has no resource interruption and peak group RSS below 301 MiB,
+serial CPU0/nice10/one worker with monitored 13 GiB reserve and 512 MiB threshold.
+The broader 498-case native problem interruption and earlier evaluator hold stay
+preserved and are not retried or replaced. #111 remains active; T/H/P/shared/
+consumer/full-suite/installed/public/platform/final-pair receiving keep their
+scope. Exact source/frozen-guard/XML/resource/gate/export/publication receipts
+retain #50 custody in `.molsyssuite/site-molecular-owner-746-20261114/`, review
+2026-11-21. No new tag/package or manual remote CI is dispatched.
 
 ### ENOMEM correction and reviewed C1 owner offer — 2026-11-14
 
